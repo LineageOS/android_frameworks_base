@@ -332,6 +332,8 @@ class DisplayContent extends WindowContainer<DisplayContent.DisplayChildWindowCo
     WallpaperController mWallpaperController;
     int mInputMethodAnimLayerAdjustment;
 
+    private final int mSfHwRotation;
+
     private final Consumer<WindowState> mUpdateWindowsForAnimator = w -> {
         WindowStateAnimator winAnimator = w.mWinAnimator;
         if (winAnimator.hasSurface()) {
@@ -761,6 +763,9 @@ class DisplayContent extends WindowContainer<DisplayContent.DisplayChildWindowCo
 
         // Add itself as a child to the root container.
         mService.mRoot.addChild(this, null);
+
+        // Load hardware rotation from prop
+        mSfHwRotation = android.os.SystemProperties.getInt("ro.sf.hwrotation", 0) / 90;
 
         // TODO(b/62541591): evaluate whether this is the best spot to declare the
         // {@link DisplayContent} ready for use.
@@ -3106,6 +3111,8 @@ class DisplayContent extends WindowContainer<DisplayContent.DisplayChildWindowCo
 
             // The screenshot API does not apply the current screen rotation.
             int rot = mDisplay.getRotation();
+            // Allow for abnormal hardware orientation
+            rot = (rot + mSfHwRotation) % 4;
 
             if (rot == ROTATION_90 || rot == ROTATION_270) {
                 rot = (rot == ROTATION_90) ? ROTATION_270 : ROTATION_90;
