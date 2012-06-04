@@ -171,6 +171,8 @@ import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import lineageos.providers.LineageSettings;
+
 /**
  * @hide
  */
@@ -856,6 +858,10 @@ public class ConnectivityService extends IConnectivityManager.Stub
         mMultinetworkPolicyTracker = createMultinetworkPolicyTracker(
                 mContext, mHandler, () -> rematchForAvoidBadWifiUpdate());
         mMultinetworkPolicyTracker.start();
+
+        String hostname = LineageSettings.Secure.getString(context.getContentResolver(),
+                LineageSettings.Secure.DEVICE_HOSTNAME);
+        SystemProperties.set("net.hostname", hostname);
     }
 
     private Tethering makeTethering() {
