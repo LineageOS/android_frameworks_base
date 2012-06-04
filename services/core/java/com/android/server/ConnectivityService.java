@@ -94,6 +94,7 @@ import android.os.ResultReceiver;
 import android.os.ServiceManager;
 import android.os.ServiceSpecificException;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -170,6 +171,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
+
+import lineageos.providers.LineageSettings;
 
 /**
  * @hide
@@ -856,6 +859,10 @@ public class ConnectivityService extends IConnectivityManager.Stub
         mMultinetworkPolicyTracker = createMultinetworkPolicyTracker(
                 mContext, mHandler, () -> rematchForAvoidBadWifiUpdate());
         mMultinetworkPolicyTracker.start();
+
+        String hostname = LineageSettings.Secure.getString(context.getContentResolver(),
+                LineageSettings.Secure.DEVICE_HOSTNAME);
+        SystemProperties.set("net.hostname", hostname);
     }
 
     private Tethering makeTethering() {
