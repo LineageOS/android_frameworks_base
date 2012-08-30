@@ -187,4 +187,7 @@
 
     <!--  default setting for Settings.System.END_BUTTON_BEHAVIOR : END_BUTTON_BEHAVIOR_SLEEP -->
     <integer name="def_end_button_behavior">0x2</integer>
+
+    <!-- Default for Settings.System.DEV_FORCE_SHOW_NAVBAR. -->
+    <integer name="def_force_disable_navkeys">0</integer>
 </resources>
