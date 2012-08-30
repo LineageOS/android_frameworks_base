@@ -303,6 +303,11 @@ interface IWindowManager
     boolean hasNavigationBar();
 
     /**
+     * Device needs a software navigation bar (because it has no hardware keys).
+     */
+    boolean needsNavigationBar();
+
+    /**
      * Get the position of the nav bar
      */
     int getNavBarPosition();
