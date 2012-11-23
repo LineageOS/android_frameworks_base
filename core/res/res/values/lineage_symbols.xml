@@ -15,6 +15,10 @@
      limitations under the License.
 -->
 <resources>
+    <!-- Button backlight -->
+    <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
+    <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
+
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
 
