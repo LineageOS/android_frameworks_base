@@ -113,6 +113,8 @@ import com.android.server.display.utils.SensorUtils;
 import com.android.server.display.whitebalance.DisplayWhiteBalanceController;
 import com.android.server.display.whitebalance.DisplayWhiteBalanceFactory;
 import com.android.server.display.whitebalance.DisplayWhiteBalanceSettings;
+import com.android.server.lights.LightsManager;
+import com.android.server.lights.LogicalLight;
 import com.android.server.policy.WindowManagerPolicy;
 
 import lineageos.providers.LineageSettings;
@@ -217,6 +219,9 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
     // Battery stats.
     @Nullable
     private final IBatteryStats mBatteryStats;
+
+    // The lights manager.
+    private final LightsManager mLights;
 
     // The sensor manager.
     private final SensorManager mSensorManager;
@@ -515,6 +520,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
             resources.getBoolean(R.bool.config_skipScreenOffTransition));
         mTag = TAG + "[" + mDisplayId + "]";
 
+        mLights = LocalServices.getService(LightsManager.class);
         mUniqueDisplayId = mDisplayDevice.getUniqueId();
         mDisplayStatsId = mUniqueDisplayId.hashCode();
         mPhysicalDisplayName = mDisplayDevice.getNameLocked();
@@ -1364,6 +1370,15 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
                 state, displayState.reason(),
                 mDisplayStateController.shouldPerformScreenOffTransition());
         state = mPowerState.getScreenState();
+
+        // Disable button lights when screen off or dozing
+        if (state == Display.STATE_OFF || state == Display.STATE_DOZE ||
+                state == Display.STATE_DOZE_SUSPEND) {
+            LogicalLight buttonsLight = mLights.getLight(LightsManager.LIGHT_ID_BUTTONS);
+            if (buttonsLight != null) {
+                buttonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+            }
+        }
 
         // Use doze brightness if one of following is true:
         // 1. The target `state` isDozeState.
