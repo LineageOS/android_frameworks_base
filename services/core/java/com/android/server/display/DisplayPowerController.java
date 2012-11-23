@@ -61,6 +61,7 @@ import com.android.server.am.BatteryStatsService;
 import com.android.server.display.whitebalance.DisplayWhiteBalanceController;
 import com.android.server.display.whitebalance.DisplayWhiteBalanceFactory;
 import com.android.server.display.whitebalance.DisplayWhiteBalanceSettings;
+import com.android.server.lights.LightsManager;
 import com.android.server.policy.WindowManagerPolicy;
 
 import java.io.PrintWriter;
@@ -153,6 +154,9 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
 
     // Battery stats.
     private final IBatteryStats mBatteryStats;
+
+    // The lights service.
+    private final LightsManager mLights;
 
     // The sensor manager.
     private final SensorManager mSensorManager;
@@ -412,6 +416,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
         mSettingsObserver = new SettingsObserver(mHandler);
         mCallbacks = callbacks;
         mBatteryStats = BatteryStatsService.getService();
+        mLights = LocalServices.getService(LightsManager.class);
         mSensorManager = sensorManager;
         mWindowManagerPolicy = LocalServices.getService(WindowManagerPolicy.class);
         mBlanker = blanker;
@@ -880,6 +885,13 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
         if (state == Display.STATE_OFF) {
             brightnessState = PowerManager.BRIGHTNESS_OFF_FLOAT;
             mBrightnessReasonTemp.setReason(BrightnessReason.REASON_SCREEN_OFF);
+            mLights.getLight(LightsManager.LIGHT_ID_BUTTONS).setBrightness(brightnessState);
+        }
+
+        // Disable button lights when dozing
+        if (state == Display.STATE_DOZE || state == Display.STATE_DOZE_SUSPEND) {
+            mLights.getLight(LightsManager.LIGHT_ID_BUTTONS)
+                    .setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
         }
 
         // Always use the VR brightness when in the VR state.
