@@ -56,6 +56,7 @@ import com.android.internal.notification.SystemNotificationChannels;
 import com.android.internal.os.SomeArgs;
 import com.android.internal.util.IndentingPrintWriter;
 import com.android.server.FgThread;
+import lineageos.providers.LineageSettings;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -425,6 +426,17 @@ public class UsbDeviceManager {
                 mContentResolver.registerContentObserver(
                         Settings.Global.getUriFor(Settings.Global.ADB_ENABLED),
                         false, new AdbSettingsObserver());
+
+                ContentObserver adbNotificationObserver = new ContentObserver(null) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        updateAdbNotification();
+                    }
+                };
+
+                mContentResolver.registerContentObserver(
+                        LineageSettings.Secure.getUriFor(LineageSettings.Secure.ADB_NOTIFY),
+                                false, adbNotificationObserver);
 
                 // Watch for USB configuration changes
                 mUEventObserver.startObserving(USB_STATE_MATCH);
@@ -1040,42 +1052,42 @@ public class UsbDeviceManager {
             if (mNotificationManager == null) return;
             final int id = SystemMessage.NOTE_ADB_ACTIVE;
             final int titleRes = com.android.internal.R.string.adb_active_notification_title;
-            if (mAdbEnabled && mConnected) {
-                if ("0".equals(SystemProperties.get("persist.adb.notify"))) return;
+            boolean hideNotification = "0".equals(SystemProperties.get("persist.adb.notify"))
+                    || LineageSettings.Secure.getInt(mContext.getContentResolver(),
+                            LineageSettings.Secure.ADB_NOTIFY, 1) == 0;
 
-                if (!mAdbNotificationShown) {
-                    Resources r = mContext.getResources();
-                    CharSequence title = r.getText(titleRes);
-                    CharSequence message = r.getText(
-                            com.android.internal.R.string.adb_active_notification_message);
+            if (mAdbEnabled && mConnected && !mAdbNotificationShown && !hideNotification) {
+                Resources r = mContext.getResources();
+                CharSequence title = r.getText(titleRes);
+                CharSequence message = r.getText(
+                        com.android.internal.R.string.adb_active_notification_message);
 
-                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                            | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    PendingIntent pi = PendingIntent.getActivityAsUser(mContext, 0,
-                            intent, 0, null, UserHandle.CURRENT);
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                PendingIntent pi = PendingIntent.getActivityAsUser(mContext, 0,
+                        intent, 0, null, UserHandle.CURRENT);
 
-                    Notification notification =
-                            new Notification.Builder(mContext, SystemNotificationChannels.DEVELOPER)
-                                    .setSmallIcon(com.android.internal.R.drawable.stat_sys_adb)
-                                    .setWhen(0)
-                                    .setOngoing(true)
-                                    .setTicker(title)
-                                    .setDefaults(0)  // please be quiet
-                                    .setColor(mContext.getColor(
-                                            com.android.internal.R.color
-                                                    .system_notification_accent_color))
-                                    .setContentTitle(title)
-                                    .setContentText(message)
-                                    .setContentIntent(pi)
-                                    .setVisibility(Notification.VISIBILITY_PUBLIC)
-                                    .extend(new Notification.TvExtender()
-                                            .setChannelId(ADB_NOTIFICATION_CHANNEL_ID_TV))
-                                    .build();
-                    mAdbNotificationShown = true;
-                    mNotificationManager.notifyAsUser(null, id, notification,
-                            UserHandle.ALL);
-                }
+                Notification notification =
+                        new Notification.Builder(mContext, SystemNotificationChannels.DEVELOPER)
+                                .setSmallIcon(com.android.internal.R.drawable.stat_sys_adb)
+                                .setWhen(0)
+                                .setOngoing(true)
+                                .setTicker(title)
+                                .setDefaults(0)  // please be quiet
+                                .setColor(mContext.getColor(
+                                        com.android.internal.R.color
+                                                .system_notification_accent_color))
+                                .setContentTitle(title)
+                                .setContentText(message)
+                                .setContentIntent(pi)
+                                .setVisibility(Notification.VISIBILITY_PUBLIC)
+                                .extend(new Notification.TvExtender()
+                                        .setChannelId(ADB_NOTIFICATION_CHANNEL_ID_TV))
+                                .build();
+                mAdbNotificationShown = true;
+                mNotificationManager.notifyAsUser(null, id, notification,
+                        UserHandle.ALL);
             } else if (mAdbNotificationShown) {
                 mAdbNotificationShown = false;
                 mNotificationManager.cancelAsUser(null, id, UserHandle.ALL);
