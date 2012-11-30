@@ -1411,6 +1411,12 @@ public interface WindowManager extends ViewManager {
         public static final int FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS = 0x80000000;
 
         /**
+         * Window flag: Overrides default power key behavior
+         * @hide
+         */
+        public static final int PRIVATE_FLAG_PREVENT_POWER_KEY = 0x20000000;
+
+        /**
          * Various behavioral options/flags.  Default is none.
          *
          * @see #FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
