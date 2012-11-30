@@ -714,6 +714,10 @@ public class DisplayPolicy {
         return mScreenOnListener;
     }
 
+    public WindowManager.LayoutParams getTopFullscreenOpaqueWindowStateAttrs() {
+        return mTopFullscreenOpaqueWindowState.getAttrs();
+    }
+
     public void screenTurnedOn(ScreenOnListener screenOnListener) {
         synchronized (mLock) {
             mScreenOnEarly = true;
