@@ -1434,6 +1434,12 @@ public interface WindowManager extends ViewManager {
         public static final int PRIVATE_FLAG_ACQUIRES_SLEEP_TOKEN = 0x00200000;
 
         /**
+         * Window flag: Overrides default power key behavior
+         * @hide
+         */
+        public static final int PRIVATE_FLAG_PREVENT_POWER_KEY = 0x20000000;
+
+        /**
          * Control flags that are private to the platform.
          * @hide
          */
