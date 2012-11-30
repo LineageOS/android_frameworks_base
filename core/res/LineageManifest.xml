@@ -19,4 +19,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="android">
 
+    <!-- Allows an application to override the power key action
+         @hide <p>Not for use by third-party applications.
+    -->
+    <permission android:name="android.permission.PREVENT_POWER_KEY"
+        android:protectionLevel="signature|privileged" />
+
 </manifest>
