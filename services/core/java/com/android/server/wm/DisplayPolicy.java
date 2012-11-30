@@ -3747,4 +3747,9 @@ public class DisplayPolicy {
         wm.removeView(mPointerLocationView);
         mPointerLocationView = null;
     }
+
+    public int getTopFullscreenPrivateFlags() {
+        return (mTopFullscreenOpaqueWindowState != null)
+                ? mTopFullscreenOpaqueWindowState.getAttrs().privateFlags : 0;
+    }
 }
