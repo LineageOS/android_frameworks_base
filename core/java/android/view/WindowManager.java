@@ -1413,6 +1413,12 @@ public interface WindowManager extends ViewManager {
         public static final int PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY = 0x00100000;
 
         /**
+         * Window flag: Overrides default power key behavior
+         * @hide
+         */
+        public static final int PRIVATE_FLAG_PREVENT_POWER_KEY = 0x20000000;
+
+        /**
          * Control flags that are private to the platform.
          * @hide
          */
