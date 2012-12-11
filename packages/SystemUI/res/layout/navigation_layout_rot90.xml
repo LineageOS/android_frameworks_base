@@ -50,6 +50,8 @@
             android:clipChildren="false"
             android:clipToPadding="false" />
 
+        <include layout="@layout/nav_buttons_dpad_group_rot90" />
+
     </com.android.systemui.statusbar.phone.NearestTouchFrame>
 
 </FrameLayout>
