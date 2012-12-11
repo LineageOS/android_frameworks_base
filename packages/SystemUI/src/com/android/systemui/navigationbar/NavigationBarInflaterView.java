@@ -295,8 +295,10 @@ public class NavigationBarInflaterView extends FrameLayout implements TunerServi
     private void initiallyFill(ButtonDispatcher buttonDispatcher) {
         addAll(buttonDispatcher, mHorizontal.findViewById(R.id.ends_group));
         addAll(buttonDispatcher, mHorizontal.findViewById(R.id.center_group));
+        addAll(buttonDispatcher, mHorizontal.findViewById(R.id.dpad_group));
         addAll(buttonDispatcher, mVertical.findViewById(R.id.ends_group));
         addAll(buttonDispatcher, mVertical.findViewById(R.id.center_group));
+        addAll(buttonDispatcher, mVertical.findViewById(R.id.dpad_group));
     }
 
     private void addAll(ButtonDispatcher buttonDispatcher, ViewGroup parent) {
@@ -346,6 +348,9 @@ public class NavigationBarInflaterView extends FrameLayout implements TunerServi
         inflateButtons(end, mVertical.findViewById(R.id.ends_group),
                 true /* landscape */, false /* start */);
 
+        inflateCursorButtons(mHorizontal.findViewById(R.id.dpad_group), false /* landscape */);
+        inflateCursorButtons(mVertical.findViewById(R.id.dpad_group), true /* landscape */);
+
         updateButtonDispatchersCurrentView();
     }
 
@@ -371,6 +376,14 @@ public class NavigationBarInflaterView extends FrameLayout implements TunerServi
         for (int i = 0; i < buttons.length; i++) {
             inflateButton(buttons[i], parent, landscape, start);
         }
+    }
+
+    private void inflateCursorButtons(ViewGroup parent, boolean landscape) {
+        LayoutInflater inflater = landscape ? mLandscapeInflater : mLayoutInflater;
+        final int layoutResId = landscape ?
+                R.layout.nav_buttons_dpad_group_vertical : R.layout.nav_buttons_dpad_group;
+        View v = inflater.inflate(layoutResId, parent);
+        addToDispatchers(parent);
     }
 
     private ViewGroup.LayoutParams copy(ViewGroup.LayoutParams layoutParams) {
