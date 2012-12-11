@@ -73,15 +73,21 @@ import com.android.systemui.shared.system.QuickStepContract;
 import com.android.systemui.shared.system.WindowManagerWrapper;
 import com.android.systemui.statusbar.policy.DeadZone;
 import com.android.systemui.statusbar.policy.KeyButtonDrawable;
+import com.android.systemui.tuner.TunerService;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.function.Consumer;
 
 public class NavigationBarView extends FrameLayout implements
-        NavigationModeController.ModeChangedListener {
+        NavigationModeController.ModeChangedListener, TunerService.Tunable {
     final static boolean DEBUG = false;
     final static String TAG = "StatusBar/NavBarView";
+
+    private static final String NAVIGATION_BAR_MENU_ARROW_KEYS =
+            "lineagesystem:" + LineageSettings.System.NAVIGATION_BAR_MENU_ARROW_KEYS;
 
     // slippery nav bar when everything is disabled, e.g. during setup
     final static boolean SLIPPERY_WHEN_DISABLED = true;
@@ -149,6 +155,8 @@ public class NavigationBarView extends FrameLayout implements
      * fully locked mode we only show that unlocking is blocked.
      */
     private ScreenPinningNotify mScreenPinningNotify;
+
+    private boolean mShowDpadArrowKeys;
 
     private class NavTransitionListener implements TransitionListener {
         private boolean mBackTransitioning;
@@ -441,6 +449,10 @@ public class NavigationBarView extends FrameLayout implements
         return mOverviewProxyService.shouldShowSwipeUpUI() && isOverviewEnabled();
     }
 
+    public ViewGroup getDpadView() {
+        return (ViewGroup) getCurrentView().findViewById(R.id.dpad_group);
+    }
+
     private void reloadNavIcons() {
         updateIcons(Configuration.EMPTY);
     }
@@ -607,9 +619,13 @@ public class NavigationBarView extends FrameLayout implements
 
         // Update IME button visibility, a11y and rotate button always overrides the appearance
         mContextualButtonGroup.setButtonVisibility(R.id.ime_switcher,
-                (mNavigationIconHints & StatusBarManager.NAVIGATION_HINT_IME_SHOWN) != 0);
+                ((mNavigationIconHints & StatusBarManager.NAVIGATION_HINT_IME_SHOWN) != 0) &&
+                !mShowDpadArrowKeys);
+        // TODO: ^^^^^^^^^ look more to see if this is still right.  sam3000
+        // original: https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/225693/60/packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarView.java#649
 
         mBarTransitions.reapplyDarkIntensity();
+        updateDpadKeys();
 
         boolean disableHome = isGesturalMode(mNavBarMode)
                 || ((mDisabledFlags & View.STATUS_BAR_DISABLE_HOME) != 0);
@@ -1044,6 +1060,8 @@ public class NavigationBarView extends FrameLayout implements
         requestApplyInsets();
         reorient();
         onNavigationModeChanged(mNavBarMode);
+        final TunerService tunerService = Dependency.get(TunerService.class);
+        tunerService.addTunable(this, NAVIGATION_BAR_MENU_ARROW_KEYS);
         setUpSwipeUpOnboarding(isQuickStepSwipeUpEnabled());
         if (mRotationButtonController != null) {
             mRotationButtonController.registerListeners();
@@ -1068,6 +1086,14 @@ public class NavigationBarView extends FrameLayout implements
         mEdgeBackGestureHandler.onNavBarDetached();
         getViewTreeObserver().removeOnComputeInternalInsetsListener(
                 mOnComputeInternalInsetsListener);
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        if (NAVIGATION_BAR_MENU_ARROW_KEYS.equals(key)) {
+            mShowDpadArrowKeys = newValue == null || Integer.parseInt(newValue) == 1;
+            setNavigationIconHints(mNavigationIconHints);
+        }
     }
 
     private void setUpSwipeUpOnboarding(boolean connectedToOverviewProxy) {
@@ -1151,4 +1177,12 @@ public class NavigationBarView extends FrameLayout implements
         mDockedStackExists = exists;
         updateRecentsIcon();
     });
+
+    public void updateDpadKeys() {
+        final int visibility = mShowDpadArrowKeys && (mNavigationIconHints
+                & StatusBarManager.NAVIGATION_HINT_BACK_ALT) != 0 ? View.VISIBLE : View.GONE;
+
+        getDpadView().findViewById(R.id.dpad_left).setVisibility(visibility);
+        getDpadView().findViewById(R.id.dpad_right).setVisibility(visibility);
+    }
 }
