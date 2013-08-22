@@ -93,7 +93,8 @@ class RootWindowContainer extends WindowContainer<DisplayContent> {
     private static final String TAG = TAG_WITH_CLASS_NAME ? "RootWindowContainer" : TAG_WM;
 
     private static final int SET_SCREEN_BRIGHTNESS_OVERRIDE = 1;
-    private static final int SET_USER_ACTIVITY_TIMEOUT = 2;
+    private static final int SET_BUTTON_BRIGHTNESS_OVERRIDE = 2;
+    private static final int SET_USER_ACTIVITY_TIMEOUT = 3;
 
     WindowManagerService mService;
 
@@ -101,6 +102,7 @@ class RootWindowContainer extends WindowContainer<DisplayContent> {
     private Object mLastWindowFreezeSource = null;
     private Session mHoldScreen = null;
     private float mScreenBrightness = -1;
+    private float mButtonBrightness = -1;
     private long mUserActivityTimeout = -1;
     private boolean mUpdateRotation = false;
     // Following variables are for debugging screen wakelock only.
@@ -567,6 +569,7 @@ class RootWindowContainer extends WindowContainer<DisplayContent> {
 
         mHoldScreen = null;
         mScreenBrightness = -1;
+        mButtonBrightness = -1;
         mUserActivityTimeout = -1;
         mObscureApplicationContentOnSecondaryDisplays = false;
         mSustainedPerformanceModeCurrent = false;
@@ -716,12 +719,16 @@ class RootWindowContainer extends WindowContainer<DisplayContent> {
 
         mService.setHoldScreenLocked(mHoldScreen);
         if (!mService.mDisplayFrozen) {
-            final int brightness = mScreenBrightness < 0 || mScreenBrightness > 1.0f
+            final int screenBrightness = mScreenBrightness < 0 || mScreenBrightness > 1.0f
                     ? -1 : toBrightnessOverride(mScreenBrightness);
+
+            final int buttonBrightness = mButtonBrightness < 0 || mButtonBrightness > 1.0f
+                    ? -1 : toBrightnessOverride(mButtonBrightness);
 
             // Post these on a handler such that we don't call into power manager service while
             // holding the window manager lock to avoid lock contention with power manager lock.
-            mHandler.obtainMessage(SET_SCREEN_BRIGHTNESS_OVERRIDE, brightness, 0).sendToTarget();
+            mHandler.obtainMessage(SET_SCREEN_BRIGHTNESS_OVERRIDE, screenBrightness, 0).sendToTarget();
+            mHandler.obtainMessage(SET_BUTTON_BRIGHTNESS_OVERRIDE, buttonBrightness, 0).sendToTarget();
             mHandler.obtainMessage(SET_USER_ACTIVITY_TIMEOUT, mUserActivityTimeout).sendToTarget();
         }
 
@@ -870,6 +877,9 @@ class RootWindowContainer extends WindowContainer<DisplayContent> {
             if (!syswin && w.mAttrs.screenBrightness >= 0 && mScreenBrightness < 0) {
                 mScreenBrightness = w.mAttrs.screenBrightness;
             }
+            if (!syswin && w.mAttrs.buttonBrightness >= 0 && mButtonBrightness < 0) {
+                mButtonBrightness = w.mAttrs.buttonBrightness;
+            }
             if (!syswin && w.mAttrs.userActivityTimeout >= 0 && mUserActivityTimeout < 0) {
                 mUserActivityTimeout = w.mAttrs.userActivityTimeout;
             }
@@ -950,6 +960,10 @@ class RootWindowContainer extends WindowContainer<DisplayContent> {
             switch (msg.what) {
                 case SET_SCREEN_BRIGHTNESS_OVERRIDE:
                     mService.mPowerManagerInternal.setScreenBrightnessOverrideFromWindowManager(
+                            msg.arg1);
+                    break;
+                case SET_BUTTON_BRIGHTNESS_OVERRIDE:
+                    mService.mPowerManagerInternal.setButtonBrightnessOverrideFromWindowManager(
                             msg.arg1);
                     break;
                 case SET_USER_ACTIVITY_TIMEOUT:
