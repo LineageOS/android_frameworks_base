@@ -19,6 +19,7 @@
     <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
     <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
     <!-- Post reset runnable for all clients -->
@@ -26,10 +27,15 @@
 
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
+=======
+>>>>>>> 288e52418eed... PackageManager: allow build-time disabling of components
 
     <!-- Package Manager -->
     <java-symbol type="array" name="config_deviceDisabledComponents" />
     <java-symbol type="array" name="config_globallyDisabledComponents" />
     <java-symbol type="array" name="config_forceEnabledComponents" />
+<<<<<<< HEAD
 >>>>>>> 97bcf0600ae7... biometrics: Allow posting reset runnable for all clients
+=======
+>>>>>>> 288e52418eed... PackageManager: allow build-time disabling of components
 </resources>
