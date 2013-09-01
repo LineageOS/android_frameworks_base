@@ -17,4 +17,12 @@
     <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
          true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
     <bool name="config_useSystemClockforRotationSensor">false</bool>
+
+    <!-- The list of components which should be automatically disabled. -->
+    <string-array name="config_disabledComponents" translatable="false">
+    </string-array>
+
+    <!-- The list of components which should be forced to be enabled. -->
+    <string-array name="config_forceEnabledComponents" translatable="false">
+    </string-array>
 </resources>
