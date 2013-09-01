@@ -858,6 +858,76 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
 
     private final PackageProperty mPackageProperty = new PackageProperty();
 
+<<<<<<< HEAD   (99c35e udfps: Trigger onFingerDown with regular action down events )
+=======
+    ArrayList<ComponentName> mDisabledComponentsList;
+
+    // Set of pending broadcasts for aggregating enable/disable of components.
+    @VisibleForTesting(visibility = Visibility.PACKAGE)
+    public static class PendingPackageBroadcasts {
+        // for each user id, a map of <package name -> components within that package>
+        final SparseArray<ArrayMap<String, ArrayList<String>>> mUidMap;
+
+        public PendingPackageBroadcasts() {
+            mUidMap = new SparseArray<>(2);
+        }
+
+        public ArrayList<String> get(int userId, String packageName) {
+            ArrayMap<String, ArrayList<String>> packages = getOrAllocate(userId);
+            return packages.get(packageName);
+        }
+
+        public void put(int userId, String packageName, ArrayList<String> components) {
+            ArrayMap<String, ArrayList<String>> packages = getOrAllocate(userId);
+            packages.put(packageName, components);
+        }
+
+        public void remove(int userId, String packageName) {
+            ArrayMap<String, ArrayList<String>> packages = mUidMap.get(userId);
+            if (packages != null) {
+                packages.remove(packageName);
+            }
+        }
+
+        public void remove(int userId) {
+            mUidMap.remove(userId);
+        }
+
+        public int userIdCount() {
+            return mUidMap.size();
+        }
+
+        public int userIdAt(int n) {
+            return mUidMap.keyAt(n);
+        }
+
+        public ArrayMap<String, ArrayList<String>> packagesForUserId(int userId) {
+            return mUidMap.get(userId);
+        }
+
+        public int size() {
+            // total number of pending broadcast entries across all userIds
+            int num = 0;
+            for (int i = 0; i< mUidMap.size(); i++) {
+                num += mUidMap.valueAt(i).size();
+            }
+            return num;
+        }
+
+        public void clear() {
+            mUidMap.clear();
+        }
+
+        private ArrayMap<String, ArrayList<String>> getOrAllocate(int userId) {
+            ArrayMap<String, ArrayList<String>> map = mUidMap.get(userId);
+            if (map == null) {
+                map = new ArrayMap<>();
+                mUidMap.put(userId, map);
+            }
+            return map;
+        }
+    }
+>>>>>>> CHANGE (182863 PackageManager: Allow build-time disabling of components)
     final PendingPackageBroadcasts mPendingBroadcasts;
 
     static final int SEND_PENDING_BROADCAST = 1;
@@ -2083,6 +2153,74 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
                 }
             }
 
+<<<<<<< HEAD   (99c35e udfps: Trigger onFingerDown with regular action down events )
+=======
+            // Prepare storage for system user really early during boot,
+            // since core system apps like SettingsProvider and SystemUI
+            // can't wait for user to start
+            final int storageFlags;
+            if (StorageManager.isFileEncryptedNativeOrEmulated()) {
+                storageFlags = StorageManager.FLAG_STORAGE_DE;
+            } else {
+                storageFlags = StorageManager.FLAG_STORAGE_DE | StorageManager.FLAG_STORAGE_CE;
+            }
+            List<String> deferPackages = reconcileAppsDataLI(StorageManager.UUID_PRIVATE_INTERNAL,
+                    UserHandle.USER_SYSTEM, storageFlags, true /* migrateAppData */,
+                    true /* onlyCoreApps */);
+            mPrepareAppDataFuture = SystemServerInitThreadPool.submit(() -> {
+                TimingsTraceLog traceLog = new TimingsTraceLog("SystemServerTimingAsync",
+                        Trace.TRACE_TAG_PACKAGE_MANAGER);
+                traceLog.traceBegin("AppDataFixup");
+                try {
+                    mInstaller.fixupAppData(StorageManager.UUID_PRIVATE_INTERNAL,
+                            StorageManager.FLAG_STORAGE_DE | StorageManager.FLAG_STORAGE_CE);
+                } catch (InstallerException e) {
+                    Slog.w(TAG, "Trouble fixing GIDs", e);
+                }
+                traceLog.traceEnd();
+
+                traceLog.traceBegin("AppDataPrepare");
+                if (deferPackages == null || deferPackages.isEmpty()) {
+                    return;
+                }
+                int count = 0;
+                final Installer.Batch batch = new Installer.Batch();
+                for (String pkgName : deferPackages) {
+                    AndroidPackage pkg = null;
+                    synchronized (mLock) {
+                        PackageSetting ps = mSettings.getPackageLPr(pkgName);
+                        if (ps != null && ps.getInstalled(UserHandle.USER_SYSTEM)) {
+                            pkg = ps.pkg;
+                        }
+                    }
+                    if (pkg != null) {
+                        prepareAppDataAndMigrate(batch, pkg, UserHandle.USER_SYSTEM, storageFlags,
+                                true /* maybeMigrateAppData */);
+                        count++;
+                    }
+                }
+                synchronized (mInstallLock) {
+                    executeBatchLI(batch);
+                }
+                traceLog.traceEnd();
+                Slog.i(TAG, "Deferred reconcileAppsData finished " + count + " packages");
+            }, "prepareAppData");
+
+            // Disable components marked for disabling at build-time
+            mDisabledComponentsList = new ArrayList<ComponentName>();
+            enableComponents(mContext.getResources().getStringArray(
+                     org.lineageos.platform.internal.R.array.config_deviceDisabledComponents),
+                     false);
+            enableComponents(mContext.getResources().getStringArray(
+                    org.lineageos.platform.internal.R.array.config_globallyDisabledComponents),
+                    false);
+
+            // Enable components marked for forced-enable at build-time
+            enableComponents(mContext.getResources().getStringArray(
+                    org.lineageos.platform.internal.R.array.config_forceEnabledComponents),
+                    true);
+
+>>>>>>> CHANGE (182863 PackageManager: Allow build-time disabling of components)
             // If this is first boot after an OTA, and a normal boot, then
             // we need to clear code cache directories.
             // Note that we do *not* clear the application profiles. These remain valid
@@ -2257,6 +2395,261 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
         Slog.i(TAG, "Fix for b/169414761 is applied");
     }
 
+<<<<<<< HEAD   (99c35e udfps: Trigger onFingerDown with regular action down events )
+=======
+    private void enableComponents(String[] components, boolean enable) {
+        // Disable or enable components marked at build-time
+        for (String name : components) {
+            ComponentName cn = ComponentName.unflattenFromString(name);
+            if (!enable) {
+                mDisabledComponentsList.add(cn);
+            }
+            Slog.v(TAG, "Changing enabled state of " + name + " to " + enable);
+            String className = cn.getClassName();
+            PackageSetting pkgSetting = mSettings.mPackages.get(cn.getPackageName());
+            if (pkgSetting == null || pkgSetting.pkg == null
+                    || !AndroidPackageUtils.hasComponentClassName(pkgSetting.pkg, className)) {
+                Slog.w(TAG, "Unable to change enabled state of " + name + " to " + enable);
+                continue;
+            }
+            if (enable) {
+                pkgSetting.enableComponentLPw(className, UserHandle.USER_OWNER);
+            } else {
+                pkgSetting.disableComponentLPw(className, UserHandle.USER_OWNER);
+            }
+        }
+    }
+
+    /**
+     * Uncompress and install stub applications.
+     * <p>In order to save space on the system partition, some applications are shipped in a
+     * compressed form. In addition the compressed bits for the full application, the
+     * system image contains a tiny stub comprised of only the Android manifest.
+     * <p>During the first boot, attempt to uncompress and install the full application. If
+     * the application can't be installed for any reason, disable the stub and prevent
+     * uncompressing the full application during future boots.
+     * <p>In order to forcefully attempt an installation of a full application, go to app
+     * settings and enable the application.
+     */
+    private void installSystemStubPackages(@NonNull List<String> systemStubPackageNames,
+            @ScanFlags int scanFlags) {
+        for (int i = systemStubPackageNames.size() - 1; i >= 0; --i) {
+            final String packageName = systemStubPackageNames.get(i);
+            // skip if the system package is already disabled
+            if (mSettings.isDisabledSystemPackageLPr(packageName)) {
+                systemStubPackageNames.remove(i);
+                continue;
+            }
+            // skip if the package isn't installed (?!); this should never happen
+            final AndroidPackage pkg = mPackages.get(packageName);
+            if (pkg == null) {
+                systemStubPackageNames.remove(i);
+                continue;
+            }
+            // skip if the package has been disabled by the user
+            final PackageSetting ps = mSettings.getPackageLPr(packageName);
+            if (ps != null) {
+                final int enabledState = ps.getEnabled(UserHandle.USER_SYSTEM);
+                if (enabledState == PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER) {
+                    systemStubPackageNames.remove(i);
+                    continue;
+                }
+            }
+
+            // install the package to replace the stub on /system
+            try {
+                installStubPackageLI(pkg, 0, scanFlags);
+                ps.setEnabled(PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
+                        UserHandle.USER_SYSTEM, "android");
+                systemStubPackageNames.remove(i);
+            } catch (PackageManagerException e) {
+                Slog.e(TAG, "Failed to parse uncompressed system package: " + e.getMessage());
+            }
+
+            // any failed attempt to install the package will be cleaned up later
+        }
+
+        // disable any stub still left; these failed to install the full application
+        for (int i = systemStubPackageNames.size() - 1; i >= 0; --i) {
+            final String pkgName = systemStubPackageNames.get(i);
+            final PackageSetting ps = mSettings.getPackageLPr(pkgName);
+            ps.setEnabled(PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                    UserHandle.USER_SYSTEM, "android");
+            logCriticalInfo(Log.ERROR, "Stub disabled; pkg: " + pkgName);
+        }
+    }
+
+    /**
+     * Extract, install and enable a stub package.
+     * <p>If the compressed file can not be extracted / installed for any reason, the stub
+     * APK will be installed and the package will be disabled. To recover from this situation,
+     * the user will need to go into system settings and re-enable the package.
+     */
+    private boolean enableCompressedPackage(AndroidPackage stubPkg,
+            @NonNull PackageSetting stubPkgSetting) {
+        final int parseFlags = mDefParseFlags | ParsingPackageUtils.PARSE_CHATTY
+                | PackageParser.PARSE_ENFORCE_CODE;
+        synchronized (mInstallLock) {
+            final AndroidPackage pkg;
+            try (PackageFreezer freezer =
+                    freezePackage(stubPkg.getPackageName(), "setEnabledSetting")) {
+                pkg = installStubPackageLI(stubPkg, parseFlags, 0 /*scanFlags*/);
+                synchronized (mLock) {
+                    prepareAppDataAfterInstallLIF(pkg);
+                    try {
+                        updateSharedLibrariesLocked(pkg, stubPkgSetting, null, null,
+                                Collections.unmodifiableMap(mPackages));
+                    } catch (PackageManagerException e) {
+                        Slog.w(TAG, "updateAllSharedLibrariesLPw failed: ", e);
+                    }
+                    mPermissionManager.onPackageInstalled(pkg,
+                            PermissionManagerServiceInternal.PackageInstalledParams.DEFAULT,
+                            UserHandle.USER_ALL);
+                    writeSettingsLPrTEMP();
+                }
+            } catch (PackageManagerException e) {
+                // Whoops! Something went very wrong; roll back to the stub and disable the package
+                try (PackageFreezer freezer =
+                        freezePackage(stubPkg.getPackageName(), "setEnabledSetting")) {
+                    synchronized (mLock) {
+                        // NOTE: Ensure the system package is enabled; even for a compressed stub.
+                        // If we don't, installing the system package fails during scan
+                        enableSystemPackageLPw(stubPkg);
+                    }
+                    installPackageFromSystemLIF(stubPkg.getPath(),
+                            mUserManager.getUserIds() /*allUserHandles*/, null /*origUserHandles*/,
+                            true /*writeSettings*/);
+                } catch (PackageManagerException pme) {
+                    // Serious WTF; we have to be able to install the stub
+                    Slog.wtf(TAG, "Failed to restore system package:" + stubPkg.getPackageName(),
+                            pme);
+                } finally {
+                    // Disable the package; the stub by itself is not runnable
+                    synchronized (mLock) {
+                        final PackageSetting stubPs = mSettings.getPackageLPr(
+                                stubPkg.getPackageName());
+                        if (stubPs != null) {
+                            stubPs.setEnabled(COMPONENT_ENABLED_STATE_DISABLED,
+                                    UserHandle.USER_SYSTEM, "android");
+                        }
+                        writeSettingsLPrTEMP();
+                    }
+                }
+                return false;
+            }
+            clearAppDataLIF(pkg, UserHandle.USER_ALL, FLAG_STORAGE_DE | FLAG_STORAGE_CE
+                    | FLAG_STORAGE_EXTERNAL | Installer.FLAG_CLEAR_CODE_CACHE_ONLY);
+            mDexManager.notifyPackageUpdated(pkg.getPackageName(),
+                    pkg.getBaseApkPath(), pkg.getSplitCodePaths());
+        }
+        return true;
+    }
+
+    private AndroidPackage installStubPackageLI(AndroidPackage stubPkg,
+            @ParseFlags int parseFlags, @ScanFlags int scanFlags)
+                    throws PackageManagerException {
+        if (DEBUG_COMPRESSION) {
+            Slog.i(TAG, "Uncompressing system stub; pkg: " + stubPkg.getPackageName());
+        }
+        // uncompress the binary to its eventual destination on /data
+        final File scanFile = decompressPackage(stubPkg.getPackageName(), stubPkg.getPath());
+        if (scanFile == null) {
+            throw new PackageManagerException(
+                    "Unable to decompress stub at " + stubPkg.getPath());
+        }
+        synchronized (mLock) {
+            mSettings.disableSystemPackageLPw(stubPkg.getPackageName(), true /*replaced*/);
+        }
+        removePackageLI(stubPkg, true /*chatty*/);
+        try {
+            return scanPackageTracedLI(scanFile, parseFlags, scanFlags, 0, null);
+        } catch (PackageManagerException e) {
+            Slog.w(TAG, "Failed to install compressed system package:" + stubPkg.getPackageName(),
+                    e);
+            // Remove the failed install
+            removeCodePathLI(scanFile);
+            throw e;
+        }
+    }
+
+    /**
+     * Decompresses the given package on the system image onto
+     * the /data partition.
+     * @return The directory the package was decompressed into. Otherwise, {@code null}.
+     */
+    private File decompressPackage(String packageName, String codePath) {
+        final File[] compressedFiles = getCompressedFiles(codePath);
+        if (compressedFiles == null || compressedFiles.length == 0) {
+            if (DEBUG_COMPRESSION) {
+                Slog.i(TAG, "No files to decompress: " + codePath);
+            }
+            return null;
+        }
+        final File dstCodePath =
+                getNextCodePath(Environment.getDataAppDirectory(null), packageName);
+        int ret = PackageManager.INSTALL_SUCCEEDED;
+        try {
+            makeDirRecursive(dstCodePath, 0755);
+            for (File srcFile : compressedFiles) {
+                final String srcFileName = srcFile.getName();
+                final String dstFileName = srcFileName.substring(
+                        0, srcFileName.length() - COMPRESSED_EXTENSION.length());
+                final File dstFile = new File(dstCodePath, dstFileName);
+                ret = decompressFile(srcFile, dstFile);
+                if (ret != PackageManager.INSTALL_SUCCEEDED) {
+                    logCriticalInfo(Log.ERROR, "Failed to decompress"
+                            + "; pkg: " + packageName
+                            + ", file: " + dstFileName);
+                    break;
+                }
+            }
+        } catch (ErrnoException e) {
+            logCriticalInfo(Log.ERROR, "Failed to decompress"
+                    + "; pkg: " + packageName
+                    + ", err: " + e.errno);
+        }
+        if (ret == PackageManager.INSTALL_SUCCEEDED) {
+            final File libraryRoot = new File(dstCodePath, LIB_DIR_NAME);
+            NativeLibraryHelper.Handle handle = null;
+            try {
+                handle = NativeLibraryHelper.Handle.create(dstCodePath);
+                ret = NativeLibraryHelper.copyNativeBinariesWithOverride(handle, libraryRoot,
+                        null /*abiOverride*/, false /*isIncremental*/);
+            } catch (IOException e) {
+                logCriticalInfo(Log.ERROR, "Failed to extract native libraries"
+                        + "; pkg: " + packageName);
+                ret = PackageManager.INSTALL_FAILED_INTERNAL_ERROR;
+            } finally {
+                IoUtils.closeQuietly(handle);
+            }
+        }
+        if (ret == PackageManager.INSTALL_SUCCEEDED) {
+            // NOTE: During boot, we have to delay releasing cblocks for no other reason than
+            // we cannot retrieve the setting {@link Secure#RELEASE_COMPRESS_BLOCKS_ON_INSTALL}.
+            // When we no longer need to read that setting, cblock release can occur always
+            // occur here directly
+            if (!mSystemReady) {
+                if (mReleaseOnSystemReady == null) {
+                    mReleaseOnSystemReady = new ArrayList<>();
+                }
+                mReleaseOnSystemReady.add(dstCodePath);
+            } else {
+                final ContentResolver resolver = mContext.getContentResolver();
+                F2fsUtils.releaseCompressedBlocks(resolver, dstCodePath);
+            }
+        }
+        if (ret != PackageManager.INSTALL_SUCCEEDED) {
+            if (!dstCodePath.exists()) {
+                return null;
+            }
+            removeCodePathLI(dstCodePath);
+            return null;
+        }
+
+        return dstCodePath;
+    }
+
+>>>>>>> CHANGE (182863 PackageManager: Allow build-time disabling of components)
     @GuardedBy("mLock")
     void updateInstantAppInstallerLocked(String modifiedPackage) {
         // we're only interested in updating the installer application when 1) it's not
@@ -3621,8 +4014,36 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
         }
     }
 
+<<<<<<< HEAD   (99c35e udfps: Trigger onFingerDown with regular action down events )
     private void setEnabledSettings(List<ComponentEnabledSetting> settings, int userId,
             String callingPackage) {
+=======
+    @Override
+    public void setComponentEnabledSetting(ComponentName componentName,
+            int newState, int flags, int userId) {
+        if (!mUserManager.exists(userId)) return;
+        // Don't allow to enable components marked for disabling at build-time
+        if (mDisabledComponentsList.contains(componentName)) {
+            Slog.d(TAG, "Ignoring attempt to set enabled state of disabled component "
+                    + componentName.flattenToString());
+            return;
+        }
+        setEnabledSetting(componentName.getPackageName(),
+                componentName.getClassName(), newState, flags, userId, null);
+    }
+
+    private void setEnabledSetting(final String packageName, String className, int newState,
+            final int flags, int userId, String callingPackage) {
+        if (!(newState == COMPONENT_ENABLED_STATE_DEFAULT
+              || newState == COMPONENT_ENABLED_STATE_ENABLED
+              || newState == COMPONENT_ENABLED_STATE_DISABLED
+              || newState == COMPONENT_ENABLED_STATE_DISABLED_USER
+              || newState == COMPONENT_ENABLED_STATE_DISABLED_UNTIL_USED)) {
+            throw new IllegalArgumentException("Invalid new component state: "
+                    + newState);
+        }
+        PackageSetting pkgSetting;
+>>>>>>> CHANGE (182863 PackageManager: Allow build-time disabling of components)
         final int callingUid = Binder.getCallingUid();
         // TODO: This method is not properly snapshotified beyond this call
         final Computer preLockSnapshot = snapshotComputer();
