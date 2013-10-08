@@ -3031,4 +3031,7 @@
   <java-symbol type="array" name="config_batteryPackageTypeService" />
 
   <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+
+  <!-- Gesture Sensor -->
+  <java-symbol type="bool" name="config_enableGestureService" />
 </resources>
