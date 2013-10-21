@@ -357,7 +357,7 @@ class UserController implements Handler.Callback {
                     | Intent.FLAG_RECEIVER_INCLUDE_BACKGROUND);
             mInjector.broadcastIntent(intent, null, resultTo, 0, null, null,
                     new String[]{android.Manifest.permission.RECEIVE_BOOT_COMPLETED},
-                    AppOpsManager.OP_NONE, null, true, false, MY_PID, SYSTEM_UID, userId);
+                    AppOpsManager.OP_BOOT_COMPLETED, null, true, false, MY_PID, SYSTEM_UID, userId);
         }
 
         // We need to delay unlocking managed profiles until the parent user
@@ -557,7 +557,7 @@ class UserController implements Handler.Callback {
                     }
                 }, 0, null, null,
                 new String[]{android.Manifest.permission.RECEIVE_BOOT_COMPLETED},
-                AppOpsManager.OP_NONE, null, true, false, MY_PID, SYSTEM_UID, userId);
+                AppOpsManager.OP_BOOT_COMPLETED, null, true, false, MY_PID, SYSTEM_UID, userId);
     }
 
     int restartUser(final int userId, final boolean foreground) {
