@@ -154,6 +154,8 @@ import android.view.IAppTransitionAnimationSpecsFuture;
 import android.view.IApplicationToken;
 import android.view.WindowManager.LayoutParams;
 
+import lineageos.providers.LineageSettings;
+
 import com.android.internal.app.ResolverActivity;
 import com.android.internal.content.ReferrerIntent;
 import com.android.internal.util.XmlUtils;
@@ -1752,6 +1754,33 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
             stack.setVisibleBehindActivity(null /* ActivityRecord */);
         }
         mStackSupervisor.checkReadyForSleepLocked();
+
+        updatePrivacyGuardNotificationLocked();
+    }
+
+    private final void updatePrivacyGuardNotificationLocked() {
+        String privacyGuardPackageName = mStackSupervisor.mPrivacyGuardPackageName;
+        if (privacyGuardPackageName != null && privacyGuardPackageName.equals(this.packageName)) {
+            return;
+        }
+
+        boolean privacy = mService.mAppOpsService.getPrivacyGuardSettingForPackage(
+                this.app.uid, this.packageName);
+        boolean privacyNotification = (LineageSettings.Secure.getInt(
+                mService.mContext.getContentResolver(),
+                LineageSettings.Secure.PRIVACY_GUARD_NOTIFICATION, 1) == 1);
+
+        if (privacyGuardPackageName != null && !privacy) {
+            Message msg = mService.mHandler.obtainMessage(
+                    ActivityManagerService.CANCEL_PRIVACY_NOTIFICATION_MSG, this.userId);
+            msg.sendToTarget();
+            mStackSupervisor.mPrivacyGuardPackageName = null;
+        } else if (privacy && privacyNotification) {
+            Message msg = mService.mHandler.obtainMessage(
+                    ActivityManagerService.POST_PRIVACY_NOTIFICATION_MSG, this);
+            msg.sendToTarget();
+            mStackSupervisor.mPrivacyGuardPackageName = this.packageName;
+        }
     }
 
     final void activityStoppedLocked(Bundle newIcicle, PersistableBundle newPersistentState,
