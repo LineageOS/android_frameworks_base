@@ -50,4 +50,13 @@ interface IAppOpsService {
     void removeUser(int userHandle);
 
     boolean isOperationActive(int code, int uid, String packageName);
+
+    boolean isControlAllowed(int code, String packageName);
+
+    // Privacy guard methods
+    boolean getPrivacyGuardSettingForPackage(int uid, String packageName);
+    void setPrivacyGuardSettingForPackage(int uid, String packageName, boolean state);
+
+    // AppOps accounting
+    void resetCounters();
 }
