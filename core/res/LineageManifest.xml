@@ -32,4 +32,6 @@
     <protected-broadcast
         android:name="com.android.server.policy.PhoneWindowManager.ACTION_TORCH_OFF" />
 
+    <!-- Used to notify when SU is used. -->
+    <protected-broadcast android:name="android.intent.action.SU_SESSION_CHANGED" />
 </manifest>
