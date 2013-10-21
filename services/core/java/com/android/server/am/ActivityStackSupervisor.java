@@ -395,6 +395,11 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
     boolean mSleepTimeout = false;
 
     /**
+     * Is the privacy guard currently enabled? Shared between ActivityStacks
+     */
+    String mPrivacyGuardPackageName = null;
+
+    /**
      * We don't want to allow the device to go to sleep while in the process
      * of launching an activity.  This is primarily to allow alarm intent
      * receivers to launch an activity and get that to run before the device

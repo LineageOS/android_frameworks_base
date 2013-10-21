@@ -716,6 +716,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     private boolean mReinflateNotificationsOnUserSwitched;
     private HashMap<String, Entry> mPendingNotifications = new HashMap<>();
     private ForegroundServiceController mForegroundServiceController;
+    SuControllerImpl mSuController;
 
     private void recycleAllVisibilityObjects(ArraySet<NotificationVisibility> array) {
         final int N = array.size();
