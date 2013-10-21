@@ -1344,6 +1344,8 @@ public class AppOpsManager {
      */
     private static HashMap<String, Integer> sPermToOp = new HashMap<>();
 
+    private static HashMap<String, Integer> sNameToOp = new HashMap<String, Integer>();
+
     static {
         if (sOpToSwitch.length != _NUM_OP) {
             throw new IllegalStateException("sOpToSwitch length " + sOpToSwitch.length
@@ -1387,6 +1389,9 @@ public class AppOpsManager {
                 sPermToOp.put(sOpPerms[op], op);
             }
         }
+        for (int i=0; i<_NUM_OP; i++) {
+            sNameToOp.put(sOpNames[i], i);
+        }
     }
 
     /**
@@ -1416,6 +1421,15 @@ public class AppOpsManager {
             }
         }
         throw new IllegalArgumentException("Unknown operation string: " + op);
+    }
+
+    /**
+     * Map a non-localized name for the operation back to the Op number
+     * @hide
+     */
+    public static int nameToOp(String name) {
+        Integer val = sNameToOp.get(name);
+        return val != null ? val : OP_NONE;
     }
 
     /**
