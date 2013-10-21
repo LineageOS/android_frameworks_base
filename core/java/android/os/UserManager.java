@@ -962,6 +962,19 @@ public class UserManager {
     public static final String DISALLOW_PRINTING = "no_printing";
 
     /**
+     * Specifies whether the user is allowed to use SU commands.
+     *
+     * The default value is <code>false</code>.
+     *
+     * <p/>Key for user restrictions.
+     * <p/>Type: Boolean
+     * @see #setUserRestrictions(Bundle)
+     * @see #getUserRestrictions()
+     * @hide
+     */
+    public static final String DISALLOW_SU = "no_su";
+
+    /**
      * Application restriction key that is used to indicate the pending arrival
      * of real restrictions for the app.
      *
