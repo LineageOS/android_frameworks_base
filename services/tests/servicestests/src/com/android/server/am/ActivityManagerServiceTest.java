@@ -812,7 +812,8 @@ public class ActivityManagerServiceTest {
         }
 
         @Override
-        public AppOpsService getAppOpsService(File file, Handler handler) {
+        public AppOpsService getAppOpsService(File file, Handler handler,
+                ActivityManagerService service) {
             return mAppOpsService;
         }
 

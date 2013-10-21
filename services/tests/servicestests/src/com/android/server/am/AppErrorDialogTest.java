@@ -46,7 +46,8 @@ public class AppErrorDialogTest {
         mContext = InstrumentationRegistry.getTargetContext();
         mService = new ActivityManagerService(new ActivityManagerService.Injector() {
             @Override
-            public AppOpsService getAppOpsService(File file, Handler handler) {
+            public AppOpsService getAppOpsService(File file, Handler handler,
+                    ActivityManagerService service) {
                 return null;
             }
 
