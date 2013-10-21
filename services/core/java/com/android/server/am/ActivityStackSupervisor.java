@@ -394,6 +394,9 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
     /** Set when a power hint has started, but not ended. */
     private boolean mPowerHintSent;
 
+    /** Is Privacy Guard currently enabled? Shared between ActivityStacks. */
+    String mPrivacyGuardPackageName = null;
+
     /**
      * We don't want to allow the device to go to sleep while in the process
      * of launching an activity.  This is primarily to allow alarm intent

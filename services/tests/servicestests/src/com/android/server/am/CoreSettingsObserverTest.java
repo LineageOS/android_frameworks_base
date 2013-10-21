@@ -149,7 +149,8 @@ public class CoreSettingsObserverTest {
             return mContext;
         }
 
-        public AppOpsService getAppOpsService(File file, Handler handler) {
+        public AppOpsService getAppOpsService(File file, Handler handler,
+                ActivityManagerService service) {
             return null;
         }
 
