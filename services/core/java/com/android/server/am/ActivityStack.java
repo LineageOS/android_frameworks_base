@@ -91,6 +91,7 @@ import android.app.ActivityManager.RunningTaskInfo;
 import android.app.ActivityManager.StackId;
 import android.app.ActivityOptions;
 import android.app.AppGlobals;
+import android.app.AppOpsManager;
 import android.app.IActivityController;
 import android.app.ResultInfo;
 import android.content.ComponentName;
@@ -129,6 +130,8 @@ import com.android.server.am.ActivityManagerService.ItemMatcher;
 import com.android.server.wm.StackWindowController;
 import com.android.server.wm.StackWindowListener;
 import com.android.server.wm.WindowManagerService;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -1553,6 +1556,7 @@ class ActivityStack<T extends StackWindowController> extends ConfigurationContai
         } else {
             checkReadyForSleep();
         }
+
     }
 
     // Find the first visible activity above the passed activity and if it is translucent return it
@@ -2865,6 +2869,32 @@ class ActivityStack<T extends StackWindowController> extends ConfigurationContai
                 returnToType = topTask == null ? HOME_ACTIVITY_TYPE : topTask.taskType;
             }
             task.setTaskToReturnTo(returnToType);
+        }
+    }
+
+    public final void updatePrivacyGuardNotificationLocked(ActivityRecord next) {
+
+        String privacyGuardPackageName = mStackSupervisor.mPrivacyGuardPackageName;
+        if (privacyGuardPackageName != null && privacyGuardPackageName.equals(next.packageName)) {
+            return;
+        }
+
+        boolean privacy = mService.mAppOpsService.getPrivacyGuardSettingForPackage(
+                next.app.uid, next.packageName);
+        boolean privacyNotification = (LineageSettings.Secure.getInt(
+                mService.mContext.getContentResolver(),
+                LineageSettings.Secure.PRIVACY_GUARD_NOTIFICATION, 1) == 1);
+
+        if (privacyGuardPackageName != null && !privacy) {
+            Message msg = mService.mHandler.obtainMessage(
+                    ActivityManagerService.CANCEL_PRIVACY_NOTIFICATION_MSG, next.userId);
+            msg.sendToTarget();
+            mStackSupervisor.mPrivacyGuardPackageName = null;
+        } else if (privacy && privacyNotification) {
+            Message msg = mService.mHandler.obtainMessage(
+                    ActivityManagerService.POST_PRIVACY_NOTIFICATION_MSG, next);
+            msg.sendToTarget();
+            mStackSupervisor.mPrivacyGuardPackageName = next.packageName;
         }
     }
 
