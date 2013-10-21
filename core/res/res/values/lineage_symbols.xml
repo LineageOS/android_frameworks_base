@@ -1,6 +1,6 @@
 <!--
      Copyright (C) 2012-2015 The CyanogenMod Project
-     Copyright (C) 2017 The LineageOS Project
+     Copyright (C) 2017-2018 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -33,4 +33,23 @@
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
+
+    <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
+    <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
+
+    <!-- Privacy Guard -->
+    <java-symbol type="drawable" name="stat_notify_privacy_guard" />
+    <java-symbol type="string" name="privacy_guard_notification" />
+    <java-symbol type="string" name="privacy_guard_notification_detail" />
+    <java-symbol type="string" name="privacy_guard_dialog_title" />
+    <java-symbol type="string" name="privacy_guard_dialog_summary" />
+    <java-symbol type="id" name="permission_text" />
+    <java-symbol type="id" name="permission_remember_layout" />
+    <java-symbol type="id" name="permission_remember_choice_checkbox" />
+    <java-symbol type="id" name="permission_remember_choice_text" />
+    <java-symbol type="string" name="allow" />
+    <java-symbol type="string" name="deny" />
+    <java-symbol type="layout" name="permission_confirmation_dialog" />
+    <java-symbol type="array" name="app_ops_labels" />
+    <java-symbol type="string" name="status_bar_su" />
 </resources>
