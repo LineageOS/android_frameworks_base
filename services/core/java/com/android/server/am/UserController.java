@@ -531,6 +531,21 @@ class UserController implements Handler.Callback {
                         }, 0, null, null, null, AppOpsManager.OP_NONE,
                         null, true, false, MY_PID, SYSTEM_UID, userId);
             }
+
+            final Intent bootIntent = new Intent(Intent.ACTION_BOOT_COMPLETED, null);
+            bootIntent.putExtra(Intent.EXTRA_USER_HANDLE, userId);
+            bootIntent.addFlags(Intent.FLAG_RECEIVER_NO_ABORT
+                    | Intent.FLAG_RECEIVER_INCLUDE_BACKGROUND);
+            mInjector.broadcastIntent(bootIntent, null, new IIntentReceiver.Stub() {
+                @Override
+                public void performReceive(Intent intent, int resultCode, String data,
+                        Bundle extras, boolean ordered, boolean sticky, int sendingUser)
+                        throws RemoteException {
+                    Slog.i(UserController.TAG, "Finished processing BOOT_COMPLETED for u" + userId);
+                }
+            }, 0, null, null,
+                    new String[] { android.Manifest.permission.RECEIVE_BOOT_COMPLETED },
+                    AppOpsManager.OP_BOOT_COMPLETED, null, true, false, MY_PID, SYSTEM_UID, userId);
         }
 
         Slog.i(TAG, "Sending BOOT_COMPLETE user #" + userId);
