@@ -83,6 +83,8 @@ import com.android.systemui.statusbar.policy.RotationLockController;
 import com.android.systemui.statusbar.policy.RotationLockControllerImpl;
 import com.android.systemui.statusbar.policy.SecurityController;
 import com.android.systemui.statusbar.policy.SecurityControllerImpl;
+import com.android.systemui.statusbar.policy.SuController;
+import com.android.systemui.statusbar.policy.SuControllerImpl;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
@@ -307,6 +309,8 @@ public class Dependency extends SystemUI {
         mProviders.put(LightBarController.class, () -> new LightBarController(mContext));
 
         mProviders.put(IWindowManager.class, () -> WindowManagerGlobal.getWindowManagerService());
+
+        mProviders.put(SuController.class,() -> new SuControllerImpl(mContext));
 
         // Put all dependencies above here so the factory can override them if it wants.
         SystemUIFactory.getInstance().injectDependencies(mProviders, mContext);
