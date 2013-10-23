@@ -94,3 +94,10 @@ LOCAL_SHARED_LIBRARIES += \
     android.frameworks.sensorservice@1.0 \
 
 LOCAL_STATIC_LIBRARIES += libscrypt_static
+
+ifeq ($(BOARD_USES_QC_TIME_SERVICES),true)
+LOCAL_CFLAGS += -DHAVE_QC_TIME_SERVICES
+LOCAL_SHARED_LIBRARIES += libtime_genoff
+$(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libtime_genoff_intermediates/)
+$(shell touch $(OUT)/obj/SHARED_LIBRARIES/libtime_genoff_intermediates/export_includes)
+endif

@@ -42,6 +42,13 @@
 #include <array>
 #include <memory>
 
+#ifdef HAVE_QC_TIME_SERVICES
+#define ANDROID_ALARM_SET_RTC _IOW('a', 5, struct timespec)
+extern "C" {
+#include <hardware/time_genoff.h>
+}
+#endif
+
 namespace android {
 
 static constexpr int ANDROID_ALARM_TIME_CHANGE_MASK = 1 << 16;
@@ -118,12 +125,43 @@ int AlarmImpl::set(int type, struct timespec *ts)
     return timerfd_settime(fds[type], TFD_TIMER_ABSTIME, &spec, NULL);
 }
 
+#ifdef HAVE_QC_TIME_SERVICES
+static int setTimeServicesTime(time_bases_type base, long int secs)
+{
+    int rc = 0;
+    time_genoff_info_type time_set;
+    uint64_t value = secs;
+    time_set.base = base;
+    time_set.unit = TIME_SECS;
+    time_set.operation = T_SET;
+    time_set.ts_val = &value;
+    rc = time_genoff_operation(&time_set);
+    if (rc) {
+        ALOGE("Error setting generic offset: %d. Still setting system time\n", rc);
+        rc = -1;
+    }
+    return rc;
+}
+#endif
+
 int AlarmImpl::setTime(struct timeval *tv)
 {
     struct rtc_time rtc;
     struct tm tm, *gmtime_res;
     int fd;
     int res;
+
+#ifdef HAVE_QC_TIME_SERVICES
+    struct timespec ts;
+    ts.tv_sec = tv->tv_sec;
+    ts.tv_nsec = tv->tv_usec * 1000;
+    res = ioctl(fds[0], ANDROID_ALARM_SET_RTC, &ts);
+    setTimeServicesTime(ATS_USER, (tv->tv_sec));
+
+    if (res < 0)
+        ALOGV("ANDROID_ALARM_SET_RTC ioctl failed: %s\n", strerror(errno));
+    return res;
+#endif
 
     res = settimeofday(tv, NULL);
     if (res < 0) {
