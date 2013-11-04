@@ -27,6 +27,8 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources.Theme;
 import android.os.BaseBundle;
+import android.database.ContentObserver;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Environment;
 import android.os.FactoryTest;
@@ -235,6 +237,19 @@ public final class SystemServer {
     public SystemServer() {
         // Check for factory test mode.
         mFactoryTestMode = FactoryTest.getMode();
+    }
+
+    private class AdbPortObserver extends ContentObserver {
+        public AdbPortObserver() {
+            super(null);
+        }
+        @Override
+        public void onChange(boolean selfChange) {
+            int adbPort = CMSettings.Secure.getInt(mContentResolver,
+                CMSettings.Secure.ADB_PORT, 0);
+            // setting this will control whether ADB runs on TCP/IP or USB
+            SystemProperties.set("service.adb.tcp.port", Integer.toString(adbPort));
+        }
     }
 
     private void run() {
@@ -1249,6 +1264,15 @@ public final class SystemServer {
               mSystemServiceManager.startService(WEAR_TIME_SERVICE_CLASS);
           }
         }
+
+        // make sure the ADB_ENABLED setting value matches the secure property value
+        CMSettings.Secure.putInt(mContentResolver, CMSettings.Secure.ADB_PORT,
+                Integer.parseInt(SystemProperties.get("service.adb.tcp.port", "-1")));
+
+        // register observer to listen for settings changes
+        mContentResolver.registerContentObserver(
+            CMSettings.Secure.getUriFor(CMSettings.Secure.ADB_PORT),
+            false, new AdbPortObserver());
 
         // Before things start rolling, be sure we have decided whether
         // we are in safe mode.
