@@ -130,6 +130,7 @@ java_library_static {
         "capture_state_listener-aidl-java",
         "dnsresolver_aidl_interface-java",
         "netd_aidl_interfaces-platform-java",
+        "org.lineageos.platform.internal",
         "overlayable_policy_aidl-java",
         "SurfaceFlingerProperties",
     ],
