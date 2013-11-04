@@ -725,7 +725,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     }
 
     private boolean shouldSlideInVolumeTray() {
-        return mContext.getDisplay().getRotation() != RotationPolicy.NATURAL_ROTATION;
+        return mContext.getDisplay().getRotation() != RotationPolicy.getNaturalRotation();
     }
 
     private boolean isLandscape() {
