@@ -20,7 +20,6 @@ import static android.content.pm.PackageManager.FEATURE_PC;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static android.view.Display.DEFAULT_DISPLAY;
 
-import static com.android.internal.view.RotationPolicy.NATURAL_ROTATION;
 import static com.android.systemui.shared.system.QuickStepContract.isGesturalMode;
 
 import android.animation.Animator;
@@ -635,7 +634,7 @@ public class RotationButtonController {
         }
         // Only override user prefs when returning to the natural rotation (normally portrait).
         // Don't let apps that force landscape or 180 alter user lock.
-        return rotation == NATURAL_ROTATION;
+        return rotation == RotationPolicy.getNaturalRotation();
     }
 
     private void rescheduleRotationTimeout(final boolean reasonHover) {
