@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa80f949_4731eceb",
+        "filename": "packages/DocumentsUI/src/com/android/documentsui/DirectoryFragment.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2013-12-01T04:28:13Z",
+      "side": 1,
+      "message": "Should use getQuantityString() and plurals here.",
+      "revId": "eda3e6534364996f790b05c75e8e151968a30e18",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
