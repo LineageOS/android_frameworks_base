@@ -16,6 +16,23 @@
       "revId": "96cd06757ea6906969acb80c6ad27b6e1a4ad7db",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa80f949_c0105c51",
+        "filename": "telephony/java/android/telephony/TelephonyManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 4045
+      },
+      "writtenOn": "2013-12-07T14:05:57Z",
+      "side": 1,
+      "message": "Hide this to not break jenkins build\nhttps://github.com/CyanogenMod/android_frameworks_base/blob/cm-10.2/telephony/java/android/telephony/TelephonyManager.java#L653",
+      "revId": "96cd06757ea6906969acb80c6ad27b6e1a4ad7db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
