@@ -38,8 +38,12 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.util.SharedLog;
+<<<<<<< HEAD   (a37516 SoundPool: Do not sleep on stop for USAGE_GAME or on BUFFER_)
 import android.provider.Settings;
 import android.telephony.SubscriptionManager;
+=======
+import android.os.SystemProperties;
+>>>>>>> CHANGE (ec8f96 Allow override of DUN settings)
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
@@ -227,8 +231,17 @@ public class TetheringConfiguration {
         return upstreamNames;
     }
 
+<<<<<<< HEAD   (a37516 SoundPool: Do not sleep on stop for USAGE_GAME or on BUFFER_)
     /** Check whether dun is required. */
     public static boolean checkDunRequired(Context ctx) {
+=======
+    public static int checkDunRequired(Context ctx) {
+        // Allow override via prop
+        final int dunProp = SystemProperties.getInt("persist.sys.dun.override", -1);
+        if (dunProp >= 0) {
+            return dunProp;
+        }
+>>>>>>> CHANGE (ec8f96 Allow override of DUN settings)
         final TelephonyManager tm = (TelephonyManager) ctx.getSystemService(TELEPHONY_SERVICE);
         return (tm != null) ? tm.getTetherApnRequired() : false;
     }
