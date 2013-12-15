@@ -16,7 +16,6 @@
 
 package com.android.networkstack.tethering;
 
-import static android.content.Context.TELEPHONY_SERVICE;
 import static android.net.ConnectivityManager.TYPE_ETHERNET;
 import static android.net.ConnectivityManager.TYPE_MOBILE;
 import static android.net.ConnectivityManager.TYPE_MOBILE_DUN;
@@ -29,7 +28,6 @@ import android.net.TetheringConfigurationParcel;
 import android.net.util.SharedLog;
 import android.provider.DeviceConfig;
 import android.telephony.SubscriptionManager;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -280,10 +278,7 @@ public class TetheringConfiguration {
 
     /** Check whether dun is required. */
     public static boolean checkDunRequired(Context ctx) {
-        final TelephonyManager tm = (TelephonyManager) ctx.getSystemService(TELEPHONY_SERVICE);
-        // TelephonyManager would uses the active data subscription, which should be the one used
-        // by tethering.
-        return (tm != null) ? tm.isTetheringApnRequired() : false;
+        return false;
     }
 
     public int getOffloadPollInterval() {
