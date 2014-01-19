@@ -16,6 +16,41 @@
       "revId": "ec1a40a4eddf7bae72cfac0970a1bfd9c7bb71e8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a5ae5dd_9555b91e",
+        "filename": "core/java/android/net/MobileDataStateTracker.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 4045
+      },
+      "writtenOn": "2014-01-19T09:39:34Z",
+      "side": 1,
+      "message": "Giulio, I\u0027ll send a new set of drawables tonight. What do I do with this ? Is it better to use hspap buffer size or the other way ?",
+      "parentUuid": "5a5ae5dd_07d52d42",
+      "revId": "ec1a40a4eddf7bae72cfac0970a1bfd9c7bb71e8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a5ae5dd_3531650c",
+        "filename": "core/java/android/net/MobileDataStateTracker.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 4045
+      },
+      "writtenOn": "2014-01-19T09:39:34Z",
+      "side": 1,
+      "message": "I was also wondering with this. LTE Cat 4 phones are able to download up to 150Mb/s, so shouldn\u0027t we change the buffersize to \"150000\" (in a separated commit) ?",
+      "revId": "ec1a40a4eddf7bae72cfac0970a1bfd9c7bb71e8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
