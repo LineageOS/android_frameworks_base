@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5a5ae5dd_d52251b9",
+        "filename": "core/java/android/net/MobileDataStateTracker.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 19
+      },
+      "writtenOn": "2014-01-19T10:17:55Z",
+      "side": 1,
+      "message": "each network mode have specific settings even if they are the same, i think we should continue in this way\n\nhttp://review.cyanogenmod.org/57789",
+      "parentUuid": "5a5ae5dd_9555b91e",
+      "revId": "ec1a40a4eddf7bae72cfac0970a1bfd9c7bb71e8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a5ae5dd_3531650c",
         "filename": "core/java/android/net/MobileDataStateTracker.java",
         "patchSetId": 9
