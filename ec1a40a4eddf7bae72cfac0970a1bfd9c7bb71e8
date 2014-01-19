@@ -69,6 +69,23 @@
       "revId": "ec1a40a4eddf7bae72cfac0970a1bfd9c7bb71e8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a5ae5dd_d01d7f10",
+        "filename": "telephony/java/android/telephony/ServiceState.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 4045
+      },
+      "writtenOn": "2014-01-19T12:45:56Z",
+      "side": 1,
+      "message": "Why did you change \"HSPAP\" by \"HSPA+\" ? (just asking :))",
+      "revId": "ec1a40a4eddf7bae72cfac0970a1bfd9c7bb71e8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
