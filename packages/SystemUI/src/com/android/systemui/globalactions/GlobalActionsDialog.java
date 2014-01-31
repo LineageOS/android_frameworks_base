@@ -218,6 +218,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 R.bool.config_useFixedVolume);
 
         mEmergencyAffordanceManager = new EmergencyAffordanceManager(context);
+<<<<<<< HEAD   (242d95 SystemUI: Expose camera, location and microphone icons to Tu)
         mScreenshotHelper = new ScreenshotHelper(context);
         mScreenRecordHelper = new ScreenRecordHelper(context);
 
@@ -241,6 +242,11 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 org.lineageos.platform.internal.R.array.config_restartActionsList);
 
         updatePowerMenuActions();
+=======
+
+        // Set the initial status of airplane mode toggle
+        mAirplaneState = getUpdatedAirplaneToggleState();
+>>>>>>> CHANGE (760256 GlobalActions: Set the initial status of airplane mode toggl)
     }
 
     /**
@@ -1675,15 +1681,17 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         }
     };
 
+    private ToggleAction.State getUpdatedAirplaneToggleState() {
+        return (Settings.Global.getInt(mContext.getContentResolver(),
+                    Settings.Global.AIRPLANE_MODE_ON, 0) == 1) ?
+                ToggleAction.State.On : ToggleAction.State.Off;
+    }
+
     private void onAirplaneModeChanged() {
         // Let the service state callbacks handle the state.
         if (mHasTelephony) return;
 
-        boolean airplaneModeOn = Settings.Global.getInt(
-                mContext.getContentResolver(),
-                Settings.Global.AIRPLANE_MODE_ON,
-                0) == 1;
-        mAirplaneState = airplaneModeOn ? ToggleAction.State.On : ToggleAction.State.Off;
+        mAirplaneState = getUpdatedAirplaneToggleState();
         mAirplaneModeOn.updateState(mAirplaneState);
     }
 
