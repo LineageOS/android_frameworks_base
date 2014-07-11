@@ -34,6 +34,24 @@
       "revId": "bc8650bab50851efbdcace32632eac43de6c0b9c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a061dce_dd399b43",
+        "filename": "core/java/android/content/res/Resources.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 4884
+      },
+      "writtenOn": "2014-07-11T08:16:10Z",
+      "side": 1,
+      "message": "private boolean isOverridenId(int id, TypedValue outValue) {\n    switch (id) {\n        case com.android.internal.R.bool.config_showNavigationBar:\n            IWindowManager wm \u003d WindowManagerGlobal.getWindowManagerService();\n            try {\n                boolean hasNavBar \u003d wm.hasNavigationBar();\n                outValue.type \u003d TypedValue.TYPE_INT_BOOLEAN;\n                outValue.data \u003d hasNavBar ? 1 : 0;\n                outValue.resourceId \u003d id;\n                return true;\n            } catch (RemoteException ex) {\n                // Fallback to the original resource value\n                return false;\n            }\n    }\n\n    return false;\n}",
+      "parentUuid": "9a061dce_9d2f23f6",
+      "revId": "bc8650bab50851efbdcace32632eac43de6c0b9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
