@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a061dce_5d2c6bab",
+        "filename": "core/java/android/content/res/Resources.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2014-07-11T10:50:09Z",
+      "side": 1,
+      "message": "This method name is misleading.  This could be renamed to something like overrideId() and based on the return value you will know whether it was overriden or not.",
+      "revId": "a62c39ca4363dd9409920e59fc3657067ce13d5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a061dce_bd178753",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1541,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2014-07-11T10:50:09Z",
+      "side": 1,
+      "message": "\u003e 100 chars",
+      "revId": "a62c39ca4363dd9409920e59fc3657067ce13d5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
