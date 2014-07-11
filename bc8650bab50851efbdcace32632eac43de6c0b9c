@@ -16,6 +16,24 @@
       "revId": "bc8650bab50851efbdcace32632eac43de6c0b9c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a061dce_9d2f23f6",
+        "filename": "core/java/android/content/res/Resources.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2014-07-11T08:10:24Z",
+      "side": 1,
+      "message": "Reason for a switch/case is so we can add future ids.",
+      "parentUuid": "9a061dce_5def4bb0",
+      "revId": "bc8650bab50851efbdcace32632eac43de6c0b9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
