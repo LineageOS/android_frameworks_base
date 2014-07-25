@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a061dce_03ff2402",
+        "filename": "services/java/com/android/server/input/InputManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 8328
+      },
+      "writtenOn": "2014-07-25T23:05:06Z",
+      "side": 1,
+      "message": "what about changing that to SW_SWITCH too and assigning the value from SW_FLIP here, defaulting to 0x00 ?\n\nthis would remove the need for all the extra added code, if\u0027s etc if i am correct?",
+      "range": {
+        "startLine": 225,
+        "startChar": 28,
+        "endLine": 225,
+        "endChar": 34
+      },
+      "revId": "33c5f4da8e7d8b8317ee38ddbaa40345a72f50c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
