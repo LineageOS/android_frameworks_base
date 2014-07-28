@@ -1180,6 +1180,27 @@ public class SubscriptionManager {
     }
 
     /** @hide */
+    public static void activateSubId(int subId) {
+        try {
+            getISubInfo().activateSubId(subId);
+        } catch (RemoteException ex) {
+        }
+    }
+
+    /** @hide */
+    public static void deactivateSubId(int subId) {
+        try {
+            getISubInfo().deactivateSubId(subId);
+        } catch (RemoteException ex) {
+        }
+    }
+
+    /** @hide */
+    private static ISub getISubInfo() {
+        return ISub.Stub.asInterface(ServiceManager.getService("isub"));
+    }
+
+    /** @hide */
     public static void putPhoneIdAndSubIdExtra(Intent intent, int phoneId) {
         int[] subIds = SubscriptionManager.getSubId(phoneId);
         if (subIds != null && subIds.length > 0) {
