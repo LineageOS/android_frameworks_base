@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a061dce_28a0339f",
+        "filename": "services/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 4884
+      },
+      "writtenOn": "2014-08-07T17:07:42Z",
+      "side": 1,
+      "message": "if (pkgUid \u003d\u003d -1 \u0026\u0026 packageName.endsWith(\":\" + uid)) {\n    try {\n        pkgUid \u003d mContext.getPackageManager().getUidForSharedUser(\n                packageName.substring(0, packageName.indexOf(\":\")));\n    } catch (NameNotFoundException e) {\n        // Do nothing here\n    }\n}",
+      "revId": "e75de3c83a212de99dd43b7e7c36015e1c4e00c5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
