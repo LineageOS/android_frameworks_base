@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a061dce_8d8871e9",
+        "filename": "services/java/com/android/server/wm/WindowManagerService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 5312,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2014-08-07T02:40:12Z",
+      "side": 1,
+      "message": "Those two lines can be collapsed into one (same below)",
+      "revId": "7800d7651af7d7f4427c8474f8de514bb8cf7103",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
