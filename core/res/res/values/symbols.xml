@@ -2826,4 +2826,8 @@
   <java-symbol type="string" name="adb_active_generic_notification_message" />
 
   <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+
+  <!-- Last app switch animations -->
+  <java-symbol type="anim" name="last_app_in" />
+  <java-symbol type="anim" name="last_app_out" />
 </resources>
