@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a18252c_5ba75b4f",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 3178,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2014-10-20T16:36:24Z",
+      "side": 1,
+      "message": "Whitespace",
+      "revId": "e88adbdf542a2a7b50391ea7b5bfba811fc676a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a18252c_1bade331",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 3290,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2014-10-20T16:36:24Z",
+      "side": 1,
+      "message": "Whitespace+tabs",
+      "revId": "e88adbdf542a2a7b50391ea7b5bfba811fc676a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a18252c_fbb5877e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/TelephonyIcons.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2014-10-20T16:36:24Z",
+      "side": 1,
+      "message": "Whitespace",
+      "revId": "e88adbdf542a2a7b50391ea7b5bfba811fc676a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a18252c_dbba4b6e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/TelephonyIcons.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2014-10-20T16:36:24Z",
+      "side": 1,
+      "message": "Whitespace+tabs",
+      "revId": "e88adbdf542a2a7b50391ea7b5bfba811fc676a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a18252c_5b90fbec",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2014-10-20T16:36:24Z",
+      "side": 1,
+      "message": "Fix tabs",
+      "revId": "e88adbdf542a2a7b50391ea7b5bfba811fc676a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a18252c_bbbb0f75",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2014-10-20T16:36:24Z",
+      "side": 1,
+      "message": "Whitespace",
+      "revId": "e88adbdf542a2a7b50391ea7b5bfba811fc676a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a18252c_9bc0d3e2",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2014-10-20T16:36:24Z",
+      "side": 1,
+      "message": "Finish LTE",
+      "revId": "e88adbdf542a2a7b50391ea7b5bfba811fc676a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
