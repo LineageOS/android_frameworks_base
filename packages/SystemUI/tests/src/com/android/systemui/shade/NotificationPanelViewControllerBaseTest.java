@@ -322,7 +322,6 @@ public class NotificationPanelViewControllerBaseTest extends SysuiTestCase {
     @Mock private JavaAdapter mJavaAdapter;
     @Mock private CastController mCastController;
     @Mock private KeyguardRootView mKeyguardRootView;
-
     protected final int mMaxUdfpsBurnInOffsetY = 5;
     protected KeyguardBottomAreaInteractor mKeyguardBottomAreaInteractor;
     protected FakeKeyguardRepository mFakeKeyguardRepository;
