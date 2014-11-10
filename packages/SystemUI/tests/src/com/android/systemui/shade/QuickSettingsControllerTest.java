@@ -90,6 +90,7 @@ import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.systemui.statusbar.phone.StatusBarTouchableRegionManager;
 import com.android.systemui.statusbar.policy.CastController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
+import com.android.systemui.tuner.TunerService;
 
 import dagger.Lazy;
 
@@ -159,6 +160,7 @@ public class QuickSettingsControllerTest extends SysuiTestCase {
     @Mock private DumpManager mDumpManager;
     @Mock private UiEventLogger mUiEventLogger;
     @Mock private CastController mCastController;
+    @Mock private TunerService mTunerService;
 
     private SysuiStatusBarStateController mStatusBarStateController;
 
@@ -250,7 +252,8 @@ public class QuickSettingsControllerTest extends SysuiTestCase {
                 mDumpManager,
                 mock(KeyguardFaceAuthInteractor.class),
                 mock(ShadeRepository.class),
-                mCastController
+                mCastController,
+                mTunerService
         );
 
         mFragmentListener = mQsController.getQsFragmentListener();
