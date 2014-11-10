@@ -35,9 +35,11 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Fragment;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Insets;
 import android.graphics.Rect;
 import android.graphics.Region;
+import android.os.Handler;
 import android.util.IndentingPrintWriter;
 import android.util.Log;
 import android.util.MathUtils;
@@ -103,6 +105,8 @@ import com.android.systemui.statusbar.policy.CastController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.util.LargeScreenUtils;
 import com.android.systemui.util.kotlin.JavaAdapter;
+
+import lineageos.providers.LineageSettings;
 
 import dagger.Lazy;
 
@@ -289,6 +293,8 @@ public class QuickSettingsController implements Dumpable {
     private int mLastNotificationsClippingTopBound;
     private int mLastNotificationsClippingTopBoundNssl;
 
+    private int mOneFingerQuickSettingsIntercept;
+
     private final Region mInterceptRegion = new Region();
     /** The end bounds of a clipping animation. */
     private final Rect mClippingAnimationEndBounds = new Rect();
@@ -397,6 +403,19 @@ public class QuickSettingsController implements Dumpable {
 
         mLockscreenShadeTransitionController.addCallback(new LockscreenShadeTransitionCallback());
         dumpManager.registerDumpable(this);
+
+        mPanelView.getContext().getContentResolver().registerContentObserver(
+                LineageSettings.System.getUriFor(
+                        LineageSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN),
+                false,
+                new ContentObserver(null) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        mOneFingerQuickSettingsIntercept = LineageSettings.System.getInt(
+                                mPanelView.getContext().getContentResolver(),
+                                LineageSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1);
+                    }
+                });
     }
 
     @VisibleForTesting
@@ -590,7 +609,22 @@ public class QuickSettingsController implements Dumpable {
                         MotionEvent.BUTTON_SECONDARY) || event.isButtonPressed(
                         MotionEvent.BUTTON_TERTIARY));
 
-        return twoFingerDrag || stylusButtonClickDrag || mouseButtonClickDrag;
+        final float w = mQs.getView().getMeasuredWidth();
+        final float x = event.getX();
+        float region = w * 1.f / 4.f; // TODO overlay region fraction?
+        boolean showQsOverride = false;
+
+        switch (mOneFingerQuickSettingsIntercept) {
+            case 1: // Right side pulldown
+                showQsOverride = mQs.getView().isLayoutRtl() ? x < region : w - region < x;
+                break;
+            case 2: // Left side pulldown
+                showQsOverride = mQs.getView().isLayoutRtl() ? w - region < x : x < region;
+                break;
+        }
+        showQsOverride &= mBarState == StatusBarState.SHADE;
+
+        return twoFingerDrag || showQsOverride || stylusButtonClickDrag || mouseButtonClickDrag;
     }
 
 
