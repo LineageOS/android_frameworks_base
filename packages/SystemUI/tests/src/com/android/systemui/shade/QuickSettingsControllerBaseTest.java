@@ -74,6 +74,7 @@ import com.android.systemui.statusbar.pipeline.mobile.data.repository.FakeUserSe
 import com.android.systemui.statusbar.policy.CastController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.user.domain.interactor.UserInteractor;
 import com.android.systemui.util.kotlin.JavaAdapter;
 
@@ -144,6 +145,7 @@ public class QuickSettingsControllerBaseTest extends SysuiTestCase {
     @Mock protected CastController mCastController;
     @Mock protected DeviceProvisionedController mDeviceProvisionedController;
     @Mock protected UserInteractor mUserInteractor;
+    @Mock protected TunerService mTunerService;
     protected FakeDisableFlagsRepository mDisableFlagsRepository =
             new FakeDisableFlagsRepository();
     protected FakeKeyguardRepository mKeyguardRepository = new FakeKeyguardRepository();
@@ -252,7 +254,8 @@ public class QuickSettingsControllerBaseTest extends SysuiTestCase {
                 mock(ShadeRepository.class),
                 mShadeInteractor,
                 new JavaAdapter(mTestScope.getBackgroundScope()),
-                mCastController
+                mCastController,
+                mTunerService
         );
         mQsController.init();
 
