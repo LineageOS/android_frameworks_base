@@ -400,8 +400,33 @@ public abstract class Connection extends Conferenceable {
      */
     public static final int PROPERTY_IS_RTT = 1 << 8;
 
+    /**
+     * Whether the call was forwarded from another party (GSM only)
+     * @hide
+     */
+    public static final int PROPERTY_WAS_FORWARDED = 1 << 9;
+
+    /**
+     * Whether the dialing state is waiting for the busy remote side
+     * @hide
+     */
+    public static final int PROPERTY_DIALING_IS_WAITING = 1 << 10;
+
+    /**
+     * Whether an additional call came in and was forwarded while the call was active
+     * @hide
+     */
+    public static final int PROPERTY_ADDITIONAL_CALL_FORWARDED = 1 << 11;
+
+    /**
+     * Whether incoming calls are barred at the remote side
+     * @hide
+     */
+    public static final int PROPERTY_REMOTE_INCOMING_CALLS_BARRED = 1 << 12;
+
+
     //**********************************************************************************************
-    // Next PROPERTY value: 1<<9
+    // Next PROPERTY value: 1<<13
     //**********************************************************************************************
 
     /**
@@ -764,8 +789,55 @@ public abstract class Connection extends Conferenceable {
             builder.append(isLong ? " PROPERTY_HAS_CDMA_VOICE_PRIVACY" : " priv");
         }
 
+        if (can(properties, PROPERTY_WAS_FORWARDED)) {
+            builder.append(" PROPERTY_WAS_FORWARDED");
+        }
+
+        if (can(properties, PROPERTY_DIALING_IS_WAITING)) {
+            builder.append(" PROPERTY_DIALING_IS_WAITING");
+        }
+
+        if (can(properties, PROPERTY_ADDITIONAL_CALL_FORWARDED)) {
+            builder.append(" PROPERTY_ADDITIONAL_CALL_FORWARDED");
+        }
+
+        if (can(properties, PROPERTY_REMOTE_INCOMING_CALLS_BARRED)) {
+            builder.append(" PROPERTY_REMOTE_INCOMING_CALLS_BARRED");
+        }
+
         builder.append("]");
         return builder.toString();
+    }
+
+    /**
+     * Whether the properties of this {@code Connection} include the specified property.
+     *
+     * @param property The property to look for.
+     * @return Whether the specified property is present.
+     * @hide
+     */
+    public boolean hasProperty(int property) {
+        return can(mConnectionProperties, property);
+    }
+
+    /**
+     * Removes the specified property from the set of properties of this {@code Connection}.
+     *
+     * @param property The property to remove from the set.
+     * @hide
+     */
+    public void removeProperty(int property) {
+        setConnectionProperties(mConnectionProperties & ~property);
+    }
+
+    /**
+     * Adds the specified property to the set of propertes of this {@code Connection}.
+     *
+     * @param property The property to add to the set.
+     * @hide
+     */
+    public void addProperty(int property) {
+        setConnectionProperties(mConnectionProperties | property);
     }
 
     /** @hide */

@@ -336,8 +336,32 @@ public final class Call {
          */
         public static final int PROPERTY_SELF_MANAGED = 0x00000100;
 
+        /*
+         * Whether the call was forwarded from another party (GSM only)
+         * @hide
+         */
+        public static final int PROPERTY_WAS_FORWARDED = 0x00000200;
+
+        /**
+         * Whether the dialing state is waiting for the busy remote side
+         * @hide
+         */
+        public static final int PROPERTY_DIALING_IS_WAITING = 0x00000400;
+
+        /**
+         * Whether an additional call came in and was forwarded while the call was active
+         * @hide
+         */
+        public static final int PROPERTY_ADDITIONAL_CALL_FORWARDED = 0x0000800;
+
+        /**
+         * Whether incoming calls are barred at the remote side
+         * @hide
+         */
+        public static final int PROPERTY_REMOTE_INCOMING_CALLS_BARRED = 0x00001000;
+
         //******************************************************************************************
-        // Next PROPERTY value: 0x00000200
+        // Next PROPERTY value: 0x00002000
         //******************************************************************************************
 
         private final String mTelecomCallId;
@@ -497,6 +521,19 @@ public final class Call {
             if(hasProperty(properties, PROPERTY_HAS_CDMA_VOICE_PRIVACY)) {
                 builder.append(" PROPERTY_HAS_CDMA_VOICE_PRIVACY");
             }
+            if (hasProperty(properties, PROPERTY_WAS_FORWARDED)) {
+                builder.append(" PROPERTY_WAS_FORWARDED");
+            }
+            if (hasProperty(properties, PROPERTY_DIALING_IS_WAITING)) {
+                builder.append(" PROPERTY_DIALING_IS_WAITING");
+            }
+            if (hasProperty(properties, PROPERTY_ADDITIONAL_CALL_FORWARDED)) {
+                builder.append(" PROPERTY_ADDITIONAL_CALL_FORWARDED");
+            }
+            if (hasProperty(properties, PROPERTY_REMOTE_INCOMING_CALLS_BARRED)) {
+                builder.append(" PROPERTY_REMOTE_INCOMING_CALLS_BARRED");
+            }
+
             builder.append("]");
             return builder.toString();
         }

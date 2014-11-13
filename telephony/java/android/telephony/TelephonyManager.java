@@ -925,6 +925,9 @@ public class TelephonyManager {
      */
     public static final int USSD_ERROR_SERVICE_UNAVAIL = -2;
 
+    /** {@hide} */
+    public static final String EXTRA_IS_FORWARDED = "is_forwarded";
+
     //
     //
     // Device Info
