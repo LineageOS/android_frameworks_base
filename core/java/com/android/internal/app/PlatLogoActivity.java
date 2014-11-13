@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2010 The Android Open Source Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -86,7 +87,9 @@ public class PlatLogoActivity extends Activity {
 
         im.setBackground(new RippleDrawable(
                 ColorStateList.valueOf(0xFFFFFFFF),
-                getDrawable(com.android.internal.R.drawable.platlogo),
+                getDrawable(getIntent().getBooleanExtra("is_lineage", false)
+                        ? com.android.internal.R.drawable.platlogo_lineage
+                        : com.android.internal.R.drawable.platlogo),
                 null));
 //        im.setOutlineProvider(new ViewOutlineProvider() {
 //            @Override
