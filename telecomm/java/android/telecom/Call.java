@@ -423,8 +423,20 @@ public final class Call {
          */
         public static final int PROPERTY_ASSISTED_DIALING_USED = 0x00000200;
 
+        /**
+         * Whether the call was forwarded from another party (GSM only)
+         * @hide
+         */
+        public static final int PROPERTY_WAS_FORWARDED = 0x00000400;
+
+        /**
+         * Whether incoming calls are barred at the remote side
+         * @hide
+         */
+        public static final int PROPERTY_REMOTE_INCOMING_CALLS_BARRED = 0x0000800;
+
         //******************************************************************************************
-        // Next PROPERTY value: 0x00000400
+        // Next PROPERTY value: 0x00001000
         //******************************************************************************************
 
         private final String mTelecomCallId;
@@ -586,6 +598,12 @@ public final class Call {
             }
             if(hasProperty(properties, PROPERTY_ASSISTED_DIALING_USED)) {
                 builder.append(" PROPERTY_ASSISTED_DIALING_USED");
+            }
+            if (hasProperty(properties, PROPERTY_WAS_FORWARDED)) {
+                builder.append(" PROPERTY_WAS_FORWARDED");
+            }
+            if (hasProperty(properties, PROPERTY_REMOTE_INCOMING_CALLS_BARRED)) {
+                builder.append(" PROPERTY_REMOTE_INCOMING_CALLS_BARRED");
             }
             builder.append("]");
             return builder.toString();
