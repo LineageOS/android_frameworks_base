@@ -400,8 +400,21 @@ public abstract class Connection extends Conferenceable {
      */
     public static final int PROPERTY_IS_RTT = 1 << 8;
 
+    /**
+     * Whether the call was forwarded from another party (GSM only)
+     * @hide
+     */
+    public static final int PROPERTY_WAS_FORWARDED = 1 << 9;
+
+    /**
+     * Whether incoming calls are barred at the remote side
+     * @hide
+     */
+    public static final int PROPERTY_REMOTE_INCOMING_CALLS_BARRED = 1 << 10;
+
+
     //**********************************************************************************************
-    // Next PROPERTY value: 1<<9
+    // Next PROPERTY value: 1<<11
     //**********************************************************************************************
 
     /**
@@ -567,6 +580,22 @@ public abstract class Connection extends Conferenceable {
      */
     public static final String EVENT_CALL_REMOTELY_UNHELD =
             "android.telecom.event.CALL_REMOTELY_UNHELD";
+
+    /**
+     * Connection event used to inform {@link InCallService} when the dialing state
+     * is waiting for the busy remote side.
+     * @hide
+     */
+    public static final String EVENT_DIALING_IS_WAITING =
+            "android.telecom.event.DIALING_IS_WAITING";
+
+    /**
+     * Connection event used to inform {@link InCallService} Whether an additional call came in
+     * and was forwarded while the call was active.
+     * @hide
+     */
+    public static final String EVENT_ADDITIONAL_CALL_FORWARDED =
+            "android.telecom.event.ADDITIONAL_CALL_FORWARDED";
 
     // Flag controlling whether PII is emitted into the logs
     private static final boolean PII_DEBUG = Log.isLoggable(android.util.Log.DEBUG);
@@ -764,8 +793,47 @@ public abstract class Connection extends Conferenceable {
             builder.append(isLong ? " PROPERTY_HAS_CDMA_VOICE_PRIVACY" : " priv");
         }
 
+        if (can(properties, PROPERTY_WAS_FORWARDED)) {
+            builder.append(" PROPERTY_WAS_FORWARDED");
+        }
+
+        if (can(properties, PROPERTY_REMOTE_INCOMING_CALLS_BARRED)) {
+            builder.append(" PROPERTY_REMOTE_INCOMING_CALLS_BARRED");
+        }
+
         builder.append("]");
         return builder.toString();
+    }
+
+    /**
+     * Whether the properties of this {@code Connection} include the specified property.
+     *
+     * @param property The property to look for.
+     * @return Whether the specified property is present.
+     * @hide
+     */
+    public boolean hasProperty(int property) {
+        return can(mConnectionProperties, property);
+    }
+
+    /**
+     * Removes the specified property from the set of properties of this {@code Connection}.
+     *
+     * @param property The property to remove from the set.
+     * @hide
+     */
+    public void removeProperty(int property) {
+        setConnectionProperties(mConnectionProperties & ~property);
+    }
+
+    /**
+     * Adds the specified property to the set of propertes of this {@code Connection}.
+     *
+     * @param property The property to add to the set.
+     * @hide
+     */
+    public void addProperty(int property) {
+        setConnectionProperties(mConnectionProperties | property);
     }
 
     /** @hide */
