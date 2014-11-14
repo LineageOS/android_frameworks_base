@@ -1321,6 +1321,7 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
                 && ActivityManagerWrapper.getInstance().isScreenPinningActive()) {
             return onLongPressBackHome(v);
         }
+<<<<<<< HEAD
         if (shouldDisableNavbarGestures()) {
             return false;
         }
@@ -1333,6 +1334,11 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
         mAssistManagerLazy.get().startAssist(args);
         mCentralSurfacesOptionalLazy.get().ifPresent(CentralSurfaces::awakenDreams);
         mView.abortCurrentGesture();
+=======
+        KeyButtonView keyButtonView = (KeyButtonView) v;
+        keyButtonView.sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.FLAG_LONG_PRESS);
+        keyButtonView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_LONG_CLICKED);
+>>>>>>> 7aaa2ea0131d (Reimplement hardware keys custom rebinding)
         return true;
     }
 
