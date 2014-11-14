@@ -395,6 +395,7 @@ public class NavigationBarFragment extends Fragment implements Callbacks {
 
         ButtonDispatcher homeButton = mNavigationBarView.getHomeButton();
         homeButton.setOnTouchListener(this::onHomeTouch);
+        homeButton.setLongClickable(true);
         homeButton.setOnLongClickListener(this::onHomeLongClick);
 
         ButtonDispatcher accessibilityButton = mNavigationBarView.getAccessibilityButton();
@@ -443,15 +444,9 @@ public class NavigationBarFragment extends Fragment implements Callbacks {
 
     @VisibleForTesting
     boolean onHomeLongClick(View v) {
-        if (shouldDisableNavbarGestures()) {
-            return false;
-        }
-        MetricsLogger.action(getContext(), MetricsEvent.ACTION_ASSIST_LONG_PRESS);
-        mAssistManager.startAssist(new Bundle() /* args */);
-        mStatusBar.awakenDreams();
-        if (mNavigationBarView != null) {
-            mNavigationBarView.abortCurrentGesture();
-        }
+        KeyButtonView keyButtonView = (KeyButtonView) v;
+        keyButtonView.sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.FLAG_LONG_PRESS);
+        keyButtonView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_LONG_CLICKED);
         return true;
     }
 
