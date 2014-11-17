@@ -18,6 +18,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">App killed</string>
+
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB over network enabled</string>
     <!-- ADB over USB and network notification -->
