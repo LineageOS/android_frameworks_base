@@ -13203,7 +13203,11 @@ public final class Settings {
         /**
          * Defines global runtime overrides to window policy.
          *
+<<<<<<< HEAD   (05bdbc Camera: allow camera to use power key as shutter)
          * See {@link com.android.server.wm.PolicyControl} for value format.
+=======
+         * See {@link android.view.WindowManagerPolicyControl} for value format.
+>>>>>>> CHANGE (95f657 Implement expanded desktop feature)
          *
          * @hide
          */
@@ -13225,6 +13229,15 @@ public final class Settings {
          * @hide
          */
         public static final String BLOCKED_SLICES = "blocked_slices";
+
+        /**
+         * Defines global runtime overrides to window policy style.
+         *
+         * See {@link android.view.WindowManagerPolicyControl} for value definitions.
+         *
+         * @hide
+         */
+        public static final String POLICY_CONTROL_STYLE = "policy_control_style";
 
         /**
          * Defines global zen mode.  ZEN_MODE_OFF, ZEN_MODE_IMPORTANT_INTERRUPTIONS,
