@@ -75,6 +75,9 @@ public class DisplayFrames {
      */
     public final Rect mStableFullscreen = new Rect();
 
+    // For force imersive mode
+    public final Rect mForceImmersive = new Rect();
+
     /**
      * During layout, the current screen borders with all outer decoration (status bar, input method
      * dock) accounted for.
@@ -168,6 +171,7 @@ public class DisplayFrames {
         mStable.set(mUnrestricted);
         mStableFullscreen.set(mUnrestricted);
         mCurrent.set(mUnrestricted);
+        mForceImmersive.set(mUnrestricted);
 
         mDisplayCutout = mDisplayInfoCutout;
         mDisplayCutoutSafe.set(Integer.MIN_VALUE, Integer.MIN_VALUE,
