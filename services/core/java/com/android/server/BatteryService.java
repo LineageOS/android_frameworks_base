@@ -61,6 +61,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.lineageos.internal.lights.LineageBatteryLights;
 
 /**
  * <p>BatteryService monitors the charging status, and charge level of the device
@@ -156,6 +157,8 @@ public final class BatteryService extends SystemService {
 
     private ActivityManagerInternal mActivityManagerInternal;
 
+    private LineageBatteryLights mLineageBatteryLights;
+
     public BatteryService(Context context) {
         super(context);
 
@@ -227,6 +230,15 @@ public final class BatteryService extends SystemService {
                         false, obs, UserHandle.USER_ALL);
                 updateBatteryWarningLevelLocked();
             }
+        } else if (phase == PHASE_BOOT_COMPLETED) {
+            final LineageBatteryLights.LedUpdater ledUpdater =
+                     new LineageBatteryLights.LedUpdater() {
+                public void update() {
+                    updateLedPulse();
+                }
+            };
+            mLineageBatteryLights = new LineageBatteryLights(mContext, ledUpdater);
+            updateLedPulse();
         }
     }
 
@@ -878,6 +890,10 @@ public final class BatteryService extends SystemService {
         proto.flush();
     }
 
+    private synchronized void updateLedPulse() {
+        mLed.updateLightsLocked();
+    }
+
     private final class Led {
         private final Light mBatteryLight;
 
@@ -906,25 +922,49 @@ public final class BatteryService extends SystemService {
          * Synchronize on BatteryService.
          */
         public void updateLightsLocked() {
+            // mBatteryProps could be null on startup (called by SettingsObserver)
+            if (mBatteryProps == null) {
+                Slog.w(TAG, "updateLightsLocked: mBatteryProps is null; skipping");
+                return;
+            }
+            // mLineageBatteryLights is initialized during PHASE_BOOT_COMPLETED
+            // This means we don't have Lineage battery settings yet so skip.
+            if (mLineageBatteryLights == null) {
+                Slog.w(TAG, "updateLightsLocked: mLineageBatteryLights is not yet ready; skipping");
+                return;
+            }
+
             final int level = mBatteryProps.batteryLevel;
             final int status = mBatteryProps.batteryStatus;
-            if (level < mLowBatteryWarningLevel) {
+
+            // For convenience below.
+            final int lowARGB = mLineageBatteryLights.mBatteryLowARGB;
+            final int mediumARGB = mLineageBatteryLights.mBatteryMediumARGB;
+            final int fullARGB = mLineageBatteryLights.mBatteryFullARGB;
+
+            if (!mLineageBatteryLights.mLightEnabled) {
+                // No lights if explicitly disabled
+                mBatteryLight.turnOff();
+            } else if (level < mLowBatteryWarningLevel) {
                 if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
-                    // Solid red when battery is charging
-                    mBatteryLight.setColor(mBatteryLowARGB);
-                } else {
-                    // Flash red when battery is low and not charging
-                    mBatteryLight.setFlashing(mBatteryLowARGB, Light.LIGHT_FLASH_TIMED,
+                    // Battery is charging and low
+                    mBatteryLight.setColor(lowARGB);
+                } else if (mLineageBatteryLights.mLedPulseEnabled) {
+                    // Battery is low and not charging
+                    mBatteryLight.setFlashing(lowARGB, Light.LIGHT_FLASH_TIMED,
                             mBatteryLedOn, mBatteryLedOff);
+                } else {
+                    // "Pulse low battery light" is disabled, no lights.
+                    mBatteryLight.turnOff();
                 }
             } else if (status == BatteryManager.BATTERY_STATUS_CHARGING
                     || status == BatteryManager.BATTERY_STATUS_FULL) {
                 if (status == BatteryManager.BATTERY_STATUS_FULL || level >= 90) {
-                    // Solid green when full or charging and nearly full
-                    mBatteryLight.setColor(mBatteryFullARGB);
+                    // Battery is full or charging and nearly full
+                    mBatteryLight.setColor(fullARGB);
                 } else {
-                    // Solid orange when charging and halfway full
-                    mBatteryLight.setColor(mBatteryMediumARGB);
+                    // Battery is charging and halfway full
+                    mBatteryLight.setColor(mediumARGB);
                 }
             } else {
                 // No lights if not charging and not low
