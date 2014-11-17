@@ -512,6 +512,8 @@ public interface WindowManagerPolicy {
          * Overrides all currently playing app animations with {@param a}.
          */
         void overridePlayingAppAnimationsLw(Animation a);
+
+        void addSystemUIVisibilityFlag(int flags);
     }
 
     public interface PointerEventListener {
