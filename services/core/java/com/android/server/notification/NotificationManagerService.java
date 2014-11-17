@@ -1,5 +1,7 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
+ * Copyright (C) 2015 The CyanogenMod Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -177,6 +179,9 @@ import com.android.server.notification.ManagedServices.ManagedServiceInfo;
 import com.android.server.policy.PhoneWindowManager;
 import com.android.server.statusbar.StatusBarManagerInternal;
 import com.android.server.notification.ManagedServices.UserProfiles;
+
+import org.lineageos.internal.notification.LedValues;
+import org.lineageos.internal.notification.LineageNotificationLights;
 
 import libcore.io.IoUtils;
 
@@ -362,6 +367,8 @@ public class NotificationManagerService extends SystemService {
     private SnoozeHelper mSnoozeHelper;
     private GroupHelper mGroupHelper;
     private boolean mIsTelevision;
+
+    private LineageNotificationLights mLineageNotificationLights;
 
     private static class Archive {
         final int mBufferSize;
@@ -802,8 +809,11 @@ public class NotificationManagerService extends SystemService {
     @GuardedBy("mNotificationLock")
     private void clearLightsLocked() {
         // light
-        mLights.clear();
-        updateLightsLocked();
+        // clear only if lockscreen is not active
+        if (!mLineageNotificationLights.isKeyguardLocked()) {
+            mLights.clear();
+            updateLightsLocked();
+        }
     }
 
     protected final BroadcastReceiver mLocaleChangeReceiver = new BroadcastReceiver() {
@@ -977,7 +987,10 @@ public class NotificationManagerService extends SystemService {
                 }
             } else if (action.equals(Intent.ACTION_USER_PRESENT)) {
                 // turn off LED when user passes through lock screen
-                mNotificationLight.turnOff();
+                // if lights with screen on is disabled.
+                if (!mLineageNotificationLights.showLightsScreenOn()) {
+                    mNotificationLight.turnOff();
+                }
             } else if (action.equals(Intent.ACTION_USER_SWITCHED)) {
                 final int user = intent.getIntExtra(Intent.EXTRA_USER_HANDLE, USER_NULL);
                 // reload per-user settings
@@ -1392,6 +1405,13 @@ public class NotificationManagerService extends SystemService {
 
         IntentFilter localeChangedFilter = new IntentFilter(Intent.ACTION_LOCALE_CHANGED);
         getContext().registerReceiver(mLocaleChangeReceiver, localeChangedFilter);
+
+        mLineageNotificationLights = new LineageNotificationLights(getContext(),
+                 new LineageNotificationLights.LedUpdater() {
+            public void update() {
+                updateNotificationPulse();
+            }
+        });
 
         publishBinderService(Context.NOTIFICATION_SERVICE, mService);
         publishLocalService(NotificationManagerInternal.class, mInternalService);
@@ -4093,9 +4113,8 @@ public class NotificationManagerService extends SystemService {
         // light
         // release the light
         boolean wasShowLights = mLights.remove(key);
-        if (record.getLight() != null && aboveThreshold
-                && ((record.getSuppressedVisualEffects()
-                & NotificationListenerService.SUPPRESSED_EFFECT_SCREEN_OFF) == 0)) {
+        if (record.getLight() != null
+                && (aboveThreshold || isLedNotificationForcedOn(record))) {
             mLights.add(key);
             updateLightsLocked();
             if (mUseAttentionLight) {
@@ -5016,17 +5035,39 @@ public class NotificationManagerService extends SystemService {
             }
         }
 
-        // Don't flash while we are in a call or screen is on
-        if (ledNotification == null || mInCall || mScreenOn) {
+        NotificationRecord.Light light = ledNotification != null ?
+                ledNotification.getLight() : null;
+        if (ledNotification == null || mLineageNotificationLights == null ||
+                light == null || !mNotificationPulseEnabled) {
+            mNotificationLight.turnOff();
+            return;
+        }
+
+        LedValues ledValues = new LedValues(light.color, light.onMs, light.offMs);
+        final String packageName = ledNotification.sbn.getPackageName();
+        final boolean defaultLights =
+                (ledNotification.sbn.getNotification().defaults
+                        & Notification.DEFAULT_LIGHTS) != 0;
+        mLineageNotificationLights.calcLights(ledValues, packageName,
+                isLedNotificationForcedOn(ledNotification), mScreenOn,
+                mInCall, defaultLights, ledNotification.getSuppressedVisualEffects());
+
+        if (!ledValues.isEnabled()) {
             mNotificationLight.turnOff();
         } else {
-            NotificationRecord.Light light = ledNotification.getLight();
-            if (light != null && mNotificationPulseEnabled) {
-                // pulse repeatedly
-                mNotificationLight.setFlashing(light.color, Light.LIGHT_FLASH_TIMED,
-                        light.onMs, light.offMs);
+            mNotificationLight.setFlashing(ledValues.getColor(), Light.LIGHT_FLASH_TIMED,
+                    ledValues.getOnMs(), ledValues.getOffMs());
+        }
+    }
+
+    private boolean isLedNotificationForcedOn(NotificationRecord nr) {
+        if (nr != null) {
+            final Notification n = nr.sbn.getNotification();
+            if (n.extras != null) {
+                return n.extras.getBoolean(Notification.EXTRA_FORCE_SHOW_LIGHTS, false);
             }
         }
+        return false;
     }
 
     @GuardedBy("mNotificationLock")
