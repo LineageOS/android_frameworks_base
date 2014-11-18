@@ -27,7 +27,10 @@ public abstract class LightsManager {
     public static final int LIGHT_ID_ATTENTION = Type.ATTENTION;
     public static final int LIGHT_ID_BLUETOOTH = Type.BLUETOOTH;
     public static final int LIGHT_ID_WIFI = Type.WIFI;
-    public static final int LIGHT_ID_COUNT = Type.COUNT;
+    /* Workaround the need of a new interface */
+    public static final int LIGHT_ID_CAPS = Type.COUNT;
+    public static final int LIGHT_ID_FUNC = Type.COUNT + 1;
+    public static final int LIGHT_ID_COUNT = Type.COUNT + 2;
 
     public abstract Light getLight(int id);
 }
