@@ -1,0 +1,351 @@
+From c1b1aaa113840a089198605557e655fe0f78fbab Mon Sep 17 00:00:00 2001
+From: Michael Gernoth <michael@gernoth.net>
+Date: Tue, 18 Nov 2014 19:43:45 +0100
+Subject: [PATCH] keyboard: re-add code to detect lid state and handle lights
+
+Depends on libhardware patch for the light ids:
+http://review.cyanogenmod.org/77944
+
+This squashes the following commits from cm-11.0 and updates
+them for cm-12.0:
+
+From: Dave Daynard <nardholio@gmail.com>
+Date: Tue, 19 Nov 2013 18:22:45 -0500
+Subject: keyboard: re-add code to detect lid state
+
+keyboard: re-add code to detect lid state
+
+This was lost in the cm-11 merge. Without this, a change in lid state
+isn't generated to light up the keyboard backlight
+
+Change-Id: Ief35cebcb62da13afe1ae7531d69ab58e196be9e
+
+From: YuanQY <yuanqingyun@gmail.com>
+Date: Fri, 8 Feb 2013 10:59:22 +0800
+Subject: Keyboard light: Fix the physical keyboard not light when
+
+Keyboard light: Fix the physical keyboard not light when it's visiable.
+
+Change-Id: I595afd3cb6b422a17ae0f6ec20aa51979db13810
+
+From: tbalden <illespal@gmail.com>
+Date: Sun, 31 Mar 2013 18:33:53 +0200
+Subject: keyboard: adding functional alt/shift lights
+
+keyboard: adding functional alt/shift lights
+
+This is useful for devices that has QWERTY keyboard
+and leds for the Alt/Shift (Fn/Caps) keys, like
+htc doubleshot.
+
+Change-Id: I66ebc2d881438f5b51db77eaa885421e65a7da0d
+---
+ core/java/android/os/IPowerManager.aidl            |  5 +++
+ core/java/android/os/PowerManager.java             | 29 +++++++++++++++
+ .../android/text/method/MetaKeyKeyListener.java    | 31 ++++++++++++++++
+ .../server/display/DisplayPowerController.java     |  2 +
+ .../com/android/server/lights/LightsManager.java   |  4 +-
+ .../android/server/policy/PhoneWindowManager.java  |  6 +++
+ .../android/server/power/PowerManagerService.java  | 43 ++++++++++++++++++++++
+ .../com_android_server_lights_LightsService.cpp    |  6 +++
+ .../bridge/android/BridgePowerManager.java         | 10 +++++
+ 9 files changed, 135 insertions(+), 1 deletion(-)
+
+diff --git a/core/java/android/os/IPowerManager.aidl b/core/java/android/os/IPowerManager.aidl
+index 63bc2becf85..d432f49a8e3 100644
+--- a/core/java/android/os/IPowerManager.aidl
++++ b/core/java/android/os/IPowerManager.aidl
+@@ -69,4 +69,9 @@ interface IPowerManager
+     void updateBlockedUids(int uid, boolean isBlocked);
+ 
+     oneway void cpuBoost(int duration);
++
++    void setKeyboardVisibility(boolean visible);
++
++    void setKeyboardLight(boolean on, int key);
++
+ }
+diff --git a/core/java/android/os/PowerManager.java b/core/java/android/os/PowerManager.java
+index 2b57671789d..bbb83a3ec6d 100644
+--- a/core/java/android/os/PowerManager.java
++++ b/core/java/android/os/PowerManager.java
+@@ -1410,4 +1410,33 @@ public void cpuBoost(int duration)
+         } catch (RemoteException e) {
+         }
+     }
++
++    /**
++     * @hide
++     */
++    public void setKeyboardVisibility(boolean visible)
++    {
++        try {
++            if (mService != null) {
++                mService.setKeyboardVisibility(visible);
++            }
++        } catch (RemoteException e) {
++        }
++    }
++
++    /**
++     * sets the keyboard LED state
++     *
++     * @param on boolean state
++     * @param key 1 for caps, 2 for fn
++     *
++     * {@hide}
++     */
++    public void setKeyboardLight(boolean on, int key)
++    {
++        try {
++            mService.setKeyboardLight(on, key);
++        } catch (RemoteException e) {
++        }
++    }
+ }
+diff --git a/core/java/android/text/method/MetaKeyKeyListener.java b/core/java/android/text/method/MetaKeyKeyListener.java
+index e9db5fde77e..569ca601c15 100644
+--- a/core/java/android/text/method/MetaKeyKeyListener.java
++++ b/core/java/android/text/method/MetaKeyKeyListener.java
+@@ -23,6 +23,9 @@
+ import android.view.KeyEvent;
+ import android.view.View;
+ import android.view.KeyCharacterMap;
++import android.os.IPowerManager;
++import android.os.RemoteException;
++import android.os.ServiceManager;
+ 
+ /**
+  * This base class encapsulates the behavior for tracking the state of
+@@ -273,6 +276,14 @@ public static void adjustMetaAfterKeypress(Spannable content) {
+         adjust(content, CAP);
+         adjust(content, ALT);
+         adjust(content, SYM);
++        try {
++            IPowerManager power = IPowerManager.Stub.asInterface(
++                ServiceManager.getService("power"));
++            if (getMetaState(content, META_SHIFT_ON) <= 0)
++                power.setKeyboardLight(false, 1);
++            if (getMetaState(content, META_ALT_ON) <= 0)
++                power.setKeyboardLight(false, 2);
++        } catch (RemoteException doe) {}
+     }
+ 
+     /**
+@@ -325,12 +336,32 @@ private static void resetLock(Spannable content, Object what) {
+     public boolean onKeyDown(View view, Editable content, int keyCode, KeyEvent event) {
+         if (keyCode == KeyEvent.KEYCODE_SHIFT_LEFT || keyCode == KeyEvent.KEYCODE_SHIFT_RIGHT) {
+             press(content, CAP);
++            try {
++                IPowerManager power = IPowerManager.Stub.asInterface(
++                    ServiceManager.getService("power"));
++                int state = content.getSpanFlags(CAP);
++                if (state == PRESSED || state == LOCKED) {
++                    power.setKeyboardLight(true, 1);
++                } else {
++                    power.setKeyboardLight(false, 1);
++                }
++            } catch (RemoteException doe) {}
+             return true;
+         }
+ 
+         if (keyCode == KeyEvent.KEYCODE_ALT_LEFT || keyCode == KeyEvent.KEYCODE_ALT_RIGHT
+                 || keyCode == KeyEvent.KEYCODE_NUM) {
+             press(content, ALT);
++            try {
++                IPowerManager power = IPowerManager.Stub.asInterface(
++                    ServiceManager.getService("power"));
++                int state = content.getSpanFlags(ALT);
++                if (state == PRESSED || state == LOCKED) {
++                    power.setKeyboardLight(true, 2);
++                } else {
++                    power.setKeyboardLight(false, 2);
++                }
++            } catch (RemoteException doe) {}
+             return true;
+         }
+ 
+diff --git a/services/core/java/com/android/server/display/DisplayPowerController.java b/services/core/java/com/android/server/display/DisplayPowerController.java
+index a659bd65571..ed43c67d9f8 100644
+--- a/services/core/java/com/android/server/display/DisplayPowerController.java
++++ b/services/core/java/com/android/server/display/DisplayPowerController.java
+@@ -612,11 +612,13 @@ private void updatePowerState() {
+         if (state == Display.STATE_OFF) {
+             brightness = PowerManager.BRIGHTNESS_OFF;
+             mLights.getLight(LightsManager.LIGHT_ID_BUTTONS).setBrightness(brightness);
++            mLights.getLight(LightsManager.LIGHT_ID_KEYBOARD).setBrightness(brightness);
+         }
+ 
+         // Disable button lights when dozing
+         if (state == Display.STATE_DOZE || state == Display.STATE_DOZE_SUSPEND) {
+             mLights.getLight(LightsManager.LIGHT_ID_BUTTONS).setBrightness(PowerManager.BRIGHTNESS_OFF);
++            mLights.getLight(LightsManager.LIGHT_ID_KEYBOARD).setBrightness(brightness);
+         }
+ 
+         // Configure auto-brightness.
+diff --git a/services/core/java/com/android/server/lights/LightsManager.java b/services/core/java/com/android/server/lights/LightsManager.java
+index 2f20509dddf..e1e5aa3d875 100644
+--- a/services/core/java/com/android/server/lights/LightsManager.java
++++ b/services/core/java/com/android/server/lights/LightsManager.java
+@@ -25,7 +25,9 @@
+     public static final int LIGHT_ID_ATTENTION = 5;
+     public static final int LIGHT_ID_BLUETOOTH = 6;
+     public static final int LIGHT_ID_WIFI = 7;
+-    public static final int LIGHT_ID_COUNT = 8;
++    public static final int LIGHT_ID_CAPS = 8;
++    public static final int LIGHT_ID_FUNC = 9;
++    public static final int LIGHT_ID_COUNT = 10;
+ 
+     public abstract Light getLight(int id);
+ }
+diff --git a/services/core/java/com/android/server/policy/PhoneWindowManager.java b/services/core/java/com/android/server/policy/PhoneWindowManager.java
+index 8508131b3f4..230e92574be 100644
+--- a/services/core/java/com/android/server/policy/PhoneWindowManager.java
++++ b/services/core/java/com/android/server/policy/PhoneWindowManager.java
+@@ -2450,6 +2450,10 @@ private boolean isHidden(int accessibilityMode) {
+         }
+     }
+ 
++    private boolean isBuiltInKeyboardVisible() {
++        return mHaveBuiltInKeyboard && !isHidden(mLidKeyboardAccessibility);
++    }
++
+     /** {@inheritDoc} */
+     @Override
+     public void adjustConfigurationLw(Configuration config, int keyboardPresence,
+@@ -7413,6 +7417,8 @@ public void enableScreenAfterBoot() {
+     }
+ 
+     private void applyLidSwitchState() {
++        mPowerManager.setKeyboardVisibility(isBuiltInKeyboardVisible());
++
+         if (mLidState == LID_CLOSED && mLidControlsSleep) {
+             mPowerManager.goToSleep(SystemClock.uptimeMillis(),
+                     PowerManager.GO_TO_SLEEP_REASON_LID_SWITCH,
+diff --git a/services/core/java/com/android/server/power/PowerManagerService.java b/services/core/java/com/android/server/power/PowerManagerService.java
+index 66d97370dc1..242e7381b3a 100644
+--- a/services/core/java/com/android/server/power/PowerManagerService.java
++++ b/services/core/java/com/android/server/power/PowerManagerService.java
+@@ -202,6 +202,9 @@
+     private DreamManagerInternal mDreamManager;
+     private Light mAttentionLight;
+     private Light mButtonsLight;
++    private Light mKeyboardLight;
++    private Light mCapsLight;
++    private Light mFnLight;
+ 
+     private final Object mLock = new Object();
+ 
+@@ -521,6 +524,8 @@
+ 
+     private PerformanceManagerInternal mPerf;
+ 
++    private boolean mKeyboardVisible = false;
++
+     public PowerManagerService(Context context) {
+         super(context);
+         mContext = context;
+@@ -612,6 +617,9 @@ public void systemReady(IAppOpsService appOps) {
+             mLightsManager = getLocalService(LightsManager.class);
+             mAttentionLight = mLightsManager.getLight(LightsManager.LIGHT_ID_ATTENTION);
+             mButtonsLight = mLightsManager.getLight(LightsManager.LIGHT_ID_BUTTONS);
++            mKeyboardLight = mLightsManager.getLight(LightsManager.LIGHT_ID_KEYBOARD);
++            mCapsLight = mLightsManager.getLight(LightsManager.LIGHT_ID_CAPS);
++            mFnLight = mLightsManager.getLight(LightsManager.LIGHT_ID_FUNC);
+ 
+             // Initialize display power management.
+             mDisplayManagerInternal.initPowerManagement(
+@@ -1733,8 +1741,10 @@ private void updateUserActivitySummaryLocked(long now, int dirty) {
+                     if (now < nextTimeout) {
+                         if (now > mLastUserActivityTime + BUTTON_ON_DURATION) {
+                             mButtonsLight.setBrightness(0);
++                            mKeyboardLight.setBrightness(0);
+                         } else {
+                             mButtonsLight.setBrightness(mDisplayPowerRequest.screenBrightness);
++                            mKeyboardLight.setBrightness(mKeyboardVisible ? mDisplayPowerRequest.screenBrightness : 0);
+                             nextTimeout = now + BUTTON_ON_DURATION;
+                         }
+                         mUserActivitySummary = USER_ACTIVITY_SCREEN_BRIGHT;
+@@ -3489,6 +3499,39 @@ public void userActivity(long eventTime, int event, int flags) {
+         }
+ 
+         @Override // Binder call
++        public void setKeyboardVisibility(boolean visible) {
++            synchronized (mLock) {
++                if (DEBUG_SPEW) {
++                    Slog.d(TAG, "setKeyboardVisibility: " + visible);
++                }
++                if (mKeyboardVisible != visible) {
++                    mKeyboardVisible = visible;
++                    if (!visible) {
++                        mKeyboardLight.turnOff();
++                        // If hiding keyboard, turn off leds
++                        setKeyboardLight(false, 1);
++                        setKeyboardLight(false, 2);
++                    }
++                }
++            }
++        }
++
++        @Override // Binder call
++        public void setKeyboardLight(boolean on, int key) {
++            if (key == 1) {
++                if (on)
++                    mCapsLight.setColor(0x00ffffff);
++                else
++                    mCapsLight.turnOff();
++            } else if (key == 2) {
++                if (on)
++                    mFnLight.setColor(0x00ffffff);
++                else
++                    mFnLight.turnOff();
++            }
++        }
++
++        @Override // Binder call
+         public void wakeUp(long eventTime, String reason, String opPackageName) {
+             if (eventTime > SystemClock.uptimeMillis()) {
+                 throw new IllegalArgumentException("event time must not be in the future");
+diff --git a/services/core/jni/com_android_server_lights_LightsService.cpp b/services/core/jni/com_android_server_lights_LightsService.cpp
+index c8e3946970e..594c1295e29 100644
+--- a/services/core/jni/com_android_server_lights_LightsService.cpp
++++ b/services/core/jni/com_android_server_lights_LightsService.cpp
+@@ -41,6 +41,8 @@ enum {
+     LIGHT_INDEX_ATTENTION = 5,
+     LIGHT_INDEX_BLUETOOTH = 6,
+     LIGHT_INDEX_WIFI = 7,
++    LIGHT_INDEX_CAPS = 8,
++    LIGHT_INDEX_FUNC = 9,
+     LIGHT_COUNT
+ };
+ 
+@@ -86,6 +88,10 @@ static jlong init_native(JNIEnv* /* env */, jobject /* clazz */)
+                 = get_device(module, LIGHT_ID_BLUETOOTH);
+         devices->lights[LIGHT_INDEX_WIFI]
+                 = get_device(module, LIGHT_ID_WIFI);
++        devices->lights[LIGHT_INDEX_CAPS]
++                = get_device(module, LIGHT_ID_CAPS);
++        devices->lights[LIGHT_INDEX_FUNC]
++                = get_device(module, LIGHT_ID_FUNC);
+     } else {
+         memset(devices, 0, sizeof(Devices));
+     }
+diff --git a/tools/layoutlib/bridge/src/com/android/layoutlib/bridge/android/BridgePowerManager.java b/tools/layoutlib/bridge/src/com/android/layoutlib/bridge/android/BridgePowerManager.java
+index 0d6a7ffcecb..a3093cc3d32 100644
+--- a/tools/layoutlib/bridge/src/com/android/layoutlib/bridge/android/BridgePowerManager.java
++++ b/tools/layoutlib/bridge/src/com/android/layoutlib/bridge/android/BridgePowerManager.java
+@@ -170,4 +170,14 @@ public boolean isScreenBrightnessBoosted() throws RemoteException {
+     public void updateBlockedUids(int uid, boolean isBlocked) throws RemoteException {
+         // pass for now.
+     }
++
++    @Override
++    public void setKeyboardVisibility(boolean visible) {
++        // pass for now
++    }
++
++    @Override
++    public void setKeyboardLight(boolean on, int key) {
++        // pass for now
++    }
+ }
