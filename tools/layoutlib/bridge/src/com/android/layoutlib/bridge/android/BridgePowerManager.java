@@ -170,4 +170,14 @@ public class BridgePowerManager implements IPowerManager {
     public void updateBlockedUids(int uid, boolean isBlocked) throws RemoteException {
         // pass for now.
     }
+
+    @Override
+    public void setKeyboardVisibility(boolean visible) {
+        // pass for now
+    }
+
+    @Override
+    public void setKeyboardLight(boolean on, int key) {
+        // pass for now
+    }
 }
