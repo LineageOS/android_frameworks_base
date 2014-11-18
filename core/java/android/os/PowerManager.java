@@ -1503,4 +1503,17 @@ public final class PowerManager {
             };
         }
     }
+
+    /**
+     * @hide
+     */
+    public void setKeyboardVisibility(boolean visible)
+    {
+        try {
+            if (mService != null) {
+                mService.setKeyboardVisibility(visible);
+            }
+        } catch (RemoteException e) {
+        }
+    }
 }

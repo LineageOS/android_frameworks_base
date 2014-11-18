@@ -239,6 +239,7 @@ public final class PowerManagerService extends SystemService
     private DreamManagerInternal mDreamManager;
     private Light mAttentionLight;
     private Light mButtonsLight;
+    private Light mKeyboardLight;
 
     private final Object mLock = LockGuard.installNewLock(LockGuard.INDEX_POWER);
 
@@ -635,6 +636,8 @@ public final class PowerManagerService extends SystemService
     private static native void nativeSendPowerHint(int hintId, int data);
     private static native void nativeSetFeature(int featureId, int data);
 
+    private boolean mKeyboardVisible = false;
+
     public PowerManagerService(Context context) {
         super(context);
         mContext = context;
@@ -747,6 +750,7 @@ public final class PowerManagerService extends SystemService
             mLightsManager = getLocalService(LightsManager.class);
             mAttentionLight = mLightsManager.getLight(LightsManager.LIGHT_ID_ATTENTION);
             mButtonsLight = mLightsManager.getLight(LightsManager.LIGHT_ID_BUTTONS);
+            mKeyboardLight = mLightsManager.getLight(LightsManager.LIGHT_ID_KEYBOARD);
 
             // Initialize display power management.
             mDisplayManagerInternal.initPowerManagement(
@@ -1935,8 +1939,10 @@ public final class PowerManagerService extends SystemService
                     if (now < nextTimeout) {
                         if (now > mLastUserActivityTime + BUTTON_ON_DURATION) {
                             mButtonsLight.setBrightness(0);
+                            mKeyboardLight.setBrightness(0);
                         } else {
                             mButtonsLight.setBrightness(mDisplayPowerRequest.screenBrightness);
+                            mKeyboardLight.setBrightness(mKeyboardVisible ? mDisplayPowerRequest.screenBrightness : 0);
                             nextTimeout = now + BUTTON_ON_DURATION;
                         }
                         mUserActivitySummary = USER_ACTIVITY_SCREEN_BRIGHT;
@@ -4248,6 +4254,21 @@ public final class PowerManagerService extends SystemService
                 userActivityInternal(eventTime, event, flags, uid);
             } finally {
                 Binder.restoreCallingIdentity(ident);
+            }
+        }
+
+        @Override // Binder call
+        public void setKeyboardVisibility(boolean visible) {
+            synchronized (mLock) {
+                if (DEBUG_SPEW) {
+                    Slog.d(TAG, "setKeyboardVisibility: " + visible);
+                }
+                if (mKeyboardVisible != visible) {
+                    mKeyboardVisible = visible;
+                    if (!visible) {
+                        mKeyboardLight.turnOff();
+                    }
+                }
             }
         }
 
