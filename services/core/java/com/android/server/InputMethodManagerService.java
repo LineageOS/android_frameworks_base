@@ -165,6 +165,8 @@ import java.util.Locale;
 import java.util.WeakHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import lineageos.providers.LineageSettings;
+
 /**
  * This class provides a system service that manages input methods.
  */
@@ -286,6 +288,7 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
     private Notification.Builder mImeSwitcherNotification;
     private PendingIntent mImeSwitchPendingIntent;
     private boolean mShowOngoingImeSwitcherForPhones;
+    private boolean mShowOngoingImeSwitcherForPhonesDefault;
     private boolean mNotificationShown;
 
     static class SessionState {
@@ -779,6 +782,13 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
                     Settings.Secure.SHOW_IME_WITH_HARD_KEYBOARD), false, this, userId);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.ACCESSIBILITY_SOFT_KEYBOARD_MODE), false, this, userId);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.STATUS_BAR_IME_SWITCHER), false,
+                    new ContentObserver(mHandler) {
+                        public void onChange(boolean selfChange) {
+                            updateFromSettingsLocked(true);
+                        }
+                    }, userId);
             mRegistered = true;
         }
 
@@ -1319,6 +1329,7 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
         mImeSwitchPendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, 0);
 
         mShowOngoingImeSwitcherForPhones = false;
+        mShowOngoingImeSwitcherForPhonesDefault = false;
 
         mNotificationShown = false;
         int userId = 0;
@@ -1450,9 +1461,9 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
                     mStatusBar.setIconVisibility(mSlotIme, false);
                 }
                 updateSystemUiLocked(mCurToken, mImeWindowVis, mBackDisposition);
-                mShowOngoingImeSwitcherForPhones = mRes.getBoolean(
+                mShowOngoingImeSwitcherForPhonesDefault = mRes.getBoolean(
                         com.android.internal.R.bool.show_ongoing_ime_switcher);
-                if (mShowOngoingImeSwitcherForPhones) {
+                if (mShowOngoingImeSwitcherForPhonesDefault) {
                     mWindowManagerInternal.setOnHardKeyboardStatusChangeListener(
                             mHardKeyboardListener);
                 }
@@ -2371,6 +2382,13 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
             // There is no longer an input method set, so stop any current one.
             resetCurrentMethodAndClient(InputMethodClient.UNBIND_REASON_NO_IME);
         }
+
+        // Check if phone IME switcher is disabled
+        mShowOngoingImeSwitcherForPhones = LineageSettings.System.getInt(
+                mContext.getContentResolver(),
+                LineageSettings.System.STATUS_BAR_IME_SWITCHER) == 1 &&
+                mShowOngoingImeSwitcherForPhonesDefault;
+
         // Here is not the perfect place to reset the switching controller. Ideally
         // mSwitchingController and mSettings should be able to share the same state.
         // TODO: Make sure that mSwitchingController and mSettings are sharing the
