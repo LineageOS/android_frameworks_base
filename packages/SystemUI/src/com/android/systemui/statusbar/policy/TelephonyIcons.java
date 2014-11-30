@@ -26,6 +26,7 @@ class TelephonyIcons {
     static final int QS_DATA_3G = R.drawable.ic_qs_signal_3g;
     static final int QS_DATA_E = R.drawable.ic_qs_signal_e;
     static final int QS_DATA_H = R.drawable.ic_qs_signal_h;
+    static final int QS_DATA_HP = R.drawable.ic_qs_signal_hp;
     static final int QS_DATA_1X = R.drawable.ic_qs_signal_1x;
     static final int QS_DATA_4G = R.drawable.ic_qs_signal_4g;
     static final int QS_DATA_4G_PLUS = R.drawable.ic_qs_signal_4g_plus;
@@ -39,6 +40,7 @@ class TelephonyIcons {
     static final int ICON_G = R.drawable.stat_sys_data_fully_connected_g;
     static final int ICON_E = R.drawable.stat_sys_data_fully_connected_e;
     static final int ICON_H = R.drawable.stat_sys_data_fully_connected_h;
+    static final int ICON_HP = R.drawable.stat_sys_data_fully_connected_hp;
     static final int ICON_3G = R.drawable.stat_sys_data_fully_connected_3g;
     static final int ICON_4G = R.drawable.stat_sys_data_fully_connected_4g;
     static final int ICON_4G_PLUS = R.drawable.stat_sys_data_fully_connected_4g_plus;
@@ -156,10 +158,25 @@ class TelephonyIcons {
             0,
             0,
             AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH[0],
-            R.string.accessibility_data_connection_3_5g,
+            R.string.accessibility_data_connection_hspa,
             TelephonyIcons.ICON_H,
             false,
             TelephonyIcons.QS_DATA_H
+            );
+
+    static final MobileIconGroup HP = new MobileIconGroup(
+            "HP",
+            null,
+            null,
+            AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH,
+            0, 0,
+            0,
+            0,
+            AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH[0],
+            R.string.accessibility_data_connection_hspap,
+            TelephonyIcons.ICON_HP,
+            false,
+            TelephonyIcons.QS_DATA_HP
             );
 
     static final MobileIconGroup FOUR_G = new MobileIconGroup(
