@@ -15,10 +15,12 @@
 package com.android.systemui.qs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.provider.AlarmClock;
 import android.support.annotation.VisibleForTesting;
 import android.util.AttributeSet;
 import android.view.View;
@@ -40,6 +42,7 @@ public class QuickStatusBarHeader extends RelativeLayout {
 
     private ActivityStarter mActivityStarter;
 
+    private View mClock;
     private QSPanel mQsPanel;
 
     private boolean mExpanded;
@@ -60,6 +63,15 @@ public class QuickStatusBarHeader extends RelativeLayout {
         mHeaderQsPanel = findViewById(R.id.quick_qs_panel);
         mHeaderQsPanel.setVisibility(res.getBoolean(R.bool.config_showQuickSettingsRow)
                 ? VISIBLE : GONE);
+
+        mClock = findViewById(R.id.clock);
+        mClock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mActivityStarter.startActivity(new Intent(AlarmClock.ACTION_SHOW_ALARMS),
+                        true /* dismissShade */);
+            }
+        });
 
         // RenderThread is doing more harm than good when touching the header (to expand quick
         // settings), so disable it for this view
