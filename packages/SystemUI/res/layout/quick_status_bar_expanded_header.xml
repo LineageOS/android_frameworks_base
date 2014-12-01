@@ -70,6 +70,7 @@
             android:paddingStart="@dimen/status_bar_clock_starting_padding"
             android:paddingEnd="@dimen/status_bar_clock_end_padding"
             android:gravity="center_vertical|start"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             systemui:showDark="false"
             />
     </LinearLayout>
