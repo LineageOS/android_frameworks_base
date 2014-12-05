@@ -28,11 +28,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.UserInfo;
+import android.database.ContentObserver;
 import android.media.AudioManager;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.telecom.TelecomManager;
 import android.util.Log;
@@ -88,6 +91,7 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
     private final DataSaverController mDataSaver;
     private StatusBarKeyguardViewManager mStatusBarKeyguardViewManager;
     private final SuController mSuController;
+    private boolean mAlarmIconVisible;
 
     // Assume it's all good unless we hear otherwise.  We don't always seem
     // to get broadcasts that it *is* there.
@@ -173,6 +177,10 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
         // Alarm clock
         mIconController.setIcon(mSlotAlarmClock, R.drawable.stat_sys_alarm, null);
         mIconController.setIconVisibility(mSlotAlarmClock, false);
+        mAlarmIconObserver.onChange(true);
+        mContext.getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(Settings.System.SHOW_ALARM_ICON),
+                false, mAlarmIconObserver);
 
         // zen
         mIconController.setIcon(mSlotZen, R.drawable.stat_sys_zen_important, null);
@@ -216,6 +224,20 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
         mStatusBarKeyguardViewManager = statusBarKeyguardViewManager;
     }
 
+    private ContentObserver mAlarmIconObserver = new ContentObserver(null) {
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            mAlarmIconVisible = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.SHOW_ALARM_ICON, 1) == 1;
+            updateAlarm();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            onChange(selfChange, null);
+        }
+    };
+
     public void setZenMode(int zen) {
         mZen = zen;
         updateVolumeZen();
@@ -227,7 +249,7 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
         final boolean zenNone = mZen == Global.ZEN_MODE_NO_INTERRUPTIONS;
         mIconController.setIcon(mSlotAlarmClock, zenNone ? R.drawable.stat_sys_alarm_dim
                 : R.drawable.stat_sys_alarm, null);
-        mIconController.setIconVisibility(mSlotAlarmClock, mCurrentUserSetup && hasAlarm);
+        mIconController.setIconVisibility(mSlotAlarmClock, mCurrentUserSetup && hasAlarm && mAlarmIconVisible);
     }
 
     private final void updateSimState(Intent intent) {
