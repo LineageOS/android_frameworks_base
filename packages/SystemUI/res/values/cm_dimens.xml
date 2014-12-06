@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2014 The CyanogenMod Project
+     Copyright (C) 2017 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -34,4 +35,7 @@
 
     <dimen name="burnin_protection_horizontal_shift">3dp</dimen>
     <dimen name="burnin_protection_vertical_shift">1dp</dimen>
+
+    <dimen name="net_traffic_single_text_size">12dp</dimen>
+    <dimen name="net_traffic_multi_text_size">8dp</dimen>
 </resources>

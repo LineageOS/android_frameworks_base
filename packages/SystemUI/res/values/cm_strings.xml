@@ -153,6 +153,9 @@
          [CHAR LIMIT=4] -->
     <string name="status_bar_notification_info_overflow" translatable="false">\u221E</string>
 
+    <!-- Network traffic monitor string format -->
+    <string name="network_traffic_format"><xliff:g id="value">%1$s</xliff:g> <xliff:g id="unit" example="kB">%2$s</xliff:g>/s</string>
+
     <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
     <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
