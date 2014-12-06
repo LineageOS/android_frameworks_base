@@ -26,4 +26,10 @@
     <dimen name="queue_top_shadow">3dp</dimen>
 
     <dimen name="weather_text_size">12sp</dimen>
+
+    <!-- Network traffic monitor single-line text size -->
+    <dimen name="net_traffic_single_text_size">12dp</dimen>
+
+    <!-- Network traffic monitor multi-line text size -->
+    <dimen name="net_traffic_multi_text_size">9dp</dimen>
 </resources>
