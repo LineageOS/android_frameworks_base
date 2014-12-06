@@ -27,6 +27,9 @@
     <!-- Content description for Accessibility on locked tasks in recents -->
     <string name="accessibility_unlock_task">Allow <xliff:g id="task">%1$s</xliff:g> to be dismissed</string>
 
+    <!-- Network traffic monitor string format -->
+    <string name="network_traffic_format"><xliff:g id="value">%1$s</xliff:g> <xliff:g id="unit" example="kB">%2$s</xliff:g>/s</string>
+
     <!-- ADB over network QS tile -->
     <string name="quick_settings_network_adb_label">ADB over network</string>
 
