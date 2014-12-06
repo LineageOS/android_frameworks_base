@@ -132,4 +132,6 @@
         <item></item> <!-- STREAM_DTMF -->
         <item></item> <!-- STREAM_TTS -->
     </string-array>
+
+    <string name="network_traffic_format"><xliff:g id="value">%1$s</xliff:g> <xliff:g id="unit" example="kB">%2$s</xliff:g>/s</string>
 </resources>
