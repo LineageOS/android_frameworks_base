@@ -213,7 +213,9 @@ public class AppOpsManager {
     /** @hide */
     public static final int OP_NFC_CHANGE = 51;
     /** @hide */
-    public static final int _NUM_OP = 52;
+    public static final int OP_SU = 52;
+    /** @hide */
+    public static final int _NUM_OP = 53;
 
     /** Access to coarse location information. */
     public static final String OPSTR_COARSE_LOCATION =
@@ -227,6 +229,9 @@ public class AppOpsManager {
     /** Continually monitoring location data with a relatively high power request. */
     public static final String OPSTR_MONITOR_HIGH_POWER_LOCATION
             = "android:monitor_location_high_power";
+    /** Monitor Superuser requests */
+    private static final String OPSTR_SU =
+            "android:su";
 
     /**
      * This maps each operation to the operation that serves as the
@@ -289,6 +294,7 @@ public class AppOpsManager {
             OP_WRITE_MMS,
             OP_BOOT_COMPLETED,
             OP_NFC_CHANGE,
+            OP_SU
     };
 
     /**
@@ -348,6 +354,7 @@ public class AppOpsManager {
             null,
             null,
             null,
+            OPSTR_SU,
     };
 
     /**
@@ -407,6 +414,7 @@ public class AppOpsManager {
             "WRITE_MMS",
             "BOOT_COMPLETED",
             "NFC_CHANGE",
+            "SU",
     };
 
     /**
@@ -466,6 +474,7 @@ public class AppOpsManager {
             android.Manifest.permission.WRITE_SMS,
             android.Manifest.permission.RECEIVE_BOOT_COMPLETED,
             android.Manifest.permission.NFC,
+            null,
     };
 
     /**
@@ -524,6 +533,7 @@ public class AppOpsManager {
             AppOpsManager.MODE_ALLOWED, // OP_WRITE_MMS
             AppOpsManager.MODE_ALLOWED, // OP_BOOT_COMPLETED
             AppOpsManager.MODE_ALLOWED, // OP_NFC_CHANGE
+            AppOpsManager.MODE_ASK,     // OP_SU
     };
 
     /**
@@ -582,8 +592,8 @@ public class AppOpsManager {
             AppOpsManager.MODE_ASK,     // OP_WRITE_MMS
             AppOpsManager.MODE_ALLOWED, // OP_BOOT_COMPLETED
             AppOpsManager.MODE_ASK,     // OP_NFC_CHANGE
+            AppOpsManager.MODE_ASK,     // OP_SU
     };
-
 
     /**
      * This specifies whether each option is allowed to be reset
@@ -645,6 +655,7 @@ public class AppOpsManager {
             false,
             false,
             false,
+            false,     // OP_SU
     };
 
     private static HashMap<String, Integer> sOpStrToOp = new HashMap<String, Integer>();

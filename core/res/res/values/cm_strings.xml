@@ -195,6 +195,7 @@
     <string name="app_ops_access_notifications">read your notifications</string>
     <string name="app_ops_alarm_wakeup">wake up the device</string>
     <string name="app_ops_draw_on_top">draw on top</string>
+    <string name="app_ops_su">get Superuser access</string>
     <string name="app_ops_keep_device_awake">keep your device awake</string>
     <string name="app_ops_make_phone_call">make a phone call</string>
     <string name="app_ops_modify_calendar">update your calendar</string>
