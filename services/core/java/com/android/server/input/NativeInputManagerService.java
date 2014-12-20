@@ -131,6 +131,8 @@ interface NativeInputManagerService {
 
     void setShowTouches(boolean enabled);
 
+    void setVolumeKeysRotation(int mode);
+
     void setInteractive(boolean interactive);
 
     void reloadCalibration();
@@ -362,6 +364,9 @@ interface NativeInputManagerService {
 
         @Override
         public native void setShowTouches(boolean enabled);
+
+        @Override
+        public native void setVolumeKeysRotation(int mode);
 
         @Override
         public native void setInteractive(boolean interactive);
