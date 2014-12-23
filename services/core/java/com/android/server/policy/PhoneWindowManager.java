@@ -430,6 +430,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     // This is for car dock and this is updated from resource.
     private boolean mEnableCarDockHomeCapture = true;
 
+    boolean mNavigationBarLeftInLandscape = false; // Navigation bar left handed?
+
     boolean mBootMessageNeedsHiding;
     KeyguardServiceDelegate mKeyguardDelegate;
     final Runnable mWindowManagerDrawCallback = new Runnable() {
@@ -1029,7 +1031,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DEV_FORCE_SHOW_NAVBAR), false, this,
                     UserHandle.USER_ALL);
-
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NAVBAR_LEFT_IN_LANDSCAPE), false, this,
+                    UserHandle.USER_ALL);
             updateSettings();
         }
 
@@ -2324,6 +2328,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mDevForceNavbar = devForceNavbar;
             }
 
+            mNavigationBarLeftInLandscape = Settings.System.getInt(resolver,
+                    Settings.System.NAVBAR_LEFT_IN_LANDSCAPE, 0) == 1;
+
             // Configure rotation lock.
             int userRotation = Settings.System.getIntForUser(resolver,
                     Settings.System.USER_ROTATION, Surface.ROTATION_0,
@@ -3221,10 +3228,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             } else if (mNavigationBarPosition == NAV_BAR_RIGHT) {
                 if (transit == TRANSIT_EXIT
                         || transit == TRANSIT_HIDE) {
-                    return R.anim.dock_right_exit;
+                    return mNavigationBarLeftInLandscape
+                            ? R.anim.dock_left_exit : R.anim.dock_right_exit;
                 } else if (transit == TRANSIT_ENTER
                         || transit == TRANSIT_SHOW) {
-                    return R.anim.dock_right_enter;
+                    return mNavigationBarLeftInLandscape
+                            ? R.anim.dock_left_enter : R.anim.dock_right_enter;
                 }
             } else if (mNavigationBarPosition == NAV_BAR_LEFT) {
                 if (transit == TRANSIT_EXIT
@@ -4695,6 +4704,34 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     // and not in the process of animating on or off, then
                     // we can tell the app that it is covered by it.
                     mSystemBottom = mTmpNavigationFrame.top;
+                }
+            } else if (mNavigationBarPosition == NAV_BAR_LEFT) {
+                // Landscape screen; nav bar goes to the left.
+                int right = overscanLeft + getNavigationBarWidth(displayRotation, uiMode);
+                mTmpNavigationFrame.set(left, 0, right, displayHeight);
+                mStableLeft = mStableFullscreenLeft = mTmpNavigationFrame.right;
+                if (transientNavBarShowing) {
+                    mNavigationBarController.setBarShowingLw(true);
+                } else if (navVisible) {
+                    mNavigationBarController.setBarShowingLw(true);
+                        mDockLeft = mTmpNavigationFrame.right;
+                        mRestrictedScreenLeft = mDockLeft;
+                        mRestrictedScreenWidth = mDockRight - mRestrictedScreenLeft;
+                        mRestrictedOverscanScreenLeft = mRestrictedScreenLeft;
+                        mRestrictedOverscanScreenWidth = mDockRight
+                                - mRestrictedOverscanScreenLeft;
+                } else {
+                    // We currently want to hide the navigation UI - unless we expanded the status
+                    // bar.
+                    mNavigationBarController.setBarShowingLw(statusBarExpandedNotKeyguard);
+                }
+                if (navVisible && !navTranslucent && !navAllowedHidden
+                        && !mNavigationBar.isAnimatingLw()
+                        && !mNavigationBarController.wasRecentlyTranslucent()) {
+                    // If the nav bar is currently requested to be visible,
+                    // and not in the process of animating on or off, then
+                    // we can tell the app that it is covered by it.
+                    mSystemLeft = mTmpNavigationFrame.right;
                 }
             } else if (mNavigationBarPosition == NAV_BAR_RIGHT) {
                 // Landscape screen; nav bar goes to the right.
