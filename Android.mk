@@ -393,6 +393,7 @@ LOCAL_SRC_FILES += \
 	core/java/com/android/internal/backup/IObbBackupService.aidl \
 	core/java/com/android/internal/car/ICarServiceHelper.aidl \
 	core/java/com/android/internal/inputmethod/IInputContentUriToken.aidl \
+	core/java/com/android/internal/mirrorpowersave/ILcdPowerSave.aidl \
 	core/java/com/android/internal/policy/IKeyguardDrawnCallback.aidl \
 	core/java/com/android/internal/policy/IKeyguardDismissCallback.aidl \
 	core/java/com/android/internal/policy/IKeyguardExitCallback.aidl \

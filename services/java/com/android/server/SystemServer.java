@@ -101,6 +101,7 @@ import com.android.server.policy.PhoneWindowManager;
 import com.android.server.power.PowerManagerService;
 import com.android.server.power.ShutdownThread;
 import com.android.server.broadcastradio.BroadcastRadioService;
+import com.android.server.mirrorpowersave.LcdPowerSaveService;
 import com.android.server.restrictions.RestrictionsManagerService;
 import com.android.server.security.KeyAttestationApplicationIdProviderService;
 import com.android.server.security.KeyChainSystemService;
@@ -244,6 +245,8 @@ public final class SystemServer {
     private PackageManager mPackageManager;
     private ContentResolver mContentResolver;
     private EntropyMixer mEntropyMixer;
+
+    private LcdPowerSaveService mLcdPowerSaveService;
 
     private boolean mOnlyCore;
     private boolean mFirstBoot;
@@ -551,6 +554,8 @@ public final class SystemServer {
         traceBeginAndSlog("StartPowerManager");
         mPowerManagerService = mSystemServiceManager.startService(PowerManagerService.class);
         traceEnd();
+
+        mLcdPowerSaveService = mSystemServiceManager.startService(LcdPowerSaveService.class);
 
         // Now that the power manager has been started, let the activity manager
         // initialize power management features.
@@ -1688,6 +1693,12 @@ public final class SystemServer {
         traceEnd();
 
         traceBeginAndSlog("MakeDisplayManagerServiceReady");
+        try {
+            mLcdPowerSaveService.systemReady();
+        } catch (Throwable e) {
+            reportWtf("making mirroring lcd power saving ready", e);
+        }
+
         try {
             // TODO: use boot phase and communicate these flags some other way
             mDisplayManagerService.systemReady(safeMode, mOnlyCore);
