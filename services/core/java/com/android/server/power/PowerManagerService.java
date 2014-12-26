@@ -84,6 +84,7 @@ import com.android.internal.app.IBatteryStats;
 import com.android.internal.hardware.AmbientDisplayConfiguration;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.mirrorpowersave.LcdPowerSaveInternal;
 import com.android.internal.os.BackgroundThread;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.DumpUtils;
@@ -683,6 +684,8 @@ public final class PowerManagerService extends SystemService
 
     private boolean mDevForceNavbar;
 
+    private LcdPowerSaveInternal mLcdPowerSaveInternal;
+
     public PowerManagerService(Context context) {
         super(context);
         mContext = context;
@@ -781,6 +784,8 @@ public final class PowerManagerService extends SystemService
             mScreenBrightnessForVrSettingDefault = pm.getDefaultScreenBrightnessForVrSetting();
 
             SensorManager sensorManager = new SystemSensorManager(mContext, mHandler.getLooper());
+
+            mLcdPowerSaveInternal = getLocalService(LcdPowerSaveInternal.class);
 
             // The notifier runs on the system server's main looper so as not to interfere
             // with the animations and other critical functions of the power manager.
@@ -1419,6 +1424,7 @@ public final class PowerManagerService extends SystemService
     }
 
     private void userActivityInternal(long eventTime, int event, int flags, int uid) {
+        mLcdPowerSaveInternal.userActivity(eventTime, event);
         synchronized (mLock) {
             if (userActivityNoUpdateLocked(eventTime, event, flags, uid)) {
                 updatePowerStateLocked();
@@ -2646,6 +2652,7 @@ public final class PowerManagerService extends SystemService
                 userActivityNoUpdateLocked(SystemClock.uptimeMillis(),
                         PowerManager.USER_ACTIVITY_EVENT_OTHER, 0, Process.SYSTEM_UID);
                 updatePowerStateLocked();
+                mLcdPowerSaveInternal.interceptProximityWhenLcdOn();
             }
         }
 
