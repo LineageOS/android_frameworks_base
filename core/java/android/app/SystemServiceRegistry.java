@@ -148,6 +148,8 @@ import com.android.internal.app.IAppOpsService;
 import com.android.internal.app.IBatteryStats;
 import com.android.internal.app.ISoundTriggerService;
 import com.android.internal.appwidget.IAppWidgetService;
+import com.android.internal.mirrorpowersave.ILcdPowerSave;
+import com.android.internal.mirrorpowersave.LcdPowerSaveManager;
 import com.android.internal.os.IDropBoxManagerService;
 import com.android.internal.policy.PhoneLayoutInflater;
 
@@ -889,13 +891,22 @@ final class SystemServiceRegistry {
                 IBinder b = ServiceManager.getServiceOrThrow(Context.VR_SERVICE);
                 return new VrManager(IVrManager.Stub.asInterface(b));
             }
-        });
+            });
 
         registerService(Context.TIME_ZONE_RULES_MANAGER_SERVICE, RulesManager.class,
                 new CachedServiceFetcher<RulesManager>() {
             @Override
             public RulesManager createService(ContextImpl ctx) {
                 return new RulesManager(ctx.getOuterContext());
+            }});
+
+        registerService(Context.LCD_POWER_SAVE_SERVICE, LcdPowerSaveManager.class,
+                new CachedServiceFetcher<LcdPowerSaveManager>() {
+            @Override
+            public LcdPowerSaveManager createService(ContextImpl ctx) {
+                IBinder b = ServiceManager.getService(Context.LCD_POWER_SAVE_SERVICE);
+                ILcdPowerSave service = ILcdPowerSave.Stub.asInterface(b);
+                return new LcdPowerSaveManager(ctx.getOuterContext(), service);
             }});
     }
 

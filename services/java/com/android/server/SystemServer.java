@@ -116,6 +116,7 @@ import com.android.server.usage.UsageStatsService;
 import com.android.server.vr.VrManagerService;
 import com.android.server.webkit.WebViewUpdateService;
 import com.android.server.wm.WindowManagerService;
+import com.android.server.mirrorpowersave.LcdPowerSaveService;
 
 import dalvik.system.VMRuntime;
 
@@ -244,6 +245,8 @@ public final class SystemServer {
     private PackageManager mPackageManager;
     private ContentResolver mContentResolver;
     private EntropyMixer mEntropyMixer;
+
+    private LcdPowerSaveService mLcdPowerSaveService;
 
     private boolean mOnlyCore;
     private boolean mFirstBoot;
@@ -551,6 +554,8 @@ public final class SystemServer {
         traceBeginAndSlog("StartPowerManager");
         mPowerManagerService = mSystemServiceManager.startService(PowerManagerService.class);
         traceEnd();
+
+        mLcdPowerSaveService = mSystemServiceManager.startService(LcdPowerSaveService.class);
 
         // Now that the power manager has been started, let the activity manager
         // initialize power management features.
@@ -1688,6 +1693,12 @@ public final class SystemServer {
         traceEnd();
 
         traceBeginAndSlog("MakeDisplayManagerServiceReady");
+        try {
+            mLcdPowerSaveService.systemReady();
+        } catch (Throwable e) {
+            reportWtf("making mirroring lcd power saving ready", e);
+        }
+
         try {
             // TODO: use boot phase and communicate these flags some other way
             mDisplayManagerService.systemReady(safeMode, mOnlyCore);
