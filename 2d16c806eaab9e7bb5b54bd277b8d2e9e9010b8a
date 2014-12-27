@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aa08908_86731eb1",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3194,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2014-12-27T13:33:49Z",
+      "side": 1,
+      "message": "this already exists in L as heads_up_notifications_enabled iirc. All the logic should be revised to leverage it, then I need to add a migration step in the setting database.",
+      "revId": "2d16c806eaab9e7bb5b54bd277b8d2e9e9010b8a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa08908_e66822bd",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2129,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2014-12-27T13:33:49Z",
+      "side": 1,
+      "message": "All this logic needs to be rewritten.",
+      "revId": "2d16c806eaab9e7bb5b54bd277b8d2e9e9010b8a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
