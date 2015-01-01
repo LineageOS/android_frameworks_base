@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aa08908_239a1115",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2015-01-01T17:59:43Z",
+      "side": 1,
+      "message": "105 maybe? ^",
+      "revId": "7737bbf787429c27b3603f20f4ecdb2d8ba7428b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa08908_63a41957",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2015-01-01T17:59:43Z",
+      "side": 1,
+      "message": "95 ^",
+      "revId": "7737bbf787429c27b3603f20f4ecdb2d8ba7428b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa08908_839f8502",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2015-01-01T17:59:43Z",
+      "side": 1,
+      "message": "110 ^",
+      "revId": "7737bbf787429c27b3603f20f4ecdb2d8ba7428b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa08908_c3898dcc",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2015-01-01T17:59:43Z",
+      "side": 1,
+      "message": "100 ^",
+      "revId": "7737bbf787429c27b3603f20f4ecdb2d8ba7428b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa08908_a38601b7",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2015-01-01T17:59:43Z",
+      "side": 1,
+      "message": "91 ^",
+      "revId": "7737bbf787429c27b3603f20f4ecdb2d8ba7428b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa08908_039435e0",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2015-01-01T17:59:43Z",
+      "side": 1,
+      "message": "107 ^",
+      "revId": "7737bbf787429c27b3603f20f4ecdb2d8ba7428b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
