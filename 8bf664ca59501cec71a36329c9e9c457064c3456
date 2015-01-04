@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aa08908_2f32eff1",
+        "filename": "core/java/com/android/internal/util/cm/ActionUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 3848
+      },
+      "writtenOn": "2015-01-04T11:31:26Z",
+      "side": 1,
+      "message": "No reason to wait to do this in the for loop. You could fail fast, just after line 56, with a simple:\nif (am.isInLockTaskMode()) return false;",
+      "revId": "8bf664ca59501cec71a36329c9e9c457064c3456",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
