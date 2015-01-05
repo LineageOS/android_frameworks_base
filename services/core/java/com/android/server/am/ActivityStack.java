@@ -2411,6 +2411,7 @@ class ActivityStack<T extends StackWindowController> extends ConfigurationContai
         mStackSupervisor.mGoingToSleepActivities.remove(next);
         next.sleeping = false;
         mStackSupervisor.mActivitiesWaitingForVisibleActivity.remove(next);
+        next.launching = true;
 
         if (DEBUG_SWITCH) Slog.v(TAG_SWITCH, "Resuming " + next);
 
@@ -3455,6 +3456,7 @@ class ActivityStack<T extends StackWindowController> extends ConfigurationContai
 
     final void stopActivityLocked(ActivityRecord r) {
         if (DEBUG_SWITCH) Slog.d(TAG_SWITCH, "Stopping: " + r);
+        r.launching = false;
         if ((r.intent.getFlags()&Intent.FLAG_ACTIVITY_NO_HISTORY) != 0
                 || (r.info.flags&ActivityInfo.FLAG_NO_HISTORY) != 0) {
             if (!r.finishing) {
