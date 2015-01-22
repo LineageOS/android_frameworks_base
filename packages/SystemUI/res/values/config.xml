@@ -2,6 +2,7 @@
 <!--
 /*
 ** Copyright 2009, The Android Open Source Project
+** Copyright (C) 2017, The LineageOS Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -100,12 +101,12 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
-        wifi,cell,battery,dnd,flashlight,rotation,bt,airplane
+        wifi,cell,battery,dnd,flashlight,rotation,bt,airplane,profiles
     </string>
 
     <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
     <string name="quick_settings_tiles_stock" translatable="false">
-        wifi,cell,battery,dnd,flashlight,rotation,bt,airplane,nfc,location,hotspot,inversion,saver,work,cast,night,adb_network,ambient_display,caffeine,heads_up,sync,usb_tether,volume_panel
+        wifi,profiles,cell,battery,dnd,flashlight,rotation,bt,airplane,nfc,location,hotspot,inversion,saver,work,cast,night,adb_network,ambient_display,caffeine,heads_up,sync,usb_tether,volume_panel
     </string>
 
     <!-- The tiles to display in QuickSettings -->
