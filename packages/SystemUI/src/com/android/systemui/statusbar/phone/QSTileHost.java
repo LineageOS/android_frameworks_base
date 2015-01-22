@@ -65,6 +65,7 @@ import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.WifiTile;
+import com.android.systemui.qs.tiles.ProfilesTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.BluetoothController;
@@ -444,6 +445,7 @@ public class QSTileHost implements QSTile.Host, Tunable {
         else if (tileSpec.equals("rotation")) return new RotationLockTile(this);
         else if (tileSpec.equals("flashlight")) return new FlashlightTile(this);
         else if (tileSpec.equals("location")) return new LocationTile(this);
+        else if (tileSpec.equals("profiles")) return new ProfilesTile(this);
         else if (tileSpec.equals("cast")) return new CastTile(this);
         else if (tileSpec.equals("hotspot")) return new HotspotTile(this);
         else if (tileSpec.equals("user")) return new UserTile(this);
