@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2017-2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
  * except in compliance with the License. You may obtain a copy of the License at
@@ -51,7 +52,7 @@ public interface QSTile {
     void removeCallbacks();
 
     QSIconView createTileView(Context context);
-    
+
     void click();
     void secondaryClick();
     void longClick();
@@ -104,6 +105,8 @@ public interface QSTile {
     @ProvidesInterface(version = State.VERSION)
     public static class State {
         public static final int VERSION = 1;
+        public boolean visible;
+        public boolean enabled = true;
         public Icon icon;
         public Supplier<Icon> iconSupplier;
         public int state = Tile.STATE_ACTIVE;
@@ -119,7 +122,9 @@ public interface QSTile {
         public boolean copyTo(State other) {
             if (other == null) throw new IllegalArgumentException();
             if (!other.getClass().equals(getClass())) throw new IllegalArgumentException();
-            final boolean changed = !Objects.equals(other.icon, icon)
+            final boolean changed = !Objects.equals(other.visible, visible)
+                    || !Objects.equals(other.enabled, enabled)
+                    || !Objects.equals(other.icon, icon)
                     || !Objects.equals(other.iconSupplier, iconSupplier)
                     || !Objects.equals(other.label, label)
                     || !Objects.equals(other.contentDescription, contentDescription)
@@ -132,6 +137,8 @@ public interface QSTile {
                     || !Objects.equals(other.isTransient, isTransient)
                     || !Objects.equals(other.dualTarget, dualTarget)
                     || !Objects.equals(other.slash, slash);
+            other.visible = visible;
+            other.enabled = enabled;
             other.icon = icon;
             other.iconSupplier = iconSupplier;
             other.label = label;
@@ -153,6 +160,8 @@ public interface QSTile {
 
         protected StringBuilder toStringBuilder() {
             final StringBuilder sb = new StringBuilder(getClass().getSimpleName()).append('[');
+            sb.append("visible=").append(visible);
+            sb.append(",enabled=").append(enabled);
             sb.append(",icon=").append(icon);
             sb.append(",iconSupplier=").append(iconSupplier);
             sb.append(",label=").append(label);
