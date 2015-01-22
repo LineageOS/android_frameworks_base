@@ -23,6 +23,7 @@ import com.android.systemui.qs.tiles.CaffeineTile
 import com.android.systemui.qs.tiles.CellularTile
 import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.PowerShareTile
+import com.android.systemui.qs.tiles.ProfilesTile
 import com.android.systemui.qs.tiles.ReadingModeTile
 import com.android.systemui.qs.tiles.SyncTile
 import com.android.systemui.qs.tiles.UsbTetherTile
@@ -70,6 +71,12 @@ interface LineageModule {
     @IntoMap
     @StringKey(PowerShareTile.TILE_SPEC)
     fun bindPowerShareTile(powerShareTile: PowerShareTile): QSTileImpl<*>
+
+    /** Inject ProfilesTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(ProfilesTile.TILE_SPEC)
+    fun bindProfilesTile(profilesTile: ProfilesTile): QSTileImpl<*>
 
     /** Inject ReadingModeTile into tileMap in QSModule */
     @Binds
