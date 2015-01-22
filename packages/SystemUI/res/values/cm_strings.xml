@@ -213,4 +213,12 @@
     <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Battery mode changed to quick mode.</string>
     <string name="quick_settings_performance_profile_detail_title">Battery mode</string>
 
+    <!-- System profiles QS tile -->
+    <string name="quick_settings_profiles">System profiles</string>
+    <string name="quick_settings_profiles_off">Profiles disabled</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiles off.</string>
+    <string name="accessibility_quick_settings_profiles">Profile: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiles turned off.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profile changed to <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+
 </resources>
