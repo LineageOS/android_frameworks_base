@@ -54,6 +54,11 @@
     <string name="accessibility_quick_settings_sync_off">Sync off.</string>
     <string name="accessibility_quick_settings_sync_on">Sync on.</string>
 
+    <!-- System Profiles QS tile -->
+    <string name="quick_settings_profiles_label">System profiles</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiles off.</string>
+    <string name="accessibility_quick_settings_profiles">Profile: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB tethering</string>
 </resources>
