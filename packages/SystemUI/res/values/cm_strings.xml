@@ -21,4 +21,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_data_connection_hspap">HSPA+</string>
+
+    <!-- Adb over network QS tile -->
+    <string name="quick_settings_network_adb_label">ADB over network</string>
 </resources>
