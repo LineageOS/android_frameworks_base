@@ -24,6 +24,7 @@ import com.android.systemui.R;
 import com.android.systemui.plugins.qs.*;
 import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.external.CustomTile;
+import com.android.systemui.qs.tiles.AdbOverNetworkTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
@@ -104,6 +105,8 @@ public class QSFactoryImpl implements QSFactory {
             case "nfc":
                 return new NfcTile(mHost);
             // Custom tiles.
+            case "adb_network":
+                return new AdbOverNetworkTile(mHost);
             case "caffeine":
                 return new CaffeineTile(mHost);
             case "heads_up":
