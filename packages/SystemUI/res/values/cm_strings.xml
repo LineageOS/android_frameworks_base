@@ -28,4 +28,7 @@
     <!-- Lights settings, LED notification -->
     <string name="led_notification_title">Light settings</string>
     <string name="led_notification_text">LED light enabled by settings</string>
+
+    <!-- Adb over network QS tile -->
+    <string name="quick_settings_network_adb_label">ADB over network</string>
 </resources>
