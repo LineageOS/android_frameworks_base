@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use mHost file
  * except in compliance with the License. You may obtain a copy of the License at
@@ -20,6 +21,7 @@ import android.util.Log;
 import com.android.systemui.plugins.qs.*;
 import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.external.CustomTile;
+import com.android.systemui.qs.tiles.AdbOverNetworkTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
@@ -67,6 +69,7 @@ public class QSFactoryImpl implements QSFactory {
         else if (tileSpec.equals("saver")) return new DataSaverTile(mHost);
         else if (tileSpec.equals("night")) return new NightDisplayTile(mHost);
         else if (tileSpec.equals("nfc")) return new NfcTile(mHost);
+        else if (tileSpec.equals("adb_network")) return new AdbOverNetworkTile(mHost);
         // Intent tiles.
         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(mHost, tileSpec);
         else if (tileSpec.startsWith(CustomTile.PREFIX)) return CustomTile.create(mHost, tileSpec);
