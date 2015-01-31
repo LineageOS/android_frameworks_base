@@ -26,6 +26,9 @@
     <!-- label for item that opens the profile choosing dialog -->
     <string name="global_action_choose_profile">Profile</string>
 
+    <!-- label for current user in phone options dialog -->
+    <string name="global_action_current_user">Current</string>
+
     <!-- Reboot menu -->
     <!-- Button to reboot the phone, within the Reboot Options dialog -->
     <string name="reboot_reboot">Reboot</string>
