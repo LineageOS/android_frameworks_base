@@ -48,6 +48,7 @@ import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
+import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.WifiTile;
@@ -188,6 +189,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new HeadsUpTile(mHost);
             case "sync":
                 return new SyncTile(mHost);
+            case "usb_tether":
+                return new UsbTetherTile(mHost);
             case "volume_panel":
                 return new VolumeTile(mHost);
         }
