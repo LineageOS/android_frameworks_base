@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_d15cd6ef",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "\u0027USB tethering\u0027",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_71552ac5",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "Please drop this.",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_f1575ac8",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "This should be a method-local variable.",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_b13682b2",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "Tabs -\u003e spaces, and indent by 8\n\n(but IMHO this method should just be inlined into updateState() )",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_314bb22d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "one can probably break out of the loop here.",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_f140fa09",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "Tab -\u003e spaces",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_913b7e9c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "Indent by 8",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_11482e2d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "Probably want a log line here? If not, the check is pretty pointless.",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_91625eac",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "Indent by 8",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_b15de2ee",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "state.visible \u003d mUsbConnected \u0026\u0026 cm.isTetheringSupported();",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_5152a6de",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-02T23:01:57Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "3a009ec15b308107df49ba3a1b3bc23dba60a695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
