@@ -16,6 +16,24 @@
       "revId": "73c170358f8274320814eeff7d30d9a2c4084855",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_d43679b3",
+        "filename": "services/core/java/com/android/server/power/Notifier.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 10953
+      },
+      "writtenOn": "2015-02-07T15:19:29Z",
+      "side": 1,
+      "message": "Understood. I basically ripped this code off from\npackages/SystemUI/src/com/android/systemui/power/PowerUI.java:251\nwhere the null check is used as well. I\u0027m going to take it out if you say it\u0027s excessive.",
+      "parentUuid": "bacf61ea_74b6ad3e",
+      "revId": "73c170358f8274320814eeff7d30d9a2c4084855",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
