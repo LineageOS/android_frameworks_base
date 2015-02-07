@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_74b6ad3e",
+        "filename": "services/core/java/com/android/server/power/Notifier.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-02-07T14:19:18Z",
+      "side": 1,
+      "message": "If the system service is down, we have a much bigger problem. This null check is probably excessive.",
+      "revId": "73c170358f8274320814eeff7d30d9a2c4084855",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
