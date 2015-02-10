@@ -367,6 +367,7 @@ public final class Call {
         private final int mCallCapabilities;
         private final int mCallProperties;
         private final DisconnectCause mDisconnectCause;
+        private final long mCreateTimeMillis;
         private final long mConnectTimeMillis;
         private final GatewayInfo mGatewayInfo;
         private final int mVideoState;
@@ -617,6 +618,14 @@ public final class Call {
         }
 
         /**
+         * @return the time the Call object was created
+         * @hide
+         */
+        public long getCreateTimeMillis() {
+            return mCreateTimeMillis;
+        }
+
+        /**
          * @return Information about any calling gateway the {@code Call} may be using.
          */
         public GatewayInfo getGatewayInfo() {
@@ -666,6 +675,7 @@ public final class Call {
                         Objects.equals(mCallCapabilities, d.mCallCapabilities) &&
                         Objects.equals(mCallProperties, d.mCallProperties) &&
                         Objects.equals(mDisconnectCause, d.mDisconnectCause) &&
+                        Objects.equals(mCreateTimeMillis, d.mCreateTimeMillis) &&
                         Objects.equals(mConnectTimeMillis, d.mConnectTimeMillis) &&
                         Objects.equals(mGatewayInfo, d.mGatewayInfo) &&
                         Objects.equals(mVideoState, d.mVideoState) &&
@@ -687,6 +697,7 @@ public final class Call {
                     Objects.hashCode(mCallCapabilities) +
                     Objects.hashCode(mCallProperties) +
                     Objects.hashCode(mDisconnectCause) +
+                    Objects.hashCode(mCreateTimeMillis) +
                     Objects.hashCode(mConnectTimeMillis) +
                     Objects.hashCode(mGatewayInfo) +
                     Objects.hashCode(mVideoState) +
@@ -706,6 +717,7 @@ public final class Call {
                 int capabilities,
                 int properties,
                 DisconnectCause disconnectCause,
+                long createTimeMillis,
                 long connectTimeMillis,
                 GatewayInfo gatewayInfo,
                 int videoState,
@@ -721,6 +733,7 @@ public final class Call {
             mCallCapabilities = capabilities;
             mCallProperties = properties;
             mDisconnectCause = disconnectCause;
+            mCreateTimeMillis = createTimeMillis;
             mConnectTimeMillis = connectTimeMillis;
             mGatewayInfo = gatewayInfo;
             mVideoState = videoState;
@@ -742,6 +755,7 @@ public final class Call {
                     parcelableCall.getProperties(),
                     parcelableCall.getDisconnectCause(),
                     parcelableCall.getConnectTimeMillis(),
+                    parcelableCall.getCreateTimeMillis(),
                     parcelableCall.getGatewayInfo(),
                     parcelableCall.getVideoState(),
                     parcelableCall.getStatusHints(),
