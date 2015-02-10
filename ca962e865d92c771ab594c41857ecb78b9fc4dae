@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_60d8a8f0",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-10T06:20:55Z",
+      "side": 1,
+      "message": "USB tethering (like in Settings, string tether_settings_title_usb)",
+      "revId": "ca962e865d92c771ab594c41857ecb78b9fc4dae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_a0e2a09d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-10T06:20:55Z",
+      "side": 1,
+      "message": "The if and return statements are pointless. Just inline this into handleClick():\n\nConnectivityManager cm \u003d (ConnectivityManager) \n        mContext.getSystemService(Context.CONNECTIVITY_SERVICE);\ncm.setUsbTethering(!mUsbTethered);",
+      "revId": "ca962e865d92c771ab594c41857ecb78b9fc4dae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_00ee0c8b",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-10T06:20:55Z",
+      "side": 1,
+      "message": "This should go before the constructor to be at the same place as the other member variables.",
+      "revId": "ca962e865d92c771ab594c41857ecb78b9fc4dae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
