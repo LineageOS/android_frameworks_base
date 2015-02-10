@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_605b8855",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 2067,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-02-10T09:21:52Z",
+      "side": 0,
+      "message": "wouldn\u0027t remove this, see comments in PWM.java",
+      "revId": "feb36cf3d731f205803b0e1e4c55fc06115d2927",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

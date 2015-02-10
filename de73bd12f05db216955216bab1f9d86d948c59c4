@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_a07e20ac",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 5616,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-02-10T09:21:52Z",
+      "side": 1,
+      "message": "tab",
+      "revId": "de73bd12f05db216955216bab1f9d86d948c59c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_805e7c43",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-02-10T09:21:52Z",
+      "side": 1,
+      "message": "tabs",
+      "revId": "de73bd12f05db216955216bab1f9d86d948c59c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_40448473",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2976,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-02-10T09:21:52Z",
+      "side": 1,
+      "message": "This needs to be done in updateSettings() since you are registering for callbacks on changes on that URI. Also tabs. Also you probably shouldn\u0027t remove the config_backKillTimeout configuration because it acts as a default and you are hard coding a 2000ms default.",
+      "revId": "de73bd12f05db216955216bab1f9d86d948c59c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
