@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_e3be62d3",
+        "filename": "core/java/android/hardware/CmHardwareManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-02-10T11:58:56Z",
+      "side": 1,
+      "message": "make these private and provide actual methods to retrieve them.  It\u0027s a pain to use the array indexing.",
+      "revId": "813b1473d7541c8653fab43a7cdfaf4d5126ebad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
