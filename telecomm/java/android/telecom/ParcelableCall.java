@@ -40,6 +40,7 @@ public final class ParcelableCall implements Parcelable {
     private final int mCapabilities;
     private final int mProperties;
     private final int mSupportedAudioRoutes;
+    private final long mCreateTimeMillis;
     private final long mConnectTimeMillis;
     private final Uri mHandle;
     private final int mHandlePresentation;
@@ -69,6 +70,7 @@ public final class ParcelableCall implements Parcelable {
             int capabilities,
             int properties,
             int supportedAudioRoutes,
+            long createTimeMillis,
             long connectTimeMillis,
             Uri handle,
             int handlePresentation,
@@ -95,6 +97,7 @@ public final class ParcelableCall implements Parcelable {
         mCapabilities = capabilities;
         mProperties = properties;
         mSupportedAudioRoutes = supportedAudioRoutes;
+        mCreateTimeMillis = createTimeMillis;
         mConnectTimeMillis = connectTimeMillis;
         mHandle = handle;
         mHandlePresentation = handlePresentation;
@@ -152,6 +155,14 @@ public final class ParcelableCall implements Parcelable {
     /** Bitmask of supported routes of the call */
     public int getSupportedAudioRoutes() {
         return mSupportedAudioRoutes;
+    }
+
+    /**
+     * The time that the call object was created
+     * @hide
+     */
+    public long getCreateTimeMillis() {
+        return mCreateTimeMillis;
     }
 
     /** The time that the call switched to the active state. */
@@ -312,6 +323,7 @@ public final class ParcelableCall implements Parcelable {
             source.readList(cannedSmsResponses, classLoader);
             int capabilities = source.readInt();
             int properties = source.readInt();
+            long createTimeMillis = source.readLong();
             long connectTimeMillis = source.readLong();
             Uri handle = source.readParcelable(classLoader);
             int handlePresentation = source.readInt();
@@ -343,6 +355,7 @@ public final class ParcelableCall implements Parcelable {
                     capabilities,
                     properties,
                     supportedAudioRoutes,
+                    createTimeMillis,
                     connectTimeMillis,
                     handle,
                     handlePresentation,
@@ -385,6 +398,7 @@ public final class ParcelableCall implements Parcelable {
         destination.writeList(mCannedSmsResponses);
         destination.writeInt(mCapabilities);
         destination.writeInt(mProperties);
+        destination.writeLong(mCreateTimeMillis);
         destination.writeLong(mConnectTimeMillis);
         destination.writeParcelable(mHandle, 0);
         destination.writeInt(mHandlePresentation);
