@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bacf61ea_835e8643",
+        "filename": "packages/SystemUI/src/com/android/systemui/recents/RecentsActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 10953
+      },
+      "writtenOn": "2015-02-10T15:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bab6814e_dd4e9ac0",
+      "revId": "584f1ab17813805cbfc2b70fb3932b05289d3a80",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bab6814e_9d541255",
         "filename": "packages/SystemUI/src/com/android/systemui/recents/RecentsActivity.java",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-12-04T12:57:30Z",
       "side": 1,
       "message": "Fix whitespace formatting.\n\nSince you always retrieve the system setting, I\u0027d stick it in a bool ahead of the searchbar related if block.",
+      "revId": "584f1ab17813805cbfc2b70fb3932b05289d3a80",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_23499a8c",
+        "filename": "packages/SystemUI/src/com/android/systemui/recents/RecentsActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 10953
+      },
+      "writtenOn": "2015-02-10T15:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bab6814e_9d541255",
       "revId": "584f1ab17813805cbfc2b70fb3932b05289d3a80",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
