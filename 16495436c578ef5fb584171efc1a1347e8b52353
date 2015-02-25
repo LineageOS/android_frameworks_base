@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_ffd895f1",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-02-25T12:55:41Z",
+      "side": 1,
+      "message": "if you\u0027re deprecating this, we could change the constant to point to the new one",
+      "revId": "16495436c578ef5fb584171efc1a1347e8b52353",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_7fcca535",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-02-25T12:55:41Z",
+      "side": 1,
+      "message": "why are we lowering this from 1/3?",
+      "revId": "16495436c578ef5fb584171efc1a1347e8b52353",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_dfd151cf",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1928,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-02-25T12:55:41Z",
+      "side": 1,
+      "message": "any reason to change the constant here?",
+      "revId": "16495436c578ef5fb584171efc1a1347e8b52353",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
