@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "bacf61ea_9feeb989",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-02-25T12:59:36Z",
+      "side": 1,
+      "message": "That\u0027s what we had in cm11",
+      "parentUuid": "bacf61ea_7fcca535",
+      "revId": "16495436c578ef5fb584171efc1a1347e8b52353",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bacf61ea_dfd151cf",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
         "patchSetId": 6
@@ -47,6 +65,24 @@
       "writtenOn": "2015-02-25T12:55:41Z",
       "side": 1,
       "message": "any reason to change the constant here?",
+      "revId": "16495436c578ef5fb584171efc1a1347e8b52353",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_dfe8317f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1928,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-02-25T12:59:36Z",
+      "side": 1,
+      "message": "I just followed the cm11 constant that had left/right support so we can migrate easily",
+      "parentUuid": "bacf61ea_dfd151cf",
       "revId": "16495436c578ef5fb584171efc1a1347e8b52353",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
