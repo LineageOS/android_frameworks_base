@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_7f7e65e5",
+        "filename": "services/core/java/com/android/server/CmHardwareService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-02-25T12:16:12Z",
+      "side": 1,
+      "message": "Might be worthwhile to leverage Log.isLoggable here",
+      "revId": "b7f7c83d159e0038364ba605b50fece9e0d6d2c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
