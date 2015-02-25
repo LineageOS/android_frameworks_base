@@ -2,6 +2,74 @@
   "comments": [
     {
       "key": {
+        "uuid": "bacf61ea_1fde496d",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7591,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-25T09:54:32Z",
+      "side": 1,
+      "message": "_WHILE_MEDIA_ACTIVE or _DURING_MEDIA_PLAYBACK",
+      "revId": "4aed307095b4117a671392c6cf186ce7298718cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_3f8ead78",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-25T09:54:32Z",
+      "side": 1,
+      "message": "Probably should put this to the other non-static members (around line 250)",
+      "revId": "4aed307095b4117a671392c6cf186ce7298718cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_9fe9991d",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-25T09:54:32Z",
+      "side": 1,
+      "message": "Indent this by 8.",
+      "revId": "4aed307095b4117a671392c6cf186ce7298718cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_dff31109",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-02-25T09:54:32Z",
+      "side": 1,
+      "message": "Isn\u0027t the observer\u0027s update() method called somewhere anyway?",
+      "revId": "4aed307095b4117a671392c6cf186ce7298718cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bacf61ea_7fee6523",
         "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
         "patchSetId": 1
