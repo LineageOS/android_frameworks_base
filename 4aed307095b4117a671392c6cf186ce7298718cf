@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_7fee6523",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-02-25T09:53:00Z",
+      "side": 1,
+      "message": "This should be final.",
+      "revId": "4aed307095b4117a671392c6cf186ce7298718cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
