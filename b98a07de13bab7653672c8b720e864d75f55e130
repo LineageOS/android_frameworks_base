@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_675572c5",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2460,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-02-27T17:31:44Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be moved to loadSecureSettings?",
+      "revId": "b98a07de13bab7653672c8b720e864d75f55e130",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
