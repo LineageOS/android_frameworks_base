@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_cd86fd12",
+        "filename": "core/java/android/app/CustomTile.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-02-28T11:12:39Z",
+      "side": 1,
+      "message": "Make CustomTile serializable.",
+      "revId": "4e20c0682ca315d46d9aca70cb5db79e4a55a22e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_2d7cf91f",
+        "filename": "core/java/android/app/CustomTile.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-02-28T11:12:39Z",
+      "side": 1,
+      "message": "Make CustomTile serializable.",
+      "revId": "4e20c0682ca315d46d9aca70cb5db79e4a55a22e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_6d76f13f",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-02-28T11:12:39Z",
+      "side": 1,
+      "message": "Need to do something similar to Notification Manager service\u0027s implementation for a synchronized quick settings tile list. That means I need to figure out how to how to keep everything sync\u0027d in memory and disk.",
+      "revId": "4e20c0682ca315d46d9aca70cb5db79e4a55a22e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
