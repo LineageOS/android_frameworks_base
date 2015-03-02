@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_961c1279",
+        "filename": "core/res/res/anim/slide_in_down.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-03-02T15:26:31Z",
+      "side": 1,
+      "message": "Are these actually from AOSP?",
+      "revId": "a61c5655d1b38303e31b0134da8ac938be1c30d5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
