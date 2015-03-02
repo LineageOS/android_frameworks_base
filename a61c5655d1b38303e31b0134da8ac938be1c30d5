@@ -16,6 +16,24 @@
       "revId": "a61c5655d1b38303e31b0134da8ac938be1c30d5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_c1fec604",
+        "filename": "core/res/res/anim/slide_in_down.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4420
+      },
+      "writtenOn": "2015-03-02T16:04:43Z",
+      "side": 1,
+      "message": "They are derived from AOSPs slide_in_up and slide_out_down",
+      "parentUuid": "9ad45d7e_961c1279",
+      "revId": "a61c5655d1b38303e31b0134da8ac938be1c30d5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
