@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_46e78712",
+        "filename": "packages/SystemUI/res/drawable/volume_dialog_background.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-03-04T16:04:56Z",
+      "side": 1,
+      "message": "Copyright",
+      "revId": "a711d954023b6b8f184c242cc3dcffe3be59034f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_26e4130c",
+        "filename": "packages/SystemUI/res/drawable/zen_mode_panel_background.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-03-04T16:04:56Z",
+      "side": 1,
+      "message": "Copyright",
+      "revId": "a711d954023b6b8f184c242cc3dcffe3be59034f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_e6e15b00",
+        "filename": "packages/SystemUI/res/values/cm_colors.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-03-04T16:04:56Z",
+      "side": 1,
+      "message": "Whitespace",
+      "revId": "a711d954023b6b8f184c242cc3dcffe3be59034f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_66ee0bee",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-03-04T16:04:56Z",
+      "side": 1,
+      "message": "100 char",
+      "revId": "a711d954023b6b8f184c242cc3dcffe3be59034f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
