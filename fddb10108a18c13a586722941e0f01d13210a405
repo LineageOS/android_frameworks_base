@@ -16,6 +16,24 @@
       "revId": "fddb10108a18c13a586722941e0f01d13210a405",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_302289ba",
+        "filename": "core/java/android/content/pm/PermissionInfo.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 10291
+      },
+      "writtenOn": "2015-03-04T11:25:42Z",
+      "side": 1,
+      "message": "i had misunderstood this as a new level vs new flag",
+      "parentUuid": "9ad45d7e_d0eded8f",
+      "revId": "fddb10108a18c13a586722941e0f01d13210a405",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
