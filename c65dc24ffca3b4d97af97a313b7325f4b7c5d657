@@ -16,6 +16,24 @@
       "revId": "c65dc24ffca3b4d97af97a313b7325f4b7c5d657",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_13994f6f",
+        "filename": "packages/SystemUI/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-03-04T12:32:23Z",
+      "side": 0,
+      "message": "hmmm good catch. wonder why v7 depends on v4",
+      "parentUuid": "9ad45d7e_d387b710",
+      "revId": "c65dc24ffca3b4d97af97a313b7325f4b7c5d657",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
