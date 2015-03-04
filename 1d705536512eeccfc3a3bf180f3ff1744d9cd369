@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_b31683a5",
+        "filename": "core/java/android/content/pm/ActivityInfo.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-03-04T12:52:09Z",
+      "side": 1,
+      "message": "I\u0027m hoping these values are over enough so that changes to AOSP won\u0027t cause us headaches",
+      "revId": "1d705536512eeccfc3a3bf180f3ff1744d9cd369",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
