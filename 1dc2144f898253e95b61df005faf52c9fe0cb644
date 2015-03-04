@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9ad45d7e_698d3c7b",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 32
+      },
+      "writtenOn": "2015-03-04T20:30:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ad45d7e_73736b4e",
+      "revId": "1dc2144f898253e95b61df005faf52c9fe0cb644",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ad45d7e_33a0d390",
         "filename": "core/res/res/values/cm_strings.xml",
         "patchSetId": 16
@@ -30,6 +48,24 @@
       "writtenOn": "2015-03-04T12:32:50Z",
       "side": 1,
       "message": "\u0027CyanogenMod\u0027 needs to be overlaid (like in SetupWizard) for commercial builds",
+      "revId": "1dc2144f898253e95b61df005faf52c9fe0cb644",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_299344a5",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 32
+      },
+      "writtenOn": "2015-03-04T20:30:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ad45d7e_33a0d390",
       "revId": "1dc2144f898253e95b61df005faf52c9fe0cb644",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
