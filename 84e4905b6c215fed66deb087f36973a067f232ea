@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_49415839",
+        "filename": "services/core/java/com/android/server/CmHardwareService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-03-04T19:56:15Z",
+      "side": 1,
+      "message": "consider removing the permissions checks on these getters.  They can\u0027t really cause any harm and make applications become a priveledged module if they just want to read a serial number or something.",
+      "revId": "84e4905b6c215fed66deb087f36973a067f232ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
