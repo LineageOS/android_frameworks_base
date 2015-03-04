@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_d0eded8f",
+        "filename": "core/java/android/content/pm/PermissionInfo.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 10291
+      },
+      "writtenOn": "2015-03-04T11:15:07Z",
+      "side": 1,
+      "message": "let\u0027s make this 0x80000002 instead. the rest of the system will mask the value with 0xF and see 0x2 (PROTECTION_SIGNATURE), thus disallowing everything. code that knows about PRIVILEGED can test for the high bit and allow when appropriate. otherwise, other pieces of the system will mask against 0xF and see 0 as the result - PROTECTION_LEVEL_NORMAL.",
+      "revId": "fddb10108a18c13a586722941e0f01d13210a405",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
