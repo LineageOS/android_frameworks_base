@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_d387b710",
+        "filename": "packages/SystemUI/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 6606
+      },
+      "writtenOn": "2015-03-04T12:26:16Z",
+      "side": 0,
+      "message": "Why was this removed?\n\nNobody got an error with this patch? ( http://pastebin.com/4kibrHXr )\nSimply restoring this line alone prevented sysui crashes for me :/",
+      "revId": "c65dc24ffca3b4d97af97a313b7325f4b7c5d657",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
