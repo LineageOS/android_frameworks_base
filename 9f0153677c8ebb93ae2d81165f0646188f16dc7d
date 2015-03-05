@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_9fe7fe3f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 3859,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-03-05T12:54:02Z",
+      "side": 1,
+      "message": "Line 3859 and line 3915 both check for THEME_UPDATED. Maybe this logic can just stay in shouldUpdateStatusBar?",
+      "revId": "9f0153677c8ebb93ae2d81165f0646188f16dc7d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_3fda5279",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 3862,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-03-05T12:54:02Z",
+      "side": 1,
+      "message": "This could probably just go into shouldUpdateStatusBar",
+      "revId": "9f0153677c8ebb93ae2d81165f0646188f16dc7d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
