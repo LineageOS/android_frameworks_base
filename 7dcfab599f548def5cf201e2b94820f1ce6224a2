@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_a4e59ba9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2015-03-05T09:06:47Z",
+      "side": 1,
+      "message": "Why it\u0027s here?",
+      "revId": "7dcfab599f548def5cf201e2b94820f1ce6224a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
