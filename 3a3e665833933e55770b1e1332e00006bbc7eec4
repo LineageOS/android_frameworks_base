@@ -50,6 +50,24 @@
       "revId": "3a3e665833933e55770b1e1332e00006bbc7eec4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_e4495390",
+        "filename": "packages/SystemUI/res/drawable/zen_mode_panel_background.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 12453
+      },
+      "writtenOn": "2015-03-05T10:18:56Z",
+      "side": 1,
+      "message": "The idea was to mimic the stock assignment, which pointed to a drawable which was using that value.",
+      "parentUuid": "9ad45d7e_0472a7e5",
+      "revId": "3a3e665833933e55770b1e1332e00006bbc7eec4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
