@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_bf93e24e",
+        "filename": "packages/SystemUI/res/values/cm_dimens.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-03-05T14:26:08Z",
+      "side": 1,
+      "message": "this should be able to fit on one line.",
+      "revId": "e5ee3ce4d61a6645c7c4ff073d7701070a8b05b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
