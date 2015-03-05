@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9ad45d7e_7ac1782e",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3388,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-03-05T23:59:04Z",
+      "side": 1,
+      "message": "MSIM_TWEAKS isn\u0027t detailed enough. Please specific with the constant\u0027s name what the intentions of it are.",
+      "revId": "7dcfab599f548def5cf201e2b94820f1ce6224a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ad45d7e_a4e59ba9",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
         "patchSetId": 2
@@ -13,6 +30,40 @@
       "writtenOn": "2015-03-05T09:06:47Z",
       "side": 1,
       "message": "Why it\u0027s here?",
+      "revId": "7dcfab599f548def5cf201e2b94820f1ce6224a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_fab448d2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-03-05T23:59:04Z",
+      "side": 1,
+      "message": "You could accomplish this feature with\n\n  mNoSimSlot[phoneId].setVisibility(loadMsimSetting() ? View.GONE : View.VISIBLE) \n\nno?",
+      "revId": "7dcfab599f548def5cf201e2b94820f1ce6224a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_3ac70047",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-03-05T23:59:04Z",
+      "side": 1,
+      "message": "Could be simplified much more with\n\n  return mSimStyle \u003d\u003d STATUS_BAR_MSIM_HIDDEN;",
       "revId": "7dcfab599f548def5cf201e2b94820f1ce6224a2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
