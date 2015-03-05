@@ -16,6 +16,24 @@
       "revId": "e5ee3ce4d61a6645c7c4ff073d7701070a8b05b3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_5fa3c69e",
+        "filename": "packages/SystemUI/res/values/cm_dimens.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 12453
+      },
+      "writtenOn": "2015-03-05T14:32:48Z",
+      "side": 1,
+      "message": "You just had to go there.",
+      "parentUuid": "9ad45d7e_bf93e24e",
+      "revId": "e5ee3ce4d61a6645c7c4ff073d7701070a8b05b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
