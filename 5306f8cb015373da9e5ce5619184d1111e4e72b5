@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_5a6d9431",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3388,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-06T02:50:45Z",
+      "side": 1,
+      "message": "I realize I suggested that name myself, but it\u0027s misleading after the logic inversion and should be something like STATUS_BAR_SHOWN_EMPTY_SIM_ICONS now.",
+      "revId": "5306f8cb015373da9e5ce5619184d1111e4e72b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_1a5afc83",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-06T02:50:45Z",
+      "side": 1,
+      "message": "All of those imports are unused.",
+      "revId": "5306f8cb015373da9e5ce5619184d1111e4e72b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_ba649049",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-06T02:50:45Z",
+      "side": 1,
+      "message": "Why not keep that logic in updateMobile()?",
+      "revId": "5306f8cb015373da9e5ce5619184d1111e4e72b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_9a770c02",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-06T02:50:45Z",
+      "side": 1,
+      "message": "Tabs -\u003e spaces",
+      "revId": "5306f8cb015373da9e5ce5619184d1111e4e72b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_fa5e0875",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-06T02:50:45Z",
+      "side": 1,
+      "message": "Those are unneeded.",
+      "revId": "5306f8cb015373da9e5ce5619184d1111e4e72b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_5a547453",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-06T02:50:45Z",
+      "side": 1,
+      "message": "boolean showEmptySimIcons()\n\n(no context parameter, as this class already has a mContext member)\n\n\nOr - even better - control the logic from this class. Add a method showEmptySimIcons(boolean) method to the MSimSignalCluster interface and call it with the appropriate value whenever this setting is changed (via observer).",
+      "revId": "5306f8cb015373da9e5ce5619184d1111e4e72b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_3a51c063",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-06T02:50:45Z",
+      "side": 1,
+      "message": "This should rather be passed in. See PhoneStatusBar.java.setControllerUsers() and how ZenModeControllerImpl uses that method call.",
+      "revId": "5306f8cb015373da9e5ce5619184d1111e4e72b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
