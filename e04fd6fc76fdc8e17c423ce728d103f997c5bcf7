@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_1a831cce",
+        "filename": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-06T02:35:56Z",
+      "side": 1,
+      "message": "I wonder whether it would be beneficial to give LiveDisplayController a dump() method and use it from here to dump its internal state.",
+      "revId": "e04fd6fc76fdc8e17c423ce728d103f997c5bcf7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
