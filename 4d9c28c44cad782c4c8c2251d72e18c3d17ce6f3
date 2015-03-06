@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_39b0addd",
+        "filename": "packages/SystemUI/res/drawable/notification_guts_ic_info.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-03-06T18:10:49Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "4d9c28c44cad782c4c8c2251d72e18c3d17ce6f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_19b5e9cc",
+        "filename": "packages/SystemUI/res/drawable/notification_guts_ic_ringer_mute.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-03-06T18:10:49Z",
+      "side": 1,
+      "message": "ws",
+      "revId": "4d9c28c44cad782c4c8c2251d72e18c3d17ce6f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_79ca2551",
+        "filename": "packages/SystemUI/res/drawable/notification_guts_ic_settings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-03-06T18:10:49Z",
+      "side": 1,
+      "message": "ws",
+      "revId": "4d9c28c44cad782c4c8c2251d72e18c3d17ce6f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
