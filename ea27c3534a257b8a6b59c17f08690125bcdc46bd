@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_c24b5a58",
+        "filename": "core/java/android/content/res/ThemeConfig.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 8961
+      },
+      "writtenOn": "2015-03-07T14:05:40Z",
+      "side": 1,
+      "message": "I think this should also be \"currThemes \u003d\u003d newThemes\" instead, after all we don\u0027t compare here strings either...",
+      "revId": "ea27c3534a257b8a6b59c17f08690125bcdc46bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
