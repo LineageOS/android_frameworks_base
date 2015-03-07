@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_bc4beb58",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryLevelTextView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-07T02:05:29Z",
+      "side": 1,
+      "message": "mShow isn\u0027t use anymore, right?",
+      "revId": "b565cdcddb299d357a078fded6f3abcce4c29ce4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_7c417339",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryLevelTextView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-07T02:05:29Z",
+      "side": 1,
+      "message": "We can rewrite this as:\n\nsetText(getResources().getString(R.string.battery_level_template, level));\nif (mBatteryCharging !\u003d charging) {\n   mBatteryCharging \u003d charging\n   updateVisibility();\n}",
+      "revId": "b565cdcddb299d357a078fded6f3abcce4c29ce4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
