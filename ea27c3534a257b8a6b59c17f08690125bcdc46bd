@@ -16,6 +16,24 @@
       "revId": "ea27c3534a257b8a6b59c17f08690125bcdc46bd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_826842bc",
+        "filename": "core/java/android/content/res/ThemeConfig.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-03-07T14:16:57Z",
+      "side": 1,
+      "message": "No, we do want to use .equals() here.  We want to know if these Maps contain the same themes and are therefore equal as far as a ThemeConfig is concerned.",
+      "parentUuid": "9ad45d7e_c24b5a58",
+      "revId": "ea27c3534a257b8a6b59c17f08690125bcdc46bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
