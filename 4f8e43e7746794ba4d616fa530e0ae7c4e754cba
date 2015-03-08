@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_2d822701",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-03-08T07:35:35Z",
+      "side": 1,
+      "message": "So I think we have to handle the case when advanced mode is turned off - rotation settings preference screen isn\u0027t displayed when advanced mode is disabled :/",
+      "revId": "4f8e43e7746794ba4d616fa530e0ae7c4e754cba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
