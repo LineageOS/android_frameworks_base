@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_6e4b752c",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 2069,
+      "author": {
+        "id": 7109
+      },
+      "writtenOn": "2015-03-09T21:31:10Z",
+      "side": 1,
+      "message": "100 char",
+      "revId": "e0c0512e4c32a9b29399b96a4121f731990997ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_4e48312e",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1701,
+      "author": {
+        "id": 7109
+      },
+      "writtenOn": "2015-03-09T21:31:10Z",
+      "side": 1,
+      "message": "100 char, mCustomBackKillTimeout is never used.\nhow about changing value of mBackKillTimeout instead of creating new variable?",
+      "revId": "e0c0512e4c32a9b29399b96a4121f731990997ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
