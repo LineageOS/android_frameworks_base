@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_4ecb1173",
+        "filename": "policy/src/com/android/internal/policy/impl/GlobalActions.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1025,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-09T23:17:25Z",
+      "side": 1,
+      "message": "Make this ScaleType.CENTER",
+      "revId": "aaaba3f256f0d4066fb73fe873c4d28a01783acf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
