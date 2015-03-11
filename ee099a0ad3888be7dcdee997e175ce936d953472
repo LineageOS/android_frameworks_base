@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ac969e8_06d8faee",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "8 char spaces (here and below)",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_a6eda690",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "mDataVisible[phoneId] \u003d activityIcon !\u003d 0;",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_a6bbe674",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "This is never used",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_66fc4e3f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MSimSignalClusterView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "For consistence, this should be a constants as it is actually. Anyway, if it is moved here, it shouldn\u0027t be named as a constant (upper case).",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_a6300609",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "NetworkControllerImpl constructor call to registerPhoneStateListener which set mPhoneCount. It should be safe to use mPhoneCount instead of call again to TelephonyManager.getDefault().getPhoneCount().\n\nApply to all calls in this class to TelephonyManager.getDefault().getPhoneCount() except for the registerPhoneStateListener method",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_06ad9a31",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "Not used. Remove it.",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_66aa8e1b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "Is only called from this class -\u003e private",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_a662c614",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "Check for action !\u003d null is a good idea here though",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_8667ca24",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "for (int sub \u003d 0; sub \u003c mPhoneCount; sub++) {...}",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_46a7924f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "case doesn\u0027t need extra { }",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_e6431e6b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "for (int i \u003d 0; i \u003c mPhoneCount; i++) {....}",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_c648a28a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "hand-written counted loop are about 3x faster that a for-loop over an arraylist (http://developer.android.com/training/articles/perf-tips.html#Loops)\n\n int count \u003d mMobileLabelViews.size();\n for (int i \u003d 0; i \u003c count; i++) {\n ...\n }",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_a69486e8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "wrap at 100 chars",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_265ed645",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "Is only called internally -\u003e private",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_c6a3824e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MSimNetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-11T13:55:55Z",
+      "side": 1,
+      "message": "wrap at 100 chars",
+      "revId": "ee099a0ad3888be7dcdee997e175ce936d953472",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
