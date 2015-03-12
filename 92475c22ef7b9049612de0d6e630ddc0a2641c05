@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ac969e8_ec577fc8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-12T10:57:01Z",
+      "side": 1,
+      "message": "Should we use ACTION_POWER_SAVE_MODE_CHANGED through a broadcast receiver instead of call mPowerManager.isPowerSaveMode()? This last operation uses a binder which is more expensive that the receiver and requestVisualizer is called multiple times.",
+      "revId": "92475c22ef7b9049612de0d6e630ddc0a2641c05",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
