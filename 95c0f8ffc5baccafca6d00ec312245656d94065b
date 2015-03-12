@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7ac969e8_2f3a29ce",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VisualizerTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-12T23:36:22Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "95c0f8ffc5baccafca6d00ec312245656d94065b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ac969e8_4c4b33b1",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
         "patchSetId": 3
