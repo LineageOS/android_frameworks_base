@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ac969e8_096acd1a",
+        "filename": "services/core/java/com/android/server/location/GpsLocationProvider.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-12T07:27:28Z",
+      "side": 1,
+      "message": "Get rid of the firstboot nonsense, you don\u0027t have a native api for native_set_agps_server hence that why it crashed because it tries to construct an object while when the jni is not there. it will crash or throw an exception if you remove the sim while android is running.",
+      "range": {
+        "startLine": 973,
+        "startChar": 12,
+        "endLine": 973,
+        "endChar": 34
+      },
+      "revId": "160c7e79a476de3b42a73c9ecb7a5d3a3f51b5db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
