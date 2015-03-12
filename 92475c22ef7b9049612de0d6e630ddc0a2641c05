@@ -16,6 +16,24 @@
       "revId": "92475c22ef7b9049612de0d6e630ddc0a2641c05",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_6c6c2f9d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-03-12T11:47:45Z",
+      "side": 1,
+      "message": "definitely, good idea",
+      "parentUuid": "7ac969e8_ec577fc8",
+      "revId": "92475c22ef7b9049612de0d6e630ddc0a2641c05",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
