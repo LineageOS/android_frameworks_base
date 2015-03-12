@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ac969e8_4c4b33b1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-12T13:47:15Z",
+      "side": 1,
+      "message": "we only want to listen when the view is attached\n\nI suggest to register on attach and unregester on dettach",
+      "revId": "95c0f8ffc5baccafca6d00ec312245656d94065b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
