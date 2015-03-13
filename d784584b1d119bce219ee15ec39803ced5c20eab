@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ac969e8_da0d1539",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2152,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2015-03-13T10:24:39Z",
+      "side": 0,
+      "message": "Doesn\u0027t removing isLedNotificationForcedOn() not break the led color picker in light settings ?",
+      "revId": "d784584b1d119bce219ee15ec39803ced5c20eab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
