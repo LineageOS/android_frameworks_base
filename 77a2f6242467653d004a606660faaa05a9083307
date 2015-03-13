@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ac969e8_eff2d105",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-13T01:13:47Z",
+      "side": 1,
+      "message": "Initialize this var in the constructor and name it as a module var (mConnectivityManager)",
+      "revId": "77a2f6242467653d004a606660faaa05a9083307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_4fe4c53a",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-13T01:13:47Z",
+      "side": 1,
+      "message": "better ifaces or tetheredIfaces",
+      "revId": "77a2f6242467653d004a606660faaa05a9083307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_6fe70141",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-13T01:13:47Z",
+      "side": 1,
+      "message": "usbRegexs",
+      "revId": "77a2f6242467653d004a606660faaa05a9083307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_2fdd0971",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-13T01:13:47Z",
+      "side": 1,
+      "message": "return;",
+      "revId": "77a2f6242467653d004a606660faaa05a9083307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac969e8_efc931ae",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-13T01:13:47Z",
+      "side": 1,
+      "message": "if (mUsbConnected \u0026\u0026 cm.isTetheringSupported()) {\n   updateState();\n } else {\n   mUsbTethered \u003d false;\n }\n refreshState();",
+      "revId": "77a2f6242467653d004a606660faaa05a9083307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
