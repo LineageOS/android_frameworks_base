@@ -34,6 +34,24 @@
       "revId": "b8e60046df723df0b1af6c72dd10448baf00ad45",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_947d32ea",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 12821,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-17T21:25:35Z",
+      "side": 1,
+      "message": "That\u0027s a very good point (and correct), so nevermind :-)\n\nAnother solution for making this more efficient would be keeping a list of disabled ComponentName instances and using contains().",
+      "parentUuid": "5ac665da_541d7abc",
+      "revId": "b8e60046df723df0b1af6c72dd10448baf00ad45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
