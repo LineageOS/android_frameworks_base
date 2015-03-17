@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_b4114eb2",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 12821,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-03-17T20:17:32Z",
+      "side": 1,
+      "message": "I had a solution that\u0027s a tad simpler here:\n\nfinal String flattenedComponentName \u003d\n        new ComponentName(packageName, className).flattenToString();\nfinal String[] disabledComponents \u003d  mContext.getResources().getStringArray(\n        com.android.internal.R.array.config_disabledComponents);\n\nif (Arrays.binarySearch(disabledComponents, flattenedComponentName) \u003e\u003d 0) {\n    Slog.d(TAG, \"Ignoring attempt to set enabled state of disabled component \"\n            + flattenedComponentName);\n    return;\n}",
+      "revId": "b8e60046df723df0b1af6c72dd10448baf00ad45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
