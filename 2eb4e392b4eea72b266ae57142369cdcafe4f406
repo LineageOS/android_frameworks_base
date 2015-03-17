@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_6e3423de",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2833,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-03-17T05:37:44Z",
+      "side": 1,
+      "message": "so this will only run if activity manager throws an exception?",
+      "revId": "2eb4e392b4eea72b266ae57142369cdcafe4f406",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
