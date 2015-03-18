@@ -16,6 +16,24 @@
       "revId": "bee5d5f20de1b4786ff0677e6ecef646cc86abda",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_bf25a7af",
+        "filename": "core/java/android/os/RecoverySystem.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-18T05:13:42Z",
+      "side": 1,
+      "message": "Both --wipe_data and --wipe_media are available from recovery. This patch is just plumbing down the values coming from the settings checkbox.",
+      "parentUuid": "5ac665da_b45dceee",
+      "revId": "bee5d5f20de1b4786ff0677e6ecef646cc86abda",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
