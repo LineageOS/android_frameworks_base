@@ -68,6 +68,24 @@
       "revId": "527fe69f4c5831c39d2974873807ceb1dfbb98a4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_bf8e4725",
+        "filename": "services/core/java/com/android/server/MasterClearReceiver.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-18T12:08:58Z",
+      "side": 1,
+      "message": "No real need to preserve the old interface then. Let\u0027s not add extra dead code.",
+      "parentUuid": "5ac665da_3f7c1720",
+      "revId": "527fe69f4c5831c39d2974873807ceb1dfbb98a4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
