@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_3f953740",
+        "filename": "core/java/android/os/RecoverySystem.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-18T11:30:44Z",
+      "side": 1,
+      "message": "100 chars? Or is this right under?",
+      "revId": "527fe69f4c5831c39d2974873807ceb1dfbb98a4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_1f92fb57",
+        "filename": "services/core/java/com/android/server/MasterClearReceiver.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-18T11:30:44Z",
+      "side": 1,
+      "message": "Are there other users of this function?",
+      "revId": "527fe69f4c5831c39d2974873807ceb1dfbb98a4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
