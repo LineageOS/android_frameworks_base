@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_3920b749",
+        "filename": "core/java/android/app/CustomTile.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-03-18T13:06:41Z",
+      "side": 1,
+      "message": "right now if you read an int, you immediately assume it is an onclick parcelable value - what happens if the user fills in the label but doesn\u0027t fill in onclick, onclickUri, wouldn\u0027t it be parsing it into the wrong place?\n\nMaybe change int values to differentiate between the different variables?",
+      "revId": "917fb637d5e025e897fc2f0257db9f7687591371",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_791a2f19",
+        "filename": "core/java/android/app/StatusBarManager.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-03-18T13:06:41Z",
+      "side": 1,
+      "message": "would it be better to consolidate the common logic of the foo and fooAsUser and then have a simple function to pass in the userid through?",
+      "revId": "917fb637d5e025e897fc2f0257db9f7687591371",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_bf5da7ee",
+        "filename": "core/java/android/service/statusbar/StatusBarPanelCustomTile.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-03-18T13:06:41Z",
+      "side": 1,
+      "message": "if there is no tag, the uid would still cause readInt to be !\u003d 0",
+      "revId": "917fb637d5e025e897fc2f0257db9f7687591371",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_9f626bac",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/CustomTileData.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-03-18T13:06:41Z",
+      "side": 1,
+      "message": "we can just return mEntries.remove(key) instead of checking for null then returning null",
+      "revId": "917fb637d5e025e897fc2f0257db9f7687591371",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_df5ce3ef",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/QSTileHost.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-03-18T13:06:41Z",
+      "side": 1,
+      "message": "should we be removing the entry data from mCustomTileData here?",
+      "revId": "917fb637d5e025e897fc2f0257db9f7687591371",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_ff571fc8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/QSTileHost.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-03-18T13:06:41Z",
+      "side": 1,
+      "message": "one too many tabs",
+      "revId": "917fb637d5e025e897fc2f0257db9f7687591371",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
