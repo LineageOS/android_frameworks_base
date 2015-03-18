@@ -16,6 +16,23 @@
       "revId": "2eb4e392b4eea72b266ae57142369cdcafe4f406",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_1474a2cd",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2833,
+      "author": {
+        "id": 4420
+      },
+      "writtenOn": "2015-03-18T02:46:24Z",
+      "side": 1,
+      "message": "that is a merge error from the owner :)",
+      "revId": "2eb4e392b4eea72b266ae57142369cdcafe4f406",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
