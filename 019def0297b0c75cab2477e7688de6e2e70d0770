@@ -16,6 +16,24 @@
       "revId": "019def0297b0c75cab2477e7688de6e2e70d0770",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_bac65514",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3908,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-03-19T08:34:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ac665da_9a64394a",
+      "revId": "019def0297b0c75cab2477e7688de6e2e70d0770",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
