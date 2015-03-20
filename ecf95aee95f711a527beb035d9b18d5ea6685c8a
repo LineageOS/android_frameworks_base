@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_c4bb7374",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3907,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-03-20T10:26:31Z",
+      "side": 1,
+      "message": "this should have been removed from http://review.cyanogenmod.org/91705",
+      "revId": "ecf95aee95f711a527beb035d9b18d5ea6685c8a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
