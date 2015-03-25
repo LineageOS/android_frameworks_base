@@ -16,6 +16,24 @@
       "revId": "99a1d1652dae8b5a095836a2c826c9c829cac220",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_9ceeebea",
+        "filename": "packages/WallpaperCropper/src/com/android/wallpapercropper/WallpaperPickerActivity.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-03-25T13:01:45Z",
+      "side": 1,
+      "message": "Paralellization should work here! good idea",
+      "parentUuid": "5ac665da_1ce2fb03",
+      "revId": "99a1d1652dae8b5a095836a2c826c9c829cac220",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
