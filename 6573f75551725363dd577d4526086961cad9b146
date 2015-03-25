@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5ac665da_7996a195",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-03-25T03:25:23Z",
+      "side": 1,
+      "message": "no other instances of oldRil are global, and a non-global member can\u0027t be marked private. This oldRil instance is only used in getLteLevel()",
+      "parentUuid": "5ac665da_b6814892",
+      "revId": "6573f75551725363dd577d4526086961cad9b146",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac665da_1672dce5",
         "filename": "telephony/java/android/telephony/SignalStrength.java",
         "patchSetId": 4
