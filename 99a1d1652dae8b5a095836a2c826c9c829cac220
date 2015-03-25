@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_1ce2fb03",
+        "filename": "packages/WallpaperCropper/src/com/android/wallpapercropper/WallpaperPickerActivity.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-03-25T12:44:21Z",
+      "side": 1,
+      "message": "I wonder if we can parallelize this with executeOnExecutor(THREAD_POOL_EXECUTOR) in case multiple calls to this method was done, or is necessary a SERIAL execute?\n\nIf i read the code correctly, this code is non-dependant and could be paralellize, specially from onRestoreInstanceState call",
+      "revId": "99a1d1652dae8b5a095836a2c826c9c829cac220",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
