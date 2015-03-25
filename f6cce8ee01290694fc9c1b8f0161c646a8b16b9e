@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5ac665da_dc0983df",
+        "filename": "packages/WallpaperCropper/src/com/android/wallpapercropper/WallpaperPickerActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-03-25T12:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ac665da_1c731bb3",
+      "revId": "f6cce8ee01290694fc9c1b8f0161c646a8b16b9e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac665da_7c684fbb",
         "filename": "packages/WallpaperCropper/src/com/android/wallpapercropper/WallpaperPickerActivity.java",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-03-25T12:33:06Z",
       "side": 1,
       "message": "Put this inside the null check. It is not used if thumb is null",
+      "revId": "f6cce8ee01290694fc9c1b8f0161c646a8b16b9e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_7cf96fc8",
+        "filename": "packages/WallpaperCropper/src/com/android/wallpapercropper/WallpaperPickerActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-03-25T12:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ac665da_7c684fbb",
       "revId": "f6cce8ee01290694fc9c1b8f0161c646a8b16b9e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
