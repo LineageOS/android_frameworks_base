@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_c7352cf8",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2821,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-26T19:58:34Z",
+      "side": 1,
+      "message": "move boolean error \u003d false; to here",
+      "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_e730280a",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2823,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-26T19:58:34Z",
+      "side": 1,
+      "message": "error \u003d true;",
+      "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_672558c1",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2827,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-26T19:58:34Z",
+      "side": 1,
+      "message": "fixme!",
+      "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_47093c31",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2842,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-26T19:58:34Z",
+      "side": 1,
+      "message": "if (error || (TextUtils.isEmpty(val) \u0026\u0026 phoneCount !\u003d 0)) {\n    val \u003d \"\";\n    for (int i \u003d 0; i \u003c phoneCount; i++){\n         val +\u003d RILConstants.PREFERRED_NETWORK_MODE + \"\";\n         if (i \u003c phoneCount - 1)\n             val +\u003d \",\";\n    }\n    loadSetting(stmt, Settings.Global.PREFERRED_NETWORK_MODE, val);\n}",
+      "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
