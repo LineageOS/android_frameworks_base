@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_8d17d3ec",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2838,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-03-27T14:45:09Z",
+      "side": 1,
+      "message": "wrap to 100 chars",
+      "revId": "88a9fdfa74a6b53c0785e89b6858c3099c1bed1e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_edd2c733",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2840,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-03-27T14:45:09Z",
+      "side": 1,
+      "message": "same as above",
+      "revId": "88a9fdfa74a6b53c0785e89b6858c3099c1bed1e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
