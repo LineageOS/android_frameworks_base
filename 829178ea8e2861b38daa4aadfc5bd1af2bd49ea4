@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_82e2029e",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2826,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-03-27T10:48:19Z",
+      "side": 1,
+      "message": "Its one of those days when I wish Java had something like tryParse",
+      "revId": "829178ea8e2861b38daa4aadfc5bd1af2bd49ea4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
