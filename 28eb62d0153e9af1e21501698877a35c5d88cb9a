@@ -54,6 +54,47 @@
     },
     {
       "key": {
+        "uuid": "5ac665da_42e48a0c",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2821,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-27T06:55:48Z",
+      "side": 1,
+      "message": "int savedPosition \u003d 0;",
+      "parentUuid": "5ac665da_4265aadf",
+      "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_c2ba3ac0",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2822,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-27T06:55:48Z",
+      "side": 1,
+      "message": "get rid of this if block",
+      "range": {
+        "startLine": 2822,
+        "startChar": 10,
+        "endLine": 2822,
+        "endChar": 48
+      },
+      "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac665da_e730280a",
         "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
         "patchSetId": 3
@@ -106,6 +147,57 @@
     },
     {
       "key": {
+        "uuid": "5ac665da_627c2621",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2828,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-27T06:55:48Z",
+      "side": 1,
+      "message": "for (int i \u003d 0; i \u003c valArray.length; i++) {",
+      "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_a2ad7e8a",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2834,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-27T06:55:48Z",
+      "side": 1,
+      "message": "savedPosition \u003d i;",
+      "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_02b572cc",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2838,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-27T06:55:48Z",
+      "side": 1,
+      "message": "val \u003d valParsed;\nif (valArray.length !\u003d phoneCount) {\n    savedPosition \u003d valArray.length - 1;\n    error \u003d true;\n}",
+      "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac665da_47093c31",
         "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
         "patchSetId": 3
@@ -135,6 +227,24 @@
       "side": 1,
       "message": "IMHO, we are looping too much times over the same loop conditions. TextUtils have a join method for this.",
       "parentUuid": "5ac665da_47093c31",
+      "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_e2b936ee",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2842,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-27T06:55:48Z",
+      "side": 1,
+      "message": "if (error || (TextUtils.isEmpty(val) \u0026\u0026 phoneCount !\u003d 0)) {\n    for (int i \u003d savedPoaition; i \u003c phoneCount; i++){\n        val +\u003d RILConstants.PREFERRED_NETWORK_MODE + \"\";\n        if (i \u003c phoneCount - 1)\n            val +\u003d \",\";\n    }\n    loadSetting(stmt, Settings.Global.PREFERRED_NETWORK_MODE, val);\n}",
+      "parentUuid": "5ac665da_825fa20d",
       "revId": "28eb62d0153e9af1e21501698877a35c5d88cb9a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
