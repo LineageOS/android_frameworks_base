@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_e22ad6e6",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-03-27T09:31:14Z",
+      "side": 1,
+      "message": "defaultNetworkSettingsLength isn\u0027t used as defNetworkSettings.length is used below",
+      "revId": "ec56b80cbb6a52d2b874ed5291b935ed7e73e1eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_82efa2af",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2825,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-03-27T09:31:14Z",
+      "side": 1,
+      "message": "foreach loop could simplify this for statement a smidge by also using a List\u003cString\u003e instead of string[]",
+      "revId": "ec56b80cbb6a52d2b874ed5291b935ed7e73e1eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
