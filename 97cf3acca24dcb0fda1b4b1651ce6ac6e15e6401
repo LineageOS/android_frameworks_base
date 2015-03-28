@@ -16,6 +16,24 @@
       "revId": "97cf3acca24dcb0fda1b4b1651ce6ac6e15e6401",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_085c7124",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/DataUsageDetailView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2015-03-28T02:34:20Z",
+      "side": 1,
+      "message": "I just wanted to keep it as compatible as possible. Got this from NotificationMgr.java, the code is more or less the same. Didn\u0027t know the exact purpose of this package",
+      "parentUuid": "5ac665da_082591aa",
+      "revId": "97cf3acca24dcb0fda1b4b1651ce6ac6e15e6401",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
