@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_a8befdfc",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2832,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-03-28T04:26:14Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "4ac38ff43043098a1f174a769b66a2b8b1c1843d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
