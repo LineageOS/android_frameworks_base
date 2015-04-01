@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_e969118d",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5309,
+      "author": {
+        "id": 10631
+      },
+      "writtenOn": "2015-04-01T10:14:51Z",
+      "side": 1,
+      "message": "boolean isDisabled \u003d isUserDisabledWakeKey(keyCode);\n\nHow this currently reads to me: \"if not volume wake screen and not docked\"\n\nuse cases:\n - mVolumeWakeKey \u003d true \u0026\u0026 DUT not docked\n    - isDisabled \u003d\u003d false\n      [ return !true \u0026\u0026 true ] // false and true\n\n - mVolumeWakeKey \u003d false \u0026\u0026 DUT not docked\n    - isDisabled \u003d\u003d true\n      [ return !false \u0026\u0026 true ] // true and true\n\n - mVolumeWakeKey \u003d true \u0026\u0026 DUT docked\n    - isDisabled \u003d\u003d false\n      [ return !true \u0026\u0026 false ] // false and false\n\n - mVolumeWakeKey \u003d false \u0026\u0026 DUT docked\n    - idDisabled \u003d\u003d false\n      [ return !false \u0026\u0026 false ] // true and false\n\nFrom what I remember it sets mVolumeWakeScreen \u003d true when it is checked in settings.  Which would be the first use case.\n\nGranted that will return false and if you say \"isUserDisabledWakeKey\" then it is false therefore it isn\u0027t disabled.\n\n\nWhich brings me to the calling line (4999) it seems hard to read to me.\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nWould this improve readability? \n\nisWakeKey \u003d (isWakeKey \u0026\u0026 isKeyWakeEnabled(keyCode);\n\n\nboolean isKeyWakeEnabled(keyCode) {\n   ....\n       return mVolumeWakeScreen || mDockMode \u003d\u003d Intent.EXTRA_DOCK_STATE_DOCKED; // if enabled or docked wake up device\n\n}",
+      "revId": "9b1c37694cad88ba6be96b5e389a5faa9b3592a9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
