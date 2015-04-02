@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_0f4f4dbe",
+        "filename": "core/java/com/android/internal/widget/LockPatternView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-02T08:07:03Z",
+      "side": 1,
+      "message": "wrap to 100 chars",
+      "revId": "1d0c657188f7a74bd87633afe8f84fe18a912486",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
