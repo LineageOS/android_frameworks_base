@@ -618,6 +618,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mAssistWakeScreen;
     boolean mAppSwitchWakeScreen;
 
+    boolean mVolumeAnswerCall;
+
     int mPointerLocationMode = 0; // guarded by mLock
 
     // The last window we were told about in focusChanged.
@@ -1078,6 +1080,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             resolver.registerContentObserver(LineageSettings.System.getUriFor(
                     LineageSettings.System.APP_SWITCH_WAKE_SCREEN), false, this,
                     UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.VOLUME_ANSWER_CALL), false, this,
+                    UserHandle.USER_ALL);
             updateSettings();
         }
 
@@ -1331,6 +1336,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
             if (telecomManager != null) {
                 if (telecomManager.isRinging()) {
+                    if (mVolumeAnswerCall) {
+                        telecomManager.acceptRingingCall();
+                    }
+
                     // Pressing back while there's a ringing incoming
                     // call should silence the ringer.
                     telecomManager.silenceRinger();
@@ -2531,6 +2540,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mAppSwitchWakeScreen = (LineageSettings.System.getIntForUser(resolver,
                     LineageSettings.System.APP_SWITCH_WAKE_SCREEN, 0, UserHandle.USER_CURRENT) == 1) &&
                     ((mDeviceHardwareWakeKeys & KEY_MASK_APP_SWITCH) != 0);
+            mVolumeAnswerCall = LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.VOLUME_ANSWER_CALL, 0, UserHandle.USER_CURRENT) == 1;
 
             // Configure wake gesture.
             boolean wakeGestureEnabledSetting = Settings.Secure.getIntForUser(resolver,
