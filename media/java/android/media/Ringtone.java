@@ -216,6 +216,12 @@ public class Ringtone {
                 if (followSettingsUri) {
                     Uri actualUri = RingtoneManager.getActualDefaultRingtoneUri(context,
                             RingtoneManager.getDefaultType(uri));
+                    }
+                    if (actualUri == null) {
+                        title = context
+                                .getString(com.android.internal.R.string.ringtone_default);
+                        return title;
+                    }
                     String actualTitle = getTitle(
                             context, actualUri, false /*followSettingsUri*/, allowRemote);
                     title = context
