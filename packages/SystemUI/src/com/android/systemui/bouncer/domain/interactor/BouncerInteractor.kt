@@ -87,6 +87,9 @@ constructor(
     /** The length of the hinted PIN, or `null`, if pin length hint should not be shown. */
     val hintedPinLength: StateFlow<Int?> = authenticationInteractor.hintedPinLength
 
+    /** The current pattern size. */
+    val patternSize: StateFlow<Byte> = authenticationInteractor.patternSize
+
     /** Whether the pattern should be visible for the currently-selected user. */
     val isPatternVisible: StateFlow<Boolean> = authenticationInteractor.isPatternVisible
 
