@@ -1127,9 +1127,11 @@ public class RecoverableKeyStoreManager {
                 CharSequence pinStr = new String(password);
                 return LockscreenCredential.createPin(pinStr);
             case KeyguardManager.PATTERN:
+                byte patternSize = new LockPatternUtils(mContext).getLockPatternSize(
+                        mContext.getUserId());
                 List<LockPatternView.Cell> pattern =
-                        LockPatternUtils.byteArrayToPattern(password);
-                return LockscreenCredential.createPattern(pattern);
+                        LockPatternUtils.byteArrayToPattern(password, patternSize);
+                return LockscreenCredential.createPattern(pattern, patternSize);
             default:
                 throw new IllegalStateException("Lockscreen is not set");
         }

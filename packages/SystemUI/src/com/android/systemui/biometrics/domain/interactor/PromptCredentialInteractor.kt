@@ -16,6 +16,7 @@
 
 package com.android.systemui.biometrics.domain.interactor
 
+import com.android.internal.widget.LockPatternUtils
 import com.android.internal.widget.LockPatternView
 import com.android.internal.widget.LockscreenCredential
 import com.android.systemui.biometrics.data.repository.PromptRepository
@@ -145,6 +146,7 @@ constructor(
         request: BiometricPromptRequest.Credential,
         text: CharSequence? = null,
         pattern: List<LockPatternView.Cell>? = null,
+        patternSize: Byte = LockPatternUtils.PATTERN_SIZE_DEFAULT
     ): CredentialStatus =
         withContext(bgDispatcher) {
             val credential =
@@ -154,7 +156,7 @@ constructor(
                     is BiometricPromptRequest.Credential.Password ->
                         LockscreenCredential.createPasswordOrNone(text ?: "")
                     is BiometricPromptRequest.Credential.Pattern ->
-                        LockscreenCredential.createPattern(pattern ?: listOf())
+                        LockscreenCredential.createPattern(pattern ?: listOf(), patternSize)
                 }
 
             credential.use { c -> verifyCredential(request, c) }
