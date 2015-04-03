@@ -780,10 +780,11 @@ public class KeyguardManager {
                     success = true;
                     break;
                 case LockTypes.PATTERN:
+                    byte patternSize = lockPatternUtils.getLockPatternSize(userId);
                     List<LockPatternView.Cell> pattern =
-                            LockPatternUtils.byteArrayToPattern(password);
+                            LockPatternUtils.byteArrayToPattern(password, patternSize);
                     lockPatternUtils.setLockCredential(
-                            LockscreenCredential.createPattern(pattern),
+                            LockscreenCredential.createPattern(pattern, patternSize),
                             /* savedPassword= */ LockscreenCredential.createNone(),
                             userId);
                     pattern.clear();
