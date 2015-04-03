@@ -443,6 +443,14 @@ class LockSettingsStorage {
         writeFile(getLockPatternFilename(userId), patternHash);
     }
 
+    public byte getLockPatternSize(int userId) {
+        long size = Long.valueOf(readKeyValue(Settings.Secure.LOCK_PATTERN_SIZE, "-1", userId));
+        if (size > 0 && size < 128) {
+            return (byte) size;
+        }
+        return LockPatternUtils.PATTERN_SIZE_DEFAULT;
+    }
+
     @VisibleForTesting
     String getLockPatternFilename(int userId) {
         return getLockCredentialFilePathForUser(userId, LOCK_PATTERN_FILE);

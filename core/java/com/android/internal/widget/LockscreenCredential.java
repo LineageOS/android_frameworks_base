@@ -96,9 +96,10 @@ public class LockscreenCredential implements Parcelable, AutoCloseable {
     /**
      * Creates a LockscreenCredential object representing the given pattern.
      */
-    public static LockscreenCredential createPattern(@NonNull List<LockPatternView.Cell> pattern) {
+    public static LockscreenCredential createPattern(@NonNull List<LockPatternView.Cell> pattern,
+            byte gridSize) {
         return new LockscreenCredential(CREDENTIAL_TYPE_PATTERN,
-                LockPatternUtils.patternToByteArray(pattern));
+                LockPatternUtils.patternToByteArray(pattern, gridSize));
     }
 
     /**
