@@ -138,7 +138,8 @@ public class LockPatternViewTest {
                 MotionEvent.obtain(0, 0, MotionEvent.ACTION_DOWN, mDot1x, mDot1y, 1));
         mLockPatternView.onTouchEvent(
                 MotionEvent.obtain(0, 0, MotionEvent.ACTION_UP, mDot1x, mDot1y, 1));
-        verify(mPatternListener).onPatternDetected(any(), any());
+        verify(mPatternListener).onPatternDetected(any(), any(),
+                LockPatternUtils.PATTERN_SIZE_DEFAULT);
     }
 
     @UiThreadTest
@@ -173,7 +174,8 @@ public class LockPatternViewTest {
         mLockPatternView.onTouchEvent(
                 MotionEvent.obtain(0, 3, MotionEvent.ACTION_UP, mDot2x, mDot2y, 1));
 
-        verify(mPatternListener).onPatternDetected(mCellsArgumentCaptor.capture(), any());
+        verify(mPatternListener).onPatternDetected(mCellsArgumentCaptor.capture(), any(),
+                LockPatternUtils.PATTERN_SIZE_DEFAULT);
         List<LockPatternView.Cell> patternCells = mCellsArgumentCaptor.getValue();
         assertThat(patternCells, hasSize(2));
         assertThat(patternCells,
@@ -190,7 +192,8 @@ public class LockPatternViewTest {
         mLockPatternView.onTouchEvent(
                 MotionEvent.obtain(0, 3, MotionEvent.ACTION_UP, mDot5x, mDot5y, 1));
 
-        verify(mPatternListener).onPatternDetected(mCellsArgumentCaptor.capture(), any());
+        verify(mPatternListener).onPatternDetected(mCellsArgumentCaptor.capture(), any(),
+                LockPatternUtils.PATTERN_SIZE_DEFAULT);
         List<LockPatternView.Cell> patternCells = mCellsArgumentCaptor.getValue();
         assertThat(patternCells, hasSize(2));
         assertThat(patternCells,
@@ -210,7 +213,8 @@ public class LockPatternViewTest {
                 MotionEvent.obtain(0, 0, MotionEvent.ACTION_UP, mViewSize - mDefaultError,
                         mViewSize - mDefaultError, 1));
 
-        verify(mPatternListener).onPatternDetected(mCellsArgumentCaptor.capture(), any());
+        verify(mPatternListener).onPatternDetected(mCellsArgumentCaptor.capture(), any(),
+                LockPatternUtils.PATTERN_SIZE_DEFAULT);
         List<LockPatternView.Cell> patternCells = mCellsArgumentCaptor.getValue();
         assertThat(patternCells, hasSize(7));
         assertThat(patternCells,

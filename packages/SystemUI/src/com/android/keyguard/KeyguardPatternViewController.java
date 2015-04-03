@@ -119,7 +119,7 @@ public class KeyguardPatternViewController
         }
 
         @Override
-        public void onPatternDetected(final List<LockPatternView.Cell> pattern) {
+        public void onPatternDetected(final List<LockPatternView.Cell> pattern, byte patternSize) {
             mKeyguardUpdateMonitor.setCredentialAttempted();
             mLockPatternView.disableInput();
             if (mPendingLockCheck != null) {
@@ -143,7 +143,7 @@ public class KeyguardPatternViewController
             mLatencyTracker.onActionStart(ACTION_CHECK_CREDENTIAL_UNLOCKED);
             mPendingLockCheck = LockPatternChecker.checkCredential(
                     mLockPatternUtils,
-                    LockscreenCredential.createPattern(pattern),
+                    LockscreenCredential.createPattern(pattern, patternSize),
                     userId,
                     new LockPatternChecker.OnCheckCallback() {
 
@@ -273,6 +273,7 @@ public class KeyguardPatternViewController
     @Override
     protected void onViewAttached() {
         super.onViewAttached();
+        int userId = mSelectedUserInteractor.getSelectedUserId();
         mLockPatternView.setOnPatternListener(new UnlockPatternListener());
         mLockPatternView.setSaveEnabled(false);
         boolean visiblePatternEnabled = mLockPatternUtils.isVisiblePatternEnabled(
@@ -281,6 +282,10 @@ public class KeyguardPatternViewController
         if (Flags.bouncerUiRevamp2()) {
             mLockPatternView.setKeepDotActivated(visiblePatternEnabled);
         }
+        mLockPatternView.setLockPatternUtils(mLockPatternUtils);
+        mLockPatternView.setLockPatternSize(mLockPatternUtils.getLockPatternSize(userId));
+        mLockPatternView.setVisibleDots(mLockPatternUtils.isVisibleDotsEnabled(userId));
+        mLockPatternView.setShowErrorPath(mLockPatternUtils.isShowErrorPath(userId));
         mLockPatternView.setOnTouchListener((v, event) -> {
             if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
                 mFalsingCollector.avoidGesture();
