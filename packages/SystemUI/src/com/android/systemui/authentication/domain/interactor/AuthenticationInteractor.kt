@@ -179,6 +179,9 @@ constructor(
                 initialValue = null,
             )
 
+    /** The current pattern size. */
+    val patternSize: StateFlow<Byte> = repository.patternSize
+
     /** Whether the auto confirm feature is enabled for the currently-selected user. */
     val isAutoConfirmEnabled: StateFlow<Boolean> = repository.isAutoConfirmEnabled
 
@@ -357,7 +360,8 @@ constructor(
                 LockscreenCredential.createPattern(
                     input
                         .map { it as AuthenticationPatternCoordinate }
-                        .map { LockPatternView.Cell.of(it.y, it.x) }
+                        .map { LockPatternView.Cell.of(it.y, it.x, patternSize.value) },
+                    patternSize.value
                 )
             else -> null
         }
