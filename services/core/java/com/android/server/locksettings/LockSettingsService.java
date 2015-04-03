@@ -1216,6 +1216,10 @@ public class LockSettingsService extends ILockSettings.Stub {
                 && mLockPatternUtils.isSeparateProfileChallengeEnabled(userId);
     }
 
+    public byte getLockPatternSize(int userId) {
+        return mStorage.getLockPatternSize(userId);
+    }
+
     // This method should be called by LockPatternUtil only, all internal methods in this class
     // should call setLockCredentialInternal.
     @Override
@@ -1656,7 +1660,9 @@ public class LockSettingsService extends ILockSettings.Stub {
         if (storedHash.version == CredentialHash.VERSION_LEGACY) {
             final byte[] hash;
             if (storedHash.type == LockPatternUtils.CREDENTIAL_TYPE_PATTERN) {
-                hash = LockPatternUtils.patternToHash(LockPatternUtils.stringToPattern(credential));
+                final byte lockPatternSize = getLockPatternSize(userId);
+                hash = LockPatternUtils.patternToHash(LockPatternUtils.stringToPattern(credential,
+                                                      lockPatternSize), lockPatternSize);
             } else {
                 hash = mLockPatternUtils.passwordToHash(credential, userId);
             }
@@ -1937,6 +1943,9 @@ public class LockSettingsService extends ILockSettings.Stub {
             Secure.LOCK_BIOMETRIC_WEAK_FLAGS,
             Secure.LOCK_PATTERN_VISIBLE,
             Secure.LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED,
+            Secure.LOCK_PATTERN_SIZE,
+            Secure.LOCK_DOTS_VISIBLE,
+            Secure.LOCK_SHOW_ERROR_PATH,
             LineageSettings.Secure.LOCK_PASS_TO_SECURITY_VIEW
     };
 
