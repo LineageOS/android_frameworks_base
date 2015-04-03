@@ -121,7 +121,8 @@ public class KeyguardPatternViewController
             mLatencyTracker.onActionStart(ACTION_CHECK_CREDENTIAL_UNLOCKED);
             mPendingLockCheck = LockPatternChecker.checkCredential(
                     mLockPatternUtils,
-                    LockscreenCredential.createPattern(pattern),
+                    LockscreenCredential.createPattern(pattern,
+                            mLockPatternUtils.getLockPatternSize(userId)),
                     userId,
                     new LockPatternChecker.OnCheckCallback() {
 
@@ -214,10 +215,15 @@ public class KeyguardPatternViewController
     @Override
     protected void onViewAttached() {
         super.onViewAttached();
+        int userId = KeyguardUpdateMonitor.getCurrentUser();
         mLockPatternView.setOnPatternListener(new UnlockPatternListener());
         mLockPatternView.setSaveEnabled(false);
         mLockPatternView.setInStealthMode(!mLockPatternUtils.isVisiblePatternEnabled(
                 KeyguardUpdateMonitor.getCurrentUser()));
+        mLockPatternView.setLockPatternUtils(mLockPatternUtils);
+        mLockPatternView.setLockPatternSize(mLockPatternUtils.getLockPatternSize(userId));
+        mLockPatternView.setVisibleDots(mLockPatternUtils.isVisibleDotsEnabled(userId));
+        mLockPatternView.setShowErrorPath(mLockPatternUtils.isShowErrorPath(userId));
         // vibrate mode will be the same for the life of this screen
         mLockPatternView.setTactileFeedbackEnabled(mLockPatternUtils.isTactileFeedbackEnabled());
         mLockPatternView.setOnTouchListener((v, event) -> {
