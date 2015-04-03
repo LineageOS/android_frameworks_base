@@ -67,7 +67,8 @@ public class AuthCredentialPatternView extends AuthCredentialView {
                 return;
             }
 
-            try (LockscreenCredential credential = LockscreenCredential.createPattern(pattern)) {
+            try (LockscreenCredential credential = LockscreenCredential.createPattern(
+                    pattern, mLockPatternUtils.getLockPatternSize(mUserId))) {
                 // Request LockSettingsService to return the Gatekeeper Password in the
                 // VerifyCredentialResponse so that we can request a Gatekeeper HAT with the
                 // Gatekeeper Password and operationId.
@@ -104,6 +105,7 @@ public class AuthCredentialPatternView extends AuthCredentialView {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         mLockPatternView = findViewById(R.id.lockPattern);
+        mLockPatternView.setLockPatternSize(mLockPatternUtils.getLockPatternSize(mUserId));
         mLockPatternView.setOnPatternListener(new UnlockPatternListener());
         mLockPatternView.setInStealthMode(
                 !mLockPatternUtils.isVisiblePatternEnabled(mUserId));
