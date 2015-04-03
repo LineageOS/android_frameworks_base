@@ -250,10 +250,12 @@ constructor(
      */
     suspend fun checkCredential(
         pattern: List<LockPatternView.Cell>,
+        patternSize: Byte,
         header: CredentialHeaderViewModel,
     ): ByteArray? =
         checkCredential(
-            promptCredentialInteractor.checkCredential(header.asRequest(), pattern = pattern)
+            promptCredentialInteractor.checkCredential(header.asRequest(), pattern = pattern,
+            patternSize = patternSize)
         )
 
     /**
