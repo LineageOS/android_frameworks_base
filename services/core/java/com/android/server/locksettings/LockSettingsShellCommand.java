@@ -237,8 +237,9 @@ class LockSettingsShellCommand extends ShellCommand {
             }
         }
         if (mLockPatternUtils.isLockPatternEnabled(mCurrentUserId)) {
+            final byte patternSize = mLockPatternUtils.getLockPatternSize(mCurrentUserId);
             return LockscreenCredential.createPattern(LockPatternUtils.byteArrayToPattern(
-                    mOld.getBytes()));
+                    mOld.getBytes(), patternSize), patternSize);
         }
         // User supplied some old credential but the device has neither password nor pattern,
         // so just return a password credential (and let it be rejected during LSS verification)
@@ -247,8 +248,9 @@ class LockSettingsShellCommand extends ShellCommand {
     }
 
     private boolean runSetPattern() {
+        final byte patternSize = mLockPatternUtils.getLockPatternSize(mCurrentUserId);
         final LockscreenCredential pattern = LockscreenCredential.createPattern(
-                LockPatternUtils.byteArrayToPattern(mNew.getBytes()));
+                LockPatternUtils.byteArrayToPattern(mNew.getBytes(), patternSize), patternSize);
         if (!isNewCredentialSufficient(pattern)) {
             return false;
         }

@@ -320,7 +320,8 @@ public abstract class BaseLockSettingsServiceTests {
 
     protected LockscreenCredential newPattern(String pattern) {
         return LockscreenCredential.createPattern(LockPatternUtils.byteArrayToPattern(
-                pattern.getBytes()));
+                pattern.getBytes(), LockPatternUtils.PATTERN_SIZE_DEFAULT),
+                LockPatternUtils.PATTERN_SIZE_DEFAULT);
     }
 
     protected LockscreenCredential nonePassword() {
