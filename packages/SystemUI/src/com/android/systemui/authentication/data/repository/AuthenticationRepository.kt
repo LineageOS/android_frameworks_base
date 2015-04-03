@@ -94,6 +94,9 @@ interface AuthenticationRepository {
     /** Whether the pattern should be visible for the currently-selected user. */
     val isPatternVisible: StateFlow<Boolean>
 
+    /** The current pattern size. */
+    val patternSize: StateFlow<Byte>
+
     /**
      * Whether the auto confirm feature is enabled for the currently-selected user.
      *
@@ -256,6 +259,12 @@ constructor(
 ) : AuthenticationRepository {
 
     override val hintedPinLength: Int = 6
+
+    override val patternSize: StateFlow<Byte> =
+        refreshingFlow(
+            initialValue = LockPatternUtils.PATTERN_SIZE_DEFAULT,
+            getFreshValue = lockPatternUtils::getLockPatternSize,
+        )
 
     override val isPatternVisible: StateFlow<Boolean> =
         refreshingFlow(

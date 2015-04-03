@@ -1991,6 +1991,10 @@ public class LockSettingsService extends ILockSettings.Stub {
                 && isUseOneLockSettingEnabledInternal(userId);
     }
 
+    public byte getLockPatternSize(int userId) {
+        return mStorage.getLockPatternSize(userId);
+    }
+
     /**
      * Send credentials for user {@code userId} to {@link RecoverableKeyStoreManager} during an
      * unlock operation.
