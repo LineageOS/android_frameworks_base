@@ -73,6 +73,7 @@ import com.android.app.animation.Interpolators;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.jank.InteractionJankMonitor;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.internal.widget.LockPatternView;
 import com.android.systemui.biometrics.AuthController.ScaleFactorProvider;
 import com.android.systemui.biometrics.domain.interactor.PromptSelectorInteractor;
 import com.android.systemui.biometrics.shared.model.BiometricModalities;
@@ -518,6 +519,11 @@ public class AuthContainerView extends LinearLayout
         // TODO(b/288175645): Once AuthContainerView is removed, set 0dp in credential view xml
         //  files with the corresponding left/right or top/bottom constraints being set to "parent".
         mCredentialView = factory.inflate(layoutResourceId, mLayout, false);
+        if (credentialType instanceof PromptKind.Pattern) {
+            LockPatternView lockPatternView = mCredentialView.findViewById(R.id.lockPattern);
+            lockPatternView.setLockPatternSize(
+                    mLockPatternUtils.getLockPatternSize(mConfig.mUserId));
+        }
 
         // The background is used for detecting taps / cancelling authentication. Since the
         // credential view is full-screen and should not be canceled from background taps,
