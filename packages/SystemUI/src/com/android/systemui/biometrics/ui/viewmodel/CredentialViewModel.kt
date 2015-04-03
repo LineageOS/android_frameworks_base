@@ -115,8 +115,10 @@ constructor(
     /** Check a pattern and update [validatedAttestation] or [remainingAttempts]. */
     suspend fun checkCredential(
         pattern: List<LockPatternView.Cell>,
+        patternSize: Byte,
         header: CredentialHeaderViewModel
-    ) = checkCredential(credentialInteractor.checkCredential(header.asRequest(), pattern = pattern))
+    ) = checkCredential(credentialInteractor.checkCredential(header.asRequest(), pattern = pattern,
+            patternSize = patternSize))
 
     private suspend fun checkCredential(result: CredentialStatus) {
         when (result) {

@@ -93,6 +93,9 @@ interface AuthenticationRepository {
     /** Whether the pattern should be visible for the currently-selected user. */
     val isPatternVisible: StateFlow<Boolean>
 
+    /** The current pattern size. */
+    val patternSize: StateFlow<Byte>
+
     /** The current throttling state, as cached via [setThrottling]. */
     val throttling: StateFlow<AuthenticationThrottlingModel>
 
@@ -192,6 +195,12 @@ constructor(
         )
 
     override val hintedPinLength: Int = 6
+
+    override val patternSize: StateFlow<Byte> =
+        refreshingFlow(
+            initialValue = LockPatternUtils.PATTERN_SIZE_DEFAULT,
+            getFreshValue = lockPatternUtils::getLockPatternSize,
+        )
 
     override val isPatternVisible: StateFlow<Boolean> =
         refreshingFlow(
