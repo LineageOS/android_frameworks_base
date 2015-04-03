@@ -203,7 +203,8 @@ public class LockSettingsShellCommandTest {
         when(mLockPatternUtils.isLockPatternEnabled(mUserId)).thenReturn(true);
         when(mLockPatternUtils.isLockPasswordEnabled(mUserId)).thenReturn(false);
         when(mLockPatternUtils.checkCredential(
-                LockscreenCredential.createPattern(stringToPattern("1234")),
+                LockscreenCredential.createPattern(stringToPattern("1234"),
+                        LockPatternUtils.PATTERN_SIZE_DEFAULT),
                 mUserId, null)).thenReturn(true);
         when(mLockPatternUtils.getRequestedPasswordMetrics(mUserId))
                 .thenReturn(metricsForAdminQuality(PASSWORD_QUALITY_SOMETHING));
@@ -211,8 +212,10 @@ public class LockSettingsShellCommandTest {
                 new String[] { "set-pattern", "--old", "1234", "4321" },
                 mShellCallback, mResultReceiver));
         verify(mLockPatternUtils).setLockCredential(
-                LockscreenCredential.createPattern(stringToPattern("4321")),
-                LockscreenCredential.createPattern(stringToPattern("1234")),
+                LockscreenCredential.createPattern(stringToPattern("4321"),
+                        LockPatternUtils.PATTERN_SIZE_DEFAULT),
+                LockscreenCredential.createPattern(stringToPattern("1234"),
+                        LockPatternUtils.PATTERN_SIZE_DEFAULT),
                 mUserId);
     }
 
@@ -222,7 +225,8 @@ public class LockSettingsShellCommandTest {
         when(mLockPatternUtils.isLockPatternEnabled(mUserId)).thenReturn(true);
         when(mLockPatternUtils.isLockPasswordEnabled(mUserId)).thenReturn(false);
         when(mLockPatternUtils.checkCredential(
-                LockscreenCredential.createPattern(stringToPattern("1234")),
+                LockscreenCredential.createPattern(stringToPattern("1234"),
+                        LockPatternUtils.PATTERN_SIZE_DEFAULT),
                 mUserId, null)).thenReturn(true);
         when(mLockPatternUtils.getRequestedPasswordMetrics(mUserId))
                 .thenReturn(metricsForAdminQuality(PASSWORD_QUALITY_NUMERIC));
@@ -248,7 +252,8 @@ public class LockSettingsShellCommandTest {
         when(mLockPatternUtils.isLockPatternEnabled(mUserId)).thenReturn(true);
         when(mLockPatternUtils.isLockPasswordEnabled(mUserId)).thenReturn(false);
         when(mLockPatternUtils.checkCredential(
-                LockscreenCredential.createPattern(stringToPattern("1234")),
+                LockscreenCredential.createPattern(stringToPattern("1234"),
+                        LockPatternUtils.PATTERN_SIZE_DEFAULT),
                 mUserId, null)).thenReturn(true);
         when(mLockPatternUtils.getRequestedPasswordMetrics(mUserId))
                 .thenReturn(metricsForAdminQuality(PASSWORD_QUALITY_UNSPECIFIED));
@@ -257,7 +262,8 @@ public class LockSettingsShellCommandTest {
                 mShellCallback, mResultReceiver));
         verify(mLockPatternUtils).setLockCredential(
                 LockscreenCredential.createNone(),
-                LockscreenCredential.createPattern(stringToPattern("1234")),
+                LockscreenCredential.createPattern(stringToPattern("1234"),
+                        LockPatternUtils.PATTERN_SIZE_DEFAULT),
                 mUserId);
     }
 
@@ -267,7 +273,8 @@ public class LockSettingsShellCommandTest {
         when(mLockPatternUtils.isLockPatternEnabled(mUserId)).thenReturn(true);
         when(mLockPatternUtils.isLockPasswordEnabled(mUserId)).thenReturn(false);
         when(mLockPatternUtils.checkCredential(
-                LockscreenCredential.createPattern(stringToPattern("1234")),
+                LockscreenCredential.createPattern(stringToPattern("1234"),
+                        LockPatternUtils.PATTERN_SIZE_DEFAULT),
                 mUserId, null)).thenReturn(true);
         when(mLockPatternUtils.getRequestedPasswordMetrics(mUserId))
                 .thenReturn(metricsForAdminQuality(PASSWORD_QUALITY_SOMETHING));
@@ -278,7 +285,8 @@ public class LockSettingsShellCommandTest {
     }
 
     private List<LockPatternView.Cell> stringToPattern(String str) {
-        return LockPatternUtils.byteArrayToPattern(str.getBytes());
+        return LockPatternUtils.byteArrayToPattern(str.getBytes(),
+                LockPatternUtils.PATTERN_SIZE_DEFAULT);
     }
 
     private PasswordMetrics metricsForAdminQuality(int quality) {
