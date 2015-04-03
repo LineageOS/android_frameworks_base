@@ -34,7 +34,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun CredentialPatternView(
-    onVerify: suspend (List<Cell>) -> ByteArray?,
+    onVerify: suspend (List<Cell>, Byte) -> ByteArray?,
     onSuccess: (ByteArray) -> Unit,
     onPatternCellAdded: () -> Unit,
     stealthMode: Boolean,
@@ -69,13 +69,13 @@ fun CredentialPatternView(
                                 onPatternCellAdded()
                             }
 
-                            override fun onPatternDetected(pattern: List<Cell>) {
+                            override fun onPatternDetected(pattern: List<Cell>, patternSize: Byte) {
                                 if (pattern.isEmpty()) return
 
                                 isEnabled = false
 
                                 scope.launch {
-                                    val attestation = onVerify(pattern)
+                                    val attestation = onVerify(pattern, patternSize)
 
                                     if (attestation != null) {
                                         onSuccess(attestation)

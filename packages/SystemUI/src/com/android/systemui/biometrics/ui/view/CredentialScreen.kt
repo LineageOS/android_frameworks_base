@@ -143,8 +143,8 @@ fun CredentialScreen(
         viewModel.checkCredential(credential, header)
     }
 
-    val verifyPatternAction: suspend (List<LockPatternView.Cell>) -> ByteArray? = { pattern ->
-        viewModel.checkCredential(pattern, header)
+    val verifyPatternAction: suspend (List<LockPatternView.Cell>, Byte) -> ByteArray? = { pattern, patternSize ->
+        viewModel.checkCredential(pattern, patternSize, header)
     }
 
     val handleSuccess: (ByteArray) -> Unit = { attestation ->
