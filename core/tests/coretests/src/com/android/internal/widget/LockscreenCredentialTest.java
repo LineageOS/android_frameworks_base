@@ -64,12 +64,12 @@ public class LockscreenCredentialTest extends AndroidTestCase {
 
     public void testPatternCredential() {
         LockscreenCredential pattern = LockscreenCredential.createPattern(Arrays.asList(
-                LockPatternView.Cell.of(0, 0),
-                LockPatternView.Cell.of(0, 1),
-                LockPatternView.Cell.of(0, 2),
-                LockPatternView.Cell.of(1, 2),
-                LockPatternView.Cell.of(2, 2)
-                ));
+                LockPatternView.Cell.of(0, 0, LockPatternUtils.PATTERN_SIZE_DEFAULT),
+                LockPatternView.Cell.of(0, 1, LockPatternUtils.PATTERN_SIZE_DEFAULT),
+                LockPatternView.Cell.of(0, 2, LockPatternUtils.PATTERN_SIZE_DEFAULT),
+                LockPatternView.Cell.of(1, 2, LockPatternUtils.PATTERN_SIZE_DEFAULT),
+                LockPatternView.Cell.of(2, 2, LockPatternUtils.PATTERN_SIZE_DEFAULT)
+                ), LockPatternUtils.PATTERN_SIZE_DEFAULT);
 
         assertTrue(pattern.isPattern());
         assertEquals(5, pattern.size());
@@ -248,6 +248,7 @@ public class LockscreenCredentialTest extends AndroidTestCase {
 
     private LockscreenCredential createPattern(String patternString) {
         return LockscreenCredential.createPattern(LockPatternUtils.byteArrayToPattern(
-                patternString.getBytes()));
+                patternString.getBytes(), LockPatternUtils.PATTERN_SIZE_DEFAULT),
+                LockPatternUtils.PATTERN_SIZE_DEFAULT);
     }
 }
