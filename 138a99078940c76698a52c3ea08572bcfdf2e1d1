@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_de4b252a",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumePanel.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-04T06:11:38Z",
+      "side": 1,
+      "message": "Please line wrap at 100 characters.",
+      "revId": "138a99078940c76698a52c3ea08572bcfdf2e1d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
