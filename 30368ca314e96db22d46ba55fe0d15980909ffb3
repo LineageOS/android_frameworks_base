@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_0448f62c",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3163,
+      "author": {
+        "id": 5531
+      },
+      "writtenOn": "2015-04-06T08:32:55Z",
+      "side": 1,
+      "message": "redundant check of !keyguardOn",
+      "revId": "30368ca314e96db22d46ba55fe0d15980909ffb3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
