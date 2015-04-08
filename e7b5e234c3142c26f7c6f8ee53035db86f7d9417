@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_5e9c7569",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/FlashlightTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-04-08T19:38:10Z",
+      "side": 1,
+      "message": "I do not really understand this comment (and, for the same reason, this patch): Surely the torch service knows if it enabled the flashlight, so why not make it return true for isAvailable() if it enabled the flashlight by itself?",
+      "revId": "e7b5e234c3142c26f7c6f8ee53035db86f7d9417",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
