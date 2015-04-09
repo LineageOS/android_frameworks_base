@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_eb2482b0",
+        "filename": "packages/SettingsProvider/res/values/defaults.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-04-09T09:30:55Z",
+      "side": 1,
+      "message": "maybe make this a bool since it\u0027s either a 0 or 1? loadBooleanSetting() should work instead of loadIntegerSetting()",
+      "revId": "9cfc741b5f468dbe9fbd93f8ad54de0e3c15b0f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
