@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_9930c7a0",
+        "filename": "packages/SystemUI/src/com/android/systemui/cm/SpamMessageProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-04-09T05:17:59Z",
+      "side": 1,
+      "message": "Is there a possibility that there are any exceptions that may get thrown here? It seems safest to throw closing the cursor into a finally block.",
+      "revId": "bc4dfb6c2e88e6e602b40f5241aa7e65edcb5ffa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_59000fab",
+        "filename": "services/java/com/android/server/NotificationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1411,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-04-09T05:17:59Z",
+      "side": 1,
+      "message": "Safer for changes if you were to do \u003e\u003d 2 instead?",
+      "revId": "bc4dfb6c2e88e6e602b40f5241aa7e65edcb5ffa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_79034bb9",
+        "filename": "services/java/com/android/server/NotificationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1537,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-04-09T05:17:59Z",
+      "side": 1,
+      "message": "You should clean up this observer during tear down.",
+      "revId": "bc4dfb6c2e88e6e602b40f5241aa7e65edcb5ffa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
