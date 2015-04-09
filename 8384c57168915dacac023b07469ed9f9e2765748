@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_39f9d3c9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/StatusBarIconView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-09T05:02:18Z",
+      "side": 0,
+      "message": "Could we named this correctly? mNumberPaint",
+      "revId": "8384c57168915dacac023b07469ed9f9e2765748",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
