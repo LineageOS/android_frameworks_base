@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_617431fd",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2668,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-10T06:52:06Z",
+      "side": 1,
+      "message": "this should be R.bool.def_spell_checker. Probably breaks the build right now.",
+      "revId": "40ffdd41995902d22b76ab6453444075872edc8c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
