@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_f5f737f3",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-04-11T13:06:18Z",
+      "side": 1,
+      "message": "you should probably write a comment here\n// do nothing",
+      "revId": "895ea46f5eb759eadfc1733004ebb45e9bbbdced",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
