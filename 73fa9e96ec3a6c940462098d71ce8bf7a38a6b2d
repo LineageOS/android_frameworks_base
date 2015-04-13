@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_76e7ce12",
+        "filename": "packages/SettingsProvider/res/values/defaults.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 10631
+      },
+      "writtenOn": "2015-04-13T09:23:55Z",
+      "side": 1,
+      "message": "I would maybe add a comment in the default.xml  explaining why you chose that default and how other options would effect the functionality.  This could be useful for future overlay implementations.",
+      "revId": "73fa9e96ec3a6c940462098d71ce8bf7a38a6b2d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
