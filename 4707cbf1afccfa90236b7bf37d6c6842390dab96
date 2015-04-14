@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_dcbea3d3",
+        "filename": "policy/src/com/android/internal/policy/impl/GlobalActions.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-04-14T09:11:40Z",
+      "side": 1,
+      "message": "Please wrap the line at 100 characters",
+      "revId": "4707cbf1afccfa90236b7bf37d6c6842390dab96",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
