@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_dfa5f5b5",
+        "filename": "policy/src/com/android/internal/policy/impl/GlobalActions.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-04-14T14:05:33Z",
+      "side": 1,
+      "message": "Indentation should be 8 spaces and needs a space after the comma",
+      "revId": "0d8982c103a585ad39eae68115eec36d2fb7d7e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
