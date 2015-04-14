@@ -16,6 +16,24 @@
       "revId": "2836e313a2643e9ada8d2653d23e6f04b79b7014",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_b9dbf91a",
+        "filename": "packages/SettingsProvider/res/values/defaults.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 10621
+      },
+      "writtenOn": "2015-04-14T04:48:01Z",
+      "side": 1,
+      "message": "It is bitwise-OR of (ROTATION_0_MODE | ROTATION_90_MODE | ROTATION_270_MODE)",
+      "parentUuid": "3ac371cc_99c1dd31",
+      "revId": "2836e313a2643e9ada8d2653d23e6f04b79b7014",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
