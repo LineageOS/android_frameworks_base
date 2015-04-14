@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_99c1dd31",
+        "filename": "packages/SettingsProvider/res/values/defaults.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 12941
+      },
+      "writtenOn": "2015-04-14T04:41:13Z",
+      "side": 1,
+      "message": "What does the value 11 represent?",
+      "revId": "2836e313a2643e9ada8d2653d23e6f04b79b7014",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
