@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_657c3221",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/UsbTetherTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2015-04-15T15:49:07Z",
+      "side": 1,
+      "message": "aside from the line above and the line below, this patch is identical to the ones on the cm-12.0 branch",
+      "revId": "8f3bb9a603eec096e7bd8e726ed3e42b53240676",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
