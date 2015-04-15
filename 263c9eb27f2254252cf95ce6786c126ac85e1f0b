@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_aa3439de",
+        "filename": "core/java/android/app/ComposedIconInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-04-15T04:42:42Z",
+      "side": 1,
+      "message": "empty comment",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_8a485d5d",
+        "filename": "core/java/android/app/IconPackHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-04-15T04:42:42Z",
+      "side": 1,
+      "message": "set back to false",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_ca789592",
+        "filename": "core/java/android/app/IconPackHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-04-15T04:42:42Z",
+      "side": 1,
+      "message": "change to defaultSwatchColor",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_2a6e89c9",
+        "filename": "core/java/android/app/IconPackHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-04-15T04:42:42Z",
+      "side": 1,
+      "message": "change to defaultSwatchColor",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
