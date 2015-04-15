@@ -67,6 +67,108 @@
       "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_2a0fa9e2",
+        "filename": "core/java/com/android/internal/util/cm/palette/ColorCutQuantizer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 12937
+      },
+      "writtenOn": "2015-04-15T05:59:32Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_ca09b5df",
+        "filename": "core/java/com/android/internal/util/cm/palette/ColorCutQuantizer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 12937
+      },
+      "writtenOn": "2015-04-15T05:59:32Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_ea0471c7",
+        "filename": "core/java/com/android/internal/util/cm/palette/ColorCutQuantizer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 12937
+      },
+      "writtenOn": "2015-04-15T05:59:32Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_0a146df3",
+        "filename": "core/java/com/android/internal/util/cm/palette/ColorUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 12937
+      },
+      "writtenOn": "2015-04-15T05:59:32Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_6af9a1c8",
+        "filename": "core/java/com/android/internal/util/cm/palette/Palette.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 12937
+      },
+      "writtenOn": "2015-04-15T05:59:32Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac371cc_4af665d8",
+        "filename": "core/java/com/android/internal/util/cm/palette/Palette.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 12937
+      },
+      "writtenOn": "2015-04-15T05:59:32Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
