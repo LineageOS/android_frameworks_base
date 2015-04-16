@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_fd99d620",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2370,
+      "author": {
+        "id": 11501
+      },
+      "writtenOn": "2015-04-16T13:23:46Z",
+      "side": 1,
+      "message": "Does this property get updated dynamically? E.g. when an Indonesian phone is roaming in the U.S. You still need to dial the prefix (+62 in this case) when calling a Indonesian number. If this property doesn\u0027t get updated, we probably need to check the MCC country code (which is from current carrier)...",
+      "revId": "41a84b0db938248457a155bb3719cb276db9beef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
