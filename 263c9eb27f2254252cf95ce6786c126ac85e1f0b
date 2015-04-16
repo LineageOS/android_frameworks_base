@@ -70,6 +70,23 @@
     },
     {
       "key": {
+        "uuid": "3ac371cc_6b2523c1",
+        "filename": "core/java/android/app/IconPackHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-04-16T09:45:19Z",
+      "side": 1,
+      "message": "move 32 to a constant",
+      "revId": "263c9eb27f2254252cf95ce6786c126ac85e1f0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ac371cc_2a0fa9e2",
         "filename": "core/java/com/android/internal/util/cm/palette/ColorCutQuantizer.java",
         "patchSetId": 1
