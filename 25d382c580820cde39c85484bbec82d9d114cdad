@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac371cc_ab90bb96",
+        "filename": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 12941
+      },
+      "writtenOn": "2015-04-16T05:27:53Z",
+      "side": 1,
+      "message": "Enabled configurable brightening and darkening debounce time to help speed up darkness to brightness delays.",
+      "revId": "25d382c580820cde39c85484bbec82d9d114cdad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
