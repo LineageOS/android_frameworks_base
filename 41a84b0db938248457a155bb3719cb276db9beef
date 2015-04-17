@@ -34,6 +34,24 @@
       "revId": "41a84b0db938248457a155bb3719cb276db9beef",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ac06dbe_03d8eeee",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2370,
+      "author": {
+        "id": 12941
+      },
+      "writtenOn": "2015-04-17T04:17:30Z",
+      "side": 1,
+      "message": "Yes it gets updated dynamically from RIL to CdmaServiceStateTracker.pollStateDone and GsmServiceStateTracker.pollStateDone.",
+      "parentUuid": "1ac06dbe_2326ca16",
+      "revId": "41a84b0db938248457a155bb3719cb276db9beef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
