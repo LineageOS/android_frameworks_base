@@ -16,6 +16,24 @@
       "revId": "6156268437509838edfa5acb09846bf64d783726",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_ab2b9932",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2015-04-17T16:21:24Z",
+      "side": 1,
+      "message": "I left the ^ off because the existing IDP substitution is using replaceFirst, which is not limited to the start of the string.  Not sure which is more correct though... I would be open to adding it.\n\nyeah, the + is treated literally when inside a character class",
+      "parentUuid": "fa7ab95a_8855fb1e",
+      "revId": "6156268437509838edfa5acb09846bf64d783726",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
