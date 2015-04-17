@@ -52,6 +52,23 @@
       "revId": "41a84b0db938248457a155bb3719cb276db9beef",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_02170a52",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2374,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-17T10:11:01Z",
+      "side": 1,
+      "message": "Since currIso and defaultIso cannot be null, this check could be simplified (not need to check for empty since currIso must be IN to validate the condition):\n\ncurrIso.equalsIgnoreCase(defaultIso) \u0026\u0026 currIso.equalsIgnoreCase(\"IN\") \u0026\u0026 dialStr.startsWith(\"+62\");",
+      "revId": "41a84b0db938248457a155bb3719cb276db9beef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
