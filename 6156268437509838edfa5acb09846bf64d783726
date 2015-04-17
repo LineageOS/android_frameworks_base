@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ab95a_8855fb1e",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 12941
+      },
+      "writtenOn": "2015-04-17T14:13:54Z",
+      "side": 1,
+      "message": "Should there be a \"^\" to match the \"+\" sign in the beginning? Is \"+\" a special character in Java regex, so should it be escaped? ie. \"^[\\\\+](\" or \"[]\" does the job?\n\nGood idea using regex.",
+      "revId": "6156268437509838edfa5acb09846bf64d783726",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
