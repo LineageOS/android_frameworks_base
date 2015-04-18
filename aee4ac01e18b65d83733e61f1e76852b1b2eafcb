@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ab95a_5151de61",
+        "filename": "services/core/java/com/android/server/connectivity/Nat464Xlat.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-04-18T08:28:37Z",
+      "side": 1,
+      "message": "Does changing the existence of the interfaceLinkStateChanged function for addressUpdated have any other effects?",
+      "revId": "aee4ac01e18b65d83733e61f1e76852b1b2eafcb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
