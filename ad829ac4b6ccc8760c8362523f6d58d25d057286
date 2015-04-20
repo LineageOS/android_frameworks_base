@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ab95a_783ebeb9",
+        "filename": "core/java/com/android/internal/statusbar/IStatusBarService.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:24Z",
+      "side": 1,
+      "message": "Where is defined the PUBLISH_QUICK_SETTINGS_TILE permission?",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_98b9c231",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:24Z",
+      "side": 1,
+      "message": "spaces. And this looks like unrelated",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_186e92c9",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:24Z",
+      "side": 1,
+      "message": "What we want to check is the BIND_CUSTOM_TILE_LISTENER_SERVICE permission, not if the caller is SystemUi (and this only enforces a system app, not related to SystemUi directly)",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_387356b3",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:24Z",
+      "side": 1,
+      "message": "enforce access",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_b85f660d",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:24Z",
+      "side": 1,
+      "message": "this should do before any other checks (ActivityManager.handleIncomingUser could pass a null pkg)",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_f89f2eb2",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:24Z",
+      "side": 1,
+      "message": "Remove this System.out and below and above",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_b848465d",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:24Z",
+      "side": 1,
+      "message": "And this is useful for?",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_18a5b203",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:24Z",
+      "side": 1,
+      "message": "More system.out",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_f8780e92",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:24Z",
+      "side": 1,
+      "message": "This is not SystemUi. It\u0027s a system app. We really check for permission in addition to system here (and system is only system uid, not phone app)",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_58af3ae3",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:24Z",
+      "side": 1,
+      "message": "return listener.enabledAndUserMatches(sbc.getUserId());",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
