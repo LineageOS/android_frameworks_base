@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ab95a_bd03d80e",
+        "filename": "cm/java/cyanogenmod/app/CustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:29:03Z",
+      "side": 1,
+      "message": "If in the builder we create this from a Uri, then should\u0027t we preserve the Uri to avoid parsing errors later, specially since this var can be modified by the dev after use the Builder",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_f803ae0b",
+        "filename": "cm/java/cyanogenmod/app/CustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:29:03Z",
+      "side": 1,
+      "message": "why we need this? The qstile should be added on notify and removed on cancel, right?",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_bd2cb8ac",
+        "filename": "cm/java/cyanogenmod/app/CustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:29:03Z",
+      "side": 1,
+      "message": "Implements Cloneable?",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_1d120463",
+        "filename": "cm/java/cyanogenmod/app/CustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:29:03Z",
+      "side": 1,
+      "message": "Android is Linux, so it\u0027s safe to use \"\\n\"",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_dd17bc52",
+        "filename": "cm/java/cyanogenmod/app/CustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:29:03Z",
+      "side": 1,
+      "message": "This looks like a constructor rather that a method. For cloning the object, better use the clone method",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_d8feea04",
+        "filename": "cm/java/cyanogenmod/app/CustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:29:03Z",
+      "side": 1,
+      "message": "Same here, shouldn\u0027t this be a Uri instead?",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_983462df",
+        "filename": "cm/java/cyanogenmod/app/CustomTileListenerService.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:29:03Z",
+      "side": 1,
+      "message": "Why we need to document this. this is an internal listener for SystemUI, that shouldn\u0027t be xposed to apps, right? \n\n@hide",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_385c3625",
+        "filename": "cm/java/org/cyanogenmod/internal/statusbar/StatusBarPanelCustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:29:03Z",
+      "side": 1,
+      "message": "The entire class is hidded, no need for this tag",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
