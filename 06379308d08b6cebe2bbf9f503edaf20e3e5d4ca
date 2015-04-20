@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ab95a_5db00c8c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:44Z",
+      "side": 1,
+      "message": "Not needed",
+      "revId": "06379308d08b6cebe2bbf9f503edaf20e3e5d4ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_bda7584e",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:44Z",
+      "side": 1,
+      "message": "If the tile is part of constructor why we need to pass it as an argument? we can get from the instance and reduce the data passed through the handler. Same for update method.",
+      "revId": "06379308d08b6cebe2bbf9f503edaf20e3e5d4ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_7dadd030",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:44Z",
+      "side": 1,
+      "message": "We should cache the package context, to avoid create one in every state update",
+      "revId": "06379308d08b6cebe2bbf9f503edaf20e3e5d4ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_b83126ef",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/CustomTileData.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:44Z",
+      "side": 1,
+      "message": "we have the StatusBarPanelCustomTile ref, so we don\u0027t need this",
+      "revId": "06379308d08b6cebe2bbf9f503edaf20e3e5d4ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_d84c2a79",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/CustomTileData.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:44Z",
+      "side": 1,
+      "message": "final",
+      "revId": "06379308d08b6cebe2bbf9f503edaf20e3e5d4ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_f851ee0f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/CustomTileData.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-20T22:28:44Z",
+      "side": 1,
+      "message": "this.statusBarPanelCustomTile \u003d sbc?",
+      "revId": "06379308d08b6cebe2bbf9f503edaf20e3e5d4ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
