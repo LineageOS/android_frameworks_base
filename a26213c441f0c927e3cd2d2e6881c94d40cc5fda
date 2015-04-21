@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ab95a_13f3d30b",
+        "filename": "packages/SystemUI/src/com/android/systemui/doze/DozeService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-04-21T08:33:54Z",
+      "side": 1,
+      "message": "Why not skip based on the reason \u003d\u003d PULSE_REASON_INTENT?",
+      "revId": "a26213c441f0c927e3cd2d2e6881c94d40cc5fda",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
