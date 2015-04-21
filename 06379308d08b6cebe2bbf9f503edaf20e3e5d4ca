@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_180cd293",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:03:13Z",
+      "side": 1,
+      "message": "Nuked",
+      "parentUuid": "fa7ab95a_5db00c8c",
+      "revId": "06379308d08b6cebe2bbf9f503edaf20e3e5d4ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_bda7584e",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_381196ad",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:03:13Z",
+      "side": 1,
+      "message": "I didn\u0027t think caching the statusbarpanelcustom tile would be necessary, sure it goes through the handler, but it really isn\u0027t that much data (its actually less than a lot of the other tiles).",
+      "parentUuid": "fa7ab95a_bda7584e",
+      "revId": "06379308d08b6cebe2bbf9f503edaf20e3e5d4ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_7dadd030",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2015-04-20T22:28:44Z",
       "side": 1,
       "message": "We should cache the package context, to avoid create one in every state update",
+      "revId": "06379308d08b6cebe2bbf9f503edaf20e3e5d4ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_58265a17",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:03:13Z",
+      "side": 1,
+      "message": "See new PS as well as http://review.cyanogenmod.org/#/c/94495/",
+      "parentUuid": "fa7ab95a_7dadd030",
       "revId": "06379308d08b6cebe2bbf9f503edaf20e3e5d4ca",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
