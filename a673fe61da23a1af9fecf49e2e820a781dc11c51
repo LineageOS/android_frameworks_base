@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ab95a_cea0e0a8",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-04-21T12:01:51Z",
+      "side": 1,
+      "message": "Maybe keep this in line with the increments of 10?",
+      "revId": "a673fe61da23a1af9fecf49e2e820a781dc11c51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
