@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ab95a_f02582ae",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2005,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-04-21T18:24:08Z",
+      "side": 1,
+      "message": "At this point, the DoS protection doesn\u0027t do anything anymore, as you don\u0027t skip adding the notification anymore. checkDosProtection probably should return a boolean which causes this function to exit.",
+      "revId": "fa6326e16f26d09c639d89e6fbc6da18d2c1205b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
