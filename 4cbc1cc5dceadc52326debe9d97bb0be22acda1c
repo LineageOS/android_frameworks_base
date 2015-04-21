@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ab95a_3020ca9b",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-04-21T18:24:51Z",
+      "side": 1,
+      "message": "Nitpick alert: Please indent by 8.",
+      "range": {
+        "startLine": 683,
+        "startChar": 47,
+        "endLine": 683,
+        "endChar": 57
+      },
+      "revId": "4cbc1cc5dceadc52326debe9d97bb0be22acda1c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
