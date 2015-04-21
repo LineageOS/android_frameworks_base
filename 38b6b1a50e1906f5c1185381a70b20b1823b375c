@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ab95a_90927656",
+        "filename": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2015-04-21T23:08:36Z",
+      "side": 1,
+      "message": "Is this backward or is my brain not working yet this morning?\n\nShouldn\u0027t it be ambientLux - mLastObservedLux (if big number now - small number previous \u003e threshold)?",
+      "revId": "38b6b1a50e1906f5c1185381a70b20b1823b375c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
