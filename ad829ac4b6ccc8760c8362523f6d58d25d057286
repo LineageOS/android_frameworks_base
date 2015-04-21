@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_d82a6ae7",
+        "filename": "core/java/com/android/internal/statusbar/IStatusBarService.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:01:26Z",
+      "side": 1,
+      "message": "Done. Got lost in my merges.",
+      "parentUuid": "fa7ab95a_783ebeb9",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_98b9c231",
         "filename": "core/res/res/values/cm_strings.xml",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-04-20T22:28:24Z",
       "side": 1,
       "message": "spaces. And this looks like unrelated",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_f82f2ef4",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:01:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "fa7ab95a_98b9c231",
       "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_1835b245",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:01:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "fa7ab95a_186e92c9",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_387356b3",
         "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2015-04-20T22:28:24Z",
       "side": 1,
       "message": "enforce access",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_383a7637",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:01:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "fa7ab95a_387356b3",
       "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_583f3a25",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:01:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "fa7ab95a_b85f660d",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_f89f2eb2",
         "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
         "patchSetId": 2
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_783cfe2f",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:01:26Z",
+      "side": 1,
+      "message": "Removed all the excess debugging. Need to stop coding late at night.",
+      "parentUuid": "fa7ab95a_f89f2eb2",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_b848465d",
         "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
         "patchSetId": 2
@@ -115,6 +223,24 @@
       "writtenOn": "2015-04-20T22:28:24Z",
       "side": 1,
       "message": "And this is useful for?",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_9849c2d3",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:01:26Z",
+      "side": 1,
+      "message": "Fixed this.",
+      "parentUuid": "fa7ab95a_b848465d",
       "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -155,6 +281,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_b84686bd",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:01:26Z",
+      "side": 1,
+      "message": "Nuked.",
+      "parentUuid": "fa7ab95a_f8780e92",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_58af3ae3",
         "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
         "patchSetId": 2
@@ -166,6 +310,24 @@
       "writtenOn": "2015-04-20T22:28:24Z",
       "side": 1,
       "message": "return listener.enabledAndUserMatches(sbc.getUserId());",
+      "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_d8118ab1",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:01:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "fa7ab95a_58af3ae3",
       "revId": "ad829ac4b6ccc8760c8362523f6d58d25d057286",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
