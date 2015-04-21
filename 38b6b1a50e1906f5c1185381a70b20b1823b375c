@@ -16,6 +16,24 @@
       "revId": "38b6b1a50e1906f5c1185381a70b20b1823b375c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_d09cfe6b",
+        "filename": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-04-21T23:14:31Z",
+      "side": 1,
+      "message": "No, it\u0027s not backward :) ambientLux is the weighted moving average value, mLastObservedLux is the last sample. The logic is supposed to trigger when there\u0027s a sudden large brightening, and in that case the last sample will be vastly larger than the moving average as the ring buffer still contains (at least some) samples from the darker ambient light time.",
+      "parentUuid": "fa7ab95a_90927656",
+      "revId": "38b6b1a50e1906f5c1185381a70b20b1823b375c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
