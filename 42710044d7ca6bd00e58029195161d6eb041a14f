@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_9820e2f9",
+        "filename": "cm/java/cyanogenmod/app/CustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:05:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "fa7ab95a_bd03d80e",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_f803ae0b",
         "filename": "cm/java/cyanogenmod/app/CustomTile.java",
         "patchSetId": 14
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_b81da6bf",
+        "filename": "cm/java/cyanogenmod/app/CustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:05:55Z",
+      "side": 1,
+      "message": "Nuked.",
+      "parentUuid": "fa7ab95a_f803ae0b",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_bd2cb8ac",
         "filename": "cm/java/cyanogenmod/app/CustomTile.java",
         "patchSetId": 14
@@ -47,6 +83,24 @@
       "writtenOn": "2015-04-20T22:29:03Z",
       "side": 1,
       "message": "Implements Cloneable?",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_d878aafb",
+        "filename": "cm/java/cyanogenmod/app/CustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:05:55Z",
+      "side": 1,
+      "message": "Iirc copy constructors are to be preferred as seen here. Also mimic\u0027ing the setup from Notification.java for familiarity purposes.",
+      "parentUuid": "fa7ab95a_bd2cb8ac",
       "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -104,6 +158,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_f87d6ee8",
+        "filename": "cm/java/cyanogenmod/app/CustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:05:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "fa7ab95a_d8feea04",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_983462df",
         "filename": "cm/java/cyanogenmod/app/CustomTileListenerService.java",
         "patchSetId": 14
@@ -121,6 +193,24 @@
     },
     {
       "key": {
+        "uuid": "fa7ab95a_1883f2cd",
+        "filename": "cm/java/cyanogenmod/app/CustomTileListenerService.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:05:55Z",
+      "side": 1,
+      "message": "I want to make it public, its on a TODO. I need to add the Settings portion since this is actually a ManagedService like NotificationListenerService.",
+      "parentUuid": "fa7ab95a_983462df",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7ab95a_385c3625",
         "filename": "cm/java/org/cyanogenmod/internal/statusbar/StatusBarPanelCustomTile.java",
         "patchSetId": 14
@@ -132,6 +222,24 @@
       "writtenOn": "2015-04-20T22:29:03Z",
       "side": 1,
       "message": "The entire class is hidded, no need for this tag",
+      "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa7ab95a_3888b6e7",
+        "filename": "cm/java/org/cyanogenmod/internal/statusbar/StatusBarPanelCustomTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-21T06:05:55Z",
+      "side": 1,
+      "message": "Nuked.",
+      "parentUuid": "fa7ab95a_385c3625",
       "revId": "42710044d7ca6bd00e58029195161d6eb041a14f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
