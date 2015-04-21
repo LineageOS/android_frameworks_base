@@ -34,6 +34,7 @@ import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
+import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
@@ -103,6 +104,8 @@ public class QSFactoryImpl implements QSFactory {
             // Custom tiles.
             case "caffeine":
                 return new CaffeineTile(mHost);
+            case "heads_up":
+                return new HeadsUpTile(mHost);
         }
 
         // Intent tiles.
