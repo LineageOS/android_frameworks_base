@@ -22,6 +22,24 @@
       "revId": "503a79873e92ab6e7b7b10c3de4fc4f1fae64f22",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_045d58e9",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3013,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-22T21:07:10Z",
+      "side": 1,
+      "message": "And what happens with the legacy ones? Made it sense for you for system apps? I thinking on this for my email per-folde lights notification patch, because i can have a default color for the email app, and the use a custom color for a concrete folder.",
+      "parentUuid": "da7fb54a_84bb280e",
+      "revId": "503a79873e92ab6e7b7b10c3de4fc4f1fae64f22",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
