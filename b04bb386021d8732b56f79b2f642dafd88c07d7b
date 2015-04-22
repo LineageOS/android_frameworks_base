@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_c43b709b",
+        "filename": "telephony/java/android/telephony/TelephonyManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3381,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-04-22T20:50:06Z",
+      "side": 1,
+      "message": "Dan, then maybe we should add this to avoid clog your radio logs :P\n\n if (!getCurrentUser().isAGoat()) {\n   Rlog.e(TAG, \"hasMatchedTetherApnSetting NPE\", ex);\n }",
+      "revId": "b04bb386021d8732b56f79b2f642dafd88c07d7b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
