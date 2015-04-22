@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_84bb280e",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3013,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-04-22T20:47:46Z",
+      "side": 1,
+      "message": "I think this is wrong. The purpose of the notification LED settings is not only to make the LED show for notifications where the app didn\u0027t enable it, but also to override unwanted colors set on the app\u0027s side. Some apps set custom colors without allowing the user to configure it.",
+      "range": {
+        "startLine": 3013,
+        "startChar": 34,
+        "endLine": 3013,
+        "endChar": 36
+      },
+      "revId": "503a79873e92ab6e7b7b10c3de4fc4f1fae64f22",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
