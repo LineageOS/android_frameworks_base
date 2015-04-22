@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_243a5cce",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 3509,
+      "author": {
+        "id": 12876
+      },
+      "writtenOn": "2015-04-22T17:25:20Z",
+      "side": 1,
+      "message": "Already defined in System compile error on 5.1.1",
+      "revId": "973e858a1a88d0d15a8844eda7c2ccac57d1210d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
