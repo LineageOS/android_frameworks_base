@@ -16,6 +16,24 @@
       "revId": "cb4c4ff02592c93078cbc59d006bd0032a52465c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_24897ccb",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2333,
+      "author": {
+        "id": 1576
+      },
+      "writtenOn": "2015-04-23T07:04:13Z",
+      "side": 1,
+      "message": "canInterrupt is set to false when we are in zen mode so the logic I\u0027m using is that if we are not supposed to interrupt (caninterrupt \u003d false) only show the lights if lights are allowed",
+      "parentUuid": "da7fb54a_24541c53",
+      "revId": "cb4c4ff02592c93078cbc59d006bd0032a52465c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
