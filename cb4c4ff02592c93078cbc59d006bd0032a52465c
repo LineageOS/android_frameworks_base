@@ -52,6 +52,24 @@
       "revId": "cb4c4ff02592c93078cbc59d006bd0032a52465c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_a7490e91",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2333,
+      "author": {
+        "id": 1576
+      },
+      "writtenOn": "2015-04-23T09:04:54Z",
+      "side": 1,
+      "message": "By default lights are always allowed in 5.1 so it should function the same in that case I think",
+      "parentUuid": "da7fb54a_671aa619",
+      "revId": "cb4c4ff02592c93078cbc59d006bd0032a52465c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
