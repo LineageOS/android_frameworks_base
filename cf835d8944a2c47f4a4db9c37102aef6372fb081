@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_8ac16f31",
+        "filename": "packages/SystemUI/res/drawable/ic_qs_heads_up_on.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-04-23T12:42:25Z",
+      "side": 1,
+      "message": "Is this actually from AOSP?",
+      "revId": "cf835d8944a2c47f4a4db9c37102aef6372fb081",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
