@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_24541c53",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2333,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-04-23T04:27:43Z",
+      "side": 1,
+      "message": "wouldn\u0027t this just force LED lights on *always*?",
+      "revId": "cb4c4ff02592c93078cbc59d006bd0032a52465c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
