@@ -16,6 +16,24 @@
       "revId": "cf835d8944a2c47f4a4db9c37102aef6372fb081",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_0a3abf36",
+        "filename": "packages/SystemUI/res/drawable/ic_qs_heads_up_on.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-04-23T12:44:42Z",
+      "side": 1,
+      "message": "Yes, it\u0027s the silent/ringer drawable",
+      "parentUuid": "da7fb54a_8ac16f31",
+      "revId": "cf835d8944a2c47f4a4db9c37102aef6372fb081",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
