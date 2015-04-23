@@ -34,6 +34,24 @@
       "revId": "cb4c4ff02592c93078cbc59d006bd0032a52465c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_671aa619",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2333,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-04-23T07:36:11Z",
+      "side": 1,
+      "message": "But canInterrupt is not only kept false in zen mode, but also if aboveThreshold is false. For those low-prio notifications you\u0027ll enable the lights as well then, won\u0027t you?",
+      "parentUuid": "da7fb54a_24897ccb",
+      "revId": "cb4c4ff02592c93078cbc59d006bd0032a52465c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
