@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_b5cf78b2",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardSimPukView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-04-23T18:41:17Z",
+      "side": 1,
+      "message": "You can use mKgUpdateMonitor.getNumPhones() \u003e 1 as condition for this, like in line 208.\nAlternatives:\n- Store MSIM mode yes/no in a boolean and use it in both places\n- Use visibility information of mSubNameView as implicit MSIM mode indicator",
+      "revId": "2ea18f19700efa9cfc338368ef3ce1aad92c3cdc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
