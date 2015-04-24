@@ -16,6 +16,24 @@
       "revId": "4d1dc5a189de9d4ab8e5f56dc5450dc674bf16c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_30545653",
+        "filename": "packages/SystemUI/src/com/android/systemui/doze/DozeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-04-24T13:10:22Z",
+      "side": 1,
+      "message": "The doze check actually occurs on line 234, but you\u0027re right, you could save some time with the getProxCheckBeforePulse function.",
+      "parentUuid": "da7fb54a_f0dcae48",
+      "revId": "4d1dc5a189de9d4ab8e5f56dc5450dc674bf16c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
