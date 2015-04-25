@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_b694dee8",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3522,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-04-25T07:17:34Z",
+      "side": 1,
+      "message": "100 chars",
+      "range": {
+        "startLine": 3522,
+        "startChar": 101,
+        "endLine": 3522,
+        "endChar": 103
+      },
+      "revId": "0e685097f7a5cfaabbef176f14065dcb6dffbca6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_96f99a50",
+        "filename": "media/java/android/media/AudioService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3447,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-04-25T07:17:34Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "0e685097f7a5cfaabbef176f14065dcb6dffbca6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_76fc163f",
+        "filename": "media/java/android/media/AudioService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4643,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-04-25T07:17:34Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "0e685097f7a5cfaabbef176f14065dcb6dffbca6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
