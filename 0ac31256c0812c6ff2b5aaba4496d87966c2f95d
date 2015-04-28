@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_f403b90b",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1642,
+      "author": {
+        "id": 13256
+      },
+      "writtenOn": "2015-04-28T08:26:34Z",
+      "side": 1,
+      "message": "Proximity Sensor Finder app shows a positive value of +5 cm when nothing is close to the screen and 0 cm when the screen is covered. Your code looks fine but since the value doesn\u0027t appear to go negative perhaps true and false would be more clear indications.\n \n \nThought I\u0027d look at the complete file but I\u0027m not finding it;\nLooked here:\n \n \n      cm-12.0-\nlettuce.2/frameworks/base/core/java/com/android/server\n \n \nI didn\u0027t see a power directory. Wrong git repo?",
+      "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
