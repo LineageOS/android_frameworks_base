@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "da7fb54a_34d601c6",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1642,
+      "author": {
+        "id": 12941
+      },
+      "writtenOn": "2015-04-28T12:23:17Z",
+      "side": 1,
+      "message": "For a hardware button enabled phone, make a phone call, cover the proximity sensor, the buttons will turn off but momentarily turn back on.",
+      "parentUuid": "da7fb54a_f49f39b2",
+      "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da7fb54a_54af05e3",
         "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
         "patchSetId": 1
@@ -120,6 +138,42 @@
       "side": 1,
       "message": "So this only has to do with the three hardware buttons\nphysically at the bottom of the screen on some phones,\nlike the OPO, not the typically three software buttons \nat the bottom of the screen usually used on the OPO. \n\nRight?",
       "parentUuid": "da7fb54a_34cfe1b1",
+      "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_145add83",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 12941
+      },
+      "writtenOn": "2015-04-28T12:23:17Z",
+      "side": 1,
+      "message": "This fix is addressing a race condition of hardware buttons being turned off then on at two different code paths during a phone call(when the proximity sensor is used), not the proximity sensor itself.",
+      "parentUuid": "da7fb54a_54dd456f",
+      "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_f464994a",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 12941
+      },
+      "writtenOn": "2015-04-28T12:23:17Z",
+      "side": 1,
+      "message": "Yes , hardware buttons only.",
+      "parentUuid": "da7fb54a_9477cd01",
       "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
