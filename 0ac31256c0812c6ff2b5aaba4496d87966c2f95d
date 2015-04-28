@@ -87,6 +87,24 @@
       "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_34cfe1b1",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 13256
+      },
+      "writtenOn": "2015-04-28T09:17:46Z",
+      "side": 1,
+      "message": "When I cover part of the phone, so mProximityPositive is false, and I try to terminate the phone call with the hangup button it has no effect. I have had problems with phone calls hanging up while keeping the phone close to my ear. So I get the impression that this is fixing a small window in time where the buttons are activated while the phone is close to your ear.",
+      "parentUuid": "da7fb54a_54af05e3",
+      "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
