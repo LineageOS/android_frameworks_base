@@ -34,6 +34,41 @@
       "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_944b4d59",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1642,
+      "author": {
+        "id": 12941
+      },
+      "writtenOn": "2015-04-28T08:50:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da7fb54a_f403b90b",
+      "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_54af05e3",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 12941
+      },
+      "writtenOn": "2015-04-28T08:50:28Z",
+      "side": 1,
+      "message": "mProximityPositive only toggles during a call(object close \u003d true; object far \u003d false) and the screen and button lights are shut off by DisplayPowerController.updatePowerState when it\u0027s true. However right after DisplayPowerController.updatePowerState turns buttons off, the code here turns the buttons back on again. The fix here is to check mProximityPositive flag first before turning on buttons. For devices that do not have a proximity sensor this will always be false. After a phone call ends, mProximityPositive is always restored back to false (via DisplayPowerController\u0027s callback), regardless the sensor reading.",
+      "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
