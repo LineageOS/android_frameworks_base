@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_b98daa7d",
+        "filename": "packages/SystemUI/src/com/android/systemui/ImageWallpaper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-04-28T01:41:43Z",
+      "side": 1,
+      "message": "Missing spaces before \u0026 after parenthesis:\n\n    if (visible) {",
+      "range": {
+        "startLine": 239,
+        "startChar": 16,
+        "endLine": 239,
+        "endChar": 18
+      },
+      "revId": "34b660bcc796313035f3238ce6851435690a64b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
