@@ -105,6 +105,24 @@
       "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_9477cd01",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 13256
+      },
+      "writtenOn": "2015-04-28T12:02:26Z",
+      "side": 1,
+      "message": "So this only has to do with the three hardware buttons\nphysically at the bottom of the screen on some phones,\nlike the OPO, not the typically three software buttons \nat the bottom of the screen usually used on the OPO. \n\nRight?",
+      "parentUuid": "da7fb54a_34cfe1b1",
+      "revId": "0ac31256c0812c6ff2b5aaba4496d87966c2f95d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
