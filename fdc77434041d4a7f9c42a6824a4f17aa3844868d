@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_79232206",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-04-28T06:25:07Z",
+      "side": 1,
+      "message": "You don\u0027t want it to behave the same as a pickup by default?",
+      "revId": "fdc77434041d4a7f9c42a6824a4f17aa3844868d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_796a421c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/DozeParameters.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-04-28T06:25:07Z",
+      "side": 1,
+      "message": "While we\u0027re extending doze parameters, it might be worth it to revisit the previous \"ignore proximity check on intent\" patchset and update the code to separate ProxCheckBeforePulse into pickup and intent based values also.",
+      "revId": "fdc77434041d4a7f9c42a6824a4f17aa3844868d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
