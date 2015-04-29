@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_efcf5fb1",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AmbientDisplayTile.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-04-29T09:37:36Z",
+      "side": 1,
+      "message": "Instead of naming this variable ambientDisplay, maybe you want it to be something like \"enabled\", to reflect the incoming state?",
+      "revId": "047c3953e1bce805b21b694081ef89ef7e0f2bb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
