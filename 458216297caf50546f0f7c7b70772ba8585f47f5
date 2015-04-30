@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_b56cca9d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 9621
+      },
+      "writtenOn": "2015-04-30T09:20:02Z",
+      "side": 1,
+      "message": "Are you explicitly documenting that if the caller sets both the PendingIntent and the URI, the priority will be given to the PendingIntent? It\u0027s ambiguous which should be called unless you document that choice that was made here.",
+      "revId": "458216297caf50546f0f7c7b70772ba8585f47f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
