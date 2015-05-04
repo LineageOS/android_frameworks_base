@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7fb54a_fb564f05",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-05-04T18:40:17Z",
+      "side": 1,
+      "message": "All of those methods (and the logic belonging to it) should probably live in NetworkControllerImpl.",
+      "revId": "c9be7892b6dedce0d6589df5825603bd10dc676c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7fb54a_1b5cd324",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-05-04T18:40:17Z",
+      "side": 1,
+      "message": "This stuff IMHO should be handled by separate icon sets in TelephonyIcons.",
+      "revId": "c9be7892b6dedce0d6589df5825603bd10dc676c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
