@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba84c18e_2372547d",
+        "filename": "packages/PrintSpooler/src/com/android/printspooler/ui/PrintActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-04T04:59:44Z",
+      "side": 0,
+      "message": "Seems like it may be better to move this call from onDestroy to onStop or something similar instead.",
+      "revId": "e053d115d524d1e70b83a6d0fe2654326a89c60d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
