@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba84c18e_c609b6df",
+        "filename": "packages/SystemUI/res/layout/system_icons.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-05-04T11:12:00Z",
+      "side": 1,
+      "message": "I think it should be better to point this to @dimen/signal_cluster_battery_padding and modify that instead of hardcoding here.",
+      "revId": "7eea860fdd5a75dffc7212ee58e4c9840fb4fa0f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
