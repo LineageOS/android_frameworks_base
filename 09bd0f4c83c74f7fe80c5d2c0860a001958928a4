@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_1f95a33f",
+        "filename": "services/java/com/android/server/SystemServer.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-05-04T23:37:46Z",
+      "side": 1,
+      "message": "We want to crash the system and enter in bootloop because an external service?",
+      "revId": "09bd0f4c83c74f7fe80c5d2c0860a001958928a4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
