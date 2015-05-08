@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9a89bdaa_99ef0bb0",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardSecurityContainer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-05-08T11:57:11Z",
+      "side": 1,
+      "message": "Yes, looks like ViewGroup.java does some work in onAttachToWindow() and in onDetachedFromWindow()",
+      "parentUuid": "9a89bdaa_d908b394",
+      "revId": "b53bae0e39c3d02f2bbb0244c5be6c98efb13432",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a89bdaa_f9fd776f",
         "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardSecurityContainer.java",
         "patchSetId": 2
