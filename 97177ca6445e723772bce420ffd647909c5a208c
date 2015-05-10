@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_4ba3e89e",
+        "filename": "packages/SystemUI/res/values/dimens.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2015-05-10T13:04:03Z",
+      "side": 1,
+      "message": "Please call it dp, not dip to match the rest of the file.",
+      "revId": "97177ca6445e723772bce420ffd647909c5a208c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
