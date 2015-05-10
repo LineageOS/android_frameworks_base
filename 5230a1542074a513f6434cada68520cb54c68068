@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_882fb6a0",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 3917
+      },
+      "writtenOn": "2015-05-10T00:34:57Z",
+      "side": 1,
+      "message": "not sure if this char limit is still used?",
+      "range": {
+        "startLine": 343,
+        "startChar": 59,
+        "endLine": 343,
+        "endChar": 75
+      },
+      "revId": "5230a1542074a513f6434cada68520cb54c68068",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
