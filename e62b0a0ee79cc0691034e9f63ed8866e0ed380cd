@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_616a8d1c",
+        "filename": "services/core/java/com/android/server/TorchService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 10984
+      },
+      "writtenOn": "2015-05-11T22:10:14Z",
+      "side": 0,
+      "message": "Shouldn\u0027t we have the \"\u003d null\" inside the \u0027if\u0027? \nThere\u0027s no need to do it if it is already null...",
+      "revId": "e62b0a0ee79cc0691034e9f63ed8866e0ed380cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
