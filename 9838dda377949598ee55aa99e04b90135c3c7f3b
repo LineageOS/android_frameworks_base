@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_5cdd6c6f",
+        "filename": "services/core/java/com/android/server/TorchService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-12T06:19:26Z",
+      "side": 1,
+      "message": "Isn\u0027t this already done in teardownTorch?",
+      "revId": "9838dda377949598ee55aa99e04b90135c3c7f3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
