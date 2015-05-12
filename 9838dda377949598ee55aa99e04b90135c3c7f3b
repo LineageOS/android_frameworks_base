@@ -52,6 +52,24 @@
       "revId": "9838dda377949598ee55aa99e04b90135c3c7f3b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_fc62c0ac",
+        "filename": "services/core/java/com/android/server/TorchService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-05-12T06:59:20Z",
+      "side": 1,
+      "message": "It was, this is the solution, :)",
+      "parentUuid": "9a89bdaa_7cc15080",
+      "revId": "9838dda377949598ee55aa99e04b90135c3c7f3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
