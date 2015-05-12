@@ -16,6 +16,24 @@
       "revId": "9838dda377949598ee55aa99e04b90135c3c7f3b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_1cca04a2",
+        "filename": "services/core/java/com/android/server/TorchService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-05-12T06:30:03Z",
+      "side": 1,
+      "message": "Yes if mOpeningCamera is true, but if it gets set to false (if you turn the torch off before it gets a chance to start fully), then it will never be closed.",
+      "parentUuid": "9a89bdaa_5cdd6c6f",
+      "revId": "9838dda377949598ee55aa99e04b90135c3c7f3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
