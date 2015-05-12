@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_bce4b83b",
+        "filename": "core/java/android/webkit/WebViewFactory.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-12T06:23:12Z",
+      "side": 1,
+      "message": "Please follow Android code style guidelines.\n\nif (...) {\n    ...\n} else {\n    ...\n}\n\nAlso, we could do something here like what we do for the location provider instead, where a list could be provided, rather than a single value. This would avoid the hardcoding of \"com.android.webview\" below.",
+      "revId": "41e77aa7233d17609cbc7ee89813226053525cca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
