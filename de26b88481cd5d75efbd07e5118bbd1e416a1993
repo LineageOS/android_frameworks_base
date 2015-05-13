@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_9206fd1e",
+        "filename": "core/java/android/webkit/WebViewFactory.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-13T05:09:45Z",
+      "side": 0,
+      "message": "Unnecessary whitespace change",
+      "revId": "de26b88481cd5d75efbd07e5118bbd1e416a1993",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

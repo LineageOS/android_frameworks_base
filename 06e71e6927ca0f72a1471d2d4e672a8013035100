@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_520c7542",
+        "filename": "core/java/android/webkit/WebViewFactory.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-13T05:09:45Z",
+      "side": 1,
+      "message": "I\u0027m not sure a hardcoded default return value here is desired. You probably want this to fall back to the default webviewPackageName config value, and have a new config value(s) be read first. Or use some kind of list, like location provider does, as was mentioned previously.",
+      "revId": "06e71e6927ca0f72a1471d2d4e672a8013035100",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_72097931",
+        "filename": "core/java/android/webkit/WebViewFactory.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-13T05:09:45Z",
+      "side": 1,
+      "message": "Is this a redundant try/catch? isPackageInstalled already checks for this case no?",
+      "revId": "06e71e6927ca0f72a1471d2d4e672a8013035100",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
