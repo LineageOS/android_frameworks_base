@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_a56c989d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SystemBars.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-05-16T03:38:47Z",
+      "side": 1,
+      "message": "Wrap",
+      "revId": "b69e0a625dea1b3d2186f4f8aea2bfcbf50aeef2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
