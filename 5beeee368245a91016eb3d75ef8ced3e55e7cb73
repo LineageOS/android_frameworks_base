@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_1d04b47c",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 2021,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-05-19T10:15:37Z",
+      "side": 1,
+      "message": "\u003c/string-array\u003e",
+      "range": {
+        "startLine": 2021,
+        "startChar": 4,
+        "endLine": 2021,
+        "endChar": 13
+      },
+      "revId": "5beeee368245a91016eb3d75ef8ced3e55e7cb73",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
