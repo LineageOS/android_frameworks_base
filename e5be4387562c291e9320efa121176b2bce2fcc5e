@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_b0f68fd5",
+        "filename": "services/core/java/com/android/server/TorchService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-05-19T16:37:24Z",
+      "side": 1,
+      "message": "this logic feels odd, can we do something like \"config_TorchEnabled\" and default it to true?\n\nalso, is preventing the initialize() enough here? does it disable the tile?",
+      "revId": "e5be4387562c291e9320efa121176b2bce2fcc5e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
