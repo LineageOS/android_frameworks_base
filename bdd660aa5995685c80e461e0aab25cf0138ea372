@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_4eb6848b",
+        "filename": "core/java/android/webkit/WebViewFactory.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 8640
+      },
+      "writtenOn": "2015-05-20T20:41:05Z",
+      "side": 1,
+      "message": "If we know com.android.webview will be built, why can\u0027t it just be the last item in the array.  If the first one isn\u0027t picked then it will use the last one? No need for two separate configs.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 36
+      },
+      "revId": "bdd660aa5995685c80e461e0aab25cf0138ea372",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
