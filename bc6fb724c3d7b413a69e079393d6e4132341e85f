@@ -52,6 +52,24 @@
       "revId": "bc6fb724c3d7b413a69e079393d6e4132341e85f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_a93c6a30",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6739,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-05-21T08:36:19Z",
+      "side": 1,
+      "message": "Actually I\u0027m not sure I can do that - I need to always set the lid state to the dream manager, but not always react to it?\n\nWhy are you against indentation here anyways, this method differs from AOSP quite a bit as it is.",
+      "parentUuid": "9a89bdaa_4d413839",
+      "revId": "bc6fb724c3d7b413a69e079393d6e4132341e85f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
