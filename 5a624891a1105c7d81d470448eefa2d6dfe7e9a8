@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_c4f195cf",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/DataUsageDetailView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-21T16:13:25Z",
+      "side": 1,
+      "message": "Could also do if (UserHandle.myUserId() !\u003d UserHandle.USER_OWNER) return;",
+      "revId": "5a624891a1105c7d81d470448eefa2d6dfe7e9a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
