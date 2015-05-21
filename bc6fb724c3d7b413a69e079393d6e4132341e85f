@@ -70,6 +70,24 @@
       "revId": "bc6fb724c3d7b413a69e079393d6e4132341e85f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_e97e72ad",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6739,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-21T09:44:35Z",
+      "side": 1,
+      "message": "Just reducing the size of the diff. I think we are not understanding each other quite right here, but it\u0027s not really a big deal.",
+      "parentUuid": "9a89bdaa_a93c6a30",
+      "revId": "bc6fb724c3d7b413a69e079393d6e4132341e85f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
