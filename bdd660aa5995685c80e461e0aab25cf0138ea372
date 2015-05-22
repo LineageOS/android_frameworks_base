@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a89bdaa_3ed3293a",
+        "filename": "core/java/android/webkit/WebViewFactory.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 8640
+      },
+      "writtenOn": "2015-05-22T21:28:18Z",
+      "side": 1,
+      "message": "This is an array not a string. And initalApp.getStringArray....R.array.config... returns\n\nframeworks/base/core/java/android/webkit/WebViewFactory.java:81: error: cannot find symbol\n        String[] pkgs \u003d initialApp.getStringArray(\n                                  ^\n  symbol:   method getStringArray(int)\n  location: variable initialApp of type Application",
+      "range": {
+        "startLine": 82,
+        "startChar": 39,
+        "endLine": 82,
+        "endChar": 45
+      },
+      "revId": "bdd660aa5995685c80e461e0aab25cf0138ea372",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a89bdaa_4eb6848b",
         "filename": "core/java/android/webkit/WebViewFactory.java",
         "patchSetId": 6
