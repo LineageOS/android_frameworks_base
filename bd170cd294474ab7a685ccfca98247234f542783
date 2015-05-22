@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a89bdaa_bbce6b81",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4508,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-22T10:24:05Z",
+      "side": 1,
+      "message": "It looks like we are locking on mPackages when accessing mSettings to me.",
+      "revId": "bd170cd294474ab7a685ccfca98247234f542783",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a89bdaa_fb90f397",
         "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
         "patchSetId": 2
