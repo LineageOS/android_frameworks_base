@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "9a89bdaa_1b74b733",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/SyncTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-05-22T10:39:48Z",
+      "side": 1,
+      "message": "I kept it this way since it matches all other tiles having it.",
+      "parentUuid": "9a89bdaa_dbe40f0f",
+      "revId": "4ea5e8eb85b0c7bb87a8b6785b2209b8fb7b88af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a89bdaa_9be28702",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/SyncTile.java",
         "patchSetId": 7
