@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "9a89bdaa_dbcecf59",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4508,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2015-05-22T11:17:34Z",
+      "side": 1,
+      "message": "good catch",
+      "parentUuid": "9a89bdaa_bbce6b81",
+      "revId": "bd170cd294474ab7a685ccfca98247234f542783",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a89bdaa_fb90f397",
         "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
         "patchSetId": 2
@@ -64,6 +82,42 @@
       "writtenOn": "2015-05-22T10:34:21Z",
       "side": 1,
       "message": "Is checking the path like this OK for multiuser?",
+      "revId": "bd170cd294474ab7a685ccfca98247234f542783",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_3b041b7d",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4515,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2015-05-22T11:17:34Z",
+      "side": 1,
+      "message": "this is probably not a good check... not sure about multi user but i think it is possible to install on the sdcard.  I think we can just invert the logic to capture anything that is not from /vendor/bundled-app",
+      "parentUuid": "9a89bdaa_db796f31",
+      "revId": "bd170cd294474ab7a685ccfca98247234f542783",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_fbdb9319",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4515,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2015-05-22T11:17:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a89bdaa_fb90f397",
       "revId": "bd170cd294474ab7a685ccfca98247234f542783",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
