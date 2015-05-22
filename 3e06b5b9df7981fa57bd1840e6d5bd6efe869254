@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_3ba17baa",
+        "filename": "services/java/com/android/server/SystemServer.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 8640
+      },
+      "writtenOn": "2015-05-22T10:26:20Z",
+      "side": 1,
+      "message": "public static boolean hasFlash(Context context) {\n        PackageManager packageManager \u003d context.getPackageManager();\n        return packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);\n    }",
+      "range": {
+        "startLine": 663,
+        "startChar": 0,
+        "endLine": 663,
+        "endChar": 0
+      },
+      "revId": "3e06b5b9df7981fa57bd1840e6d5bd6efe869254",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_5ba63fc2",
+        "filename": "services/java/com/android/server/SystemServer.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 8640
+      },
+      "writtenOn": "2015-05-22T10:26:20Z",
+      "side": 1,
+      "message": "hasFlash",
+      "range": {
+        "startLine": 664,
+        "startChar": 43,
+        "endLine": 665,
+        "endChar": 68
+      },
+      "revId": "3e06b5b9df7981fa57bd1840e6d5bd6efe869254",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
