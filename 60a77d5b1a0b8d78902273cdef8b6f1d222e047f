@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_db924f57",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-05-22T10:28:04Z",
+      "side": 1,
+      "message": "oops",
+      "revId": "60a77d5b1a0b8d78902273cdef8b6f1d222e047f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
