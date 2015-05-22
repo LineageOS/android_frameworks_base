@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_fb90f397",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4515,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-05-22T10:13:16Z",
+      "side": 1,
+      "message": "Need some code comments here for future digestion. In case we ever get merge conflicts when pulling in upstream.",
+      "revId": "bd170cd294474ab7a685ccfca98247234f542783",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
