@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_7bddc341",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/SyncTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-05-22T10:28:52Z",
+      "side": 1,
+      "message": "Don\u0027t override handleDestroy. You can remove it safely. Currently the super.handleDestroy(); call will call setListener(false) and readd the listener before remove it.",
+      "revId": "4ea5e8eb85b0c7bb87a8b6785b2209b8fb7b88af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_dbe40f0f",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/SyncTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-05-22T10:28:52Z",
+      "side": 1,
+      "message": "Is more readable (but up to you)\n\n return mContext.getString(mState.value\n             ? R.string.accessibility_quick_settings_sync_changed_on\n             :  R.string.accessibility_quick_settings_sync_changed_off);",
+      "revId": "4ea5e8eb85b0c7bb87a8b6785b2209b8fb7b88af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_9be28702",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/SyncTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-05-22T10:28:52Z",
+      "side": 1,
+      "message": "setListening is called from handleDestroy(), and this method can be called from other sites, so just register/unregister mSyncObserverHandle here based on listening, instead of unregister it on handleDestroy()",
+      "revId": "4ea5e8eb85b0c7bb87a8b6785b2209b8fb7b88af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
