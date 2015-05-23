@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_c13a62cd",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-23T05:25:11Z",
+      "side": 1,
+      "message": "If the torch service isn\u0027t available, why not check for that?",
+      "revId": "a317eec778a0555ce2d2c044fa7942b520b5be58",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
