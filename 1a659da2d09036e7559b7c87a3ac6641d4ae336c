@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_21f06e90",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2998,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-05-23T08:51:45Z",
+      "side": 1,
+      "message": "Did a test where i print thread id when this method is called :\n\nI/System.out(  932): cleanupProximity 1\nI/System.out(  932): cleanupProximity 29\n\nSo yea this method is called from 2 threads (handler thread and main thread).\n\nThe synchronized block in runPost isn\u0027t necessary, since thats always invoked on main thread, u care more about methods shared between both threads, which in our case is the cleanupProximity(). Perhaps just synchronizing that is sufficient ?",
+      "revId": "1a659da2d09036e7559b7c87a3ac6641d4ae336c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
