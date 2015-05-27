@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_1eb04d8b",
+        "filename": "core/java/android/content/res/Resources.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1921,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-05-27T08:03:29Z",
+      "side": 1,
+      "message": "100 chars here and below",
+      "revId": "debddda838665f2187dd29b2790d3e8caa144785",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
