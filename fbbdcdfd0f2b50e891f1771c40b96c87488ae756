@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_2495f63f",
+        "filename": "policy/src/com/android/internal/policy/impl/GlobalActions.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-05-28T07:00:04Z",
+      "side": 1,
+      "message": "Almost might make sense to remove the setTheme() from a getter and/or check createUiContext() for why its returning null. I Need to follow the chain of methods to get a better understanding.",
+      "revId": "fbbdcdfd0f2b50e891f1771c40b96c87488ae756",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
