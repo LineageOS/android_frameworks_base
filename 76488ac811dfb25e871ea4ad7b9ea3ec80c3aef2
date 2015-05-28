@@ -16,6 +16,24 @@
       "revId": "76488ac811dfb25e871ea4ad7b9ea3ec80c3aef2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a8ec9b2_e7af907b",
+        "filename": "core/java/android/text/format/DateFormat.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 9621
+      },
+      "writtenOn": "2015-05-28T16:47:33Z",
+      "side": 1,
+      "message": "Oh man. Good catch. I think you may have just saved me from disaster...",
+      "parentUuid": "7a8ec9b2_87aa4c6f",
+      "revId": "76488ac811dfb25e871ea4ad7b9ea3ec80c3aef2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
