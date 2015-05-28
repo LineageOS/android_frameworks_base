@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_87aa4c6f",
+        "filename": "core/java/android/text/format/DateFormat.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-05-28T16:45:38Z",
+      "side": 1,
+      "message": "Does this break checkapi? Seems the other is24HourFormat method is hidden behind @hide notation, seems it\u0027d make sense to @hide this method as well.",
+      "revId": "76488ac811dfb25e871ea4ad7b9ea3ec80c3aef2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
