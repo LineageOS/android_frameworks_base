@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_442202bb",
+        "filename": "core/java/android/content/Context.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2947,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-05-28T10:11:03Z",
+      "side": 1,
+      "message": "Move this to the sdk. It\u0027s only used internally in the sdk",
+      "revId": "3b37b490408e7ff50fe2a774448031e2b8e475d4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
