@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_d29fb4b2",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-05-29T05:51:21Z",
+      "side": 1,
+      "message": "I\u0027d suggest to move this check down and use the lockedOrMissing variable instead.",
+      "revId": "4e16a19e59bff8f0036d58b9d13e72be9d7b0b5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
