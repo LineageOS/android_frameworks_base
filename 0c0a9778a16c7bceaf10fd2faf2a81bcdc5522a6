@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_6d5521c5",
+        "filename": "graphics/java/android/graphics/Bitmap.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-05-29T22:58:57Z",
+      "side": 1,
+      "message": "I\u0027ve confirmed this now returns 160 instead of the correct value 400.",
+      "revId": "0c0a9778a16c7bceaf10fd2faf2a81bcdc5522a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
