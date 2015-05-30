@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_8dc50d5d",
+        "filename": "core/java/android/content/ThemeVersion.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 12937
+      },
+      "writtenOn": "2015-05-30T03:53:46Z",
+      "side": 1,
+      "message": "nit: typo",
+      "revId": "0ff6ff363ea826863cafb311f0808706cde2b13f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
