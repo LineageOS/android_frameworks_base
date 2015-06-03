@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_94e7d13f",
+        "filename": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 12941
+      },
+      "writtenOn": "2015-06-03T06:50:41Z",
+      "side": 1,
+      "message": "Is there any reason these two lines were moved after calculateAmbientLux?",
+      "revId": "2ae003c5eb7017e2c6202b13a5a364880e4d0b14",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
