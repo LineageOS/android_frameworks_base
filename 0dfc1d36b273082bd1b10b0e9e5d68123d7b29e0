@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_8ab96831",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-06-04T09:55:39Z",
+      "side": 1,
+      "message": "You should only need this line.",
+      "revId": "0dfc1d36b273082bd1b10b0e9e5d68123d7b29e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a8ec9b2_aab6243b",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-06-04T09:55:39Z",
+      "side": 1,
+      "message": "This part shouldn\u0027t be necessary.",
+      "revId": "0dfc1d36b273082bd1b10b0e9e5d68123d7b29e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
