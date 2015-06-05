@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_6fceeb84",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDetailItemsList.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 9621
+      },
+      "writtenOn": "2015-06-05T10:39:38Z",
+      "side": 1,
+      "message": "This is always hidden?",
+      "revId": "42392be69a744589b41f9a7aaff77990ae70fb87",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
