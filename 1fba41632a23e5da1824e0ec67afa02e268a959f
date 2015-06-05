@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8ec9b2_cc90edef",
+        "filename": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 13513
+      },
+      "writtenOn": "2015-06-05T07:00:25Z",
+      "side": 1,
+      "message": "Instead of completely eliminating the BRIGHTENING_LIGHT_DEBOUNCE and DARKENING_LIGHT_DEBOUNCE can we use these as the default values? and in case we find the resource config_autoBrightness defined then we override the default values?",
+      "range": {
+        "startLine": 209,
+        "startChar": 28,
+        "endLine": 209,
+        "endChar": 36
+      },
+      "revId": "1fba41632a23e5da1824e0ec67afa02e268a959f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
