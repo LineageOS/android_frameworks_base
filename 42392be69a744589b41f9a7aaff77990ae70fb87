@@ -16,6 +16,24 @@
       "revId": "42392be69a744589b41f9a7aaff77990ae70fb87",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a8ec9b2_2fe783e5",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDetailItemsList.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-06-05T11:11:09Z",
+      "side": 1,
+      "message": "For now. I should probably add a TODO.",
+      "parentUuid": "7a8ec9b2_6fceeb84",
+      "revId": "42392be69a744589b41f9a7aaff77990ae70fb87",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
