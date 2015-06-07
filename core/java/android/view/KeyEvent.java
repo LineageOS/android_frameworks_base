@@ -2060,6 +2060,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     public static final boolean isWakeKey(int keyCode) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_CAMERA:
+            case KeyEvent.KEYCODE_FOCUS:
             case KeyEvent.KEYCODE_MENU:
             case KeyEvent.KEYCODE_PAIRING:
             case KeyEvent.KEYCODE_STEM_1:
