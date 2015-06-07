@@ -22,4 +22,6 @@
 
     <!-- Usb drive persistent notification -->
     <java-symbol type="bool" name="config_persistUsbDriveNotification" />
+
+    <java-symbol type="bool" name="config_singleStageCameraKey" />
 </resources>
