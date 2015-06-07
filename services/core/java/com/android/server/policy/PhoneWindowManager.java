@@ -533,7 +533,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mWakeOnHomeKeyPress;
     boolean mWakeOnMenuKeyPress;
     boolean mWakeOnAppSwitchKeyPress;
+    boolean mWakeOnCameraKeyPress;
     boolean mWakeOnVolumeKeyPress;
+
+    // Camera button control flags and actions
+    boolean mCameraLaunch;
+    boolean mCameraSleepOnRelease;
+    boolean mFocusReleasedGoToSleep;
+    boolean mIsFocusPressed;
+    boolean mIsLongPress;
 
     // During wakeup by volume keys, we still need to capture subsequent events
     // until the key is released. This is required since the beep sound is produced
@@ -683,6 +691,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     // Lineage additions
     private static final int MSG_TOGGLE_TORCH = 100;
+    private static final int MSG_CAMERA_LONG_PRESS = 101;
 
     private CameraManager mCameraManager;
     private String mRearFlashCameraId;
@@ -762,6 +771,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 case MSG_TOGGLE_TORCH:
                     toggleTorch();
                     break;
+                case MSG_CAMERA_LONG_PRESS:
+                    KeyEvent event = (KeyEvent) msg.obj;
+                    mIsLongPress = true;
+                    break;
             }
         }
     }
@@ -789,6 +802,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.INCALL_BACK_BUTTON_BEHAVIOR), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.CAMERA_WAKE_SCREEN), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.CAMERA_SLEEP_ON_RELEASE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.CAMERA_LAUNCH), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(LineageSettings.Secure.getUriFor(
                     LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR), false, this,
@@ -2473,6 +2495,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mVolumeAnswerCall = (LineageSettings.System.getIntForUser(resolver,
                     LineageSettings.System.VOLUME_ANSWER_CALL, 0, UserHandle.USER_CURRENT) == 1)
                     && ((mDeviceHardwareWakeKeys & KEY_MASK_VOLUME) != 0);
+            mWakeOnCameraKeyPress = (LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.CAMERA_WAKE_SCREEN, 0, UserHandle.USER_CURRENT) == 1)
+                    && ((mDeviceHardwareWakeKeys & KEY_MASK_CAMERA) != 0);
+            mCameraSleepOnRelease = mWakeOnCameraKeyPress &&
+                    LineageSettings.System.getIntForUser(resolver,
+                            LineageSettings.System.CAMERA_SLEEP_ON_RELEASE, 0,
+                            UserHandle.USER_CURRENT) == 1;
+            mCameraLaunch = LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.CAMERA_LAUNCH, 0,
+                    UserHandle.USER_CURRENT) == 1;
 
             // Configure wake gesture.
             boolean wakeGestureEnabledSetting = Settings.Secure.getIntForUser(resolver,
@@ -3914,14 +3946,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final int displayId = event.getDisplayId();
         final boolean isInjected = (policyFlags & WindowManagerPolicy.FLAG_INJECTED) != 0;
 
+        // If screen is off then we treat the case where the keyguard is open but hidden
+        // the same as if it were open and in front.
+        // This will prevent any keys other than the power button from waking the screen
+        // when the keyguard is hidden by another activity.
+        final boolean keyguardActive = (mKeyguardDelegate != null
+                && (interactive ? isKeyguardShowingAndNotOccluded() :
+                mKeyguardDelegate.isShowing()));
+
         if (DEBUG_INPUT) {
-            // If screen is off then we treat the case where the keyguard is open but hidden
-            // the same as if it were open and in front.
-            // This will prevent any keys other than the power button from waking the screen
-            // when the keyguard is hidden by another activity.
-            final boolean keyguardActive = (mKeyguardDelegate != null
-                    && (interactive ? isKeyguardShowingAndNotOccluded() :
-                    mKeyguardDelegate.isShowing()));
             Log.d(TAG, "interceptKeyTq keycode=" + keyCode
                     + " interactive=" + interactive + " keyguardActive=" + keyguardActive
                     + " policyFlags=" + Integer.toHexString(policyFlags));
@@ -4148,6 +4181,50 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     isWakeKey = mWakeOnHomeKeyPress;
                     if (!isWakeKey) {
                         useHapticFeedback = false;
+                    }
+                }
+                break;
+
+            case KeyEvent.KEYCODE_FOCUS:
+                if (down && !interactive && mCameraSleepOnRelease) {
+                    mIsFocusPressed = true;
+                } else if (!down) {
+                    // Check if screen is fully on before letting the device go to sleep
+                    if (mDefaultDisplayPolicy.isScreenOnFully() && mIsFocusPressed) {
+                        mPowerManager.goToSleep(SystemClock.uptimeMillis());
+                    } else if (!interactive && mCameraSleepOnRelease) {
+                        mFocusReleasedGoToSleep = true;
+                    }
+                    mIsFocusPressed = false;
+                }
+                break;
+
+            case KeyEvent.KEYCODE_CAMERA:
+                if (down && mIsFocusPressed) {
+                    mIsFocusPressed = false;
+                }
+                if (down) {
+                    mIsLongPress = false;
+
+                    KeyEvent newEvent = new KeyEvent(event.getDownTime(), event.getEventTime(),
+                            event.getAction(), keyCode, 0);
+                    Message msg = mHandler.obtainMessage(MSG_CAMERA_LONG_PRESS, newEvent);
+                    msg.setAsynchronous(true);
+                    mHandler.sendMessageDelayed(msg, ViewConfiguration.getLongPressTimeout());
+                    // Consume key down events of all presses.
+                    break;
+                } else {
+                    mHandler.removeMessages(MSG_CAMERA_LONG_PRESS);
+                    // Consume key up events of long presses only.
+                    if (mIsLongPress && mCameraLaunch) {
+                        Intent intent;
+                        if (keyguardActive) {
+                            intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE);
+                        } else {
+                            intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+                        }
+                        isWakeKey = true;
+                        startActivityAsUser(intent, UserHandle.CURRENT_OR_SELF);
                     }
                 }
                 break;
@@ -4515,6 +4592,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 return mWakeOnAssistKeyPress;
             case KeyEvent.KEYCODE_APP_SWITCH:
                 return mWakeOnAppSwitchKeyPress;
+            case KeyEvent.KEYCODE_CAMERA:
+            case KeyEvent.KEYCODE_FOCUS:
+                return mWakeOnCameraKeyPress;
         }
         return true;
     }
@@ -4566,6 +4646,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
             case KeyEvent.KEYCODE_APP_SWITCH:
                 return mWakeOnAppSwitchKeyPress;
+
+            case KeyEvent.KEYCODE_CAMERA:
+            case KeyEvent.KEYCODE_FOCUS:
+                return mWakeOnCameraKeyPress;
         }
 
         return true;
@@ -5135,6 +5219,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mWindowManager.enableScreenIfNeeded();
             } catch (RemoteException unhandled) {
             }
+        }
+
+        if (mFocusReleasedGoToSleep) {
+            mFocusReleasedGoToSleep = false;
+            mPowerManager.goToSleep(SystemClock.uptimeMillis());
         }
     }
 
