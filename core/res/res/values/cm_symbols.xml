@@ -109,4 +109,7 @@
 
     <!-- Whether light up buttons only when pressed -->
     <java-symbol type="bool" name="config_buttonLightOnKeypressOnly" />
+
+    <!-- global actions (zen mode buttons) -->
+    <java-symbol type="id" name="option4" />
 </resources>
