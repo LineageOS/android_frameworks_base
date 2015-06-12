@@ -16,6 +16,24 @@
       "revId": "f66db341300f879d841b19465957a9147799f8ee",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3905b3_b003f60c",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2026,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-06-12T08:12:57Z",
+      "side": 1,
+      "message": "As opposed to using the Integer.toString() function? I suppose it\u0027s helpful for future maintainers to see that part and think \"oh, that should be an integer\" on the other end when it is read back in.",
+      "parentUuid": "5a3905b3_6d037510",
+      "revId": "f66db341300f879d841b19465957a9147799f8ee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
