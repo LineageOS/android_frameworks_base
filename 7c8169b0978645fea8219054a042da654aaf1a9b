@@ -16,6 +16,24 @@
       "revId": "7c8169b0978645fea8219054a042da654aaf1a9b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a461143_cc40ef0a",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 18862,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2015-06-12T17:35:55Z",
+      "side": 1,
+      "message": "You mean to fix build ? ;-)\n\nframeworks/base/services/core/java/com/android/server/am/ActivityManagerService.java:18862: error: invalid method declaration; return type required\n    private postKillProc(final ProcessRecord app, final String reason, final boolean noisy) {",
+      "parentUuid": "3a461143_8c36e7b2",
+      "revId": "7c8169b0978645fea8219054a042da654aaf1a9b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
