@@ -34,6 +34,24 @@
       "revId": "f66db341300f879d841b19465957a9147799f8ee",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3905b3_7048ae5c",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2026,
+      "author": {
+        "id": 7841
+      },
+      "writtenOn": "2015-06-12T08:35:41Z",
+      "side": 1,
+      "message": "Although it\u0027s actually a boolean ;) -- This probably isn\u0027t a heavily used code path so the cost of taking the method call is probably pretty minor.",
+      "parentUuid": "5a3905b3_b003f60c",
+      "revId": "f66db341300f879d841b19465957a9147799f8ee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
