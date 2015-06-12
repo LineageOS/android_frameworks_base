@@ -34,6 +34,24 @@
       "revId": "e8049084bd21cb72e6e113d3f224cbbbc63568b0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3905b3_4d779902",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7401,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-06-12T06:21:47Z",
+      "side": 1,
+      "message": "Ok. However, I think there needs to be comments clarifying this, especially if it ever comes up again when debugging.",
+      "parentUuid": "5a3905b3_0d6d9132",
+      "revId": "e8049084bd21cb72e6e113d3f224cbbbc63568b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
