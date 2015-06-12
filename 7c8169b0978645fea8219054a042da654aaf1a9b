@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a461143_8c36e7b2",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 18862,
+      "author": {
+        "id": 10327
+      },
+      "writtenOn": "2015-06-12T17:27:47Z",
+      "side": 1,
+      "message": "This should probably have a return value",
+      "revId": "7c8169b0978645fea8219054a042da654aaf1a9b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
