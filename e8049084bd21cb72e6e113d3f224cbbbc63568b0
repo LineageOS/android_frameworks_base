@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a3905b3_cd82a9c8",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7401,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-06-12T06:12:36Z",
+      "side": 1,
+      "message": "Is lib32 install directory always the go-to here?\n\nDo we care about secondary?",
+      "revId": "e8049084bd21cb72e6e113d3f224cbbbc63568b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
