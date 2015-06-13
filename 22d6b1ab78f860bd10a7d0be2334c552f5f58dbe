@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a461143_8f36d9b2",
+        "filename": "core/res/res/layout/global_actions_silent_mode.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-13T23:01:18Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 4
+      },
+      "revId": "22d6b1ab78f860bd10a7d0be2334c552f5f58dbe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a461143_af3b959b",
+        "filename": "core/res/res/layout/global_actions_silent_mode.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-13T23:01:18Z",
+      "side": 1,
+      "message": "Unnecessary change",
+      "revId": "22d6b1ab78f860bd10a7d0be2334c552f5f58dbe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a461143_cf40e10a",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-13T23:01:18Z",
+      "side": 1,
+      "message": "Wrong indentation",
+      "range": {
+        "startLine": 346,
+        "startChar": 4,
+        "endLine": 346,
+        "endChar": 8
+      },
+      "revId": "22d6b1ab78f860bd10a7d0be2334c552f5f58dbe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a461143_ef459d17",
+        "filename": "core/res/res/values/cm_symbols.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-13T23:01:18Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 338,
+        "endChar": 4
+      },
+      "revId": "22d6b1ab78f860bd10a7d0be2334c552f5f58dbe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a461143_0f4bc92c",
+        "filename": "policy/src/com/android/internal/policy/impl/GlobalActions.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-13T23:01:18Z",
+      "side": 1,
+      "message": "Wrong indentation",
+      "range": {
+        "startLine": 1239,
+        "startChar": 8,
+        "endLine": 1239,
+        "endChar": 9
+      },
+      "revId": "22d6b1ab78f860bd10a7d0be2334c552f5f58dbe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a461143_2f48852d",
+        "filename": "policy/src/com/android/internal/policy/impl/GlobalActions.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-13T23:01:18Z",
+      "side": 1,
+      "message": "Wrap to 100 chars",
+      "revId": "22d6b1ab78f860bd10a7d0be2334c552f5f58dbe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a461143_4f55d1c4",
+        "filename": "policy/src/com/android/internal/policy/impl/GlobalActions.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-13T23:01:18Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 1310,
+        "startChar": 0,
+        "endLine": 1310,
+        "endChar": 8
+      },
+      "revId": "22d6b1ab78f860bd10a7d0be2334c552f5f58dbe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
