@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa31d9ce_caf28306",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-15T22:40:16Z",
+      "side": 1,
+      "message": "CAF derped when copying over this method from AOSP.",
+      "revId": "c1f50fc560e320f31e41ba83a145c9127dc19afb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa31d9ce_8ae88b18",
+        "filename": "telephony/java/com/android/internal/telephony/IccCardConstants.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-15T22:40:16Z",
+      "side": 1,
+      "message": "This actually comes straight from AOSP.",
+      "revId": "c1f50fc560e320f31e41ba83a145c9127dc19afb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
