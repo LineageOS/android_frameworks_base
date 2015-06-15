@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a430d35_ab862963",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-15T04:13:39Z",
+      "side": 1,
+      "message": "USB",
+      "range": {
+        "startLine": 152,
+        "startChar": 46,
+        "endLine": 152,
+        "endChar": 49
+      },
+      "revId": "1252462706fe52630a989c4a842031c0e0753ded",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
