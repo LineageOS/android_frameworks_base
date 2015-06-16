@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa31d9ce_2acebf5a",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 12453
+      },
+      "writtenOn": "2015-06-16T05:57:42Z",
+      "side": 1,
+      "message": "WS",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 1
+      },
+      "revId": "cc30f5f3705591a475cf0862f5df00471ab6edac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa31d9ce_4adbf31b",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 12453
+      },
+      "writtenOn": "2015-06-16T05:57:42Z",
+      "side": 1,
+      "message": "Could we create a custom style name in cm_styles that points to this style? This way, a theme could not mess around with the default style and just do a custom look for this dialog?",
+      "range": {
+        "startLine": 795,
+        "startChar": 31,
+        "endLine": 795,
+        "endChar": 86
+      },
+      "revId": "cc30f5f3705591a475cf0862f5df00471ab6edac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
