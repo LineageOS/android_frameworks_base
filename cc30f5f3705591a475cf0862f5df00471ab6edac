@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "fa31d9ce_501d6465",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-16T15:25:06Z",
+      "side": 1,
+      "message": "What WS?  Nothing was added here",
+      "parentUuid": "fa31d9ce_2acebf5a",
+      "revId": "cc30f5f3705591a475cf0862f5df00471ab6edac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa31d9ce_4adbf31b",
         "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 795,
         "endChar": 86
       },
+      "revId": "cc30f5f3705591a475cf0862f5df00471ab6edac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa31d9ce_701a6870",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-16T15:25:06Z",
+      "side": 1,
+      "message": "This just guarantees we get the correct assets for this dialog.  We use similar code in other places so those would require changing too which is beyond the scope of this change.",
+      "parentUuid": "fa31d9ce_4adbf31b",
       "revId": "cc30f5f3705591a475cf0862f5df00471ab6edac",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
