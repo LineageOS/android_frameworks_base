@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa31d9ce_50be4400",
+        "filename": "packages/SystemUI/src/com/android/systemui/recents/RecentsConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-06-16T19:49:40Z",
+      "side": 1,
+      "message": "This could be package visibility instead of public though",
+      "revId": "1c0dcbb20b9a0dd274652edbb0dbb1e1f831fd14",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
