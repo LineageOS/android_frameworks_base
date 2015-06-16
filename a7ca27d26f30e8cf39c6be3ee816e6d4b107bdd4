@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa31d9ce_10dbecee",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2015-06-16T23:57:41Z",
+      "side": 1,
+      "message": "use spaces here",
+      "revId": "a7ca27d26f30e8cf39c6be3ee816e6d4b107bdd4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
