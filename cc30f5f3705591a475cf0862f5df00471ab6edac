@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "fa31d9ce_f313c20b",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 12453
+      },
+      "writtenOn": "2015-06-17T04:07:12Z",
+      "side": 1,
+      "message": "Indeed. Now we know the truth of it.",
+      "parentUuid": "fa31d9ce_501d6465",
+      "revId": "cc30f5f3705591a475cf0862f5df00471ab6edac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa31d9ce_4adbf31b",
         "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
         "patchSetId": 2
