@@ -200,17 +200,37 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
      * Shows the notification keyguard or the bouncer depending on
      * {@link KeyguardBouncer#needsFullscreenBouncer()}.
      */
-    protected void showBouncerOrKeyguard(boolean hideBouncerWhenShowing) {
-        if (mBouncer.needsFullscreenBouncer() && !mDozing) {
-            // The keyguard might be showing (already). So we need to hide it.
-            mStatusBar.hideKeyguard();
-            mBouncer.show(true /* resetSecuritySelection */);
-        } else {
-            mStatusBar.showKeyguard();
-            if (hideBouncerWhenShowing) {
-                hideBouncer(shouldDestroyViewOnReset() /* destroyView */);
-                mBouncer.prepare();
-            }
+    protected void showBouncerOrKeyguard(boolean hideBouncerWhenShowing, boolean isBackPressed) {
+        switch (mBouncer.getUnlockSequence(false /* useCurrentSecurityMode */)) {
+            case KeyguardBouncer.UNLOCK_SEQUENCE_FORCE_BOUNCER:
+                // SIM PIN/PUK
+                // The keyguard might be showing (already). So we need to hide it.
+                mStatusBar.hideKeyguard();
+                mBouncer.show(true /* resetSecuritySelection */);
+                break;
+            case KeyguardBouncer.UNLOCK_SEQUENCE_BOUNCER_FIRST:
+                // Pattern / PIN / password with "Directly show " enabled
+                if (isBackPressed) {
+                    mStatusBar.showKeyguard();
+                    if (hideBouncerWhenShowing) {
+                        mBouncer.hide(false /* destroyView */);
+                        mBouncer.prepare();
+                    }
+                } else {
+                    // The keyguard might be showing (already). So we need to hide it.
+                    mStatusBar.hideKeyguard();
+                    mBouncer.show(true /* resetSecuritySelection */);
+                }
+                break;
+            case KeyguardBouncer.UNLOCK_SEQUENCE_DEFAULT:
+                mStatusBar.showKeyguard();
+                if (hideBouncerWhenShowing) {
+                    mBouncer.hide(false /* destroyView */);
+                    mBouncer.prepare();
+                }
+                break;
+            default:
+                break;
         }
         updateStates();
     }
@@ -273,7 +293,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
     /**
      * Reset the state of the view.
      */
-    public void reset(boolean hideBouncerWhenShowing) {
+    public void reset(boolean hideBouncerWhenShowing, boolean isBackPressed) {
         if (mShowing) {
             if (mOccluded && !mDozing) {
                 mStatusBar.hideKeyguard();
@@ -281,11 +301,18 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
                     hideBouncer(false /* destroyView */);
                 }
             } else {
-                showBouncerOrKeyguard(hideBouncerWhenShowing);
+                showBouncerOrKeyguard(hideBouncerWhenShowing, isBackPressed);
             }
             KeyguardUpdateMonitor.getInstance(mContext).sendKeyguardReset();
             updateStates();
         }
+    }
+
+    /**
+     * Reset the state of the view; not caused by back press
+     */
+    public void reset(boolean hideBouncerWhenShowing) {
+        reset(hideBouncerWhenShowing, false);
     }
 
     public boolean isGoingToSleepVisibleNotOccluded() {
@@ -543,7 +570,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
     public boolean onBackPressed(boolean hideImmediately) {
         if (mBouncer.isShowing()) {
             mStatusBar.endAffordanceLaunch();
-            reset(hideImmediately);
+            reset(hideImmediately, true /* isBackPressed */);
             return true;
         }
         return false;
