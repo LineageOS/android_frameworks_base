@@ -51,6 +51,13 @@ public interface KeyguardViewController {
     /**
      * Resets the state of Keyguard View.
      * @param hideBouncerWhenShowing
+     * @param isBackPressed
+     */
+    void reset(boolean hideBouncerWhenShowing, boolean isBackPressed);
+
+    /**
+     * Resets the state of Keyguard View; not caused by back press.
+     * @param hideBouncerWhenShowing
      */
     void reset(boolean hideBouncerWhenShowing);
 
