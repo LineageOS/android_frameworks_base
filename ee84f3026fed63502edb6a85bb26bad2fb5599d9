@@ -104,6 +104,24 @@
     },
     {
       "key": {
+        "uuid": "da36d5c6_0fa3c99f",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-06-18T21:15:07Z",
+      "side": 1,
+      "message": "Yes.\n\n1.- Always after call this constructor will be a recreateTiles call which will lead into a refreshState again.\n2.- The problem the calls to handleUpdateState not always have a tile ref, so i cached the current state of the tile to proper have a valid state to use in the update.",
+      "parentUuid": "da36d5c6_cf7b717a",
+      "revId": "ee84f3026fed63502edb6a85bb26bad2fb5599d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da36d5c6_0f966994",
         "filename": "services/core/java/com/android/server/AlarmManagerService.java",
         "patchSetId": 12
@@ -115,6 +133,24 @@
       "writtenOn": "2015-06-18T13:38:18Z",
       "side": 1,
       "message": "Could be cool to leverage ExpandedStyle here to show all of the next alarms?",
+      "revId": "ee84f3026fed63502edb6a85bb26bad2fb5599d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da36d5c6_cf98d16d",
+        "filename": "services/core/java/com/android/server/AlarmManagerService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 2288,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-06-18T21:15:07Z",
+      "side": 1,
+      "message": "I will check if i can publish all the alarms for the user",
+      "parentUuid": "da36d5c6_0f966994",
       "revId": "ee84f3026fed63502edb6a85bb26bad2fb5599d9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
