@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da36d5c6_efa915e1",
+        "filename": "packages/SystemUI/res/drawable/ic_dynamic_qs_adb.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-06-18T13:38:18Z",
+      "side": 1,
+      "message": "Needs copyright header.",
+      "revId": "ee84f3026fed63502edb6a85bb26bad2fb5599d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da36d5c6_0faf49e4",
+        "filename": "packages/SystemUI/res/drawable/ic_dynamic_qs_ime_selector.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-06-18T13:38:18Z",
+      "side": 1,
+      "message": "Copyright header",
+      "revId": "ee84f3026fed63502edb6a85bb26bad2fb5599d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da36d5c6_2fac0ded",
+        "filename": "packages/SystemUI/res/drawable/ic_dynamic_qs_next_alarm.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-06-18T13:38:18Z",
+      "side": 1,
+      "message": "Same",
+      "revId": "ee84f3026fed63502edb6a85bb26bad2fb5599d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da36d5c6_4fb9412e",
+        "filename": "packages/SystemUI/res/drawable/ic_dynamic_qs_su.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-06-18T13:38:18Z",
+      "side": 1,
+      "message": "Same",
+      "revId": "ee84f3026fed63502edb6a85bb26bad2fb5599d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da36d5c6_6fb6053f",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-06-18T13:38:18Z",
+      "side": 1,
+      "message": "Should this be non-translatable?",
+      "revId": "ee84f3026fed63502edb6a85bb26bad2fb5599d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da36d5c6_cf7b717a",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-06-18T13:38:18Z",
+      "side": 1,
+      "message": "refreshState here is called to pass the tile to handleUpdateState. Is there any benefit to not going that route?",
+      "revId": "ee84f3026fed63502edb6a85bb26bad2fb5599d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da36d5c6_0f966994",
+        "filename": "services/core/java/com/android/server/AlarmManagerService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 2288,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-06-18T13:38:18Z",
+      "side": 1,
+      "message": "Could be cool to leverage ExpandedStyle here to show all of the next alarms?",
+      "revId": "ee84f3026fed63502edb6a85bb26bad2fb5599d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
