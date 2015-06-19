@@ -16,6 +16,24 @@
       "revId": "5474d6a42779d5ed7d077affd5ad944e65981c4d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da36d5c6_127cd21f",
+        "filename": "media/java/android/media/AudioService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4982,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-06-19T09:46:42Z",
+      "side": 1,
+      "message": "I could, but I wanted to avoid unnecessary binder calls, and I\u0027m not sure whether the isInCall() method returns true while the phone is ringing, which I depend on here.",
+      "parentUuid": "da36d5c6_f2af3e92",
+      "revId": "5474d6a42779d5ed7d077affd5ad944e65981c4d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
