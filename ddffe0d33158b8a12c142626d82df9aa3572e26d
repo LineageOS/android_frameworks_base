@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da36d5c6_cf59b190",
+        "filename": "core/java/android/service/notification/ZenModeConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1053
+      },
+      "writtenOn": "2015-06-19T02:12:41Z",
+      "side": 1,
+      "message": "Please limit the line lenght to 100 characters.",
+      "revId": "ddffe0d33158b8a12c142626d82df9aa3572e26d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
