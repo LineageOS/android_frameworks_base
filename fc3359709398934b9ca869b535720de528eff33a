@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da36d5c6_6f90c5ed",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-19T04:01:39Z",
+      "side": 1,
+      "message": "Should probably do this only if displaySpn is null.",
+      "revId": "fc3359709398934b9ca869b535720de528eff33a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
