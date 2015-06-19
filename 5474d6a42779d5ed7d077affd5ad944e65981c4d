@@ -34,6 +34,24 @@
       "revId": "5474d6a42779d5ed7d077affd5ad944e65981c4d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da36d5c6_32a0f690",
+        "filename": "media/java/android/media/AudioService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4982,
+      "author": {
+        "id": 10631
+      },
+      "writtenOn": "2015-06-19T09:56:56Z",
+      "side": 1,
+      "message": "/**\n     * Returns whether there is an ongoing phone call (can be in dialing, ringing, active or holding\n     * states).\n     * \u003cp\u003e\n     * Requires permission: {@link android.Manifest.permission#READ_PHONE_STATE}\n     * \u003c/p\u003e\n     */",
+      "parentUuid": "da36d5c6_127cd21f",
+      "revId": "5474d6a42779d5ed7d077affd5ad944e65981c4d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
