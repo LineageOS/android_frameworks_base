@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da36d5c6_f2af3e92",
+        "filename": "media/java/android/media/AudioService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4982,
+      "author": {
+        "id": 10631
+      },
+      "writtenOn": "2015-06-19T09:14:22Z",
+      "side": 1,
+      "message": "Can you not do:\n\nTelecomManager telecom \u003d (TelecomManager) someContext.getSystemService(Context.TELECOM_SERVICE);\n\nboolean notInCall \u003d !telecom.isInCall();",
+      "revId": "5474d6a42779d5ed7d077affd5ad944e65981c4d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
