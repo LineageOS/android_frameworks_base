@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba2be162_c8344f4c",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-06-20T05:03:21Z",
+      "side": 1,
+      "message": "It\u0027s not only that it parses, but that it\u0027s also within range.",
+      "range": {
+        "startLine": 530,
+        "startChar": 0,
+        "endLine": 534,
+        "endChar": 17
+      },
+      "revId": "3c68437c06116814789d7174379f427e971d7fd7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba2be162_68efe3b0",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-06-20T05:03:21Z",
+      "side": 1,
+      "message": "There\u0027s no indication to the user that adding an already registered finger is actually a no-op",
+      "range": {
+        "startLine": 539,
+        "startChar": 12,
+        "endLine": 540,
+        "endChar": 91
+      },
+      "revId": "3c68437c06116814789d7174379f427e971d7fd7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
