@@ -4571,5 +4571,8 @@ message MetricsEvent {
 
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
+
+    // Location detail adapter
+    QS_LOCATION_DETAIL = 2000;
   }
 }
