@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a25e98e_c608c22b",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardConstants.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-21T22:34:39Z",
+      "side": 1,
+      "message": "FIXME",
+      "revId": "83b0d68fcd37192febd5ac12b3bc111c3347d725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
