@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a25e98e_8f4c1d78",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-23T10:34:16Z",
+      "side": 1,
+      "message": "Don\u0027t comment out code, just remove it.",
+      "revId": "2b22017044dfc477ee5ff2c7b9dd92c0055691ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_af51d910",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-23T10:34:16Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "2b22017044dfc477ee5ff2c7b9dd92c0055691ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_cf561506",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-23T10:34:16Z",
+      "side": 1,
+      "message": "Broken indentation",
+      "revId": "2b22017044dfc477ee5ff2c7b9dd92c0055691ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_ef5bd12c",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-23T10:34:16Z",
+      "side": 1,
+      "message": "Broken indentation",
+      "revId": "2b22017044dfc477ee5ff2c7b9dd92c0055691ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_0f410d3a",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-23T10:34:16Z",
+      "side": 1,
+      "message": "try {",
+      "revId": "2b22017044dfc477ee5ff2c7b9dd92c0055691ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_2f3ec9b8",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-23T10:34:16Z",
+      "side": 1,
+      "message": "} catch (RemoteException exc) {",
+      "revId": "2b22017044dfc477ee5ff2c7b9dd92c0055691ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_4f4b055a",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-23T10:34:16Z",
+      "side": 1,
+      "message": "Don\u0027t comment out code, just remove it.",
+      "revId": "2b22017044dfc477ee5ff2c7b9dd92c0055691ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_8f733db4",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 6356,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-23T10:34:16Z",
+      "side": 1,
+      "message": "Space before parenthesis",
+      "revId": "2b22017044dfc477ee5ff2c7b9dd92c0055691ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_af78f990",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 6358,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-23T10:34:16Z",
+      "side": 1,
+      "message": "Bracket should be on the previous line",
+      "revId": "2b22017044dfc477ee5ff2c7b9dd92c0055691ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_6f48c15c",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 6365,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-06-23T10:34:16Z",
+      "side": 1,
+      "message": "Space before bracket",
+      "revId": "2b22017044dfc477ee5ff2c7b9dd92c0055691ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
