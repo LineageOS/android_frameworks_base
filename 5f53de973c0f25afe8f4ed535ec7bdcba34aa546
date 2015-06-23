@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a25e98e_2c6a571b",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 6356,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-06-23T09:36:44Z",
+      "side": 1,
+      "message": "if (...)",
+      "revId": "5f53de973c0f25afe8f4ed535ec7bdcba34aa546",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_4c779302",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 6357,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-06-23T09:36:44Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "5f53de973c0f25afe8f4ed535ec7bdcba34aa546",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a25e98e_8c5fcb74",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 6378,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-06-23T09:36:44Z",
+      "side": 1,
+      "message": "Fix your indentation.",
+      "revId": "5f53de973c0f25afe8f4ed535ec7bdcba34aa546",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
