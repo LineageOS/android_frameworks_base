@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a22e58a_a52f3ef5",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-23T23:00:49Z",
+      "side": 1,
+      "message": "The logic of this should probably be separated into a\n\nprivate static boolean isCurrentRotationAllowed(Context)\n\nand a\n\npublic static boolean isRotationAllowed(Context context, int rotation, int userRotationAngles)\n\nfor reusal in PhoneWindowManager.",
+      "revId": "61821ed3ec4aa11c74957531a65dcc4d58564616",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a22e58a_65ef06b1",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-23T23:00:49Z",
+      "side": 1,
+      "message": "m prefix is for member variables.",
+      "revId": "61821ed3ec4aa11c74957531a65dcc4d58564616",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a22e58a_852a42e6",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-23T23:00:49Z",
+      "side": 1,
+      "message": "Same here. Actually, this also should be a boolean, and this call should be pulled into the mUserRotationAngles \u003c 0 block.",
+      "revId": "61821ed3ec4aa11c74957531a65dcc4d58564616",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a22e58a_c5343a4c",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 6377,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-23T23:00:49Z",
+      "side": 1,
+      "message": "This should use the proposed method:\n\nallowed \u003d RotationPolicy.isRotationAllowed(mContext, sensorRotation, mUserRotationAngles);",
+      "revId": "61821ed3ec4aa11c74957531a65dcc4d58564616",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

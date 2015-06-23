@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a22e58a_e5393643",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-23T23:00:49Z",
+      "side": 0,
+      "message": "Instead of killing this, I think it makes sense to initialize it from the system property and use the constant below.",
+      "revId": "d3a441a10b20d91290e741dcbd0df42903d54832",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
