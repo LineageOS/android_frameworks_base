@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bff0334d_003b66d1",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CellularTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T12:37:15Z",
+      "side": 1,
+      "message": "Besides this being simplifiable as\n\nmDataController.setMobileDataEnabled(!enabled)\n\nI definitely want this behaviour change as both optional and off by default.",
+      "revId": "6f3654a4eed1e560a850d46fe5c5d90f34ddecee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
