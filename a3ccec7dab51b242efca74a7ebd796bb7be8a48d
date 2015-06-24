@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bff0334d_40216e9f",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/NotificationPlayer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T12:35:06Z",
+      "side": 1,
+      "message": "The trim() call (and hence the null check) seems useless. Checking for !TextUtils.isEmpty(path) should be sufficient.",
+      "revId": "a3ccec7dab51b242efca74a7ebd796bb7be8a48d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_e00e4231",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/NotificationPlayer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T12:35:06Z",
+      "side": 1,
+      "message": "- Space missing after if (here and below)\n- Braces missing (here and below)",
+      "revId": "a3ccec7dab51b242efca74a7ebd796bb7be8a48d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_c01b3e71",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/NotificationPlayer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T12:35:06Z",
+      "side": 1,
+      "message": "uri_str -\u003e value",
+      "revId": "a3ccec7dab51b242efca74a7ebd796bb7be8a48d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_a0183a75",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/NotificationPlayer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T12:35:06Z",
+      "side": 1,
+      "message": "Fetching the stracktrace seems useless.",
+      "revId": "a3ccec7dab51b242efca74a7ebd796bb7be8a48d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_602c7299",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/NotificationPlayer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T12:35:06Z",
+      "side": 1,
+      "message": "As above.",
+      "revId": "a3ccec7dab51b242efca74a7ebd796bb7be8a48d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_6003520f",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/NotificationPlayer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T12:35:06Z",
+      "side": 1,
+      "message": "value_cur -\u003e cursor",
+      "revId": "a3ccec7dab51b242efca74a7ebd796bb7be8a48d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_40084e27",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/NotificationPlayer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T12:35:06Z",
+      "side": 1,
+      "message": "projects -\u003e projection",
+      "revId": "a3ccec7dab51b242efca74a7ebd796bb7be8a48d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_200d4a37",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/NotificationPlayer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T12:35:06Z",
+      "side": 1,
+      "message": "The returned cursor might be null",
+      "revId": "a3ccec7dab51b242efca74a7ebd796bb7be8a48d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_00124659",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/NotificationPlayer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T12:35:06Z",
+      "side": 1,
+      "message": "Catch-all clauses shouldn\u0027t be used. In fact, the catch clause is entirely unneeded here: Just add the null check above and don\u0027t use getColumnIndexOrThrow(), but use getColumnIndex() and check its return value.",
+      "revId": "a3ccec7dab51b242efca74a7ebd796bb7be8a48d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
