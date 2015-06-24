@@ -45,6 +45,30 @@
       "revId": "3c68437c06116814789d7174379f427e971d7fd7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1ff146_c4c99eae",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-06-24T04:44:19Z",
+      "side": 1,
+      "message": "I\u0027m going to remove addFinger just because its pointless if it isn\u0027t communicating right now anyhow.",
+      "parentUuid": "ba2be162_68efe3b0",
+      "range": {
+        "startLine": 539,
+        "startChar": 12,
+        "endLine": 540,
+        "endChar": 91
+      },
+      "revId": "3c68437c06116814789d7174379f427e971d7fd7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
