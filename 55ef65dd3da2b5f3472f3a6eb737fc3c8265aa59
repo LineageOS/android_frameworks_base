@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a1ff146_243ef2b8",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T03:12:45Z",
+      "side": 1,
+      "message": "Wrap at 100 chars please (e.g. after the \u0027\u003d\u0027)",
+      "revId": "55ef65dd3da2b5f3472f3a6eb737fc3c8265aa59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1ff146_444bee59",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T03:12:45Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "55ef65dd3da2b5f3472f3a6eb737fc3c8265aa59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1ff146_6448ea5c",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T03:12:45Z",
+      "side": 1,
+      "message": "This should be on the line before.",
+      "revId": "55ef65dd3da2b5f3472f3a6eb737fc3c8265aa59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1ff146_847326b4",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T03:12:45Z",
+      "side": 1,
+      "message": "The \u0027? true : false\u0027 is superfluous.",
+      "revId": "55ef65dd3da2b5f3472f3a6eb737fc3c8265aa59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1ff146_a4782291",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T03:12:45Z",
+      "side": 1,
+      "message": "The \u0027\u003d\u003d true\u0027 is superfluous.",
+      "revId": "55ef65dd3da2b5f3472f3a6eb737fc3c8265aa59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1ff146_c46d1ece",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T03:12:45Z",
+      "side": 1,
+      "message": "There should be a space after the comma.",
+      "revId": "55ef65dd3da2b5f3472f3a6eb737fc3c8265aa59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1ff146_e4721aad",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 6347,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T03:12:45Z",
+      "side": 1,
+      "message": "I think this should be in two separate if blocks. You want to initialize mAllowAllRotations even if the user has configured rotation angles.",
+      "revId": "55ef65dd3da2b5f3472f3a6eb737fc3c8265aa59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1ff146_046816ba",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 6363,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-06-24T03:12:45Z",
+      "side": 1,
+      "message": "Space missing after comma.",
+      "revId": "55ef65dd3da2b5f3472f3a6eb737fc3c8265aa59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
