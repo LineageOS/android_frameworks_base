@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a1ff146_641aaa70",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CellularTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 7231
+      },
+      "writtenOn": "2015-06-24T02:32:53Z",
+      "side": 0,
+      "message": "We need this.",
+      "revId": "3aa55a3698e2dc616adb9a69ba7bf9ef50e24351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
