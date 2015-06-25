@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bff0334d_a9eca5f3",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-25T22:50:46Z",
+      "side": 1,
+      "message": "Should probably be lockscreen.fingerprint_fallback to follow the other naming conventions being used here.",
+      "revId": "2d306c27688a3e21f97542026bc3f308d647a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_89bb21e4",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-25T22:50:46Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "2d306c27688a3e21f97542026bc3f308d647a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_69c0dd51",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-25T22:50:46Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "2d306c27688a3e21f97542026bc3f308d647a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_49b519ee",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-25T22:50:46Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "2d306c27688a3e21f97542026bc3f308d647a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_29bad5dd",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-25T22:50:46Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "2d306c27688a3e21f97542026bc3f308d647a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_09cf1180",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-25T22:50:46Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "2d306c27688a3e21f97542026bc3f308d647a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_e9cbcd6f",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-25T22:50:46Z",
+      "side": 1,
+      "message": "extra newline",
+      "revId": "2d306c27688a3e21f97542026bc3f308d647a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_c9c80976",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-25T22:50:46Z",
+      "side": 1,
+      "message": "Should move this up with the other usingFingerprint() method",
+      "revId": "2d306c27688a3e21f97542026bc3f308d647a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_a9c5c55d",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-06-25T22:50:46Z",
+      "side": 1,
+      "message": "need to update this @return doc.",
+      "revId": "2d306c27688a3e21f97542026bc3f308d647a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
