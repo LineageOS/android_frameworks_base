@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bff0334d_26ba02de",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-06-25T06:56:03Z",
+      "side": 1,
+      "message": "We should really change its name :\\",
+      "revId": "707d127514a66adca2ad313fc77c64b5613dfd7f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
