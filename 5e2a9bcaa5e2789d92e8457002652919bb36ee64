@@ -95,6 +95,24 @@
     },
     {
       "key": {
+        "uuid": "bff0334d_69321daa",
+        "filename": "media/java/android/media/MediaScanner.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2015-06-25T21:38:01Z",
+      "side": 1,
+      "message": "ah yeah, default does seem to be empty string if unspecified, so this should be ok",
+      "parentUuid": "bff0334d_29f775f8",
+      "revId": "5e2a9bcaa5e2789d92e8457002652919bb36ee64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff0334d_66512a0f",
         "filename": "media/java/android/media/MediaScanner.java",
         "patchSetId": 4
