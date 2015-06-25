@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bff0334d_063b7ed1",
+        "filename": "media/java/android/media/MediaScanner.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2015-06-25T05:07:14Z",
+      "side": 1,
+      "message": "is it necessary to have the isMultiSimEnabled check?  in a few other places we are relying on phone count only, seems like we could do the same here.",
+      "revId": "5e2a9bcaa5e2789d92e8457002652919bb36ee64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_662c8a99",
+        "filename": "media/java/android/media/MediaScanner.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2015-06-25T05:07:14Z",
+      "side": 1,
+      "message": "can mDefaultRingtoneFilenames[i] be null?  looks like doesPathHaveFilename will NPE on a null filename",
+      "revId": "5e2a9bcaa5e2789d92e8457002652919bb36ee64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_66512a0f",
+        "filename": "media/java/android/media/MediaScanner.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2015-06-25T05:07:14Z",
+      "side": 1,
+      "message": "can probably just remove this clause, the loop below should suffice",
+      "revId": "5e2a9bcaa5e2789d92e8457002652919bb36ee64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
