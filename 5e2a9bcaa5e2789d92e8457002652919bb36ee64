@@ -19,6 +19,47 @@
     },
     {
       "key": {
+        "uuid": "bff0334d_69ed7d24",
+        "filename": "media/java/android/media/MediaScanner.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2015-06-25T16:30:59Z",
+      "side": 1,
+      "message": "Not seeing any reason, will remove.",
+      "parentUuid": "bff0334d_063b7ed1",
+      "revId": "5e2a9bcaa5e2789d92e8457002652919bb36ee64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_49f2b908",
+        "filename": "media/java/android/media/MediaScanner.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2015-06-25T16:30:59Z",
+      "side": 1,
+      "message": "SUB1 + 1 might have been more clearer here.",
+      "range": {
+        "startLine": 418,
+        "startChar": 40,
+        "endLine": 418,
+        "endChar": 44
+      },
+      "revId": "5e2a9bcaa5e2789d92e8457002652919bb36ee64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff0334d_662c8a99",
         "filename": "media/java/android/media/MediaScanner.java",
         "patchSetId": 4
@@ -36,6 +77,24 @@
     },
     {
       "key": {
+        "uuid": "bff0334d_29f775f8",
+        "filename": "media/java/android/media/MediaScanner.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2015-06-25T16:30:59Z",
+      "side": 1,
+      "message": "There\u0027s no default fallback for the property so it could be empty.\n\nDoubt it would be null though.",
+      "parentUuid": "bff0334d_662c8a99",
+      "revId": "5e2a9bcaa5e2789d92e8457002652919bb36ee64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff0334d_66512a0f",
         "filename": "media/java/android/media/MediaScanner.java",
         "patchSetId": 4
@@ -47,6 +106,24 @@
       "writtenOn": "2015-06-25T05:07:14Z",
       "side": 1,
       "message": "can probably just remove this clause, the loop below should suffice",
+      "revId": "5e2a9bcaa5e2789d92e8457002652919bb36ee64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_89e8c116",
+        "filename": "media/java/android/media/MediaScanner.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2015-06-25T16:30:59Z",
+      "side": 1,
+      "message": "Yep, will do.",
+      "parentUuid": "bff0334d_66512a0f",
       "revId": "5e2a9bcaa5e2789d92e8457002652919bb36ee64",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
