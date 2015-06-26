@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bff0334d_49aab985",
+        "filename": "core/java/android/hardware/fingerprint/Fingerprint.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-06-26T21:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff0334d_09f831c2",
+      "revId": "85fa90cf376e8cf00bc319488f919984d2458f29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff0334d_e9f4edd1",
         "filename": "core/java/android/hardware/fingerprint/Fingerprint.java",
         "patchSetId": 16
@@ -30,6 +48,24 @@
       "writtenOn": "2015-06-25T22:43:11Z",
       "side": 1,
       "message": "THEMES!!!!",
+      "revId": "85fa90cf376e8cf00bc319488f919984d2458f29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_0994b143",
+        "filename": "core/java/android/hardware/fingerprint/Fingerprint.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-06-26T21:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff0334d_e9f4edd1",
       "revId": "85fa90cf376e8cf00bc319488f919984d2458f29",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "bff0334d_e9906d51",
+        "filename": "core/java/android/hardware/fingerprint/Fingerprint.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-06-26T21:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff0334d_c90129b2",
+      "revId": "85fa90cf376e8cf00bc319488f919984d2458f29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff0334d_292c1546",
         "filename": "core/java/android/service/fingerprint/FingerprintManager.java",
         "patchSetId": 16
@@ -64,6 +118,24 @@
       "writtenOn": "2015-06-25T22:43:11Z",
       "side": 1,
       "message": "s/rename/setFingerprintName",
+      "revId": "85fa90cf376e8cf00bc319488f919984d2458f29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_c99da967",
+        "filename": "core/java/android/service/fingerprint/FingerprintManager.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-06-26T21:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff0334d_292c1546",
       "revId": "85fa90cf376e8cf00bc319488f919984d2458f29",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "bff0334d_a99a656b",
+        "filename": "core/java/android/service/fingerprint/FingerprintManager.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-06-26T21:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff0334d_e91d0d10",
+      "revId": "85fa90cf376e8cf00bc319488f919984d2458f29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff0334d_29e1b5ff",
         "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
         "patchSetId": 16
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "bff0334d_8989e127",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-06-26T21:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff0334d_29e1b5ff",
+      "revId": "85fa90cf376e8cf00bc319488f919984d2458f29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff0334d_e9e2ad01",
         "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
         "patchSetId": 16
@@ -115,6 +223,24 @@
       "writtenOn": "2015-06-25T22:43:11Z",
       "side": 1,
       "message": "is this and dumpRemoveFinger here for debugging/testing purposes?  Seems odd to actually be performing these functions within a dump command.",
+      "revId": "85fa90cf376e8cf00bc319488f919984d2458f29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_698e9d2f",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-06-26T21:28:53Z",
+      "side": 1,
+      "message": "Yep. At the time there wasn\u0027t a UI for any of this and so it was cheaper to just add in dump commands.",
+      "parentUuid": "bff0334d_e9e2ad01",
       "revId": "85fa90cf376e8cf00bc319488f919984d2458f29",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
