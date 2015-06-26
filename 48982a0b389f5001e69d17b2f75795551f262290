@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bff0334d_d449bc60",
+        "filename": "core/jni/android_server_FingerprintManager.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-06-26T05:06:12Z",
+      "side": 1,
+      "message": "throw or return null on error.  enrollmentInfo isn\u0027t valid if this returns error.",
+      "revId": "48982a0b389f5001e69d17b2f75795551f262290",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff0334d_b446384f",
+        "filename": "core/jni/android_server_FingerprintManager.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-06-26T05:06:12Z",
+      "side": 1,
+      "message": "only release on success.",
+      "revId": "48982a0b389f5001e69d17b2f75795551f262290",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
