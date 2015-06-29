@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ff52f3f_08270b15",
+        "filename": "core/java/android/hardware/fingerprint/Fingerprint.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-06-29T22:31:16Z",
+      "side": 1,
+      "message": "Aren\u0027t these all Closables?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 9
+      },
+      "revId": "d770ada82012f3b5f97a7989a0e5f293bb35126d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ff52f3f_c82003fb",
+        "filename": "core/jni/android_server_FingerprintManager.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-06-29T22:31:16Z",
+      "side": 1,
+      "message": "this isn\u0027t needed anymore",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 31
+      },
+      "revId": "d770ada82012f3b5f97a7989a0e5f293bb35126d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ff52f3f_a81dbfbe",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-06-29T22:31:16Z",
+      "side": 1,
+      "message": "order",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "d770ada82012f3b5f97a7989a0e5f293bb35126d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ff52f3f_e8686722",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-06-29T22:31:16Z",
+      "side": 1,
+      "message": "what if this returns NULL?",
+      "range": {
+        "startLine": 341,
+        "startChar": 22,
+        "endLine": 341,
+        "endChar": 71
+      },
+      "revId": "d770ada82012f3b5f97a7989a0e5f293bb35126d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ff52f3f_68669754",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-06-29T22:31:16Z",
+      "side": 1,
+      "message": "Not needed in this patch, but we need to remember to implement this.",
+      "range": {
+        "startLine": 479,
+        "startChar": 12,
+        "endLine": 479,
+        "endChar": 45
+      },
+      "revId": "d770ada82012f3b5f97a7989a0e5f293bb35126d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
