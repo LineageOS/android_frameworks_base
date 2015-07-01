@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ff52f3f_d4b77a3a",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/ToggleSlider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-07-01T01:33:58Z",
+      "side": 1,
+      "message": "should we add a check if(!mTracking) { return; }",
+      "revId": "41fbbf3e0332d161d47711ed5d6f57ff3f486ac9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
