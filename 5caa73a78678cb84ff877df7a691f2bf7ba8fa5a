@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ffa3b31_5e3275a9",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-07-01T22:38:29Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "5caa73a78678cb84ff877df7a691f2bf7ba8fa5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ffa3b31_9efebdac",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-07-01T22:38:29Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "5caa73a78678cb84ff877df7a691f2bf7ba8fa5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
