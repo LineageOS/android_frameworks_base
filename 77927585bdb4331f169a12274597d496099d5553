@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ffa3b31_e4e2ce01",
+        "filename": "core/java/android/content/pm/ThemeUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 32
+      },
+      "writtenOn": "2015-07-02T22:41:35Z",
+      "side": 1,
+      "message": "Possible NPE?",
+      "range": {
+        "startLine": 775,
+        "startChar": 23,
+        "endLine": 775,
+        "endChar": 37
+      },
+      "revId": "77927585bdb4331f169a12274597d496099d5553",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
