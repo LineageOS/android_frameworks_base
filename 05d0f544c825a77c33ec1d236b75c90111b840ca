@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ffa3b31_043b7ad1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-07-02T20:14:40Z",
+      "side": 1,
+      "message": "duplication of code from startUnlockHintAnimation.  Possible to either combine these or break out the common code to a third method?",
+      "revId": "05d0f544c825a77c33ec1d236b75c90111b840ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
