@@ -22,6 +22,24 @@
       "revId": "77927585bdb4331f169a12274597d496099d5553",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ffa3b31_a4ecc6f3",
+        "filename": "core/java/android/content/pm/ThemeUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-07-02T22:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ffa3b31_e4e2ce01",
+      "revId": "77927585bdb4331f169a12274597d496099d5553",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
