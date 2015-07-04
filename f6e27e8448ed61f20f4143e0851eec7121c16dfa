@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7ffa3b31_8d5fade4",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 4801,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-07-04T23:45:45Z",
+      "side": 1,
+      "message": "what is this actually achieving? maybe we need to find another place to call it",
+      "parentUuid": "7ffa3b31_6d3b419c",
+      "revId": "f6e27e8448ed61f20f4143e0851eec7121c16dfa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ffa3b31_4d408508",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/stack/NotificationStackScrollLayout.java",
         "patchSetId": 9
