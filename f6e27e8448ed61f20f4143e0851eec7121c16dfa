@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "7ffa3b31_ed463122",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-07-04T23:45:07Z",
+      "side": 1,
+      "message": "look at some of the code you removed in onIntercept and onTouch events",
+      "parentUuid": "7ffa3b31_4d408508",
+      "revId": "f6e27e8448ed61f20f4143e0851eec7121c16dfa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ffa3b31_2d453918",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/stack/NotificationStackScrollLayout.java",
         "patchSetId": 9
@@ -47,6 +65,24 @@
       "writtenOn": "2015-07-04T23:42:31Z",
       "side": 1,
       "message": "setVisualizerTouching(false) may not get called.",
+      "revId": "f6e27e8448ed61f20f4143e0851eec7121c16dfa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ffa3b31_cd5375e2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 2156,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-07-04T23:45:07Z",
+      "side": 1,
+      "message": "it\u0027s not always true that it\u0027s touching.\n\nmaybe add another state on whether there\u0027s a selected child. null will get passed here if it\u0027s unselected.",
+      "parentUuid": "7ffa3b31_2d453918",
       "revId": "f6e27e8448ed61f20f4143e0851eec7121c16dfa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
