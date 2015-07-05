@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ffa3b31_6df4615c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-07-05T23:35:21Z",
+      "side": 0,
+      "message": "here is where the up will get sent when the other one is consumed.",
+      "revId": "c109747d38da29a1936fc5ed26ff26a52954cd29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
