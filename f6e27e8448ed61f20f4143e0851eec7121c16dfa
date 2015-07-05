@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7ffa3b31_0da27d9b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 4801,
+      "author": {
+        "id": 7231
+      },
+      "writtenOn": "2015-07-05T09:40:53Z",
+      "side": 1,
+      "message": "This goes to NotificationPanelView.\nWhen an empty area is clicked, we must call setVisualizerTouching",
+      "parentUuid": "7ffa3b31_8d5fade4",
+      "revId": "f6e27e8448ed61f20f4143e0851eec7121c16dfa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ffa3b31_4d408508",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/stack/NotificationStackScrollLayout.java",
         "patchSetId": 9
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "7ffa3b31_ed9e3153",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 7231
+      },
+      "writtenOn": "2015-07-05T09:40:53Z",
+      "side": 1,
+      "message": "onIntercept \u0026 onTouch events are not reliable for our usage.\nACTION_UP isn\u0027t always sent \u0026 ACTION_CANCEL is sent at wrong times.",
+      "parentUuid": "7ffa3b31_ed463122",
+      "revId": "f6e27e8448ed61f20f4143e0851eec7121c16dfa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ffa3b31_2d453918",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/stack/NotificationStackScrollLayout.java",
         "patchSetId": 9
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "it\u0027s not always true that it\u0027s touching.\n\nmaybe add another state on whether there\u0027s a selected child. null will get passed here if it\u0027s unselected.",
       "parentUuid": "7ffa3b31_2d453918",
+      "revId": "f6e27e8448ed61f20f4143e0851eec7121c16dfa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ffa3b31_cdab7573",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 2156,
+      "author": {
+        "id": 7231
+      },
+      "writtenOn": "2015-07-05T09:40:53Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "7ffa3b31_cd5375e2",
       "revId": "f6e27e8448ed61f20f4143e0851eec7121c16dfa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
