@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ffa3b31_b3188a75",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-07-06T23:01:15Z",
+      "side": 1,
+      "message": "needs a hyphen like the other commands (for sake of consistency)",
+      "revId": "e771fd6a6771e2afd2745c43ff161a16ac979eab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
