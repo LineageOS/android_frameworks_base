@@ -62,6 +62,7 @@ static const bool kIsDebug = false;
 static const char* kAssetsRoot = "assets";
 static const char* kAppZipName = NULL; //"classes.jar";
 static const char* kSystemAssets = "framework/framework-res.apk";
+static const char* kLineageAssets = "framework/org.lineageos.platform-res.apk";
 static const char* kResourceCache = "resource-cache";
 
 static const char* kExcludeExtension = ".EXCLUDE";
@@ -325,7 +326,16 @@ bool AssetManager::addDefaultAssets()
     String8 path(root);
     path.appendPath(kSystemAssets);
 
-    return addAssetPath(path, NULL, false /* appAsLib */, true /* isSystemAsset */);
+    bool ret = addAssetPath(path, NULL, false /* appAsLib */, true /* isSystemAsset */);
+    if (ret) {
+        String8 pathLineage(root);
+        pathLineage.appendPath(kLineageAssets);
+
+        if (!addAssetPath(pathLineage, NULL, false /* appAsLib */, false /* isSystemAsset */)) {
+            ALOGE("Failed to load Lineage SDK resources!");
+        }
+    }
+    return ret;
 }
 
 int32_t AssetManager::nextAssetPath(const int32_t cookie) const
