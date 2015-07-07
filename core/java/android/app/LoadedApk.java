@@ -1444,7 +1444,7 @@ public final class LoadedApk {
                     false, false);
             for (int i = 0, n = packageIdentifiers.size(); i < n; i++) {
                 final int id = packageIdentifiers.keyAt(i);
-                if (id == 0x01 || id == 0x7f) {
+                if (id == 0x01 || id == 0x7f || id == 0x3f) {
                     continue;
                 }
 
