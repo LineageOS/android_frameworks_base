@@ -62,6 +62,7 @@ namespace android {
 #define IDMAP_CURRENT_VERSION   0x00000001
 
 #define APP_PACKAGE_ID      0x7f
+#define LINEAGESDK_PACKAGE_ID    0x3f
 #define SYS_PACKAGE_ID      0x01
 
 static const bool kDebugStringPoolNoisy = false;
@@ -5305,7 +5306,8 @@ bool ResTable::stringToValue(Res_value* outValue, String16* outString,
                 }
 
                 uint32_t packageId = Res_GETPACKAGE(rid) + 1;
-                if (packageId != APP_PACKAGE_ID && packageId != SYS_PACKAGE_ID) {
+                if (packageId != APP_PACKAGE_ID && packageId != SYS_PACKAGE_ID &&
+                        packageId != LINEAGESDK_PACKAGE_ID) {
                     outValue->dataType = Res_value::TYPE_DYNAMIC_REFERENCE;
                 }
                 outValue->data = rid;
@@ -5326,7 +5328,8 @@ bool ResTable::stringToValue(Res_value* outValue, String16* outString,
                         outValue->data = rid;
                         outValue->dataType = Res_value::TYPE_DYNAMIC_REFERENCE;
                         return true;
-                    } else if (packageId == APP_PACKAGE_ID || packageId == SYS_PACKAGE_ID) {
+                    } else if (packageId == APP_PACKAGE_ID || packageId == SYS_PACKAGE_ID ||
+                            packageId == LINEAGESDK_PACKAGE_ID) {
                         // We accept packageId's generated as 0x01 in order to support
                         // building the android system resources
                         outValue->data = rid;
@@ -5472,7 +5475,8 @@ bool ResTable::stringToValue(Res_value* outValue, String16* outString,
             }
 
             uint32_t packageId = Res_GETPACKAGE(rid) + 1;
-            if (packageId != APP_PACKAGE_ID && packageId != SYS_PACKAGE_ID) {
+            if (packageId != APP_PACKAGE_ID && packageId != SYS_PACKAGE_ID &&
+                    packageId != LINEAGESDK_PACKAGE_ID) {
                 outValue->dataType = Res_value::TYPE_DYNAMIC_ATTRIBUTE;
             }
             outValue->data = rid;
@@ -5487,7 +5491,8 @@ bool ResTable::stringToValue(Res_value* outValue, String16* outString,
                     outValue->data = rid;
                     outValue->dataType = Res_value::TYPE_DYNAMIC_ATTRIBUTE;
                     return true;
-                } else if (packageId == APP_PACKAGE_ID || packageId == SYS_PACKAGE_ID) {
+                } else if (packageId == APP_PACKAGE_ID || packageId == SYS_PACKAGE_ID ||
+                        packageId == LINEAGESDK_PACKAGE_ID) {
                     // We accept packageId's generated as 0x01 in order to support
                     // building the android system resources
                     outValue->data = rid;
@@ -6591,6 +6596,7 @@ DynamicRefTable::DynamicRefTable(uint8_t packageId, bool appAsLib)
     // Reserved package ids
     mLookupTable[APP_PACKAGE_ID] = APP_PACKAGE_ID;
     mLookupTable[SYS_PACKAGE_ID] = SYS_PACKAGE_ID;
+    mLookupTable[LINEAGESDK_PACKAGE_ID] = LINEAGESDK_PACKAGE_ID;
 }
 
 status_t DynamicRefTable::load(const ResTable_lib_header* const header)
