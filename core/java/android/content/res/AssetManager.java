@@ -59,6 +59,7 @@ public final class AssetManager implements AutoCloseable {
     private static final boolean DEBUG_REFS = false;
 
     private static final String FRAMEWORK_APK_PATH = "/system/framework/framework-res.apk";
+    private static final String LINEAGE_APK_PATH = "/system/framework/org.lineageos.platform-res.apk";
 
     private static final Object sSync = new Object();
 
@@ -198,6 +199,7 @@ public final class AssetManager implements AutoCloseable {
             final ArrayList<ApkAssets> apkAssets = new ArrayList<>();
             apkAssets.add(ApkAssets.loadFromPath(FRAMEWORK_APK_PATH, true /*system*/));
             loadStaticRuntimeOverlays(apkAssets);
+            apkAssets.add(ApkAssets.loadFromPath(LINEAGE_APK_PATH, false /*system*/));
 
             sSystemApkAssetsSet = new ArraySet<>(apkAssets);
             sSystemApkAssets = apkAssets.toArray(new ApkAssets[apkAssets.size()]);
