@@ -16,6 +16,24 @@
       "revId": "ef82ee73db1553826122dcf539943303cc9c0a1d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ff73747_209d4459",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 68
+      },
+      "writtenOn": "2015-07-07T21:51:47Z",
+      "side": 1,
+      "message": "CTS checks that dumps return only a single line when the context doesn\u0027t have the dump permission. Otherwise it assumes it\u0027s dumping more than it should.\n\nSee android.security.cts.ServicePermissionsTest#testDumpProtected",
+      "parentUuid": "5ff73747_808e5825",
+      "revId": "ef82ee73db1553826122dcf539943303cc9c0a1d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
