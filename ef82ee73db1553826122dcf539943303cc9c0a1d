@@ -34,6 +34,24 @@
       "revId": "ef82ee73db1553826122dcf539943303cc9c0a1d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ff73747_c02d80a9",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-07-08T02:17:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ff73747_209d4459",
+      "revId": "ef82ee73db1553826122dcf539943303cc9c0a1d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
