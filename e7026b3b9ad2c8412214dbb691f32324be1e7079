@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ff73747_a6ef2caf",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-07-08T22:41:02Z",
+      "side": 1,
+      "message": "throwIfNoFingerprint?",
+      "revId": "e7026b3b9ad2c8412214dbb691f32324be1e7079",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
