@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ff73747_c3e58a3a",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1447,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-07-08T04:10:36Z",
+      "side": 1,
+      "message": "MediaStore.ACTION_IMAGE_CAPTURE seems more commonly used for this (e.g. in Settings and Contacts when the user requests to take a picture for their profile)",
+      "revId": "e5cddac3376a1d19d8851a7dd538b9eca5fbf3d2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
