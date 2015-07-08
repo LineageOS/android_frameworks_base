@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ff73747_66f4845c",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 9444
+      },
+      "writtenOn": "2015-07-08T23:40:00Z",
+      "side": 1,
+      "message": "TODO can be removed. We don\u0027t want this in client code anyhow.",
+      "range": {
+        "startLine": 200,
+        "startChar": 48,
+        "endLine": 200,
+        "endChar": 52
+      },
+      "revId": "7f86671738947749a21cea13493909b3e41a9ad8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
