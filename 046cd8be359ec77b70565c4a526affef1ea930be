@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ff73747_831302b9",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2015-07-08T09:45:25Z",
+      "side": 1,
+      "message": "You could check mVibrator.hasVibrator() in the constructor, and if not, set mVibrator \u003d null, then remove the mVibrator.hasVibrator() call from here.",
+      "revId": "046cd8be359ec77b70565c4a526affef1ea930be",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
