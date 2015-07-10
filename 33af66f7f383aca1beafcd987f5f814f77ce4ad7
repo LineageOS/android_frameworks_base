@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ff73747_b7c19831",
+        "filename": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-07-10T01:41:49Z",
+      "side": 1,
+      "message": "Consider moving this to a private method since it is duplicating  code from finalize()",
+      "revId": "33af66f7f383aca1beafcd987f5f814f77ce4ad7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ff73747_d7ab0473",
+        "filename": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-07-10T01:41:49Z",
+      "side": 1,
+      "message": "need to call mWallpaperObserver.startWatching() ???\n\nCould probably move this to a private method since this would be duplicated code from systemRunning()",
+      "revId": "33af66f7f383aca1beafcd987f5f814f77ce4ad7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
