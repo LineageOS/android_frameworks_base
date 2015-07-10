@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f013ff3_db79f32f",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12116
+      },
+      "writtenOn": "2015-07-10T20:10:21Z",
+      "side": 1,
+      "message": "Is this necessary, is it removing the battery text next to the battery icon in the status bar?",
+      "revId": "910397f2390d6821a006991ed6035c76cbc74897",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
