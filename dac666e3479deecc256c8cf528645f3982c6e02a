@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f013ff3_9b4b6baf",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BatteryController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-07-10T22:37:31Z",
+      "side": 1,
+      "message": "Should probably create and initialize the the present state using the EXTRA_PRESENT intent extra from BatteryManager (like is done for dock) to make it uniform. https://github.com/CyanogenMod/android_frameworks_base/blob/910397f2390d6821a006991ed6035c76cbc74897/core/java/android/os/BatteryManager.java#L49",
+      "revId": "dac666e3479deecc256c8cf528645f3982c6e02a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f013ff3_7bc65f19",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BatteryController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-07-10T22:37:31Z",
+      "side": 1,
+      "message": "same as above.",
+      "revId": "dac666e3479deecc256c8cf528645f3982c6e02a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
