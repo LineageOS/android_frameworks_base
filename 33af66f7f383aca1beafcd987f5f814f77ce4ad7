@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5ff73747_97057c7d",
+        "filename": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-07-10T01:53:14Z",
+      "side": 1,
+      "message": "not sure if I like having a separate method just for creating and destroying instances, i think leaving it like this makes it a bit easier to read and understand what it\u0027s trying to do at a glance",
+      "parentUuid": "5ff73747_b7c19831",
+      "revId": "33af66f7f383aca1beafcd987f5f814f77ce4ad7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ff73747_d7ab0473",
         "filename": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2015-07-10T01:41:49Z",
       "side": 1,
       "message": "need to call mWallpaperObserver.startWatching() ???\n\nCould probably move this to a private method since this would be duplicated code from systemRunning()",
+      "revId": "33af66f7f383aca1beafcd987f5f814f77ce4ad7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ff73747_d7d9c422",
+        "filename": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-07-10T01:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ff73747_d7ab0473",
       "revId": "33af66f7f383aca1beafcd987f5f814f77ce4ad7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
