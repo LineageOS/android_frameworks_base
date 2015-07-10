@@ -22,6 +22,23 @@
       "revId": "0210aacc03db6b6bfb4d655178fa66b5ea0bf8e8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ff73747_77e1d0d0",
+        "filename": "core/java/android/app/ResourcesManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-07-10T01:42:44Z",
+      "side": 1,
+      "message": "it should never equal 1 since we always attach framework and cmsdk resources",
+      "revId": "0210aacc03db6b6bfb4d655178fa66b5ea0bf8e8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
