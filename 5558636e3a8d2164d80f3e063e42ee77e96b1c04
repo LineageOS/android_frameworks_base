@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ff0f0b1f_c0efb2e7",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3370,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-07-13T11:50:57Z",
+      "side": 1,
+      "message": "void removeStalePermissions() ?",
+      "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff0f0b1f_1d451718",
         "filename": "services/core/java/com/android/server/pm/Settings.java",
         "patchSetId": 2
@@ -13,6 +30,91 @@
       "writtenOn": "2015-07-13T04:08:30Z",
       "side": 1,
       "message": "Should probably add a case for \"cyanogenmod.platform\" package.",
+      "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0f0b1f_a0ecbef3",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3388,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-07-13T11:50:57Z",
+      "side": 1,
+      "message": "Why only normal and not - say - DANGEROUS?",
+      "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0f0b1f_80bbfae3",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3391,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-07-13T11:50:57Z",
+      "side": 1,
+      "message": "doesn\u0027t",
+      "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0f0b1f_60c0e651",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3414,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-07-13T11:50:57Z",
+      "side": 1,
+      "message": "permissions",
+      "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0f0b1f_40b5e2ed",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3416,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-07-13T11:50:57Z",
+      "side": 1,
+      "message": "unused -\u003e stale?\n\nAlso \u0027originally\u0027",
+      "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0f0b1f_20baeedd",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3417,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-07-13T11:50:57Z",
+      "side": 1,
+      "message": "assigned",
       "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
