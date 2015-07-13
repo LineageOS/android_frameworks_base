@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "ff0f0b1f_40984269",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3377,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-07-13T15:52:17Z",
+      "side": 1,
+      "message": "Is there any app with the package/process \"cyanogenmod.platform\"? AFAIK, cyanogenmod.platform is only source (not related to a package name), or am i missing something?",
+      "parentUuid": "ff0f0b1f_1d451718",
+      "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff0f0b1f_a0ecbef3",
         "filename": "services/core/java/com/android/server/pm/Settings.java",
         "patchSetId": 2
@@ -47,6 +65,24 @@
       "writtenOn": "2015-07-13T11:50:57Z",
       "side": 1,
       "message": "Why only normal and not - say - DANGEROUS?",
+      "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0f0b1f_00d00af7",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3388,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-07-13T15:52:17Z",
+      "side": 1,
+      "message": "I think you are refering to line 3381 (PermissionInfo.PROTECTION_NORMAL). I didn\u0027t want to remove permissions with a higher level than  NORMAL to be adquired by any other app. Danny, do you want to increase this check to DANGEROUS too?",
+      "parentUuid": "ff0f0b1f_a0ecbef3",
       "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
