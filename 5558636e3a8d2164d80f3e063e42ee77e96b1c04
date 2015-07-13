@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff0f0b1f_1d451718",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3377,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-07-13T04:08:30Z",
+      "side": 1,
+      "message": "Should probably add a case for \"cyanogenmod.platform\" package.",
+      "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
