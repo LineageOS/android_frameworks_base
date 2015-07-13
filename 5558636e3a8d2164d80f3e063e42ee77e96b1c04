@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "ff0f0b1f_80053a7d",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3388,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-07-13T16:12:34Z",
+      "side": 1,
+      "message": "Yes, I am, sorry for the comment misplacement.\n\nAnd maybe I am missing something (please tell me if I do), but I\u0027d drop the check completely, as apps can declare permissions for all types: http://developer.android.com/guide/topics/manifest/permission-element.html#plevel ... adding DANGEROUS into the check should definitely be safe though.",
+      "parentUuid": "ff0f0b1f_00d00af7",
+      "revId": "5558636e3a8d2164d80f3e063e42ee77e96b1c04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff0f0b1f_80bbfae3",
         "filename": "services/core/java/com/android/server/pm/Settings.java",
         "patchSetId": 2
