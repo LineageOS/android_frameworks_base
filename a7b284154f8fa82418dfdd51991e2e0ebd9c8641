@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff0f0b1f_4e0e33e6",
+        "filename": "media/java/android/media/MediaPlayer.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2015-07-14T04:48:04Z",
+      "side": 1,
+      "message": "do we need @hide here?  i\u0027m getting a checkapi error on my local build",
+      "revId": "a7b284154f8fa82418dfdd51991e2e0ebd9c8641",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
