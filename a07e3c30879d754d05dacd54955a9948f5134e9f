@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff0f0b1f_63c230ec",
+        "filename": "services/core/java/com/android/server/display/LiveDisplayController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-07-14T03:32:55Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "a07e3c30879d754d05dacd54955a9948f5134e9f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
