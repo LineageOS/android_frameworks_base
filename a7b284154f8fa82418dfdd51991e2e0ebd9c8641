@@ -16,6 +16,24 @@
       "revId": "a7b284154f8fa82418dfdd51991e2e0ebd9c8641",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0f0b1f_ae038f0f",
+        "filename": "media/java/android/media/MediaPlayer.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2015-07-14T15:33:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff0f0b1f_4e0e33e6",
+      "revId": "a7b284154f8fa82418dfdd51991e2e0ebd9c8641",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
