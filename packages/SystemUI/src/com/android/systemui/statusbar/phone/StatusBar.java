@@ -209,6 +209,7 @@ import com.android.systemui.statusbar.ExpandableNotificationRow;
 import com.android.systemui.statusbar.GestureRecorder;
 import com.android.systemui.statusbar.KeyboardShortcuts;
 import com.android.systemui.statusbar.KeyguardIndicationController;
+import com.android.systemui.statusbar.MediaExpandableNotificationRow;
 import com.android.systemui.statusbar.NotificationData;
 import com.android.systemui.statusbar.NotificationData.Entry;
 import com.android.systemui.statusbar.NotificationGuts;
@@ -2393,6 +2394,12 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Log.v(TAG, "DEBUG_MEDIA: insert listener, receive metadata: "
                             + mMediaMetadata);
                 }
+                if (mediaNotification != null
+                        && mediaNotification.row != null
+                        && mediaNotification.row instanceof MediaExpandableNotificationRow) {
+                    ((MediaExpandableNotificationRow) mediaNotification.row)
+                            .setMediaController(controller);
+                }
 
                 if (mediaNotification != null) {
                     mMediaNotificationKey = mediaNotification.notification.getKey();
@@ -2782,6 +2789,11 @@ public class StatusBar extends SystemUI implements DemoMode,
     public String getCurrentMediaNotificationKey() {
         return mMediaNotificationKey;
     }
+
+//    @Override
+//    protected MediaController getCurrentMediaController() {
+//        return mMediaController;
+//    }
 
     public boolean isScrimSrcModeEnabled() {
         return mScrimSrcModeEnabled;
@@ -6693,6 +6705,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                 }
 
                 final ExpandableNotificationRow row = (ExpandableNotificationRow) v;
+                if (v instanceof MediaExpandableNotificationRow
+                        && !((MediaExpandableNotificationRow) v).inflateGuts()) {
+                    return false;
+                }
                 if (row.isDark()) {
                     return false;
                 }
@@ -6976,15 +6992,29 @@ public class StatusBar extends SystemUI implements DemoMode,
                 entry.notification.getUser().getIdentifier());
 
         final StatusBarNotification sbn = entry.notification;
+
+        // cannot use isMediaNotification()
+        final boolean isMediaNotification = sbn.getNotification().category != null
+                && sbn.getNotification().category.equals(Notification.CATEGORY_TRANSPORT);
+
         if (entry.row != null) {
             entry.reset();
             updateNotification(entry, pmUser, sbn, entry.row);
         } else {
-            new RowInflaterTask().inflate(mContext, parent, entry,
-                    row -> {
-                        bindRow(entry, pmUser, sbn, row);
-                        updateNotification(entry, pmUser, sbn, row);
-                    });
+            if (isMediaNotification) {
+                new RowInflaterTask().inflate(mContext, parent, entry, isMediaNotification,
+                        row -> {
+                            bindRow(entry, pmUser, sbn, (MediaExpandableNotificationRow) row);
+                            updateNotification(entry, pmUser, sbn, (MediaExpandableNotificationRow) row);
+                            ((MediaExpandableNotificationRow) row).setMediaController(mMediaController);
+                        });
+            } else {
+                new RowInflaterTask().inflate(mContext, parent, entry, isMediaNotification,
+                        row -> {
+                            bindRow(entry, pmUser, sbn, row);
+                            updateNotification(entry, pmUser, sbn, row);
+                        });
+            }
         }
 
     }

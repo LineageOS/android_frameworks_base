@@ -18,6 +18,7 @@ package com.android.systemui.statusbar.notification;
 
 import android.content.Context;
 import android.support.v4.view.AsyncLayoutInflater;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -34,16 +35,23 @@ public class RowInflaterTask implements InflationTask, AsyncLayoutInflater.OnInf
     private NotificationData.Entry mEntry;
     private boolean mCancelled;
 
+    private static final String TAG = "RowInflaterTask";
+
     /**
      * Inflates a new notificationView. This should not be called twice on this object
      */
     public void inflate(Context context, ViewGroup parent, NotificationData.Entry entry,
-            RowInflationFinishedListener listener) {
+            boolean isMediaNotification, RowInflationFinishedListener listener) {
         mListener = listener;
         AsyncLayoutInflater inflater = new AsyncLayoutInflater(context);
         mEntry = entry;
         entry.setInflationTask(this);
-        inflater.inflate(R.layout.status_bar_notification_row, parent, this);
+        if (isMediaNotification) {
+            Log.d(TAG, "inflating media notification");
+            inflater.inflate(R.layout.status_bar_notification_row_media, parent, this);
+        } else {
+            inflater.inflate(R.layout.status_bar_notification_row, parent, this);
+        }
     }
 
     @Override

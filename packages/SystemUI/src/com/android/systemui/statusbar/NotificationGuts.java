@@ -65,10 +65,10 @@ public class NotificationGuts extends FrameLayout {
     private static final String TAG = "NotificationGuts";
     private static final long CLOSE_GUTS_DELAY = 8000;
 
-    private Drawable mBackground;
-    private int mClipTopAmount;
-    private int mClipBottomAmount;
-    private int mActualHeight;
+    protected Drawable mBackground;
+    protected int mClipTopAmount;
+    protected int mClipBottomAmount;
+    protected int mActualHeight;
     private boolean mExposed;
 
     private Handler mHandler;
