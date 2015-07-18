@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
+ * Copyright (C) 2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -251,6 +252,9 @@ public class NotificationManagerService extends SystemService {
 
     private int mDefaultNotificationLedOff;
     private long[] mDefaultVibrationPattern;
+
+    private boolean mScreenOnEnabled = false;
+    private boolean mScreenOnDefault = false;
 
     private long[] mFallbackVibrationPattern;
     private boolean mUseAttentionLight;
@@ -810,9 +814,13 @@ public class NotificationManagerService extends SystemService {
                 }
             } else if (action.equals(Intent.ACTION_USER_PRESENT)) {
                 // turn off LED when user passes through lock screen
-                mNotificationLight.turnOff();
-                if (mStatusBar != null) {
-                    mStatusBar.notificationLightOff();
+                // if lights with screen on is disabled.
+                if (!mScreenOnEnabled) {
+                    mNotificationLight.turnOff();
+
+                    if (mStatusBar != null) {
+                        mStatusBar.notificationLightOff();
+                    }
                 }
             } else if (action.equals(Intent.ACTION_USER_SWITCHED)) {
                 final int user = intent.getIntExtra(Intent.EXTRA_USER_HANDLE, UserHandle.USER_NULL);
@@ -878,6 +886,9 @@ public class NotificationManagerService extends SystemService {
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(NOTIFICATION_RATE_LIMIT_URI,
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NOTIFICATION_LIGHT_SCREEN_ON),
+                    false, this, UserHandle.USER_ALL);
             update(null);
         }
 
@@ -924,6 +935,11 @@ public class NotificationManagerService extends SystemService {
                 mSystemNotificationSound = Settings.System.getString(resolver,
                         Settings.System.NOTIFICATION_SOUND);
             }
+
+            // Notification lights with screen on
+            mScreenOnEnabled = (Settings.System.getIntForUser(resolver,
+                    Settings.System.NOTIFICATION_LIGHT_SCREEN_ON,
+                    mScreenOnDefault ? 1 : 0, UserHandle.USER_CURRENT) != 0);
 
             updateNotificationPulse();
         }
@@ -3705,7 +3721,7 @@ public class NotificationManagerService extends SystemService {
             enableLed = false;
         } else if (isLedNotificationForcedOn(ledNotification)) {
             enableLed = true;
-        } else if (mInCall || mScreenOn) {
+        } else if (!mScreenOnEnabled && (mInCall || mScreenOn)) {
             enableLed = false;
         } else {
             enableLed = true;
