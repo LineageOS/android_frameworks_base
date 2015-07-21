@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df140735_dc3c41c1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-07-21T06:21:38Z",
+      "side": 0,
+      "message": "is this drawable still used then?",
+      "revId": "522e4994ed7cc7a21abb15e3a2c4dbf01ee766bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
