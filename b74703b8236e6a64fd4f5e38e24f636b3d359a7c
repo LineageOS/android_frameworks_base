@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df140735_bc750dfd",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4464,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-07-21T18:49:12Z",
+      "side": 1,
+      "message": "Just use if !str.isEmpty()",
+      "revId": "b74703b8236e6a64fd4f5e38e24f636b3d359a7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
