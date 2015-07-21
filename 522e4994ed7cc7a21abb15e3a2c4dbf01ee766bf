@@ -16,6 +16,29 @@
       "revId": "522e4994ed7cc7a21abb15e3a2c4dbf01ee766bf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df140735_9c46c94f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 6572
+      },
+      "writtenOn": "2015-07-21T06:25:19Z",
+      "side": 0,
+      "message": "see packages/SystemUI/src/com/android/systemui/statusbar/phone/DemoStatusIcons.java:130",
+      "range": {
+        "startLine": 230,
+        "startChar": 39,
+        "endLine": 230,
+        "endChar": 66
+      },
+      "revId": "522e4994ed7cc7a21abb15e3a2c4dbf01ee766bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
