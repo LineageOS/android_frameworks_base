@@ -128,12 +128,17 @@ public class SubscriptionInfo implements Parcelable {
     /**
      * @hide
      */
+    public int mUserNwMode;
+
+    /**
+     * @hide
+     */
     public SubscriptionInfo(int id, String iccId, int simSlotIndex, CharSequence displayName,
             CharSequence carrierName, int nameSource, int iconTint, String number, int roaming,
-            Bitmap icon, int mcc, int mnc, String countryIso) {
+            Bitmap icon, int mcc, int mnc, String countryIso, int userNwMode) {
         this(id, iccId, simSlotIndex, displayName, carrierName, nameSource, iconTint, number,
                 roaming, icon, mcc, mnc, countryIso, false /* isEmbedded */,
-                null /* accessRules */);
+                null /* accessRules */, userNwMode);
     }
 
     /**
@@ -142,7 +147,7 @@ public class SubscriptionInfo implements Parcelable {
     public SubscriptionInfo(int id, String iccId, int simSlotIndex, CharSequence displayName,
             CharSequence carrierName, int nameSource, int iconTint, String number, int roaming,
             Bitmap icon, int mcc, int mnc, String countryIso, boolean isEmbedded,
-            @Nullable UiccAccessRule[] accessRules) {
+            @Nullable UiccAccessRule[] accessRules, int userNwMode) {
         this.mId = id;
         this.mIccId = iccId;
         this.mSimSlotIndex = simSlotIndex;
@@ -158,6 +163,7 @@ public class SubscriptionInfo implements Parcelable {
         this.mCountryIso = countryIso;
         this.mIsEmbedded = isEmbedded;
         this.mAccessRules = accessRules;
+        this.mUserNwMode = userNwMode;
     }
 
     /**
@@ -386,6 +392,13 @@ public class SubscriptionInfo implements Parcelable {
         }
         return mAccessRules;
     }
+    /**
+     * Returns the user set network mode.
+     * @hide
+     */
+    public int getUserNwMode() {
+        return this.mUserNwMode;
+    }
 
     public static final Parcelable.Creator<SubscriptionInfo> CREATOR = new Parcelable.Creator<SubscriptionInfo>() {
         @Override
@@ -401,6 +414,7 @@ public class SubscriptionInfo implements Parcelable {
             int dataRoaming = source.readInt();
             int mcc = source.readInt();
             int mnc = source.readInt();
+            int userNwMode = source.readInt();
             String countryIso = source.readString();
             Bitmap iconBitmap = Bitmap.CREATOR.createFromParcel(source);
             boolean isEmbedded = source.readBoolean();
@@ -408,7 +422,7 @@ public class SubscriptionInfo implements Parcelable {
 
             return new SubscriptionInfo(id, iccId, simSlotIndex, displayName, carrierName,
                     nameSource, iconTint, number, dataRoaming, iconBitmap, mcc, mnc, countryIso,
-                    isEmbedded, accessRules);
+                    isEmbedded, accessRules, userNwMode);
         }
 
         @Override
@@ -430,6 +444,7 @@ public class SubscriptionInfo implements Parcelable {
         dest.writeInt(mDataRoaming);
         dest.writeInt(mMcc);
         dest.writeInt(mMnc);
+        dest.writeInt(mUserNwMode);
         dest.writeString(mCountryIso);
         mIconBitmap.writeToParcel(dest, flags);
         dest.writeBoolean(mIsEmbedded);
@@ -464,6 +479,7 @@ public class SubscriptionInfo implements Parcelable {
                 + " nameSource=" + mNameSource + " iconTint=" + mIconTint
                 + " dataRoaming=" + mDataRoaming + " iconBitmap=" + mIconBitmap + " mcc " + mMcc
                 + " mnc " + mMnc + " isEmbedded " + mIsEmbedded
-                + " accessRules " + Arrays.toString(mAccessRules) + "}";
+                + " accessRules " + Arrays.toString(mAccessRules)
+                + "userNwMode=" + mUserNwMode  + "}";
     }
 }
