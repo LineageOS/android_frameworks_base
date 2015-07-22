@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df140735_bf2dffa9",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2049,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-07-22T03:39:27Z",
+      "side": 1,
+      "message": "There\u0027s no reason to bump the version twice?",
+      "revId": "68b8e7bb98a3fe66405e584f13c4a0721139e342",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
