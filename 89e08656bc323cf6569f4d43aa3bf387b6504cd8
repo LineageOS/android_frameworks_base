@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df140735_d3fc2c40",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 9621
+      },
+      "writtenOn": "2015-07-23T22:19:58Z",
+      "side": 1,
+      "message": "What if there is no on click URI or listener set, BUT mCollapsePanel is true? I would expect that the click would still collapse panels. Sure, it\u0027s an unlikely case where that\u0027s the ONLY thing that a click does, but that would be my expected behavior in that condition and this would not handle that case.",
+      "revId": "89e08656bc323cf6569f4d43aa3bf387b6504cd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
