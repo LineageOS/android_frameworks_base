@@ -22,6 +22,30 @@
       "revId": "58716b2a3bda7941a06cbac6873fdb145026ad41",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df140735_13d064f7",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-07-23T21:04:53Z",
+      "side": 1,
+      "message": "Ah yes, this should be only available if mExpandedStyle isn\u0027t set, and either of the clicks is available.",
+      "parentUuid": "df140735_c89117f4",
+      "range": {
+        "startLine": 100,
+        "startChar": 16,
+        "endLine": 100,
+        "endChar": 30
+      },
+      "revId": "58716b2a3bda7941a06cbac6873fdb145026ad41",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
