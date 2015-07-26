@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df140735_78cbf81d",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2339,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-07-26T13:54:27Z",
+      "side": 1,
+      "message": "Please, add a comment describing about this config is for.",
+      "range": {
+        "startLine": 2339,
+        "startChar": 12,
+        "endLine": 2339,
+        "endChar": 16
+      },
+      "revId": "fd5491b08e7872db67fed26e237f9d3125855b8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df140735_98c6cc16",
+        "filename": "services/core/java/com/android/server/connectivity/NetworkMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-07-26T13:54:27Z",
+      "side": 1,
+      "message": "You cannot access Context#getString() from an static way. You need a context reference. Move it to the constructor.",
+      "range": {
+        "startLine": 72,
+        "startChar": 49,
+        "endLine": 72,
+        "endChar": 58
+      },
+      "revId": "fd5491b08e7872db67fed26e237f9d3125855b8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
