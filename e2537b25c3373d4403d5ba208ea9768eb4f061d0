@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf091321_5b0a778a",
+        "filename": "services/core/java/com/android/server/connectivity/NetworkMonitor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2015-07-27T23:34:57Z",
+      "side": 1,
+      "message": "Might as well initialize this from a resource rather than what\u0027s done here.",
+      "revId": "e2537b25c3373d4403d5ba208ea9768eb4f061d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
