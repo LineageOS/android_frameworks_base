@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf091321_cc492f61",
+        "filename": "core/java/android/util/Log.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-07-28T15:04:02Z",
+      "side": 1,
+      "message": "The length should be done over the classname, and the ellipsis isn\u0027t necessary, IHMO.\n\n\n String className \u003d new Exception().getStackTrace()[1].getClassName();\n className.substring(className.lastIndexOf(\u0027.\u0027) + 1);\n return className.substring(0, Math.min(className.length(), 23));",
+      "range": {
+        "startLine": 426,
+        "startChar": 35,
+        "endLine": 426,
+        "endChar": 44
+      },
+      "revId": "c3c5fb90dd22260e750f658879d5ad21ef0d2ad5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
