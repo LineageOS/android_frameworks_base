@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf091321_3e9e9107",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 12519,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-07-28T02:33:18Z",
+      "side": 1,
+      "message": "Does ProcessRecord have uid? If so, we should do\n\n if (app.uid \u003d\u003d Process.SYSTEM_UID) {\n    continue;\n }",
+      "revId": "e5f444e770899a50dbb68d162126f46b78364fb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
