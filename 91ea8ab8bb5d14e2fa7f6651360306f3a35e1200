@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf091321_3e59f1fd",
+        "filename": "core/java/android/util/Log.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-07-28T00:50:56Z",
+      "side": 1,
+      "message": "All these methods will break the public android api. It should be hidden.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 37
+      },
+      "revId": "91ea8ab8bb5d14e2fa7f6651360306f3a35e1200",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf091321_de6f9590",
+        "filename": "core/java/android/util/Log.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-07-28T00:50:56Z",
+      "side": 1,
+      "message": "don\u0027t call those methods directly. Use the old methods. xe: v(tag(), msg);",
+      "range": {
+        "startLine": 126,
+        "startChar": 15,
+        "endLine": 126,
+        "endChar": 29
+      },
+      "revId": "91ea8ab8bb5d14e2fa7f6651360306f3a35e1200",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf091321_7e5f69e5",
+        "filename": "core/java/android/util/Log.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-07-28T00:50:56Z",
+      "side": 1,
+      "message": "spaces",
+      "range": {
+        "startLine": 497,
+        "startChar": 33,
+        "endLine": 497,
+        "endChar": 41
+      },
+      "revId": "91ea8ab8bb5d14e2fa7f6651360306f3a35e1200",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf091321_5e64a5b9",
+        "filename": "core/java/android/util/Log.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-07-28T00:50:56Z",
+      "side": 1,
+      "message": "Log tag MUST NOT be larger than 23 characters (http://developer.android.com/reference/android/util/Log.html#isLoggable%28java.lang.String,%20int%29)",
+      "range": {
+        "startLine": 499,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 67
+      },
+      "revId": "91ea8ab8bb5d14e2fa7f6651360306f3a35e1200",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
