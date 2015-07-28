@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf091321_013ed028",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-07-28T04:40:55Z",
+      "side": 1,
+      "message": "Need to think of a better way to do this.",
+      "revId": "7f9c1b9aaec31e1de9b5b322e4b44d3abe5a6237",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
