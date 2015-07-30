@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf091321_d86202d9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1332,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-07-30T22:15:11Z",
+      "side": 1,
+      "message": "Why not mShowRspSignalLevelforLTE \u0026\u0026 networktype() \u003d\u003d LTE ?",
+      "revId": "50baa1cc844387ffed8f066b125c37b9553421a4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
