@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf091321_13ae1b2e",
+        "filename": "packages/CaptivePortalLogin/src/com/android/captiveportallogin/CaptivePortalLoginActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-07-31T14:05:01Z",
+      "side": 1,
+      "message": "You will still get a NPE here. Probably what you want is:\n\n if (dataUri \u003d\u003d null || !dataUri.getScheme().equals(\"netid\")) {",
+      "range": {
+        "startLine": 100,
+        "startChar": 38,
+        "endLine": 100,
+        "endChar": 45
+      },
+      "revId": "f57e8e8fc7c1d6c99f6ac984030101cacf4b86e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
