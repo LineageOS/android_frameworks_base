@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf091321_4e5bcc2d",
+        "filename": "core/java/android/text/util/Rfc822Tokenizer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2015-07-31T20:48:25Z",
+      "side": 1,
+      "message": "why are we setting name length to zero here?",
+      "revId": "ece91496d977237577ef15a2be6aa1c7826e285a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
