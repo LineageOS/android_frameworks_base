@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf091321_ee34e0e0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkControllerImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-07-31T19:42:17Z",
+      "side": 1,
+      "message": "tabs2spaces",
+      "revId": "a364a715e884d45973317751f7c34e0a6e905ebb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
