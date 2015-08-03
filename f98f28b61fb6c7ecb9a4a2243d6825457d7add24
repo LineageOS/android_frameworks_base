@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f0e0f27_37f23808",
+        "filename": "packages/Keyguard/src/com/android/keyguard/CarrierText.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-08-03T18:50:21Z",
+      "side": 0,
+      "message": "We may need to refactor this, and actually create a sim missing state. Feel like this may cause other issues.",
+      "revId": "f98f28b61fb6c7ecb9a4a2243d6825457d7add24",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
