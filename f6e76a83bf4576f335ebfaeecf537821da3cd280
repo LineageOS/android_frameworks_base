@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f0e0f27_c6efcce7",
+        "filename": "core/java/com/android/internal/widget/LockPatternView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-08-05T22:57:15Z",
+      "side": 1,
+      "message": "Any reason pattern is set last now?",
+      "revId": "f6e76a83bf4576f335ebfaeecf537821da3cd280",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
