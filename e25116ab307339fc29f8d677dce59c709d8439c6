@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f0e0f27_ab44a1b8",
+        "filename": "packages/Keyguard/src/com/android/keyguard/CarrierText.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-08-05T17:53:13Z",
+      "side": 1,
+      "message": "- Continuations should be indented by 8\n- Curly braces are missing\n- Using TextUtils.isEmpty() instead of null + length check would be easier to read\n- This logic deserves an explaining comment\n- Why include the SimNotReady in this check?",
+      "revId": "e25116ab307339fc29f8d677dce59c709d8439c6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
