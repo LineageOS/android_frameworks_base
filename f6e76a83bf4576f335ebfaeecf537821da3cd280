@@ -16,6 +16,24 @@
       "revId": "f6e76a83bf4576f335ebfaeecf537821da3cd280",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f0e0f27_46b5fced",
+        "filename": "core/java/com/android/internal/widget/LockPatternView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-08-05T22:58:52Z",
+      "side": 1,
+      "message": "I need the mPatternSize var to be initialized before calling set pattern, moving it to the bottom seemed the most logical",
+      "parentUuid": "9f0e0f27_c6efcce7",
+      "revId": "f6e76a83bf4576f335ebfaeecf537821da3cd280",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
