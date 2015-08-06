@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f0e0f27_914c6c77",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-08-06T00:48:14Z",
+      "side": 1,
+      "message": "this subject seems a bit misleading.  This isn\u0027t really fixing anything but it is allowing these dialogs to be themed so I would change the subject to reflect what is actually being addressed in this patch.  Something like \"theme power off and reboot dialogs\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "c8f892bee70696966c1b90dbe75c7a25eea0f175",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
