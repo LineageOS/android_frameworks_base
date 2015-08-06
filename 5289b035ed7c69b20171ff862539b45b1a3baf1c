@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f0e0f27_11697cbd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-08-06T00:59:36Z",
+      "side": 1,
+      "message": "this implies it was being themed improperly but it wasn\u0027t being themed at all",
+      "range": {
+        "startLine": 7,
+        "startChar": 42,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "5289b035ed7c69b20171ff862539b45b1a3baf1c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
