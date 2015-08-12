@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f231b9d_a5d608f1",
+        "filename": "services/core/jni/com_android_server_PersistentDataBlockService.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-08-12T22:46:58Z",
+      "side": 1,
+      "message": "D Block",
+      "revId": "ebd3158496ad8a5372c0eee994dcebc83a975364",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
