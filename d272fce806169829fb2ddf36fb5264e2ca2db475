@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f231b9d_50981469",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-13T01:05:14Z",
+      "side": 1,
+      "message": "You should leave the default at 0.",
+      "revId": "d272fce806169829fb2ddf36fb5264e2ca2db475",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
