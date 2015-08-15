@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f231b9d_f19ddf66",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2222,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-08-15T05:03:36Z",
+      "side": 1,
+      "message": "A comment explaining this config and the order of its values (from upper to lower) would be a good idea",
+      "range": {
+        "startLine": 2222,
+        "startChar": 25,
+        "endLine": 2222,
+        "endChar": 57
+      },
+      "revId": "b38d0f06a235c529d9e527de24f9552e81825526",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
