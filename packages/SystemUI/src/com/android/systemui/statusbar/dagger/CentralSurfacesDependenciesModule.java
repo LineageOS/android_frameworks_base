@@ -17,6 +17,7 @@
 package com.android.systemui.statusbar.dagger;
 
 import android.app.IActivityManager;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.os.Handler;
 import android.service.dreams.IDreamManager;
@@ -146,7 +147,8 @@ public interface CentralSurfacesDependenciesModule {
             NotifPipelineFlags notifPipelineFlags,
             @Main DelayableExecutor mainExecutor,
             MediaDataManager mediaDataManager,
-            DumpManager dumpManager) {
+            DumpManager dumpManager,
+            WallpaperManager wallpaperManager) {
         return new NotificationMediaManager(
                 context,
                 centralSurfacesOptionalLazy,
@@ -160,7 +162,8 @@ public interface CentralSurfacesDependenciesModule {
                 notifPipelineFlags,
                 mainExecutor,
                 mediaDataManager,
-                dumpManager);
+                dumpManager,
+                wallpaperManager);
     }
 
     /** */

@@ -201,6 +201,7 @@ import com.android.systemui.statusbar.PowerButtonReveal;
 import com.android.systemui.statusbar.PulseExpansionHandler;
 import com.android.systemui.statusbar.StatusBarState;
 import com.android.systemui.statusbar.SysuiStatusBarStateController;
+import com.android.systemui.statusbar.VisualizerView;
 import com.android.systemui.statusbar.charging.WiredChargingRippleController;
 import com.android.systemui.statusbar.connectivity.NetworkController;
 import com.android.systemui.statusbar.core.StatusBarInitializer;
@@ -474,6 +475,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
     private PhoneStatusBarViewController mPhoneStatusBarViewController;
     private PhoneStatusBarTransitions mStatusBarTransitions;
     private AuthRippleController mAuthRippleController;
+    private VisualizerView mVisualizerView;
     @WindowVisibleState private int mStatusBarWindowState = WINDOW_STATE_SHOWING;
     protected final NotificationShadeWindowController mNotificationShadeWindowController;
     private final StatusBarWindowController mStatusBarWindowController;
@@ -1565,6 +1567,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
         mNotificationShadeWindowView = mCentralSurfacesComponent.getNotificationShadeWindowView();
         mNotificationShadeWindowViewController = mCentralSurfacesComponent
                 .getNotificationShadeWindowViewController();
+        mVisualizerView = mCentralSurfacesComponent.getVisualizerView();
         mNotificationShadeWindowController.setNotificationShadeView(mNotificationShadeWindowView);
         mNotificationShadeWindowViewController.setupExpandedStatusBar();
         mNotificationPanelViewController =
@@ -1668,6 +1671,11 @@ public class CentralSurfacesImpl extends CoreStartable implements
     @Override
     public ViewGroup getBouncerContainer() {
         return mNotificationShadeWindowViewController.getBouncerContainer();
+    }
+
+    @Override
+    public VisualizerView getVisualizerView() {
+        return mVisualizerView;
     }
 
     @Override
@@ -3422,6 +3430,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
                 && visibleNotOccludedOrWillBe);
 
         mNotificationPanelViewController.setDozing(mDozing, animate, mWakeUpTouchLocation);
+        mVisualizerView.setDozing(mDozing);
         updateQsExpansionEnabled();
         Trace.endSection();
     }
@@ -3894,6 +3903,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
         @Override
         public void onScreenTurnedOn() {
             mScrimController.onScreenTurnedOn();
+            mVisualizerView.setVisible(true);
         }
 
         @Override
@@ -3905,6 +3915,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
                 mNotificationPanelViewController.closeQs();
                 mCloseQsBeforeScreenOff = false;
             }
+            mVisualizerView.setVisible(false);
             updateIsKeyguard();
             Trace.endSection();
         }
@@ -4642,6 +4653,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
                     checkBarModes();
                     updateScrimController();
                     mPresenter.updateMediaMetaData(false, mState != StatusBarState.KEYGUARD);
+                    mVisualizerView.setStatusBarState(newState);
                     Trace.endSection();
                 }
 
