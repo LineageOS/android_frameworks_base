@@ -40,6 +40,7 @@ import com.android.systemui.statusbar.phone.StatusBarHeadsUpChangeListener;
 import com.android.systemui.statusbar.phone.StatusBarNotificationActivityStarterModule;
 import com.android.systemui.statusbar.phone.StatusBarNotificationPresenterModule;
 import com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment;
+import com.android.systemui.statusbar.VisualizerView;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -96,6 +97,11 @@ public interface CentralSurfacesComponent {
      * Creates a {@link NotificationShadeWindowView}.
      */
     NotificationShadeWindowView getNotificationShadeWindowView();
+
+    /**
+     * Creates a VisualizerView.
+     */
+    VisualizerView getVisualizerView();
 
     /** */
     NotificationShelfController getNotificationShelfController();
