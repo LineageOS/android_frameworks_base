@@ -62,6 +62,7 @@ import com.android.systemui.statusbar.NotificationShadeWindowController;
 import com.android.systemui.statusbar.RemoteInputController;
 import com.android.systemui.statusbar.StatusBarState;
 import com.android.systemui.statusbar.SysuiStatusBarStateController;
+import com.android.systemui.statusbar.VisualizerView;
 import com.android.systemui.statusbar.notification.ViewGroupFadeHelper;
 import com.android.systemui.statusbar.phone.KeyguardBouncer.BouncerExpansionCallback;
 import com.android.systemui.statusbar.phone.panelstate.PanelExpansionListener;
@@ -230,6 +231,8 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         }
     };
 
+    private final VisualizerView mVisualizerView;
+
     @Inject
     public StatusBarKeyguardViewManager(
             Context context,
@@ -247,7 +250,8 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             WakefulnessLifecycle wakefulnessLifecycle,
             UnlockedScreenOffAnimationController unlockedScreenOffAnimationController,
             KeyguardMessageAreaController.Factory keyguardMessageAreaFactory,
-            Lazy<ShadeController> shadeController) {
+            Lazy<ShadeController> shadeController,
+            VisualizerView visualizerView) {
         mContext = context;
         mViewMediatorCallback = callback;
         mLockPatternUtils = lockPatternUtils;
@@ -264,6 +268,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         mUnlockedScreenOffAnimationController = unlockedScreenOffAnimationController;
         mKeyguardMessageAreaFactory = keyguardMessageAreaFactory;
         mShadeController = shadeController;
+        mVisualizerView = visualizerView;
     }
 
     @Override
@@ -676,6 +681,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             mMediaManager.updateMediaMetaData(false, animate && !occluded);
         }
         mNotificationShadeWindowController.setKeyguardOccluded(occluded);
+        mVisualizerView.setOccluded(occluded);
 
         // setDozing(false) will call reset once we stop dozing.
         if (!mDozing) {
