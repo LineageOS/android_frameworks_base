@@ -122,6 +122,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
     private final FoldAodAnimationController mFoldAodAnimationController;
     private KeyguardMessageAreaController mKeyguardMessageAreaController;
     private final Lazy<ShadeController> mShadeController;
+    private final Lazy<Optional<CentralSurfaces>> mCentralSurfacesOptionalLazy;
 
     private final BouncerExpansionCallback mExpansionCallback = new BouncerExpansionCallback() {
         private boolean mBouncerAnimating;
@@ -267,6 +268,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             KeyguardMessageAreaController.Factory keyguardMessageAreaFactory,
             Optional<SysUIUnfoldComponent> sysUIUnfoldComponent,
             Lazy<ShadeController> shadeController,
+            Lazy<Optional<CentralSurfaces>> centralSurfacesOptionalLazy,
             LatencyTracker latencyTracker) {
         mContext = context;
         mViewMediatorCallback = callback;
@@ -283,6 +285,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         mKeyguardBouncerFactory = keyguardBouncerFactory;
         mKeyguardMessageAreaFactory = keyguardMessageAreaFactory;
         mShadeController = shadeController;
+        mCentralSurfacesOptionalLazy = centralSurfacesOptionalLazy;
         mLatencyTracker = latencyTracker;
         mFoldAodAnimationController = sysUIUnfoldComponent
                 .map(SysUIUnfoldComponent::getFoldAodAnimationController).orElse(null);
@@ -735,6 +738,8 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             mMediaManager.updateMediaMetaData(false, animate && !mOccluded);
         }
         mNotificationShadeWindowController.setKeyguardOccluded(mOccluded);
+        mCentralSurfacesOptionalLazy.get().map(CentralSurfaces::getVisualizerView)
+                .ifPresent(v -> v.setOccluded(mOccluded));
 
         // setDozing(false) will call reset once we stop dozing.
         if (!mDozing) {
