@@ -24,6 +24,7 @@ import com.android.keyguard.LockIconViewController;
 import com.android.systemui.biometrics.AuthRippleController;
 import com.android.systemui.statusbar.NotificationPresenter;
 import com.android.systemui.statusbar.NotificationShelfController;
+import com.android.systemui.statusbar.VisualizerView;
 import com.android.systemui.statusbar.core.StatusBarInitializer;
 import com.android.systemui.statusbar.notification.NotificationActivityStarter;
 import com.android.systemui.statusbar.notification.collection.inflation.NotificationRowBinderImpl;
@@ -96,6 +97,11 @@ public interface CentralSurfacesComponent {
      * Creates a {@link NotificationShadeWindowView}.
      */
     NotificationShadeWindowView getNotificationShadeWindowView();
+
+    /**
+     * Creates a VisualizerView.
+     */
+    VisualizerView getVisualizerView();
 
     /** */
     NotificationShelfController getNotificationShelfController();
