@@ -50,6 +50,7 @@ import com.android.systemui.qs.QSPanelController;
 import com.android.systemui.statusbar.GestureRecorder;
 import com.android.systemui.statusbar.LightRevealScrim;
 import com.android.systemui.statusbar.NotificationPresenter;
+import com.android.systemui.statusbar.VisualizerView;
 import com.android.systemui.statusbar.notification.row.NotificationGutsManager;
 
 import java.io.PrintWriter;
@@ -215,6 +216,8 @@ public interface CentralSurfaces extends Dumpable, ActivityStarter, LifecycleOwn
     NotificationPanelViewController getNotificationPanelViewController();
 
     ViewGroup getBouncerContainer();
+
+    VisualizerView getVisualizerView();
 
     int getStatusBarHeight();
 
