@@ -38,6 +38,7 @@ import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.NotificationShelf;
 import com.android.systemui.statusbar.NotificationShelfController;
 import com.android.systemui.statusbar.OperatorNameViewController;
+import com.android.systemui.statusbar.VisualizerView;
 import com.android.systemui.statusbar.connectivity.NetworkController;
 import com.android.systemui.statusbar.events.SystemStatusAnimationScheduler;
 import com.android.systemui.statusbar.notification.row.dagger.NotificationShelfComponent;
@@ -92,6 +93,14 @@ public abstract class StatusBarViewModule {
         }
 
         return notificationShadeWindowView;
+    }
+
+    /** */
+    @Provides
+    @CentralSurfacesComponent.CentralSurfacesScope
+    public static VisualizerView providesVisualizerView(
+            NotificationShadeWindowView notificationShadeWindowView) {
+        return notificationShadeWindowView.findViewById(R.id.visualizerview);
     }
 
     /** */
