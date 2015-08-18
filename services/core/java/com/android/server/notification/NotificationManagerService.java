@@ -264,6 +264,9 @@ public class NotificationManagerService extends SystemService {
     private static final String SCHEME_TIMEOUT = "timeout";
     private static final String EXTRA_KEY = "key";
 
+    /** notification light maximum brightness value to use. */
+    private static final int LIGHT_BRIGHTNESS_MAXIMUM = 255;
+
     private IActivityManager mAm;
     private IPackageManager mPackageManager;
     private PackageManager mPackageManagerClient;
@@ -282,6 +285,9 @@ public class NotificationManagerService extends SystemService {
 
     private Light mNotificationLight;
     Light mAttentionLight;
+
+    private boolean mAdjustableNotificationLedBrightness;
+    private int mNotificationLedBrightnessLevel = LIGHT_BRIGHTNESS_MAXIMUM;
 
     private boolean mScreenOnEnabled = false;
     private boolean mScreenOnDefault = false;
@@ -990,6 +996,11 @@ public class NotificationManagerService extends SystemService {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.NOTIFICATION_LIGHT_SCREEN_ON),
                     false, this, UserHandle.USER_ALL);
+            if (mAdjustableNotificationLedBrightness) {
+                resolver.registerContentObserver(Settings.System.getUriFor(
+                        Settings.System.NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL),
+                        false, this, UserHandle.USER_ALL);
+            }
             update(null);
         }
 
@@ -1034,6 +1045,13 @@ public class NotificationManagerService extends SystemService {
             }
             if (uri == null || NOTIFICATION_BADGING_URI.equals(uri)) {
                 mRankingHelper.updateBadgingEnabled();
+            }
+
+            // Notification LED brightness
+            if (mAdjustableNotificationLedBrightness) {
+                mNotificationLedBrightnessLevel = Settings.System.getIntForUser(resolver,
+                        Settings.System.NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL,
+                        LIGHT_BRIGHTNESS_MAXIMUM, UserHandle.USER_CURRENT);
             }
 
             // Notification lights with screen on
@@ -1271,6 +1289,9 @@ public class NotificationManagerService extends SystemService {
                 R.array.config_notificationFallbackVibePattern,
                 VIBRATE_PATTERN_MAXLEN,
                 DEFAULT_VIBRATE_PATTERN);
+
+        mAdjustableNotificationLedBrightness = resources.getBoolean(
+                com.android.internal.R.bool.config_adjustableNotificationLedBrightness);
 
         mUseAttentionLight = resources.getBoolean(R.bool.config_useAttentionLight);
 
@@ -4782,6 +4803,9 @@ public class NotificationManagerService extends SystemService {
                 ledOnMS = light.onMs;
                 ledOffMS = light.offMs;
             }
+
+            // update the LEDs modes variables
+            mNotificationLight.setModes(mNotificationLedBrightnessLevel);
 
             if (mNotificationPulseEnabled) {
                 // pulse repeatedly
