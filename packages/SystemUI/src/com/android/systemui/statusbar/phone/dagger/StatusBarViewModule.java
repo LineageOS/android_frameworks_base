@@ -59,6 +59,7 @@ import com.android.systemui.statusbar.phone.panelstate.PanelExpansionStateManage
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
+import com.android.systemui.statusbar.VisualizerView;
 import com.android.systemui.tuner.TunerService;
 
 import javax.inject.Named;
@@ -86,6 +87,14 @@ public abstract class StatusBarViewModule {
         }
 
         return notificationShadeWindowView;
+    }
+
+    /** */
+    @Provides
+    @StatusBarComponent.StatusBarScope
+    public static VisualizerView providesVisualizerView(
+            NotificationShadeWindowView notificationShadeWindowView) {
+        return notificationShadeWindowView.findViewById(R.id.visualizerview);
     }
 
     /** */
