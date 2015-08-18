@@ -72,6 +72,7 @@ import com.android.systemui.statusbar.policy.KeyguardStateController;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Optional;
 
 import javax.inject.Inject;
 
@@ -116,6 +117,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
     private final KeyguardMessageAreaController.Factory mKeyguardMessageAreaFactory;
     private KeyguardMessageAreaController mKeyguardMessageAreaController;
     private final Lazy<ShadeController> mShadeController;
+    private final Lazy<Optional<StatusBar>> mStatusBarOptionalLazy;
     private final BouncerExpansionCallback mExpansionCallback = new BouncerExpansionCallback() {
         @Override
         public void onFullyShown() {
@@ -247,7 +249,8 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             WakefulnessLifecycle wakefulnessLifecycle,
             UnlockedScreenOffAnimationController unlockedScreenOffAnimationController,
             KeyguardMessageAreaController.Factory keyguardMessageAreaFactory,
-            Lazy<ShadeController> shadeController) {
+            Lazy<ShadeController> shadeController,
+            Lazy<Optional<StatusBar>> statusBarOptionalLazy) {
         mContext = context;
         mViewMediatorCallback = callback;
         mLockPatternUtils = lockPatternUtils;
@@ -264,6 +267,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         mUnlockedScreenOffAnimationController = unlockedScreenOffAnimationController;
         mKeyguardMessageAreaFactory = keyguardMessageAreaFactory;
         mShadeController = shadeController;
+        mStatusBarOptionalLazy = statusBarOptionalLazy;
     }
 
     @Override
@@ -676,6 +680,8 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             mMediaManager.updateMediaMetaData(false, animate && !occluded);
         }
         mNotificationShadeWindowController.setKeyguardOccluded(occluded);
+        mStatusBarOptionalLazy.get().map(StatusBar::getVisualizerView).ifPresent(
+                v -> v.setOccluded(occluded));
 
         // setDozing(false) will call reset once we stop dozing.
         if (!mDozing) {
