@@ -18,6 +18,7 @@ package com.android.systemui.statusbar.dagger;
 
 import android.app.IActivityManager;
 import android.app.NotificationManager;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.os.Handler;
 import android.service.dreams.IDreamManager;
@@ -139,7 +140,8 @@ public interface StatusBarDependenciesModule {
             FeatureFlags featureFlags,
             @Main DelayableExecutor mainExecutor,
             MediaDataManager mediaDataManager,
-            DumpManager dumpManager) {
+            DumpManager dumpManager,
+            WallpaperManager wallpaperManager) {
         return new NotificationMediaManager(
                 context,
                 statusBarOptionalLazy,
@@ -152,7 +154,8 @@ public interface StatusBarDependenciesModule {
                 featureFlags,
                 mainExecutor,
                 mediaDataManager,
-                dumpManager);
+                dumpManager,
+                wallpaperManager);
     }
 
     /** */
