@@ -65,6 +65,7 @@ import com.android.systemui.statusbar.phone.ScrimController;
 import com.android.systemui.statusbar.phone.ScrimState;
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
+import com.android.systemui.statusbar.VisualizerView;
 import com.android.systemui.util.DeviceConfigProxy;
 import com.android.systemui.util.Utils;
 import com.android.systemui.util.concurrency.DelayableExecutor;
@@ -171,6 +172,8 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
                     clearCurrentMediaNotification();
                 }
                 findAndUpdateMediaNotifications();
+                mStatusBarLazy.get().getVisualizerView()
+                        .setPlaying(state.getState() == PlaybackState.STATE_PLAYING);
             }
         }
 
@@ -576,6 +579,21 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
         mColorExtractor.setHasMediaArtwork(hasMediaArtwork);
         if (mScrimController != null) {
             mScrimController.setHasBackdrop(hasArtwork);
+        }
+
+        if (hasMediaArtwork && mStatusBarStateController.getState() != StatusBarState.SHADE) {
+            VisualizerView visualizerView = mStatusBarLazy.get().getVisualizerView();
+            if (!mKeyguardStateController.isKeyguardFadingAway() &&
+                    !mStatusBarLazy.get().isScreenFullyOff()) {
+                // if there's album art, ensure visualizer is visible
+                visualizerView.setPlaying(getMediaControllerPlaybackState(mMediaController) ==
+                        PlaybackState.STATE_PLAYING);
+            }
+
+            if (artworkDrawable instanceof BitmapDrawable) {
+                // always use current backdrop to color eq
+                visualizerView.setBitmap(((BitmapDrawable) artworkDrawable).getBitmap());
+            }
         }
 
         if ((hasArtwork || DEBUG_MEDIA_FAKE_ARTWORK)
