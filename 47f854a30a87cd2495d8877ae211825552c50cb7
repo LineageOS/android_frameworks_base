@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f201791_6a7afb88",
+        "filename": "packages/Keyguard/src/com/android/keyguard/CarrierText.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2015-08-20T01:55:24Z",
+      "side": 1,
+      "message": "Still should have a comment, per Danny, but I\u0027ll leave that up to the original author. This patch set should address all other comments.",
+      "range": {
+        "startLine": 211,
+        "startChar": 41,
+        "endLine": 211,
+        "endChar": 43
+      },
+      "revId": "47f854a30a87cd2495d8877ae211825552c50cb7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
