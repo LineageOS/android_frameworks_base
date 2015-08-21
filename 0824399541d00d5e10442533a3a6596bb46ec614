@@ -16,6 +16,24 @@
       "revId": "0824399541d00d5e10442533a3a6596bb46ec614",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f201791_74d66152",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 4387,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-08-21T02:25:30Z",
+      "side": 1,
+      "message": "nope, static will work just fine.  Changing now.",
+      "parentUuid": "5f201791_f4d83180",
+      "revId": "0824399541d00d5e10442533a3a6596bb46ec614",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
