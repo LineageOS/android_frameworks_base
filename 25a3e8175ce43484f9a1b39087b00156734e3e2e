@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f201791_63bc6069",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 3021,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-08-22T19:09:25Z",
+      "side": 1,
+      "message": "Remove space after !",
+      "range": {
+        "startLine": 3021,
+        "startChar": 20,
+        "endLine": 3021,
+        "endChar": 21
+      },
+      "revId": "25a3e8175ce43484f9a1b39087b00156734e3e2e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
