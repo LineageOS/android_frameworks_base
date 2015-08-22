@@ -163,7 +163,8 @@ static void setLight_native(
         jint onMS,
         jint offMS,
         jint brightnessMode,
-        jint brightnessLevel) {
+        jint brightnessLevel,
+        jint multipleLeds) {
 
     if (!validate(light, flashMode, brightnessMode)) {
         return;
@@ -188,6 +189,9 @@ static void setLight_native(
     LightState state = constructState(
         colorARGB, flashMode, onMS, offMS, brightnessMode);
 
+    state.ledsModes = 0 |
+                      (multipleLeds ? LIGHT_MODE_MULTIPLE_LEDS : 0);
+
     {
         ALOGD_IF_SLOW(50, "Excessive delay setting light");
         Return<Status> ret = hal->setLight(type, state);
@@ -196,7 +200,7 @@ static void setLight_native(
 }
 
 static const JNINativeMethod method_table[] = {
-    { "setLight_native", "(IIIIIII)V", (void*)setLight_native },
+    { "setLight_native", "(IIIIIIII)V", (void*)setLight_native },
 };
 
 int register_android_server_LightsService(JNIEnv *env) {

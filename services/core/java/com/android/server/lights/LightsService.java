@@ -74,9 +74,10 @@ public class LightsService extends SystemService {
         }
 
         @Override
-        public void setModes(int brightnessLevel) {
+        public void setModes(int brightnessLevel, boolean multipleLeds) {
             synchronized (this) {
                 mBrightnessLevel = brightnessLevel;
+                mMultipleLeds = multipleLeds;
                 mModesUpdate = true;
             }
         }
@@ -152,7 +153,8 @@ public class LightsService extends SystemService {
                 Trace.traceBegin(Trace.TRACE_TAG_POWER, "setLight(" + mId + ", 0x"
                         + Integer.toHexString(color) + ")");
                 try {
-                    setLight_native(mId, color, mode, onMS, offMS, brightnessMode, mBrightnessLevel);
+                    setLight_native(mId, color, mode, onMS, offMS, brightnessMode, mBrightnessLevel,
+                            mMultipleLeds ? 1 : 0);
                 } finally {
                     Trace.traceEnd(Trace.TRACE_TAG_POWER);
                 }
@@ -178,6 +180,7 @@ public class LightsService extends SystemService {
         private boolean mInitialized;
         private boolean mLocked;
         private boolean mModesUpdate;
+        private boolean mMultipleLeds;
     }
 
     public LightsService(Context context) {
@@ -225,5 +228,6 @@ public class LightsService extends SystemService {
     };
 
     static native void setLight_native(int light, int color, int mode,
-            int onMS, int offMS, int brightnessMode, int brightnessLevel);
+            int onMS, int offMS, int brightnessMode, int brightnessLevel,
+            int mMultipleLeds);
 }
