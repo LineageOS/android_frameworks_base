@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f201791_237308ea",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-08-22T19:34:22Z",
+      "side": 1,
+      "message": "This doesn\u0027t sound right. config_adjustableNotificationLedBrightness would make more sense IMO",
+      "range": {
+        "startLine": 804,
+        "startChar": 16,
+        "endLine": 804,
+        "endChar": 48
+      },
+      "revId": "0a5b8d43f29a724c16850a50905d3056f5f5dfd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f201791_a335d8f9",
+        "filename": "services/core/java/com/android/server/lights/LightsService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-08-22T19:34:22Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "0a5b8d43f29a724c16850a50905d3056f5f5dfd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f201791_833adce4",
+        "filename": "services/core/java/com/android/server/lights/LightsService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-08-22T19:34:22Z",
+      "side": 1,
+      "message": "Indentation should be 8 spaces",
+      "revId": "0a5b8d43f29a724c16850a50905d3056f5f5dfd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f201791_633fc0d6",
+        "filename": "services/core/java/com/android/server/lights/LightsService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-08-22T19:34:22Z",
+      "side": 1,
+      "message": "This fits in one line",
+      "revId": "0a5b8d43f29a724c16850a50905d3056f5f5dfd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
