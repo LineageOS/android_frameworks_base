@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_4e407708",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolumeTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 10631
+      },
+      "writtenOn": "2015-08-24T22:46:02Z",
+      "side": 1,
+      "message": "formatting",
+      "revId": "abbd421699c0e87263b6c026d611985309182bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_8e368fb4",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolumeTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 10631
+      },
+      "writtenOn": "2015-08-24T22:46:02Z",
+      "side": 1,
+      "message": "formatting",
+      "revId": "abbd421699c0e87263b6c026d611985309182bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
