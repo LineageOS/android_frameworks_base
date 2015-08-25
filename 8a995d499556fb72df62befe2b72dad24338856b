@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_cef2479b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-25T01:44:04Z",
+      "side": 1,
+      "message": "Line length.",
+      "revId": "8a995d499556fb72df62befe2b72dad24338856b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_6e2fb3f6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-25T01:44:04Z",
+      "side": 1,
+      "message": "Consider using an enum here if this is meant to be multi-state.\n\nif (...)",
+      "revId": "8a995d499556fb72df62befe2b72dad24338856b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_8e2a0fe5",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-25T01:44:04Z",
+      "side": 1,
+      "message": "Line length.\n\nelse if (...)",
+      "revId": "8a995d499556fb72df62befe2b72dad24338856b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_2e39bb40",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-25T01:44:04Z",
+      "side": 1,
+      "message": "Consider using an enum here if this is meant to be multi-state.\n\nif (...)",
+      "revId": "8a995d499556fb72df62befe2b72dad24338856b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_ee3aa332",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-25T01:44:04Z",
+      "side": 1,
+      "message": "Line length.\n\nelse if (...)",
+      "revId": "8a995d499556fb72df62befe2b72dad24338856b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_8e132fb9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-25T01:44:04Z",
+      "side": 1,
+      "message": "isBackPressed",
+      "revId": "8a995d499556fb72df62befe2b72dad24338856b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_ce47e7bc",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-25T01:44:04Z",
+      "side": 1,
+      "message": "Consider using an enum here.",
+      "revId": "8a995d499556fb72df62befe2b72dad24338856b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_ae44abb8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-25T01:44:04Z",
+      "side": 1,
+      "message": "If using an enum, make this an explicit state.",
+      "revId": "8a995d499556fb72df62befe2b72dad24338856b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_6e18d3d2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-25T01:44:04Z",
+      "side": 1,
+      "message": "isBackPressed",
+      "revId": "8a995d499556fb72df62befe2b72dad24338856b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_4e0d178f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-25T01:44:04Z",
+      "side": 1,
+      "message": "Use an enum here.",
+      "revId": "8a995d499556fb72df62befe2b72dad24338856b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
