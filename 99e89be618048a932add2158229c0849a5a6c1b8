@@ -16,6 +16,24 @@
       "revId": "99e89be618048a932add2158229c0849a5a6c1b8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_9e947aea",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 17067,
+      "author": {
+        "id": 7841
+      },
+      "writtenOn": "2015-08-26T02:54:53Z",
+      "side": 1,
+      "message": "Have verified that this is working, processes are receiving the new time configuration. If an app has a cached SimpleDateFormat, it will need to refresh it, but that point it is now an app issue.",
+      "parentUuid": "3f1d235d_0924b9c5",
+      "revId": "99e89be618048a932add2158229c0849a5a6c1b8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
