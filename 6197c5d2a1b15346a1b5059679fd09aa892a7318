@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_2f0d323e",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-08-28T23:54:34Z",
+      "side": 1,
+      "message": "If this is userfacing, it should be \"lockscreen\" not keyguard",
+      "range": {
+        "startLine": 350,
+        "startChar": 58,
+        "endLine": 350,
+        "endChar": 66
+      },
+      "revId": "6197c5d2a1b15346a1b5059679fd09aa892a7318",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_0f0a7625",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-08-28T23:54:34Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 352,
+        "startChar": 87,
+        "endLine": 352,
+        "endChar": 95
+      },
+      "revId": "6197c5d2a1b15346a1b5059679fd09aa892a7318",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_ef061a21",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1658,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-08-28T23:54:34Z",
+      "side": 1,
+      "message": "nitpick: typo",
+      "range": {
+        "startLine": 1658,
+        "startChar": 31,
+        "endLine": 1658,
+        "endChar": 35
+      },
+      "revId": "6197c5d2a1b15346a1b5059679fd09aa892a7318",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
