@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3f1d235d_ef2dfaa8",
+        "filename": "services/core/jni/com_android_server_location_GpsLocationProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-08-28T23:44:17Z",
+      "side": 1,
+      "message": "Is this relevant to this change? It seems unrelated.",
+      "revId": "c515f5fa191a7d60c3731108923e98b05be6ae0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_0ff6f690",
         "filename": "services/core/jni/com_android_server_location_GpsLocationProvider.cpp",
         "patchSetId": 2
