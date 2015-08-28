@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_6fcb2aa5",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-08-28T03:52:52Z",
+      "side": 1,
+      "message": "Should probably also check that clientData is not null as well, similar to the other sections where clientData.receiver is checked for null",
+      "range": {
+        "startLine": 370,
+        "startChar": 28,
+        "endLine": 370,
+        "endChar": 38
+      },
+      "revId": "665e17abc9d02aea50d549b2858f4868b23e0d14",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
