@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3f1d235d_eafcc83f",
+        "filename": "services/core/jni/com_android_server_location_GpsLocationProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 9607
+      },
+      "writtenOn": "2015-08-29T09:31:59Z",
+      "side": 1,
+      "message": "May the original author @ghepeu, can confirm what is this for? I\u0027ve test this on Moto G and GPS still working.",
+      "parentUuid": "3f1d235d_ef2dfaa8",
+      "revId": "c515f5fa191a7d60c3731108923e98b05be6ae0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_0ff6f690",
         "filename": "services/core/jni/com_android_server_location_GpsLocationProvider.cpp",
         "patchSetId": 2
