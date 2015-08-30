@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_8099b320",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-08-30T22:25:15Z",
+      "side": 1,
+      "message": "This is wrong. netd is not the cellular radio. it is a tethering interface aka wifi interface.",
+      "revId": "7db3147204b52aca2c653a4c6d911ba2dfbf005e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_40a39b50",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-08-30T22:25:15Z",
+      "side": 1,
+      "message": "SystemClock.elapsedRealtimeNanos(), ConnectivityManager.TYPE_MOBILE \u003d\u003d type);",
+      "revId": "7db3147204b52aca2c653a4c6d911ba2dfbf005e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_20889fc4",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-08-30T22:25:15Z",
+      "side": 1,
+      "message": "SystemClock.elapsedRealtimeNanos(), ConnectivityManager.TYPE_MOBILE \u003d\u003d params.type);",
+      "revId": "7db3147204b52aca2c653a4c6d911ba2dfbf005e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
