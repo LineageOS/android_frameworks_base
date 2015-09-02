@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_75ff7067",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MediaExpandableNotificationRow.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 13823
+      },
+      "writtenOn": "2015-09-02T06:06:50Z",
+      "side": 1,
+      "message": "Can you try with just the CONTENT_URI? Right now, observation only applies to the whole table. I can add in uri targets for specific items later on.",
+      "range": {
+        "startLine": 227,
+        "startChar": 51,
+        "endLine": 227,
+        "endChar": 92
+      },
+      "revId": "15821d303fe3bca94a6f1475484834ac2f87bd3a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
