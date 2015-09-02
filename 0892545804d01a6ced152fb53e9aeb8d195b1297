@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_c03684b5",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2000,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-02T19:57:21Z",
+      "side": 1,
+      "message": "Index could be -1 (check DDOS protection ). In that case, could you get a npe when retriving the key?",
+      "range": {
+        "startLine": 2000,
+        "startChar": 32,
+        "endLine": 2000,
+        "endChar": 57
+      },
+      "revId": "0892545804d01a6ced152fb53e9aeb8d195b1297",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
