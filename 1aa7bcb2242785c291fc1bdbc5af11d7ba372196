@@ -16,6 +16,24 @@
       "revId": "1aa7bcb2242785c291fc1bdbc5af11d7ba372196",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_0d3274f2",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T04:28:16Z",
+      "side": 0,
+      "message": "Yes, just a few lines down at line 700 (or 699 after this change)",
+      "parentUuid": "3f1d235d_6d3b28d1",
+      "revId": "1aa7bcb2242785c291fc1bdbc5af11d7ba372196",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
