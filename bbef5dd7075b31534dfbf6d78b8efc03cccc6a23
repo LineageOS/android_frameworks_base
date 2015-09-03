@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_bbbbb9e3",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-09-03T02:25:36Z",
+      "side": 1,
+      "message": "Nitpick: remove this piece from the comment here",
+      "range": {
+        "startLine": 316,
+        "startChar": 51,
+        "endLine": 317,
+        "endChar": 65
+      },
+      "revId": "bbef5dd7075b31534dfbf6d78b8efc03cccc6a23",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
