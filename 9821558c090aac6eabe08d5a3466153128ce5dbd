@@ -2,6 +2,224 @@
   "comments": [
     {
       "key": {
+        "uuid": "3f1d235d_cd991c20",
+        "filename": "packages/SystemUI/res/drawable/queue_bg.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "I haven\u0027t played with ripple drawables in selectors yet but is it possible to include all the states that use the same shape and color into one \u003citem\u003e tag?",
+      "range": {
+        "startLine": 19,
+        "startChar": 14,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_ad9ee004",
+        "filename": "packages/SystemUI/res/drawable/queue_gradient.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "much indentation",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_8da32450",
+        "filename": "packages/SystemUI/res/layout/notification_guts_queue.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "indentation is all over the place",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 52
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_6d88c8c5",
+        "filename": "packages/SystemUI/res/layout/queue_adapter_row.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 43
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_4d850cad",
+        "filename": "packages/SystemUI/res/layout/queue_adapter_row.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "extra newline",
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_2d92d0f7",
+        "filename": "packages/SystemUI/res/layout/status_bar_notification_row_media.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "fix indentation",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 50
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_0d8f14cd",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "Intentional capitalization of all words?",
+      "range": {
+        "startLine": 315,
+        "startChar": 39,
+        "endLine": 315,
+        "endChar": 59
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_8dbc446a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/ExpandableNotificationRow.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "OCD: group protected members",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 37
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_2dabf01d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MediaNotificationGuts.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "media notification?",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_0da8341d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MediaNotificationGuts.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "unneeded newline",
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_2dbf70fc",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/QueueViewRow.java",
         "patchSetId": 9
@@ -36,6 +254,30 @@
       "writtenOn": "2015-09-03T05:34:38Z",
       "side": 1,
       "message": "this flag is set by any subclass of ViewGroup. i think isn\u0027t needed",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_ed629816",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/QueueViewRow.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-03T22:15:45Z",
+      "side": 1,
+      "message": "As Jorge mentioned, ViewGroup sets the WILL_NOT_DRAW flag in it\u0027s init method, so no need to do that here.",
+      "parentUuid": "3f1d235d_adcb80a3",
       "range": {
         "startLine": 46,
         "startChar": 8,
