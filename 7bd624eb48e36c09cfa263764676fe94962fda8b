@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_0d2b9494",
+        "filename": "packages/SystemUI/src/com/android/systemui/cm/SpamMessageProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-09-03T23:08:01Z",
+      "side": 1,
+      "message": "Might be worthwhile only closing before returning.\n\nOtherwise we end up closing -\u003e re-opening the db multiple times.",
+      "range": {
+        "startLine": 124,
+        "startChar": 27,
+        "endLine": 124,
+        "endChar": 32
+      },
+      "revId": "7bd624eb48e36c09cfa263764676fe94962fda8b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
