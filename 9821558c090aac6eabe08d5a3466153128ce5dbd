@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_2dbf70fc",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/QueueViewRow.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-03T05:34:38Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 36,
+        "startChar": 41,
+        "endLine": 36,
+        "endChar": 45
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_adcb80a3",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/QueueViewRow.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-03T05:34:38Z",
+      "side": 1,
+      "message": "this flag is set by any subclass of ViewGroup. i think isn\u0027t needed",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
