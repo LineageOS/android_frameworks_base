@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_6d3b28d1",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-09-03T04:27:10Z",
+      "side": 0,
+      "message": "does this get triggered elsewhere then?",
+      "revId": "1aa7bcb2242785c291fc1bdbc5af11d7ba372196",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
