@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_23f3ffa0",
+        "filename": "services/core/java/com/android/server/am/ActivityStack.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-04T20:06:38Z",
+      "side": 1,
+      "message": "Looks like the launchBoost call is being moved to the supervisor?",
+      "revId": "b466903971ee02955ebe4a4d070eb26566d90b1c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_03f00390",
+        "filename": "services/core/java/com/android/server/am/ActivityStackSupervisor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-04T20:06:38Z",
+      "side": 1,
+      "message": "Would have been a comment on the previous patchset, but why not allow for a configurable launch boost duration as well?",
+      "revId": "b466903971ee02955ebe4a4d070eb26566d90b1c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
