@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_d099af1f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-09-04T04:25:16Z",
+      "side": 1,
+      "message": "codestyle stickler\n\n  if (mVisualiz...)",
+      "revId": "3fc444472e264a14323a7b039a4390bc019d232d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
