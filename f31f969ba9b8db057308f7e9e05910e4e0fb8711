@@ -22,6 +22,30 @@
       "revId": "f31f969ba9b8db057308f7e9e05910e4e0fb8711",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_23777f3d",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 68
+      },
+      "writtenOn": "2015-09-04T18:24:32Z",
+      "side": 1,
+      "message": "Indeed, but that should probably be done in updateChargeAnim (line 929 in this patchset). I\u0027ll test it out in a bit.",
+      "parentUuid": "3f1d235d_e3898726",
+      "range": {
+        "startLine": 875,
+        "startChar": 23,
+        "endLine": 875,
+        "endChar": 30
+      },
+      "revId": "f31f969ba9b8db057308f7e9e05910e4e0fb8711",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
