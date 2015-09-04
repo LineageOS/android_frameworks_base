@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_231bff1b",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 10984
+      },
+      "writtenOn": "2015-09-04T16:07:02Z",
+      "side": 1,
+      "message": "Hm, I\u0027d rather either not have this blank line, or have another one after the if.",
+      "revId": "fa5753e86784cc91b3abd22e0b41f64243b9732e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
