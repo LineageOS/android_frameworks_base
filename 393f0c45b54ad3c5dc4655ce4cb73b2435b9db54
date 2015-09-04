@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_50cd9f5b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-04T03:24:23Z",
+      "side": 1,
+      "message": "I suspect you will still encounter the SystemUI crash because it\u0027s not that mVisualizer is null, you\u0027d get a NPE in that case.  It is not in the proper state to release it and therefore throws an exception.\n\nYou should probably be checking if it is enabled by calling mVisualizer.getEnabled() and if so disable and release it.",
+      "revId": "393f0c45b54ad3c5dc4655ce4cb73b2435b9db54",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
