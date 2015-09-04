@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_703e5b2a",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-04T03:37:00Z",
+      "side": 1,
+      "message": "SparseArray is not thread safe, so it needs to be synchronized. Otherwise, we can query a empty cache while the backend load fills again the cache.",
+      "range": {
+        "startLine": 225,
+        "startChar": 33,
+        "endLine": 225,
+        "endChar": 43
+      },
+      "revId": "18f8137ec65fb10d752a44f5808ed5189d737296",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
