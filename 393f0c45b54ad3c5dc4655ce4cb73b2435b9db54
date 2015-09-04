@@ -34,6 +34,24 @@
       "revId": "393f0c45b54ad3c5dc4655ce4cb73b2435b9db54",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_101e07ba",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-04T03:51:35Z",
+      "side": 1,
+      "message": "Jorge, that\u0027s fine, but the log from the comments shows it\u0027s not an NPE but a bad state.  The null check is fine but it\u0027s not going to fix the error mentioned in that comment.\n\nP.S. All this is based on some assumptions since there is an incomplete log.",
+      "parentUuid": "3f1d235d_10f04790",
+      "revId": "393f0c45b54ad3c5dc4655ce4cb73b2435b9db54",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
