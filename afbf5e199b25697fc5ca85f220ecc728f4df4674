@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_633e972a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-04T20:45:33Z",
+      "side": 1,
+      "message": "These are typically all caps to denote a constant.",
+      "revId": "afbf5e199b25697fc5ca85f220ecc728f4df4674",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_433b9b37",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-04T20:45:33Z",
+      "side": 1,
+      "message": "Maybe DEFAULT instead of ORDINARY?",
+      "revId": "afbf5e199b25697fc5ca85f220ecc728f4df4674",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_23489fca",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-04T20:45:33Z",
+      "side": 1,
+      "message": "I think you need to qualify these enums with the class.",
+      "revId": "afbf5e199b25697fc5ca85f220ecc728f4df4674",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
