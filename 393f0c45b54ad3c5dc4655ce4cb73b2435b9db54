@@ -16,6 +16,24 @@
       "revId": "393f0c45b54ad3c5dc4655ce4cb73b2435b9db54",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_10f04790",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-04T03:28:50Z",
+      "side": 1,
+      "message": "Clark, the constructor of Visualizer could launch UnsupportedOperationException and RuntimeException exceptions if the underlying native code can\u0027t be initilized propertly. In that case, there isn\u0027t a valid mVisualizer is null, and any attempt to access to this variable will lead to a NPE.",
+      "parentUuid": "3f1d235d_50cd9f5b",
+      "revId": "393f0c45b54ad3c5dc4655ce4cb73b2435b9db54",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
