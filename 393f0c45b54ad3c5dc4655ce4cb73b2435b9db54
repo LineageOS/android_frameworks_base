@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3f1d235d_d0664f52",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-04T04:00:05Z",
+      "side": 1,
+      "message": "add NPE between \"fix\" and \"crash\" for clarity",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "393f0c45b54ad3c5dc4655ce4cb73b2435b9db54",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_50cd9f5b",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
         "patchSetId": 2
