@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_e3898726",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-04T18:20:16Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we stop invalidating the view when level is below 0? We don\u0027t need to the animation in that case.\n\nif (level \u003e 0) {\n    // draw colored arc representing charge level\n    canvas.drawArc(drawRect, 270 + mAnimOffset, 3.6f * level, false, paint);\n} else {\n    mHandler.removeCallbacks(mInvalidate);\n}",
+      "range": {
+        "startLine": 875,
+        "startChar": 23,
+        "endLine": 875,
+        "endChar": 30
+      },
+      "revId": "f31f969ba9b8db057308f7e9e05910e4e0fb8711",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
