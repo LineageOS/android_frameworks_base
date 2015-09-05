@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_c18e832d",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-05T13:50:00Z",
+      "side": 1,
+      "message": "The synchronized block should include all the block, or otherwise, it\u0027s useless. Currently, you can query the spam cache while filling.\n\nIntead, i suggest 2 alternatives:\n\n1.- Load the data in a temp cache and swap the spamcache in a synchronized block (this means the extra overhead of new data structures).\n2.- Modify the current cache, by insert, update or delete items. Since we are are not iterate over the cache, it could be safe to use without synchronized block and without create new data structures. It could be achived by create 3 internal notification uris in the SpamContentProvider and notify this uris for insert, update and delete opetations. Then listen here for these 3 new uris instead of the general one, and decide what to do in base of the uri received.\n\nThoughts?",
+      "range": {
+        "startLine": 873,
+        "startChar": 34,
+        "endLine": 873,
+        "endChar": 44
+      },
+      "revId": "da594343ae3da1c4d0abf7e21fce96d61ab8345c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
