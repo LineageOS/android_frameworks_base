@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3f1d235d_2691cd9a",
+        "filename": "services/core/java/com/android/server/am/ActivityStack.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 32
+      },
+      "writtenOn": "2015-09-05T02:08:23Z",
+      "side": 1,
+      "message": "Yeah this is just boosting for animations which can occur elsewhere.",
+      "parentUuid": "3f1d235d_23f3ffa0",
+      "revId": "b466903971ee02955ebe4a4d070eb26566d90b1c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_03f00390",
         "filename": "services/core/java/com/android/server/am/ActivityStackSupervisor.java",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-09-04T20:06:38Z",
       "side": 1,
       "message": "Would have been a comment on the previous patchset, but why not allow for a configurable launch boost duration as well?",
+      "revId": "b466903971ee02955ebe4a4d070eb26566d90b1c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_e6e87517",
+        "filename": "services/core/java/com/android/server/am/ActivityStackSupervisor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 32
+      },
+      "writtenOn": "2015-09-05T02:08:23Z",
+      "side": 1,
+      "message": "Probably not necessary. It is left up to the HAL to decide.\n\nWhen I refactor this for the CMSDK I want to make it a little more generic.",
+      "parentUuid": "3f1d235d_03f00390",
       "revId": "b466903971ee02955ebe4a4d070eb26566d90b1c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
