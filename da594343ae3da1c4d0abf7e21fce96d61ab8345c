@@ -22,6 +22,30 @@
       "revId": "da594343ae3da1c4d0abf7e21fce96d61ab8345c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_fc180476",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-09-05T23:43:29Z",
+      "side": 1,
+      "message": "With scenario 1 im wondering what happens in the case where user deletes a filter.\n\nWe get notified and start populating cache, if a notification of that type comes in and we are referring to old cache, we will block that notification. It is an edge case though",
+      "parentUuid": "3f1d235d_c18e832d",
+      "range": {
+        "startLine": 873,
+        "startChar": 34,
+        "endLine": 873,
+        "endChar": 44
+      },
+      "revId": "da594343ae3da1c4d0abf7e21fce96d61ab8345c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
