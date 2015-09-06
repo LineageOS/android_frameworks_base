@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_9ccb50a4",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-06T03:42:58Z",
+      "side": 1,
+      "message": "I don\u0027t follow you here. mVisualizer only can be null here (we only launch mLinkVisualizer if is not linked and mUnlinkVisualizer put the reference to null)",
+      "range": {
+        "startLine": 93,
+        "startChar": 30,
+        "endLine": 93,
+        "endChar": 34
+      },
+      "revId": "ad9cbaa9ef8028201d1b43058c96fc77d059ce97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_9c40f009",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-06T03:42:58Z",
+      "side": 1,
+      "message": "mVisualizer.release calls to native release that calls to finalize that calls to lpVisualizer-\u003ecancelCaptureCallBack();\nAny capture event should be null with the call to mVisualizer.release();\n\nAFAIK, all should be right here without removing the listener (that puts the callback timeout to 0 btw). If there is something wrong IHMO is should fixed in the native code, not here.",
+      "range": {
+        "startLine": 110,
+        "startChar": 28,
+        "endLine": 110,
+        "endChar": 50
+      },
+      "revId": "ad9cbaa9ef8028201d1b43058c96fc77d059ce97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
