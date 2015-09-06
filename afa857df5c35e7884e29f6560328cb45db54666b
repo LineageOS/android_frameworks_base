@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_1c762008",
+        "filename": "services/java/com/android/server/SystemServer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 10444
+      },
+      "writtenOn": "2015-09-06T13:51:40Z",
+      "side": 1,
+      "message": "\"not be available\" ;)",
+      "range": {
+        "startLine": 1262,
+        "startChar": 68,
+        "endLine": 1262,
+        "endChar": 81
+      },
+      "revId": "afa857df5c35e7884e29f6560328cb45db54666b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
