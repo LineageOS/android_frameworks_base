@@ -22,6 +22,30 @@
       "revId": "0bd1a11122bc53794997f20e032ca13df9bd6060",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_dc3668b5",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-06T03:41:02Z",
+      "side": 1,
+      "message": "I didn\u0027t want to keep adding methods to PhoneStatusBar that just pass the same info down to the visualizer view.",
+      "parentUuid": "3f1d235d_5cdc9873",
+      "range": {
+        "startLine": 1612,
+        "startChar": 35,
+        "endLine": 1612,
+        "endChar": 43
+      },
+      "revId": "0bd1a11122bc53794997f20e032ca13df9bd6060",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
