@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_5cdc9873",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-06T03:20:04Z",
+      "side": 1,
+      "message": "This line and the PhoneStatusBar one seem unrelated to the op comment. Why expose the full visualizer ref?",
+      "range": {
+        "startLine": 1612,
+        "startChar": 35,
+        "endLine": 1612,
+        "endChar": 43
+      },
+      "revId": "0bd1a11122bc53794997f20e032ca13df9bd6060",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
