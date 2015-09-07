@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3f1d235d_124847ca",
+        "filename": "media/java/android/media/AudioRecord.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-09-07T20:50:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1d235d_fcc12430",
+      "revId": "a5feb8b6bf0eca5bbf117ee31bc6fd6b19db42bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_dcdc281a",
         "filename": "media/java/android/media/AudioRecord.java",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-09-06T09:14:44Z",
       "side": 1,
       "message": "Same here, does this require having the lock?",
+      "revId": "a5feb8b6bf0eca5bbf117ee31bc6fd6b19db42bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_f244abb9",
+        "filename": "media/java/android/media/AudioRecord.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-09-07T20:50:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1d235d_dcdc281a",
       "revId": "a5feb8b6bf0eca5bbf117ee31bc6fd6b19db42bf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
