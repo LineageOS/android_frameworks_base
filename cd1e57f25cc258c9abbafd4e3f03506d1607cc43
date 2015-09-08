@@ -16,6 +16,24 @@
       "revId": "cd1e57f25cc258c9abbafd4e3f03506d1607cc43",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_9e97c191",
+        "filename": "media/java/android/media/AudioRecord.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 9528
+      },
+      "writtenOn": "2015-09-08T23:47:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1d235d_fe88f571",
+      "revId": "cd1e57f25cc258c9abbafd4e3f03506d1607cc43",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
