@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_9b6c7337",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-08T22:06:32Z",
+      "side": 1,
+      "message": "let\u0027s not use enums. we can use int constants instead. less memory.",
+      "revId": "6e2d4ffafde43073191064d446d360581beb01e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_7b699723",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-08T22:06:32Z",
+      "side": 1,
+      "message": "no longer returns true",
+      "revId": "6e2d4ffafde43073191064d446d360581beb01e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_5b76db08",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-08T22:06:32Z",
+      "side": 1,
+      "message": "this is unclear what it\u0027s trying to do. maybe split it out into switch statements?",
+      "revId": "6e2d4ffafde43073191064d446d360581beb01e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
