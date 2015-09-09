@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_5ee489ac",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-09-09T02:35:56Z",
+      "side": 1,
+      "message": "not sure if this is your intellij setting but we shouldn\u0027t modify lines that you aren\u0027t actually making changes on",
+      "revId": "4975dc4133be57ac86d970ba4958cf379d0b3075",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_3ee1cd9b",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3627,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-09-09T02:35:56Z",
+      "side": 1,
+      "message": "if this boolean isn\u0027t needed at the top, can we declare at the point that it is being used",
+      "revId": "4975dc4133be57ac86d970ba4958cf379d0b3075",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
