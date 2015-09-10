@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f1d235d_e7ff4865",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 3609,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-09-10T05:39:48Z",
+      "side": 1,
+      "message": "let\u0027s remove this to save on future potential merge pains",
+      "revId": "db7083394827696b94867d6c5cb509240ec7b018",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_47d71cef",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 3627,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-09-10T05:39:48Z",
+      "side": 1,
+      "message": "can we get rid of the boolean and do the check inline? doesn\u0027t really add clarity as the method name and the boolean value are the same name",
+      "revId": "db7083394827696b94867d6c5cb509240ec7b018",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1d235d_67da1818",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 3662,
+      "author": {
+        "id": 10394
+      },
+      "writtenOn": "2015-09-10T05:39:48Z",
+      "side": 1,
+      "message": "devil\u0027s advocate - what\u0027s the reason for changing this line? The default constructor declares a size of 0 doesn\u0027t it?",
+      "revId": "db7083394827696b94867d6c5cb509240ec7b018",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
