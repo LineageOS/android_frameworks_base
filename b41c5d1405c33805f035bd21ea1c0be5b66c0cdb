@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f1a1f67_47f29e08",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/HeadsUpNotificationView.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-11T22:15:26Z",
+      "side": 1,
+      "message": "maybe we should add a static method somewhere to wrap this since it\u0027s used more than once.",
+      "revId": "b41c5d1405c33805f035bd21ea1c0be5b66c0cdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
