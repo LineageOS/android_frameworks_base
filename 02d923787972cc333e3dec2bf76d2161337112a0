@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f1a1f67_4de99d7e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/IconMerger.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2015-09-12T23:02:11Z",
+      "side": 1,
+      "message": "To keep the new logic, this variable could be name iconWidth. Not necessarily.",
+      "range": {
+        "startLine": 57,
+        "startChar": 15,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "02d923787972cc333e3dec2bf76d2161337112a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1a1f67_cde36da4",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/IconMerger.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2015-09-12T23:02:11Z",
+      "side": 1,
+      "message": "This mIconSize has to be changed into mIconWidth too I guess.",
+      "range": {
+        "startLine": 71,
+        "startChar": 37,
+        "endLine": 71,
+        "endChar": 46
+      },
+      "revId": "02d923787972cc333e3dec2bf76d2161337112a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
