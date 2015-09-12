@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f1a1f67_2282f050",
+        "filename": "packages/SystemUI/src/com/android/systemui/recents/model/RecentsTaskLoadPlan.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-12T02:25:24Z",
+      "side": 1,
+      "message": "why is mConfig null here? looks really suspicious since it was passed into the constructor",
+      "revId": "dd3f4007c0e66af3c60b8805e1e5ed44ee9047fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
