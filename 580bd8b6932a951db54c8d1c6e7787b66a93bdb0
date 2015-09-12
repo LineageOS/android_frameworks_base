@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f1a1f67_82c66416",
+        "filename": "services/core/java/com/android/server/pm/MultiTaskDealer.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-12T05:39:54Z",
+      "side": 1,
+      "message": "SCANNER",
+      "revId": "580bd8b6932a951db54c8d1c6e7787b66a93bdb0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1a1f67_42d04cca",
+        "filename": "services/core/java/com/android/server/pm/MultiTaskDealer.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-12T05:39:54Z",
+      "side": 1,
+      "message": "This lock seems unused.",
+      "revId": "580bd8b6932a951db54c8d1c6e7787b66a93bdb0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1a1f67_62cb481e",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 4383,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-12T05:39:54Z",
+      "side": 1,
+      "message": "Line length",
+      "revId": "580bd8b6932a951db54c8d1c6e7787b66a93bdb0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
