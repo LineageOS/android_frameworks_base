@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f1a1f67_c24e9cc0",
+        "filename": "core/jni/android_util_Process.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-12T05:24:25Z",
+      "side": 1,
+      "message": "Any way to move this file descriptor setup code to some kind of init function instead?",
+      "revId": "a234dae05fb1f13db4af35017594318793b02c97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
