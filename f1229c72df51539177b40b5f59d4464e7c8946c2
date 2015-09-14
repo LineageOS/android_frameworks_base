@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f1a1f67_1f974693",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 10984
+      },
+      "writtenOn": "2015-09-14T23:26:57Z",
+      "side": 1,
+      "message": "A quick grep on fw/base for \"-i hotspot\" returns me these strings:\n\n    \u003cstring name\u003d\"wifi_p2p_turnon_message\"\u003eStart Wi-Fi Direct. This will turn off Wi-Fi client/hotspot.\u003c/string\u003e\n    \u003cstring name\u003d\"tethered_notification_title\"\u003eTethering or hotspot active\u003c/string\u003e\n\nI guess we should stick with \"hotspot\" instead of \"Hotspot\"?",
+      "revId": "f1229c72df51539177b40b5f59d4464e7c8946c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
