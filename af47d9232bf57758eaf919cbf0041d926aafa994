@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1f1a1f67_d220a5fa",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 3088,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-15T22:28:02Z",
+      "side": 1,
+      "message": "system|signature",
+      "range": {
+        "startLine": 3088,
+        "startChar": 33,
+        "endLine": 3088,
+        "endChar": 50
+      },
+      "revId": "af47d9232bf57758eaf919cbf0041d926aafa994",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f1a1f67_b272c910",
         "filename": "core/res/res/values/cm_strings.xml",
         "patchSetId": 10
@@ -36,6 +59,46 @@
       "writtenOn": "2015-09-15T22:15:04Z",
       "side": 1,
       "message": "Needs a dot in the end",
+      "revId": "af47d9232bf57758eaf919cbf0041d926aafa994",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1a1f67_b21d29bf",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardSecurityModel.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-15T22:28:02Z",
+      "side": 1,
+      "message": "Might be worthwhile to create a specific SecurityMode for 3rd party lock screens.",
+      "range": {
+        "startLine": 115,
+        "startChar": 31,
+        "endLine": 115,
+        "endChar": 48
+      },
+      "revId": "af47d9232bf57758eaf919cbf0041d926aafa994",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1a1f67_3260f932",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1811,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-15T22:28:02Z",
+      "side": 1,
+      "message": "need to ensure component has THIRD_PARTY_KEYGUARD permission",
       "revId": "af47d9232bf57758eaf919cbf0041d926aafa994",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
