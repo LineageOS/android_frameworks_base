@@ -16,6 +16,24 @@
       "revId": "94f7f45205f552eea67a83c7364dc8b7fd3d6269",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1a1f67_1fd066f7",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-15T02:36:42Z",
+      "side": 0,
+      "message": "all it does is call invalidate() if it is visible and attached. calling invalidate on an invisible view shouldn\u0027t have any effect.",
+      "parentUuid": "1f1a1f67_9fdc7619",
+      "revId": "94f7f45205f552eea67a83c7364dc8b7fd3d6269",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
