@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f1a1f67_9fdc7619",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2015-09-15T02:31:47Z",
+      "side": 0,
+      "message": "This security makes sure the View is visible, which can be false if the battery icon is gone, @line 361",
+      "revId": "94f7f45205f552eea67a83c7364dc8b7fd3d6269",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
