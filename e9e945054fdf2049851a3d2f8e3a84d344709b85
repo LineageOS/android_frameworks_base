@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f1a1f67_32391941",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-15T21:44:41Z",
+      "side": 1,
+      "message": "should probably break once a fingerprint is found.",
+      "revId": "e9e945054fdf2049851a3d2f8e3a84d344709b85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1a1f67_f23a8132",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-15T21:44:41Z",
+      "side": 1,
+      "message": "Are there some sort of plans to use this in the future?  Might be worth wrapping around an if statement with a constant that can be set to true if/when you want to use this code, otherwise I\u0027d just get rid of the commented code.",
+      "range": {
+        "startLine": 545,
+        "startChar": 0,
+        "endLine": 554,
+        "endChar": 19
+      },
+      "revId": "e9e945054fdf2049851a3d2f8e3a84d344709b85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1a1f67_d24785bc",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1987,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-15T21:44:41Z",
+      "side": 1,
+      "message": "since you are changing the logic here, you should update the comment above.",
+      "revId": "e9e945054fdf2049851a3d2f8e3a84d344709b85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
