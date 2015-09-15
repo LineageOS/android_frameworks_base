@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f1a1f67_b272c910",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-09-15T22:15:04Z",
+      "side": 1,
+      "message": "start with a lowercase",
+      "range": {
+        "startLine": 350,
+        "startChar": 46,
+        "endLine": 350,
+        "endChar": 47
+      },
+      "revId": "af47d9232bf57758eaf919cbf0041d926aafa994",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1a1f67_f2684122",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-09-15T22:15:04Z",
+      "side": 1,
+      "message": "Needs a dot in the end",
+      "revId": "af47d9232bf57758eaf919cbf0041d926aafa994",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
