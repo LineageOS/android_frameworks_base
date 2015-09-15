@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f1a1f67_722f91f6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBouncer.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-15T21:24:13Z",
+      "side": 1,
+      "message": "You don\u0027t need to have a separate class for this.",
+      "revId": "0a2327ca679c8ae7c9d4dfe3868800bb2360a8b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
