@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff346bd7_95c1e631",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3903,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-09-17T02:35:19Z",
+      "side": 1,
+      "message": "Can you add a comment for\n  // If not foreground user, we dereference the keyguard wallpaper in memory",
+      "revId": "962651f857ed431e788e38828a466af1b5f12a5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
