@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff346bd7_386c7107",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3916,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-09-17T22:26:57Z",
+      "side": 1,
+      "message": "IIRC this call janks up the ui thread a bit, any way we can move it off the ui thread?",
+      "revId": "6880ebca8b3b05f42df8aa625a450e9356767986",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
