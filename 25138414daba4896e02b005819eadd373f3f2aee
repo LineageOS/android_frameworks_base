@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff346bd7_f83f09b3",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 5652,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-09-17T06:59:51Z",
+      "side": 1,
+      "message": "This is a hack. :|",
+      "revId": "25138414daba4896e02b005819eadd373f3f2aee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
