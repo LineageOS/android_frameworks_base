@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff346bd7_3b08eb26",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-17T23:47:14Z",
+      "side": 1,
+      "message": "ArraySet would be better than a HashSet here IMO",
+      "revId": "561705ed819b3dd77804aa663f79381455c2cda5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
