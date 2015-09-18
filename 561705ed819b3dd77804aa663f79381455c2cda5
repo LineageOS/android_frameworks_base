@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ff346bd7_3b6fcbc6",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-18T00:50:54Z",
+      "side": 1,
+      "message": "I see Ed\u0027s comment below, but we are intentionally passing null to scanDirLI, but not null checking the incoming user handle there? This seems weird to me.",
+      "revId": "561705ed819b3dd77804aa663f79381455c2cda5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff346bd7_9b3117f0",
         "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
         "patchSetId": 10
@@ -13,6 +30,23 @@
       "writtenOn": "2015-09-18T00:10:18Z",
       "side": 1,
       "message": "might be simpler to have something like:\n\nint prebundledUserId \u003d user \u003d\u003d null ? UserHandle.USER_OWNER : user.getIdentifier();\n\nand then pass this into all of you prebundled methods below.  this would prevent NPE in case anyone ever passes null to scanDirLI with prebundled flag set, and also prevents the awkwardness of having to set a default user _after_ calling scanPackageLI",
+      "revId": "561705ed819b3dd77804aa663f79381455c2cda5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff346bd7_bb497b61",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 6422,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-18T00:50:54Z",
+      "side": 1,
+      "message": "Extra newline",
       "revId": "561705ed819b3dd77804aa663f79381455c2cda5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
