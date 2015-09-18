@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff346bd7_bbe3bba4",
+        "filename": "core/java/android/app/ResourcesManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-18T05:56:57Z",
+      "side": 1,
+      "message": "can get rid of this commented code",
+      "revId": "0781bb15db36ef8b62e5321972bfd0a8d3e12dea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
