@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff346bd7_a68dde7c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-18T18:00:13Z",
+      "side": 1,
+      "message": "Danny, shouldn\u0027t we set mInstantExpandLayoutListener to null in the listener block and don\u0027t call removeOnGlobalLayoutListener if it was triggered before?",
+      "range": {
+        "startLine": 815,
+        "startChar": 8,
+        "endLine": 815,
+        "endChar": 27
+      },
+      "revId": "29a962a6eacadbef573194217cafe63b1e2d8ac5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
