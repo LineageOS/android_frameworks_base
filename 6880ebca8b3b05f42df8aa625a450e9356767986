@@ -16,6 +16,24 @@
       "revId": "6880ebca8b3b05f42df8aa625a450e9356767986",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff346bd7_5b7defe5",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3916,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-18T04:10:58Z",
+      "side": 1,
+      "message": "Adnan, mKeyguardWallpaper is needed by updateMediaMetaData, that must run in uithread.",
+      "parentUuid": "ff346bd7_386c7107",
+      "revId": "6880ebca8b3b05f42df8aa625a450e9356767986",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
