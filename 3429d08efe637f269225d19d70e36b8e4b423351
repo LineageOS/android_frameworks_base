@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff346bd7_1bebe7b0",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/WifiTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-18T03:48:15Z",
+      "side": 1,
+      "message": "mAccessPoints \u003d null;\nmItemsList.setEmptyState(R.drawable.ic_qs_wifi_detail_empty,\n                    R.string.quick_settings_wifi_detail_empty_text);",
+      "range": {
+        "startLine": 293,
+        "startChar": 16,
+        "endLine": 293,
+        "endChar": 21
+      },
+      "revId": "3429d08efe637f269225d19d70e36b8e4b423351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
