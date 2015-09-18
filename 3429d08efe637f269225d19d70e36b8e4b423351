@@ -22,6 +22,30 @@
       "revId": "3429d08efe637f269225d19d70e36b8e4b423351",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff346bd7_db68bf22",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/WifiTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-18T21:45:48Z",
+      "side": 1,
+      "message": "there should be no need to call mItemsList.setEmptyState() again since this would have been taken care of when creating the detailed view.\n\nSetting mAccessPoints to null may not be a bad idea although I see no change in results when doing this.",
+      "parentUuid": "ff346bd7_1bebe7b0",
+      "range": {
+        "startLine": 293,
+        "startChar": 16,
+        "endLine": 293,
+        "endChar": 21
+      },
+      "revId": "3429d08efe637f269225d19d70e36b8e4b423351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
