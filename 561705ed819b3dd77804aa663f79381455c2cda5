@@ -67,6 +67,24 @@
       "revId": "561705ed819b3dd77804aa663f79381455c2cda5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_d7465422",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-09-22T05:10:46Z",
+      "side": 1,
+      "message": "ArraySet lookups are slower than HashSet since they have to do binary search, however it\u0027s totally insignificant here.\n\nThe only reason I could see for an ArraySet is because the underlying array will shrink as items are removed and we\u0027ll save on memory spaces, but again since the # of items involved here is small, its also insignificant.",
+      "parentUuid": "ff346bd7_3b08eb26",
+      "revId": "561705ed819b3dd77804aa663f79381455c2cda5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
