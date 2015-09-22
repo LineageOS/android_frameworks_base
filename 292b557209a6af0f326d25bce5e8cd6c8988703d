@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "df3967d1_17f73cf8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-22T05:10:17Z",
+      "side": 1,
+      "message": "We have not seen any adverse effects from this, but something to keep an eye on and easy to fix if there are issues.",
+      "parentUuid": "df3967d1_37a48008",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3967d1_17a97cde",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardStatusBarView.java",
         "patchSetId": 21
@@ -30,6 +48,24 @@
       "writtenOn": "2015-09-22T04:32:43Z",
       "side": 1,
       "message": "Again, the issue with onAttachedToWindow() and onDetachedFromWindow() is that your object is only created once and may be attached/detached multiple times in normal circumstances (I don\u0027t know about System UI), but if you\u0027re going to be using onDetachedFromWindow() it\u0027s best to also use onAttachedToWindow() for registering.",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_37cb60a6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardStatusBarView.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-22T05:10:17Z",
+      "side": 1,
+      "message": "Just tested and this remains until user change or theme change.",
+      "parentUuid": "df3967d1_17a97cde",
       "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "df3967d1_573b849b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-22T05:10:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df3967d1_f7add8ea",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3967d1_f796f894",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/ZenModeControllerImpl.java",
         "patchSetId": 21
@@ -64,6 +118,24 @@
       "writtenOn": "2015-09-22T04:32:43Z",
       "side": 1,
       "message": "Maybe use a WeakHashMap instead?",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_f7c4b894",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/ZenModeControllerImpl.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-22T05:10:17Z",
+      "side": 1,
+      "message": "WeakHashMap only works for the keys that get GCed.  We have the opposite where the values is what we want to be WeakReferences",
+      "parentUuid": "df3967d1_f796f894",
       "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "df3967d1_b7be30fd",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/ZenModeControllerImpl.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-22T05:10:17Z",
+      "side": 1,
+      "message": "?",
+      "parentUuid": "df3967d1_97b44c37",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3967d1_77e8c815",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumePanel.java",
         "patchSetId": 21
@@ -98,6 +188,24 @@
       "writtenOn": "2015-09-22T04:32:43Z",
       "side": 1,
       "message": "Do you need to clear out the context and viewgroup stuff since the Handler is associated with the UI Thread Looper which appears to hold its values (the handler) with a static variable sThreadLocal?",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_97bb2c0d",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumePanel.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-22T05:10:17Z",
+      "side": 1,
+      "message": "Neither the parent or context are leaking so I believe we are good here.",
+      "parentUuid": "df3967d1_77e8c815",
       "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false

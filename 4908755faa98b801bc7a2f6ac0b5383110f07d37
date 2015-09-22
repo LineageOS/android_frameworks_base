@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "df3967d1_37f24008",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-22T05:10:17Z",
+      "side": 0,
+      "message": "The listener gets registered in onAttachedToWindow and removed in onDetachedFromWindow.  This extra call caused this object to not get garbage collected because the BatteryStateRegistar uses an ArrayList as the backing data structure.",
+      "parentUuid": "df3967d1_579f04b4",
+      "revId": "4908755faa98b801bc7a2f6ac0b5383110f07d37",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3967d1_d7aad4d0",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
         "patchSetId": 21
@@ -30,6 +48,24 @@
       "writtenOn": "2015-09-22T04:32:43Z",
       "side": 0,
       "message": "Was removal of this line on purpose?",
+      "revId": "4908755faa98b801bc7a2f6ac0b5383110f07d37",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_17d05c50",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 3987,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-22T05:10:17Z",
+      "side": 0,
+      "message": "Yes.  Not needed as views are being properly cleaned up by the system.",
+      "parentUuid": "df3967d1_d7aad4d0",
       "revId": "4908755faa98b801bc7a2f6ac0b5383110f07d37",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
