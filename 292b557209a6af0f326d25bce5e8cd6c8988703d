@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3967d1_37a48008",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 13760
+      },
+      "writtenOn": "2015-09-22T04:32:43Z",
+      "side": 1,
+      "message": "The only thing I\u0027m worried about is these aren\u0027t set in onAttachedToWindow()",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_17a97cde",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardStatusBarView.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 13760
+      },
+      "writtenOn": "2015-09-22T04:32:43Z",
+      "side": 1,
+      "message": "Again, the issue with onAttachedToWindow() and onDetachedFromWindow() is that your object is only created once and may be attached/detached multiple times in normal circumstances (I don\u0027t know about System UI), but if you\u0027re going to be using onDetachedFromWindow() it\u0027s best to also use onAttachedToWindow() for registering.",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_f7add8ea",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 13760
+      },
+      "writtenOn": "2015-09-22T04:32:43Z",
+      "side": 1,
+      "message": "See Previous for same thing.",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_f796f894",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/ZenModeControllerImpl.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 13760
+      },
+      "writtenOn": "2015-09-22T04:32:43Z",
+      "side": 1,
+      "message": "Maybe use a WeakHashMap instead?",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_97b44c37",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/ZenModeControllerImpl.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 13760
+      },
+      "writtenOn": "2015-09-22T04:32:43Z",
+      "side": 1,
+      "message": "This only works if the callbacks have references outside of here.  Is this true?",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_77e8c815",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumePanel.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 13760
+      },
+      "writtenOn": "2015-09-22T04:32:43Z",
+      "side": 1,
+      "message": "Do you need to clear out the context and viewgroup stuff since the Handler is associated with the UI Thread Looper which appears to hold its values (the handler) with a static variable sThreadLocal?",
+      "revId": "292b557209a6af0f326d25bce5e8cd6c8988703d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

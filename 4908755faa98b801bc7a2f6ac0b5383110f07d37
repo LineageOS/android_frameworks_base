@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3967d1_579f04b4",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 13760
+      },
+      "writtenOn": "2015-09-22T04:32:43Z",
+      "side": 0,
+      "message": "What\u0027s the purpose of making sure it isn\u0027t attached?  Also, what happens when this is called twice? Maybe the listener on the callbacks need to make sure it is attached instead?",
+      "revId": "4908755faa98b801bc7a2f6ac0b5383110f07d37",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_d7aad4d0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 3987,
+      "author": {
+        "id": 13760
+      },
+      "writtenOn": "2015-09-22T04:32:43Z",
+      "side": 0,
+      "message": "Was removal of this line on purpose?",
+      "revId": "4908755faa98b801bc7a2f6ac0b5383110f07d37",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
