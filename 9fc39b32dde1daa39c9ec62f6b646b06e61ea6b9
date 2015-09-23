@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3967d1_ba4735bd",
+        "filename": "core/java/android/app/ResourcesManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-23T11:45:06Z",
+      "side": 1,
+      "message": "might as well get rid of this last parameter, no need to spam logcat.",
+      "range": {
+        "startLine": 265,
+        "startChar": 97,
+        "endLine": 265,
+        "endChar": 99
+      },
+      "revId": "9fc39b32dde1daa39c9ec62f6b646b06e61ea6b9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
