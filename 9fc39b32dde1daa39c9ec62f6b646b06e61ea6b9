@@ -22,6 +22,30 @@
       "revId": "9fc39b32dde1daa39c9ec62f6b646b06e61ea6b9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_5a1849d2",
+        "filename": "core/java/android/app/ResourcesManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-09-23T12:02:01Z",
+      "side": 1,
+      "message": "It\u0027s system log, shouldn\u0027t be too much of a problem",
+      "parentUuid": "df3967d1_ba4735bd",
+      "range": {
+        "startLine": 265,
+        "startChar": 97,
+        "endLine": 265,
+        "endChar": 99
+      },
+      "revId": "9fc39b32dde1daa39c9ec62f6b646b06e61ea6b9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
