@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3967d1_da3c39c1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/StatusBarIconView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-23T02:31:30Z",
+      "side": 1,
+      "message": "Doesn\u0027t a call to svib.set is required to redraw the showIconCount status (at least if the value changed)?",
+      "range": {
+        "startLine": 397,
+        "startChar": 45,
+        "endLine": 397,
+        "endChar": 46
+      },
+      "revId": "6827438fbe2f69044dc35e4f606501753311fe30",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
