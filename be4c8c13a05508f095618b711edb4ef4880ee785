@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3967d1_c5ab3a73",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/LocationTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-24T03:16:16Z",
+      "side": 1,
+      "message": "Same here, LocationTile doesn\u0027t support secondary click",
+      "range": {
+        "startLine": 115,
+        "startChar": 19,
+        "endLine": 115,
+        "endChar": 39
+      },
+      "revId": "be4c8c13a05508f095618b711edb4ef4880ee785",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
