@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3967d1_45b50aee",
+        "filename": "core/tests/coretests/src/android/content/pm/PackageManagerTests.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3415,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-24T02:20:38Z",
+      "side": 1,
+      "message": "Although this fixed the test case, since this check was designed to catch the SecurityException removed by https://android.googlesource.com/platform/frameworks/base/+/c6f2249%5E!/, isn\u0027t better just to remove this check? The \"Unknown KeySet alias:\" that causes the IllegalArgumentException was tested previously.",
+      "range": {
+        "startLine": 3415,
+        "startChar": 17,
+        "endLine": 3415,
+        "endChar": 41
+      },
+      "revId": "b44609482f92346de363bc966a5de64d78481c02",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
