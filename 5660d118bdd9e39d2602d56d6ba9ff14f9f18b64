@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3967d1_05cf0280",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CellularTile.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-24T02:24:29Z",
+      "side": 1,
+      "message": "If i read the code correctly, for this tile this should by done in handleLongClick() and not handleSecondaryClick() (which is only supported by dual qs tiles).",
+      "range": {
+        "startLine": 109,
+        "startChar": 19,
+        "endLine": 109,
+        "endChar": 39
+      },
+      "revId": "5660d118bdd9e39d2602d56d6ba9ff14f9f18b64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
