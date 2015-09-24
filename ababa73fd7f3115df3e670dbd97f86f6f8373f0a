@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3967d1_2587a6da",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/StatusBarIconView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-24T04:37:50Z",
+      "side": 1,
+      "message": "could use the already initialized package manager above",
+      "revId": "ababa73fd7f3115df3e670dbd97f86f6f8373f0a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
