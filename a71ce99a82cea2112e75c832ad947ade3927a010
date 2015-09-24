@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3967d1_25afa695",
+        "filename": "packages/SystemUI/src/com/android/systemui/SystemUIApplication.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-24T02:36:57Z",
+      "side": 1,
+      "message": "Not related to this cl, but Configuration#setTo shouldn\u0027t set themeConfig to null if the new theme config is null?",
+      "range": {
+        "startLine": 143,
+        "startChar": 16,
+        "endLine": 143,
+        "endChar": 21
+      },
+      "revId": "a71ce99a82cea2112e75c832ad947ade3927a010",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
