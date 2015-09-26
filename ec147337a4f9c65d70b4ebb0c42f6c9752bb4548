@@ -81,6 +81,30 @@
       "revId": "ec147337a4f9c65d70b4ebb0c42f6c9752bb4548",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3967d1_3aa900df",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/BatterySaverTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-26T16:11:42Z",
+      "side": 1,
+      "message": "Conceptually, those are different things, and we need this is power profiles aren\u0027t available for the device.",
+      "parentUuid": "df3967d1_9a9a2cc3",
+      "range": {
+        "startLine": 57,
+        "startChar": 29,
+        "endLine": 57,
+        "endChar": 45
+      },
+      "revId": "ec147337a4f9c65d70b4ebb0c42f6c9752bb4548",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
