@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3967d1_5a6f24c5",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PerfProfileTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-09-26T15:41:49Z",
+      "side": 1,
+      "message": "Since this is device specific and something that is not going to change, I guess we should do this in the settings app too, to avoid the user to choose this tile.",
+      "range": {
+        "startLine": 86,
+        "startChar": 28,
+        "endLine": 86,
+        "endChar": 44
+      },
+      "revId": "446f3341f4c53a60b58eb6b3de7b86039e4e03a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
