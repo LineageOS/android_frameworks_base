@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f436f4f_6f61113a",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-29T23:17:48Z",
+      "side": 1,
+      "message": "what\u0027s the reasoning to show the third party keygaurd here and not below where showLocked is run?",
+      "revId": "749332ae0d1c08ed6fe4bcb93cd072311158b328",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_4f664d54",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 1918,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-29T23:17:48Z",
+      "side": 1,
+      "message": "should we run the onScreenTurnedOff regardless?",
+      "revId": "749332ae0d1c08ed6fe4bcb93cd072311158b328",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
