@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bf3e73b7_d3aae6d0",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 6140,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-29T22:00:10Z",
+      "side": 1,
+      "message": "The downside is I won\u0027t be able to continue to use a content observer to listen for when this component changes.",
+      "parentUuid": "bf3e73b7_33a49208",
+      "range": {
+        "startLine": 6140,
+        "startChar": 35,
+        "endLine": 6140,
+        "endChar": 65
+      },
+      "revId": "a755d49ad09ef9aaf6124cd43d58bd7f1952fe45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf3e73b7_13a98ede",
         "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
         "patchSetId": 21
@@ -41,6 +65,53 @@
         "startChar": 8,
         "endLine": 991,
         "endChar": 74
+      },
+      "revId": "a755d49ad09ef9aaf6124cd43d58bd7f1952fe45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_2faae984",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-29T22:00:10Z",
+      "side": 1,
+      "message": "The third party component will only ever be shown if a valid component is set and the type is PASSWORD_THIRD_PARTY_UNSECURED.  Changing to any other type should correctly show that type when the keyguard is shown.",
+      "parentUuid": "bf3e73b7_13a98ede",
+      "range": {
+        "startLine": 989,
+        "startChar": 8,
+        "endLine": 991,
+        "endChar": 74
+      },
+      "revId": "a755d49ad09ef9aaf6124cd43d58bd7f1952fe45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf3e73b7_b04e38bf",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 2120,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-29T22:00:10Z",
+      "side": 1,
+      "message": "s/hold/holds",
+      "range": {
+        "startLine": 2120,
+        "startChar": 41,
+        "endLine": 2120,
+        "endChar": 45
       },
       "revId": "a755d49ad09ef9aaf6124cd43d58bd7f1952fe45",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
