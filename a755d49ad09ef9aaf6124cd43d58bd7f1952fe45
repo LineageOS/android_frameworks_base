@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf3e73b7_33a49208",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 6140,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-29T04:06:21Z",
+      "side": 1,
+      "message": "wondering if it would be better stored in LockSettingsStorage.java to be stored in the same place as other keyguard settings",
+      "range": {
+        "startLine": 6140,
+        "startChar": 35,
+        "endLine": 6140,
+        "endChar": 65
+      },
+      "revId": "a755d49ad09ef9aaf6124cd43d58bd7f1952fe45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf3e73b7_13a98ede",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-09-29T04:06:21Z",
+      "side": 1,
+      "message": "A new key could be added to store the component of the lock pattern settings that is independent of the security type. Checks to make sure that a security type isn\u0027t used with a 3rd party keyguard could be done through the UI to ensure there are no conflicts until we\u0027re ready",
+      "range": {
+        "startLine": 989,
+        "startChar": 8,
+        "endLine": 991,
+        "endChar": 74
+      },
+      "revId": "a755d49ad09ef9aaf6124cd43d58bd7f1952fe45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
