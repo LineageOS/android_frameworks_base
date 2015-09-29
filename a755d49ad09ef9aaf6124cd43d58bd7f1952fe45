@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9f436f4f_4fbc0dbb",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 6140,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-09-29T22:21:16Z",
+      "side": 1,
+      "message": "I\u0027ll have to see what the impact is because when the component changes, a permission check is also done to ensure the component that is being launched actually has the required permissions.  Provided there are not significant delays with this method, it may work.  Will verify launch performance to make sure the component is launched quickly enough.",
+      "parentUuid": "9f436f4f_af76d93d",
+      "range": {
+        "startLine": 6140,
+        "startChar": 35,
+        "endLine": 6140,
+        "endChar": 65
+      },
+      "revId": "a755d49ad09ef9aaf6124cd43d58bd7f1952fe45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf3e73b7_13a98ede",
         "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
         "patchSetId": 21
