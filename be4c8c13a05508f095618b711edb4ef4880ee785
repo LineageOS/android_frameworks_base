@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "9f436f4f_325b6e88",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6050,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-30T05:07:40Z",
+      "side": 1,
+      "message": "Feels like allowing 3 tiles should be a separate commit altogether.",
+      "revId": "be4c8c13a05508f095618b711edb4ef4880ee785",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_7261f639",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-30T05:07:40Z",
+      "side": 1,
+      "message": "Why preserve the old line as a comment? git does that for you.",
+      "revId": "be4c8c13a05508f095618b711edb4ef4880ee785",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_5266f253",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-09-30T05:07:40Z",
+      "side": 1,
+      "message": "same here.",
+      "revId": "be4c8c13a05508f095618b711edb4ef4880ee785",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3967d1_c5ab3a73",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/LocationTile.java",
         "patchSetId": 2
