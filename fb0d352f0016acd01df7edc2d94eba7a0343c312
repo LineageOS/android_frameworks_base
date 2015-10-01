@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f436f4f_03dc9e72",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-01T22:51:08Z",
+      "side": 1,
+      "message": "any reason to make this a field if it\u0027s only needed for the duration of a few methods?",
+      "revId": "fb0d352f0016acd01df7edc2d94eba7a0343c312",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
