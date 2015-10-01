@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f436f4f_9817d9ee",
+        "filename": "services/core/java/com/android/server/ThemeService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-10-01T05:31:01Z",
+      "side": 1,
+      "message": "Did we take care of the overlays for the default values on shipping devices?",
+      "range": {
+        "startLine": 469,
+        "startChar": 20,
+        "endLine": 469,
+        "endChar": 62
+      },
+      "revId": "9fc6e9dcbb4b328e848f710f09907d5868022b41",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
