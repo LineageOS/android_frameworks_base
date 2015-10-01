@@ -16,6 +16,24 @@
       "revId": "cc2d92859e6a46862b0d673d14332177685adcad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_a3b4b236",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3356,
+      "author": {
+        "id": 13760
+      },
+      "writtenOn": "2015-10-01T22:05:30Z",
+      "side": 1,
+      "message": "I didn\u0027t do it to minimize changes to current code to the framework since we seem to want to minimize these -- it could be the wrong idea and doing a method might be perfectly fine for mergers.",
+      "parentUuid": "9f436f4f_98ec79f4",
+      "revId": "cc2d92859e6a46862b0d673d14332177685adcad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
