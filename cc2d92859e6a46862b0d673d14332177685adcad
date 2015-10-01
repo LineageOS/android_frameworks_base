@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f436f4f_98ec79f4",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3356,
+      "author": {
+        "id": 9621
+      },
+      "writtenOn": "2015-10-01T05:44:24Z",
+      "side": 1,
+      "message": "May not be necessary, but is it possible to abstract this into a method or by changing our conditions (though that might not be the best route because it could overcomplicate things) so that this isn\u0027t a direct copy paste from above?",
+      "revId": "cc2d92859e6a46862b0d673d14332177685adcad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
