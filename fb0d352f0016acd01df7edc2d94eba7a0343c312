@@ -16,6 +16,24 @@
       "revId": "fb0d352f0016acd01df7edc2d94eba7a0343c312",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_c3e5763a",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-10-01T22:53:43Z",
+      "side": 1,
+      "message": "It acts as a flag for scanPackageLI either coming from initial boot (scanDir for prebundleds) or from any new package scan. If its the latter, I can skip the relevant isPrebundledNeededForRegion check below.",
+      "parentUuid": "9f436f4f_03dc9e72",
+      "revId": "fb0d352f0016acd01df7edc2d94eba7a0343c312",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
