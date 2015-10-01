@@ -34,6 +34,24 @@
       "revId": "cc2d92859e6a46862b0d673d14332177685adcad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_23820251",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3356,
+      "author": {
+        "id": 9621
+      },
+      "writtenOn": "2015-10-01T22:10:36Z",
+      "side": 1,
+      "message": "Yeah, true, we usually do that. I\u0027m fine either way, we can probably leave it.",
+      "parentUuid": "9f436f4f_a3b4b236",
+      "revId": "cc2d92859e6a46862b0d673d14332177685adcad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
