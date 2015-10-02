@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f436f4f_e3f51a85",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 4387,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-10-02T00:07:48Z",
+      "side": 1,
+      "message": "Not too sure how often this method is called, but we could avoid a UserHandle object creation by just storing the UserHandle instead of prebundledUserId.",
+      "revId": "94c02c199989632508a1cffcc23f928b0012c3d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_c3f2169b",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 4391,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-10-02T00:07:48Z",
+      "side": 1,
+      "message": "User can be null ?",
+      "revId": "94c02c199989632508a1cffcc23f928b0012c3d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_a3ef12af",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 4415,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-10-02T00:07:48Z",
+      "side": 1,
+      "message": "Same null thing here",
+      "revId": "94c02c199989632508a1cffcc23f928b0012c3d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_832acee4",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 4444,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-10-02T00:07:48Z",
+      "side": 1,
+      "message": "and here",
+      "revId": "94c02c199989632508a1cffcc23f928b0012c3d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
