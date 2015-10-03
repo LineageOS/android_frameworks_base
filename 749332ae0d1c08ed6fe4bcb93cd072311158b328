@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9f436f4f_64501034",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-10-03T03:29:22Z",
+      "side": 1,
+      "message": "Right now we need to do it here for timing.  It should probably happen in setupLocked() but at that time the launcher is not started yet and once it starts it gets the foreground and the third party lock screen is paused. :(",
+      "parentUuid": "9f436f4f_6f61113a",
+      "revId": "749332ae0d1c08ed6fe4bcb93cd072311158b328",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f436f4f_4f664d54",
         "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
         "patchSetId": 23
@@ -30,6 +48,24 @@
       "writtenOn": "2015-09-29T23:17:48Z",
       "side": 1,
       "message": "should we run the onScreenTurnedOff regardless?",
+      "revId": "749332ae0d1c08ed6fe4bcb93cd072311158b328",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_e45be051",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 1918,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-10-03T03:29:22Z",
+      "side": 1,
+      "message": "Yes, good catch.  We should still call that regardless.",
+      "parentUuid": "9f436f4f_4f664d54",
       "revId": "749332ae0d1c08ed6fe4bcb93cd072311158b328",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
