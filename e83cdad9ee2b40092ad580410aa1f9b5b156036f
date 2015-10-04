@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f436f4f_7bbc2abb",
+        "filename": "core/java/android/os/BatteryManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-10-04T16:52:50Z",
+      "side": 1,
+      "message": "@hide is probably needed here.",
+      "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_5bb166e1",
+        "filename": "core/java/android/os/BatteryManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-10-04T16:52:50Z",
+      "side": 1,
+      "message": "@hide needed here as well.",
+      "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_3bb6a2db",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-10-04T16:52:50Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_1bcbde53",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-10-04T16:52:50Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_fbc7fa44",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-10-04T16:52:50Z",
+      "side": 1,
+      "message": "I guess I\u0027ll have to try this, but my gut feeling is that users won\u0027t mentally link \u0027+\u0027 to fast charging. I wonder whether a plus next to the bolt or a thicker bolt would work better?",
+      "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
