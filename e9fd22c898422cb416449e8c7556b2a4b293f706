@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f287b81_2eaae784",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3217,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-10-05T22:37:41Z",
+      "side": 1,
+      "message": "It might be cleaner to have PackageParser do this within package manager service and add it to PackageInfo (as you mentioned) as a part of the boot process and just generate palettes that can be used for various things like notification led.",
+      "revId": "e9fd22c898422cb416449e8c7556b2a4b293f706",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
