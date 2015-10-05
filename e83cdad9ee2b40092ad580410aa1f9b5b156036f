@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9f436f4f_ee373ae3",
+        "filename": "core/java/android/os/BatteryManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2015-10-05T05:40:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f436f4f_7bbc2abb",
+      "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f436f4f_5bb166e1",
         "filename": "core/java/android/os/BatteryManager.java",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-04T16:52:50Z",
       "side": 1,
       "message": "@hide needed here as well.",
+      "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_ce3476e1",
+        "filename": "core/java/android/os/BatteryManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2015-10-05T05:40:28Z",
+      "side": 1,
+      "message": "Done, although you\u0027ll have to let me know if that is the right way to do that commenting (vs. // ... /** @hide */) as I\u0027m not really sure what is appropriate there.",
+      "parentUuid": "9f436f4f_5bb166e1",
       "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "9f436f4f_ae3132ef",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2015-10-05T05:40:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f436f4f_3bb6a2db",
+      "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f436f4f_1bcbde53",
         "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
         "patchSetId": 6
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "9f436f4f_8e4c2e77",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2015-10-05T05:40:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f436f4f_1bcbde53",
+      "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f436f4f_fbc7fa44",
         "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
         "patchSetId": 6
@@ -81,6 +153,24 @@
       "writtenOn": "2015-10-04T16:52:50Z",
       "side": 1,
       "message": "I guess I\u0027ll have to try this, but my gut feeling is that users won\u0027t mentally link \u0027+\u0027 to fast charging. I wonder whether a plus next to the bolt or a thicker bolt would work better?",
+      "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f436f4f_4e564609",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2015-10-05T05:40:28Z",
+      "side": 1,
+      "message": "I agree.\n\nI tried a plus by the bolt initially but I felt like the \"+\" needed to be so small as to be meaningless to fit in the icon.\n\nIf we were to merge this, hopefully the cyanogen designers might have something to propose instead.\n\nFor the record though, this is being used in unofficial nightly builds for the zenfone2 and there haven\u0027t been any questions about it.  I did \"cheat\" and tell people before hand what it meant so take that with a grain of salt.",
+      "parentUuid": "9f436f4f_fbc7fa44",
       "revId": "e83cdad9ee2b40092ad580410aa1f9b5b156036f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
