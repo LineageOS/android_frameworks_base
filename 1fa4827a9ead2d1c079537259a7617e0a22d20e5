@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f436f4f_7b354af7",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2015-10-05T00:33:41Z",
+      "side": 1,
+      "message": "lines too long, add linebreaks",
+      "revId": "1fa4827a9ead2d1c079537259a7617e0a22d20e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
