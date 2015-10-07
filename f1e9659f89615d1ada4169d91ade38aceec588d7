@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f287b81_77620219",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 1927,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-07T01:39:34Z",
+      "side": 1,
+      "message": "outside the else here",
+      "revId": "f1e9659f89615d1ada4169d91ade38aceec588d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
