@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "7f287b81_e2cbce6f",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-07T04:21:58Z",
+      "side": 1,
+      "message": "This could be \"final\"",
+      "range": {
+        "startLine": 269,
+        "startChar": 12,
+        "endLine": 269,
+        "endChar": 15
+      },
+      "revId": "e9fd22c898422cb416449e8c7556b2a4b293f706",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_c2c8d275",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-07T04:21:58Z",
+      "side": 1,
+      "message": "In this contentobserver there are some content uri not directly related to the leds. Clear this informations could not be always necessary. An event in that case, IMHO, we should still want to store the generated color, because isn\u0027t dependent of any setting (and is only a few bytes for mapping various apps).",
+      "range": {
+        "startLine": 1034,
+        "startChar": 12,
+        "endLine": 1034,
+        "endChar": 38
+      },
+      "revId": "e9fd22c898422cb416449e8c7556b2a4b293f706",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f287b81_2eaae784",
         "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
         "patchSetId": 4
