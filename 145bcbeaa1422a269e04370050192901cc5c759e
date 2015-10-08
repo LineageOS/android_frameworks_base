@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f287b81_f8cc9e62",
+        "filename": "services/tests/servicestests/src/com/android/server/pm/PackageManagerSettingsTests.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-10-08T23:56:22Z",
+      "side": 1,
+      "message": "I\u0027d go with something more generic than yu.theme and use org.cyanogenmod for package name",
+      "range": {
+        "startLine": 214,
+        "startChar": 49,
+        "endLine": 214,
+        "endChar": 70
+      },
+      "revId": "145bcbeaa1422a269e04370050192901cc5c759e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_d8d9e222",
+        "filename": "services/tests/servicestests/src/com/android/server/pm/PackageManagerSettingsTests.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-10-08T23:56:22Z",
+      "side": 1,
+      "message": "org.cyanogenmod",
+      "range": {
+        "startLine": 248,
+        "startChar": 49,
+        "endLine": 248,
+        "endChar": 61
+      },
+      "revId": "145bcbeaa1422a269e04370050192901cc5c759e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
