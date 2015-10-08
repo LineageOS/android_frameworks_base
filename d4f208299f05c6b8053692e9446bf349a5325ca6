@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f287b81_83040cc8",
+        "filename": "policy/src/com/android/internal/policy/impl/PhoneWindowManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 6345,
+      "author": {
+        "id": 10
+      },
+      "writtenOn": "2015-10-08T03:50:24Z",
+      "side": 1,
+      "message": "don\u0027t let this slip into the final merged version :)",
+      "range": {
+        "startLine": 6345,
+        "startChar": 12,
+        "endLine": 6345,
+        "endChar": 16
+      },
+      "revId": "d4f208299f05c6b8053692e9446bf349a5325ca6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
