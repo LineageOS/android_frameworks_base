@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f287b81_24dafbe8",
+        "filename": "packages/SystemUI/res/drawable/queue_bg.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-10T04:18:29Z",
+      "side": 1,
+      "message": "possible. got this in a working state so don\u0027t wanna mess with it atm",
+      "parentUuid": "3f1d235d_cd991c20",
+      "range": {
+        "startLine": 19,
+        "startChar": 14,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_ad9ee004",
         "filename": "packages/SystemUI/res/drawable/queue_gradient.xml",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-03T22:15:45Z",
       "side": 1,
       "message": "much indentation",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_04d7ffc1",
+        "filename": "packages/SystemUI/res/drawable/queue_gradient.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-10T04:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1d235d_ad9ee004",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7f287b81_e4e3d3a3",
+        "filename": "packages/SystemUI/res/layout/notification_guts_queue.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-10T04:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1d235d_8da32450",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 52
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_6d88c8c5",
         "filename": "packages/SystemUI/res/layout/queue_adapter_row.xml",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-03T22:15:45Z",
       "side": 1,
       "message": "indentation",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 43
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_c4e0d799",
+        "filename": "packages/SystemUI/res/layout/queue_adapter_row.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-10T04:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1d235d_6d88c8c5",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "7f287b81_a4ef0b86",
+        "filename": "packages/SystemUI/res/layout/queue_adapter_row.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-10T04:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1d235d_4d850cad",
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_2d92d0f7",
         "filename": "packages/SystemUI/res/layout/status_bar_notification_row_media.xml",
         "patchSetId": 9
@@ -122,6 +236,30 @@
       "writtenOn": "2015-09-03T22:15:45Z",
       "side": 1,
       "message": "fix indentation",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 50
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_84f40f5d",
+        "filename": "packages/SystemUI/res/layout/status_bar_notification_row_media.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-10T04:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1d235d_2d92d0f7",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "7f287b81_84cbef1c",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-10T04:18:29Z",
+      "side": 1,
+      "message": "intentional",
+      "parentUuid": "3f1d235d_0d8f14cd",
+      "range": {
+        "startLine": 315,
+        "startChar": 39,
+        "endLine": 315,
+        "endChar": 59
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_8dbc446a",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/ExpandableNotificationRow.java",
         "patchSetId": 9
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "7f287b81_64d003cb",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/ExpandableNotificationRow.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-10T04:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1d235d_8dbc446a",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 37
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1d235d_2dabf01d",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MediaNotificationGuts.java",
         "patchSetId": 9
@@ -191,6 +377,30 @@
       "writtenOn": "2015-09-03T22:15:45Z",
       "side": 1,
       "message": "media notification?",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "9821558c090aac6eabe08d5a3466153128ce5dbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_44d507b9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/MediaNotificationGuts.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-10T04:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1d235d_2dabf01d",
       "range": {
         "startLine": 31,
         "startChar": 17,
