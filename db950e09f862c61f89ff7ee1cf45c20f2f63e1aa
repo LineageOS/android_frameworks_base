@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f287b81_b1fe2403",
+        "filename": "core/java/android/widget/Toast.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-10-13T12:02:58Z",
+      "side": 1,
+      "message": "It seems kinda pointless to initialize a member variable over and over again, so either the variable should be local or be initialized only once.",
+      "revId": "db950e09f862c61f89ff7ee1cf45c20f2f63e1aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_160a8e25",
+        "filename": "core/java/android/widget/Toast.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-10-13T12:02:58Z",
+      "side": 1,
+      "message": "Is this guaranteed to work? The way I read ActivityManagerService.getTasks(), if the calling process doesn\u0027t have the GET_TASKS permission, the returned list will only return the calling app\u0027s tasks plus the launcher task.\n\nAFAICT, this might need a new ActivityManager call (isPackageInForeground(String) or something among those lines)",
+      "revId": "db950e09f862c61f89ff7ee1cf45c20f2f63e1aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_f606e220",
+        "filename": "core/java/android/widget/Toast.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-10-13T12:02:58Z",
+      "side": 1,
+      "message": "Indention is off here.",
+      "revId": "db950e09f862c61f89ff7ee1cf45c20f2f63e1aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
