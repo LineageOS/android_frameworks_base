@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7f287b81_fc4480b9",
+        "filename": "core/java/android/app/ActivityManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-14T13:21:06Z",
+      "side": 1,
+      "message": "Yes, we must guarantee that an app only gets the foreground status of an app for itself, or other app that shared the same userId or are signed we the same certificate.\n\nWe can do that in two ways:\n\n- By passing the packageName in the last entrypoint call to the remote service (to ensure that any app can replace the package). Many of the appop calls do this, because in the other side of the service isn\u0027t really easy to extract the packageName.\n- In the service, extract the package from the binder (which isn\u0027t really easy iirc) and throw a SecurityException if the packageName passed doesn\u0027t matched the privacy restrictions.",
+      "parentUuid": "7f287b81_7cebf0af",
+      "revId": "e62ffa31595b9c95b5d68b3fb4cef07ab313fb13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f287b81_5cd034f8",
         "filename": "core/java/android/app/ActivityManager.java",
         "patchSetId": 2
@@ -30,6 +48,47 @@
       "writtenOn": "2015-10-14T12:25:47Z",
       "side": 1,
       "message": "... and calling this with context.getPackageName() as argument?\n\nDoes that really help though? I mean, apps can call into ActivityManagerNative directly, can\u0027t they? And AFAIK a context isn\u0027t parcelable?",
+      "revId": "e62ffa31595b9c95b5d68b3fb4cef07ab313fb13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_5c3ef429",
+        "filename": "core/java/android/app/ActivityManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-14T13:21:06Z",
+      "side": 1,
+      "message": "Ah, yes you are right. we should do it in the ActivityManagerNative instead. But it doesn\u0027t mean we should pass a Context. See my comment in the ActivityManagerNative class.",
+      "parentUuid": "7f287b81_5cd034f8",
+      "revId": "e62ffa31595b9c95b5d68b3fb4cef07ab313fb13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_3c3b2839",
+        "filename": "core/java/android/app/ActivityManagerNative.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3092,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-14T13:21:06Z",
+      "side": 1,
+      "message": "This should receive a context and then we can get the packagename from that context. We don\u0027t need to serialize the context. The other size is the remote one which is outside the app scope and cannot be hacked.",
+      "range": {
+        "startLine": 3092,
+        "startChar": 47,
+        "endLine": 3092,
+        "endChar": 48
+      },
       "revId": "e62ffa31595b9c95b5d68b3fb4cef07ab313fb13",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
