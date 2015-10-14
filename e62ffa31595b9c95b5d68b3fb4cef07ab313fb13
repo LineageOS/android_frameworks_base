@@ -116,6 +116,30 @@
       "revId": "e62ffa31595b9c95b5d68b3fb4cef07ab313fb13",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_5c271414",
+        "filename": "core/java/android/app/ActivityManagerNative.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3092,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-14T13:42:15Z",
+      "side": 1,
+      "message": "Yeah, probably it still can.",
+      "parentUuid": "7f287b81_9c0d7c92",
+      "range": {
+        "startLine": 3092,
+        "startChar": 47,
+        "endLine": 3092,
+        "endChar": 48
+      },
+      "revId": "e62ffa31595b9c95b5d68b3fb4cef07ab313fb13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
