@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f287b81_7cebf0af",
+        "filename": "core/java/android/app/ActivityManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-10-14T12:25:47Z",
+      "side": 1,
+      "message": "Jorge, you mean making this \u0027public boolean isAppInForeground(Context context)\u0027...",
+      "revId": "e62ffa31595b9c95b5d68b3fb4cef07ab313fb13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f287b81_5cd034f8",
+        "filename": "core/java/android/app/ActivityManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2015-10-14T12:25:47Z",
+      "side": 1,
+      "message": "... and calling this with context.getPackageName() as argument?\n\nDoes that really help though? I mean, apps can call into ActivityManagerNative directly, can\u0027t they? And AFAIK a context isn\u0027t parcelable?",
+      "revId": "e62ffa31595b9c95b5d68b3fb4cef07ab313fb13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
