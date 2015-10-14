@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f287b81_f9b49237",
+        "filename": "services/core/java/com/android/server/wm/TaskStack.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-14T04:00:35Z",
+      "side": 1,
+      "message": "Couldn\u0027t this lead to NPE if there is a call to close() without a detach of the display?\n\nIn the previous code only the surface control was released, and now you are destroying the surface control, the surface and the layer at the same time.\n\nAnd I\u0027m not sure that call to mBlurLayer.mBlurSurface.destroy() or the other is a real problem. SurfaceControl handles multiple destroy calls gratefully.\n\nThe only point of failure if to add a null check arround the layers here, so if they where destroyed before by the detach of the display they don\u0027t cause a fc.",
+      "range": {
+        "startLine": 468,
+        "startChar": 12,
+        "endLine": 468,
+        "endChar": 22
+      },
+      "revId": "ed02104c02b1ff1db84112940f16928a4bb9f3af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
