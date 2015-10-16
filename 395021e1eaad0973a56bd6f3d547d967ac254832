@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f287b81_e63aa2e5",
+        "filename": "packages/SystemUI/AndroidManifest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 7761
+      },
+      "writtenOn": "2015-10-16T08:02:51Z",
+      "side": 0,
+      "message": "Already defined here.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 75
+      },
+      "revId": "395021e1eaad0973a56bd6f3d547d967ac254832",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
