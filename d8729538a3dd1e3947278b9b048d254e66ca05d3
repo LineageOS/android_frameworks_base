@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f287b81_0d8a661a",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-10-19T00:57:10Z",
+      "side": 0,
+      "message": "You can\u0027t just turn this off by default?",
+      "revId": "d8729538a3dd1e3947278b9b048d254e66ca05d3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
