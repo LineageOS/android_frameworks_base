@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f2577a7_612fdef6",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/WifiTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-20T15:57:42Z",
+      "side": 1,
+      "message": "Should in that case check for UiThread (Looper.myLooper() \u003d\u003d Looper.getMainLooper()) to avoid posting in case we are in the UiThread?",
+      "range": {
+        "startLine": 128,
+        "startChar": 23,
+        "endLine": 128,
+        "endChar": 27
+      },
+      "revId": "41d903eb99c94d3e3987de55414a64df45327615",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
