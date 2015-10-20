@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f2577a7_c1c45243",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3577,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-20T15:41:22Z",
+      "side": 1,
+      "message": "IMHO, this shouldn\u0027t be a global setting, but in case i guess it should be part of the CMSettings instead of Settings, because all cm settings were moved to there (the cm hardware side is though)",
+      "range": {
+        "startLine": 3577,
+        "startChar": 17,
+        "endLine": 3577,
+        "endChar": 46
+      },
+      "revId": "d578dbc680b180a52c6987d686c408563f1ec101",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
