@@ -70,6 +70,30 @@
       "revId": "41d903eb99c94d3e3987de55414a64df45327615",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f2577a7_c73462e1",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/WifiTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-10-21T03:43:29Z",
+      "side": 1,
+      "message": "Ok, that\u0027s what I had thought initially, just wanted to make sure I wasn\u0027t missing anything.\n\nIt came up as a warning in the log so maybe there\u0027s a check somewhere?",
+      "parentUuid": "5f2577a7_073b8ad1",
+      "range": {
+        "startLine": 128,
+        "startChar": 23,
+        "endLine": 128,
+        "endChar": 27
+      },
+      "revId": "41d903eb99c94d3e3987de55414a64df45327615",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
