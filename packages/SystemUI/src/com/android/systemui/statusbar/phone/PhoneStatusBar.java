@@ -321,6 +321,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             "cmsystem:" + CMSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
     private static final String NAVBAR_LEFT_IN_LANDSCAPE =
             "cmsystem:" + CMSettings.System.NAVBAR_LEFT_IN_LANDSCAPE;
+    private static final String LOCKSCREEN_MEDIA_METADATA =
+            "cmsecure:" + CMSettings.Secure.LOCKSCREEN_MEDIA_METADATA;
 
     static {
         boolean onlyCoreApps;
@@ -611,6 +613,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private VisualizerView mVisualizerView;
     private boolean mScreenOn;
     private boolean mKeyguardShowingMedia;
+    private boolean mShowMediaMetadata;
 
     private MediaSessionManager mMediaSessionManager;
     private MediaController mMediaController;
@@ -814,7 +817,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         TunerService.get(mContext).addTunable(this,
                 SCREEN_BRIGHTNESS_MODE,
                 NAVBAR_LEFT_IN_LANDSCAPE,
-                STATUS_BAR_BRIGHTNESS_CONTROL);
+                STATUS_BAR_BRIGHTNESS_CONTROL,
+                LOCKSCREEN_MEDIA_METADATA);
 
         // Lastly, call to the icon policy to install/update all the icons.
         mIconPolicy = new PhoneStatusBarPolicy(mContext, mIconController, mCastController,
@@ -2384,7 +2388,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
 
         Drawable artworkDrawable = null;
-        if (mMediaMetadata != null) {
+        if (mMediaMetadata != null && mShowMediaMetadata) {
             Bitmap artworkBitmap = null;
             artworkBitmap = mMediaMetadata.getBitmap(MediaMetadata.METADATA_KEY_ART);
             if (artworkBitmap == null) {
@@ -5562,6 +5566,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 break;
             case STATUS_BAR_BRIGHTNESS_CONTROL:
                 mBrightnessControl = newValue != null && Integer.parseInt(newValue) == 1;
+                break;
+            case LOCKSCREEN_MEDIA_METADATA:
+                mShowMediaMetadata = newValue == null || Integer.parseInt(newValue) == 1;
                 break;
             default:
                 break;
