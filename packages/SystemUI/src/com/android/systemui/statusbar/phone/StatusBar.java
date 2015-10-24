@@ -286,6 +286,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             "system:" + Settings.System.SCREEN_BRIGHTNESS_MODE;
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL =
             "lineagesystem:" + LineageSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
+    private static final String LOCKSCREEN_MEDIA_METADATA =
+            "lineagesecure:" + LineageSettings.Secure.LOCKSCREEN_MEDIA_METADATA;
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
@@ -602,6 +604,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private VisualizerView mVisualizerView;
     private boolean mScreenOn;
     private boolean mKeyguardShowingMedia;
+    private boolean mShowMediaMetadata;
 
     private BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
         @Override
@@ -750,6 +753,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, SCREEN_BRIGHTNESS_MODE);
         tunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
+        tunerService.addTunable(this, LOCKSCREEN_MEDIA_METADATA);
 
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
 
@@ -1747,7 +1751,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         }
 
         Drawable artworkDrawable = null;
-        if (mediaMetadata != null) {
+        if (mediaMetadata != null && mShowMediaMetadata) {
             Bitmap artworkBitmap = mediaMetadata.getBitmap(MediaMetadata.METADATA_KEY_ART);
             if (artworkBitmap == null) {
                 artworkBitmap = mediaMetadata.getBitmap(MediaMetadata.METADATA_KEY_ALBUM_ART);
@@ -5892,6 +5896,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
         } else if (STATUS_BAR_BRIGHTNESS_CONTROL.equals(key)) {
             mBrightnessControl = newValue != null && Integer.parseInt(newValue) == 1;
+        } else if (LOCKSCREEN_MEDIA_METADATA.equals(key)) {
+            mShowMediaMetadata = newValue != null && Integer.parseInt(newValue) == 1;
         }
     }
     // End Extra BaseStatusBarMethods.
