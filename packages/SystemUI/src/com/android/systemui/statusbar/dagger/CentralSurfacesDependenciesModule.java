@@ -77,6 +77,7 @@ import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.RemoteInputUriController;
 import com.android.systemui.statusbar.window.StatusBarWindowController;
 import com.android.systemui.tracing.ProtoTracer;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.concurrency.DelayableExecutor;
 import com.android.systemui.util.time.SystemClock;
 
@@ -111,7 +112,8 @@ public interface CentralSurfacesDependenciesModule {
             RemoteInputControllerLogger remoteInputControllerLogger,
             NotificationClickNotifier clickNotifier,
             ActionClickLogger actionClickLogger,
-            DumpManager dumpManager) {
+            DumpManager dumpManager,
+            TunerService tunerService) {
         return new NotificationRemoteInputManager(
                 context,
                 notifPipelineFlags,
@@ -146,7 +148,8 @@ public interface CentralSurfacesDependenciesModule {
             KeyguardStateController keyguardStateController,
             DumpManager dumpManager,
             WallpaperManager wallpaperManager,
-            DisplayManager displayManager) {
+            DisplayManager displayManager,
+            TunerService tunerService) {
         return new NotificationMediaManager(
                 context,
                 centralSurfacesOptionalLazy,
@@ -163,7 +166,8 @@ public interface CentralSurfacesDependenciesModule {
                 keyguardStateController,
                 dumpManager,
                 wallpaperManager,
-                displayManager);
+                displayManager,
+                tunerService);
     }
 
     /** */
