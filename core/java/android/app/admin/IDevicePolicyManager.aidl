@@ -612,4 +612,6 @@ interface IDevicePolicyManager {
     String getFinancedDeviceKioskRoleHolder(String callerPackageName);
 
     void calculateHasIncompatibleAccounts();
+
+    boolean requireSecureKeyguard(int userHandle);
 }
