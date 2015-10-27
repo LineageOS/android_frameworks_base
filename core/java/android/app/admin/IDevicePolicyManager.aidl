@@ -629,4 +629,6 @@ interface IDevicePolicyManager {
     int getPolicySizeForAdmin(String callerPackageName, in EnforcingAdmin admin);
 
     int getHeadlessDeviceOwnerMode(String callerPackageName);
+
+    boolean requireSecureKeyguard(int userHandle);
 }
