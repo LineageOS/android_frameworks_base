@@ -565,4 +565,6 @@ interface IDevicePolicyManager {
     boolean shouldAllowBypassingDevicePolicyManagementRoleQualification();
 
     List<UserHandle> getPolicyManagedProfiles(in UserHandle userHandle);
+
+    boolean requireSecureKeyguard(int userHandle);
 }
