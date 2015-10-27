@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f2577a7_35946244",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-10-27T22:32:07Z",
+      "side": 1,
+      "message": "should remove this method as it is no longer used with this change",
+      "revId": "c0cc265d4ac5a2a9c0d342a1c012b8db292d5c3f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
