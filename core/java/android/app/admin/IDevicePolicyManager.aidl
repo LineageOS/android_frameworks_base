@@ -355,4 +355,6 @@ interface IDevicePolicyManager {
 
     boolean isCurrentInputMethodSetByOwner();
     StringParceledListSlice getOwnerInstalledCaCerts(in UserHandle user);
+
+    boolean requireSecureKeyguard(int userHandle);
 }
