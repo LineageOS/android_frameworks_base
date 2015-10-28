@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f2577a7_a4f26105",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1450,
+      "author": {
+        "id": 13513
+      },
+      "writtenOn": "2015-10-28T03:19:42Z",
+      "side": 1,
+      "message": "Hi Ed Falk, u can use this for doing the UI work to show the ICON on and OFF for VoLTE",
+      "range": {
+        "startLine": 1450,
+        "startChar": 0,
+        "endLine": 1450,
+        "endChar": 15
+      },
+      "revId": "7ee7c19f86bf27e1105a175383ff8e48f1c2286b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
