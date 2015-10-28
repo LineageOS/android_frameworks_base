@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5f2577a7_479f3f50",
+        "filename": "packages/SystemUI/res/values/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-28T06:10:13Z",
+      "side": 1,
+      "message": "typo: high_definition_voice",
+      "range": {
+        "startLine": 907,
+        "startChar": 18,
+        "endLine": 907,
+        "endChar": 40
+      },
+      "revId": "7ee7c19f86bf27e1105a175383ff8e48f1c2286b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f2577a7_a4f26105",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkControllerImpl.java",
         "patchSetId": 1
