@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f2577a7_002d9494",
+        "filename": "services/core/jni/com_android_server_location_GpsLocationProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-10-29T22:06:43Z",
+      "side": 1,
+      "message": "This is unused. I think this statement may have only been here to squash a compiler warning. There should be a better way to do it.",
+      "revId": "039b313cb232a2a1d41f1c25b810ba1dc605d68d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
