@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f2577a7_fa61143b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1736,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-30T08:13:39Z",
+      "side": 1,
+      "message": "In case the window was attached then update the view with the layout params (and use isAttachedToWindow() instead of getWindowToken()):\n\nif (!mHeadsUpNotificationView.isAttachedToWindow()) {\n    mWindowManager.addView(mHeadsUpNotificationView, lp);\n} else {\n    mWindowManager.updateViewLayout(mHeadsUpNotificationView, lp);\n}",
+      "range": {
+        "startLine": 1736,
+        "startChar": 8,
+        "endLine": 1736,
+        "endChar": 9
+      },
+      "revId": "1e6d1861ba945365a141b3870f59bbb6155ca80a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f2577a7_da665852",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4059,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-10-30T08:13:39Z",
+      "side": 1,
+      "message": "We should about add the view if the headsup is not enabled.\n\nmHeadsUpObserver.onChange(true);\nif (mUseHeadsUp) {\n    addHeadsUpView();\n}",
+      "range": {
+        "startLine": 4059,
+        "startChar": 8,
+        "endLine": 4059,
+        "endChar": 22
+      },
+      "revId": "1e6d1861ba945365a141b3870f59bbb6155ca80a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
