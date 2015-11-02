@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f3283f1_7278d0f7",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 14060
+      },
+      "writtenOn": "2015-11-02T03:46:16Z",
+      "side": 1,
+      "message": "(void *)(intptr_t) duration",
+      "range": {
+        "startLine": 170,
+        "startChar": 68,
+        "endLine": 170,
+        "endChar": 85
+      },
+      "revId": "41be9385e036bcfb7a1c8c5a86bb60addfaec657",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f3283f1_f26ba01c",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 14060
+      },
+      "writtenOn": "2015-11-02T03:46:16Z",
+      "side": 1,
+      "message": "(void *)(intptr_t) profile",
+      "range": {
+        "startLine": 184,
+        "startChar": 70,
+        "endLine": 184,
+        "endChar": 86
+      },
+      "revId": "41be9385e036bcfb7a1c8c5a86bb60addfaec657",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
