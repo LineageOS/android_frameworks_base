@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_ced80381",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 7202
+      },
+      "writtenOn": "2015-11-03T01:22:25Z",
+      "side": 1,
+      "message": "Does switching to true for both can help with these:\nhttp://hastebin.com/tocorutare.avrasm ?",
+      "range": {
+        "startLine": 772,
+        "startChar": 0,
+        "endLine": 773,
+        "endChar": 34
+      },
+      "revId": "7f16df668393aaeb1191846622efec23e90f97a5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
