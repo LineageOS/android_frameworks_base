@@ -155,4 +155,7 @@
 
     <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
     <string name="lock_to_app_toast_no_navbar">To unpin this screen, touch and hold the Back button.</string>
+
+    <!-- Template for showing cellular network operator name while LTE calling is enabled -->
+    <string name="high_definition_tag">%s</string>
 </resources>

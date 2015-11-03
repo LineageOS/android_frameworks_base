@@ -76,4 +76,7 @@
     <!-- config softap extention feature -->
     <java-symbol type="bool" name="config_softap_extention" />
 
+    <!-- Template for showing cellular network operator name while LTE calling is enabled -->
+    <java-symbol type="string" name="high_definition_tag" />
+
 </resources>
