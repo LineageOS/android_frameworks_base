@@ -16,6 +16,8 @@
 
 package com.android.server.power;
 
+import lineageos.power.PerformanceManagerInternal;
+
 import android.Manifest;
 import android.annotation.IntDef;
 import android.app.ActivityManager;
@@ -88,6 +90,7 @@ import com.android.internal.os.BackgroundThread;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.DumpUtils;
 import com.android.server.EventLogTags;
+import com.android.server.LocalServices;
 import com.android.server.LockGuard;
 import com.android.server.RescueParty;
 import com.android.server.ServiceThread;
@@ -651,6 +654,9 @@ public final class PowerManagerService extends SystemService
     private static native void nativeSetAutoSuspend(boolean enable);
     private static native void nativeSendPowerHint(int hintId, int data);
     private static native void nativeSetFeature(int featureId, int data);
+    private static native int nativeGetFeature(int featureId);
+
+    private PerformanceManagerInternal mPerf;
 
     // Whether proximity check on wake is enabled by default
     private boolean mProximityWakeEnabledByDefaultConfig;
@@ -742,6 +748,7 @@ public final class PowerManagerService extends SystemService
                     }
                 }
                 mBootCompletedRunnables = null;
+                mPerf = LocalServices.getService(PerformanceManagerInternal.class);
             }
         }
     }
@@ -1045,6 +1052,7 @@ public final class PowerManagerService extends SystemService
             // Turn setting off if powered
             Settings.Global.putInt(mContext.getContentResolver(),
                     Settings.Global.LOW_POWER_MODE, 0);
+            // update performance profile
             mLowPowerModeSetting = false;
         }
         final boolean autoLowPowerModeEnabled = !mIsPowered && mAutoLowPowerModeConfigured
@@ -4705,6 +4713,11 @@ public final class PowerManagerService extends SystemService
         }
 
         @Override // Binder call
+        public void cpuBoost(int duration) {
+            mPerf.cpuBoost(duration);
+        }
+
+        @Override // Binder call
         protected void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
             if (!DumpUtils.checkDumpPermission(mContext, TAG, pw)) return;
 
@@ -4877,6 +4890,21 @@ public final class PowerManagerService extends SystemService
         @Override
         public void powerHint(int hintId, int data) {
             powerHintInternal(hintId, data);
+        }
+
+        @Override
+        public boolean setPowerSaveMode(boolean mode) {
+            return setLowPowerModeInternal(mode);
+        }
+
+        @Override
+        public int getFeature(int featureId) {
+            return nativeGetFeature(featureId);
+        }
+
+        @Override
+        public void setFeature(int featureId, int data) {
+            nativeSetFeature(featureId, data);
         }
     }
 
