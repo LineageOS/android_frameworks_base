@@ -232,6 +232,16 @@ static void nativeSetFeature(JNIEnv* /* env */, jclass /* clazz */, jint feature
     }
 }
 
+static jint nativeGetFeature(JNIEnv *env, jclass clazz, jint featureId) {
+    int value = -1;
+
+    if (gPowerModule && gPowerModule->getFeature) {
+        value = gPowerModule->getFeature(gPowerModule, (feature_t)featureId);
+    }
+
+    return (jint)value;
+}
+
 // ----------------------------------------------------------------------------
 
 static const JNINativeMethod gPowerManagerServiceMethods[] = {
@@ -250,6 +260,8 @@ static const JNINativeMethod gPowerManagerServiceMethods[] = {
             (void*) nativeSendPowerHint },
     { "nativeSetFeature", "(II)V",
             (void*) nativeSetFeature },
+    { "nativeGetFeature", "(I)I",
+            (void*) nativeGetFeature },
 };
 
 #define FIND_CLASS(var, className) \
