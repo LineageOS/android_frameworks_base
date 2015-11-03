@@ -68,4 +68,7 @@ interface IPowerManager
 
     // sets the attention light (used by phone app only)
     void setAttentionLight(boolean on, int color);
+
+    // boost the cpu for duration microseconds
+    oneway void cpuBoost(int duration);
 }

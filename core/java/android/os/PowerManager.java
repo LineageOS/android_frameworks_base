@@ -1503,4 +1503,20 @@ public final class PowerManager {
             };
         }
     }
+
+    /**
+     * Boosts the CPU for the given duration in microseconds.
+     *
+     * @param duration in microseconds to boost the CPU
+     *
+     * @hide
+     */
+    public void cpuBoost(int duration) {
+        try {
+            if (mService != null) {
+                mService.cpuBoost(duration);
+            }
+        } catch (RemoteException e) {
+        }
+    }
 }
