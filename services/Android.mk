@@ -48,6 +48,8 @@ ifeq ($(EMMA_INSTRUMENT_FRAMEWORK),true)
 LOCAL_EMMA_INSTRUMENT := true
 endif
 
+LOCAL_JAVA_LIBRARIES += org.cyanogenmod.platform.internal
+
 include $(BUILD_JAVA_LIBRARY)
 
 # native library
