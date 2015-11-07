@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_32da34e9",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6614,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-11-07T04:30:11Z",
+      "side": 1,
+      "message": "This can go into CMSettings, no?",
+      "revId": "473ace1f82d27a39c42e0e0c35c95974849b30c5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
