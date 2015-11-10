@@ -20,6 +20,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.provider.Settings.Secure;
 import android.view.accessibility.AccessibilityManager;
+import cyanogenmod.providers.CMSettings;
 
 import com.android.server.LocalServices;
 import com.android.server.display.DisplayTransformManager;
