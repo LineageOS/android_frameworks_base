@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_8e189281",
+        "filename": "libs/hwui/SpotShadow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-11-11T07:59:33Z",
+      "side": 1,
+      "message": "Ah, yeah, you get into trouble here.",
+      "revId": "5e46af876bfca24bcc54f631844c1c5198b6abd0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
