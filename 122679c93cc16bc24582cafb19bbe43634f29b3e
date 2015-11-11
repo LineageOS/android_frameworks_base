@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_ee04b6c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 14145
+      },
+      "writtenOn": "2015-11-11T03:20:38Z",
+      "side": 1,
+      "message": "I\u0027d prefer more explicit comment text, so that it\u0027s not necessary to look at the code to understand what this is fixing and why the change is being made.\n\nNo concerns with the change itself though.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "122679c93cc16bc24582cafb19bbe43634f29b3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
