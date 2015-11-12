@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "1f2f7f8d_dd8e4a2d",
+        "filename": "core/java/com/android/internal/util/cm/QSUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 13691
+      },
+      "writtenOn": "2015-11-12T08:49:35Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer to get the answer straight from the telephony layer, unless you think there\u0027s a significant performance hit from doing it this way.",
+      "parentUuid": "1f2f7f8d_c2130b66",
+      "revId": "ad413b06726a4b9ff2e23ce53a9bbc814674adaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2f7f8d_82dce374",
         "filename": "packages/SystemUI/res/values/config.xml",
         "patchSetId": 2
