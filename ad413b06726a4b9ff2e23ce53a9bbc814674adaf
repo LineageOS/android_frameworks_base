@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1f2f7f8d_c2130b66",
+        "filename": "core/java/com/android/internal/util/cm/QSUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-11-12T06:21:07Z",
+      "side": 1,
+      "message": "You don\u0027t need to dynamically figure out if the device supports volte, you can reference a system property that we can set per device or a config that defaults to false but can be overlaid.",
+      "parentUuid": "1f2f7f8d_62f69792",
+      "revId": "ad413b06726a4b9ff2e23ce53a9bbc814674adaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2f7f8d_82dce374",
         "filename": "packages/SystemUI/res/values/config.xml",
         "patchSetId": 2
