@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_021a337c",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2015-11-12T06:20:25Z",
+      "side": 1,
+      "message": "This string is not bound",
+      "range": {
+        "startLine": 243,
+        "startChar": 18,
+        "endLine": 243,
+        "endChar": 42
+      },
+      "revId": "3ff0a3b0c18d324301e9c4d9cbc1a1e0515bd090",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
