@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1f2f7f8d_fdbb46e2",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 10291
+      },
+      "writtenOn": "2015-11-12T07:55:15Z",
+      "side": 1,
+      "message": "Good catch, fixed.",
+      "parentUuid": "1f2f7f8d_fd758699",
+      "range": {
+        "startLine": 745,
+        "startChar": 57,
+        "endLine": 745,
+        "endChar": 58
+      },
+      "revId": "cebad2ee92a20dbffb30886819930b09b02d3afa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2f7f8d_7d407636",
         "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-12T06:51:40Z",
       "side": 1,
       "message": "Shouldn\u0027t we default to default and don\u0027t fallback to power in (or at least to NONE as default)?\n\n(\"1\".equals(SystemProperties.get(\"ro.kernel.qemu\")) || mContext.getResources().getBoolean(R.bool.def_stay_on_while_plugged_in))\n                     ? PowerManager.STAY_ON_WHILE_PLUGGED_CHARGING :\n                            PowerManager.STAY_ON_WHILE_PLUGGED_NONE);",
+      "range": {
+        "startLine": 1556,
+        "startChar": 33,
+        "endLine": 1556,
+        "endChar": 43
+      },
+      "revId": "cebad2ee92a20dbffb30886819930b09b02d3afa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f2f7f8d_9dba02dc",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 10291
+      },
+      "writtenOn": "2015-11-12T07:55:15Z",
+      "side": 1,
+      "message": "Previous behavior was 0 \u003d\u003d none, 1 \u003d\u003d debugging only, \u003c0 or \u003e\u003d2 \u003d\u003d charging. This just maintains that behavior.",
+      "parentUuid": "1f2f7f8d_7d407636",
       "range": {
         "startLine": 1556,
         "startChar": 33,
