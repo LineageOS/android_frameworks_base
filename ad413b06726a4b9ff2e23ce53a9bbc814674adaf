@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1f2f7f8d_62f69792",
+        "filename": "core/java/com/android/internal/util/cm/QSUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 13691
+      },
+      "writtenOn": "2015-11-12T05:03:14Z",
+      "side": 1,
+      "message": "The tile will make itself invisible if VoLTE is not available. However, making it unavailable here would require linking into the IMS-common library which is an unpublished API and the build process balked at using it. If you think this is important, I can go back and try the build again.",
+      "parentUuid": "1f2f7f8d_e2ede725",
+      "revId": "ad413b06726a4b9ff2e23ce53a9bbc814674adaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2f7f8d_82dce374",
         "filename": "packages/SystemUI/res/values/config.xml",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-11-12T04:12:40Z",
       "side": 1,
       "message": "this shouldn\u0027t be a default, only for devices that support volte (as in should be overlaid from vendor/cm or the device.)",
+      "revId": "ad413b06726a4b9ff2e23ce53a9bbc814674adaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f2f7f8d_022b53eb",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 13691
+      },
+      "writtenOn": "2015-11-12T05:03:14Z",
+      "side": 1,
+      "message": "OK, I\u0027ll back this out and let the vendor overlay it.",
+      "parentUuid": "1f2f7f8d_82dce374",
       "revId": "ad413b06726a4b9ff2e23ce53a9bbc814674adaf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
