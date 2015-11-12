@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1f2f7f8d_9d2c4248",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 13691
+      },
+      "writtenOn": "2015-11-12T08:30:00Z",
+      "side": 1,
+      "message": "Android coding standards say acronyms should be treated as words. https://source.android.com/source/code-style.html#treat-acronyms-as-words\n\nI\u0027m treating \"VoLTE\" like one big acronym, since it stands for \"Voice Over LTE\". It\u0027s kind of an acro-acronym.",
+      "parentUuid": "1f2f7f8d_a23fdfd4",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 22
+      },
+      "revId": "c6b3336367be27ae218e622015f874542297ab2d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2f7f8d_c2b78b86",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-12T06:18:18Z",
       "side": 1,
       "message": "This is false by default, no need to override it",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 35
+      },
+      "revId": "c6b3336367be27ae218e622015f874542297ab2d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f2f7f8d_5d1eda0c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 13691
+      },
+      "writtenOn": "2015-11-12T08:30:00Z",
+      "side": 1,
+      "message": "Thanks; will delete in the next patchset",
+      "parentUuid": "1f2f7f8d_c2b78b86",
       "range": {
         "startLine": 66,
         "startChar": 19,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1f2f7f8d_bd981e6a",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 13691
+      },
+      "writtenOn": "2015-11-12T08:30:00Z",
+      "side": 1,
+      "message": "Good point. I don\u0027t know if setVolte() can really fail (more cut/paste), but I\u0027ll change it.",
+      "parentUuid": "1f2f7f8d_e2504735",
+      "range": {
+        "startLine": 91,
+        "startChar": 8,
+        "endLine": 91,
+        "endChar": 16
+      },
+      "revId": "c6b3336367be27ae218e622015f874542297ab2d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2f7f8d_c26c2b0a",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-12T06:18:18Z",
       "side": 1,
       "message": "formatting issue\n\nint value \u003d (enabled) ? 1 : 0;",
+      "range": {
+        "startLine": 98,
+        "startChar": 32,
+        "endLine": 98,
+        "endChar": 33
+      },
+      "revId": "c6b3336367be27ae218e622015f874542297ab2d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f2f7f8d_3d1b0e1c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 13691
+      },
+      "writtenOn": "2015-11-12T08:30:00Z",
+      "side": 1,
+      "message": "That was a copy/paste from somewhere else. Fixed.",
+      "parentUuid": "1f2f7f8d_c26c2b0a",
       "range": {
         "startLine": 98,
         "startChar": 32,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1f2f7f8d_1d18521b",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 13691
+      },
+      "writtenOn": "2015-11-12T08:30:00Z",
+      "side": 1,
+      "message": "Another copy/paste. Fixed.",
+      "parentUuid": "1f2f7f8d_e2672725",
+      "range": {
+        "startLine": 99,
+        "startChar": 34,
+        "endLine": 99,
+        "endChar": 40
+      },
+      "revId": "c6b3336367be27ae218e622015f874542297ab2d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2f7f8d_a2711fe3",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "1f2f7f8d_fdd22634",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 13691
+      },
+      "writtenOn": "2015-11-12T08:30:00Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "1f2f7f8d_a2711fe3",
+      "range": {
+        "startLine": 113,
+        "startChar": 34,
+        "endLine": 113,
+        "endChar": 38
+      },
+      "revId": "c6b3336367be27ae218e622015f874542297ab2d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2f7f8d_c23aebe5",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2015-11-12T06:18:18Z",
       "side": 1,
       "message": "Shouldn\u0027t we listen for subscription changes? If info \u003d\u003d null then we never track mobile state.",
+      "range": {
+        "startLine": 200,
+        "startChar": 12,
+        "endLine": 200,
+        "endChar": 16
+      },
+      "revId": "c6b3336367be27ae218e622015f874542297ab2d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f2f7f8d_5d913a52",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VolteTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 13691
+      },
+      "writtenOn": "2015-11-12T08:30:00Z",
+      "side": 1,
+      "message": "More copy/paste. Whoever wrote the original code thought this was the way to track changes in VoLTE state.",
+      "parentUuid": "1f2f7f8d_c23aebe5",
       "range": {
         "startLine": 200,
         "startChar": 12,
