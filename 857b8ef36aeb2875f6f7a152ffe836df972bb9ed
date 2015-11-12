@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_87c51591",
+        "filename": "core/java/android/os/PowerManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-11-12T00:57:46Z",
+      "side": 0,
+      "message": "white spaaaaace",
+      "revId": "857b8ef36aeb2875f6f7a152ffe836df972bb9ed",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
