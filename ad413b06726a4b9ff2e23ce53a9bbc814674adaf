@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_e2ede725",
+        "filename": "core/java/com/android/internal/util/cm/QSUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-11-12T04:12:40Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be available if the device doesn\u0027t support volte, no?",
+      "revId": "ad413b06726a4b9ff2e23ce53a9bbc814674adaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f2f7f8d_82dce374",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-11-12T04:12:40Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be a default, only for devices that support volte (as in should be overlaid from vendor/cm or the device.)",
+      "revId": "ad413b06726a4b9ff2e23ce53a9bbc814674adaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
