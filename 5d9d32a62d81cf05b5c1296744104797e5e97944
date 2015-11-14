@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_b0f5e0cd",
+        "filename": "packages/SystemUI/res/values/strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-11-14T03:50:00Z",
+      "side": 1,
+      "message": "LED brightness\nThis should also be in cm_strings",
+      "revId": "5d9d32a62d81cf05b5c1296744104797e5e97944",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
