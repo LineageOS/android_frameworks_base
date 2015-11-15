@@ -32,8 +32,12 @@ android_app {
     ],
     static_libs: [
         "junit",
+        "org.lineageos.platform.internal",
         "SettingsLibDisplayDensityUtils",
     ],
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
     platform_apis: true,
     certificate: "platform",
     privileged: true,
