@@ -39,7 +39,11 @@ android_library {
         "libaconfig_java_proto_lite",
         "SettingsLibDeviceStateRotationLock",
         "SettingsLibDisplayUtils",
+        "org.lineageos.platform.internal",
     ],
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
     platform_apis: true,
 }
 
