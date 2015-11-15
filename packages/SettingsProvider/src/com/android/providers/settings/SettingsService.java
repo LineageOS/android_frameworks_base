@@ -17,12 +17,14 @@
 package com.android.providers.settings;
 
 import android.app.ActivityManager;
+import android.app.ContentProviderHolder;
 import android.content.IContentProvider;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ResultReceiver;
@@ -31,6 +33,8 @@ import android.os.ShellCommand;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -116,6 +120,7 @@ final public class SettingsService extends Binder {
         String mTag = null;
         int mResetMode = -1;
         boolean mMakeDefault;
+        boolean mUseLineageSettingsProvider = false;
 
         MyShellCommand(SettingsProvider provider, boolean dumping) {
             mProvider = provider;
@@ -144,6 +149,8 @@ final public class SettingsService extends Binder {
                     } else {
                         mUser = Integer.parseInt(arg);
                     }
+                } else if ("--lineage".equals(arg)) {
+                    mUseLineageSettingsProvider = true;
                 } else if (mVerb == CommandVerb.UNSPECIFIED) {
                     if ("get".equalsIgnoreCase(arg)) {
                         mVerb = CommandVerb.GET;
@@ -275,39 +282,68 @@ final public class SettingsService extends Binder {
                 return -1;
             }
 
-            final IContentProvider iprovider = mProvider.getIContentProvider();
-            final PrintWriter pout = getOutPrintWriter();
-            switch (mVerb) {
-                case GET:
-                    pout.println(getForUser(iprovider, mUser, mTable, mKey));
-                    break;
-                case PUT:
-                    putForUser(iprovider, mUser, mTable, mKey, mValue, mTag, mMakeDefault);
-                    break;
-                case DELETE:
-                    pout.println("Deleted "
-                            + deleteForUser(iprovider, mUser, mTable, mKey) + " rows");
-                    break;
-                case LIST:
-                    for (String line : listForUser(iprovider, mUser, mTable)) {
-                        pout.println(line);
+            IBinder token = new Binder();
+
+            try {
+                ContentProviderHolder holder = ActivityManager.getService()
+                        .getContentProviderExternal(mUseLineageSettingsProvider ?
+                                LineageSettings.AUTHORITY : Settings.AUTHORITY,
+                                UserHandle.USER_SYSTEM, token);
+                if (holder == null) {
+                    throw new IllegalStateException("Could not find settings provider");
+                }
+
+                final IContentProvider provider = holder.provider;
+                final PrintWriter pout = getOutPrintWriter();
+
+                try {
+                    switch (mVerb) {
+                        case GET:
+                            pout.println(getForUser(provider, mUser, mTable, mKey));
+                            break;
+                        case PUT:
+                            putForUser(provider, mUser, mTable, mKey, mValue, mTag, mMakeDefault);
+                            break;
+                        case DELETE:
+                            pout.println("Deleted "
+                                    + deleteForUser(provider, mUser, mTable, mKey) + " rows");
+                            break;
+                        case LIST:
+                            for (String line : listForUser(provider, mUser, mTable)) {
+                                pout.println(line);
+                            }
+                            break;
+                        case RESET:
+                            resetForUser(provider, mUser, mTable, mTag);
+                            break;
+                        default:
+                            perr.println("Unspecified command");
+                            return -1;
                     }
-                    break;
-                case RESET:
-                    resetForUser(iprovider, mUser, mTable, mTag);
-                    break;
-                default:
-                    perr.println("Unspecified command");
-                    return -1;
+                } finally {
+                    if (provider != null) {
+                        ActivityManager.getService()
+                                .removeContentProviderExternal(mUseLineageSettingsProvider ?
+                                        LineageSettings.AUTHORITY : Settings.AUTHORITY, token);
+                    }
+                }
+            } catch (RemoteException e) {
+                throw new RuntimeException("Error while accessing settings provider", e);
             }
 
             return 0;
         }
 
         private List<String> listForUser(IContentProvider provider, int userHandle, String table) {
-            final Uri uri = "system".equals(table) ? Settings.System.CONTENT_URI
-                    : "secure".equals(table) ? Settings.Secure.CONTENT_URI
-                    : "global".equals(table) ? Settings.Global.CONTENT_URI
+            final Uri systemUri = mUseLineageSettingsProvider ?
+                    LineageSettings.System.CONTENT_URI : Settings.System.CONTENT_URI;
+            final Uri secureUri = mUseLineageSettingsProvider ?
+                    LineageSettings.Secure.CONTENT_URI : Settings.Secure.CONTENT_URI;
+            final Uri globalUri = mUseLineageSettingsProvider ?
+                    LineageSettings.Global.CONTENT_URI : Settings.Global.CONTENT_URI;
+            final Uri uri = "system".equals(table) ? systemUri
+                    : "secure".equals(table) ? secureUri
+                    : "global".equals(table) ? globalUri
                     : null;
             final ArrayList<String> lines = new ArrayList<String>();
             if (uri == null) {
@@ -334,10 +370,16 @@ final public class SettingsService extends Binder {
 
         String getForUser(IContentProvider provider, int userHandle,
                 final String table, final String key) {
+            final String systemGetCommand = mUseLineageSettingsProvider ?
+                    LineageSettings.CALL_METHOD_GET_SYSTEM : Settings.CALL_METHOD_GET_SYSTEM;
+            final String secureGetCommand = mUseLineageSettingsProvider ?
+                    LineageSettings.CALL_METHOD_GET_SECURE : Settings.CALL_METHOD_GET_SECURE;
+            final String globalGetCommand = mUseLineageSettingsProvider ?
+                    LineageSettings.CALL_METHOD_GET_GLOBAL : Settings.CALL_METHOD_GET_GLOBAL;
             final String callGetCommand;
-            if ("system".equals(table)) callGetCommand = Settings.CALL_METHOD_GET_SYSTEM;
-            else if ("secure".equals(table)) callGetCommand = Settings.CALL_METHOD_GET_SECURE;
-            else if ("global".equals(table)) callGetCommand = Settings.CALL_METHOD_GET_GLOBAL;
+            if ("system".equals(table)) callGetCommand = systemGetCommand;
+            else if ("secure".equals(table)) callGetCommand = secureGetCommand;
+            else if ("global".equals(table)) callGetCommand = globalGetCommand;
             else {
                 getErrPrintWriter().println("Invalid table; no put performed");
                 throw new IllegalArgumentException("Invalid table " + table);
@@ -346,7 +388,9 @@ final public class SettingsService extends Binder {
             String result = null;
             try {
                 Bundle arg = new Bundle();
-                arg.putInt(Settings.CALL_METHOD_USER_KEY, userHandle);
+                arg.putInt(mUseLineageSettingsProvider ?
+                        LineageSettings.CALL_METHOD_USER_KEY : Settings.CALL_METHOD_USER_KEY,
+                        userHandle);
                 Bundle b = provider.call(resolveCallingPackage(), callGetCommand, key, arg);
                 if (b != null) {
                     result = b.getPairValue();
@@ -359,16 +403,22 @@ final public class SettingsService extends Binder {
 
         void putForUser(IContentProvider provider, int userHandle, final String table,
                 final String key, final String value, String tag, boolean makeDefault) {
+            final String systemPutCommand = mUseLineageSettingsProvider ?
+                    LineageSettings.CALL_METHOD_PUT_SYSTEM : Settings.CALL_METHOD_PUT_SYSTEM;
+            final String securePutCommand = mUseLineageSettingsProvider ?
+                    LineageSettings.CALL_METHOD_PUT_SECURE : Settings.CALL_METHOD_PUT_SECURE;
+            final String globalPutCommand = mUseLineageSettingsProvider ?
+                    LineageSettings.CALL_METHOD_PUT_GLOBAL : Settings.CALL_METHOD_PUT_GLOBAL;
             final String callPutCommand;
             if ("system".equals(table)) {
-                callPutCommand = Settings.CALL_METHOD_PUT_SYSTEM;
+                callPutCommand = systemPutCommand;
                 if (makeDefault) {
                     getOutPrintWriter().print("Ignored makeDefault - "
                             + "doesn't apply to system settings");
                     makeDefault = false;
                 }
-            } else if ("secure".equals(table)) callPutCommand = Settings.CALL_METHOD_PUT_SECURE;
-            else if ("global".equals(table)) callPutCommand = Settings.CALL_METHOD_PUT_GLOBAL;
+            } else if ("secure".equals(table)) callPutCommand = securePutCommand;
+            else if ("global".equals(table)) callPutCommand = globalPutCommand;
             else {
                 getErrPrintWriter().println("Invalid table; no put performed");
                 return;
@@ -377,7 +427,9 @@ final public class SettingsService extends Binder {
             try {
                 Bundle arg = new Bundle();
                 arg.putString(Settings.NameValueTable.VALUE, value);
-                arg.putInt(Settings.CALL_METHOD_USER_KEY, userHandle);
+                arg.putInt(mUseLineageSettingsProvider ?
+                        LineageSettings.CALL_METHOD_USER_KEY : Settings.CALL_METHOD_USER_KEY,
+                        userHandle);
                 if (tag != null) {
                     arg.putString(Settings.CALL_METHOD_TAG_KEY, tag);
                 }
@@ -392,10 +444,16 @@ final public class SettingsService extends Binder {
 
         int deleteForUser(IContentProvider provider, int userHandle,
                 final String table, final String key) {
+            final Uri systemUri = mUseLineageSettingsProvider ?
+                    LineageSettings.System.getUriFor(key) : Settings.System.getUriFor(key);
+            final Uri secureUri = mUseLineageSettingsProvider ?
+                    LineageSettings.Secure.getUriFor(key) : Settings.Secure.getUriFor(key);
+            final Uri globalUri = mUseLineageSettingsProvider ?
+                    LineageSettings.Global.getUriFor(key) : Settings.Global.getUriFor(key);
             Uri targetUri;
-            if ("system".equals(table)) targetUri = Settings.System.getUriFor(key);
-            else if ("secure".equals(table)) targetUri = Settings.Secure.getUriFor(key);
-            else if ("global".equals(table)) targetUri = Settings.Global.getUriFor(key);
+            if ("system".equals(table)) targetUri = systemUri;
+            else if ("secure".equals(table)) targetUri = secureUri;
+            else if ("global".equals(table)) targetUri = globalUri;
             else {
                 getErrPrintWriter().println("Invalid table; no delete performed");
                 throw new IllegalArgumentException("Invalid table " + table);
@@ -467,18 +525,18 @@ final public class SettingsService extends Binder {
                 pw.println("Settings provider (settings) commands:");
                 pw.println("  help");
                 pw.println("      Print this help text.");
-                pw.println("  get [--user <USER_ID> | current] NAMESPACE KEY");
+                pw.println("  get [--user <USER_ID> | current] [--lineage] NAMESPACE KEY");
                 pw.println("      Retrieve the current value of KEY.");
-                pw.println("  put [--user <USER_ID> | current] NAMESPACE KEY VALUE [TAG] [default]");
+                pw.println("  put [--user <USER_ID> | current] [--lineage] NAMESPACE KEY VALUE [TAG] [default]");
                 pw.println("      Change the contents of KEY to VALUE.");
                 pw.println("      TAG to associate with the setting.");
                 pw.println("      {default} to set as the default, case-insensitive only for global/secure namespace");
-                pw.println("  delete NAMESPACE KEY");
+                pw.println("  delete [--lineage] NAMESPACE KEY");
                 pw.println("      Delete the entry for KEY.");
                 pw.println("  reset [--user <USER_ID> | current] NAMESPACE {PACKAGE_NAME | RESET_MODE}");
                 pw.println("      Reset the global/secure table for a package with mode.");
                 pw.println("      RESET_MODE is one of {untrusted_defaults, untrusted_clear, trusted_defaults}, case-insensitive");
-                pw.println("  list NAMESPACE");
+                pw.println("  list [--lineage] NAMESPACE");
                 pw.println("      Print all defined keys.");
                 pw.println("      NAMESPACE is one of {system, secure, global}, case-insensitive");
             }
