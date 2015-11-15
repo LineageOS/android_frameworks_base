@@ -17,11 +17,13 @@
 package com.android.providers.settings;
 
 import android.app.ActivityManager;
+import android.app.ContentProviderHolder;
 import android.content.AttributionSource;
 import android.content.IContentProvider;
 import android.content.pm.PackageManager;
 import android.os.Binder;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ResultReceiver;
@@ -31,8 +33,11 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 
+import lineageos.providers.LineageSettings;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -115,10 +120,33 @@ final public class SettingsService extends Binder {
         String mTag = null;
         int mResetMode = -1;
         boolean mMakeDefault;
+        boolean mUseLineageSettingsProvider;
 
         MyShellCommand(SettingsProvider provider, boolean dumping) {
             mProvider = provider;
             mDumping = dumping;
+        }
+
+        private String getSettingsAuthority() {
+            return mUseLineageSettingsProvider ? LineageSettings.AUTHORITY : Settings.AUTHORITY;
+        }
+
+        private String getCallMethod(String callMethod) {
+            final PrintWriter perr = getErrPrintWriter();
+
+            try {
+                Class clazz = mUseLineageSettingsProvider ? LineageSettings.class : Settings.class;
+                Field field = clazz.getField(callMethod);
+                if (field.getType() == String.class) {
+                    return (String) field.get(null);
+                }
+            } catch (NoSuchFieldException e) {
+                perr.println("Invalid call method:" + callMethod);
+            } catch (IllegalAccessException e) {
+                perr.println("Failed to access call method:" + callMethod);
+            }
+
+            return null;
         }
 
         @Override
@@ -143,6 +171,8 @@ final public class SettingsService extends Binder {
                         perr.println("Invalid user: all");
                         return -1;
                     }
+                } else if ("--lineage".equals(arg)) {
+                    mUseLineageSettingsProvider = true;
                 } else if (mVerb == CommandVerb.UNSPECIFIED) {
                     if ("get".equalsIgnoreCase(arg)) {
                         mVerb = CommandVerb.GET;
@@ -268,30 +298,51 @@ final public class SettingsService extends Binder {
                 return -1;
             }
 
-            final IContentProvider iprovider = mProvider.getIContentProvider();
+            IBinder token = new Binder();
+            final ContentProviderHolder holder;
+            try {
+                holder = ActivityManager.getService().getContentProviderExternal(
+                        getSettingsAuthority(), UserHandle.USER_SYSTEM, token, null);
+                if (holder == null) {
+                    throw new IllegalStateException("Could not find settings provider");
+                }
+            } catch (RemoteException e) {
+                throw new RuntimeException("Error while accessing settings provider", e);
+            }
+
+            final IContentProvider provider = holder.provider;
             final PrintWriter pout = getOutPrintWriter();
             switch (mVerb) {
                 case GET:
-                    pout.println(getForUser(iprovider, mUser, mTable, mKey));
+                    pout.println(getForUser(provider, mUser, mTable, mKey));
                     break;
                 case PUT:
-                    putForUser(iprovider, mUser, mTable, mKey, mValue, mTag, mMakeDefault);
+                    putForUser(provider, mUser, mTable, mKey, mValue, mTag, mMakeDefault);
                     break;
                 case DELETE:
                     pout.println("Deleted "
-                            + deleteForUser(iprovider, mUser, mTable, mKey) + " rows");
+                            + deleteForUser(provider, mUser, mTable, mKey) + " rows");
                     break;
                 case LIST:
-                    for (String line : listForUser(iprovider, mUser, mTable)) {
+                    for (String line : listForUser(provider, mUser, mTable)) {
                         pout.println(line);
                     }
                     break;
                 case RESET:
-                    resetForUser(iprovider, mUser, mTable, mTag);
+                    resetForUser(provider, mUser, mTable, mTag);
                     break;
                 default:
                     perr.println("Unspecified command");
                     return -1;
+            }
+
+            try {
+                if (provider != null) {
+                    ActivityManager.getService().removeContentProviderExternal(
+                            getSettingsAuthority(), token);
+                }
+            } catch (RemoteException e) {
+                throw new RuntimeException("Error while accessing settings provider", e);
             }
 
             return 0;
@@ -299,20 +350,23 @@ final public class SettingsService extends Binder {
 
         List<String> listForUser(IContentProvider provider, int userHandle, String table) {
             final String callListCommand;
-            if ("system".equals(table)) callListCommand = Settings.CALL_METHOD_LIST_SYSTEM;
-            else if ("secure".equals(table)) callListCommand = Settings.CALL_METHOD_LIST_SECURE;
-            else if ("global".equals(table)) callListCommand = Settings.CALL_METHOD_LIST_GLOBAL;
-            else {
+            if ("system".equals(table)) {
+                callListCommand = getCallMethod("CALL_METHOD_LIST_SYSTEM");
+            } else if ("secure".equals(table)) {
+                callListCommand = getCallMethod("CALL_METHOD_LIST_SECURE");
+            } else if ("global".equals(table)) {
+                callListCommand = getCallMethod("CALL_METHOD_LIST_GLOBAL");
+            } else {
                 getErrPrintWriter().println("Invalid table; no list performed");
                 throw new IllegalArgumentException("Invalid table " + table);
             }
             final ArrayList<String> lines = new ArrayList<String>();
             try {
                 Bundle arg = new Bundle();
-                arg.putInt(Settings.CALL_METHOD_USER_KEY, userHandle);
+                arg.putInt(getCallMethod("CALL_METHOD_USER_KEY"), userHandle);
                 final AttributionSource attributionSource = new AttributionSource(
                         Binder.getCallingUid(), resolveCallingPackage(), /*attributionTag*/ null);
-                Bundle result = provider.call(attributionSource, Settings.AUTHORITY,
+                Bundle result = provider.call(attributionSource, getSettingsAuthority(),
                         callListCommand, null, arg);
                 lines.addAll(result.getStringArrayList(SettingsProvider.RESULT_SETTINGS_LIST));
                 Collections.sort(lines);
@@ -325,10 +379,13 @@ final public class SettingsService extends Binder {
         String getForUser(IContentProvider provider, int userHandle,
                 final String table, final String key) {
             final String callGetCommand;
-            if ("system".equals(table)) callGetCommand = Settings.CALL_METHOD_GET_SYSTEM;
-            else if ("secure".equals(table)) callGetCommand = Settings.CALL_METHOD_GET_SECURE;
-            else if ("global".equals(table)) callGetCommand = Settings.CALL_METHOD_GET_GLOBAL;
-            else {
+            if ("system".equals(table)) {
+                callGetCommand = getCallMethod("CALL_METHOD_GET_SYSTEM");
+            } else if ("secure".equals(table)) {
+                callGetCommand = getCallMethod("CALL_METHOD_GET_SECURE");
+            } else if ("global".equals(table)) {
+                callGetCommand = getCallMethod("CALL_METHOD_GET_GLOBAL");
+            } else {
                 getErrPrintWriter().println("Invalid table; no put performed");
                 throw new IllegalArgumentException("Invalid table " + table);
             }
@@ -336,10 +393,10 @@ final public class SettingsService extends Binder {
             String result = null;
             try {
                 Bundle arg = new Bundle();
-                arg.putInt(Settings.CALL_METHOD_USER_KEY, userHandle);
+                arg.putInt(getCallMethod("CALL_METHOD_USER_KEY"), userHandle);
                 final AttributionSource attributionSource = new AttributionSource(
                         Binder.getCallingUid(), resolveCallingPackage(), /*attributionTag*/ null);
-                Bundle b = provider.call(attributionSource, Settings.AUTHORITY,
+                Bundle b = provider.call(attributionSource, getSettingsAuthority(),
                         callGetCommand, key, arg);
                 if (b != null) {
                     result = b.getPairValue();
@@ -354,15 +411,17 @@ final public class SettingsService extends Binder {
                 final String key, final String value, String tag, boolean makeDefault) {
             final String callPutCommand;
             if ("system".equals(table)) {
-                callPutCommand = Settings.CALL_METHOD_PUT_SYSTEM;
+                callPutCommand = getCallMethod("CALL_METHOD_PUT_SYSTEM");
                 if (makeDefault) {
                     getOutPrintWriter().print("Ignored makeDefault - "
                             + "doesn't apply to system settings");
                     makeDefault = false;
                 }
-            } else if ("secure".equals(table)) callPutCommand = Settings.CALL_METHOD_PUT_SECURE;
-            else if ("global".equals(table)) callPutCommand = Settings.CALL_METHOD_PUT_GLOBAL;
-            else {
+            } else if ("secure".equals(table)) {
+                 callPutCommand = getCallMethod("CALL_METHOD_PUT_SECURE");
+            } else if ("global".equals(table)) {
+                 callPutCommand = getCallMethod("CALL_METHOD_PUT_GLOBAL");
+            } else {
                 getErrPrintWriter().println("Invalid table; no put performed");
                 return;
             }
@@ -370,16 +429,16 @@ final public class SettingsService extends Binder {
             try {
                 Bundle arg = new Bundle();
                 arg.putString(Settings.NameValueTable.VALUE, value);
-                arg.putInt(Settings.CALL_METHOD_USER_KEY, userHandle);
+                arg.putInt(getCallMethod("CALL_METHOD_USER_KEY"), userHandle);
                 if (tag != null) {
-                    arg.putString(Settings.CALL_METHOD_TAG_KEY, tag);
+                    arg.putString(getCallMethod("CALL_METHOD_TAG_KEY"), tag);
                 }
                 if (makeDefault) {
-                    arg.putBoolean(Settings.CALL_METHOD_MAKE_DEFAULT_KEY, true);
+                    arg.putBoolean(getCallMethod("CALL_METHOD_MAKE_DEFAULT_KEY"), true);
                 }
                 final AttributionSource attributionSource = new AttributionSource(
                         Binder.getCallingUid(), resolveCallingPackage(), /*attributionTag*/ null);
-                provider.call(attributionSource, Settings.AUTHORITY,
+                provider.call(attributionSource, getSettingsAuthority(),
                         callPutCommand, key, arg);
             } catch (RemoteException e) {
                 throw new RuntimeException("Failed in IPC", e);
@@ -390,11 +449,11 @@ final public class SettingsService extends Binder {
                 final String table, final String key) {
             final String callDeleteCommand;
             if ("system".equals(table)) {
-                callDeleteCommand = Settings.CALL_METHOD_DELETE_SYSTEM;
+                callDeleteCommand = getCallMethod("CALL_METHOD_DELETE_SYSTEM");
             } else if ("secure".equals(table)) {
-                callDeleteCommand = Settings.CALL_METHOD_DELETE_SECURE;
+                callDeleteCommand = getCallMethod("CALL_METHOD_DELETE_SECURE");
             } else if ("global".equals(table)) {
-                callDeleteCommand = Settings.CALL_METHOD_DELETE_GLOBAL;
+                callDeleteCommand = getCallMethod("CALL_METHOD_DELETE_GLOBAL");
             } else {
                 getErrPrintWriter().println("Invalid table; no delete performed");
                 throw new IllegalArgumentException("Invalid table " + table);
@@ -402,10 +461,10 @@ final public class SettingsService extends Binder {
 
             try {
                 Bundle arg = new Bundle();
-                arg.putInt(Settings.CALL_METHOD_USER_KEY, userHandle);
+                arg.putInt(getCallMethod("CALL_METHOD_USER_KEY"), userHandle);
                 final AttributionSource attributionSource = new AttributionSource(
                         Binder.getCallingUid(), resolveCallingPackage(), /*attributionTag*/ null);
-                Bundle result = provider.call(attributionSource, Settings.AUTHORITY,
+                Bundle result = provider.call(attributionSource, getSettingsAuthority(),
                         callDeleteCommand, key, arg);
                 return result.getInt(SettingsProvider.RESULT_ROWS_DELETED);
             } catch (RemoteException e) {
@@ -416,25 +475,27 @@ final public class SettingsService extends Binder {
         void resetForUser(IContentProvider provider, int userHandle,
                 String table, String tag) {
             final String callResetCommand;
-            if ("secure".equals(table)) callResetCommand = Settings.CALL_METHOD_RESET_SECURE;
-            else if ("global".equals(table)) callResetCommand = Settings.CALL_METHOD_RESET_GLOBAL;
-            else {
+            if ("secure".equals(table)) {
+                 callResetCommand = getCallMethod("CALL_METHOD_RESET_SECURE");
+            } else if ("global".equals(table)) {
+                 callResetCommand = getCallMethod("CALL_METHOD_RESET_GLOBAL");
+            } else {
                 getErrPrintWriter().println("Invalid table; no reset performed");
                 return;
             }
 
             try {
                 Bundle arg = new Bundle();
-                arg.putInt(Settings.CALL_METHOD_USER_KEY, userHandle);
-                arg.putInt(Settings.CALL_METHOD_RESET_MODE_KEY, mResetMode);
+                arg.putInt(getCallMethod("CALL_METHOD_USER_KEY"), userHandle);
+                arg.putInt(getCallMethod("CALL_METHOD_RESET_MODE_KEY"), mResetMode);
                 if (tag != null) {
-                    arg.putString(Settings.CALL_METHOD_TAG_KEY, tag);
+                    arg.putString(getCallMethod("CALL_METHOD_TAG_KEY"), tag);
                 }
                 String packageName = mPackageName != null ? mPackageName : resolveCallingPackage();
-                arg.putInt(Settings.CALL_METHOD_USER_KEY, userHandle);
+                arg.putInt(getCallMethod("CALL_METHOD_USER_KEY"), userHandle);
                 final AttributionSource attributionSource = new AttributionSource(
                         Binder.getCallingUid(), resolveCallingPackage(), /*attributionTag*/ null);
-                provider.call(attributionSource, Settings.AUTHORITY, callResetCommand, null, arg);
+                provider.call(attributionSource, getSettingsAuthority(), callResetCommand, null, arg);
             } catch (RemoteException e) {
                 throw new RuntimeException("Failed in IPC", e);
             }
@@ -472,18 +533,18 @@ final public class SettingsService extends Binder {
                 pw.println("Settings provider (settings) commands:");
                 pw.println("  help");
                 pw.println("      Print this help text.");
-                pw.println("  get [--user <USER_ID> | current] NAMESPACE KEY");
+                pw.println("  get [--user <USER_ID> | current] [--lineage] NAMESPACE KEY");
                 pw.println("      Retrieve the current value of KEY.");
-                pw.println("  put [--user <USER_ID> | current] NAMESPACE KEY VALUE [TAG] [default]");
+                pw.println("  put [--user <USER_ID> | current] [--lineage] NAMESPACE KEY VALUE [TAG] [default]");
                 pw.println("      Change the contents of KEY to VALUE.");
                 pw.println("      TAG to associate with the setting.");
                 pw.println("      {default} to set as the default, case-insensitive only for global/secure namespace");
-                pw.println("  delete [--user <USER_ID> | current] NAMESPACE KEY");
+                pw.println("  delete [--user <USER_ID> | current] [--lineage] NAMESPACE KEY");
                 pw.println("      Delete the entry for KEY.");
-                pw.println("  reset [--user <USER_ID> | current] NAMESPACE {PACKAGE_NAME | RESET_MODE}");
+                pw.println("  reset [--user <USER_ID> | current] [--lineage] NAMESPACE {PACKAGE_NAME | RESET_MODE}");
                 pw.println("      Reset the global/secure table for a package with mode.");
                 pw.println("      RESET_MODE is one of {untrusted_defaults, untrusted_clear, trusted_defaults}, case-insensitive");
-                pw.println("  list [--user <USER_ID> | current] NAMESPACE");
+                pw.println("  list [--user <USER_ID> | current] [--lineage] NAMESPACE");
                 pw.println("      Print all defined keys.");
                 pw.println("      NAMESPACE is one of {system, secure, global}, case-insensitive");
             }
