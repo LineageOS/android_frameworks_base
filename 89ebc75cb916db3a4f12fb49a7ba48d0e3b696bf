@@ -45,6 +45,30 @@
       "revId": "89ebc75cb916db3a4f12fb49a7ba48d0e3b696bf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d4b2f_397d9b6e",
+        "filename": "cmds/content/src/com/android/commands/content/Content.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-11-18T01:07:51Z",
+      "side": 1,
+      "message": "actually, equals is perfectly fine considering the intended user(s).",
+      "parentUuid": "ff5d4b2f_99b48737",
+      "range": {
+        "startLine": 381,
+        "startChar": 25,
+        "endLine": 381,
+        "endChar": 31
+      },
+      "revId": "89ebc75cb916db3a4f12fb49a7ba48d0e3b696bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
