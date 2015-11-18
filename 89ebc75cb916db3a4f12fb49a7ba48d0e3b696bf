@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff5d4b2f_b9b74b3b",
+        "filename": "cmds/content/src/com/android/commands/content/Content.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-11-18T00:54:45Z",
+      "side": 1,
+      "message": "nit: closing bracket after \u003cSHOW-TYPE\u003e",
+      "range": {
+        "startLine": 107,
+        "startChar": 32,
+        "endLine": 107,
+        "endChar": 33
+      },
+      "revId": "89ebc75cb916db3a4f12fb49a7ba48d0e3b696bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d4b2f_99b48737",
+        "filename": "cmds/content/src/com/android/commands/content/Content.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-11-18T00:54:45Z",
+      "side": 1,
+      "message": "equalsIgnoreCase(), just in case?",
+      "range": {
+        "startLine": 381,
+        "startChar": 25,
+        "endLine": 381,
+        "endChar": 31
+      },
+      "revId": "89ebc75cb916db3a4f12fb49a7ba48d0e3b696bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
