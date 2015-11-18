@@ -16,6 +16,24 @@
       "revId": "127445c5ed0af61887c1fd9e90c72dc7eb897437",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d4b2f_99bb670d",
+        "filename": "cmds/settings/src/com/android/commands/settings/SettingsCmd.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-11-18T01:39:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff5d4b2f_79d1d357",
+      "revId": "127445c5ed0af61887c1fd9e90c72dc7eb897437",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
