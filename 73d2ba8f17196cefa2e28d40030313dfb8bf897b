@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f515b1d_e9b0518e",
+        "filename": "wifi/java/android/net/wifi/WifiManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2015-11-19T04:33:53Z",
+      "side": 1,
+      "message": "The new line and \"  /**\" line is missing.",
+      "revId": "73d2ba8f17196cefa2e28d40030313dfb8bf897b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
