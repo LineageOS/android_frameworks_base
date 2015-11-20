@@ -369,6 +369,14 @@ public class TelecomManager {
             "android.telecom.extra.CALL_TECHNOLOGY_TYPE";
 
     /**
+     * Optional extra for communicating the call technology used by a
+     * {@link com.android.internal.telephony.Connection} to Telecom
+     * @hide
+     */
+    public static final String EXTRA_CALL_TECHNOLOGY_TYPE =
+            "android.telecom.extra.CALL_TECHNOLOGY_TYPE";
+
+    /**
      * Optional extra for communicating the call network technology used by a
      * {@link android.telecom.Connection} to Telecom and InCallUI.
      *
