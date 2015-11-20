@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f515b1d_d5f52685",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4071,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-11-20T06:40:22Z",
+      "side": 0,
+      "message": "unnecessary because updateResources(), which called recreateStatusBar(), will call this once we\u0027re done here.",
+      "range": {
+        "startLine": 4069,
+        "startChar": 0,
+        "endLine": 4071,
+        "endChar": 9
+      },
+      "revId": "f71ab560b36f66101aef505e2a246db98acf7280",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
