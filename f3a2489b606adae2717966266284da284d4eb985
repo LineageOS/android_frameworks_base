@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f4e5783_abb7ed3a",
+        "filename": "services/core/java/com/android/server/storage/DeviceStorageMonitorService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-11-21T05:48:52Z",
+      "side": 1,
+      "message": "Joining will cause the main thread to block.\n\nIdeally we change the handler that this method is called from to run on a looper of a handler thread or something (ie non ui thread).",
+      "revId": "f3a2489b606adae2717966266284da284d4eb985",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
