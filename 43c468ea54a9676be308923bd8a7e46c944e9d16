@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f4e5783_ffad9fea",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CellularTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2015-11-22T20:10:03Z",
+      "side": 1,
+      "message": "Should point to the Mobile Networks menu.",
+      "revId": "43c468ea54a9676be308923bd8a7e46c944e9d16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
