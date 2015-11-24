@@ -131,7 +131,7 @@ public class PackagePartitions {
             final String partitionName = SYSTEM_PARTITIONS.get(i).getName();
             digestProperties[i] = "ro." + partitionName + ".build.fingerprint";
         }
-        digestProperties[SYSTEM_PARTITIONS.size()] = "ro.build.fingerprint"; // build fingerprint
+        digestProperties[SYSTEM_PARTITIONS.size()] = "ro.build.version.incremental";
         return SystemProperties.digestOf(digestProperties);
     }
 
