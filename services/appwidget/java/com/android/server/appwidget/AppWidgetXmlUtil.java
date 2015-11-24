@@ -96,7 +96,7 @@ public class AppWidgetXmlUtil {
         out.attributeInt(null, ATTR_WIDGET_FEATURES, info.widgetFeatures);
         out.attributeInt(null, ATTR_DESCRIPTION_RES, info.descriptionRes);
         out.attributeBoolean(null, ATTR_PROVIDER_INHERITANCE, info.isExtendedFromAppWidgetProvider);
-        out.attribute(null, ATTR_OS_FINGERPRINT, Build.FINGERPRINT);
+        out.attribute(null, ATTR_OS_FINGERPRINT, Build.VERSION.INCREMENTAL);
     }
 
     /**
@@ -107,7 +107,7 @@ public class AppWidgetXmlUtil {
             @NonNull final TypedXmlPullParser parser) {
         Objects.requireNonNull(parser);
         final String fingerprint = parser.getAttributeValue(null, ATTR_OS_FINGERPRINT);
-        if (!Build.FINGERPRINT.equals(fingerprint)) {
+        if (!Build.VERSION.INCREMENTAL.equals(fingerprint)) {
             return null;
         }
         final AppWidgetProviderInfo info = new AppWidgetProviderInfo();

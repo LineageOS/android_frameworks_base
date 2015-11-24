@@ -464,7 +464,7 @@ public final class Settings implements Watchable, Snappable, ResilientAtomicFile
         public void forceCurrent() {
             sdkVersion = Build.VERSION.SDK_INT;
             databaseVersion = CURRENT_DATABASE_VERSION;
-            buildFingerprint = Build.FINGERPRINT;
+            buildFingerprint = Build.VERSION.INCREMENTAL;
             fingerprint = PackagePartitions.FINGERPRINT;
         }
     }
