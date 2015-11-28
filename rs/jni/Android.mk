@@ -29,6 +29,7 @@ LOCAL_C_INCLUDES += \
 
 LOCAL_CFLAGS += -Wno-unused-parameter
 LOCAL_CFLAGS += -Wall -Werror -Wunused -Wunreachable-code
+LOCAL_CFLAGS += -fno-strict-aliasing
 
 LOCAL_MODULE:= librs_jni
 LOCAL_MODULE_TAGS := optional

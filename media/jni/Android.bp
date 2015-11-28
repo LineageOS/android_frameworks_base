@@ -80,6 +80,7 @@ cc_library_shared {
         "-Wno-error=deprecated-declarations",
         "-Wunused",
         "-Wunreachable-code",
+        "-fno-strict-aliasing",
     ],
 }
 
