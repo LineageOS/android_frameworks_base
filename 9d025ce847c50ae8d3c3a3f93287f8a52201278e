@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "df87a7cf_a762aed7",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSTile.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-11-30T06:51:22Z",
+      "side": 1,
+      "message": "Why do this in the add long press patch? Also I think adding another method for each tile is convoluting things... maybe just lets rename supportsDualTargets() - all tiles should support dual targets in the end.",
+      "range": {
+        "startLine": 87,
+        "startChar": 19,
+        "endLine": 87,
+        "endChar": 40
+      },
+      "revId": "9d025ce847c50ae8d3c3a3f93287f8a52201278e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df87a7cf_c75fb20c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSTileView.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-11-30T06:51:22Z",
+      "side": 1,
+      "message": "Adding a setter to the setDual method looks confusing... see other comments on whether we even need another param for each tile",
+      "revId": "9d025ce847c50ae8d3c3a3f93287f8a52201278e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df87a7cf_877a0a86",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/BluetoothTile.java",
         "patchSetId": 11
