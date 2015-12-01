@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf8cb3f7_40bcee68",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2015-12-01T00:38:18Z",
+      "side": 1,
+      "message": "@hide?",
+      "revId": "c824e9ef76bcba04787199dcd8f202db9cff9e60",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
