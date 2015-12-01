@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf8cb3f7_a676323e",
+        "filename": "core/java/com/android/internal/util/cm/LockscreenShortcutsHelper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-01T08:02:08Z",
+      "side": 1,
+      "message": "packagename could be null",
+      "revId": "df77ee755ca71314da566d4d5d10dd85f3c35014",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
