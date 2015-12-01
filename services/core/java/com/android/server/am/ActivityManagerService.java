@@ -6629,6 +6629,9 @@ public final class ActivityManagerService extends ActivityManagerNative
                 Slog.w(TAG, "Unattached app died before broadcast acknowledged, skipping");
                 skipPendingBroadcastLocked(pid);
             }
+            if (app.persistent && !app.isolated) {
+                addAppLocked(app.info, false, null /* ABI override */);
+            }
         } else {
             Slog.w(TAG, "Spurious process start timeout - pid not known for " + app);
         }
