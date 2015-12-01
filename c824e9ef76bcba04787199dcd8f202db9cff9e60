@@ -16,6 +16,24 @@
       "revId": "c824e9ef76bcba04787199dcd8f202db9cff9e60",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf8cb3f7_e620ba4c",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-01T07:35:24Z",
+      "side": 1,
+      "message": "Not public api, however check-system-api may trigger the build failure.",
+      "parentUuid": "bf8cb3f7_40bcee68",
+      "revId": "c824e9ef76bcba04787199dcd8f202db9cff9e60",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
