@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf8cb3f7_afd92523",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/wifi/AccessPoint.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 14421
+      },
+      "writtenOn": "2015-12-02T07:01:03Z",
+      "side": 1,
+      "message": "Not sure if there\u0027s a coding standard for this, but wouldn\u0027t a getter method be a better choice instead of making this member public?",
+      "range": {
+        "startLine": 112,
+        "startChar": 63,
+        "endLine": 112,
+        "endChar": 64
+      },
+      "revId": "e071dd0105222f51b6fdaef9becaf7162dff9843",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
