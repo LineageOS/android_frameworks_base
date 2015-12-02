@@ -41,6 +41,8 @@ import com.android.systemui.statusbar.policy.NetworkController.AccessPointContro
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
 import com.android.systemui.statusbar.policy.SignalCallbackAdapter;
 
+import cyanogenmod.app.StatusBarPanelCustomTile;
+
 import java.util.List;
 
 /** Quick settings tile: Wifi **/
@@ -294,6 +296,11 @@ public class WifiTile extends QSTile<QSTile.SignalState> {
         @Override
         public int getMetricsCategory() {
             return MetricsEvent.QS_WIFI_DETAILS;
+        }
+
+        @Override
+        public StatusBarPanelCustomTile getCustomTile() {
+            return null;
         }
 
         @Override
