@@ -33,6 +33,9 @@
     <!-- Blur surface -->
     <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
 
+    <!-- Quick Settings Tile Listener -->
+    <uses-permission android:name="cyanogenmod.permission.BIND_CUSTOM_TILE_LISTENER_SERVICE"/>
+
     <application>
 
         <activity-alias

@@ -138,4 +138,8 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
     <string name="status_bar_notification_info_overflow" translatable="false">\u221E</string>
+
+    <!-- Custom QS tiles -->
+    <string name="quick_settings_custom_tile_detail_title">Custom Tile</string>
+    <string name="quick_settings_remove">Remove tile</string>
 </resources>
