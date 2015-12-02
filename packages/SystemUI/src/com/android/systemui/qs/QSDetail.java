@@ -39,12 +39,16 @@ import com.android.systemui.qs.QSTile.DetailAdapter;
 import com.android.systemui.statusbar.phone.BaseStatusBarHeader;
 import com.android.systemui.statusbar.phone.QSTileHost;
 
+import cyanogenmod.app.StatusBarPanelCustomTile;
+
 public class QSDetail extends LinearLayout {
 
     private static final String TAG = "QSDetail";
     private static final long FADE_DURATION = 300;
 
     private final SparseArray<View> mDetailViews = new SparseArray<>();
+
+    protected TextView mDetailRemoveButton;
 
     private ViewGroup mDetailContent;
     private TextView mDetailSettingsButton;
@@ -79,6 +83,7 @@ public class QSDetail extends LinearLayout {
         super.onConfigurationChanged(newConfig);
         FontSizeUtils.updateFontSize(mDetailDoneButton, R.dimen.qs_detail_button_text_size);
         FontSizeUtils.updateFontSize(mDetailSettingsButton, R.dimen.qs_detail_button_text_size);
+        FontSizeUtils.updateFontSize(mDetailRemoveButton, R.dimen.qs_detail_button_text_size);
 
         for (int i = 0; i < mDetailViews.size(); i++) {
             mDetailViews.valueAt(i).dispatchConfigurationChanged(newConfig);
@@ -91,6 +96,7 @@ public class QSDetail extends LinearLayout {
         mDetailContent = (ViewGroup) findViewById(android.R.id.content);
         mDetailSettingsButton = (TextView) findViewById(android.R.id.button2);
         mDetailDoneButton = (TextView) findViewById(android.R.id.button1);
+        mDetailRemoveButton = (TextView) findViewById(android.R.id.button3);
 
         mQsDetailHeader = findViewById(R.id.qs_detail_header);
         mQsDetailHeaderTitle = (TextView) mQsDetailHeader.findViewById(android.R.id.title);
@@ -139,6 +145,7 @@ public class QSDetail extends LinearLayout {
     private void updateDetailText() {
         mDetailDoneButton.setText(R.string.quick_settings_done);
         mDetailSettingsButton.setText(R.string.quick_settings_more_settings);
+        mDetailRemoveButton.setText(R.string.quick_settings_remove);
     }
 
     public void updateResources() {
@@ -204,6 +211,16 @@ public class QSDetail extends LinearLayout {
                 @Override
                 public void onClick(View v) {
                     mHost.startActivityDismissingKeyguard(settingsIntent);
+                }
+            });
+
+            final StatusBarPanelCustomTile customTile = adapter.getCustomTile();
+            mDetailRemoveButton.setVisibility(customTile != null ? VISIBLE : GONE);
+            mDetailRemoveButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mHost.collapsePanels();
+                    mHost.removeCustomTile(customTile);
                 }
             });
 

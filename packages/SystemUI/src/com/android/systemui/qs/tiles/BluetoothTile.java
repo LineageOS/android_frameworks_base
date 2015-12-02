@@ -37,6 +37,8 @@ import com.android.systemui.qs.QSDetailItems.Item;
 import com.android.systemui.qs.QSTile;
 import com.android.systemui.statusbar.policy.BluetoothController;
 
+import cyanogenmod.app.StatusBarPanelCustomTile;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -229,6 +231,11 @@ public class BluetoothTile extends QSTile<QSTile.BooleanState>  {
         @Override
         public int getMetricsCategory() {
             return MetricsEvent.QS_BLUETOOTH_DETAILS;
+        }
+
+        @Override
+        public StatusBarPanelCustomTile getCustomTile() {
+            return null;
         }
 
         @Override

@@ -37,6 +37,8 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
 import com.android.systemui.statusbar.policy.SignalCallbackAdapter;
 
+import cyanogenmod.app.StatusBarPanelCustomTile;
+
 /** Quick settings tile: Cellular **/
 public class CellularTile extends QSTile<QSTile.SignalState> {
     static final Intent CELLULAR_SETTINGS = new Intent().setComponent(new ComponentName(
@@ -270,6 +272,11 @@ public class CellularTile extends QSTile<QSTile.SignalState> {
         @Override
         public int getMetricsCategory() {
             return MetricsEvent.QS_DATAUSAGEDETAIL;
+        }
+
+        @Override
+        public StatusBarPanelCustomTile getCustomTile() {
+            return null;
         }
 
         @Override

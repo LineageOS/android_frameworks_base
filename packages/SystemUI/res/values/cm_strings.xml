@@ -118,4 +118,8 @@
 
     <!-- Path data for circle battery -->
     <string name="battery_circle_path" translatable="false">M 12 3.5 C 16.6944203736 3.5 20.5 7.30557962644 20.5 12 C 20.5 16.6944203736 16.6944203736 20.5 12 20.5 C 7.30557962644 20.5 3.5 16.6944203736 3.5 12 C 3.5 7.30557962644 7.30557962644 3.5 12 3.5 Z</string>
+
+    <!-- Custom QS tiles -->
+    <string name="quick_settings_custom_tile_detail_title">Custom Tile</string>
+    <string name="quick_settings_remove">Remove tile</string>
 </resources>

@@ -26,6 +26,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Process;
+import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -46,6 +47,7 @@ import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
+import com.android.systemui.qs.tiles.CustomQSTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
@@ -57,6 +59,7 @@ import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
+import com.android.systemui.statusbar.CustomTileData;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.BluetoothController;
 import com.android.systemui.statusbar.policy.CastController;
@@ -73,6 +76,9 @@ import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
+
+import cyanogenmod.app.CustomTileListenerService;
+import cyanogenmod.app.StatusBarPanelCustomTile;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -109,12 +115,50 @@ public class QSTileHost implements QSTile.Host, Tunable {
     private final StatusBarIconController mIconController;
     private final TileServices mServices;
 
+    private final CustomTileData mCustomTileData;
+    private final Handler mHandler;
+
     private final List<Callback> mCallbacks = new ArrayList<>();
     private final AutoTileManager mAutoTiles;
     private final ManagedProfileController mProfileController;
     private final NextAlarmController mNextAlarmController;
     private View mHeader;
     private int mCurrentUser;
+
+    private final CustomTileListenerService mCustomTileListenerService =
+            new CustomTileListenerService() {
+        @Override
+        public void onListenerConnected() {
+            //Connected
+        }
+
+        @Override
+        public void onCustomTilePosted(final StatusBarPanelCustomTile sbc) {
+            if (DEBUG) Log.d(TAG, "onCustomTilePosted: " + sbc.getCustomTile());
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    boolean isUpdate = mCustomTileData.get(sbc.getKey()) != null;
+                    if (isUpdate) {
+                        updateCustomTile(sbc);
+                    } else {
+                        addCustomTile(sbc);
+                    }
+                }
+            });
+        }
+
+        @Override
+        public void onCustomTileRemoved(final StatusBarPanelCustomTile sbc) {
+            if (DEBUG) Log.d(TAG, "onCustomTileRemoved: " + sbc.getCustomTile());
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    removeCustomTileSysUi(sbc.getKey());
+                }
+            });
+        }
+    };
 
     public QSTileHost(Context context, PhoneStatusBar statusBar,
             BluetoothController bluetooth, LocationController location,
@@ -154,6 +198,18 @@ public class QSTileHost implements QSTile.Host, Tunable {
         TunerService.get(mContext).addTunable(this, TILES_SETTING);
         // AutoTileManager can modify mTiles so make sure mTiles has already been initialized.
         mAutoTiles = new AutoTileManager(context, this);
+
+        mCustomTileData = new CustomTileData();
+        mHandler = new Handler();
+
+        // Set up the initial notification state
+        try {
+            mCustomTileListenerService.registerAsSystemService(mContext,
+                    new ComponentName(mContext.getPackageName(), getClass().getCanonicalName()),
+                    UserHandle.USER_ALL);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Unable to register custom tile listener", e);
+        }
     }
 
     public NextAlarmController getNextAlarmController() {
@@ -362,6 +418,12 @@ public class QSTileHost implements QSTile.Host, Tunable {
     }
 
     @Override
+    public void removeCustomTile(StatusBarPanelCustomTile customTile) {
+        mCustomTileListenerService.removeCustomTile(customTile.getPackage(),
+                customTile.getTag(), customTile.getId());
+    }
+
+    @Override
     public void removeTile(String tileSpec) {
         ArrayList<String> specs = new ArrayList<>(mTileSpecs);
         specs.remove(tileSpec);
@@ -473,5 +535,33 @@ public class QSTileHost implements QSTile.Host, Tunable {
             }
         }
         return tiles;
+    }
+
+    private void updateCustomTile(StatusBarPanelCustomTile sbc) {
+        if (mTiles.containsKey(sbc.getKey())) {
+            QSTile<?> tile = mTiles.get(sbc.getKey());
+            if (tile instanceof CustomQSTile) {
+                CustomQSTile qsTile = (CustomQSTile) tile;
+                qsTile.update(sbc);
+            }
+        }
+    }
+
+    private void addCustomTile(StatusBarPanelCustomTile sbc) {
+        mCustomTileData.add(new CustomTileData.Entry(sbc));
+        mTiles.put(sbc.getKey(), new CustomQSTile(this, sbc));
+        for (int i = 0; i < mCallbacks.size(); i++) {
+            mCallbacks.get(i).onTilesChanged();
+        }
+    }
+
+    private void removeCustomTileSysUi(String key) {
+        if (mTiles.containsKey(key)) {
+            mTiles.remove(key);
+            mCustomTileData.remove(key);
+            for (int i = 0; i < mCallbacks.size(); i++) {
+                mCallbacks.get(i).onTilesChanged();
+            }
+        }
     }
 }
