@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf8cb3f7_f5113a55",
+        "filename": "packages/SystemUI/res/layout/qs_tile_top",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2015-12-02T21:26:50Z",
+      "side": 0,
+      "message": "qs_tile_top.xml ?",
+      "revId": "0f9d4bf18c63ed0d55a7ea1f6e71026f1dddb585",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
