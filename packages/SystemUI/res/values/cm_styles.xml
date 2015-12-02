@@ -45,4 +45,8 @@
         <item name="blendMode">overlay</item>
     </style>
 
+    <!-- Custom QS tile detail style -->
+    <style name="TextAppearance.QS.DetailItemSub">
+        <item name="android:textSize">@dimen/qs_detail_item_secondary_text_size</item>
+    </style>
 </resources>
