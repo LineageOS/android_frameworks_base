@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf8cb3f7_db06a421",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-04T23:53:07Z",
+      "side": 1,
+      "message": "need to use 4 spaces instead of TABs\n\nWhy not use a switch instead of if/else if/else?",
+      "revId": "3eec1a605dd5780fe0cab9783b269a73608ec3c5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
