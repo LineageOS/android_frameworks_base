@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf8cb3f7_e0c5f75c",
+        "filename": "core/res/res/values-vi/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-12-04T05:14:00Z",
+      "side": 1,
+      "message": "Invalid",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 132
+      },
+      "revId": "d179342f1fc54e7e5d4601cd316f5688332f65fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf8cb3f7_20cc3f88",
+        "filename": "core/res/res/values-vi/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-12-04T05:14:00Z",
+      "side": 1,
+      "message": "Invalid",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 51
+      },
+      "revId": "d179342f1fc54e7e5d4601cd316f5688332f65fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf8cb3f7_00cfbb7f",
+        "filename": "packages/SystemUI/res/values-vi/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-12-04T05:14:00Z",
+      "side": 1,
+      "message": "Invalid",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 65
+      },
+      "revId": "d179342f1fc54e7e5d4601cd316f5688332f65fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf8cb3f7_60ba47df",
+        "filename": "packages/SystemUI/res/values-vi/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-12-04T05:14:00Z",
+      "side": 1,
+      "message": "Invalid",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 70
+      },
+      "revId": "d179342f1fc54e7e5d4601cd316f5688332f65fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
