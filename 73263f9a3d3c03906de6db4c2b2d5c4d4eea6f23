@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf8cb3f7_c06233d9",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDetailItemsList.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-04T04:14:29Z",
+      "side": 1,
+      "message": "is this right?",
+      "revId": "73263f9a3d3c03906de6db4c2b2d5c4d4eea6f23",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
