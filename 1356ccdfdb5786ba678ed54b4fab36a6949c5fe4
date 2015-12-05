@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f91af0f_820afc87",
+        "filename": "core/res/res/layout/preference_category_material.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 32
+      },
+      "writtenOn": "2015-12-05T15:30:50Z",
+      "side": 0,
+      "message": "This seems to be causing the issue at first glance.",
+      "revId": "1356ccdfdb5786ba678ed54b4fab36a6949c5fe4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
