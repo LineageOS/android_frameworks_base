@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f91af0f_c855831f",
+        "filename": "packages/SystemUI/res/values/attrs.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-06T05:16:25Z",
+      "side": 1,
+      "message": "We should probably start a cm_attrs.xml for additional attributes.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 24
+      },
+      "revId": "2868a6513f20eeb472cca737672d58a5abdbd186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_a8583f56",
+        "filename": "packages/SystemUI/res/values/styles.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-06T05:16:25Z",
+      "side": 1,
+      "message": "Should add this to cm_styles.xml",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 12
+      },
+      "revId": "2868a6513f20eeb472cca737672d58a5abdbd186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
