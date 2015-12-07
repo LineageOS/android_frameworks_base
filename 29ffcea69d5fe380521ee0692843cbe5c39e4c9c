@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f91af0f_54458a16",
+        "filename": "packages/SystemUI/res/layout/mland.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 8961
+      },
+      "writtenOn": "2015-12-07T20:58:02Z",
+      "side": 1,
+      "message": "Sure we don\u0027t need to expose this one? I\u0027m not sure :/",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 42
+      },
+      "revId": "29ffcea69d5fe380521ee0692843cbe5c39e4c9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_b4be56fd",
+        "filename": "packages/SystemUI/res/values/cm_colors.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 8961
+      },
+      "writtenOn": "2015-12-07T20:58:02Z",
+      "side": 1,
+      "message": "Appears twice, look few rows above",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 63
+      },
+      "revId": "29ffcea69d5fe380521ee0692843cbe5c39e4c9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
