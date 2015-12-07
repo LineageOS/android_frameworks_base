@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f91af0f_b97f2faa",
+        "filename": "packages/PrintSpooler/res/layout/print_activity.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 8961
+      },
+      "writtenOn": "2015-12-07T18:51:54Z",
+      "side": 1,
+      "message": "The whole 4 boxes under not exposed",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 56
+      },
+      "revId": "8589db0572c9fb596a6b1a7e24f43ecdf1a69285",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_1973bbe9",
+        "filename": "packages/PrintSpooler/res/layout/print_activity_controls.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 8961
+      },
+      "writtenOn": "2015-12-07T18:51:54Z",
+      "side": 1,
+      "message": "Another one",
+      "range": {
+        "startLine": 254,
+        "startChar": 10,
+        "endLine": 254,
+        "endChar": 62
+      },
+      "revId": "8589db0572c9fb596a6b1a7e24f43ecdf1a69285",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_f975b7cd",
+        "filename": "packages/SystemUI/res/layout/lockscreen_shortcuts.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 8961
+      },
+      "writtenOn": "2015-12-07T18:51:54Z",
+      "side": 1,
+      "message": "Another one",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "8589db0572c9fb596a6b1a7e24f43ecdf1a69285",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_597143e0",
+        "filename": "packages/SystemUI/res/layout/mland.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 8961
+      },
+      "writtenOn": "2015-12-07T18:51:54Z",
+      "side": 1,
+      "message": "Another one",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 42
+      },
+      "revId": "8589db0572c9fb596a6b1a7e24f43ecdf1a69285",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_396c7f07",
+        "filename": "packages/SystemUI/res/layout/status_bar_expanded.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 8961
+      },
+      "writtenOn": "2015-12-07T18:51:54Z",
+      "side": 1,
+      "message": "Did we left this out for a reason?",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 51
+      },
+      "revId": "8589db0572c9fb596a6b1a7e24f43ecdf1a69285",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
