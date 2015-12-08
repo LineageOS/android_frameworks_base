@@ -1,0 +1,180 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f91af0f_d4f99a4d",
+        "filename": "core/res/res/layout-sw600dp/keyguard.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-08T04:55:57Z",
+      "side": 1,
+      "message": "This layout is no longer used.  Please revert changes on this file.",
+      "revId": "e9c99874b15107ae673c1386965921d1515ab742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_280f4a2f",
+        "filename": "core/res/res/layout/alert_dialog_micro.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-08T04:55:57Z",
+      "side": 1,
+      "message": "This is only used when building for Android Wear, which we currently do not do.  Please revert these changes.",
+      "revId": "e9c99874b15107ae673c1386965921d1515ab742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_a8511a11",
+        "filename": "core/res/res/layout/browser_link_context_header.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-08T04:55:57Z",
+      "side": 1,
+      "message": "I don\u0027t see this layout being used by framework or any apps.  Should be safe to revert the changes to this file.",
+      "revId": "e9c99874b15107ae673c1386965921d1515ab742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_28cc2a88",
+        "filename": "core/res/res/layout/choose_account_type.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-08T04:55:57Z",
+      "side": 1,
+      "message": "change background to divider , since this view is essentially being used as a divider.",
+      "range": {
+        "startLine": 27,
+        "startChar": 57,
+        "endLine": 27,
+        "endChar": 67
+      },
+      "revId": "e9c99874b15107ae673c1386965921d1515ab742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_a8a59ab7",
+        "filename": "core/res/res/layout/keyguard.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-08T04:55:57Z",
+      "side": 1,
+      "message": "As far as I can tell, this layout is no longer being used in AOSP so these changes can be reverted.",
+      "revId": "e9c99874b15107ae673c1386965921d1515ab742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_e89ac26c",
+        "filename": "core/res/res/layout/recent_apps_dialog.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-08T04:55:57Z",
+      "side": 1,
+      "message": "Another layout which is no longer being used so no need to make changes here.",
+      "revId": "e9c99874b15107ae673c1386965921d1515ab742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_4883ae05",
+        "filename": "core/res/res/layout/recent_apps_icon.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-08T04:55:57Z",
+      "side": 1,
+      "message": "Layout is no longer used so no need to make changes.",
+      "revId": "e9c99874b15107ae673c1386965921d1515ab742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_68eb12b0",
+        "filename": "core/res/res/layout/restrictions_pin_setup.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-08T04:55:57Z",
+      "side": 1,
+      "message": "Layout not being used so please revert changes made to this file.",
+      "revId": "e9c99874b15107ae673c1386965921d1515ab742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_c8d9fe22",
+        "filename": "core/res/res/layout/simple_dropdown_item_2line.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-08T04:55:57Z",
+      "side": 1,
+      "message": "Another layout that is no longer being used.",
+      "revId": "e9c99874b15107ae673c1386965921d1515ab742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_08f9267f",
+        "filename": "core/res/res/layout/subscription_item_layout.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-08T04:55:57Z",
+      "side": 1,
+      "message": "Layout no longer used, please revert changes to this file.",
+      "revId": "e9c99874b15107ae673c1386965921d1515ab742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
