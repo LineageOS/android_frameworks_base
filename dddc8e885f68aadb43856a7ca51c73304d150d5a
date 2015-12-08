@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f91af0f_c8ab3e73",
+        "filename": "packages/SystemUI/res/values/attrs.xml",
+        "patchSetId": 19
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "extra line",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_48b16ee1",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "maybe make \"1\" a constant if we ever add any other decoupled pages?",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_68b6b2dc",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "make constant.",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_08cb6653",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "same",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_28c8aa53",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "is this for orientation change?",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_08d046f7",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSSettingRow.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "Copyright header.",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_28cd0a5d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSSettingRow.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "Should we validate that the incoming key is correct for the table that it is to be written to?",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_e8d642f2",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSSettingRow.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "otherwise if mTable has been incorrectly specified, then this could lead to either the system process crashing or bad/unread data being stored.",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_8805367d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSSettingRow.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "extra line",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_a80a7a87",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSSettings.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "Copyright header.",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_48ff2e67",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSTile.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "extra line",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_28f66a91",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "Not sure if I like this interaction, its a bit disorienting to see the panel fling across the screen while my finger continues to be on the long press position.",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_c8f25e9b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T04:53:26Z",
+      "side": 1,
+      "message": "this is an arbitrary delay.",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
