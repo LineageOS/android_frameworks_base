@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f91af0f_c891fef3",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6015,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-08T05:40:58Z",
+      "side": 1,
+      "message": "to clarify, this item can be placed into the corresponding table as part of CMSettings. This allows us to persist our options much more easily in the long term.\n\nSee https://github.com/CyanogenMod/cm_platform_sdk/blob/cm-13.0/src/java/cyanogenmod/providers/CMSettings.java",
+      "revId": "92ee47724094240e70b2f866406681645bb09d98",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
