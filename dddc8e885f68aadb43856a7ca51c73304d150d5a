@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "9f91af0f_083e0629",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-08T05:16:44Z",
+      "side": 1,
+      "message": "I don\u0027t think a constant makes sense here (yet). You\u0027re either editing and have an extra page or you don\u0027t.",
+      "parentUuid": "9f91af0f_48b16ee1",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f91af0f_68b6b2dc",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
         "patchSetId": 19
@@ -87,6 +105,24 @@
     },
     {
       "key": {
+        "uuid": "9f91af0f_c847bebc",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-08T05:16:44Z",
+      "side": 1,
+      "message": "No, the brightness bar is not yet ready until a full layout has been done on the viewpager (there is a global layout listener which adds the view which houses the brightness slider on the first pass), so we don\u0027t touch it until we\u0027re ready to.",
+      "parentUuid": "9f91af0f_28c8aa53",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f91af0f_08d046f7",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/QSSettingRow.java",
         "patchSetId": 19
@@ -115,6 +151,24 @@
       "writtenOn": "2015-12-08T04:53:26Z",
       "side": 1,
       "message": "Should we validate that the incoming key is correct for the table that it is to be written to?",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_480dee8e",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSSettingRow.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-08T05:16:44Z",
+      "side": 1,
+      "message": "We should take another look at this later, not in this patch IMO. Not necessary yet.",
+      "parentUuid": "9f91af0f_28cd0a5d",
       "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -206,6 +260,24 @@
     },
     {
       "key": {
+        "uuid": "9f91af0f_28242a0d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-08T05:16:44Z",
+      "side": 1,
+      "message": "This happens after the edit tile gets the long-press call back. Also thinking about the behavior of only moving the settings page after the user releases the tile, I\u0027m not sure I like that.\n\nThe goal of the long press is to make the Settings page more discoverable and that wouldn\u0027t help I don\u0027t think.",
+      "parentUuid": "9f91af0f_28f66a91",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f91af0f_c8f25e9b",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
         "patchSetId": 19
@@ -217,6 +289,24 @@
       "writtenOn": "2015-12-08T04:53:26Z",
       "side": 1,
       "message": "this is an arbitrary delay.",
+      "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f91af0f_c8201efb",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-08T05:16:44Z",
+      "side": 1,
+      "message": "indeed it is arbitrary. should I put it in a constant?",
+      "parentUuid": "9f91af0f_c8f25e9b",
       "revId": "dddc8e885f68aadb43856a7ca51c73304d150d5a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
