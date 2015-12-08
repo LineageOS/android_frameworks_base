@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f91af0f_4b272866",
+        "filename": "services/core/jni/com_android_server_AlarmManagerService.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-08T06:48:05Z",
+      "side": 1,
+      "message": "Oh, yeah, this is broken for timerfd. This is an invalid argument to timerfd_create.",
+      "revId": "5b04546a88e50094793ffa3a059840249d07ea7e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
