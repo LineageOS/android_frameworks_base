@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f93b717_bd5f1f0d",
+        "filename": "services/core/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-09T07:06:31Z",
+      "side": 1,
+      "message": "derp",
+      "revId": "757700294cf2a8c77faf207d3568c8758306c089",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
