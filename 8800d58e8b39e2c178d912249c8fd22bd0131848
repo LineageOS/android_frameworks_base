@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f96bb07_9e757dfd",
+        "filename": "services/core/jni/com_android_server_AlarmManagerService.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-09T00:42:56Z",
+      "side": 0,
+      "message": "You can ifdef this value to allow timerfd support for CLOCK_POWEROFF_ALARM. I\u0027ll have another patch up shortly.",
+      "revId": "8800d58e8b39e2c178d912249c8fd22bd0131848",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
