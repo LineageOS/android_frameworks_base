@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f93b717_fd9367a2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 8328
+      },
+      "writtenOn": "2015-12-09T07:30:56Z",
+      "side": 1,
+      "message": "as we return here when we can not create an instance of the visualizer...",
+      "revId": "5b69d92821a93751d2a8668b1e61f83fc3c8085d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_9d902398",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 8328
+      },
+      "writtenOn": "2015-12-09T07:30:56Z",
+      "side": 1,
+      "message": "... the visualizer may be null, so i have added that null check (crashed on my device without null check btw)",
+      "revId": "5b69d92821a93751d2a8668b1e61f83fc3c8085d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
