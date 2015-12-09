@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f96bb07_0194ac8a",
+        "filename": "services/core/jni/com_android_server_AlarmManagerService.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-09T02:46:08Z",
+      "side": 1,
+      "message": "Crap, this is wrong, there\u0027s 2 instances of CLOCK_REALTIME, so this must be N_ANDROID_TIMERFDS - 1 like above.",
+      "revId": "f8e8b98da76246d4552feea87b288445ff7b6d76",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
