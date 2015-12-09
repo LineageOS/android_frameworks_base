@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f93b717_bde2bf2e",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-09T08:03:40Z",
+      "side": 0,
+      "message": "split this out into another patch imo",
+      "revId": "5f28002f095985ee1daad59863f091a651ffb9d4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

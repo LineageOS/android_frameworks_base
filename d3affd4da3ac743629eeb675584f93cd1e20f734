@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f93b717_fdd84780",
+        "filename": "packages/SystemUI/res/drawable/ic_qs_network_adb_off.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-09T08:03:40Z",
+      "side": 1,
+      "message": "copyright",
+      "revId": "d3affd4da3ac743629eeb675584f93cd1e20f734",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_9de5833b",
+        "filename": "packages/SystemUI/res/drawable/ic_qs_network_adb_on.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-09T08:03:40Z",
+      "side": 1,
+      "message": "copyright",
+      "revId": "d3affd4da3ac743629eeb675584f93cd1e20f734",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_5dd13b57",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-09T08:03:40Z",
+      "side": 1,
+      "message": "should be handleDestroy, not destroy... either way no need to unregister the observer because setLIstening would have been false by the time it is destroyed",
+      "revId": "d3affd4da3ac743629eeb675584f93cd1e20f734",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
