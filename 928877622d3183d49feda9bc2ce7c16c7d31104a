@@ -16,6 +16,24 @@
       "revId": "928877622d3183d49feda9bc2ce7c16c7d31104a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_8699b020",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1551,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-10T07:47:51Z",
+      "side": 1,
+      "message": "Derp, good point.\nWill do.",
+      "parentUuid": "5f93b717_c6f9f84d",
+      "revId": "928877622d3183d49feda9bc2ce7c16c7d31104a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
