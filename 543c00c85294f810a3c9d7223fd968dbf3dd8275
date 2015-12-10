@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f93b717_463f28d6",
+        "filename": "packages/SystemUI/res/layout/qs_settings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-10T08:20:02Z",
+      "side": 1,
+      "message": "maybe make this a config for futureproofing?",
+      "revId": "543c00c85294f810a3c9d7223fd968dbf3dd8275",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
