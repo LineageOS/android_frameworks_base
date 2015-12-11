@@ -199,4 +199,18 @@
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
 
+    <!-- Perf profile QS tile -->
+    <string name="qs_tile_performance">Battery mode</string>
+    <string name="accessibility_quick_settings_perf_profile_pwrsv">Battery mode: power save mode.</string>
+    <string name="accessibility_quick_settings_perf_profile_bal">Battery mode: balanced mode.</string>
+    <string name="accessibility_quick_settings_perf_profile_perf">Battery mode: performance mode.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_power">Battery mode: efficiency mode.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_perf">Battery mode: quick mode.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">Battery mode changed to power save mode.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bal">Battery mode changed to balanced mode.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_perf">Battery mode changed to performance mode.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Battery mode changed to efficiency mode.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Battery mode changed to quick mode.</string>
+    <string name="quick_settings_performance_profile_detail_title">Battery mode</string>
+
 </resources>
