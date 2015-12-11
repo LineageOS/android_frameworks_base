@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f93b717_7789b024",
+        "filename": "packages/SystemUI/res/drawable/ic_qs_profiles_off.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-11T01:34:55Z",
+      "side": 1,
+      "message": "Add copyright header",
+      "revId": "3934a1bded4aebbf6dab6a191a3fad9c3aa233df",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_d79a046d",
+        "filename": "packages/SystemUI/res/drawable/ic_qs_profiles_on.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-11T01:34:55Z",
+      "side": 1,
+      "message": "Add copyright header",
+      "revId": "3934a1bded4aebbf6dab6a191a3fad9c3aa233df",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
