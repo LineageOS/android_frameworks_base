@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f93b717_379ec807",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-11T03:33:42Z",
+      "side": 1,
+      "message": "Booooo",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_d7a7644f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-11T03:33:42Z",
+      "side": 1,
+      "message": "Can anyone aside from system invoke this ?",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_f775c0cd",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-11T03:33:42Z",
+      "side": 1,
+      "message": "Do we really need all these dynamic lookups, considering we are in systemui\u0027s context, and know exactly what icon/label we want to show (SU).\n\nIt makes sense for something in services which can\u0027t have resources so we dumped it in SystemUI and access it dynamically.",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_d77c44b7",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-11T03:33:42Z",
+      "side": 1,
+      "message": "Do we want the tile (su) icon or the app\u0027s icon ?",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_b77f38aa",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-11T03:33:42Z",
+      "side": 1,
+      "message": "Can just use the signature without Bundle, so we don\u0027t have to pass in a null.",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_774bf086",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-11T03:33:42Z",
+      "side": 1,
+      "message": "Is the owner check something we should do in the updateSu() flow as well ?",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_326fb6c6",
+        "filename": "services/core/java/com/android/server/AlarmManagerService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2739,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-11T03:33:42Z",
+      "side": 1,
+      "message": "This never seems to be called when an alarm is turned off or deleted.\n\nThis bug seems to be present on 12.1 as well.",
+      "range": {
+        "startLine": 2739,
+        "startChar": 17,
+        "endLine": 2739,
+        "endChar": 45
+      },
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_f2686ebb",
+        "filename": "services/usb/java/com/android/server/usb/UsbDeviceManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2015-12-11T03:33:42Z",
+      "side": 1,
+      "message": "Is the assumption that if user disabled adb notification, the tile will also be disabled ?",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
