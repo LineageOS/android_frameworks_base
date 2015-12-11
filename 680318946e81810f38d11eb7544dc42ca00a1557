@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "5f93b717_1294fa8a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-11T04:10:37Z",
+      "side": 1,
+      "message": "I think the assumption here is that if the method is ever invoked in the future in a different scope that we\u0027d make sure to never not be system when triggering the action.",
+      "parentUuid": "5f93b717_d7a7644f",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f93b717_f775c0cd",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
         "patchSetId": 5
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "5f93b717_f2962e95",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-11T04:10:37Z",
+      "side": 1,
+      "message": "I think the interfaces were created when we shared resources between systemui and settings. I can go and factor the interfaces out after this merge.",
+      "parentUuid": "5f93b717_f775c0cd",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f93b717_d77c44b7",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
         "patchSetId": 5
@@ -64,6 +100,24 @@
       "writtenOn": "2015-12-11T03:33:42Z",
       "side": 1,
       "message": "Do we want the tile (su) icon or the app\u0027s icon ?",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_52828251",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-11T04:10:37Z",
+      "side": 1,
+      "message": "Honestly, probably the app icon.",
+      "parentUuid": "5f93b717_d77c44b7",
       "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -104,6 +158,24 @@
     },
     {
       "key": {
+        "uuid": "5f93b717_327d766e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-11T04:10:37Z",
+      "side": 1,
+      "message": "Probably. Will update",
+      "parentUuid": "5f93b717_774bf086",
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f93b717_326fb6c6",
         "filename": "services/core/java/com/android/server/AlarmManagerService.java",
         "patchSetId": 5
@@ -115,6 +187,30 @@
       "writtenOn": "2015-12-11T03:33:42Z",
       "side": 1,
       "message": "This never seems to be called when an alarm is turned off or deleted.\n\nThis bug seems to be present on 12.1 as well.",
+      "range": {
+        "startLine": 2739,
+        "startChar": 17,
+        "endLine": 2739,
+        "endChar": 45
+      },
+      "revId": "680318946e81810f38d11eb7544dc42ca00a1557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93b717_b290a697",
+        "filename": "services/core/java/com/android/server/AlarmManagerService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2739,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-11T04:10:37Z",
+      "side": 1,
+      "message": "Good point, will update.",
+      "parentUuid": "5f93b717_326fb6c6",
       "range": {
         "startLine": 2739,
         "startChar": 17,
