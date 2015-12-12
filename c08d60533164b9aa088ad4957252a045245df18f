@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa0c359_bc7c01b6",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-12T02:36:51Z",
+      "side": 1,
+      "message": "you never set mListening \u003d listening",
+      "revId": "c08d60533164b9aa088ad4957252a045245df18f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
