@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df7087c5_22ff7468",
+        "filename": "services/core/java/com/android/server/am/ActivityStack.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2112,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2015-12-17T05:44:09Z",
+      "side": 1,
+      "message": "You should break the line like this (100) :\n\n        boolean privacyNotification \u003d (CMSettings.Secure.getInt(\n                mService.mContext.getContentResolver(),\n                CMSettings.Secure.PRIVACY_GUARD_NOTIFICATION, 1) \u003d\u003d 1);",
+      "revId": "0ee0bbb57f23445afcf8a7c9608110fd97e1584c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
