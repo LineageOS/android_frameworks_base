@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f6a8fd7_f7906051",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1935,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2015-12-18T23:55:04Z",
+      "side": 1,
+      "message": "Why is the Setting coming back to FWB instead of CMSDK ? Can\u0027t use it somewhere ?",
+      "revId": "ddda73603696f094daf73c4ca9bf14a59335b2fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
