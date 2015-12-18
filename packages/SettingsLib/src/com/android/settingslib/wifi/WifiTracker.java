@@ -149,6 +149,7 @@ public class WifiTracker {
         mFilter.addAction(WifiManager.CONFIGURED_NETWORKS_CHANGED_ACTION);
         mFilter.addAction(WifiManager.LINK_CONFIGURATION_CHANGED_ACTION);
         mFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+        mFilter.addAction(WifiManager.ACTION_AUTH_PASSWORD_WRONG);
 
         mNetworkRequest = new NetworkRequest.Builder()
                 .clearCapabilities()
@@ -537,7 +538,11 @@ public class WifiTracker {
                 mWorkHandler.sendEmptyMessage(WorkHandler.MSG_UPDATE_ACCESS_POINTS);
                 mWorkHandler.obtainMessage(WorkHandler.MSG_UPDATE_NETWORK_INFO, info)
                         .sendToTarget();
+            } else if (WifiManager.ACTION_AUTH_PASSWORD_WRONG.equals(action)) {
+                Toast.makeText(context, R.string.wifi_auth_password_wrong,
+                             Toast.LENGTH_SHORT).show();
             }
+
         }
     };
 

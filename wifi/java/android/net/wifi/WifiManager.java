@@ -88,6 +88,13 @@ public class WifiManager {
     public static final String EXTRA_SCAN_AVAILABLE = "scan_enabled";
 
     /**
+     *  ACTION_AUTH_PASSWORD_WRONG
+     *
+     * @ @hide
+     **/
+    public static final String  ACTION_AUTH_PASSWORD_WRONG = "Auth_password_wrong";
+
+    /**
      * Broadcast intent action indicating that the credential of a Wi-Fi network
      * has been changed. One extra provides the ssid of the network. Another
      * extra provides the event type, whether the credential is saved or forgot.
