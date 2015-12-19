@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f6a8fd7_f7686022",
+        "filename": "packages/SystemUI/res/layout/unlock_fab.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-19T02:05:01Z",
+      "side": 1,
+      "message": "copyright",
+      "revId": "e2a1f2ff03a954f89df1b3498365d33bb6478a06",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f6a8fd7_977564fd",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-19T02:05:01Z",
+      "side": 1,
+      "message": "wondering if this shouldn\u0027t live in the utils package",
+      "revId": "e2a1f2ff03a954f89df1b3498365d33bb6478a06",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
