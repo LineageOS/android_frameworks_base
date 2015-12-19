@@ -33,6 +33,24 @@
       "revId": "e2a1f2ff03a954f89df1b3498365d33bb6478a06",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f6a8fd7_b74bc8ae",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-19T02:12:19Z",
+      "side": 1,
+      "message": "It could.  I just mirrored the package name from AOSP.  The patch that introduces CmLockPatternUtils is not yet merged so if we want to move it we should make the call now and I\u0027ll get it done.",
+      "parentUuid": "9f6a8fd7_977564fd",
+      "revId": "e2a1f2ff03a954f89df1b3498365d33bb6478a06",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
