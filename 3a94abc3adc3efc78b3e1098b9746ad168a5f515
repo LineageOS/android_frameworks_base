@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f6a8fd7_77669054",
+        "filename": "core/java/android/view/WindowManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 11306
+      },
+      "writtenOn": "2015-12-19T02:06:48Z",
+      "side": 1,
+      "message": "To prevent issues where aosp introduces a new window type, lets move this to the end or something to avoid conflicts.",
+      "revId": "3a94abc3adc3efc78b3e1098b9746ad168a5f515",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
