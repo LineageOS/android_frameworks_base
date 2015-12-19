@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9f6a8fd7_dacea182",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-19T04:56:05Z",
+      "side": 1,
+      "message": "that it does, will fix \u0027er up now.",
+      "parentUuid": "9f6a8fd7_5ad29136",
+      "revId": "f65a2103b263bcb94f2184b0d6d8cd95e9fbfe6d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f6a8fd7_1adc1945",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
         "patchSetId": 10
@@ -30,6 +48,24 @@
       "writtenOn": "2015-12-19T04:52:03Z",
       "side": 1,
       "message": "keyguardExternalViewHasFocus isn\u0027t used, was it inteded to be checked here?",
+      "revId": "f65a2103b263bcb94f2184b0d6d8cd95e9fbfe6d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f6a8fd7_7ac0b551",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-19T04:56:05Z",
+      "side": 1,
+      "message": "It\u0027s used in PhoneStatusBar.onTrackingStopped(boolean expand) via mStatusBarWindowManager.keyguardExternalViewHasFocus()",
+      "parentUuid": "9f6a8fd7_1adc1945",
       "revId": "f65a2103b263bcb94f2184b0d6d8cd95e9fbfe6d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
