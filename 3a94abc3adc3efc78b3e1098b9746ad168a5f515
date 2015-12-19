@@ -16,6 +16,24 @@
       "revId": "3a94abc3adc3efc78b3e1098b9746ad168a5f515",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f6a8fd7_d7543c57",
+        "filename": "core/java/android/view/WindowManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-19T02:08:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f6a8fd7_77669054",
+      "revId": "3a94abc3adc3efc78b3e1098b9746ad168a5f515",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
