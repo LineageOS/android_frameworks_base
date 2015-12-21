@@ -22,4 +22,19 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="mmcc_imsi_unknown_in_hlr" msgid="6575159319460304530">"SIMને MM#2ની જોગવાઈ નથી"</string>
     <string name="mmcc_illegal_ms" msgid="1930079814544869756">"SIMને MM#3 કરવાની મંજૂરી નથી"</string>
+
+    <!-- advanced reboot to bootloader. -->
+    <string name="reboot_to_bootloader_title">Reboot bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting\u2026</string>
+    <!-- advanced reboot to recovery. -->
+    <string name="reboot_to_recovery_title">Reboot recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting\u2026</string>
+    <!-- advanced reboot system -->
+    <string name="reboot_system_title">Restart system</string>
+    <string name="reboot_system_message">Restarting\u2026</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
 </resources>
