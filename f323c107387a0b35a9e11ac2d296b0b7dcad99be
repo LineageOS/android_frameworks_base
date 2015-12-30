@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_20569208",
+        "filename": "packages/SystemUI/res/drawable/volume_dialog_background.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-30T00:47:47Z",
+      "side": 1,
+      "message": "this changes the color from system_primary_color to system_secondary_color which are not the same.",
+      "range": {
+        "startLine": 18,
+        "startChar": 33,
+        "endLine": 18,
+        "endChar": 62
+      },
+      "revId": "f323c107387a0b35a9e11ac2d296b0b7dcad99be",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
