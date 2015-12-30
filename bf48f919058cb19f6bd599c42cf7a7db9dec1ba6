@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3fce034c_0066f6ee",
+        "filename": "core/res/res/color/preference_category_text_color.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2015-12-30T00:54:59Z",
+      "side": 1,
+      "message": "Forgot to mention you need CyanogenMod copyright not AOSP. ;)",
+      "revId": "bf48f919058cb19f6bd599c42cf7a7db9dec1ba6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fce034c_400dde35",
         "filename": "core/res/res/color/preference_category_text_color.xml",
         "patchSetId": 3
