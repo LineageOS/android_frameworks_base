@@ -16,6 +16,24 @@
       "revId": "58f1a206cdf32b47726aaf7dbad641e496ad94e6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fce034c_26b1cae2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/QSTileHost.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2015-12-31T22:38:29Z",
+      "side": 1,
+      "message": "agree",
+      "parentUuid": "3fce034c_7b93eb50",
+      "revId": "58f1a206cdf32b47726aaf7dbad641e496ad94e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
