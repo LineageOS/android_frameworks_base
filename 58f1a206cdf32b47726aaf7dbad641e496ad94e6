@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_7b93eb50",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/QSTileHost.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2015-12-31T02:30:15Z",
+      "side": 1,
+      "message": "we can replace all of these with a switch on the string, and we should be using constants defined in cmsdk. but that can come later",
+      "revId": "58f1a206cdf32b47726aaf7dbad641e496ad94e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
