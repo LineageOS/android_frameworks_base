@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_a176043e",
+        "filename": "packages/SystemUI/res/layout/recents_task_view_header.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-02T02:17:54Z",
+      "side": 1,
+      "message": "Although the color is the same, you should probably give this a new name since this TextView is not for the empty text message.",
+      "range": {
+        "startLine": 39,
+        "startChar": 34,
+        "endLine": 39,
+        "endChar": 66
+      },
+      "revId": "2310fbc44f97796b25cb33c8193512db1e36863f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
