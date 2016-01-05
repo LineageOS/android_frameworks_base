@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_9dc00453",
+        "filename": "services/core/java/com/android/server/MountService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-05T02:19:58Z",
+      "side": 1,
+      "message": "Why not null check here? Also, is there a reason you get a null from get(path)? Is your path invalid somehow?",
+      "revId": "9ff198dc1d6f3a889a673cfc791d5fea28e1996f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fce034c_7dbbd8e4",
+        "filename": "services/core/java/com/android/server/MountService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-05T02:19:58Z",
+      "side": 1,
+      "message": "Can\u0027t you just null check here, instead of checking twice below?",
+      "revId": "9ff198dc1d6f3a889a673cfc791d5fea28e1996f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
