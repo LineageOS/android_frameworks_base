@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_188502ae",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSSettings.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-01-05T05:33:18Z",
+      "side": 1,
+      "message": "unneeded?",
+      "revId": "fb9db0f2b7eae49afbe4fd47c51e1910754eb34a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fce034c_b8914ef4",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/StatusBarIconBlacklistFragment.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-01-05T05:33:18Z",
+      "side": 1,
+      "message": "Copyright",
+      "revId": "fb9db0f2b7eae49afbe4fd47c51e1910754eb34a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
