@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_bd4700bd",
+        "filename": "core/java/android/content/pm/ThemeUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-05T02:49:03Z",
+      "side": 1,
+      "message": "nit: move this down below with the other private static final constants",
+      "revId": "2c774707f60229a7796daef98870e03f740c1f12",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
