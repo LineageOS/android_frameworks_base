@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_e203a70e",
+        "filename": "core/java/android/content/pm/ThemeUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-05T01:18:05Z",
+      "side": 1,
+      "message": "\u003e 100 chars",
+      "revId": "3d032e521b33da920030a8f3f1d010e4bcaf7bad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fce034c_fd110855",
+        "filename": "core/java/android/content/pm/ThemeUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-05T01:18:05Z",
+      "side": 1,
+      "message": "???",
+      "range": {
+        "startLine": 791,
+        "startChar": 50,
+        "endLine": 791,
+        "endChar": 64
+      },
+      "revId": "3d032e521b33da920030a8f3f1d010e4bcaf7bad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
