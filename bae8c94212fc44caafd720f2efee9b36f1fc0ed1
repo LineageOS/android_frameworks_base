@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_18889bc4",
+        "filename": "services/core/java/com/android/server/LockSettingsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-07T07:32:33Z",
+      "side": 1,
+      "message": "is moving the creation of this object required for the fix?",
+      "revId": "bae8c94212fc44caafd720f2efee9b36f1fc0ed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
