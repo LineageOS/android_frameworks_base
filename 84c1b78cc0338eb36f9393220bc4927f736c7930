@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "3fce034c_587dc36c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-07T03:04:17Z",
+      "side": 1,
+      "message": "Overlooked that this is a text color so keep using R.color.qs_title_text_color for this view.",
+      "revId": "84c1b78cc0338eb36f9393220bc4927f736c7930",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fce034c_38ab17d7",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
         "patchSetId": 1
