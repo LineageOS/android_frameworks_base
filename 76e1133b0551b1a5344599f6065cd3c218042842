@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_455f1b41",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-01-08T02:11:16Z",
+      "side": 1,
+      "message": "mVisible doesn\u0027t actually represent View.getVisibility()... maybe we should check to make sure getVisiblity() \u003d\u003d View.VISIBLE here?",
+      "revId": "76e1133b0551b1a5344599f6065cd3c218042842",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
