@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_c5622b17",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-01-08T01:52:29Z",
+      "side": 1,
+      "message": "maybe we just need to run checkStateChanged() here?",
+      "revId": "73cd2830337a3cd2dfedb44d99f72bc562e8ea17",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
