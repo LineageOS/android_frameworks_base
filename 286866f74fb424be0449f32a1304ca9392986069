@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_e835bef8",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-08T07:00:13Z",
+      "side": 1,
+      "message": "This version of getColor in the Resources class is deprecated in API 23 so you should be using Context.getColor(int id)",
+      "range": {
+        "startLine": 1843,
+        "startChar": 18,
+        "endLine": 1843,
+        "endChar": 30
+      },
+      "revId": "286866f74fb424be0449f32a1304ca9392986069",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fce034c_2856662b",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-08T07:00:13Z",
+      "side": 1,
+      "message": "why is this using a text color for applying a color filter?  Should this not be qs_detailed_icon_tint_color?",
+      "range": {
+        "startLine": 1843,
+        "startChar": 39,
+        "endLine": 1843,
+        "endChar": 67
+      },
+      "revId": "286866f74fb424be0449f32a1304ca9392986069",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
