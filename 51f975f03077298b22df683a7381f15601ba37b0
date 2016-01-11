@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_53191a77",
+        "filename": "services/core/java/com/android/server/WiredAccessoryManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-01-11T03:03:16Z",
+      "side": 1,
+      "message": "Then this should be removed too in another commit",
+      "range": {
+        "startLine": 403,
+        "startChar": 16,
+        "endLine": 403,
+        "endChar": 88
+      },
+      "revId": "51f975f03077298b22df683a7381f15601ba37b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
