@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_507d90af",
+        "filename": "services/core/java/com/android/server/WiredAccessoryManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-11T02:27:34Z",
+      "side": 1,
+      "message": "Probably doesn\u0027t need to be a warning, most kernels won\u0027t support this.",
+      "revId": "e7e04eb2ca7a55f915372b7904505694b2571511",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
