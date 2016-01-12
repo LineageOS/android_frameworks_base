@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_ce110356",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-01-12T02:00:58Z",
+      "side": 1,
+      "message": "this would mean we\u0027d have to modify things in 13?",
+      "revId": "abc832678007bcc28528f9074fcff98054a3a5d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
