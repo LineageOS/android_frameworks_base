@@ -16,6 +16,24 @@
       "revId": "abc832678007bcc28528f9074fcff98054a3a5d7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_8e1bfb71",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-01-12T02:03:08Z",
+      "side": 1,
+      "message": "Yea the jira mentioned all branches(12/13). So would have to port this forward as well. The logic will have to move in 13 though due to the xml thing",
+      "parentUuid": "1fcbff3d_ce110356",
+      "revId": "abc832678007bcc28528f9074fcff98054a3a5d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
