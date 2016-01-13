@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_1a40a107",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-01-13T01:35:04Z",
+      "side": 1,
+      "message": "can this be called with error \u003d\u003d false?",
+      "range": {
+        "startLine": 388,
+        "startChar": 44,
+        "endLine": 388,
+        "endChar": 57
+      },
+      "revId": "0a2736f9cc8f2a90a613cabf6178a9f3041ec83f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
