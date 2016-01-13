@@ -2784,11 +2784,8 @@ public class LocationManagerService extends ILocationManager.Stub {
 
         Bundle extras = location.getExtras();
         boolean isBeingScreened = false;
-        if (extras == null) {
-            extras = new Bundle();
-        }
 
-        if (!extras.containsKey(mComboNlpReadyMarker)) {
+        if (extras == null || !extras.containsKey(mComboNlpReadyMarker)) {
             // see if Combo Nlp is a passive listener
             ArrayList<UpdateRecord> records =
                 mRecordsByProvider.get(LocationManager.PASSIVE_PROVIDER);
@@ -2797,6 +2794,10 @@ public class LocationManagerService extends ILocationManager.Stub {
                     if (r.mReceiver.mIdentity.mPackageName.equals(mComboNlpPackageName)) {
                         if (!isBeingScreened) {
                             isBeingScreened = true;
+                            if (extras == null) {
+                                location.setExtras(new Bundle());
+                                extras = location.getExtras();
+                            }
                             extras.putBoolean(mComboNlpScreenMarker, true);
                         }
                         // send location to Combo Nlp for screening
