@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_3d66adef",
+        "filename": "core/res/res/values/cm_symbols.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 10984
+      },
+      "writtenOn": "2016-01-15T23:26:18Z",
+      "side": 1,
+      "message": "You should only be adding the def_wifi_idle_ms symbol, on the patch...",
+      "revId": "4b6228c962feff99b497ca85c55335ffb0e3cedf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
