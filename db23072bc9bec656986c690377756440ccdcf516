@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_5eb614dc",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2005,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-01-15T07:10:21Z",
+      "side": 1,
+      "message": "add like 8 lines of comments here explaining what\u0027s happening here plx",
+      "revId": "db23072bc9bec656986c690377756440ccdcf516",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
