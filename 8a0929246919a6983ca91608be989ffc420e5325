@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_39e9e27f",
+        "filename": "core/java/android/os/StrictMode.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2016-01-15T19:48:33Z",
+      "side": 1,
+      "message": "Sorry, but i don\u0027t know how this could help to reduce the problem. You are not really skipping the next entry, because the ViolationInfo contructor uses a Parcelable object, so basically you are reading the next entry. With your code only skip the last entry.\nAnd the problem is still there because ViolationInfo will still call the in.readStringArray() before the code if the check if there are many stacktraces, so basically you got the memory exception before the check.\n\nMy patch should work, but it probably a better idea to read the parcel in small byte[] blocks insteads of throw an IllegalStateException (which i\u0027m realice i\u0027m not capturing for the first entry), so the parcel is cleaned correctly without overflow the interanl string array.\n\nOr am i missing something?",
+      "range": {
+        "startLine": 1737,
+        "startChar": 20,
+        "endLine": 1737,
+        "endChar": 22
+      },
+      "revId": "8a0929246919a6983ca91608be989ffc420e5325",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
