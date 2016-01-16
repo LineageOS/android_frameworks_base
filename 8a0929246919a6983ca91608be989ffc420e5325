@@ -22,6 +22,30 @@
       "revId": "8a0929246919a6983ca91608be989ffc420e5325",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_fd1d85bd",
+        "filename": "core/java/android/os/StrictMode.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 8555
+      },
+      "writtenOn": "2016-01-16T03:24:31Z",
+      "side": 1,
+      "message": "The issue at hand here is not one of stack traces being too large, as the OutOfMemoryError shows a large size (1+ GB) that would be unreasonable for any stack trace.\n\nYour change had the exception \"java.lang.String[] of length 1869767790 would overflow\". 1869767790 \u003d\u003d 0x6f72646e, which coincidentally represents the ASCII string \"ndro\" in little endian. Each Parcel has the list of ViolationInfo objects placed before the main payload of the parcel.\n\nThe problem here is that the code is currently creates one more ViolationInfo object than is present in the Parcelable, causing the last ViolationInfo constructor call to interpret the main payload data as a ViolationInfo object. Basically an off-by-one error.\n\nreadStringArray() calls readInt(), which interprets an ASCII string as an int. It then creates a new String[] array of that size, and that\u0027s where the error comes from.\n\nThis patch fixes the code to allow for intended behavior (printing the \"Stack is too large\" message).",
+      "parentUuid": "1fcbff3d_39e9e27f",
+      "range": {
+        "startLine": 1737,
+        "startChar": 20,
+        "endLine": 1737,
+        "endChar": 22
+      },
+      "revId": "8a0929246919a6983ca91608be989ffc420e5325",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
