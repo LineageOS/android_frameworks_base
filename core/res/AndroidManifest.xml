@@ -544,6 +544,9 @@
     <!-- LineageOS additions -->
     <protected-broadcast android:name="lineageos.intent.action.LID_STATE_CHANGED" />
 
+    <protected-broadcast
+            android:name="com.android.server.policy.PhoneWindowManager.ACTION_TORCH_OFF" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
