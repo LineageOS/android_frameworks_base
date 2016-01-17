@@ -22,6 +22,30 @@
       "revId": "4fe85b63bdc663ca1a907782f3946d01bc8f7862",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_236c5035",
+        "filename": "services/core/java/com/android/server/connectivity/Tethering.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 12857
+      },
+      "writtenOn": "2016-01-17T02:43:33Z",
+      "side": 1,
+      "message": "What is the rule for splitting it into two lines?\n\nis going to new line at .getBoolean ?\n\nA few lines below this patch some lines are even longer.",
+      "parentUuid": "1fcbff3d_7d12f5b3",
+      "range": {
+        "startLine": 653,
+        "startChar": 100,
+        "endLine": 653,
+        "endChar": 107
+      },
+      "revId": "4fe85b63bdc663ca1a907782f3946d01bc8f7862",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
