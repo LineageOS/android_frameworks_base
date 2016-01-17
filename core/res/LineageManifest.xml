@@ -25,4 +25,8 @@
     <permission android:name="android.permission.PREVENT_POWER_KEY"
         android:protectionLevel="signature|privileged" />
 
+    <!-- Used for long press power torch feature - automatic turn off on timeout -->
+    <protected-broadcast
+        android:name="com.android.server.policy.PhoneWindowManager.ACTION_TORCH_OFF" />
+
 </manifest>
