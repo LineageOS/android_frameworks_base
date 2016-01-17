@@ -142,7 +142,7 @@ public class GlobalSettingsValidators {
         VALIDATORS.put(Global.REQUIRE_PASSWORD_TO_DECRYPT, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Global.DEVICE_DEMO_MODE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Global.AWARE_ALLOWED, BOOLEAN_VALIDATOR);
-        VALIDATORS.put(Global.POWER_BUTTON_LONG_PRESS, new InclusiveIntegerRangeValidator(0, 5));
+        VALIDATORS.put(Global.POWER_BUTTON_LONG_PRESS, new InclusiveIntegerRangeValidator(0, 6));
         VALIDATORS.put(
                 Global.POWER_BUTTON_VERY_LONG_PRESS, new InclusiveIntegerRangeValidator(0, 1));
         VALIDATORS.put(Global.NOTIFICATION_BUBBLES, BOOLEAN_VALIDATOR);
