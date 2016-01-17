@@ -46,6 +46,30 @@
       "revId": "4fe85b63bdc663ca1a907782f3946d01bc8f7862",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_c366ac52",
+        "filename": "services/core/java/com/android/server/connectivity/Tethering.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2016-01-17T02:48:34Z",
+      "side": 1,
+      "message": "Check Line limit length in https://source.android.com/source/code-style.html",
+      "parentUuid": "1fcbff3d_236c5035",
+      "range": {
+        "startLine": 653,
+        "startChar": 100,
+        "endLine": 653,
+        "endChar": 107
+      },
+      "revId": "4fe85b63bdc663ca1a907782f3946d01bc8f7862",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
