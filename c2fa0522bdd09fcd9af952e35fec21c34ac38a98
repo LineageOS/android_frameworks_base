@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_e653b6e1",
+        "filename": "services/core/java/com/android/server/connectivity/Tethering.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-01-17T07:19:17Z",
+      "side": 1,
+      "message": "Actually all cut lines should be double indented.\n\nHere, the if / else is unnecessary, you could do this :\n\n            if (mLastNotificationId \u003d\u003d icon \u0026\u0026 (!mContext.getResources().getBoolean(\n                    com.android.internal.R.bool.config_softap_extention) ||\n                    icon !\u003d com.android.internal.R.drawable.stat_sys_tether_wifi)) {\n                return;\n            }",
+      "revId": "c2fa0522bdd09fcd9af952e35fec21c34ac38a98",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
