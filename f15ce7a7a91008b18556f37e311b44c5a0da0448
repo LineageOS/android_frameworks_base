@@ -46,6 +46,30 @@
       "revId": "f15ce7a7a91008b18556f37e311b44c5a0da0448",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_86f2ed05",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/QSTileHost.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-01-19T04:57:06Z",
+      "side": 1,
+      "message": "Yeah :(\n\nI thought I added reviewers on these patches, but I was wrong...",
+      "parentUuid": "1fcbff3d_6694a18c",
+      "range": {
+        "startLine": 483,
+        "startChar": 30,
+        "endLine": 483,
+        "endChar": 38
+      },
+      "revId": "f15ce7a7a91008b18556f37e311b44c5a0da0448",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
