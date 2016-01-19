@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_32cc9488",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-19T01:41:50Z",
+      "side": 1,
+      "message": "can be simplified to showQsOverride \u0026\u003d mStatusBarState \u003d\u003d StatusBarState.SHADE",
+      "range": {
+        "startLine": 897,
+        "startChar": 8,
+        "endLine": 897,
+        "endChar": 82
+      },
+      "revId": "17c6fdd197018d58d2847ee1f851dabaf3b0cc68",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
