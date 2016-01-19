@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_49973692",
+        "filename": "libs/androidfw/ResourceTypes.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5293,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-19T11:02:49Z",
+      "side": 1,
+      "message": "is this really a hack? ;)",
+      "revId": "615e2726a89edc526b64cb6bcf32e99843dc3712",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
