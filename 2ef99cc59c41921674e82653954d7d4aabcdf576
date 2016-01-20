@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_7f5980fc",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPage.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-20T02:12:25Z",
+      "side": 1,
+      "message": "Any reason for making this public and changing it outside this class rather than using a getter/setter?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 40
+      },
+      "revId": "2ef99cc59c41921674e82653954d7d4aabcdf576",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_9f5eace4",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSSettings.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-20T02:12:25Z",
+      "side": 1,
+      "message": "Same question here as QSPage.java",
+      "revId": "2ef99cc59c41921674e82653954d7d4aabcdf576",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
