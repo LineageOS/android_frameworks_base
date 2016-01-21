@@ -29,6 +29,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.hardware.fingerprint.IFingerprintServiceLockoutResetCallback;
@@ -159,6 +160,7 @@ public class FingerprintService extends SystemService implements IBinder.DeathRe
             resetFailedAttempts();
         }
     };
+    private boolean mFingerprintManagerRestrictedToSystemAndOwner;
 
     private final Runnable mResetClientState = new Runnable() {
         @Override
@@ -185,6 +187,8 @@ public class FingerprintService extends SystemService implements IBinder.DeathRe
         mContext = context;
         mKeyguardPackage = ComponentName.unflattenFromString(context.getResources().getString(
                 com.android.internal.R.string.config_keyguardComponent)).getPackageName();
+        mFingerprintManagerRestrictedToSystemAndOwner = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_fingerprintRestrictedToSystemAndOwner);
         mAppOps = context.getSystemService(AppOpsManager.class);
         mPowerManager = mContext.getSystemService(PowerManager.class);
         mAlarmManager = mContext.getSystemService(AlarmManager.class);
@@ -527,6 +531,21 @@ public class FingerprintService extends SystemService implements IBinder.DeathRe
         }
         if (requireForeground && !(isForegroundActivity(uid, pid) || currentClient(opPackageName))){
             Slog.w(TAG, "Rejecting " + opPackageName + " ; not in foreground");
+            return false;
+        }
+        if (mFingerprintManagerRestrictedToSystemAndOwner) {
+            try {
+                ApplicationInfo ai = mContext.getPackageManager()
+                        .getApplicationInfo(opPackageName, PackageManager.GET_META_DATA);
+                if (ai != null && ai.isSystemApp() && Binder.getCallingUserHandle().isOwner()) {
+                    return true;
+                }
+                Slog.w(TAG, "Rejecting " + opPackageName
+                        + "(uid: " + uid + ") ; fingerprint restricted to system apps.");
+            } catch (PackageManager.NameNotFoundException e) {
+                Slog.e(TAG, opPackageName + " package not found, not allowing fingerprint access.");
+                return false;
+            }
             return false;
         }
         return true;
