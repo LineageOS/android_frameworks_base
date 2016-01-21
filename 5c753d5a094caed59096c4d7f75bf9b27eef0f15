@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "1fcbff3d_cf13210d",
+        "filename": "core/java/android/content/pm/IPackageManager.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-21T05:39:01Z",
+      "side": 1,
+      "message": "103 bottles of beer on the wall",
+      "range": {
+        "startLine": 524,
+        "startChar": 100,
+        "endLine": 524,
+        "endChar": 103
+      },
+      "revId": "5c753d5a094caed59096c4d7f75bf9b27eef0f15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_af59f5fe",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-01-21T05:39:01Z",
+      "side": 1,
+      "message": "I wonder if calling this activity instead of component is more meaningful to the end user.",
+      "range": {
+        "startLine": 251,
+        "startChar": 63,
+        "endLine": 251,
+        "endChar": 72
+      },
+      "revId": "5c753d5a094caed59096c4d7f75bf9b27eef0f15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fcbff3d_30556751",
         "filename": "services/core/java/com/android/server/am/ActivityStackSupervisor.java",
         "patchSetId": 2
