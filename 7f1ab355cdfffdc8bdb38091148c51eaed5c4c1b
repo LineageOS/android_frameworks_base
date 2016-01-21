@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_4f45f1b2",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 17230,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-01-21T07:06:47Z",
+      "side": 1,
+      "message": "I\u0027m a bit worried about the perf of this if the list gets excessively long. Need to instrument it. Will be adding tests shortly.",
+      "revId": "7f1ab355cdfffdc8bdb38091148c51eaed5c4c1b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
