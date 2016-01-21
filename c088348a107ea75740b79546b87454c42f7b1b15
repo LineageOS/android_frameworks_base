@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_af5b3585",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/MultiUserSwitch.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 11035
+      },
+      "writtenOn": "2016-01-21T07:26:05Z",
+      "side": 1,
+      "message": "....",
+      "range": {
+        "startLine": 115,
+        "startChar": 11,
+        "endLine": 115,
+        "endChar": 27
+      },
+      "revId": "c088348a107ea75740b79546b87454c42f7b1b15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_4f4c11c7",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/MultiUserSwitch.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 11035
+      },
+      "writtenOn": "2016-01-21T07:26:05Z",
+      "side": 1,
+      "message": "can this be null ?",
+      "range": {
+        "startLine": 133,
+        "startChar": 16,
+        "endLine": 133,
+        "endChar": 35
+      },
+      "revId": "c088348a107ea75740b79546b87454c42f7b1b15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_2fe425ac",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/UserInfoController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 11035
+      },
+      "writtenOn": "2016-01-21T07:26:05Z",
+      "side": 1,
+      "message": "isn\u0027t this always true ?",
+      "range": {
+        "startLine": 168,
+        "startChar": 16,
+        "endLine": 168,
+        "endChar": 46
+      },
+      "revId": "c088348a107ea75740b79546b87454c42f7b1b15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
