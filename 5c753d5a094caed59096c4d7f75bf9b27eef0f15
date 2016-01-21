@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_30556751",
+        "filename": "services/core/java/com/android/server/am/ActivityStackSupervisor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-01-21T05:23:18Z",
+      "side": 1,
+      "message": "Long term goal here is to provide an api for different applications to register themselves as protected apps managers.",
+      "revId": "5c753d5a094caed59096c4d7f75bf9b27eef0f15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
