@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_6ac1a954",
+        "filename": "core/java/android/os/CountDownTimer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-01-27T16:09:12Z",
+      "side": 1,
+      "message": "mCountDownTimerWeakReference",
+      "revId": "d6170aaede633bf21b19582baa687a9e692b11a7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_0ab6e5fb",
+        "filename": "core/java/android/os/CountDownTimer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-01-27T16:09:12Z",
+      "side": 1,
+      "message": "This can be replaced by\n\nif (countDownTimer \u003d\u003d null) {\n    return;\n}\n\nas it never can be an instance of another class anyway.",
+      "revId": "d6170aaede633bf21b19582baa687a9e692b11a7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_2abba1e2",
+        "filename": "core/java/android/os/CountDownTimer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-01-27T16:09:12Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "d6170aaede633bf21b19582baa687a9e692b11a7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_eaccb98a",
+        "filename": "core/java/android/os/CountDownTimer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-01-27T16:09:12Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "d6170aaede633bf21b19582baa687a9e692b11a7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
