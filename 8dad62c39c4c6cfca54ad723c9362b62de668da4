@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_c7945847",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-01-27T07:33:51Z",
+      "side": 0,
+      "message": "unrelated?",
+      "revId": "8dad62c39c4c6cfca54ad723c9362b62de668da4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
