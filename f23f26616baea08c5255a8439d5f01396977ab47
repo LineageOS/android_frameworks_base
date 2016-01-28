@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_3079d0fb",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 3544,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-01-28T08:40:20Z",
+      "side": 1,
+      "message": "This should be moved to CMSettings",
+      "range": {
+        "startLine": 3544,
+        "startChar": 35,
+        "endLine": 3544,
+        "endChar": 47
+      },
+      "revId": "f23f26616baea08c5255a8439d5f01396977ab47",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
