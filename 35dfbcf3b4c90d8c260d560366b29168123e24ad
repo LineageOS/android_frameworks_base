@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_95d756ee",
+        "filename": "core/java/android/os/CountDownTimer.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-01-28T03:21:09Z",
+      "side": 1,
+      "message": "if (countDownTimer !\u003d null) {\n\n(mind the space)\n\nAlso, why not return directly here if countDownTimer is null? Saves one unneeded level of indention.",
+      "revId": "35dfbcf3b4c90d8c260d560366b29168123e24ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_3506a288",
+        "filename": "core/java/android/os/CountDownTimer.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-01-28T03:21:09Z",
+      "side": 1,
+      "message": "The suggestion above will probably make the line break unnecessary, but if not, please indent line continuations by 8 spaces.",
+      "revId": "35dfbcf3b4c90d8c260d560366b29168123e24ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
