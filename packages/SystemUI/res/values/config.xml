@@ -337,4 +337,7 @@
     <bool name="config_data_signal_control">false</bool>
 
     <bool name="config_always_hide_roaming_indicator">false</bool>
+
+    <!-- Allow the flashlight service to use wakelocks -->
+    <bool name="config_useWakelockForFlashlight">false</bool>
 </resources>
