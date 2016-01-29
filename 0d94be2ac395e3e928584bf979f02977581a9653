@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_adc56690",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-29T07:30:57Z",
+      "side": 1,
+      "message": "Don\u0027t use tabs in a file that uses spaces.",
+      "revId": "0d94be2ac395e3e928584bf979f02977581a9653",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
