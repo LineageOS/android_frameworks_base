@@ -16,6 +16,24 @@
       "revId": "0d94be2ac395e3e928584bf979f02977581a9653",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_0d5fdae2",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 14096
+      },
+      "writtenOn": "2016-01-29T07:40:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fcbff3d_adc56690",
+      "revId": "0d94be2ac395e3e928584bf979f02977581a9653",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
