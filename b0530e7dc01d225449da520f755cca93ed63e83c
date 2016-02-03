@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_7770a0dd",
+        "filename": "packages/SystemUI/res/layout/system_icons_expanded.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-03T00:11:00Z",
+      "side": 1,
+      "message": "2016",
+      "range": {
+        "startLine": 2,
+        "startChar": 18,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "b0530e7dc01d225449da520f755cca93ed63e83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_1777dcd6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-03T00:11:00Z",
+      "side": 1,
+      "message": "mClockLocation \u003d clockLocation;",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 45
+      },
+      "revId": "b0530e7dc01d225449da520f755cca93ed63e83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_f77b30bb",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarHeaderView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-03T00:11:00Z",
+      "side": 1,
+      "message": "Is mSignalCluster even used with this patch or did that move into the status icons?",
+      "revId": "b0530e7dc01d225449da520f755cca93ed63e83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_974c2c9f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarIconController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-03T00:11:00Z",
+      "side": 1,
+      "message": "is this a sane value for all devices?  May be worthwhile to define this as a config in resources so devices can overlay if necessary.",
+      "range": {
+        "startLine": 60,
+        "startChar": 52,
+        "endLine": 60,
+        "endChar": 53
+      },
+      "revId": "b0530e7dc01d225449da520f755cca93ed63e83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_b74fe890",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarIconController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-03T00:11:00Z",
+      "side": 1,
+      "message": "could just make this an else block from the if block above",
+      "range": {
+        "startLine": 186,
+        "startChar": 8,
+        "endLine": 186,
+        "endChar": 85
+      },
+      "revId": "b0530e7dc01d225449da520f755cca93ed63e83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_d759545a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarIconController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-03T00:11:00Z",
+      "side": 1,
+      "message": "could be an else block just like addSystemIcon",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 85
+      },
+      "revId": "b0530e7dc01d225449da520f755cca93ed63e83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
