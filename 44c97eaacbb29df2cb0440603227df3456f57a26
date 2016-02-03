@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_b81d9574",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-02-03T09:33:35Z",
+      "side": 1,
+      "message": "Reasoning for the magic constant ?",
+      "revId": "44c97eaacbb29df2cb0440603227df3456f57a26",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_8c5ade27",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-02-03T09:33:35Z",
+      "side": 1,
+      "message": "Nitpicking, but lets keep it consistent by fetching/assigning above and referencing here, similar to title/message ?",
+      "revId": "44c97eaacbb29df2cb0440603227df3456f57a26",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_2c416a3a",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-02-03T09:33:35Z",
+      "side": 1,
+      "message": "Extra space",
+      "revId": "44c97eaacbb29df2cb0440603227df3456f57a26",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_4c3cf6be",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-02-03T09:33:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we also clear if \u003c100 or something along those lines ?",
+      "revId": "44c97eaacbb29df2cb0440603227df3456f57a26",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
