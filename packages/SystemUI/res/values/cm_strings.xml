@@ -18,6 +18,12 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
+
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Cursor left</string>
     <string name="accessibility_dpad_right">Cursor right</string>
