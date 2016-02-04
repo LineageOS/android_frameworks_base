@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (c) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +44,7 @@ import com.android.systemui.qs.external.TileServices;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.BatteryTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
+import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
@@ -443,6 +445,7 @@ public class QSTileHost implements QSTile.Host, Tunable {
         else if (tileSpec.equals("saver")) return new DataSaverTile(this);
         else if (tileSpec.equals("night")) return new NightDisplayTile(this);
         else if (tileSpec.equals("nfc")) return new NfcTile(this);
+        else if (tileSpec.equals("caffeine")) return new CaffeineTile(this);
         // Intent tiles.
         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(this,tileSpec);
         else if (tileSpec.startsWith(CustomTile.PREFIX)) return CustomTile.create(this,tileSpec);
