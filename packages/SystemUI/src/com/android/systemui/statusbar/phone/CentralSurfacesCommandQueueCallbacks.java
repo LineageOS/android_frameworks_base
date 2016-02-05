@@ -359,7 +359,10 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
             mPowerManager.wakeUp(SystemClock.uptimeMillis(), PowerManager.WAKE_REASON_CAMERA_LAUNCH,
                     "com.android.systemui:CAMERA_GESTURE");
         }
-        vibrateForCameraGesture();
+
+        if (source != StatusBarManager.CAMERA_LAUNCH_SOURCE_SCREEN_GESTURE) {
+            vibrateForCameraGesture();
+        }
 
         if (source == StatusBarManager.CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP) {
             Log.v(CentralSurfaces.TAG, "Camera launch");
