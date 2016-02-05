@@ -16,6 +16,24 @@
       "revId": "1b24e8ca844d43ccebe4e8450c85f1a955a0788a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_e52e15a4",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-02-05T02:43:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fcbff3d_c53439fe",
+      "revId": "1b24e8ca844d43ccebe4e8450c85f1a955a0788a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
