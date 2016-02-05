@@ -25,4 +25,6 @@ enum class CameraLaunchSourceModel {
     LIFT_TRIGGER,
     /** Quick affordance button has been pressed */
     QUICK_AFFORDANCE,
+    /** Screen gesture has been triggered */
+    SCREEN_GESTURE,
 }
