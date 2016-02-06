@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_510ec732",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 14421
+      },
+      "writtenOn": "2016-02-06T06:39:05Z",
+      "side": 1,
+      "message": "Is this just for historical reason or can it be removed?",
+      "range": {
+        "startLine": 784,
+        "startChar": 0,
+        "endLine": 793,
+        "endChar": 11
+      },
+      "revId": "7778da4fa56dab7eab7ac2c66ceacaa976910bf0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
