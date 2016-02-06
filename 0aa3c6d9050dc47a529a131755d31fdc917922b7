@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_36dbf1ed",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-02-06T05:05:09Z",
+      "side": 1,
+      "message": "android codestyle requires braces on multi line scenario",
+      "revId": "0aa3c6d9050dc47a529a131755d31fdc917922b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
