@@ -46,6 +46,30 @@
       "revId": "7778da4fa56dab7eab7ac2c66ceacaa976910bf0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_f937e3e2",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-02-09T05:41:50Z",
+      "side": 1,
+      "message": "Done - just removed this. If we come across a case where a device needs this, we can bring it back then.",
+      "parentUuid": "1fcbff3d_51d8077e",
+      "range": {
+        "startLine": 784,
+        "startChar": 0,
+        "endLine": 793,
+        "endChar": 11
+      },
+      "revId": "7778da4fa56dab7eab7ac2c66ceacaa976910bf0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
