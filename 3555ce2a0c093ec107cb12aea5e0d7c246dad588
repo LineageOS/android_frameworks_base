@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_53304e08",
+        "filename": "packages/SystemUI/src/com/android/systemui/recents/RecentsConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-02-09T02:05:36Z",
+      "side": 1,
+      "message": "should this be getIntForUser?",
+      "revId": "3555ce2a0c093ec107cb12aea5e0d7c246dad588",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
