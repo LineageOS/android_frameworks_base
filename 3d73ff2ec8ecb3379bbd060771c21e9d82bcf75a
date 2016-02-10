@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_513fe3d5",
+        "filename": "core/java/android/os/MessageQueue.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-02-10T16:07:00Z",
+      "side": 1,
+      "message": "Use same codestyle as existing code: use spaces (although I don\u0027t like this ^^)",
+      "revId": "3d73ff2ec8ecb3379bbd060771c21e9d82bcf75a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
