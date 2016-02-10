@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_c455521f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/FlashlightController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-10T01:02:12Z",
+      "side": 1,
+      "message": "I left a comment here saying: \n\n\"I think you want to acquire the wakelock in setFlashlight, and only release here?\n\nThis is the callback from CameraManager, so it\u0027s not actually responsible for enabling the flashlight, only being notified that it was. This will also acquire the wakelock if triggered from outside this class.\"",
+      "revId": "48170a33f7b878cc01e69401a6ea1506cbf376a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
