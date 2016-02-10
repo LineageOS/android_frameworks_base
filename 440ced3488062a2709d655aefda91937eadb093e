@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_34dc9d45",
+        "filename": "services/core/java/com/android/server/notification/ZenModeHelper.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 10953
+      },
+      "writtenOn": "2016-02-10T22:15:27Z",
+      "side": 1,
+      "message": "Just being very nitpicky here. Wouldn\u0027t\ngetAllowLights()\nlook a tad nicer? :)",
+      "revId": "440ced3488062a2709d655aefda91937eadb093e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_54e111fe",
+        "filename": "services/core/java/com/android/server/notification/ZenModeHelper.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 10953
+      },
+      "writtenOn": "2016-02-10T22:15:27Z",
+      "side": 1,
+      "message": "Again, just nitpicking. I think\nreadAllowLightsFromSettings()\nwould look a bit nicer and more consistent.",
+      "revId": "440ced3488062a2709d655aefda91937eadb093e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
