@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_7f7d13e6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/FlashlightController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-10T03:55:56Z",
+      "side": 1,
+      "message": "You need to release also if !enabled.",
+      "revId": "e90d8bbda36777208d01124bc87a93e097f370c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
