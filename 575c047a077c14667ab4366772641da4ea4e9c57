@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_7f2f53f6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/FlashlightController.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-10T03:32:29Z",
+      "side": 1,
+      "message": "You need to check against the enabled variable here, otherwise you acquire the wakelock on flashlight off too.",
+      "revId": "575c047a077c14667ab4366772641da4ea4e9c57",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_1f34174a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/FlashlightController.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-10T03:32:29Z",
+      "side": 1,
+      "message": "The intent is clearer to me if you use available instead of mTorchAvailable, even though they are the same by this line.",
+      "revId": "575c047a077c14667ab4366772641da4ea4e9c57",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_df3d1f2d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/FlashlightController.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-10T03:32:29Z",
+      "side": 1,
+      "message": "Same as above, but with mFlashlightEnabled instead of mTorchAvailable.",
+      "revId": "575c047a077c14667ab4366772641da4ea4e9c57",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
