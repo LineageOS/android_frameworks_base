@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_d118b376",
+        "filename": "services/core/java/com/android/server/notification/ZenModeHelper.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-02-10T06:21:41Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "d9b9c27699e3c6d686431b3d1ced7dcad13fffa4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_712787b8",
+        "filename": "services/core/java/com/android/server/notification/ZenModeHelper.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-02-10T06:21:41Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "d9b9c27699e3c6d686431b3d1ced7dcad13fffa4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
