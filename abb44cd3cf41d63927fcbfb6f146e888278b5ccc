@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_d455011f",
+        "filename": "services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4220,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-11T00:28:48Z",
+      "side": 1,
+      "message": "since this is the last check, you can just return this value and skip the variable assignment and if statement",
+      "range": {
+        "startLine": 4220,
+        "startChar": 0,
+        "endLine": 4220,
+        "endChar": 100
+      },
+      "revId": "abb44cd3cf41d63927fcbfb6f146e888278b5ccc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
