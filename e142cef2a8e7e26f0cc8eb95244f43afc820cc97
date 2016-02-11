@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_27e6adea",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 26
+      },
+      "lineNbr": 2790,
+      "author": {
+        "id": 10953
+      },
+      "writtenOn": "2016-02-11T03:57:25Z",
+      "side": 1,
+      "message": "You forgot to rename the method here:\nmZenModeHelper.getAllowLights()",
+      "revId": "e142cef2a8e7e26f0cc8eb95244f43afc820cc97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
