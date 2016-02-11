@@ -16,6 +16,24 @@
       "revId": "3257acd42ea1eecd378a476211b6e1fc40199ab7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_8af4405d",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2016-02-11T07:42:52Z",
+      "side": 1,
+      "message": "fair point let\u0027s do that",
+      "parentUuid": "ffb9cba7_47608133",
+      "revId": "3257acd42ea1eecd378a476211b6e1fc40199ab7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
