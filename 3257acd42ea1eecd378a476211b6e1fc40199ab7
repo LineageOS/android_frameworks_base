@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_47608133",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-11T04:45:00Z",
+      "side": 1,
+      "message": "It might be worth moving this to a higher bit just in case AOSP adds a new value and ends up being misinterpreted.",
+      "revId": "3257acd42ea1eecd378a476211b6e1fc40199ab7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
