@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_604a4b81",
+        "filename": "services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4219,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-12T02:49:26Z",
+      "side": 1,
+      "message": "I was thinking you could get rid of this variable altogether and just return the RHS of this",
+      "range": {
+        "startLine": 4219,
+        "startChar": 8,
+        "endLine": 4219,
+        "endChar": 42
+      },
+      "revId": "0e3cd51add974ad85c1c753d2b67c72f33f502c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
