@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_80617f3c",
+        "filename": "packages/SystemUI/res/layout/system_icons_expanded.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-12T02:25:06Z",
+      "side": 1,
+      "message": "move to a new line",
+      "range": {
+        "startLine": 1,
+        "startChar": 38,
+        "endLine": 1,
+        "endChar": 42
+      },
+      "revId": "ee22612f55d14649407b5d41066382da2abe0615",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_c04e97c0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-12T02:25:06Z",
+      "side": 1,
+      "message": "indentation.  Using IntelliJ defaults for formatting?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 27
+      },
+      "revId": "ee22612f55d14649407b5d41066382da2abe0615",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_e0e07b99",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarIconController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-12T02:25:06Z",
+      "side": 1,
+      "message": "Because we create a new StatusBarIconController when recreating the status bar, you will want to remove this listener when cleanup() is called.",
+      "range": {
+        "startLine": 541,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 1
+      },
+      "revId": "ee22612f55d14649407b5d41066382da2abe0615",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
