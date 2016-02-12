@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ffb9cba7_2069b324",
+        "filename": "packages/SystemUI/res/layout/system_icons_expanded.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-02-12T02:00:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fcbff3d_7770a0dd",
+      "range": {
+        "startLine": 2,
+        "startChar": 18,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "b0530e7dc01d225449da520f755cca93ed63e83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fcbff3d_1777dcd6",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-03T00:11:00Z",
       "side": 1,
       "message": "mClockLocation \u003d clockLocation;",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 45
+      },
+      "revId": "b0530e7dc01d225449da520f755cca93ed63e83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_c07537fc",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-02-12T02:00:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fcbff3d_1777dcd6",
       "range": {
         "startLine": 122,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "ffb9cba7_e072bb11",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarHeaderView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-02-12T02:00:53Z",
+      "side": 1,
+      "message": "Look at system_icons_expanded to understand why this change was made.\n\nSignal cluster now has our overflow icons container sharing the same parent. So we now animate the parent instead of just the signal cluster view.",
+      "parentUuid": "1fcbff3d_f77b30bb",
+      "revId": "b0530e7dc01d225449da520f755cca93ed63e83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fcbff3d_974c2c9f",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarIconController.java",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2016-02-03T00:11:00Z",
       "side": 1,
       "message": "is this a sane value for all devices?  May be worthwhile to define this as a config in resources so devices can overlay if necessary.",
+      "range": {
+        "startLine": 60,
+        "startChar": 52,
+        "endLine": 60,
+        "endChar": 53
+      },
+      "revId": "b0530e7dc01d225449da520f755cca93ed63e83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_a0660351",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarIconController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-02-12T02:00:53Z",
+      "side": 1,
+      "message": "This was replaced with a more dynamic approach.\n\nIt now uses screen width + clock width + threshold to figure out when to start moving icons.",
+      "parentUuid": "1fcbff3d_974c2c9f",
       "range": {
         "startLine": 60,
         "startChar": 52,
