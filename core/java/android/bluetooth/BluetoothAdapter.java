@@ -1265,6 +1265,22 @@ public final class BluetoothAdapter {
         return false;
     }
 
+      /**
+      * generic API to be called for sending Nvidia bluetooth spefic commands
+      * it will send cmd with provided data to remote device.
+      * return status of command
+      * @hide
+      */
+     public int sendNvCustomCommand(BluetoothDevice device, int cmd, byte[] data, int bufferSize) {
+         if (getState() != STATE_ON) return -1;
+         try {
+             synchronized(mManagerCallback) {
+                 if (mService != null) return mService.sendNvCustomCommand(device, cmd, data, bufferSize);
+             }
+         } catch (RemoteException e) {Log.e(TAG, "", e);}
+         return -1;
+     }
+
     /**
      * Cancel the current device discovery process.
      * <p>Because discovery is a heavyweight procedure for the Bluetooth
