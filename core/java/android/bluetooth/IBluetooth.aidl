@@ -120,6 +120,8 @@ interface IBluetooth
      */
     oneway void requestActivityInfo(in ResultReceiver result);
 
+    int sendNvCustomCommand(in BluetoothDevice device, int cmd, in byte[] data, int bufferSize);
+
     void onLeServiceUp();
     void onBrEdrDown();
 }
