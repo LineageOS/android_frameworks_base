@@ -63,6 +63,7 @@ import static android.content.pm.PackageManager.INTENT_FILTER_DOMAIN_VERIFICATIO
 import static android.content.pm.PackageManager.INTENT_FILTER_DOMAIN_VERIFICATION_STATUS_UNDEFINED;
 import static android.content.pm.PackageManager.INTENT_FILTER_DOMAIN_VERIFICATION_STATUS_ALWAYS_ASK;
 import static android.content.pm.PackageManager.MATCH_ALL;
+import static android.content.pm.PackageManager.MOVE_FAILED_DEVICE_ADMIN;
 import static android.content.pm.PackageManager.MOVE_FAILED_DOESNT_EXIST;
 import static android.content.pm.PackageManager.MOVE_FAILED_INTERNAL_ERROR;
 import static android.content.pm.PackageManager.MOVE_FAILED_OPERATION_PENDING;
@@ -13844,6 +13845,11 @@ public class PackageManagerService extends IPackageManager.Stub {
         });
     }
 
+    @Override
+    public boolean isPackageDeviceAdminOnAnyUser(String packageName) {
+        return isPackageDeviceAdmin(packageName, UserHandle.USER_ALL);
+    }
+
     private boolean isPackageDeviceAdmin(String packageName, int userId) {
         IDevicePolicyManager dpm = IDevicePolicyManager.Stub.asInterface(
                 ServiceManager.getService(Context.DEVICE_POLICY_SERVICE));
@@ -17171,6 +17177,10 @@ public class PackageManagerService extends IPackageManager.Stub {
             if (Objects.equals(currentVolumeUuid, volumeUuid)) {
                 throw new PackageManagerException(MOVE_FAILED_INTERNAL_ERROR,
                         "Package already moved to " + volumeUuid);
+            }
+            if (pkg.applicationInfo.isInternal() && isPackageDeviceAdminOnAnyUser(packageName)) {
+                throw new PackageManagerException(MOVE_FAILED_DEVICE_ADMIN,
+                        "Device admin cannot be moved");
             }
 
             if (ps.frozen) {

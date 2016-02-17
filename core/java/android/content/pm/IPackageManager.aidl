@@ -526,4 +526,6 @@ interface IPackageManager {
 
     /** protected broadcast ext */
     boolean isProtectedBroadcastAllowed(in String actionName, in int callingUid);
+
+    boolean isPackageDeviceAdminOnAnyUser(String packageName);
 }
