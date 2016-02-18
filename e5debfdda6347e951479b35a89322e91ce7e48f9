@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_6ef22e09",
+        "filename": "core/java/android/view/WindowManagerPolicyControl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-18T05:07:40Z",
+      "side": 1,
+      "message": "nit: \u003e 100 chars",
+      "range": {
+        "startLine": 244,
+        "startChar": 100,
+        "endLine": 244,
+        "endChar": 106
+      },
+      "revId": "e5debfdda6347e951479b35a89322e91ce7e48f9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
