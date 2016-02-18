@@ -46,6 +46,30 @@
       "revId": "81af8e11707b4f3ef1ce3312d50a09ff8b7f7b40",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_ee7ffea8",
+        "filename": "packages/SettingsProvider/res/values/defaults.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 14187
+      },
+      "writtenOn": "2016-02-18T07:13:47Z",
+      "side": 1,
+      "message": "I added this here to make sure all the sound settings are together. I can add to end of file if it is something followed.",
+      "parentUuid": "ffb9cba7_0ea8521d",
+      "range": {
+        "startLine": 100,
+        "startChar": 50,
+        "endLine": 100,
+        "endChar": 54
+      },
+      "revId": "81af8e11707b4f3ef1ce3312d50a09ff8b7f7b40",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
