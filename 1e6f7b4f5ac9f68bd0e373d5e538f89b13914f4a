@@ -22,6 +22,30 @@
       "revId": "1e6f7b4f5ac9f68bd0e373d5e538f89b13914f4a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_04735117",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-02-19T03:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffb9cba7_c418d9d4",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 81
+      },
+      "revId": "1e6f7b4f5ac9f68bd0e373d5e538f89b13914f4a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
