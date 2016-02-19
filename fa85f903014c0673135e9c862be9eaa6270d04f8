@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_e60402c9",
+        "filename": "core/java/android/app/backup/FullBackup.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 13409
+      },
+      "writtenOn": "2016-02-19T10:27:11Z",
+      "side": 1,
+      "message": "I can remove this, but the rest \u0027seems\u0027 to work.",
+      "revId": "fa85f903014c0673135e9c862be9eaa6270d04f8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
