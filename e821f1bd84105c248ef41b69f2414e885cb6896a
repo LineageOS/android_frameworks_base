@@ -22,6 +22,30 @@
       "revId": "e821f1bd84105c248ef41b69f2414e885cb6896a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_042b5194",
+        "filename": "packages/SettingsProvider/res/values/defaults.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 14187
+      },
+      "writtenOn": "2016-02-19T04:24:16Z",
+      "side": 1,
+      "message": "How do I find which device supports? define two variables\n\nSomething like this?\n\nloadBooleanSetting(stmt, Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE,\n                    R.bool.def_notification_pulse_custom_enable);\n\n            if (mContext.getResources().getBoolean(R.bool.def_notification_pulse_custom_enable)) {\n                loadStringSetting(stmt,Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_VALUES,\n                        R.string.def_notification_pulse_custom_value);\n            }",
+      "parentUuid": "ffb9cba7_64ffad67",
+      "range": {
+        "startLine": 44,
+        "startChar": 42,
+        "endLine": 44,
+        "endChar": 46
+      },
+      "revId": "e821f1bd84105c248ef41b69f2414e885cb6896a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
