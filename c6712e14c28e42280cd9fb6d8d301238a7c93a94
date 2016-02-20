@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_49a96179",
+        "filename": "core/jni/AndroidRuntime.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-20T01:36:29Z",
+      "side": 1,
+      "message": "could call setenv(\"PREBUNDLED_ROOT\", prebundledDir, 1); after the else block instead of duplicating it in the if and else blocks",
+      "revId": "c6712e14c28e42280cd9fb6d8d301238a7c93a94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
