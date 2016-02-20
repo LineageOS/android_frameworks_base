@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_49e1619a",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/ScreenTimeoutTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-20T01:57:12Z",
+      "side": 1,
+      "message": "missed one\nERROR: /home/clark/cm13/frameworks/base/packages/SystemUI/src/com/android/systemui/qs/tiles/ScreenTimeoutTile.java:328: mShowingDetail cannot be resolved to a variable",
+      "revId": "2a48bfcccb78e2cdb40399c0c1f0aab14a4cb2f1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
