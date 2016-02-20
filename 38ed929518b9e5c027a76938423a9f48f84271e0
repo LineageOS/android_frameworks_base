@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_2cf0bbc9",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/HotspotTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-02-20T04:18:25Z",
+      "side": 1,
+      "message": "you should persist the current listening state and not set a new one if it\u0027s the same - this happens and it will register the receiver a few times",
+      "revId": "38ed929518b9e5c027a76938423a9f48f84271e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
