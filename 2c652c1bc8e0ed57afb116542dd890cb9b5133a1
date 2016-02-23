@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_907d3570",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2230,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2016-02-23T03:56:37Z",
+      "side": 1,
+      "message": "minor nit: might as well move this inside the null check while we\u0027re at it",
+      "revId": "2c652c1bc8e0ed57afb116542dd890cb9b5133a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
