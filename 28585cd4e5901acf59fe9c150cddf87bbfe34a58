@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_4df886c3",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/HotspotTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-02-23T00:18:36Z",
+      "side": 1,
+      "message": "If handleUpdateState runs on UIThread and getTetherConnectedSta() is an ipc call (which might take long?), should we revise this ?",
+      "revId": "28585cd4e5901acf59fe9c150cddf87bbfe34a58",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
