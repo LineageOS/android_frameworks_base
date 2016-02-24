@@ -16,6 +16,24 @@
       "revId": "a3866d0b27d38b124b15c871a787a1066e59dd04",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_631eb90d",
+        "filename": "packages/SystemUI/res/drawable/ic_volume_ringer.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-02-24T01:14:54Z",
+      "side": 1,
+      "message": "AOSP ic_volume_ringer is what we use as ic_volume_notification, so we need a different one for ringer",
+      "parentUuid": "ffb9cba7_a3459119",
+      "revId": "a3866d0b27d38b124b15c871a787a1066e59dd04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
