@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_a3459119",
+        "filename": "packages/SystemUI/res/drawable/ic_volume_ringer.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-24T00:39:39Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you just bring in the ic_volume_ringer.xml from AOSP rather than create a new one with a CM copyright?",
+      "revId": "a3866d0b27d38b124b15c871a787a1066e59dd04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
