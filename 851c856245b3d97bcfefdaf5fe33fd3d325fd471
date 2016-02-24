@@ -22,6 +22,30 @@
       "revId": "851c856245b3d97bcfefdaf5fe33fd3d325fd471",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_01e255d6",
+        "filename": "services/core/jni/com_android_server_AlarmManagerService.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-02-24T07:14:42Z",
+      "side": 1,
+      "message": "CLOCK_REALTIME is what is currently using before this patch. Since without WITH_TIMERFD_POWEROFF_ALARM will makes android_alarm_to_clockid array last element shift one upwards.\n\nwithout _ALARM  devices would not wake up if sleeps.\nBut DeskClock always set two alarms:\n                am.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);\n                am.setExact(AlarmManager.RTC_POWEROFF_WAKEUP, instance.getAlarmTime().getTimeInMillis(),\nSo it does not matter.",
+      "parentUuid": "ffb9cba7_61cb1153",
+      "range": {
+        "startLine": 429,
+        "startChar": 36,
+        "endLine": 429,
+        "endChar": 50
+      },
+      "revId": "851c856245b3d97bcfefdaf5fe33fd3d325fd471",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
