@@ -46,6 +46,30 @@
       "revId": "851c856245b3d97bcfefdaf5fe33fd3d325fd471",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_81f6458f",
+        "filename": "services/core/jni/com_android_server_AlarmManagerService.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-24T07:24:31Z",
+      "side": 1,
+      "message": "For non-DeskClock (even though we don\u0027t have that right now!) usage, this should probably be CLOCK_REALTIME_ALARM.\n\nThe fact that DeskClock sets two alarms is incidental, the framework shouldn\u0027t be tightly coupled to one specific app.\n\n(FWIW the fact that QC are tightly coupling DeskClock to the kernel behavior is bad and Qualcomm should feel bad for doing so.)",
+      "parentUuid": "ffb9cba7_01e255d6",
+      "range": {
+        "startLine": 429,
+        "startChar": 36,
+        "endLine": 429,
+        "endChar": 50
+      },
+      "revId": "851c856245b3d97bcfefdaf5fe33fd3d325fd471",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
