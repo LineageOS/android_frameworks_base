@@ -52,6 +52,24 @@
       "revId": "a3866d0b27d38b124b15c871a787a1066e59dd04",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_860e5be3",
+        "filename": "packages/SystemUI/res/drawable/ic_volume_ringer.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-02-24T02:16:28Z",
+      "side": 1,
+      "message": "Not really, since the AOSP ringer icon is the notification bell which we usually use as notification icon everywhere.",
+      "parentUuid": "ffb9cba7_438855c5",
+      "revId": "a3866d0b27d38b124b15c871a787a1066e59dd04",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
