@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_720a0127",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-02-26T05:46:55Z",
+      "side": 1,
+      "message": "Still need to come up with a solution for caching of composed icons that won\u0027t require including this AIDL",
+      "revId": "5cd0cddd26a25ede5dcda04fe9da7e274541bb3c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
