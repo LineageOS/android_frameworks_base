@@ -464,4 +464,10 @@ interface INetworkManagementService
      * Delete SoftAp Interface
      */
     void deleteSoftApInterface(String wlanIface);
+
+    /**
+     * Restrict UID from accessing data/wifi
+     */
+    void restrictAppOnData(int uid, boolean restrict);
+    void restrictAppOnWifi(int uid, boolean restrict);
 }
