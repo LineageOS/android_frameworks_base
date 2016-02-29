@@ -53,8 +53,11 @@ import android.net.InterfaceConfiguration;
 import android.net.InterfaceConfigurationParcel;
 import android.net.IpPrefix;
 import android.net.LinkAddress;
+import android.net.LinkProperties;
 import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkPolicyManager;
+import android.net.NetworkRequest;
 import android.net.NetworkStats;
 import android.net.NetworkUtils;
 import android.net.RouteInfo;
@@ -159,6 +162,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
     private INetd mNetdService;
 
     private final NetdUnsolicitedEventListener mNetdUnsolicitedEventListener;
+    private String mDataInterfaceName;
+    private String mVpnInterfaceName;
+    private String mWlanInterfaceName;
 
     private IBatteryStats mBatteryStats;
 
@@ -190,6 +196,15 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
     /** Set of UIDs whitelisted on metered networks. */
     @GuardedBy("mRulesLock")
     private SparseBooleanArray mUidAllowOnMetered = new SparseBooleanArray();
+    /** Set of UIDs blacklisted on cellular networks. */
+    @GuardedBy("mQuotaLock")
+    final SparseBooleanArray mDataBlacklist = new SparseBooleanArray();
+    /** Set of UIDs blacklisted on virtual private networks. */
+    @GuardedBy("mQuotaLock")
+    final SparseBooleanArray mVpnBlacklist = new SparseBooleanArray();
+    /** Set of UIDs blacklisted on WiFi networks. */
+    @GuardedBy("mQuotaLock")
+    final SparseBooleanArray mWlanBlacklist = new SparseBooleanArray();
     /** Set of UIDs with cleartext penalties. */
     @GuardedBy("mQuotaLock")
     private SparseIntArray mUidCleartextPolicy = new SparseIntArray();
@@ -246,6 +261,16 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
     private final RemoteCallbackList<INetworkActivityListener> mNetworkActivityListeners =
             new RemoteCallbackList<>();
     private boolean mNetworkActive;
+    private SparseBooleanArray mPendingRestrictOnData = new SparseBooleanArray();
+    private SparseBooleanArray mPendingRestrictOnVpn = new SparseBooleanArray();
+    private SparseBooleanArray mPendingRestrictOnWlan = new SparseBooleanArray();
+
+    /* map keys used by netd to keep per app interface restrictions
+     * separate for each use case.
+     */
+    private static final String RESTRICT_USECASE_DATA = "data";
+    private static final String RESTRICT_USECASE_VPN  = "vpn";
+    private static final String RESTRICT_USECASE_WLAN = "wlan";
 
     /**
      * Constructs a new NetworkManagementService instance
@@ -292,6 +317,41 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
     }
 
     public void systemReady() {
+        final ConnectivityManager mConnectivityManager =
+                mContext.getSystemService(ConnectivityManager.class);
+
+        final NetworkRequest request = new NetworkRequest.Builder()
+                .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
+                .addTransportType(NetworkCapabilities.TRANSPORT_VPN)
+                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+                .removeCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)
+                .build();
+
+        final ConnectivityManager.NetworkCallback mNetworkCallback =
+                new ConnectivityManager.NetworkCallback() {
+            @Override
+            public void onLinkPropertiesChanged(Network network, LinkProperties linkProperties) {
+                NetworkCapabilities nc = mConnectivityManager.getNetworkCapabilities(network);
+                final String key;
+                if (nc.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                    key = RESTRICT_USECASE_DATA;
+                } else if (nc.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) {
+                    key = RESTRICT_USECASE_VPN;
+                } else if (nc.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                    key = RESTRICT_USECASE_WLAN;
+                } else {
+                    key = null; // satisfy final needed for post
+                }
+                final String iface = linkProperties.getInterfaceName();
+                if (!TextUtils.isEmpty(key) && !TextUtils.isEmpty(iface)) {
+                    // Exit the callback ASAP and move further work onto daemon thread
+                    mDaemonHandler.post(() -> updateInterfaceRestrictRequests(key, iface));
+                }
+            }
+        };
+
+        mConnectivityManager.registerNetworkCallback(request, mNetworkCallback);
+
         if (DBG) {
             final long start = System.currentTimeMillis();
             prepareNativeDaemon();
@@ -1456,6 +1516,129 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
             stableRanges[i] = makeUidRangeParcel(ranges[i].start, ranges[i].stop);
         }
         return stableRanges;
+    }
+
+    private void updateInterfaceRestrictRequests(String key, String newIface) {
+        switch (key) {
+            case RESTRICT_USECASE_DATA:
+                if (TextUtils.isEmpty(mDataInterfaceName)) {
+                    mDataInterfaceName = newIface;
+                    processPendingInterfaceRestrictRequests(key, mPendingRestrictOnData);
+                } else if (!mDataInterfaceName.equals(newIface)) {
+                    // Prevent new incoming requests colliding with an update in progress
+                    synchronized (mQuotaLock) {
+                        updateInterfaceRestrictRequestsLocked(key, mDataBlacklist,
+                                mDataInterfaceName, newIface);
+                        mDataInterfaceName = newIface;
+                    }
+                }
+                break;
+            case RESTRICT_USECASE_VPN:
+                if (TextUtils.isEmpty(mVpnInterfaceName)) {
+                    mVpnInterfaceName = newIface;
+                    processPendingInterfaceRestrictRequests(key, mPendingRestrictOnVpn);
+                } else if (!mVpnInterfaceName.equals(newIface)) {
+                    synchronized (mQuotaLock) {
+                        updateInterfaceRestrictRequestsLocked(key, mVpnBlacklist,
+                                mVpnInterfaceName, newIface);
+                        mVpnInterfaceName = newIface;
+                    }
+                }
+                break;
+            case RESTRICT_USECASE_WLAN:
+                if (TextUtils.isEmpty(mWlanInterfaceName)) {
+                    mWlanInterfaceName = newIface;
+                    processPendingInterfaceRestrictRequests(key, mPendingRestrictOnWlan);
+                } else if (!mWlanInterfaceName.equals(newIface)) {
+                    synchronized (mQuotaLock) {
+                        updateInterfaceRestrictRequestsLocked(key, mWlanBlacklist,
+                                mWlanInterfaceName, newIface);
+                        mWlanInterfaceName = newIface;
+                    }
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void restrictAppOnInterface(String key, int uid, boolean restrict) {
+        switch (key) {
+            case RESTRICT_USECASE_DATA:
+                restrictAppOnInterface(key, uid, restrict, mDataInterfaceName,
+                        mPendingRestrictOnData, mDataBlacklist);
+                break;
+            case RESTRICT_USECASE_VPN:
+                restrictAppOnInterface(key, uid, restrict, mVpnInterfaceName,
+                        mPendingRestrictOnVpn, mVpnBlacklist);
+                break;
+            case RESTRICT_USECASE_WLAN:
+                restrictAppOnInterface(key, uid, restrict, mWlanInterfaceName,
+                        mPendingRestrictOnWlan, mWlanBlacklist);
+                break;
+        }
+    }
+
+    private void restrictAppOnInterface(String key, int uid, boolean restrict, final String iface,
+            final SparseBooleanArray pendingBlacklist, final SparseBooleanArray blacklist) {
+        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
+
+        if (TextUtils.isEmpty(iface)) {
+            // We don't have an interface name yet so queue
+            // the request for when it comes up
+            pendingBlacklist.put(uid, restrict);
+            return;
+        }
+
+        synchronized (mQuotaLock) {
+            boolean oldValue = blacklist.get(uid, false);
+            if (oldValue == restrict) {
+                return;
+            }
+            blacklist.put(uid, restrict);
+
+            try {
+                if (restrict) {
+                    mNetdService.bandwidthAddRestrictAppOnInterface(key, iface, uid);
+                } else {
+                    mNetdService.bandwidthRemoveRestrictAppOnInterface(key, iface, uid);
+                }
+            } catch (RemoteException | ServiceSpecificException e) {
+                throw new IllegalStateException(e);
+            }
+        }
+    }
+
+    private void processPendingInterfaceRestrictRequests(String usecase,
+            SparseBooleanArray pendingRestrictOnInterface) {
+        int count = pendingRestrictOnInterface.size();
+        for (int i = 0; i < count; i++) {
+            restrictAppOnInterface(usecase, pendingRestrictOnInterface.keyAt(i),
+                    pendingRestrictOnInterface.valueAt(i));
+        }
+        pendingRestrictOnInterface.clear();
+    }
+
+    private void updateInterfaceRestrictRequestsLocked(String usecase, SparseBooleanArray blacklist,
+            String oldIface, String newIface) {
+        for (int i = 0; i < blacklist.size(); i++) {
+            final int uid = blacklist.keyAt(i);
+            final boolean restrict = blacklist.valueAt(i);
+            // Only remove/readd if a restriction is currently in place
+            if (restrict) {
+                updateRestrictAppOnInterface(usecase, uid, oldIface, newIface);
+            }
+        }
+    }
+
+    // Change the interface for an existing restriction
+    private void updateRestrictAppOnInterface(String key, int uid, String oldIface,
+            String newIface) {
+        try {
+            mNetdService.bandwidthRemoveRestrictAppOnInterface(key, oldIface, uid);
+            mNetdService.bandwidthAddRestrictAppOnInterface(key, newIface, uid);
+        } catch (RemoteException | ServiceSpecificException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     @Override
