@@ -60,6 +60,9 @@ import static android.net.NetworkPolicyManager.MASK_METERED_NETWORKS;
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_CELLULAR;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_VPN;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_WIFI;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_ALL;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_METERED;
 import static android.net.NetworkPolicyManager.RULE_NONE;
@@ -4321,6 +4324,17 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         final boolean isWhitelisted = (uidPolicy & POLICY_ALLOW_METERED_BACKGROUND) != 0;
         final int oldRule = oldUidRules & MASK_METERED_NETWORKS;
         int newRule = RULE_NONE;
+
+        try {
+            mNetworkManager.restrictAppOnInterface("cellular", uid,
+                    (uidPolicy & POLICY_REJECT_CELLULAR) != 0);
+            mNetworkManager.restrictAppOnInterface("vpn", uid,
+                    (uidPolicy & POLICY_REJECT_VPN) != 0);
+            mNetworkManager.restrictAppOnInterface("wifi", uid,
+                    (uidPolicy & POLICY_REJECT_WIFI) != 0);
+        } catch (RemoteException e) {
+            // ignored; service lives in system_server
+        }
 
         // First step: define the new rule based on user restrictions and foreground state.
         if (isRestrictedByAdmin) {
