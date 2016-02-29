@@ -25,6 +25,7 @@ import android.net.NetworkStats;
 import android.net.RouteInfo;
 import android.net.UidRange;
 import android.os.INetworkActivityListener;
+//import android.util.SparseBooleanArray;
 
 /**
  * @hide
@@ -368,7 +369,7 @@ interface INetworkManagementService
     void addInterfaceToNetwork(String iface, int netId);
 
     /**
-     * Remove an Interface from a network.
+     * Remove an interface from a network.
      */
     void removeInterfaceFromNetwork(String iface, int netId);
 
@@ -401,4 +402,10 @@ interface INetworkManagementService
     void setAllowOnlyVpnForUids(boolean enable, in UidRange[] uidRanges);
 
     boolean isNetworkRestricted(int uid);
+
+    /**
+     * Restrict UID from accessing a network interface
+     */
+//    void restrictAppOnInterface(String key, int uid, boolean restrict, String iface,
+//            SparseBooleanArray pendingBlacklist, SparseBooleanArray blacklist);
 }
