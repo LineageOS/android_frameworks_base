@@ -52,8 +52,11 @@ import static com.android.server.NetworkManagementSocketTagger.PROP_QTAGUID_ENAB
 
 import android.annotation.NonNull;
 import android.app.ActivityManager;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.INetd;
 import android.net.INetworkManagementEventObserver;
@@ -61,6 +64,7 @@ import android.net.ITetheringStatsProvider;
 import android.net.InterfaceConfiguration;
 import android.net.IpPrefix;
 import android.net.LinkAddress;
+import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkPolicyManager;
 import android.net.NetworkStats;
@@ -90,6 +94,7 @@ import android.telephony.DataConnectionRealTimeInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Slog;
 import android.util.SparseBooleanArray;
@@ -219,6 +224,10 @@ public class NetworkManagementService extends INetworkManagementService.Stub
 
     private INetd mNetdService;
 
+    private String mDataInterfaceName;
+    private String mWlanInterfaceName;
+    private BroadcastReceiver mPendingDataRestrictReceiver;
+
     private IBatteryStats mBatteryStats;
 
     private final Thread mThread;
@@ -252,6 +261,12 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     /** Set of UIDs whitelisted on metered networks. */
     @GuardedBy("mRulesLock")
     private SparseBooleanArray mUidAllowOnMetered = new SparseBooleanArray();
+    /** Set of UIDs blacklisted on cellular networks. */
+    @GuardedBy("mQuotaLock")
+    final SparseBooleanArray mDataBlacklist = new SparseBooleanArray();
+    /** Set of UIDs blacklisted on WiFi networks. */
+    @GuardedBy("mQuotaLock")
+    final SparseBooleanArray mWlanBlacklist = new SparseBooleanArray();
     /** Set of UIDs with cleartext penalties. */
     @GuardedBy("mQuotaLock")
     private SparseIntArray mUidCleartextPolicy = new SparseIntArray();
@@ -309,6 +324,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     private final RemoteCallbackList<INetworkActivityListener> mNetworkActivityListeners =
             new RemoteCallbackList<>();
     private boolean mNetworkActive;
+    private SparseBooleanArray mPendingRestrictOnData = new SparseBooleanArray();
 
     /**
      * Constructs a new NetworkManagementService instance
@@ -332,6 +348,8 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                 new NetdCallbackReceiver(), socket, 10, NETD_TAG, 160, wl,
                 FgThread.get().getLooper());
         mThread = new Thread(mConnector, NETD_TAG);
+
+        mWlanInterfaceName = SystemProperties.get("wifi.interface");
 
         mDaemonHandler = new Handler(FgThread.get().getLooper());
 
@@ -383,6 +401,18 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         } else {
             prepareNativeDaemon();
         }
+        // Note: processPendingDataRestrictRequests() will unregister
+        // mPendingDataRestrictReceiver once it has been able to determine
+        // the cellular network interface name.
+        mPendingDataRestrictReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                processPendingDataRestrictRequests();
+           }
+        };
+        final IntentFilter filter = new IntentFilter();
+        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        mContext.registerReceiver(mPendingDataRestrictReceiver, filter);
     }
 
     private IBatteryStats getBatteryStats() {
@@ -1775,6 +1805,77 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     }
 
     @Override
+    public void restrictAppOnData(int uid, boolean restrict) {
+        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
+        // silently discard when control disabled
+        if (!mBandwidthControlEnabled) return;
+
+        initDataInterface();
+        if (TextUtils.isEmpty(mDataInterfaceName)) {
+            // We don't have an interface name since data is not active
+            // yet, so queue up the request for when it comes up alive
+            mPendingRestrictOnData.put(uid, restrict);
+            return;
+        }
+
+        synchronized (mQuotaLock) {
+            boolean oldValue = mDataBlacklist.get(uid, false);
+            if (oldValue == restrict) {
+                return;
+            }
+            mDataBlacklist.put(uid, restrict);
+        }
+
+        try {
+            final String action = restrict ? "add" : "remove";
+            mConnector.execute("bandwidth", action + "restrictappsondata",
+                    mDataInterfaceName, uid);
+        } catch (NativeDaemonConnectorException e) {
+            throw e.rethrowAsParcelableException();
+        }
+    }
+
+    @Override
+    public void restrictAppOnWlan(int uid, boolean restrict) {
+        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
+        // silently discard when control disabled
+        if (!mBandwidthControlEnabled) return;
+
+        synchronized (mQuotaLock) {
+            boolean oldValue = mWlanBlacklist.get(uid, false);
+            if (oldValue == restrict) {
+                return;
+            }
+            mWlanBlacklist.put(uid, restrict);
+        }
+
+        try {
+            final String action = restrict ? "add" : "remove";
+            mConnector.execute("bandwidth", action + "restrictappsonwlan",
+                    mWlanInterfaceName, uid);
+        } catch (NativeDaemonConnectorException e) {
+            throw e.rethrowAsParcelableException();
+        }
+    }
+
+    private void processPendingDataRestrictRequests() {
+        initDataInterface();
+        if (TextUtils.isEmpty(mDataInterfaceName)) {
+            return;
+        }
+        if (mPendingDataRestrictReceiver != null) {
+            mContext.unregisterReceiver(mPendingDataRestrictReceiver);
+            mPendingDataRestrictReceiver = null;
+        }
+        int count = mPendingRestrictOnData.size();
+        for (int i = 0; i < count; i++) {
+            restrictAppOnData(mPendingRestrictOnData.keyAt(i),
+                    mPendingRestrictOnData.valueAt(i));
+        }
+        mPendingRestrictOnData.clear();
+    }
+
+    @Override
     public void setAllowOnlyVpnForUids(boolean add, UidRange[] uidRanges)
             throws ServiceSpecificException {
         mContext.enforceCallingOrSelfPermission(NETWORK_STACK, TAG);
@@ -2753,6 +2854,18 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     private boolean getFirewallChainState(int chain) {
         synchronized (mRulesLock) {
             return mFirewallChainStates.get(chain);
+        }
+    }
+
+    private void initDataInterface() {
+        if (!TextUtils.isEmpty(mDataInterfaceName)) {
+            return;
+        }
+        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(
+                Context.CONNECTIVITY_SERVICE);
+        LinkProperties linkProperties = cm.getLinkProperties(ConnectivityManager.TYPE_MOBILE);
+        if (linkProperties != null) {
+            mDataInterfaceName = linkProperties.getInterfaceName();
         }
     }
 
