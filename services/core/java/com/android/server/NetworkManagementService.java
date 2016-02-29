@@ -36,6 +36,7 @@ import static android.net.NetworkStats.SET_DEFAULT;
 import static android.net.NetworkStats.STATS_PER_UID;
 import static android.net.NetworkStats.TAG_NONE;
 import static android.net.TrafficStats.UID_TETHERING;
+import static android.system.OsConstants.ENETDOWN;
 
 import static com.android.server.NetworkManagementSocketTagger.PROP_QTAGUID_ENABLED;
 
@@ -52,8 +53,11 @@ import android.net.InterfaceConfiguration;
 import android.net.InterfaceConfigurationParcel;
 import android.net.IpPrefix;
 import android.net.LinkAddress;
+import android.net.LinkProperties;
 import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkPolicyManager;
+import android.net.NetworkRequest;
 import android.net.NetworkStack;
 import android.net.NetworkStats;
 import android.net.NetworkUtils;
@@ -248,6 +252,55 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
             new RemoteCallbackList<>();
     private boolean mNetworkActive;
 
+    /* map keys used by netd to keep per app interface restrictions
+     * separate for each use case.
+     */
+    private static final String RESTRICT_USECASE_CELL = "cell";
+    private static final String RESTRICT_USECASE_VPN  = "vpn";
+    private static final String RESTRICT_USECASE_WIFI = "wifi";
+
+    // Helper class for managing per uid interface blacklists.
+    private static class RestrictIf {
+        // Use case string
+        public String useCase;
+        // Interface name
+        public String ifName;
+        // NetworkCapabilities transport type used for this blacklist
+        public int transport;
+        // Active uid blacklist
+        public SparseBooleanArray active;
+        // Desired uid blacklist changes
+        public SparseBooleanArray pending;
+
+        RestrictIf(String useCase, int transport) {
+            this.useCase = useCase;
+            this.ifName = null;
+            this.transport = transport;
+            this.active = new SparseBooleanArray();
+            this.pending = new SparseBooleanArray();
+        }
+    }
+
+    @GuardedBy("mQuotaLock")
+    private RestrictIf[] mRestrictIf = {
+            // Ordered by match preference (in the event we get a callback with
+            // multiple transports).
+            new RestrictIf(RESTRICT_USECASE_VPN, NetworkCapabilities.TRANSPORT_VPN),
+            new RestrictIf(RESTRICT_USECASE_CELL, NetworkCapabilities.TRANSPORT_CELLULAR),
+            new RestrictIf(RESTRICT_USECASE_WIFI, NetworkCapabilities.TRANSPORT_WIFI),
+    };
+
+    private RestrictIf getUseCaseRestrictIf(String useCase) {
+        for (RestrictIf restrictIf : mRestrictIf) {
+            if (restrictIf.useCase.equals(useCase)) {
+                return restrictIf;
+            }
+        }
+        throw new IllegalStateException("Unknown interface restriction");
+    }
+
+    private final HashMap<Network, NetworkCapabilities> mNetworkCapabilitiesMap = new HashMap<>();
+
     /**
      * Constructs a new NetworkManagementService instance
      *
@@ -293,6 +346,65 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
     }
 
     public void systemReady() {
+        final ConnectivityManager mConnectivityManager =
+                mContext.getSystemService(ConnectivityManager.class);
+
+        final NetworkRequest.Builder builder = new NetworkRequest.Builder()
+                .removeCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN);
+        for (RestrictIf restrictIf : mRestrictIf) {
+            builder.addTransportType(restrictIf.transport);
+        }
+        final NetworkRequest request = builder.build();
+
+        final ConnectivityManager.NetworkCallback mNetworkCallback =
+                new ConnectivityManager.NetworkCallback() {
+            @Override
+            public void onCapabilitiesChanged(Network network,
+                    NetworkCapabilities networkCapabilities) {
+                mNetworkCapabilitiesMap.put(network, networkCapabilities);
+            }
+
+            @Override
+            public void onLinkPropertiesChanged(Network network, LinkProperties linkProperties) {
+                // Callback ordering in Oreo+ is documented to be:
+                // onCapabilitiesChanged, onLinkPropertiesChanged
+                // At this point, we should always find the network in our
+                // local map but guard anyway.
+                NetworkCapabilities nc = mNetworkCapabilitiesMap.get(network);
+                if (nc == null) {
+                    Slog.e(TAG, "onLinkPropertiesChanged: network was not in map: "
+                            + "network=" + network + " linkProperties=" + linkProperties);
+                    return;
+                }
+                RestrictIf matchedRestrictIf = null;
+                for (RestrictIf restrictIf : mRestrictIf) {
+                    if (nc.hasTransport(restrictIf.transport)) {
+                        matchedRestrictIf = restrictIf;
+                        break;
+                    }
+                }
+                if (matchedRestrictIf == null) {
+                    return;
+                }
+                final String iface = linkProperties.getInterfaceName();
+                if (TextUtils.isEmpty(iface)) {
+                    return;
+                }
+                // The post below requires final arguments so
+                final RestrictIf finalRestrictIf = matchedRestrictIf;
+                // Exit the callback ASAP and move further work onto daemon thread
+                mDaemonHandler.post(() ->
+                        updateAppOnInterfaceCallback(finalRestrictIf, iface));
+            }
+
+            @Override
+            public void onLost(Network network) {
+                mNetworkCapabilitiesMap.remove(network);
+            }
+        };
+
+        mConnectivityManager.registerNetworkCallback(request, mNetworkCallback);
+
         if (DBG) {
             final long start = System.currentTimeMillis();
             prepareNativeDaemon();
@@ -1403,6 +1515,96 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
             stableRanges[i] = makeUidRangeParcel(ranges[i].start, ranges[i].stop);
         }
         return stableRanges;
+    }
+
+    private void updateAppOnInterfaceCallback(RestrictIf restrictIf, String newIface) {
+        synchronized (mQuotaLock) {
+            if (TextUtils.isEmpty(restrictIf.ifName)) {
+                restrictIf.ifName = newIface;
+            } else if (!restrictIf.ifName.equals(newIface)) { // interface name has changed
+                // Prevent new incoming requests colliding with an update in progress
+                for (int i = 0; i < restrictIf.active.size(); i++) {
+                    final int uid = restrictIf.active.keyAt(i);
+                    final boolean restrict = restrictIf.active.valueAt(i);
+                    // Only remove/readd if a restriction is currently in place
+                    if (!restrict) {
+                        continue;
+                    }
+                    setAppOnInterfaceLocked(restrictIf.useCase, restrictIf.ifName, uid, false);
+                    restrictIf.active.setValueAt(i, false);
+                    // Use pending list to queue re-add.
+                    // (Prefer keeping existing pending status if it exists.)
+                    if (restrictIf.pending.indexOfKey(uid) < 0) {
+                        restrictIf.pending.put(uid, true);
+                    }
+                }
+                restrictIf.ifName = newIface;
+            }
+            processPendingAppOnInterfaceLocked(restrictIf);
+        }
+    }
+
+    @Override
+    public void restrictAppOnInterface(String useCase, int uid, boolean restrict) {
+        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
+        synchronized (mQuotaLock) {
+            restrictAppOnInterfaceLocked(getUseCaseRestrictIf(useCase), uid, restrict);
+        }
+    }
+
+    private void restrictAppOnInterfaceLocked(RestrictIf restrictIf, int uid, boolean restrict) {
+        if (TextUtils.isEmpty(restrictIf.ifName)) {
+            // We don't have an interface name yet so queue
+            // the request for when it comes up
+            restrictIf.pending.put(uid, restrict);
+            return;
+        }
+
+        boolean oldValue = restrictIf.active.get(uid, false);
+        if (oldValue == restrict) {
+            return;
+        }
+
+        if (setAppOnInterfaceLocked(restrictIf.useCase, restrictIf.ifName, uid, restrict)) {
+            restrictIf.active.put(uid, restrict);
+        } else {
+            // Perhaps the interface was down, queue to retry after receipt
+            // of the next network callback for this network.
+            restrictIf.pending.put(uid, true);
+        }
+    }
+
+    private boolean setAppOnInterfaceLocked(String useCase, String ifName, int uid,
+            boolean restrict) {
+        boolean ok = true;
+        try {
+            if (restrict) {
+                mNetdService.bandwidthAddRestrictAppOnInterface(useCase, ifName, uid);
+            } else {
+                mNetdService.bandwidthRemoveRestrictAppOnInterface(useCase, ifName, uid);
+            }
+        } catch (RemoteException e) {
+            throw new IllegalStateException(e);
+        } catch (ServiceSpecificException e) {
+            // ENETDOWN is returned when the interface cannot be resolved to an index.
+            // (and is only returned by bandwidthAdd... call)
+            if (e.errorCode == ENETDOWN) {
+                ok = false;
+            } else {
+                throw new IllegalStateException(e);
+            }
+        }
+        return ok;
+    }
+
+    private void processPendingAppOnInterfaceLocked(RestrictIf restrictIf) {
+        // Work on a copy of the pending list since failed add requests
+        // get put back on.
+        SparseBooleanArray pendingList = restrictIf.pending.clone();
+        restrictIf.pending = new SparseBooleanArray();
+        for (int i = 0; i < pendingList.size(); i++) {
+            restrictAppOnInterfaceLocked(restrictIf, pendingList.keyAt(i), pendingList.valueAt(i));
+        }
     }
 
     @Override
