@@ -70,6 +70,10 @@ import static android.net.INetd.FIREWALL_RULE_ALLOW;
 import static android.net.INetd.FIREWALL_RULE_DENY;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_METERED;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_ROAMING;
+import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
+import static android.net.NetworkCapabilities.TRANSPORT_USB;
+import static android.net.NetworkCapabilities.TRANSPORT_VPN;
+import static android.net.NetworkCapabilities.TRANSPORT_WIFI;
 import static android.net.NetworkPolicy.LIMIT_DISABLED;
 import static android.net.NetworkPolicy.SNOOZE_NEVER;
 import static android.net.NetworkPolicy.WARNING_DISABLED;
@@ -90,7 +94,10 @@ import static android.net.NetworkPolicyManager.FIREWALL_RULE_DEFAULT;
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_ALL;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_CELLULAR;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_VPN;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_WIFI;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_ALL;
 import static android.net.NetworkPolicyManager.RULE_NONE;
 import static android.net.NetworkPolicyManager.RULE_REJECT_ALL;
@@ -571,6 +578,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     final SparseIntArray mUidFirewallRestrictedModeRules = new SparseIntArray();
     @GuardedBy("mUidRulesFirstLock")
     final SparseIntArray mUidFirewallLowPowerStandbyModeRules = new SparseIntArray();
+    @GuardedBy("mDisallowedUidsDenylist")
+    final Set<Integer> mDisallowedUidsDenylist = new ArraySet<Integer>();
 
     /** Set of states for the child firewall chains. True if the chain is active. */
     @GuardedBy("mUidRulesFirstLock")
@@ -1113,6 +1122,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             mAppStandby.addListener(new NetPolicyAppIdleStateChangeListener());
             synchronized (mUidRulesFirstLock) {
                 updateRulesForAppIdleParoleUL();
+                sendUidsAllowedTransportsUL();
             }
 
             // Listen for subscriber changes
@@ -1131,6 +1141,70 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             // Restore the default priority after init is done
             Process.setThreadPriority(oldPriority);
             Trace.traceEnd(Trace.TRACE_TAG_NETWORK);
+        }
+    }
+
+    // sync with NetworkCapabilities
+    private static final int MIN_TRANSPORT = TRANSPORT_CELLULAR;
+    private static final int MAX_TRANSPORT = TRANSPORT_USB;
+    private static final int ALL_VALID_TRANSPORTS;
+    static {
+        int transports = 0;
+        for (int i = MIN_TRANSPORT; i <= MAX_TRANSPORT; ++i) {
+            transports |= 1 << i;
+        }
+        ALL_VALID_TRANSPORTS = transports;
+    }
+
+    private static int getAllowedTransportsPackedForUidPolicy(int policy) {
+        int allowedTransports = ALL_VALID_TRANSPORTS;
+        // Where policy rejects a transport, remove the flags that allow it.
+        if ((policy & POLICY_REJECT_VPN) == POLICY_REJECT_VPN) {
+            allowedTransports &= ~(1 << TRANSPORT_VPN);
+        }
+        if ((policy & POLICY_REJECT_WIFI) == POLICY_REJECT_WIFI) {
+            allowedTransports &= ~(1 << TRANSPORT_WIFI);
+        }
+        if ((policy & POLICY_REJECT_CELLULAR) == POLICY_REJECT_CELLULAR) {
+            allowedTransports &= ~(1 << TRANSPORT_CELLULAR);
+        }
+        return allowedTransports;
+    }
+
+    @GuardedBy("mUidRulesFirstLock")
+    private void sendUidsAllowedTransportsUL() {
+        final int size = mUidPolicy.size();
+        final int[] uids = new int[size];
+        final long[] allowedTransportsPacked = new long[size];
+        for (int i = 0; i < size; i++) {
+            final int uid = mUidPolicy.keyAt(i);
+            final int policy = mUidPolicy.valueAt(i);
+            uids[i] = uid;
+            allowedTransportsPacked[i] = getAllowedTransportsPackedForUidPolicy(policy);
+        }
+        dispatchUidsAllowedTransportsUL(uids, allowedTransportsPacked);
+    }
+
+    @GuardedBy("mUidRulesFirstLock")
+    private void dispatchUidsAllowedTransportsUL(@NonNull final int[] uids,
+            @NonNull final long[] transports) {
+        final int length = mListeners.beginBroadcast();
+        for (int i = 0; i < length; i++) {
+            final INetworkPolicyListener listener = mListeners.getBroadcastItem(i);
+            dispatchUidsAllowedTransportsChanged(listener, uids, transports);
+        }
+        mListeners.finishBroadcast();
+    }
+
+    public void notifyDenylistChanged(@NonNull final int[] uidsAdded,
+            @NonNull final int[] uidsRemoved) {
+        synchronized (mDisallowedUidsDenylist) {
+            for (final int uid : uidsAdded) {
+                mDisallowedUidsDenylist.add(uid);
+            }
+            for (final int uid : uidsRemoved) {
+                mDisallowedUidsDenylist.remove(uid);
+            }
         }
     }
 
@@ -3101,6 +3175,14 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     @GuardedBy("mUidRulesFirstLock")
     private void setUidPolicyUncheckedUL(int uid, int oldPolicy, int policy, boolean persist) {
         setUidPolicyUncheckedUL(uid, policy, false);
+
+        final long lastAllowedTransportsPacked = getAllowedTransportsPackedForUidPolicy(oldPolicy);
+        final long allowedTransportsPacked = getAllowedTransportsPackedForUidPolicy(policy);
+
+        if (lastAllowedTransportsPacked != allowedTransportsPacked) {
+            dispatchUidsAllowedTransportsUL(new int[] { uid },
+                    new long[] { allowedTransportsPacked });
+        }
 
         final boolean notifyApp;
         if (!isUidValidForAllowlistRulesUL(uid)) {
@@ -5499,6 +5581,15 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         }
     }
 
+    private void dispatchUidsAllowedTransportsChanged(INetworkPolicyListener listener, int[] uids,
+            long[] allowedTransports) {
+        try {
+            listener.onAllowedTransportsChanged(uids, allowedTransports);
+        } catch (RemoteException ignored) {
+            // Ignore if there is an error sending the callback to the client.
+        }
+    }
+
     private void dispatchSubscriptionOverride(INetworkPolicyListener listener, int subId,
             int overrideMask, int overrideValue, int[] networkTypes) {
         try {
@@ -5607,9 +5698,13 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     final Boolean notifyApp = (Boolean) msg.obj;
                     // First notify internal listeners...
                     final int length = mListeners.beginBroadcast();
+                    final int[] uids = new int[] { uid };
+                    final long[] allowedTransports =
+                            new long[] { getAllowedTransportsPackedForUidPolicy(policy) };
                     for (int i = 0; i < length; i++) {
                         final INetworkPolicyListener listener = mListeners.getBroadcastItem(i);
                         dispatchUidPoliciesChanged(listener, uid, policy);
+                        dispatchUidsAllowedTransportsChanged(listener, uids, allowedTransports);
                     }
                     mListeners.finishBroadcast();
                     // ...then apps listening to ACTION_RESTRICT_BACKGROUND_CHANGED
@@ -6247,7 +6342,13 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
         mStatLogger.logDurationStat(Stats.IS_UID_NETWORKING_BLOCKED, startTime);
 
-        return blockedReasons != BLOCKED_REASON_NONE;
+        if (blockedReasons != BLOCKED_REASON_NONE) {
+            return true;
+        } else {
+            synchronized (mDisallowedUidsDenylist) {
+                return mDisallowedUidsDenylist.contains(uid);
+            }
+        }
     }
 
     @Override
