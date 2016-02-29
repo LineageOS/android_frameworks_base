@@ -26,6 +26,7 @@ import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.RequiresPermission;
+import android.annotation.SuppressLint;
 import android.annotation.SystemApi;
 import android.annotation.SystemService;
 import android.annotation.TestApi;
@@ -92,6 +93,18 @@ public class NetworkPolicyManager {
      * @hide
      */
     public static final int POLICY_ALLOW_METERED_BACKGROUND = 0x4;
+    /** Reject network usage on cellular network
+     * @hide
+     */
+    public static final int POLICY_REJECT_CELLULAR = 0x10000;
+    /** Reject network usage on virtual private network
+     * @hide
+     */
+    public static final int POLICY_REJECT_VPN = 0x20000;
+    /** Reject network usage on wifi network
+     * @hide
+     */
+    public static final int POLICY_REJECT_WIFI = 0x8000;
     /** Reject network usage on all networks
      * @hide
      */
@@ -329,6 +342,8 @@ public class NetworkPolicyManager {
             mSubscriptionCallbackMap = new ConcurrentHashMap<>();
     private final Map<NetworkPolicyCallback, NetworkPolicyCallbackProxy>
             mNetworkPolicyCallbackMap = new ConcurrentHashMap<>();
+    private final Map<AllowedTransportsCallback, AllowedTransportsCallbackProxy>
+            mAllowedTransportsCallbackMap = new ConcurrentHashMap<>();
 
     /** @hide */
     public NetworkPolicyManager(Context context, INetworkPolicyManager service) {
@@ -410,6 +425,18 @@ public class NetworkPolicyManager {
     public int[] getUidsWithPolicy(int policy) {
         try {
             return mService.getUidsWithPolicy(policy);
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /** @hide */
+    @SuppressLint("UnflaggedApi")
+    @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
+    @RequiresPermission(NetworkStack.PERMISSION_MAINLINE_NETWORK_STACK)
+    public void notifyDenylistChanged(@NonNull int[] uidsAdded, @NonNull int[] uidsRemoved) {
+        try {
+            mService.notifyDenylistChanged(uidsAdded, uidsRemoved);
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
         }
@@ -1130,6 +1157,76 @@ public class NetworkPolicyManager {
     }
 
     /** @hide */
+    @SuppressLint("UnflaggedApi")
+    @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
+    @RequiresPermission(android.Manifest.permission.OBSERVE_NETWORK_POLICY)
+    public void registerAllowedTransportsCallback(@Nullable Executor executor,
+            @NonNull AllowedTransportsCallback callback) {
+        if (callback == null) {
+            throw new NullPointerException("Callback cannot be null.");
+        }
+
+        final AllowedTransportsCallbackProxy callbackProxy = new AllowedTransportsCallbackProxy(
+                executor, callback);
+        registerListener(callbackProxy);
+        mAllowedTransportsCallbackMap.put(callback, callbackProxy);
+    }
+
+    /** @hide */
+    @SuppressLint("UnflaggedApi")
+    @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
+    @RequiresPermission(android.Manifest.permission.OBSERVE_NETWORK_POLICY)
+    public void unregisterAllowedTransportsCallback(@NonNull AllowedTransportsCallback callback) {
+        if (callback == null) {
+            throw new NullPointerException("Callback cannot be null.");
+        }
+
+        final AllowedTransportsCallbackProxy callbackProxy =
+                mAllowedTransportsCallbackMap.remove(callback);
+        if (callbackProxy == null) return;
+        unregisterListener(callbackProxy);
+    }
+
+    /** @hide */
+    @SuppressLint("UnflaggedApi")
+    @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
+    public interface AllowedTransportsCallback {
+        /** @hide */
+        @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
+        default void onUidsAllowedTransportsChanged(@NonNull int[] uids,
+                @NonNull long[] allowedTransports) {}
+    }
+
+    /** @hide */
+    public static class AllowedTransportsCallbackProxy extends Listener {
+        private final Executor mExecutor;
+        private final AllowedTransportsCallback mCallback;
+
+        AllowedTransportsCallbackProxy(@Nullable Executor executor,
+                @NonNull AllowedTransportsCallback callback) {
+            mExecutor = executor;
+            mCallback = callback;
+        }
+
+        @Override
+        public void onAllowedTransportsChanged(int[] uids, long[] allowedTransports) {
+            dispatchOnUidsAllowedTransportsChanged(mExecutor, mCallback, uids, allowedTransports);
+        }
+    }
+
+    private static void dispatchOnUidsAllowedTransportsChanged(@Nullable Executor executor,
+            @NonNull AllowedTransportsCallback callback, int[] uids, long[] allowedTransports) {
+        if (executor == null) {
+            callback.onUidsAllowedTransportsChanged(uids, allowedTransports);
+        } else {
+            executor.execute(PooledLambda.obtainRunnable(
+                    AllowedTransportsCallback::onUidsAllowedTransportsChanged,
+                    callback, uids, allowedTransports).recycleOnUse());
+        }
+    }
+
+    /** @hide */
+    @SuppressLint({"ListenerInterface", "MissingNullability", "RawAidl", "UnflaggedApi"})
     public static class Listener extends INetworkPolicyListener.Stub {
         @Override public void onUidRulesChanged(int uid, int uidRules) { }
         @Override public void onMeteredIfacesChanged(String[] meteredIfaces) { }
@@ -1140,5 +1237,6 @@ public class NetworkPolicyManager {
         @Override public void onSubscriptionPlansChanged(int subId, SubscriptionPlan[] plans) { }
         @Override public void onBlockedReasonChanged(int uid,
                 int oldBlockedReasons, int newBlockedReasons) { }
+        @Override public void onAllowedTransportsChanged(int[] uids, long[] allowedTransports) { }
     }
 }
