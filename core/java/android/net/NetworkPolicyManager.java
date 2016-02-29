@@ -400,6 +400,17 @@ public class NetworkPolicyManager {
     }
 
     /** @hide */
+    @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
+    @RequiresPermission(NetworkStack.PERMISSION_MAINLINE_NETWORK_STACK)
+    public void notifyDenylistChanged(@NonNull int[] uidsAdded, @NonNull int[] uidsRemoved) {
+        try {
+            mService.notifyDenylistChanged(uidsAdded, uidsRemoved);
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /** @hide */
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.P, trackingBug = 115609023)
     public void registerListener(INetworkPolicyListener listener) {
         try {
@@ -983,6 +994,11 @@ public class NetworkPolicyManager {
          */
         @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
         default void onUidBlockedReasonChanged(int uid, int blockedReasons) {}
+
+        /** @hide */
+        @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
+        default void onUidsAllowedTransportsChanged(@NonNull int[] uids,
+                @NonNull long[] allowedTransports) {}
     }
 
     /** @hide */
@@ -1002,6 +1018,11 @@ public class NetworkPolicyManager {
                 dispatchOnUidBlockedReasonChanged(mExecutor, mCallback, uid, newBlockedReasons);
             }
         }
+
+        @Override
+        public void onAllowedTransportsChanged(int[] uids, long[] allowedTransports) {
+            dispatchOnUidsAllowedTransportsChanged(mExecutor, mCallback, uids, allowedTransports);
+        }
     }
 
     private static void dispatchOnUidBlockedReasonChanged(@Nullable Executor executor,
@@ -1012,6 +1033,17 @@ public class NetworkPolicyManager {
             executor.execute(PooledLambda.obtainRunnable(
                     NetworkPolicyCallback::onUidBlockedReasonChanged,
                     callback, uid, blockedReasons).recycleOnUse());
+        }
+    }
+
+    private static void dispatchOnUidsAllowedTransportsChanged(@Nullable Executor executor,
+            @NonNull NetworkPolicyCallback callback, int[] uids, long[] allowedTransports) {
+        if (executor == null) {
+            callback.onUidsAllowedTransportsChanged(uids, allowedTransports);
+        } else {
+            executor.execute(PooledLambda.obtainRunnable(
+                    NetworkPolicyCallback::onUidsAllowedTransportsChanged,
+                    callback, uids, allowedTransports).recycleOnUse());
         }
     }
 
@@ -1071,5 +1103,6 @@ public class NetworkPolicyManager {
         @Override public void onSubscriptionPlansChanged(int subId, SubscriptionPlan[] plans) { }
         @Override public void onBlockedReasonChanged(int uid,
                 int oldBlockedReasons, int newBlockedReasons) { }
+        @Override public void onAllowedTransportsChanged(int[] uids, long[] allowedTransports) { }
     }
 }
