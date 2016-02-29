@@ -401,4 +401,11 @@ interface INetworkManagementService
     void setAllowOnlyVpnForUids(boolean enable, in UidRange[] uidRanges);
 
     boolean isNetworkRestricted(int uid);
+
+    /**
+     * Restrict UID from accessing mobile data/vpn/wifi
+     */
+    void restrictAppOnData(int uid, boolean restrict);
+    void restrictAppOnVpn(int uid, boolean restrict);
+    void restrictAppOnWlan(int uid, boolean restrict);
 }
