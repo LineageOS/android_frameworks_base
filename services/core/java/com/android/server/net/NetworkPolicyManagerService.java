@@ -63,6 +63,8 @@ import static android.net.INetd.FIREWALL_RULE_DENY;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_METERED;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_ROAMING;
 import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
+import static android.net.NetworkCapabilities.TRANSPORT_VPN;
+import static android.net.NetworkCapabilities.TRANSPORT_WIFI;
 import static android.net.NetworkIdentity.OEM_NONE;
 import static android.net.NetworkPolicy.LIMIT_DISABLED;
 import static android.net.NetworkPolicy.SNOOZE_NEVER;
@@ -84,7 +86,10 @@ import static android.net.NetworkPolicyManager.MASK_METERED_NETWORKS;
 import static android.net.NetworkPolicyManager.MASK_RESTRICTED_MODE_NETWORKS;
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_CELLULAR;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_VPN;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_WIFI;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_ALL;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_METERED;
 import static android.net.NetworkPolicyManager.RULE_NONE;
@@ -1294,6 +1299,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     mLogger.meterednessChanged(network.getNetId(), newMetered);
                     updateNetworkRulesNL();
                 }
+                updateRestrictedModeAllowlistUL();
             }
         }
     };
@@ -2894,7 +2900,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         } else {
             mUidPolicy.put(uid, policy);
         }
-
+        updateRestrictedModeForUidUL(uid);
         // uid policy changed, recompute rules and persist policy.
         updateRulesForDataUsageRestrictionsUL(uid);
         if (persist) {
@@ -4124,6 +4130,16 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
     private boolean hasRestrictedModeAccess(int uid) {
         try {
+            NetworkCapabilities nc = mConnManager.getNetworkCapabilities(
+                    mConnManager.getActiveNetwork());
+            int policy = getUidPolicy(uid);
+            if (nc != null
+                    && ((nc.hasTransport(TRANSPORT_VPN) && ((policy & POLICY_REJECT_VPN) != 0))
+                    || (nc.hasTransport(TRANSPORT_CELLULAR) && ((policy & POLICY_REJECT_CELLULAR)
+                    != 0))
+                    || (nc.hasTransport(TRANSPORT_WIFI) && ((policy & POLICY_REJECT_WIFI) != 0)))) {
+                return false;
+            }
             // TODO: this needs to be kept in sync with
             // PermissionMonitor#hasRestrictedNetworkPermission
             return ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(mContext)
