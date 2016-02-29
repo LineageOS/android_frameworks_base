@@ -1773,6 +1773,10 @@ UnflaggedApi: android.companion.CompanionDeviceManager.OnTransportsChangedListen
     New API must be flagged with @FlaggedApi: method android.companion.CompanionDeviceManager.OnTransportsChangedListener.onTransportsChanged(java.util.List<android.companion.AssociationInfo>)
 UnflaggedApi: android.content.Context#REMOTE_AUTH_SERVICE:
     New API must be flagged with @FlaggedApi: field android.content.Context.REMOTE_AUTH_SERVICE
+UnflaggedApi: android.net.NetworkPolicyManager#notifyDenylistChanged(int[], int[]):
+    New API must be flagged with @FlaggedApi: method android.net.NetworkPolicyManager.notifyDenylistChanged(int[],int[])
+UnflaggedApi: android.net.NetworkPolicyManager.NetworkPolicyCallback#onUidsAllowedTransportsChanged(int[], long[]):
+    New API must be flagged with @FlaggedApi: method android.net.NetworkPolicyManager.NetworkPolicyCallback.onUidsAllowedTransportsChanged(int[],long[])
 UnflaggedApi: android.os.IpcDataCache#MODULE_TELEPHONY:
     New API must be flagged with @FlaggedApi: field android.os.IpcDataCache.MODULE_TELEPHONY
 UnflaggedApi: android.provider.Settings.Config#getAllStrings():
