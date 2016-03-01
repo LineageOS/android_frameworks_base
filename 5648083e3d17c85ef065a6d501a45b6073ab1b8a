@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_2e9bbdc9",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 5651,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-03-01T02:03:57Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "5648083e3d17c85ef065a6d501a45b6073ab1b8a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
