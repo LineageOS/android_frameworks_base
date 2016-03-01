@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_2eb89dc6",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2383,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2016-03-01T03:48:43Z",
+      "side": 1,
+      "message": "I realize this is a holdover from previous iterations, but shouldn\u0027t this be in our namespace ?",
+      "range": {
+        "startLine": 2383,
+        "startChar": 30,
+        "endLine": 2383,
+        "endChar": 68
+      },
+      "revId": "52be9ace098def44779587d769050f41abf22475",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
