@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_e3b7fe85",
+        "filename": "services/core/java/com/android/server/am/BatteryStatsService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-03-01T01:02:41Z",
+      "side": 1,
+      "message": "tabs",
+      "revId": "025fd87af0bea51d090a4cd85c7d732c6738d57f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_03bd7264",
+        "filename": "services/core/java/com/android/server/am/BatteryStatsService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-03-01T01:02:41Z",
+      "side": 1,
+      "message": "tabs",
+      "revId": "025fd87af0bea51d090a4cd85c7d732c6738d57f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
