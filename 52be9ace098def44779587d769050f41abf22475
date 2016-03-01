@@ -22,6 +22,30 @@
       "revId": "52be9ace098def44779587d769050f41abf22475",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_6ef3f59f",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2383,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2016-03-01T03:59:05Z",
+      "side": 1,
+      "message": "Allow to third party apps to reset battery stats? I\u0027m not sure this is something we should expose to other apps.",
+      "parentUuid": "ffb9cba7_2eb89dc6",
+      "range": {
+        "startLine": 2383,
+        "startChar": 30,
+        "endLine": 2383,
+        "endChar": 68
+      },
+      "revId": "52be9ace098def44779587d769050f41abf22475",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
