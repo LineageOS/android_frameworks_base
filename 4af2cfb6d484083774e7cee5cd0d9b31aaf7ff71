@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_34f54b58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-03-04T01:02:24Z",
+      "side": 1,
+      "message": "Referenced ticket does not seem to match up with this change.",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 17
+      },
+      "revId": "4af2cfb6d484083774e7cee5cd0d9b31aaf7ff71",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
