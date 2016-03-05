@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_c5b517f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2016-03-05T00:36:49Z",
+      "side": 1,
+      "message": "I think \u0027recents\u0027 is clearer and more commonly used term vs \u0027app switch\u0027",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "4992ad9824cad4e9760dc9be09af7fd6c29cb6ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
