@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_5c849ab1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4519,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-03-09T03:50:23Z",
+      "side": 1,
+      "message": "should the same thing be adapted to setDimmed and setExpandingEnabled as well then?",
+      "range": {
+        "startLine": 4519,
+        "startChar": 40,
+        "endLine": 4519,
+        "endChar": 64
+      },
+      "revId": "0888bc84653abf28114c85904471fcfee24b2577",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
