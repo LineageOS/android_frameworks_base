@@ -22,6 +22,30 @@
       "revId": "0888bc84653abf28114c85904471fcfee24b2577",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_bcbef662",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4519,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-03-09T03:56:24Z",
+      "side": 1,
+      "message": "No, setHideSensitive() use to only get isLockscreenPublicMode() until recent changes that removed isLockscreenPublicMode in favor of onKeyguard.  The other methods should still use that like they always have.",
+      "parentUuid": "ffb9cba7_5c849ab1",
+      "range": {
+        "startLine": 4519,
+        "startChar": 40,
+        "endLine": 4519,
+        "endChar": 64
+      },
+      "revId": "0888bc84653abf28114c85904471fcfee24b2577",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
