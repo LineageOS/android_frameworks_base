@@ -801,10 +801,11 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
             // The pairing dialog now warns of phone-book access for paired devices.
             // No separate prompt is displayed after pairing.
             if (mDevice.getPhonebookAccessPermission() == BluetoothDevice.ACCESS_UNKNOWN) {
-                if (mDevice.getBluetoothClass().getDeviceClass()
+                if ((mDevice.getBluetoothClass() != null) &&
+                   (mDevice.getBluetoothClass().getDeviceClass()
                         == BluetoothClass.Device.AUDIO_VIDEO_HANDSFREE ||
                     mDevice.getBluetoothClass().getDeviceClass()
-                        == BluetoothClass.Device.AUDIO_VIDEO_WEARABLE_HEADSET) {
+                        == BluetoothClass.Device.AUDIO_VIDEO_WEARABLE_HEADSET)) {
                     EventLog.writeEvent(0x534e4554, "138529441", -1, "");
                 }
                 mDevice.setPhonebookAccessPermission(BluetoothDevice.ACCESS_REJECTED);

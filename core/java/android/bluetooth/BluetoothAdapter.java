@@ -2694,6 +2694,8 @@ public final class BluetoothAdapter {
                     }
 
                     synchronized (mProxyServiceStateCallbacks) {
+                        Log.d(TAG, "onBluetoothServiceDown: Sending callbacks to " +
+                                    mProxyServiceStateCallbacks.size() + " clients");
                         for (IBluetoothManagerCallback cb : mProxyServiceStateCallbacks) {
                             try {
                                 if (cb != null) {
@@ -2706,6 +2708,7 @@ public final class BluetoothAdapter {
                             }
                         }
                     }
+                    Log.d(TAG, "onBluetoothServiceDown: Finished sending callbacks to registered clients");
                 }
 
                 public void onBrEdrDown() {
@@ -2795,6 +2798,22 @@ public final class BluetoothAdapter {
         @Override
         public void onBluetoothStateChange(boolean on) {
             mCallback.onBluetoothStateChange(on);
+        }
+    }
+
+    /**
+     * @hide
+     */
+    public void unregisterAdapter() {
+        try {
+            //mServiceLock.writeLock().lock();
+            if (mManagerService != null){
+                mManagerService.unregisterAdapter(mManagerCallback);
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "", e);
+        } finally {
+            //mServiceLock.writeLock().unlock();
         }
     }
 
