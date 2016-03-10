@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_0881f88f",
+        "filename": "core/res/res/values-mcc262-mnc03/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2016-03-10T23:41:34Z",
+      "side": 1,
+      "message": "nitpick: missing space here in comments",
+      "range": {
+        "startLine": 21,
+        "startChar": 46,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "dab7d659a7bdc0c2d2c89630fce884e9bebabac4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
