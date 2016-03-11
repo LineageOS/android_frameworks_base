@@ -56,6 +56,29 @@
       "revId": "e960bdf5b6fd1f5b54b085ab994cde02b2d5eb72",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_838389cc",
+        "filename": "services/core/java/com/android/server/pm/UserContentObserver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-03-11T06:36:48Z",
+      "side": 1,
+      "message": "One of these 2 isn\u0027t needed.",
+      "range": {
+        "startLine": 80,
+        "startChar": 1,
+        "endLine": 88,
+        "endChar": 5
+      },
+      "revId": "e960bdf5b6fd1f5b54b085ab994cde02b2d5eb72",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
