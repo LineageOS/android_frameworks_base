@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_6368d520",
+        "filename": "services/core/java/com/android/server/InputMethodManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-03-11T06:42:51Z",
+      "side": 1,
+      "message": "You need to check if the feature exists before registering. Otherwise, an app could change this without checking and crash below.",
+      "range": {
+        "startLine": 510,
+        "startChar": 12,
+        "endLine": 513,
+        "endChar": 84
+      },
+      "revId": "c5a115afd9d44e625104550b5d5efe25d5ff2bbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
