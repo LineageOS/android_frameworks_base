@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_c37981fc",
+        "filename": "services/core/java/com/android/server/VibratorService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-03-11T06:40:39Z",
+      "side": 1,
+      "message": "Change not needed",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 19
+      },
+      "revId": "bb29c62d02e067210bdf28070ac1d8b80e6c1f50",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
