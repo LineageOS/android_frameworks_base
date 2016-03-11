@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_e317e5a2",
+        "filename": "services/core/java/com/android/server/display/LiveDisplayController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-03-11T06:24:23Z",
+      "side": 1,
+      "message": "not needed",
+      "revId": "e960bdf5b6fd1f5b54b085ab994cde02b2d5eb72",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_a311edae",
+        "filename": "services/core/java/com/android/server/pm/UserContentObserver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-03-11T06:24:23Z",
+      "side": 1,
+      "message": "At some point this year we\u0027ll realize it\u0027s 2016.",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "e960bdf5b6fd1f5b54b085ab994cde02b2d5eb72",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_432831e1",
+        "filename": "services/core/java/com/android/server/pm/UserContentObserver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-03-11T06:24:23Z",
+      "side": 1,
+      "message": "Seems like a reasonable place to add some comments.",
+      "revId": "e960bdf5b6fd1f5b54b085ab994cde02b2d5eb72",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
