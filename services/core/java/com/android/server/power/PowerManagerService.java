@@ -540,6 +540,8 @@ public final class PowerManagerService extends SystemService
     private static native void nativeSetFeature(int featureId, int data);
     private static native int nativeGetFeature(int featureId);
 
+    private boolean mForceNavbar;
+
     private PerformanceManagerInternal mPerf;
 
     private boolean mKeyboardVisible = false;
@@ -728,6 +730,9 @@ public final class PowerManagerService extends SystemService
             resolver.registerContentObserver(CMSettings.Global.getUriFor(
                     CMSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED),
                     false, mSettingsObserver, UserHandle.USER_ALL);
+            resolver.registerContentObserver(CMSettings.Global.getUriFor(
+                    CMSettings.Global.DEV_FORCE_SHOW_NAVBAR),
+                    false, mSettingsObserver, UserHandle.USER_ALL);
 
             // Go.
             readConfigurationLocked();
@@ -862,7 +867,8 @@ public final class PowerManagerService extends SystemService
         mKeyboardBrightness = CMSettings.Secure.getIntForUser(resolver,
                 CMSettings.Secure.KEYBOARD_BRIGHTNESS, mKeyboardBrightnessSettingDefault,
                 UserHandle.USER_CURRENT);
-
+        mForceNavbar = CMSettings.Global.getIntForUser(resolver,
+                CMSettings.Global.DEV_FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) == 1;
         mDirty |= DIRTY_SETTINGS;
     }
 
@@ -1794,7 +1800,11 @@ public final class PowerManagerService extends SystemService
                                 buttonBrightness = mButtonBrightnessOverrideFromWindowManager;
                                 keyboardBrightness = mButtonBrightnessOverrideFromWindowManager;
                             } else {
-                                buttonBrightness = mButtonBrightness;
+                                if (!mForceNavbar) {
+                                    buttonBrightness = mButtonBrightness;
+                                } else {
+                                    buttonBrightness = 0;
+                                }
                                 keyboardBrightness = mKeyboardBrightness;
                             }
 

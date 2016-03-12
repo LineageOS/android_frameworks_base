@@ -111,6 +111,9 @@ import android.service.dreams.DreamService;
 import android.service.dreams.IDreamManager;
 import android.speech.RecognizerIntent;
 import android.telecom.TelecomManager;
+
+import cyanogenmod.hardware.CMHardwareManager;
+import cyanogenmod.providers.CMSettings;
 import android.util.DisplayMetrics;
 import android.util.EventLog;
 import android.util.Log;
@@ -836,6 +839,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mWifiDisplayConnected = false;
     int mWifiDisplayCustomRotation = -1;
 
+    private CMHardwareManager mCMHardware;
+
     private class PolicyHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
@@ -991,8 +996,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.ACCELEROMETER_ROTATION_ANGLES), false, this,
                     UserHandle.USER_ALL);
-            resolver.registerContentObserver(CMSettings.Secure.getUriFor(
-                    CMSettings.Secure.DEV_FORCE_SHOW_NAVBAR), false, this,
+            resolver.registerContentObserver(CMSettings.Global.getUriFor(
+                    CMSettings.Global.DEV_FORCE_SHOW_NAVBAR), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.VOLBTN_MUSIC_CONTROLS), false, this,
@@ -1029,9 +1034,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.ACCELEROMETER_ROTATION_ANGLES), false, this,
-                    UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.DEV_FORCE_SHOW_NAVBAR), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.NAVBAR_LEFT_IN_LANDSCAPE), false, this,
@@ -1825,7 +1827,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mOrientationListener.setCurrentRotation(windowManager.getRotation());
         } catch (RemoteException ex) { }
         mSettingsObserver = new SettingsObserver(mHandler);
-        mSettingsObserver.observe();
         mShortcutManager = new ShortcutManager(context);
         mUiMode = context.getResources().getInteger(
                 com.android.internal.R.integer.config_defaultUiModeType);
@@ -2320,10 +2321,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 updateWakeGestureListenerLp();
             }
 
-            boolean devForceNavbar = CMSettings.Secure.getIntForUser(resolver,
-                    CMSettings.Secure.DEV_FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) == 1;
+            boolean devForceNavbar = CMSettings.Global.getIntForUser(resolver,
+                    CMSettings.Global.DEV_FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) == 1;
             if (devForceNavbar != mDevForceNavbar) {
                 mDevForceNavbar = devForceNavbar;
+                if (mCMHardware.isSupported(CMHardwareManager.FEATURE_KEY_DISABLE)) {
+                    mCMHardware.set(CMHardwareManager.FEATURE_KEY_DISABLE, mDevForceNavbar);
+                }
             }
 
             mNavigationBarLeftInLandscape = CMSettings.System.getIntForUser(resolver,
@@ -7669,6 +7673,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mKeyguardDelegate = new KeyguardServiceDelegate(mContext,
                 this::onKeyguardShowingStateChanged);
         mKeyguardDelegate.onSystemReady();
+
+        mCMHardware = CMHardwareManager.getInstance(mContext);
+        // Ensure observe happens in systemReady() since we need
+        // CMHardwareService to be up and running
+        mSettingsObserver.observe();
 
         readCameraLensCoverState();
         updateUiMode();
