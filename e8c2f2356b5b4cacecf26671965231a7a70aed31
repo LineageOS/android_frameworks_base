@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ffb9cba7_63a1b2a9",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 5728
+      },
+      "writtenOn": "2016-03-12T14:20:05Z",
+      "side": 1,
+      "message": "Trapped here for a few minutes after a full charge until the battery start discharging. How if this AND and not OR statement?",
+      "revId": "e8c2f2356b5b4cacecf26671965231a7a70aed31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffb9cba7_a3c9ea78",
         "filename": "services/core/java/com/android/server/BatteryService.java",
         "patchSetId": 1
