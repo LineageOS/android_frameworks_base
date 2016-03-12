@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_a3c9ea78",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-03-12T13:40:42Z",
+      "side": 1,
+      "message": "Why aren\u0027t you falling into this case? Is there something wrong with the kernel?",
+      "range": {
+        "startLine": 1128,
+        "startChar": 12,
+        "endLine": 1131,
+        "endChar": 13
+      },
+      "revId": "e8c2f2356b5b4cacecf26671965231a7a70aed31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
