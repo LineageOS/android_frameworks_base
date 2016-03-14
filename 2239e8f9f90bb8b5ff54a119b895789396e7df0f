@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfbec78f_cf02513f",
+        "filename": "core/java/android/hardware/CmHardwareManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-03-14T17:30:59Z",
+      "side": 1,
+      "message": "This doesn\u0027t need to be here.",
+      "range": {
+        "startLine": 758,
+        "startChar": 0,
+        "endLine": 760,
+        "endChar": 13
+      },
+      "revId": "2239e8f9f90bb8b5ff54a119b895789396e7df0f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
