@@ -22,6 +22,30 @@
       "revId": "a1c0ac36c959151c9fad4a03d83d1fbf60fe643d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfbec78f_6f99e51d",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 3070,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-03-14T17:32:10Z",
+      "side": 1,
+      "message": "will need to notify the target client to declare both permissions.",
+      "parentUuid": "dfbec78f_4fef4187",
+      "range": {
+        "startLine": 3070,
+        "startChar": 30,
+        "endLine": 3070,
+        "endChar": 74
+      },
+      "revId": "a1c0ac36c959151c9fad4a03d83d1fbf60fe643d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
