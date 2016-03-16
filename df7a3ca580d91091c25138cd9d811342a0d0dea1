@@ -67,6 +67,24 @@
       "revId": "df7a3ca580d91091c25138cd9d811342a0d0dea1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_c62322be",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7845,
+      "author": {
+        "id": 8423
+      },
+      "writtenOn": "2016-03-16T22:57:02Z",
+      "side": 1,
+      "message": "I disagree. In original version this part would be run during boot for themes that theme app or for all themes after boot. We want to remove iterating over everything after boot - so basically we don\u0027t want to differentiate during and after booting.",
+      "parentUuid": "7faddb67_6667ce27",
+      "revId": "df7a3ca580d91091c25138cd9d811342a0d0dea1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
