@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_066cda06",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-03-16T22:36:56Z",
+      "side": 1,
+      "message": "no need to add log spam",
+      "revId": "df7a3ca580d91091c25138cd9d811342a0d0dea1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_c67562ce",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1498,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-03-16T22:36:56Z",
+      "side": 1,
+      "message": "need to wrap lines \u003e 100 chars",
+      "revId": "df7a3ca580d91091c25138cd9d811342a0d0dea1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_06b7fa88",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7844,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-03-16T22:36:56Z",
+      "side": 1,
+      "message": "I\u0027d check if config is non-null before iterating over themes.values(), no need to iterate if config is null",
+      "revId": "df7a3ca580d91091c25138cd9d811342a0d0dea1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_6667ce27",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7845,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-03-16T22:36:56Z",
+      "side": 1,
+      "message": "I believe we still need to check for !isBootScan as well",
+      "revId": "df7a3ca580d91091c25138cd9d811342a0d0dea1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
