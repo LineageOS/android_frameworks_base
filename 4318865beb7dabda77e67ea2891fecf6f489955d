@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_4c899324",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-03-17T15:21:56Z",
+      "side": 1,
+      "message": "you should try to fit as much on one line as possible before breaking to a new line.",
+      "range": {
+        "startLine": 1496,
+        "startChar": 0,
+        "endLine": 1497,
+        "endChar": 82
+      },
+      "revId": "4318865beb7dabda77e67ea2891fecf6f489955d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
