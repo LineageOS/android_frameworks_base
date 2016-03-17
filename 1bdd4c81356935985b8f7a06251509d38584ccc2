@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_aca84777",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/NfcTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-03-17T15:27:51Z",
+      "side": 1,
+      "message": "name of this method is misleading.  You\u0027re really returning whether NFC is on/turning on or off/turning off",
+      "range": {
+        "startLine": 68,
+        "startChar": 20,
+        "endLine": 68,
+        "endChar": 36
+      },
+      "revId": "1bdd4c81356935985b8f7a06251509d38584ccc2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_ec9e3f53",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/NfcTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-03-17T15:27:51Z",
+      "side": 1,
+      "message": "nit: seems odd to have default in the middle here",
+      "revId": "1bdd4c81356935985b8f7a06251509d38584ccc2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_8cab0b74",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/NfcTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-03-17T15:27:51Z",
+      "side": 1,
+      "message": "can\u0027t you just return getInternalState(state); ?",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 13
+      },
+      "revId": "1bdd4c81356935985b8f7a06251509d38584ccc2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
