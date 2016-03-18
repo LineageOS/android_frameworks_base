@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_4d82ea51",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1908,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-03-18T20:36:05Z",
+      "side": 1,
+      "message": "100 chars on the line above and this one",
+      "revId": "af83f7ce5ac069082daf92e730cb1666779620f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_ed963695",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1974,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-03-18T20:36:05Z",
+      "side": 1,
+      "message": "100 chars for this entire block, please wrap.",
+      "revId": "af83f7ce5ac069082daf92e730cb1666779620f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
