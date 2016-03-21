@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_923b199b",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-03-21T23:13:00Z",
+      "side": 1,
+      "message": "Show play queue",
+      "range": {
+        "startLine": 269,
+        "startChar": 39,
+        "endLine": 269,
+        "endChar": 59
+      },
+      "revId": "90ef2637c6ccf6fe23df204f23b7ad3bf28d0034",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
