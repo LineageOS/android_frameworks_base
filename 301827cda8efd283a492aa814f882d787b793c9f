@@ -16,6 +16,24 @@
       "revId": "301827cda8efd283a492aa814f882d787b793c9f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_c3769e3f",
+        "filename": "packages/SystemUI/src/com/android/systemui/cm/LockscreenShortcutsActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-03-23T21:38:58Z",
+      "side": 1,
+      "message": "Yeah, this is a bit of a mess. Will sit down and work out my p\u0027s and q\u0027s",
+      "parentUuid": "7faddb67_63d00a52",
+      "revId": "301827cda8efd283a492aa814f882d787b793c9f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
