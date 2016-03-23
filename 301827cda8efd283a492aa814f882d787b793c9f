@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_63d00a52",
+        "filename": "packages/SystemUI/src/com/android/systemui/cm/LockscreenShortcutsActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-03-23T19:53:03Z",
+      "side": 1,
+      "message": "In the event getDrawableForTarget fails for say not being able to get the drawable (app is uninstalled or w/e). We\u0027ll always show ic_camera vs previously we\u0027d show correct one based on left/right shortcut.",
+      "revId": "301827cda8efd283a492aa814f882d787b793c9f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
