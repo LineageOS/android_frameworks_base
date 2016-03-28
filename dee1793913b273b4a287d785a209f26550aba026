@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_a99edd04",
+        "filename": "core/java/android/net/INetworkStatsService.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-03-28T17:20:07Z",
+      "side": 1,
+      "message": "please add to bottom of aidl file.",
+      "revId": "dee1793913b273b4a287d785a209f26550aba026",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
