@@ -16,6 +16,24 @@
       "revId": "dee1793913b273b4a287d785a209f26550aba026",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_e0fce53f",
+        "filename": "core/java/android/net/INetworkStatsService.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 14463
+      },
+      "writtenOn": "2016-03-28T18:31:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffb9cba7_a99edd04",
+      "revId": "dee1793913b273b4a287d785a209f26550aba026",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
