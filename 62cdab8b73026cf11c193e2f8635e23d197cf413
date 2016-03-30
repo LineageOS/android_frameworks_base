@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_beffed65",
+        "filename": "services/core/java/com/android/server/NativeDaemonConnectorException.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-03-30T14:31:31Z",
+      "side": 1,
+      "message": "What code does -1000 correspond to?",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 24
+      },
+      "revId": "62cdab8b73026cf11c193e2f8635e23d197cf413",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
