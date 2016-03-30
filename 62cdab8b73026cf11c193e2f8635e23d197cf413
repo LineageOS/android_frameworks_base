@@ -22,6 +22,30 @@
       "revId": "62cdab8b73026cf11c193e2f8635e23d197cf413",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_b97dc76f",
+        "filename": "services/core/java/com/android/server/NativeDaemonConnectorException.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-03-30T17:45:22Z",
+      "side": 1,
+      "message": "Looks like it\u0027s a responsecode. In that case this should probably be one of the 500 (error) class codes.\n\nSee: https://github.com/CyanogenMod/android_system_vold/blob/cm-12.1/ResponseCode.h#L50 for valid codes.",
+      "parentUuid": "7faddb67_beffed65",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 24
+      },
+      "revId": "62cdab8b73026cf11c193e2f8635e23d197cf413",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
