@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_e43f12d4",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/WeatherControllerImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 14421
+      },
+      "writtenOn": "2016-03-31T18:45:38Z",
+      "side": 1,
+      "message": "We decided to remove this broadcast from the weather service. Need to change this so SystemUI registers an observer to the weather content provider instead of listening for this broadcast",
+      "range": {
+        "startLine": 66,
+        "startChar": 24,
+        "endLine": 66,
+        "endChar": 66
+      },
+      "revId": "4b87788df4ccedce55903b0b39c2445187bba086",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
