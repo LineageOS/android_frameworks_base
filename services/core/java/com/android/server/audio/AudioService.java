@@ -6314,7 +6314,15 @@ public class AudioService extends IAudioService.Stub
                     break;
 
                 case MSG_PLAY_SOUND_EFFECT:
+<<<<<<< HEAD   (d70c2e SystemUI: Fix showing duplicated charging status)
                     mSfxHelper.playSoundEffect(msg.arg1, msg.arg2);
+=======
+                    if (isStreamMute(AudioSystem.STREAM_SYSTEM)) {
+                        Log.d(TAG, "Stream muted, skip playback");
+                    } else {
+                        onPlaySoundEffect(msg.arg1, msg.arg2);
+                    }
+>>>>>>> CHANGE (ad5eb8 audio: Don't play sound effects if stream is muted)
                     break;
 
                 case MSG_SET_FORCE_USE:
