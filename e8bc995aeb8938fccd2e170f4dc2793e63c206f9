@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_b80fec2c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardAffordanceHelper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-04-07T15:06:44Z",
+      "side": 1,
+      "message": "why one raw and one not?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 37
+      },
+      "revId": "e8bc995aeb8938fccd2e170f4dc2793e63c206f9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
