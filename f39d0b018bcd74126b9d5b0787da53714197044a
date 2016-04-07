@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_1863a01c",
+        "filename": "services/core/java/com/android/server/accounts/TokenCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-07T19:32:27Z",
+      "side": 0,
+      "message": "Don\u0027t need to change this right now.",
+      "revId": "f39d0b018bcd74126b9d5b0787da53714197044a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_3868dcf3",
+        "filename": "services/core/java/com/android/server/accounts/TokenCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-07T19:32:27Z",
+      "side": 0,
+      "message": "Don\u0027t need to change this here either.",
+      "revId": "f39d0b018bcd74126b9d5b0787da53714197044a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

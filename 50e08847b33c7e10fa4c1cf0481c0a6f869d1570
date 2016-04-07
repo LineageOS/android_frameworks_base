@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_f83fa4d3",
+        "filename": "services/core/java/com/android/server/accounts/TokenCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-07T19:32:27Z",
+      "side": 1,
+      "message": "This seems like an unnecessary change. The original code looks fine.",
+      "range": {
+        "startLine": 161,
+        "startChar": 12,
+        "endLine": 163,
+        "endChar": 55
+      },
+      "revId": "50e08847b33c7e10fa4c1cf0481c0a6f869d1570",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
