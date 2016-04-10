@@ -433,6 +433,19 @@ void AndroidRuntime::parseExtraOpts(char* extraOptsBuf)
  *
  * Returns 0 on success.
  */
+int AndroidRuntime::startVm(JavaVM** pJavaVM, JNIEnv** pEnv)
+{
+    return startVm(pJavaVM, pEnv, false);
+}
+
+/*
+ * Start the Dalvik Virtual Machine.
+ *
+ * Various arguments, most determined by system properties, are passed in.
+ * The "mOptions" vector is updated.
+ *
+ * Returns 0 on success.
+ */
 int AndroidRuntime::startVm(JavaVM** pJavaVM, JNIEnv** pEnv, bool zygote)
 {
     int result = -1;
@@ -797,6 +810,19 @@ char* AndroidRuntime::toSlashClassName(const char* className)
         }
     }
     return result;
+}
+
+/*
+ * Start the Android runtime.  This involves starting the virtual machine
+ * and calling the "static void main(String[] args)" method in the class
+ * named by "className".
+ *
+ * Passes the main function two arguments, the class name and the specified
+ * options string.
+ */
+void AndroidRuntime::start(const char* className, const char* options)
+{
+    start(className, options, false);
 }
 
 /*

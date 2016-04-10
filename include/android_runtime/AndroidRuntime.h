@@ -64,6 +64,7 @@ public:
 
     int addVmArguments(int argc, const char* const argv[]);
 
+    void start(const char *classname, const char* options);
     void start(const char *classname, const char* options, bool zygote);
 
     void exit(int code);
@@ -116,6 +117,7 @@ public:
 private:
     static int startReg(JNIEnv* env);
     void parseExtraOpts(char* extraOptsBuf);
+    int startVm(JavaVM** pJavaVM, JNIEnv** pEnv);
     int startVm(JavaVM** pJavaVM, JNIEnv** pEnv, bool zygote);
 
     Vector<JavaVMOption> mOptions;
