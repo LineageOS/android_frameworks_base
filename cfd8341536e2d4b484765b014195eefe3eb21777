@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_9ddd3716",
+        "filename": "libs/hwui/OpenGLRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-04-13T11:10:31Z",
+      "side": 1,
+      "message": "Maybe a more recognizable flag can be used? Not sure what though.",
+      "revId": "cfd8341536e2d4b484765b014195eefe3eb21777",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
