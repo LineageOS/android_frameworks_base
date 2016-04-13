@@ -16,6 +16,24 @@
       "revId": "c29c3d77d822381a94363d2421e7857ea3fb2bcb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_626d3603",
+        "filename": "core/java/android/app/IconPackHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-04-13T02:05:09Z",
+      "side": 1,
+      "message": "In this case we want to log the original value indicating what resource we tried to alter but failed to based on what exception was caught.  The other log is basically saying we tried to change it to Y but didn\u0027t because caching failed.",
+      "parentUuid": "7faddb67_a2632e1a",
+      "revId": "c29c3d77d822381a94363d2421e7857ea3fb2bcb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
