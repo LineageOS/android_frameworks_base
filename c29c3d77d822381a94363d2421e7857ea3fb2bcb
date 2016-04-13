@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_a2632e1a",
+        "filename": "core/java/android/app/IconPackHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 13409
+      },
+      "writtenOn": "2016-04-13T01:56:53Z",
+      "side": 1,
+      "message": "Aren\u0027t you logging after the value is overwritten here?  Your other catchall above logs then sets.",
+      "revId": "c29c3d77d822381a94363d2421e7857ea3fb2bcb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
