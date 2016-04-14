@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_63abf888",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-04-14T01:21:05Z",
+      "side": 1,
+      "message": "this will need a migration for users that have it set to UserHandle.USER_CURRENT.",
+      "range": {
+        "startLine": 1104,
+        "startChar": 65,
+        "endLine": 1104,
+        "endChar": 73
+      },
+      "revId": "e645a5850394666acccb393ce42a4fcc9df1ada9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_83ae3496",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1115,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-04-14T01:21:05Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 1115,
+        "startChar": 55,
+        "endLine": 1115,
+        "endChar": 63
+      },
+      "revId": "e645a5850394666acccb393ce42a4fcc9df1ada9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
