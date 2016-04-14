@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_555b1353",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2228,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-04-14T15:06:53Z",
+      "side": 1,
+      "message": "can any of these throw? Should we wrap this method?",
+      "range": {
+        "startLine": 2226,
+        "startChar": 0,
+        "endLine": 2228,
+        "endChar": 67
+      },
+      "revId": "780f0dd93b25ba47cd68314336f3c0b63bed943d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
