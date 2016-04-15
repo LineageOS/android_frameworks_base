@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_0e086f26",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2330,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-04-15T22:11:05Z",
+      "side": 1,
+      "message": "does this need to override onAnimationCancel as well?",
+      "revId": "c5522a541aa410c025e8ac93da44366ed2897f21",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
