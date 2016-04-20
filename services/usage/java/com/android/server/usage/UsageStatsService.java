@@ -219,7 +219,11 @@ public class UsageStatsService extends SystemService implements
                     Context.DISPLAY_SERVICE);
             mPowerManager = getContext().getSystemService(PowerManager.class);
 
+<<<<<<< HEAD   (987812 Lockscreen : Fix dead-zone in bottom area)
             mDisplayManager.registerDisplayListener(mDisplayListener, mHandler);
+=======
+            mDisplayManager.registerDisplayListener(mDisplayListener, null);
+>>>>>>> BRANCH (3cd190 Redact Account info from getCurrentSyncs)
             synchronized (this) {
                 updateDisplayLocked();
             }
