@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_d3e0b799",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 14222
+      },
+      "writtenOn": "2016-04-21T01:43:16Z",
+      "side": 1,
+      "message": "over 100 chars",
+      "range": {
+        "startLine": 1992,
+        "startChar": 100,
+        "endLine": 1992,
+        "endChar": 103
+      },
+      "revId": "5c3613bbb043b488d8e7fd35a07c6d69b239c5ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_73ef8387",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1993,
+      "author": {
+        "id": 14222
+      },
+      "writtenOn": "2016-04-21T01:43:16Z",
+      "side": 1,
+      "message": "over 100 chars",
+      "range": {
+        "startLine": 1993,
+        "startChar": 100,
+        "endLine": 1993,
+        "endChar": 101
+      },
+      "revId": "5c3613bbb043b488d8e7fd35a07c6d69b239c5ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_13d72fc2",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2001,
+      "author": {
+        "id": 14222
+      },
+      "writtenOn": "2016-04-21T01:43:16Z",
+      "side": 1,
+      "message": "over 100 chars",
+      "range": {
+        "startLine": 2001,
+        "startChar": 100,
+        "endLine": 2001,
+        "endChar": 111
+      },
+      "revId": "5c3613bbb043b488d8e7fd35a07c6d69b239c5ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_b3e3bba4",
+        "filename": "telephony/java/android/telephony/PhoneNumberUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2012,
+      "author": {
+        "id": 14222
+      },
+      "writtenOn": "2016-04-21T01:43:16Z",
+      "side": 1,
+      "message": "over 100 chars",
+      "range": {
+        "startLine": 2012,
+        "startChar": 100,
+        "endLine": 2012,
+        "endChar": 106
+      },
+      "revId": "5c3613bbb043b488d8e7fd35a07c6d69b239c5ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
