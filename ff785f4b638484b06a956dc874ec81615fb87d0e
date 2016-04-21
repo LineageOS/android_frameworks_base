@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_962d4c48",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/WeatherControllerImpl.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 14421
+      },
+      "writtenOn": "2016-04-21T21:04:03Z",
+      "side": 1,
+      "message": "not needed",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 49
+      },
+      "revId": "ff785f4b638484b06a956dc874ec81615fb87d0e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_f6fe00ad",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/WeatherControllerImpl.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 14421
+      },
+      "writtenOn": "2016-04-21T21:04:03Z",
+      "side": 1,
+      "message": "This is actually not needed. Will remove it",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 9
+      },
+      "revId": "ff785f4b638484b06a956dc874ec81615fb87d0e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
