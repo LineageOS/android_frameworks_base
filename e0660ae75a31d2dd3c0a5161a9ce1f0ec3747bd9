@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_82bd026a",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-24T16:51:01Z",
+      "side": 1,
+      "message": "If you\u0027re trying to figure out whether the system is 32/64-bit, why not ifdef on the architecture? For example:\n\nif defined(__aarch64__) || defined(__x86_64__)\n\n?",
+      "range": {
+        "startLine": 446,
+        "startChar": 8,
+        "endLine": 446,
+        "endChar": 30
+      },
+      "revId": "e0660ae75a31d2dd3c0a5161a9ce1f0ec3747bd9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
