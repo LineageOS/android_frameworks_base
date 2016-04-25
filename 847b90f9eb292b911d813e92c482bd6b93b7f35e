@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_3c2472c6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2849,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-04-25T20:32:42Z",
+      "side": 1,
+      "message": "Is removing listeners a common pattern for animations ?\n\nFeel like i don\u0027t see it often. Does this come back to theme\nchange leaks again ?",
+      "revId": "847b90f9eb292b911d813e92c482bd6b93b7f35e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
