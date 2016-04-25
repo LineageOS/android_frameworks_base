@@ -1718,6 +1718,7 @@ public class PackageManagerService extends IPackageManager.Stub {
 
                 // Send added for users that don't see the package for the first time
                 if (update) {
+                    extras = new Bundle(extras);
                     extras.putBoolean(Intent.EXTRA_REPLACING, true);
                 }
                 sendPackageBroadcast(Intent.ACTION_PACKAGE_ADDED, packageName,
