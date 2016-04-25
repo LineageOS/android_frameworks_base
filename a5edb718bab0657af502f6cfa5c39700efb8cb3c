@@ -16,6 +16,24 @@
       "revId": "a5edb718bab0657af502f6cfa5c39700efb8cb3c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_bc9aa2c2",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2016-04-25T17:37:06Z",
+      "side": 1,
+      "message": "\"Unable to cache the animation\" ?",
+      "parentUuid": "5faad753_1c47364e",
+      "revId": "a5edb718bab0657af502f6cfa5c39700efb8cb3c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
