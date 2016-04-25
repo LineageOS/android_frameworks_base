@@ -16,6 +16,24 @@
       "revId": "847b90f9eb292b911d813e92c482bd6b93b7f35e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_ffb7ac39",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2849,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-04-25T21:43:26Z",
+      "side": 1,
+      "message": "I did this forgetting that I was not re-using an Animator from a view, where I would normally not want my listeners called if some other animation were running.  Should be able to just remove these",
+      "parentUuid": "5faad753_3c2472c6",
+      "revId": "847b90f9eb292b911d813e92c482bd6b93b7f35e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }

@@ -16,6 +16,24 @@
       "revId": "08d2d0b19723e1a745e26a651eceb73d843fdd65",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_df9f50b2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1851,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-04-25T21:43:26Z",
+      "side": 0,
+      "message": "This is now called once the slide in animation is finished or canceled.",
+      "parentUuid": "5faad753_fc581a57",
+      "revId": "08d2d0b19723e1a745e26a651eceb73d843fdd65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
