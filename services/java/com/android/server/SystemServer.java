@@ -293,6 +293,9 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -2819,6 +2822,26 @@ public final class SystemServer implements Dumpable {
         t.traceBegin("startTracingServiceProxy");
         mSystemServiceManager.startService(TracingServiceProxy.class);
         t.traceEnd();
+
+        // Lineage Services
+        String externalServer = context.getResources().getString(
+                org.lineageos.platform.internal.R.string.config_externalSystemServer);
+        final Class<?> serverClazz;
+        try {
+            serverClazz = Class.forName(externalServer);
+            final Constructor<?> constructor = serverClazz.getDeclaredConstructor(Context.class);
+            constructor.setAccessible(true);
+            final Object baseObject = constructor.newInstance(mSystemContext);
+            final Method method = baseObject.getClass().getDeclaredMethod("run");
+            method.setAccessible(true);
+            method.invoke(baseObject);
+        } catch (ClassNotFoundException
+                | IllegalAccessException
+                | InvocationTargetException
+                | InstantiationException
+                | NoSuchMethodException e) {
+            reportWtf("Making " + externalServer + " ready", e);
+        }
 
         // It is now time to start up the app processes...
 
