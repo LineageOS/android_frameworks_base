@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_c67d45e8",
+        "filename": "services/java/com/android/server/SystemServer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-04-27T16:23:51Z",
+      "side": 0,
+      "message": "unnecessary removal",
+      "revId": "766d3bb5e46f262fdade4f1837e6bf421d4b0313",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
