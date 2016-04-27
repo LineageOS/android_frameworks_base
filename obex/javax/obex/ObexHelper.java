@@ -87,6 +87,8 @@ public final class ObexHelper {
      */
     public static final int MAX_CLIENT_PACKET_SIZE = 0xFC00;
 
+    public static final int A2DP_SCO_OBEX_MAX_CLIENT_PACKET_SIZE = 0x2000;
+
     public static final int OBEX_OPCODE_FINAL_BIT_MASK = 0x80;
 
     public static final int OBEX_OPCODE_CONNECT = 0x80;
