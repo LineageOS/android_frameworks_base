@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_46d715c1",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1931,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-04-27T16:35:50Z",
+      "side": 1,
+      "message": "extra line",
+      "revId": "46905b73bf339ce206417689264b72f147815d93",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_86d50dbc",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CustomQSTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-04-27T16:35:50Z",
+      "side": 1,
+      "message": "this should be true? Then if a user wants to see a tile they can go add it?",
+      "range": {
+        "startLine": 76,
+        "startChar": 77,
+        "endLine": 76,
+        "endChar": 82
+      },
+      "revId": "46905b73bf339ce206417689264b72f147815d93",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
