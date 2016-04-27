@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_262459c6",
+        "filename": "services/java/com/android/server/SystemServer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-27T17:01:35Z",
+      "side": 1,
+      "message": "Why a system property and not something like an overlay?",
+      "revId": "76bea4fd49ac23a8d923493c6c8c475ba074c25a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
