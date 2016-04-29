@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_fea001a8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-04-29T19:13:10Z",
+      "side": 1,
+      "message": "LW",
+      "revId": "4186c0c1a29efbc55af79666c90deecb32ef919e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
