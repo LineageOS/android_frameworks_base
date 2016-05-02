@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_fc2fa4f3",
+        "filename": "telecomm/java/com/android/internal/telecom/IInCallAdapter.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2016-05-02T16:17:33Z",
+      "side": 1,
+      "message": "My preference would be for a more descriptive method name.  Maybe answerCallWithCallWaitingResponse?\n\nOr if that is too long perhaps answerCallExtended.  Extended would at least indicate that you have more options, whereas \"revised\" is very unspecific, it just indicates that we changed something.",
+      "revId": "59c8e2887b96bda9fef0a2f4b36630faf75bd96b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
