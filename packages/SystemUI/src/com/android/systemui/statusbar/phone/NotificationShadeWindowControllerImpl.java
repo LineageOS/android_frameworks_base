@@ -26,10 +26,13 @@ import static com.android.systemui.statusbar.NotificationRemoteInputManager.ENAB
 import android.app.IActivityManager;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.database.ContentObserver;
 import android.graphics.PixelFormat;
 import android.os.Binder;
+import android.os.Handler;
 import android.os.RemoteException;
 import android.os.Trace;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -54,6 +57,8 @@ import com.android.systemui.statusbar.SysuiStatusBarStateController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -85,12 +90,13 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
     private final IActivityManager mActivityManager;
     private final DozeParameters mDozeParameters;
     private final LayoutParams mLpChanged;
-    private final boolean mKeyguardScreenRotation;
+    private boolean mKeyguardScreenRotation;
     private final long mLockScreenDisplayTimeout;
     private final float mKeyguardPreferredRefreshRate; // takes precedence over max
     private final float mKeyguardMaxRefreshRate;
     private final KeyguardViewMediator mKeyguardViewMediator;
     private final KeyguardBypassController mKeyguardBypassController;
+    private final KeyguardStateController mKeyguardStateController;
     private final AuthController mAuthController;
     private ViewGroup mNotificationShadeView;
     private LayoutParams mLp;
@@ -123,12 +129,13 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
         mContext = context;
         mWindowManager = windowManager;
         mActivityManager = activityManager;
-        mKeyguardScreenRotation = keyguardStateController.isKeyguardScreenRotationAllowed();
+        mKeyguardScreenRotation = shouldEnableKeyguardScreenRotation();
         mDozeParameters = dozeParameters;
         mScreenBrightnessDoze = mDozeParameters.getScreenBrightnessDoze();
         mLpChanged = new LayoutParams();
         mKeyguardViewMediator = keyguardViewMediator;
         mKeyguardBypassController = keyguardBypassController;
+        mKeyguardStateController = keyguardStateController;
         mColorExtractor = colorExtractor;
         mUnlockedScreenOffAnimationController = unlockedScreenOffAnimationController;
         dumpManager.registerDumpable(getClass().getName(), this);
@@ -197,6 +204,17 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
         }
     }
 
+    private boolean shouldEnableKeyguardScreenRotation() {
+        boolean enableAccelerometerRotation =
+                Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION, 0) != 0;
+        boolean enableLockScreenRotation =
+                LineageSettings.System.getInt(mContext.getContentResolver(),
+                LineageSettings.System.LOCKSCREEN_ROTATION, 0) != 0;
+        return mKeyguardStateController.isKeyguardScreenRotationAllowed()
+                && (enableLockScreenRotation && enableAccelerometerRotation);
+    }
+
     /**
      * Adds the notification shade view to the window manager.
      */
@@ -231,6 +249,8 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
 
         mWindowManager.addView(mNotificationShadeView, mLp);
         mLpChanged.copyFrom(mLp);
+        SettingsObserver observer = new SettingsObserver(new Handler());
+        observer.observe(mContext);
         onThemeChanged();
 
         // Make the state consistent with KeyguardViewMediator#setupLocked during initialization.
@@ -844,4 +864,30 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
             setDozing(isDozing);
         }
     };
+
+    private class SettingsObserver extends ContentObserver {
+        public SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        public void observe(Context context) {
+            context.getContentResolver().registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION),
+                    false, this);
+            context.getContentResolver().registerContentObserver(
+                    LineageSettings.System.getUriFor(LineageSettings.System.LOCKSCREEN_ROTATION),
+                    false, this);
+        }
+
+        public void unobserve(Context context) {
+            context.getContentResolver().unregisterContentObserver(this);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            mKeyguardScreenRotation = shouldEnableKeyguardScreenRotation();
+            // update the state
+            apply(mCurrentState);
+        }
+    }
 }
