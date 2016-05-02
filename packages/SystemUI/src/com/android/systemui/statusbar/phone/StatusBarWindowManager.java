@@ -25,10 +25,13 @@ import android.app.IActivityManager;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.PixelFormat;
 import android.os.Binder;
+import android.os.Handler;
 import android.os.RemoteException;
 import android.os.SystemProperties;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -41,6 +44,8 @@ import com.android.systemui.Dumpable;
 import com.android.systemui.keyguard.KeyguardViewMediator;
 import com.android.systemui.statusbar.RemoteInputController;
 import com.android.systemui.statusbar.StatusBarState;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -63,7 +68,7 @@ public class StatusBarWindowManager implements RemoteInputController.Callback, D
     private boolean mHasTopUi;
     private boolean mHasTopUiChanged;
     private int mBarHeight;
-    private final boolean mKeyguardScreenRotation;
+    private boolean mKeyguardScreenRotation;
     private float mScreenBrightnessDoze;
     private final State mCurrentState = new State();
     private OtherwisedCollapsedListener mListener;
@@ -79,8 +84,15 @@ public class StatusBarWindowManager implements RemoteInputController.Callback, D
 
     private boolean shouldEnableKeyguardScreenRotation() {
         Resources res = mContext.getResources();
+        boolean enableAccelerometerRotation =
+                Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION, 1) != 0;
+        boolean enableLockScreenRotation =
+                LineageSettings.System.getInt(mContext.getContentResolver(),
+                LineageSettings.System.LOCKSCREEN_ROTATION, 0) != 0;
         return SystemProperties.getBoolean("lockscreen.rot_override", false)
-                || res.getBoolean(R.bool.config_enableLockScreenRotation);
+                || (res.getBoolean(R.bool.config_enableLockScreenRotation)
+                && (enableLockScreenRotation && enableAccelerometerRotation));
     }
 
     /**
@@ -115,6 +127,9 @@ public class StatusBarWindowManager implements RemoteInputController.Callback, D
         mWindowManager.addView(mStatusBarView, mLp);
         mLpChanged = new WindowManager.LayoutParams();
         mLpChanged.copyFrom(mLp);
+
+        SettingsObserver observer = new SettingsObserver(new Handler());
+        observer.observe(mContext);
     }
 
     public void setDozeScreenBrightness(int value) {
@@ -497,5 +512,31 @@ public class StatusBarWindowManager implements RemoteInputController.Callback, D
      */
     public interface OtherwisedCollapsedListener {
         void setWouldOtherwiseCollapse(boolean otherwiseCollapse);
+    }
+
+    private class SettingsObserver extends ContentObserver {
+        public SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        public void observe(Context context) {
+            context.getContentResolver().registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION),
+                    false, this);
+            context.getContentResolver().registerContentObserver(
+                    LineageSettings.System.getUriFor(LineageSettings.System.LOCKSCREEN_ROTATION),
+                    false, this);
+        }
+
+        public void unobserve(Context context) {
+            context.getContentResolver().unregisterContentObserver(this);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            mKeyguardScreenRotation = shouldEnableKeyguardScreenRotation();
+            // update the state
+            apply(mCurrentState);
+        }
     }
 }
