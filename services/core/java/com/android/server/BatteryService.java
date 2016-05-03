@@ -145,6 +145,7 @@ public final class BatteryService extends SystemService {
 
     private boolean mAdjustableNotificationLedBrightness;
     private int mNotificationLedBrightnessLevel = LIGHT_BRIGHTNESS_MAXIMUM;
+    private boolean mUseSegmentedBatteryLed = false;
 
     private int mLowBatteryWarningLevel;
     private int mLowBatteryCloseWarningLevel;
@@ -923,6 +924,11 @@ public final class BatteryService extends SystemService {
                     com.android.internal.R.integer.config_notificationsBatteryLedOn);
             mBatteryLedOff = context.getResources().getInteger(
                     com.android.internal.R.integer.config_notificationsBatteryLedOff);
+
+            // Does the Device have segmented battery LED support? In this case, we send the level
+            // in the alpha channel of the color and let the HAL sort it out.
+            mUseSegmentedBatteryLed = LightsCapabilities.supports(
+                    mContext, LightsCapabilities.LIGHTS_SEGMENTED_BATTERY_LED);
         }
 
         /**
@@ -937,6 +943,9 @@ public final class BatteryService extends SystemService {
 
             final int level = mBatteryProps.batteryLevel;
             final int status = mBatteryProps.batteryStatus;
+            mNotificationLedBrightnessLevel = mUseSegmentedBatteryLed ? level :
+                    LIGHT_BRIGHTNESS_MAXIMUM;
+
             if (!mLightEnabled) {
                 // No lights if explicitly disabled
                 mBatteryLight.turnOff();
