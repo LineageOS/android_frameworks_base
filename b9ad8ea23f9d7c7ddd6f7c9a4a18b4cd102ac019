@@ -16,6 +16,24 @@
       "revId": "b9ad8ea23f9d7c7ddd6f7c9a4a18b4cd102ac019",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_91a9b27c",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 6006,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-05-04T18:04:20Z",
+      "side": 1,
+      "message": "I can\u0027t think of why we would need it. I\u0027m just worried about discarding the parity from the previous approach and introducing a regression. I\u0027ll have to ask Danesh on input.",
+      "parentUuid": "5faad753_919bf270",
+      "revId": "b9ad8ea23f9d7c7ddd6f7c9a4a18b4cd102ac019",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
