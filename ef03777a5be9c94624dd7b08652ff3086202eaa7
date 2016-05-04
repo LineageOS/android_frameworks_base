@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_06610637",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-05-04T13:23:09Z",
+      "side": 1,
+      "message": "Why use the color here, makes each battery color lost \u0026 replaces color with a 0-100 value for the color, instead of using the setModes(level, ...) to preserve the color \u0026 pass down the level of battery ?\n\nI was planning to do it at some point, I like the idea of this implementation and already have changes ready for huashan, but we still need to color passed down to preserve UI settings utility \u0026 know what color to use (shouldn\u0027t be chosen at liblights level).",
+      "revId": "ef03777a5be9c94624dd7b08652ff3086202eaa7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
