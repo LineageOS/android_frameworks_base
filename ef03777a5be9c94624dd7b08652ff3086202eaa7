@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_51657ab4",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 5995,
+      "author": {
+        "id": 10293
+      },
+      "writtenOn": "2016-05-04T16:54:47Z",
+      "side": 0,
+      "message": "I think we can make this cleaner by doing this:\n\nif (wasPrebundledPackageInstalled \u0026\u0026 (existingSettings \u003d\u003d null || !existingSettings.getInstalled(user.getIdentifier())) {\n    // INSTALL_FAILED_UNINSTALLED_PREBUNDLE error\n}\n\nThis is a specific/contained check for the \"uninstalled\" condition.  The way it is written we are trying to anticipate conditions that occur later in the if/else tree and include them in this condition to make sure we skip over it... it may be fragile if we add more conditions.",
+      "revId": "ef03777a5be9c94624dd7b08652ff3086202eaa7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
