@@ -46,6 +46,30 @@
       "revId": "91c526fcb899777108697f8f9448bcc8f23088a9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_d9b50cf0",
+        "filename": "core/res/res/values/cm_styles.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5959
+      },
+      "writtenOn": "2016-05-05T22:03:51Z",
+      "side": 1,
+      "message": "Oh very nice, thanks for the education. Much appreciated!",
+      "parentUuid": "5faad753_99e6b416",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 75
+      },
+      "revId": "91c526fcb899777108697f8f9448bcc8f23088a9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
