@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_ad6325b1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/WeatherControllerImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-05-06T23:33:16Z",
+      "side": 1,
+      "message": "nit: indentation",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 16
+      },
+      "revId": "0c57eca8437cf502414425dd03fa4009331ca13f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
