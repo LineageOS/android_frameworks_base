@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_85b16392",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/WeatherControllerImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-05-06T22:37:17Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you set CELSIUS which is used by most of the world?",
+      "range": {
+        "startLine": 171,
+        "startChar": 67,
+        "endLine": 171,
+        "endChar": 77
+      },
+      "revId": "299470fb49b54b6f785d43fc4698c04b1affc596",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
