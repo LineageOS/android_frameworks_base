@@ -16,6 +16,24 @@
       "revId": "26cadba8eaeac692910789c57ea849a90392dba7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_82a870db",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PerfProfileTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2016-05-09T19:13:44Z",
+      "side": 1,
+      "message": "I think this is just because profile values aren\u0027t ordered, see here: https://github.com/CyanogenMod/cm_platform_sdk/blob/cm-13.0/cm/res/res/values/arrays.xml#L27",
+      "parentUuid": "5faad753_0246c050",
+      "revId": "26cadba8eaeac692910789c57ea849a90392dba7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
