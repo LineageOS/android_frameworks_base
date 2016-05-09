@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_b684d15f",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 32
+      },
+      "writtenOn": "2016-05-09T22:21:36Z",
+      "side": 1,
+      "message": "We must go deeper.",
+      "revId": "1345ca3f45fc24122996fa9f159fdf2e99f99176",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
