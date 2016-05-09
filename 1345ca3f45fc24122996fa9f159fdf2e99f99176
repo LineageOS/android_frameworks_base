@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5faad753_d69e2db7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 14090
+      },
+      "writtenOn": "2016-05-09T23:05:04Z",
+      "side": 1,
+      "message": "Reference OPO-681",
+      "revId": "1345ca3f45fc24122996fa9f159fdf2e99f99176",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5faad753_b684d15f",
         "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
         "patchSetId": 1
@@ -13,6 +30,29 @@
       "writtenOn": "2016-05-09T22:21:36Z",
       "side": 1,
       "message": "We must go deeper.",
+      "revId": "1345ca3f45fc24122996fa9f159fdf2e99f99176",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_767e596c",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3096,
+      "author": {
+        "id": 14090
+      },
+      "writtenOn": "2016-05-09T23:05:04Z",
+      "side": 1,
+      "message": "w",
+      "range": {
+        "startLine": 3096,
+        "startChar": 25,
+        "endLine": 3096,
+        "endChar": 26
+      },
       "revId": "1345ca3f45fc24122996fa9f159fdf2e99f99176",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
