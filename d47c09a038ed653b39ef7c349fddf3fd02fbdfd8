@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_79572a04",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2797,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-05-10T05:45:14Z",
+      "side": 1,
+      "message": "Line too long?",
+      "revId": "d47c09a038ed653b39ef7c349fddf3fd02fbdfd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
