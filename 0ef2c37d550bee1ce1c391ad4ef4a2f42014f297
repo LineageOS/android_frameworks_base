@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_7e1dc771",
+        "filename": "services/core/java/com/android/server/pm/Settings.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2560,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-05-11T21:18:54Z",
+      "side": 1,
+      "message": "should this method end with the \"LPr\" suffix too?",
+      "range": {
+        "startLine": 2560,
+        "startChar": 12,
+        "endLine": 2560,
+        "endChar": 53
+      },
+      "revId": "0ef2c37d550bee1ce1c391ad4ef4a2f42014f297",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
