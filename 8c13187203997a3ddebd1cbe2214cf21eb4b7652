@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_9bcf76af",
+        "filename": "media/java/android/media/AudioRecord.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-05-11T10:46:59Z",
+      "side": 1,
+      "message": "maybe log the error otherwise?",
+      "range": {
+        "startLine": 979,
+        "startChar": 16,
+        "endLine": 979,
+        "endChar": 27
+      },
+      "revId": "8c13187203997a3ddebd1cbe2214cf21eb4b7652",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
