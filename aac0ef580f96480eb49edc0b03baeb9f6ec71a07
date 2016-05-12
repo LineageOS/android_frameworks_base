@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_4187cc10",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3090,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-05-12T00:07:14Z",
+      "side": 1,
+      "message": "might be worth a comment here as to what arg1 entails",
+      "range": {
+        "startLine": 3090,
+        "startChar": 20,
+        "endLine": 3090,
+        "endChar": 49
+      },
+      "revId": "aac0ef580f96480eb49edc0b03baeb9f6ec71a07",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
