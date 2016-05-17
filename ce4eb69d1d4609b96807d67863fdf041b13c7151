@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_fa46917c",
+        "filename": "services/usb/java/com/android/server/usb/UsbDeviceManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 13409
+      },
+      "writtenOn": "2016-05-17T21:54:51Z",
+      "side": 1,
+      "message": "capitalization looks weird in this log, maybe change the \u0027.\u0027 to a \u0027,\u0027?",
+      "revId": "ce4eb69d1d4609b96807d67863fdf041b13c7151",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
