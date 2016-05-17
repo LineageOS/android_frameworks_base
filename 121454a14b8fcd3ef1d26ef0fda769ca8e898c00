@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_69f0a268",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-17T02:37:22Z",
+      "side": 1,
+      "message": "\"hiding it\" would more meaningful in this case",
+      "range": {
+        "startLine": 7,
+        "startChar": 52,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "121454a14b8fcd3ef1d26ef0fda769ca8e898c00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
