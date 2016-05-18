@@ -16,6 +16,24 @@
       "revId": "507b3a7b6699ee6c4fb759d6a46396adc198af31",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_8bc62d48",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-18T19:16:53Z",
+      "side": 0,
+      "message": "You tell me, you wrote this.  I\u0027m just trying to fix an issue",
+      "parentUuid": "5faad753_80fe0c35",
+      "revId": "507b3a7b6699ee6c4fb759d6a46396adc198af31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
