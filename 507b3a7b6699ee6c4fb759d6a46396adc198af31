@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_80fe0c35",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-05-18T16:12:13Z",
+      "side": 0,
+      "message": "Im actually wondering if we even need this anymore.\n\nIf swiping callbacks takes care of collapsing the panel, do we really need this ?",
+      "revId": "507b3a7b6699ee6c4fb759d6a46396adc198af31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
