@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_666448ba",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-05-18T23:19:38Z",
+      "side": 1,
+      "message": "Move this to shouldEnableKeyguardScreenRotation instead like in http://review.cyanogenmod.org/#/c/55016 ?",
+      "revId": "552021ec112102291999a588e43a842494cac24d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
