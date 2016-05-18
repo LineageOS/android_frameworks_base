@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_c0cc046c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-18T15:23:34Z",
+      "side": 1,
+      "message": "intellij auto-completed method name?",
+      "range": {
+        "startLine": 932,
+        "startChar": 39,
+        "endLine": 932,
+        "endChar": 40
+      },
+      "revId": "9faef262aa74f7659eef781fa09dec9130668d05",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_e0c7c044",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3468,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-18T15:23:34Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3468,
+        "startChar": 39,
+        "endLine": 3468,
+        "endChar": 40
+      },
+      "revId": "9faef262aa74f7659eef781fa09dec9130668d05",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_a0ef88ae",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-18T15:23:34Z",
+      "side": 1,
+      "message": "not gonna work ;)",
+      "revId": "9faef262aa74f7659eef781fa09dec9130668d05",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
