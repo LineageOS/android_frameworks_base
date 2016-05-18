@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_6018b0d2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-18T15:33:56Z",
+      "side": 1,
+      "message": "nit: case of LiveLockscreenController should match LiveLockScreenController",
+      "range": {
+        "startLine": 73,
+        "startChar": 37,
+        "endLine": 73,
+        "endChar": 62
+      },
+      "revId": "2b971ad1e2d2f1be15449e6bb570fb3484fb99bc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_000f7c89",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-18T15:33:56Z",
+      "side": 1,
+      "message": "nit: case of setLiveLockscreenController should match LiveLockScreenController",
+      "range": {
+        "startLine": 406,
+        "startChar": 16,
+        "endLine": 406,
+        "endChar": 43
+      },
+      "revId": "2b971ad1e2d2f1be15449e6bb570fb3484fb99bc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
