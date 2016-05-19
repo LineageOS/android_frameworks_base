@@ -39,6 +39,30 @@
       "revId": "e03081c9e82122e506b4e90aa3078f2677765050",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_dd994a6e",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDragPanel.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-05-19T19:56:33Z",
+      "side": 1,
+      "message": "Yes - NotificationPanelView will query QSContainer (our direct layout parent), which will then query for the grid height to determine how big to animate the view to when closing QS detail view.",
+      "parentUuid": "5faad753_5d78fa28",
+      "range": {
+        "startLine": 804,
+        "startChar": 7,
+        "endLine": 804,
+        "endChar": 23
+      },
+      "revId": "e03081c9e82122e506b4e90aa3078f2677765050",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
