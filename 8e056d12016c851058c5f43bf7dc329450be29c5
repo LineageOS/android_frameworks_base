@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_1d6122aa",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-05-19T19:07:22Z",
+      "side": 1,
+      "message": "let\u0027s just always prefer the width, that way we don\u0027t have a min or max and it works for both?",
+      "range": {
+        "startLine": 203,
+        "startChar": 8,
+        "endLine": 208,
+        "endChar": 69
+      },
+      "revId": "8e056d12016c851058c5f43bf7dc329450be29c5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
