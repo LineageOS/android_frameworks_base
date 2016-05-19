@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_fd2be62c",
+        "filename": "packages/SystemUI/res/layout/system_icons_expanded.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-19T19:36:30Z",
+      "side": 1,
+      "message": "we usually don\u0027t include ~ on these lines.  so ugly :P",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 3
+      },
+      "revId": "9f4b94662461eaabea6fe3ba8a9cece88354b1f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_3d32dea8",
+        "filename": "packages/SystemUI/res/layout/system_icons_expanded.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-19T19:36:30Z",
+      "side": 1,
+      "message": "the height and width are now 18dp for the new vector based battery meter.  Should consider moving these to cm_dimens.xml since we are now using them in two different layouts.\n\nMake sure if this goes to stable that you continue to use these values since the battery changes are not going into ZNH2K",
+      "range": {
+        "startLine": 46,
+        "startChar": 31,
+        "endLine": 46,
+        "endChar": 37
+      },
+      "revId": "9f4b94662461eaabea6fe3ba8a9cece88354b1f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_1dd4c21f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/OverflowIconTracker.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-19T19:36:30Z",
+      "side": 1,
+      "message": "might want to add a comment that you are rechecking widthExceedsMax since it could have changed in the block above.  Had me confused for a second as I was going to suggest using else instead of checking if it is true.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 38
+      },
+      "revId": "9f4b94662461eaabea6fe3ba8a9cece88354b1f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
