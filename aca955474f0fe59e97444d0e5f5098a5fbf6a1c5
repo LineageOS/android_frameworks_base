@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_b3235f05",
+        "filename": "core/java/android/view/WindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-05-20T18:19:28Z",
+      "side": 1,
+      "message": "just wonder shall we keep the old definition here in additional to the new one to maintain compatibility.",
+      "revId": "aca955474f0fe59e97444d0e5f5098a5fbf6a1c5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
