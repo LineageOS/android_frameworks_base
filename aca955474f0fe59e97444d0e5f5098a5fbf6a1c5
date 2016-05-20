@@ -16,6 +16,24 @@
       "revId": "aca955474f0fe59e97444d0e5f5098a5fbf6a1c5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_731de7bb",
+        "filename": "core/java/android/view/WindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-05-20T18:21:02Z",
+      "side": 1,
+      "message": "Honestly, its a hidden api and no one outside of our build system should depend on it. I\u0027m not really for maintaining compatibility here as its already scoped down via the protection level as to who ever may even access this.",
+      "parentUuid": "5faad753_b3235f05",
+      "revId": "aca955474f0fe59e97444d0e5f5098a5fbf6a1c5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
