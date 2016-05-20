@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5faad753_4eed9e23",
+        "filename": "packages/SystemUI/res/layout/system_icons_expanded.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-05-20T21:03:25Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "5faad753_fd2be62c",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 3
+      },
+      "revId": "9f4b94662461eaabea6fe3ba8a9cece88354b1f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5faad753_3d32dea8",
         "filename": "packages/SystemUI/res/layout/system_icons_expanded.xml",
         "patchSetId": 12
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5faad753_eef32a09",
+        "filename": "packages/SystemUI/res/layout/system_icons_expanded.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-05-20T21:03:25Z",
+      "side": 1,
+      "message": "Gonna experiment with adding the view dynamically so i don\u0027t have to maintain a duplicate xml",
+      "parentUuid": "5faad753_3d32dea8",
+      "range": {
+        "startLine": 46,
+        "startChar": 31,
+        "endLine": 46,
+        "endChar": 37
+      },
+      "revId": "9f4b94662461eaabea6fe3ba8a9cece88354b1f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5faad753_1dd4c21f",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/OverflowIconTracker.java",
         "patchSetId": 12
@@ -59,6 +107,30 @@
       "writtenOn": "2016-05-19T19:36:30Z",
       "side": 1,
       "message": "might want to add a comment that you are rechecking widthExceedsMax since it could have changed in the block above.  Had me confused for a second as I was going to suggest using else instead of checking if it is true.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 38
+      },
+      "revId": "9f4b94662461eaabea6fe3ba8a9cece88354b1f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_2eeaa20e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/OverflowIconTracker.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-05-20T21:03:25Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "5faad753_1dd4c21f",
       "range": {
         "startLine": 119,
         "startChar": 0,
