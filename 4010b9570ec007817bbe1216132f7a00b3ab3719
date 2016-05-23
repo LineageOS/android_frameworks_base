@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_8525b0c4",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-05-23T20:22:37Z",
+      "side": 1,
+      "message": "mRebootUpdate \u0026\u0026 isEncrypted",
+      "revId": "4010b9570ec007817bbe1216132f7a00b3ab3719",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
