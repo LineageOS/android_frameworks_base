@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_c27e3e6a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavBarInsetLayout.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-05-23T16:01:34Z",
+      "side": 1,
+      "message": "is this even necessary since you already call it in the constructor?",
+      "revId": "c349f96eefb7f652c013f73221e51713d35f1933",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
