@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_b98335cc",
+        "filename": "services/core/java/com/android/server/AppOpsPolicy.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-05-24T23:27:03Z",
+      "side": 1,
+      "message": "this should go in the other patch.",
+      "range": {
+        "startLine": 66,
+        "startChar": 59,
+        "endLine": 66,
+        "endChar": 61
+      },
+      "revId": "05de03dc1b6d205e2ee1afab92c60de55e98d6d3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
