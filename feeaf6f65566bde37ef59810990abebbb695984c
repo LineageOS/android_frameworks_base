@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_935bba52",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 14421
+      },
+      "writtenOn": "2016-05-24T16:33:28Z",
+      "side": 1,
+      "message": "I believe you don\u0027t want this to be true",
+      "range": {
+        "startLine": 85,
+        "startChar": 33,
+        "endLine": 85,
+        "endChar": 37
+      },
+      "revId": "feeaf6f65566bde37ef59810990abebbb695984c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
