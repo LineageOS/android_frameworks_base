@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_39774505",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-05-24T23:29:14Z",
+      "side": 1,
+      "message": "do you want to do this when not interactive?",
+      "range": {
+        "startLine": 1139,
+        "startChar": 0,
+        "endLine": 1140,
+        "endChar": 38
+      },
+      "revId": "4c77631e9ba8d966e643c7ac7b07d5c5aa0d52b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
