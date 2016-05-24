@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_8e238d05",
+        "filename": "services/core/java/com/android/server/PermissionDialog.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-05-24T19:36:16Z",
+      "side": 1,
+      "message": "update comment",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 10
+      },
+      "revId": "23b3e13f6a0ef1e3985a01ab69fa8a0120f7061a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
