@@ -16,6 +16,24 @@
       "revId": "8783264f0ab59c1a72d1d1799e741d4dfd645b27",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_eea1e1aa",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-05-24T19:11:03Z",
+      "side": 1,
+      "message": "There was a !mShowing there before",
+      "parentUuid": "5faad753_8ecb8d70",
+      "revId": "8783264f0ab59c1a72d1d1799e741d4dfd645b27",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
