@@ -16,6 +16,24 @@
       "revId": "42a5d000ad6e1cf4a7dc766db66cd3505ff73c5a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_d4a838dc",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-05-25T03:44:41Z",
+      "side": 1,
+      "message": "thats what I get for manually cleaning up imports that weren\u0027t fully qualified, fixed.",
+      "parentUuid": "5faad753_39818590",
+      "revId": "42a5d000ad6e1cf4a7dc766db66cd3505ff73c5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
