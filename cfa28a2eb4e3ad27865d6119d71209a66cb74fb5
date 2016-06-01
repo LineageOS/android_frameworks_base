@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_be378d4d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/LiveLockScreenController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-06-01T16:24:15Z",
+      "side": 1,
+      "message": "\u003e 100 chars",
+      "revId": "cfa28a2eb4e3ad27865d6119d71209a66cb74fb5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
