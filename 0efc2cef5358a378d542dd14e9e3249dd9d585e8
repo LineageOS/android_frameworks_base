@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_6a962b4f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MobileSignalController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-06-02T15:59:37Z",
+      "side": 1,
+      "message": "I would put the null check in this return statement. (to mirror the else case below)\n\nOtherwise, you could always return false if service state is null at the start of this method and remove both null checks.",
+      "range": {
+        "startLine": 284,
+        "startChar": 18,
+        "endLine": 284,
+        "endChar": 19
+      },
+      "revId": "0efc2cef5358a378d542dd14e9e3249dd9d585e8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
