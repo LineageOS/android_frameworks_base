@@ -31,6 +31,8 @@ import android.util.ArraySet;
 
 import com.android.internal.util.ArrayUtils;
 
+import java.util.Arrays;
+
 /**
  * Per-user state information about a package.
  * @hide
@@ -52,6 +54,8 @@ public class PackageUserState {
     public ArraySet<String> enabledComponents;
     public ArraySet<String> protectedComponents;
     public ArraySet<String> visibleComponents;
+
+    public String[] resourceDirs;
 
     public PackageUserState() {
         installed = true;
@@ -80,7 +84,8 @@ public class PackageUserState {
                 ? new ArraySet<String>(o.protectedComponents) : null;
         visibleComponents = o.visibleComponents != null
                 ? new ArraySet<String>(o.visibleComponents) : null;
-
+        resourceDirs =
+            o.resourceDirs == null ? null : Arrays.copyOf(o.resourceDirs, o.resourceDirs.length);
     }
 
     /**
