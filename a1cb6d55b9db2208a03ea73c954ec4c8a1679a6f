@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_ea2f7b3c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MobileSignalController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-06-02T15:49:28Z",
+      "side": 1,
+      "message": "would the null check make more sense here? isCdma() should just return whether signal strength isn\u0027t gsm, not whether service state is live.",
+      "revId": "a1cb6d55b9db2208a03ea73c954ec4c8a1679a6f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
