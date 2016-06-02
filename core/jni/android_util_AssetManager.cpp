@@ -130,6 +130,7 @@ jint copyValue(JNIEnv* env, jobject outValue, const ResTable* table,
     return block;
 }
 
+<<<<<<< HEAD
 // This is called by zygote (running as user root) as part of preloadResources.
 static void verifySystemIdmaps()
 {
@@ -216,6 +217,8 @@ static void verifySystemIdmaps()
     }
 }
 
+=======
+>>>>>>> c5fe6b5... XOMS7-N: Integrate OverlayManagerService into framework [3/11]
 // ----------------------------------------------------------------------------
 
 // this guy is exported to other jni routines
@@ -2086,9 +2089,6 @@ static jintArray android_content_AssetManager_getStyleAttributes(JNIEnv* env, jo
 
 static void android_content_AssetManager_init(JNIEnv* env, jobject clazz, jboolean isSystem)
 {
-    if (isSystem) {
-        verifySystemIdmaps();
-    }
     AssetManager* am = new AssetManager();
     if (am == NULL) {
         jniThrowException(env, "java/lang/OutOfMemoryError", "");
