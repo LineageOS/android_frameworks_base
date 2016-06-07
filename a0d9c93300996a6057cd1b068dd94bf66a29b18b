@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_ac619507",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-06-07T20:01:17Z",
+      "side": 1,
+      "message": "When we observe() we call update() as it is, so we can probably get rid of this block ?",
+      "revId": "a0d9c93300996a6057cd1b068dd94bf66a29b18b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
