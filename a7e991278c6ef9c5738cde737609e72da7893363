@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_320c20ec",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2797,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-06-08T05:47:15Z",
+      "side": 1,
+      "message": "Why do this here? onWeatherChange already does it.",
+      "revId": "a7e991278c6ef9c5738cde737609e72da7893363",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_d20caced",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2799,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-06-08T05:47:15Z",
+      "side": 1,
+      "message": "Maybe only do this if mKeyguardWeatherEnabled actually changed?",
+      "revId": "a7e991278c6ef9c5738cde737609e72da7893363",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_1207a4cc",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2908,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-06-08T05:47:15Z",
+      "side": 1,
+      "message": "That check is pointless AFAICT, as View.setVisibility() already does the same check.",
+      "revId": "a7e991278c6ef9c5738cde737609e72da7893363",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_f211a805",
+        "filename": "packages/WallpaperCropper/src/com/android/photos/BitmapRegionTileSource.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-06-08T05:47:15Z",
+      "side": 1,
+      "message": "Unused import here and below.",
+      "revId": "a7e991278c6ef9c5738cde737609e72da7893363",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
