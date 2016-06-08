@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_984c1343",
+        "filename": "packages/Keyguard/res/layout/keyguard_status_view.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-06-08T19:37:13Z",
+      "side": 1,
+      "message": "Although in the Settings it\u0027s like that everywhere so keeps consistency, here you could have the \" /\u003e.",
+      "revId": "d1133e63be7da809ee38c3e1b0bee4911c5b21c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
