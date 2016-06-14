@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_13deb86c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2354,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-06-14T19:25:18Z",
+      "side": 1,
+      "message": "intentional?",
+      "range": {
+        "startLine": 2354,
+        "startChar": 61,
+        "endLine": 2354,
+        "endChar": 85
+      },
+      "revId": "982853846c0dabed7454beb98da31cfdeb176fc5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
