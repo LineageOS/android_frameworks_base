@@ -22,6 +22,23 @@
       "revId": "982853846c0dabed7454beb98da31cfdeb176fc5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_3372d47c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2362,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-06-14T19:48:54Z",
+      "side": 1,
+      "message": "Can we ever enter a case where exception wasn\u0027t thrown yet context is null ? If not, you can just also just return context and override it if necessary",
+      "revId": "982853846c0dabed7454beb98da31cfdeb176fc5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
