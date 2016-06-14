@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_08fbe378",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2346,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-06-14T16:43:24Z",
+      "side": 1,
+      "message": "since the return can be the context param, maybe denote this as tryThemedContext? or maybe some javadoc if it gets reused.",
+      "range": {
+        "startLine": 2346,
+        "startChar": 20,
+        "endLine": 2346,
+        "endChar": 36
+      },
+      "revId": "fc7ecb638fbf6f5f53dd45d34927e95cb42ba9e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
