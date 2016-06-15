@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_820b2fd4",
+        "filename": "services/core/java/com/android/server/am/ActivityStack.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4237,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-15T16:24:15Z",
+      "side": 1,
+      "message": "if (...)",
+      "revId": "60f8ee408c86ae468a9c7f0695c141ffe1530cab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
