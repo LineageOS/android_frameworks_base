@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_76d35561",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2016-06-16T19:31:52Z",
+      "side": 1,
+      "message": "need to check for blur support here or at the very least that mKeyguardBlur isn\u0027t null",
+      "revId": "fc706c6ede30f9dedad7e086c3338596d6a5c4ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
