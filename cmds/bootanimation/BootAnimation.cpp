@@ -65,6 +65,7 @@ namespace android {
 static const char OEM_BOOTANIMATION_FILE[] = "/oem/media/bootanimation.zip";
 static const char SYSTEM_BOOTANIMATION_FILE[] = "/system/media/bootanimation.zip";
 static const char SYSTEM_ENCRYPTED_BOOTANIMATION_FILE[] = "/system/media/bootanimation-encrypted.zip";
+static const char THEME_BOOTANIMATION_FILE[] = "/data/system/theme/bootanimation.zip";
 static const char SYSTEM_DATA_DIR_PATH[] = "/data/system";
 static const char SYSTEM_TIME_DIR_NAME[] = "time";
 static const char SYSTEM_TIME_DIR_PATH[] = "/data/system/time";
@@ -325,9 +326,15 @@ status_t BootAnimation::readyToRun() {
     else if (access(OEM_BOOTANIMATION_FILE, R_OK) == 0) {
         mZipFileName = OEM_BOOTANIMATION_FILE;
     }
+
     else if (access(SYSTEM_BOOTANIMATION_FILE, R_OK) == 0) {
         mZipFileName = SYSTEM_BOOTANIMATION_FILE;
     }
+
+    else if (access(THEME_BOOTANIMATION_FILE, R_OK) == 0) {
+        mZipFileName = THEME_BOOTANIMATION_FILE;
+    }
+
     return NO_ERROR;
 }
 
