@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_db958934",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-06-20T21:33:08Z",
+      "side": 1,
+      "message": "not being used in this PS, intentional?",
+      "range": {
+        "startLine": 303,
+        "startChar": 20,
+        "endLine": 303,
+        "endChar": 40
+      },
+      "revId": "ebaee69343976af94dfa3c7f340c5965face5978",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_fb740538",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-06-20T21:33:08Z",
+      "side": 1,
+      "message": "\u003e 100 chars",
+      "revId": "ebaee69343976af94dfa3c7f340c5965face5978",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_7b96d540",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-06-20T21:33:08Z",
+      "side": 1,
+      "message": "could group and logically OR this with the line above.",
+      "range": {
+        "startLine": 334,
+        "startChar": 40,
+        "endLine": 335,
+        "endChar": 89
+      },
+      "revId": "ebaee69343976af94dfa3c7f340c5965face5978",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_9b9b9164",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-06-20T21:33:08Z",
+      "side": 1,
+      "message": "\u003e 100 chars",
+      "revId": "ebaee69343976af94dfa3c7f340c5965face5978",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
