@@ -16,6 +16,24 @@
       "revId": "e39d1d75b95c02b7fb055d7caab535c8e1e919ad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_01fbb046",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4801,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-21T16:29:50Z",
+      "side": 0,
+      "message": "I can accept updating mStreamVolumeAlias only, that is essentially what the call to updateStreamVolumeAlias ends up doing. But you\u0027re not doing any of the actions in createStreamStates anymore, isn\u0027t that going to have other side effects?",
+      "parentUuid": "5faad753_e190d44c",
+      "revId": "e39d1d75b95c02b7fb055d7caab535c8e1e919ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
