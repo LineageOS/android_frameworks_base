@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_1cfd57b0",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 8787,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-06-21T22:02:34Z",
+      "side": 1,
+      "message": "I don\u0027t think this catches every case.",
+      "range": {
+        "startLine": 8785,
+        "startChar": 24,
+        "endLine": 8787,
+        "endChar": 70
+      },
+      "revId": "490cd8f5ccdb9abc4c869f30a20b3acaf47f3d35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
