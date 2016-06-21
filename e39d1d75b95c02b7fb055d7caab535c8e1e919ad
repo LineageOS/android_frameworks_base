@@ -88,6 +88,24 @@
       "revId": "e39d1d75b95c02b7fb055d7caab535c8e1e919ad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_3cde136d",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4801,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-06-21T19:38:25Z",
+      "side": 0,
+      "message": "No, the there are 16 binder threads which will randomly access mStreamStates depends on user usage. This callback always runs in the main thread (id 1 - main)",
+      "parentUuid": "5faad753_7cf00bfe",
+      "revId": "e39d1d75b95c02b7fb055d7caab535c8e1e919ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
