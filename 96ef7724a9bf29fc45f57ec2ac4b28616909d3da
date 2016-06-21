@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_1ce1d72a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-06-21T19:39:32Z",
+      "side": 1,
+      "message": "can you separate this into a separate named var like above for clarity when reading this",
+      "revId": "96ef7724a9bf29fc45f57ec2ac4b28616909d3da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
