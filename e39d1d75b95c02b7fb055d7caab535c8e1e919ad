@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_e190d44c",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4801,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-06-21T15:37:00Z",
+      "side": 0,
+      "message": "We are in another thread here, and createStreamStates will delete all  mStreamStates and create it again, which creates a race condition between the binder.",
+      "revId": "e39d1d75b95c02b7fb055d7caab535c8e1e919ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
