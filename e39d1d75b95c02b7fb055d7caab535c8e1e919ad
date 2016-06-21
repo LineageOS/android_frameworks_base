@@ -52,6 +52,24 @@
       "revId": "e39d1d75b95c02b7fb055d7caab535c8e1e919ad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_fc32bbf1",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4801,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-21T18:16:39Z",
+      "side": 0,
+      "message": "Can\u0027t we just message the handler from this callback to call these functions instead?",
+      "parentUuid": "5faad753_e19bf414",
+      "revId": "e39d1d75b95c02b7fb055d7caab535c8e1e919ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
