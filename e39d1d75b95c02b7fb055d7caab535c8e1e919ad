@@ -34,6 +34,24 @@
       "revId": "e39d1d75b95c02b7fb055d7caab535c8e1e919ad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_e19bf414",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4801,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-06-21T18:08:45Z",
+      "side": 0,
+      "message": "We do needed, and we may need to call \n            sendMsg(mAudioHandler,\n                    MSG_SET_ALL_VOLUMES,\n                    SENDMSG_QUEUE,\n                    0,\n                    0,\n                    mStreamStates[AudioSystem.STREAM_DTMF], 0);\nalso which is in updateStreamVolumeAlias.\nJust cannot figure a safe way to do that",
+      "parentUuid": "5faad753_01fbb046",
+      "revId": "e39d1d75b95c02b7fb055d7caab535c8e1e919ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
