@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_7325995b",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 9078,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-06-22T22:04:46Z",
+      "side": 1,
+      "message": "Someone more familiar with TaskRecord, can you confirm this is the field I care about?",
+      "range": {
+        "startLine": 9078,
+        "startChar": 0,
+        "endLine": 9078,
+        "endChar": 50
+      },
+      "revId": "7dc70c289c553a7a78a0eae5535746810dae244a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
