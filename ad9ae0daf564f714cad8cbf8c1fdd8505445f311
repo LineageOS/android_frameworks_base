@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_c9661ac2",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2482,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-23T21:55:51Z",
+      "side": 1,
+      "message": "Don\u0027t respace unrelated code.",
+      "revId": "ad9ae0daf564f714cad8cbf8c1fdd8505445f311",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
