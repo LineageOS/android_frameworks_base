@@ -16,6 +16,24 @@
       "revId": "96ef7724a9bf29fc45f57ec2ac4b28616909d3da",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_e61ea5b9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 9813
+      },
+      "writtenOn": "2016-06-23T19:23:13Z",
+      "side": 1,
+      "message": "tend to agree with this, then you can just and the flags as you go",
+      "parentUuid": "5faad753_1ce1d72a",
+      "revId": "96ef7724a9bf29fc45f57ec2ac4b28616909d3da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
