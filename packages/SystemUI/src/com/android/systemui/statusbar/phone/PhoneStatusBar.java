@@ -825,12 +825,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             }
 
             mCarrierLabel = (TextView)mStatusBarWindow.findViewById(R.id.carrier_label);
-            mSubsLabel = mStatusBarWindow.findViewById(R.id.subs_label);
-            int numPhones = MSimTelephonyManager.getDefault().getPhoneCount();
-            if (numPhones == 3) {
-                mSubsLabel.findViewById(R.id.sub2_separator).setVisibility(View.VISIBLE);
-                mSubsLabel.findViewById(R.id.sub3_label).setVisibility(View.VISIBLE);
-            }
             mShowCarrierInPanel = (mCarrierLabel != null);
 
             if (DEBUG) Log.v(TAG, "carrierlabel=" + mCarrierLabel + " show=" +
@@ -841,12 +835,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 // for mobile devices, we always show mobile connection info here (SPN/PLMN)
                 // for other devices, we show whatever network is connected
                 if (mMSimNetworkController.hasMobileDataFeature()) {
-                    mMSimNetworkController.addMobileLabelView(mCarrierLabel);
+                    mMSimNetworkController.addSubsLabelView(mCarrierLabel);
                 } else {
                     mMSimNetworkController.addCombinedLabelView(mCarrierLabel);
                 }
-                mSubsLabel.setVisibility(View.VISIBLE);
-                mMSimNetworkController.addSubsLabelView(mSubsLabel);
                 // set up the dynamic hide/show of the label
                 mPile.setOnSizeChangedListener(new OnSizeChangedListener() {
                     @Override
