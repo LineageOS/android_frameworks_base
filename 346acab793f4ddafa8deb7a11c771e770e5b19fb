@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_b346624f",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1446,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-06-28T22:33:12Z",
+      "side": 1,
+      "message": "for consistency with other places we\u0027re switching the flag out, I think we should just check for the CM_SETUP_WIZARD_COMPLETED",
+      "range": {
+        "startLine": 1445,
+        "startChar": 19,
+        "endLine": 1446,
+        "endChar": 93
+      },
+      "revId": "346acab793f4ddafa8deb7a11c771e770e5b19fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
