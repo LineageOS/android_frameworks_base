@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_df5f5c0c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PanelView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2016-07-02T12:01:30Z",
+      "side": 1,
+      "message": "what about (expandBecauseOfFalsing \u0026\u0026 vel \u003d\u003d 0)?",
+      "range": {
+        "startLine": 677,
+        "startChar": 12,
+        "endLine": 677,
+        "endChar": 41
+      },
+      "revId": "c378e6640a48b0b75eda9b4c9bb998aae209a728",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
