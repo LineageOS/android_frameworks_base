@@ -16,6 +16,24 @@
       "revId": "8baac77cb25a036f2b922cb51b1f8e0513ac0066",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_d5c5fb5c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2016-07-03T21:32:50Z",
+      "side": 1,
+      "message": "I dunno, from the aesthetic point of view this place is just fine.",
+      "parentUuid": "3fa7e38b_f5cef781",
+      "revId": "8baac77cb25a036f2b922cb51b1f8e0513ac0066",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
