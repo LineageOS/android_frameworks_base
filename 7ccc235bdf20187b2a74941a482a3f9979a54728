@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_39cd695d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarHeaderView.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-05T19:48:27Z",
+      "side": 1,
+      "message": "see comments below as this and the call to getOverlay.add() above may need to be changed per that discussion",
+      "range": {
+        "startLine": 466,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 46
+      },
+      "revId": "7ccc235bdf20187b2a74941a482a3f9979a54728",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_59e625eb",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarHeaderView.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-05T19:48:27Z",
+      "side": 1,
+      "message": "Only animating the mStatusIcons container has the side effect of mSignalCluster remaining visible when the header is fully expanded, which changes default behavior when there is nothing in mStatusIcons.\n\nYou could put mStatusIcons and mSignalCluster in their own layout group and perform all the property and position changes on that group.",
+      "range": {
+        "startLine": 772,
+        "startChar": 0,
+        "endLine": 785,
+        "endChar": 45
+      },
+      "revId": "7ccc235bdf20187b2a74941a482a3f9979a54728",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_79ebe1af",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarHeaderView.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-05T19:48:27Z",
+      "side": 1,
+      "message": "Same as mentioned above.",
+      "range": {
+        "startLine": 806,
+        "startChar": 8,
+        "endLine": 806,
+        "endChar": 60
+      },
+      "revId": "7ccc235bdf20187b2a74941a482a3f9979a54728",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
