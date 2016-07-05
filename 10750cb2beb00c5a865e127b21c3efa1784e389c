@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_dc1be370",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PanelView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 12453
+      },
+      "writtenOn": "2016-07-05T21:30:29Z",
+      "side": 1,
+      "message": "derp",
+      "range": {
+        "startLine": 679,
+        "startChar": 16,
+        "endLine": 679,
+        "endChar": 17
+      },
+      "revId": "10750cb2beb00c5a865e127b21c3efa1784e389c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
