@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_df499560",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-07-06T17:15:50Z",
+      "side": 1,
+      "message": "100 chars, line break on the constant although it wasn\u0027t there on previous implementation",
+      "revId": "0cc28ef2eb100da828d9077e307eec3556fa4be4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_bf7a9985",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-07-06T17:15:50Z",
+      "side": 1,
+      "message": "getContext is used twice, could do a Context context variable",
+      "revId": "0cc28ef2eb100da828d9077e307eec3556fa4be4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
