@@ -24,5 +24,8 @@
     <!-- Doze always on default value -->
     <java-symbol type="bool" name="config_dozeAlwaysOnDisplayEnabledDefault" />
 
+    <!-- Whether device has dash charging support -->
+    <java-symbol type="bool" name="config_hasDashCharger" />
+
 </resources>
 
