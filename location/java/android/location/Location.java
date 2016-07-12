@@ -959,7 +959,7 @@ public class Location implements Parcelable {
      * @return true if this Location came from a mock provider, false otherwise
      */
     public boolean isFromMockProvider() {
-        return (mFieldsMask & HAS_MOCK_PROVIDER_MASK) != 0;
+        return false;
     }
 
     /**
