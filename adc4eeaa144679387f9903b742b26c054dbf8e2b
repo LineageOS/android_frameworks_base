@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_026022a5",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4952,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-14T19:39:18Z",
+      "side": 1,
+      "message": "need to enclose this with brackets if it\u0027s not going to fit on a single line.",
+      "range": {
+        "startLine": 4951,
+        "startChar": 0,
+        "endLine": 4952,
+        "endChar": 56
+      },
+      "revId": "adc4eeaa144679387f9903b742b26c054dbf8e2b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_22651eb6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4973,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-14T19:39:18Z",
+      "side": 1,
+      "message": "need to enclose this with brackets if it\u0027s not going to fit on a single line.",
+      "range": {
+        "startLine": 4972,
+        "startChar": 0,
+        "endLine": 4973,
+        "endChar": 55
+      },
+      "revId": "adc4eeaa144679387f9903b742b26c054dbf8e2b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_c240ca0a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-14T19:39:18Z",
+      "side": 1,
+      "message": "assign non-constant values in the constructor",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 118
+      },
+      "revId": "adc4eeaa144679387f9903b742b26c054dbf8e2b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_824ad224",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-14T19:39:18Z",
+      "side": 1,
+      "message": "enclose in brackets or move the return statement inline with the if",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 19
+      },
+      "revId": "adc4eeaa144679387f9903b742b26c054dbf8e2b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_a247ce1d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-14T19:39:18Z",
+      "side": 1,
+      "message": "enclose in brackets",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 39
+      },
+      "revId": "adc4eeaa144679387f9903b742b26c054dbf8e2b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_4254daca",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-14T19:39:18Z",
+      "side": 1,
+      "message": "enclose in brackets",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 37
+      },
+      "revId": "adc4eeaa144679387f9903b742b26c054dbf8e2b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_e245c618",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-14T19:39:18Z",
+      "side": 1,
+      "message": "views already have a handler you can post runnables on, why not use that and call swiftStatusBarItems() inside that runnable?",
+      "range": {
+        "startLine": 109,
+        "startChar": 20,
+        "endLine": 109,
+        "endChar": 33
+      },
+      "revId": "adc4eeaa144679387f9903b742b26c054dbf8e2b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_6251d6d8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-14T19:39:18Z",
+      "side": 1,
+      "message": "you should cache this in a member variable and initialize it in the constructor and just return that",
+      "range": {
+        "startLine": 126,
+        "startChar": 15,
+        "endLine": 126,
+        "endChar": 83
+      },
+      "revId": "adc4eeaa144679387f9903b742b26c054dbf8e2b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
