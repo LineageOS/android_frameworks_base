@@ -27,6 +27,9 @@ import android.app.Notification.Action;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.SynchronousUserSwitchObserver;
+import android.bluetooth.BluetoothAssignedNumbers;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothHeadset;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -144,6 +147,7 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
     private boolean mManagedProfileInQuietMode = false;
 
     private BluetoothController mBluetooth;
+    private int mBluetoothBatteryLevel = BluetoothDevice.BATTERY_LEVEL_UNKNOWN;
 
     public PhoneStatusBarPolicy(Context context, StatusBarIconController iconController) {
         mContext = context;
@@ -186,6 +190,8 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         filter.addAction(Intent.ACTION_MANAGED_PROFILE_AVAILABLE);
         filter.addAction(Intent.ACTION_MANAGED_PROFILE_UNAVAILABLE);
         filter.addAction(Intent.ACTION_MANAGED_PROFILE_REMOVED);
+        filter.addAction(BluetoothDevice.ACTION_BATTERY_LEVEL_CHANGED);
+
         mContext.registerReceiver(mIntentReceiver, filter, null, mHandler);
 
         // listen for user / profile change.
@@ -401,6 +407,11 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         updateBluetooth();
     }
 
+    private void updateBluetoothBattery(Intent intent) {
+        mBluetoothBatteryLevel = intent.getIntExtra(BluetoothDevice.EXTRA_BATTERY_LEVEL,
+                BluetoothDevice.BATTERY_LEVEL_UNKNOWN);
+    }
+
     private final void updateBluetooth() {
         int iconId = R.drawable.stat_sys_data_bluetooth;
         String contentDescription =
@@ -409,7 +420,25 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         if (mBluetooth != null) {
             bluetoothEnabled = mBluetooth.isBluetoothEnabled();
             if (mBluetooth.isBluetoothConnected()) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected;
+                switch (mBluetoothBatteryLevel) {
+                    case 5:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_5;
+                        break;
+                    case 4:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_4;
+                        break;
+                    case 3:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_3;
+                        break;
+                    case 2:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_2;
+                        break;
+                    case 1:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_1;
+                        break;
+                    default:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected;
+                }
                 contentDescription = mContext.getString(R.string.accessibility_bluetooth_connected);
             }
         }
@@ -771,6 +800,8 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
                 updateManagedProfile();
             } else if (action.equals(AudioManager.ACTION_HEADSET_PLUG)) {
                 updateHeadsetPlug(intent);
+            } else if (action.equals(BluetoothDevice.ACTION_BATTERY_LEVEL_CHANGED)) {
+                updateBluetoothBattery(intent);
             }
         }
     };
