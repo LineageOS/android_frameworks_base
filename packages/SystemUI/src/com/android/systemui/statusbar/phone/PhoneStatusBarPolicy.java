@@ -27,6 +27,7 @@ import android.app.Notification.Action;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.SynchronousUserSwitchObserver;
+import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -409,7 +410,25 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         if (mBluetooth != null) {
             bluetoothEnabled = mBluetooth.isBluetoothEnabled();
             if (mBluetooth.isBluetoothConnected()) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected;
+                switch (BluetoothDevice.getBatteryLevel()) {
+                    case 5:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_5;
+                        break;
+                    case 4:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_4;
+                        break;
+                    case 3:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_3;
+                        break;
+                    case 2:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_2;
+                        break;
+                    case 1:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_1;
+                        break;
+                    default:
+                        iconId = R.drawable.stat_sys_data_bluetooth_connected;
+                }
                 contentDescription = mContext.getString(R.string.accessibility_bluetooth_connected);
             }
         }
