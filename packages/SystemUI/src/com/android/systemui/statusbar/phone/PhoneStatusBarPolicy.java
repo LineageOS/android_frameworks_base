@@ -27,6 +27,7 @@ import android.app.Notification.Action;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.SynchronousUserSwitchObserver;
+import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -54,6 +55,7 @@ import android.util.Pair;
 import com.android.internal.messages.nano.SystemMessageProto.SystemMessage;
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.TelephonyIntents;
+import com.android.settingslib.bluetooth.CachedBluetoothDevice;
 import com.android.systemui.Dependency;
 import com.android.systemui.DockedStackExistsListener;
 import com.android.systemui.R;
@@ -409,7 +411,20 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         if (mBluetooth != null) {
             bluetoothEnabled = mBluetooth.isBluetoothEnabled();
             if (mBluetooth.isBluetoothConnected()) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected;
+                int batteryLevel = mController.getLastDevice().getBatteryLevel();
+                if (batteryLevel == 100) {
+                    iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_5;
+                } else if (batteryLevel > 75) {
+                    iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_4;
+                } else if (batteryLevel > 50) {
+                    iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_3;
+                } else if (batteryLevel > 25) {
+                    iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_2;
+                } else if (batteryLevel > 0) {
+                    iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_1;
+                } else {
+                    iconId = R.drawable.stat_sys_data_bluetooth_connected;
+                }
                 contentDescription = mContext.getString(R.string.accessibility_bluetooth_connected);
             }
         }
