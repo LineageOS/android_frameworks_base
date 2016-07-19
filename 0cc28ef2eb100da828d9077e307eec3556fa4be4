@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3fa7e38b_c3f8c2c5",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-07-19T16:26:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fa7e38b_df499560",
+      "revId": "0cc28ef2eb100da828d9077e307eec3556fa4be4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fa7e38b_bf7a9985",
         "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2016-07-06T17:15:50Z",
       "side": 1,
       "message": "getContext is used twice, could do a Context context variable",
+      "revId": "0cc28ef2eb100da828d9077e307eec3556fa4be4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_e3f5becc",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-07-19T16:26:32Z",
+      "side": 1,
+      "message": "Its just a getter for a member variable, don\u0027t think the change is necessary.",
+      "parentUuid": "3fa7e38b_bf7a9985",
       "revId": "0cc28ef2eb100da828d9077e307eec3556fa4be4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
