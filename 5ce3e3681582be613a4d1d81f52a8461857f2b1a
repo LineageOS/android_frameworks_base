@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_83808a8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-19T19:53:29Z",
+      "side": 1,
+      "message": "or apps/services running under the handful of UIDs that are allowed to send protected-broadcasts regardless of a permission defined.",
+      "range": {
+        "startLine": 17,
+        "startChar": 48,
+        "endLine": 18,
+        "endChar": 43
+      },
+      "revId": "5ce3e3681582be613a4d1d81f52a8461857f2b1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_a37d86b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-19T19:53:29Z",
+      "side": 1,
+      "message": "Just the ability to define a protected-broadcast, right?  Any app that was granted the permission defined should still be able to send the broadcast.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 42
+      },
+      "revId": "5ce3e3681582be613a4d1d81f52a8461857f2b1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_c37682d9",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1881,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-19T19:53:29Z",
+      "side": 1,
+      "message": "\u003e 100 chars",
+      "revId": "5ce3e3681582be613a4d1d81f52a8461857f2b1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_2372f6e6",
+        "filename": "core/res/res/values/attrs_manifest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1598,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-07-19T19:53:29Z",
+      "side": 1,
+      "message": "is this necessary since the tag is private?",
+      "revId": "5ce3e3681582be613a4d1d81f52a8461857f2b1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
