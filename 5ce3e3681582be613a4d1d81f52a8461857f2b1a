@@ -127,6 +127,24 @@
       "revId": "5ce3e3681582be613a4d1d81f52a8461857f2b1a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_4e895973",
+        "filename": "core/res/res/values/attrs_manifest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1598,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-07-19T20:54:29Z",
+      "side": 1,
+      "message": "ran make checkapi with and without the @hide and it seems to pass with both. removing it.",
+      "parentUuid": "3fa7e38b_2372f6e6",
+      "revId": "5ce3e3681582be613a4d1d81f52a8461857f2b1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
