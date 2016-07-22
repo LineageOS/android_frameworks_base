@@ -48,6 +48,7 @@ import android.os.Message;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Surface;
@@ -61,6 +62,7 @@ import com.android.internal.app.IAppOpsService;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Objects;
@@ -265,6 +267,25 @@ public class Camera {
     private static final int CAMERA_FACE_DETECTION_SW = 1;
 
     /**
+     * @hide
+     */
+    public static boolean shouldExposeAuxCamera() {
+        /**
+         * Force to expose only two cameras
+         * if the package name does not falls in this bucket
+         */
+        String packageName = ActivityThread.currentOpPackageName();
+        if (packageName == null)
+            return true;
+        List<String> packageList = Arrays.asList(
+                SystemProperties.get("vendor.camera.aux.packagelist", packageName).split(","));
+        List<String> packageExcludelist = Arrays.asList(
+                SystemProperties.get("vendor.camera.aux.packageexcludelist", "").split(","));
+
+        return packageList.contains(packageName) && !packageExcludelist.contains(packageName);
+    }
+
+    /**
      * Returns the number of physical cameras available on this device.
      * The return value of this method might change dynamically if the device
      * supports external cameras and an external camera is connected or
@@ -280,7 +301,12 @@ public class Camera {
      *   cameras or an error was encountered enumerating them.
      */
     public static int getNumberOfCameras() {
-        return getNumberOfCameras(ActivityThread.currentApplication().getApplicationContext());
+        int numberOfCameras =
+                getNumberOfCameras(ActivityThread.currentApplication().getApplicationContext());
+        if (!shouldExposeAuxCamera() && numberOfCameras > 2) {
+            numberOfCameras = 2;
+        }
+        return numberOfCameras;
     }
 
     /**
@@ -307,6 +333,9 @@ public class Camera {
      *    low-level failure).
      */
     public static void getCameraInfo(int cameraId, CameraInfo cameraInfo) {
+        if (cameraId >= getNumberOfCameras()) {
+            throw new RuntimeException("Unknown camera ID");
+        }
         Context context = ActivityThread.currentApplication().getApplicationContext();
         final int rotationOverride = CameraManager.getRotationOverride(context);
         getCameraInfo(cameraId, context, rotationOverride, cameraInfo);
@@ -563,6 +592,9 @@ public class Camera {
 
     /** used by Camera#open, Camera#open(int) */
     Camera(int cameraId, @NonNull Context context, int rotationOverride) {
+        if (cameraId >= getNumberOfCameras()) {
+            throw new RuntimeException("Unknown camera ID");
+        }
         Objects.requireNonNull(context);
         final int err = cameraInit(cameraId, context, rotationOverride);
         if (checkInitErrors(err)) {
