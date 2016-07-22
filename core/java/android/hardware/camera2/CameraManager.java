@@ -38,6 +38,7 @@ import android.compat.annotation.Overridable;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
+import android.hardware.Camera;
 import android.hardware.CameraExtensionSessionStats;
 import android.hardware.CameraStatus;
 import android.hardware.ICameraService;
@@ -2284,7 +2285,9 @@ public final class CameraManager {
 
         private String[] extractCameraIdListLocked(int deviceId, int devicePolicy) {
             List<String> cameraIds = new ArrayList<>();
+            boolean exposeAuxCamera = Camera.shouldExposeAuxCamera();
             for (int i = 0; i < mDeviceStatus.size(); i++) {
+                if (!exposeAuxCamera && i == 2) break;
                 int status = mDeviceStatus.valueAt(i);
                 DeviceCameraInfo info = mDeviceStatus.keyAt(i);
                 if (status == ICameraServiceListener.STATUS_NOT_PRESENT
@@ -2834,6 +2837,11 @@ public final class CameraManager {
         }
 
         private void onStatusChangedLocked(int status, DeviceCameraInfo info) {
+            if (!Camera.shouldExposeAuxCamera() && Integer.parseInt(info.mCameraId) >= 2) {
+                Log.w(TAG, String.format("Ignoring status update of camera %d", info.mDeviceId));
+                return;
+            }
+
             if (DEBUG) {
                 Log.v(TAG,
                         String.format("Camera id %s has status changed to 0x%x for device %d",
