@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_5bab4788",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-07-27T01:29:56Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to prefetch all of the frames ASAP into a queue and discard as soon as they are done?  This way memory overhead is minimized, but you still get the benefit of a frame always being ready.\n\nPrefetching only the next bitmap may not be that useful.",
+      "range": {
+        "startLine": 875,
+        "startChar": 0,
+        "endLine": 877,
+        "endChar": 21
+      },
+      "revId": "617ced5f822e3d73b2e37174215a453e3d07b361",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
