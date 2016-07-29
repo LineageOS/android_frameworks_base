@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_2cf970c7",
+        "filename": "telephony/java/com/android/ims/ImsCallForwardInfoEx.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2016-07-29T23:25:34Z",
+      "side": 1,
+      "message": "No proprietary code allowed",
+      "range": {
+        "startLine": 4,
+        "startChar": 44,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "5537b906fc43b91002116ab445df5c2a7ab87ecd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
