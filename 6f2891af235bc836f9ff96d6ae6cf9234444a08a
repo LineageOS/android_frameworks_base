@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_c772ee49",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-08-02T18:24:41Z",
+      "side": 1,
+      "message": "this is gross",
+      "range": {
+        "startLine": 795,
+        "startChar": 0,
+        "endLine": 798,
+        "endChar": 13
+      },
+      "revId": "6f2891af235bc836f9ff96d6ae6cf9234444a08a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_a777b23a",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-08-02T18:24:41Z",
+      "side": 1,
+      "message": "magic numbers!",
+      "range": {
+        "startLine": 799,
+        "startChar": 28,
+        "endLine": 799,
+        "endChar": 32
+      },
+      "revId": "6f2891af235bc836f9ff96d6ae6cf9234444a08a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_678f7a23",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-08-02T18:24:41Z",
+      "side": 1,
+      "message": "not needed",
+      "range": {
+        "startLine": 1051,
+        "startChar": 4,
+        "endLine": 1051,
+        "endChar": 38
+      },
+      "revId": "6f2891af235bc836f9ff96d6ae6cf9234444a08a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_8792b64a",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-08-02T18:24:41Z",
+      "side": 1,
+      "message": "This along with the one just below aren\u0027t needed.  Just steadily increment mNextIdx.  The mod is only needed when pulling from the mFrames vector.",
+      "range": {
+        "startLine": 1072,
+        "startChar": 41,
+        "endLine": 1072,
+        "endChar": 57
+      },
+      "revId": "6f2891af235bc836f9ff96d6ae6cf9234444a08a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
