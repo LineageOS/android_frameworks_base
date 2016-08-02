@@ -2231,11 +2231,20 @@ public class BackupManagerService {
     // fire off a backup agent, blocking until it attaches or times out
     IBackupAgent bindToAgentSynchronous(ApplicationInfo app, int mode) {
         IBackupAgent agent = null;
+<<<<<<< HEAD   (1ab48a SystemUI: avoid null tile creation)
         try {
             synchronized(mAgentConnectLock) {
                 mConnecting = true;
                 mConnectedAgent = null;
                 if (mActivityManager.bindBackupAgent(app, mode)) {
+=======
+        synchronized(mAgentConnectLock) {
+            mConnecting = true;
+            mConnectedAgent = null;
+            try {
+                if (mActivityManager.bindBackupAgent(app.packageName, mode,
+                        UserHandle.USER_OWNER)) {
+>>>>>>> BRANCH (4e4743 Add pm operation to set user restrictions.)
                     Slog.d(TAG, "awaiting agent for " + app);
 
                     // success; wait for the agent to arrive
