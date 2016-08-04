@@ -45,6 +45,30 @@
       "revId": "65120111fc4ef8b35d63ffe2115759813a2096b4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_33d460bd",
+        "filename": "services/core/java/com/android/server/wm/WindowManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-08-04T21:26:15Z",
+      "side": 1,
+      "message": "It will throw if it fails. However, I don\u0027t think that matters because we\u0027ve already restoredCallingIdentity before calling adjustWindowParamsLw.",
+      "parentUuid": "3fa7e38b_f3500861",
+      "range": {
+        "startLine": 3168,
+        "startChar": 24,
+        "endLine": 3168,
+        "endChar": 44
+      },
+      "revId": "65120111fc4ef8b35d63ffe2115759813a2096b4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
