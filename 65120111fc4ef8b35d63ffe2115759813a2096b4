@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3fa7e38b_d3270c12",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2455,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-08-04T21:22:02Z",
+      "side": 1,
+      "message": "Now might be a good time to use the constant Manifest.permission.PREVENT_SYSTEM_KEYS",
+      "range": {
+        "startLine": 2455,
+        "startChar": 52,
+        "endLine": 2455,
+        "endChar": 92
+      },
+      "revId": "65120111fc4ef8b35d63ffe2115759813a2096b4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fa7e38b_f3500861",
         "filename": "services/core/java/com/android/server/wm/WindowManagerService.java",
         "patchSetId": 3
