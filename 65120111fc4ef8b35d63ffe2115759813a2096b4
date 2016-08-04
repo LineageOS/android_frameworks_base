@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_f3500861",
+        "filename": "services/core/java/com/android/server/wm/WindowManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-08-04T21:19:44Z",
+      "side": 1,
+      "message": "can this throw an exception? any benefit to wrapping those binder calls in a try { } finally { }",
+      "range": {
+        "startLine": 3168,
+        "startChar": 24,
+        "endLine": 3168,
+        "endChar": 44
+      },
+      "revId": "65120111fc4ef8b35d63ffe2115759813a2096b4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
