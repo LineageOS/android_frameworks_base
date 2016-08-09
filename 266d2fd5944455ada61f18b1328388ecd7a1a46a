@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_10afd094",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-08-09T14:58:35Z",
+      "side": 1,
+      "message": "Should use something more descriptive here\ni.e. Use un-tinted iconback when no defaultSwatchColors defined\n\nTry to keep it short, and add any additional details below the commit subject",
+      "revId": "266d2fd5944455ada61f18b1328388ecd7a1a46a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_d0905851",
+        "filename": "core/java/android/app/IconPackHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-08-09T14:58:35Z",
+      "side": 1,
+      "message": "you don\u0027t need to reassign a value to defaultSwatchColor here, the previous assignment of \u00270\u0027 should yield the desired results of not tinting the background.",
+      "range": {
+        "startLine": 649,
+        "startChar": 0,
+        "endLine": 651,
+        "endChar": 25
+      },
+      "revId": "266d2fd5944455ada61f18b1328388ecd7a1a46a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_709f245f",
+        "filename": "core/java/android/app/IconPackHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-08-09T14:58:35Z",
+      "side": 1,
+      "message": "based on my above comment, you can remove the else but add a null check for defaultSwatchColors\nex. if (defaultSwatchColors !\u003d null \u0026\u0026 iconInfo.defaultSwatchColors.length \u003e 0)",
+      "revId": "266d2fd5944455ada61f18b1328388ecd7a1a46a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
