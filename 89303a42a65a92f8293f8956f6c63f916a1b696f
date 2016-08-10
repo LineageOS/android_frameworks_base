@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_f6b22ce6",
+        "filename": "core/java/com/android/internal/util/cm/ActionUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-08-10T06:35:37Z",
+      "side": 1,
+      "message": "Stray comma.",
+      "revId": "89303a42a65a92f8293f8956f6c63f916a1b696f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_56bc60ba",
+        "filename": "core/java/com/android/internal/util/cm/ActionUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-08-10T06:35:37Z",
+      "side": 1,
+      "message": "This causes the full home stack to be ignored, not only the home task (\u003d launcher).",
+      "revId": "89303a42a65a92f8293f8956f6c63f916a1b696f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_16b6e8da",
+        "filename": "core/java/com/android/internal/util/cm/ActionUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-08-10T06:35:37Z",
+      "side": 1,
+      "message": "Stray }",
+      "revId": "89303a42a65a92f8293f8956f6c63f916a1b696f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
