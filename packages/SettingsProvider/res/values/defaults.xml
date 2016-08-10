@@ -187,4 +187,10 @@
 
     <!--  default setting for Settings.System.END_BUTTON_BEHAVIOR : END_BUTTON_BEHAVIOR_SLEEP -->
     <integer name="def_end_button_behavior">0x2</integer>
+
+    <!-- Date format,yyyy-MM-dd: 2013/07/30; MM-dd-yyyy:07/30/2013; dd-MM-yyyy:30/07/2013 -->
+    <string name="def_date_format" translatable="false"></string>
+
+    <!-- Time format,default value is 24 : 24 format,other value is 12 format -->
+    <string name="def_time_format" translatable="false"></string>
 </resources>
