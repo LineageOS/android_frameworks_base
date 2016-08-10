@@ -3056,6 +3056,15 @@ public class SettingsProvider extends ContentProvider {
                                 Settings.Secure.NFC_PAYMENT_DEFAULT_COMPONENT,
                                 defaultComponent, null, true, SettingsState.SYSTEM_PACKAGE_NAME);
                     }
+                    // Allow OEMs to set default time format.
+                    final SettingsState dateAndTimeSettings = getSystemSettingsLocked(userId);
+                    String defaultStringComponent;
+                    defaultStringComponent = getContext().getResources().getString(
+                            R.string.def_time_format);
+                    if (!TextUtils.isEmpty(defaultStringComponent)) {
+                        dateAndTimeSettings.insertSettingLocked(Settings.System.TIME_12_24,
+                                defaultStringComponent, null, true, SettingsState.SYSTEM_PACKAGE_NAME);
+                    }
                     currentVersion = 122;
                 }
 
