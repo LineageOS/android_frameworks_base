@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_af2fc7f4",
+        "filename": "media/java/android/media/AudioAttributes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-08-22T05:45:12Z",
+      "side": 1,
+      "message": "The indentation uses spaces in surrounding code, should be adjusted accordingly (16 spaces instead of 2 tabs here)",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 44
+      },
+      "revId": "1b402e6593586a6feafc568c3f2ff3912abcafbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
