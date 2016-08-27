@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright (c) 2016 Projekt Substratum
+    Copyright (c) 2016 Project Substratum
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -15,12 +15,11 @@
     limitations under the License.
 -->
 
-<resources>
-    <color name="resolver_list_bg">@color/white</color>
-    <color name="immersive_cling_bg_color">@color/accent_device_default_light</color>
-    <color name="immersive_cling_text_color">@color/primary_text_default_material_light</color>
-    <color name="immersive_cling_button_text_color">@android:color/white</color>
-    <color name="app_permission_icon_tint">@android:color/black</color>
-    <color name="notification_text_default_color">@android:color/notification_default_color</color>
-    <color name="sender_text_color">@android:color/black</color>
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds.  Do not translate. -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- True if the notifications should dynamically tint the app icon and app title -->
+    <bool name="config_allowNotificationIconTextTinting">true</bool>
+
 </resources>
