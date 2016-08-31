@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_b3215250",
+        "filename": "services/net/java/android/net/dhcp/DhcpPacket.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-08-31T16:56:48Z",
+      "side": 1,
+      "message": "There should be another prototype here that feeds in a default value.\n\nTry:\n\naddTlv(buf, DHCP_HOST_NAME, SystemProperties.get(\"net.hostname\", \"android-dhcp\"));",
+      "range": {
+        "startLine": 605,
+        "startChar": 26,
+        "endLine": 605,
+        "endChar": 63
+      },
+      "revId": "e5c846d4f0839d2b6c9807322bc03ce7b401d831",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
