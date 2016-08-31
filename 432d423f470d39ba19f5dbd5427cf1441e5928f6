@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_2862d13f",
+        "filename": "services/usb/java/com/android/server/usb/UsbDeviceManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 11583
+      },
+      "writtenOn": "2016-08-31T11:31:28Z",
+      "side": 1,
+      "message": "was changed to PRIORITY_DEFAULT in N during merge u added in the old priority",
+      "revId": "432d423f470d39ba19f5dbd5427cf1441e5928f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
