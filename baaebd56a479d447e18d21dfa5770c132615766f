@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_059edb55",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-09-02T00:31:33Z",
+      "side": 1,
+      "message": "Don\u0027t space after a negation",
+      "range": {
+        "startLine": 659,
+        "startChar": 17,
+        "endLine": 659,
+        "endChar": 18
+      },
+      "revId": "baaebd56a479d447e18d21dfa5770c132615766f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_4594d337",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-09-02T00:31:33Z",
+      "side": 1,
+      "message": "Could just do new Random().nextInt() here.",
+      "range": {
+        "startLine": 666,
+        "startChar": 68,
+        "endLine": 666,
+        "endChar": 81
+      },
+      "revId": "baaebd56a479d447e18d21dfa5770c132615766f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
