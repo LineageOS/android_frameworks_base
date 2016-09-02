@@ -4440,11 +4440,6 @@
     <string name="China_Mobile">China Mobile</string>
     <string name="China_Unicom">China Unicom</string>
     <string name="China_Telecom">China Telecom</string>
-    <string name="other_permissions">other permissions</string>
-    <string name="permission_remember_choice">Remember</string>
-    <string name="permission_title">Permission</string>
-    <string name="allow_button">Allow</string>
-    <string name="deny_button">Deny</string>
     <!-- Label used by Telephony code, assigned as the display name for conference calls [CHAR LIMIT=60] -->
     <string name="conference_call">Conference Call</string>
 </resources>
