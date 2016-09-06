@@ -45,8 +45,7 @@
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> would like to <xliff:g id="op">%2$s</xliff:g>.</string>
 
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-    <string name="permission_remember_choice">Remember</string>
-    <string name="permission">Permission</string>
+    <string name="permission_remember_choice">Remember my choice</string>
 
     <!-- App ops requests -->
     <string name="app_ops_access_camera">access the camera</string>
@@ -95,16 +94,16 @@
     <string name="app_ops_receive_sms">receive an SMS message</string>
     <string name="app_ops_record_audio">record audio</string>
     <string name="app_ops_run_in_background">run in background</string>
-    <string name="app_ops_scan_wifi">Scan WiFi Networks</string>
+    <string name="app_ops_scan_wifi">scan Wi-Fi networks</string>
     <string name="app_ops_send_mms">send an MMS message</string>
     <string name="app_ops_send_sms">send an SMS message</string>
     <string name="app_ops_start_at_bootup">start at power up</string>
-    <string name="app_ops_su">get Superuser access</string>
+    <string name="app_ops_su">get root access</string>
     <string name="app_ops_toast_window">display toast messages</string>
     <string name="app_ops_toggle_bluetooth">toggle Bluetooth</string>
-    <string name="app_ops_toggle_mobile_data">toggle mobile data</string>
+    <string name="app_ops_toggle_mobile_data">toggle cellular data</string>
     <string name="app_ops_toggle_nfc">toggle NFC</string>
-    <string name="app_ops_toggle_wifi">toggle WiFi</string>
+    <string name="app_ops_toggle_wifi">toggle Wi-Fi</string>
     <string name="app_ops_turn_on_screen">turn the screen on</string>
     <string name="app_ops_use_alarm_volume">control alarm volume</string>
     <string name="app_ops_use_audio_focus">control the audio focus</string>
@@ -118,7 +117,7 @@
     <string name="app_ops_use_ring_volume">control the ringtone volume</string>
     <string name="app_ops_use_vibrate">use haptic feedback</string>
     <string name="app_ops_use_voice_volume">control the voice call volume</string>
-    <string name="app_ops_wifi_change">change WiFI state</string>
+    <string name="app_ops_wifi_change">change Wi-Fi state</string>
     <string name="app_ops_write_external_storage">write external storage</string>
     <string name="app_ops_write_mms">write an MMS message</string>
     <string name="app_ops_write_sms">write an SMS message</string>
