@@ -126,7 +126,6 @@ import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManagerInternal;
 
 import com.android.internal.R;
-import com.android.internal.app.ActivityTrigger;
 import com.android.internal.app.IAssistScreenshotReceiver;
 import com.android.internal.os.IResultReceiver;
 import com.android.internal.policy.IShortcutService;
@@ -266,10 +265,7 @@ public class WindowManagerService extends IWindowManager.Stub
 
     static final boolean PROFILE_ORIENTATION = false;
     static final boolean localLOGV = DEBUG;
-    static final boolean mEnableAnimCheck = SystemProperties.getBoolean("persist.animcheck.enable", false);
-    static ActivityTrigger mActivityTrigger = new ActivityTrigger();
-    static WindowState mFocusingWindow;
-    String mFocusingActivity;
+
     /** How much to multiply the policy's type layer, to reserve room
      * for multiple windows of the same type and Z-ordering adjustment
      * with TYPE_LAYER_OFFSET. */
@@ -353,11 +349,6 @@ public class WindowManagerService extends IWindowManager.Stub
     private static final float DRAG_SHADOW_ALPHA_TRANSPARENT = .7071f;
 
     private static final String PROPERTY_BUILD_DATE_UTC = "ro.build.date.utc";
-
-    /*define misc. activty trigger function*/
-    static final int START_PROCESS = 1;
-    static final int NETWORK_OPTS = 2;
-    static final int ANIMATION_SCALE = 3;
 
     // Enums for animation scale update types.
     @Retention(RetentionPolicy.SOURCE)
@@ -1896,7 +1887,6 @@ public class WindowManagerService extends IWindowManager.Stub
         long origId;
         final int callingUid = Binder.getCallingUid();
         final int type = attrs.type;
-        mFocusingActivity = attrs.getTitle().toString();
 
         synchronized(mWindowMap) {
             if (!mDisplayReady) {
@@ -5741,38 +5731,12 @@ public class WindowManagerService extends IWindowManager.Stub
         ValueAnimator.setDurationScale(scale);
     }
 
-    private float animationScalesCheck (int which) {
-        float value = -1.0f;
-        if (!mAnimationsDisabled) {
-            if (mEnableAnimCheck) {
-                if (mFocusingActivity != null) {
-                    if (mActivityTrigger == null) {
-                        mActivityTrigger = new ActivityTrigger();
-                    }
-                    if (mActivityTrigger != null) {
-                        value = mActivityTrigger.activityMiscTrigger(ANIMATION_SCALE, mFocusingActivity, which, 0);
-                    }
-               }
-            }
-            if (value == -1.0f) {
-                switch (which) {
-                    case WINDOW_ANIMATION_SCALE: value = mWindowAnimationScaleSetting; break;
-                    case TRANSITION_ANIMATION_SCALE: value = mTransitionAnimationScaleSetting; break;
-                    case ANIMATION_DURATION_SCALE: value = mAnimatorDurationScaleSetting; break;
-                }
-            }
-        } else {
-            value = 0;
-        }
-        return value;
-    }
-
     public float getWindowAnimationScaleLocked() {
-        return animationScalesCheck(WINDOW_ANIMATION_SCALE);
+        return mAnimationsDisabled ? 0 : mWindowAnimationScaleSetting;
     }
 
     public float getTransitionAnimationScaleLocked() {
-        return animationScalesCheck(TRANSITION_ANIMATION_SCALE);
+        return mAnimationsDisabled ? 0 : mTransitionAnimationScaleSetting;
     }
 
     @Override
@@ -5794,7 +5758,7 @@ public class WindowManagerService extends IWindowManager.Stub
     @Override
     public float getCurrentAnimatorScale() {
         synchronized(mWindowMap) {
-            return animationScalesCheck(ANIMATION_DURATION_SCALE);
+            return mAnimationsDisabled ? 0 : mAnimatorDurationScaleSetting;
         }
     }
 
@@ -10077,12 +10041,6 @@ public class WindowManagerService extends IWindowManager.Stub
                             // No focus for you!!!
                             if (localLOGV || DEBUG_FOCUS_LIGHT) Slog.v(TAG_WM,
                                     "findFocusedWindow: Reached focused app=" + mFocusedApp);
-                            if (mFocusedApp.hasWindowsAlive()) {
-                                mFocusingWindow = mFocusedApp.findMainWindow();
-                                if (mFocusingWindow != null) {
-                                    mFocusingActivity = mFocusingWindow.mAttrs.getTitle().toString();
-                                }
-                            }
                             return null;
                         }
                     }
