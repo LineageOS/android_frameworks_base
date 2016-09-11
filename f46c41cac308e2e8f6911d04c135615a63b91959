@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_df5e2c11",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2016-09-11T06:57:54Z",
+      "side": 1,
+      "message": "I dunno if this is right but I am unable to compile it without casting it to ContentObserver.",
+      "range": {
+        "startLine": 424,
+        "startChar": 67,
+        "endLine": 424,
+        "endChar": 85
+      },
+      "revId": "f46c41cac308e2e8f6911d04c135615a63b91959",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
