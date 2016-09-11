@@ -324,7 +324,7 @@ public final class Call {
          */
         public static final int PROPERTY_HAS_CDMA_VOICE_PRIVACY = 0x00000080;
 
-        /*
+        /**
          * Whether the call was forwarded from another party (GSM only)
          * @hide
          */
