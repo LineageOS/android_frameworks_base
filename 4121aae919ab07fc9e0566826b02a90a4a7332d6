@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_5fb55ccc",
+        "filename": "services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 5105,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-09-11T10:25:29Z",
+      "side": 1,
+      "message": "Could also just add this code into the try... catch block and move the var declaration above it?",
+      "range": {
+        "startLine": 5099,
+        "startChar": 12,
+        "endLine": 5105,
+        "endChar": 13
+      },
+      "revId": "4121aae919ab07fc9e0566826b02a90a4a7332d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
