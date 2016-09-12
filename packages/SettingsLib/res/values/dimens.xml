@@ -96,7 +96,7 @@
     <!-- Maximum density scale. The actual scale used depends on the device. -->
     <fraction name="display_density_max_scale">150%</fraction>
     <!-- Minimum density scale. This is available on all devices. -->
-    <fraction name="display_density_min_scale">85%</fraction>
+    <fraction name="display_density_min_scale">70%</fraction>
 
     <!-- Broadcast dialog -->
     <dimen name="broadcast_dialog_title_img_margin_top">18dp</dimen>
