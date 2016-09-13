@@ -114,7 +114,8 @@ public class CellularTile extends QSTile<QSTile.SignalState> {
         state.icon = ResourceIcon.get(iconId);
         state.isOverlayIconWide = cb.isDataTypeIconWide;
         state.isShowRoaming = (!(cb.noSim || !cb.enabled || cb.airplaneModeEnabled)
-                && cb.mobileSignalIconId > 0);
+                && cb.mobileSignalIconId > 0)
+                && !r.getBoolean(R.bool.config_always_hide_roaming_indicator);
         state.subId = cb.subId;
         state.autoMirrorDrawable = !cb.noSim;
         state.overlayIconId = cb.enabled && (cb.dataTypeIconId > 0) ? cb.dataTypeIconId : 0;
