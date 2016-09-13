@@ -2658,4 +2658,12 @@
          the Emergency Call while the device is non-interactive. -->
     <bool name="config_emergencyCallOnPowerkeyTapGestureEnabled">false</bool>
     <bool name="config_volte_preferred">false</bool>
+
+    <!-- Array of numeric that operator considered as domestic roaming -->
+    <string-array translatable="false" name="config_operatorConsideredDomesticRoaming">
+    </string-array>
+
+    <!-- Exceptions of above list -->
+    <string-array translatable="false" name="config_operatorConsideredDomesticRoamingExceptions">
+    </string-array>
 </resources>
