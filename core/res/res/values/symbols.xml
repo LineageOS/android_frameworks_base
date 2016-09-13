@@ -2744,4 +2744,6 @@
   <java-symbol type="bool" name="operator_custom_sim_icon" />
   <!-- config softap extention feature -->
   <java-symbol type="bool" name="config_softap_extention" />
+  <java-symbol type="array" name="config_operatorConsideredDomesticRoaming" />
+  <java-symbol type="array" name="config_operatorConsideredDomesticRoamingExceptions" />
 </resources>
