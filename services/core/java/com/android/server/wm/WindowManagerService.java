@@ -11550,6 +11550,38 @@ public class WindowManagerService extends IWindowManager.Stub
         mPolicy.registerShortcutKey(shortcutCode, shortcutKeyReceiver);
     }
 
+    @Override
+    public int getLastWallpaperX() {
+        int curTokenIndex = mTokenMap.size();
+        while (curTokenIndex > 0) {
+            curTokenIndex--;
+            WindowToken token = mTokenMap.get(curTokenIndex);
+            int curWallpaperIndex = token.windows.size();
+            while (curWallpaperIndex > 0) {
+                curWallpaperIndex--;
+                WindowState wallpaperWin = token.windows.get(curWallpaperIndex);
+                return wallpaperWin.mXOffset;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public int getLastWallpaperY() {
+        int curTokenIndex = mTokenMap.size();
+        while (curTokenIndex > 0) {
+            curTokenIndex--;
+            WindowToken token = mTokenMap.get(curTokenIndex);
+            int curWallpaperIndex = token.windows.size();
+            while (curWallpaperIndex > 0) {
+                curWallpaperIndex--;
+                WindowState wallpaperWin = token.windows.get(curWallpaperIndex);
+                return wallpaperWin.mYOffset;
+            }
+        }
+        return -1;
+    }
+
     void markForSeamlessRotation(WindowState w, boolean seamlesslyRotated) {
         if (seamlesslyRotated == w.mSeamlesslyRotated) {
             return;
