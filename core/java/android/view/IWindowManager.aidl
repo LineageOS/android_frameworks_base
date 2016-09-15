@@ -442,4 +442,14 @@ interface IWindowManager
      * Remove the input consumer for wallpaper events.
      */
     void removeWallpaperInputConsumer();
+
+    /**
+     * Get the current x offset for the wallpaper
+     */
+    int getLastWallpaperX();
+
+    /**
+     * Get the current y offset for the wallpaper
+     */
+    int getLastWallpaperY();
 }

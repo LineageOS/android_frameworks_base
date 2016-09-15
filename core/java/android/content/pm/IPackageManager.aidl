@@ -17,6 +17,7 @@
 
 package android.content.pm;
 
+import android.app.ComposedIconInfo;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -584,4 +585,9 @@ interface IPackageManager {
 
     /** protected broadcast ext */
     boolean isProtectedBroadcastAllowed(in String actionName, in int callingUid);
+
+    /** Themes */
+    int processThemeResources(String themePkgName);
+    void updateIconMapping(String pkgName);
+    ComposedIconInfo getComposedIconInfo();
 }
