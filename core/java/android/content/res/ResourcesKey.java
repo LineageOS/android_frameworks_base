@@ -45,6 +45,14 @@ public final class ResourcesKey {
     @NonNull
     public final CompatibilityInfo mCompatInfo;
 
+    public final boolean mIsThemeable;
+
+    @Nullable
+    public final ThemeConfig mThemeConfig;
+
+    @Nullable
+    public final String mAppName;
+
     private final int mHash;
 
     public ResourcesKey(@Nullable String resDir,
@@ -53,7 +61,10 @@ public final class ResourcesKey {
                         @Nullable String[] libDirs,
                         int displayId,
                         @Nullable Configuration overrideConfig,
-                        @Nullable CompatibilityInfo compatInfo) {
+                        @Nullable CompatibilityInfo compatInfo,
+                        boolean isThemeable,
+                        String appName,
+                        @Nullable ThemeConfig themeConfig) {
         mResDir = resDir;
         mSplitResDirs = splitResDirs;
         mOverlayDirs = overlayDirs;
@@ -61,6 +72,9 @@ public final class ResourcesKey {
         mDisplayId = displayId;
         mOverrideConfiguration = overrideConfig != null ? overrideConfig : Configuration.EMPTY;
         mCompatInfo = compatInfo != null ? compatInfo : CompatibilityInfo.DEFAULT_COMPATIBILITY_INFO;
+        mIsThemeable = isThemeable;
+        mAppName = appName;
+        mThemeConfig = themeConfig;
 
         int hash = 17;
         hash = 31 * hash + Objects.hashCode(mResDir);
@@ -70,6 +84,9 @@ public final class ResourcesKey {
         hash = 31 * hash + mDisplayId;
         hash = 31 * hash + Objects.hashCode(mOverrideConfiguration);
         hash = 31 * hash + Objects.hashCode(mCompatInfo);
+        hash = 31 * hash + (mIsThemeable ? 1 : 0);
+        hash = 31 * hash + (mAppName != null ? mAppName.hashCode() : 0);
+        hash = 31 * hash + (mThemeConfig != null ? mThemeConfig.hashCode() : 0);
         mHash = hash;
     }
 
@@ -135,6 +152,15 @@ public final class ResourcesKey {
         if (!Objects.equals(mCompatInfo, peer.mCompatInfo)) {
             return false;
         }
+        if (mIsThemeable != peer.mIsThemeable) {
+            return false;
+        }
+        if (!Objects.equals(mAppName, peer.mAppName)) {
+            return false;
+        }
+        if (!Objects.equals(mThemeConfig, peer.mThemeConfig)) {
+            return false;
+        }
         return true;
     }
 
@@ -162,6 +188,8 @@ public final class ResourcesKey {
         builder.append(" mOverrideConfig=").append(Configuration.resourceQualifierString(
                 mOverrideConfiguration));
         builder.append(" mCompatInfo=").append(mCompatInfo);
+        builder.append(" mIsThemeable=").append(mIsThemeable);
+        builder.append(" mThemeConfig=").append(mThemeConfig);
         builder.append("}");
         return builder.toString();
     }
