@@ -82,4 +82,8 @@
 
     <!-- Blur effects -->
     <java-symbol type="bool" name="config_uiBlurEnabled" />
+
+    <!-- Non-themeable packages -->
+    <java-symbol type="array" name="non_themeable_packages" />
+
 </resources>
