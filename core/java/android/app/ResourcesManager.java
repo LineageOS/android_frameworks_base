@@ -21,20 +21,28 @@ import static android.app.ActivityThread.DEBUG_CONFIGURATION;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageItemInfo;
 import android.content.res.AssetManager;
 import android.content.res.CompatibilityInfo;
 import android.content.res.Configuration;
+import android.content.res.ThemeConfig;
 import android.content.res.Resources;
 import android.content.res.ResourcesImpl;
 import android.content.res.ResourcesKey;
+import android.graphics.Typeface;
 import android.hardware.display.DisplayManagerGlobal;
 import android.os.IBinder;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.Trace;
+import android.os.UserHandle;
+import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Pair;
 import android.util.Slog;
+import android.util.SparseArray;
 import android.view.Display;
 import android.view.DisplayAdjustments;
 
@@ -43,6 +51,7 @@ import com.android.internal.util.ArrayUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.WeakHashMap;
 import java.util.function.Predicate;
@@ -282,6 +291,25 @@ public class ResourcesManager {
                 }
             }
         }
+
+        assets.setAppName(key.mAppName);
+        assets.setThemeSupport(key.mIsThemeable);
+
+        final ThemeConfig themeConfig = key.mThemeConfig;
+        /* Attach theme information to the resulting AssetManager when appropriate. */
+        if (themeConfig != null) {
+            if (key.mIsThemeable) {
+                if (themeConfig != null) {
+                    assets.attachThemeAssets(themeConfig);
+                    assets.attachIconAssets(themeConfig);
+                }
+            } else if (themeConfig != null &&
+                    !ThemeConfig.SYSTEM_DEFAULT.equals(themeConfig.getFontPkgName())) {
+                // use system fonts if not themeable and a theme font is currently in use
+                Typeface.recreateDefaults(true);
+            }
+        }
+
         return assets;
     }
 
@@ -496,10 +524,13 @@ public class ResourcesManager {
             int displayId,
             @Nullable Configuration overrideConfig,
             @NonNull CompatibilityInfo compatInfo,
-            @Nullable ClassLoader classLoader) {
+            @Nullable ClassLoader classLoader,
+            @Nullable String appPackageName,
+            boolean isThemeable) {
         try {
             Trace.traceBegin(Trace.TRACE_TAG_RESOURCES,
                     "ResourcesManager#createBaseActivityResources");
+            ThemeConfig themeConfig = getThemeConfig();
             final ResourcesKey key = new ResourcesKey(
                     resDir,
                     splitResDirs,
@@ -507,7 +538,10 @@ public class ResourcesManager {
                     libDirs,
                     displayId,
                     overrideConfig != null ? new Configuration(overrideConfig) : null, // Copy
-                    compatInfo);
+                    compatInfo,
+                    isThemeable,
+                    appPackageName,
+                    themeConfig);
             classLoader = classLoader != null ? classLoader : ClassLoader.getSystemClassLoader();
 
             if (DEBUG) {
@@ -661,9 +695,12 @@ public class ResourcesManager {
             int displayId,
             @Nullable Configuration overrideConfig,
             @NonNull CompatibilityInfo compatInfo,
-            @Nullable ClassLoader classLoader) {
+            @Nullable ClassLoader classLoader,
+            @Nullable String appPackageName,
+            boolean isThemeable) {
         try {
             Trace.traceBegin(Trace.TRACE_TAG_RESOURCES, "ResourcesManager#getResources");
+            final ThemeConfig themeConfig = getThemeConfig();
             final ResourcesKey key = new ResourcesKey(
                     resDir,
                     splitResDirs,
@@ -671,7 +708,10 @@ public class ResourcesManager {
                     libDirs,
                     displayId,
                     overrideConfig != null ? new Configuration(overrideConfig) : null, // Copy
-                    compatInfo);
+                    compatInfo,
+                    isThemeable,
+                    appPackageName,
+                    themeConfig);
             classLoader = classLoader != null ? classLoader : ClassLoader.getSystemClassLoader();
             return getOrCreateResources(activityToken, key, classLoader);
         } finally {
@@ -766,7 +806,8 @@ public class ResourcesManager {
                     final ResourcesKey newKey = new ResourcesKey(oldKey.mResDir,
                             oldKey.mSplitResDirs,
                             oldKey.mOverlayDirs, oldKey.mLibDirs, oldKey.mDisplayId,
-                            rebasedOverrideConfig, oldKey.mCompatInfo);
+                            rebasedOverrideConfig, oldKey.mCompatInfo, oldKey.mIsThemeable, oldKey.mAppName,
+                            oldKey.mThemeConfig);
 
                     if (DEBUG) {
                         Slog.d(TAG, "rebasing ref=" + resources + " from oldKey=" + oldKey
@@ -835,6 +876,19 @@ public class ResourcesManager {
                     boolean isDefaultDisplay = (displayId == Display.DEFAULT_DISPLAY);
                     DisplayMetrics dm = defaultDisplayMetrics;
                     final boolean hasOverrideConfiguration = key.hasOverrideConfiguration();
+                    boolean themeChanged = (changes & ActivityInfo.CONFIG_THEME_RESOURCE) != 0;
+                    if (themeChanged) {
+                        AssetManager am = r.getAssets();
+                        if (am.hasThemeSupport()) {
+                            r.setIconResources(null);
+                            r.setComposedIconInfo(null);
+                            am.detachThemeAssets();
+                            if (config.themeConfig != null) {
+                                am.attachThemeAssets(config.themeConfig);
+                                am.attachIconAssets(config.themeConfig);
+                            }
+                        }
+                    }
                     if (!isDefaultDisplay || hasOverrideConfiguration) {
                         if (tmpConfig == null) {
                             tmpConfig = new Configuration();
@@ -862,6 +916,9 @@ public class ResourcesManager {
                         r.updateConfiguration(tmpConfig, dm, compat);
                     } else {
                         r.updateConfiguration(config, dm, compat);
+                    }
+                    if (themeChanged) {
+                        r.updateStringCache();
                     }
                     //Slog.i(TAG, "Updated app resources " + v.getKey()
                     //        + " " + r + ": " + r.getConfiguration());
@@ -911,7 +968,10 @@ public class ResourcesManager {
                                 newLibAssets,
                                 key.mDisplayId,
                                 key.mOverrideConfiguration,
-                                key.mCompatInfo));
+                                key.mCompatInfo,
+                                key.mIsThemeable,
+                                key.mAppName,
+                                key.mThemeConfig));
                     }
                 }
             }
@@ -955,5 +1015,67 @@ public class ResourcesManager {
                 }
             }
         }
+    }
+
+    private ThemeConfig getThemeConfig() {
+        final Configuration config = getConfiguration();
+        return config != null ? config.themeConfig : null;
+    }
+
+    /**
+     * Creates a map between an activity & app's icon ids to its component info. This map
+     * is then stored in the resource object.
+     * When resource.getDrawable(id) is called it will check this mapping and replace
+     * the id with the themed resource id if one is available
+     * @param r
+     */
+    private void setActivityIcons(ResourcesImpl r) {
+//        SparseArray<PackageItemInfo> iconResources = new SparseArray<PackageItemInfo>();
+//        String pkgName = r.getAssets().getAppName();
+//        PackageInfo pkgInfo = null;
+//        ApplicationInfo appInfo = null;
+//
+//        try {
+//            pkgInfo = getPackageManager().getPackageInfo(pkgName, PackageManager.GET_ACTIVITIES,
+//                    UserHandle.getCallingUserId());
+//        } catch (RemoteException e1) {
+//            Slog.e(TAG, "Unable to get pkg " + pkgName, e1);
+//            return;
+//        }
+//
+//        final ThemeConfig themeConfig = r.getConfiguration().themeConfig;
+//        if (pkgName != null && themeConfig != null &&
+//                pkgName.equals(themeConfig.getIconPackPkgName())) {
+//            return;
+//        }
+//
+//        //Map application icon
+//        if (pkgInfo != null && pkgInfo.applicationInfo != null) {
+//            appInfo = pkgInfo.applicationInfo;
+//            if (appInfo.themedIcon != 0 || iconResources.get(appInfo.icon) == null) {
+//                iconResources.put(appInfo.icon, appInfo);
+//            }
+//        }
+//
+//        //Map activity icons.
+//        if (pkgInfo != null && pkgInfo.activities != null) {
+//            for (ActivityInfo ai : pkgInfo.activities) {
+//                if (ai.icon != 0 && (ai.themedIcon != 0 || iconResources.get(ai.icon) == null)) {
+//                    iconResources.put(ai.icon, ai);
+//                } else if (appInfo != null && appInfo.icon != 0 &&
+//                        (ai.themedIcon != 0 || iconResources.get(appInfo.icon) == null)) {
+//                    iconResources.put(appInfo.icon, ai);
+//                }
+//            }
+//        }
+//
+//        r.setIconResources(iconResources);
+//        final IPackageManager pm = getPackageManager();
+//        try {
+//            ComposedIconInfo iconInfo = pm.getComposedIconInfo();
+//            r.setComposedIconInfo(iconInfo);
+//        } catch (Exception e) {
+//            Slog.wtf(TAG, "Failed to retrieve ComposedIconInfo", e);
+//        }
     }
 }
