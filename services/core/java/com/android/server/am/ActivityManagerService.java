@@ -145,6 +145,7 @@ import android.content.pm.UserInfo;
 import android.content.res.CompatibilityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.res.ThemeConfig;
 import android.database.ContentObserver;
 import android.graphics.Bitmap;
 import android.graphics.Point;
@@ -520,6 +521,8 @@ public final class ActivityManagerService extends ActivityManagerNative
 
     // Delay in notifying task stack change listeners (in millis)
     static final int NOTIFY_TASK_STACK_CHANGE_LISTENERS_DELAY = 100;
+
+    static final String PROP_REFRESH_THEME = "sys.refresh_theme";
 
     // Necessary ApplicationInfo flags to mark an app as persistent
     private static final int PERSISTENT_MASK =
@@ -3956,6 +3959,13 @@ public final class ActivityManagerService extends ActivityManagerNative
                 mNativeDebuggingApp = null;
             }
 
+            //Check if zygote should refresh its fonts
+            boolean refreshTheme = false;
+            if (SystemProperties.getBoolean(PROP_REFRESH_THEME, false)) {
+                SystemProperties.set(PROP_REFRESH_THEME, "false");
+                refreshTheme = true;
+            }
+
             String requiredAbi = (abiOverride != null) ? abiOverride : app.info.primaryCpuAbi;
             if (requiredAbi == null) {
                 requiredAbi = Build.SUPPORTED_ABIS[0];
@@ -3980,7 +3990,7 @@ public final class ActivityManagerService extends ActivityManagerNative
             Process.ProcessStartResult startResult = Process.start(entryPoint,
                     app.processName, uid, uid, gids, debugFlags, mountExternal,
                     app.info.targetSdkVersion, app.info.seinfo, requiredAbi, instructionSet,
-                    app.info.dataDir, entryPointArgs);
+                    app.info.dataDir, refreshTheme, entryPointArgs);
             checkTime(startTime, "startProcess: returned from zygote!");
             Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
 
@@ -19085,6 +19095,9 @@ public final class ActivityManagerService extends ActivityManagerNative
         synchronized(this) {
             ci = new Configuration(mConfiguration);
             ci.userSetLocale = false;
+            if (ci.themeConfig == null) {
+                ci.themeConfig = ThemeConfig.getBootTheme(mContext.getContentResolver());
+            }
         }
         return ci;
     }
@@ -19256,6 +19269,16 @@ public final class ActivityManagerService extends ActivityManagerNative
                     LocaleList.setDefault(locales, bestLocaleIndex);
                     mHandler.sendMessage(mHandler.obtainMessage(SEND_LOCALE_TO_MOUNT_DAEMON_MSG,
                             locales.get(bestLocaleIndex)));
+                }
+
+                if (values.themeConfig != null) {
+                    saveThemeResourceLocked(values.themeConfig,
+                            !values.themeConfig.equals(mConfiguration.themeConfig));
+                }
+
+                if ((changes & ActivityInfo.CONFIG_THEME_FONT) != 0) {
+                    // Notify zygote that themes need a refresh
+                    SystemProperties.set(PROP_REFRESH_THEME, "1");
                 }
 
                 mConfigurationSeq++;
@@ -19437,6 +19460,14 @@ public final class ActivityManagerService extends ActivityManagerNative
             return null;
         }
         return srec.launchedFromPackage;
+    }
+
+    private void saveThemeResourceLocked(ThemeConfig t, boolean isDiff) {
+        if(isDiff) {
+            Settings.Secure.putStringForUser(mContext.getContentResolver(),
+                    Configuration.THEME_PKG_CONFIGURATION_PERSISTENCE_PROPERTY, t.toJson(),
+                    UserHandle.USER_CURRENT);
+        }
     }
 
     // =========================================================
