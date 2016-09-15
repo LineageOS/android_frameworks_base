@@ -88,4 +88,8 @@
 
     <!-- Whether to enable HumanInteractionController by default -->
     <java-symbol type="bool" name="config_HICEnabledDefault" />
+
+    <!-- Non-themeable packages -->
+    <java-symbol type="array" name="non_themeable_packages" />
+
 </resources>
