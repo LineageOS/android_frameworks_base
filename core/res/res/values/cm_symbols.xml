@@ -100,4 +100,8 @@
     <java-symbol type="id" name="slide_hint_area" />
     <java-symbol type="layout" name="single_hand_window" />
     <java-symbol type="string" name="singlehandmode_click_hint_message" />
+
+    <!-- Non-themeable packages -->
+    <java-symbol type="array" name="non_themeable_packages" />
+
 </resources>
