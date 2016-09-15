@@ -111,4 +111,7 @@
 
     <!-- Whether light up buttons only when pressed -->
     <java-symbol type="bool" name="config_buttonLightOnKeypressOnly" />
+
+    <!-- Non-themeable packages -->
+    <java-symbol type="array" name="non_themeable_packages" />
 </resources>

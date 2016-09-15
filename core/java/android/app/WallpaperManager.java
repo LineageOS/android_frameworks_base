@@ -682,7 +682,14 @@ public class WallpaperManager {
      * @return Returns a Drawable object that will draw the wallpaper.
      */
     public Drawable getFastDrawable() {
-        Bitmap bm = sGlobals.peekWallpaperBitmap(mContext, true, FLAG_SYSTEM);
+        return getFastDrawable(FLAG_SYSTEM);
+    }
+
+    /**
+     * @hide
+     */
+    public Drawable getFastDrawable(@SetWallpaperFlags int which) {
+        Bitmap bm = sGlobals.peekWallpaperBitmap(mContext, true, which);
         if (bm != null) {
             return new FastBitmapDrawable(bm);
         }
@@ -1707,6 +1714,28 @@ public class WallpaperManager {
             Log.e(TAG, "Exception querying wallpaper backup eligibility: " + e.getMessage());
         }
         return false;
+    }
+
+    /** @hide */
+    public int getLastWallpaperX() {
+        try {
+            return WindowManagerGlobal.getWindowSession().getLastWallpaperX();
+        } catch (RemoteException e) {
+            // Ignore.
+        }
+
+        return -1;
+    }
+
+    /** @hide */
+    public int getLastWallpaperY() {
+        try {
+            return WindowManagerGlobal.getWindowSession().getLastWallpaperY();
+        } catch (RemoteException e) {
+            // Ignore.
+        }
+
+        return -1;
     }
 
     // Private completion callback for setWallpaper() synchronization
