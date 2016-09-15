@@ -264,4 +264,14 @@ interface IWindowSession {
     boolean startMovingTask(IWindow window, float startX, float startY);
 
     void updatePointerIcon(IWindow window);
+
+    /**
+     * Get the current x offset for the wallpaper
+     */
+    int getLastWallpaperX();
+
+    /**
+     * Get the current y offset for the wallpaper
+     */
+    int getLastWallpaperY();
 }
