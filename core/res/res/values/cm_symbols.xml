@@ -112,4 +112,7 @@
 
     <!-- global actions (zen mode buttons) -->
     <java-symbol type="id" name="option4" />
+
+    <!-- Non-themeable packages -->
+    <java-symbol type="array" name="non_themeable_packages" />
 </resources>

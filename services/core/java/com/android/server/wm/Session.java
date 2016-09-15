@@ -552,6 +552,30 @@ final class Session extends IWindowSession.Stub
         }
     }
 
+    @Override
+    public int getLastWallpaperX() {
+        synchronized(mService.mWindowMap) {
+            long ident = Binder.clearCallingIdentity();
+            try {
+                return mService.getLastWallpaperX();
+            } finally {
+                Binder.restoreCallingIdentity(ident);
+            }
+        }
+    }
+
+    @Override
+    public int getLastWallpaperY() {
+        synchronized(mService.mWindowMap) {
+            long ident = Binder.clearCallingIdentity();
+            try {
+                return mService.getLastWallpaperY();
+            } finally {
+                Binder.restoreCallingIdentity(ident);
+            }
+        }
+    }
+
     void windowAddedLocked() {
         if (mSurfaceSession == null) {
             if (WindowManagerService.localLOGV) Slog.v(

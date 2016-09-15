@@ -15,6 +15,9 @@
  */
 package android.content.res;
 
+import android.app.ComposedIconInfo;
+import android.content.pm.PackageItemInfo;
+import android.util.*;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -37,13 +40,6 @@ import android.icu.text.PluralRules;
 import android.os.Build;
 import android.os.LocaleList;
 import android.os.Trace;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.util.LongSparseArray;
-import android.util.Slog;
-import android.util.TypedValue;
-import android.util.Xml;
 import android.view.Display;
 import android.view.DisplayAdjustments;
 
@@ -143,7 +139,7 @@ public class ResourcesImpl {
         mMetrics.setToDefaults();
         mDisplayAdjustments = displayAdjustments;
         updateConfiguration(config, metrics, displayAdjustments.getCompatibilityInfo());
-        mAssets.ensureStringBlocks();
+        mAssets.recreateStringBlocks();
     }
 
     public DisplayAdjustments getDisplayAdjustments() {
@@ -160,7 +156,7 @@ public class ResourcesImpl {
         return mMetrics;
     }
 
-    Configuration getConfiguration() {
+    public Configuration getConfiguration() {
         return mConfiguration;
     }
 
@@ -183,6 +179,17 @@ public class ResourcesImpl {
 
     void getValue(@AnyRes int id, TypedValue outValue, boolean resolveRefs)
             throws NotFoundException {
+        getValue(id, outValue, resolveRefs, true);
+    }
+
+    void getValue(@AnyRes int id, TypedValue outValue, boolean resolveRefs, boolean supportComposedIcons)
+            throws NotFoundException {
+        PackageItemInfo info = mAssets.getPackageItemInfoForResId(id);
+        if (info != null && info.themedIcon != 0) {
+            Log.d(TAG, "getValue: id=0x" + Integer.toHexString(id) +
+                    "info.themedIcon=0x" + Integer.toHexString(info.themedIcon));
+            id = info.themedIcon;
+        }
         boolean found = mAssets.getResourceValue(id, 0, outValue, resolveRefs);
         if (found) {
             return;
@@ -191,7 +198,18 @@ public class ResourcesImpl {
     }
 
     void getValueForDensity(@AnyRes int id, int density, TypedValue outValue,
-            boolean resolveRefs) throws NotFoundException {
+                            boolean resolveRefs) throws NotFoundException {
+        getValueForDensity(id, density, outValue, resolveRefs, true);
+    }
+
+    void getValueForDensity(@AnyRes int id, int density, TypedValue outValue,
+            boolean resolveRefs, boolean supportComposedIcons) throws NotFoundException {
+        PackageItemInfo info = mAssets.getPackageItemInfoForResId(id);
+        if (info != null && info.themedIcon != 0) {
+            Log.d(TAG, "getValueForDensity: id=0x" + Integer.toHexString(id) +
+                    "info.themedIcon=0x" + Integer.toHexString(info.themedIcon));
+            id = info.themedIcon;
+        }
         boolean found = mAssets.getResourceValue(id, density, outValue, resolveRefs);
         if (found) {
             return;
@@ -556,10 +574,14 @@ public class ResourcesImpl {
             // Next, check preloaded drawables. Preloaded drawables may contain
             // unresolved theme attributes.
             final Drawable.ConstantState cs;
-            if (isColorDrawable) {
-                cs = sPreloadedColorDrawables.get(key);
+            if(mAssets.hasThemedAssets()) {
+                if (isColorDrawable) {
+                    cs = sPreloadedColorDrawables.get(key);
+                } else {
+                    cs = sPreloadedDrawables[mConfiguration.getLayoutDirection()].get(key);
+                }
             } else {
-                cs = sPreloadedDrawables[mConfiguration.getLayoutDirection()].get(key);
+                cs = null;
             }
 
             Drawable dr;
@@ -1015,6 +1037,18 @@ public class ResourcesImpl {
         }
     }
 
+    /** @hide */
+    public void setIconResources(SparseArray<PackageItemInfo> icons) {
+    }
+
+    /** @hide */
+    public void setComposedIconInfo(ComposedIconInfo iconInfo) {
+    }
+
+    /** @hide */
+    public ComposedIconInfo getComposedIconInfo() {
+        return null;
+    }
     /**
      * Called by zygote when it is done preloading resources, to change back
      * to normal Resources operation.
@@ -1023,6 +1057,13 @@ public class ResourcesImpl {
         if (mPreloading) {
             mPreloading = false;
             flushLayoutCache();
+        }
+    }
+
+    /** @hide */
+    public final void updateStringCache() {
+        synchronized (mAccessLock) {
+            mAssets.recreateStringBlocks();
         }
     }
 
