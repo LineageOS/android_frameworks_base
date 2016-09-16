@@ -33,10 +33,12 @@ import dalvik.system.PathClassLoader;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
-import android.util.Slog;
 import android.net.Network;
 import android.net.NetworkStats;
+import android.os.Environment;
+import android.util.Slog;
 import android.util.Log;
 
 public class NetPluginDelegate {
@@ -55,9 +57,12 @@ public class NetPluginDelegate {
             tetherExtensionClass.getMethod("getTetherStats", NetworkStats.class,
                     NetworkStats.class, NetworkStats.class).invoke(tetherExtensionObj, uidStats,
                     devStats, xtStats);
+        } catch (InvocationTargetException | SecurityException | NoSuchMethodException e) {
+            e.printStackTrace();
+            Log.w(TAG, "Failed to invoke getTetherStats()");
         } catch (Exception e) {
             e.printStackTrace();
-            Log.w(TAG, "error in invoke method");
+            Log.w(TAG, "Error calling getTetherStats Method on extension jar");
         }
         if (LOGV) Slog.v(TAG, "getTetherStats() X");
     }
@@ -69,9 +74,12 @@ public class NetPluginDelegate {
         try {
             ret_val = (NetworkStats) tetherExtensionClass.getMethod("peekTetherStats")
                     .invoke(tetherExtensionObj);
+        } catch (InvocationTargetException | SecurityException | NoSuchMethodException e) {
+            e.printStackTrace();
+            Log.w(TAG, "Failed to invoke peekTetherStats()");
         } catch (Exception e) {
             e.printStackTrace();
-            Log.w(TAG, "error in invoke method");
+            Log.w(TAG, "Error calling peekTetherStats Method on extension jar");
         }
         if (LOGV) Slog.v(TAG, "peekTetherStats() X");
         return ret_val;
@@ -83,6 +91,9 @@ public class NetPluginDelegate {
         try {
             tetherExtensionClass.getMethod("natStarted", String.class, String.class).invoke(
                     tetherExtensionObj, intIface, extIface);
+        } catch (InvocationTargetException | SecurityException | NoSuchMethodException e) {
+            e.printStackTrace();
+            Log.w(TAG, "Failed to invoke natStarted()");
         } catch (Exception e) {
             e.printStackTrace();
             Log.w(TAG, "Error calling natStarted Method on extension jar");
@@ -96,6 +107,9 @@ public class NetPluginDelegate {
         try {
             tetherExtensionClass.getMethod("natStopped", String.class, String.class).invoke(
                     tetherExtensionObj, intIface, extIface);
+        } catch (InvocationTargetException | SecurityException | NoSuchMethodException e) {
+            e.printStackTrace();
+            Log.w(TAG, "Failed to invoke natStopped()");
         } catch (Exception e) {
             e.printStackTrace();
             Log.w(TAG, "Error calling natStopped Method on extension jar");
@@ -109,6 +123,9 @@ public class NetPluginDelegate {
         try {
             tetherExtensionClass.getMethod("setQuota", String.class, long.class).invoke(
                     tetherExtensionObj, iface, quota);
+        } catch (InvocationTargetException | SecurityException | NoSuchMethodException e) {
+            e.printStackTrace();
+            Log.w(TAG, "Failed to invoke setQuota()");
         } catch (Exception e) {
             e.printStackTrace();
             Log.w(TAG, "Error calling setQuota Method on extension jar");
@@ -122,6 +139,9 @@ public class NetPluginDelegate {
         try {
             tetherExtensionClass.getMethod("setUpstream", Network.class).invoke(
                     tetherExtensionObj, net);
+        } catch (InvocationTargetException | SecurityException | NoSuchMethodException e) {
+            e.printStackTrace();
+            Log.w(TAG, "Failed to invoke setUpstream()");
         } catch (Exception e) {
             e.printStackTrace();
             Log.w(TAG, "Error calling setUpstream Method on extension jar");
@@ -130,9 +150,10 @@ public class NetPluginDelegate {
     }
 
 
-    private static boolean loadTetherExtJar() {
+    private static synchronized boolean loadTetherExtJar() {
         final String realProvider = "com.qualcomm.qti.tetherstatsextension.TetherStatsReporting";
-        final String realProviderPath = "/system/framework/ConnectivityExt.jar";
+        final String realProviderPath = Environment.getRootDirectory().getAbsolutePath()
+                + "/framework/ConnectivityExt.jar";
         if (tetherExtensionClass != null && tetherExtensionObj != null) {
             return true;
         }
@@ -151,6 +172,10 @@ public class NetPluginDelegate {
                 tetherExtensionClass = classLoader.loadClass(realProvider);
                 tetherExtensionObj = tetherExtensionClass.newInstance();
                 if (LOGV) Slog.v(TAG, "ConnectivityExt jar loaded");
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+                Log.w(TAG, "Failed to find, instantiate or access ConnectivityExt jar ");
+                return false;
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.w(TAG, "unable to load ConnectivityExt jar");
