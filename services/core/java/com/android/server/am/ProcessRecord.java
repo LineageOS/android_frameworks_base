@@ -519,19 +519,17 @@ final class ProcessRecord {
         thread = null;
         final ProcessState origBase = baseProcessTracker;
         if (origBase != null) {
-            if (origBase != null) {
-                origBase.setState(ProcessStats.STATE_NOTHING,
-                        tracker.getMemFactorLocked(), SystemClock.uptimeMillis(), pkgList);
-                origBase.makeInactive();
+            origBase.setState(ProcessStats.STATE_NOTHING,
+                    tracker.getMemFactorLocked(), SystemClock.uptimeMillis(), pkgList);
+            origBase.makeInactive();
+        }
+        baseProcessTracker = null;
+        for (int i=0; i<pkgList.size(); i++) {
+            ProcessStats.ProcessStateHolder holder = pkgList.valueAt(i);
+            if (holder.state != null && holder.state != origBase) {
+                holder.state.makeInactive();
             }
-            baseProcessTracker = null;
-            for (int i=0; i<pkgList.size(); i++) {
-                ProcessStats.ProcessStateHolder holder = pkgList.valueAt(i);
-                if (holder.state != null && holder.state != origBase) {
-                    holder.state.makeInactive();
-                }
-                holder.state = null;
-            }
+            holder.state = null;
         }
     }
 
