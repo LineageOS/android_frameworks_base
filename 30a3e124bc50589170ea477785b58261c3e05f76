@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_0d3b229c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/LiveLockScreenController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-09-23T15:52:32Z",
+      "side": 1,
+      "message": "calling this will cause mChangeListener to no longer be registered and will not pick up when the user changes the LLS",
+      "range": {
+        "startLine": 194,
+        "startChar": 12,
+        "endLine": 194,
+        "endChar": 19
+      },
+      "revId": "30a3e124bc50589170ea477785b58261c3e05f76",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
