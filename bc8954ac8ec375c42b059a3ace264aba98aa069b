@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_cdbbca6f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MobileSignalController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-09-24T05:36:02Z",
+      "side": 0,
+      "message": "The check is being duplicated here.",
+      "revId": "bc8954ac8ec375c42b059a3ace264aba98aa069b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
