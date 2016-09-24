@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_0dc242ea",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MobileSignalController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-09-24T05:33:50Z",
+      "side": 1,
+      "message": "Why not move the entire !TextUtils.isEmpty() check to line 629?",
+      "revId": "d99c3340dbb387afd375e8bd4e75c6f79d297f01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
