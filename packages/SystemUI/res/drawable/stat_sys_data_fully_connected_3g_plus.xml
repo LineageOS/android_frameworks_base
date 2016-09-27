@@ -28,8 +28,8 @@
   IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="30dp"
-    android:height="27dp"
+    android:width="15dp"
+    android:height="13.5dp"
     android:viewportWidth="30"
     android:viewportHeight="27">
 
