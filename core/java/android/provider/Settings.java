@@ -3692,7 +3692,13 @@ public final class Settings {
           * 2 - Volume up/down moves cursor right/left
           * @hide
           */
-         public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
+        public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
+
+	 /**
+          * whether to display SU icon in statusbar
+          * @hide
+          */
+        public static final String SHOW_SU_INDICATOR = "show_su_indicator";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
