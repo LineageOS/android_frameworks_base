@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_5fd22436",
+        "filename": "cmds/idmap/inspect.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 32
+      },
+      "writtenOn": "2016-10-03T18:09:04Z",
+      "side": 1,
+      "message": "zomg tabs",
+      "revId": "510db32a5f7b9e2f42c28a5e8168a3641c705e00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
