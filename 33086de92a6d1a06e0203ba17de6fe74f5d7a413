@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_306aea7f",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 7202
+      },
+      "writtenOn": "2016-10-05T09:53:49Z",
+      "side": 1,
+      "message": "L?ne 150. Duplicate?",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 40
+      },
+      "revId": "33086de92a6d1a06e0203ba17de6fe74f5d7a413",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
