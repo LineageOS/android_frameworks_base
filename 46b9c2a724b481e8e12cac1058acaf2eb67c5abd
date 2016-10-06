@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_16551e51",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2436,
+      "author": {
+        "id": 32
+      },
+      "writtenOn": "2016-10-06T15:45:51Z",
+      "side": 1,
+      "message": "While you\u0027re in here, I\u0027d get rid of the observer and implement Tunable to get rid of the extra code. You can prefix the key given to addTunable with cmsecure: or cmsystem: to trigger on our settings provider.",
+      "revId": "46b9c2a724b481e8e12cac1058acaf2eb67c5abd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
