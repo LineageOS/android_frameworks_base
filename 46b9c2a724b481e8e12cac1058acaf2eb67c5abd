@@ -16,6 +16,24 @@
       "revId": "46b9c2a724b481e8e12cac1058acaf2eb67c5abd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_792c5d99",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2436,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-10-06T22:39:47Z",
+      "side": 1,
+      "message": "Should it be squashed in together with the rest of the CM 13 fixes?",
+      "parentUuid": "ff2e2bb8_16551e51",
+      "revId": "46b9c2a724b481e8e12cac1058acaf2eb67c5abd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
