@@ -16,6 +16,24 @@
       "revId": "930a50b09cb03d4d4f29ee22fd66fc73bee5d1ad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_4a4895cb",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-10-08T15:02:15Z",
+      "side": 1,
+      "message": "I guess using a content observer just for this setting is fine, since it seems to be the only global cm setting.\n\nA somewhat unrelated concern I have is why this setting is global, and not per-user, since it seems like something different users would want to enable differently.",
+      "parentUuid": "ff2e2bb8_aaeb21ae",
+      "revId": "930a50b09cb03d4d4f29ee22fd66fc73bee5d1ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
