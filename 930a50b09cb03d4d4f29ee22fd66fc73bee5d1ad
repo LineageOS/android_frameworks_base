@@ -34,6 +34,24 @@
       "revId": "930a50b09cb03d4d4f29ee22fd66fc73bee5d1ad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_8519ee89",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 32
+      },
+      "writtenOn": "2016-10-09T10:41:21Z",
+      "side": 1,
+      "message": "Hmmm yeah that is very suspicious. I think the intent of this is that only the owner controls it. Apparently there were bugs filed on this according to commit 971ea687427cc8ca09093fde962aadf90704f516",
+      "parentUuid": "ff2e2bb8_4a4895cb",
+      "revId": "930a50b09cb03d4d4f29ee22fd66fc73bee5d1ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
