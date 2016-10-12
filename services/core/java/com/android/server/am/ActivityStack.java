@@ -2255,6 +2255,11 @@ final class ActivityStack {
             return false;
         }
 
+        // Some activities may want to alter the system power management
+        if (mStackSupervisor.mService.mPerf != null) {
+            mStackSupervisor.mService.mPerf.activityResumed(next.intent);
+        }
+
         // The activity may be waiting for stop, but that is no longer
         // appropriate for it.
         mStackSupervisor.mStoppingActivities.remove(next);
