@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_fe9de559",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 9180
+      },
+      "writtenOn": "2016-10-13T14:39:56Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to use something like:\n\nString sSetting \u003d setting; //resolved setting\nif (isCMSecure(sSetting) || isCMSystem(sSetting) || isSystem(setting)) {\n    sSetting \u003d chomp(sSetting);\n}\nSettings.Secure.putStringForUser(mContentResolver, sSetting, value, mCurrentUser);\n\neverywhere in this class?",
+      "range": {
+        "startLine": 146,
+        "startChar": 8,
+        "endLine": 157,
+        "endChar": 9
+      },
+      "revId": "db93b628765706fb2e2539324fa6091e0cb4da6e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
