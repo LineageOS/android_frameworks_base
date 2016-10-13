@@ -692,6 +692,39 @@ static jobject nativeGetHdrCapabilities(JNIEnv* env, jclass clazz, jobject token
             capabilities.getDesiredMaxAverageLuminance(), capabilities.getDesiredMinLuminance());
 }
 
+static void nativeSetBlur(JNIEnv* env, jclass clazz, jlong nativeObject, jfloat blur) {
+    SurfaceControl* const ctrl = reinterpret_cast<SurfaceControl *>(nativeObject);
+    status_t err = ctrl->setBlur(blur);
+    if (err < 0 && err != NO_INIT) {
+        doThrowIAE(env);
+    }
+}
+
+static void nativeSetBlurMaskSurface(JNIEnv* env, jclass clazz, jlong nativeObject, jlong maskLayerNativeObject) {
+    SurfaceControl* const ctrl = reinterpret_cast<SurfaceControl *>(nativeObject);
+    SurfaceControl* const maskLayer = reinterpret_cast<SurfaceControl *>(maskLayerNativeObject);
+    status_t err = ctrl->setBlurMaskSurface(maskLayer);
+    if (err < 0 && err != NO_INIT) {
+        doThrowIAE(env);
+    }
+}
+
+static void nativeSetBlurMaskSampling(JNIEnv* env, jclass clazz, jlong nativeObject, jint blurMaskSampling) {
+    SurfaceControl* const ctrl = reinterpret_cast<SurfaceControl *>(nativeObject);
+    status_t err = ctrl->setBlurMaskSampling(blurMaskSampling);
+    if (err < 0 && err != NO_INIT) {
+        doThrowIAE(env);
+    }
+}
+
+static void nativeSetBlurMaskAlphaThreshold(JNIEnv* env, jclass clazz, jlong nativeObject, jfloat alpha) {
+    SurfaceControl* const ctrl = reinterpret_cast<SurfaceControl *>(nativeObject);
+    status_t err = ctrl->setBlurMaskAlphaThreshold(alpha);
+    if (err < 0 && err != NO_INIT) {
+        doThrowIAE(env);
+    }
+}
+
 // ----------------------------------------------------------------------------
 
 static const JNINativeMethod sSurfaceControlMethods[] = {
@@ -781,6 +814,14 @@ static const JNINativeMethod sSurfaceControlMethods[] = {
             (void*)nativeGetHandle },
     {"nativeGetTransformToDisplayInverse", "(J)Z",
             (void*)nativeGetTransformToDisplayInverse },
+    {"nativeSetBlur", "(JF)V",
+            (void*)nativeSetBlur },
+    {"nativeSetBlurMaskSurface", "(JJ)V",
+            (void*)nativeSetBlurMaskSurface },
+    {"nativeSetBlurMaskSampling", "(JI)V",
+            (void*)nativeSetBlurMaskSampling },
+    {"nativeSetBlurMaskAlphaThreshold", "(JF)V",
+            (void*)nativeSetBlurMaskAlphaThreshold },
 };
 
 int register_android_view_SurfaceControl(JNIEnv* env)
