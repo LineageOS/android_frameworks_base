@@ -22,6 +22,24 @@
       "revId": "db93b628765706fb2e2539324fa6091e0cb4da6e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_c12f60f4",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-10-13T19:11:10Z",
+      "side": 1,
+      "message": "That wouldn\u0027t work since we want to access the settings from different classes depending on the prefix",
+      "parentUuid": "ff2e2bb8_fe9de559",
+      "revId": "db93b628765706fb2e2539324fa6091e0cb4da6e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
