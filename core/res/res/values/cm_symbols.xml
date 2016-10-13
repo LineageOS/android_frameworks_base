@@ -79,4 +79,7 @@
 
     <!-- PlatLogo -->
     <java-symbol type="drawable" name="platlogo_lineage" />
+
+    <!-- Blur effects -->
+    <java-symbol type="bool" name="config_uiBlurEnabled" />
 </resources>

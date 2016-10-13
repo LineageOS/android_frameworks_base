@@ -2849,4 +2849,8 @@
          size set. By setting this to false, devices can opt
          out of setting a batch size, which fixes rotation. -->
     <bool name="config_useDefaultBatchingForAccel">true</bool>
+
+    <!-- Support in Surfaceflinger for blur layers.
+         NOTE: This requires additional hardware-specific code. -->
+    <bool name="config_uiBlurEnabled">false</bool>
 </resources>
