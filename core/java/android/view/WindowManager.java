@@ -1295,6 +1295,19 @@ public interface WindowManager extends ViewManager {
         public static final int PRIVATE_FLAG_PREVENT_POWER_KEY = 0x20000000;
 
         /**
+         * Window flag: Adds an additional blur layer and set this as masking layer
+         * {@hide}
+         */
+        public static final int PRIVATE_FLAG_BLUR_WITH_MASKING = 0x40000000;
+
+        /**
+         * Window flag: Adds an additional blur layer and set it as the masking layer.
+         * This is faster and uglier than non-scaled version.
+         * {@hide}
+         */
+        public static final int PRIVATE_FLAG_BLUR_WITH_MASKING_SCALED = 0x80000000;
+
+        /**
          * Control flags that are private to the platform.
          * @hide
          */
@@ -1797,6 +1810,23 @@ public interface WindowManager extends ViewManager {
          */
         public long hideTimeoutMilliseconds = -1;
 
+        /**
+         * When {@link #FLAG_BLUR_BEHIND} is set, this is the amount of blur
+         * to apply.  Range is from 1.0 for maximum to 0.0 for no blur.
+         *
+         * @hide
+         */
+        public float blurAmount = 1.0f;
+
+        /**
+         * Threshold value that blur masking layer uses to determine whether
+         * to use or discard the blurred color.
+         * Value should be between 0.0 and 1.0.
+         *
+         * @hide
+         */
+        public float blurMaskAlphaThreshold = 0.0f;
+
         public LayoutParams() {
             super(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
             type = TYPE_APPLICATION;
@@ -1932,6 +1962,8 @@ public interface WindowManager extends ViewManager {
             out.writeInt(accessibilityIdOfAnchor);
             TextUtils.writeToParcel(accessibilityTitle, out, parcelableFlags);
             out.writeLong(hideTimeoutMilliseconds);
+            out.writeFloat(blurAmount);
+            out.writeFloat(blurMaskAlphaThreshold);
         }
 
         public static final Parcelable.Creator<LayoutParams> CREATOR
@@ -1986,6 +2018,8 @@ public interface WindowManager extends ViewManager {
             accessibilityIdOfAnchor = in.readInt();
             accessibilityTitle = TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(in);
             hideTimeoutMilliseconds = in.readLong();
+            blurAmount = in.readFloat();
+            blurMaskAlphaThreshold = in.readFloat();
         }
 
         @SuppressWarnings({"PointlessBitwiseExpression"})
@@ -2028,6 +2062,10 @@ public interface WindowManager extends ViewManager {
         public static final int ACCESSIBILITY_ANCHOR_CHANGED = 1 << 24;
         /** {@hide} */
         public static final int ACCESSIBILITY_TITLE_CHANGED = 1 << 25;
+        /** {@hide} */
+        public static final int BLUR_AMOUNT_CHANGED = 1 << 26;
+        /** {@hide} */
+        public static final int BLUR_MASK_ALPHA_THRESHOLD_CHANGED = 1 << 27;
         /** {@hide} */
         public static final int EVERYTHING_CHANGED = 0xffffffff;
 
@@ -2208,6 +2246,16 @@ public interface WindowManager extends ViewManager {
 
             // This can't change, it's only set at window creation time.
             hideTimeoutMilliseconds = o.hideTimeoutMilliseconds;
+
+            if (blurAmount != o.blurAmount) {
+                blurAmount = o.blurAmount;
+                changes |= BLUR_AMOUNT_CHANGED;
+            }
+
+            if (blurMaskAlphaThreshold != o.blurMaskAlphaThreshold) {
+                blurMaskAlphaThreshold = o.blurMaskAlphaThreshold;
+                changes |= BLUR_MASK_ALPHA_THRESHOLD_CHANGED;
+            }
 
             return changes;
         }
