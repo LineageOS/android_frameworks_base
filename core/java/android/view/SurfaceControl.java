@@ -185,6 +185,11 @@ public class SurfaceControl {
     public static final int FX_SURFACE_NORMAL   = 0x00000000;
 
     /**
+     * Surface creation flag: Creates a blur surface.
+     */
+    public static final int FX_SURFACE_BLUR = 0x00010000;
+
+    /**
      * Surface creation flag: Creates a Dim surface.
      * Everything behind this surface is dimmed by the amount specified
      * in {@link #setAlpha}.  It is an error to lock a Dim surface, since it
