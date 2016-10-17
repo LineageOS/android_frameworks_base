@@ -106,6 +106,7 @@ public class ZenModeHelper {
     private PackageManager mPm;
     private long mSuppressedEffects;
     private boolean mAllowLights;
+    private int mVibrationMode;
 
     public static final long SUPPRESSED_EFFECT_NOTIFICATIONS = 1;
     public static final long SUPPRESSED_EFFECT_CALLS = 1 << 1;
@@ -138,11 +139,13 @@ public class ZenModeHelper {
         return TAG;
     }
 
-    public boolean matchesCallFilter(UserHandle userHandle, Bundle extras,
+    public boolean[] matchesCallFilter(UserHandle userHandle, Bundle extras,
             ValidateNotificationPeople validator, int contactsTimeoutMs, float timeoutAffinity) {
         synchronized (mConfig) {
-            return ZenModeFiltering.matchesCallFilter(mContext, mZenMode, mConfig, userHandle,
-                    extras, validator, contactsTimeoutMs, timeoutAffinity);
+            boolean matches = ZenModeFiltering.matchesCallFilter(mContext, mZenMode, mConfig,
+                    userHandle, extras, validator, contactsTimeoutMs, timeoutAffinity);
+            boolean matchesForVibration = matches || allowVibrationForCalls();
+            return new boolean[] { matches, matchesForVibration };
         }
     }
 
@@ -504,6 +507,8 @@ public class ZenModeHelper {
         }
 
         pw.print(prefix); pw.print("mSuppressedEffects="); pw.println(mSuppressedEffects);
+        pw.print(prefix); pw.print("mAllowLights="); pw.println(mAllowLights);
+        pw.print(prefix); pw.print("mVibrationMode="); pw.println(mVibrationMode);
         mFiltering.dump(pw, prefix);
         mConditions.dump(pw, prefix);
     }
@@ -697,6 +702,7 @@ public class ZenModeHelper {
         mZenMode = zen;
         updateRingerModeAffectedStreams();
         readAllowLightsFromSettings();
+        readVibrationModeFromSettings();
         setZenModeSetting(mZenMode);
         if (setRingerMode) {
             applyZenToRingerMode();
@@ -746,6 +752,21 @@ public class ZenModeHelper {
                    CMSettings.System.ZEN_PRIORITY_ALLOW_LIGHTS, 1) == 1;
                 break;
         }
+    }
+
+    public boolean allowVibrationForCalls() {
+        return mVibrationMode > 0;
+    }
+
+    public boolean allowVibrationForNotifications() {
+        return mVibrationMode > 1;
+    }
+
+    public void readVibrationModeFromSettings() {
+        final ContentResolver cr = mContext.getContentResolver();
+        mVibrationMode = mZenMode == Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS
+                ? CMSettings.System.getInt(cr, CMSettings.System.ZEN_PRIORITY_VIBRATION_MODE, 0)
+                : 0;
     }
 
     private void applyRestrictions() {
@@ -1055,9 +1076,11 @@ public class ZenModeHelper {
     private final class SettingsObserver extends ContentObserver {
         private final Uri ZEN_MODE = Global.getUriFor(Global.ZEN_MODE);
         private final Uri ZEN_ALLOW_LIGHTS = CMSettings.System.getUriFor(
-                                               CMSettings.System.ZEN_ALLOW_LIGHTS);
+                CMSettings.System.ZEN_ALLOW_LIGHTS);
         private final Uri ZEN_PRIORITY_ALLOW_LIGHTS = CMSettings.System.getUriFor(
-                                               CMSettings.System.ZEN_PRIORITY_ALLOW_LIGHTS);
+                CMSettings.System.ZEN_PRIORITY_ALLOW_LIGHTS);
+        private final Uri ZEN_PRIORITY_VIBRATION_MODE = CMSettings.System.getUriFor(
+                CMSettings.System.ZEN_PRIORITY_VIBRATION_MODE);
 
         public SettingsObserver(Handler handler) {
             super(handler);
@@ -1070,6 +1093,8 @@ public class ZenModeHelper {
                      ZEN_ALLOW_LIGHTS, false /*notifyForDescendents*/, this);
             resolver.registerContentObserver(
                      ZEN_PRIORITY_ALLOW_LIGHTS, false /*notifyForDescendents*/, this);
+            resolver.registerContentObserver(
+                     ZEN_PRIORITY_VIBRATION_MODE, false /*notifyForDescendents*/, this);
             update(null);
         }
 
@@ -1086,6 +1111,8 @@ public class ZenModeHelper {
                 }
             } else if (ZEN_ALLOW_LIGHTS.equals(uri) || ZEN_PRIORITY_ALLOW_LIGHTS.equals(uri)) {
                 readAllowLightsFromSettings();
+            } else if (ZEN_PRIORITY_VIBRATION_MODE.equals(uri)) {
+                readVibrationModeFromSettings();
             }
         }
     }
