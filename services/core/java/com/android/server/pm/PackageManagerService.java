@@ -2875,7 +2875,11 @@ public class PackageManagerService extends IPackageManager.Stub {
                         PackageManager.SYSTEM_SHARED_LIBRARY_SHARED);
             } else {
                 mRequiredVerifierPackage = null;
-                mRequiredInstallerPackage = null;
+                if (mOnlyPowerOffAlarm) {
+                    mRequiredInstallerPackage = getRequiredInstallerLPr();
+                } else {
+                    mRequiredInstallerPackage = null;
+                }
                 mIntentFilterVerifierComponent = null;
                 mIntentFilterVerifier = null;
                 mServicesSystemSharedLibraryPackageName = null;
