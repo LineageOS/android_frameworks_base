@@ -64,6 +64,8 @@ interface INotificationManager
     boolean areNotificationsEnabledForPackage(String pkg, int uid);
     boolean areNotificationsEnabled(String pkg);
     int getPackageImportance(String pkg);
+    void setNotificationSoundTimeout(String pkg, int uid, long timeout);
+    long getNotificationSoundTimeout(String pkg, int uid);
 
     void createNotificationChannelGroups(String pkg, in ParceledListSlice channelGroupList);
     void createNotificationChannels(String pkg, in ParceledListSlice channelsList);
