@@ -121,6 +121,7 @@ public class PreferencesHelper implements RankingConfig {
     private static final String ATT_SENT_INVALID_MESSAGE = "sent_invalid_msg";
     private static final String ATT_SENT_VALID_MESSAGE = "sent_valid_msg";
     private static final String ATT_USER_DEMOTED_INVALID_MSG_APP = "user_demote_msg_app";
+    private static final String ATT_SOUND_TIMEOUT = "sound-timeout";
 
     private static final int DEFAULT_PRIORITY = Notification.PRIORITY_DEFAULT;
     private static final int DEFAULT_VISIBILITY = NotificationManager.VISIBILITY_NO_OVERRIDE;
@@ -143,6 +144,8 @@ public class PreferencesHelper implements RankingConfig {
      */
     private static final int DEFAULT_LOCKED_APP_FIELDS = 0;
     private final SysUiStatsEvent.BuilderFactory mStatsEventBuilderFactory;
+
+    private static final int DEFAULT_SOUND_TIMEOUT = 0;
 
     /**
      * All user-lockable fields for a given application.
@@ -271,6 +274,8 @@ public class PreferencesHelper implements RankingConfig {
                                     parser, ATT_SENT_VALID_MESSAGE, false);
                             r.userDemotedMsgApp = XmlUtils.readBooleanAttribute(
                                     parser, ATT_USER_DEMOTED_INVALID_MSG_APP, false);
+                            r.soundTimeout = XmlUtils.readIntAttribute(
+                                    parser, ATT_SOUND_TIMEOUT, DEFAULT_SOUND_TIMEOUT);
 
                             final int innerDepth = parser.getDepth();
                             while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
@@ -523,6 +528,7 @@ public class PreferencesHelper implements RankingConfig {
                                 || r.visibility != DEFAULT_VISIBILITY
                                 || r.showBadge != DEFAULT_SHOW_BADGE
                                 || r.lockedAppFields != DEFAULT_LOCKED_APP_FIELDS
+                                || r.soundTimeout != DEFAULT_SOUND_TIMEOUT
                                 || r.channels.size() > 0
                                 || r.groups.size() > 0
                                 || r.delegate != null
@@ -542,6 +548,9 @@ public class PreferencesHelper implements RankingConfig {
                     if (r.visibility != DEFAULT_VISIBILITY) {
                         out.attribute(null, ATT_VISIBILITY, Integer.toString(r.visibility));
                     }
+                    if (r.soundTimeout != 0) {
+                        out.attribute(null, ATT_SOUND_TIMEOUT, Long.toString(r.soundTimeout));
+                    }
                     if (r.bubblePreference != DEFAULT_BUBBLE_PREFERENCE) {
                         out.attribute(null, ATT_ALLOW_BUBBLE, Integer.toString(r.bubblePreference));
                     }
@@ -554,6 +563,8 @@ public class PreferencesHelper implements RankingConfig {
                             Boolean.toString(r.hasSentValidMessage));
                     out.attribute(null, ATT_USER_DEMOTED_INVALID_MSG_APP,
                             Boolean.toString(r.userDemotedMsgApp));
+                    out.attribute(null, ATT_SOUND_TIMEOUT,
+                            Long.toString(r.soundTimeout));
 
                     if (!forBackup) {
                         out.attribute(null, ATT_UID, Integer.toString(r.uid));
@@ -1708,6 +1719,21 @@ public class PreferencesHelper implements RankingConfig {
     }
 
     /**
+     * @hide
+     */
+    public long getNotificationSoundTimeout(String packageName, int uid) {
+        return getOrCreatePackagePreferencesLocked(packageName, uid).soundTimeout;
+    }
+
+    /**
+     * @hide
+     */
+    public void setNotificationSoundTimeout(String packageName, int uid, long timeout) {
+        getOrCreatePackagePreferencesLocked(packageName, uid).soundTimeout = timeout;
+        updateConfig();
+    }
+
+    /**
      * Returns the delegate for a given package, if it's allowed by the package and the user.
      */
     public @Nullable String getNotificationDelegate(String sourcePkg, int sourceUid) {
@@ -2046,6 +2072,9 @@ public class PreferencesHelper implements RankingConfig {
                         if (r.showBadge != DEFAULT_SHOW_BADGE) {
                             PackagePreferences.put("showBadge", Boolean.valueOf(r.showBadge));
                         }
+                        if (r.soundTimeout != DEFAULT_SOUND_TIMEOUT) {
+                            PackagePreferences.put("soundTimeout", r.soundTimeout);
+                        }
                         JSONArray channels = new JSONArray();
                         for (NotificationChannel channel : r.channels.values()) {
                             channels.put(channel.toJson());
@@ -2268,6 +2297,7 @@ public class PreferencesHelper implements RankingConfig {
                 p.groups = new ArrayMap<>();
                 p.delegate = null;
                 p.lockedAppFields = DEFAULT_LOCKED_APP_FIELDS;
+                p.soundTimeout = DEFAULT_SOUND_TIMEOUT;
                 p.bubblePreference = DEFAULT_BUBBLE_PREFERENCE;
                 p.importance = DEFAULT_IMPORTANCE;
                 p.priority = DEFAULT_PRIORITY;
@@ -2379,6 +2409,7 @@ public class PreferencesHelper implements RankingConfig {
         boolean showBadge = DEFAULT_SHOW_BADGE;
         int bubblePreference = DEFAULT_BUBBLE_PREFERENCE;
         int lockedAppFields = DEFAULT_LOCKED_APP_FIELDS;
+        long soundTimeout = DEFAULT_SOUND_TIMEOUT;
         // these fields are loaded on boot from a different source of truth and so are not
         // written to notification policy xml
         boolean oemLockedImportance = DEFAULT_OEM_LOCKED_IMPORTANCE;
