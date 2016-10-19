@@ -139,6 +139,7 @@ public class PreferencesHelper implements RankingConfig {
     private static final String ATT_SENT_INVALID_MESSAGE = "sent_invalid_msg";
     private static final String ATT_SENT_VALID_MESSAGE = "sent_valid_msg";
     private static final String ATT_USER_DEMOTED_INVALID_MSG_APP = "user_demote_msg_app";
+    private static final String ATT_SOUND_TIMEOUT = "sound-timeout";
 
     private static final int DEFAULT_PRIORITY = Notification.PRIORITY_DEFAULT;
     private static final int DEFAULT_VISIBILITY = NotificationManager.VISIBILITY_NO_OVERRIDE;
@@ -160,6 +161,8 @@ public class PreferencesHelper implements RankingConfig {
      */
     private static final int DEFAULT_LOCKED_APP_FIELDS = 0;
     private final SysUiStatsEvent.BuilderFactory mStatsEventBuilderFactory;
+
+    private static final int DEFAULT_SOUND_TIMEOUT = 0;
 
     /**
      * All user-lockable fields for a given application.
@@ -315,6 +318,8 @@ public class PreferencesHelper implements RankingConfig {
             r.hasSentValidMessage = parser.getAttributeBoolean(null, ATT_SENT_VALID_MESSAGE, false);
             r.userDemotedMsgApp = parser.getAttributeBoolean(
                     null, ATT_USER_DEMOTED_INVALID_MSG_APP, false);
+            r.soundTimeout = parser.getAttributeLong(
+                    null, ATT_SOUND_TIMEOUT, DEFAULT_SOUND_TIMEOUT);
 
             final int innerDepth = parser.getDepth();
             int type;
@@ -613,6 +618,9 @@ public class PreferencesHelper implements RankingConfig {
                 }
                 if (r.visibility != DEFAULT_VISIBILITY) {
                     out.attributeInt(null, ATT_VISIBILITY, r.visibility);
+                }
+                if (r.soundTimeout != DEFAULT_SOUND_TIMEOUT) {
+                    out.attributeLong(null, ATT_SOUND_TIMEOUT, r.soundTimeout);
                 }
                 if (r.bubblePreference != DEFAULT_BUBBLE_PREFERENCE) {
                     out.attributeInt(null, ATT_ALLOW_BUBBLE, r.bubblePreference);
@@ -1777,6 +1785,21 @@ public class PreferencesHelper implements RankingConfig {
     }
 
     /**
+     * @hide
+     */
+    public long getNotificationSoundTimeout(String packageName, int uid) {
+        return getOrCreatePackagePreferencesLocked(packageName, uid).soundTimeout;
+    }
+
+    /**
+     * @hide
+     */
+    public void setNotificationSoundTimeout(String packageName, int uid, long timeout) {
+        getOrCreatePackagePreferencesLocked(packageName, uid).soundTimeout = timeout;
+        updateConfig();
+    }
+
+    /**
      * Returns the delegate for a given package, if it's allowed by the package and the user.
      */
     public @Nullable String getNotificationDelegate(String sourcePkg, int sourceUid) {
@@ -2235,6 +2258,9 @@ public class PreferencesHelper implements RankingConfig {
                         if (r.showBadge != DEFAULT_SHOW_BADGE) {
                             PackagePreferences.put("showBadge", Boolean.valueOf(r.showBadge));
                         }
+                        if (r.soundTimeout != DEFAULT_SOUND_TIMEOUT) {
+                            PackagePreferences.put("soundTimeout", r.soundTimeout);
+                        }
                         JSONArray channels = new JSONArray();
                         for (NotificationChannel channel : r.channels.values()) {
                             channels.put(channel.toJson());
@@ -2491,6 +2517,7 @@ public class PreferencesHelper implements RankingConfig {
                 p.groups = new ArrayMap<>();
                 p.delegate = null;
                 p.lockedAppFields = DEFAULT_LOCKED_APP_FIELDS;
+                p.soundTimeout = DEFAULT_SOUND_TIMEOUT;
                 p.bubblePreference = DEFAULT_BUBBLE_PREFERENCE;
                 p.importance = DEFAULT_IMPORTANCE;
                 p.priority = DEFAULT_PRIORITY;
@@ -2700,6 +2727,7 @@ public class PreferencesHelper implements RankingConfig {
         boolean showBadge = DEFAULT_SHOW_BADGE;
         int bubblePreference = DEFAULT_BUBBLE_PREFERENCE;
         int lockedAppFields = DEFAULT_LOCKED_APP_FIELDS;
+        long soundTimeout = DEFAULT_SOUND_TIMEOUT;
         // these fields are loaded on boot from a different source of truth and so are not
         // written to notification policy xml
         boolean defaultAppLockedImportance = DEFAULT_APP_LOCKED_IMPORTANCE;
