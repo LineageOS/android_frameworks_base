@@ -86,6 +86,7 @@ public class RankingHelper implements RankingConfig {
     private static final String ATT_IMPORTANCE = "importance";
     private static final String ATT_SHOW_BADGE = "show_badge";
     private static final String ATT_APP_USER_LOCKED_FIELDS = "app_user_locked_fields";
+    private static final String ATT_SOUND_TIMEOUT = "sound-timeout";
 
     private static final int DEFAULT_PRIORITY = Notification.PRIORITY_DEFAULT;
     private static final int DEFAULT_VISIBILITY = NotificationManager.VISIBILITY_NO_OVERRIDE;
@@ -230,6 +231,8 @@ public class RankingHelper implements RankingConfig {
                                 parser, ATT_SHOW_BADGE, DEFAULT_SHOW_BADGE);
                         r.lockedAppFields = XmlUtils.readIntAttribute(parser,
                                 ATT_APP_USER_LOCKED_FIELDS, DEFAULT_LOCKED_APP_FIELDS);
+                        r.soundTimeout = XmlUtils.readIntAttribute(parser,
+                                ATT_SOUND_TIMEOUT, 0);
 
                         final int innerDepth = parser.getDepth();
                         while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
@@ -406,6 +409,7 @@ public class RankingHelper implements RankingConfig {
                             || r.visibility != DEFAULT_VISIBILITY
                             || r.showBadge != DEFAULT_SHOW_BADGE
                             || r.lockedAppFields != DEFAULT_LOCKED_APP_FIELDS
+                            || r.soundTimeout != 0
                             || r.channels.size() > 0
                             || r.groups.size() > 0;
                 if (hasNonDefaultSettings) {
@@ -419,6 +423,9 @@ public class RankingHelper implements RankingConfig {
                     }
                     if (r.visibility != DEFAULT_VISIBILITY) {
                         out.attribute(null, ATT_VISIBILITY, Integer.toString(r.visibility));
+                    }
+                    if (r.soundTimeout != 0) {
+                        out.attribute(null, ATT_SOUND_TIMEOUT, Long.toString(r.soundTimeout));
                     }
                     out.attribute(null, ATT_SHOW_BADGE, Boolean.toString(r.showBadge));
                     out.attribute(null, ATT_APP_USER_LOCKED_FIELDS,
@@ -1057,6 +1064,21 @@ public class RankingHelper implements RankingConfig {
         updateConfig();
     }
 
+    /**
+     * @hide
+     */
+    public long getNotificationSoundTimeout(String pkgName, int uid) {
+        return getOrCreateRecord(pkgName, uid).soundTimeout;
+    }
+
+    /**
+     * @hide
+     */
+    public void setNotificationSoundTimeout(String pkgName, int uid, long timeout) {
+        getOrCreateRecord(pkgName, uid).soundTimeout = timeout;
+        updateConfig();
+    }
+
     @VisibleForTesting
     void lockFieldsForUpdate(NotificationChannel original, NotificationChannel update) {
         if (original.canBypassDnd() != update.canBypassDnd()) {
@@ -1222,6 +1244,9 @@ public class RankingHelper implements RankingConfig {
                         }
                         if (r.showBadge != DEFAULT_SHOW_BADGE) {
                             record.put("showBadge", Boolean.valueOf(r.showBadge));
+                        }
+                        if (r.soundTimeout != 0) {
+                            record.put("soundTimeout", r.soundTimeout);
                         }
                         JSONArray channels = new JSONArray();
                         for (NotificationChannel channel : r.channels.values()) {
@@ -1479,6 +1504,7 @@ public class RankingHelper implements RankingConfig {
         int visibility = DEFAULT_VISIBILITY;
         boolean showBadge = DEFAULT_SHOW_BADGE;
         int lockedAppFields = DEFAULT_LOCKED_APP_FIELDS;
+        long soundTimeout = 0;
 
         ArrayMap<String, NotificationChannel> channels = new ArrayMap<>();
         Map<String, NotificationChannelGroup> groups = new ConcurrentHashMap<>();
