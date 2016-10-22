@@ -278,8 +278,8 @@ public class Tethering extends BaseNetworkObserver {
                     sm.start();
                 }
             } else {
-                if (isUsb(iface) || isBluetooth(iface) || isWifi(iface) ) {
-                    // ignore usb0, bt-pan or wlan0 down after enabling tethering
+                if (isUsb(iface) || isBluetooth(iface)) {
+                    // ignore usb0, bt-pan down after enabling tethering
                     // we will handle disconnect in interfaceRemoved instead
                     if (VDBG) Log.d(TAG, "ignore interface down for " + iface);
                 } else if (sm != null) {
