@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_21bc36db",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterDrawable.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-10-24T17:51:50Z",
+      "side": 1,
+      "message": "Detail, doubled indentation",
+      "revId": "e4a37bf4e2463ed05484272a35498f38f8ec2544",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
