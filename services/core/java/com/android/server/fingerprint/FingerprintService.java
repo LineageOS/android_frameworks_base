@@ -146,6 +146,7 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     private ClientMonitor mCurrentClient;
     private ClientMonitor mPendingClient;
     private PerformanceStats mPerformanceStats;
+    private final boolean mNotifyClient;
 
     private IBinder mToken = new Binder(); // used for internal FingerprintService enumeration
     private ArrayList<UserFingerprint> mUnknownFingerprints = new ArrayList<>(); // hw fingerprints
@@ -261,6 +262,8 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
                 ServiceManager.getService(Context.STATUS_BAR_SERVICE));
         mActivityManager = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE))
                 .getService();
+        mNotifyClient = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_notifyClientOnFingerprintCancelSuccess);
     }
 
     @Override
@@ -1223,7 +1226,11 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
                     if (client instanceof AuthenticationClient) {
                         if (client.getToken() == token) {
                             if (DEBUG) Slog.v(TAG, "stop client " + client.getOwnerString());
-                            client.stop(client.getToken() == token);
+                            final int stopResult = client.stop(client.getToken() == token);
+                            if (mNotifyClient && (stopResult == 0)) {
+                                handleError(mHalDeviceId,
+                                        FingerprintManager.FINGERPRINT_ERROR_CANCELED, 0);
+                            }
                         } else {
                             if (DEBUG) Slog.v(TAG, "can't stop client "
                                     + client.getOwnerString() + " since tokens don't match");
