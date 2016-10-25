@@ -32,4 +32,7 @@
 
     <!-- Post reset runnable for all clients -->
     <java-symbol type="bool" name="config_postResetRunnableForAllClients" />
+
+    <!-- Whether notify fingerprint client of successful cancelled authentication -->
+    <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
 </resources>

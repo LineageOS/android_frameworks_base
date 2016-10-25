@@ -88,6 +88,7 @@ public abstract class BiometricServiceBase extends SystemService
     private final ResetClientStateRunnable mResetClientState = new ResetClientStateRunnable();
     private final ArrayList<LockoutResetMonitor> mLockoutMonitors = new ArrayList<>();
     private final boolean mPostResetRunnableForAllClients;
+    private final boolean mNotifyClient;
 
     protected final IStatusBarService mStatusBarService;
     protected final Map<Integer, Long> mAuthenticatorIds =
@@ -650,6 +651,8 @@ public abstract class BiometricServiceBase extends SystemService
         mMetricsLogger = new MetricsLogger();
         mPostResetRunnableForAllClients = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_postResetRunnableForAllClients);
+        mNotifyClient = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_notifyClientOnFingerprintCancelSuccess);
     }
 
     @Override
@@ -897,7 +900,11 @@ public abstract class BiometricServiceBase extends SystemService
                             + ", fromClient: " + fromClient);
                     // If cancel was from BiometricService, it means the dialog was dismissed
                     // and authentication should be canceled.
-                    client.stop(client.getToken() == token);
+                    final int stopResult = client.stop(client.getToken() == token);
+                    if (mNotifyClient && (stopResult == 0)) {
+                        handleError(mHalDeviceId,
+                                BiometricConstants.BIOMETRIC_ERROR_CANCELED, 0);
+                    }
                 } else {
                     if (DEBUG) Slog.v(getTag(), "Can't stop client " + client.getOwnerString()
                             + " since tokens don't match. fromClient: " + fromClient);
