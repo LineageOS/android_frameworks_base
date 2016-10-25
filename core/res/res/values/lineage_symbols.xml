@@ -26,4 +26,7 @@
 
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <java-symbol type="bool" name="config_allowMediaUidForCameraServiceProxy" />
+
+    <!-- Whether notify fingerprint client of successful cancelled authentication -->
+    <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
 </resources>
