@@ -853,7 +853,12 @@ public class FingerprintService extends SystemService implements IBinder.DeathRe
                         if (client instanceof AuthenticationClient) {
                             if (client.getToken() == token) {
                                 if (DEBUG) Slog.v(TAG, "stop client " + client.getOwnerString());
-                                client.stop(client.getToken() == token);
+                                final boolean notifyClient = mContext.getResources().getBoolean(
+                                        com.android.internal.R.bool.config_notifyClientOnFingerprintCancelSuccess);
+                                final int stopResult = client.stop(client.getToken() == token);
+                                if (notifyClient && (stopResult == 0)) {
+                                    handleError(mHalDeviceId, FingerprintManager.FINGERPRINT_ERROR_CANCELED);
+                                }
                             } else {
                                 if (DEBUG) Slog.v(TAG, "can't stop client "
                                         + client.getOwnerString() + " since tokens don't match");
