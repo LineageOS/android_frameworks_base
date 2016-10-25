@@ -35,6 +35,7 @@ import android.hardware.biometrics.IBiometricService;
 import android.hardware.biometrics.IBiometricServiceLockoutResetCallback;
 import android.hardware.biometrics.IBiometricServiceReceiverInternal;
 import android.hardware.fingerprint.Fingerprint;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.DeadObjectException;
@@ -87,6 +88,7 @@ public abstract class BiometricServiceBase extends SystemService
     private final BiometricTaskStackListener mTaskStackListener = new BiometricTaskStackListener();
     private final ResetClientStateRunnable mResetClientState = new ResetClientStateRunnable();
     private final ArrayList<LockoutResetMonitor> mLockoutMonitors = new ArrayList<>();
+    private final boolean mNotifyClient;
 
     protected final IStatusBarService mStatusBarService;
     protected final Map<Integer, Long> mAuthenticatorIds =
@@ -647,6 +649,8 @@ public abstract class BiometricServiceBase extends SystemService
         mPowerManager = mContext.getSystemService(PowerManager.class);
         mUserManager = UserManager.get(mContext);
         mMetricsLogger = new MetricsLogger();
+        mNotifyClient = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_notifyClientOnFingerprintCancelSuccess);
     }
 
     @Override
@@ -894,7 +898,11 @@ public abstract class BiometricServiceBase extends SystemService
                             + ", fromClient: " + fromClient);
                     // If cancel was from BiometricService, it means the dialog was dismissed
                     // and authentication should be canceled.
-                    client.stop(client.getToken() == token);
+                    final int stopResult = client.stop(client.getToken() == token);
+                    if (mNotifyClient && (stopResult == 0)) {
+                        handleError(mHalDeviceId,
+                                FingerprintManager.FINGERPRINT_ERROR_CANCELED, 0);
+                    }
                 } else {
                     if (DEBUG) Slog.v(getTag(), "Can't stop client " + client.getOwnerString()
                             + " since tokens don't match. fromClient: " + fromClient);

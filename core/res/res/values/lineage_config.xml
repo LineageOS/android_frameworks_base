@@ -15,11 +15,6 @@
      limitations under the License.
 -->
 <resources>
-    <!-- ADB notification -->
-    <java-symbol type="string" name="adb_net_active_notification_title" />
-    <java-symbol type="string" name="adb_both_active_notification_title" />
-    <java-symbol type="string" name="adb_active_generic_notification_message" />
-
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
-    <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
+    <bool name="config_notifyClientOnFingerprintCancelSuccess">false</bool>
 </resources>
