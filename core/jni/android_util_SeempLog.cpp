@@ -38,6 +38,7 @@
 #endif
 #include <utils/Log.h>
 
+
 #include "jni.h"
 #include "JNIHelp.h"
 #include "utils/misc.h"
@@ -45,6 +46,7 @@
 
 #define LOG_BUF_SIZE 1024
 #define SEEMP_SOCK_NAME "/dev/socket/seempdw"
+#define ZYGOTE_PARENT_PID 1
 #ifndef __unused
 #define __unused  __attribute__((__unused__))
 #endif
@@ -129,6 +131,11 @@ static int __write_to_log_socket(struct iovec *vec, size_t nr)
 static int __write_to_log_init(struct iovec *vec, size_t nr)
 {
     if (write_to_log == __write_to_log_init) {
+
+        if (getppid() == ZYGOTE_PARENT_PID) {
+            return 0;
+        }
+
         int ret;
 
         ret = __write_to_log_initialize();
