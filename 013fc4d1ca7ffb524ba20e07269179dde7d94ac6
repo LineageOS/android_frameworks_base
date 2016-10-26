@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_09f03867",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2310,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-10-26T13:09:25Z",
+      "side": 1,
+      "message": "\u0026\u0026 ... !\u003d IMPORTANCE_VERY_LOW\n\u0026\u0026 ... !\u003d IMPORTANCE_MIN",
+      "revId": "013fc4d1ca7ffb524ba20e07269179dde7d94ac6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_49ea4075",
+        "filename": "services/core/java/com/android/server/notification/RankingHelper.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-10-26T13:09:25Z",
+      "side": 1,
+      "message": "Given there aren\u0027t nightlies for 14 yet, I think I would omit this update.",
+      "revId": "013fc4d1ca7ffb524ba20e07269179dde7d94ac6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
