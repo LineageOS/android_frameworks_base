@@ -14,10 +14,27 @@
 
 # Warning: this is actually a product definition, to be inherited from
 
+ifneq ($(MULTI_LANG_ENGINE),REVERIE)
 PRODUCT_COPY_FILES := \
     frameworks/base/data/fonts/fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/fonts.xml
+endif
 
 PRODUCT_PACKAGES := \
     DroidSansFallback.ttf \
     DroidSansMono.ttf \
-    AndroidClock.ttf \
+    AndroidClock.ttf
+
+ifeq ($(MULTI_LANG_ENGINE),REVERIE)
+PRODUCT_PACKAGES += \
+    fonts.xml \
+    DroidSansHindi.ttf \
+    DroidSansTamil.ttf \
+    DroidSansTelugu.ttf \
+    DroidSansGujarati.ttf \
+    DroidSansPunjabi.ttf \
+    DroidSansKannada.ttf \
+    DroidSansBengali.ttf \
+    DroidSansOdia.ttf \
+    DroidSansMyanmar.ttf
+
+endif
