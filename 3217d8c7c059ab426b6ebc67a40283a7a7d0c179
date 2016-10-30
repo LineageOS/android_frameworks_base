@@ -16,6 +16,24 @@
       "revId": "3217d8c7c059ab426b6ebc67a40283a7a7d0c179",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_9428d486",
+        "filename": "packages/PrintSpooler/res/drawable/ic_add.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2016-10-30T16:28:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t make a difference but the tool used probably generated it this way. I don\u0027t see why it matters though.",
+      "parentUuid": "ff2e2bb8_49f4f586",
+      "revId": "3217d8c7c059ab426b6ebc67a40283a7a7d0c179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
