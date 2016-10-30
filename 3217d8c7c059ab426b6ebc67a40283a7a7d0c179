@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_49f4f586",
+        "filename": "packages/PrintSpooler/res/drawable/ic_add.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-10-30T13:09:48Z",
+      "side": 1,
+      "message": "is the decimal place necessary? would \"24dp\" be any different?",
+      "revId": "3217d8c7c059ab426b6ebc67a40283a7a7d0c179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
