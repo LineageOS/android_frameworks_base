@@ -1006,6 +1006,7 @@ void AssetManager::addSystemOverlays(const char* pathOverlaysList,
             sharedRes->add(oass, oidmap, offset + 1, false, oap.pkgIdOverride);
             const_cast<AssetManager*>(this)->mAssetPaths.add(oap);
             const_cast<AssetManager*>(this)->mZipSet.addOverlay(targetPackagePath, oap);
+            delete oidmap;
         }
     }
     fclose(fin);
