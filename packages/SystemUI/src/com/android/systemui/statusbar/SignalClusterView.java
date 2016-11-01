@@ -778,6 +778,13 @@ public class SignalClusterView
                 if (mContext.getResources().getBoolean(R.bool.show_roaming_and_network_icons)
                         &&(mTelephonyManager != null
                         && mTelephonyManager.isNetworkRoaming(mSubId))) {
+                    if (!(mContext.getResources().getBoolean(R.bool.config_data_signal_control))) {
+                         mRoaming.setImageDrawable(getContext().getResources().getDrawable(
+                                R.drawable.stat_sys_data_fully_connected_roam));
+                    } else {
+                       mRoaming.setImageDrawable(null);
+                    }
+
                     mRoaming.setImageDrawable(getContext().getResources().getDrawable(
                             R.drawable.stat_sys_data_fully_connected_roam));
                 } else {

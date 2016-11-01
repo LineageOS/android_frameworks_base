@@ -74,6 +74,7 @@ import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.database.ContentObserver;
+import android.net.ConnectivityManager;
 import android.net.DataUsageRequest;
 import android.net.IConnectivityManager;
 import android.net.INetworkManagementEventObserver;
@@ -152,6 +153,7 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
     private static final int FLAG_PERSIST_FORCE = 0x100;
 
     private static final String TAG_NETSTATS_ERROR = "netstats_error";
+    private static final String DIALER_PACKEAGE_NAME = "com.android.dialer";
 
     private final Context mContext;
     private final INetworkManagementService mNetworkManager;
@@ -232,6 +234,10 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
     private NetworkStatsRecorder mUidRecorder;
     private NetworkStatsRecorder mUidTagRecorder;
 
+    private NetworkStats.Entry mVideoCallMobileDataEntry;
+    private NetworkStats.Entry mVideoCallWifiDataEntry;
+    private boolean mConfigEnableDataUsage = false;
+
     /** Cached {@link #mXtRecorder} stats. */
     private NetworkStatsCollection mXtStatsCached;
 
@@ -304,6 +310,9 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
         ContentResolver contentResolver = context.getContentResolver();
         contentResolver.registerContentObserver(Settings.Global.getUriFor(
                NETSTATS_GLOBAL_ALERT_BYTES), false, mGlobalAlertBytesObserver);
+
+        mConfigEnableDataUsage = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_video_call_datausage_enable);
     }
 
     @VisibleForTesting
@@ -986,7 +995,8 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
                         || !state.networkCapabilities.hasTransport(
                                     NetworkCapabilities.TRANSPORT_CELLULAR)
                         || state.networkCapabilities.hasCapability(
-                                    NetworkCapabilities.NET_CAPABILITY_INTERNET))) {
+                                    NetworkCapabilities.NET_CAPABILITY_INTERNET)
+                        || hasImsNetworkCapability(state))) {
                 final boolean isMobile = isNetworkTypeMobile(state.networkInfo.getType());
                 final NetworkIdentity ident = NetworkIdentity.buildNetworkIdentity(mContext, state);
 
@@ -1039,6 +1049,10 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
         final NetworkStats devSnapshot = mNetworkManager.getNetworkStatsSummaryDev();
 
         NetPluginDelegate.getTetherStats(uidSnapshot, xtSnapshot, devSnapshot);
+
+        if (mConfigEnableDataUsage) {
+            combineVideoCallEntryValues(uidSnapshot);
+        }
 
         // For xt/dev, we pass a null VPN array because usage is aggregated by UID, so VPN traffic
         // can't be reattributed to responsible apps.
@@ -1497,4 +1511,71 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
             return getGlobalLong(NETSTATS_UID_TAG_PERSIST_BYTES, def);
         }
     }
+
+    public void recordVideoCallData(String iface, int ifaceType, long rxBytes, long txBytes) {
+        Log.d(TAG, "recordVideoCallData  service ifaceType = " + ifaceType
+                + " iface = "+ iface + " rxBytes = " +rxBytes + "txBytes = "+ txBytes);
+        if (ifaceType == ConnectivityManager.TYPE_MOBILE) {
+            if (mVideoCallMobileDataEntry == null) {
+                mVideoCallMobileDataEntry = createVideoCallDataEntry(iface);
+            }
+            synchronized(mVideoCallMobileDataEntry) {
+                mVideoCallMobileDataEntry.rxBytes += rxBytes;
+                mVideoCallMobileDataEntry.txBytes += txBytes;
+            }
+        } else if (ifaceType == ConnectivityManager.TYPE_WIFI) {
+            if (mVideoCallWifiDataEntry == null) {
+                mVideoCallWifiDataEntry = createVideoCallDataEntry(iface);
+            }
+            synchronized(mVideoCallWifiDataEntry) {
+                mVideoCallWifiDataEntry.rxBytes += rxBytes;
+                mVideoCallWifiDataEntry.txBytes += txBytes;
+            }
+        } else {
+            return;
+        }
+
+        synchronized (mStatsLock) {
+            performPollLocked(FLAG_PERSIST_ALL);
+        }
+    }
+
+
+    private NetworkStats.Entry createVideoCallDataEntry(String iface) {
+        NetworkStats.Entry dataEntry = new NetworkStats.Entry();
+        PackageManager pm = mContext.getPackageManager();
+        ApplicationInfo ai = null;
+        try {
+            ai = pm.getApplicationInfo(DIALER_PACKEAGE_NAME, PackageManager.GET_ACTIVITIES);
+        } catch(Exception e) {
+            Log.d(TAG, "get dialer getApplicationInfo failed ");
+        }
+        if (ai != null){
+            dataEntry.uid = ai.uid;
+        }
+        dataEntry.iface = iface;
+        return dataEntry;
+    }
+
+    private void combineVideoCallEntryValues(NetworkStats uidSnapshot) {
+        if (mVideoCallMobileDataEntry != null) {
+            synchronized(mVideoCallMobileDataEntry) {
+                uidSnapshot.combineValues(mVideoCallMobileDataEntry);
+            }
+        }
+        if (mVideoCallWifiDataEntry != null) {
+            synchronized(mVideoCallWifiDataEntry) {
+                uidSnapshot.combineValues(mVideoCallWifiDataEntry);
+            }
+        }
+    }
+
+    private boolean hasImsNetworkCapability(NetworkState state) {
+        if (mConfigEnableDataUsage && state.networkCapabilities.hasCapability(
+                NetworkCapabilities.NET_CAPABILITY_IMS)) {
+            return true;
+        }
+        return false;
+    }
+
 }
