@@ -872,12 +872,6 @@ public class CarrierConfigManager {
             "carrier_map_anonymous_to_restricted";
 
     /**
-     * Configuration to play sms ringtone during MO/MT call.
-     * @hide
-     */
-    public static final String KEY_CONFIG_SMS_RINGTONE_INCALL = "config_sms_ringtone_incall";
-
-    /**
      * Report IMEI as device id even if it's a CDMA/LTE phone.
      *
      * @hide
@@ -1198,7 +1192,6 @@ public class CarrierConfigManager {
         sDefaults.putBoolean(KEY_EDITABLE_WFC_ROAMING_MODE_BOOL, false);
         sDefaults.putBoolean(KEY_STK_DISABLE_LAUNCH_BROWSER_BOOL, false);
         sDefaults.putBoolean(KEY_MAP_ANONYMOUS_TO_RESTRICTED_BOOL, true);
-        sDefaults.putBoolean(KEY_CONFIG_SMS_RINGTONE_INCALL, true);
     }
 
     /**
