@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_512e5043",
+        "filename": "core/res/res/values/cm_symbols.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5681
+      },
+      "writtenOn": "2016-11-03T11:26:28Z",
+      "side": 1,
+      "message": "????",
+      "range": {
+        "startLine": 78,
+        "startChar": 7,
+        "endLine": 78,
+        "endChar": 8
+      },
+      "revId": "b9235827fd668ffa52fe9ad21cec89612f151778",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
