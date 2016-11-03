@@ -41,6 +41,7 @@ import android.os.SystemProperties;
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.IccCardConstants.State;
 import com.android.internal.telephony.TelephonyIntents;
+import com.android.internal.telephony.PhoneConstants;
 import com.android.settingslib.WirelessUtils;
 import android.telephony.TelephonyManager;
 
@@ -255,7 +256,7 @@ public class CarrierText extends TextView {
         /*
          * In the case where there is only one sim inserted in a multisim device, if
          * the voice registration service state is reported as 12 (no service with emergency)
-         * for at least one of the sim concatenate the sim state with Emergency calls only"
+         * for at least one of the sim concatenate the sim state with "Emergency calls only"
          */
         if (N < TelephonyManager.getDefault().getPhoneCount() &&
                  mKeyguardUpdateMonitor.isEmergencyOnly()) {
@@ -265,10 +266,23 @@ public class CarrierText extends TextView {
                 Log.d(TAG, " Present sim - sub id: " + presentSubId);
             }
             if (presentSubId != -1) {
-                CharSequence emergencyOnlyText =
+                CharSequence text =
                         getContext().getText(com.android.internal.R.string.emergency_calls_only);
+                Intent spnUpdatedIntent = getContext().registerReceiver(null,
+                        new IntentFilter(TelephonyIntents.SPN_STRINGS_UPDATED_ACTION));
+                if (spnUpdatedIntent != null) {
+                    String spn = "";
+                    if (spnUpdatedIntent.getBooleanExtra(TelephonyIntents.EXTRA_SHOW_SPN, false) &&
+                            spnUpdatedIntent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY, -1) ==
+                                presentSubId) {
+                        spn = spnUpdatedIntent.getStringExtra(TelephonyIntents.EXTRA_SPN);
+                        if (!spn.equals(text.toString())) {
+                            text = concatenate(text, spn);
+                        }
+                    }
+                }
                 displayText = getCarrierTextForSimState(
-                        mKeyguardUpdateMonitor.getSimState(presentSubId), emergencyOnlyText);
+                        mKeyguardUpdateMonitor.getSimState(presentSubId), text);
             }
         }
         if (allSimsMissing) {
