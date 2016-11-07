@@ -22,6 +22,52 @@
       "revId": "84b3678345023979215c4b2f367ebafe2fdc523b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_b40dff36",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2694,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-11-07T09:34:36Z",
+      "side": 1,
+      "message": "space after comma (-\u003e \"Restrict\", false)",
+      "range": {
+        "startLine": 2694,
+        "startChar": 66,
+        "endLine": 2694,
+        "endChar": 67
+      },
+      "revId": "84b3678345023979215c4b2f367ebafe2fdc523b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_141dcb65",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2704,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-11-07T09:34:36Z",
+      "side": 1,
+      "message": "Space",
+      "range": {
+        "startLine": 2704,
+        "startChar": 24,
+        "endLine": 2704,
+        "endChar": 26
+      },
+      "revId": "84b3678345023979215c4b2f367ebafe2fdc523b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
