@@ -363,6 +363,26 @@
     <string-array name="telephony_data_activity_lte_sim3">
     </string-array>
 
+    <!-- Array to show forbidden icons -->
+    <string-array name="telephony_data_type_forbidden">
+        <item>array/telephony_data_type_forbidden_icons</item>
+        <item>array/telephony_data_type_forbidden_icons</item>
+        <item>array/telephony_data_type_forbidden_icons</item>
+    </string-array>
+
+    <string-array name="telephony_data_type_forbidden_icons">
+    </string-array>
+
+    <!--Array to show greyed icons -->
+    <string-array name="telephony_data_type_disconnected">
+        <item>array/telephony_data_type_disconnected_icons</item>
+        <item>array/telephony_data_type_disconnected_icons</item>
+        <item>array/telephony_data_type_disconnected_icons</item>
+    </string-array>
+
+    <string-array name="telephony_data_type_disconnected_icons">
+    </string-array>
+
     <!--signal strength-->
     <!--Add three items to support TSTS-->
     <string-array name="multi_signal_strength">
