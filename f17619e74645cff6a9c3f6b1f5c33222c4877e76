@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_169cb0be",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 12076
+      },
+      "writtenOn": "2016-11-07T18:25:15Z",
+      "side": 0,
+      "message": "getting build error:\nframeworks/base/services/core/java/com/android/server/BatteryService.java:357: error: cannot find symbol\n        FileReader fileReader;\n        ^\n  symbol:   class FileReader\n  location: class BatteryService\nframeworks/base/services/core/java/com/android/server/BatteryService.java:358: error: cannot find symbol\n        BufferedReader br;\n        ^\n  symbol:   class BufferedReader\n  location: class BatteryService\nframeworks/base/services/core/java/com/android/server/BatteryService.java:361: error: cannot find symbol\n            fileReader \u003d new FileReader(mVoltageNowFile);\n                             ^\n  symbol:   class FileReader\n  location: class BatteryService\nframeworks/base/services/core/java/com/android/server/BatteryService.java:362: error: cannot find symbol\n            br \u003d new BufferedReader(fileReader);\n                     ^\n  symbol:   class BufferedReader\n  location: class BatteryService",
+      "revId": "f17619e74645cff6a9c3f6b1f5c33222c4877e76",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
