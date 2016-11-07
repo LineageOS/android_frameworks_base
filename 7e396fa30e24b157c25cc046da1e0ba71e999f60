@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_39872a64",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 8238
+      },
+      "writtenOn": "2016-11-07T04:46:19Z",
+      "side": 1,
+      "message": "Compile Error\n\nstatic const char THEME_BOOTANIMATION_FILE[] \u003d \"/data/system/theme/bootanimation.zip\";",
+      "revId": "7e396fa30e24b157c25cc046da1e0ba71e999f60",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
