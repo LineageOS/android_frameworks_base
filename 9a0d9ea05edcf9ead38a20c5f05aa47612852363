@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_10d79025",
+        "filename": "packages/SystemUI/AndroidManifest_cm.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-11-08T17:32:48Z",
+      "side": 1,
+      "message": "POWER_NOTIF_CONTROLS would look better",
+      "range": {
+        "startLine": 58,
+        "startChar": 66,
+        "endLine": 58,
+        "endChar": 84
+      },
+      "revId": "9a0d9ea05edcf9ead38a20c5f05aa47612852363",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
