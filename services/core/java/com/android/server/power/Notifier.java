@@ -966,6 +966,10 @@ public class Notifier {
             final String soundPath = Settings.Global.getString(mContext.getContentResolver(),
                     wireless ? Settings.Global.WIRELESS_CHARGING_STARTED_SOUND
                             : Settings.Global.CHARGING_STARTED_SOUND);
+            if ("silent".equals(soundPath)) {
+                return;
+            }
+
             final Uri soundUri = Uri.parse("file://" + soundPath);
             if (soundUri != null) {
                 final Ringtone sfx = RingtoneManager.getRingtone(mContext, soundUri);
