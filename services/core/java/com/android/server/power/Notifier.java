@@ -552,11 +552,6 @@ final class Notifier {
         if (DEBUG) {
             Slog.d(TAG, "onWirelessChargingStarted");
         }
-
-        mSuspendBlocker.acquire();
-        Message msg = mHandler.obtainMessage(MSG_WIRELESS_CHARGING_STARTED);
-        msg.setAsynchronous(true);
-        mHandler.sendMessage(msg);
     }
 
     private void updatePendingBroadcastLocked() {
