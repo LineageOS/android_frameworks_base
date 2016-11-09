@@ -322,5 +322,7 @@
     <bool name="config_show_long_operator_name_when_roaming">false</bool>
     <!-- Show forbidden and greyed data icon when data is disabled -->
     <bool name="config_data_signal_control">false</bool>
+
+    <bool name="config_always_hide_roaming_indicator">false</bool>
 </resources>
 

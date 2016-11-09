@@ -26,6 +26,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.wifi.WifiDevice;
 import android.os.Binder;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -59,6 +60,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.List;
 
 /**
  * Class that answers queries about the state of network connectivity. It also
@@ -295,6 +297,15 @@ public class ConnectivityManager {
     @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
     public static final String ACTION_TETHER_STATE_CHANGED =
             "android.net.conn.TETHER_STATE_CHANGED";
+
+    /**
+     * Broadcast intent action indicating that a Station is connected
+     * or disconnected.
+     *
+     * @hide
+     */
+    public static final String TETHER_CONNECT_STATE_CHANGED =
+        "codeaurora.net.conn.TETHER_CONNECT_STATE_CHANGED";
 
     /**
      * @hide
@@ -2139,6 +2150,20 @@ public class ConnectivityManager {
             return mService.setUsbTethering(enable);
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * Get the list of Stations connected to Hotspot.
+     *
+     * @return a list of {@link WifiDevice} objects.
+     * {@hide}
+     */
+    public List<WifiDevice> getTetherConnectedSta() {
+        try {
+            return mService.getTetherConnectedSta();
+        } catch (RemoteException e) {
+            return null;
         }
     }
 
