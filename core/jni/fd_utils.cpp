@@ -42,6 +42,7 @@ static const char* kPathWhitelist[] = {
   "/dev/urandom",
   "/dev/ion",
   "/dev/dri/renderD129", // Fixes b/31172436
+  "/system/framework/org.lineageos.platform-res.apk",
 };
 
 static const char kFdPath[] = "/proc/self/fd";
