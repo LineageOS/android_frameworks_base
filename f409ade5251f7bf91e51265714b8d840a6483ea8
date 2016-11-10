@@ -16,6 +16,24 @@
       "revId": "f409ade5251f7bf91e51265714b8d840a6483ea8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_4c84dcd4",
+        "filename": "core/jni/fd_utils-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 13026
+      },
+      "writtenOn": "2016-11-10T16:38:42Z",
+      "side": 1,
+      "message": "Is it more connected to that than to ION? Just curious; all the same to me.",
+      "parentUuid": "ff2e2bb8_0c7ad4ef",
+      "revId": "f409ade5251f7bf91e51265714b8d840a6483ea8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
