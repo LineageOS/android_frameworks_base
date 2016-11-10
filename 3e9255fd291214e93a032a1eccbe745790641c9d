@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_4cb33ceb",
+        "filename": "core/jni/fd_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2016-11-10T15:17:04Z",
+      "side": 1,
+      "message": "add a comma to the above line",
+      "revId": "3e9255fd291214e93a032a1eccbe745790641c9d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
