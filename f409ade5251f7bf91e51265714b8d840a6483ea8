@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_0c7ad4ef",
+        "filename": "core/jni/fd_utils-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 8964
+      },
+      "writtenOn": "2016-11-10T16:34:04Z",
+      "side": 1,
+      "message": "should we move this up under framework-res.apk?",
+      "revId": "f409ade5251f7bf91e51265714b8d840a6483ea8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
