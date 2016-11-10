@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_ec92104b",
+        "filename": "packages/SystemUI/res/drawable/ic_battery_landscape.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16087
+      },
+      "writtenOn": "2016-11-10T14:27:08Z",
+      "side": 1,
+      "message": "what about using the folder drawable-port/drawable-land and let the system load the portrait/landscape resource",
+      "revId": "a41590a69a93e855cec59a7c68b395567cd2dfff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
