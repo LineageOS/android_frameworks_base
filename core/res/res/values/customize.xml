@@ -48,5 +48,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
     <!--  operator custom sim icon feature -->
     <bool name="operator_custom_sim_icon">false</bool>
-
+    <!-- Setting customize default bluetooth name -->
+    <string name="def_custom_bt_defname"></string>
 </resources>
