@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_98f1fbd0",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterDrawable.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 9488
+      },
+      "writtenOn": "2016-11-12T18:05:51Z",
+      "side": 1,
+      "message": "Dependency on http://review.cyanogenmod.org/#/c/169368/",
+      "revId": "54ab595afda17e660bf53c33ee61533ba5ad8efc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
