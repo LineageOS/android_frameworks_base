@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_24cb6172",
+        "filename": "core/jni/fd_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2016-11-14T16:49:13Z",
+      "side": 1,
+      "message": "#ifdef NEEDS_WHITELISTED_PATHS\n#include \u003cfd_utils-inl-extra.h\u003e\n#ended",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "92928b1dc9b42c403338308dffedb05afb1a30f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
