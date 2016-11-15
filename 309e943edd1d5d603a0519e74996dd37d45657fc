@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_954ff990",
+        "filename": "services/core/java/com/android/server/display/DisplayPowerController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-11-15T06:30:30Z",
+      "side": 1,
+      "message": "Use getInt or getBoolean?",
+      "revId": "309e943edd1d5d603a0519e74996dd37d45657fc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
