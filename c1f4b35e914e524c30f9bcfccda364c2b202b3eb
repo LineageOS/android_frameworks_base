@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_5bbabf09",
+        "filename": "core/jni/fd_utils-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2016-11-16T17:34:58Z",
+      "side": 1,
+      "message": "Should be removed and moved in the device",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 14
+      },
+      "revId": "c1f4b35e914e524c30f9bcfccda364c2b202b3eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
