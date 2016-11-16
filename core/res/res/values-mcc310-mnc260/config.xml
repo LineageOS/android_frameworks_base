@@ -37,4 +37,30 @@
          carrier provisioning. If false: hard disabled. If true: then depends on carrier
          provisioning, availability etc -->
     <bool name="config_carrier_wfc_ims_available">true</bool>
+
+    <!-- Array of numeric that operator considered as domestic roaming -->
+    <string-array translatable="false" name="config_operatorConsideredDomesticRoaming">
+        <item>310</item>
+        <item>311</item>
+        <item>312</item>
+        <item>313</item>
+        <item>314</item>
+        <item>315</item>
+        <item>316</item>
+    </string-array>
+
+    <!-- Exceptions of above list -->
+    <string-array translatable="false" name="config_operatorConsideredDomesticRoamingExceptions">
+        <item>310500</item>
+        <item>310970</item>
+        <item>310033</item>
+        <item>310470</item>
+        <item>310370</item>
+        <item>310032</item>
+        <item>310140</item>
+        <item>311250</item>
+        <item>310400</item>
+        <item>311170</item>
+    </string-array>
+
 </resources>
