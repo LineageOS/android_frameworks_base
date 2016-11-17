@@ -31,6 +31,7 @@ import android.os.IBinder;
 import android.os.Messenger;
 import android.os.ParcelFileDescriptor;
 import android.os.ResultReceiver;
+import android.net.wifi.WifiDevice;
 
 import com.android.internal.net.LegacyVpnInfo;
 import com.android.internal.net.VpnConfig;
