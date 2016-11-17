@@ -19,11 +19,13 @@ package com.android.systemui.qs.tiles;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.UserManager;
-
+import android.net.ConnectivityManager;
+import android.net.wifi.WifiDevice;
 import android.provider.Settings.Global;
 import android.service.quicksettings.Tile;
+import android.util.Log;
 import android.widget.Switch;
+import android.os.UserManager;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.Dependency;
@@ -33,6 +35,8 @@ import com.android.systemui.qs.QSHost;
 import com.android.systemui.plugins.qs.QSTile.AirplaneBooleanState;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.statusbar.policy.HotspotController;
+
+import java.util.List;
 
 /** Quick settings tile: Hotspot **/
 public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
@@ -51,12 +55,15 @@ public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
 
     private final HotspotController mController;
     private final Callback mCallback = new Callback();
+    private final ConnectivityManager mConnectivityManager;
     private final GlobalSetting mAirplaneMode;
     private boolean mListening;
+    private int mNumConnectedClients = 0;
 
     public HotspotTile(QSHost host) {
         super(host);
         mController = Dependency.get(HotspotController.class);
+        mConnectivityManager = host.getContext().getSystemService(ConnectivityManager.class);
         mAirplaneMode = new GlobalSetting(mContext, mHandler, Global.AIRPLANE_MODE_ON) {
             @Override
             protected void handleValueChanged(int value) {
@@ -83,15 +90,18 @@ public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
     @Override
     public void setListening(boolean listening) {
         if (mListening == listening) return;
-        mListening = listening;
         if (listening) {
             mController.addCallback(mCallback);
+            mContext.registerReceiver(mTetherConnectStateChangedReceiver,
+                    new IntentFilter(ConnectivityManager.TETHER_CONNECT_STATE_CHANGED));
             final IntentFilter filter = new IntentFilter();
             filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
             refreshState();
         } else {
             mController.removeCallback(mCallback);
+            mContext.unregisterReceiver(mTetherConnectStateChangedReceiver);
         }
+        mListening = listening;
         mAirplaneMode.setListening(listening);
     }
 
@@ -116,7 +126,7 @@ public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
 
     @Override
     protected void handleUpdateState(AirplaneBooleanState state, Object arg) {
-        state.label = mContext.getString(R.string.quick_settings_hotspot_label);
+        boolean visible = mController.isHotspotEnabled();
 
         checkIfRestrictionEnforcedByAdminOnly(state, UserManager.DISALLOW_CONFIG_TETHERING);
         if (arg instanceof Boolean) {
@@ -141,6 +151,15 @@ public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
         state.contentDescription = state.label;
         state.state = state.isAirplaneMode ? Tile.STATE_UNAVAILABLE
                 : state.value || state.isTransient ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
+        if (visible && state.value) {
+            state.label = mContext.getResources().getQuantityString(
+                    R.plurals.wifi_hotspot_connected_clients_label, mNumConnectedClients,
+                    mNumConnectedClients);
+            mNumConnectedClients = 0;
+        } else {
+            state.label = mContext.getString(R.string.quick_settings_hotspot_label);
+        }
+        state.icon = visible && state.value ? mEnable : mDisable;
     }
 
     @Override
@@ -156,6 +175,15 @@ public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
             return mContext.getString(R.string.accessibility_quick_settings_hotspot_changed_off);
         }
     }
+
+    private BroadcastReceiver mTetherConnectStateChangedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final List<WifiDevice> clients = mConnectivityManager.getTetherConnectedSta();
+            mNumConnectedClients = clients != null ? clients.size() : 0;
+            refreshState();
+        }
+    };
 
     private final class Callback implements HotspotController.Callback {
         @Override
