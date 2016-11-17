@@ -184,6 +184,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         public static final int InterfaceDnsServerInfo    = 615;
         public static final int RouteChange               = 616;
         public static final int StrictCleartext           = 617;
+        public static final int InterfaceMessage          = 618;
     }
 
     /* Defaults for resolver parameters. */
@@ -447,6 +448,21 @@ public class NetworkManagementService extends INetworkManagementService.Stub
      */
     private void notifyInterfaceAdded(String iface) {
         invokeForAllObservers(o -> o.interfaceAdded(iface));
+    }
+
+    /**
+     * Notify our observers of a change in the data activity state of the interface
+     */
+    private void notifyInterfaceMessage(String message) {
+        final int length = mObservers.beginBroadcast();
+        for (int i = 0; i < length; i++) {
+            try {
+                mObservers.getBroadcastItem(i). interfaceMessageRecevied(message);
+            } catch (RemoteException e) {
+            } catch (RuntimeException e) {
+            }
+        }
+        mObservers.finishBroadcast();
     }
 
     /**
@@ -822,6 +838,22 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                     }
                     throw new IllegalStateException(errorMessage);
                     // break;
+             case NetdResponseCode.InterfaceMessage:
+                    /*
+                     * An message arrived in network interface.
+                     * Format: "NNN IfaceMessage <3>AP-STA-CONNECTED 00:08:22:64:9d:84
+                     */
+                    if (cooked.length < 3 || !cooked[2].equals("IfaceMessage")) {
+                        throw new IllegalStateException(errorMessage);
+                    }
+                    Slog.d(TAG, "onEvent: "+ raw);
+                    if(cooked[5] != null) {
+                        notifyInterfaceMessage(cooked[4] + " " + cooked[5]);
+                    } else {
+                        notifyInterfaceMessage(cooked[4]);
+                    }
+                    return true;
+                // break;
             case NetdResponseCode.InterfaceClassActivity:
                     /*
                      * An network interface class state changed (active/idle)
