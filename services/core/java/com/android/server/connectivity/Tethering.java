@@ -44,9 +44,11 @@ import android.net.NetworkState;
 import android.net.NetworkUtils;
 import android.net.RouteInfo;
 import android.net.wifi.WifiDevice;
+import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.os.Binder;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.INetworkManagementService;
 import android.os.Looper;
 import android.os.Message;
@@ -207,6 +209,9 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
     // True iff WiFi tethering should be started when soft AP is ready.
     private boolean mWifiTetherRequested;
 
+    private long mWiFiApInactivityTimeout;
+    private final Handler mHandler;
+
     public Tethering(Context context, INetworkManagementService nmService,
             INetworkStatsService statsService, INetworkPolicyManager policyManager) {
         mContext = context;
@@ -222,6 +227,8 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
         mLooper = IoThread.get().getLooper();
         mTetherMasterSM = new TetherMasterSM("TetherMaster", mLooper);
         mTetherMasterSM.start();
+
+        mHandler = new Handler(mLooper);
 
         mUpstreamNetworkMonitor = new UpstreamNetworkMonitor();
 
@@ -306,7 +313,6 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
         // Never called directly: only called from interfaceLinkStateChanged.
         // See NetlinkHandler.cpp:71.
         if (VDBG) Log.d(TAG, "interfaceStatusChanged " + iface + ", " + up);
-        WifiDevice device = new WifiDevice(iface);
         synchronized (mPublicSync) {
             int interfaceType = ifaceNameToType(iface);
             if (interfaceType == ConnectivityManager.TETHERING_INVALID) {
@@ -317,13 +323,26 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
             if (up) {
                 if (tetherState == null) {
                     trackNewTetherableInterface(iface, interfaceType);
-                    mConnectedDeviceMap.put(device.deviceAddress, device);
-                }
+                } else if (isWifi(iface)) {
+                    // check if the user has specified an inactivity timeout for wifi AP and
+                    // if so schedule the timeout
+                    final WifiManager wm =
+                            (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
+                    final WifiConfiguration apConfig = wm.getWifiApConfiguration();
+                    mWiFiApInactivityTimeout =
+                            apConfig != null ? apConfig.wifiApInactivityTimeout : 0;
+                    if (mWiFiApInactivityTimeout > 0 && mL2ConnectedDeviceMap.size() == 0) {
+                        scheduleInactivityTimeout();
+                    }
+               }
             } else {
                 if (interfaceType == ConnectivityManager.TETHERING_BLUETOOTH) {
                     tetherState.mStateMachine.sendMessage(
                             TetherInterfaceStateMachine.CMD_INTERFACE_DOWN);
                     mTetherStates.remove(iface);
+                    if(isWifi(iface)) {
+                        cancelInactivityTimeout();
+                    }
                     mConnectedDeviceMap.remove(iface);
                 }
             }
@@ -782,11 +801,17 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
                     new DnsmasqThread(this, device,
                         DNSMASQ_POLLING_INTERVAL, DNSMASQ_POLLING_MAX_TIMES).start();
                 }
-	        //cancelInactivityTimeout();
+	        cancelInactivityTimeout();
             } else if (device.deviceState == WifiDevice.DISCONNECTED) {
                 mL2ConnectedDeviceMap.remove(device.deviceAddress);
                 mConnectedDeviceMap.remove(device.deviceAddress);
                 sendTetherConnectStateChangedBroadcast();
+
+                //schedule inactivity timeout if non-zero and no more devices are connected
+                if (mWiFiApInactivityTimeout > 0 && mL2ConnectedDeviceMap.size() == 0) {
+                    scheduleInactivityTimeout();
+                }
+
             }
         } catch (IllegalArgumentException ex) {
             Log.e(TAG, "WifiDevice IllegalArgument: " + ex);
@@ -1232,6 +1257,29 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
             }
         }
         return list.toArray(new String[list.size()]);
+    }
+
+    private final Runnable mDisableWifiApRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (VDBG) Log.d(TAG, "Turning off hotpost due to inactivity");
+            final WifiManager wifiManager =
+                    (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
+            wifiManager.setWifiApEnabled(null, false);
+        }
+    };
+
+    private void scheduleInactivityTimeout() {
+        if (mWiFiApInactivityTimeout > 0) {
+            if (VDBG) Log.d(TAG, "scheduleInactivityTimeout: " + mWiFiApInactivityTimeout);
+            mHandler.removeCallbacks(mDisableWifiApRunnable);
+            mHandler.postDelayed(mDisableWifiApRunnable, mWiFiApInactivityTimeout);
+        }
+    }
+
+    private void cancelInactivityTimeout() {
+        if (VDBG) Log.d(TAG, "cancelInactivityTimeout");
+        mHandler.removeCallbacks(mDisableWifiApRunnable);
     }
 
     public String[] getTetherableIfaces() {
