@@ -16,6 +16,24 @@
       "revId": "4706a14a225c1ec07605e8f0233cbd3fd531b608",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_0d81124b",
+        "filename": "core/jni/fd_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 7148
+      },
+      "writtenOn": "2016-11-19T11:01:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff2e2bb8_ed85ce5b",
+      "revId": "4706a14a225c1ec07605e8f0233cbd3fd531b608",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
