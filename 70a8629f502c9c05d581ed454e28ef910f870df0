@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_0308be8f",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2400,
+      "author": {
+        "id": 4886
+      },
+      "writtenOn": "2016-11-20T13:57:47Z",
+      "side": 1,
+      "message": "Maybe \"CMSettings.System\"?",
+      "range": {
+        "startLine": 2400,
+        "startChar": 20,
+        "endLine": 2400,
+        "endChar": 91
+      },
+      "revId": "70a8629f502c9c05d581ed454e28ef910f870df0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
