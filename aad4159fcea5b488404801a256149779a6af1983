@@ -1,0 +1,22 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_5ec74297",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2038,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-11-20T06:13:45Z",
+      "side": 1,
+      "message": "This will destroy the load order. I thibk you\u0027d be better off with a List\u003cPair\u003cString, String\u003e\u003e or a List\u003cString[]\u003e.",
+      "parentUuid": "",
+      "revId": "aad4159fcea5b488404801a256149779a6af1983",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
