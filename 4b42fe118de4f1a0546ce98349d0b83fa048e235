@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_26ea30ab",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-11-20T16:50:47Z",
+      "side": 1,
+      "message": "Maybe this could be reversed to have an if for the new feature, with a return;\nto avoid breaking the indentation of this whole section \u0026 ease future merges of this section that is quite sensitive.",
+      "revId": "4b42fe118de4f1a0546ce98349d0b83fa048e235",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_e6e328d8",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-11-20T16:50:47Z",
+      "side": 1,
+      "message": "3 spaces \u003e 4",
+      "revId": "4b42fe118de4f1a0546ce98349d0b83fa048e235",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_46e5b4db",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-11-20T16:50:47Z",
+      "side": 1,
+      "message": "one indentation missing",
+      "revId": "4b42fe118de4f1a0546ce98349d0b83fa048e235",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
