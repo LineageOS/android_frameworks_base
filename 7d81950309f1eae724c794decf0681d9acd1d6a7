@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_be3dae90",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2016-11-20T06:17:00Z",
+      "side": 1,
+      "message": "This seems like the right name for the external API.  Rename this to some different and change deviceLightsCan -\u003e deviceLightsCapabilities ?",
+      "revId": "7d81950309f1eae724c794decf0681d9acd1d6a7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
