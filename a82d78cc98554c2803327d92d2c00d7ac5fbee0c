@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_4f6827b8",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 2775,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-11-21T03:30:22Z",
+      "side": 1,
+      "message": "I wonder whether we should just merge the 2 multiColor overlays to have something like LIGHTS_RGB_LED. It seems redundant to have separate multiColor overlays for battery and notifications.",
+      "revId": "a82d78cc98554c2803327d92d2c00d7ac5fbee0c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
