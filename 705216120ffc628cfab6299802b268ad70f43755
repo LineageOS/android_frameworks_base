@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_159ff4b4",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1294,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-11-22T22:22:48Z",
+      "side": 1,
+      "message": "That line is useless with line 1297 afterwards,\nmaybe you want to put the true in the try, or before.",
+      "revId": "705216120ffc628cfab6299802b268ad70f43755",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_b5ad60ec",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-11-22T22:22:48Z",
+      "side": 1,
+      "message": "Maybe this could be reversed to have an if for the new feature, with a return;\nto avoid breaking the indentation of this whole section \u0026 ease future merges of this section that is quite sensitive.",
+      "revId": "705216120ffc628cfab6299802b268ad70f43755",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_95aae4cf",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-11-22T22:22:48Z",
+      "side": 1,
+      "message": "3 previous lines missing identation and the previous ones missing 1 space,\nbut not doing the changes due to my previous comment.",
+      "revId": "705216120ffc628cfab6299802b268ad70f43755",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
