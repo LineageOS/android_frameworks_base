@@ -20,19 +20,31 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Suffix added to a number to signify size in bytes. -->
+  <string name="byteShort">B</string>
   <!-- Suffix added to a number to signify size in kilobytes. -->
+  <string name="kilobyteShort">kB</string>
   <!-- Suffix added to a number to signify size in megabytes. -->
+  <string name="megabyteShort">MB</string>
   <!-- Suffix added to a number to signify size in gigabytes. -->
+  <string name="gigabyteShort">GB</string>
   <!-- Suffix added to a number to signify size in terabytes. -->
+  <string name="terabyteShort">TB</string>
   <!-- Suffix added to a number to signify size in petabytes. -->
+  <string name="petabyteShort">PB</string>
   <!-- Format string used to add a suffix like "KB" or "MB" to a number
          to display a size in kilobytes, megabytes, or other size units.
          Some languages (like French) will want to add a space between
          the placeholders. -->
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration in days -->
+  <string name="durationDays"><xliff:g id="days">%1$d</xliff:g> tagoj</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one day with hours -->
+  <string name="durationDayHours"><xliff:g id="days">%1$d</xliff:g> tago
+            <xliff:g id="hours">%2$d</xliff:g> horoj</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one day with one hours -->
+  <string name="durationDayHour"><xliff:g id="days">%1$d</xliff:g> tago
+            <xliff:g id="hours">%2$d</xliff:g> horo</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration in hours -->
+  <string name="durationHours"><xliff:g id="hours">%1$d</xliff:g> horoj</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one hour with minutes -->
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one hour with one minute -->
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration in minutes -->
@@ -43,8 +55,11 @@
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one second -->
   <!-- Used in Contacts for a field that has no label and in Note Pad
          for a note with no name. -->
+  <string name="untitled">&lt;Sentitola&gt;</string>
   <!-- How to display the lack of a phone number -->
+  <string name="emptyPhoneNumber">(Neniu telefonnumero)</string>
   <!-- How to display the lack of a name -->
+  <string name="unknownName">Nekonata</string>
   <!-- What the UI should display for "voice mail" unless overridden by the SIM-->
   <!-- What the UI should display for "Msisdn" unless overridden by the SIM-->
   <!-- For GsmMmiCode.java -->
@@ -59,6 +74,7 @@
   <!-- Displayed when a phone property such as a SIM password was registered. -->
   <!-- Displayed when a phone property such as a SIM password was erased. -->
   <!-- Displayed when a SIM password was entered incorrectly. -->
+  <string name="passwordIncorrect">Malĝusta pasvorto.</string>
   <!-- Displayed when a phone feature triggered by an MMI code is complete. -->
   <!-- Displayed when a SIM PIN password is entered incorrectly. -->
   <!-- Displayed when a SIM PUK password is entered incorrectly. -->
@@ -70,8 +86,10 @@
   <!-- Displayed when user attempts to change SIM PIN1 without enabling PIN1. -->
   <!-- Displayed when a SIM PIN/PUK is entered incorrectly. -->
   <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
+  <string name="imei">IMEI</string>
   <!-- Title for the dialog used to display the user's MEID number on CDMA network
          [CHAR LIMIT=10] -->
+  <string name="meid">MEID</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
   <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
   <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID. -->
@@ -111,6 +129,10 @@
   <!-- WFC Operator Error Messages showed as alerts -->
   <!-- WFC Operator Error Messages showed as notifications -->
   <!-- Template for showing cellular network operator name while WFC is active -->
+  <string-array name="wfcSpnFormats">
+    <item>%s</item>
+    <item>%s Wi-Fi Calling</item>
+  </string-array>
   <!-- WFC, summary for Disabled -->
   <!-- WFC, summary for Wi-Fi Preferred -->
   <!-- WFC, summary for Cellular Preferred -->
@@ -185,6 +207,7 @@
   <!-- Text message in the factory reset warning dialog. This says that the the device admin app
          is missing or corrupted. As a result the device will be erased. [CHAR LIMIT=NONE]-->
   <!-- Display name for any time a piece of data refers to the owner of the phone. For example, this could be used in place of the phone's phone number. -->
+  <string name="me">Mi</string>
   <!-- Power Dialog -->
   <!-- Title for the Phone Options dialog to lock the screen, turn off the phone etc. -->
   <!-- Title for the Phone Options dialog to lock the screen, turn off the phone etc. -->
@@ -244,9 +267,11 @@
   <!-- status message in phone options dialog for when silent mode is enabled -->
   <!-- status message in phone options dialog for when silent mode is disabled -->
   <!-- label for item that toggles airplane mode -->
+  <string name="global_actions_toggle_airplane_mode">Aviadila reĝimo</string>
   <!-- status message in phone options dialog for when airplane mode is on -->
   <!-- status message in phone options dialog for when airplane mode is off -->
   <!-- label for item that launches settings in phone options dialog [CHAR LIMIT=15]-->
+  <string name="global_action_settings">Agordoj</string>
   <!-- label for item that launches assist in phone options dialog [CHAR LIMIT=15]-->
   <!-- label for item that launches voice assist in phone options dialog [CHAR LIMIT=15]-->
   <!-- label for item that locks the phone and enforces that it can't be unlocked without entering a credential. [CHAR LIMIT=15] -->
@@ -255,29 +280,37 @@
          values/config.xml) and must be truncated. May need to be localized
          for most appropriate textual indicator of "more than X".
          [CHAR LIMIT=4] -->
+  <string name="status_bar_notification_info_overflow">999+</string>
   <!-- The divider symbol between different parts of the notification header. not translatable [CHAR LIMIT=1] -->
   <!-- Text shown in place of notification contents when the notification is hidden on a secure lockscreen -->
   <!-- Text shown in place of notification contents when the notification is hidden by policy on a secure lockscreen -->
   <!-- Displayed to the user to tell them that they have started up the phone in "safe mode" -->
+  <string name="safeMode">Sekura reĝimo</string>
   <!-- Label for the Android system components when they are shown to the user. -->
   <!-- Label for the user owner in the intent forwarding app. -->
   <!-- Label for a corporate profile in the intent forwarding app. -->
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgrouplab_contacts">Kontaktoj</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgrouplab_location">Loko</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgrouplab_calendar">Kalendaro</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of a category of application permissioncds, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgrouplab_microphone">Mikrofono</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgrouplab_phone">Telefono</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgroupdesc_phone">Telefono</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title for the capability of an accessibility service to retrieve window content. -->
@@ -335,6 +368,7 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_killBackgroundProcesses">fermi aliajn aplikaĵojn</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -354,6 +388,7 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_readContacts">legi viajn kontaktojn</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -568,6 +603,7 @@
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Instant Message protocols/providers from android.provider.Contacts -->
   <!-- Custom phone number type -->
+  <string name="phoneTypeCustom">Propra</string>
   <!-- Home phone number type -->
   <!-- Mobile phone number type -->
   <!-- Work phone number type -->
@@ -589,23 +625,30 @@
   <!-- Assistant phone number type -->
   <!-- MMS phone number type -->
   <!-- Label for custom events  [CHAR LIMIT=20] -->
+  <string name="eventTypeCustom">Propra</string>
   <!-- Label for a birthday event  [CHAR LIMIT=20] -->
+  <string name="eventTypeBirthday">Naskiĝtago</string>
   <!-- Label for an anniversary event  [CHAR LIMIT=20] -->
+  <string name="eventTypeAnniversary">Datreveno</string>
   <!-- Label for other events  [CHAR LIMIT=20] -->
   <!-- Custom email type -->
+  <string name="emailTypeCustom">Propra</string>
   <!-- Home email type -->
   <!-- Work email type -->
   <!-- Other email type -->
   <!-- Mobile email type -->
   <!-- Custom postal address type -->
+  <string name="postalTypeCustom">Propra</string>
   <!-- Home postal address type -->
   <!-- Work postal address type -->
   <!-- Other postal address type -->
   <!-- Custom IM address type -->
+  <string name="imTypeCustom">Propra</string>
   <!-- Home IM address type -->
   <!-- Work IM address type -->
   <!-- Other IM address type -->
   <!-- Custom IM protocol type -->
+  <string name="imProtocolCustom">Propra</string>
   <!-- AIM IM protocol type -->
   <!-- MSN IM protocol type -->
   <!-- Yahoo IM protocol type -->
@@ -618,22 +661,30 @@
   <!-- Work organization type -->
   <!-- Other organization type -->
   <!-- Custom organization type -->
+  <string name="orgTypeCustom">Propra</string>
   <!-- Custom relationship custom [CHAR LIMIT=20] -->
+  <string name="relationTypeCustom">Propra</string>
   <!-- Assistant relationship type [CHAR LIMIT=20] -->
   <!-- Brother relationship type [CHAR LIMIT=20] -->
+  <string name="relationTypeBrother">Frato</string>
   <!-- Child relationship type [CHAR LIMIT=20] -->
   <!-- Domestic Partner relationship type [CHAR LIMIT=20] -->
   <!-- Father relationship type [CHAR LIMIT=20] -->
+  <string name="relationTypeFather">Patro</string>
   <!-- Friend relationship type [CHAR LIMIT=20] -->
+  <string name="relationTypeFriend">Amiko</string>
   <!-- Manager relationship type [CHAR LIMIT=20] -->
   <!-- Mother relationship type [CHAR LIMIT=20] -->
+  <string name="relationTypeMother">Patrino</string>
   <!-- Parent relationship type [CHAR LIMIT=20] -->
   <!-- Partner relationship type [CHAR LIMIT=20] -->
   <!-- Referred by relationship type [CHAR LIMIT=20] -->
   <!-- Relative relationship type [CHAR LIMIT=20] -->
   <!-- Sister relationship type [CHAR LIMIT=20] -->
+  <string name="relationTypeSister">Fratino</string>
   <!-- Spouse relationship type [CHAR LIMIT=20] -->
   <!-- Custom SIP address type. Same context as Custom phone type.  -->
+  <string name="sipAddressTypeCustom">Propra</string>
   <!-- Home SIP address type. Same context as Home phone type. -->
   <!-- Work SIP address type. Same context as Work phone type. -->
   <!-- Other SIP address type. Same context as Other phone type. -->
@@ -666,7 +717,9 @@
   <!-- Button at the bottom of the unlock screen that lets the user return to a call -->
   <!-- Shown to confirm that the user entered their lock pattern correctly. -->
   <!-- On the unlock pattern screen, shown when the user enters the wrong lock pattern and must try again. -->
+  <string name="lockscreen_pattern_wrong">Reprovi</string>
   <!-- On the unlock password screen, shown when the user enters the wrong lock password and must try again. -->
+  <string name="lockscreen_password_wrong">Reprovi</string>
   <!-- On the keyguard screen, this string explains that some features or data may not be available until the device is unlocked. [CHAR LIMIT=48] -->
   <!-- Shown when face unlock failed multiple times so we're just using the backup -->
   <!-- Shown in the lock screen when there is no SIM card. -->
@@ -729,11 +782,13 @@
   <!-- In the unlock screen, message telling the user that they need to use their Google login and password to unlock the phone -->
   <!-- Hint caption for the username field when unlocking the phone using login and password -->
   <!-- Hint caption for the password field when unlocking the phone using login and password -->
+  <string name="lockscreen_glogin_password_hint">Pasvorto</string>
   <!-- Button to try to unlock the phone using username and password -->
   <!-- Displayed to the user when unlocking the phone with a username and password fails. -->
   <!-- Hint displayed on account unlock screen to advise the user on how to recover the account. -->
   <!-- Displayed in a progress dialog while a username and password are being checked. -->
   <!-- Displayed on lock screen's left tab - unlock -->
+  <string name="lockscreen_unlock_label">Malŝlosi</string>
   <!-- Displayed on lock screen's right tab - turn sound on -->
   <!-- Displayed on lock screen's right tab - turn sound off -->
   <!-- Accessibility description sent when user starts drawing a lock pattern. [CHAR LIMIT=NONE] -->
@@ -746,6 +801,7 @@
   <!-- Accessibility description sent when user changes the current lock screen widget. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the add widget button. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the empty sidget slot (place holder for a new widget). [CHAR_LIMIT=none] -->
+  <string name="keyguard_accessibility_widget_empty_slot">Malplena</string>
   <!-- Accessibility description of the event of expanding an unlock area. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the event of collapsing an unlock area. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of a lock screen widget. [CHAR_LIMIT=none] -->
@@ -770,6 +826,7 @@
   <!-- Label for ALT modifier key.  Must be short to fit on key! -->
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by character. Only spoken to the user. [CHAR LIMIT=NONE] -->
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by word. Only spoken to the user. [CHAR LIMIT=NONE] -->
+  <string name="granularity_label_word">vorto</string>
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by link. Only spoken to the user. [CHAR LIMIT=NONE] -->
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by line. Only spoken to the user. [CHAR LIMIT=NONE] -->
   <!-- Title of the alert when something went wrong in the factory test. -->
@@ -790,10 +847,12 @@
   <!-- Text to show in the auto complete drop down list on a text view when the WebView can auto fill the entire form but the user has not configured an AutoFill profile [CHAR-LIMIT=19] -->
   <!-- String used to separate FirstName and LastName when writing out a local name
          e.g. John<separator>Smith [CHAR-LIMIT=NONE]-->
+  <string name="autofill_address_name_separator">\u0020</string>
   <!-- Format string for displaying a name. $1 is First Name, $2 is autofill_address_name_separator, $3 is Last Name.
          e.g. (John)( )(Smith) -->
   <!-- String used to separate Name and Address Line 1
          e.g. John Smith<separator>123 Main Street [CHAR-LIMIT=NONE]-->
+  <string name="autofill_address_summary_separator">,\u0020</string>
   <!-- Format string for displaying a name and address summary. $1 is the Full Name, $2 is autofill_address_summary_separator, $3 is the Address
          e.g. (John Smith)(, )(123 Main Street) -->
   <!-- Do not translate. Regex used by AutoFill. -->
@@ -804,6 +863,7 @@
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
+  <string name="autofill_country_re">country|location<!-- ja-JP -->|国<!-- zh-CN -->|国家</string>
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
@@ -814,6 +874,7 @@
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
+  <string name="autofill_username_re">user.?name|user.?id<!-- de-DE -->|vollständiger.?name<!-- zh-CN -->|用户名</string>
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
@@ -877,6 +938,7 @@
   <!-- If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. Button in the save password dialog, saying not to remember this password. -->
   <!-- If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. Button in the save password dialog, saying to remember this password. -->
   <!-- Button in the save password dialog, saying never to remember this password. This should be short. Should be "Never for this site". But it is too long, use "Never" instead -->
+  <string name="save_password_never">Neniam</string>
   <!-- Displayed to the user when they do not have permission to open a particular web page. -->
   <!-- Displayed to the user to confirm that they have copied text from a web page to the clipboard. -->
   <!-- Menu item displayed at the end of a menu to allow users to see another page worth of menu items. This is shown on any app's menu as long as the app has too many items in the menu.-->
@@ -884,11 +946,14 @@
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+space for the shortcut. -->
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+enter for the shortcut. -->
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+delete for the shortcut. -->
+  <string name="menu_delete_shortcut_label">forigi</string>
   <!-- Strings used for search bar -->
   <!-- This is the default button label in the system-wide search UI.
          It is also used by the home screen's search "widget". It should be short -->
+  <string name="search_go">Serĉi</string>
   <!-- Default hint text for the system-wide search UI's text field. [CHAR LIMIT=30] -->
   <!-- SearchView accessibility description for search button [CHAR LIMIT=NONE] -->
+  <string name="searchview_description_search">Serĉi</string>
   <!-- SearchView accessibility description for search text field [CHAR LIMIT=NONE] -->
   <!-- SearchView accessibility description for clear button [CHAR LIMIT=NONE] -->
   <!-- SearchView accessibility description for submit button [CHAR LIMIT=NONE] -->
@@ -911,18 +976,30 @@
   <!-- String used to display the date. Preposition for time display ("at 2:33am") -->
   <!-- String used to display the date. Preposition for year display ("in 2008") -->
   <!-- Appened to express the value is this unit of time: singular day -->
+  <string name="day">tago</string>
   <!-- Appened to express the value is this unit of time: plural days -->
+  <string name="days">tagoj</string>
   <!-- Appened to express the value is this unit of time: singular hour -->
+  <string name="hour">horo</string>
   <!-- Appened to express the value is this unit of time: plural hours -->
+  <string name="hours">horoj</string>
   <!-- Appened to express the value is this unit of time: singular minute -->
   <!-- Appened to express the value is this unit of time: plural minutes -->
   <!-- Appened to express the value is this unit of time. -->
   <!-- Appened to express the value is this unit of time. -->
   <!-- Appened to express the value is this unit of time. -->
+  <string name="week">semajno</string>
   <!-- Appened to express the value is this unit of time. -->
+  <string name="weeks">semajnoj</string>
   <!-- Appened to express the value is this unit of time. -->
+  <string name="year">jaro</string>
   <!-- Appened to express the value is this unit of time. -->
+  <string name="years">jaroj</string>
   <!-- Phrase describing a time duration using seconds [CHAR LIMIT=16] -->
+  <plurals name="duration_seconds">
+    <item quantity="one">1 sekundo</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> sekundoj</item>
+  </plurals>
   <!-- Phrase describing a time duration using minutes [CHAR LIMIT=16] -->
   <!-- Phrase describing a time duration using hours [CHAR LIMIT=16] -->
   <!-- A string denoting the current point in time that should be as short as possible. Abbreviations are preferred to full strings as this might be shown repetitively. It is used in the header of notifications. [CHAR LIMIT=8]-->
@@ -948,19 +1025,26 @@
   <!-- Button to close error alert when a video cannot be played -->
   <!-- Format indicating a relative expression and time.
          Example: "4 hours ago, 11:00 am" -->
+  <string name="relative_time">"<xliff:g id="date" example="4 hours ago">%1$s</xliff:g>, <xliff:g id="time" example="11:00 am">%2$s</xliff:g>"</string>
   <!-- Quoted name for 12pm, lowercase -->
   <!-- Quoted name for 12pm, uppercase first letter -->
   <!-- Quoted name for 12am, lowercase -->
   <!-- Quoted name for 12am, uppercase first letter -->
   <!-- Format string for durations like "01:23" (1 minute, 23 seconds) -->
+  <string name="elapsed_time_short_format_mm_ss"><xliff:g id="minutes" example="1">%1$02d</xliff:g>:<xliff:g id="seconds" example="23">%2$02d</xliff:g></string>
   <!-- Format string for times like "1:43:33" (1 hour, 43 minutes, 33 seconds) -->
+  <string name="elapsed_time_short_format_h_mm_ss"><xliff:g id="hours" example="1">%1$d</xliff:g>:<xliff:g id="minutes" example="43">%2$02d</xliff:g>:<xliff:g id="seconds" example="33">%3$02d</xliff:g></string>
   <!-- Item on EditText context menu. This action is used to select all text in the edit field. -->
   <!-- Item on EditText context menu.  This action is used to cut selected the text into the clipboard.  -->
+  <string name="cut">Eltondi</string>
   <!-- Item on EditText context menu. This action is used to cut selected the text into the clipboard. -->
+  <string name="copy">Kopii</string>
   <!-- Item on EditText context menu. This action is used to paste from the clipboard into the eidt field -->
+  <string name="paste">Alglui</string>
   <!-- Item on EditText context menu. This action is used to paste from the clipboard into the eidt field without formatting -->
   <!-- Item on EditText context menu. This action is used to replace the current word by other suggested words, suggested by the IME or the spell checker -->
   <!-- Item on EditText pop-up window. This action is used to delete the text that the user recently added. [CHAR LIMIT=15] -->
+  <string name="delete">Forigi</string>
   <!-- Item on EditText context menu. This action is used to copy a URL from the edit field into the clipboard. -->
   <!-- Item on EditText context menu. Added only when the context menu is not empty, it enable selection context mode. [CHAR LIMIT=20] -->
   <!-- Item on EditText context menu. This action is used to undo a text edit operation. -->
@@ -968,6 +1052,7 @@
   <!-- Text selection contextual mode title, displayed in the CAB. [CHAR LIMIT=20] -->
   <!-- Option to add the current misspelled word to the user dictionary. [CHAR LIMIT=25] -->
   <!-- Option to delete the highlighted part of the text from the suggestion popup. [CHAR LIMIT=25] -->
+  <string name="deleteText">Forigi</string>
   <!-- EditText context menu -->
   <!-- Title for EditText context menu [CHAR LIMIT=20] -->
   <!-- If the device is getting low on internal storage, a notification is shown to the user.  This is the title of that notification. -->
@@ -979,12 +1064,15 @@
          a bad bad notification for itself. -->
   <!-- Preference framework strings. -->
   <!-- Preference framework strings. -->
+  <string name="cancel">Nuligi</string>
   <!-- Preference framework strings. -->
   <!-- Preference framework strings. -->
+  <string name="no">Nuligi</string>
   <!-- This is the generic "attention" string to be used in attention dialogs.  Typically
          combined with setIconAttribute(android.R.attr.alertDialogIcon)
          (or setIcon(android.R.drawable.ic_dialog_alert) on legacy versions of the platform) -->
   <!-- Text shown by list fragment when waiting for data to display. -->
+  <string name="loading">Ŝarĝado\u2026</string>
   <!-- Default text for a button that can be toggled on and off. -->
   <!-- Default text for a button that can be toggled on and off. -->
   <!-- Title of intent resolver dialog when selecting an application to run. -->
@@ -992,6 +1080,7 @@
          and a previously used application is known. -->
   <!-- Generic label for a link to a intent resolver. -->
   <!-- Title of intent resolver dialog when selecting a viewer application to run. -->
+  <string name="whichViewApplication">Malfermi per</string>
   <!-- Title of intent resolver dialog when selecting a viewer application to run
          and a previously used application is known. -->
   <!-- Label for a link to a intent resolver dialog to view something -->
@@ -999,16 +1088,19 @@
   <!-- Title of intent resolver dialog when selecting an editor application to run
          and a previously used application is known. -->
   <!-- Label for a link to a intent resolver dialog when selecting an editor application -->
+  <string name="whichEditApplicationLabel">Redakti</string>
   <!-- Title of intent resolver dialog when selecting a sharing application to run. -->
   <!-- Title of intent resolver dialog when selecting a sharing application to run
          and a previously used application is known. -->
   <!-- Label for a link to a intent resolver dialog to sharing something -->
+  <string name="whichSendApplicationLabel">Konigi</string>
   <!-- Title of intent resolver dialog when selecting an application to run to
          send content to a specific recipient. Often used for email. -->
   <!-- Title of intent resolver dialog when selecting an application to run to
          send content to a specific recipient and a previously used application is known.
          Often used for email. -->
   <!-- Label for a link to a intent resolver dialog to send content to a specific recipient. -->
+  <string name="whichSendToApplicationLabel">Sendi</string>
   <!-- Title of intent resolver dialog when selecting a HOME application to run. -->
   <!-- Title of intent resolver dialog when selecting a HOME application to run
          and a previously used application is known. -->
@@ -1121,13 +1213,17 @@
   <!-- SMS_DIALOG: An SMS dialog is shown if an application tries to send too many SMSes.  This is the title of that dialog. -->
   <!-- See SMS_DIALOG.  This is the message shown in that dialog. [CHAR LIMIT=NONE] -->
   <!-- See SMS_DIALOG.  This is a button choice to allow sending the SMSes. [CHAR LIMIT=30] -->
+  <string name="sms_control_yes">Permesi</string>
   <!-- See SMS_DIALOG.  This is a button choice to disallow sending the SMSes. [CHAR LIMIT=30] -->
+  <string name="sms_control_no">Malpermesi</string>
   <!-- SMS short code verification dialog. -->
   <!-- The message text for the SMS short code confirmation dialog. [CHAR LIMIT=NONE] -->
   <!-- Message details for the SMS short code confirmation dialog (possible premium short code). [CHAR LIMIT=NONE] -->
   <!-- Message details for the SMS short code confirmation dialog (premium short code). [CHAR LIMIT=NONE] -->
   <!-- Text of the approval button for the SMS short code confirmation dialog. [CHAR LIMIT=30] -->
+  <string name="sms_short_code_confirm_allow">Sendi</string>
   <!-- Text of the cancel button for the SMS short code confirmation dialog. [CHAR LIMIT=30] -->
+  <string name="sms_short_code_confirm_deny">Nuligi</string>
   <!-- Text of the checkbox for the SMS short code confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <!-- Text shown when remember checkbox is checked to inform the user how they may undo the setting. [CHAR LIMIT=40] -->
   <!-- Text of the approval button for the SMS short code confirmation dialog when checkbox is checked. [CHAR LIMIT=30] -->
@@ -1146,6 +1242,7 @@
   <!-- The title of the time picker dialog. [CHAR LIMIT=NONE] -->
   <!-- The title of the date picker dialog. [CHAR LIMIT=NONE] -->
   <!-- Name of the button in the date/time picker to accept the date/time change -->
+  <string name="date_time_set">Agordi</string>
   <!-- Name of the button in the date/time picker to accept the date/time change -->
   <!-- Security Permissions strings-->
   <!-- Text that is placed at the front of a permission name that is being added to an app [CHAR LIMIT=NONE] -->
@@ -1207,6 +1304,7 @@
   <!-- Notification title when moving data to external storage failed [CHAR LIMIT=32] -->
   <!-- Notification title when moving data to external storage failed [CHAR LIMIT=64] -->
   <!-- Short summary of storage media status when removed [CHAR LIMIT=32] -->
+  <string name="ext_media_status_removed">Forigita</string>
   <!-- Short summary of storage media status when unmounted [CHAR LIMIT=32] -->
   <!-- Short summary of storage media status when checking [CHAR LIMIT=32] -->
   <!-- Short summary of storage media status when mounted [CHAR LIMIT=32] -->
@@ -1228,8 +1326,11 @@
   <!-- Shown in gadget hosts (e.g. the home screen) when there was an error inflating
     the gadget. -->
   <!-- Long label for a button on a full-screen input method for the "Go" action. -->
+  <string name="ime_action_go">Ek</string>
   <!-- Long label for a button on a full-screen input method for the "Search" action. -->
+  <string name="ime_action_search">Serĉi</string>
   <!-- Long label for a button on a full-screen input method for the "Send" action. -->
+  <string name="ime_action_send">Sendi</string>
   <!-- Long label for a button on a full-screen input method for the "Next" action. -->
   <!-- Long label for a button on a full-screen input method for the "Done" action. -->
   <!-- [CHAR LIMIT=6] Long label for a button on a full-screen input method for the "Previous" action. -->
@@ -1241,11 +1342,14 @@
   <!-- This string array should be overridden by the manufacture to present a list of carrier-id,locale. The wifi regulatory domain is extracted from the locale information. This is used at startup to set system defaults by checking the system property ro.carrier for the carrier-id and searching through this array -->
   <!-- An Array of [[Carrier-ID]                     -->
   <!--              [default-locale]]                -->
+  <string name="allow">Permesi</string>
+  <string name="deny">Malpermesi</string>
   <!-- Message to show when an intent automatically switches users into the personal profile. -->
   <!-- Message to show when an intent automatically switches users into a work profile. -->
   <!-- Label to show for a service that is running because it is an input method. -->
   <!-- Label to show for a service that is running because it is a sync adapter. -->
   <!-- Label to show for a service that is running because it is an accessibility module. -->
+  <string name="accessibility_binding_label">Alirebleco</string>
   <!-- Label to show for a service that is running because it is a wallpaper. -->
   <!-- Dialog title for user to select a different wallpaper from service list -->
   <!-- Label to show for a service that is running because it is observing
@@ -1265,6 +1369,7 @@
   <!-- Notification body that indicates user can touch to configure lockdown VPN connection. -->
   <!-- Localized strings for WebView -->
   <!-- Label for button in a WebView that will open a chooser to choose a file to upload -->
+  <string name="upload_file">Elekti dosieron</string>
   <!-- Label for the file upload control when no file has been chosen yet -->
   <!-- Label for <input type="reset"> button in html -->
   <!-- Label for <input type="submit"> button in html -->
@@ -1284,6 +1389,7 @@
   <!-- Text for progress dialog while erasing SD card [CHAR LIMIT=NONE] -->
   <!-- Text for WebView's text selection Action Mode -->
   <!-- ActionBar action to share the current selection [CHAR LIMIT=10] -->
+  <string name="share">Konigi</string>
   <!-- ActionBar action to use the current selection to open the Find on page functionality [CHAR LIMIT=10]-->
   <!-- ActionBar action to use the current selection to perform a web search [CHAR-LIMIT=16] -->
   <!-- ActionBar action to find the next match in the page [CHAR LIMIT=24] -->
@@ -1296,8 +1402,10 @@
          service (SUPL-service) who sent the request is shown as dynamic strings.
          Translation should not be longer than master text. -->
   <!-- Network positioning verification Yes. Button to push to share location information. -->
+  <string name="gpsVerifYes">Jes</string>
   <!-- Network positioning verification No. Button to push to deny sharing of location
          information. -->
+  <string name="gpsVerifNo">Ne</string>
   <!-- Error message when the sync tried to delete too many things -->
   <!-- Dialog message for when there are too many deletes that would take place and we want user confirmation -->
   <!-- Dialog action for when there are too many deletes that would take place and we want user confirmation, and the user wants to delete the items -->
@@ -1329,7 +1437,9 @@
   <!-- KeyboardView - accessibility support -->
   <!-- Description of the Alt button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <!-- Description of the Cancel button in a KeyboardView. [CHAR LIMIT=NONE] -->
+  <string name="keyboardview_keycode_cancel">Nuligi</string>
   <!-- Description of the Delete button in a KeyboardView. [CHAR LIMIT=NONE] -->
+  <string name="keyboardview_keycode_delete">Forigi</string>
   <!-- Description of the Done button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <!-- Description of the Mode change button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <!-- Description of the Shift button in a KeyboardView. [CHAR LIMIT=NONE] -->
@@ -1353,17 +1463,20 @@
          (usually a "<" chevron) and the window title text.
          %1$s is the title. %2$s is the description of what tapping/clicking the whole
          thing is going to do. -->
+  <string name="action_bar_home_description_format">%1$s, %2$s</string>
   <!-- Just like action_bar_home_description_format, but this one will be used
          if the window is also providing subtitle text.
          %1$s is the title. %2$s is the subtitle. %3$s is the description of what
          tapping/clicking the whole thing is going to do. -->
   <!-- Storage description for internal shared storage. [CHAR LIMIT=NONE] -->
   <!-- Storage description for a generic SD card. [CHAR LIMIT=NONE] -->
+  <string name="storage_sd_card">SD-karto</string>
   <!-- Storage description for a SD card from a specific manufacturer. [CHAR LIMIT=NONE] -->
   <!-- Storage description for a generic USB drive. [CHAR LIMIT=NONE] -->
   <!-- Storage description for a USB drive from a specific manufacturer. [CHAR LIMIT=NONE] -->
   <!-- Storage description for USB storage. [CHAR LIMIT=NONE] -->
   <!-- Button text for the edit menu in input method extract mode. [CHAR LIMIT=16] -->
+  <string name="extract_edit_menu_button">Redakti</string>
   <!-- Notification title when data usage has exceeded warning threshold. [CHAR LIMIT=32] -->
   <!-- Notification body when data usage has exceeded warning threshold. [CHAR LIMIT=32] -->
   <!-- Notification title when 2G-3G data usage has exceeded limit threshold, and has been disabled. [CHAR LIMIT=32] -->
@@ -1391,6 +1504,7 @@
   <!-- Label for an information field on an SSL Certificate Dialog -->
   <!-- Label for an information field on an SSL Certificate Dialog -->
   <!-- Label for an information field on an SSL Certificate Dialog -->
+  <string name="fingerprints">Fingrospuroj:</string>
   <!-- Label for an information field on an SSL Certificate Dialog -->
   <!-- Label for an information field on an SSL Certificate Dialog -->
   <!-- Title for a button to expand the list of activities in ActivityChooserView [CHAR LIMIT=25] -->
@@ -1401,6 +1515,7 @@
   <!-- STK setup Call -->
   <!-- Title for a button to choose the currently selected activity
          as the default in the activity resolver. [CHAR LIMIT=25] -->
+  <string name="activity_resolver_use_always">Ĉiam</string>
   <!-- Title for a button to choose the currently selected activity
          from the activity resolver to use just this once. [CHAR LIMIT=25] -->
   <!-- Text for the toast that is shown when the user clicks on a launcher that
@@ -1411,11 +1526,13 @@
          is connected to a headphone or other wired audio output jack. [CHAR LIMIT=50] -->
   <!-- Name of the default audio route when nothing is connected to
          a headphone or other wired audio output jack. [CHAR LIMIT=50] -->
+  <string name="default_audio_route_name" product="default">Telefono</string>
   <!-- Name of the default audio route when wired headphones are
          connected. [CHAR LIMIT=50] -->
   <!-- Name of the default audio route when an audio dock is connected. [CHAR LIMIT=50] -->
   <!-- Name of the default media route when HDMI is connected. [CHAR LIMIT=50] -->
   <!-- Name of the default audio route category. [CHAR LIMIT=50] -->
+  <string name="default_audio_route_category_name">Sistemo</string>
   <!-- Description of the bluetooth a2dp audio route. [CHAR LIMIT=50] -->
   <!-- Description of a wireless display route. [CHAR LIMIT=50] -->
   <!-- Content description of a MediaRouteButton for accessibility support.
@@ -1424,6 +1541,7 @@
   <!-- Title of the media route chooser dialog for selecting remote display routes. [CHAR LIMIT=40] -->
   <!-- Placeholder text to show when no devices have been found. [CHAR LIMIT=50] -->
   <!-- Button to access extended settings.  [CHAR LIMIT=30] -->
+  <string name="media_route_chooser_extended_settings">Agordoj</string>
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <!-- Status message for remote routes attempting to scan/determine availability -->
   <!-- Status message for a remote route attempting to connect -->
@@ -1459,6 +1577,7 @@
   <!-- Instructions show in account unlock screen allowing user to enter their email password -->
   <!-- Hint shown in TextView in account unlock screen of keyguard -->
   <!-- Hint shown in TextView in account unlock screen of keyguard -->
+  <string name="kg_login_password_hint">Pasvorto</string>
   <!-- Label shown on sign in button on account unlock screen of keyguard -->
   <!-- Message shown when the user enters an invalid username/password combination in account unlock screen of keyguard -->
   <!-- Hint text shown when user has too many failed password attempts in account unlock screen of keyguard -->
@@ -1479,7 +1598,9 @@
     locked out and may have to enter an alternate username/password to unlock the phone -->
   <!-- Sequence of characters used to separate message strings in keyguard. Typically just em-dash
          with spaces on either side. [CHAR LIMIT=3] -->
+  <string name="kg_text_message_separator" product="default">" \u2014 "</string>
   <!-- The delete-widget drop target button text -->
+  <string name="kg_reordering_delete_drop_target_text">Forigi</string>
   <!-- Message shown in dialog when user is attempting to set the music volume above the
     recommended maximum level for headphones -->
   <!-- Text spoken when the user is performing a gesture that will enable accessibility. [CHAR LIMIT=none] -->
@@ -1489,7 +1610,9 @@
   <!-- Message shown when switching to a user [CHAR LIMIT=none] -->
   <!-- Message when logging out a user on a split user system -->
   <!-- Default name of the owner user [CHAR LIMIT=20] -->
+  <string name="owner_name" msgid="3879126011135546571">Posedanto</string>
   <!-- Error message title [CHAR LIMIT=35] -->
+  <string name="error_message_title">Eraro</string>
   <!-- Message informing user that the change was disallowed by an administrator. [CHAR LIMIT=none] -->
   <!-- Message informing user that the requested activity could not be found [CHAR LIMIT=none] -->
   <!-- Printing -->
@@ -1577,8 +1700,10 @@
   <!-- Media (paper) size for specifying any paper size in portrait.-->
   <!-- Media (paper) size for specifying any paper size in landscape.-->
   <!-- Write fail reason: printing was cancelled.[CHAR LIMIT=none] -->
+  <string name="write_fail_reason_cancelled">Nuligita</string>
   <!-- Write fail reason: couldn't write the printed content. [CHAR LIMIT=none] -->
   <!-- Print fail reason: unknown. [CHAR LIMIT=25] -->
+  <string name="reason_unknown">nekonata</string>
   <!-- Print fail reason: the print service that has to process the print job is not available. [CHAR LIMIT=none] -->
   <!-- Title for the notification that a print service was installed. [CHAR LIMIT=50] -->
   <!-- Message for the notification that a print service was installed. [CHAR LIMIT=50] -->
@@ -1688,6 +1813,7 @@
   <!-- List section subheader for the language picker, containing a list of suggested languages determined by the default region [CHAR LIMIT=30] -->
   <!-- List section subheader for the language picker, containing a list of all languages available [CHAR LIMIT=30] -->
   <!-- Menu item in the locale menu  [CHAR LIMIT=30] -->
+  <string name="locale_search_menu">Serĉi</string>
   <!-- Title for dialog displayed when work profile is turned off. [CHAR LIMIT=30] -->
   <!-- Message displayed in dialog when work profile is turned off. [CHAR LIMIT=NONE] -->
   <!-- Title for button to turn on work profile. [CHAR LIMIT=NONE] -->
@@ -1713,6 +1839,7 @@
   <!-- Title of the dialog shown when user inactivity times out in retail demo mode [CHAR LIMIT=40] -->
   <!-- Warning message shown when user inactivity times out in retail demo mode [CHAR LIMIT=none] -->
   <!-- Text of button to allow user to abort countdown and continue current session in retail demo mode [CHAR LIMIT=40] -->
+  <string name="demo_user_inactivity_timeout_left_button">Nuligi</string>
   <!-- Text of button to allow user to abort countdown and immediately start another session in retail demo mode [CHAR LIMIT=40] -->
   <!-- Title of notification shown when device has been forced to safe mode after a security compromise. -->
   <!-- Description of notification shown when device has been forced to safe mode after a security compromise. -->
