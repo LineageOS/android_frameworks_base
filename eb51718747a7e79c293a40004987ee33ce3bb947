@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_95514466",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/QuickStatusBarHeader.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-11-23T06:19:43Z",
+      "side": 1,
+      "message": "I think it\u0027s better to replace this with \nmDateTimeAlarmGroup.setClickable(mExpanded)\nand get rid of this function since setClickable(false) is right below",
+      "revId": "eb51718747a7e79c293a40004987ee33ce3bb947",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
