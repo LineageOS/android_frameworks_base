@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_b8db957b",
+        "filename": "core/java/android/os/Build.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2016-11-23T11:56:14Z",
+      "side": 1,
+      "message": "This should probably be a Javadoc block comment, mostly because it fits the rest of the code better. If we don\u0027t want it to end up in Javadoc (if someone were to generate it for some reason), maybe a normal block comment.",
+      "range": {
+        "startLine": 755,
+        "startChar": 4,
+        "endLine": 758,
+        "endChar": 37
+      },
+      "revId": "6bf174dede963ce5bdd2edfe9a106a0d0dcaa90f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
