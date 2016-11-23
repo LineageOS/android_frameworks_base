@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_3e05ad7b",
+        "filename": "telecomm/java/android/telecom/InCallAdapter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 12076
+      },
+      "writtenOn": "2016-11-23T21:05:24Z",
+      "side": 1,
+      "message": "ERROR: /home/bitti/cm14/packages/services/Telecomm/src/com/android/server/telecom/InCallAdapter.java:32: The type InCallAdapter must implement the inherited abstract method IInCallAdapter.answerCallWithCallWaitingResponse(String, int, int)",
+      "revId": "48619c2692eda80557741a0aaecc614e104f574a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
