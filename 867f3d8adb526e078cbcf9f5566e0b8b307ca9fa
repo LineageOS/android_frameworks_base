@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_bbe54f0d",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3688,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-11-23T15:13:01Z",
+      "side": 1,
+      "message": "Derp, I meant these",
+      "revId": "867f3d8adb526e078cbcf9f5566e0b8b307ca9fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
