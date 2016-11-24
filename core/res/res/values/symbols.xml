@@ -213,7 +213,6 @@
   <java-symbol type="id" name="selection_start_handle" />
   <java-symbol type="id" name="selection_end_handle" />
   <java-symbol type="id" name="insertion_handle" />
-
   <java-symbol type="attr" name="actionModeShareDrawable" />
   <java-symbol type="attr" name="alertDialogCenterButtons" />
   <java-symbol type="attr" name="fragmentBreadCrumbsStyle" />

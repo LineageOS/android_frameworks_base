@@ -26,4 +26,7 @@
     <dimen name="queue_top_shadow">3dp</dimen>
 
     <dimen name="weather_text_size">12sp</dimen>
+
+    <dimen name="navbar_single_hand_mode_horizontal_threshhold">90dp</dimen>
+    <dimen name="navbar_single_hand_mode_vertical_threshhold">48dp</dimen>
 </resources>
