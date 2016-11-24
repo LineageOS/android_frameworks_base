@@ -85,4 +85,8 @@
 
     <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
     <java-symbol type="string" name="lineage_system_error_manufacturer" />
+    
+    <!-- Single hand mode -->
+    <java-symbol type="string" name="singlehandmode_click_hint_message" />
+    <java-symbol type="string" name="singlehandmode_slide_hint_message" />
 </resources>
