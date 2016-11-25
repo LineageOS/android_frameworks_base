@@ -708,6 +708,11 @@
     <protected-broadcast android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
     <protected-broadcast android:name="android.app.action.ACTION_SHOW_NEW_USER_DISCLAIMER" />
 
+    <!-- LineageOS additions -->
+
+    <!-- Used to launch a common app (FlipFlap) for devices with flip cover. -->
+    <protected-broadcast android:name="lineageos.intent.action.LID_STATE_CHANGED" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
