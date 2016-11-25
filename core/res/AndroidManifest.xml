@@ -844,6 +844,11 @@
     <protected-broadcast android:name="android.app.action.CONSOLIDATED_NOTIFICATION_POLICY_CHANGED" />
     <protected-broadcast android:name="android.intent.action.MAIN_USER_LOCKSCREEN_KNOWLEDGE_FACTOR_CHANGED" />
 
+    <!-- LineageOS additions -->
+
+    <!-- Used to launch a common app (FlipFlap) for devices with flip cover. -->
+    <protected-broadcast android:name="lineageos.intent.action.LID_STATE_CHANGED" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
