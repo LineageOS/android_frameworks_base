@@ -510,6 +510,7 @@
 
     <protected-broadcast android:name="com.android.server.retaildemo.ACTION_RESET_DEMO" />
 
+    <protected-broadcast android:name="cyanogenmod.intent.action.ACTION_LID_STATE_CHANGED" />
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
