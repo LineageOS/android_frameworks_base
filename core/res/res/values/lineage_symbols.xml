@@ -16,6 +16,9 @@
      limitations under the License.
 -->
 <resources>
+    <!-- Pixel navigation bar animation -->
+    <java-symbol type="bool" name="config_allowOpaLayout" />
+
     <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
 
     <!-- Package Manager -->
