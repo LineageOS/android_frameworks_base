@@ -22,4 +22,18 @@
     <color name="status_bar_temperature_text_color">#FFFFFFFF</color>
     <color name="status_bar_temperature_location_text_color">#FFFFFFFF</color>
 
+    <!-- OPA home dimens -->
+    <dimen name="halo_inner_radius">10.0dip</dimen>
+    <dimen name="halo_thickness">1.0dip</dimen>
+    <dimen name="halo_diameter">22.0dip</dimen>
+    <dimen name="opa_dot_diam">10.0dip</dimen>
+    <dimen name="opa_diamond_translation">16.0dip</dimen>
+    <dimen name="opa_line_y_translation">16.0dip</dimen>
+    <dimen name="opa_line_x_trans_ry">15.0dip</dimen>
+    <dimen name="opa_line_x_trans_bg">30.0dip</dimen>
+    <dimen name="opa_line_x_collapse_bg">46.0dip</dimen>
+    <dimen name="opa_line_x_collapse_ry">15.0dip</dimen>
+    <dimen name="opa_overshoot_translation">8.0dip</dimen>
+    <dimen name="opa_return_translation">-1.0dip</dimen>
+    <dimen name="opa_rest_to_collapse">7.0dip</dimen>
 </resources>
