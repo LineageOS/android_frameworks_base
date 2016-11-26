@@ -2944,4 +2944,7 @@
     <bool name="config_useWakeLockForFlashlight">false</bool>
 
     <bool name="single_hand_mode">true</bool>
+
+    <!-- Allow Opa (Pixel navbar) layout -->
+    <bool name="config_allowOpaLayout">true</bool>
 </resources>
