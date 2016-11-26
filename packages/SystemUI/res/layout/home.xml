@@ -13,18 +13,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.android.systemui.statusbar.policy.KeyButtonView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:systemui="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/home"
-    android:layout_width="@dimen/navigation_key_width"
-    android:layout_height="match_parent"
-    android:layout_weight="0"
-    android:src="@drawable/ic_sysbar_home"
-    systemui:keyCode="3"
-    android:scaleType="center"
-    android:contentDescription="@string/accessibility_home"
-    android:paddingStart="@dimen/navigation_key_padding"
-    android:paddingEnd="@dimen/navigation_key_padding"
-    />
-
+<com.google.android.systemui.OpaLayout android:id="@+id/home" android:clipChildren="false" android:clipToPadding="false" android:layout_width="@dimen/navigation_key_width" android:layout_height="fill_parent" android:layout_weight="0.0" android:paddingStart="@dimen/navigation_key_padding" android:paddingEnd="@dimen/navigation_key_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@+id/red" android:src="@drawable/ic_sysbar_opa_red" android:importantForAccessibility="no" style="@style/DotStyle" />
+        <ImageView android:id="@+id/blue" android:src="@drawable/ic_sysbar_opa_blue" android:importantForAccessibility="no" style="@style/DotStyle" />
+        <ImageView android:id="@+id/green" android:src="@drawable/ic_sysbar_opa_green" android:importantForAccessibility="no" style="@style/DotStyle" />
+        <ImageView android:id="@+id/yellow" android:src="@drawable/ic_sysbar_opa_yellow" android:importantForAccessibility="no" style="@style/DotStyle" />
+    </RelativeLayout>
+    <ImageView android:layout_gravity="center" android:id="@+id/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_sysbar_home" android:importantForAccessibility="no" />
+    <com.android.systemui.statusbar.policy.KeyButtonView android:layout_gravity="center" android:id="@+id/home_button" android:layout_width="@dimen/navigation_key_width" android:layout_height="fill_parent" android:scaleType="center" android:contentDescription="@string/accessibility_home" systemui:keyCode="3" />
+    <ImageView android:layout_gravity="center" android:id="@+id/halo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/halo" android:importantForAccessibility="no" />
+</com.google.android.systemui.OpaLayout>
