@@ -342,6 +342,11 @@ public class WindowManagerService extends IWindowManager.Stub
 
     private static final String PROPERTY_BUILD_DATE_UTC = "ro.build.date.utc";
 
+    /*define misc. activty trigger function*/
+    static final int START_PROCESS = 1;
+    static final int NETWORK_OPTS = 2;
+    static final int ANIMATION_SCALE = 3;
+
     // Enums for animation scale update types.
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({WINDOW_ANIMATION_SCALE, TRANSITION_ANIMATION_SCALE, ANIMATION_DURATION_SCALE})
@@ -5563,7 +5568,7 @@ public class WindowManagerService extends IWindowManager.Stub
                         mActivityTrigger = new ActivityTrigger();
                     }
                     if (mActivityTrigger != null) {
-                        value = mActivityTrigger.animationScalesCheck(mFocusingActivity, which);
+                        value = mActivityTrigger.activityMiscTrigger(ANIMATION_SCALE, mFocusingActivity, which, 0);
                     }
                }
             }
