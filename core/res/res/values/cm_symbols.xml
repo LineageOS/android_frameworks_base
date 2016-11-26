@@ -82,4 +82,7 @@
 
     <!-- Blur effects -->
     <java-symbol type="bool" name="config_uiBlurEnabled" />
+
+    <!-- Pixel navigation bar animation -->
+    <java-symbol type="bool" name="config_allowOpaLayout" />
 </resources>
