@@ -2644,7 +2644,7 @@
 
     <!-- Configuartion to support SIM contact batch operation.-->
     <bool name="config_sim_phonebook_batch_operation">true</bool>
-    
+
     <!-- Zero Balance redirect URL config -->
     <string name="operator_config_url" translatable="false"></string>
     <!-- Zero Balance ping URL config -->
@@ -2805,4 +2805,7 @@
 
     <!-- Whether to enable HumanInteractionController by default -->
     <bool name="config_HICEnabledDefault">true</bool>
+
+    <!-- Allow Opa (Pixel navbar) layout -->
+    <bool name="config_allowOpaLayout">true</bool>
 </resources>

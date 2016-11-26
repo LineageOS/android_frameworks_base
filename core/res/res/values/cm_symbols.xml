@@ -88,4 +88,7 @@
 
     <!-- Whether to enable HumanInteractionController by default -->
     <java-symbol type="bool" name="config_HICEnabledDefault" />
+
+    <!-- Pixel navigation bar animation -->
+    <java-symbol type="bool" name="config_allowOpaLayout" />
 </resources>
