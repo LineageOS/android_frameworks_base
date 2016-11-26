@@ -100,4 +100,7 @@
     <java-symbol type="id" name="slide_hint_area" />
     <java-symbol type="layout" name="single_hand_window" />
     <java-symbol type="string" name="singlehandmode_click_hint_message" />
+
+    <!-- Pixel navigation bar animation -->
+    <java-symbol type="bool" name="config_allowOpaLayout" />
 </resources>
