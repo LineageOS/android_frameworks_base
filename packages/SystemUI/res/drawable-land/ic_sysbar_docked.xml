@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The Pure Nexus Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="88"
+    android:viewportHeight="88"
+    android:width="24.0dp"
+    android:height="24.0dp">
+    <path
+        android:pathData="M38.26 16.43C40.31 18.84 40 23.01 40 26 40 26 40 63 40 63 39.93 75.65 34.62 74.14 24 74 20.66 73.95 17.15 74 15.17 70.77 13.51 68.05 14 60.4 14 57c0 0 0 -31 0 -31 0.01 -5.2 -0.7 -8.21 4.11 -11.26 4.31 -1.09 17.09 -1.91 20.15 1.69zm34 0C74.31 18.84 74 23.01 74 26 74 26 74 63 74 63 73.93 75.65 68.62 74.14 58 74 54.66 73.95 51.15 74 49.17 70.77 47.51 68.05 48 60.4 48 57c0 0 0 -31 0 -31 0.01 -5.2 -0.7 -8.21 4.11 -11.26 4.31 -1.09 17.09 -1.91 20.15 1.69z"
+        android:fillColor="#ffffffff" />
+</vector>
