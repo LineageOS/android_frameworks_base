@@ -2641,7 +2641,7 @@
 
     <!-- Configuartion to support SIM contact batch operation.-->
     <bool name="config_sim_phonebook_batch_operation">true</bool>
-    
+
     <!-- Zero Balance redirect URL config -->
     <string name="operator_config_url" translatable="false"></string>
     <!-- Zero Balance ping URL config -->
@@ -2807,4 +2807,7 @@
 
     <!-- Allow the flashlight to use wakelocks -->
     <bool name="config_useWakeLockForFlashlight">false</bool>
+
+    <!-- Allow Opa (Pixel navbar) layout -->
+    <bool name="config_allowOpaLayout">true</bool>
 </resources>
