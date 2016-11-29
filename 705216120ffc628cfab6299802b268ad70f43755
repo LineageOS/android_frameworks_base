@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5f681702_7d1399b9",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1294,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-11-29T18:30:52Z",
+      "side": 1,
+      "message": "Done.\n\nShould be ok this way but might need checking in failure situations.",
+      "parentUuid": "5f681702_159ff4b4",
+      "revId": "705216120ffc628cfab6299802b268ad70f43755",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f681702_b5ad60ec",
         "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
         "patchSetId": 10
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "5f681702_5d185dd2",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-11-29T18:30:52Z",
+      "side": 1,
+      "message": "Done.\n\nMinimised the whole footprint on this function by reversing and simplifying the logic, makes merging upstream on this sensitive function cleaner.",
+      "parentUuid": "5f681702_b5ad60ec",
+      "revId": "705216120ffc628cfab6299802b268ad70f43755",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f681702_95aae4cf",
         "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
         "patchSetId": 10
@@ -47,6 +83,24 @@
       "writtenOn": "2016-11-22T22:22:48Z",
       "side": 1,
       "message": "3 previous lines missing identation and the previous ones missing 1 space,\nbut not doing the changes due to my previous comment.",
+      "revId": "705216120ffc628cfab6299802b268ad70f43755",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_bd0d3192",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2016-11-29T18:30:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f681702_95aae4cf",
       "revId": "705216120ffc628cfab6299802b268ad70f43755",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
