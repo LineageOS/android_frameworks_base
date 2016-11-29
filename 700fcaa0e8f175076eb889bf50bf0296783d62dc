@@ -1,0 +1,279 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_b8409f09",
+        "filename": "core/res/res/values/symbols.xml",
+        "patchSetId": 14
+      },
+      "lineNbr": 2737,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "unnecessary newline",
+      "range": {
+        "startLine": 2737,
+        "startChar": 0,
+        "endLine": 2737,
+        "endChar": 2
+      },
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_583b4b9b",
+        "filename": "core/res/res/values/symbols.xml",
+        "patchSetId": 14
+      },
+      "lineNbr": 2787,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "remove whitespace",
+      "range": {
+        "startLine": 2787,
+        "startChar": 0,
+        "endLine": 2787,
+        "endChar": 2
+      },
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_9845e31a",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 14
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "not part of this feature",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 86
+      },
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_386daf98",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "don\u0027t think this is needed if you address comments in HotspotTile.java",
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_d8463b22",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/HotspotTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "I don\u0027t think this should be commented out",
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_38548fca",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/HotspotTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "if the visible member of QsTile is only be used for this one tile and only in this method then it is probably better to just use a local variable rather than add a new state to the base class",
+      "range": {
+        "startLine": 128,
+        "startChar": 8,
+        "endLine": 128,
+        "endChar": 21
+      },
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_186a737f",
+        "filename": "services/core/java/com/android/server/connectivity/Tethering.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "use explicit imports instead of wildcard",
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_b80edfe2",
+        "filename": "services/core/java/com/android/server/connectivity/Tethering.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "use explicit imports instead of wildcard",
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_f820574c",
+        "filename": "services/core/java/com/android/server/connectivity/Tethering.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "not part of this feature, should be removed",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 0
+      },
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_381bef1b",
+        "filename": "services/core/java/com/android/server/connectivity/Tethering.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "unnecessary change",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 21
+      },
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_b827ff64",
+        "filename": "services/core/java/com/android/server/connectivity/Tethering.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1201,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "please remove commented out code",
+      "range": {
+        "startLine": 1198,
+        "startChar": 0,
+        "endLine": 1201,
+        "endChar": 19
+      },
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_78d28736",
+        "filename": "services/core/java/com/android/server/connectivity/Tethering.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "not part of this feature",
+      "range": {
+        "startLine": 1239,
+        "startChar": 0,
+        "endLine": 1276,
+        "endChar": 0
+      },
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_d8e2bb01",
+        "filename": "services/core/java/com/android/server/connectivity/Tethering.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 9199
+      },
+      "writtenOn": "2016-11-29T22:06:43Z",
+      "side": 1,
+      "message": "should use TetherInterfaceStateMachine which has all this implemented rather than adding the cm13 implementation which duplicates code",
+      "range": {
+        "startLine": 1284,
+        "startChar": 10,
+        "endLine": 1284,
+        "endChar": 27
+      },
+      "revId": "700fcaa0e8f175076eb889bf50bf0296783d62dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
