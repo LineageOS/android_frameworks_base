@@ -219,6 +219,7 @@ import android.os.UpdateLock;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
+import android.provider.Downloads;
 import android.telecom.TelecomManager;
 import android.text.format.DateUtils;
 import android.text.format.Time;
@@ -8181,6 +8182,12 @@ public final class ActivityManagerService extends ActivityManagerNative
                     // Only inspect grants matching package
                     if (packageName == null || perm.sourcePkg.equals(packageName)
                             || perm.targetPkg.equals(packageName)) {
+                        // Hacky solution as part of fixing a security bug; ignore
+                        // grants associated with DownloadManager so we don't have
+                        // to immediately launch it to regrant the permissions
+                        if (Downloads.Impl.AUTHORITY.equals(perm.uri.uri.getAuthority())
+                                && !persistable) continue;
+
                         persistChanged |= perm.revokeModes(persistable
                                 ? ~0 : ~Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION, true);
 
