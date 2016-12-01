@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5f681702_ec0ed8e3",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 1453,
+      "author": {
+        "id": 4886
+      },
+      "writtenOn": "2016-12-01T13:31:13Z",
+      "side": 1,
+      "message": "Forget about return null;\nDidn\u0027t paid attention that this is void.\nDuring compilation gives error \"Unhandled exception type CameraAccessException\".",
+      "parentUuid": "5f681702_7830c708",
+      "revId": "d43b6835c4dfa536680c00f141b6a741eb773924",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f681702_187d53b1",
         "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
         "patchSetId": 15
