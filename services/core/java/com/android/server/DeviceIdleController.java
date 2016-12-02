@@ -84,6 +84,8 @@ import com.android.internal.util.FastXmlSerializer;
 import com.android.internal.util.XmlUtils;
 import com.android.server.am.BatteryStatsService;
 
+import org.lineageos.internal.util.PackageManagerUtils;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
@@ -1340,7 +1342,8 @@ public class DeviceIdleController extends SystemService
 
         synchronized (this) {
             mLightEnabled = mDeepEnabled = getContext().getResources().getBoolean(
-                    com.android.internal.R.bool.config_enableAutoPowerModes);
+                    com.android.internal.R.bool.config_enableAutoPowerModes) &&
+                    PackageManagerUtils.isAppInstalled(getContext(), "com.google.android.gms");
             SystemConfig sysConfig = SystemConfig.getInstance();
             ArraySet<String> allowPowerExceptIdle = sysConfig.getAllowInPowerSaveExceptIdle();
             for (int i=0; i<allowPowerExceptIdle.size(); i++) {
