@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_1ba2689b",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-12-02T05:56:36Z",
+      "side": 1,
+      "message": "I think this might need to be it\u0027s own value, separate from DEVICE_HOSTNAME, since that\u0027s already being accounted for in this flow...\n\nIt would probably be better to change the logic here to account for the new flow.\n\nIt seems like you want the order to be:\n\n1. new DEVICE_HOSTNAME\n2. current value of net.hostname\n3. DEVICE_HOSTNAME\n4. android-ANDROID_ID\n5. android-r-RANDOM_NUM",
+      "revId": "2ebda229b67f922f655f04d0fbca7f5c5273b2f8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
