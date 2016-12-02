@@ -455,4 +455,11 @@ interface INetworkManagementService
     int removeRoutesFromLocalNetwork(in List<RouteInfo> routes);
 
     void setAllowOnlyVpnForUids(boolean enable, in UidRange[] uidRanges);
+
+    /**
+    * Restrict UID from accessing data/wifi
+    */
+    void restrictAppOnData(int uid, boolean restrict);
+    void restrictAppOnWifi(int uid, boolean restrict);
+
 }
