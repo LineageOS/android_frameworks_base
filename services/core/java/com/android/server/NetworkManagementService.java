@@ -1582,7 +1582,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                     SOFT_AP_COMMAND_SUCCESS, logMsg);
 
             logMsg = "startAccessPoint Error starting softap";
-            args = new Object[] {"startap"};
+            args = new Object[] {"startap", wlanIface};
             executeOrLogWithMessage(SOFT_AP_COMMAND, args, NetdResponseCode.SoftapStatusResult,
                     SOFT_AP_COMMAND_SUCCESS, logMsg);
         } catch (NativeDaemonConnectorException e) {
