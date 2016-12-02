@@ -16,6 +16,24 @@
       "revId": "2ebda229b67f922f655f04d0fbca7f5c5273b2f8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_96780ff9",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 13766
+      },
+      "writtenOn": "2016-12-02T10:28:07Z",
+      "side": 1,
+      "message": "I see, I didn\u0027t like it very much either, just tried to make it similar like it was before but with the new generation logic. Isn\u0027t 1 and 3 the same? CMSettings.Secure.DEVICE_HOSTNAME is the value I specify in https://review.cyanogenmod.org/#/c/173174/\n\nand on my device (titan) I already have a random generated hostname before the whole if block, so I need to re-set it here. The if could be changed to\nif (TextUtils.isEmpty(SystemProperties.get(\"net.hostname\"))\n        || !TextUtils.isEmpty(hostname)) {\nwhich would work if I don\u0027t have a hostname or if I need to re-set it, but this doesn\u0027t make it any more readable or easier, right?",
+      "parentUuid": "5f681702_1ba2689b",
+      "revId": "2ebda229b67f922f655f04d0fbca7f5c5273b2f8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
