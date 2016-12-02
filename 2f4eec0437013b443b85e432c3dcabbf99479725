@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_1b554851",
+        "filename": "services/core/java/com/android/server/display/ColorFade.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-02T08:33:14Z",
+      "side": 1,
+      "message": "DESTROY_SURFACE_AFTER_DETACH",
+      "revId": "2f4eec0437013b443b85e432c3dcabbf99479725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_fb516c64",
+        "filename": "services/core/java/com/android/server/display/ColorFade.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-02T08:33:14Z",
+      "side": 1,
+      "message": "ro.egl.destroy_after_detach",
+      "revId": "2f4eec0437013b443b85e432c3dcabbf99479725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
