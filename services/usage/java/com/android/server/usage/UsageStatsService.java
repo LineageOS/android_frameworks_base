@@ -77,6 +77,8 @@ import com.android.internal.os.SomeArgs;
 import com.android.internal.util.IndentingPrintWriter;
 import com.android.server.SystemService;
 
+import org.cyanogenmod.internal.util.PackageManagerUtils;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -181,7 +183,8 @@ public class UsageStatsService extends SystemService implements
                 null, null);
 
         mAppIdleEnabled = getContext().getResources().getBoolean(
-                com.android.internal.R.bool.config_enableAutoPowerModes);
+                com.android.internal.R.bool.config_enableAutoPowerModes) &&
+                PackageManagerUtils.isAppInstalled(getContext(), "com.google.android.gms");
         if (mAppIdleEnabled) {
             IntentFilter deviceStates = new IntentFilter(BatteryManager.ACTION_CHARGING);
             deviceStates.addAction(BatteryManager.ACTION_DISCHARGING);
