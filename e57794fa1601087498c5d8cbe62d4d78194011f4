@@ -22,6 +22,30 @@
       "revId": "e57794fa1601087498c5d8cbe62d4d78194011f4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_5c24d5c6",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2016-12-03T07:52:43Z",
+      "side": 1,
+      "message": "The default behaviour is to begin waking fully as soon as power key is goes down:\nhttps://github.com/CyanogenMod/android_frameworks_base/blob/3a809a8e7b11c56b7ab4df7799b52d44016897db/services/core/java/com/android/server/policy/PhoneWindowManager.java#L1281\n\nI don\u0027t think this is something we should be change (especially for the scope of a torch on long press feature).",
+      "parentUuid": "5f681702_dcbd8569",
+      "range": {
+        "startLine": 955,
+        "startChar": 20,
+        "endLine": 955,
+        "endChar": 72
+      },
+      "revId": "e57794fa1601087498c5d8cbe62d4d78194011f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
