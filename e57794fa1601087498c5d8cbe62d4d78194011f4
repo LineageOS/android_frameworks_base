@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_dcbd8569",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-12-03T06:28:40Z",
+      "side": 1,
+      "message": "Can\u0027t you use a wakelock with a timeout instead of this?",
+      "range": {
+        "startLine": 955,
+        "startChar": 20,
+        "endLine": 955,
+        "endChar": 72
+      },
+      "revId": "e57794fa1601087498c5d8cbe62d4d78194011f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
