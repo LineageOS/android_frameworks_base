@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_02ccafba",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2016-12-04T02:50:52Z",
+      "side": 1,
+      "message": "this has changed from Marshmallow (int type, int powerState, long tsNanos, boolean fromRadio) to Nougat (int type, int powerState, long tsNanos, int uid, boolean fromRadio).\n\nWhich uid am I supposed to feed it? Don\u0027t want to put anything that works in there.",
+      "range": {
+        "startLine": 340,
+        "startChar": 16,
+        "endLine": 341,
+        "endChar": 78
+      },
+      "revId": "992ee65c25cce5b05abe827bf9be86fdaf50ad61",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
