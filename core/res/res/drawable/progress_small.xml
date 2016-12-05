@@ -22,4 +22,4 @@
     android:pivotX="50%"
     android:pivotY="50%"
     android:framesCount="60"
-    android:frameDuration="20" />
+    android:frameDuration="17" />
