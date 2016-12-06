@@ -192,7 +192,7 @@ public class AlertController {
         }
     }
 
-    protected AlertController(Context context, DialogInterface di, Window window) {
+    public AlertController(Context context, DialogInterface di, Window window) {
         mContext = context;
         mDialogInterface = di;
         mWindow = window;
