@@ -1,4 +1,4 @@
-/* Copyright (c) 2015, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -56,26 +56,20 @@ typedef struct dlLibHandler {
     void (*resumeActivity)(const char *);
     void (*pauseActivity)(const char *);
     void (*stopActivity)(const char *);
-    void (*animationScalesCheck)(const char *, int, float *);
-    void (*networkOptsCheck)(int, int, const char *);
     void (*init)(void);
     void (*deinit)(void);
-    void (*startProcessActivity)(const char *, int);
+    void (*miscActivity)(int, const char *, int, int, float *);
     const char *dlname;
 }dlLibHandler;
 
 /*
- * Array of dlhandlers
- * library -both handlers for Start and Resume events.
+ * Init for activity trigger library
  */
-static dlLibHandler mDlLibHandlers[] = {
-    {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-     "ro.vendor.at_library"},
-    {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-     "ro.vendor.gt_library"},
+static dlLibHandler mDlLibHandler = {
+    NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, "ro.vendor.at_library"
 };
 
-static size_t gTotalNumLibs = 0;
 // ----------------------------------------------------------------------------
 
 static void
@@ -84,150 +78,104 @@ com_android_internal_app_ActivityTrigger_native_at_init()
     const char *rc;
     char buf[PROPERTY_VALUE_MAX];
     bool errored = false;
-    size_t numlibs = 0;
 
-    gTotalNumLibs = numlibs = sizeof (mDlLibHandlers) / sizeof (*mDlLibHandlers);
+    /* Retrieve name of vendor library */
+    if (property_get(mDlLibHandler.dlname, buf, NULL) <= 0) {
+        return;
+    }
 
-    for(size_t i = 0; i < numlibs; i++) {
-        errored = false;
+    /* Sanity check - ensure */
+    buf[PROPERTY_VALUE_MAX-1] = '\0';
+    if (strstr(buf, "/") != NULL) {
+        return;
+    }
 
-        /* Retrieve name of vendor library */
-        if (property_get(mDlLibHandlers[i].dlname, buf, NULL) <= 0) {
-            continue;
-        }
+    mDlLibHandler.dlhandle = dlopen(buf, RTLD_NOW | RTLD_LOCAL);
+    if (mDlLibHandler.dlhandle == NULL) {
+        return;
+    }
 
-        /* Sanity check - ensure */
-        buf[PROPERTY_VALUE_MAX-1] = '\0';
-        if (strstr(buf, "/") != NULL) {
-            continue;
-        }
+    dlerror();
 
-        mDlLibHandlers[i].dlhandle = dlopen(buf, RTLD_NOW | RTLD_LOCAL);
-        if (mDlLibHandlers[i].dlhandle == NULL) {
-            continue;
-        }
-
-        dlerror();
-
-        *(void **) (&mDlLibHandlers[i].startActivity) = dlsym(mDlLibHandlers[i].dlhandle, "activity_trigger_start");
+    *(void **) (&mDlLibHandler.startActivity) = dlsym(mDlLibHandler.dlhandle, "activity_trigger_start");
+    if ((rc = dlerror()) != NULL) {
+        errored = true;
+    }
+    if (!errored) {
+        *(void **) (&mDlLibHandler.resumeActivity) = dlsym(mDlLibHandler.dlhandle, "activity_trigger_resume");
         if ((rc = dlerror()) != NULL) {
             errored = true;
         }
-
-        if (!errored) {
-            *(void **) (&mDlLibHandlers[i].resumeActivity) = dlsym(mDlLibHandlers[i].dlhandle, "activity_trigger_resume");
-            if ((rc = dlerror()) != NULL) {
-                errored = true;
-            }
+    }
+    if (!errored) {
+        *(void **) (&mDlLibHandler.pauseActivity) = dlsym(mDlLibHandler.dlhandle, "activity_trigger_pause");
+        if ((rc = dlerror()) != NULL) {
+            errored = true;
         }
-        if (!errored) {
-            *(void **) (&mDlLibHandlers[i].pauseActivity) = dlsym(mDlLibHandlers[i].dlhandle, "activity_trigger_pause");
-            if ((rc = dlerror()) != NULL) {
-                errored = true;
-            }
+    }
+    if (!errored) {
+        *(void **) (&mDlLibHandler.stopActivity) = dlsym(mDlLibHandler.dlhandle, "activity_trigger_stop");
+        if ((rc = dlerror()) != NULL) {
+            errored = true;
         }
-        if (!errored) {
-            *(void **) (&mDlLibHandlers[i].stopActivity) = dlsym(mDlLibHandlers[i].dlhandle, "activity_trigger_stop");
-            if ((rc = dlerror()) != NULL) {
-                errored = true;
-            }
+    }
+    if (!errored) {
+        *(void **) (&mDlLibHandler.init) = dlsym(mDlLibHandler.dlhandle, "activity_trigger_init");
+        if ((rc = dlerror()) != NULL) {
+            errored = true;
         }
-        if (!errored) {
-            *(void **) (&mDlLibHandlers[i].init) = dlsym(mDlLibHandlers[i].dlhandle, "activity_trigger_init");
-            if ((rc = dlerror()) != NULL) {
-                errored = true;
-            }
+    }
+    if (!errored) {
+        *(void **) (&mDlLibHandler.miscActivity) = dlsym(mDlLibHandler.dlhandle, "activity_trigger_misc");
+        if ((rc = dlerror()) != NULL) {
+            errored = true;
         }
-        if (!errored) {
-            *(void **) (&mDlLibHandlers[i].startProcessActivity) = dlsym(mDlLibHandlers[i].dlhandle, "activity_trigger_process_start");
-            if ((rc = dlerror()) != NULL) {
-                errored = true;
-            }
+    }
+    if (errored) {
+        mDlLibHandler.startActivity  = NULL;
+        mDlLibHandler.resumeActivity = NULL;
+        mDlLibHandler.pauseActivity  = NULL;
+        mDlLibHandler.stopActivity = NULL;
+        mDlLibHandler.miscActivity = NULL;
+        if (mDlLibHandler.dlhandle) {
+            dlclose(mDlLibHandler.dlhandle);
+            mDlLibHandler.dlhandle = NULL;
         }
-        if (!errored) {
-            *(void **) (&mDlLibHandlers[i].animationScalesCheck) = dlsym(mDlLibHandlers[i].dlhandle, "activity_trigger_animationScalesCheck");
-            if ((rc = dlerror()) != NULL) {
-                errored = true;
-            }
-        }
-        if (!errored) {
-            *(void **) (&mDlLibHandlers[i].networkOptsCheck) = dlsym(mDlLibHandlers[i].dlhandle, "activity_trigger_networkOptsCheck");
-            if ((rc = dlerror()) != NULL) {
-                errored = true;
-            }
-        }
-        if (errored) {
-            mDlLibHandlers[i].startActivity  = NULL;
-            mDlLibHandlers[i].resumeActivity = NULL;
-            mDlLibHandlers[i].pauseActivity  = NULL;
-            mDlLibHandlers[i].stopActivity = NULL;
-            mDlLibHandlers[i].startProcessActivity = NULL;
-            mDlLibHandlers[i].animationScalesCheck = NULL;
-            mDlLibHandlers[i].networkOptsCheck = NULL;
-            if (mDlLibHandlers[i].dlhandle) {
-                dlclose(mDlLibHandlers[i].dlhandle);
-                mDlLibHandlers[i].dlhandle = NULL;
-            }
-            gTotalNumLibs = 0;
-        } else {
-            (*mDlLibHandlers[i].init)();
-        }
+    } else {
+        (*mDlLibHandler.init)();
     }
 }
 
 static void
 com_android_internal_app_ActivityTrigger_native_at_deinit(JNIEnv *env, jobject clazz)
 {
-    size_t numlibs = sizeof (mDlLibHandlers) / sizeof (*mDlLibHandlers);
+    if (mDlLibHandler.dlhandle) {
+        mDlLibHandler.startActivity  = NULL;
+        mDlLibHandler.resumeActivity = NULL;
+        mDlLibHandler.pauseActivity  = NULL;
+        mDlLibHandler.stopActivity = NULL;
+        mDlLibHandler.miscActivity = NULL;
 
-    for(size_t i = 0; i < numlibs; i++) {
-        if (mDlLibHandlers[i].dlhandle) {
-            mDlLibHandlers[i].startActivity  = NULL;
-            mDlLibHandlers[i].resumeActivity = NULL;
-            mDlLibHandlers[i].pauseActivity  = NULL;
-            mDlLibHandlers[i].stopActivity = NULL;
-            mDlLibHandlers[i].startProcessActivity = NULL;
-            mDlLibHandlers[i].animationScalesCheck = NULL;
-            mDlLibHandlers[i].networkOptsCheck = NULL;
-
-            *(void **) (&mDlLibHandlers[i].deinit) = dlsym(mDlLibHandlers[i].dlhandle, "activity_trigger_deinit");
-            if (mDlLibHandlers[i].deinit) {
-                (*mDlLibHandlers[i].deinit)();
-            }
-
-            dlclose(mDlLibHandlers[i].dlhandle);
-            mDlLibHandlers[i].dlhandle = NULL;
+        *(void **) (&mDlLibHandler.deinit) = dlsym(mDlLibHandler.dlhandle, "activity_trigger_deinit");
+        if (mDlLibHandler.deinit) {
+            (*mDlLibHandler.deinit)();
         }
-    }
-    gTotalNumLibs = 0;
-}
 
-static void
-com_android_internal_app_ActivityTrigger_native_at_startProcessActivity(JNIEnv *env, jobject clazz, jstring process, jint pid)
-{
-    size_t numlibs = sizeof (mDlLibHandlers) / sizeof (*mDlLibHandlers);
-    const char *actStr = env->GetStringUTFChars(process, NULL);
-    for(size_t i = 0; i < numlibs; i++){
-        if(mDlLibHandlers[i].startProcessActivity && process && actStr) {
-            (*mDlLibHandlers[i].startProcessActivity)(actStr, pid);
-        }
+        dlclose(mDlLibHandler.dlhandle);
+        mDlLibHandler.dlhandle = NULL;
     }
-    env->ReleaseStringUTFChars(process, actStr);
 }
 
 static jint
 com_android_internal_app_ActivityTrigger_native_at_startActivity(JNIEnv *env, jobject clazz, jstring activity, jint flags)
 {
     int activiyFlags = flags;
-    size_t numlibs = sizeof (mDlLibHandlers) / sizeof (*mDlLibHandlers);
-    for(size_t i = 0; i < numlibs; i++){
-        if(mDlLibHandlers[i].startActivity && activity) {
-            const char *actStr = env->GetStringUTFChars(activity, NULL);
-            if (actStr) {
-                (*mDlLibHandlers[i].startActivity)(actStr, &activiyFlags);
-                env->ReleaseStringUTFChars(activity, actStr);
-            }
-        }
+    if(mDlLibHandler.startActivity && activity) {
+       const char *actStr = env->GetStringUTFChars(activity, NULL);
+       if (actStr) {
+           (*mDlLibHandler.startActivity)(actStr, &activiyFlags);
+           env->ReleaseStringUTFChars(activity, actStr);
+       }
     }
     return activiyFlags;
 }
@@ -235,80 +183,53 @@ com_android_internal_app_ActivityTrigger_native_at_startActivity(JNIEnv *env, jo
 static void
 com_android_internal_app_ActivityTrigger_native_at_resumeActivity(JNIEnv *env, jobject clazz, jstring activity)
 {
-    size_t numlibs = sizeof (mDlLibHandlers) / sizeof (*mDlLibHandlers);
-
-    for(size_t i = 0; i < numlibs; i++){
-        if(mDlLibHandlers[i].resumeActivity && activity) {
-            const char *actStr = env->GetStringUTFChars(activity, NULL);
-            if (actStr) {
-                (*mDlLibHandlers[i].resumeActivity)(actStr);
-                env->ReleaseStringUTFChars(activity, actStr);
-            }
-        }
+    if(mDlLibHandler.resumeActivity && activity) {
+       const char *actStr = env->GetStringUTFChars(activity, NULL);
+       if (actStr) {
+           (*mDlLibHandler.resumeActivity)(actStr);
+           env->ReleaseStringUTFChars(activity, actStr);
+       }
     }
 }
 
 static void
 com_android_internal_app_ActivityTrigger_native_at_pauseActivity(JNIEnv *env, jobject clazz, jstring activity)
 {
-    for(size_t i = 0; i < gTotalNumLibs; i++){
-        if(mDlLibHandlers[i].pauseActivity && activity) {
-            const char *actStr = env->GetStringUTFChars(activity, NULL);
-            if ( NULL != actStr) {
-                (*mDlLibHandlers[i].pauseActivity)(actStr);
-                env->ReleaseStringUTFChars(activity, actStr);
-            }
-        }
+    if(mDlLibHandler.pauseActivity && activity) {
+       const char *actStr = env->GetStringUTFChars(activity, NULL);
+       if (NULL != actStr) {
+           (*mDlLibHandler.pauseActivity)(actStr);
+           env->ReleaseStringUTFChars(activity, actStr);
+       }
     }
 }
 
 static void
 com_android_internal_app_ActivityTrigger_native_at_stopActivity(JNIEnv *env, jobject clazz, jstring activity)
 {
-    for(size_t i = 0; i < gTotalNumLibs; i++){
-        if(mDlLibHandlers[i].stopActivity && activity) {
-            const char *actStr = env->GetStringUTFChars(activity, NULL);
-            if (NULL != actStr) {
-                (*mDlLibHandlers[i].stopActivity)(actStr);
-                env->ReleaseStringUTFChars(activity, actStr);
-            }
-        }
+    if(mDlLibHandler.stopActivity && activity) {
+       const char *actStr = env->GetStringUTFChars(activity, NULL);
+       if (NULL != actStr) {
+           (*mDlLibHandler.stopActivity)(actStr);
+           env->ReleaseStringUTFChars(activity, actStr);
+       }
     }
 }
 
 static jfloat
-com_android_internal_app_ActivityTrigger_native_at_animationScalesCheck(JNIEnv *env, jobject clazz, jstring activity, jint scaleType)
+com_android_internal_app_ActivityTrigger_native_at_miscActivity(JNIEnv *env, jobject clazz, jint func, jstring activity, jint type, jint flag)
 {
-    int type = scaleType;
     float scaleValue = -1.0f;
-    size_t numlibs = sizeof (mDlLibHandlers) / sizeof (*mDlLibHandlers);
-    for (size_t i = 0; i < numlibs; i++) {
-        if (mDlLibHandlers[i].animationScalesCheck && activity) {
-            const char *actStr = env->GetStringUTFChars(activity, NULL);
-            if (actStr) {
-                (*mDlLibHandlers[i].animationScalesCheck)(actStr, type, &scaleValue);
-                env->ReleaseStringUTFChars(activity, actStr);
-            }
+    if (mDlLibHandler.miscActivity && activity && func) {
+        const char *actStr = env->GetStringUTFChars(activity, NULL);
+        if (actStr) {
+            (*mDlLibHandler.miscActivity)(func, actStr, type, flag, &scaleValue);
+            env->ReleaseStringUTFChars(activity, actStr);
         }
     }
     return scaleValue;
 }
 
-static void
-com_android_internal_app_ActivityTrigger_native_at_networkOptsCheck(JNIEnv *env, jobject clazz, jint flag, jint netType, jstring packageName)
-{
-    size_t numlibs = sizeof (mDlLibHandlers) / sizeof (*mDlLibHandlers);
-
-    for (size_t i = 0; i < numlibs; i++) {
-        if (mDlLibHandlers[i].networkOptsCheck && packageName) {
-            const char *actStr = env->GetStringUTFChars(packageName, NULL);
-            if (actStr) {
-                (*mDlLibHandlers[i].networkOptsCheck)(flag, netType, actStr);
-                env->ReleaseStringUTFChars(packageName, actStr);
-            }
-        }
-    }
-}
 // ----------------------------------------------------------------------------
 
 static JNINativeMethod gMethods[] = {
@@ -317,11 +238,8 @@ static JNINativeMethod gMethods[] = {
     {"native_at_pauseActivity", "(Ljava/lang/String;)V", (void *)com_android_internal_app_ActivityTrigger_native_at_pauseActivity},
     {"native_at_stopActivity", "(Ljava/lang/String;)V", (void *)com_android_internal_app_ActivityTrigger_native_at_stopActivity},
     {"native_at_deinit",         "()V",                   (void *)com_android_internal_app_ActivityTrigger_native_at_deinit},
-    {"native_at_startProcessActivity", "(Ljava/lang/String;I)V", (void *)com_android_internal_app_ActivityTrigger_native_at_startProcessActivity},
-    {"native_at_animationScalesCheck", "(Ljava/lang/String;I)F", (void *)com_android_internal_app_ActivityTrigger_native_at_animationScalesCheck},
-    {"native_at_networkOptsCheck", "(IILjava/lang/String;)V", (void *)com_android_internal_app_ActivityTrigger_native_at_networkOptsCheck},
+    {"native_at_miscActivity", "(ILjava/lang/String;II)F", (void *)com_android_internal_app_ActivityTrigger_native_at_miscActivity},
 };
-
 
 int register_com_android_internal_app_ActivityTrigger(JNIEnv *env)
 {
