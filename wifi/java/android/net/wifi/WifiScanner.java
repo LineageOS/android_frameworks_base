@@ -286,6 +286,12 @@ public class WifiScanner {
          * {@hide}
          */
         private int mBucketsScanned;
+        /**
+         * Indicates that the scan results received are as a result of a scan of all available
+         * channels. This should only be expected to function for single scans.
+         * {@hide}
+         */
+        private boolean mAllChannelsScanned;
         /** all scan results discovered in this scan, sorted by timestamp in ascending order */
         private ScanResult mResults[];
 
@@ -298,10 +304,12 @@ public class WifiScanner {
         }
 
         /** {@hide} */
-        public ScanData(int id, int flags, int bucketsScanned, ScanResult[] results) {
+        public ScanData(int id, int flags, int bucketsScanned, boolean allChannelsScanned,
+                ScanResult[] results) {
             mId = id;
             mFlags = flags;
             mBucketsScanned = bucketsScanned;
+            mAllChannelsScanned = allChannelsScanned;
             mResults = results;
         }
 
@@ -309,6 +317,7 @@ public class WifiScanner {
             mId = s.mId;
             mFlags = s.mFlags;
             mBucketsScanned = s.mBucketsScanned;
+            mAllChannelsScanned = s.mAllChannelsScanned;
             mResults = new ScanResult[s.mResults.length];
             for (int i = 0; i < s.mResults.length; i++) {
                 ScanResult result = s.mResults[i];
@@ -330,6 +339,11 @@ public class WifiScanner {
             return mBucketsScanned;
         }
 
+        /** {@hide} */
+        public boolean isAllChannelsScanned() {
+            return mAllChannelsScanned;
+        }
+
         public ScanResult[] getResults() {
             return mResults;
         }
@@ -345,6 +359,7 @@ public class WifiScanner {
                 dest.writeInt(mId);
                 dest.writeInt(mFlags);
                 dest.writeInt(mBucketsScanned);
+                dest.writeInt(mAllChannelsScanned ? 1 : 0);
                 dest.writeInt(mResults.length);
                 for (int i = 0; i < mResults.length; i++) {
                     ScanResult result = mResults[i];
@@ -362,12 +377,13 @@ public class WifiScanner {
                         int id = in.readInt();
                         int flags = in.readInt();
                         int bucketsScanned = in.readInt();
+                        boolean allChannelsScanned = in.readInt() != 0;
                         int n = in.readInt();
                         ScanResult results[] = new ScanResult[n];
                         for (int i = 0; i < n; i++) {
                             results[i] = ScanResult.CREATOR.createFromParcel(in);
                         }
-                        return new ScanData(id, flags, bucketsScanned, results);
+                        return new ScanData(id, flags, bucketsScanned, allChannelsScanned, results);
                     }
 
                     public ScanData[] newArray(int size) {
@@ -654,6 +670,40 @@ public class WifiScanner {
          * Invoked when one of the PNO networks are found in scan results.
          */
         void onPnoNetworkFound(ScanResult[] results);
+    }
+
+    /**
+     * Register a listener that will receive results from all single scans
+     * Either the onSuccess/onFailure will be called once when the listener is registered. After
+     * (assuming onSuccess was called) all subsequent single scan results will be delivered to the
+     * listener. It is possible that onFullResult will not be called for all results of the first
+     * scan if the listener was registered during the scan.
+     *
+     * @param listener specifies the object to report events to. This object is also treated as a
+     *                 key for this request, and must also be specified to cancel the request.
+     *                 Multiple requests should also not share this object.
+     * {@hide}
+     */
+    public void registerScanListener(ScanListener listener) {
+        Preconditions.checkNotNull(listener, "listener cannot be null");
+        int key = addListener(listener);
+        if (key == INVALID_KEY) return;
+        validateChannel();
+        mAsyncChannel.sendMessage(CMD_REGISTER_SCAN_LISTENER, 0, key);
+    }
+
+    /**
+     * Deregister a listener for ongoing single scans
+     * @param listener specifies which scan to cancel; must be same object as passed in {@link
+     *  #registerScanListener}
+     * {@hide}
+     */
+    public void deregisterScanListener(ScanListener listener) {
+        Preconditions.checkNotNull(listener, "listener cannot be null");
+        int key = removeListener(listener);
+        if (key == INVALID_KEY) return;
+        validateChannel();
+        mAsyncChannel.sendMessage(CMD_DEREGISTER_SCAN_LISTENER, 0, key);
     }
 
     /** start wifi scan in background
@@ -1129,6 +1179,10 @@ public class WifiScanner {
     public static final int CMD_STOP_PNO_SCAN               = BASE + 25;
     /** @hide */
     public static final int CMD_PNO_NETWORK_FOUND           = BASE + 26;
+    /** @hide */
+    public static final int CMD_REGISTER_SCAN_LISTENER      = BASE + 27;
+    /** @hide */
+    public static final int CMD_DEREGISTER_SCAN_LISTENER    = BASE + 28;
 
     private Context mContext;
     private IWifiScanner mService;
