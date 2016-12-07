@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_2a63791c",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-07T02:17:46Z",
+      "side": 1,
+      "message": "I think we should move this to the cmsdk instead",
+      "revId": "2f87a1fed773ad416b73a54ed3e1038b21f3188c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
