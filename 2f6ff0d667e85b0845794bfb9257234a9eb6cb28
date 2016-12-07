@@ -2,6 +2,190 @@
   "comments": [
     {
       "key": {
+        "uuid": "5f681702_10622b3f",
+        "filename": "core/java/android/os/INetworkManagementService.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 4
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_f0668f51",
+        "filename": "core/java/android/os/INetworkManagementService.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 461,
+        "endChar": 10
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_505ca37d",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "always use spaces instead of tabs (4 spaces \u003d 1 tab)",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 1
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_30612738",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "always use spaces instead of tabs (4 spaces \u003d 1 tab)",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 55
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_90559b53",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "remove 1 extra space",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 29
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_70527f69",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 2
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_d04f13bb",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "always use spaces instead of tabs (4 spaces \u003d 1 tab)",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 62
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_b04c17c8",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 8
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f681702_6735ac46",
         "filename": "services/core/java/com/android/server/NetworkManagementService.java",
         "patchSetId": 3
@@ -18,6 +202,190 @@
         "startChar": 24,
         "endLine": 337,
         "endChar": 59
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_10c7cb14",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 1989,
+        "startChar": 0,
+        "endLine": 1989,
+        "endChar": 1
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_f0cb2f1b",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "always use spaces instead of tabs (4 spaces \u003d 1 tab)",
+      "range": {
+        "startLine": 1990,
+        "startChar": 0,
+        "endLine": 1990,
+        "endChar": 52
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_50d143cd",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2068,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 2068,
+        "startChar": 0,
+        "endLine": 2068,
+        "endChar": 1
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_30d647c7",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3007,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 3007,
+        "startChar": 0,
+        "endLine": 3007,
+        "endChar": 4
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_90dabbe6",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3018,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 3018,
+        "startChar": 5,
+        "endLine": 3018,
+        "endChar": 9
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_70d71fc1",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3019,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 3019,
+        "startChar": 0,
+        "endLine": 3019,
+        "endChar": 4
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_b0e1b79d",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2934,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "always use spaces instead of tabs (4 spaces \u003d 1 tab)",
+      "range": {
+        "startLine": 2934,
+        "startChar": 0,
+        "endLine": 2934,
+        "endChar": 9
+      },
+      "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_d0e433af",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2940,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2016-12-07T20:39:02Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 2940,
+        "startChar": 0,
+        "endLine": 2940,
+        "endChar": 14
       },
       "revId": "2f6ff0d667e85b0845794bfb9257234a9eb6cb28",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
