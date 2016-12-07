@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_ea2181fd",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 6753
+      },
+      "writtenOn": "2016-12-07T02:07:49Z",
+      "side": 1,
+      "message": "mLidState is an int, not a bool, this breaks compile",
+      "revId": "8b93e331d7dc85c6fe1168a3f09087b9f8a8c96e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
