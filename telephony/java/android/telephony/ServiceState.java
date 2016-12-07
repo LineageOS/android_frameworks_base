@@ -155,6 +155,12 @@ public class ServiceState implements Parcelable {
      */
     public static final int RIL_RADIO_TECHNOLOGY_IWLAN = 18;
 
+    /**
+     * LTE_CA
+     * @hide
+     */
+    public static final int RIL_RADIO_TECHNOLOGY_LTE_CA = 19;
+
     /** @hide */
     public static final int RIL_RADIO_CDMA_TECHNOLOGY_BITMASK =
             (1 << (RIL_RADIO_TECHNOLOGY_IS95A - 1))
@@ -164,12 +170,6 @@ public class ServiceState implements Parcelable {
                     | (1 << (RIL_RADIO_TECHNOLOGY_EVDO_A - 1))
                     | (1 << (RIL_RADIO_TECHNOLOGY_EVDO_B - 1))
                     | (1 << (RIL_RADIO_TECHNOLOGY_EHRPD - 1));
-
-    /**
-     * LTE_CA
-     * @hide
-     */
-    public static final int RIL_RADIO_TECHNOLOGY_LTE_CA = 19;
 
     /**
      * Available registration states for GSM, UMTS and CDMA.
@@ -240,6 +240,8 @@ public class ServiceState implements Parcelable {
     private int mCdmaEriIconMode;
 
     private boolean mIsDataRoamingFromRegistration;
+
+    private boolean mIsUsingCarrierAggregation;
 
     /**
      * get String description of roaming type
@@ -320,6 +322,7 @@ public class ServiceState implements Parcelable {
         mIsEmergencyOnly = s.mIsEmergencyOnly;
         mIsDataRoamingFromRegistration = s.mIsDataRoamingFromRegistration;
         mRilImsRadioTechnology = s.mRilImsRadioTechnology;
+        mIsUsingCarrierAggregation = s.mIsUsingCarrierAggregation;
     }
 
     /**
@@ -348,6 +351,7 @@ public class ServiceState implements Parcelable {
         mCdmaEriIconMode = in.readInt();
         mIsEmergencyOnly = in.readInt() != 0;
         mIsDataRoamingFromRegistration = in.readInt() != 0;
+        mIsUsingCarrierAggregation = in.readInt() != 0;
         mRilImsRadioTechnology = in.readInt();
     }
 
@@ -374,6 +378,7 @@ public class ServiceState implements Parcelable {
         out.writeInt(mCdmaEriIconMode);
         out.writeInt(mIsEmergencyOnly ? 1 : 0);
         out.writeInt(mIsDataRoamingFromRegistration ? 1 : 0);
+        out.writeInt(mIsUsingCarrierAggregation ? 1 : 0);
         out.writeInt(mRilImsRadioTechnology);
     }
 
@@ -685,6 +690,7 @@ public class ServiceState implements Parcelable {
                         s.mCdmaDefaultRoamingIndicator)
                 && mIsEmergencyOnly == s.mIsEmergencyOnly
                 && mIsDataRoamingFromRegistration == s.mIsDataRoamingFromRegistration
+                && mIsUsingCarrierAggregation == s.mIsUsingCarrierAggregation
                 && mRilImsRadioTechnology == s.mRilImsRadioTechnology);
     }
 
@@ -794,6 +800,7 @@ public class ServiceState implements Parcelable {
                 + " DefRoamInd=" + mCdmaDefaultRoamingIndicator
                 + " EmergOnly=" + mIsEmergencyOnly
                 + " IsDataRoamingFromRegistration=" + mIsDataRoamingFromRegistration
+                + " IsUsingCarrierAggregation=" + mIsUsingCarrierAggregation
                 + " mRilImsRadioTechnology=" + mRilImsRadioTechnology);
     }
 
@@ -821,6 +828,7 @@ public class ServiceState implements Parcelable {
         mCdmaEriIconMode = -1;
         mIsEmergencyOnly = false;
         mIsDataRoamingFromRegistration = false;
+        mIsUsingCarrierAggregation = false;
         mRilImsRadioTechnology = RIL_RADIO_TECHNOLOGY_UNKNOWN;
     }
 
@@ -995,6 +1003,7 @@ public class ServiceState implements Parcelable {
         mCdmaDefaultRoamingIndicator = m.getInt("cdmaDefaultRoamingIndicator");
         mIsEmergencyOnly = m.getBoolean("emergencyOnly");
         mIsDataRoamingFromRegistration = m.getBoolean("isDataRoamingFromRegistration");
+        mIsUsingCarrierAggregation = m.getBoolean("isUsingCarrierAggregation");
     }
 
     /**
@@ -1024,19 +1033,40 @@ public class ServiceState implements Parcelable {
         m.putInt("cdmaDefaultRoamingIndicator", mCdmaDefaultRoamingIndicator);
         m.putBoolean("emergencyOnly", Boolean.valueOf(mIsEmergencyOnly));
         m.putBoolean("isDataRoamingFromRegistration", Boolean.valueOf(mIsDataRoamingFromRegistration));
+        m.putBoolean("isUsingCarrierAggregation", Boolean.valueOf(mIsUsingCarrierAggregation));
         m.putInt("imsRadioTechnology", mRilImsRadioTechnology);
     }
 
     /** @hide */
     public void setRilVoiceRadioTechnology(int rt) {
+        if (rt == RIL_RADIO_TECHNOLOGY_LTE_CA) {
+            rt = RIL_RADIO_TECHNOLOGY_LTE;
+        }
+
         this.mRilVoiceRadioTechnology = rt;
     }
 
     /** @hide */
     public void setRilDataRadioTechnology(int rt) {
+        if (rt == RIL_RADIO_TECHNOLOGY_LTE_CA) {
+            rt = RIL_RADIO_TECHNOLOGY_LTE;
+            this.mIsUsingCarrierAggregation = true;
+        } else {
+            this.mIsUsingCarrierAggregation = false;
+        }
         this.mRilDataRadioTechnology = rt;
         if (VDBG) Rlog.d(LOG_TAG, "[ServiceState] setRilDataRadioTechnology=" +
                 mRilDataRadioTechnology);
+    }
+
+    /** @hide */
+    public boolean isUsingCarrierAggregation() {
+        return mIsUsingCarrierAggregation;
+    }
+
+    /** @hide */
+    public void setIsUsingCarrierAggregation(boolean ca) {
+        mIsUsingCarrierAggregation = ca;
     }
 
     /** @hide */
@@ -1172,6 +1202,12 @@ public class ServiceState implements Parcelable {
                 || radioTechnology == RIL_RADIO_TECHNOLOGY_EVDO_A
                 || radioTechnology == RIL_RADIO_TECHNOLOGY_EVDO_B
                 || radioTechnology == RIL_RADIO_TECHNOLOGY_EHRPD;
+    }
+
+    /** @hide */
+    public static boolean isLte(int radioTechnology) {
+        return radioTechnology == RIL_RADIO_TECHNOLOGY_LTE ||
+                radioTechnology == RIL_RADIO_TECHNOLOGY_LTE_CA;
     }
 
     /** @hide */

@@ -93,6 +93,14 @@ public class RecoverySystem {
      */
     public static final File UNCRYPT_PACKAGE_FILE = new File(RECOVERY_DIR, "uncrypt_file");
 
+    /**
+     * UNCRYPT_STATUS_FILE stores the time cost (and error code in the case of a failure)
+     * of uncrypt.
+     *
+     * @hide
+     */
+    public static final File UNCRYPT_STATUS_FILE = new File(RECOVERY_DIR, "uncrypt_status");
+
     // Length limits for reading files.
     private static final int LOG_FILE_MAX_LENGTH = 64 * 1024;
 
@@ -570,18 +578,19 @@ public class RecoverySystem {
      * @throws SecurityException if the current user is not allowed to wipe data.
      */
     public static void rebootWipeUserData(Context context) throws IOException {
-        rebootWipeUserData(context, false, context.getPackageName());
+        rebootWipeUserData(context, false /* shutdown */, context.getPackageName(),
+                false /* force */);
     }
 
     /** {@hide} */
     public static void rebootWipeUserData(Context context, String reason) throws IOException {
-        rebootWipeUserData(context, false, reason);
+        rebootWipeUserData(context, false /* shutdown */, reason, false /* force */);
     }
 
     /** {@hide} */
     public static void rebootWipeUserData(Context context, boolean shutdown)
             throws IOException {
-        rebootWipeUserData(context, shutdown, context.getPackageName());
+        rebootWipeUserData(context, shutdown, context.getPackageName(), false /* force */);
     }
 
     /**
@@ -595,6 +604,9 @@ public class RecoverySystem {
      * @param shutdown  if true, the device will be powered down after
      *                  the wipe completes, rather than being rebooted
      *                  back to the regular system.
+     * @param reason    the reason for the wipe that is visible in the logs
+     * @param force     whether the {@link UserManager.DISALLOW_FACTORY_RESET} user restriction
+     *                  should be ignored
      *
      * @throws IOException  if writing the recovery command file
      * fails, or if the reboot itself fails.
@@ -602,10 +614,10 @@ public class RecoverySystem {
      *
      * @hide
      */
-    public static void rebootWipeUserData(Context context, boolean shutdown, String reason)
-            throws IOException {
+    public static void rebootWipeUserData(Context context, boolean shutdown, String reason,
+            boolean force) throws IOException {
         UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
-        if (um.hasUserRestriction(UserManager.DISALLOW_FACTORY_RESET)) {
+        if (!force && um.hasUserRestriction(UserManager.DISALLOW_FACTORY_RESET)) {
             throw new SecurityException("Wiping data is not allowed for this user.");
         }
         final ConditionVariable condition = new ConditionVariable();
@@ -658,33 +670,52 @@ public class RecoverySystem {
     }
 
     /**
+     * Reboot into recovery and wipe the A/B device.
+     *
+     * @param Context      the Context to use.
+     * @param packageFile  the wipe package to be applied.
+     * @param reason       the reason to wipe.
+     *
+     * @throws IOException if something goes wrong.
+     *
+     * @hide
+     */
+    @SystemApi
+    public static void rebootWipeAb(Context context, File packageFile, String reason)
+            throws IOException {
+        String reasonArg = null;
+        if (!TextUtils.isEmpty(reason)) {
+            reasonArg = "--reason=" + sanitizeArg(reason);
+        }
+
+        final String filename = packageFile.getCanonicalPath();
+        final String filenameArg = "--wipe_package=" + filename;
+        final String localeArg = "--locale=" + Locale.getDefault().toString();
+        bootCommand(context, "--wipe_ab", filenameArg, reasonArg, localeArg);
+    }
+
+    /**
      * Reboot into the recovery system with the supplied argument.
      * @param args to pass to the recovery utility.
      * @throws IOException if something goes wrong.
      */
     private static void bootCommand(Context context, String... args) throws IOException {
-        synchronized (sRequestLock) {
-            LOG_FILE.delete();
+        LOG_FILE.delete();
 
-            StringBuilder command = new StringBuilder();
-            for (String arg : args) {
-                if (!TextUtils.isEmpty(arg)) {
-                    command.append(arg);
-                    command.append("\n");
-                }
+        StringBuilder command = new StringBuilder();
+        for (String arg : args) {
+            if (!TextUtils.isEmpty(arg)) {
+                command.append(arg);
+                command.append("\n");
             }
-
-            // Write the command into BCB (bootloader control block).
-            RecoverySystem rs = (RecoverySystem) context.getSystemService(
-                    Context.RECOVERY_SERVICE);
-            rs.setupBcb(command.toString());
-
-            // Having set up the BCB, go ahead and reboot.
-            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-            pm.reboot(PowerManager.REBOOT_RECOVERY);
-
-            throw new IOException("Reboot failed (no permissions?)");
         }
+
+        // Write the command into BCB (bootloader control block) and boot from
+        // there. Will not return unless failed.
+        RecoverySystem rs = (RecoverySystem) context.getSystemService(Context.RECOVERY_SERVICE);
+        rs.rebootRecoveryWithCommand(command.toString());
+
+        throw new IOException("Reboot failed (no permissions?)");
     }
 
     // Read last_install; then report time (in seconds) and I/O (in MiB) for
@@ -695,6 +726,7 @@ public class RecoverySystem {
             String line = null;
             int bytesWrittenInMiB = -1, bytesStashedInMiB = -1;
             int timeTotal = -1;
+            int uncryptTime = -1;
             int sourceVersion = -1;
             while ((line = in.readLine()) != null) {
                 // Here is an example of lines in last_install:
@@ -730,6 +762,8 @@ public class RecoverySystem {
 
                 if (line.startsWith("time")) {
                     timeTotal = scaled;
+                } else if (line.startsWith("uncrypt_time")) {
+                    uncryptTime = scaled;
                 } else if (line.startsWith("source_build")) {
                     sourceVersion = scaled;
                 } else if (line.startsWith("bytes_written")) {
@@ -744,6 +778,9 @@ public class RecoverySystem {
             // Don't report data to tron if corresponding entry isn't found in last_install.
             if (timeTotal != -1) {
                 MetricsLogger.histogram(context, "ota_time_total", timeTotal);
+            }
+            if (uncryptTime != -1) {
+                MetricsLogger.histogram(context, "ota_uncrypt_time", uncryptTime);
             }
             if (sourceVersion != -1) {
                 MetricsLogger.histogram(context, "ota_source_version", sourceVersion);
@@ -870,6 +907,17 @@ public class RecoverySystem {
         } catch (RemoteException unused) {
         }
         return false;
+    }
+
+    /**
+     * Talks to RecoverySystemService via Binder to set up the BCB command and
+     * reboot into recovery accordingly.
+     */
+    private void rebootRecoveryWithCommand(String command) {
+        try {
+            mService.rebootRecoveryWithCommand(command);
+        } catch (RemoteException ignored) {
+        }
     }
 
     /**

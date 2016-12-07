@@ -49,6 +49,8 @@ import java.util.concurrent.CountDownLatch;
  * This class provides the primary API for managing all aspects of Wi-Fi
  * connectivity. Get an instance of this class by calling
  * {@link android.content.Context#getSystemService(String) Context.getSystemService(Context.WIFI_SERVICE)}.
+ * On releases before NYC, it should only be obtained from an application context, and not from
+ * any other derived context to avoid memory leaks within the calling process.
 
  * It deals with several categories of items:
  * <ul>
@@ -588,6 +590,12 @@ public class WifiManager {
      */
     @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
     public static final String ACTION_PICK_WIFI_NETWORK = "android.net.wifi.PICK_WIFI_NETWORK";
+
+    /**
+     * Internally used Wi-Fi lock mode representing the case were no locks are held.
+     * @hide
+     */
+    public static final int WIFI_MODE_NO_LOCKS_HELD = 0;
 
     /**
      * In this Wi-Fi lock mode, Wi-Fi will be kept active,

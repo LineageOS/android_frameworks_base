@@ -108,6 +108,7 @@ import android.renderscript.RenderScriptCacheDir;
 import android.system.Os;
 import android.system.OsConstants;
 import android.system.ErrnoException;
+import android.webkit.WebView;
 
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.app.IVoiceInteractor;
@@ -236,6 +237,7 @@ public final class ActivityThread {
     boolean mSystemThread = false;
     boolean mJitEnabled = false;
     boolean mSomeActivitiesChanged = false;
+    boolean mUpdatingSystemConfig = false;
 
     // These can be accessed by multiple threads; mPackages is the lock.
     // XXX For now we keep around information about all packages we have
@@ -432,8 +434,10 @@ public final class ActivityThread {
     static final class NewIntentData {
         List<ReferrerIntent> intents;
         IBinder token;
+        boolean andPause;
         public String toString() {
-            return "NewIntentData{intents=" + intents + " token=" + token + "}";
+            return "NewIntentData{intents=" + intents + " token=" + token
+                    + " andPause=" + andPause +"}";
         }
     }
 
@@ -750,10 +754,12 @@ public final class ActivityThread {
                     configChanges, notResumed, config, overrideConfig, true, preserveWindow);
         }
 
-        public final void scheduleNewIntent(List<ReferrerIntent> intents, IBinder token) {
+        public final void scheduleNewIntent(
+                List<ReferrerIntent> intents, IBinder token, boolean andPause) {
             NewIntentData data = new NewIntentData();
             data.intents = intents;
             data.token = token;
+            data.andPause = andPause;
 
             sendMessage(H.NEW_INTENT, data);
         }
@@ -1036,10 +1042,21 @@ public final class ActivityThread {
             long dalvikMax = runtime.totalMemory() / 1024;
             long dalvikFree = runtime.freeMemory() / 1024;
             long dalvikAllocated = dalvikMax - dalvikFree;
+
+            Class[] classesToCount = new Class[] {
+                    ContextImpl.class,
+                    Activity.class,
+                    WebView.class,
+                    OpenSSLSocketImpl.class
+            };
+            long[] instanceCounts = VMDebug.countInstancesOfClasses(classesToCount, true);
+            long appContextInstanceCount = instanceCounts[0];
+            long activityInstanceCount = instanceCounts[1];
+            long webviewInstanceCount = instanceCounts[2];
+            long openSslSocketCount = instanceCounts[3];
+
             long viewInstanceCount = ViewDebug.getViewInstanceCount();
             long viewRootInstanceCount = ViewDebug.getViewRootImplCount();
-            long appContextInstanceCount = Debug.countInstancesOfClass(ContextImpl.class);
-            long activityInstanceCount = Debug.countInstancesOfClass(Activity.class);
             int globalAssetCount = AssetManager.getGlobalAssetCount();
             int globalAssetManagerCount = AssetManager.getGlobalAssetManagerCount();
             int binderLocalObjectCount = Debug.getBinderLocalObjectCount();
@@ -1047,7 +1064,6 @@ public final class ActivityThread {
             int binderDeathObjectCount = Debug.getBinderDeathObjectCount();
             long parcelSize = Parcel.getGlobalAllocSize();
             long parcelCount = Parcel.getGlobalAllocCount();
-            long openSslSocketCount = Debug.countInstancesOfClass(OpenSSLSocketImpl.class);
             SQLiteDebug.PagerStats stats = SQLiteDebug.getDatabaseInfo();
 
             dumpMemInfoTable(pw, memInfo, checkin, dumpFullInfo, dumpDalvik, dumpSummaryOnly,
@@ -1110,6 +1126,7 @@ public final class ActivityThread {
                     "Parcel count:", parcelCount);
             printRow(pw, TWO_COUNT_COLUMNS, "Death Recipients:", binderDeathObjectCount,
                     "OpenSSL Sockets:", openSslSocketCount);
+            printRow(pw, ONE_COUNT_COLUMN, "WebViews:", webviewInstanceCount);
 
             // SQLite mem info
             pw.println(" ");
@@ -1574,7 +1591,9 @@ public final class ActivityThread {
                 case CONFIGURATION_CHANGED:
                     Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "configChanged");
                     mCurDefaultDisplayDpi = ((Configuration)msg.obj).densityDpi;
+                    mUpdatingSystemConfig = true;
                     handleConfigurationChanged((Configuration)msg.obj, null);
+                    mUpdatingSystemConfig = false;
                     Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
                     break;
                 case CLEAN_UP_CONTEXT:
@@ -2784,24 +2803,34 @@ public final class ActivityThread {
         }
     }
 
-    public final void performNewIntents(IBinder token, List<ReferrerIntent> intents) {
-        ActivityClientRecord r = mActivities.get(token);
-        if (r != null) {
-            final boolean resumed = !r.paused;
-            if (resumed) {
-                r.activity.mTemporaryPause = true;
-                mInstrumentation.callActivityOnPause(r.activity);
-            }
-            deliverNewIntents(r, intents);
-            if (resumed) {
-                r.activity.performResume();
-                r.activity.mTemporaryPause = false;
-            }
+    void performNewIntents(IBinder token, List<ReferrerIntent> intents, boolean andPause) {
+        final ActivityClientRecord r = mActivities.get(token);
+        if (r == null) {
+            return;
+        }
+
+        final boolean resumed = !r.paused;
+        if (resumed) {
+            r.activity.mTemporaryPause = true;
+            mInstrumentation.callActivityOnPause(r.activity);
+        }
+        deliverNewIntents(r, intents);
+        if (resumed) {
+            r.activity.performResume();
+            r.activity.mTemporaryPause = false;
+        }
+
+        if (r.paused && andPause) {
+            // In this case the activity was in the paused state when we delivered the intent,
+            // to guarantee onResume gets called after onNewIntent we temporarily resume the
+            // activity and pause again as the caller wanted.
+            performResumeActivity(token, false, "performNewIntents");
+            performPauseActivityIfNeeded(r, "performNewIntents");
         }
     }
 
     private void handleNewIntent(NewIntentData data) {
-        performNewIntents(data.token, data.intents);
+        performNewIntents(data.token, data.intents, data.andPause);
     }
 
     public void handleRequestAssistContextExtras(RequestAssistContextExtras cmd) {
@@ -3782,7 +3811,7 @@ public final class ActivityThread {
      * than our client -- for the server, stop means to save state and give
      * it the result when it is done, but the window may still be visible.
      * For the client, we want to call onStop()/onStart() to indicate when
-     * the activity's UI visibillity changes.
+     * the activity's UI visibility changes.
      */
     private void performStopActivityInner(ActivityClientRecord r,
             StopInfo info, boolean keepShown, boolean saveState, String reason) {
@@ -3956,6 +3985,9 @@ public final class ActivityThread {
         mSomeActivitiesChanged = true;
     }
 
+    // TODO: This method should be changed to use {@link #performStopActivityInner} to perform to
+    // stop operation on the activity to reduce code duplication and the chance of fixing a bug in
+    // one place and missing the other.
     private void handleSleeping(IBinder token, boolean sleeping) {
         ActivityClientRecord r = mActivities.get(token);
 
@@ -3966,6 +3998,10 @@ public final class ActivityThread {
 
         if (sleeping) {
             if (!r.stopped && !r.isPreHoneycomb()) {
+                if (!r.activity.mFinished && r.state == null) {
+                    callCallActivityOnSaveInstanceState(r);
+                }
+
                 try {
                     // Now we are idle.
                     r.activity.performStop(false /*preserveWindow*/);
@@ -4624,12 +4660,20 @@ public final class ActivityThread {
         if ((activity == null) || (activity.mCurrentConfig == null)) {
             shouldChangeConfig = true;
         } else {
-            // If the new config is the same as the config this Activity
-            // is already running with then don't bother calling
-            // onConfigurationChanged
+            // If the new config is the same as the config this Activity is already
+            // running with and the override config also didn't change, then don't
+            // bother calling onConfigurationChanged.
             int diff = activity.mCurrentConfig.diff(newConfig);
-            if (diff != 0) {
-                shouldChangeConfig = true;
+            if (diff != 0 || !mResourcesManager.isSameResourcesOverrideConfig(activityToken,
+                    amOverrideConfig)) {
+                // Always send the task-level config changes. For system-level configuration, if
+                // this activity doesn't handle any of the config changes, then don't bother
+                // calling onConfigurationChanged as we're going to destroy it.
+                if (!mUpdatingSystemConfig
+                        || (~activity.mActivityInfo.getRealConfigChanged() & diff) == 0
+                        || !reportToActivity) {
+                    shouldChangeConfig = true;
+                }
             }
         }
 
@@ -4978,9 +5022,7 @@ public final class ActivityThread {
             int uid = Process.myUid();
             String[] packages = getPackageManager().getPackagesForUid(uid);
 
-            // If there are several packages in this application we won't
-            // initialize the graphics disk caches
-            if (packages != null && packages.length == 1) {
+            if (packages != null) {
                 ThreadedRenderer.setupDiskCache(cacheDir);
                 RenderScriptCacheDir.setupDiskCache(cacheDir);
             }

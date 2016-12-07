@@ -95,7 +95,6 @@ public final class RemoteConnection {
          *
          * @param connection The {@code RemoteConnection} invoking this method.
          * @param connectionProperties The new properties of the {@code RemoteConnection}.
-         * @hide
          */
         public void onConnectionPropertiesChanged(
                 RemoteConnection connection,
@@ -230,7 +229,6 @@ public final class RemoteConnection {
          * @param connection The {@code RemoteConnection} invoking this method.
          * @param event The connection event.
          * @param extras Extras associated with the event.
-         * @hide
          */
         public void onConnectionEvent(RemoteConnection connection, String event, Bundle extras) {}
     }
@@ -640,7 +638,12 @@ public final class RemoteConnection {
         mConnectionCapabilities = connection.getConnectionCapabilities();
         mConnectionProperties = connection.getConnectionProperties();
         mVideoState = connection.getVideoState();
-        mVideoProvider = new RemoteConnection.VideoProvider(connection.getVideoProvider());
+        IVideoProvider videoProvider = connection.getVideoProvider();
+        if (videoProvider != null) {
+            mVideoProvider = new RemoteConnection.VideoProvider(videoProvider);
+        } else {
+            mVideoProvider = null;
+        }
         mIsVoipAudioMode = connection.getIsVoipAudioMode();
         mStatusHints = connection.getStatusHints();
         mAddress = connection.getHandle();
@@ -648,6 +651,14 @@ public final class RemoteConnection {
         mCallerDisplayName = connection.getCallerDisplayName();
         mCallerDisplayNamePresentation = connection.getCallerDisplayNamePresentation();
         mConference = null;
+        putExtras(connection.getExtras());
+
+        // Stash the original connection ID as it exists in the source ConnectionService.
+        // Telecom will use this to avoid adding duplicates later.
+        // See comments on Connection.EXTRA_ORIGINAL_CONNECTION_ID for more information.
+        Bundle newExtras = new Bundle();
+        newExtras.putString(Connection.EXTRA_ORIGINAL_CONNECTION_ID, callId);
+        putExtras(newExtras);
     }
 
     /**
@@ -738,7 +749,6 @@ public final class RemoteConnection {
      *
      * @return A bitmask of the properties of the {@code RemoteConnection}, as defined in the
      *         {@code PROPERTY_*} constants in class {@link Connection}.
-     * @hide
      */
     public int getConnectionProperties() {
         return mConnectionProperties;
@@ -993,7 +1003,6 @@ public final class RemoteConnection {
      * Instructs this {@link RemoteConnection} to pull itself to the local device.
      * <p>
      * See {@link Call#pullExternalCall()} for more information.
-     * @hide
      */
     public void pullExternalCall() {
         try {
@@ -1347,6 +1356,9 @@ public final class RemoteConnection {
 
     /** @hide */
     void putExtras(final Bundle extras) {
+        if (extras == null) {
+            return;
+        }
         if (mExtras == null) {
             mExtras = new Bundle();
         }

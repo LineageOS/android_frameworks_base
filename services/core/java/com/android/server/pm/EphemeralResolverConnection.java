@@ -16,6 +16,8 @@
 
 package com.android.server.pm;
 
+import android.app.EphemeralResolverService;
+import android.app.IEphemeralResolver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -29,9 +31,6 @@ import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.util.TimedRemoteCaller;
-
-import com.android.internal.app.EphemeralResolverService;
-import com.android.internal.app.IEphemeralResolver;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -57,18 +56,20 @@ final class EphemeralResolverConnection {
     /** Intent used to bind to the service */
     private final Intent mIntent;
 
+    private volatile boolean mBindRequested;
     private IEphemeralResolver mRemoteInstance;
 
     public EphemeralResolverConnection(Context context, ComponentName componentName) {
         mContext = context;
-        mIntent = new Intent().setComponent(componentName);
+        mIntent = new Intent(Intent.ACTION_RESOLVE_EPHEMERAL_PACKAGE).setComponent(componentName);
     }
 
-    public final List<EphemeralResolveInfo> getEphemeralResolveInfoList(int hashPrefix) {
+    public final List<EphemeralResolveInfo> getEphemeralResolveInfoList(
+            int hashPrefix[], int prefixMask) {
         throwIfCalledOnMainThread();
         try {
             return mGetEphemeralResolveInfoCaller.getEphemeralResolveInfoList(
-                    getRemoteInstanceLazy(), hashPrefix);
+                    getRemoteInstanceLazy(), hashPrefix, prefixMask);
         } catch (RemoteException re) {
         } catch (TimeoutException te) {
         } finally {
@@ -111,8 +112,11 @@ final class EphemeralResolverConnection {
             return;
         }
 
-        mContext.bindServiceAsUser(mIntent, mServiceConnection,
-                Context.BIND_AUTO_CREATE | Context.BIND_FOREGROUND_SERVICE, UserHandle.SYSTEM);
+        if (!mBindRequested) {
+            mBindRequested = true;
+            mContext.bindServiceAsUser(mIntent, mServiceConnection,
+                    Context.BIND_AUTO_CREATE | Context.BIND_FOREGROUND_SERVICE, UserHandle.SYSTEM);
+        }
 
         final long startMillis = SystemClock.uptimeMillis();
         while (true) {
@@ -177,10 +181,10 @@ final class EphemeralResolverConnection {
         }
 
         public List<EphemeralResolveInfo> getEphemeralResolveInfoList(
-                IEphemeralResolver target, int hashPrefix)
+                IEphemeralResolver target, int hashPrefix[], int prefixMask)
                         throws RemoteException, TimeoutException {
             final int sequence = onBeforeRemoteCall();
-            target.getEphemeralResolveInfoList(mCallback, hashPrefix, sequence);
+            target.getEphemeralResolveInfoList(mCallback, hashPrefix, prefixMask, sequence);
             return getResultTimed(sequence);
         }
     }
