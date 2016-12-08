@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5f681702_f32fb9f3",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-08T05:02:40Z",
+      "side": 1,
+      "message": "We should be able to declare this in the common flipcover app.",
+      "revId": "9adb37365f3d3232eb9b3682be56a9df1fa0458b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f681702_d3f39d9d",
         "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
         "patchSetId": 4
