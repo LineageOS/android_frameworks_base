@@ -1107,6 +1107,11 @@
     <permission android:name="android.permission.MODIFY_CELL_BROADCASTS"
                 android:protectionLevel="signature|privileged" />
 
+    <!-- Allows an application to authorize outgoing SMS messages.
+         @hide -->
+    <permission android:name="android.permission.AUTHORIZE_OUTGOING_SMS"
+                android:protectionLevel="signature" />
+
     <!-- =============================================================== -->
     <!-- Permissions for setting the device alarm                        -->
     <!-- =============================================================== -->
