@@ -2951,4 +2951,10 @@
     <!-- If enabled, capacitive keys will only light up when pressed.
          Otherwise, the buttons will light up whenever the user interacts with the device -->
     <bool name="config_buttonLightOnKeypressOnly">false</bool>
+
+    <!-- The duration (in milliseconds) for the outgoing sms authorization request to timeout.-->
+    <integer name="config_sms_authorization_timeout_ms">0</integer>
+
+    <!-- Enable sms authorization framework-->
+    <bool name="config_sms_authorization_enabled">false</bool>
 </resources>
