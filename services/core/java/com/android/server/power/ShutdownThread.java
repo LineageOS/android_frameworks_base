@@ -69,6 +69,8 @@ import java.io.IOException;
 
 import java.lang.reflect.Method;
 
+import com.android.internal.util.arsenic.Helpers;
+
 public final class ShutdownThread extends Thread {
     // constants
     private static final String TAG = "ShutdownThread";
