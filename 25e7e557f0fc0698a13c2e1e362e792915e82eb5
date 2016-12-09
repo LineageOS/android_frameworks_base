@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_042b09eb",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2016-12-09T01:36:25Z",
+      "side": 1,
+      "message": "this doesn\u0027t show up in my IDE... will try fixing",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 66
+      },
+      "revId": "25e7e557f0fc0698a13c2e1e362e792915e82eb5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
