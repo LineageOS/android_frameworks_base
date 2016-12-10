@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_8063801a",
+        "filename": "core/res/res/drawable/ic_lock_screenshot.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-10T13:39:26Z",
+      "side": 1,
+      "message": "It seems like this is natively at 24dp too.",
+      "revId": "d8db4e5a97d843a631228a8516ac2a8316bf5b80",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
