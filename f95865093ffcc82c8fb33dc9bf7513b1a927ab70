@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_2ca70352",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 2794,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2016-12-11T12:11:31Z",
+      "side": 1,
+      "message": "we\u0027re changing this?",
+      "revId": "f95865093ffcc82c8fb33dc9bf7513b1a927ab70",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
