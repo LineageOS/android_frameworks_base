@@ -34,6 +34,23 @@
       "revId": "f95865093ffcc82c8fb33dc9bf7513b1a927ab70",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_0c25e7c2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-11T12:27:48Z",
+      "side": 1,
+      "message": "Rashed: seems like you changed the layer from (STATUS_BAR_LAYER - 2) to (STATUS_BAR_LAYER - 1). I\u0027m curious - what layer is (STATUS_BAR_LAYER - 2) in CM 14.1? I changed this line back to ((STATUS_BAR_LAYER - 2) and blur works fine for me.",
+      "revId": "f95865093ffcc82c8fb33dc9bf7513b1a927ab70",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
