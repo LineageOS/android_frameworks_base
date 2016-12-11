@@ -16,6 +16,24 @@
       "revId": "fcfb6bea1d2afcea4d15e575ef179c8da3fb3455",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_318da07b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2016-12-11T03:31:29Z",
+      "side": 1,
+      "message": "Whops, forgot to actually switch to the native animation function, derp.",
+      "parentUuid": "5f681702_66663c2c",
+      "revId": "fcfb6bea1d2afcea4d15e575ef179c8da3fb3455",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
