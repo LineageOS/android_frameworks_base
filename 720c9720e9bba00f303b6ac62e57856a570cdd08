@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_664f5c92",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-11T02:12:20Z",
+      "side": 1,
+      "message": "This should not be static, and neither should it be named like a constant variable",
+      "revId": "720c9720e9bba00f303b6ac62e57856a570cdd08",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_a649748c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-11T02:12:20Z",
+      "side": 1,
+      "message": "This seems like it wouldn\u0027t work unless you reset the blur layer when the tunable changes.",
+      "revId": "720c9720e9bba00f303b6ac62e57856a570cdd08",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
