@@ -22,7 +22,6 @@ import com.android.internal.logging.MetricsProto;
 import com.android.internal.os.ProcessCpuTracker;
 import com.android.server.Watchdog;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
 import android.app.ActivityThread;
@@ -33,10 +32,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.IPackageDataObserver;
-import android.content.pm.PackageManager;
 import android.os.Binder;
-import android.os.Bundle;
 import android.os.Message;
 import android.os.Process;
 import android.os.RemoteException;
@@ -51,14 +47,15 @@ import android.util.Log;
 import android.util.Slog;
 import android.util.SparseArray;
 import android.util.TimeUtils;
-
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.concurrent.Semaphore;
+import java.util.Set;
 
 import static com.android.server.Watchdog.NATIVE_STACKS_OF_INTEREST;
 import static com.android.server.am.ActivityManagerDebugConfig.DEBUG_ANR;
@@ -76,7 +73,7 @@ class AppErrors {
 
     private final ActivityManagerService mService;
     private final Context mContext;
-
+    SimpleDateFormat mTraceDateFormat = new SimpleDateFormat("dd_MMM_HH_mm_ss.SSS");
     private ArraySet<String> mAppsNotReportingCrashes;
 
     /**
@@ -358,7 +355,7 @@ class AppErrors {
                 return;
             }
 
-            Message msg = Message.obtain();
+            final Message msg = Message.obtain();
             msg.what = ActivityManagerService.SHOW_ERROR_UI_MSG;
 
             task = data.task;
@@ -386,8 +383,8 @@ class AppErrors {
                     } catch (IllegalArgumentException e) {
                         // Hmm, that didn't work, app might have crashed before creating a
                         // recents entry. Let's see if we have a safe-to-restart intent.
-                        if (task.intent.getCategories().contains(
-                                Intent.CATEGORY_LAUNCHER)) {
+                        final Set<String> cats = task.intent.getCategories();
+                        if (cats != null && cats.contains(Intent.CATEGORY_LAUNCHER)) {
                             mService.startActivityInPackage(task.mCallingUid,
                                     task.mCallingPackage, task.intent,
                                     null, null, null, 0, 0,
@@ -574,6 +571,8 @@ class AppErrors {
     boolean handleAppCrashLocked(ProcessRecord app, String reason,
             String shortMsg, String longMsg, String stackTrace, AppErrorDialog.Data data) {
         long now = SystemClock.uptimeMillis();
+        boolean showBackground = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.ANR_SHOW_BACKGROUND, 0) != 0;
 
         Long crashTime;
         Long crashTimePersistent;
@@ -611,7 +610,9 @@ class AppErrors {
                 // processes run critical code.
                 mService.removeProcessLocked(app, false, false, "crash");
                 mService.mStackSupervisor.resumeFocusedStackTopActivityLocked();
-                return false;
+                if (!showBackground) {
+                    return false;
+                }
             }
             mService.mStackSupervisor.resumeFocusedStackTopActivityLocked();
         } else {
@@ -626,12 +627,21 @@ class AppErrors {
             }
         }
 
+        boolean procIsBoundForeground =
+                (app.curProcState == ActivityManager.PROCESS_STATE_BOUND_FOREGROUND_SERVICE);
         // Bump up the crash count of any services currently running in the proc.
         for (int i=app.services.size()-1; i>=0; i--) {
             // Any services running in the application need to be placed
             // back in the pending list.
             ServiceRecord sr = app.services.valueAt(i);
             sr.crashCount++;
+
+            // Allow restarting for started or bound foreground services that are crashing the
+            // first time. This includes wallpapers.
+            if ((data != null) && (sr.crashCount <= 1)
+                    && (sr.isForeground || procIsBoundForeground)) {
+                data.isRestartableForService = true;
+            }
         }
 
         // If the crashing process is what we consider to be the "home process" and it has been
@@ -695,7 +705,7 @@ class AppErrors {
             }
             final boolean crashSilenced = mAppsNotReportingCrashes != null &&
                     mAppsNotReportingCrashes.contains(proc.info.packageName);
-            if (mService.canShowErrorDialogs() && !crashSilenced) {
+            if ((mService.canShowErrorDialogs() || showBackground) && !crashSilenced) {
                 proc.crashDialog = new AppErrorDialog(mContext, mService, data);
             } else {
                 // The device is asleep, so just pretend that the user
@@ -886,6 +896,23 @@ class AppErrors {
                     annotation != null ? "ANR " + annotation : "ANR",
                     info.toString());
 
+            boolean enableTraceRename = SystemProperties.getBoolean("persist.sys.enableTraceRename", false);
+            //Set the trace file name to app name + current date format to avoid overrinding trace file based on debug flag
+            if(enableTraceRename) {
+                String tracesPath = SystemProperties.get("dalvik.vm.stack-trace-file", null);
+                if (tracesPath != null && tracesPath.length() != 0) {
+                    File traceRenameFile = new File(tracesPath);
+                    String newTracesPath;
+                    int lpos = tracesPath.lastIndexOf (".");
+                    if (-1 != lpos)
+                        newTracesPath = tracesPath.substring (0, lpos) + "_" + app.processName + "_" + mTraceDateFormat.format(new Date()) + tracesPath.substring (lpos);
+                    else
+                        newTracesPath = tracesPath + "_" + app.processName;
+
+                    traceRenameFile.renameTo(new File(newTracesPath));
+                    SystemClock.sleep(1000);
+                }
+            }
             // Bring up the infamous App Not Responding dialog
             Message msg = Message.obtain();
             HashMap<String, Object> map = new HashMap<String, Object>();
@@ -932,7 +959,9 @@ class AppErrors {
                     null, null, 0, null, null, null, AppOpsManager.OP_NONE,
                     null, false, false, MY_PID, Process.SYSTEM_UID, 0 /* TODO: Verify */);
 
-            if (mService.canShowErrorDialogs()) {
+            boolean showBackground = Settings.Secure.getInt(mContext.getContentResolver(),
+                    Settings.Secure.ANR_SHOW_BACKGROUND, 0) != 0;
+            if (mService.canShowErrorDialogs() || showBackground) {
                 d = new AppNotRespondingDialog(mService,
                         mContext, proc, (ActivityRecord)data.get("activity"),
                         msg.arg1 != 0);

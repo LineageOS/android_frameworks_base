@@ -96,7 +96,7 @@ public class CaptivePortalLoginActivity extends Activity {
         // Exit app if Network disappears.
         final NetworkCapabilities networkCapabilities = mCm.getNetworkCapabilities(mNetwork);
         if (networkCapabilities == null) {
-            finish();
+            finishAndRemoveTask();
             return;
         }
         mNetworkCallback = new NetworkCallback() {
@@ -115,6 +115,7 @@ public class CaptivePortalLoginActivity extends Activity {
         myWebView.clearCache(true);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
         mWebViewClient = new MyWebViewClient();
         myWebView.setWebViewClient(mWebViewClient);
         myWebView.setWebChromeClient(new MyWebChromeClient());
@@ -163,7 +164,7 @@ public class CaptivePortalLoginActivity extends Activity {
                 mCaptivePortal.useNetwork();
                 break;
         }
-        finish();
+        finishAndRemoveTask();
     }
 
     @Override

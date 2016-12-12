@@ -61,6 +61,13 @@ public final class Installer extends SystemService {
         mInstaller = new InstallerConnection();
     }
 
+    // Package-private installer that accepts a custom InstallerConnection. Used for
+    // OtaDexoptService.
+    Installer(Context context, InstallerConnection connection) {
+        super(context);
+        mInstaller = connection;
+    }
+
     /**
      * Yell loudly if someone tries making future calls while holding a lock on
      * the given object.
@@ -221,6 +228,11 @@ public final class Installer extends SystemService {
     public void moveAb(String apkPath, String instructionSet, String outputPath)
             throws InstallerException {
         mInstaller.execute("move_ab", apkPath, instructionSet, outputPath);
+    }
+
+    public void deleteOdex(String apkPath, String instructionSet, String outputPath)
+            throws InstallerException {
+        mInstaller.execute("delete_odex", apkPath, instructionSet, outputPath);
     }
 
     private static void assertValidInstructionSet(String instructionSet)

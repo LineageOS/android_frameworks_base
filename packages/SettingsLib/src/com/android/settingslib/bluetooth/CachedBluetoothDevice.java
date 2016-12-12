@@ -329,6 +329,7 @@ public final class CachedBluetoothDevice implements Comparable<CachedBluetoothDe
                 final boolean successful = dev.removeBond();
                 if (successful) {
                     if (Utils.D) {
+                        mDevice.setAlias(null);
                         Log.d(TAG, "Command sent successfully:REMOVE_BOND " + describe(null));
                     }
                 } else if (Utils.V) {
@@ -835,7 +836,9 @@ public final class CachedBluetoothDevice implements Comparable<CachedBluetoothDe
             // No separate prompt is displayed after pairing.
             if (getPhonebookPermissionChoice() == CachedBluetoothDevice.ACCESS_UNKNOWN) {
                 if (mDevice.getBluetoothClass().getDeviceClass()
-                        == BluetoothClass.Device.AUDIO_VIDEO_HANDSFREE) {
+                        == BluetoothClass.Device.AUDIO_VIDEO_HANDSFREE ||
+                    mDevice.getBluetoothClass().getDeviceClass()
+                        == BluetoothClass.Device.AUDIO_VIDEO_WEARABLE_HEADSET) {
                     setPhonebookPermissionChoice(CachedBluetoothDevice.ACCESS_ALLOWED);
                 } else {
                     setPhonebookPermissionChoice(CachedBluetoothDevice.ACCESS_REJECTED);

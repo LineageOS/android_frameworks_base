@@ -522,10 +522,30 @@ public class SoundPool {
             return false;
         }
 
+        // check app ops
+        if (mHasAppOpsPlayAudio) {
+            return false;
+        }
+        // check bypass flag
         if ((mAttributes.getAllFlags() & AudioAttributes.FLAG_BYPASS_INTERRUPTION_POLICY) != 0) {
             return false;
         }
-        return !mHasAppOpsPlayAudio;
+        // check force audibility flag and camera restriction
+        if ((mAttributes.getAllFlags() & AudioAttributes.FLAG_AUDIBILITY_ENFORCED) != 0) {
+// FIXME: should also check usage when set properly by camera app
+//          && (mAttributes.getUsage() == AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+            try {
+                cameraSoundForced = getService().isCameraSoundForced();
+            } catch (RemoteException e) {
+                Log.e(TAG, "Cannot access AudioService in isRestricted()");
+            } catch (NullPointerException e) {
+                Log.e(TAG, "Null AudioService in isRestricted()");
+            }
+            if (cameraSoundForced) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void updateAppOpsPlayAudio() {
