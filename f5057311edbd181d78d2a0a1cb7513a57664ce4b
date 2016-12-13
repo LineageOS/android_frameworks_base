@@ -22,6 +22,24 @@
       "revId": "f5057311edbd181d78d2a0a1cb7513a57664ce4b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_3013d15e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-13T03:45:05Z",
+      "side": 1,
+      "message": "This was exactly what was commented on the original patch in cm-13.0, but it was merged anyway :/",
+      "parentUuid": "",
+      "revId": "f5057311edbd181d78d2a0a1cb7513a57664ce4b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
