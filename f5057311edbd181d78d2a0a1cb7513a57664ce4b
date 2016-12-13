@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_9002a508",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-12-13T03:43:39Z",
+      "side": 1,
+      "message": "This change is a no-op because vel will always be 0 if expandBecauseOfFalsing is true (line 672).",
+      "range": {
+        "startLine": 676,
+        "startChar": 16,
+        "endLine": 676,
+        "endChar": 50
+      },
+      "revId": "f5057311edbd181d78d2a0a1cb7513a57664ce4b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
