@@ -69,7 +69,7 @@ public class IconMerger extends LinearLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         // we need to constrain this to an integral multiple of our children
         int width = getMeasuredWidth();
-        if (mClockLocation == ClockController.STYLE_CLOCK_CENTER) {
+        if (mClockLocation == ClockController.CLOCK_POSITION_CENTER) {
             int totalWidth = getResources().getDisplayMetrics().widthPixels;
             width = totalWidth / 2 - getFullIconWidth() * 2;
         }
@@ -94,8 +94,8 @@ public class IconMerger extends LinearLayout {
         // let's assume we have one more slot if the more icon is already showing
         if (overflowShown) {
             int totalWidth = getResources().getDisplayMetrics().widthPixels;
-            if ((mClockLocation != ClockController.STYLE_CLOCK_CENTER &&
-                    mClockLocation != ClockController.STYLE_CLOCK_LEFT) ||
+            if ((mClockLocation != ClockController.CLOCK_POSITION_CENTER &&
+                    mClockLocation != ClockController.CLOCK_POSITION_LEFT) ||
                     (visibleChildren > (totalWidth / getFullIconWidth() / 2 + 1))) {
                 visibleChildren--;
             }
