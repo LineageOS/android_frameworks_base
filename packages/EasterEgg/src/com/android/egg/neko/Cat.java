@@ -139,11 +139,15 @@ public class Cat extends Drawable {
     }
 
     public Cat(Context context, long seed) {
+        final Random rand;
+        final int i;
+        final String[] CAT_NAMES = context.getResources().getStringArray(R.array.cat_names);
         D = new CatParts(context);
         mSeed = seed;
-
+        rand = new Random();
+        i = rand.nextInt(CAT_NAMES.length);
         setName(context.getString(R.string.default_cat_name,
-                String.valueOf(mSeed % 1000)));
+                String.valueOf(CAT_NAMES[i])));
 
         final Random nsr = notSoRandom(seed);
 
