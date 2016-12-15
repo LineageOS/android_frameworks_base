@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_00647ae3",
+        "filename": "packages/EasterEgg/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2016-12-15T14:41:03Z",
+      "side": 1,
+      "message": "as an easter egg, this shouldn\u0027t be on by default",
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_80708aa7",
+        "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2016-12-15T14:41:03Z",
+      "side": 1,
+      "message": "line length \u003e 100\n\nis \"title\" really an appropriate variable name here?",
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_6073aeb2",
+        "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2016-12-15T14:41:03Z",
+      "side": 1,
+      "message": "These don\u0027t need to be class variables. Define them in the constructor",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 18
+      },
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_c069e2be",
+        "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2016-12-15T14:41:03Z",
+      "side": 1,
+      "message": "spaces here, not tabs!",
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_a064a6e6",
+        "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2016-12-15T14:41:03Z",
+      "side": 1,
+      "message": "instead of hard-coding 21 here, maybe grab the length of the array?",
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
