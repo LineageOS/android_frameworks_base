@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_6570e0dd",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 11581,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-15T12:25:04Z",
+      "side": 1,
+      "message": "I think we should use savedInfo.first instead just for consistency with the if check.",
+      "revId": "5466510aec83f70fc7834c516073a2ce0691a4a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
