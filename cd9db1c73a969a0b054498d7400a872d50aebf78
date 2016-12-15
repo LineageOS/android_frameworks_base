@@ -19,6 +19,41 @@
     },
     {
       "key": {
+        "uuid": "5f681702_b4a50b07",
+        "filename": "packages/EasterEgg/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-15T21:17:47Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "5f681702_00647ae3",
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_549e37b8",
+        "filename": "packages/EasterEgg/res/values/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-15T21:17:47Z",
+      "side": 1,
+      "message": "I\u0027d prefer the probabilities to not be changed.",
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f681702_80708aa7",
         "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
         "patchSetId": 1
@@ -30,6 +65,24 @@
       "writtenOn": "2016-12-15T14:41:03Z",
       "side": 1,
       "message": "line length \u003e 100\n\nis \"title\" really an appropriate variable name here?",
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_94a8cfdb",
+        "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-15T21:17:47Z",
+      "side": 1,
+      "message": "CAT_NAMES would be good IMO",
+      "parentUuid": "5f681702_80708aa7",
       "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -59,6 +112,24 @@
     },
     {
       "key": {
+        "uuid": "5f681702_d4a9a7dd",
+        "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-15T21:17:47Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "5f681702_6073aeb2",
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f681702_c069e2be",
         "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
         "patchSetId": 1
@@ -76,6 +147,24 @@
     },
     {
       "key": {
+        "uuid": "5f681702_f4ae63e5",
+        "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-15T21:17:47Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "5f681702_c069e2be",
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f681702_a064a6e6",
         "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
         "patchSetId": 1
@@ -87,6 +176,24 @@
       "writtenOn": "2016-12-15T14:41:03Z",
       "side": 1,
       "message": "instead of hard-coding 21 here, maybe grab the length of the array?",
+      "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_f497838f",
+        "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-15T21:17:47Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "5f681702_a064a6e6",
       "revId": "cd9db1c73a969a0b054498d7400a872d50aebf78",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
