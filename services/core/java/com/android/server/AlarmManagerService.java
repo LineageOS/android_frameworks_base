@@ -1803,9 +1803,10 @@ class AlarmManagerService extends SystemService {
                 Alarm a = alarms.get(j);
                 if (a.alarmClock != null) {
                     final int userId = UserHandle.getUserId(a.uid);
+                    AlarmManager.AlarmClockInfo current = mNextAlarmClockForUser.get(userId);
 
                     if (DEBUG_ALARM_CLOCK) {
-                        Log.v(TAG, "Found AlarmClockInfo at " +
+                        Log.v(TAG, "Found AlarmClockInfo " + a.alarmClock + " at " +
                                 formatNextAlarm(getContext(), a.alarmClock, userId) +
                                 " for user " + userId);
                     }
@@ -1813,6 +1814,10 @@ class AlarmManagerService extends SystemService {
                     // Alarms and batches are sorted by time, no need to compare times here.
                     if (nextForUser.get(userId) == null) {
                         nextForUser.put(userId, a.alarmClock);
+                    } else if (a.alarmClock.equals(current)
+                            && current.getTriggerTime() <= nextForUser.get(userId).getTriggerTime()) {
+                        // same/earlier time and it's the one we cited before, so stick with it
+                        nextForUser.put(userId, current);
                     }
                 }
             }
@@ -2584,8 +2589,10 @@ class AlarmManagerService extends SystemService {
                             Slog.v(TAG, "Time changed notification from kernel; rebatching");
                         }
                         removeImpl(mTimeTickSender);
+                        removeImpl(mDateChangeSender);
                         rebatchAllAlarms();
                         mClockReceiver.scheduleTimeTickEvent();
+                        mClockReceiver.scheduleDateChangedEvent();
                         synchronized (mLock) {
                             mNumTimeChanged++;
                             mLastTimeChangeClockTime = nowRTC;
@@ -2808,7 +2815,7 @@ class AlarmManagerService extends SystemService {
         public void scheduleDateChangedEvent() {
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
-            calendar.set(Calendar.HOUR, 0);
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
             calendar.set(Calendar.MINUTE, 0);
             calendar.set(Calendar.SECOND, 0);
             calendar.set(Calendar.MILLISECOND, 0);

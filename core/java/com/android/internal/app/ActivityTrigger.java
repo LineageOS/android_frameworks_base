@@ -1,4 +1,4 @@
-/* Copyright (c) 2015, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -55,11 +55,6 @@ public class ActivityTrigger
     }
 
     /** &hide */
-    public void activityStartProcessTrigger(String process, int pid) {
-        native_at_startProcessActivity(process, pid);
-    }
-
-    /** &hide */
     public void activityStartTrigger(Intent intent, ActivityInfo acInfo, ApplicationInfo appInfo) {
         ComponentName cn = intent.getComponent();
         int overrideFlags = 0;
@@ -106,14 +101,8 @@ public class ActivityTrigger
         native_at_stopActivity(activity);
     }
 
-    /** &hide */
-    public float animationScalesCheck(String activity, int scaleType) {
-        return native_at_animationScalesCheck(activity, scaleType);
-    }
-
-    /** &hide */
-    public void networkOptsCheck (int flag, int netType, String packageName) {
-        native_at_networkOptsCheck(flag, netType, packageName);
+    public float activityMiscTrigger(int func, String activity, int flag, int type) {
+        return native_at_miscActivity(func, activity, flag, type);
     }
 
     private native int native_at_startActivity(String activity, int flags);
@@ -121,7 +110,5 @@ public class ActivityTrigger
     private native void native_at_pauseActivity(String activity);
     private native void native_at_stopActivity(String activity);
     private native void native_at_deinit();
-    private native void native_at_startProcessActivity(String process, int pid);
-    private native float native_at_animationScalesCheck(String activity, int scaleType);
-    private native void native_at_networkOptsCheck(int flag, int netType, String packageName);
+    private native float native_at_miscActivity(int func, String activity, int flag, int type);
 }

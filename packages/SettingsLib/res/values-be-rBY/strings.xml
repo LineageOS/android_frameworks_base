@@ -28,7 +28,8 @@
     <string name="wifi_disabled_wifi_failure" msgid="3081668066612876581">"Збой падлучэння Wi-Fi"</string>
     <string name="wifi_disabled_password_failure" msgid="8659805351763133575">"Праблема аўтэнтыфікацыі"</string>
     <string name="wifi_not_in_range" msgid="1136191511238508967">"Не ў зоне дасягальнасці"</string>
-    <string name="wifi_no_internet" msgid="9151470775868728896">"Доступ да інтэрнэту не выяўлены, аўтаматычнае перападлучэнне не адбудзецца."</string>
+    <string name="wifi_no_internet_no_reconnect" msgid="2211781637653149657">"Доступ да інтэрнэту не выяўлены, аўтаматычнае перападключэнне не адбудзецца."</string>
+    <string name="wifi_no_internet" msgid="5011955173375805204">"Няма доступу да інтэрнэту."</string>
     <string name="saved_network" msgid="4352716707126620811">"Хто захаваў: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="connected_via_wfa" msgid="3805736726317410714">"Падлучана праз памочніка Wi‑Fi"</string>
     <string name="connected_via_passpoint" msgid="2826205693803088747">"Падлучана праз %1$s"</string>
@@ -175,12 +176,15 @@
     <string name="wifi_allow_scan_with_traffic_summary" msgid="2575101424972686310">"Дазволіць/забараніць роўмінгавае сканіраванне Wi‑Fi ў залежнасці ад аб\'ёму трафіку даных у інтэрфейсе"</string>
     <string name="select_logd_size_title" msgid="7433137108348553508">"Памеры буфера для сродку вядзення журнала"</string>
     <string name="select_logd_size_dialog_title" msgid="1206769310236476760">"Выберыце памеры сродку вядзення журнала для буфераў журнала"</string>
+    <string name="dev_logpersist_clear_warning_title" msgid="684806692440237967">"Ачысціць пастаяннае сховішча журнала?"</string>
+    <string name="dev_logpersist_clear_warning_message" msgid="2256582531342994562">"Калі перастае выконвацца адсочванне з дапамогай пастаяннага журнала, мы павінны сцерці даныя журнала, якія захоўваюцца на вашай прыладзе."</string>
+    <string name="select_logpersist_title" msgid="7530031344550073166">"Захоўваць даныя журнала на прыл."</string>
+    <string name="select_logpersist_dialog_title" msgid="4003400579973269060">"Выберыце буферы журнала для пастаяннага захоўвання на прыладзе"</string>
     <string name="select_usb_configuration_title" msgid="2649938511506971843">"Выберыце канфігурацыю USB"</string>
     <string name="select_usb_configuration_dialog_title" msgid="6385564442851599963">"Выберыце канфігурацыю USB"</string>
     <string name="allow_mock_location" msgid="2787962564578664888">"Дазволіць несапраўдныя месцы"</string>
     <string name="allow_mock_location_summary" msgid="317615105156345626">"Дазволіць несапраўдныя месцы"</string>
     <string name="debug_view_attributes" msgid="6485448367803310384">"Уключыць прагляд атрыбутаў"</string>
-    <string name="legacy_dhcp_client_summary" msgid="163383566317652040">"Выкарыстоўвайце кліент DHCP ад Lollipop замест новага кліента Android DHCP."</string>
     <string name="mobile_data_always_on_summary" msgid="8149773901431697910">"Перадача даных мабільнай сувязі заўсёды актыўна, нават калі актыўна сетка Wi‑Fi (для хуткага пераключэння паміж сеткамі)."</string>
     <string name="adb_warning_title" msgid="6234463310896563253">"Дазволіць адладку USB?"</string>
     <string name="adb_warning_message" msgid="7316799925425402244">"Адладка USB прызначана толькі для мэтаў распрацоўкі. Яна можа выкарыстоўвацца, каб капіяваць дадзеныя паміж кампутарам і прыладай, усталёўваць прыкладанні на прыладзе без папярэдняга апавяшчэння і чытаць дадзеныя дзённiка."</string>
@@ -230,8 +234,6 @@
     <string name="debug_layout_summary" msgid="2001775315258637682">"Паказаць межы кліпу, палі і г. д."</string>
     <string name="force_rtl_layout_all_locales" msgid="2259906643093138978">"Прымусовая раскладка справа налева"</string>
     <string name="force_rtl_layout_all_locales_summary" msgid="9192797796616132534">"Прымусовая раскладка экрана справа налева для ўсіх рэгіянальных налад"</string>
-    <string name="show_cpu_usage" msgid="2389212910758076024">"Паказаць выкарыстанне ЦП"</string>
-    <string name="show_cpu_usage_summary" msgid="2113341923988958266">"Наклад на экран з бягучым выкарыстаннем працэсара"</string>
     <string name="force_hw_ui" msgid="6426383462520888732">"Прымусовае адлюстраванне GPU"</string>
     <string name="force_hw_ui_summary" msgid="5535991166074861515">"Прымусовае выкарыстанне GPU для 2-мерных чарцяжоў"</string>
     <string name="force_msaa" msgid="7920323238677284387">"Прымусовае выкананне 4x MSAA"</string>
@@ -338,4 +340,5 @@
     <string name="screen_zoom_summary_extremely_large" msgid="7427320168263276227">"Найвялікшы"</string>
     <string name="screen_zoom_summary_custom" msgid="5611979864124160447">"Карыстальніцкі (<xliff:g id="DENSITYDPI">%d</xliff:g>)"</string>
     <string name="help_feedback_label" msgid="6815040660801785649">"Даведка і водгукі"</string>
+    <string name="content_description_menu_button" msgid="8182594799812351266">"Меню"</string>
 </resources>

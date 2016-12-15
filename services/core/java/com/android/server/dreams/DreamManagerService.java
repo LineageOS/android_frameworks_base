@@ -18,8 +18,10 @@ package com.android.server.dreams;
 
 import static android.Manifest.permission.BIND_DREAM_SERVICE;
 
+import com.android.internal.hardware.AmbientDisplayConfiguration;
 import com.android.internal.util.DumpUtils;
 import com.android.server.FgThread;
+import com.android.server.LocalServices;
 import com.android.server.SystemService;
 
 import android.Manifest;
@@ -32,6 +34,8 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ServiceInfo;
+import android.database.ContentObserver;
+import android.hardware.input.InputManagerInternal;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
@@ -85,6 +89,8 @@ public final class DreamManagerService extends SystemService {
     private int mCurrentDreamDozeScreenState = Display.STATE_UNKNOWN;
     private int mCurrentDreamDozeScreenBrightness = PowerManager.BRIGHTNESS_DEFAULT;
 
+    private AmbientDisplayConfiguration mDozeConfig;
+
     public DreamManagerService(Context context) {
         super(context);
         mContext = context;
@@ -94,6 +100,7 @@ public final class DreamManagerService extends SystemService {
         mPowerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
         mPowerManagerInternal = getLocalService(PowerManagerInternal.class);
         mDozeWakeLock = mPowerManager.newWakeLock(PowerManager.DOZE_WAKE_LOCK, TAG);
+        mDozeConfig = new AmbientDisplayConfiguration(mContext);
     }
 
     @Override
@@ -111,11 +118,16 @@ public final class DreamManagerService extends SystemService {
             mContext.registerReceiver(new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {
+                    writePulseGestureEnabled();
                     synchronized (mLock) {
                         stopDreamLocked(false /*immediate*/);
                     }
                 }
             }, new IntentFilter(Intent.ACTION_USER_SWITCHED), null, mHandler);
+            mContext.getContentResolver().registerContentObserver(
+                    Settings.Secure.getUriFor(Settings.Secure.DOZE_PULSE_ON_DOUBLE_TAP), false,
+                    mDozeEnabledObserver, UserHandle.USER_ALL);
+            writePulseGestureEnabled();
         }
     }
 
@@ -318,19 +330,12 @@ public final class DreamManagerService extends SystemService {
     }
 
     private ComponentName getDozeComponent(int userId) {
-        // Read the component from a system property to facilitate debugging.
-        // Note that for production devices, the dream should actually be declared in
-        // a config.xml resource.
-        String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
-        if (TextUtils.isEmpty(name)) {
-            // Read the component from a config.xml resource.
-            // The value should be specified in a resource overlay for the product.
-            name = mContext.getResources().getString(
-                    com.android.internal.R.string.config_dozeComponent);
+        if (mDozeConfig.enabled(userId)) {
+            return ComponentName.unflattenFromString(mDozeConfig.ambientDisplayComponent());
+        } else {
+            return null;
         }
-        boolean enabled = Settings.Secure.getIntForUser(mContext.getContentResolver(),
-                Settings.Secure.DOZE_ENABLED, 1, userId) != 0;
-        return TextUtils.isEmpty(name) || !enabled ? null : ComponentName.unflattenFromString(name);
+
     }
 
     private ServiceInfo getServiceInfo(ComponentName name) {
@@ -362,12 +367,10 @@ public final class DreamManagerService extends SystemService {
         mCurrentDreamCanDoze = canDoze;
         mCurrentDreamUserId = userId;
 
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                mController.startDream(newToken, name, isTest, canDoze, userId);
-            }
-        });
+        PowerManager.WakeLock wakeLock = mPowerManager
+                .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "startDream");
+        mHandler.post(wakeLock.wrap(
+                () -> mController.startDream(newToken, name, isTest, canDoze, userId, wakeLock)));
     }
 
     private void stopDreamLocked(final boolean immediate) {
@@ -414,6 +417,12 @@ public final class DreamManagerService extends SystemService {
         }
     }
 
+    private void writePulseGestureEnabled() {
+        ComponentName name = getDozeComponent();
+        boolean dozeEnabled = validateDream(name);
+        LocalServices.getService(InputManagerInternal.class).setPulseGestureEnabled(dozeEnabled);
+    }
+
     private static String componentsToString(ComponentName[] componentNames) {
         StringBuilder names = new StringBuilder();
         if (componentNames != null) {
@@ -447,6 +456,13 @@ public final class DreamManagerService extends SystemService {
                     cleanupDreamLocked();
                 }
             }
+        }
+    };
+
+    private final ContentObserver mDozeEnabledObserver = new ContentObserver(null) {
+        @Override
+        public void onChange(boolean selfChange) {
+            writePulseGestureEnabled();
         }
     };
 
