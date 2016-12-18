@@ -1,0 +1,56 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_a756725b",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-18T22:20:39Z",
+      "side": 1,
+      "message": "It may be too late to introduce this changw, but should this be named something along the lines of \"config_useWakelockForFlashlight\" instead?\n\nThat seems to be the preferred naming for config overlays (see config_annoy_dianne)",
+      "parentUuid": "",
+      "revId": "8afcc9f620d9a6df08d45ae8b1c558c1fb865f3c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_8751b665",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/FlashlightController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-18T22:20:39Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this should be static?",
+      "revId": "8afcc9f620d9a6df08d45ae8b1c558c1fb865f3c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_27c8a220",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/FlashlightController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-18T22:20:39Z",
+      "side": 1,
+      "message": "I think this line and line 346 should be moved up to the same line as the if check.",
+      "revId": "8afcc9f620d9a6df08d45ae8b1c558c1fb865f3c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
