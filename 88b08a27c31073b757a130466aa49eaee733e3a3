@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_d9555852",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2016-12-18T06:33:53Z",
+      "side": 1,
+      "message": "can confirm this is deprecated. no longer appears in https://developer.android.com/reference/android/telephony/PhoneStateListener.html\n\nnot sure if it is ok to leave as is by overriding a deprecated function. If not, how should which public method do you recommend using?",
+      "range": {
+        "startLine": 337,
+        "startChar": 24,
+        "endLine": 337,
+        "endChar": 59
+      },
+      "revId": "88b08a27c31073b757a130466aa49eaee733e3a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_795fe471",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2016-12-18T06:33:53Z",
+      "side": 1,
+      "message": "this is a safe value for building, but it might be incorrect to feed it -1 in order to block data. the only other possibility is to give it processUid from lines 908-932",
+      "range": {
+        "startLine": 341,
+        "startChar": 72,
+        "endLine": 341,
+        "endChar": 74
+      },
+      "revId": "88b08a27c31073b757a130466aa49eaee733e3a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_995c807f",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2016-12-18T06:33:53Z",
+      "side": 1,
+      "message": "can confirm this is deprecated. no longer appears in https://developer.android.com/reference/android/telephony/PhoneStateListener.html\n\nshould we keep it or change this to use LISTEN_DATA_CONNECTION_STATE (for example) instead?",
+      "range": {
+        "startLine": 348,
+        "startChar": 39,
+        "endLine": 348,
+        "endChar": 76
+      },
+      "revId": "88b08a27c31073b757a130466aa49eaee733e3a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
