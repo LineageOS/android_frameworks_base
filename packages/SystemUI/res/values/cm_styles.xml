@@ -45,4 +45,15 @@
         <item name="blendMode">overlay</item>
     </style>
 
+    <!-- Color engine -->
+    <style name="systemui_light_theme">
+        <item name="android:colorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="android:textColorPrimary">@*android:color/primary_text_material_dark</item>
+    </style>
+
+    <style name="systemui_pixel_theme">
+        <item name="android:colorPrimary">@color/pixel_primary_color</item>
+        <item name="android:colorPrimaryDark">@color/pixel_primary_color</item>
+        <item name="android:colorSecondary">@color/pixel_primary_color</item>
+    </style>
 </resources>

@@ -644,6 +644,15 @@ final class SystemServiceRegistry {
                 return new FingerprintManager(ctx.getOuterContext(), service);
             }});
 
+        registerService(Context.THEME_SERVICE, ThemeManager.class,
+                new CachedServiceFetcher<ThemeManager>() {
+                    @Override
+                    public ThemeManager createService(ContextImpl ctx) {
+                        IBinder binder = ServiceManager.getService(Context.THEME_SERVICE);
+                        IThemeService service = IThemeService.Stub.asInterface(binder);
+                        return new ThemeManager(ctx.getOuterContext(), service);
+                    }});
+
         registerService(Context.TV_INPUT_SERVICE, TvInputManager.class,
                 new StaticServiceFetcher<TvInputManager>() {
             @Override
