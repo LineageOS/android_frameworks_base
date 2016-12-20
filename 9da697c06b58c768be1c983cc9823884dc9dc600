@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_bbcccb6a",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6563,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2016-12-20T06:23:41Z",
+      "side": 1,
+      "message": "I note you\u0027ve reordered the terms and added extra parenthesis.\n\nWhy not just add the !\u003d null check and leave the rest as is ?",
+      "revId": "9da697c06b58c768be1c983cc9823884dc9dc600",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
