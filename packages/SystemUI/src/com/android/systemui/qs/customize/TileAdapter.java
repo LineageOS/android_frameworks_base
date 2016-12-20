@@ -16,6 +16,7 @@ package com.android.systemui.qs.customize;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.app.ThemeManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -468,9 +469,11 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
     private class TileItemDecoration extends ItemDecoration {
         private final ColorDrawable mDrawable;
 
+        private int mAdapterBackground;
         private TileItemDecoration(Context context) {
             TypedArray ta =
                     context.obtainStyledAttributes(new int[]{R.attr.adapterBackground});
+            mAdapterBackground = ta.getColor(0, 0);
             mDrawable = new ColorDrawable();
             ta.recycle();
         }
@@ -494,8 +497,9 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
                 final int top = child.getTop() + params.topMargin +
                         Math.round(ViewCompat.getTranslationY(child));
                 // Set drawable color
-                mDrawable.setColor(mContext.getResources().getColor(
-                        R.color.qs_edit_item_decoration_bg));
+                mDrawable.setColor(ThemeManager.isOverlayEnabled() ?
+                        mContext.getResources().getColor(R.color.qs_edit_item_decoration_bg)
+                        : mAdapterBackground);
                 // Draw full width, in case there aren't tiles all the way across.
                 mDrawable.setBounds(0, top, width, bottom);
                 mDrawable.draw(c);

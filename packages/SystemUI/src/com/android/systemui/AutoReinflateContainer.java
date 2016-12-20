@@ -15,9 +15,12 @@
 package com.android.systemui;
 
 import android.annotation.Nullable;
+import android.app.IThemeCallback;
+import android.app.ThemeManager;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.os.Handler;
 import android.os.LocaleList;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -38,11 +41,19 @@ public class AutoReinflateContainer extends FrameLayout {
     private int mDensity;
     private LocaleList mLocaleList;
 
+    private Handler mHandler = new Handler();
+    private ThemeManager mThemeManager;
+
     public AutoReinflateContainer(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         mDensity = context.getResources().getConfiguration().densityDpi;
         mLocaleList = context.getResources().getConfiguration().getLocales();
+
+        mThemeManager = (ThemeManager) context.getSystemService(Context.THEME_SERVICE);
+        if (mThemeManager != null) {
+            mThemeManager.addCallback(mThemeCallback);
+        }
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AutoReinflateContainer);
         if (!a.hasValue(R.styleable.AutoReinflateContainer_android_layout)) {
@@ -51,6 +62,21 @@ public class AutoReinflateContainer extends FrameLayout {
         mLayout = a.getResourceId(R.styleable.AutoReinflateContainer_android_layout, 0);
         inflateLayout();
     }
+
+    private final IThemeCallback mThemeCallback = new IThemeCallback.Stub() {
+
+        @Override
+        public void onThemeChanged(int themeMode, int color) {
+            mHandler.post(() -> {
+                inflateLayout();
+            });
+        }
+
+        @Override
+        public void onCallbackAdded(int themeMode, int color) {
+            // no-op
+        }
+    };
 
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
