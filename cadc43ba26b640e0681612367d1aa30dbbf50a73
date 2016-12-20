@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_1b1e9f6f",
+        "filename": "telephony/java/android/telephony/ServiceState.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-20T11:44:42Z",
+      "side": 1,
+      "message": "Aren\u0027t lines 1184 and 1190 already handled by the if statement in 1175?",
+      "revId": "cadc43ba26b640e0681612367d1aa30dbbf50a73",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
