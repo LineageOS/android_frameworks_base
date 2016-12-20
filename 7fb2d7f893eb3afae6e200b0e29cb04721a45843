@@ -1,0 +1,22 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_3bdefb10",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/FlashlightController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-20T06:43:52Z",
+      "side": 1,
+      "message": "Im still unsure if thia should even be static. I\u0027d think that it would be an instance variable instead.",
+      "parentUuid": "",
+      "revId": "7fb2d7f893eb3afae6e200b0e29cb04721a45843",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
