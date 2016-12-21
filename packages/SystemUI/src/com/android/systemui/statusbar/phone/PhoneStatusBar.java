@@ -474,18 +474,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
     };
 
-    class DevForceNavbarObserver extends ContentObserver {
-        DevForceNavbarObserver(Handler handler) {
-            super(handler);
-        }
 
 	@Override
         protected void observe() {
             super.observe();
 
             ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(CMSettings.Global.getUriFor(
-                    CMSettings.Global.DEV_FORCE_SHOW_NAVBAR), false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SHOW_FOURG), false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -525,17 +519,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
             update();
-        }
-
-        private void update() {
-            boolean visible = CMSettings.Global.getIntForUser(mContext.getContentResolver(),
-                    CMSettings.Global.DEV_FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) == 1;
-
-            if (visible) {
-                forceAddNavigationBar();
-            } else {
-                removeNavigationBar();
-            }
         }
     }
 
@@ -854,16 +837,6 @@ UserHandle.USER_CURRENT) == 1;
 
         addNavigationBar();
 
-        // Developer options - Force Navigation bar
-        try {
-            boolean needsNav = mWindowManagerService.needsNavigationBar();
-            if (!needsNav) {
-                final DevForceNavbarObserver observer = new DevForceNavbarObserver(mHandler);
-                observer.observe();
-            }
-        } catch (RemoteException ex) {
-            // no window manager? good luck with that
-        }
 
         TunerService.get(mContext).addTunable(this,
                 SCREEN_BRIGHTNESS_MODE,
