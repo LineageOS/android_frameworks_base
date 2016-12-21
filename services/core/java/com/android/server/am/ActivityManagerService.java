@@ -8297,6 +8297,12 @@ public final class ActivityManagerService extends ActivityManagerNative
             }
         }
 
+        // If we're extending a persistable grant, then we always need to create
+        // the grant data structure so that take/release APIs work
+        if ((modeFlags & Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION) != 0) {
+            return targetUid;
+        }
+
         if (targetUid >= 0) {
             // First...  does the target actually need this permission?
             if (checkHoldingPermissionsLocked(pm, pi, grantUri, targetUid, modeFlags)) {
