@@ -90,11 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"Ați desenat incorect modelul pentru deblocare de <xliff:g id="NUMBER_0">%1$d</xliff:g> ori. După încă <xliff:g id="NUMBER_1">%2$d</xliff:g> încercări nereușite, vi se va solicita să deblocați tableta cu ajutorul unui cont de e-mail.\n\n Încercați din nou peste <xliff:g id="NUMBER_2">%3$d</xliff:g>   secunde."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"Ați desenat incorect modelul pentru deblocare de <xliff:g id="NUMBER_0">%1$d</xliff:g> ori. După încă <xliff:g id="NUMBER_1">%2$d</xliff:g> încercări nereușite, vi se va solicita să deblocați telefonul cu ajutorul unui cont de e-mail.\n\n Încercați din nou peste <xliff:g id="NUMBER_2">%3$d</xliff:g>   secunde."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"Codul PIN pentru cardul SIM este incorect. Contactați operatorul pentru a vă debloca dispozitivul."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="few">Codul PIN pentru cardul SIM este incorect. V-au mai rămas <xliff:g id="NUMBER_1">%d</xliff:g> încercări.</item>
-      <item quantity="other">Codul PIN pentru cardul SIM este incorect. V-au mai rămas <xliff:g id="NUMBER_1">%d</xliff:g> de încercări.</item>
-      <item quantity="one">Codul PIN pentru cardul SIM este incorect. V-a mai rămas <xliff:g id="NUMBER_0">%d</xliff:g> încercare, după care va trebui să contactați operatorul pentru a vă debloca dispozitivul.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"Cardul SIM nu poate fi utilizat. Contactați operatorul."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="few">Codul PUK pentru cardul SIM este incorect. V-au mai rămas <xliff:g id="NUMBER_1">%d</xliff:g> încercări până când cardul SIM va deveni inutilizabil definitiv.</item>
@@ -134,4 +129,16 @@
       <item quantity="one">Dispozitivul nu a fost deblocat de <xliff:g id="NUMBER_0">%d</xliff:g> oră. Confirmați parola.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"Nu este recunoscută"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"Codul PIN pentru cardul SIM <xliff:g id="slotid">%d</xliff:g> este incorect. V-a mai rămas <xliff:g id="NUMBER_0">%d</xliff:g> încercare, după care va trebui să contactați operatorul pentru a vă debloca dispozitivul."</item>
+        <item quantity="other">"Codul PIN pentru cardul SIM <xliff:g id="slotid">%d</xliff:g> este incorect. V-au mai rămas <xliff:g id="NUMBER_1">%d</xliff:g> de încercări."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"Introduceţi PIN-ul cardului SIM<xliff:g id="slotid">%d</xliff:g>, aveţi <xliff:g id="number">%d</xliff:g>încercări rămase înainte de a contacta operatorul pentru a debloca dispozitivul."</item>
+        <item quantity="other">"Introduceţi PIN-ul cardului SIM<xliff:g id="slotid">%d</xliff:g>, aveţi <xliff:g id="number">%d</xliff:g>încercări rămase."</item>
+    </plurals>
 </resources>

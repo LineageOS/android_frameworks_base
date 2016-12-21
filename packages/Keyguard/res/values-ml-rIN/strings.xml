@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"നിങ്ങളുടെ അൺലോക്ക് പാറ്റേൺ <xliff:g id="NUMBER_0">%1$d</xliff:g> തവണ തെറ്റായി വരച്ചു. <xliff:g id="NUMBER_1">%2$d</xliff:g> ശ്രമങ്ങൾ കൂടി വിജയിച്ചില്ലെങ്കിൽ, ഒരു ഇമെയിൽ അക്കൗണ്ട് ഉപയോഗിച്ച് ടാബ്‌ലെറ്റ് അൺലോക്ക് ചെയ്യാൻ നിങ്ങളോട് ആവശ്യപ്പെടും.\n\n <xliff:g id="NUMBER_2">%3$d</xliff:g> സെക്കൻഡിനുള്ള വീണ്ടും ശ്രമിക്കുക."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"നിങ്ങളുടെ അൺലോക്ക് പാറ്റേൺ <xliff:g id="NUMBER_0">%1$d</xliff:g> തവണ തെറ്റായി വരച്ചു. <xliff:g id="NUMBER_1">%2$d</xliff:g> ശ്രമങ്ങൾ കൂടി വിജയിച്ചില്ലെങ്കിൽ, ഒരു ഇമെയിൽ അക്കൗണ്ട് ഉപയോഗിച്ച് ഫോൺ അൺലോക്ക് ചെയ്യാൻ നിങ്ങളോട് ആവശ്യപ്പെടും.\n\n <xliff:g id="NUMBER_2">%3$d</xliff:g> സെക്കൻഡിനുള്ള വീണ്ടും ശ്രമിക്കുക."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"സിം പിൻ കോഡ് തെറ്റാണ്, നിങ്ങളുടെ ഉപകരണം അൺലോക്കുചെയ്യാൻ ഇപ്പോൾ നിങ്ങളുടെ കാരിയറുമായി ബന്ധപ്പെടണം."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="other">SIM PIN കോഡ് തെറ്റാണ്, നിങ്ങൾക്ക് <xliff:g id="NUMBER_1">%d</xliff:g> ശ്രമങ്ങൾ കൂടി ശേഷിക്കുന്നു.</item>
-      <item quantity="one">SIM PIN കോഡ് തെറ്റാണ്, നിങ്ങളുടെ ഉപകരണം അൺലോക്കുചെയ്യാൻ കാരിയറെ ബന്ധപ്പെടേണ്ടതിന് മുമ്പായി <xliff:g id="NUMBER_0">%d</xliff:g> ശ്രമം കൂടി ശേഷിക്കുന്നു.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"സിം ഉപയോഗശൂന്യമാണ്. നിങ്ങളുടെ കാരിയറെ ബന്ധപ്പെടുക."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="other">SIM PUK കോഡ് തെറ്റാണ്, SIM ശാശ്വതമായി ഉപയോഗശൂന്യമാകുന്നതിന് മുമ്പായി നിങ്ങൾക്ക് <xliff:g id="NUMBER_1">%d</xliff:g> ശ്രമങ്ങൾ കൂടി ശേഷിക്കുന്നു.</item>
@@ -129,4 +125,16 @@
       <item quantity="one">ഉപകരണം <xliff:g id="NUMBER_0">%d</xliff:g> മണിക്കൂറായി അൺലോക്ക് ചെയ്തിട്ടില്ല. പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"തിരിച്ചറിഞ്ഞില്ല"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"SIM <xliff:g id="slotid">%d</xliff:g> PIN കോഡ് തെറ്റാണ്, നിങ്ങളുടെ ഉപകരണം അൺലോക്കുചെയ്യാൻ കാരിയറെ ബന്ധപ്പെടേണ്ടതിന് മുമ്പായി <xliff:g id="NUMBER_0">%d</xliff:g> ശ്രമം കൂടി ശേഷിക്കുന്നു."</item>
+        <item quantity="other">"SIM <xliff:g id="slotid">%d</xliff:g> PIN കോഡ് തെറ്റാണ്, നിങ്ങൾക്ക് <xliff:g id="NUMBER_1">%d</xliff:g> ശ്രമങ്ങൾ കൂടി ശേഷിക്കുന്നു."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"SIM<xliff:g id="slotid">%d</xliff:g> PIN നൽകുക, നിങ്ങളുടെ ഉപകരണം അൺലോക്ക് ചെയ്യാൻ കാരിയറെ ബന്ധപ്പെടേണ്ടതിന് മുമ്പ് <xliff:g id="number">%d</xliff:g> ശ്രമങ്ങൾ നിങ്ങൾക്ക് ശേഷിക്കുന്നു."</item>
+        <item quantity="other">"SIM<xliff:g id="slotid">%d</xliff:g> PIN നൽകുക, നിങ്ങൾക്ക് <xliff:g id="number">%d</xliff:g> ശ്രമങ്ങൾ ശേഷിക്കുന്നുണ്ട്."</item>
+    </plurals>
 </resources>

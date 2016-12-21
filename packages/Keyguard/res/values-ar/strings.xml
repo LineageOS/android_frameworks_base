@@ -90,14 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"لقد رسمت نقش إلغاء التأمين بشكل غير صحيح <xliff:g id="NUMBER_0">%1$d</xliff:g> مرة. بعد إجراء <xliff:g id="NUMBER_1">%2$d</xliff:g> من المحاولات غير الناجحة الأخرى، ستطالَب بإلغاء تأمين الجهاز اللوحي باستخدام معلومات حساب بريد إلكتروني.\n\n أعد المحاولة خلال <xliff:g id="NUMBER_2">%3$d</xliff:g> ثانية."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"لقد رسمت نقش إلغاء التأمين بشكل غير صحيح <xliff:g id="NUMBER_0">%1$d</xliff:g> مرة. بعد إجراء <xliff:g id="NUMBER_1">%2$d</xliff:g> من المحاولات غير الناجحة الأخرى، ستُطالب بإلغاء تأمين الهاتف باستخدام حساب بريد إلكتروني لإلغاء تأمين الهاتف.\n\n أعد المحاولة خلال <xliff:g id="NUMBER_2">%3$d</xliff:g> ثانية."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"‏رمز \"رقم التعريف الشخصي\" لبطاقة SIM غير صحيح، ويلزمك الاتصال الآن بمشغّل شبكة الجوّال لإلغاء قفل الجهاز."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="zero">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ولم تتبق لديك أية محاولات (<xliff:g id="NUMBER_1">%d</xliff:g>).</item>
-      <item quantity="two">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ويتبقى لديك محاولتان (<xliff:g id="NUMBER_1">%d</xliff:g>).</item>
-      <item quantity="few">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ويتبقى لديك <xliff:g id="NUMBER_1">%d</xliff:g> محاولات.</item>
-      <item quantity="many">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ويتبقى لديك <xliff:g id="NUMBER_1">%d</xliff:g> محاولة.</item>
-      <item quantity="other">‏رمز رقم التعريف الشخصي\" لبطاقة SIM غير صحيح، ويتبقى لديك <xliff:g id="NUMBER_1">%d</xliff:g> من المحاولات.</item>
-      <item quantity="one">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ويتبقى لديك محاولة واحدة (<xliff:g id="NUMBER_0">%d</xliff:g>) يتعين عليك بعدها الاتصال بمشغّل شبكة الجوّال لإلغاء قفل الجهاز.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"‏شريحة SIM غير صالحة للاستخدام. يُرجى الاتصال بمشغّل شبكة الجوّال."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="zero">‏رمز PUK لشريحة SIM غير صحيح، ولم تتبق لديك أية محاولات (<xliff:g id="NUMBER_1">%d</xliff:g>) تصبح بعدها شريحة SIM غير صالحة للاستخدام بشكل دائم.</item>
@@ -149,4 +141,18 @@
       <item quantity="one">لم يتم إلغاء تأمين الجهاز لمدة <xliff:g id="NUMBER_0">%d</xliff:g> ساعة. تأكيد كلمة المرور.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"لم يتم التعرف عليها"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"‏رمز رقم التعريف الشخصي لبطاقة SIM<xliff:g id="slotid">%d</xliff:g> غير صحيح، ويتبقى لديك محاولة واحدة (<xliff:g id="NUMBER_0">%d</xliff:g>) يتعين عليك بعدها الاتصال بمشغّل شبكة الجوّال لإلغاء قفل الجهاز.
+"</item>
+        <item quantity="other">"‏رمز رقم التعريف الشخصي\" لبطاقة SIM<xliff:g id="slotid">%d</xliff:g> غير صحيح، ويتبقى لديك <xliff:g id="NUMBER_1">%d</xliff:g> من المحاولات.
+"</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"أدخل رمز PIN<xliff:g id="slotid">%d</xliff:g> لبطاقة SIM، لديك <xliff:g id="number">%d</xliff:g> من المحاولات المتبقية قبل أن يتعين عليك الاتصال بمشغل شبكة الجوال لإلغاء قفل جهازك."</item>
+        <item quantity="other">"أدخل رمز PIN<xliff:g id="slotid">%d</xliff:g> لبطاقة SIM، لديك <xliff:g id="number">%d</xliff:g> من المحاولات المتبقية."</item>
+    </plurals>
 </resources>

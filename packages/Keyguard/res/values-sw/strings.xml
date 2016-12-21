@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"Umekosea katika kuweka mchoro wako wa kufungua mara <xliff:g id="NUMBER_0">%1$d</xliff:g>. Baada ya majaribio <xliff:g id="NUMBER_1">%2$d</xliff:g> bila kufaulu, utaombwa kufungua kompyuta yako ndogo kwa kutumia akaunti yako ya barua pepe.\n\n Jaribu tena baada ya sekunde <xliff:g id="NUMBER_2">%3$d</xliff:g>."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"Umekosea kuchora mchoro wako wa kufungua mara <xliff:g id="NUMBER_0">%1$d</xliff:g>. Baada ya majaribio <xliff:g id="NUMBER_1">%2$d</xliff:g> yasiyofaulu, utaombwa kufungua simu yako kwa kutumia akaunti ya barua pepe.\n\n Jaribu tena baada ya sekunde <xliff:g id="NUMBER_2">%3$d</xliff:g>."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"Msimbo wa PIN ya SIM usiosahihi sasa lazima uwasiliane na mtoa huduma wako ili ufungue kifaa chako."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="other">Msimbo wa PIN ya SIM si sahihi, umebakisha majaribio <xliff:g id="NUMBER_1">%d</xliff:g>.</item>
-      <item quantity="one">Msimbo wa PIN ya SIM si sahihi, umebakisha majaribio <xliff:g id="NUMBER_0">%d</xliff:g> kabla ya kulazimika kuwasiliana na mtoa huduma wako ili afungue kifaa chako.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"SIM haiwezi kutumika. Wasiliana na mtoa huduma wako."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="other">Msimbo wa PUK ya SIM si sahihi, umebakisha majaribio <xliff:g id="NUMBER_1">%d</xliff:g> kabla SIM haijafungwa kabisa.</item>
@@ -129,4 +125,16 @@
       <item quantity="one">Kifaa hakijafunguliwa kwa saa <xliff:g id="NUMBER_0">%d</xliff:g>. Thibitisha nenosiri.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"Haitambuliwi"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"Msimbo wa PIN ya SIM <xliff:g id="slotid">%d</xliff:g> si sahihi, umebakisha majaribio <xliff:g id="NUMBER_0">%d</xliff:g> kabla ya kulazimika kuwasiliana na mtoa huduma wako ili afungue kifaa chako."</item>
+        <item quantity="other">"Msimbo wa PIN ya SIM <xliff:g id="slotid">%d</xliff:g> si sahihi, umebakisha majaribio <xliff:g id="NUMBER_1">%d</xliff:g>."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"Ingiza PIN ya SIM<xliff:g id="slotid">%d</xliff:g>, una majaribio <xliff:g id="number">%d</xliff:g> yanayosalia kabla ya kuhitajika kuwasiliana na mtoa huduma wako ili kufungua kifaa chako."</item>
+        <item quantity="other">"Ingiza PIN ya SIM<xliff:g id="slotid">%d</xliff:g>, una majaribio <xliff:g id="number">%d</xliff:g> yaliyosalia."</item>
+    </plurals>
 </resources>

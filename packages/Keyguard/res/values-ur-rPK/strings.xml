@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"آپ نے اپنا غیر مقفل کرنے کا پیٹرن <xliff:g id="NUMBER_0">%1$d</xliff:g> بار غلط طریقے سے ڈرا کیا ہے۔ <xliff:g id="NUMBER_1">%2$d</xliff:g> مزید ناکام کوششوں کے بعد، آپ سے ایک ای میل اکاؤنٹ استعمال کرکے اپنا ٹیبلیٹ غیر مقفل کرنے کو کہا جائے گا۔\n\n <xliff:g id="NUMBER_2">%3$d</xliff:g> سیکنڈ میں دوبارہ کوشش کریں۔"</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"آپ نے اپنا غیر مقفل کرنے کا پیٹرن <xliff:g id="NUMBER_0">%1$d</xliff:g> بار غلط طریقے سے ڈرا کیا ہے۔ <xliff:g id="NUMBER_1">%2$d</xliff:g> مزید ناکام کوششوں کے بعد، آپ سے ایک ای میل اکاؤنٹ استعمال کرکے اپنا فون غیر مقفل کرنے کو کہا جائے گا۔\n\n <xliff:g id="NUMBER_2">%3$d</xliff:g> سیکنڈ میں دوبارہ کوشش کریں۔"</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"‏غلط SIM PIN کوڈ اب آپ کو اپنا آلہ غیر مقفل کرنے کیلئے لازمی طور پر اپنے کیریئر سے رابطہ کرنا چاہئے۔"</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="other">‏غلط SIM PIN کوڈ، آپ کے پاس <xliff:g id="NUMBER_1">%d</xliff:g> کوششیں بچی ہیں۔</item>
-      <item quantity="one">‏غلط SIM PIN کوڈ، آپ کے پاس <xliff:g id="NUMBER_0">%d</xliff:g> کوشش بچی ہے، اس کے بعد آپ کو اپنا آلہ غیر مقفل کرنے کیلئے اپنے کریئر سے رابطہ کرنا ہوگا۔</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"‏SIM ناقابل استعمال ہے۔ اپنے کیریئر رابطہ کریں۔"</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="other">‏غلط SIM PUK کوڈ، آپ کے پاس <xliff:g id="NUMBER_1">%d</xliff:g> کوششیں بچی ہیں، اس کے بعد SIM مستقل طور پر ناقابل استعمال ہو جائے گا۔</item>
@@ -129,4 +125,16 @@
       <item quantity="one">آلہ <xliff:g id="NUMBER_0">%d</xliff:g> گھنٹے سے غیر مقفل نہیں کیا گیا۔ پاسورڈ کی تصدیق کریں۔</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"تسلیم شدہ نہیں ہے"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"‏غلط SIM <xliff:g id="slotid">%d</xliff:g> PIN کوڈ، آپ کے پاس <xliff:g id="NUMBER_0">%d</xliff:g> کوشش بچی ہے، اس کے بعد آپ کو اپنا آلہ غیر مقفل کرنے کیلئے اپنے کریئر سے رابطہ کرنا ہوگا۔"</item>
+        <item quantity="other">"‏غلط SIM <xliff:g id="slotid">%d</xliff:g> PIN کوڈ، آپ کے پاس <xliff:g id="NUMBER_1">%d</xliff:g> کوششیں بچی ہیں۔"</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"SIM  <xliff:g id="slotid">%d</xliff:g> PINداخل کریں، آپ کے پاس <xliff:g id="number">%d</xliff:g>کوششیں رہ گئی ہاس سے قبل آپ کو اپنے ڈیوائس کو غیر مقفل کرنے کے لیے کیریئر سے رابطہ کرنا ہوگا۔"</item>
+        <item quantity="other">"SIM  <xliff:g id="slotid">%d</xliff:g> PINداخل کریں، آپ کے پاس<xliff:g id="number">%d</xliff:g> کوششیں رہ گئی ہیں۔"</item>
+    </plurals>
 </resources>

@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"您已畫錯解鎖圖案 <xliff:g id="NUMBER_0">%1$d</xliff:g> 次，如果再嘗試 <xliff:g id="NUMBER_1">%2$d</xliff:g> 次仍未成功，系統會要求您透過電郵帳戶解開上鎖的平板電腦。\n\n請在 <xliff:g id="NUMBER_2">%3$d</xliff:g> 秒後再試一次。"</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"您已畫錯解鎖圖案 <xliff:g id="NUMBER_0">%1$d</xliff:g> 次，如果再嘗試 <xliff:g id="NUMBER_1">%2$d</xliff:g> 次仍未成功，系統會要求您透過電郵帳戶解開上鎖的手機。\n\n請在 <xliff:g id="NUMBER_2">%3$d</xliff:g> 秒後再試一次。"</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"SIM PIN 碼不正確，您現在必須聯絡流動網絡供應商為您的裝置解鎖。"</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="other">SIM PIN 碼不正確，您還有 <xliff:g id="NUMBER_1">%d</xliff:g> 次機會輸入。</item>
-      <item quantity="one">SIM PIN 碼不正確，您還有 <xliff:g id="NUMBER_0">%d</xliff:g> 次機會輸入。如果仍然輸入錯誤，您必須聯絡流動網絡供應商為您的裝置解鎖。</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"SIM 無法使用，請聯絡您的流動網絡供應商。"</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="other">SIM PUK 碼不正確，您還有 <xliff:g id="NUMBER_1">%d</xliff:g> 次機會輸入。如果仍然輸入錯誤，SIM 卡將永久無法使用。</item>
@@ -129,4 +125,16 @@
       <item quantity="one">裝置在 <xliff:g id="NUMBER_0">%d</xliff:g> 小時後尚未解鎖，請確認密碼。</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"未能辨別"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"SIM <xliff:g id="slotid">%d</xliff:g> PIN 碼不正確，您還有 <xliff:g id="NUMBER_0">%d</xliff:g> 次機會輸入。如果仍然輸入錯誤，您必須聯絡流動網絡供應商為您的裝置解鎖。"</item>
+        <item quantity="other">"SIM <xliff:g id="slotid">%d</xliff:g> PIN 碼不正確，您還有 <xliff:g id="NUMBER_1">%d</xliff:g> 次機會輸入。"</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"輸入 SIM<xliff:g id="slotid">%d</xliff:g> PIN 碼，您尚餘 <xliff:g id="number">%d</xliff:g> 次嘗試機會，其後則必須聯絡流動網絡供應商方能將裝置解鎖。"</item>
+        <item quantity="other">"輸入 SIM<xliff:g id="slotid">%d</xliff:g> PIN 碼，您尚餘 <xliff:g id="number">%d</xliff:g> 次嘗試機會。"</item>
+    </plurals>
 </resources>

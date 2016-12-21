@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"ທ່ານແຕ້ມຮູບແບບປົດລັອກຜິດ <xliff:g id="NUMBER_0">%1$d</xliff:g> ເທື່ອແລ້ວ. ຫຼັງຈາກແຕ້ມຜິດອີກ <xliff:g id="NUMBER_1">%2$d</xliff:g> ເທື່ອ, ທ່ານຈະຖືກຖາມໃຫ້ປົດລັອກແທັບເລັດຂອງທ່ານ ດ້ວຍການເຂົ້າສູ່ລະບົບໂດຍໃຊ້ອີເມວຂອງທ່ານ.\n\n ກະລຸນາລອງໃໝ່ອີກຄັ້ງໃນອີກ <xliff:g id="NUMBER_2">%3$d</xliff:g> ວິນາທີ."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"ທ່ານແຕ້ມຮູບແບບປົດລັອກຂອງທ່ານຜິດ <xliff:g id="NUMBER_0">%1$d</xliff:g> ເທື່ອແລ້ວ. ຫຼັງຈາກຄວາມພະຍາຍາມອີກ <xliff:g id="NUMBER_1">%2$d</xliff:g> ເທື່ອ ທ່ານຈະຖືກຖາມໃຫ້ປົດລັອກໂທລະສັບຂອງທ່ານດ້ວຍບັນຊີອີເມວ.\n\n ລອງໃໝ່ອີກຄັ້ງໃນ <xliff:g id="NUMBER_2">%3$d</xliff:g> ວິນາທີ."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"ລະຫັດ PIN ຂອງ SIM ບໍ່ຖືກຕ້ອງທ່ານຕ້ອງຕິດຕໍ່ຫາຜູ່ໃຫ້ບໍລິການ ເພື່ອປົດລັອກອຸປະກອນຂອງທ່ານ."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="other">ລະຫັດ SIM PIN ບໍ່ຖືກຕ້ອງ, ທ່ານຍັງພະຍາຍາມໄດ້ອີກ <xliff:g id="NUMBER_1">%d</xliff:g> ຄັ້ງ.</item>
-      <item quantity="one">ລະຫັດ PIN ຂອງ SIM ບໍ່ຖືກຕ້ອງ, ທ່ານສາມາດລອງໄດ້ອີກ <xliff:g id="NUMBER_0">%d</xliff:g> ເທື່ອກ່ອນທີ່ທ່ານຈະຕ້ອງຕິດຕໍ່ຫາຜູ່ໃຫ້ບໍລິການຂອງທ່ານ ເພື່ອປົດລັອກອຸປະກອນຂອງທ່ານ.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"SIM ໃຊ້ບໍ່ໄດ້ແລ້ວ. ກະລຸນາຕິດຕໍ່ຫາຜູ່ໃຫ້ບໍລິການຂອງທ່ານ."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="other">ລະຫັດ PUK ຂອງ SIM ບໍ່ຖືກຕ້ອງ, ທ່ານສາມາດລອງໄດ້ອີກ <xliff:g id="NUMBER_1">%d</xliff:g> ເທື່ອກ່ອນທີ່ SIM ຂອງທ່ານຈະໃຊ້ບໍ່ໄດ້ຢ່າງຖາວອນ.</item>
@@ -129,4 +125,16 @@
       <item quantity="one">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ <xliff:g id="NUMBER_0">%d</xliff:g> ຊົ່ວໂມງ. ຢືນຢັນລະຫັດຜ່ານ.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"ບໍ່​ຈົດ​ຈຳ​ໄດ້"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"ລະຫັດ PIN ຂອງ SIM <xliff:g id="slotid">%d</xliff:g> ບໍ່ຖືກຕ້ອງ, ທ່ານສາມາດລອງໄດ້ອີກ <xliff:g id="NUMBER_0">%d</xliff:g> ເທື່ອກ່ອນທີ່ທ່ານຈະຕ້ອງຕິດຕໍ່ຫາຜູ່ໃຫ້ບໍລິການຂອງທ່ານ ເພື່ອປົດລັອກອຸປະກອນຂອງທ່ານ."</item>
+        <item quantity="other">"ລະຫັດ SIM <xliff:g id="slotid">%d</xliff:g> PIN ບໍ່ຖືກຕ້ອງ, ທ່ານຍັງພະຍາຍາມໄດ້ອີກ <xliff:g id="NUMBER_1">%d</xliff:g> ຄັ້ງ."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"ປ້ອນໝາຍເລກ PIN<xliff:g id="slotid">%d</xliff:g> ຂອງ SIM, ທ່ານ​ຍັງ​ລອງໄດ້ <xliff:g id="number">%d</xliff:g> ຄັ້ງ ກ່ອນທີ່ທ່ານຕ້ອງຕິດຕໍ່ຫາຜູ້ໃຫ້ບໍລິການຂອງທ່ານ ເພື່ອປົດລັອກອຸປະກອນຂອງທ່ານ."</item>
+        <item quantity="other">"ປ້ອນໝາຍເລກ PIN<xliff:g id="slotid">%d</xliff:g> ຂອງ SIM, ທ່ານ​ຍັງ​ລອງໄດ້ <xliff:g id="number">%d</xliff:g> ຄັ້ງ."</item>
+    </plurals>
 </resources>

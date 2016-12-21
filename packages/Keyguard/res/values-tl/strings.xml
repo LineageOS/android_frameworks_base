@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"Naguhit mo nang hindi tama ang iyong pattern sa pag-unlock nang <xliff:g id="NUMBER_0">%1$d</xliff:g> (na) beses. Pagkatapos ng <xliff:g id="NUMBER_1">%2$d</xliff:g> pang hindi matagumpay na pagtatangka, hihilingin sa iyong i-unlock ang tablet mo gamit ang isang email account.\n\n Subukang muli sa loob ng <xliff:g id="NUMBER_2">%3$d</xliff:g> (na) segundo."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"Naguhit mo nang hindi tama ang iyong pattern sa pag-unlock nang <xliff:g id="NUMBER_0">%1$d</xliff:g> (na) beses. Pagkatapos ng <xliff:g id="NUMBER_1">%2$d</xliff:g> pang hindi matagumpay na pagtatangka, hihilingin sa iyong i-unlock ang telepono mo gamit ang isang email account.\n\n Subukang muli sa loob ng <xliff:g id="NUMBER_2">%3$d</xliff:g> (na) segundo."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"Maling PIN code ng SIM, dapat ka nang makipag-ugnay sa iyong carrier upang i-unlock ang iyong device."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="one">Maling PIN code ng SIM, mayroon kang <xliff:g id="NUMBER_1">%d</xliff:g> natitirang pagsubok.</item>
-      <item quantity="other">Maling PIN code ng SIM, mayroon kang <xliff:g id="NUMBER_1">%d</xliff:g> na natitirang pagsubok.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"Hindi magagamit ang SIM. Makipag-ugnay sa iyong carrier."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="one">Maling PUK code ng SIM, mayroon kang <xliff:g id="NUMBER_1">%d</xliff:g> natitirang pagsubok bago tuluyang hindi magamit ang SIM.</item>
@@ -129,4 +125,16 @@
       <item quantity="other">Hindi na-unlock ang device sa loob ng <xliff:g id="NUMBER_1">%d</xliff:g> na oras. Kumpirmahin ang password.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"Hindi nakilala"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"Maling PIN code ng SIM <xliff:g id="slotid">%d</xliff:g>, mayroon kang <xliff:g id="NUMBER_1">%d</xliff:g> natitirang pagsubok."</item>
+        <item quantity="other">"Maling PIN code ng SIM <xliff:g id="slotid">%d</xliff:g>, mayroon kang <xliff:g id="NUMBER_1">%d</xliff:g> na natitirang pagsubok."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"Ipasok ang SIM<xliff:g id="slotid">%d</xliff:g> PIN, mayroon kang <xliff:g id="number">%d</xliff:g>nalalabing  pagsubok bago mo kailanganing makipag-ugnayan sa iyong carrier upang i-unlock ang iyong device."</item>
+        <item quantity="other">"Ipasok ang SIM<xliff:g id="slotid">%d</xliff:g> PIN, mayroon kang <xliff:g id="number">%d</xliff:g>nalalabing  pagsubok."</item>
+    </plurals>
 </resources>

@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"திறப்பதற்கான வடிவத்தை <xliff:g id="NUMBER_0">%1$d</xliff:g> முறை தவறாக வரைந்துள்ளீர்கள். மேலும் <xliff:g id="NUMBER_1">%2$d</xliff:g> தோல்வி முயற்சிகளுக்குப் பிறகு, மின்னஞ்சல் கணக்கைப் பயன்படுத்தி உங்கள் டேப்லெட்டைத் திறக்க கேட்கப்படுவீர்கள்.\n\n <xliff:g id="NUMBER_2">%3$d</xliff:g> வினாடிகளில் மீண்டும் முயற்சிக்கவும்."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"திறப்பதற்கான வடிவத்தை <xliff:g id="NUMBER_0">%1$d</xliff:g> முறை தவறாக வரைந்துள்ளீர்கள். மேலும் <xliff:g id="NUMBER_1">%2$d</xliff:g> தோல்வி முயற்சிகளுக்குப் பிறகு, மின்னஞ்சல் கணக்கைப் பயன்படுத்தி உங்கள் மொபைலைத் திறக்கக் கேட்கப்படுவீர்கள்.\n\n <xliff:g id="NUMBER_2">%3$d</xliff:g> வினாடிகள் கழித்து முயற்சிக்கவும்."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"சிம் பின் குறியீடு தவறானது, உங்கள் சாதனத்தின் தடையை நீக்க, உங்கள் மொபைல் நிறுவனத்தைத் தொடர்புகொள்ள வேண்டும்."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="other">சிம்மின் பின் குறியீடு தவறானது, உங்களிடம் <xliff:g id="NUMBER_1">%d</xliff:g> முயற்சிகள் மீதமுள்ளன.</item>
-      <item quantity="one">சிம்மின் பின் குறியீடு தவறானது, மேலும் <xliff:g id="NUMBER_0">%d</xliff:g> முயற்சிக்குப் பின்னர், சாதனத்தைத் திறக்க, கண்டிப்பாக உங்கள் மொபைல் நிறுவனத்தைத் தொடர்புகொள்ள வேண்டும்.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"சிம் பயன்பாட்டிற்கு உகந்தது அல்ல. உங்கள் மொபைல் நிறுவனத்தைத் தொடர்புகொள்ளவும்."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="other">சிம் PUK குறியீடு தவறானது, நிரந்தரமாக சிம் முடக்கப்படும் முன், நீங்கள் <xliff:g id="NUMBER_1">%d</xliff:g> முறை முயற்சிக்கலாம்.</item>
@@ -129,4 +125,16 @@
       <item quantity="one"><xliff:g id="NUMBER_0">%d</xliff:g> மணிநேரமாகச் சாதனம் திறக்கப்படவில்லை. கடவுச்சொல்லை உறுதிப்படுத்தவும்.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"அறியப்படவில்லை"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"சிம்மின் <xliff:g id="slotid">%d</xliff:g> பின் குறியீடு தவறானது, மேலும் <xliff:g id="NUMBER_0">%d</xliff:g> முயற்சிக்குப் பின்னர், சாதனத்தைத் திறக்க, கண்டிப்பாக உங்கள் மொபைல் நிறுவனத்தைத் தொடர்புகொள்ள வேண்டும்."</item>
+        <item quantity="other">"சிம்மின் <xliff:g id="slotid">%d</xliff:g> பின் குறியீடு தவறானது, உங்களிடம் <xliff:g id="NUMBER_1">%d</xliff:g> முயற்சிகள் மீதமுள்ளன."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"SIM<xliff:g id="slotid">%d</xliff:g> PIN-ஐ உள்ளிடவும், உங்கள் சாதனத்தைத் திறக்க உங்கள் சேவை வழங்குநரைத் தொடர்பு கொள்வதற்கு முன் <xliff:g id="number">%d</xliff:g> முயற்சி மீதமுள்ளது."</item>
+        <item quantity="other">"SIM<xliff:g id="slotid">%d</xliff:g> PIN-ஐ உள்ளிடவும், உங்களுக்கு <xliff:g id="number">%d</xliff:g> முயற்சிகள் மீதமுள்ளன."</item>
+    </plurals>
 </resources>

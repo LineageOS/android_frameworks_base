@@ -90,12 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"<xliff:g id="NUMBER_0">%1$d</xliff:g>-krát ste nesprávne nakreslili svoj bezpečnostný vzor. Po ďalších <xliff:g id="NUMBER_1">%2$d</xliff:g> neúspešných pokusoch sa zobrazí výzva na odomknutie tabletu pomocou e-mailového účtu.\n\n Skúste to znova o <xliff:g id="NUMBER_2">%3$d</xliff:g> s."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"<xliff:g id="NUMBER_0">%1$d</xliff:g>-krát ste nesprávne nakreslili svoj bezpečnostný vzor. Po <xliff:g id="NUMBER_1">%2$d</xliff:g> ďalších neúspešných pokusoch sa zobrazí výzva na odomknutie telefónu pomocou e-mailového účtu.\n\n Skúste to znova o <xliff:g id="NUMBER_2">%3$d</xliff:g> s."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"Nesprávny kód PIN SIM karty. Teraz musíte kontaktovať svojho operátora, aby vám odomkol zariadenie."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="few">Nesprávny kód PIN SIM karty. Zostávajú vám <xliff:g id="NUMBER_1">%d</xliff:g> pokusy.</item>
-      <item quantity="many">Nesprávny kód PIN SIM karty. Zostáva vám <xliff:g id="NUMBER_1">%d</xliff:g> pokusu.</item>
-      <item quantity="other">Nesprávny kód PIN SIM karty. Zostáva vám <xliff:g id="NUMBER_1">%d</xliff:g> pokusov.</item>
-      <item quantity="one">Nesprávny kód PIN SIM karty. Zostáva vám <xliff:g id="NUMBER_0">%d</xliff:g> pokus, potom budete musieť kontaktovať svojho operátora, aby vám odomkol zariadenie.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"SIM karta je nepoužiteľná. Kontaktujte svojho operátora."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="few">Nesprávny kód PUK SIM karty. Zostávajú vám <xliff:g id="NUMBER_1">%d</xliff:g> pokusy, potom sa SIM karta natrvalo zablokuje.</item>
@@ -139,4 +133,16 @@
       <item quantity="one">Zariadenie nebolo odomknuté <xliff:g id="NUMBER_0">%d</xliff:g> hodinu. Potvrďte heslo.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"Nebol rozpoznaný"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"Nesprávny kód PIN SIM <xliff:g id="slotid">%d</xliff:g> karty. Zostáva vám <xliff:g id="NUMBER_0">%d</xliff:g> pokus, potom budete musieť kontaktovať svojho operátora, aby vám odomkol zariadenie."</item>
+        <item quantity="other">"Nesprávny kód PIN SIM <xliff:g id="slotid">%d</xliff:g> karty. Zostáva vám <xliff:g id="NUMBER_1">%d</xliff:g> pokusov."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"Zadajte kód PIN karty SIM<xliff:g id="slotid">%d</xliff:g>. Zostáva vám <xliff:g id="number">%d</xliff:g> pokus, inak budete musieť kontaktovať svojho operátora, aby vám odomkol zariadenie."</item>
+        <item quantity="other">"Zadajte kód PIN karty SIM<xliff:g id="slotid">%d</xliff:g>. Počet zostávajúcich pokusov: <xliff:g id="number">%d</xliff:g>."</item>
+    </plurals>
 </resources>

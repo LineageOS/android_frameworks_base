@@ -90,11 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"Нацртали сте шаблон за откључавање нетачно <xliff:g id="NUMBER_0">%1$d</xliff:g> пута. После још <xliff:g id="NUMBER_1">%2$d</xliff:g> неуспешна(их) покушаја, од вас ће бити затражено да откључате таблет помоћу налога е-поште.\n\nПокушајте поново за <xliff:g id="NUMBER_2">%3$d</xliff:g> секунде(и)."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"Нацртали сте шаблон за откључавање нетачно <xliff:g id="NUMBER_0">%1$d</xliff:g> пута. После још <xliff:g id="NUMBER_1">%2$d</xliff:g> неуспешна(их) покушаја, од вас ће бити затражено да откључате телефон помоћу налога е-поште.\n\nПокушајте поново за <xliff:g id="NUMBER_2">%3$d</xliff:g> секунде(и)."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"Нетачан SIM PIN кôд. Сада морате да контактирате мобилног оператера да бисте откључали уређај."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="one">Нетачан SIM PIN кôд. Имате још <xliff:g id="NUMBER_1">%d</xliff:g> покушај.</item>
-      <item quantity="few">Нетачан SIM PIN кôд. Имате још <xliff:g id="NUMBER_1">%d</xliff:g> покушаја.</item>
-      <item quantity="other">Нетачан SIM PIN кôд. Имате још <xliff:g id="NUMBER_1">%d</xliff:g> покушаја.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"SIM картица је неупотребљива. Контактирајте мобилног оператера."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="one">Нетачан SIM PUK кôд. Имате још <xliff:g id="NUMBER_1">%d</xliff:g> покушај пре него што SIM картица постане трајно неупотребљива.</item>
@@ -134,4 +129,16 @@
       <item quantity="other">Нисте откључали уређај <xliff:g id="NUMBER_1">%d</xliff:g> сати. Потврдите лозинку.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"Није препознат"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"Нетачан SIM <xliff:g id="slotid">%d</xliff:g> PIN кôд. Имате још <xliff:g id="NUMBER_1">%d</xliff:g> покушај."</item>
+        <item quantity="other">"Нетачан SIM <xliff:g id="slotid">%d</xliff:g> PIN кôд. Имате још <xliff:g id="NUMBER_1">%d</xliff:g> покушаја."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"Унесите PIN за SIM<xliff:g id="slotid">%d</xliff:g>, преостао вам је још <xliff:g id="number">%d</xliff:g>покушај пре него што будете морали да контактирате оператера да вам откључа уређај."</item>
+        <item quantity="other">"Унесите PIN за SIM<xliff:g id="slotid">%d</xliff:g>, преостало вам је још покушаја (<xliff:g id="number">%d</xliff:g>)."</item>
+    </plurals>
 </resources>

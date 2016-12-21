@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"તમે <xliff:g id="NUMBER_0">%1$d</xliff:g> વખત ખોટી રીતે અનલૉક પેટર્ન દોરી છે. વધુ <xliff:g id="NUMBER_1">%2$d</xliff:g> વખત અસફળ પ્રયાસો પછી, તમને એક ઇમેઇલ એકાઉન્ટનો ઉપયોગ કરીને તમારા ટેબ્લેટને અનલૉક કરવા માટે પૂછવામાં આવશે.\n\n <xliff:g id="NUMBER_2">%3$d</xliff:g> સેકંડમાં ફરી પ્રયાસ કરો."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"તમે તમારી અનલૉક પેટર્ન <xliff:g id="NUMBER_0">%1$d</xliff:g> વખત ખોટી રીતે દોરી. હજી <xliff:g id="NUMBER_1">%2$d</xliff:g> અસફળ પ્રયાસ પછી, તમને ઇમેઇલ એકાઉન્ટનો ઉપયોગ કરીને ફોનને અનલૉક કરવાનું કહેવામાં આવશે.\n\n <xliff:g id="NUMBER_2">%3$d</xliff:g> સેકંડમાં ફરીથી પ્રયાસ કરો."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"ખોટો SIM PIN કોડ, તમારે હવે તમારું ઉપકરણ અનલૉક કરવા માટે તમારા કેરિઅરનો સંપર્ક કરવો આવશ્યક છે."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="one">ખોટો SIM PIN કોડ, તમારી પાસે <xliff:g id="NUMBER_1">%d</xliff:g> પ્રયાસ બાકી છે.</item>
-      <item quantity="other">ખોટો SIM PIN કોડ, તમારી પાસે <xliff:g id="NUMBER_1">%d</xliff:g> પ્રયાસ બાકી છે.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"SIM અનુપયોગી છે. તમારા કેરીઅરનો સંપર્ક કરો."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="one">ખોટો SIM PUK કોડ, SIM કાયમી રીતે અનુપયોગી બની જાય તે પહેલા તમારી પાસે <xliff:g id="NUMBER_1">%d</xliff:g> પ્રયાસ બાકી છે.</item>
@@ -129,4 +125,16 @@
       <item quantity="other">ઉપકરણ <xliff:g id="NUMBER_1">%d</xliff:g> કલાક માટે અનલૉક કરવામાં આવ્યું નથી. પાસવર્ડની પુષ્ટિ કરો.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"ઓળખાયેલ નથી"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"ખોટો SIM <xliff:g id="slotid">%d</xliff:g> PIN કોડ, તમારી પાસે <xliff:g id="NUMBER_1">%d</xliff:g> પ્રયાસ બાકી છે."</item>
+        <item quantity="other">"ખોટો SIM <xliff:g id="slotid">%d</xliff:g> PIN કોડ, તમારી પાસે <xliff:g id="NUMBER_1">%d</xliff:g> પ્રયાસ બાકી છે."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"SIM<xliff:g id="slotid">%d</xliff:g> PIN દાખલ કરો, તમારી પાસે <xliff:g id="number">%d</xliff:g>બાકી પ્રયાસો છે તે પછી તમારે તમારા ઉપકરણને અનલૉક કરવા માટે તમારા કૅરિઅરનો સંપર્ક કરવો આવશ્યક છે."</item>
+        <item quantity="other">"SIM<xliff:g id="slotid">%d</xliff:g> PIN દાખલ કરો, તમારી પાસે <xliff:g id="number">%d</xliff:g>બાકી પ્રયાસો છે."</item>
+    </plurals>
 </resources>

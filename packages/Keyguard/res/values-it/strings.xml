@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"<xliff:g id="NUMBER_0">%1$d</xliff:g> tentativi errati di inserimento della sequenza di sblocco. Dopo altri <xliff:g id="NUMBER_1">%2$d</xliff:g> tentativi falliti, ti verrà chiesto di sbloccare il tablet con un account email.\n\n Riprova tra <xliff:g id="NUMBER_2">%3$d</xliff:g> secondi."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"<xliff:g id="NUMBER_0">%1$d</xliff:g> tentativi errati di inserimento della sequenza di sblocco. Dopo altri <xliff:g id="NUMBER_1">%2$d</xliff:g> tentativi falliti, ti verrà chiesto di sbloccare il telefono con un account email.\n\n Riprova tra <xliff:g id="NUMBER_2">%3$d</xliff:g> secondi."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"Codice PIN della SIM errato. Devi contattare l\'operatore per sbloccare il dispositivo."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="other">Codice PIN della SIM errato. Hai ancora <xliff:g id="NUMBER_1">%d</xliff:g> tentativi a disposizione.</item>
-      <item quantity="one">Codice PIN della SIM errato. Hai ancora <xliff:g id="NUMBER_0">%d</xliff:g> tentativo a disposizione, dopodiché dovrai contattare l\'operatore per sbloccare il dispositivo.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"SIM inutilizzabile. Contatta il tuo operatore."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="other">Codice PUK della SIM errato. Hai ancora <xliff:g id="NUMBER_1">%d</xliff:g> tentativi a disposizione prima che la SIM diventi definitivamente inutilizzabile.</item>
@@ -129,4 +125,16 @@
       <item quantity="one">Il dispositivo non viene sbloccato da <xliff:g id="NUMBER_0">%d</xliff:g> ora. Conferma la password.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"Non riconosciuto"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"Codice PIN della SIM <xliff:g id="slotid">%d</xliff:g> errato. Hai ancora <xliff:g id="NUMBER_0">%d</xliff:g> tentativo a disposizione, dopodiché dovrai contattare l\'operatore per sbloccare il dispositivo."</item>
+        <item quantity="other">"Codice PIN della SIM <xliff:g id="slotid">%d</xliff:g> errato. Hai ancora <xliff:g id="NUMBER_1">%d</xliff:g> tentativi a disposizione."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"Inserire il PIN della SIM<xliff:g id="slotid">%d</xliff:g>, restano <xliff:g id="number">%d</xliff:g>tentativi prima di dover contattare l\'operatore per sbloccare il dispositivo."</item>
+        <item quantity="other">"Inserire il PIN<xliff:g id="slotid">%d</xliff:g> della SIM, restano altri <xliff:g id="number">%d</xliff:g>tentativi."</item>
+    </plurals>
 </resources>

@@ -90,12 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"Po raz <xliff:g id="NUMBER_0">%1$d</xliff:g> nieprawidłowo narysowałeś wzór odblokowania. Po kolejnych <xliff:g id="NUMBER_1">%2$d</xliff:g> nieudanych próbach konieczne będzie odblokowanie tabletu przy użyciu danych logowania na konto Google.\n\n Spróbuj ponownie za <xliff:g id="NUMBER_2">%3$d</xliff:g> s."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"Po raz <xliff:g id="NUMBER_0">%1$d</xliff:g> nieprawidłowo narysowałeś wzór odblokowania. Po kolejnych <xliff:g id="NUMBER_1">%2$d</xliff:g> nieudanych próbach konieczne będzie odblokowanie telefonu przy użyciu danych logowania na konto Google.\n\n Spróbuj ponownie za <xliff:g id="NUMBER_2">%3$d</xliff:g> s."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"Nieprawidłowy kod PIN karty SIM. Musisz teraz skontaktować się z operatorem, by odblokował Twoje urządzenie."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="few">Nieprawidłowy kod PIN karty SIM. Masz jeszcze <xliff:g id="NUMBER_1">%d</xliff:g> próby.</item>
-      <item quantity="many">Nieprawidłowy kod PIN karty SIM. Masz jeszcze <xliff:g id="NUMBER_1">%d</xliff:g> prób.</item>
-      <item quantity="other">Nieprawidłowy kod PIN karty SIM. Masz jeszcze <xliff:g id="NUMBER_1">%d</xliff:g> próby.</item>
-      <item quantity="one">Nieprawidłowy kod PIN karty SIM. Masz jeszcze <xliff:g id="NUMBER_0">%d</xliff:g> próbę, zanim będziesz musiał skontaktować się z operatorem, by odblokować swoje urządzenie.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"Karta SIM została trwale zablokowana. Skontaktuj się z operatorem."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="few">Nieprawidłowy kod PUK karty SIM. Masz jeszcze <xliff:g id="NUMBER_1">%d</xliff:g> próby, zanim karta SIM zostanie trwale zablokowana.</item>
@@ -139,4 +133,16 @@
       <item quantity="one">Urządzenie nie zostało odblokowane od <xliff:g id="NUMBER_0">%d</xliff:g> godziny. Potwierdź hasło.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"Nie rozpoznano odcisku palca."</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"Nieprawidłowy kod PIN karty SIM <xliff:g id="slotid">%d</xliff:g>. Masz jeszcze <xliff:g id="NUMBER_0">%d</xliff:g> próbę, zanim będziesz musiał skontaktować się z operatorem, by odblokować swoje urządzenie."</item>
+        <item quantity="other">"Nieprawidłowy kod PIN karty SIM <xliff:g id="slotid">%d</xliff:g>. Masz jeszcze <xliff:g id="NUMBER_1">%d</xliff:g> próby."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"Wprowadź kod PIN<xliff:g id="slotid">%d</xliff:g> karty SIM. Pozostało prób: <xliff:g id="number">%d</xliff:g>. Po ich wykorzystaniu należy skontaktować się z operatorem w celu odblokowania urządzenia."</item>
+        <item quantity="other">"Wprowadź kod PIN<xliff:g id="slotid">%d</xliff:g> karty SIM. Pozostało prób: <xliff:g id="number">%d</xliff:g>."</item>
+    </plurals>
 </resources>

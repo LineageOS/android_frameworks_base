@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"អ្នក​បាន​គូរ​លំនាំ​ដោះ​សោ​មិន​ត្រឹមត្រូវ <xliff:g id="NUMBER_0">%1$d</xliff:g> ដង។ បន្ទាប់​ពី​ការ​ព្យាយាម <xliff:g id="NUMBER_1">%2$d</xliff:g> ដង​មិន​ជោគជ័យ អ្នក​នឹង​ត្រូវ​បាន​ស្នើ​ឲ្យ​ដោះ​សោ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក ដោយ​ប្រើ​គណនី​អ៊ីមែល។\n\n ព្យាយាម​ម្ដង​ទៀត​ក្នុង​រយៈ​ពេល <xliff:g id="NUMBER_2">%3$d</xliff:g> វិនាទី។"</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"អ្នក​បាន​គូរ​លំនាំ​ដោះ​​សោ​របស់​អ្នក​មិន​ត្រឹមត្រូវ​ចំនួន <xliff:g id="NUMBER_0">%1$d</xliff:g> ដង។ បន្ទាប់​ពី​ការ​ព្យាយាម​មិន​ជោគជ័យ​​ច្រើនជាង <xliff:g id="NUMBER_1">%2$d</xliff:g> ដង អ្នក​នឹង​ត្រូវ​បាន​​ស្នើ​ឲ្យ​ដោះ​សោ​ទូរស័ព្ទ​របស់​អ្នក​ដោយ​ប្រើ​គណនី​អ៊ីមែល។\n\n ព្យាយាម​ម្ដង​ទៀត​ក្នុង​រយៈ​ពេល <xliff:g id="NUMBER_2">%3$d</xliff:g> វិនាទី។"</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"លេខ​កូដ PIN ស៊ីម​មិន​ត្រឹមត្រូវ អ្នក​ត្រូវ​ទាក់ទង​ក្រុមហ៊ុន​បញ្ជូន​របស់​អ្នក​ឥឡូវ​នេះ ដើម្បី​ដោះ​សោ​ឧបករណ៍​របស់​អ្នក។"</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="other">លេខកូដសម្ងាត់ស៊ីមមិនត្រឹមត្រូវ អ្នកនៅសល់ការព្យាយាម <xliff:g id="NUMBER_1">%d</xliff:g> ដងទៀត</item>
-      <item quantity="one">លេខកូដសម្ងាត់ស៊ីមមិនត្រឹមត្រូវ អ្នកនៅសល់ការព្យាយាម <xliff:g id="NUMBER_0">%d</xliff:g> ដងទៀត មុនពេលពេលដែលអ្នកត្រូវទាក់ទងទៅអ្នកផ្តល់សេវាកម្មរបស់អ្នកដើម្បីដោះសោឧបករណ៍របស់អ្នក។</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"ស៊ីម​មិន​អាច​ប្រើ​បាន។ ទាក់ទង​ក្រុមហ៊ុន​បញ្ជូន​របស់​អ្នក។"</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="other">លេខកូដ PUK ស៊ីមមិនត្រឹមត្រូវ អ្នកនៅសល់ការព្យាយាម <xliff:g id="NUMBER_1">%d</xliff:g> ដងទៀត មុនពេលស៊ីមរបស់អ្នកមិនអាចប្រើបានជាអចិន្ត្រៃយ៍។</item>
@@ -129,4 +125,16 @@
       <item quantity="one">ឧបករណ៍មិនបានដោះសោអស់រយៈពេល <xliff:g id="NUMBER_0">%d</xliff:g> ម៉ោងហើយ។ បញ្ជាក់ពាក្យសម្ងាត់។</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"មិនអាចសម្គាល់បានទេ"</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"លេខកូដសម្ងាត់ស៊ីម <xliff:g id="slotid">%d</xliff:g> មិនត្រឹមត្រូវ អ្នកនៅសល់ការព្យាយាម <xliff:g id="NUMBER_0">%d</xliff:g> ដងទៀត មុនពេលពេលដែលអ្នកត្រូវទាក់ទងទៅអ្នកផ្តល់សេវាកម្មរបស់អ្នកដើម្បីដោះសោឧបករណ៍របស់អ្នក។"</item>
+        <item quantity="other">"លេខកូដសម្ងាត់ស៊ីម <xliff:g id="slotid">%d</xliff:g> មិនត្រឹមត្រូវ អ្នកនៅសល់ការព្យាយាម <xliff:g id="NUMBER_1">%d</xliff:g> ដងទៀត"</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"បញ្ចូល SIM<xliff:g id="slotid">%d</xliff:g> PIN អ្នកមាន <xliff:g id="number">%d</xliff:g>ការប៉ុនប៉ងដែលនៅសល់ មុនពេលអ្នកត្រូវតែទាក់ទងក្រុមហ៊ុនទូរស័ព្ទ​របស់អ្នកដើម្បី​ដោះសោឧបករណ៍របស់អ្នក។"</item>
+        <item quantity="other">"បញ្ចូល PIN របស់ SIM<xliff:g id="slotid">%d</xliff:g> អ្នកនៅសល់ការប៉ុនប៉ង <xliff:g id="number">%d</xliff:g> ដងទៀត។"</item>
+    </plurals>
 </resources>

@@ -90,10 +90,6 @@
     <string name="kg_failed_attempts_almost_at_login" product="tablet" msgid="3253575572118914370">"잠금해제 패턴을 <xliff:g id="NUMBER_0">%1$d</xliff:g>회 잘못 그렸습니다. <xliff:g id="NUMBER_1">%2$d</xliff:g>회 더 실패하면 이메일 계정을 사용하여 태블릿을 잠금해제해야 합니다.\n\n <xliff:g id="NUMBER_2">%3$d</xliff:g>초 후에 다시 시도해 주세요."</string>
     <string name="kg_failed_attempts_almost_at_login" product="default" msgid="1437638152015574839">"잠금해제 패턴을 <xliff:g id="NUMBER_0">%1$d</xliff:g>회 잘못 그렸습니다. <xliff:g id="NUMBER_1">%2$d</xliff:g>회 더 실패하면 이메일 계정을 사용하여 휴대전화를 잠금해제해야 합니다.\n\n <xliff:g id="NUMBER_2">%3$d</xliff:g>초 후에 다시 시도해 주세요."</string>
     <string name="kg_password_wrong_pin_code_pukked" msgid="30531039455764924">"SIM PIN 코드가 잘못되었습니다. 이동통신사에 문의하여 기기를 잠금 해제해야 합니다."</string>
-    <plurals name="kg_password_wrong_pin_code" formatted="false" msgid="6721575017538162249">
-      <item quantity="other">SIM PIN 코드가 잘못되었습니다. <xliff:g id="NUMBER_1">%d</xliff:g>번 더 시도할 수 있습니다.</item>
-      <item quantity="one">SIM PIN 코드가 잘못되었습니다. <xliff:g id="NUMBER_0">%d</xliff:g>번 더 실패하면 이동통신사에 문의하여 기기를 잠금 해제해야 합니다.</item>
-    </plurals>
     <string name="kg_password_wrong_puk_code_dead" msgid="7077536808291316208">"SIM을 사용할 수 없습니다. 이동통신사에 문의하세요."</string>
     <plurals name="kg_password_wrong_puk_code" formatted="false" msgid="7576227366999858780">
       <item quantity="other">SIM PUK 코드가 잘못되었습니다. <xliff:g id="NUMBER_1">%d</xliff:g>번 더 실패하면 SIM을 완전히 사용할 수 없게 됩니다.</item>
@@ -129,4 +125,16 @@
       <item quantity="one"><xliff:g id="NUMBER_0">%d</xliff:g>시간 이상 기기가 잠금 해제되지 않았습니다. 비밀번호를 확인하세요.</item>
     </plurals>
     <string name="fingerprint_not_recognized" msgid="2690661881608146617">"인식할 수 없습니다."</string>
+    <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
+         to unlock the keyguard.  Displayed in a dialog box.  -->
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">"SIM <xliff:g id="slotid">%d</xliff:g> PIN 코드가 잘못되었습니다. <xliff:g id="NUMBER_0">%d</xliff:g>번 더 실패하면 이동통신사에 문의하여 기기를 잠금 해제해야 합니다."</item>
+        <item quantity="other">"SIM <xliff:g id="slotid">%d</xliff:g> PIN 코드가 잘못되었습니다. <xliff:g id="NUMBER_1">%d</xliff:g>번 더 시도할 수 있습니다."</item>
+    </plurals>
+
+    <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">"SIM<xliff:g id="slotid">%d</xliff:g> PIN을 입력합니다. <xliff:g id="number">%d</xliff:g>번 더 실패하면 이동통신사에 문의하여 기기를 잠금해제해야 합니다."</item>
+        <item quantity="other">"SIM<xliff:g id="slotid">%d</xliff:g> PIN을 입력합니다. <xliff:g id="number">%d</xliff:g>번 더 시도할 수 있습니다."</item>
+    </plurals>
 </resources>
