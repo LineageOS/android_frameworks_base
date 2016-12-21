@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_203fe3d6",
+        "filename": "telephony/java/android/telephony/ServiceState.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-21T23:43:58Z",
+      "side": 1,
+      "message": "nitpick: Add new line before line 23",
+      "revId": "8c87e4d4c2292ca8b04a2324f994f2e1ce42f3d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
