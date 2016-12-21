@@ -261,6 +261,13 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
         return (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
     }
 
+    private boolean  isIpv6TetheringEnabled() {
+        int ipv6TetheringEnable = Settings.Global.getInt(mContext.getContentResolver(),
+            "enable_aosp_v6_tethering", 0);
+
+        return ipv6TetheringEnable == 1;
+    }
+
     void updateConfiguration() {
         String[] tetherableUsbRegexs = mContext.getResources().getStringArray(
                 com.android.internal.R.array.config_tether_usb_regexs);
@@ -2178,7 +2185,7 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
     private void trackNewTetherableInterface(String iface, int interfaceType) {
         TetherState tetherState;
         tetherState = new TetherState(new TetherInterfaceStateMachine(iface, mLooper,
-                interfaceType, mNMService, mStatsService, this));
+                interfaceType, mNMService, mStatsService, this, isIpv6TetheringEnabled()));
         mTetherStates.put(iface, tetherState);
         tetherState.mStateMachine.start();
     }
