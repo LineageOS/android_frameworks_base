@@ -16,7 +16,9 @@
 
 package com.android.systemui.statusbar.policy;
 
+import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -860,7 +862,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
     static class Config {
         boolean showAtLeast3G = false;
         boolean alwaysShowCdmaRssi = false;
-        boolean show4gForLte = false;
         boolean hideLtePlus = false;
         boolean hspaDataDistinguishable;
 
@@ -871,7 +872,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
             config.showAtLeast3G = res.getBoolean(R.bool.config_showMin3G);
             config.alwaysShowCdmaRssi =
                     res.getBoolean(com.android.internal.R.bool.config_alwaysUseCdmaRssi);
-            config.show4gForLte = res.getBoolean(R.bool.config_show4GForLTE);
             config.hspaDataDistinguishable =
                     res.getBoolean(R.bool.config_hspa_data_distinguishable);
             config.hideLtePlus = res.getBoolean(R.bool.config_hideLtePlus);

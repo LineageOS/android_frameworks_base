@@ -450,6 +450,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     DisplayMetrics mDisplayMetrics = new DisplayMetrics();
 
+    // show 4g / 3G
+	private boolean mShow4G;
+	private boolean mShow3G;
+
+
     // XXX: gesture research
     private final GestureRecorder mGestureRec = DEBUG_GESTURES
         ? new GestureRecorder("/sdcard/statusbar_gestures.dat")
@@ -474,10 +479,18 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             super(handler);
         }
 
-        void observe() {
+	@Override
+        protected void observe() {
+            super.observe();
+
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(CMSettings.Global.getUriFor(
                     CMSettings.Global.DEV_FORCE_SHOW_NAVBAR), false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SHOW_FOURG), false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SHOW_THREEG),
+                    false, this, UserHandle.USER_ALL);
 
             CurrentUserTracker userTracker = new CurrentUserTracker(mContext) {
                 @Override
@@ -487,6 +500,26 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             };
             userTracker.startTracking();
         }
+
+	@Override
+	public void onChange(boolean selfChange, Uri uri) {
+	if (uri.equals(Settings.System.getUriFor(
+                   Settings.System.SHOW_FOURG))) {
+                   mShow4G = Settings.System.getIntForUser(
+                           mContext.getContentResolver(),
+                           Settings.System.SHOW_FOURG,
+                           0, UserHandle.USER_CURRENT) == 1;
+			mNetworkController.onConfigurationChanged();
+			} else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.SHOW_THREEG))) {
+                    mShow3G = Settings.System.getIntForUser(
+                            mContext.getContentResolver(),
+                            Settings.System.SHOW_THREEG,
+                            0, UserHandle.USER_CURRENT) == 1;
+			mNetworkController.onConfigurationChanged();
+ 			}
+		update();
+	}
 
         @Override
         public void onChange(boolean selfChange) {
@@ -518,6 +551,30 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mNavigationBarView.setDisabledFlags(mDisabled1);
         addNavigationBar();
     }
+
+        @Override
+        public void update() {
+            ContentResolver resolver = mContext.getContentResolver();
+            int mode = Settings.System.getIntForUser(mContext.getContentResolver(),
+                            Settings.System.SCREEN_BRIGHTNESS_MODE,
+                            Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL,
+                            UserHandle.USER_CURRENT);
+            mAutomaticBrightness = mode != Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
+            mBrightnessControl = CMSettings.System.getIntForUser(
+                    resolver, CMSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0,
+UserHandle.USER_CURRENT) == 1;
+
+            boolean mShow4G = Settings.System.getIntForUser(resolver,
+                    Settings.System.SHOW_FOURG, 0, UserHandle.USER_CURRENT) == 1;
+	  
+	    boolean mShow3G = Settings.System.getIntForUser(resolver,
+		    Settings.System.SHOW_THREEG, 0, UserHandle.USER_CURRENT) == 1;
+
+            if (mHeader != null) {
+                mHeader.updateSettings();
+            }
+	}
+
 
     // ensure quick settings is disabled until the current user makes it through the setup wizard
     private boolean mUserSetup = false;
