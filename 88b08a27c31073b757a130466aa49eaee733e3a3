@@ -91,6 +91,30 @@
       "revId": "88b08a27c31073b757a130466aa49eaee733e3a3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_9ec6189a",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2031,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2016-12-22T05:01:00Z",
+      "side": 1,
+      "message": "Do you have this system/netd commit ?\nhttps://github.com/CyanogenMod/android_system_netd/commit/4128d747663997f343d21eb0a140cd2b9e767196",
+      "parentUuid": "5f681702_639e0555",
+      "range": {
+        "startLine": 2031,
+        "startChar": 16,
+        "endLine": 2031,
+        "endChar": 101
+      },
+      "revId": "88b08a27c31073b757a130466aa49eaee733e3a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
