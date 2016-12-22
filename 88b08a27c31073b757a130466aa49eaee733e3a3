@@ -68,6 +68,29 @@
       "revId": "88b08a27c31073b757a130466aa49eaee733e3a3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_639e0555",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2031,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2016-12-22T03:14:32Z",
+      "side": 1,
+      "message": "3:25.836  6204  6204 E AndroidRuntime: FATAL EXCEPTION: main\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: Process: com.android.settings, PID: 6204\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: java.lang.IllegalStateException: command \u002766 bandwidth removerestrictappsondata rmnet0 10040\u0027 failed with \u0027400 66 Bandwidth command failed\u0027\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.os.Parcel.readException(Parcel.java:1692)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.os.Parcel.readException(Parcel.java:1637)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.net.INetworkPolicyManager$Stub$Proxy.removeUidPolicy(INetworkPolicyManager.java:349)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.net.NetworkPolicyManager.removeUidPolicy(NetworkPolicyManager.java:164)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat com.android.settings.datausage.AppDataUsage.setAppRestrictData(AppDataUsage.java:384)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat com.android.settings.datausage.AppDataUsage.onPreferenceChange(AppDataUsage.java:284)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.support.v7.preference.Preference.callChangeListener(Preference.java:914)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.support.v7.preference.TwoStatePreference.onClick(TwoStatePreference.java:66)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.support.v7.preference.Preference.performClick(Preference.java:976)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.support.v7.preference.Preference.performClick(Preference.java:961)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.support.v14.preference.SwitchPreference.performClick(SwitchPreference.java:212)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.support.v7.preference.Preference$1.onClick(Preference.java:148)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.view.View.performClick(View.java:5637)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.view.View$PerformClick.run(View.java:22433)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.os.Handler.handleCallback(Handler.java:751)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.os.Handler.dispatchMessage(Handler.java:95)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.os.Looper.loop(Looper.java:154)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat android.app.ActivityThread.main(ActivityThread.java:6126)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat java.lang.reflect.Method.invoke(Native Method)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:886)\n12-18 15:43:25.836  6204  6204 E AndroidRuntime: \tat com.android.internal.os.ZygoteInit.main(ZygoteInit.java:776)",
+      "range": {
+        "startLine": 2031,
+        "startChar": 16,
+        "endLine": 2031,
+        "endChar": 101
+      },
+      "revId": "88b08a27c31073b757a130466aa49eaee733e3a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
