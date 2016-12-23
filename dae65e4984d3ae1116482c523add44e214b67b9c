@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_d23a4096",
+        "filename": "telephony/java/android/telephony/TelephonyManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4696,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-23T13:02:23Z",
+      "side": 1,
+      "message": "I think the log should be more descriptive of the error encountered",
+      "revId": "dae65e4984d3ae1116482c523add44e214b67b9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f681702_f2377caf",
+        "filename": "telephony/java/android/telephony/TelephonyManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4697,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-23T13:02:23Z",
+      "side": 1,
+      "message": "nitpick: indent with 8 spaces instead of 4",
+      "revId": "dae65e4984d3ae1116482c523add44e214b67b9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
