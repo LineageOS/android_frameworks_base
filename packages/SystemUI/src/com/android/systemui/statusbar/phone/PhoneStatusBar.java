@@ -67,6 +67,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.Typeface;
 import android.inputmethodservice.InputMethodService;
 import android.media.AudioAttributes;
 import android.media.MediaMetadata;
@@ -144,6 +145,7 @@ import com.android.systemui.R;
 import com.android.systemui.SystemUIFactory;
 import com.android.systemui.classifier.FalsingLog;
 import com.android.systemui.classifier.FalsingManager;
+import com.android.systemui.cm.UserContentObserver;
 import com.android.systemui.doze.DozeHost;
 import com.android.systemui.doze.DozeLog;
 import com.android.systemui.keyguard.KeyguardViewMediator;
@@ -153,6 +155,7 @@ import com.android.systemui.recents.ScreenPinningRequest;
 import com.android.systemui.recents.events.EventBus;
 import com.android.systemui.recents.events.activity.AppTransitionFinishedEvent;
 import com.android.systemui.recents.events.activity.UndockingTaskEvent;
+import com.android.systemui.recents.RecentsActivity;
 import com.android.systemui.settings.BrightnessController;
 import com.android.systemui.settings.CurrentUserTracker;
 import com.android.systemui.stackdivider.Divider;
@@ -475,50 +478,49 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     };
 
 
-	@Override
-        protected void observe() {
-            super.observe();
+    class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
 
+
+        void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SHOW_FOURG), false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SHOW_THREEG),
                     false, this, UserHandle.USER_ALL);
+                    updateSettings();
+	}
 
-            CurrentUserTracker userTracker = new CurrentUserTracker(mContext) {
-                @Override
-                public void onUserSwitched(int newUserId) {
-                    update();
-                }
-            };
-            userTracker.startTracking();
-        }
+
 
 	@Override
 	public void onChange(boolean selfChange, Uri uri) {
-	if (uri.equals(Settings.System.getUriFor(
-                   Settings.System.SHOW_FOURG))) {
-                   mShow4G = Settings.System.getIntForUser(
-                           mContext.getContentResolver(),
-                           Settings.System.SHOW_FOURG,
-                           0, UserHandle.USER_CURRENT) == 1;
-			mNetworkController.onConfigurationChanged();
-			} else if (uri.equals(Settings.System.getUriFor(
+        ContentResolver resolver = mContext.getContentResolver();
+		if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.SHOW_FOURG))) {
+                    mShow4G = Settings.System.getIntForUser(
+                            mContext.getContentResolver(),
+                            Settings.System.SHOW_FOURG,
+                            0, UserHandle.USER_CURRENT) == 1;
+                    mNetworkController.onConfigurationChanged();
+            	} else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.SHOW_THREEG))) {
                     mShow3G = Settings.System.getIntForUser(
                             mContext.getContentResolver(),
                             Settings.System.SHOW_THREEG,
                             0, UserHandle.USER_CURRENT) == 1;
-			mNetworkController.onConfigurationChanged();
- 			}
-		update();
+		    mNetworkController.onConfigurationChanged();
+ 		}
+		updateSettings();
 	}
 
         @Override
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
-            update();
+            updateSettings();
         }
     }
 
@@ -535,8 +537,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         addNavigationBar();
     }
 
-        @Override
-        public void update() {
+        
+        public void updateSettings() {
             ContentResolver resolver = mContext.getContentResolver();
             int mode = Settings.System.getIntForUser(mContext.getContentResolver(),
                             Settings.System.SCREEN_BRIGHTNESS_MODE,
@@ -545,17 +547,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mAutomaticBrightness = mode != Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
             mBrightnessControl = CMSettings.System.getIntForUser(
                     resolver, CMSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0,
-UserHandle.USER_CURRENT) == 1;
+			UserHandle.USER_CURRENT) == 1;
 
             boolean mShow4G = Settings.System.getIntForUser(resolver,
                     Settings.System.SHOW_FOURG, 0, UserHandle.USER_CURRENT) == 1;
 	  
 	    boolean mShow3G = Settings.System.getIntForUser(resolver,
 		    Settings.System.SHOW_THREEG, 0, UserHandle.USER_CURRENT) == 1;
-
-            if (mHeader != null) {
-                mHeader.updateSettings();
-            }
 	}
 
 
@@ -837,6 +835,8 @@ UserHandle.USER_CURRENT) == 1;
 
         addNavigationBar();
 
+        SettingsObserver observer = new SettingsObserver(mHandler);
+	observer.observe();
 
         TunerService.get(mContext).addTunable(this,
                 SCREEN_BRIGHTNESS_MODE,
