@@ -16,6 +16,7 @@
 
 package com.android.server.display;
 
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.view.Display;
 import android.view.DisplayInfo;
@@ -76,9 +77,15 @@ final class LogicalDisplay {
     private int mRequestedModeId;
     private int mRequestedColorMode;
 
+    // Offset the "center" of the screen
+    private int mOffsetCenterX = Resources.getSystem().getInteger(
+            com.android.internal.R.integer.config_offsetCenterX);
+    private int mOffsetCenterY = Resources.getSystem().getInteger(
+            com.android.internal.R.integer.config_offsetCenterY);
+
     // The display offsets to apply to the display projection.
-    private int mDisplayOffsetX;
-    private int mDisplayOffsetY;
+    private int mDisplayOffsetX = mOffsetCenterX;
+    private int mDisplayOffsetY = mOffsetCenterY;
 
     // Temporary rectangle used when needed.
     private final Rect mTempLayerStackRect = new Rect();
