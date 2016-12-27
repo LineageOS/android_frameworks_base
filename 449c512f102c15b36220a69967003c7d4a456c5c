@@ -50,6 +50,24 @@
       "revId": "449c512f102c15b36220a69967003c7d4a456c5c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa0f191f_7a2bf9eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2016-12-27T11:53:29Z",
+      "side": 1,
+      "message": "I think credits should be kept.",
+      "parentUuid": "fa0f191f_3aa58104",
+      "revId": "449c512f102c15b36220a69967003c7d4a456c5c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
