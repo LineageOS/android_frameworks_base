@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa0f191f_7a9bf9c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2016-12-27T07:22:41Z",
+      "side": 1,
+      "message": "remove this.",
+      "revId": "449c512f102c15b36220a69967003c7d4a456c5c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa0f191f_5aa035f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2016-12-27T07:22:41Z",
+      "side": 1,
+      "message": "Where is the change related to this?",
+      "revId": "449c512f102c15b36220a69967003c7d4a456c5c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa0f191f_3aa58104",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2016-12-27T07:22:41Z",
+      "side": 1,
+      "message": "not really needed.",
+      "revId": "449c512f102c15b36220a69967003c7d4a456c5c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
