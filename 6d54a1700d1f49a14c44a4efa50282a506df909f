@@ -46,6 +46,30 @@
       "revId": "6d54a1700d1f49a14c44a4efa50282a506df909f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a23299d_d6ab04d5",
+        "filename": "services/core/java/com/android/server/display/LogicalDisplay.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-28T02:27:11Z",
+      "side": 1,
+      "message": "Oh err, scrap that, I was thinking of something else in the other patch.",
+      "parentUuid": "7a23299d_769b10ca",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 351,
+        "endChar": 79
+      },
+      "revId": "6d54a1700d1f49a14c44a4efa50282a506df909f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
