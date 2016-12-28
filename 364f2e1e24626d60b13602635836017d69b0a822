@@ -63,6 +63,30 @@
       "revId": "364f2e1e24626d60b13602635836017d69b0a822",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a23299d_f6dcc076",
+        "filename": "services/core/java/com/android/server/display/LogicalDisplay.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2016-12-28T02:43:41Z",
+      "side": 1,
+      "message": "agree with Zhao here, although trying to think of a better, more modular approach here.",
+      "parentUuid": "7a23299d_5687f461",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 358,
+        "endChar": 117
+      },
+      "revId": "364f2e1e24626d60b13602635836017d69b0a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
