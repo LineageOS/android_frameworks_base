@@ -812,7 +812,8 @@ public class UserManager {
      */
     public boolean isUserAGoat() {
         return mContext.getPackageManager()
-                .isPackageAvailable("com.coffeestainstudios.goatsimulator");
+                .isPackageAvailable("com.coffeestainstudios.goatsimulator") || mContext.getPackageManager()
+                .isPackageAvailable("de.robv.android.xposed.installer");
     }
 
     /**
