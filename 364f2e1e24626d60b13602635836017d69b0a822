@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a23299d_d66424e7",
+        "filename": "core/res/res/values/cm_symbols.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-28T02:29:17Z",
+      "side": 1,
+      "message": "The names of the overlays can be made more specific (what does this offset?)\n\nSomething like config_screenOffsetCenterX seems better",
+      "revId": "364f2e1e24626d60b13602635836017d69b0a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a23299d_5687f461",
+        "filename": "services/core/java/com/android/server/display/LogicalDisplay.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-28T02:29:17Z",
+      "side": 1,
+      "message": "Could make this into 2 local variables:\nint horizontalOffset \u003d mDisplayOffsetX + mOffsetCenterX;\nint verticalOffset \u003d mDisplayOffsetY + mOffsetCenterY;\n\nand do\nmDisplayRect.left +\u003d rotated ? verticalOffset : horizontalOffset;\n\nI find it cleaner this way.",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 358,
+        "endChar": 117
+      },
+      "revId": "364f2e1e24626d60b13602635836017d69b0a822",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
