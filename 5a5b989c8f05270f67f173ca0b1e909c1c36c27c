@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a23299d_f66cc038",
+        "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2016-12-28T08:38:54Z",
+      "side": 1,
+      "message": "Do we really need it to persist in memory? I think it is a bad idea.  need tab here if you want to keep it",
+      "revId": "5a5b989c8f05270f67f173ca0b1e909c1c36c27c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
