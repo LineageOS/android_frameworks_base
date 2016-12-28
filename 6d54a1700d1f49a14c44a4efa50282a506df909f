@@ -22,6 +22,30 @@
       "revId": "6d54a1700d1f49a14c44a4efa50282a506df909f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a23299d_769b10ca",
+        "filename": "services/core/java/com/android/server/display/LogicalDisplay.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2016-12-28T02:24:17Z",
+      "side": 1,
+      "message": "Ah yeah, good point.",
+      "parentUuid": "7a23299d_b661a8d5",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 351,
+        "endChar": 79
+      },
+      "revId": "6d54a1700d1f49a14c44a4efa50282a506df909f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
