@@ -292,10 +292,8 @@ public class GestureLauncherService extends SystemService {
                 mEmergencyNumber + " hits = " + hits);
     }
 
-    public boolean interceptPowerKeyDown(KeyEvent event, boolean interactive,
-            MutableBoolean outLaunched) {
-        boolean launched = false;
-        boolean intercept = false;
+    public boolean interceptPowerKeyDown(KeyEvent event) {
+        boolean handled = false;
         long doubleTapInterval;
         synchronized (this) {
             doubleTapInterval = event.getEventTime() - mLastPowerDown;
@@ -307,18 +305,16 @@ public class GestureLauncherService extends SystemService {
                 }
                 if (mHits[0] >=
                         (SystemClock.uptimeMillis()-mDuration)) {
-                     launched = true;
-                     intercept = interactive;
+                     handled = true;
                      Arrays.fill(mHits,0);
                 }
             } else if (mCameraDoubleTapPowerEnabled
                     && doubleTapInterval < CAMERA_POWER_DOUBLE_TAP_MAX_TIME_MS) {
-                launched = true;
-                intercept = interactive;
+                handled = true;
             }
             mLastPowerDown = event.getEventTime();
         }
-        if (launched) {
+        if (handled) {
             if (mIsEmergencyOnPowerKeyTapEnabled &&
                     !TextUtils.isEmpty(mEmergencyNumber)) {
                 Slog.i(TAG, "Power button Triple tap gesture detected, launching Emergency Call");
@@ -328,9 +324,9 @@ public class GestureLauncherService extends SystemService {
             } else {
                 Slog.i(TAG, "Power button double tap gesture detected, launching camera. Interval="
                         + doubleTapInterval + "ms");
-                launched = handleCameraLaunchGesture(false /* useWakelock */,
+                handled = handleCameraLaunchGesture(false /* useWakelock */,
                         StatusBarManager.CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP);
-                if (launched) {
+                if (handled) {
                     MetricsLogger.action(mContext,
                             MetricsEvent.ACTION_DOUBLE_TAP_POWER_CAMERA_GESTURE,
                             (int) doubleTapInterval);
@@ -338,8 +334,7 @@ public class GestureLauncherService extends SystemService {
             }
         }
         MetricsLogger.histogram(mContext, "power_double_tap_interval", (int) doubleTapInterval);
-        outLaunched.value = launched;
-        return intercept && launched;
+        return handled;
     }
 
     /**

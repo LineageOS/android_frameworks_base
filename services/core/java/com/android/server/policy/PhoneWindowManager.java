@@ -1273,11 +1273,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         GestureLauncherService gestureService = LocalServices.getService(
                 GestureLauncherService.class);
-        boolean gesturedServiceIntercepted = false;
+        boolean gesturedServiceHandled = false;
         if (gestureService != null) {
-            gesturedServiceIntercepted = gestureService.interceptPowerKeyDown(event, interactive,
-                    mTmpBoolean);
-            if (mTmpBoolean.value && mGoingToSleep) {
+            gesturedServiceHandled = gestureService.interceptPowerKeyDown(event);
+            if (gesturedServiceHandled && mGoingToSleep) {
                 mCameraGestureTriggeredDuringGoingToSleep = true;
             }
         }
@@ -1285,7 +1284,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         // If the power key has still not yet been handled, then detect short
         // press, long press, or multi press and decide what to do.
         mPowerKeyHandled = hungUp || mScreenshotChordVolumeDownKeyTriggered
-                || mScreenshotChordVolumeUpKeyTriggered || gesturedServiceIntercepted;
+                || mScreenshotChordVolumeUpKeyTriggered || gesturedServiceHandled;
         if (!mPowerKeyHandled) {
             if (interactive) {
                 // When interactive, we're already awake.
@@ -1315,6 +1314,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     }
                 }
             }
+        } else if (mCameraGestureTriggeredDuringGoingToSleep) {
+            wakeUpFromPowerKey(event.getDownTime());
         }
     }
 
