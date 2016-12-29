@@ -101,9 +101,6 @@
     <!-- Advanced settings switch -->
     <java-symbol type="string" name="lock_to_app_toast_no_navbar" />
 
-    <!-- PlatLogo -->
-    <java-symbol type="drawable" name="platlogo_cm" />
-
     <!-- Automatic brightness enhancements -->
     <java-symbol type="integer" name="config_autoBrightnessBrighteningLightFastDebounce"/>
 
