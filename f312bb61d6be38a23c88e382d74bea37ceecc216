@@ -16,6 +16,24 @@
       "revId": "f312bb61d6be38a23c88e382d74bea37ceecc216",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1d315d_77baeae2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3081
+      },
+      "writtenOn": "2016-12-30T13:59:48Z",
+      "side": 1,
+      "message": "We could but if we were consistent we should also do this to mAmPmStyle and mShowSeconds.",
+      "parentUuid": "3a1d315d_77378ab1",
+      "revId": "f312bb61d6be38a23c88e382d74bea37ceecc216",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
