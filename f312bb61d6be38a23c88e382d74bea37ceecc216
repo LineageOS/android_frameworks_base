@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a1d315d_77378ab1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-30T12:56:40Z",
+      "side": 1,
+      "message": "We should be able to just remove the variable initialization, leaving \"private int mClockPosition;\"\n\nWhen we register the TunerService.Tunable in line 53, the TunerService will call onTuningChanged(null) initially, setting mClockPosition to CLOCK_POSITION_RIGHT by default.",
+      "revId": "f312bb61d6be38a23c88e382d74bea37ceecc216",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
