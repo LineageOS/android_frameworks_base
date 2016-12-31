@@ -59,6 +59,7 @@ import android.location.LocationManager;
 import android.os.Parcelable;
 import android.os.Parcel;
 import android.os.ServiceSpecificException;
+import android.os.SystemProperties;
 import android.util.Log;
 import android.util.Size;
 
@@ -857,7 +858,8 @@ public class CameraMetadataNative implements Parcelable {
         int[] capabilities = getBase(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES);
         boolean listHighResolution = false;
         for (int capability : capabilities) {
-            if (capability == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_BURST_CAPTURE) {
+            if (capability == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_BURST_CAPTURE &&
+                !SystemProperties.getBoolean("persist.camera.no_burst_capture", false)) {
                 listHighResolution = true;
                 break;
             }
