@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_d83d65bd",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2017-01-02T19:46:40Z",
+      "side": 1,
+      "message": "why was this removed? I know there are a few things that were deprecated in here, but some kind of real time listener is required I think. processPendingDataRestrictRequests() is no longer called which also called initDataInterface(). I think these are necessary for restrictAppOnData(key, mPendingRestrictOnData.get(key)); to launch which is necessary I believe",
+      "range": {
+        "startLine": 334,
+        "startChar": 8,
+        "endLine": 349,
+        "endChar": 9
+      },
+      "revId": "ee6ed6d196a8b5ba5b74bd2d525bdaa28526736f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
