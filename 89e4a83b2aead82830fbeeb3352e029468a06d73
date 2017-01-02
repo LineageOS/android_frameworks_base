@@ -33,6 +33,24 @@
       "revId": "89e4a83b2aead82830fbeeb3352e029468a06d73",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1a2d67_19464b24",
+        "filename": "core/java/com/android/internal/app/PlatLogoActivity.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-01-02T02:38:49Z",
+      "side": 1,
+      "message": "Need to update settings as well for this",
+      "parentUuid": "1a1a2d67_d9ab33d5",
+      "revId": "89e4a83b2aead82830fbeeb3352e029468a06d73",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
