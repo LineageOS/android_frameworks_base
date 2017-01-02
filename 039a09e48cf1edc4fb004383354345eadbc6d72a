@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_7882f953",
+        "filename": "telephony/java/android/telephony/ServiceState.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2017-01-02T20:37:08Z",
+      "side": 1,
+      "message": "I find this change confusing.  I think it would be much better if this was:\n\n|| isLte(radioTechnology) \u0026\u0026 isLteOnCdma()",
+      "revId": "039a09e48cf1edc4fb004383354345eadbc6d72a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_38f3510c",
+        "filename": "telephony/java/android/telephony/ServiceState.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2017-01-02T20:37:08Z",
+      "side": 1,
+      "message": "... and this helper was changed to simply return whether or not getLteOnCdmaModeStatic() \u003d\u003d LTE_ON_CDMA_TRUE.\n\nThe fact that the first use checks isLte and the second doesn\u0027t actually confused me when I read this before which is why I thought you had something wrong.  If you changed it like I suggest, I think it would be easier to read as it would be esentially\n\nif isLte \u0026\u0026 !isLteOnCdma \u003d\u003e isGSM\nif isLte \u0026\u0026 isLteOnCdma \u003d\u003e isCDMA",
+      "revId": "039a09e48cf1edc4fb004383354345eadbc6d72a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
