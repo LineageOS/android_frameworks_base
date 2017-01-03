@@ -22,6 +22,30 @@
       "revId": "ee6ed6d196a8b5ba5b74bd2d525bdaa28526736f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_26cfaeb2",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2017-01-03T17:33:33Z",
+      "side": 1,
+      "message": "I am not exactly sure what it was about this that was too power consuming. I don\u0027t notice a big impact on my build, but I am ok with not using the code.\nAssuming that the power problem was the realtime part of it, we could maybe use https://developer.android.com/reference/android/telephony/PhoneStateListener.html#onDataConnectionStateChanged(int)\nInterestingly though, other functions within this file use the RealTimeInfo variable...\nLet me know your thoughts",
+      "parentUuid": "fa3479d7_d83d65bd",
+      "range": {
+        "startLine": 334,
+        "startChar": 8,
+        "endLine": 349,
+        "endChar": 9
+      },
+      "revId": "ee6ed6d196a8b5ba5b74bd2d525bdaa28526736f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
