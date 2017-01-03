@@ -46,6 +46,30 @@
       "revId": "ee6ed6d196a8b5ba5b74bd2d525bdaa28526736f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_86d3fa37",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-01-03T18:57:46Z",
+      "side": 1,
+      "message": "The only other use of LISTEN_DATA_CONNECTION_REAL_TIME_INFO across all of frameworks and settings in nougat is in settings RadioInfo.\n\nAs you were perhaps implying - there are other places we can add a call to processPendingDataRestrictRequests() here in this same file.  For example, inside the notifyInterfaceClassActivity() if (!isMobile || fromRadio || !mMobileActivityFromRadio) {} statement doesn\u0027t look too bad.",
+      "parentUuid": "fa3479d7_26cfaeb2",
+      "range": {
+        "startLine": 334,
+        "startChar": 8,
+        "endLine": 349,
+        "endChar": 9
+      },
+      "revId": "ee6ed6d196a8b5ba5b74bd2d525bdaa28526736f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
