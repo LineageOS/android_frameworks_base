@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_0386d1b9",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2017-01-05T16:31:13Z",
+      "side": 1,
+      "message": "when/how often is systemReady() called?",
+      "range": {
+        "startLine": 359,
+        "startChar": 16,
+        "endLine": 359,
+        "endChar": 27
+      },
+      "revId": "cfe0c752c1c85756a8d5feb23bee66785a6e76c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_63b6bd8c",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2017-01-05T16:31:13Z",
+      "side": 1,
+      "message": "is there a way we could only have one (final?) mPendingDataRestrictReceiver and keep setting and unsetting its value instead of making a new BroadcastReceiver object every time this code is launched?",
+      "range": {
+        "startLine": 380,
+        "startChar": 8,
+        "endLine": 380,
+        "endChar": 62
+      },
+      "revId": "cfe0c752c1c85756a8d5feb23bee66785a6e76c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_e3a98d25",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2017-01-05T16:31:13Z",
+      "side": 1,
+      "message": "similar to above. if mDataInterfaceName is empty for some time and we keep looping to systemReady(), we are creating many IntentFilters and registering many receivers. Can we either make one IntentFilter(), set and unset its value as often as required or make sure that every time we loop back to here with mDataInterfaceName being empty the previous IntentFilter is destroyed (memory slot freed) (if that makes sense)?",
+      "range": {
+        "startLine": 386,
+        "startChar": 8,
+        "endLine": 388,
+        "endChar": 72
+      },
+      "revId": "cfe0c752c1c85756a8d5feb23bee66785a6e76c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_5e6ef2ca",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2017-01-05T16:31:13Z",
+      "side": 1,
+      "message": "on another aspect, if processPendingDataRestrictRequests() does unregister the receiver, why are we registering one again after processPendingDataRestrictRequests has been launched? also, would that not send mContext.registerReceiver(NULL, filter)?",
+      "range": {
+        "startLine": 386,
+        "startChar": 8,
+        "endLine": 388,
+        "endChar": 72
+      },
+      "revId": "cfe0c752c1c85756a8d5feb23bee66785a6e76c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_1e418a39",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 1947,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2017-01-05T16:31:13Z",
+      "side": 1,
+      "message": "not necessarily problematic, but if the first time systemReady(), processPendingDataRestrictRequests(), initDataInterface() are launched mDataInterface is not empty, then we are unregistering a null mPendingDataRestrictReceiver I think because it is only registered after processPendingDataRestrictRequests() right?",
+      "range": {
+        "startLine": 1947,
+        "startChar": 12,
+        "endLine": 1947,
+        "endChar": 70
+      },
+      "revId": "cfe0c752c1c85756a8d5feb23bee66785a6e76c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
