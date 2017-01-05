@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fa3479d7_9e79fafe",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-01-05T21:40:39Z",
+      "side": 1,
+      "message": "Once, at system startup by the SystemService.",
+      "parentUuid": "fa3479d7_0386d1b9",
+      "range": {
+        "startLine": 359,
+        "startChar": 16,
+        "endLine": 359,
+        "endChar": 27
+      },
+      "revId": "cfe0c752c1c85756a8d5feb23bee66785a6e76c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa3479d7_63b6bd8c",
         "filename": "services/core/java/com/android/server/NetworkManagementService.java",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-05T16:31:13Z",
       "side": 1,
       "message": "is there a way we could only have one (final?) mPendingDataRestrictReceiver and keep setting and unsetting its value instead of making a new BroadcastReceiver object every time this code is launched?",
+      "range": {
+        "startLine": 380,
+        "startChar": 8,
+        "endLine": 380,
+        "endChar": 62
+      },
+      "revId": "cfe0c752c1c85756a8d5feb23bee66785a6e76c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_7e7e56e6",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-01-05T21:40:39Z",
+      "side": 1,
+      "message": "As per above, systemReady() is only ever called once (per lifecycle of the NetworkManagementService).",
+      "parentUuid": "fa3479d7_63b6bd8c",
       "range": {
         "startLine": 380,
         "startChar": 8,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "fa3479d7_5e8392cc",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-01-05T21:40:39Z",
+      "side": 1,
+      "message": "Again, won\u0027t happen because systemReady() is only called once during service initialization.",
+      "parentUuid": "fa3479d7_5e6ef2ca",
+      "range": {
+        "startLine": 386,
+        "startChar": 8,
+        "endLine": 388,
+        "endChar": 72
+      },
+      "revId": "cfe0c752c1c85756a8d5feb23bee66785a6e76c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa3479d7_1e418a39",
         "filename": "services/core/java/com/android/server/NetworkManagementService.java",
         "patchSetId": 11
@@ -105,6 +177,30 @@
       "writtenOn": "2017-01-05T16:31:13Z",
       "side": 1,
       "message": "not necessarily problematic, but if the first time systemReady(), processPendingDataRestrictRequests(), initDataInterface() are launched mDataInterface is not empty, then we are unregistering a null mPendingDataRestrictReceiver I think because it is only registered after processPendingDataRestrictRequests() right?",
+      "range": {
+        "startLine": 1947,
+        "startChar": 12,
+        "endLine": 1947,
+        "endChar": 70
+      },
+      "revId": "cfe0c752c1c85756a8d5feb23bee66785a6e76c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_3e88cee6",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 1947,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-01-05T21:40:39Z",
+      "side": 1,
+      "message": "We only unregister after mDataInterfaceName has been set (see the if statement just above).  Once it\u0027s set, we\u0027ll never enter (or need to enter) processPendingDataRestrictRequests() again.",
+      "parentUuid": "fa3479d7_1e418a39",
       "range": {
         "startLine": 1947,
         "startChar": 12,
