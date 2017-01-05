@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_9cba2ae0",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardSimPinView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-01-05T05:54:38Z",
+      "side": 1,
+      "message": "Is mSlotId 1 or 2 also?",
+      "range": {
+        "startLine": 356,
+        "startChar": 24,
+        "endLine": 356,
+        "endChar": 31
+      },
+      "revId": "313a708092309143d666490d42222581d3e32606",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
