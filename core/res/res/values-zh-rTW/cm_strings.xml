@@ -27,8 +27,6 @@
   <string name="permgroupdesc_security">與裝置安全資訊相關的權限。</string>
   <!-- label for item that opens the profile choosing dialog -->
   <string name="global_action_choose_profile">設定檔</string>
-  <!-- label for item that restarts the phone in phone options dialog -->
-  <string name="global_action_reboot">重新啟動</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">目前</string>
   <!-- status message in phone options dialog for screenshot action -->

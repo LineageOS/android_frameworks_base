@@ -27,8 +27,6 @@
   <string name="permgroupdesc_security">Uprawnienia związane z informacjami o bezpieczeństwie urządzenia.</string>
   <!-- label for item that opens the profile choosing dialog -->
   <string name="global_action_choose_profile">Profil</string>
-  <!-- label for item that restarts the phone in phone options dialog -->
-  <string name="global_action_reboot">Uruchom ponownie</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Bieżący</string>
   <!-- status message in phone options dialog for screenshot action -->

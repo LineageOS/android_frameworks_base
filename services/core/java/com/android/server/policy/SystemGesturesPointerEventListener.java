@@ -279,7 +279,6 @@ public class SystemGesturesPointerEventListener implements PointerEventListener 
         void onSwipeFromTop();
         void onSwipeFromBottom();
         void onSwipeFromRight();
-        void onSwipeFromLeft();
         void onFling(int durationMs);
         void onDown();
         void onUpOrCancel();
