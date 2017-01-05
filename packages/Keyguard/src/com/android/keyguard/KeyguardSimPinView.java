@@ -35,6 +35,7 @@ import android.os.ServiceManager;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.WindowManager;
@@ -349,6 +350,11 @@ public class KeyguardSimPinView extends KeyguardPinBasedInputView {
             SubscriptionInfo info = KeyguardUpdateMonitor.getInstance(mContext).
                     getSubscriptionInfoForSubId(mSubId);
             CharSequence displayName = info != null ? info.getDisplayName() : ""; // don't crash
+            if (TextUtils.isEmpty(displayName) ||
+                    TextUtils.getTrimmedLength(displayName) == 0) {
+                displayName = String.format(rez.getString(R.string.sim_card_number_title),
+                        mSlotId);
+            }
             msg = rez.getString(R.string.kg_sim_pin_instructions_multi, displayName);
             if (info != null) {
                 color = info.getIconTint();
