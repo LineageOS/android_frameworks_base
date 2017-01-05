@@ -2742,4 +2742,6 @@
     <public type="attr" name="showMetadataInPreview" id="0x0101052f" />
     <public type="attr" name="colorSecondary" id="0x01010530" />
 
+    <public type="attr" name="primaryContentAlpha" />
+
 </resources>
