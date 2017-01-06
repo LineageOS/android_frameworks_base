@@ -211,7 +211,7 @@ public class EmergencyButton extends Button {
                 } else {
                     // Only show if there is a secure screen (pin/pattern/SIM pin/SIM puk);
                     visible = mLockPatternUtils.isSecure(KeyguardUpdateMonitor.getCurrentUser()) ||
-                              mContext.getResources().getBoolean(R.bool.config_showEmergencyButton);
+                              SystemProperties.getBoolean("persist.radio.emgcy_btn_onswipe", false);
                 }
 
                 if (mContext.getResources().getBoolean(R.bool.kg_hide_emgcy_btn_when_oos)) {

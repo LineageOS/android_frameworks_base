@@ -35,12 +35,6 @@ public class TetherUtil {
              .KEY_REQUIRE_ENTITLEMENT_CHECKS_BOOL);
     }
 
-    public static boolean setWifiTethering(boolean enable, Context context) {
-        final WifiManager wifiManager =
-                (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        return wifiManager.setWifiApEnabled(null, enable);
-    }
-
     public static boolean isProvisioningNeeded(Context context) {
         // Keep in sync with other usage of config_mobile_hotspot_provision_app.
         // ConnectivityManager#enforceTetherChangePermission

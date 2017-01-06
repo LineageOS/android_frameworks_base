@@ -855,7 +855,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     }
 
     private void updateEmergencyButton() {
-        if(mContext.getResources().getBoolean(R.bool.config_showEmergencyButton)){
+        if (SystemProperties.getBoolean("persist.radio.emgcy_btn_onswipe",false)) {
             if (mEmergencyButton != null) {
                 mEmergencyButton.updateEmergencyCallButton();
             }
