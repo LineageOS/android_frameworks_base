@@ -3214,7 +3214,7 @@
                 android:label="@string/managed_profile_label">
         </activity-alias>
         <activity android:name="com.android.internal.app.HeavyWeightSwitcherActivity"
-                android:theme="@style/Theme.DeviceDefault.Light.Dialog"
+                android:theme="@style/HeavyWeightSwitcherActivityTheme"
                 android:label="@string/heavy_weight_switcher_title"
                 android:finishOnCloseSystemDialogs="true"
                 android:excludeFromRecents="true"
@@ -3247,7 +3247,7 @@
         <activity android:name="android.accounts.ChooseAccountActivity"
                 android:excludeFromRecents="true"
                 android:exported="true"
-                android:theme="@style/Theme.DeviceDefault.Light.Dialog"
+                android:theme="@style/ChooseAccountActivityTheme"
                 android:label="@string/choose_account_label"
                 android:process=":ui">
         </activity>
@@ -3255,14 +3255,14 @@
         <activity android:name="android.accounts.ChooseTypeAndAccountActivity"
                 android:excludeFromRecents="true"
                 android:exported="true"
-                android:theme="@style/Theme.DeviceDefault.Light.Dialog"
+                android:theme="@style/ChooseTypeAndAccountActivityTheme"
                 android:label="@string/choose_account_label"
                 android:process=":ui">
         </activity>
 
         <activity android:name="android.accounts.ChooseAccountTypeActivity"
                 android:excludeFromRecents="true"
-                android:theme="@style/Theme.DeviceDefault.Light.Dialog"
+                android:theme="@style/ChooseAccountTypeActivityTheme"
                 android:label="@string/choose_account_label"
                 android:process=":ui">
         </activity>
@@ -3270,19 +3270,19 @@
         <activity android:name="android.accounts.CantAddAccountActivity"
                 android:excludeFromRecents="true"
                 android:exported="true"
-                android:theme="@style/Theme.DeviceDefault.Light.Dialog.NoActionBar"
+                android:theme="@style/CantAddAccountActivityTheme"
                 android:process=":ui">
         </activity>
 
         <activity android:name="android.accounts.GrantCredentialsPermissionActivity"
                 android:excludeFromRecents="true"
                 android:exported="true"
-                android:theme="@style/Theme.DeviceDefault.Light.DialogWhenLarge"
+                android:theme="@style/GrantCredentialsPermissionActivityTheme"
                 android:process=":ui">
         </activity>
 
         <activity android:name="android.content.SyncActivityTooManyDeletes"
-               android:theme="@style/Theme.DeviceDefault.Light.Dialog"
+               android:theme="@style/SyncActivityTooManyDeletesTheme"
                android:label="@string/sync_too_many_deletes"
                android:process=":ui">
         </activity>
@@ -3302,7 +3302,7 @@
         </activity>
 
         <activity android:name="com.android.internal.app.NetInitiatedActivity"
-                android:theme="@style/Theme.DeviceDefault.Light.Dialog.Alert"
+                android:theme="@style/NetInitiatedActivityTheme"
                 android:excludeFromRecents="true"
                 android:process=":ui">
         </activity>
@@ -3323,7 +3323,7 @@
         <activity android:name="com.android.internal.app.ConfirmUserCreationActivity"
                 android:excludeFromRecents="true"
                 android:process=":ui"
-                android:theme="@style/Theme.DeviceDefault.Light.Dialog.Alert">
+                android:theme="@style/ConfirmUserCreationActivityTheme">
             <intent-filter android:priority="1000">
                 <action android:name="android.os.action.CREATE_USER" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -3331,7 +3331,7 @@
         </activity>
 
         <activity android:name="com.android.internal.app.UnlaunchableAppActivity"
-                android:theme="@style/Theme.DeviceDefault.Light.Dialog.Alert"
+                android:theme="@style/UnlaunchableAppActivityTheme"
                 android:excludeFromRecents="true"
                 android:process=":ui">
         </activity>
