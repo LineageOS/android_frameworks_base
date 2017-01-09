@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_c0bb11c3",
+        "filename": "packages/EasterEgg/src/com/android/egg/neko/Cat.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 9809
+      },
+      "writtenOn": "2017-01-09T16:56:38Z",
+      "side": 1,
+      "message": "You are initializing constant as null and checks if it is null in line 143 ??? this is meaningless",
+      "revId": "56f06c0f973bbe5b5815a27230f4fcfcbef58db2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
