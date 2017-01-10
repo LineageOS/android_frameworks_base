@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2013 The Android Open Source Project
- * Copyright (C) 2013-2014 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -89,7 +88,7 @@ public class DessertCaseView extends FrameLayout {
     private static final int NUM_PASTRIES = PASTRIES.length + RARE_PASTRIES.length
             + XRARE_PASTRIES.length + XXRARE_PASTRIES.length;
 
-    private SparseArray<Drawable> mDrawables = new SparseArray<Drawable>(getNumPastries());
+    private SparseArray<Drawable> mDrawables = new SparseArray<Drawable>(NUM_PASTRIES);
 
     private static final float[] MASK = {
             0f,  0f,  0f,  0f, 255f,
@@ -170,8 +169,7 @@ public class DessertCaseView extends FrameLayout {
         }
         opts.inMutable = true;
         Bitmap loaded = null;
-        for (int[] list : new int[][] { getPastries(), getRarePastries(),
-                getXRarePastries(), getXXRarePastries()}) {
+        for (int[] list : new int[][] { PASTRIES, RARE_PASTRIES, XRARE_PASTRIES, XXRARE_PASTRIES }) {
             for (int resid : list) {
                 opts.inBitmap = loaded;
                 loaded = BitmapFactory.decodeResource(res, resid, opts);
@@ -297,13 +295,13 @@ public class DessertCaseView extends FrameLayout {
             final float which = frand();
             final Drawable d;
             if (which < 0.0005f) {
-                d = mDrawables.get(pick(getXXRarePastries()));
+                d = mDrawables.get(pick(XXRARE_PASTRIES));
             } else if (which < 0.005f) {
-                d = mDrawables.get(pick(getXRarePastries()));
+                d = mDrawables.get(pick(XRARE_PASTRIES));
             } else if (which < 0.5f) {
-                d = mDrawables.get(pick(getRarePastries()));
+                d = mDrawables.get(pick(RARE_PASTRIES));
             } else if (which < 0.7f) {
-                d = mDrawables.get(pick(getPastries()));
+                d = mDrawables.get(pick(PASTRIES));
             } else {
                 d = null;
             }
@@ -462,26 +460,6 @@ public class DessertCaseView extends FrameLayout {
             }
         }
         return result;
-    }
-
-    protected int[] getPastries() {
-        return PASTRIES;
-    }
-
-    protected int[] getRarePastries() {
-        return RARE_PASTRIES;
-    };
-
-    protected int[] getXRarePastries() {
-        return XRARE_PASTRIES;
-    }
-
-    protected int[] getXXRarePastries() {
-        return XXRARE_PASTRIES;
-    }
-
-    protected int getNumPastries() {
-        return NUM_PASTRIES;
     }
 
     static float frand() {
