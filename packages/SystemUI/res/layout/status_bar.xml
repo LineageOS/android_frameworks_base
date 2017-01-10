@@ -47,6 +47,17 @@
         android:orientation="horizontal"
         >
 
+
+        <com.android.systemui.statusbar.widget.CarrierLabel
+            android:id="@+id/statusbar_carrier_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.StatusBar.CarrierLabel"
+            android:visibility="gone"
+            android:singleLine="true"
+	    />
+
         <!-- The alpha of this area is controlled from both PhoneStatusBarTransitions and
              PhoneStatusBar (DISABLE_NOTIFICATION_ICONS). -->
         <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
