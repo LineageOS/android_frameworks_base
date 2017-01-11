@@ -550,6 +550,14 @@ public class PackageManagerService extends IPackageManager.Stub
 
     private static final boolean HIDE_EPHEMERAL_APIS = false;
 
+<<<<<<< HEAD   (17b004 SystemUI: Make the volume dialog expandable)
+=======
+    private static final boolean ENABLE_FREE_CACHE_V2 =
+            SystemProperties.getBoolean("fw.free_cache_v2", true);
+
+    private static final boolean RESET_ALL_PACKAGE_SIGNATURES_ON_BOOT = true;
+
+>>>>>>> CHANGE (1f2ce1 Reset all package signatures on boot)
     private static final String PRECOMPILE_LAYOUTS = "pm.precompile_layouts";
 
     private static final int RADIO_UID = Process.PHONE_UID;
@@ -940,6 +948,7 @@ public class PackageManagerService extends IPackageManager.Stub
     final ArraySet<String> mLoadedVolumes = new ArraySet<>();
 
     boolean mFirstBoot;
+    boolean mResetSignatures;
 
     private final boolean mIsEngBuild;
     private final boolean mIsUserDebugBuild;
@@ -7651,7 +7660,13 @@ public class PackageManagerService extends IPackageManager.Stub
                 scanFlags = scanFlags | SCAN_FIRST_BOOT_OR_UPGRADE;
             }
 
+<<<<<<< HEAD   (17b004 SystemUI: Make the volume dialog expandable)
             final int systemParseFlags = mDefParseFlags | ParsingPackageUtils.PARSE_IS_SYSTEM_DIR;
+=======
+            mResetSignatures = RESET_ALL_PACKAGE_SIGNATURES_ON_BOOT;
+
+            final int systemParseFlags = mDefParseFlags | PackageParser.PARSE_IS_SYSTEM_DIR;
+>>>>>>> CHANGE (1f2ce1 Reset all package signatures on boot)
             final int systemScanFlags = scanFlags | SCAN_AS_SYSTEM;
 
             PackageParser2 packageParser = injector.getScanningCachingPackageParser();
@@ -7937,6 +7952,8 @@ public class PackageManagerService extends IPackageManager.Stub
                 }
             }
             mExpectingBetter.clear();
+
+            mResetSignatures = false;
 
             // Resolve the storage manager.
             mStorageManagerPackage = getStorageManagerPackageName();
@@ -20782,8 +20799,19 @@ public class PackageManagerService extends IPackageManager.Stub
                 // Quick validity check that we're signed correctly if updating;
                 // we'll check this again later when scanning, but we want to
                 // bail early here before tripping over redefined permissions.
+<<<<<<< HEAD   (17b004 SystemUI: Make the volume dialog expandable)
                 final KeySetManagerService ksms = mSettings.getKeySetManagerService();
                 if (ksms.shouldCheckUpgradeKeySetLocked(signatureCheckPs, scanFlags)) {
+=======
+                final KeySetManagerService ksms = mSettings.mKeySetManagerService;
+                if (mResetSignatures) {
+                    Slog.d(TAG, "resetting signatures on package " + parsedPackage.getPackageName());
+                    ps.signatures.mSigningDetails = parsedPackage.getSigningDetails();
+                    if (ps.sharedUser != null) {
+                        ps.sharedUser.signatures.mSigningDetails = parsedPackage.getSigningDetails();
+                    }
+                } else if (ksms.shouldCheckUpgradeKeySetLocked(signatureCheckPs, scanFlags)) {
+>>>>>>> CHANGE (1f2ce1 Reset all package signatures on boot)
                     if (!ksms.checkUpgradeKeySetLocked(signatureCheckPs, parsedPackage)) {
                         throw new PrepareFailure(INSTALL_FAILED_UPDATE_INCOMPATIBLE, "Package "
                                 + parsedPackage.getPackageName() + " upgrade keys do not match the "
