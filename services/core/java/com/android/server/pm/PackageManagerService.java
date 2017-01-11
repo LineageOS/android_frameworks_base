@@ -405,6 +405,8 @@ public class PackageManagerService extends IPackageManager.Stub
     private static final boolean ENABLE_FREE_CACHE_V2 =
             SystemProperties.getBoolean("fw.free_cache_v2", true);
 
+    private static final boolean RESET_ALL_PACKAGE_SIGNATURES_ON_BOOT = true;
+
     private static final int RADIO_UID = Process.PHONE_UID;
     private static final int LOG_UID = Process.LOG_UID;
     private static final int NFC_UID = Process.NFC_UID;
@@ -725,6 +727,8 @@ public class PackageManagerService extends IPackageManager.Stub
     boolean mFirstBoot;
 
     PackageManagerInternal.ExternalSourcesPolicy mExternalSourcesPolicy;
+
+    private boolean mResetSignatures;
 
     // System configuration read by SystemConfig.
     final int[] mGlobalGids;
@@ -2576,6 +2580,8 @@ public class PackageManagerService extends IPackageManager.Stub
                 scanFlags = scanFlags | SCAN_FIRST_BOOT_OR_UPGRADE;
             }
 
+            mResetSignatures = RESET_ALL_PACKAGE_SIGNATURES_ON_BOOT;
+
             // Collect vendor overlay packages. (Do this before scanning any apps.)
             // For security and version matching reason, only consider
             // overlay packages if they reside in the right directory.
@@ -2778,6 +2784,8 @@ public class PackageManagerService extends IPackageManager.Stub
                 }
             }
             mExpectingBetter.clear();
+
+            mResetSignatures = false;
 
             // Resolve the storage manager.
             mStorageManagerPackage = getStorageManagerPackageName();
@@ -10433,7 +10441,13 @@ public class PackageManagerService extends IPackageManager.Stub
                 }
             }
 
-            if (shouldCheckUpgradeKeySetLP(signatureCheckPs, scanFlags)) {
+            if (mResetSignatures) {
+                Slog.d(TAG, "resetting signatures on package " + pkg.packageName);
+                pkgSetting.signatures.mSignatures = pkg.mSignatures;
+                if (pkgSetting.sharedUser != null) {
+                    pkgSetting.sharedUser.signatures.mSignatures = pkg.mSignatures;
+                }
+            } else if (shouldCheckUpgradeKeySetLP(signatureCheckPs, scanFlags)) {
                 if (checkUpgradeKeySetLP(signatureCheckPs, pkg)) {
                     // We just determined the app is signed correctly, so bring
                     // over the latest parsed certs.
