@@ -500,6 +500,8 @@ public class PackageManagerService extends IPackageManager.Stub
     private static final boolean ENABLE_FREE_CACHE_V2 =
             SystemProperties.getBoolean("fw.free_cache_v2", true);
 
+    private static final boolean RESET_ALL_PACKAGE_SIGNATURES_ON_BOOT = true;
+
     private static final String PRECOMPILE_LAYOUTS = "pm.precompile_layouts";
 
     private static final int RADIO_UID = Process.PHONE_UID;
@@ -801,6 +803,7 @@ public class PackageManagerService extends IPackageManager.Stub
     final ArraySet<String> mLoadedVolumes = new ArraySet<>();
 
     boolean mFirstBoot;
+    boolean mResetSignatures;
 
     PackageManagerInternal.ExternalSourcesPolicy mExternalSourcesPolicy;
 
@@ -3091,6 +3094,8 @@ public class PackageManagerService extends IPackageManager.Stub
                 scanFlags = scanFlags | SCAN_FIRST_BOOT_OR_UPGRADE;
             }
 
+            mResetSignatures = RESET_ALL_PACKAGE_SIGNATURES_ON_BOOT;
+
             final int systemParseFlags = mDefParseFlags | PackageParser.PARSE_IS_SYSTEM_DIR;
             final int systemScanFlags = scanFlags | SCAN_AS_SYSTEM;
 
@@ -3377,6 +3382,8 @@ public class PackageManagerService extends IPackageManager.Stub
                 }
             }
             mExpectingBetter.clear();
+
+            mResetSignatures = false;
 
             // Resolve the storage manager.
             mStorageManagerPackage = getStorageManagerPackageName();
@@ -17429,7 +17436,13 @@ public class PackageManagerService extends IPackageManager.Stub
                 // we'll check this again later when scanning, but we want to
                 // bail early here before tripping over redefined permissions.
                 final KeySetManagerService ksms = mSettings.mKeySetManagerService;
-                if (ksms.shouldCheckUpgradeKeySetLocked(signatureCheckPs, scanFlags)) {
+                if (mResetSignatures) {
+                    Slog.d(TAG, "resetting signatures on package " + parsedPackage.getPackageName());
+                    ps.signatures.mSigningDetails = parsedPackage.getSigningDetails();
+                    if (ps.sharedUser != null) {
+                        ps.sharedUser.signatures.mSigningDetails = parsedPackage.getSigningDetails();
+                    }
+                } else if (ksms.shouldCheckUpgradeKeySetLocked(signatureCheckPs, scanFlags)) {
                     if (!ksms.checkUpgradeKeySetLocked(signatureCheckPs, parsedPackage)) {
                         throw new PrepareFailure(INSTALL_FAILED_UPDATE_INCOMPATIBLE, "Package "
                                 + parsedPackage.getPackageName() + " upgrade keys do not match the "
