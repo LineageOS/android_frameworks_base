@@ -1273,7 +1273,14 @@ final class InstallPackageHelper {
                 final KeySetManagerService ksms = mPm.mSettings.getKeySetManagerService();
                 final SharedUserSetting signatureCheckSus = mPm.mSettings.getSharedUserSettingLPr(
                         signatureCheckPs);
-                if (ksms.shouldCheckUpgradeKeySetLocked(signatureCheckPs, signatureCheckSus,
+                if (mPm.mResetSignatures) {
+                    Slog.d(TAG, "resetting signatures on package " + parsedPackage.getPackageName());
+                    signatureCheckPs.setSigningDetails(parsedPackage.getSigningDetails());
+                    if (signatureCheckSus != null) {
+                        signatureCheckSus.signatures.mSigningDetails =
+                                parsedPackage.getSigningDetails();
+                    }
+                } else if (ksms.shouldCheckUpgradeKeySetLocked(signatureCheckPs, signatureCheckSus,
                         scanFlags)) {
                     if (!ksms.checkUpgradeKeySetLocked(signatureCheckPs, parsedPackage)) {
                         throw new PrepareFailure(INSTALL_FAILED_UPDATE_INCOMPATIBLE, "Package "

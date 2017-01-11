@@ -659,6 +659,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
     final ProtectedPackages mProtectedPackages;
 
     private boolean mFirstBoot;
+    boolean mResetSignatures;
 
     final boolean mIsEngBuild;
     private final boolean mIsUserDebugBuild;
@@ -1999,12 +2000,16 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             mCacheDir = PackageManagerServiceUtils.preparePackageParserCache(
                     mIsEngBuild, mIsUserDebugBuild, mIncrementalVersion);
 
+            mResetSignatures = RESET_ALL_PACKAGE_SIGNATURES_ON_BOOT;
+
             final int[] userIds = mUserManager.getUserIds();
             PackageParser2 packageParser = mInjector.getScanningCachingPackageParser();
             mOverlayConfig = mInitAppsHelper.initSystemApps(packageParser, packageSettings, userIds,
                     startTime);
             mInitAppsHelper.initNonSystemApps(packageParser, userIds, startTime);
             packageParser.close();
+
+            mResetSignatures = false;
 
             // Resolve the storage manager.
             mStorageManagerPackage = getStorageManagerPackageName(computer);
