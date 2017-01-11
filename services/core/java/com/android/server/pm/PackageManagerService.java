@@ -369,6 +369,8 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
 
     static final boolean HIDE_EPHEMERAL_APIS = false;
 
+    private static final boolean RESET_ALL_PACKAGE_SIGNATURES_ON_BOOT = true;
+
     static final String PRECOMPILE_LAYOUTS = "pm.precompile_layouts";
 
     private static final int RADIO_UID = Process.PHONE_UID;
@@ -706,6 +708,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
     final ProtectedPackages mProtectedPackages;
 
     private boolean mFirstBoot;
+    boolean mResetSignatures;
 
     final boolean mIsEngBuild;
     private final boolean mIsUserDebugBuild;
@@ -2343,12 +2346,16 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             mShouldStopSystemPackagesByDefault = mContext.getResources()
                     .getBoolean(R.bool.config_stopSystemPackagesByDefault);
 
+            mResetSignatures = RESET_ALL_PACKAGE_SIGNATURES_ON_BOOT;
+
             final int[] userIds = mUserManager.getUserIds();
             PackageParser2 packageParser = mInjector.getScanningCachingPackageParser();
             mOverlayConfig = mInitAppsHelper.initSystemApps(packageParser, packageSettings, userIds,
                     startTime);
             mInitAppsHelper.initNonSystemApps(packageParser, userIds, startTime);
             packageParser.close();
+
+            mResetSignatures = false;
 
             mRequiredVerifierPackages = getRequiredButNotReallyRequiredVerifiersLPr(computer);
             mRequiredInstallerPackage = getRequiredInstallerLPr(computer);
