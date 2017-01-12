@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "da3975d1_d4e3f203",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-01-12T21:39:46Z",
+      "side": 1,
+      "message": "There\u0027s a mix of wlan and wifi references across the frameworks and settings patches but netd is wlan only (likely because it piggybacks on a CAF patch that introduced some of the bandwidth restriction methods https://github.com/LineageOS/android_system_netd/commit/1acddc87191ac75de88f7adba3ee022242a1c532).\n\nI propose we leave netd as wlan but change frameworks and settings to wifi.",
+      "parentUuid": "da3975d1_34ca3ea2",
+      "revId": "5be2bacaa170952da8a4077eba9751f3c3255869",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da3975d1_f495d688",
         "filename": "core/java/android/os/INetworkManagementService.aidl",
         "patchSetId": 12
