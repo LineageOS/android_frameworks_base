@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "da3975d1_74ba06e3",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2017-01-12T21:43:30Z",
+      "side": 1,
+      "message": "fair enough",
+      "parentUuid": "da3975d1_d4e3f203",
+      "revId": "5be2bacaa170952da8a4077eba9751f3c3255869",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da3975d1_f495d688",
         "filename": "core/java/android/os/INetworkManagementService.aidl",
         "patchSetId": 12
