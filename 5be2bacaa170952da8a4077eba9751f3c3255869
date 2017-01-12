@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da3975d1_14817a4a",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-12T19:30:40Z",
+      "side": 1,
+      "message": "POLICY_REJECT_ON_WIFI?\n\n(I always thought \u0027WLAN\u0027 is rather uncommon in Android code, or am I wrong there?)",
+      "revId": "5be2bacaa170952da8a4077eba9751f3c3255869",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da3975d1_f495d688",
+        "filename": "core/java/android/os/INetworkManagementService.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-12T19:30:40Z",
+      "side": 1,
+      "message": "OnWifi",
+      "revId": "5be2bacaa170952da8a4077eba9751f3c3255869",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da3975d1_d492d29e",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-12T19:30:40Z",
+      "side": 1,
+      "message": "mWifiBlacklist",
+      "revId": "5be2bacaa170952da8a4077eba9751f3c3255869",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da3975d1_948c4a81",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 1952,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-12T19:30:40Z",
+      "side": 1,
+      "message": "That checks looks a bit superfluous?",
+      "revId": "5be2bacaa170952da8a4077eba9751f3c3255869",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
