@@ -139,6 +139,24 @@
       "revId": "5be2bacaa170952da8a4077eba9751f3c3255869",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da3975d1_3709202d",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 1952,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-01-13T06:49:04Z",
+      "side": 1,
+      "message": "removed.",
+      "parentUuid": "da3975d1_948c4a81",
+      "revId": "5be2bacaa170952da8a4077eba9751f3c3255869",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
