@@ -16,6 +16,7 @@
 
 package com.android.systemui.statusbar.phone;
 
+
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
 
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_HOME_DISABLED;
@@ -65,6 +66,7 @@ import android.widget.FrameLayout;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.systemui.Dependency;
+
 import com.android.systemui.Interpolators;
 import com.android.systemui.R;
 import com.android.systemui.assist.AssistHandleViewController;
@@ -124,6 +126,7 @@ public class NavigationBarView extends FrameLayout implements
     private final int[] mTmpPosition = new int[2];
     private Rect mTmpBounds = new Rect();
 
+
     private KeyButtonDrawable mBackIcon;
     private KeyButtonDrawable mHomeDefaultIcon;
     private KeyButtonDrawable mRecentIcon;
@@ -159,6 +162,14 @@ public class NavigationBarView extends FrameLayout implements
     private NotificationPanelViewController mPanelView;
     private FloatingRotationButton mFloatingRotationButton;
     private RotationButtonController mRotationButtonController;
+
+
+    private int mBasePaddingBottom;
+    private int mBasePaddingLeft;
+    private int mBasePaddingRight;
+    private int mBasePaddingTop;
+
+    private ViewGroup mNavigationBarContents;
 
     /**
      * Helper that is responsible for showing the right toast when a disallowed activity operation
@@ -253,6 +264,7 @@ public class NavigationBarView extends FrameLayout implements
                 public boolean performAccessibilityAction(View host, int action, Bundle args) {
                     if (action == R.id.action_toggle_overview) {
                         Dependency.get(Recents.class).toggleRecentApps();
+
                     } else {
                         return super.performAccessibilityAction(host, action, args);
                     }
@@ -278,6 +290,7 @@ public class NavigationBarView extends FrameLayout implements
             // If the button will actually become visible and the navbar is about to hide,
             // tell the statusbar to keep it around for longer
             mAutoHideController.touchAutoHide();
+
         }
         notifyActiveTouchRegions();
     };
@@ -319,6 +332,7 @@ public class NavigationBarView extends FrameLayout implements
                 R.style.RotateButtonCCWStart90,
                 isGesturalMode ? mFloatingRotationButton : rotateSuggestionButton,
                 mRotationButtonListener);
+
 
         mConfiguration = new Configuration();
         mTmpLastConfiguration = new Configuration();
@@ -384,6 +398,7 @@ public class NavigationBarView extends FrameLayout implements
         mPanelView = panel;
         updatePanelSystemUiStateFlags();
     }
+
 
     public void setOnVerticalChangedListener(OnVerticalChangedListener onVerticalChangedListener) {
         mOnVerticalChangedListener = onVerticalChangedListener;
@@ -915,11 +930,13 @@ public class NavigationBarView extends FrameLayout implements
 
     @Override
     public void onNavigationModeChanged(int mode) {
+
         mNavBarMode = mode;
         mBarTransitions.onNavigationModeChanged(mNavBarMode);
         mEdgeBackGestureHandler.onNavigationModeChanged(mNavBarMode);
         mRecentsOnboarding.onNavigationModeChanged(mNavBarMode);
         getRotateSuggestionButton().onNavigationModeChanged(mNavBarMode);
+
 
         if (isGesturalMode(mNavBarMode)) {
             mRegionSamplingHelper.start(mSamplingBounds);
@@ -938,6 +955,18 @@ public class NavigationBarView extends FrameLayout implements
         mRecentsOnboarding.hide(true);
     }
 
+    public void shiftNavigationBarItems(int horizontalShift, int verticalShift) {
+        if (mNavigationBarContents == null) {
+            return;
+        }
+
+        mNavigationBarContents.setPaddingRelative(mBasePaddingLeft + horizontalShift,
+                mBasePaddingTop + verticalShift,
+                mBasePaddingRight + horizontalShift,
+                mBasePaddingBottom - verticalShift);
+        invalidate();
+    }
+
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
@@ -945,6 +974,13 @@ public class NavigationBarView extends FrameLayout implements
         mNavigationInflaterView.setButtonDispatchers(mButtonDispatchers);
 
         getImeSwitchButton().setOnClickListener(mImeSwitcherClickListener);
+
+        mNavigationBarContents = (ViewGroup) findViewById(R.id.nav_buttons);
+
+        mBasePaddingLeft = mNavigationBarContents.getPaddingStart();
+        mBasePaddingTop = mNavigationBarContents.getPaddingTop();
+        mBasePaddingRight = mNavigationBarContents.getPaddingEnd();
+        mBasePaddingBottom = mNavigationBarContents.getPaddingBottom();
 
         Divider divider = Dependency.get(Divider.class);
         divider.registerInSplitScreenListener(mDockedListener);
@@ -986,6 +1022,7 @@ public class NavigationBarView extends FrameLayout implements
         super.onLayout(changed, left, top, right, bottom);
 
         notifyActiveTouchRegions();
+
         mRecentsOnboarding.setNavBarHeight(getMeasuredHeight());
     }
 
@@ -1016,9 +1053,11 @@ public class NavigationBarView extends FrameLayout implements
     private void updateButtonLocation(ButtonDispatcher button, boolean inScreenSpace) {
         View view = button.getCurrentView();
         if (view == null || !button.isVisible()) {
+
             return;
         }
         updateButtonLocation(view, inScreenSpace);
+
     }
 
     private void updateButtonLocation(View view, boolean inScreenSpace) {
