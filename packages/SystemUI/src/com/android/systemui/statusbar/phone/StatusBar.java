@@ -231,6 +231,7 @@ import com.android.systemui.statusbar.phone.UnlockMethodCache.OnUnlockMethodChan
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.BatteryController.BatteryStateChangeCallback;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
+import com.android.systemui.statusbar.policy.BurnInProtectionController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener;
 import com.android.systemui.statusbar.policy.DarkIconDispatcher;
@@ -407,6 +408,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             "lineagesystem:" + LineageSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
     private static final String LOCKSCREEN_MEDIA_METADATA =
             "lineagesecure:" + LineageSettings.Secure.LOCKSCREEN_MEDIA_METADATA;
+    private static final String SYSTEMUI_BURNIN_PROTECTION =
+            "lineagesystem:" + LineageSettings.System.SYSTEMUI_BURNIN_PROTECTION;
 
     static {
         boolean onlyCoreApps;
@@ -440,6 +443,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected FingerprintUnlockController mFingerprintUnlockController;
     LightBarController mLightBarController;
     protected LockscreenWallpaper mLockscreenWallpaper;
+    private BurnInProtectionController mBurnInProtectionController;
 
     int mNaturalBarHeight = -1;
 
@@ -589,6 +593,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                 mWindowManager.removeViewImmediate(mNavigationBarView);
                 mNavigationBarView = null;
             }
+            if (mBurnInProtectionController != null) {
+                mBurnInProtectionController.setNavigationBarView(
+                        visible ? (NavigationBarView) mNavigationBarView : null);
+            }
         }
     }
 
@@ -670,6 +678,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     private boolean mScreenOn;
     private boolean mKeyguardShowingMedia;
     private boolean mShowMediaMetadata;
+    private boolean mBurnInProtectionEnabled;
 
     private MediaSessionManager mMediaSessionManager;
     private MediaController mMediaController;
@@ -1076,7 +1085,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         Dependency.get(TunerService.class).addTunable(this,
                 SCREEN_BRIGHTNESS_MODE,
                 STATUS_BAR_BRIGHTNESS_CONTROL,
-                LOCKSCREEN_MEDIA_METADATA);
+                LOCKSCREEN_MEDIA_METADATA,
+                SYSTEMUI_BURNIN_PROTECTION);
 
         // Lastly, call to the icon policy to install/update all the icons.
         mIconPolicy = new PhoneStatusBarPolicy(mContext, mIconController);
@@ -1183,6 +1193,11 @@ public class StatusBar extends SystemUI implements DemoMode,
             mNotificationPanelDebugText = (TextView) mNotificationPanel.findViewById(
                     R.id.header_debug_info);
             mNotificationPanelDebugText.setVisibility(View.VISIBLE);
+        }
+
+        if (mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_enableBurnInProtection)) {
+            mBurnInProtectionController = new BurnInProtectionController(mContext, mStatusBarView);
         }
 
         try {
@@ -5558,6 +5573,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             mStackScroller.setAnimationsEnabled(false);
             mVisualStabilityManager.setScreenOn(false);
             updateVisibleToUser();
+            if (mBurnInProtectionController != null) {
+                mBurnInProtectionController.stopShiftTimer(mBurnInProtectionEnabled);
+            }
 
             // We need to disable touch events because these might
             // collapse the panel after we expanded it, and thus we would end up with a blank
@@ -5596,6 +5614,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 
             mDozeServiceHost.stopDozing();
             updateVisibleToUser();
+            if (mBurnInProtectionController != null) {
+                mBurnInProtectionController.startShiftTimer(mBurnInProtectionEnabled);
+            }
             updateIsKeyguard();
         }
     };
@@ -7910,6 +7931,17 @@ public class StatusBar extends SystemUI implements DemoMode,
                 break;
             case LOCKSCREEN_MEDIA_METADATA:
                 mShowMediaMetadata = newValue == null || Integer.parseInt(newValue) == 1;
+                break;
+            case SYSTEMUI_BURNIN_PROTECTION:
+                mBurnInProtectionEnabled = newValue != null && Integer.parseInt(newValue) == 1;
+                if (mBurnInProtectionController != null) {
+                    if (mBurnInProtectionEnabled) {
+                        mBurnInProtectionController.startShiftTimer(true);
+                    } else {
+                        // Forcefully disable it
+                        mBurnInProtectionController.stopShiftTimer(true);
+                    }
+                }
                 break;
             default:
                 break;
