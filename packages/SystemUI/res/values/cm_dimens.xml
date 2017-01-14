@@ -29,4 +29,7 @@
 
     <dimen name="navbar_single_hand_mode_horizontal_threshhold">90dp</dimen>
     <dimen name="navbar_single_hand_mode_vertical_threshhold">48dp</dimen>
+
+    <dimen name="burnin_protection_horizontal_shift">3dp</dimen>
+    <dimen name="burnin_protection_vertical_shift">1dp</dimen>
 </resources>
