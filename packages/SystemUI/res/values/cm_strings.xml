@@ -100,6 +100,9 @@
     <string name="menu_ime_always_show">Menu / Keyboard Switcher (always show)</string>
     <string name="search">Search</string>
 
+    <!-- Name of the battery status bar icon. -->
+    <string name="status_bar_battery">Battery</string>
+
     <!-- Wi-Fi hotspot label when enabled -->
     <plurals name="wifi_hotspot_connected_clients_label">
         <item quantity="one">%1$d client</item>
