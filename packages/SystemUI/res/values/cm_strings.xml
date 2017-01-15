@@ -102,6 +102,8 @@
 
     <!-- Name of the battery status bar icon. -->
     <string name="status_bar_battery">Battery</string>
+    <!-- Name of the clock status bar icon -->
+    <string name="status_bar_clock">Clock</string>
 
     <!-- Wi-Fi hotspot label when enabled -->
     <plurals name="wifi_hotspot_connected_clients_label">
