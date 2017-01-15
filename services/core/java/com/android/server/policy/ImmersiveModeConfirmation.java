@@ -23,6 +23,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Binder;
@@ -87,6 +88,14 @@ public class ImmersiveModeConfirmation {
                 .getInteger(R.integer.config_immersive_mode_confirmation_panic);
         mWindowManager = (WindowManager)
                 mContext.getSystemService(Context.WINDOW_SERVICE);
+
+        mConfirmed = hasBypassPermission();
+    }
+
+    private boolean hasBypassPermission() {
+        return mContext.checkCallingOrSelfPermission(
+                   android.Manifest.permission.BYPASS_IMMERSIVE_MODE_CONFIRMATION)
+                       == PackageManager.PERMISSION_GRANTED;
     }
 
     private long getNavBarExitDuration() {
@@ -108,9 +117,17 @@ public class ImmersiveModeConfirmation {
         } catch (Throwable t) {
             Slog.w(TAG, "Error loading confirmations, value=" + value, t);
         }
+        if (hasBypassPermission()) {
+            mConfirmed = true;
+        }
     }
 
     private void saveSetting() {
+        if (hasBypassPermission()) {
+            if (DEBUG) Slog.d(TAG, "Not saving because we are bypassing confirmation");
+            return;
+        }
+
         if (DEBUG) Slog.d(TAG, "saveSetting()");
         try {
             final String value = mConfirmed ? CONFIRMED : null;

@@ -2066,6 +2066,11 @@
     <permission android:name="android.permission.RESET_SHORTCUT_MANAGER_THROTTLING"
         android:protectionLevel="signature" />
 
+    <!-- Allows the system to bypass the immersive mode confirmation
+         @hide -->
+    <permission android:name="android.permission.BYPASS_IMMERSIVE_MODE_CONFIRMATION"
+        android:protectionLevel="signature" />
+
     <!-- ========================================= -->
     <!-- Permissions for special development tools -->
     <!-- ========================================= -->
