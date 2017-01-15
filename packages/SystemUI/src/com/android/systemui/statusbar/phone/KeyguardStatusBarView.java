@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.util.ArraySet;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -33,6 +34,7 @@ import com.android.systemui.BatteryMeterView;
 import com.android.systemui.Interpolators;
 import com.android.systemui.R;
 import com.android.systemui.qs.QSPanel;
+import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.KeyguardUserSwitcher;
 import com.android.systemui.statusbar.policy.UserInfoController;
@@ -72,11 +74,14 @@ public class KeyguardStatusBarView extends RelativeLayout
     private int mSystemIconsBaseMargin;
     private View mSystemIconsContainer;
 
+    private final String mSlotBattery;
     private boolean mShowBatteryText;
     private Boolean mForceBatteryText;
 
     public KeyguardStatusBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        mSlotBattery = context.getString(com.android.internal.R.string.status_bar_battery);
     }
 
     @Override
@@ -209,7 +214,7 @@ public class KeyguardStatusBarView extends RelativeLayout
         }
         mBatteryListening = listening;
         if (mBatteryListening) {
-            TunerService.get(getContext()).addTunable(this,
+            TunerService.get(getContext()).addTunable(this, StatusBarIconController.ICON_BLACKLIST,
                     STATUS_BAR_SHOW_BATTERY_PERCENT, STATUS_BAR_BATTERY_STYLE);
             mBatteryController.addStateChangedCallback(this);
         } else {
@@ -347,6 +352,12 @@ public class KeyguardStatusBarView extends RelativeLayout
     @Override
     public void onTuningChanged(String key, String newValue) {
         switch (key) {
+            case StatusBarIconController.ICON_BLACKLIST:
+                ArraySet<String> icons = StatusBarIconController.getIconBlacklist(newValue);
+                if (icons.contains(mSlotBattery)) {
+                    mForceBatteryText = false;
+                }
+                break;
             case STATUS_BAR_SHOW_BATTERY_PERCENT:
                 mShowBatteryText = newValue != null && Integer.parseInt(newValue) == 2;
                 break;
@@ -355,8 +366,6 @@ public class KeyguardStatusBarView extends RelativeLayout
                     final int value = Integer.parseInt(newValue);
                     if (value == BatteryMeterDrawable.BATTERY_STYLE_TEXT) {
                         mForceBatteryText = true;
-                    } else if (value == BatteryMeterDrawable.BATTERY_STYLE_HIDDEN) {
-                        mForceBatteryText = false;
                     } else {
                         mForceBatteryText = null;
                     }
