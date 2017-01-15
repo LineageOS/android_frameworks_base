@@ -3643,7 +3643,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     mHomePressed = true;
                     performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
                     performKeyAction(mLongPressOnHomeBehavior, event);
-                    mHomeConsumed = true;
+                    if (mLongPressOnHomeBehavior != KEY_ACTION_SLEEP) {
+                        mHomeConsumed = true;
+                    }
                 }
             }
             return -1;
