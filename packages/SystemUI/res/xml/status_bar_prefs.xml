@@ -89,9 +89,8 @@
 
     <!-- secure -->
 
-    <com.android.systemui.tuner.ClockPreference
-        android:title="@string/tuner_time"
-        android:summary="%s"
-        android:entries="@array/clock_options" />
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:key="clock"
+        android:title="@string/status_bar_clock" />
 
 </PreferenceScreen>
