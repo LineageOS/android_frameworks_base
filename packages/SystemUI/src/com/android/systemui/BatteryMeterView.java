@@ -38,11 +38,14 @@ public class BatteryMeterView extends ImageView implements
             "cmsystem:" + CMSettings.System.STATUS_BAR_BATTERY_STYLE;
 
     private BatteryMeterDrawable mDrawable;
-    private final String mSlotBattery;
     private BatteryController mBatteryController;
 
     private final Context mContext;
     private final int mFrameColor;
+    private final String mSlotBattery;
+
+    private boolean mIsBlacklisted = false;
+    private int mBatteryStyle = BatteryMeterDrawable.BATTERY_STYLE_PORTRAIT;
 
     public BatteryMeterView(Context context) {
         this(context, null, 0);
@@ -83,10 +86,12 @@ public class BatteryMeterView extends ImageView implements
     public void onTuningChanged(String key, String newValue) {
         if (StatusBarIconController.ICON_BLACKLIST.equals(key)) {
             ArraySet<String> icons = StatusBarIconController.getIconBlacklist(newValue);
-            setVisibility(icons.contains(mSlotBattery) ? View.GONE : View.VISIBLE);
-        } else if (STATUS_BAR_BATTERY_STYLE.equals(key)) {
-            updateBatteryStyle(newValue);
+            mIsBlacklisted = icons.contains(mSlotBattery);
+        } else if (STATUS_BAR_BATTERY_STYLE.equals(key) && newValue != null) {
+            mBatteryStyle = Integer.parseInt(newValue);
         }
+
+        updateBatteryStyle();
     }
 
     @Override
@@ -127,22 +132,17 @@ public class BatteryMeterView extends ImageView implements
         mDrawable.setDarkIntensity(f);
     }
 
-    private void updateBatteryStyle(String styleStr) {
-        final int style = styleStr == null ?
-                BatteryMeterDrawable.BATTERY_STYLE_PORTRAIT : Integer.parseInt(styleStr);
-
-        switch (style) {
-            case BatteryMeterDrawable.BATTERY_STYLE_TEXT:
-            case BatteryMeterDrawable.BATTERY_STYLE_HIDDEN:
-                setVisibility(View.GONE);
-                setImageDrawable(null);
-                break;
-            default:
-                mDrawable = new BatteryMeterDrawable(mContext, new Handler(), mFrameColor, style);
-                setImageDrawable(mDrawable);
-                setVisibility(View.VISIBLE);
-                break;
+    private void updateBatteryStyle() {
+        if (mBatteryStyle == BatteryMeterDrawable.BATTERY_STYLE_TEXT || mIsBlacklisted) {
+            setVisibility(View.GONE);
+            setImageDrawable(null);
+        } else {
+            mDrawable = new BatteryMeterDrawable(mContext, new Handler(), mFrameColor,
+                    mBatteryStyle);
+            setImageDrawable(mDrawable);
+            setVisibility(View.VISIBLE);
         }
+
         restoreDrawableAttributes();
         requestLayout();
     }

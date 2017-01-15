@@ -18,10 +18,12 @@ package com.android.systemui;
 
 import android.content.Context;
 import android.icu.text.NumberFormat;
+import android.util.ArraySet;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.tuner.TunerService;
 
@@ -36,11 +38,16 @@ public class BatteryLevelTextView extends TextView implements
             "cmsystem:" + CMSettings.System.STATUS_BAR_BATTERY_STYLE;
 
     private BatteryController mBatteryController;
+    private final String mSlotBattery;
 
+    private boolean mIsBlacklisted = false;
     private boolean mRequestedVisibility;
+    private int mBatteryStyle = BatteryMeterDrawable.BATTERY_STYLE_PORTRAIT;
 
     public BatteryLevelTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        mSlotBattery = context.getString(com.android.internal.R.string.status_bar_battery);
     }
 
     @Override
@@ -51,7 +58,7 @@ public class BatteryLevelTextView extends TextView implements
     public void setBatteryController(BatteryController batteryController) {
         mBatteryController = batteryController;
         mBatteryController.addStateChangedCallback(this);
-        TunerService.get(getContext()).addTunable(this,
+        TunerService.get(getContext()).addTunable(this, StatusBarIconController.ICON_BLACKLIST,
                 STATUS_BAR_SHOW_BATTERY_PERCENT, STATUS_BAR_BATTERY_STYLE);
     }
 
@@ -72,28 +79,30 @@ public class BatteryLevelTextView extends TextView implements
 
     @Override
     public void onTuningChanged(String key, String newValue) {
+        boolean isStyleText = false;
+
         switch (key) {
+            case StatusBarIconController.ICON_BLACKLIST:
+                ArraySet<String> icons = StatusBarIconController.getIconBlacklist(newValue);
+                mIsBlacklisted = icons.contains(mSlotBattery);
+                break;
             case STATUS_BAR_SHOW_BATTERY_PERCENT:
                 mRequestedVisibility = newValue != null && Integer.parseInt(newValue) == 2;
-                setVisibility(mRequestedVisibility ? View.VISIBLE : View.GONE);
                 break;
             case STATUS_BAR_BATTERY_STYLE:
-                final int value = newValue == null ?
-                        BatteryMeterDrawable.BATTERY_STYLE_PORTRAIT : Integer.parseInt(newValue);
-                switch (value) {
-                    case BatteryMeterDrawable.BATTERY_STYLE_TEXT:
-                        setVisibility(View.VISIBLE);
-                        break;
-                    case BatteryMeterDrawable.BATTERY_STYLE_HIDDEN:
-                        setVisibility(View.GONE);
-                        break;
-                    default:
-                        setVisibility(mRequestedVisibility ? View.VISIBLE : View.GONE);
-                        break;
+                if (newValue != null) {
+                    mBatteryStyle = Integer.parseInt(newValue);
                 }
                 break;
             default:
                 break;
+        }
+
+        if (!mIsBlacklisted && (mRequestedVisibility
+                || mBatteryStyle == BatteryMeterDrawable.BATTERY_STYLE_TEXT)) {
+            setVisibility(View.VISIBLE);
+        } else {
+            setVisibility(View.GONE);
         }
     }
 }
