@@ -829,10 +829,7 @@ public class MobileSignalController extends SignalController<
             qsDataTypeIcon = TelephonyIcons.getQSDataTypeIcon(slotId);
         }
         if (roaming && !mContext.getResources().getBoolean(
-                    R.bool.show_roaming_and_network_icons)
-                    && !(mStyle == STATUS_BAR_STYLE_EXTENDED)
-                    && !mContext.getResources().getBoolean(
-                    R.bool.config_always_hide_roaming_indicator)) {
+                    R.bool.show_roaming_and_network_icons) && !(mStyle == STATUS_BAR_STYLE_EXTENDED)) {
             dataTypeIcon = TelephonyIcons.ROAMING_ICON;
             qsDataTypeIcon = TelephonyIcons.QS_DATA_R;
         }
