@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba3e81b7_1fe2af03",
+        "filename": "packages/SystemUI/res/layout/location_mode_panel.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 13482
+      },
+      "writtenOn": "2017-01-16T14:29:12Z",
+      "side": 1,
+      "message": "Preserve original copyrights please",
+      "range": {
+        "startLine": 3,
+        "startChar": 5,
+        "endLine": 3,
+        "endChar": 45
+      },
+      "revId": "161b99b8f849a3f003f5c6520a0ebf511462e5a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
