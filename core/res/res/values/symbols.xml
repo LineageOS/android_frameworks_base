@@ -2732,6 +2732,8 @@
   <java-symbol type="string" name="adb_both_active_notification_title" />
   <java-symbol type="string" name="adb_active_generic_notification_message" />
 
+  <java-symbol type="bool" name="config_useDefaultBatchingForAccel" />
+
   <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
 
   <java-symbol type="string" name="power_key_emergency_number" />
