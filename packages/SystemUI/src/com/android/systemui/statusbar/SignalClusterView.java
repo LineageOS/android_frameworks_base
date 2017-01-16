@@ -111,7 +111,6 @@ public class SignalClusterView
     private boolean mBlockMobile;
     private boolean mBlockWifi;
     private boolean mBlockEthernet;
-    private TelephonyManager mTelephonyManager;
 
     public SignalClusterView(Context context) {
         this(context, null);
@@ -138,7 +137,6 @@ public class SignalClusterView
         TypedValue typedValue = new TypedValue();
         res.getValue(R.dimen.status_bar_icon_scale_factor, typedValue, true);
         mIconScaleFactor = typedValue.getFloat();
-        mTelephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
     }
 
     @Override
@@ -737,7 +735,6 @@ public class SignalClusterView
 
             mMobileSingleGroup = (ViewGroup) root.findViewById(R.id.mobile_signal_single);
             mMobileStackedGroup = (ViewGroup) root.findViewById(R.id.mobile_signal_stacked);
-            mRoaming        = (ImageView) root.findViewById(R.id.mobile_roaming);
         }
 
         public boolean apply(boolean isSecondaryIcon) {
@@ -788,14 +785,6 @@ public class SignalClusterView
                     mMobileStackedGroup.setVisibility(View.GONE);
                 }
 
-                if (mContext.getResources().getBoolean(R.bool.show_roaming_and_network_icons)
-                        &&(mTelephonyManager != null
-                        && mTelephonyManager.isNetworkRoaming(mSubId))) {
-                    mRoaming.setImageDrawable(getContext().getResources().getDrawable(
-                            R.drawable.stat_sys_data_fully_connected_roam));
-                } else {
-                    mRoaming.setImageDrawable(null);
-                }
                 mMobileGroup.setContentDescription(mMobileTypeDescription
                         + " " + mMobileDescription);
                 mMobileGroup.setVisibility(View.VISIBLE);
