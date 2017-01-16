@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba3e81b7_245d6aea",
+        "filename": "services/core/java/com/android/server/policy/WindowOrientationListener.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2017-01-16T03:43:39Z",
+      "side": 1,
+      "message": "frameworks/base/services/core/java/com/android/server/policy/WindowOrientationListener.java:96: error: \u0027)\u0027 expected\n            com.android.internal.R.bool.config_useDefaultBatchingForAccel;\n                                                                         ^\n1 error",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 74
+      },
+      "revId": "a56e09f7aa06f8ee25268b73f5ccf10ad6f1170a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
