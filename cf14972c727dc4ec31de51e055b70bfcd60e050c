@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba3e81b7_44098e2b",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 2717,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2017-01-16T01:14:25Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 2717,
+        "startChar": 63,
+        "endLine": 2717,
+        "endChar": 64
+      },
+      "revId": "cf14972c727dc4ec31de51e055b70bfcd60e050c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
