@@ -1679,9 +1679,5 @@
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"輕觸以瞭解詳情。"</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"「<xliff:g id="LABEL">%1$s</xliff:g>」已停用"</string>
     <string name="global_action_reboot">"重新啟動"</string>
-    <!-- Carrier Name -->
-    <string name="China_Mobile">中國移動</string>
-    <string name="China_Unicom">中國聯通</string>
-    <string name="China_Telecom">中國電信</string>
     <string name="conference_call" msgid="3751093130790472426">"會議通話"</string>
 </resources>
