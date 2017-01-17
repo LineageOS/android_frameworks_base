@@ -148,8 +148,7 @@ public class CallbackHandler extends Handler implements EmergencyListener, Signa
             final boolean activityOut, final int dataActivityId, final int mobileActivityId,
             final int stackedDataIcon, final int stackedVoiceIcon,
             final String typeContentDescription, final String description, final boolean isWide,
-            final int subId, final int dataNetworkTypeInRoamingId, final int embmsIconId,
-            final int imsIconId, final boolean isImsOverWifi) {
+            final int subId, final int dataNetworkTypeInRoamingId, final int embmsIconId) {
         post(new Runnable() {
             @Override
             public void run() {
@@ -160,7 +159,7 @@ public class CallbackHandler extends Handler implements EmergencyListener, Signa
                                 activityOut, dataActivityId, mobileActivityId,
                                 stackedDataIcon, stackedVoiceIcon, typeContentDescription,
                                 description, isWide, subId, dataNetworkTypeInRoamingId,
-                                embmsIconId, imsIconId, isImsOverWifi);
+                                embmsIconId);
                     } else {
                         signalCluster.setMobileDataIndicators(statusIcon, qsIcon, statusType,
                                 qsType, activityIn, activityOut, dataActivityId,
