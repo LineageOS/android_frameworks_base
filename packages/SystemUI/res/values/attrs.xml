@@ -105,5 +105,9 @@
     <declare-styleable name="AutoSizingList">
         <attr name="itemHeight" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="TileAdapter">
+        <attr name="adapterBackground" format="color" />
+    </declare-styleable>
 </resources>
 
