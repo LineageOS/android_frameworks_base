@@ -20,7 +20,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.net.NetworkCapabilities;
 import android.os.Looper;
-import android.os.SystemProperties;
 import android.telephony.PhoneStateListener;
 import android.telephony.ServiceState;
 import android.telephony.SignalStrength;
@@ -37,7 +36,6 @@ import com.android.internal.telephony.cdma.EriInfo;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
-import com.android.systemui.statusbar.policy.NetworkController.SignalCallbackExtended;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl.Config;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl.SubscriptionDefaults;
 
@@ -80,7 +78,6 @@ public class MobileSignalController extends SignalController<
     private final int STATUS_BAR_STYLE_CDMA_1X_COMBINED = 1;
     private final int STATUS_BAR_STYLE_DEFAULT_DATA = 2;
     private final int STATUS_BAR_STYLE_DATA_VOICE = 3;
-    private final int STATUS_BAR_STYLE_EXTENDED = 4;
     private int mStyle = STATUS_BAR_STYLE_ANDROID_DEFAULT;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
@@ -111,10 +108,6 @@ public class MobileSignalController extends SignalController<
         }
 
         mStyle = context.getResources().getInteger(R.integer.status_bar_style);
-        //TODO - Remove this when status_bar_style is set to 4 for carrier one in carrier config
-        if (isCarrierOneSupported()) {
-            mStyle = STATUS_BAR_STYLE_EXTENDED;
-        }
 
         String networkName = info.getCarrierName() != null ? info.getCarrierName().toString()
                 : mNetworkNameDefault;
@@ -124,12 +117,6 @@ public class MobileSignalController extends SignalController<
         mLastState.iconGroup = mCurrentState.iconGroup = mDefaultIcons;
         // Get initial data sim state.
         updateDataSim();
-    }
-
-    //TODO - Remove this when carrier pack is enabled for carrier one
-    public static boolean isCarrierOneSupported() {
-        String property = SystemProperties.get("persist.radio.atel.carrier");
-        return "405854".equals(property);
     }
 
     public void setConfiguration(Config config) {
@@ -268,7 +255,7 @@ public class MobileSignalController extends SignalController<
         // Show icon in QS when we are connected or need to show roaming or data is disabled.
         boolean showDataIcon = mCurrentState.dataConnected
                 || mCurrentState.iconGroup == TelephonyIcons.ROAMING
-                || isRoaming() || dataDisabled;
+                || dataDisabled;
         IconState statusIcon = new IconState(mCurrentState.enabled && !mCurrentState.airplaneMode,
                 getCurrentIconId(), contentDescription);
 
@@ -291,55 +278,15 @@ public class MobileSignalController extends SignalController<
         showDataIcon &= mCurrentState.isDefault
                 || mCurrentState.iconGroup == TelephonyIcons.ROAMING
                 || dataDisabled;
-        showDataIcon &= (mStyle == STATUS_BAR_STYLE_ANDROID_DEFAULT
-                || mStyle == STATUS_BAR_STYLE_EXTENDED);
+        showDataIcon &= mStyle == STATUS_BAR_STYLE_ANDROID_DEFAULT;
         int typeIcon = showDataIcon ? icons.mDataType : 0;
         int dataActivityId = showMobileActivity() ? 0 : icons.mActivityId;
         int mobileActivityId = showMobileActivity() ? icons.mActivityId : 0;
-        if( callback instanceof SignalCallbackExtended ) {
-            ((SignalCallbackExtended)callback).setMobileDataIndicators(statusIcon, qsIcon, typeIcon,
-                    qsTypeIcon, activityIn, activityOut, dataActivityId, mobileActivityId,
-                    icons.mStackedDataIcon, icons.mStackedVoiceIcon,
-                    dataContentDescription, description, icons.mIsWide,
-                    mSubscriptionInfo.getSubscriptionId(), getdataNetworkTypeInRoamingId(),
-                    getEmbmsIconId());
-        } else {
-            callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
-                    activityIn, activityOut, dataActivityId, mobileActivityId,
-                    icons.mStackedDataIcon, icons.mStackedVoiceIcon,
-                    dataContentDescription, description, icons.mIsWide,
-                    mSubscriptionInfo.getSubscriptionId());
-        }
-    }
-
-    private int getdataNetworkTypeInRoamingId() {
-        if ((mStyle == STATUS_BAR_STYLE_EXTENDED) && isRoaming()
-                && mCurrentState.dataConnected) {
-            int dataType = getDataNetworkType();
-            if (dataType == TelephonyManager.NETWORK_TYPE_LTE) {
-                return R.drawable.stat_sys_data_fully_connected_lte_networktype_in_roam;
-            } else if (dataType == TelephonyManager.NETWORK_TYPE_LTE_CA) {
-                return R.drawable.stat_sys_data_fully_connected_lte_plus_networktype_in_roam;
-            } else {
-                return 0;
-            }
-        } else {
-            return 0;
-        }
-    }
-
-    private int getEmbmsIconId() {
-        if (mStyle == STATUS_BAR_STYLE_EXTENDED
-                && isEmbmsActiveOnDataSim()) {
-            return R.drawable.lte_embms_services_all_brackets;
-        } else {
-            return 0;
-        }
-    }
-
-    private boolean isEmbmsActiveOnDataSim() {
-        return mNetworkController.isEmbmsActive()
-                && mCurrentState.dataSim;
+        callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
+                activityIn, activityOut, dataActivityId, mobileActivityId,
+                icons.mStackedDataIcon, icons.mStackedVoiceIcon,
+                dataContentDescription, description, icons.mIsWide,
+                mSubscriptionInfo.getSubscriptionId());
     }
 
     @Override
@@ -636,6 +583,7 @@ public class MobileSignalController extends SignalController<
         final boolean roaming = isRoaming();
         final int voiceType = getVoiceNetworkType();
         final int dataType =  getDataNetworkType();
+
         int[][] sbIcons = TelephonyIcons.TELEPHONY_SIGNAL_STRENGTH;
         int[][] qsIcons = TelephonyIcons.QS_TELEPHONY_SIGNAL_STRENGTH;
         int[] contentDesc = AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH;
@@ -746,8 +694,7 @@ public class MobileSignalController extends SignalController<
 
     private boolean showMobileActivity() {
         return (mStyle == STATUS_BAR_STYLE_DEFAULT_DATA)
-                || (mStyle == STATUS_BAR_STYLE_ANDROID_DEFAULT)
-                || (mStyle == STATUS_BAR_STYLE_EXTENDED);
+                || (mStyle == STATUS_BAR_STYLE_ANDROID_DEFAULT);
     }
 
     private int getVoiceNetworkType() {
