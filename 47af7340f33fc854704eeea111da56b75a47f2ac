@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba3e81b7_902c494c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "All member variables should have m prefix.",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_7031e5a1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "Reassigning the meaning of \u0027KB\u0027 to kilobit or kilobyte is utterly confusing. IMHO we should stick to one thing (be it bit or byte, even though I prefer byte, I think).",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_5026e169",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "Should probably use a StringBuilder for this.",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_f01cb515",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "if (!output...)",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_b0162df0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "- only members should have m prefix\n- is comparing this constant to other constants below really desired behaviour? (can\u0027t really believe so) If yes, the logic below can be vastly simplified, if no, this variable should be nuked.",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_d019b123",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "Indention is off here.",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_90d32938",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "Should kill this and use sendEmptyMessageDelayed() instead.",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_70d8c553",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "Can simplify this to\n\nmContext.registerReceiver(mIntentReceiver,\n        new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_50ddc141",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "Can simplify to\n\nif (ConnectivityManager.CONNECTIVITY_ACTION.equals(action)) {",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_30e23d04",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "This variable is useless.",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_10e73914",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "Should move this to setDarkIntensity()",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_d0f091cb",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3e81b7_f0e39503",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-01-18T09:02:28Z",
+      "side": 1,
+      "message": "Does it really make sense to have a separate method for this instead of inlining it?",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
