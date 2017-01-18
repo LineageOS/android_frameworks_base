@@ -29,6 +29,8 @@
 package com.android.systemui.statusbar.phone;
 
 import android.graphics.PixelFormat;
+import android.graphics.Rect;
+import android.os.SystemClock;
 import android.util.Slog;
 import android.view.SurfaceControl;
 import android.view.SurfaceSession;
@@ -37,175 +39,238 @@ class BlurLayer {
     private static final boolean DEBUG = true;
     private static final String TAG = BlurLayer.class.getSimpleName();
 
+    /** Actual surface that blurs */
     private SurfaceControl mBlurSurface;
-    private int mLayer = -1;
-    private float mAlpha = 0;
+
+    /** Last value passed to mBlurSurface.setBlur() */
     private float mBlur = 0;
-    private int mX, mY;
-    private int mW, mH;
-    private boolean mIsShowing;
 
-    BlurLayer(SurfaceSession mFxSession, int w, int h, String tag) {
-        this(mFxSession, 0, 0, w, h, tag);
+    /** Last value passed to mBlurSurface.setLayer() */
+    private int mLayer = -1;
+
+    /** Next values to pass to mBlurSurface.setPosition() and mBlurSurface.setSize() */
+    private final Rect mBounds = new Rect();
+
+    /** Last values passed to mBlurSurface.setPosition() and mBlurSurface.setSize() */
+    private final Rect mLastBounds = new Rect();
+
+    /** True after mBlurSurface.show() has been called, false after mBlurSurface.hide(). */
+    private boolean mShowing = false;
+
+    /** Value of mBlur when beginning transition to mTargetBlur */
+    private float mStartBlur = 0;
+
+    /** Final value of mBlur following transition */
+    private float mTargetBlur = 0;
+
+    /** Time in units of SystemClock.uptimeMillis() at which the current transition started */
+    private long mStartTime;
+
+    /** Time in milliseconds to take to transition from mStartBlur to mTargetBlur */
+    private long mDuration;
+
+    private final String mName;
+
+    private boolean mDestroyed = false;
+
+    BlurLayer(String name) {
+        mName = name;
     }
 
-    BlurLayer(SurfaceSession mFxSession, int x, int y, int w, int h, String tag) {
-        mX = x;
-        mY = y;
-        mW = w;
-        mH = h;
-        mIsShowing = false;
-
+    private void constructSurface() {
         SurfaceControl.openTransaction();
         try {
-            mBlurSurface = new SurfaceControl(mFxSession, TAG + "_" + tag, 16, 16,
-                    PixelFormat.OPAQUE, SurfaceControl.FX_SURFACE_BLUR | SurfaceControl.HIDDEN);
+            mBlurSurface = new SurfaceControl(new SurfaceSession(), mName,
+                    16, 16, PixelFormat.OPAQUE,
+                    SurfaceControl.FX_SURFACE_BLUR | SurfaceControl.HIDDEN);
             mBlurSurface.setLayerStack(0);
-            mBlurSurface.setPosition(mX, mY);
-            mBlurSurface.setSize(mW, mH);
+            adjustBounds();
+            adjustBlur(mBlur);
+            adjustLayer(mLayer);
         } catch (Exception e) {
-            Slog.e(TAG, "Exception creating BlurLayer surface", e);
+            Slog.e(TAG, "Exception creating Blur surface", e);
         } finally {
             SurfaceControl.closeTransaction();
         }
+
     }
 
-    public void setSize(int w, int h) {
-        if (mBlurSurface == null || (mW == w && mH == h)) {
-            return;
-        }
-
-        SurfaceControl.openTransaction();
-        try {
-            mBlurSurface.setSize(w, h);
-            mW = w;
-            mH = h;
-        } catch (RuntimeException e) {
-            Slog.w(TAG, "Failure setting setSize immediately", e);
-        } catch (Exception e) {
-            Slog.e(TAG, "Exception setSize", e);
-        } finally {
-            SurfaceControl.closeTransaction();
+    /** @param bounds The new bounds to set */
+    void setBounds(Rect bounds) {
+        mBounds.set(bounds);
+        if (isBlurring() && !mLastBounds.equals(bounds)) {
+            try {
+                SurfaceControl.openTransaction();
+                adjustBounds();
+            } catch (RuntimeException e) {
+                Slog.w(TAG, "Failure setting size", e);
+            } finally {
+                SurfaceControl.closeTransaction();
+            }
         }
     }
 
-    public void setPosition(int x, int y) {
-        if (mBlurSurface == null || (mX == x && mY == y)) {
-            return;
+    /**
+     * NOTE: Must be called with Surface transaction open.
+     */
+    private void adjustBounds() {
+        if (mBlurSurface != null) {
+            mBlurSurface.setPosition(mBounds.left, mBounds.top);
+            mBlurSurface.setSize(mBounds.width(), mBounds.height());
         }
 
-        SurfaceControl.openTransaction();
-        try {
-            mBlurSurface.setPosition(x, y);
-            mX = x;
-            mY = y;
-        } catch (RuntimeException e) {
-            Slog.w(TAG, "Failure setting setPosition immediately", e);
-        } catch (Exception e) {
-            Slog.e(TAG, "Exception setPosition", e);
-        } finally {
-            SurfaceControl.closeTransaction();
-        }
+        mLastBounds.set(mBounds);
     }
 
-    public void setLayer(int layer) {
-        if (mBlurSurface == null || mLayer == layer) {
+    void setLayer(int layer) {
+        if (mLayer == layer) {
             return;
         }
+        mLayer = layer;
+        adjustLayer(layer);
+    }
 
-        SurfaceControl.openTransaction();
-        try {
+    private void adjustLayer(int layer) {
+        if (mBlurSurface != null) {
             mBlurSurface.setLayer(layer);
-            mLayer = layer;
-        } catch (RuntimeException e) {
-            Slog.w(TAG, "Failure setting setLayer immediately", e);
-        } catch (Exception e) {
-            Slog.e(TAG, "Exception setLayer", e);
-        } finally {
-            SurfaceControl.closeTransaction();
         }
     }
 
-    public void setAlpha(float alpha) {
-        if (mBlurSurface == null || mAlpha == alpha) {
+    /** Return true if blur layer is showing */
+    private boolean isBlurring() {
+        return mTargetBlur != 0;
+    }
+
+    /** Return true if in a transition period */
+    private boolean isAnimating() {
+        return mTargetBlur != mBlur;
+    }
+
+    void setBlur(float blur) {
+        if (mBlur == blur) {
+            return;
+        }
+        mBlur = blur;
+        adjustBlur(blur);
+    }
+
+    private void adjustBlur(float blur) {
+        if (DEBUG) Slog.v(TAG, "setBlur blur=" + blur);
+        try {
+            if (mBlurSurface != null) {
+                mBlurSurface.setBlur(blur);
+            }
+            if (blur == 0 && mShowing) {
+                if (DEBUG) Slog.v(TAG, "setBlur hiding");
+                if (mBlurSurface != null) {
+                    mBlurSurface.hide();
+                    mShowing = false;
+                }
+            } else if (blur > 0 && !mShowing) {
+                if (DEBUG) Slog.v(TAG, "setBlur showing");
+                if (mBlurSurface != null) {
+                    mBlurSurface.show();
+                    mShowing = true;
+                }
+            }
+        } catch (RuntimeException e) {
+            Slog.w(TAG, "Failure setting blur immediately", e);
+        }
+    }
+
+    /**
+     * @param duration The time to test.
+     * @return True if the duration would lead to an earlier end to the current animation.
+     */
+    private boolean durationEndsEarlier(long duration) {
+        return SystemClock.uptimeMillis() + duration < mStartTime + mDuration;
+    }
+
+    /** Jump to the end of the animation.
+     * NOTE: Must be called with Surface transaction open. */
+    void show() {
+        if (isAnimating()) {
+            if (DEBUG) Slog.v(TAG, "show: immediate");
+            show(mLayer, mTargetBlur, 0);
+        }
+    }
+
+    /**
+     * Begin an animation to a new blur value.
+     * NOTE: Must be called with Surface transaction open.
+     *
+     * @param layer The layer to set the surface to.
+     * @param blur The blur value to end at.
+     * @param duration How long to take to get there in milliseconds.
+     */
+    void show(int layer, float blur, long duration) {
+        if (DEBUG) Slog.v(TAG, "show: layer=" + layer + " blur=" + blur
+                + " duration=" + duration + ", mDestroyed=" + mDestroyed);
+        if (mDestroyed) {
+            Slog.e(TAG, "show: no Surface");
+            // Make sure isAnimating() returns false.
+            mTargetBlur = mBlur = 0;
             return;
         }
 
-        SurfaceControl.openTransaction();
-        try {
-            mBlurSurface.setAlpha(alpha);
-            mAlpha = alpha;
-        } catch (RuntimeException e) {
-            Slog.w(TAG, "Failure setting alpha immediately", e);
-        } catch (Exception e) {
-            Slog.e(TAG, "Exception setAlpha", e);
-        } finally {
-            SurfaceControl.closeTransaction();
-        }
-    }
-
-    public void setBlur(float blur) {
-        if (mBlurSurface == null || mBlur == blur) {
-            return;
-        }
-
-        SurfaceControl.openTransaction();
-        try {
-            mBlurSurface.setBlur(blur);
-            mBlur = blur;
-        } catch (RuntimeException e) {
-             Slog.w(TAG, "Failure setting blur immediately", e);
-        } catch (Exception e) {
-            Slog.e(TAG, "Exception setBlur", e);
-        } finally {
-            SurfaceControl.closeTransaction();
-        }
-    }
-
-    public void show() {
-        if (mBlurSurface == null || mIsShowing) {
-            return;
-        }
-
-        SurfaceControl.openTransaction();
-        try {
-            mBlurSurface.show();
-            mIsShowing = true;
-        } catch (RuntimeException e) {
-             Slog.w(TAG, "Failure show()", e);
-        } catch (Exception e) {
-            Slog.e(TAG, "Exception show()", e);
-        } finally {
-            SurfaceControl.closeTransaction();
-        }
-    }
-
-    public void hide() {
-        if (mBlurSurface == null || !mIsShowing) {
-            return;
-        }
-
-        SurfaceControl.openTransaction();
-        try {
-            mBlurSurface.hide();
-            mIsShowing = false;
-        } catch (RuntimeException e) {
-             Slog.w(TAG, "Failure hide()", e);
-        } catch (Exception e) {
-            Slog.e(TAG, "Exception hide()", e);
-        } finally {
-            SurfaceControl.closeTransaction();
-        }
-    }
-
-    public void destroySurface() {
-        if (DEBUG) Slog.v(TAG, "destroySurface called");
         if (mBlurSurface == null) {
-            return;
+            constructSurface();
         }
 
-        mBlurSurface.destroy();
-        mBlurSurface = null;
+        if (!mLastBounds.equals(mBounds)) {
+            adjustBounds();
+        }
+        setLayer(layer);
+
+        long curTime = SystemClock.uptimeMillis();
+        final boolean animating = isAnimating();
+        if ((animating && (mTargetBlur != blur || durationEndsEarlier(duration)))
+                || (!animating && mBlur != blur)) {
+            if (duration <= 0) {
+                // No animation required, just set values.
+                setBlur(blur);
+            } else {
+                // Start or continue animation with new parameters.
+                mStartBlur = mBlur;
+                mStartTime = curTime;
+                mDuration = duration;
+            }
+        }
+        mTargetBlur = blur;
+        if (DEBUG) Slog.v(TAG, "show: mStartBlur=" + mStartBlur + " mStartTime="
+                + mStartTime + " mTargetBlur=" + mTargetBlur);
+    }
+
+    /** Immediate hide.
+     * NOTE: Must be called with Surface transaction open. */
+    void hide() {
+        if (mShowing) {
+            if (DEBUG) Slog.v(TAG, "hide: immediate");
+            hide(0);
+        }
+    }
+
+    /**
+     * Gradually fade to transparent.
+     * NOTE: Must be called with Surface transaction open.
+     *
+     * @param duration Time to fade in milliseconds.
+     */
+    void hide(long duration) {
+        if (mShowing && (mTargetBlur != 0 || durationEndsEarlier(duration))) {
+            if (DEBUG) Slog.v(TAG, "hide: duration=" + duration);
+            show(mLayer, 0, duration);
+        }
+    }
+
+    /** Cleanup */
+    void destroySurface() {
+        if (DEBUG) Slog.v(TAG, "destroySurface.");
+        if (mBlurSurface != null) {
+            mBlurSurface.destroy();
+            mBlurSurface = null;
+        }
+        mDestroyed = true;
     }
 }
 
