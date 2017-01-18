@@ -24,6 +24,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.graphics.PixelFormat;
+import android.graphics.Rect;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.os.Trace;
@@ -82,7 +83,6 @@ public class StatusBarWindowManager implements RemoteInputController.Callback,
     private final float mScreenBrightnessDoze;
 
     private final KeyguardMonitor mKeyguardMonitor;
-    private final SurfaceSession mFxSession;
 
     private BlurLayer mBlurLayer;
     private boolean mShowingMedia;
@@ -101,7 +101,6 @@ public class StatusBarWindowManager implements RemoteInputController.Callback,
 
         mKeyguardMonitor = kgm;
         mKeyguardMonitor.addCallback(this);
-        mFxSession = new SurfaceSession();
     }
 
     private boolean shouldEnableKeyguardScreenRotation() {
@@ -151,11 +150,9 @@ public class StatusBarWindowManager implements RemoteInputController.Callback,
                 com.android.internal.R.bool.config_uiBlurEnabled);
         if (isBlurSupported) {
             mCurrentOrientation = mContext.getResources().getConfiguration().orientation;
-            final Point dimensions = getDisplayDimensions(mWindowManager);
-            mBlurLayer = new BlurLayer(mFxSession, dimensions.x, dimensions.y, "KeyGuard");
-            if (mBlurLayer != null) {
-                mBlurLayer.setLayer(STATUS_BAR_LAYER - 2);
-            }
+            mBlurLayer = new BlurLayer("KeyGuard");
+            mBlurLayer.setLayer(STATUS_BAR_LAYER - 2);
+            mBlurLayer.setBounds(getDisplayDimensions(mWindowManager));
             TunerService.get(mContext).addTunable(this, LOCK_SCREEN_BLUR_ENABLED);
         }
 
@@ -436,23 +433,24 @@ public class StatusBarWindowManager implements RemoteInputController.Callback,
             return;
         }
 
-        final Point dimensions = getDisplayDimensions(mWindowManager);
-        mBlurLayer.setSize(dimensions.x, dimensions.y);
+        Rect rect = getDisplayDimensions(mWindowManager);
+        int tmp = rect.width;
+        mBlurLayer.setBounds();
         mCurrentOrientation = newConfig.orientation;
     }
 
-    void setBlur(float b) {
+    void setBlur(float blur) {
         if (!mKeyguardBlurEnabled || mBlurLayer == null) {
             return;
         }
 
         final float minBlur = mKeyguardMonitor.isSecure() ? 1.0f : 0.0f;
-        if (b < minBlur) {
-            b = minBlur;
-        } else if (b > 1.0f) {
-            b = 1.0f;
+        if (blur < minBlur) {
+            blur = minBlur;
+        } else if (blur > 1.0f) {
+            blur = 1.0f;
         }
-        mBlurLayer.setBlur(b);
+        mBlurLayer.setBlur(blur);
     }
 
     void setShowingMedia(boolean showingMedia) {
@@ -474,11 +472,11 @@ public class StatusBarWindowManager implements RemoteInputController.Callback,
         }
     }
 
-    private Point getDisplayDimensions(WindowManager wm) {
+    private Rect getDisplayDimensions(WindowManager wm) {
         final Display display = wm.getDefaultDisplay();
-        final Point xy = new Point();
-        display.getRealSize(xy);
-        return xy;
+        final Rect rect = new Rect();
+        display.getRectSize(rect);
+        return rect;
     }
 
     private static class State {
