@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba3e81b7_cdc7de63",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/BlurLayer.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-01-18T04:53:12Z",
+      "side": 1,
+      "message": "Somehow, if setBlur() is called with a difference value from before, it causes blur to break",
+      "revId": "620479da16e787ce1cb45fb90835e5fc5eb88994",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
