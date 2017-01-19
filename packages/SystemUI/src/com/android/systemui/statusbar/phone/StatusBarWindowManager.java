@@ -428,6 +428,21 @@ public class StatusBarWindowManager implements RemoteInputController.Callback,
         showKeyguardBlur();
     }
 
+    void setBlurAlpha(float alpha, boolean secure) {
+        if (!mKeyguardBlurEnabled || mBlurLayer == null) {
+            return;
+        }
+
+        float min = secure ? 1.0f : 0.0f;
+        if (alpha < min) {
+            alpha = min;
+        } else if (alpha > 1.0f) {
+            alpha = 1.0f;
+        }
+
+        mBlurLayer.setAlpha(alpha);
+    }
+
     private void showKeyguardBlur() {
         if (mBlurLayer == null) {
             return;

@@ -5467,4 +5467,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 break;
         }
     }
+
+    void setBlurAlpha(float alpha) {
+        mStatusBarWindowManager.setBlurAlpha(alpha,
+                mStatusBarKeyguardViewManager != null && mStatusBarKeyguardViewManager.isSecure());
+    }
 }
