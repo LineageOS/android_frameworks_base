@@ -22,6 +22,30 @@
       "revId": "ca5a781456f23ac1722f4dd03c7ff91d9d819c28",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_8fe1d59c",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/PowerUI.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-01-19T22:00:43Z",
+      "side": 1,
+      "message": "IIRC, it\u0027s because during boot:\n*) if power is not connected, we receive a ACTION_POWER_DISCONNECTED\n*) if power is connected, we do not receiving anything.  therefore, power being disconnected later could get suppressed by mIgnoreFirstPowerEvent.\n\nHowever, we always get an ACTION_BATTERY_CHANGED on boot, hence use it to determine whether power is connected boot and conditoinally disable squash of subsequent charging sounds.",
+      "parentUuid": "ba3e81b7_869ad312",
+      "range": {
+        "startLine": 170,
+        "startChar": 16,
+        "endLine": 172,
+        "endChar": 17
+      },
+      "revId": "ca5a781456f23ac1722f4dd03c7ff91d9d819c28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
