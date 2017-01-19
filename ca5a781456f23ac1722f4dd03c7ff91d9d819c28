@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba3e81b7_869ad312",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/PowerUI.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-01-19T07:28:54Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 170,
+        "startChar": 16,
+        "endLine": 172,
+        "endChar": 17
+      },
+      "revId": "ca5a781456f23ac1722f4dd03c7ff91d9d819c28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
