@@ -40,6 +40,9 @@ class BlurLayer {
     /** Actual surface that blurs */
     private SurfaceControl mBlurSurface;
 
+    /** Last value passed to mBlurSurface.setAlpha() */
+    private float mAlpha = 0;
+
     /** Last values passed to mBlurSurface.setSize() */
     private int mW, mH;
 
@@ -77,6 +80,22 @@ class BlurLayer {
             mH = h;
         } catch (RuntimeException e) {
             Slog.w(TAG, "Failure setting setSize immediately", e);
+        } finally {
+            SurfaceControl.closeTransaction();
+        }
+    }
+
+    void setAlpha(float alpha) {
+        if (mBlurSurface == null || mAlpha == alpha) {
+            return;
+        }
+
+        SurfaceControl.openTransaction();
+        try {
+            mBlurSurface.setAlpha(alpha);
+            mAlpha = alpha;
+        } catch (RuntimeException e) {
+            Slog.w(TAG, "Failure setting alpha immediately", e);
         } finally {
             SurfaceControl.closeTransaction();
         }
