@@ -122,10 +122,14 @@ public class TunerActivity extends SettingsDrawerActivity implements
     public static class SubSettingsFragment extends PreferenceFragment {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            if (getTargetFragment() == null) {
+                return;
+            }
             PreferenceScreen p = (PreferenceScreen) ((PreferenceFragment) getTargetFragment())
                     .getPreferenceScreen().findPreference(rootKey);
             setPreferenceScreen(p);
             getActivity().getActionBar().setTitle(p.getTitle());
+            setTargetFragment(null, 0);
         }
     }
 }
