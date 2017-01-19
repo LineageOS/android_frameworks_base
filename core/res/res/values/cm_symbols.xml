@@ -2,6 +2,7 @@
 <!--
      Copyright (C) 2012-2015 The CyanogenMod Project
      Copyright (c) 2013, The Linux Foundation. All rights reserved.
+                   2017  The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -76,4 +77,6 @@
     <!-- config softap extention feature -->
     <java-symbol type="bool" name="config_softap_extention" />
 
+    <!-- PlatLogo -->
+    <java-symbol type="drawable" name="platlogo_lineage" />
 </resources>
