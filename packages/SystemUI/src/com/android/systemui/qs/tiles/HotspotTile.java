@@ -152,7 +152,6 @@ public class HotspotTile extends QSTile<QSTile.AirplaneBooleanState> {
             state.label = mContext.getResources().getQuantityString(
                     R.plurals.wifi_hotspot_connected_clients_label, mNumConnectedClients,
                     mNumConnectedClients);
-            mNumConnectedClients = 0;
         } else {
             state.label = mContext.getString(R.string.quick_settings_hotspot_label);
         }
