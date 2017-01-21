@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_fee6cd15",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2017-01-21T15:33:46Z",
+      "side": 1,
+      "message": "I suggest inserting a blank before the units \" B/s\", \" kB/s\", ... to strongly enhance readability.",
+      "revId": "381bc0eb02aef8c335028698a3c3182d1ef37811",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_3edd7543",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2017-01-21T15:33:46Z",
+      "side": 1,
+      "message": "When data saver mode is active, then the up/down rate is not displayed (while WiFi is disabled, i.e. cellular data active), even when some apps may have special permission to do data transfers. Could this be taken into account somehow?",
+      "revId": "381bc0eb02aef8c335028698a3c3182d1ef37811",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
