@@ -118,6 +118,7 @@ import com.android.internal.os.BinderInternal;
 import com.android.internal.os.RuntimeInit;
 import com.android.internal.os.SamplingProfilerIntegration;
 import com.android.internal.os.SomeArgs;
+import com.android.internal.policy.DecorView;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.FastPrintWriter;
 import com.android.org.conscrypt.OpenSSLSocketImpl;
@@ -3523,7 +3524,10 @@ public final class ActivityThread {
                 l.type = WindowManager.LayoutParams.TYPE_BASE_APPLICATION;
                 l.softInputMode |= forwardBit;
                 if (r.mPreserveWindow) {
-                    a.mWindowAdded = true;
+                    // if the preserve decor view is not attached to window, we
+                    // should make sure that it will been attached in the following
+                    // workflow.
+                    if(DecorView.isAddedToWindow(decor)) a.mWindowAdded = true;
                     r.mPreserveWindow = false;
                     // Normally the ViewRoot sets up callbacks with the Activity
                     // in addView->ViewRootImpl#setView. If we are instead reusing
@@ -3537,6 +3541,7 @@ public final class ActivityThread {
                 if (a.mVisibleFromClient && !a.mWindowAdded) {
                     a.mWindowAdded = true;
                     wm.addView(decor, l);
+                    DecorView.setAddedToWindow(a.mDecor);
                 }
 
             // If the window has already been added, but during resume
