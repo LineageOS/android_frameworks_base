@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_c4c7b211",
+        "filename": "telephony/java/android/telephony/ServiceState.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-01-24T13:49:21Z",
+      "side": 1,
+      "message": "this is redundant since its also checked in isLteOnCdma (or is that intentional for some reason? readability?)",
+      "range": {
+        "startLine": 1198,
+        "startChar": 20,
+        "endLine": 1198,
+        "endChar": 45
+      },
+      "revId": "440176edc859581714ca938e0d252bbfd76971ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_64d6c6c7",
+        "filename": "telephony/java/android/telephony/ServiceState.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-01-24T13:49:21Z",
+      "side": 1,
+      "message": "I don\u0027t understand how this is ever true without setting the prop.\n\nThe only other way it looks to be set is by having a \u0027product_type\u0027 in your kernel cmdline which matches the value of telephony.lteOnCdmaProductType. As far as I can tell that\u0027s not happening on anything.",
+      "range": {
+        "startLine": 1210,
+        "startChar": 15,
+        "endLine": 1210,
+        "endChar": 91
+      },
+      "revId": "440176edc859581714ca938e0d252bbfd76971ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
