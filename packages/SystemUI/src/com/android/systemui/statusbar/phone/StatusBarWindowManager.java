@@ -511,7 +511,7 @@ public class StatusBarWindowManager implements RemoteInputController.Callback,
                 mKeyguardScreenRotation = shouldEnableKeyguardScreenRotation();
                 break;
             case LOCK_SCREEN_BLUR_ENABLED:
-                mKeyguardBlurEnabled = newValue == null || Integer.parseInt(newValue) == 1;
+                mKeyguardBlurEnabled = newValue != null && Integer.parseInt(newValue) == 1;
                 break;
             default:
                 return;
