@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9a437d4f_64eda68b",
+        "filename": "telephony/java/android/telephony/ServiceState.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2017-01-24T14:12:00Z",
+      "side": 1,
+      "message": "I asked him to add it for symmetry with the isGsm.  I had suggested removing it from the isLteOnCdma call but he wanted to leave it there too for consistency with something else.",
+      "parentUuid": "9a437d4f_c4c7b211",
+      "range": {
+        "startLine": 1198,
+        "startChar": 20,
+        "endLine": 1198,
+        "endChar": 45
+      },
+      "revId": "440176edc859581714ca938e0d252bbfd76971ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a437d4f_64d6c6c7",
         "filename": "telephony/java/android/telephony/ServiceState.java",
         "patchSetId": 8
