@@ -28,8 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Valoasetukset</string>
   <string name="led_notification_text">LED-valo otettu käyttöön asetuksissa</string>
-  <!-- Content description of the superuser tile -->
-  <string name="accessibility_su_active">Aktiivinen pääkäyttäjän istunto</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Taskulamppu on päällä</string>
   <string name="quick_settings_tile_flashlight_not_summary">Paina sammuttaaksesi</string>
@@ -95,4 +93,27 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Puhelu</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Järjestelmä</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Soita</item>
+    <!-- STREAM_RING -->
+    <item>Media</item>
+    <!-- STREAM_MUSIC -->
+    <item>Herätys</item>
+    <!-- STREAM_ALARM -->
+    <item>Ilmoitus</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

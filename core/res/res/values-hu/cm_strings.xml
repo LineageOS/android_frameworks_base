@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">Biztonság</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Engedélyek az eszköz biztonsági információira vonatkozóan.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Profil</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Újraindítás</string>
   <!-- label for current user in phone options dialog -->
@@ -42,6 +40,7 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">Download</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">Lágy újraindítás</string>
   <!-- Title of dialog to confirm restarting. -->
   <string name="reboot_title">Újraindítás</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will

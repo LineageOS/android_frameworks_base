@@ -28,8 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Nastavení jasu</string>
   <string name="led_notification_text">LED světlo povoleno v nastavení</string>
-  <!-- Content description of the superuser tile -->
-  <string name="accessibility_su_active">Aktivní relace Superuser</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Svítilna zapnuta</string>
   <string name="quick_settings_tile_flashlight_not_summary">Dotykem vypněte</string>
@@ -95,4 +93,27 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Hovor</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Systém</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Vyzvánění</item>
+    <!-- STREAM_RING -->
+    <item>Média</item>
+    <!-- STREAM_MUSIC -->
+    <item>Budík</item>
+    <!-- STREAM_ALARM -->
+    <item>Oznámení</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

@@ -28,7 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Teavitustule sätted</string>
   <string name="led_notification_text">LED tule lubamine</string>
-  <!-- Content description of the superuser tile -->
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Taskulamp põleb</string>
   <string name="quick_settings_tile_flashlight_not_summary">Väljalülitamiseks koputage</string>
@@ -60,4 +59,5 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
 </resources>

@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">பாதுகாப்பு</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">சாதன பாதுகாப்பு தகவல் தொடர்பான அனுமதிகள்.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">சுயவிவரம்</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">நடப்பு</string>
@@ -113,6 +111,7 @@
   <string name="app_ops_use_fingerprint">கைரேகையைப் பயன்படுத்து</string>
   <string name="app_ops_add_voicemail">ஒரு குரலஞ்சலைச் சேர்த்தல்</string>
   <string name="app_ops_read_phone_state">தொலைபேசி நிலையை அணுகல்</string>
+  <string name="app_ops_scan_wifi">Wi-Fi பிணையங்களை ஸ்கேன்செய்</string>
   <string name="app_ops_change_wallpaper">வால்பேப்பரை மாற்று</string>
   <string name="app_ops_assist_structure">உதவி கட்டமைப்பைப் பயன்படுத்து</string>
   <string name="app_ops_assist_screenshot">ஒரு ஸ்க்ரீன்ஷாட்டை எடு</string>

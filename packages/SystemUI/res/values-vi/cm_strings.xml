@@ -28,7 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Cài đặt đèn</string>
   <string name="led_notification_text">Đèn LED được kích hoạt theo cài đặt</string>
-  <!-- Content description of the superuser tile -->
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Đã bật đèn pin</string>
   <string name="quick_settings_tile_flashlight_not_summary">Chạm vào để tắt</string>
@@ -58,4 +57,5 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
 </resources>

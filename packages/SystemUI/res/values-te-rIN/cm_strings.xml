@@ -28,7 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">లైట్ సెట్టింగ్స్</string>
   <string name="led_notification_text">సెట్టింగ్సుచే చేతనపరచబడిన LED లైట్</string>
-  <!-- Content description of the superuser tile -->
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">ఫ్లాష్లైట్ ఆన్ అయ్యింది</string>
   <string name="quick_settings_tile_flashlight_not_summary">ఆఫ్ చెయ్యడానికి టాప్ నొక్కండి</string>
@@ -61,4 +60,5 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
 </resources>

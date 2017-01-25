@@ -28,7 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">ஒளி அமைப்புகள்</string>
   <string name="led_notification_text">LED ஒளி அமைப்பினால் செயல்படுத்தப்படுதல்</string>
-  <!-- Content description of the superuser tile -->
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">ஃபிளாஷ்லைட் இயக்கத்தில் உள்ளது</string>
   <string name="quick_settings_tile_flashlight_not_summary">ஆஃப் செய்ய தட்டவும்</string>
@@ -55,4 +54,5 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
 </resources>

@@ -28,8 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Nastavitve lučke</string>
   <string name="led_notification_text">Lučka LED omogočena v nastavitvah</string>
-  <!-- Content description of the superuser tile -->
-  <string name="accessibility_su_active">Skrbniška seja dejavna</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Svetilka je vklopljena</string>
   <string name="quick_settings_tile_flashlight_not_summary">Tapnite, če želite izklopiti</string>
@@ -97,4 +95,5 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
 </resources>

@@ -24,28 +24,67 @@
   <!-- Weather string format in expanded statusbar header -->
   <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_notification_brightness">Luminozitate lumină</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Setări de lumină</string>
-  <!-- Content description of the superuser tile -->
+  <string name="led_notification_text">Lumină LED activată de setări</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Lanterna este pornită</string>
   <string name="quick_settings_tile_flashlight_not_summary">Atingeți pentru a dezactiva</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
+  <string name="cm_power_notification_controls_description">Cu controalele de putere a notificărilor, puteți seta un nivel de importanță de la 0 la 6 pentru notificările unei aplicații.
+        \n\n<b>Nivel 6</b>
+        \n- Arată prima în lista de notificări
+        \n- Permiteți întrerupere fullscreen
+        \n- Întotdeauna afișări de scurtă durată
+        \n\n<b>Nivel 5</b>
+        \n- Preveniți întrerupere fullscreen
+        \n- Întotdeauna afișări de scurtă durată
+        \n\n<b>Nivel 4</b>
+        \n- Preveniți întrerupere fullscreen
+        \n- Fără afișări de scurtă durată
+        \n\n<b>Nivel 3</b>
+        \n- Preveniți întrerupere fullscreen
+        \n- Fără afișări de scurtă durată
+        \n- Fără sunet și vibrație
+        \n\n<b>Nivel 2</b>
+        \n- Preveniți întrerupere fullscreen
+        \n- Fără afișări de scurtă durată
+        \n- Fără sunet și vibrație
+        \n- Ascunde din ecranul de blocare
+        \n- Arată ultima în lista de notificări
+        \n\n<b>Nivel 1</b>
+        \n- Preveniți întrerupere fullscreen
+        \n- Fără afișări de scurtă durată
+        \n- Fără sunet și vibrație
+        \n- Ascunde din ecranul de blocare și bara de stare
+        \n- Arată ultima în lista de notificări
+        \n\n<b>Nivel 0</b>
+        \n- Blocați toate notificările de la această aplicație
+    </string>
   <!-- Notification importance level title-->
+  <string name="importance_level_title">Importanță: Nivel %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">Fără întrerupere a ecranului complet, afișare de scurtă durată, sunet sau vibrație. Se ascunde din ecranul de blocare.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
+  <string name="screen_pinning_description_no_navbar">Aceasta ține în vizualizare ecranul până îl deblocați. Apăsați și țineți apăsat butonul Înapoi pentru a debloca.</string>
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Glisați dreapta pentru %1$s</string>
   <string name="right_shortcut_hint">Glisați stânga pentru %1$s</string>
+  <string name="lockscreen_message">Apăsaţi o pictogramă din stânga sau dreapta pentru a realoca o comandă rapidă pe ecranul de blocare.</string>
   <string name="lockscreen_default_target">Implicit</string>
   <string name="select_application">Selectați aplicația</string>
   <string name="lockscreen_choose_action_title">Alege acțiunea</string>
   <string name="lockscreen_none_target">Nimic</string>
   <!-- Play queue -->
+  <string name="play_queue_extension">Afișare coadă de redare</string>
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
   <string name="accessibility_dpad_left">Cursor stânga</string>
   <string name="accessibility_dpad_right">Cursor dreapta</string>
   <!-- NavBar Tuner -->
+  <string name="menu_ime_always_show">Meniu / Comutare tastatură (arată întotdeauna)</string>
+  <string name="search">Căutare</string>
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d client</item>
@@ -55,4 +94,27 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Apel</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Sistem</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Sonerie</item>
+    <!-- STREAM_RING -->
+    <item>Media</item>
+    <!-- STREAM_MUSIC -->
+    <item>Alarmă</item>
+    <!-- STREAM_ALARM -->
+    <item>Notificare</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

@@ -28,7 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Hellegkeetsastellungen</string>
   <string name="led_notification_text">Notifikatiounsluucht duerch Astellungen aktivéieren</string>
-  <!-- Content description of the superuser tile -->
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">D\'Täscheluucht ass un</string>
   <string name="quick_settings_tile_flashlight_not_summary">Drécke fir s\'auszeschalten</string>
@@ -60,4 +59,5 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
 </resources>

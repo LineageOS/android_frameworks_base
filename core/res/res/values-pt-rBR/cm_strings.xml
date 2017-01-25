@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">Segurança</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Permissões relacionadas às informações de segurança do aparelho.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Perfil</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Reiniciar</string>
   <!-- label for current user in phone options dialog -->
@@ -121,7 +119,7 @@
   <string name="app_ops_use_fingerprint">usar a impressão digital</string>
   <string name="app_ops_add_voicemail">adicionar uma mensagem de voz</string>
   <string name="app_ops_read_phone_state">acessar estado do telefone</string>
-  <string name="app_ops_scan_wifi">procurar redes Wi-Fi</string>
+  <string name="app_ops_scan_wifi">procurar rede Wi-Fi</string>
   <string name="app_ops_change_wallpaper">mudar o papel de parede</string>
   <string name="app_ops_assist_structure">usar estrutura de assistência</string>
   <string name="app_ops_assist_screenshot">capturar a tela</string>

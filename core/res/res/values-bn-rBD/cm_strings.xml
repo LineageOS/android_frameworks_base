@@ -24,8 +24,6 @@
   <string name="permgrouplab_security">নিরাপত্তা</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">ডিভাইসের নিরাপত্তা তথ্য সংক্রান্ত অনুমতি।</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">প্রোফাইল</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <!-- label for current user in phone options dialog -->
   <!-- status message in phone options dialog for screenshot action -->

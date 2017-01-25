@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">Sikkerhet</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Tillatelser knyttet til enhetens sikkerhetsinformasjon.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Profil</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Start på nytt</string>
   <!-- label for current user in phone options dialog -->
@@ -88,7 +86,7 @@
   <string name="app_ops_modify_settings">oppdatere systeminnstillinger</string>
   <string name="app_ops_mute_unmute_microphone">Demp/fjern demping av mikrofonen</string>
   <string name="app_ops_play_audio">spille av lyd</string>
-  <string name="app_ops_post_notification">legge inn en melding</string>
+  <string name="app_ops_post_notification">legge inn en varsel</string>
   <string name="app_ops_project_media">Prosjekt media</string>
   <string name="app_ops_read_calendar">lese kalenderen</string>
   <string name="app_ops_read_call_log">lese i samtaleloggen</string>
@@ -121,7 +119,7 @@
   <string name="app_ops_use_fingerprint">bruk fingeravtrykk</string>
   <string name="app_ops_add_voicemail">legge til en telefonsvarer</string>
   <string name="app_ops_read_phone_state">hente telefontilstand</string>
-  <string name="app_ops_scan_wifi">søk etter Wi-Fi Nettverk</string>
+  <string name="app_ops_scan_wifi">skann trådløse nettverk</string>
   <string name="app_ops_change_wallpaper">endre bakgrunnsbilde</string>
   <string name="app_ops_assist_structure">bruke hjelpestruktur</string>
   <string name="app_ops_assist_screenshot">ta et skjermbilde</string>

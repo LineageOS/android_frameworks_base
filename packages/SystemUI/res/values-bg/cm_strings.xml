@@ -28,8 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Настройки на светлината</string>
   <string name="led_notification_text">Светлинните индикации са разрешени от настройките</string>
-  <!-- Content description of the superuser tile -->
-  <string name="accessibility_su_active">Активна сесия на суперпотребител</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Фенерчето е включено</string>
   <string name="quick_settings_tile_flashlight_not_summary">Натиснете, за изключване</string>
@@ -94,4 +92,27 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Обаждане</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Система</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Звук</item>
+    <!-- STREAM_RING -->
+    <item>Медиа</item>
+    <!-- STREAM_MUSIC -->
+    <item>Аларма</item>
+    <!-- STREAM_ALARM -->
+    <item>Известия</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Блутуут</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

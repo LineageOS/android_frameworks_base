@@ -25,14 +25,15 @@
   <string name="permgrouplab_security">Безбедност</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Дозволе које се односе на безбедносне информације уређаја.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Профил</string>
   <!-- label for item that restarts the phone in phone options dialog -->
+  <string name="global_action_reboot">Рестарт</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Тренутно</string>
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">Дуги притисак за делимичан снимак</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
+  <string name="reboot_reboot">Рестарт</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <string name="reboot_recovery">Опоравак</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
@@ -40,10 +41,15 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">Преузимање</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">Брзи рестарт</string>
   <!-- Title of dialog to confirm restarting. -->
+  <string name="reboot_title">Рестарт</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">Tаблет ће се рестартовати.</string>
+  <string name="reboot_confirm" product="default">Tелефон ће се рестартовати.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">Рестартовање\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB преко мреже омогућен</string>
   <!-- ADB over USB and network notification -->
@@ -113,6 +119,7 @@
   <string name="app_ops_use_fingerprint">користи отисак прста</string>
   <string name="app_ops_add_voicemail">додај говорну поруку</string>
   <string name="app_ops_read_phone_state">приступ стању телефона</string>
+  <string name="app_ops_scan_wifi">Скенирај Wi-Fi мреже</string>
   <string name="app_ops_change_wallpaper">промени тапет</string>
   <string name="app_ops_assist_structure">користи помоћну структуру</string>
   <string name="app_ops_assist_screenshot">направи снимак екрана</string>
@@ -123,6 +130,7 @@
   <string name="app_ops_write_external_storage">пиши на спољно складиште</string>
   <string name="app_ops_turn_on_screen">укључи екран</string>
   <string name="app_ops_get_accounts">добави налог уређаја</string>
+  <string name="app_ops_run_in_background">пokreni u pozadini</string>
   <string name="app_ops_wifi_change">промени Wi-Fi стање</string>
   <string name="app_ops_su">дај root приступ</string>
   <!-- Protected Apps Notification -->

@@ -25,14 +25,15 @@
   <string name="permgrouplab_security">Securitate</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Permisiunile legate de informațiile de securitate ale dispozitivului.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Profil</string>
   <!-- label for item that restarts the phone in phone options dialog -->
+  <string name="global_action_reboot">Reporniți</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Actual</string>
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">Atingere lungă pentru screenshot parțial</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
+  <string name="reboot_reboot">Reporniți</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <string name="reboot_recovery">Recovery</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
@@ -40,10 +41,15 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">Descărcare</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">Repornire soft</string>
   <!-- Title of dialog to confirm restarting. -->
+  <string name="reboot_title">Reporniți</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">Tableta dvs. va reporni.</string>
+  <string name="reboot_confirm" product="default">Telefonul dvs. va reporni.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">Se repornește\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB prin rețea activ</string>
   <!-- ADB over USB and network notification -->
@@ -113,6 +119,7 @@
   <string name="app_ops_use_fingerprint">utilizează amprentă digitală</string>
   <string name="app_ops_add_voicemail">adaugă un mesaj vocal</string>
   <string name="app_ops_read_phone_state">citește starea telefonului</string>
+  <string name="app_ops_scan_wifi">scanează rețelele Wi-Fi</string>
   <string name="app_ops_change_wallpaper">schimbă imaginea de fundal</string>
   <string name="app_ops_assist_structure">folosește structura de asistență</string>
   <string name="app_ops_assist_screenshot">face o captură de ecran</string>
@@ -123,10 +130,12 @@
   <string name="app_ops_write_external_storage">scrie stocare externă</string>
   <string name="app_ops_turn_on_screen">pornește ecranul</string>
   <string name="app_ops_get_accounts">obține conturile dispozitivului</string>
+  <string name="app_ops_run_in_background">rulați în fundal</string>
   <string name="app_ops_wifi_change">schimbă starea Wi-Fi</string>
   <string name="app_ops_su">obțină acces root</string>
   <!-- Protected Apps Notification -->
   <string name="notify_package_component_protected_title">Lansarea activității blocată</string>
+  <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> este protejat de la lansare. Atingeți pentru a vă autentifica și pentru a lansa aplicația.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Pentru a anula fixarea acestui ecran, atingeți și țineți apăsat butonul Înapoi.</string>
 </resources>

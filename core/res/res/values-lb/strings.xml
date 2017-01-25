@@ -212,8 +212,12 @@
   <string name="roamingText12">Roaming-Banner Aus</string>
   <string name="roamingTextSearching">E Service gëtt gesicht</string>
   <!-- Displayed when WFC registration fails -->
+  <string name="wfcRegErrorTitle">WLAN-Uriff</string>
   <!-- WFC Operator Error Messages showed as alerts -->
   <!-- WFC Operator Error Messages showed as notifications -->
+  <string-array name="wfcOperatorErrorNotificationMessages">
+    <item>Beim Netzbedreiwer umellen</item>
+  </string-array>
   <!-- Template for showing cellular network operator name while WFC is active -->
   <!-- WFC, summary for Disabled -->
   <!-- WFC, summary for Wi-Fi Preferred -->
@@ -1210,6 +1214,7 @@
                                           -->
   <skip></skip>
   <!-- On the keyguard screen, it shows the carrier the phone is connected to.  This is displayed if the phone is not connected to a carrier.-->
+  <string name="lockscreen_carrier_default">Kee Service</string>
   <!-- Shown in the lock screen to tell the user that the screen is locked. -->
   <string name="lockscreen_screen_locked">Schierm gespaart.</string>
   <!-- when pattern lock is enabled, tell them about the emergency dial -->
@@ -1695,6 +1700,7 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
     <item quantity="other"><xliff:g id="count">%d</xliff:g> Stonnen</item>
   </plurals>
   <!-- A string denoting the current point in time that should be as short as possible. Abbreviations are preferred to full strings as this might be shown repetitively. It is used in the header of notifications. [CHAR LIMIT=8]-->
+  <string name="now_string_shortest">elo</string>
   <!-- Phrase describing a time duration using minutes that is as short as possible, preferrably one character. If the language needs a space in between the integer and the unit, please also integrate it in the string, but preferably it should not have a space in between.[CHAR LIMIT=6] -->
   <!-- Phrase describing a time duration using hours that is as short as possible, preferrably one character. If the language needs a space in between the integer and the unit, please also integrate it in the string, but preferably it should not have a space in between.[CHAR LIMIT=6] -->
   <!-- Phrase describing a time duration using days that is as short as possible, preferrably one character. If the language needs a space in between the integer and the unit, please also integrate it in the string, but preferably it should not have a space in between.[CHAR LIMIT=6] -->
@@ -1743,6 +1749,7 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- Item on EditText context menu. This action is used to paste from the clipboard into the eidt field -->
   <string name="paste">Apechen</string>
   <!-- Item on EditText context menu. This action is used to paste from the clipboard into the eidt field without formatting -->
+  <string name="paste_as_plain_text">Als Text apechen</string>
   <!-- Item on EditText context menu. This action is used to replace the current word by other suggested words, suggested by the IME or the spell checker -->
   <string name="replace">Ersetzen\u2026</string>
   <!-- Item on EditText pop-up window. This action is used to delete the text that the user recently added. [CHAR LIMIT=15] -->
@@ -1752,7 +1759,9 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- Item on EditText context menu. Added only when the context menu is not empty, it enable selection context mode. [CHAR LIMIT=20] -->
   <string name="selectTextMode">Text auswielen</string>
   <!-- Item on EditText context menu. This action is used to undo a text edit operation. -->
+  <string name="undo">Réckgängeg maachen</string>
   <!-- Item on EditText context menu. This action is used to redo a text edit operation. -->
+  <string name="redo">Widderhuelen</string>
   <!-- Text selection contextual mode title, displayed in the CAB. [CHAR LIMIT=20] -->
   <string name="textSelectionCABTitle">Textauswiel</string>
   <!-- Option to add the current misspelled word to the user dictionary. [CHAR LIMIT=25] -->
@@ -1804,6 +1813,7 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
          and a previously used application is known. -->
   <string name="whichViewApplicationNamed">Opmaache mat %1$s</string>
   <!-- Label for a link to a intent resolver dialog to view something -->
+  <string name="whichViewApplicationLabel">Opmaachen</string>
   <!-- Title of intent resolver dialog when selecting an editor application to run. -->
   <string name="whichEditApplication">Ännere mat</string>
   <!-- Title of intent resolver dialog when selecting an editor application to run
@@ -1820,9 +1830,11 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <string name="whichSendApplicationLabel">Deelen</string>
   <!-- Title of intent resolver dialog when selecting an application to run to
          send content to a specific recipient. Often used for email. -->
+  <string name="whichSendToApplication">Schécke mat</string>
   <!-- Title of intent resolver dialog when selecting an application to run to
          send content to a specific recipient and a previously used application is known.
          Often used for email. -->
+  <string name="whichSendToApplicationNamed">Schécke mat %1$s</string>
   <!-- Label for a link to a intent resolver dialog to send content to a specific recipient. -->
   <string name="whichSendToApplicationLabel">Schécken</string>
   <!-- Title of intent resolver dialog when selecting a HOME application to run. -->
@@ -1855,18 +1867,26 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- Text of the alert that is displayed when an application has crashed repeatedly. -->
   <!-- Text of the alert that is displayed when a process has crashed repeatedly. -->
   <!-- Button that restarts a crashed application -->
+  <string name="aerr_restart">App nei starten</string>
   <!-- Button that sends feedback about a crashed application -->
+  <string name="aerr_report">Feedback schécken</string>
   <!-- Button that closes a crashed application -->
+  <string name="aerr_close">Zoumaachen</string>
   <!-- Button that mutes further crashes of the crashed application. Note that this only appears on engineering builds. -->
   <!-- Button that waits a bit more for an unresponsive app -->
   <string name="aerr_wait">Waart</string>
   <!-- Button that closes an unresponsive application -->
+  <string name="aerr_close_app">App zoumaachen</string>
   <!-- Title of the alert when an application is not responding. -->
   <string name="anr_title"></string>
   <!-- Text of the alert that is displayed when an application is not responding. -->
+  <string name="anr_activity_application"><xliff:g id="application">%2$s</xliff:g> reagéiert net</string>
   <!-- Text of the alert that is displayed when an application is not responding. -->
+  <string name="anr_activity_process"><xliff:g id="activity">%1$s</xliff:g> reagéiert net</string>
   <!-- Text of the alert that is displayed when an application is not responding. -->
+  <string name="anr_application_process"><xliff:g id="application">%1$s</xliff:g> reagéiert net</string>
   <!-- Text of the alert that is displayed when an application is not responding. -->
+  <string name="anr_process">Prozess <xliff:g id="process">%1$s</xliff:g> reagéiert net</string>
   <!-- Button allowing the user to close an application that is not responding. This will kill the application. -->
   <string name="force_close">OK</string>
   <!-- Button allowing the user to send a bug report for application which has encountered an error. -->
@@ -1901,6 +1921,7 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog when doing an fstrim. -->
   <string name="android_upgrading_fstrim">Späicher optiméieren.</string>
   <!-- [CHAR LIMIT=40] Title of notification that is shown when finishing a system upgrade. -->
+  <string name="android_upgrading_notification_title">Android-Update gëtt ofgeschloss\u2026</string>
   <!-- [CHAR LIMIT=200] Body of notification that is shown when performing a system upgrade. -->
   <!-- [CHAR LIMIT=40] Toast that is shown when an app is still upgrading. -->
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog for each .apk that is optimized. -->
@@ -1913,6 +1934,7 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- Notification text to tell the user that a heavy-weight application is running. -->
   <string name="heavy_weight_notification"><xliff:g id="app">%1$s</xliff:g> leeft</string>
   <!-- Notification details to tell the user that a heavy-weight application is running. -->
+  <string name="heavy_weight_notification_detail">Drécke fir bei d\'App ze wiesselen</string>
   <!-- Title of dialog prompting whether user wants to switch between heavy-weight apps. -->
   <string name="heavy_weight_switcher_title">Appe wiesselen?</string>
   <!-- Descriptive text for switching to a new heavy-weight application. -->
@@ -2235,15 +2257,19 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- The title of the notification when VPN is active with an application name. -->
   <string name="vpn_title_long">VPN ass aktivéiert vum <xliff:g id="app" example="FooVPN client">%s</xliff:g></string>
   <!-- The text of the notification when VPN is active. -->
+  <string name="vpn_text">Dréck fir d\'Netzwierk ze geréieren.</string>
   <!-- The text of the notification when VPN is active with a session name. -->
+  <string name="vpn_text_long">Verbonne mat <xliff:g id="session" example="office">%s</xliff:g>. Dréck fir d\'Netzwierk ze geréieren.</string>
   <!-- Notification title when connecting to lockdown VPN. -->
   <string name="vpn_lockdown_connecting">Permanent aktive VPN gëtt connectéiert\u2026</string>
   <!-- Notification title when connected to lockdown VPN. -->
   <string name="vpn_lockdown_connected">Permanent aktive VPN connectéiert</string>
   <!-- Notification title when not connected to lockdown VPN. -->
+  <string name="vpn_lockdown_disconnected">Permanent aktive VPN deconnectéiert</string>
   <!-- Notification title when error connecting to lockdown VPN. -->
   <string name="vpn_lockdown_error">Feeler beim permanent aktive VPN</string>
   <!-- Notification body that indicates user can touch to configure lockdown VPN connection. -->
+  <string name="vpn_lockdown_config">Drécke fir anzestellen</string>
   <!-- Localized strings for WebView -->
   <!-- Label for button in a WebView that will open a chooser to choose a file to upload -->
   <string name="upload_file">Fichier auswielen</string>
@@ -2256,9 +2282,11 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- Strings for car mode notification -->
   <!-- Shown when car mode is enabled -->
   <string name="car_mode_disable_notification_title">Automodus aktivéiert</string>
+  <string name="car_mode_disable_notification_message">Dréck fir den Automodus auszemaachen.</string>
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_title">Tethering oder Zougankspunkt aktiv</string>
+  <string name="tethered_notification_message">Drécke fir anzestellen.</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Zréck</string>
   <string name="next_button_label">Weider</string>
@@ -2915,6 +2943,7 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- [CHAR_LIMIT=NONE] Data saver: Feature description -->
   <!-- [CHAR_LIMIT=35] Data saver: Title on first-time dialog -->
   <!-- [CHAR_LIMIT=16] Data saver: Button to turn it on on first-time dialog -->
+  <string name="data_saver_enable_button">Uschalten</string>
   <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
   <plurals name="zen_mode_duration_minutes_summary">
     <item quantity="one">Fir eng Minutt (bis <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
@@ -2980,6 +3009,7 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- Free style window strings -->
   <!-- Accessibility text for the maximize window button -->
   <!-- Accessibility text for the close window button -->
+  <string name="close_button_text">Zoumaachen</string>
   <!-- Ellipsis character to appear in notification templates, e.g.
          notification_template_material_inbox.xml.
          DO NOT TRANSLATE -->
@@ -3002,6 +3032,7 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- Title for button to turn on work profile. [CHAR LIMIT=NONE] -->
   <!-- Notification title shown when new SMS/MMS is received while the device is locked [CHAR LIMIT=NONE] -->
   <!-- Notification content shown when new SMS/MMS is received while the device is locked [CHAR LIMIT=NONE] -->
+  <string name="new_sms_notification_content">SMS-App opmaache fir ze weisen</string>
   <!-- Notification title shown when user profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
   <!-- Notification message shown when user profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
   <!-- Notification detail shown when user profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
@@ -3019,13 +3050,17 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <!-- Text of notification to start a new demo session when device is in retail mode [CHAR LIMIT=NONE] -->
   <!-- Text of dialog shown when starting a demo user for the first time [CHAR LIMIT=40] -->
   <!-- Text of dialog shown when starting a new demo user in retail demo mode [CHAR LIMIT=40] -->
+  <string name="demo_restarting_message">Apparat gëtt zréckgesat\u2026</string>
   <!-- Title of the dialog shown when user inactivity times out in retail demo mode [CHAR LIMIT=40] -->
+  <string name="demo_user_inactivity_timeout_title">Apparat zrécksetzen?</string>
   <!-- Warning message shown when user inactivity times out in retail demo mode [CHAR LIMIT=none] -->
   <!-- Text of button to allow user to abort countdown and continue current session in retail demo mode [CHAR LIMIT=40] -->
   <string name="demo_user_inactivity_timeout_left_button">Ofbriechen</string>
   <!-- Text of button to allow user to abort countdown and immediately start another session in retail demo mode [CHAR LIMIT=40] -->
+  <string name="demo_user_inactivity_timeout_right_button">Elo zrécksetzen</string>
   <!-- Title of notification shown when device has been forced to safe mode after a security compromise. -->
   <!-- Description of notification shown when device has been forced to safe mode after a security compromise. -->
   <!-- Accessibilty string added to a widget that has been suspended [CHAR LIMIT=20] -->
   <!-- Label used by Telephony code, assigned as the display name for conference calls [CHAR LIMIT=60] -->
+  <string name="conference_call">Konferenzuruff</string>
 </resources>

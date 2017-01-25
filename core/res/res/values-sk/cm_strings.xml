@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">Zabezpečenie</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Povolenia súvisiace s informáciami o bezpečnosti zariadenia.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Profil</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Reštartovať</string>
   <!-- label for current user in phone options dialog -->
@@ -66,7 +64,7 @@
   <string name="privacy_guard_dialog_title">Ochrana súkromia</string>
   <string name="privacy_guard_dialog_summary">Aplikácia <xliff:g id="app">%1$s</xliff:g> sa pokúša <xliff:g id="op">%2$s</xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">Zapamätať si voľbu</string>
+  <string name="permission_remember_choice">Zapamätať voľbu</string>
   <!-- App ops requests -->
   <string name="app_ops_access_camera">prístup k fotoparátu</string>
   <string name="app_ops_access_location">prístup k polohe</string>
@@ -100,12 +98,12 @@
   <string name="app_ops_record_audio">nahrať zvuk</string>
   <string name="app_ops_send_mms">odoslať správu MMS</string>
   <string name="app_ops_send_sms">odoslať správu SMS</string>
-  <string name="app_ops_start_at_bootup">spustiť pri štaťte</string>
+  <string name="app_ops_start_at_bootup">spustiť pri štarte</string>
   <string name="app_ops_toast_window">zobraziť vyskakovacie oznámenia</string>
   <string name="app_ops_toggle_bluetooth">prepnúť bluetooth</string>
-  <string name="app_ops_toggle_mobile_data">zapnúť/vypnúť mobilné dáta</string>
+  <string name="app_ops_toggle_mobile_data">prepnúť mobilné dáta</string>
   <string name="app_ops_toggle_nfc">prepnúť NFC</string>
-  <string name="app_ops_toggle_wifi">zapnúť/vypnúť Wi-Fi</string>
+  <string name="app_ops_toggle_wifi">prepnúť Wi-Fi</string>
   <string name="app_ops_use_alarm_volume">ovládať hlasitosť budíka</string>
   <string name="app_ops_use_audio_focus">ovládať zvukové zdroje</string>
   <string name="app_ops_use_bluetooth_volume">ovládať hlasitosť bluetooh</string>
@@ -120,15 +118,15 @@
   <string name="app_ops_write_sms">napísať správu SMS</string>
   <string name="app_ops_use_fingerprint">použiť odtlačok prsta</string>
   <string name="app_ops_add_voicemail">pridať hlasovú poštu</string>
-  <string name="app_ops_read_phone_state">prístup k stavu telefónu</string>
-  <string name="app_ops_scan_wifi">prehľadávanie Wi\u2011Fi sietí</string>
+  <string name="app_ops_read_phone_state">pristupovať k stavu telefónu</string>
+  <string name="app_ops_scan_wifi">prehľadať Wi-Fi siete</string>
   <string name="app_ops_change_wallpaper">zmeniť tapetu</string>
-  <string name="app_ops_assist_structure">použiť asistenčnú štruktúru</string>
-  <string name="app_ops_assist_screenshot">urobiť snímku obrazovky</string>
+  <string name="app_ops_assist_structure">použiť asistovanú štruktúru</string>
+  <string name="app_ops_assist_screenshot">urobiť snímok obrazovky</string>
   <string name="app_ops_use_body_sensors">použiť telové senzory</string>
-  <string name="app_ops_read_cell_broadcasts">čítať správy od GSM bunky</string>
-  <string name="app_ops_mock_location">falšovať polohu</string>
-  <string name="app_ops_read_external_storage">prečítať externé úložisko</string>
+  <string name="app_ops_read_cell_broadcasts">čítať bunkové vysielanie</string>
+  <string name="app_ops_mock_location">falšovať vašu polohu</string>
+  <string name="app_ops_read_external_storage">čítať externé úložisko</string>
   <string name="app_ops_write_external_storage">zapisovať do externého úložiska</string>
   <string name="app_ops_turn_on_screen">zapnúť obrazovku</string>
   <string name="app_ops_get_accounts">získať účty zariadenia</string>
