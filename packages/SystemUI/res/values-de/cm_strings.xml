@@ -28,8 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">LED-Einstellungen</string>
   <string name="led_notification_text">Benachrichtigungs-LED durch Einstellungen aktiviert</string>
-  <!-- Content description of the superuser tile -->
-  <string name="accessibility_su_active">Superuser-Sitzung aktiv</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Taschenlampe ist eingeschaltet</string>
   <string name="quick_settings_tile_flashlight_not_summary">Zum Ausschalten tippen</string>
@@ -66,4 +64,27 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Anruf</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>System</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Klingeln</item>
+    <!-- STREAM_RING -->
+    <item>Medien</item>
+    <!-- STREAM_MUSIC -->
+    <item>Wecker</item>
+    <!-- STREAM_ALARM -->
+    <item>Benachrichtigung</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

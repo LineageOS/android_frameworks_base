@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">सुरक्षितता</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">डिव्हाइस सुरक्षा माहितीशी संबंधित परवानग्या.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">प्रोफाइल</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">वर्तमान</string>
@@ -113,6 +111,7 @@
   <string name="app_ops_use_fingerprint">बोटाचा ठसा वापरा</string>
   <string name="app_ops_add_voicemail">व्हॉइसमेल जोडा</string>
   <string name="app_ops_read_phone_state">फोन आकडेवारी ऍक्सेस करा</string>
+  <string name="app_ops_scan_wifi">Wi-Fi नेटवर्क्स स्कॅन करा</string>
   <string name="app_ops_change_wallpaper">वॉलपेपर बदला</string>
   <string name="app_ops_assist_structure">सहाय्यक रचना वापरा</string>
   <string name="app_ops_assist_screenshot">स्क्रीनशॉट घ्या</string>

@@ -28,8 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Pengaturan cahaya</string>
   <string name="led_notification_text">Lampu LED diaktifkan oleh pengaturan</string>
-  <!-- Content description of the superuser tile -->
-  <string name="accessibility_su_active">Sesi superuser aktif</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Senter aktif</string>
   <string name="quick_settings_tile_flashlight_not_summary">Ketuk untuk mematikan</string>
@@ -94,4 +92,5 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
 </resources>

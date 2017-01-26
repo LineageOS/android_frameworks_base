@@ -246,6 +246,7 @@
   <!-- Preference category for media development settings. [CHAR LIMIT=50] -->
   <!-- Preference category for monitoring debugging development settings. [CHAR LIMIT=25] -->
   <!-- UI debug setting: always enable strict mode? [CHAR LIMIT=25] -->
+  <string name="strict_mode">Strikte Modus aktivéiert</string>
   <!-- UI debug setting: show strict mode summary [CHAR LIMIT=50] -->
   <!-- UI debug setting: show pointer location? [CHAR LIMIT=25] -->
   <!-- UI debug setting: show pointer location summary [CHAR LIMIT=50] -->

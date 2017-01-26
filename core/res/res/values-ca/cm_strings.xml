@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">Seguretat</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Permisos relacionats amb la informació de seguretat del dispositiu.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Perfil</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Reinicia</string>
   <!-- label for current user in phone options dialog -->
@@ -121,7 +119,7 @@
   <string name="app_ops_use_fingerprint">utilitzar l\'empremta digital</string>
   <string name="app_ops_add_voicemail">afegir un missatge de veu</string>
   <string name="app_ops_read_phone_state">accedir a l\'estat del telèfon</string>
-  <string name="app_ops_scan_wifi">cerca Xarxes Wi-Fi</string>
+  <string name="app_ops_scan_wifi">escannejar xarxes Wi-Fi</string>
   <string name="app_ops_change_wallpaper">canviar el fons de pantalla</string>
   <string name="app_ops_assist_structure">utilitzar estructures d\'assistència</string>
   <string name="app_ops_assist_screenshot">prendre una captura de pantalla</string>

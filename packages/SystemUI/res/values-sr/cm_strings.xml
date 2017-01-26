@@ -28,13 +28,14 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Поставке светла</string>
   <string name="led_notification_text">LED светло омогућено помоћу поставки</string>
-  <!-- Content description of the superuser tile -->
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Блиц је укључен</string>
   <string name="quick_settings_tile_flashlight_not_summary">Додирни да угасиш</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
   <!-- Notification importance level title-->
+  <string name="importance_level_title">Важност: Ниво %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">Без прекида целог екрана, завиривања, звука или вибрације. Сакриј на закључаном екрану.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Ово задржава преглед док га не уклониш. Додирни и држи дугме за назад да уклониш.</string>
   <!-- Strings for lockscreen shortcut hints -->
@@ -52,6 +53,8 @@
   <string name="accessibility_dpad_left">Курсор лево</string>
   <string name="accessibility_dpad_right">Курсор десно</string>
   <!-- NavBar Tuner -->
+  <string name="menu_ime_always_show">Мени / пребацивач тастатуре (увек прикажи)</string>
+  <string name="search">Претрага</string>
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d клијент</item>
@@ -61,4 +64,27 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Позови</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Систем</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Звоно</item>
+    <!-- STREAM_RING -->
+    <item>Медији</item>
+    <!-- STREAM_MUSIC -->
+    <item>Аларм</item>
+    <!-- STREAM_ALARM -->
+    <item>Обавештење</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

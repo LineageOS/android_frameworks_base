@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">امنیت</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">مجوزهای مربوط به اطلاعات امنیتی دستگاه.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">پروفایل</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">فعلی</string>

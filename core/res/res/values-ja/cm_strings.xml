@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">セキュリティ</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">端末のセキュリティ情報に関連する権限です。</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">プロファイル</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">再起動</string>
   <!-- label for current user in phone options dialog -->

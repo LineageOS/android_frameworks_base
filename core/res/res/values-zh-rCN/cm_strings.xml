@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">安全</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">与设备安全信息相关的权限。</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">情景模式</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">重启</string>
   <!-- label for current user in phone options dialog -->
@@ -60,7 +58,7 @@
   <string name="adb_active_generic_notification_message">触摸以禁用调试。</string>
   <!-- Privacy Guard -->
   <string name="permlab_changePrivacyGuardState">启用或禁用隐私防护</string>
-  <string name="permdesc_changePrivacyGuardState">允许应用更改其他应用是否启用隐私防护。当一个应用运行时启用了隐私防护，它将不能访问个人数据，如联系人、通话记录、短信。</string>
+  <string name="permdesc_changePrivacyGuardState">允许应用更改其他应用是否启用隐私防护。当一个应用以启用隐私防护运行时，它将不能访问如联系人、通话记录、短信等个人数据。</string>
   <string name="privacy_guard_notification">隐私防护激活</string>
   <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> 将不能访问个人数据</string>
   <string name="privacy_guard_dialog_title">隐私防护</string>
@@ -69,7 +67,7 @@
   <string name="permission_remember_choice">记住我的选择</string>
   <!-- App ops requests -->
   <string name="app_ops_access_camera">存取相机</string>
-  <string name="app_ops_access_location">访问你的地理位置信息</string>
+  <string name="app_ops_access_location">访问您的位置信息</string>
   <string name="app_ops_access_notifications">读取通知</string>
   <string name="app_ops_activate_vpn">激活一个 VPN</string>
   <string name="app_ops_auto_start">开机自启动</string>
@@ -81,21 +79,21 @@
   <string name="app_ops_get_usage_stats">获取应用使用情况统计</string>
   <string name="app_ops_keep_device_awake">保持设备唤醒</string>
   <string name="app_ops_make_phone_call">拨打电话</string>
-  <string name="app_ops_modify_calendar">更新你的日历</string>
+  <string name="app_ops_modify_calendar">更新您的日历</string>
   <string name="app_ops_modify_call_log">更新通话记录</string>
   <string name="app_ops_modify_clipboard">修改剪贴板</string>
-  <string name="app_ops_modify_contacts">更新你的联系人</string>
+  <string name="app_ops_modify_contacts">更新您的联系人</string>
   <string name="app_ops_modify_settings">更新系统设置</string>
   <string name="app_ops_mute_unmute_microphone">麦克风静音 / 解除静音</string>
   <string name="app_ops_play_audio">播放音频</string>
   <string name="app_ops_post_notification">发出通知</string>
   <string name="app_ops_project_media">放映媒体</string>
-  <string name="app_ops_read_calendar">读取你的日历</string>
-  <string name="app_ops_read_call_log">读取你的通话记录</string>
-  <string name="app_ops_read_clipboard">读取你的剪贴板</string>
-  <string name="app_ops_read_contacts">读取你的联系人</string>
-  <string name="app_ops_read_mms">读取你的彩信</string>
-  <string name="app_ops_read_sms">读取你的短信</string>
+  <string name="app_ops_read_calendar">读取您的日历</string>
+  <string name="app_ops_read_call_log">读取您的通话记录</string>
+  <string name="app_ops_read_clipboard">读取您的剪贴板</string>
+  <string name="app_ops_read_contacts">读取您的联系人</string>
+  <string name="app_ops_read_mms">读取您的彩信</string>
+  <string name="app_ops_read_sms">读取您的短信</string>
   <string name="app_ops_receive_sms">接收短信</string>
   <string name="app_ops_record_audio">录音</string>
   <string name="app_ops_send_mms">发送彩信</string>

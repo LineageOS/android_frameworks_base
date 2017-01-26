@@ -27,9 +27,7 @@
   <string name="accessibility_notification_brightness">Nastavenie jasu</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Nastavenia svetla</string>
-  <string name="led_notification_text">LED svetlo je povolené nastaveniach</string>
-  <!-- Content description of the superuser tile -->
-  <string name="accessibility_su_active">Aktivna relácia Superuser</string>
+  <string name="led_notification_text">LED svetlo povolené nastaveniami</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Baterka je zapnutá</string>
   <string name="quick_settings_tile_flashlight_not_summary">Dotykom vypnúť</string>
@@ -72,7 +70,7 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Potiahnite doprava pre %1$s</string>
   <string name="right_shortcut_hint">Potiahnite doľava pre %1$s</string>
-  <string name="lockscreen_message">Kliknutím na ikonu na ľavej alebo pravej strane obrazovky uzamknutia zmeňte rozmiestnenie zástupcov.</string>
+  <string name="lockscreen_message">Kliknutím na ikonu vľavo alebo vpravo a zmeňte ikony na obrazovke uzamknutia.</string>
   <string name="lockscreen_default_target">Predvolené</string>
   <string name="select_application">Vyberte aplikáciu</string>
   <string name="lockscreen_choose_action_title">Vyberte akciu</string>
@@ -95,4 +93,27 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Volanie</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Systém</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Zvonenie</item>
+    <!-- STREAM_RING -->
+    <item>Médiá</item>
+    <!-- STREAM_MUSIC -->
+    <item>Budík</item>
+    <!-- STREAM_ALARM -->
+    <item>Oznámenie</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

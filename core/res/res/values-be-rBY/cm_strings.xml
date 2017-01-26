@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">Бяспека</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Дазволы, што адносяцца да бяспекі дадзеных на прыладзе.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Профіль</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Перазапусціць</string>
   <!-- label for current user in phone options dialog -->
@@ -120,7 +118,7 @@
   <string name="app_ops_use_fingerprint">Выкарыстанне адбіткаў пальцаў</string>
   <string name="app_ops_add_voicemail">Дадаць галасавое паведамленне</string>
   <string name="app_ops_read_phone_state">атрыманне стану тэлефона</string>
-  <string name="app_ops_scan_wifi">шукаць сеткі Wi-Fi</string>
+  <string name="app_ops_scan_wifi">Сканаваць сеткі Wi-Fi</string>
   <string name="app_ops_change_wallpaper">змена шпалер</string>
   <string name="app_ops_assist_structure">Выкарыстоўваць структуру падтрымкі</string>
   <string name="app_ops_assist_screenshot">зрабіць скрыншот</string>

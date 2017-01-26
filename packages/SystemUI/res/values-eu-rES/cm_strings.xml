@@ -28,8 +28,6 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Argi ezarpenak</string>
   <string name="led_notification_text">LED argia ezarpenetan gaituta</string>
-  <!-- Content description of the superuser tile -->
-  <string name="accessibility_su_active">Supererabiltzailearen saio aktiboa</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Linterna piztuta dago</string>
   <string name="quick_settings_tile_flashlight_not_summary">Sakatu itzaltzeko</string>
@@ -95,4 +93,5 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Volume stream titles - should match the string-array in AOSP -->
 </resources>

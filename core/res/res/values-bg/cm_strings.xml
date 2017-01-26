@@ -25,8 +25,6 @@
   <string name="permgrouplab_security">Сигурност</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Разрешения, свързани с информацията за защита на устройството.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Профил</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Рестартиране</string>
   <!-- label for current user in phone options dialog -->
@@ -57,14 +55,14 @@
   <!-- ADB over USB and network notification -->
   <string name="adb_both_active_notification_title">ADB над USB &amp; мрежата е активирана</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Докоснете, за да забраните отстраняването на грешки.</string>
+  <string name="adb_active_generic_notification_message">Докоснете за да деактивирате отстраняване на грешки.</string>
   <!-- Privacy Guard -->
   <string name="permlab_changePrivacyGuardState">Активира или деактивира Защитен режим</string>
   <string name="permdesc_changePrivacyGuardState">Разрешава на приложението да променя статута на поверителност на друго приложение. Когато едно приложение се използва с защита на поверителността, не може да има достъп до персонални данни, като контакти, регистри с повиквания или съобщения.</string>
-  <string name="privacy_guard_notification">Защитен режим е активиран</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s </xliff:g> няма да можете да получите достъп до лични данни</string>
+  <string name="privacy_guard_notification">Активиран е защитен режим</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s </xliff:g> няма достъп до лични данни</string>
   <string name="privacy_guard_dialog_title">Защитен режим</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s </xliff:g> бих искал да <xliff:g id="op">%2$s </xliff:g>.</string>
+  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s </xliff:g> иска да <xliff:g id="op">%2$s </xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <string name="permission_remember_choice">Запомни избора ми</string>
   <!-- App ops requests -->
@@ -95,7 +93,7 @@
   <string name="app_ops_read_clipboard">прегледай клипборда</string>
   <string name="app_ops_read_contacts">прегледай контактите</string>
   <string name="app_ops_read_mms">прегледай MMS съобщенията</string>
-  <string name="app_ops_read_sms">прегледай SMS съобщенията</string>
+  <string name="app_ops_read_sms">прегледайте вашите SMS съобщения</string>
   <string name="app_ops_receive_sms">получихте SMS съобщение</string>
   <string name="app_ops_record_audio">записване на звук</string>
   <string name="app_ops_send_mms">Изпращане на MMS съобщение</string>

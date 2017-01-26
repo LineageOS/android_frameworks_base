@@ -78,9 +78,6 @@
   <!-- Title of the menu item to forget a printer. [CHAR LIMIT=25] -->
   <string name="print_forget_printer">پىرىنتېرنى ئەستە تۇتما</string>
   <!-- Utterance to announce a change in the number of matches during a search. This is spoken to a blind user. [CHAR LIMIT=none] -->
-  <plurals name="print_search_result_count_utterance">
-    <item quantity="other">تاپقان پىرىنتېر <xliff:g id="COUNT">%1$s</xliff:g></item>
-  </plurals>
   <!-- Template for an extended description of a printer. [CHAR LIMIT=50] -->
   <!-- Description of printer info icon. [CHAR LIMIT=50] -->
   <!-- Notification that we could not create a file name for the printed PDF. [CHAR LIMIT=50] -->
