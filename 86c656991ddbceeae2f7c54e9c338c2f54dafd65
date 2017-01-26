@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_6add6870",
+        "filename": "services/core/java/com/android/server/display/ColorFade.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1848
+      },
+      "writtenOn": "2017-01-26T16:38:48Z",
+      "side": 1,
+      "message": "Can we get rid of the white space here?",
+      "revId": "86c656991ddbceeae2f7c54e9c338c2f54dafd65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
