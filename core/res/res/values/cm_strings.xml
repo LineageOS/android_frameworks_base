@@ -30,4 +30,6 @@
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Touch to disable debugging.</string>
 
+    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+    <string name="lineage_system_error_manufacturer">A vendor image mismatch has been detected. Typically this means your vendor image is out of date. Please ensure your vendor image matches <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
 </resources>

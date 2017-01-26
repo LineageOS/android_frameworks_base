@@ -29,4 +29,7 @@
     <java-symbol type="string" name="adb_net_active_notification_title" />
     <java-symbol type="string" name="adb_both_active_notification_title" />
     <java-symbol type="string" name="adb_active_generic_notification_message" />
+
+    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+    <java-symbol type="string" name="lineage_system_error_manufacturer" />
 </resources>
