@@ -82,4 +82,7 @@
 
     <!-- Blur effects -->
     <java-symbol type="bool" name="config_uiBlurEnabled" />
+
+    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+    <java-symbol type="string" name="lineage_system_error_manufacturer" />
 </resources>
