@@ -18,7 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- label for item that screenshots in phone options dialog -->
-  <string name="global_action_screenshot">螢幕截圖</string>
+  <string name="global_action_screenshot">螢幕擷取</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_receiveProtectedSms">接收受保護的簡訊</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -36,13 +36,13 @@
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_readPhoneBlacklist">允許應用程式讀取關於被封鎖來電或訊息的電話號碼的資訊。</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">更改手機黑名單</string>
+  <string name="permlab_changePhoneBlacklist">變更手機黑名單</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">允許應用程式更改被封鎖來電或訊息的電話號碼。</string>
+  <string name="permdesc_changePhoneBlacklist">允許應用程式變更被封鎖來電或訊息的電話號碼。</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">設定鎖定螢幕桌布</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">允許應用程式更改鎖定螢幕桌布。</string>
+  <string name="permdesc_setKeyguardWallpaper">允許應用程式變更鎖定畫面桌布。</string>
   <!-- label for item that reboots the phone in phone options dialog -->
   <string name="global_action_reboot">重新啟動</string>
   <!-- label for current user in phone options dialog -->
@@ -55,7 +55,7 @@
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
   <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Download</string>
+  <string name="reboot_download">下載</string>
   <!-- Button to soft reboot the device, within the Reboot Options dialog -->
   <string name="reboot_soft">軟體重新啟動</string>
   <!-- Title of dialog to confirm rebooting. -->
@@ -65,7 +65,7 @@
   <string name="reboot_confirm" product="tablet">您的平板電腦將會重新啟動。</string>
   <string name="reboot_confirm" product="default">您的手機將會重新啟動。</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">正在重新啟動\u2026</string>
+  <string name="reboot_progress">重新啟動中\u2026</string>
   <!-- Long-press back kill application -->
   <string name="app_killed_message">已終止應用程式</string>
   <!-- ADB over network notification -->
@@ -84,10 +84,10 @@
   <!-- stylus gestures support -->
   <string name="stylus_app_not_installed">未安裝 %s</string>
   <!-- Zen mode buttons -->
-  <string name="silent_mode_priority">優先度</string>
+  <string name="silent_mode_priority">優先權</string>
   <string name="silent_mode_none">無</string>
   <!-- Wifi Hotspot disabled due to subscription change -->
-  <string name="subscription_change_disabled_wifi_ap">由於 SIM 卡資訊更改，已停用 Wi-Fi 熱點</string>
+  <string name="subscription_change_disabled_wifi_ap">由於 SIM 卡資訊變更，已停用 Wi-Fi 熱點</string>
   <!-- WiFi turn off notification action text -->
   <string name="notify_turn_wifi_off_title">關閉 Wi-Fi</string>
   <!-- Privacy Guard -->
@@ -103,7 +103,7 @@
   <string name="app_ops_access_camera">存取相機</string>
   <string name="app_ops_access_location">存取您的位置</string>
   <string name="app_ops_access_notifications">讀取您的通知</string>
-  <string name="app_ops_activate_vpn">啟動 VPN</string>
+  <string name="app_ops_activate_vpn">啟用一個 VPN</string>
   <string name="app_ops_auto_start">開機時啟動</string>
   <string name="app_ops_delete_call_log">刪除您的通話紀錄</string>
   <string name="app_ops_delete_contacts">刪除您的聯絡人</string>
@@ -127,16 +127,16 @@
   <string name="app_ops_read_clipboard">讀取剪貼簿</string>
   <string name="app_ops_read_contacts">讀取您的聯絡人資料</string>
   <string name="app_ops_read_mms">讀取您的多媒體簡訊</string>
-  <string name="app_ops_read_sms">讀取您的簡訊</string>
-  <string name="app_ops_receive_sms">接收簡訊</string>
+  <string name="app_ops_read_sms">讀取您的簡訊訊息</string>
+  <string name="app_ops_receive_sms">接收簡訊訊息</string>
   <string name="app_ops_record_audio">錄製音訊</string>
   <string name="app_ops_send_mms">傳送多媒體訊息</string>
-  <string name="app_ops_send_sms">傳送簡訊</string>
+  <string name="app_ops_send_sms">傳送簡訊訊息</string>
   <string name="app_ops_start_at_bootup">開機時啟動</string>
-  <string name="app_ops_toast_window">顯示彈出信息</string>
+  <string name="app_ops_toast_window">顯示提示訊息</string>
   <string name="app_ops_toggle_bluetooth">切換至藍牙</string>
   <string name="app_ops_toggle_mobile_data">切換至行動數據</string>
-  <string name="app_ops_toggle_nfc">開關 NFC</string>
+  <string name="app_ops_toggle_nfc">切換至 NFC</string>
   <string name="app_ops_toggle_wifi">切換至 Wi-Fi</string>
   <string name="app_ops_use_alarm_volume">控制鬧鐘音量</string>
   <string name="app_ops_use_audio_focus">控制音訊焦點</string>
@@ -146,17 +146,17 @@
   <string name="app_ops_use_media_volume">控制媒體音量</string>
   <string name="app_ops_use_notification_volume">控制通知音量</string>
   <string name="app_ops_use_ring_volume">控制鈴聲音量</string>
-  <string name="app_ops_use_vibrate">使用觸控震動</string>
+  <string name="app_ops_use_vibrate">使用觸覺回饋</string>
   <string name="app_ops_use_voice_volume">控制語音通話音量</string>
   <string name="app_ops_write_mms">撰寫多媒體訊息</string>
-  <string name="app_ops_write_sms">撰寫簡訊</string>
+  <string name="app_ops_write_sms">撰寫簡訊訊息</string>
   <string name="app_ops_use_fingerprint">使用指紋</string>
   <string name="app_ops_add_voicemail">新增語音信箱</string>
   <string name="app_ops_read_phone_state">存取電話狀態</string>
   <string name="app_ops_scan_wifi">掃描 Wi-Fi 網路</string>
-  <string name="app_ops_change_wallpaper">更改桌布</string>
+  <string name="app_ops_change_wallpaper">變更桌布</string>
   <string name="app_ops_assist_structure">使用協助工具</string>
-  <string name="app_ops_assist_screenshot">螢幕截圖</string>
+  <string name="app_ops_assist_screenshot">螢幕擷取畫面</string>
   <string name="app_ops_use_body_sensors">使用人體感應器</string>
   <string name="app_ops_read_cell_broadcasts">讀取區域廣播</string>
   <string name="app_ops_mock_location">模擬所在位置</string>
@@ -164,10 +164,10 @@
   <string name="app_ops_write_external_storage">寫入外部儲存空間</string>
   <string name="app_ops_turn_on_screen">開啟螢幕</string>
   <string name="app_ops_get_accounts">取得裝置帳號</string>
-  <string name="app_ops_wifi_change">更改 Wi-Fi 狀態</string>
+  <string name="app_ops_wifi_change">變更 Wi-Fi 狀態</string>
   <string name="app_ops_su">取得 Root 權限</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">要解鎖此螢幕，觸摸並按住返回鍵。</string>
+  <string name="lock_to_app_toast_no_navbar">要解鎖此畫面，請輕觸並按住 [返回] 鍵。</string>
   <!-- Template for showing cellular network operator name while LTE calling is enabled -->
   <string name="tethered_notification_no_device_message">沒有已連接的裝置</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> 個已連接裝置</string>
@@ -188,6 +188,6 @@
          whether they want to allow the application to do this. -->
   <string name="permdesc_resetBatteryStats">允許應用程式重設目前低電量的電池使用資料。</string>
   <!-- Uicc hotswapped event configuration needed notification -->
-  <string name="uicc_hot_swapped_event_title">SIM 卡已更改</string>
-  <string name="uicc_hot_swapped_event_text">輕觸即可設定 SIM卡 預設首選項</string>
+  <string name="uicc_hot_swapped_event_title">SIM 卡已變更</string>
+  <string name="uicc_hot_swapped_event_text">輕觸即可設定 SIM卡 預設偏好</string>
 </resources>

@@ -42,6 +42,7 @@
   <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
   <string name="menu_delete">Läschen</string>
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
+  <string name="menu_select_all">Alles auswielen</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
   <string name="menu_advanced_show" product="nosdcard">Interne Späicher uweisen</string>
@@ -56,7 +57,9 @@
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
   <string name="menu_file_size_hide">Fichiersgréisst verstoppen</string>
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
+  <string name="button_select">Auswielen</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
+  <string name="button_copy">Kopéieren</string>
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
   <string name="sort_name">No Numm</string>
   <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
@@ -94,11 +97,14 @@
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
   <string name="share_via">Deelen iwwer</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
+  <string name="copy_notification_title">Fichiere gi kopéiert</string>
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
+  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> iwwreg</string>
   <!-- Toast shown when a file copy is kicked off -->
   <!-- Text shown on the copy notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
   <!-- Title of the copy error notification [CHAR LIMIT=48] -->
   <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
   <!-- Label of a dialog button for retrying a failed operation [CHAR LIMIT=24] -->
+  <string name="retry">Nees probéieren</string>
   <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
 </resources>
