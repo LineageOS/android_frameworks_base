@@ -86,7 +86,7 @@
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_profiles">System profiler</string>
   <string name="quick_settings_profiles_off">Profiler deaktivert</string>
-  <string name="quick_settings_heads_up_label">Flytende notifikasjoner</string>
+  <string name="quick_settings_heads_up_label">Flytende varsler</string>
   <string name="quick_settings_battery_saver_label">Batterisparing</string>
   <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
   <string name="quick_settings_battery_saver_label_charging">Batterisparing (lading)</string>
@@ -150,9 +150,9 @@
   <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient skjerm er skrudd på.</string>
   <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_off">Heads up notifikasjoner er av.</string>
+  <string name="accessibility_quick_settings_heads_up_off">Heads up varsler er av.</string>
   <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_on">Heads up notifikasjoner er på.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Heads up varsler er på.</string>
   <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up ble deaktivert.</string>
   <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->

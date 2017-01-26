@@ -42,7 +42,7 @@
   <string name="navbar_back_button">返回键</string>
   <string name="navbar_empty_button">空白键</string>
   <string name="navbar_menu_conditional_button">菜单键 (自动隐藏)</string>
-  <string name="navbar_menu_always_button">菜单键 (总是显示)</string>
+  <string name="navbar_menu_always_button">菜单键 (始终显示)</string>
   <string name="navbar_menu_big_button">菜单键</string>
   <string name="accessibility_dpad_left">光标左移</string>
   <string name="accessibility_dpad_right">光标右移</string>
@@ -62,7 +62,7 @@
   <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_profiles_changed_off">情景模式已关闭。</string>
   <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">情景模式已修改为<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
+  <string name="accessibility_quick_settings_profiles_changed">情景模式已更改为<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
   <string name="quick_settings_compass_init">正在初始化\u2026</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">指示灯设置</string>

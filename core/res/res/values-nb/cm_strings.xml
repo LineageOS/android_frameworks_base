@@ -120,7 +120,7 @@
   <string name="app_ops_modify_settings">oppdatere systeminnstillinger</string>
   <string name="app_ops_mute_unmute_microphone">Demp/fjern demping av mikrofonen</string>
   <string name="app_ops_play_audio">spille av lyd</string>
-  <string name="app_ops_post_notification">legge inn en melding</string>
+  <string name="app_ops_post_notification">legge inn en varsel</string>
   <string name="app_ops_project_media">Prosjekt media</string>
   <string name="app_ops_read_calendar">lese kalenderen</string>
   <string name="app_ops_read_call_log">lese i samtaleloggen</string>

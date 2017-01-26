@@ -32,13 +32,13 @@
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">与设备安全信息相关的权限。</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">读取手机黑名单</string>
+  <string name="permlab_readPhoneBlacklist">读取号码黑名单</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">允许应用读取有关被阻止来电或信息的电话号码的信息。</string>
+  <string name="permdesc_readPhoneBlacklist">允许应用读取有关已阻止来电或信息的电话号码信息。</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">更改手机黑名单</string>
+  <string name="permlab_changePhoneBlacklist">更改号码黑名单</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">允许应用更改被阻止来电或信息的电话号码。</string>
+  <string name="permdesc_changePhoneBlacklist">允许应用更改阻止来电或信息的电话号码。</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">设置锁屏壁纸</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -76,13 +76,13 @@
   <string name="adb_active_generic_notification_message">触摸以禁用调试。</string>
   <!-- ADB custom tile -->
   <string name="adb_active_custom_tile">ADB - <xliff:g id="adb_type" example="USB">%1$s</xliff:g></string>
-  <string name="adb_active_custom_tile_both">USB &amp; 网络</string>
+  <string name="adb_active_custom_tile_both">USB 和网络</string>
   <string name="adb_active_custom_tile_usb">USB</string>
   <string name="adb_active_custom_tile_net">网络</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_interceptPackageLaunch">拦截应用启动</string>
   <!-- stylus gestures support -->
-  <string name="stylus_app_not_installed">%s 尚未被安装</string>
+  <string name="stylus_app_not_installed">%s 尚未安装</string>
   <!-- Zen mode buttons -->
   <string name="silent_mode_priority">优先级</string>
   <string name="silent_mode_none">无</string>
@@ -92,7 +92,7 @@
   <string name="notify_turn_wifi_off_title">关闭 Wi-Fi</string>
   <!-- Privacy Guard -->
   <string name="permlab_changePrivacyGuardState">启用或禁用隐私防护</string>
-  <string name="permdesc_changePrivacyGuardState">允许应用更改其他应用是否启用隐私防护。当一个应用运行时启用了隐私防护，它将不能访问个人数据，如联系人、通话记录、短信。</string>
+  <string name="permdesc_changePrivacyGuardState">允许应用更改其他应用是否启用隐私防护。当一个应用以启用隐私防护运行时，它将不能访问如联系人、通话记录、短信等个人数据。</string>
   <string name="privacy_guard_notification">隐私防护激活</string>
   <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> 将不能访问个人数据</string>
   <string name="privacy_guard_dialog_title">隐私防护</string>
@@ -101,7 +101,7 @@
   <string name="permission_remember_choice">记住我的选择</string>
   <!-- App ops requests -->
   <string name="app_ops_access_camera">存取相机</string>
-  <string name="app_ops_access_location">访问你的地理位置信息</string>
+  <string name="app_ops_access_location">访问您的位置信息</string>
   <string name="app_ops_access_notifications">读取通知</string>
   <string name="app_ops_activate_vpn">激活一个 VPN</string>
   <string name="app_ops_auto_start">开机自启动</string>
@@ -113,21 +113,21 @@
   <string name="app_ops_get_usage_stats">获取应用使用情况统计</string>
   <string name="app_ops_keep_device_awake">保持设备唤醒</string>
   <string name="app_ops_make_phone_call">拨打电话</string>
-  <string name="app_ops_modify_calendar">更新你的日历</string>
+  <string name="app_ops_modify_calendar">更新您的日历</string>
   <string name="app_ops_modify_call_log">更新通话记录</string>
   <string name="app_ops_modify_clipboard">修改剪贴板</string>
-  <string name="app_ops_modify_contacts">更新你的联系人</string>
+  <string name="app_ops_modify_contacts">更新您的联系人</string>
   <string name="app_ops_modify_settings">更新系统设置</string>
   <string name="app_ops_mute_unmute_microphone">麦克风静音 / 解除静音</string>
   <string name="app_ops_play_audio">播放音频</string>
   <string name="app_ops_post_notification">发出通知</string>
   <string name="app_ops_project_media">放映媒体</string>
-  <string name="app_ops_read_calendar">读取你的日历</string>
-  <string name="app_ops_read_call_log">读取你的通话记录</string>
-  <string name="app_ops_read_clipboard">读取你的剪贴板</string>
-  <string name="app_ops_read_contacts">读取你的联系人</string>
-  <string name="app_ops_read_mms">读取你的彩信</string>
-  <string name="app_ops_read_sms">读取你的短信</string>
+  <string name="app_ops_read_calendar">读取您的日历</string>
+  <string name="app_ops_read_call_log">读取您的通话记录</string>
+  <string name="app_ops_read_clipboard">读取您的剪贴板</string>
+  <string name="app_ops_read_contacts">读取您的联系人</string>
+  <string name="app_ops_read_mms">读取您的彩信</string>
+  <string name="app_ops_read_sms">读取您的短信</string>
   <string name="app_ops_receive_sms">接收短信</string>
   <string name="app_ops_record_audio">录音</string>
   <string name="app_ops_send_mms">发送彩信</string>

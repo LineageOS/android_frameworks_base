@@ -29,6 +29,7 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Glisați dreapta pentru %1$s</string>
   <string name="right_shortcut_hint">Glisați stânga pentru %1$s</string>
+  <string name="lockscreen_message">Apăsaţi o pictogramă din stânga sau dreapta pentru a realoca o comandă rapidă pe ecranul de blocare.</string>
   <string name="lockscreen_default_target">Implicit</string>
   <string name="select_application">Selectați aplicația</string>
   <string name="lockscreen_choose_action_title">Alege acțiunea</string>
@@ -53,6 +54,7 @@
   <!-- Title shown in recents popup for uninstalling the application -->
   <string name="advanced_dev_option_uninstall">Dezinstalați</string>
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_notification_brightness">Luminozitate lumină</string>
   <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_profiles_off">Profiluri oprit.</string>
   <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -64,6 +66,7 @@
   <string name="quick_settings_compass_init">Inițializare\u2026</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Setări de lumină</string>
+  <string name="led_notification_text">Lumină LED activată de setări</string>
   <string name="qs_tile_edit_header_instruction">Apăsați și țineți apăsate chenarele pentru a rearanja</string>
   <string name="quick_settings_edit_label">Editare chenare</string>
   <string name="quick_settings_cannot_delete_edit_tile">Nu se poate șterge chenarul Editare</string>
@@ -75,6 +78,7 @@
   <string name="quick_settings_title_show_brightness_slider">Arată glisorul de luminozitate</string>
   <string name="quick_settings_title_enlarge_first_row">Mărește primul rând</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
+  <string name="screen_pinning_description_no_navbar">Aceasta ține în vizualizare ecranul până îl deblocați. Apăsați și țineți apăsat butonul Înapoi pentru a debloca.</string>
   <string name="quick_settings_custom_tile_detail_title">Chenar personalizat</string>
   <string name="quick_settings_remove">Eliminare chenar</string>
   <string name="quick_settings_network_adb_label">ADB prin rețea</string>
@@ -85,6 +89,7 @@
   <string name="quick_settings_heads_up_label">Atenționare</string>
   <string name="quick_settings_battery_saver_label">Economizor baterie</string>
   <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
+  <string name="quick_settings_battery_saver_label_charging">Economizor de baterie (încărcare)</string>
   <string name="quick_settings_caffeine_label">Cofeină</string>
   <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_sync_off">Sincronizare oprită.</string>
@@ -133,17 +138,25 @@
   <!-- Content description of the lock screen tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_lock_screen_on">Blocare ecran pornit.</string>
   <!-- Announcement made when lock screen changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_lock_screen_changed_off">Ecran de blocare dezactivat.</string>
   <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_lock_screen_changed_on">Ecran de blocare activat.</string>
   <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_ambient_display_off">Afișare ambientală oprită.</string>
   <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_ambient_display_on">Afișare ambientală pornită.</string>
   <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Afișaj ambiental dezactivat.</string>
   <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Afișaj ambiental activat.</string>
   <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_off">Heads-up oprit.</string>
   <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_on">Heads-up pornit.</string>
   <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up a fost oprit.</string>
   <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up a fost pornit.</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_caffeine_off">Cofeină oprit.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -161,6 +174,7 @@
   <string name="dynamic_qs_tile_next_alarm_label">Următoarea alarmă</string>
   <string name="dynamic_qs_tile_ime_selector_label">Selector IME</string>
   <string name="dynamic_qs_tile_su_label">Acces root</string>
+  <string name="dynamic_qs_tile_themes_label">Teme</string>
   <string name="quick_settings_title_advanced_location">Starea celor 3 moduri de locație</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Raportarea locației: mod economisire baterie.</string>
@@ -197,10 +211,17 @@
     <item quantity="other">%1$d clienți</item>
   </plurals>
   <!-- CellularTile data sim not configured state string -->
+  <string name="data_sim_not_configured">Nu există date SIM</string>
   <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_dock_battery_level">Procent baterie <xliff:g id="number">%d</xliff:g> andocată.</string>
   <!-- Play queue -->
+  <string name="play_queue_extention">Afișare coadă de redare</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+  <string name="expand_hint">Glisați în jos pentru a extinde</string>
+  <string name="swipe_left_hint">Glisați stânga pentru a <xliff:g id="app_name">%1$s</xliff:g></string>
+  <string name="swipe_right_hint">Glisați dreapta pentru notificări</string>
 </resources>
