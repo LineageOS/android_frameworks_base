@@ -1852,7 +1852,8 @@ public class ActivityManagerService extends IActivityManager.Stub
                     d.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ERROR);
                     d.setCancelable(false);
                     d.setTitle(mUiContext.getText(R.string.android_system_label));
-                    d.setMessage(mUiContext.getText(R.string.system_error_manufacturer));
+                    d.setMessage(mContext.getString(R.string.lineage_system_error_manufacturer,
+                            SystemProperties.get("ro.build.fingerprint").split("/")[3]));
                     d.setButton(DialogInterface.BUTTON_POSITIVE, mUiContext.getText(R.string.ok),
                             obtainMessage(DISMISS_DIALOG_UI_MSG, d));
                     d.show();
