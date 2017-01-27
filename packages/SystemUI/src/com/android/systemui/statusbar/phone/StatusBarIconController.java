@@ -342,7 +342,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
                 UserHandle.USER_CURRENT) == 2) ||
 			(Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_SHOW_CARRIER,  0,
-                UserHandle.USER_CURRENT) == 3) {
+                UserHandle.USER_CURRENT) == 3)) {
         animateHide(mCarrierLabel,animate);
         }
     }
@@ -355,7 +355,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
                 UserHandle.USER_CURRENT) == 2) ||
 			(Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_SHOW_CARRIER,  0,
-                UserHandle.USER_CURRENT) == 3) {
+                UserHandle.USER_CURRENT) == 3)) {
         animateShow(mCarrierLabel,animate);
         }
     }
