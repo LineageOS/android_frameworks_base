@@ -345,10 +345,27 @@ final class LogicalDisplay {
         mTempDisplayRect.set(displayRectLeft, displayRectTop,
                 displayRectLeft + displayRectWidth, displayRectTop + displayRectHeight);
 
-        mTempDisplayRect.left += mDisplayOffsetX;
-        mTempDisplayRect.right += mDisplayOffsetX;
-        mTempDisplayRect.top += mDisplayOffsetY;
-        mTempDisplayRect.bottom += mDisplayOffsetY;
+        if (orientation == Surface.ROTATION_90) {
+            mTempDisplayRect.left += mDisplayOffsetY;
+            mTempDisplayRect.right += mDisplayOffsetY;
+            mTempDisplayRect.top += mDisplayOffsetX;
+            mTempDisplayRect.bottom += mDisplayOffsetX;
+        } else if (orientation == Surface.ROTATION_180) {
+            mTempDisplayRect.left += -mDisplayOffsetX;
+            mTempDisplayRect.right += -mDisplayOffsetX;
+            mTempDisplayRect.top += -mDisplayOffsetY;
+            mTempDisplayRect.bottom += -mDisplayOffsetY;
+        } else if (orientation == Surface.ROTATION_270) {
+            mTempDisplayRect.left += -mDisplayOffsetY;
+            mTempDisplayRect.right += -mDisplayOffsetY;
+            mTempDisplayRect.top += -mDisplayOffsetX;
+            mTempDisplayRect.bottom += -mDisplayOffsetX;
+        } else {
+            mTempDisplayRect.left += mDisplayOffsetX;
+            mTempDisplayRect.right += mDisplayOffsetX;
+            mTempDisplayRect.top += mDisplayOffsetY;
+            mTempDisplayRect.bottom += mDisplayOffsetY;
+        }
         device.setProjectionInTransactionLocked(orientation, mTempLayerStackRect, mTempDisplayRect);
     }
 
