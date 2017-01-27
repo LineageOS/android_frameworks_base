@@ -82,4 +82,8 @@
 
     <!-- Blur effects -->
     <java-symbol type="bool" name="config_uiBlurEnabled" />
+
+    <!-- center of screen offsets -->
+    <java-symbol type="integer" name="config_offsetCenterX" />
+    <java-symbol type="integer" name="config_offsetCenterY" />
 </resources>

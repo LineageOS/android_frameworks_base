@@ -16,6 +16,7 @@
 
 package com.android.server.display;
 
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.view.Display;
 import android.view.DisplayInfo;
@@ -83,6 +84,12 @@ final class LogicalDisplay {
     // Temporary rectangle used when needed.
     private final Rect mTempLayerStackRect = new Rect();
     private final Rect mTempDisplayRect = new Rect();
+
+    // Offset the "center" of the screen
+    private int mOffsetCenterX = Resources.getSystem().getInteger(
+            com.android.internal.R.integer.config_offsetCenterX);
+    private int mOffsetCenterY = Resources.getSystem().getInteger(
+            com.android.internal.R.integer.config_offsetCenterY);
 
     public LogicalDisplay(int displayId, int layerStack, DisplayDevice primaryDisplayDevice) {
         mDisplayId = displayId;
@@ -316,6 +323,7 @@ final class LogicalDisplay {
         // more clever and match resolutions.
         boolean rotated = (orientation == Surface.ROTATION_90
                 || orientation == Surface.ROTATION_270);
+
         int physWidth = rotated ? displayDeviceInfo.height : displayDeviceInfo.width;
         int physHeight = rotated ? displayDeviceInfo.width : displayDeviceInfo.height;
 
@@ -346,25 +354,25 @@ final class LogicalDisplay {
                 displayRectLeft + displayRectWidth, displayRectTop + displayRectHeight);
 
         if (orientation == Surface.ROTATION_90) {
-            mTempDisplayRect.left += mDisplayOffsetY;
-            mTempDisplayRect.right += mDisplayOffsetY;
-            mTempDisplayRect.top += mDisplayOffsetX;
-            mTempDisplayRect.bottom += mDisplayOffsetX;
+            mTempDisplayRect.left += mDisplayOffsetY + mOffsetCenterY;
+            mTempDisplayRect.right += mDisplayOffsetY + mOffsetCenterY;
+            mTempDisplayRect.top += mDisplayOffsetX + mOffsetCenterX;
+            mTempDisplayRect.bottom += mDisplayOffsetX + mOffsetCenterX;
         } else if (orientation == Surface.ROTATION_180) {
-            mTempDisplayRect.left += -mDisplayOffsetX;
-            mTempDisplayRect.right += -mDisplayOffsetX;
-            mTempDisplayRect.top += -mDisplayOffsetY;
-            mTempDisplayRect.bottom += -mDisplayOffsetY;
+            mTempDisplayRect.left += -mDisplayOffsetX - mOffsetCenterX;
+            mTempDisplayRect.right += -mDisplayOffsetX - mOffsetCenterX;
+            mTempDisplayRect.top += -mDisplayOffsetY - mOffsetCenterY;
+            mTempDisplayRect.bottom += -mDisplayOffsetY - mOffsetCenterY;
         } else if (orientation == Surface.ROTATION_270) {
-            mTempDisplayRect.left += -mDisplayOffsetY;
-            mTempDisplayRect.right += -mDisplayOffsetY;
-            mTempDisplayRect.top += -mDisplayOffsetX;
-            mTempDisplayRect.bottom += -mDisplayOffsetX;
+            mTempDisplayRect.left += -mDisplayOffsetY - mOffsetCenterY;
+            mTempDisplayRect.right += -mDisplayOffsetY - mOffsetCenterY;
+            mTempDisplayRect.top += -mDisplayOffsetX - mOffsetCenterX;
+            mTempDisplayRect.bottom += -mDisplayOffsetX - mOffsetCenterX;
         } else {
-            mTempDisplayRect.left += mDisplayOffsetX;
-            mTempDisplayRect.right += mDisplayOffsetX;
-            mTempDisplayRect.top += mDisplayOffsetY;
-            mTempDisplayRect.bottom += mDisplayOffsetY;
+            mTempDisplayRect.left += mDisplayOffsetX + mOffsetCenterX;
+            mTempDisplayRect.right += mDisplayOffsetX + mOffsetCenterX;
+            mTempDisplayRect.top += mDisplayOffsetY + mOffsetCenterY;
+            mTempDisplayRect.bottom += mDisplayOffsetY + mOffsetCenterY;
         }
         device.setProjectionInTransactionLocked(orientation, mTempLayerStackRect, mTempDisplayRect);
     }

@@ -2797,4 +2797,8 @@
     <!-- Support in Surfaceflinger for blur layers.
          NOTE: This requires additional hardware-specific code. -->
     <bool name="config_uiBlurEnabled">false</bool>
+
+    <!-- Distance in pixels to offset the center of the screen -->
+    <integer name="config_offsetCenterX">0</integer>
+    <integer name="config_offsetCenterY">0</integer>
 </resources>
