@@ -104,6 +104,7 @@ import android.os.Vibrator;
 import android.provider.Settings;
 import android.provider.Settings.System;
 import android.telecom.TelecomManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.AndroidRuntimeException;
 import android.util.ArrayMap;
@@ -1357,10 +1358,17 @@ public class AudioService extends IAudioService.Stub {
         ensureValidStreamType(streamType);
         final int resolvedStream = mStreamVolumeAlias[streamType];
 
-        // Play sounds on STREAM_RING only.
-        if ((flags & AudioManager.FLAG_PLAY_SOUND) != 0 &&
-                resolvedStream != AudioSystem.STREAM_RING) {
-            flags &= ~AudioManager.FLAG_PLAY_SOUND;
+        // Play sounds on STREAM_RING and STREAM_NOTIFICATION only.
+        if ((flags & AudioManager.FLAG_PLAY_SOUND) != 0) {
+            final TelephonyManager telephony =
+                    (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+            boolean voiceCapable = telephony != null && telephony.isVoiceCapable();
+            boolean removePlaySoundFlag = (voiceCapable && resolvedStream != AudioSystem.STREAM_RING) ||
+                    (!voiceCapable && resolvedStream != AudioSystem.STREAM_NOTIFICATION);
+
+            if (removePlaySoundFlag) {
+                flags &= ~AudioManager.FLAG_PLAY_SOUND;
+            }
         }
 
         // For notifications/ring, show the ui before making any adjustments
