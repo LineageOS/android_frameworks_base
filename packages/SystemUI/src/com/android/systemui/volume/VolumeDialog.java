@@ -699,6 +699,7 @@ public class VolumeDialog implements TunerService.Tunable {
 
     private void updateNotificationRowH() {
         VolumeRow notificationRow = findRow(AudioManager.STREAM_NOTIFICATION);
+        VolumeRow ringRow = findRow(AudioManager.STREAM_RING);
         if (notificationRow != null) {
             if (mState.linkedNotification) {
                 removeRow(notificationRow);
@@ -706,6 +707,9 @@ public class VolumeDialog implements TunerService.Tunable {
         } else if (!mState.linkedNotification) {
             addRow(AudioManager.STREAM_NOTIFICATION,
                     R.drawable.ic_volume_notification, R.drawable.ic_volume_notification_mute, true);
+        }
+        if (ringRow != null && !Util.isVoiceCapable(mContext)) {
+            removeRow(ringRow);
         }
     }
 
