@@ -17,6 +17,24 @@
       "revId": "72db97e45849d47b0eae8db3c245b81b3a46459d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_6ee4530d",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2017-01-29T12:49:45Z",
+      "side": 1,
+      "message": "If so, I think we should use Util.isVoiceCapable().",
+      "parentUuid": "9a437d4f_eeee0322",
+      "revId": "72db97e45849d47b0eae8db3c245b81b3a46459d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
