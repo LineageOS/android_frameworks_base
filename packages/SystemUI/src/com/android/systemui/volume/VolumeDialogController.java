@@ -101,6 +101,7 @@ public class VolumeDialogController {
     private final MediaSessionsCallbacks mMediaSessionsCallbacksW = new MediaSessionsCallbacks();
     private final Vibrator mVibrator;
     private final boolean mHasVibrator;
+    private final boolean mVoiceCapable;
 
     private boolean mEnabled;
     private boolean mDestroyed;
@@ -127,6 +128,8 @@ public class VolumeDialogController {
         mStreamTitles = mContext.getResources().getStringArray(R.array.volume_stream_titles_lineage);
         mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         mHasVibrator = mVibrator != null && mVibrator.hasVibrator();
+        mVoiceCapable = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_voice_capable);
     }
 
     public AudioManager getAudioManager() {
@@ -422,6 +425,9 @@ public class VolumeDialogController {
     private boolean updateLinkNotificationConfigW() {
         boolean linkNotificationWithVolume = Settings.Secure.getInt(mContext.getContentResolver(),
                 Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        if (!mVoiceCapable) {
+            return false;
+        }
         if (mState.linkedNotification == linkNotificationWithVolume) {
             return false;
         }
