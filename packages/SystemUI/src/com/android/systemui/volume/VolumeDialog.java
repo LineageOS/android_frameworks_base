@@ -141,6 +141,7 @@ public class VolumeDialog implements TunerService.Tunable {
     private long mCollapseTime;
     private boolean mHovering = false;
     private int mDensity;
+    private boolean mVoiceCapable;
 
     private boolean mShowFullZen;
     private TunerZenModePanel mZenPanel;
@@ -169,6 +170,8 @@ public class VolumeDialog implements TunerService.Tunable {
 
         final Configuration currentConfig = mContext.getResources().getConfiguration();
         mDensity = currentConfig.densityDpi;
+        mVoiceCapable = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_voice_capable);
     }
 
     private void initDialog() {
@@ -699,9 +702,12 @@ public class VolumeDialog implements TunerService.Tunable {
 
     private void updateNotificationRowH() {
         VolumeRow notificationRow = findRow(AudioManager.STREAM_NOTIFICATION);
+        VolumeRow ringRow = findRow(AudioManager.STREAM_RING);
         if (notificationRow != null) {
             if (mState.linkedNotification) {
                 removeRow(notificationRow);
+            } else if (ringRow != null && !mVoiceCapable) {
+                removeRow(ringRow);
             }
         } else if (!mState.linkedNotification) {
             addRow(AudioManager.STREAM_NOTIFICATION,
