@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_d4fe2e6b",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-01-30T04:27:03Z",
+      "side": 0,
+      "message": "Alternatively, we could add the check here, which is the change made by us (https://review.lineageos.org/#/c/153407) that probably caused this issue.",
+      "revId": "d6639cf95a37e010731be76134a6ad8359e81036",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
