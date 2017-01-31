@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_855bd253",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-01-31T06:50:08Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be done in SubSettingsFragment? Does this need to setTargetFragment(null, 0) ?",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 5
+      },
+      "revId": "ebce7da9dfe61f765a1bbc913cb5d98e6c439ef4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
