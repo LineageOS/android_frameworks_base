@@ -26,11 +26,13 @@
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Behörigheter relaterade till enhetssäkerhet.</string>
   <!-- label for item that restarts the phone in phone options dialog -->
+  <string name="global_action_reboot">Starta om</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Nuvarande</string>
   <!-- status message in phone options dialog for screenshot action -->
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
+  <string name="reboot_reboot">Starta om</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <string name="reboot_recovery">Recovery</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
@@ -39,9 +41,13 @@
   <string name="reboot_download">Download</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
   <!-- Title of dialog to confirm restarting. -->
+  <string name="reboot_title">Starta om</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">Din surfplatta kommer att startas om.</string>
+  <string name="reboot_confirm" product="default">Din telefon startas om.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">Startar om\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB över nätverk aktiverat</string>
   <!-- ADB over USB and network notification -->
@@ -129,4 +135,5 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> är skyddad från att startas. Tryck för att autentisera och starta programmet.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">För att frigöra denna skärm, tryck och håll nere Bakåt-knappen.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

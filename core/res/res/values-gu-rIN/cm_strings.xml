@@ -129,4 +129,5 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> લોન્ચ થવા સામે સંરક્ષિત છે. ઍપ્લિકેશન લોન્ચ અને અધિકૃત કરવા ટૅપ કરો.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">આ સ્ક્રીન અનપિન કરવા માટે બૅક બટન પર ટચ કરી પકડી રાખો.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

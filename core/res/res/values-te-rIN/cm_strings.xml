@@ -129,4 +129,5 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$S</xliff:g> ప్రయోగించడం నుండి సంరక్షించబడింది అనువర్తనాన్ని అధీకృతం చేయడం మరియు ప్రయోగించడం నుండి సంరక్షించబడింది.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">ఈ స్క్రీనును అన్పిన్ చేయడానికి, బ్యాక్ బటనును తాకండి మరియు పట్టుకోండి.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

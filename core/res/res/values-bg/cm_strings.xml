@@ -68,10 +68,9 @@
   <!-- App ops requests -->
   <string name="app_ops_access_camera">достъп до камерата</string>
   <string name="app_ops_access_location">достъп до вашето местоположение</string>
-  <string name="app_ops_access_notifications">прочети своите известия</string>
   <string name="app_ops_activate_vpn">активиране на VPN</string>
   <string name="app_ops_auto_start">изпълнение при включване</string>
-  <string name="app_ops_delete_call_log">изтриване на дневника за повиквания</string>
+  <string name="app_ops_delete_call_log">изтриване на списъка с обаждания</string>
   <string name="app_ops_delete_contacts">Изтриване на контакти</string>
   <string name="app_ops_delete_mms">Изтриване на MMS съобщенията</string>
   <string name="app_ops_delete_sms">Изтриване на SMS съобщенията</string>
@@ -80,7 +79,6 @@
   <string name="app_ops_keep_device_awake">Задръж устройството будно</string>
   <string name="app_ops_make_phone_call">осъществете телефонно повикване</string>
   <string name="app_ops_modify_calendar">актуализиране на вашият календар</string>
-  <string name="app_ops_modify_call_log">актуализация на дневника за повиквания</string>
   <string name="app_ops_modify_clipboard">промяна на клипборда</string>
   <string name="app_ops_modify_contacts">актуализиране на вашите контакти</string>
   <string name="app_ops_modify_settings">актуализиране на системните настройки</string>
@@ -100,13 +98,13 @@
   <string name="app_ops_send_sms">Изпращане на SMS съобщение</string>
   <string name="app_ops_start_at_bootup">изпълнение при включване</string>
   <string name="app_ops_toast_window">показвай изкачащи уведомления</string>
-  <string name="app_ops_toggle_bluetooth">активиране/деактивиране Bluetooth</string>
-  <string name="app_ops_toggle_mobile_data">Превключване клетъчен данни</string>
+  <string name="app_ops_toggle_bluetooth">активиране/деактивиране Блутуут</string>
+  <string name="app_ops_toggle_mobile_data">Включване / Изключване на мобилни данни</string>
   <string name="app_ops_toggle_nfc">активиране/деактивиране NFC</string>
   <string name="app_ops_toggle_wifi">активирай/деактивирай Wi-Fi</string>
   <string name="app_ops_use_alarm_volume">контрол на силата на алармата</string>
   <string name="app_ops_use_audio_focus">контрол на силата на звука</string>
-  <string name="app_ops_use_bluetooth_volume">контрол на силата на Bluetooth</string>
+  <string name="app_ops_use_bluetooth_volume">контрол на силата на Блутуут</string>
   <string name="app_ops_use_master_volume">главен контрол на звука</string>
   <string name="app_ops_use_media_buttons">Използвайте мултимедийните бутони</string>
   <string name="app_ops_use_media_volume">контрол на звука за мултимедия</string>
@@ -134,8 +132,8 @@
   <string name="app_ops_wifi_change">променете състоянието на Wi-Fi</string>
   <string name="app_ops_su">получете администраторски права</string>
   <!-- Protected Apps Notification -->
-  <string name="notify_package_component_protected_title">Старта на приложението блокиран</string>
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> е блокиран. Докосни за да потвърдиш старта на приложението.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">За да освободите този екран, докоснете и задръжте бутона назад.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

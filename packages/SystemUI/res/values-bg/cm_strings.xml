@@ -26,7 +26,7 @@
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">Яркостта на светлината</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Настройки на светлината</string>
+  <string name="led_notification_title">Светлинни настройки</string>
   <string name="led_notification_text">Светлинните индикации са разрешени от настройките</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Фенерчето е включено</string>

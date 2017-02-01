@@ -62,4 +62,26 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Hívás</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Rendszer</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Csengés</item>
+    <!-- STREAM_RING -->
+    <item>Média</item>
+    <!-- STREAM_MUSIC -->
+    <item>Ébresztő</item>
+    <!-- STREAM_ALARM -->
+    <item>Értesítés</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>
