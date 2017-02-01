@@ -61,7 +61,6 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
     private final NotificationManager mNotificationManager;
     private final int mStreamType;
     private final int mMaxStreamVolume;
-    private final boolean mVoiceCapable;
     private boolean mAffectedByRingerMode;
     private boolean mNotificationOrRing;
     private final Receiver mReceiver = new Receiver();
@@ -117,8 +116,6 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
             }
         }
         mDefaultUri = defaultUri;
-        mVoiceCapable = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_voice_capable);
     }
 
     private static boolean isNotificationOrRing(int stream) {
@@ -126,8 +123,11 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
     }
 
     private boolean isNotificationStreamLinked() {
-        return mVoiceCapable && Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        final TelephonyManager telephony =
+                (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        return telephony != null && telephony.isVoiceCapable()
+                && CMSettings.Secure.getInt(mContext.getContentResolver(),
+                        CMSettings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
     }
 
     public void setSeekBar(SeekBar seekBar) {
@@ -157,13 +157,13 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
         } else if (mMuted) {
             mSeekBar.setProgress(0);
         } else {
-            mSeekBar.setEnabled(enableSeekBar());
+            mSeekBar.setEnabled(shouldEnableSeekBar());
             mSeekBar.setProgress(mLastProgress > -1 ? mLastProgress : mOriginalStreamVolume);
         }
     }
 
-    private boolean enableSeekBar() {
-        return !(mStreamType == AudioManager.STREAM_NOTIFICATION && isNotificationStreamLinked());
+    private boolean shouldEnableSeekBar() {
+        return mStreamType != AudioManager.STREAM_NOTIFICATION || !isNotificationStreamLinked();
     }
 
     @Override
@@ -277,7 +277,7 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
     }
 
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
-        if (fromTouch && enableSeekBar()) {
+        if (fromTouch && shouldEnableSeekBar()) {
             postSetVolume(progress);
         }
         if (mCallback != null) {

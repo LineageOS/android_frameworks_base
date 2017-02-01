@@ -420,8 +420,8 @@ public class VolumeDialogController {
     }
 
     private boolean updateLinkNotificationConfigW() {
-        boolean linkNotificationWithVolume = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        boolean linkNotificationWithVolume = CMSettings.Secure.getInt(mContext.getContentResolver(),
+                CMSettings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
         if (!Util.isVoiceCapable(mContext)) {
             return false;
         }
@@ -806,7 +806,7 @@ public class VolumeDialogController {
         private final Uri ZEN_MODE_CONFIG_URI =
                 Settings.Global.getUriFor(Settings.Global.ZEN_MODE_CONFIG_ETAG);
         private final Uri VOLUME_LINK_NOTIFICATION_URI =
-                Settings.Secure.getUriFor(Settings.Secure.VOLUME_LINK_NOTIFICATION);
+                CMSettings.Secure.getUriFor(CMSettings.Secure.VOLUME_LINK_NOTIFICATION);
 
         public SettingObserver(Handler handler) {
             super(handler);

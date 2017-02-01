@@ -598,7 +598,7 @@ public class AudioService extends IAudioService.Stub {
     private boolean mAvrcpAbsVolSupported = false;
 
     private boolean mLinkNotificationWithVolume;
-    private final boolean mVoiceCapable;
+
     private static Long mLastDeviceConnectMsgTime = new Long(0);
 
     private NotificationManager mNm;
@@ -681,9 +681,6 @@ public class AudioService extends IAudioService.Stub {
 
         mForcedUseForComm = AudioSystem.FORCE_NONE;
 
-        mVoiceCapable = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_voice_capable);
-
         createAudioSystemThread();
 
         AudioSystem.setErrorCallback(mAudioSystemCallback);
@@ -711,8 +708,8 @@ public class AudioService extends IAudioService.Stub {
                 com.android.internal.R.bool.config_useFixedVolume);
 
         // read this in before readPersistedSettings() because updateStreamVolumeAlias needs it
-        mLinkNotificationWithVolume = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        mLinkNotificationWithVolume = CMSettings.Secure.getInt(mContext.getContentResolver(),
+                CMSettings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
 
         mForceAnalogDeskDock = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_forceAnalogDeskDock);
@@ -1146,7 +1143,9 @@ public class AudioService extends IAudioService.Stub {
 
         mStreamVolumeAlias[AudioSystem.STREAM_DTMF] = dtmfStreamAlias;
 
-        if (mLinkNotificationWithVolume && mVoiceCapable) {
+        final TelephonyManager telephony =
+                (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        if (mLinkNotificationWithVolume && telephony != null && telephony.isVoiceCapable()) {
             mStreamVolumeAlias[AudioSystem.STREAM_NOTIFICATION] = AudioSystem.STREAM_RING;
         } else {
             mStreamVolumeAlias[AudioSystem.STREAM_NOTIFICATION] = AudioSystem.STREAM_NOTIFICATION;
@@ -1278,8 +1277,8 @@ public class AudioService extends IAudioService.Stub {
                     UserHandle.USER_CURRENT) == 1;
         }
 
-        mLinkNotificationWithVolume = Settings.Secure.getInt(cr,
-                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        mLinkNotificationWithVolume = CMSettings.Secure.getInt(cr,
+                CMSettings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
 
         mMuteAffectedStreams = System.getIntForUser(cr,
                 System.MUTE_STREAMS_AFFECTED, AudioSystem.DEFAULT_MUTE_STREAMS_AFFECTED,
