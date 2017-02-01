@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_a37249e3",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialog.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-02-01T05:51:08Z",
+      "side": 1,
+      "message": "What about this? I think the ringRow should always be hidden as long as the device is not voice capable.",
+      "revId": "8ab47b6263c475865e9e979cad7b95d9f16e6850",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
