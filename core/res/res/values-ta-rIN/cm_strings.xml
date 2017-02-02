@@ -129,4 +129,5 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> துவங்கப்படுவதில் இருந்து தடுக்கப்பட்டது. பயன்பாட்டை அங்கீகரிக்கவும் துவங்கவும் தட்டு.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">இந்த திரையை அன்பின் செய்ய, பின்செல் பொத்தானைத் தொட்டு பிடித்துக்கொள்.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

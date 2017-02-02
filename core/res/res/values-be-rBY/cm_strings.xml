@@ -137,4 +137,5 @@
   <string name="notify_package_component_protected_text">Дадатак <xliff:g id="app_name">%1$s</xliff:g> заблакаваны на запуск. Націсні, каб увесці паролль і запусціць дадатак.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Каб адмацаваць экран, націсніце і ўтрымвайце кнопку \"Назад\".</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

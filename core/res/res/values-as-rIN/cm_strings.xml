@@ -129,4 +129,5 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> টো লান্চ্চ কৰাৰ পৰা প্ৰতিৰোধী। এপ্লিকেচনটো প্ৰমাণীকৰণ আৰু লান্চ্চ কৰিবলৈ টেপ কৰক।</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">এই স্ক্ৰীণ আনপিন কৰিবলৈ, বেক বুটামটো স্পৰ্শ কৰক আৰু হেঁচি ৰাখক।</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

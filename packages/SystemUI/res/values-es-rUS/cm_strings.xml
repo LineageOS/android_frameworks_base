@@ -32,8 +32,40 @@
   <string name="quick_settings_tile_flashlight_not_title">La linterna está encendida</string>
   <string name="quick_settings_tile_flashlight_not_summary">Pulsar para apagarla</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
+  <string name="cm_power_notification_controls_description">Los controles de energía de las notificaciones, permiten establecer un nivel de importancia de 0 a 6 para las notificaciones de la aplicaciones.
+        \n\n<b>Nivel 6</b>
+        \n- Mostrar en la parte superior de la lista de notificación
+        \n- Permitir interrumpir el modo de pantalla completa
+        \n- Mostrar siempre
+        \n\n<b>Nivel 5</b>
+        \n- Evitar interrumpir el modo de pantalla completa
+        \n- Interrumpir siempre
+        \n\n<b>Nivel 4</b>
+        \n- Evitar interrumpir el modo de pantalla completa
+        \n- Nunca interrumpir
+        \n\n<b>Nivel 3</b>
+        \n- Evitar interrumpir el modo de pantalla completa
+        \n- Nunca interrumpir
+        \n- Nunca emitir sonidos ni vibraciones
+        \n\n<b>Nivel 2</b>
+        \n- Evitar interrumpir en modo de pantalla completa
+        \n- Nunca interrumpir
+        \n- Nunca emitir sonidos ni vibraciones
+        \n- Ocultar en la pantalla de bloqueo
+        \n- Mostrar en la parte inferior de la lista de notificaciones
+        \n\n<b>Nivel 1</b>
+        \n- Evitar interrumpir en modo de pantalla completa
+        \n- Nunca interrumpir
+        \n- Nunca emitir sonidos ni vibraciones
+        \n- Ocultar en la pantalla de bloqueo y en la barra de estado
+        \n- Mostrar en la parte inferior de la lista de notificaciones
+        \n\n<b>Nivel 0</b>
+        \n- Bloquear todas las notificaciones de la aplicación
+    </string>
   <!-- Notification importance level title-->
+  <string name="importance_level_title">Importancia: Nivel %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">Sin interrupción de pantalla completa, vistazo, sonido o vibración. Ocultado en la pantalla de bloqueo.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Esto fija la pantalla en esta vista hasta que se desancla. Mantén pulsado el botón Atrás para desanclar.</string>
   <!-- Strings for lockscreen shortcut hints -->
@@ -47,9 +79,12 @@
   <!-- Play queue -->
   <string name="play_queue_extension">Mostrar la cola de reproducción</string>
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
   <string name="accessibility_dpad_left">Cursor izquierda</string>
   <string name="accessibility_dpad_right">Cursor derecha</string>
   <!-- NavBar Tuner -->
+  <string name="menu_ime_always_show">Menú / Conmutador de teclado (mostrar siempre)</string>
+  <string name="search">Buscar</string>
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d cliente</item>
@@ -59,4 +94,26 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Llamada</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Sistema</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Sonido</item>
+    <!-- STREAM_RING -->
+    <item>Multimedia</item>
+    <!-- STREAM_MUSIC -->
+    <item>Alarma</item>
+    <!-- STREAM_ALARM -->
+    <item>Notificación</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

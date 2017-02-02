@@ -129,4 +129,5 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g>ଆରମ୍ଭ କରିବାରୁ ସୁରକ୍ଷିତ | ପ୍ରମାଣିତ ଏବଂ ଆବେଦନ ପାଇଁ ଟ୍ୟାପ୍ କରନ୍ତୁ |</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">ଏହି ସ୍କ୍ରିନ୍‍ ଅନ୍‍ପିନ୍‍ କରିବା ପାଇଁ, ବ୍ୟାକ୍‍ ବଟନ୍‍ ସ୍ପର୍ଶ କରନ୍ତୁ ଓ ଧରିରଖନ୍ତୁ।</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

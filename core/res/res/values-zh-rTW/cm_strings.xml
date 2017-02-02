@@ -138,4 +138,6 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s </xliff:g> 正被防止啟動。按一下即可進行身份驗證並啟動應用程式。</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">要解鎖此畫面，請輕觸並按住 [返回] 鍵。</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">已檢測到供應者的映像檔案不符合。 通常這表示您的供應者的映像檔案已過期。 請確保您的供應者的映像檔案與 <xliff:g id="fingerprint">%1$s</xliff:g> 相符合。</string>
 </resources>

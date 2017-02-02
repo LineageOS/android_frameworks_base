@@ -138,4 +138,5 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> este protejat de la lansare. Atingeți pentru a vă autentifica și pentru a lansa aplicația.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Pentru a anula fixarea acestui ecran, atingeți și țineți apăsat butonul Înapoi.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

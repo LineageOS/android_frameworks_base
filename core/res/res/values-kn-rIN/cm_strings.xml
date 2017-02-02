@@ -129,4 +129,5 @@
   <string name="notify_package_component_protected_text">ಲಾಂಚ್‌ ಆಗುವುದರಿಂದ <xliff:g id="app_name">%1$s</xliff:g> ಸಂರಕ್ಷಿಸಲ್ಪಟ್ಟಿದೆ ದೃಢೀಕರಿಸಲು ತಟ್ಟಿ ಮತ್ತು ಅಪ್ಲಿಕೇಶನ್‌ ಲಾಂಚ್‌ ಮಾಡಿ.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">ಪರದೆಯನ್ನು ಅನ್‍ಪಿನ್‍ಮಾಡಲು, ಹಿಂದೆ ಬಟನ್‍ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>
