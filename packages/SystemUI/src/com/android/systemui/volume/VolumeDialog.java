@@ -684,7 +684,9 @@ public class VolumeDialog implements TunerService.Tunable {
             }
         }
 
-        updateNotificationRowH();
+        if (Util.isVoiceCapable(mContext)) {
+            updateNotificationRowH();
+        }
 
         if (mActiveStream != state.activeStream) {
             mActiveStream = state.activeStream;
