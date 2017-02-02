@@ -65,7 +65,7 @@
   <string name="accessibility_quick_settings_profiles_changed">Профила е сменен с <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
   <string name="quick_settings_compass_init">Стартиране на\u2026</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Настройки на светлината</string>
+  <string name="led_notification_title">Светлинни настройки</string>
   <string name="led_notification_text">Светлинните индикации са разрешени от настройките</string>
   <string name="qs_tile_edit_header_instruction">Натиснете и задръжте плочка за да я пренаредите или премахнете</string>
   <string name="quick_settings_edit_label">Редактиране на плочки</string>
@@ -138,9 +138,9 @@
   <!-- Content description of the lock screen tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_lock_screen_on">Включване на заключване на екран.</string>
   <!-- Announcement made when lock screen changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_changed_off">Заключване екран е изключено.</string>
+  <string name="accessibility_quick_settings_lock_screen_changed_off">Заключване на екрана е изключено.</string>
   <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_changed_on">Заключване екран е включено.</string>
+  <string name="accessibility_quick_settings_lock_screen_changed_on">Заключване на екрана е изключено.</string>
   <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_ambient_display_off">Активен дисплей е изключен.</string>
   <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
