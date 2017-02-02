@@ -32,4 +32,6 @@
     <color name="qs_battery_accent">@*android:color/accent_device_default_light</color>
     <!-- External QS tile tint color -->
     <color name="external_qs_tile_tint_color">@android:color/white</color>
+    <!-- Keyguard affordance circle background -->
+    <color name="keyguard_affordance_circle_background">@android:color/white</color>
 </resources>
