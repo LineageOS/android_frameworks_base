@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9a437d4f_4efe466d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2017-02-03T22:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a437d4f_fee6cd15",
+      "revId": "381bc0eb02aef8c335028698a3c3182d1ef37811",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a437d4f_3edd7543",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
         "patchSetId": 7
