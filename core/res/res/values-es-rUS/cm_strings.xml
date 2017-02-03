@@ -18,6 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- label for item that screenshots in phone options dialog -->
+  <string name="global_action_screenshot">Captura de pantalla</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_receiveProtectedSms">recibir SMS protegidos</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -116,7 +117,7 @@
   <string name="app_ops_modify_call_log">actualizar el registro de llamadas</string>
   <string name="app_ops_modify_clipboard">modificar el portapapeles</string>
   <string name="app_ops_modify_contacts">actualizar tus contactos</string>
-  <string name="app_ops_modify_settings">actualizar configuración del sistema</string>
+  <string name="app_ops_modify_settings">actualizar ajustes del sistema</string>
   <string name="app_ops_mute_unmute_microphone">silenciar / activar el micrófono</string>
   <string name="app_ops_play_audio">reproducir el audio</string>
   <string name="app_ops_post_notification">publicar una notificación</string>
