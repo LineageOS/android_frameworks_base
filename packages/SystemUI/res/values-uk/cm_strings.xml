@@ -29,9 +29,42 @@
   <string name="led_notification_title">Індикатор подій</string>
   <string name="led_notification_text">Світлодіод увімкнено параметрами</string>
   <!-- Notification which notifies user flashlight is enabled -->
+  <string name="quick_settings_tile_flashlight_not_summary">Торкніться для вимкнення</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
+  <string name="cm_power_notification_controls_description">За допомогою елементів керування сповіщеннями ви можете налаштувати пріоритет сповіщень додатка – від 0 до 6 рівня.
+        \n\n<b>Рівень 6</b>
+        \n- Показувати сповіщення вгорі списку
+        \n- Виводити на весь екран
+        \n- Завжди показувати короткі сповіщення
+        \n\n<b>Рівень 5</b>
+        \n- Не виводити на весь екран
+        \n- Завжди показувати короткі сповіщення
+        \n\n<b>Рівень 4</b>
+        \n- Не виводити на весь екран
+        \n- Не показувати короткі сповіщення
+        \n\n<b>Рівень 3</b>
+        \n- Не виводити на весь екран
+        \n- Не показувати короткі сповіщення
+        \n- Вимкнути звук і вібросигнал
+        \n\n<b>Рівень 2</b>
+        \n- Не виводити на весь екран
+        \n- Не показувати короткі сповіщення
+        \n- Вимкнути звук і вібросигнал
+        \n- Не показувати на заблокованому екрані
+        \n- Показувати сповіщення внизу списку
+        \n\n<b>Рівень 1</b>
+        \n- Не виводити на весь екран
+        \n- Не показувати короткі сповіщення
+        \n- Вимкнути звук і вібросигнал
+        \n- Не показувати на заблокованому екрані та в рядку стану
+        \n- Показувати сповіщення внизу списку
+        \n\n<b>Level 0</b>
+        \n- Блокувати всі сповіщення з додатка
+    </string>
   <!-- Notification importance level title-->
+  <string name="importance_level_title">Пріоритет: рівень %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">Не виводити на весь екран. Вимкнути короткі сповіщення, звук і вібросигнал. Не показувати на заблокованому екрані.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Триматиме це перед Вами, доки не відкріпите. Торкніться й утримуйте кнопку «Назад», щоб відкріпити.</string>
   <!-- Strings for lockscreen shortcut hints -->
@@ -48,9 +81,33 @@
   <string name="accessibility_dpad_left">Курсор ліворуч</string>
   <string name="accessibility_dpad_right">Курсор праворуч</string>
   <!-- NavBar Tuner -->
+  <string name="menu_ime_always_show">Меню / Вибір методу вводу (завжди показувати)</string>
+  <string name="search">Пошук</string>
   <!-- Wi-Fi hotspot label when enabled -->
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Виклик</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Система</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Дзвінок</item>
+    <!-- STREAM_RING -->
+    <item>Медіа</item>
+    <!-- STREAM_MUSIC -->
+    <item>Будильник</item>
+    <!-- STREAM_ALARM -->
+    <item>Сповіщення</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

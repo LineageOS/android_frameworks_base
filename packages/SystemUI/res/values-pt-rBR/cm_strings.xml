@@ -94,4 +94,26 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Chamada</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Sistema</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Toque</item>
+    <!-- STREAM_RING -->
+    <item>Mídia</item>
+    <!-- STREAM_MUSIC -->
+    <item>Alarme</item>
+    <!-- STREAM_ALARM -->
+    <item>Notificação</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

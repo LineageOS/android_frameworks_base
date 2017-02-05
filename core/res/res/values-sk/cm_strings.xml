@@ -139,4 +139,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Na odopnutie tejto obrazovky stlačte a podržte tlačidlo Späť.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Bol zistený nesúlad v systémových ovládačoch. Zvyčajne to znamená že ovládače sú zastarané. Skontrolujte, či ovládače zodpovedajú <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
 </resources>

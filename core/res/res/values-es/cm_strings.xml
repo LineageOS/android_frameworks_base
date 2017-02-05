@@ -30,6 +30,7 @@
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Actual</string>
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">Pulsación larga para captura de pantalla parcial</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <string name="reboot_reboot">Reiniciar</string>
@@ -40,11 +41,15 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">Descargar</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">Reinicio rápido</string>
   <!-- Title of dialog to confirm restarting. -->
   <string name="reboot_title">Reiniciar</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">Su tablet se reiniciará.</string>
+  <string name="reboot_confirm" product="default">Su teléfono se reiniciará.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">Reiniciando\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB sobre red activado</string>
   <!-- ADB over USB and network notification -->
@@ -134,4 +139,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Para liberar esta pantalla, mantén pulsado el botón Atrás.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Se ha detectado una falta de coincidencia con la imagen del proveedor. Por lo general esto significa que dicha imagen está desactualizada. Asegúrese de que coincida con <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
 </resources>

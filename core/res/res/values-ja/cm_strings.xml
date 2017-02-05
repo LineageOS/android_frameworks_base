@@ -49,7 +49,7 @@
   <string name="reboot_confirm" product="tablet">タブレットは再起動します。</string>
   <string name="reboot_confirm" product="default">携帯電話は再起動します。</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
-  <string name="reboot_progress">再起動中\u2026</string>
+  <string name="reboot_progress">再起動中...</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ネットワーク経由のADBが有効です</string>
   <!-- ADB over USB and network notification -->
@@ -139,4 +139,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">この画面の固定を解除するには、戻るボタンを長押しします。</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">ベンダーイメージの不一致を検出しました。ベンダーイメージが最新でない可能性があります。ベンダーイメージが<xliff:g id="fingerprint">%1$s</xliff:g>と一致しているか確認してください。</string>
 </resources>

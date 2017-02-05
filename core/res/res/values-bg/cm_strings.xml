@@ -136,4 +136,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">За да освободите този екран, докоснете и задръжте бутона назад.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Открито е несъответствие. Обикновено това означава, че изображението е остаряло. Проверете дали вашето изображение съвпада с <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
 </resources>
