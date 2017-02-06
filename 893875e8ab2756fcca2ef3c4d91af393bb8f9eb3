@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a288981_35cfcfb2",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 14
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-02-06T07:46:42Z",
+      "side": 1,
+      "message": "right -\u003e end",
+      "revId": "893875e8ab2756fcca2ef3c4d91af393bb8f9eb3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a288981_f5c0277e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-02-06T07:46:42Z",
+      "side": 1,
+      "message": "Should use string resources for the units.\n\n(I know for a fact that e.g. -fr will use ko/s instead of kB/s)",
+      "revId": "893875e8ab2756fcca2ef3c4d91af393bb8f9eb3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a288981_9537a3b0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-02-06T07:46:42Z",
+      "side": 1,
+      "message": "All of those @hide annotations can be removed.",
+      "revId": "893875e8ab2756fcca2ef3c4d91af393bb8f9eb3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
