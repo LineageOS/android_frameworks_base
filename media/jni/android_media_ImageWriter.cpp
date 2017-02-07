@@ -520,7 +520,7 @@ static jint ImageWriter_attachAndQueueImage(JNIEnv* env, jobject thiz, jlong nat
 
     // Image is guaranteed to be from ImageReader at this point, so it is safe to
     // cast to BufferItem pointer.
-    BufferItem* opaqueBuffer = reinterpret_cast<BufferItem*>(nativeBuffer);
+    BufferQueue::BufferItem* opaqueBuffer = reinterpret_cast<BufferQueue::BufferItem*>(nativeBuffer);
     if (opaqueBuffer == NULL) {
         jniThrowException(env, "java/lang/IllegalStateException",
                 "Image is not initialized or already closed");

@@ -29,7 +29,7 @@ bool Properties::debugLayersUpdates = false;
 bool Properties::debugOverdraw = false;
 bool Properties::showDirtyRegions = false;
 bool Properties::skipEmptyFrames = true;
-bool Properties::swapBuffersWithDamage = true;
+bool Properties::swapBuffersWithDamage = false;
 
 DebugLevel Properties::debugLevel = kDebugDisabled;
 OverdrawColorSet Properties::overdrawColorSet = OverdrawColorSet::Default;

@@ -91,6 +91,13 @@ public class MobileSignalController extends SignalController<
 
         String networkName = info.getCarrierName() != null ? info.getCarrierName().toString()
                 : mNetworkNameDefault;
+
+        if (isNumeric(networkName)) {
+            String displayName = info.getDisplayName() != null? info.getDisplayName().toString()
+                : mNetworkNameDefault;
+            networkName = displayName;
+        }
+
         mLastState.networkName = mCurrentState.networkName = networkName;
         mLastState.networkNameData = mCurrentState.networkNameData = networkName;
         mLastState.enabled = mCurrentState.enabled = hasMobileData;
@@ -98,6 +105,13 @@ public class MobileSignalController extends SignalController<
         // Get initial data sim state.
         updateDataSim();
     }
+
+    private boolean isNumeric(String str) {
+         for (char c : str.toCharArray()) {
+             if (!Character.isDigit(c)) return false;
+         }
+         return true;
+     }
 
     public void setConfiguration(Config config) {
         mConfig = config;
@@ -339,10 +353,10 @@ public class MobileSignalController extends SignalController<
         StringBuilder str = new StringBuilder();
         StringBuilder strData = new StringBuilder();
         if (showPlmn && plmn != null) {
-            str.append(plmn);
+            if (!isNumeric(plmn)) str.append(plmn);
             strData.append(plmn);
         }
-        if (showSpn && spn != null) {
+        if (/*showSpn &&*/ spn != null) {
             if (str.length() != 0) {
                 str.append(mNetworkNameSeparator);
             }

@@ -16106,6 +16106,7 @@ package android.media {
     method public boolean isPlaying();
     method public void pause() throws java.lang.IllegalStateException;
     method public void prepare() throws java.io.IOException, java.lang.IllegalStateException;
+    method public void prepareWithoutScan() throws java.io.IOException, java.lang.IllegalStateException;
     method public void prepareAsync() throws java.lang.IllegalStateException;
     method public void release();
     method public void reset();

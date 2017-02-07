@@ -261,31 +261,7 @@ bool EglManager::swapBuffers(EGLSurface surface, const SkRect& dirty,
     }
 #endif
 
-#ifdef EGL_KHR_swap_buffers_with_damage
-    if (CC_LIKELY(Properties::swapBuffersWithDamage)) {
-        SkIRect idirty;
-        dirty.roundOut(&idirty);
-        /*
-         * EGL_KHR_swap_buffers_with_damage spec states:
-         *
-         * The rectangles are specified relative to the bottom-left of the surface
-         * and the x and y components of each rectangle specify the bottom-left
-         * position of that rectangle.
-         *
-         * HWUI does everything with 0,0 being top-left, so need to map
-         * the rect
-         */
-        EGLint y = height - (idirty.y() + idirty.height());
-        // layout: {x, y, width, height}
-        EGLint rects[4] = { idirty.x(), y, idirty.width(), idirty.height() };
-        EGLint numrects = dirty.isEmpty() ? 0 : 1;
-        eglSwapBuffersWithDamageKHR(mEglDisplay, surface, rects, numrects);
-    } else {
-        eglSwapBuffers(mEglDisplay, surface);
-    }
-#else
     eglSwapBuffers(mEglDisplay, surface);
-#endif
 
     EGLint err = eglGetError();
     if (CC_LIKELY(err == EGL_SUCCESS)) {
