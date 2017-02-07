@@ -139,4 +139,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Per desancorar aquesta pantalla, toca i aguanta el botó Enrera.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">S\'ha detectat una falta de coincidència amb la imatge del proveïdor. Normalment, això significa que la imatge proveïdor està desactualitzada. Si us plau, assegura\'t que la imatge del proveïdor coincideix amb <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
 </resources>

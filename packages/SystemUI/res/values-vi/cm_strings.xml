@@ -32,8 +32,39 @@
   <string name="quick_settings_tile_flashlight_not_title">Đã bật đèn pin</string>
   <string name="quick_settings_tile_flashlight_not_summary">Chạm vào để tắt</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
+  <string name="cm_power_notification_controls_description">Với các điều khiển thông báo điện năng, bạn có thể thiết lập mức quan trọng từ 0 đến 6 cho một thông báo của ứng dụng.
+        \n\n<b>Mức 6</b>
+        \n- Hiển thị trên cùng danh sách thông báo
+        \n- Luôn luôn cho phép sự gián đoạn toàn màn hình
+        \n- Luôn luôn hé nhìn
+        \n\n<b>Mức 5</b>
+        \n- Ngăn chặn sự gián đoạn toàn màn hình
+        \n- Luôn luôn hé nhìn
+        \n\n<b>Mứcl 4</b>
+        \n- Ngăn chặn sự gián đoạn toàn màn hình
+        \n- Không bao giờ hé nhìn
+        \n\n<b>Mức 3</b>
+        \n- Ngăn chặn sự gián đoạn toàn màn hình
+        \n- Không bao giờ hé nhìn
+        \n- Không bao giờ tạo ra âm thanh và rung
+        \n\n<b>Mức 2</b>
+        \n- Ngăn chặn sự gián đoạn toàn màn hình
+        \n- Không bao giờ hé nhìn
+        \n- Không bao giờ tạo ra âm thanh và rung
+        \n- Ẩn từ màn hình khóa
+        \n- Hiển thị dưới cùng danh sách thông báo
+        \n\n<b>Mức 1</b>
+        \n- Ngăn chặn sự gián đoạn toàn màn hình
+        \n- Không bao giờ hé nhìn
+        \n- Không bao giờ tạo ra âm thanh và rung
+        \n- Ẩn từ màn hình khóa và thanh trạng thái
+        \n- Hiển thị dưới cùng danh sách thông báo
+        \n\n<b>Mức 0</b>
+        \n- Chặn tất cả thông báo từ ứng dụng này    </string>
   <!-- Notification importance level title-->
+  <string name="importance_level_title">Quan trọng: Mức %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">Không có sự gián đoạn toàn màn hình, hé nhìn, âm thanh hay rung. Ẩn từ màn hình khóa.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Điều này sẽ giúp nó hiển thị cho đến khi bạn bỏ ghim. Chạm và giữ nút Quay lại để bỏ ghim.</string>
   <!-- Strings for lockscreen shortcut hints -->
@@ -47,9 +78,12 @@
   <!-- Play queue -->
   <string name="play_queue_extension">Hiện danh sách chờ phát</string>
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
   <string name="accessibility_dpad_left">Trỏ trái</string>
   <string name="accessibility_dpad_right">Trỏ phải</string>
   <!-- NavBar Tuner -->
+  <string name="menu_ime_always_show">Trình đơn / Trình chuyển đổi bàn phím (luôn hiển thị)</string>
+  <string name="search">Tìm kiếm</string>
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="other">%1$d máy khách</item>
@@ -58,4 +92,26 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Gọi</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Hệ thống</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Chuông</item>
+    <!-- STREAM_RING -->
+    <item>Phương tiện</item>
+    <!-- STREAM_MUSIC -->
+    <item>Báo thức</item>
+    <!-- STREAM_ALARM -->
+    <item>Thông báo</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
 </resources>

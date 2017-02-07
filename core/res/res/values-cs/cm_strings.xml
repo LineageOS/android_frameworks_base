@@ -139,4 +139,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Chcete-li odebrat tuto obrazovku, podržte tlačítko Zpět.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Byla zjištěna neshoda obrazu dodavatele. Obvykle to znamená, že obraz dodavatele je zastaralý. Zkontrolujte, zda že obraz dodavatele odpovídá „otisku“ <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
 </resources>

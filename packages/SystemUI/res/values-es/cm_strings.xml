@@ -32,8 +32,40 @@
   <string name="quick_settings_tile_flashlight_not_title">La linterna está encendida</string>
   <string name="quick_settings_tile_flashlight_not_summary">Toca para apagarla</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
+  <string name="cm_power_notification_controls_description">Con los controles de notificación, puede establecer un nivel de importancia de 0 a 6 para las notificaciones de una aplicación.
+        \n\n <b>Nivel 6</b>
+        \n- Mostrar en la parte superior de la lista de notificaciones
+        \n- Permite interrupción a pantalla completa
+        \n- Vistazo siempre
+        \n\n <b>Nivel 5</b>
+        \n- Evitar interrupción a pantalla completa
+        \n- Vistazo siempre
+        \n\n <b>Nivel 4</b>
+        \n- Evitar interrupción a pantalla completa 
+        \n- Vistazo nunca
+        \n\n<b>Nivel 3</b> 
+        \n- Evitar interrupción a pantalla completa
+        \n- Vistazo nunca
+        \n- Nunca vibrar ni sonar
+        \n\n<b>Nivel 2</b> 
+        \n- Evitar interrupción a pantalla completa
+        \n- Vistazo nunca
+        \n- Nunca vibrar ni sonar
+        \n- Ocultar en la pantalla de bloqueo
+        \n-Mostrar en la parte inferior de la lista de notificaciones
+        \n\n<b>Nivel 1</b>
+         \n- Evitar interrupción a pantalla completa
+        \n- Vistazo nunca
+        \n- Nunca vibrar ni sonar
+        \n- Ocultar en la pantalla de bloqueo y en la barra de estado
+        \n-Mostrar en la parte inferior de la lista de notificaciones
+        \n\n <b>Nivel 0</b> 
+        \n- Bloquear todas las notificaciones de la aplicación
+    </string>
   <!-- Notification importance level title-->
+  <string name="importance_level_title">Prioridad: Nivel %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">No hay interrupciones a pantalla completa, vistazo, sonido o vibración. Esconder en la pantalla de bloqueo.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Esto fija la pantalla en esta vista hasta que es liberada. Mantén pulsado el botón Atrás para liberarla.</string>
   <!-- Strings for lockscreen shortcut hints -->
@@ -47,9 +79,12 @@
   <!-- Play queue -->
   <string name="play_queue_extension">Mostrar la cola de reproducción</string>
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
   <string name="accessibility_dpad_left">Cursor izquierdo</string>
   <string name="accessibility_dpad_right">Cursor derecho</string>
   <!-- NavBar Tuner -->
+  <string name="menu_ime_always_show">Menú / conmutador de teclado (Mostrar siempre)</string>
+  <string name="search">Buscar</string>
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d cliente</item>

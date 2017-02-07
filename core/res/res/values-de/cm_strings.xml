@@ -139,4 +139,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Zum Lösen dieser Ansicht drücken und halten Sie die Zurück-Taste.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Es wurde ein unpassendes Vendor-Image erkannt. Dies bedeutet in der Regel, dass es veraltet ist. Stellen Sie sicher, dass ihr Vendor-Image <xliff:g id="fingerprint">%1$s</xliff:g> entspricht.</string>
 </resources>

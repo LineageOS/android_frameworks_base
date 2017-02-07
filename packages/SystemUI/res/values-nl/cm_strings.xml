@@ -32,6 +32,35 @@
   <string name="quick_settings_tile_flashlight_not_title">Zaklamp staat aan</string>
   <string name="quick_settings_tile_flashlight_not_summary">Tik om uit te schakelen</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
+  <string name="cm_power_notification_controls_description">Met de geavanceerde instellingen kunt u app notificaties indelen op niveau 0 tot 6.
+        \n\n<b>Niveau 6</b>
+        \n- Toon bovenaan de notificatie lijst
+        \n- Zichtbaar op volledig scherm
+        \n- Korte weergave toegestaan
+        \n\n<b>Niveau 5</b>
+        \n- Niet zichtbaar op volledig scherm
+        \n- Korte weergave toegestaan
+        \n\n<b>Niveau 4</b>
+        \n- Niet zichtbaar op volledig scherm
+        \n- Geen korte weergave
+        \n\n<b>Niveau 3</b>
+        \n- Niet zichtbaar op volledig scherm
+        \n- Geen korte weergave
+        \n- Geen geluid of vibratie
+        \n\n<b>Niveau 2</b>
+        \n- Niet zichtbaar op volledig scherm
+        \n- Geen korte weergave
+        \n- Geen geluid of vibratie
+        \n- Verberg op vergrendelscherm
+        \n- Toon onderaan op de notificatie lijst
+        \n\n<b>Niveau 1</b>
+        \n- Niet zichtbaar op volledig scherm
+        \n- Geen korte weergave
+        \n- Geen geluid of vibratie
+        \n- Verberg op vergrendelscherm en status balk
+        \n- Toon onderaan op de notificatie lijst
+        \n\n<b>Niveau 0</b>
+        \n- Blokkeer alle notificaties van deze app    </string>
   <!-- Notification importance level title-->
   <string name="importance_level_title">Urgentie: Niveau %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->

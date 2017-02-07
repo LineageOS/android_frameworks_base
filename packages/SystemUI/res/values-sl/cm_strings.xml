@@ -97,7 +97,7 @@
   <!-- Path data for circle battery -->
   <!-- Volume stream titles - should match the string-array in AOSP -->
   <string-array name="volume_stream_titles_lineage">
-    <item>Call</item>
+    <item>Klic</item>
     <!-- STREAM_VOICE_CALL -->
     <item>Sistem</item>
     <!-- STREAM_SYSTEM -->

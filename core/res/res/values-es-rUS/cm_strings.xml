@@ -83,7 +83,7 @@
   <string name="app_ops_modify_call_log">actualizar el registro de llamadas</string>
   <string name="app_ops_modify_clipboard">modificar el portapapeles</string>
   <string name="app_ops_modify_contacts">actualizar tus contactos</string>
-  <string name="app_ops_modify_settings">actualizar configuración del sistema</string>
+  <string name="app_ops_modify_settings">actualizar ajustes del sistema</string>
   <string name="app_ops_mute_unmute_microphone">silenciar / activar el micrófono</string>
   <string name="app_ops_play_audio">reproducir el audio</string>
   <string name="app_ops_post_notification">publicar una notificación</string>
@@ -139,4 +139,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Para desanclar esta pantalla, mantén pulsado el botón Atrás.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Se detectó una falta de coincidencia con la imagen del proveedor. Por lo general esto significa que dicha imagen está desactualizada. Asegúrese de que coincida con <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
 </resources>
