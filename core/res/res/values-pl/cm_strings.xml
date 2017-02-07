@@ -30,6 +30,7 @@
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Bieżący</string>
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">Naciśnij i przytrzymaj by wykonać częściowy zrzut ekranu</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <string name="reboot_reboot">Uruchom ponownie</string>
@@ -48,6 +49,7 @@
   <string name="reboot_confirm" product="tablet">Tablet zostanie uruchomiony ponownie.</string>
   <string name="reboot_confirm" product="default">Telefon zostanie uruchomiony ponownie.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">Ponowne uruchamianie\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB przez sieć włączone</string>
   <!-- ADB over USB and network notification -->
