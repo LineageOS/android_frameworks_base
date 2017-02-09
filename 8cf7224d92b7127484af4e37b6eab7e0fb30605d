@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a288981_85fe466a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-02-09T21:39:49Z",
+      "side": 1,
+      "message": "This is no longer needed, since REFRESH_INTERVAL is 1000.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 17
+      },
+      "revId": "8cf7224d92b7127484af4e37b6eab7e0fb30605d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
