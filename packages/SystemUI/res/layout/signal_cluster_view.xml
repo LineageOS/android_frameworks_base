@@ -76,6 +76,15 @@
         android:layout_height="4dp"
         android:visibility="gone"
         />
+    <ImageView
+        android:id="@+id/ims_hd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:src="@drawable/volte"
+        android:visibility="gone"
+        />
     <LinearLayout
         android:id="@+id/mobile_signal_group"
         android:layout_height="wrap_content"
