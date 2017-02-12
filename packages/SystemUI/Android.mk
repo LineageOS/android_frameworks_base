@@ -31,8 +31,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v4 \
     framework-protos \
     SystemUI-proto-tags \
-    org.cyanogenmod.platform.internal \
-    uicommon
+    org.cyanogenmod.platform.internal
 
 LOCAL_JAVA_LIBRARIES := telephony-common
 LOCAL_FULL_LIBS_MANIFEST_FILES := $(LOCAL_PATH)/AndroidManifest_cm.xml
