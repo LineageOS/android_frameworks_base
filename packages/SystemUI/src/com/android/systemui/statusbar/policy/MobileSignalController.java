@@ -42,7 +42,7 @@ import com.android.systemui.statusbar.policy.NetworkControllerImpl.SubscriptionD
 import java.io.PrintWriter;
 import java.util.BitSet;
 import java.util.Objects;
-
+import java.util.List;
 
 public class MobileSignalController extends SignalController<
         MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> {
@@ -256,7 +256,25 @@ public class MobileSignalController extends SignalController<
         int typeIcon = showDataIcon ? icons.mDataType : 0;
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, dataContentDescription, description, icons.mIsWide,
-                mSubscriptionInfo.getSubscriptionId(), mCurrentState.roaming);
+                mSubscriptionInfo.getSubscriptionId(), mCurrentState.roaming, isMobileIms());
+    }
+
+    private boolean isMobileIms() {
+
+        List<SubscriptionInfo> subInfos = SubscriptionManager.from(mContext)
+                        .getActiveSubscriptionInfoList();
+        if (subInfos != null) {
+            for (SubscriptionInfo subInfo: subInfos) {
+                int subId = subInfo.getSubscriptionId();
+                if (mPhone != null
+                        && mPhone.isImsRegisteredForSubscriber(subId)) {
+                    return true;
+                }
+            }
+        } else {
+            Log.e(mTag, "Invalid SubscriptionInfo");
+        }
+        return false;
     }
 
     @Override
