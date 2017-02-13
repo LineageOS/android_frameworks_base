@@ -38,6 +38,8 @@ public class BatteryLevelTextView extends TextView implements
     private BatteryController mBatteryController;
 
     private boolean mRequestedVisibility;
+    private boolean mForceBatteryText;
+    private boolean mBatteryCharging;
 
     public BatteryLevelTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -46,6 +48,13 @@ public class BatteryLevelTextView extends TextView implements
     @Override
     public void onBatteryLevelChanged(int level, boolean pluggedIn, boolean charging) {
         setText(NumberFormat.getPercentInstance().format((double) level / 100.0));
+        boolean changed = mBatteryCharging != charging;
+        mBatteryCharging = charging;
+        if (changed) {
+            mForceBatteryText = CMSettings.System.getInt(getContext().getContentResolver(),
+                    CMSettings.System.STATUS_BAR_BATTERY_STYLE, 0) == 6 ? true : false;
+            setVisibility(mBatteryCharging || mRequestedVisibility || mForceBatteryText ? View.VISIBLE : View.GONE);
+        }
     }
 
     public void setBatteryController(BatteryController batteryController) {
@@ -75,7 +84,9 @@ public class BatteryLevelTextView extends TextView implements
         switch (key) {
             case STATUS_BAR_SHOW_BATTERY_PERCENT:
                 mRequestedVisibility = newValue != null && Integer.parseInt(newValue) == 2;
-                setVisibility(mRequestedVisibility ? View.VISIBLE : View.GONE);
+                mForceBatteryText = CMSettings.System.getInt(getContext().getContentResolver(),
+                        CMSettings.System.STATUS_BAR_BATTERY_STYLE, 0) == 6 ? true : false;
+                setVisibility(mBatteryCharging || mRequestedVisibility || mForceBatteryText ? View.VISIBLE : View.GONE);
                 break;
             case STATUS_BAR_BATTERY_STYLE:
                 final int value = newValue == null ?
@@ -88,7 +99,7 @@ public class BatteryLevelTextView extends TextView implements
                         setVisibility(View.GONE);
                         break;
                     default:
-                        setVisibility(mRequestedVisibility ? View.VISIBLE : View.GONE);
+                        setVisibility(mBatteryCharging || mRequestedVisibility || mForceBatteryText ? View.VISIBLE : View.GONE);
                         break;
                 }
                 break;
