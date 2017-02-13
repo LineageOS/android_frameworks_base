@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a2585a7_0fd15cfb",
+        "filename": "core/java/android/app/ActivityThread.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_efcdf05e",
+        "filename": "core/java/android/app/ContextImpl.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 2020,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 2019,
+        "startChar": 82,
+        "endLine": 2020,
+        "endChar": 108
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_cfda3417",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1581,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "TAG_META_DATA",
+      "range": {
+        "startLine": 1581,
+        "startChar": 52,
+        "endLine": 1581,
+        "endChar": 63
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_8f042c7f",
+        "filename": "core/java/android/content/res/ResourcesImpl.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "group and sort imports by name... android.* java.* org.* ...",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_6f090095",
+        "filename": "libs/androidfw/ResourceTypes.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 3884,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 3884,
+        "startChar": 93,
+        "endLine": 3884,
+        "endChar": 105
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_4ffe446d",
+        "filename": "libs/androidfw/ResourceTypes.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 6725,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 6725,
+        "startChar": 98,
+        "endLine": 6725,
+        "endChar": 103
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_cff11497",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "add spaces: 3 * 60 * 1000;",
+      "range": {
+        "startLine": 550,
+        "startChar": 59,
+        "endLine": 550,
+        "endChar": 68
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_afeec8b2",
+        "filename": "tools/aapt/Command.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2690,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 2687,
+        "startChar": 97,
+        "endLine": 2690,
+        "endChar": 113
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_8f2b0ceb",
+        "filename": "tools/aapt/Command.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2691,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 2691,
+        "startChar": 97,
+        "endLine": 2691,
+        "endChar": 101
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_4f352445",
+        "filename": "tools/aapt/Images.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 1493,
+        "startChar": 94,
+        "endLine": 1493,
+        "endChar": 103
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_6f30e056",
+        "filename": "tools/aapt/Images.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 33,
+        "startChar": 96,
+        "endLine": 33,
+        "endChar": 103
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_2f3ad836",
+        "filename": "tools/aapt/Main.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 51,
+        "startChar": 94,
+        "endLine": 51,
+        "endChar": 103
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a2585a7_0f3f1c27",
+        "filename": "tools/aapt/Package.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-13T08:59:06Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 40,
+        "startChar": 95,
+        "endLine": 40,
+        "endChar": 106
+      },
+      "revId": "c06a379493e79870fd0f9b31eef49586ef27cbe7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
