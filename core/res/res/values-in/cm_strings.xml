@@ -47,7 +47,7 @@
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
   <string name="reboot_confirm" product="tablet">Tablet anda akan dimulai ulang.</string>
-  <string name="reboot_confirm" product="default">Ponsel anda akan mulai ulang.</string>
+  <string name="reboot_confirm" product="default">Ponsel anda akan dimulai ulang.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
   <string name="reboot_progress">Memulai ulang\u2026</string>
   <!-- ADB over network notification -->
