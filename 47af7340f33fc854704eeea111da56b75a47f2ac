@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "ba3e81b7_8b63feb0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 14098
+      },
+      "writtenOn": "2017-02-14T08:59:32Z",
+      "side": 1,
+      "message": "Isn\u0027t the idea to allow the users to choose? there\u0027s a conversion  from line 103",
+      "parentUuid": "ba3e81b7_7031e5a1",
+      "revId": "47af7340f33fc854704eeea111da56b75a47f2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba3e81b7_5026e169",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkTraffic.java",
         "patchSetId": 2
