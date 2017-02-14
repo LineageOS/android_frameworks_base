@@ -130,6 +130,12 @@ public class ActivityManager {
     public static final String META_HOME_ALTERNATE = "android.app.home.alternate";
 
     /**
+     * Result for IActivityManager.startActivity: trying to start a protected app.
+     * @hide
+     */
+    public static final int START_PROTECTED_APP = -11;
+
+    /**
      * Result for IActivityManager.startVoiceActivity: active session is currently hidden.
      * @hide
      */
