@@ -41,6 +41,11 @@
             android:key="managed_profile"
             android:title="@string/status_bar_work"/>
 
+    <!-- VoLTE -->
+    <com.android.systemui.tuner.StatusBarSwitch 
+            android:key="volte"
+            android:title="@string/status_bar_volte" />
+
     <com.android.systemui.tuner.StatusBarSwitch
             android:key="wifi"
             android:title="@string/quick_settings_wifi_label"/>

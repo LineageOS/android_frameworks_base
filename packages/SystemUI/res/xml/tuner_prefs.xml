@@ -16,7 +16,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/system_ui_tuner">
-
+   
     <Preference
         android:key="statusbar_icon_blacklist"
         android:title="@string/status_bar" />

@@ -280,4 +280,6 @@
     <string name="swipe_left_hint">Swipe left to <xliff:g id="app_name">%1$s</xliff:g></string>
     <string name="swipe_right_hint">Swipe right to notifications</string>
 
+    <!-- volte icon switch -->
+    <string name="status_bar_volte">VoLTE</string>
 </resources>

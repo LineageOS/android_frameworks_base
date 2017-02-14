@@ -210,7 +210,7 @@ public class CellularTile extends QSTile<QSTile.SignalState> {
         @Override
         public void setMobileDataIndicators(IconState statusIcon, IconState qsIcon, int statusType,
                 int qsType, boolean activityIn, boolean activityOut, String typeContentDescription,
-                String description, boolean isWide, boolean showSeparateRoaming, int subId) {
+                String description, boolean isWide, boolean showSeparateRoaming, int subId, boolean isMobileIms) {
             if (qsIcon == null) {
                 // Not data sim, don't display.
                 return;
