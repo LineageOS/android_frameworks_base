@@ -191,6 +191,9 @@ public class LocationManagerService extends ILocationManager.Stub {
 
     private AppOpsManager mAppOps;
     private PackageManager mPackageManager;
+    private String mComboNlpPackageName;
+    private String mComboNlpReadyMarker;
+    private String mComboNlpScreenMarker;
     private PowerManager mPowerManager;
     private ActivityManager mActivityManager;
     private UserManager mUserManager;
@@ -886,6 +889,13 @@ public class LocationManagerService extends ILocationManager.Stub {
                 com.android.internal.R.array.config_locationProviderPackageNames);
         if (proxy == null) {
             Slog.d(TAG, "Unable to bind ActivityRecognitionProxy.");
+        }
+
+        mComboNlpPackageName = resources.getString(
+                com.android.internal.R.string.config_comboNetworkLocationProvider);
+        if (mComboNlpPackageName != null) {
+            mComboNlpReadyMarker = mComboNlpPackageName + ".nlp:ready";
+            mComboNlpScreenMarker = mComboNlpPackageName + ".nlp:screen";
         }
 
         String[] testProviderStrings = resources.getStringArray(
