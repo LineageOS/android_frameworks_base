@@ -40,10 +40,12 @@
   <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
   <string name="menu_delete">Läschen</string>
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
+  <string name="menu_select_all">Alles auswielen</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
   <!-- Menu item title that moves the selected documents [CHAR LIMIT=24] -->
   <!-- Menu item title that creates a new window in the activity [CHAR LIMIT=24] -->
   <!-- Menu item title that copies the selected documents to clipboard [CHAR LIMIT=24] -->
+  <string name="menu_copy_to_clipboard">Kopéieren</string>
   <!-- Menu item title that pastes files from the clipboard [CHAR LIMIT=24] -->
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
   <string name="menu_advanced_show">Interne Späicher uweisen</string>
@@ -54,7 +56,9 @@
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
   <string name="menu_file_size_hide">Fichiersgréisst verstoppen</string>
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
+  <string name="button_select">Auswielen</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
+  <string name="button_copy">Kopéieren</string>
   <!-- Button label that moves files to the current directory [CHAR LIMIT=24] -->
   <!-- Button label that hides the error bar [CHAR LIMIT=24] -->
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
@@ -93,9 +97,11 @@
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
   <string name="share_via">Deelen iwwer</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
+  <string name="copy_notification_title">Fichiere gi kopéiert</string>
   <!-- Title of the move notification [CHAR LIMIT=24] -->
   <!-- Title of the move notification [CHAR LIMIT=24] -->
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
+  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> iwwreg</string>
   <!-- Toast shown when a file copy is kicked off -->
   <!-- Text shown when files are deleted -->
   <!-- Text shown for the undo button -->

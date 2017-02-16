@@ -21,12 +21,6 @@
   <string name="app_killed_message">App zougemaach</string>
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">Schiermfoto</string>
-  <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Sécherheet</string>
-  <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Berechtegungen déi mat der Sécherheet vum Apparat ze dinn hunn.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Profil</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Aktuell</string>
@@ -113,6 +107,7 @@
   <string name="app_ops_use_fingerprint">Fangerofdrock benotzen</string>
   <string name="app_ops_add_voicemail">eng Sproochnoriicht bäisetzen</string>
   <string name="app_ops_read_phone_state">op Telefon-Status zougräifen</string>
+  <string name="app_ops_scan_wifi">WLAN-Netzwierker scannen</string>
   <string name="app_ops_change_wallpaper">Hannergrondbild änneren</string>
   <string name="app_ops_assist_structure">Ënnerstëtzungsstruktur benotzen</string>
   <string name="app_ops_assist_screenshot">Schiermfoto maachen</string>
@@ -130,4 +125,5 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> ass vum Starten ofgehale ginn. Klick, fir d\'App ze authentifizéieren an nei ze starten.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Fir dëse Schierm lasszeléisen, dréck den Zréck-Knäppchen an hal e gedréckt.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

@@ -21,12 +21,6 @@
   <string name="app_killed_message">Aplikace byla ukončena</string>
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">Snímek obrazovky</string>
-  <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Zabezpečení</string>
-  <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Oprávnění vztahující se k informacím o zabezpečení zařízení.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Profil</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Restartovat</string>
   <!-- label for current user in phone options dialog -->
@@ -140,4 +134,6 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> je chráněna před spuštěním. Dotykem autorizovat spuštění aplikace.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Chcete-li odebrat tuto obrazovku, podržte tlačítko Zpět.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Byla zjištěna neshoda obrazu dodavatele. Obvykle to znamená, že obraz dodavatele je zastaralý. Zkontrolujte, zda že obraz dodavatele odpovídá „otisku“ <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
 </resources>
