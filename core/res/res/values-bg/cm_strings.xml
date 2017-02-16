@@ -21,12 +21,6 @@
   <string name="app_killed_message">Затворено приложение</string>
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">Снимка на екрана</string>
-  <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Сигурност</string>
-  <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Разрешения, свързани с информацията за защита на устройството.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Профил</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Рестартиране</string>
   <!-- label for current user in phone options dialog -->
@@ -57,23 +51,22 @@
   <!-- ADB over USB and network notification -->
   <string name="adb_both_active_notification_title">ADB над USB &amp; мрежата е активирана</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Докоснете, за да забраните отстраняването на грешки.</string>
+  <string name="adb_active_generic_notification_message">Докоснете за да деактивирате отстраняване на грешки.</string>
   <!-- Privacy Guard -->
   <string name="permlab_changePrivacyGuardState">Активира или деактивира Защитен режим</string>
   <string name="permdesc_changePrivacyGuardState">Разрешава на приложението да променя статута на поверителност на друго приложение. Когато едно приложение се използва с защита на поверителността, не може да има достъп до персонални данни, като контакти, регистри с повиквания или съобщения.</string>
-  <string name="privacy_guard_notification">Защитен режим е активиран</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s </xliff:g> няма да можете да получите достъп до лични данни</string>
+  <string name="privacy_guard_notification">Активиран е защитен режим</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s </xliff:g> няма достъп до лични данни</string>
   <string name="privacy_guard_dialog_title">Защитен режим</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s </xliff:g> бих искал да <xliff:g id="op">%2$s </xliff:g>.</string>
+  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s </xliff:g> иска да <xliff:g id="op">%2$s </xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <string name="permission_remember_choice">Запомни избора ми</string>
   <!-- App ops requests -->
   <string name="app_ops_access_camera">достъп до камерата</string>
   <string name="app_ops_access_location">достъп до вашето местоположение</string>
-  <string name="app_ops_access_notifications">прочети своите известия</string>
   <string name="app_ops_activate_vpn">активиране на VPN</string>
   <string name="app_ops_auto_start">изпълнение при включване</string>
-  <string name="app_ops_delete_call_log">изтриване на дневника за повиквания</string>
+  <string name="app_ops_delete_call_log">изтриване на списъка с обаждания</string>
   <string name="app_ops_delete_contacts">Изтриване на контакти</string>
   <string name="app_ops_delete_mms">Изтриване на MMS съобщенията</string>
   <string name="app_ops_delete_sms">Изтриване на SMS съобщенията</string>
@@ -82,7 +75,6 @@
   <string name="app_ops_keep_device_awake">Задръж устройството будно</string>
   <string name="app_ops_make_phone_call">осъществете телефонно повикване</string>
   <string name="app_ops_modify_calendar">актуализиране на вашият календар</string>
-  <string name="app_ops_modify_call_log">актуализация на дневника за повиквания</string>
   <string name="app_ops_modify_clipboard">промяна на клипборда</string>
   <string name="app_ops_modify_contacts">актуализиране на вашите контакти</string>
   <string name="app_ops_modify_settings">актуализиране на системните настройки</string>
@@ -95,20 +87,20 @@
   <string name="app_ops_read_clipboard">прегледай клипборда</string>
   <string name="app_ops_read_contacts">прегледай контактите</string>
   <string name="app_ops_read_mms">прегледай MMS съобщенията</string>
-  <string name="app_ops_read_sms">прегледай SMS съобщенията</string>
+  <string name="app_ops_read_sms">прегледайте вашите SMS съобщения</string>
   <string name="app_ops_receive_sms">получихте SMS съобщение</string>
   <string name="app_ops_record_audio">записване на звук</string>
   <string name="app_ops_send_mms">Изпращане на MMS съобщение</string>
   <string name="app_ops_send_sms">Изпращане на SMS съобщение</string>
   <string name="app_ops_start_at_bootup">изпълнение при включване</string>
   <string name="app_ops_toast_window">показвай изкачащи уведомления</string>
-  <string name="app_ops_toggle_bluetooth">активиране/деактивиране Bluetooth</string>
-  <string name="app_ops_toggle_mobile_data">Превключване клетъчен данни</string>
+  <string name="app_ops_toggle_bluetooth">активиране/деактивиране Блутуут</string>
+  <string name="app_ops_toggle_mobile_data">Включване / Изключване на мобилни данни</string>
   <string name="app_ops_toggle_nfc">активиране/деактивиране NFC</string>
   <string name="app_ops_toggle_wifi">активирай/деактивирай Wi-Fi</string>
   <string name="app_ops_use_alarm_volume">контрол на силата на алармата</string>
   <string name="app_ops_use_audio_focus">контрол на силата на звука</string>
-  <string name="app_ops_use_bluetooth_volume">контрол на силата на Bluetooth</string>
+  <string name="app_ops_use_bluetooth_volume">контрол на силата на Блутуут</string>
   <string name="app_ops_use_master_volume">главен контрол на звука</string>
   <string name="app_ops_use_media_buttons">Използвайте мултимедийните бутони</string>
   <string name="app_ops_use_media_volume">контрол на звука за мултимедия</string>
@@ -136,8 +128,9 @@
   <string name="app_ops_wifi_change">променете състоянието на Wi-Fi</string>
   <string name="app_ops_su">получете администраторски права</string>
   <!-- Protected Apps Notification -->
-  <string name="notify_package_component_protected_title">Старта на приложението блокиран</string>
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> е блокиран. Докосни за да потвърдиш старта на приложението.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">За да освободите този екран, докоснете и задръжте бутона назад.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Открито е несъответствие. Обикновено това означава, че изображението е остаряло. Проверете дали вашето изображение съвпада с <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
 </resources>
