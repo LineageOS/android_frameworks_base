@@ -1677,5 +1677,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"इस डिवाइस को प्रतिबंधों के बिना उपयोग करने के लिए फ़ैक्टरी रीसेट करें"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"अधिक जानने के लिए स्पर्श करें."</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"अक्षम <xliff:g id="LABEL">%1$s</xliff:g>"</string>
+    <string name="global_action_reboot">"रीबूट करें"</string>
     <string name="conference_call" msgid="3751093130790472426">"कॉन्फ़्रेंस कॉल"</string>
 </resources>

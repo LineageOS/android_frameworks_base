@@ -1677,5 +1677,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"Redefinir para a configuração original para usar este dispositivo sem restrições"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"Toque para saber mais."</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"Widget <xliff:g id="LABEL">%1$s</xliff:g> desativado"</string>
+    <string name="global_action_reboot">"Reiniciar"</string>
     <string name="conference_call" msgid="3751093130790472426">"Teleconferência"</string>
 </resources>

@@ -248,6 +248,7 @@
         <item>com.android.providers.settings</item>
         <item>com.android.externalstorage</item>
         <item>com.android.providers.downloads.ui</item>
+        <item>com.android.packageinstaller</item>
     </string-array>
 
 </resources>

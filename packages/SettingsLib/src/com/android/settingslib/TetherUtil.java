@@ -22,17 +22,17 @@ import android.telephony.CarrierConfigManager;
 
 public class TetherUtil {
 
+    public static boolean setWifiTethering(boolean enable, Context context) {
+        final WifiManager wifiManager =
+                (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        return wifiManager.setWifiApEnabled(null, enable);
+    }
+
     private static boolean isEntitlementCheckRequired(Context context) {
         final CarrierConfigManager configManager = (CarrierConfigManager) context
              .getSystemService(Context.CARRIER_CONFIG_SERVICE);
         return configManager.getConfig().getBoolean(CarrierConfigManager
              .KEY_REQUIRE_ENTITLEMENT_CHECKS_BOOL);
-    }
-
-    public static boolean setWifiTethering(boolean enable, Context context) {
-        final WifiManager wifiManager =
-                (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        return wifiManager.setWifiApEnabled(null, enable);
     }
 
     public static boolean isProvisioningNeeded(Context context) {

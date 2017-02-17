@@ -1677,5 +1677,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"恢復原廠設定即可正常使用這個裝置"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"輕觸即可瞭解詳情。"</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"已停用的<xliff:g id="LABEL">%1$s</xliff:g>"</string>
+    <string name="global_action_reboot">"重新啟動"</string>
     <string name="conference_call" msgid="3751093130790472426">"電話會議"</string>
 </resources>

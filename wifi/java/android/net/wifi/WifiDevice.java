@@ -121,17 +121,17 @@ public class WifiDevice implements Parcelable {
 
     /** Implement the Parcelable interface {@hide} */
     public static final Creator<WifiDevice> CREATOR =
-            new Creator<WifiDevice>() {
-                public WifiDevice createFromParcel(Parcel in) {
-                    WifiDevice device = new WifiDevice();
-                    device.deviceAddress = in.readString();
-                    device.deviceName = in.readString();
-                    device.deviceState = in.readInt();
-                    return device;
-                }
+        new Creator<WifiDevice>() {
+            public WifiDevice createFromParcel(Parcel in) {
+                WifiDevice device = new WifiDevice();
+                device.deviceAddress = in.readString();
+                device.deviceName = in.readString();
+                device.deviceState = in.readInt();
+                return device;
+            }
 
-                public WifiDevice[] newArray(int size) {
-                    return new WifiDevice[size];
-                }
-            };
+            public WifiDevice[] newArray(int size) {
+                return new WifiDevice[size];
+            }
+        };
 }

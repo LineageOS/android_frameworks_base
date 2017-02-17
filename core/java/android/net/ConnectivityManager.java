@@ -59,8 +59,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.net.InetAddress;
 import java.util.HashMap;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.List;
 
 /**
  * Class that answers queries about the state of network connectivity. It also
@@ -305,7 +305,7 @@ public class ConnectivityManager {
      * @hide
      */
     public static final String TETHER_CONNECT_STATE_CHANGED =
-            "codeaurora.net.conn.TETHER_CONNECT_STATE_CHANGED";
+        "codeaurora.net.conn.TETHER_CONNECT_STATE_CHANGED";
 
     /**
      * @hide
@@ -2020,20 +2020,6 @@ public class ConnectivityManager {
     }
 
     /**
-     * Get the list of Stations connected to Hotspot.
-     *
-     * @return a list of {@link WifiDevice} objects.
-     * {@hide}
-     */
-    public List<WifiDevice> getTetherConnectedSta() {
-        try {
-            return mService.getTetherConnectedSta();
-        } catch (RemoteException e) {
-            return null;
-        }
-    }
-
-    /**
      * Check if the device allows for tethering.  It may be disabled via
      * {@code ro.tether.denied} system property, Settings.TETHER_SUPPORTED or
      * due to device configuration.
@@ -2223,6 +2209,20 @@ public class ConnectivityManager {
             return mService.setUsbTethering(enable);
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * Get the list of Stations connected to Hotspot.
+     *
+     * @return a list of {@link WifiDevice} objects.
+     * {@hide}
+     */
+    public List<WifiDevice> getTetherConnectedSta() {
+        try {
+            return mService.getTetherConnectedSta();
+        } catch (RemoteException e) {
+            return null;
         }
     }
 

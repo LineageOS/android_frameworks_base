@@ -1677,5 +1677,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"Rétablir la configuration d\'usine pour utiliser cet appareil sans restrictions"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"Appuyez ici pour en savoir plus."</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"Élément \"<xliff:g id="LABEL">%1$s</xliff:g>\" désactivé"</string>
+    <string name="global_action_reboot">"Redémarrer"</string>
     <string name="conference_call" msgid="3751093130790472426">"Conférence téléphonique"</string>
 </resources>

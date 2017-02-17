@@ -2669,9 +2669,9 @@ class AlarmManagerService extends SystemService {
                     }
 
                 } else {
-                    // Just in case -- even though no wakeup flag was set, make sure
-                    // we have updated the kernel to the next alarm time.
                     synchronized (mLock) {
+                        // Just in case -- even though no wakeup flag was set, make sure
+                        // we have updated the kernel to the next alarm time.
                         rescheduleKernelAlarmsLocked();
                     }
                 }
@@ -3007,9 +3007,9 @@ class AlarmManagerService extends SystemService {
         private void updateTrackingLocked(InFlight inflight) {
             if (inflight != null) {
                 updateStatsLocked(inflight);
+                qcNsrmExt.removeTriggeredUid(inflight.mUid);
             }
             mBroadcastRefCount--;
-            qcNsrmExt.removeTriggeredUid(inflight.mUid);
 
             if (mBroadcastRefCount == 0) {
                 mHandler.obtainMessage(AlarmHandler.REPORT_ALARMS_ACTIVE, 0).sendToTarget();

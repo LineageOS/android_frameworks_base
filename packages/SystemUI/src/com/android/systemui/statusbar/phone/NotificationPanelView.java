@@ -235,8 +235,8 @@ public class NotificationPanelView extends PanelView implements
     private int mOneFingerQuickSettingsIntercept;
     private boolean mDoubleTapToSleepEnabled;
     private int mStatusBarHeaderHeight;
-    private int mQsSmartPullDown;
     private GestureDetector mDoubleTapGesture;
+    private int mQsSmartPullDown;
 
     private boolean mKeyguardWeatherEnabled;
     private TextView mKeyguardWeatherInfo;
@@ -248,6 +248,7 @@ public class NotificationPanelView extends PanelView implements
         mFalsingManager = FalsingManager.getInstance(context);
 
         mSettingsObserver = new SettingsObserver(mHandler);
+
         mDoubleTapGesture = new GestureDetector(mContext, new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
@@ -337,6 +338,7 @@ public class NotificationPanelView extends PanelView implements
         mStatusBarHeaderHeight = getResources().getDimensionPixelSize(R.dimen.status_bar_header_height);
         mMaxFadeoutHeight = getResources().getDimensionPixelSize(
                 R.dimen.max_notification_fadeout_height);
+        mStatusBarHeaderHeight = getResources().getDimensionPixelSize(R.dimen.status_bar_header_height);
     }
 
     public void updateResources() {

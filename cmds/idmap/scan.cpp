@@ -185,6 +185,9 @@ namespace {
 int idmap_scan(const char *target_package_name, const char *target_apk_path,
         const char *idmap_dir, const android::Vector<const char *> *overlay_dirs)
 {
+    String8 filename = String8(idmap_dir);
+    filename.appendPath("overlays.list");
+
     SortedVector<Overlay> overlayVector;
     const size_t N = overlay_dirs->size();
     for (size_t i = 0; i < N; ++i) {

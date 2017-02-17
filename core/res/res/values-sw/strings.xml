@@ -1675,5 +1675,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"Rejesha mipangilio iliyotoka nayo kiwandani ili utumie kifaa hiki bila vikwazo"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"Gusa ili kupata maelezo zaidi."</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"<xliff:g id="LABEL">%1$s</xliff:g> imezimwa"</string>
+    <string name="global_action_reboot">"Washa tena"</string>
     <string name="conference_call" msgid="3751093130790472426">"Simu ya Kongamano"</string>
 </resources>

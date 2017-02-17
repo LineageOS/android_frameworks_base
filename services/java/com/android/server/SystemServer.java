@@ -34,6 +34,7 @@ import android.os.Environment;
 import android.os.FactoryTest;
 import android.os.FileUtils;
 import android.os.IBinder;
+import android.os.IPowerManager;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.os.RemoteException;
@@ -1257,6 +1258,7 @@ public final class SystemServer {
         }
 
         if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_WATCH)) {
+            //#Fixme:mSystemServiceManager.startService(WEAR_BLUETOOTH_SERVICE_CLASS);
             mSystemServiceManager.startService(WEAR_BLUETOOTH_SERVICE_CLASS);
             mSystemServiceManager.startService(WEAR_WIFI_MEDIATOR_SERVICE_CLASS);
           if (!disableNonCoreServices) {

@@ -128,7 +128,7 @@ public abstract class WindowOrientationListener {
                 }
                 mOrientationJudge.resetLocked();
                 if (mSensor.getType() == Sensor.TYPE_ACCELEROMETER
-                    && mUseDefaultBatchingForAccel) {
+                        && mUseDefaultBatchingForAccel) {
                     mSensorManager.registerListener(
                             mOrientationJudge, mSensor, mRate, DEFAULT_BATCH_LATENCY, mHandler);
                 } else {

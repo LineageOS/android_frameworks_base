@@ -390,7 +390,6 @@ public abstract class Connection extends Conferenceable {
      */
     public static final int PROPERTY_IS_DOWNGRADED_CONFERENCE = 1<<6;
 
-
     /**
      * Whether the call was forwarded from another party (GSM only)
      * @hide
@@ -422,9 +421,8 @@ public abstract class Connection extends Conferenceable {
     public static final int PROPERTY_REMOTE_INCOMING_CALLS_BARRED = 1 << 11;
 
 
-    // Next PROPERTY value: 1<<12
-
     //**********************************************************************************************
+    // Next PROPERTY value: 1<<12
     //**********************************************************************************************
 
     /**

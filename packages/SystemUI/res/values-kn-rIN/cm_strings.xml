@@ -28,6 +28,10 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">ಲೈಟ್ ಸೆಟ್ಟಿಂಗ್ ಗಳು</string>
   <string name="led_notification_text">LED ಲೈಟ್ ಶಕ್ತಗೊಂಡ ಸೆಟ್ಟಿಂಗ್ ಗಳು</string>
+<<<<<<< HEAD
+=======
+  <!-- Content description of the superuser tile -->
+>>>>>>> f7d5700e53311c01f63b5e37268962acbb61e10b
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">ಫ್ಲ್ಯಾಶ್ಲೈಟ್ ಆನ್ ಆಗಿದೆ</string>
   <string name="quick_settings_tile_flashlight_not_summary">ಆಫ್ ಮಾಡಲು ಸ್ಪರ್ಶಿಸಿ</string>
@@ -58,5 +62,8 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+<<<<<<< HEAD
   <!-- Volume stream titles - should match the string-array in AOSP -->
+=======
+>>>>>>> f7d5700e53311c01f63b5e37268962acbb61e10b
 </resources>

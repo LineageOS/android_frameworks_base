@@ -1677,5 +1677,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"ຣີເຊັດໃຫ້ເປັນຄ່າໂຮງງານເພື່ອໃຊ້ອຸປະກອນນີ້ໂດຍບໍ່ມີຂໍ້ຈຳກັດ"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"ແຕະເພື່ອສຶກສາເພີ່ມເຕີມ."</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"ປິດການນຳໃຊ້ <xliff:g id="LABEL">%1$s</xliff:g> ແລ້ວ"</string>
+    <string name="global_action_reboot">"ເລີ່ມລະບົບໃໝ່"</string>
     <string name="conference_call" msgid="3751093130790472426">"ການປະຊຸມສາຍ"</string>
 </resources>

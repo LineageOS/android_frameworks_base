@@ -463,21 +463,6 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     }
 
     /**
-     * Notify our observers of a change in the data activity state of the interface
-     */
-    private void notifyInterfaceMessage(String message) {
-        final int length = mObservers.beginBroadcast();
-        for (int i = 0; i < length; i++) {
-            try {
-                mObservers.getBroadcastItem(i). interfaceMessageRecevied(message);
-            } catch (RemoteException e) {
-            } catch (RuntimeException e) {
-            }
-        }
-        mObservers.finishBroadcast();
-    }
-
-    /**
      * Notify our observers of an interface removal.
      */
     private void notifyInterfaceRemoved(String iface) {
@@ -622,6 +607,21 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         if (!nativeServiceAvailable) {
             Slog.wtf(TAG, "Can't connect to NativeNetdService " + NETD_SERVICE_NAME);
         }
+    }
+
+    /**
+     * Notify our observers of a change in the data activity state of the interface
+     */
+    private void notifyInterfaceMessage(String message) {
+        final int length = mObservers.beginBroadcast();
+        for (int i = 0; i < length; i++) {
+            try {
+                mObservers.getBroadcastItem(i).interfaceMessageRecevied(message);
+            } catch (RemoteException e) {
+            } catch (RuntimeException e) {
+            }
+        }
+        mObservers.finishBroadcast();
     }
 
     /**
@@ -888,7 +888,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                     }
                     throw new IllegalStateException(errorMessage);
                     // break;
-             case NetdResponseCode.InterfaceMessage:
+            case NetdResponseCode.InterfaceMessage:
                     /*
                      * An message arrived in network interface.
                      * Format: "NNN IfaceMessage <3>AP-STA-CONNECTED 00:08:22:64:9d:84
@@ -903,7 +903,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                         notifyInterfaceMessage(cooked[4]);
                     }
                     return true;
-                // break;
+                    // break;
             case NetdResponseCode.InterfaceClassActivity:
                     /*
                      * An network interface class state changed (active/idle)
@@ -1313,6 +1313,26 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     }
 
     @Override
+    public void createSoftApInterface(String wlanIface) {
+        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
+        try {
+            mConnector.execute("softap", "create", wlanIface);
+        } catch (NativeDaemonConnectorException e) {
+            throw e.rethrowAsParcelableException();
+        }
+    }
+
+    @Override
+    public void deleteSoftApInterface(String wlanIface) {
+        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
+        try {
+            mConnector.execute("softap", "remove", wlanIface);
+        } catch (NativeDaemonConnectorException e) {
+            throw e.rethrowAsParcelableException();
+        }
+    }
+
+    @Override
     public void startTethering(String[] dhcpRange) {
         mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
         // cmd is "tether start first_start first_stop second_start second_stop ..."
@@ -1598,7 +1618,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                     SOFT_AP_COMMAND_SUCCESS, logMsg);
 
             logMsg = "startAccessPoint Error starting softap";
-            args = new Object[] {"startap"};
+            args = new Object[] {"startap", wlanIface};
             executeOrLogWithMessage(SOFT_AP_COMMAND, args, NetdResponseCode.SoftapStatusResult,
                     SOFT_AP_COMMAND_SUCCESS, logMsg);
         } catch (NativeDaemonConnectorException e) {
@@ -2984,7 +3004,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
             }
         }
     };
-
+	
     @Override
     public int removeRoutesFromLocalNetwork(List<RouteInfo> routes) {
         int failures = 0;

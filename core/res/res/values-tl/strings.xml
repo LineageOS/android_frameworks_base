@@ -1677,5 +1677,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"I-factory reset upang magamit ang device na ito nang walang mga paghihigpit"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"Pindutin upang matuto nang higit pa."</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"Na-disable ang <xliff:g id="LABEL">%1$s</xliff:g>"</string>
+    <string name="global_action_reboot">"I-reboot"</string>
     <string name="conference_call" msgid="3751093130790472426">"Conference Call"</string>
 </resources>

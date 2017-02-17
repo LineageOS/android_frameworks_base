@@ -1679,5 +1679,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"កំណត់ដូចចេញពីរោងចក្រឡើងវិញដើម្បីប្រើឧបករណ៍នេះដោយគ្មានការរឹតបន្តឹង"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"ប៉ះ​ ដើម្បី​​ស្វែងយល់​បន្ថែម។"</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"<xliff:g id="LABEL">%1$s</xliff:g> ដែលបានបិទដំណើរការ"</string>
+    <string name="global_action_reboot">"ចាប់​ផ្ដើម​ឡើង​វិញ"</string>
     <string name="conference_call" msgid="3751093130790472426">"ការហៅជាក្រុម"</string>
 </resources>

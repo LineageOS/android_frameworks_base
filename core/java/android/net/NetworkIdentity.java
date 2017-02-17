@@ -186,7 +186,11 @@ public class NetworkIdentity implements Comparable<NetworkIdentity> {
             roaming = state.networkInfo.isRoaming();
 
             metered = !state.networkCapabilities.hasCapability(
-                    NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
+                    NetworkCapabilities.NET_CAPABILITY_NOT_METERED)
+                    || (context.getResources().getBoolean(
+                    com.android.internal.R.bool.config_video_call_datausage_enable)
+                    && state.networkCapabilities.hasCapability(
+                    NetworkCapabilities.NET_CAPABILITY_IMS));
 
         } else if (type == TYPE_WIFI) {
             if (state.networkId != null) {

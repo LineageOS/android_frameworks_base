@@ -1677,5 +1677,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"제한 없이 기기를 사용하기 위한 초기화"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"자세한 내용을 보려면 터치하세요."</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"<xliff:g id="LABEL">%1$s</xliff:g> 사용 중지됨"</string>
+    <string name="global_action_reboot">"다시 부팅"</string>
     <string name="conference_call" msgid="3751093130790472426">"다자간 통화"</string>
 </resources>

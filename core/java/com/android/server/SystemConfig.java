@@ -126,13 +126,13 @@ public class SystemConfig {
     // These are the permitted backup transport service components
     final ArraySet<ComponentName> mBackupTransportWhitelist = new ArraySet<>();
 
-	final ArrayMap<Signature, ArraySet<String>> mSignatureAllowances
-            = new ArrayMap<Signature, ArraySet<String>>();
-
     // These are the packages of carrier-associated apps which should be disabled until used until
     // a SIM is inserted which grants carrier privileges to that carrier app.
     final ArrayMap<String, List<String>> mDisabledUntilUsedPreinstalledCarrierAssociatedApps =
             new ArrayMap<>();
+
+    final ArrayMap<Signature, ArraySet<String>> mSignatureAllowances =
+            new ArrayMap<Signature, ArraySet<String>>();
 
     public static SystemConfig getInstance() {
         synchronized (SystemConfig.class) {
@@ -195,12 +195,13 @@ public class SystemConfig {
         return mBackupTransportWhitelist;
     }
 
-    public ArrayMap<Signature, ArraySet<String>> getSignatureAllowances() {
-        return mSignatureAllowances;
-    }
 
     public ArrayMap<String, List<String>> getDisabledUntilUsedPreinstalledCarrierAssociatedApps() {
         return mDisabledUntilUsedPreinstalledCarrierAssociatedApps;
+    }
+
+    public ArrayMap<Signature, ArraySet<String>> getSignatureAllowances() {
+        return mSignatureAllowances;
     }
 
     SystemConfig() {

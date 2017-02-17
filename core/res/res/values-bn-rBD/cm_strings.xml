@@ -3,13 +3,10 @@
 <!--
      Copyright (C) 2012-2014 The CyanogenMod Project
      Copyright (c) 2013, The Linux Foundation. All rights reserved.
-
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
           http://www.apache.org/licenses/LICENSE-2.0
-
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -24,6 +21,8 @@
   <string name="permgrouplab_security">নিরাপত্তা</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">ডিভাইসের নিরাপত্তা তথ্য সংক্রান্ত অনুমতি।</string>
+  <!-- label for item that opens the profile choosing dialog -->
+  <string name="global_action_choose_profile">প্রোফাইল</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <!-- label for current user in phone options dialog -->
   <!-- status message in phone options dialog for screenshot action -->
@@ -95,5 +94,4 @@
   <string name="app_ops_write_sms">এসএমএস বার্তা লিখুন</string>
   <!-- Protected Apps Notification -->
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>
