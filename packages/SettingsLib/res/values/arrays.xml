@@ -391,7 +391,7 @@
     <integer-array name="color_mode_ids">
         <item>0</item>
         <item>-1</item>
-        <item>7</item>
+        <item>-1</item>
     </integer-array>
 
 </resources>
