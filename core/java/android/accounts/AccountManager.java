@@ -471,6 +471,7 @@ public class AccountManager {
      * @return The account's password, null if none or if the account doesn't exist
      */
     public String getPassword(final Account account) {
+        android.util.SeempLog.record(22);
         if (account == null) throw new IllegalArgumentException("account is null");
         try {
             return mService.getPassword(account);
@@ -501,6 +502,7 @@ public class AccountManager {
      * @return The user data, null if the account or key doesn't exist
      */
     public String getUserData(final Account account, final String key) {
+        android.util.SeempLog.record(23);
         if (account == null) throw new IllegalArgumentException("account is null");
         if (key == null) throw new IllegalArgumentException("key is null");
         try {
@@ -722,6 +724,7 @@ public class AccountManager {
         return new Future2Task<String>(handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.getAuthTokenLabel(mResponse, accountType, authTokenType);
             }
 
@@ -766,6 +769,7 @@ public class AccountManager {
         return new Future2Task<Boolean>(handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.hasFeatures(mResponse, account, features, mContext.getOpPackageName());
             }
             @Override
@@ -826,6 +830,7 @@ public class AccountManager {
         return new Future2Task<Account[]>(handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.getAccountsByFeatures(mResponse, type, features,
                         mContext.getOpPackageName());
             }
@@ -870,6 +875,7 @@ public class AccountManager {
      *         already exists, the account is null, or another error occurs.
      */
     public boolean addAccountExplicitly(Account account, String password, Bundle userdata) {
+        android.util.SeempLog.record(24);
         if (account == null) throw new IllegalArgumentException("account is null");
         try {
             return mService.addAccountExplicitly(account, password, userdata);
@@ -1087,6 +1093,7 @@ public class AccountManager {
         return new Future2Task<Account>(handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.renameAccount(mResponse, account, newName);
             }
             @Override
@@ -1147,10 +1154,12 @@ public class AccountManager {
     @Deprecated
     public AccountManagerFuture<Boolean> removeAccount(final Account account,
             AccountManagerCallback<Boolean> callback, Handler handler) {
+        android.util.SeempLog.record(25);
         if (account == null) throw new IllegalArgumentException("account is null");
         return new Future2Task<Boolean>(handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.removeAccount(mResponse, account, false);
             }
             @Override
@@ -1206,10 +1215,12 @@ public class AccountManager {
      */
     public AccountManagerFuture<Bundle> removeAccount(final Account account,
             final Activity activity, AccountManagerCallback<Bundle> callback, Handler handler) {
+        android.util.SeempLog.record(28);
         if (account == null) throw new IllegalArgumentException("account is null");
         return new AmsTask(activity, handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(34);
                 mService.removeAccount(mResponse, account, activity != null);
             }
         }.start();
@@ -1231,6 +1242,7 @@ public class AccountManager {
         return new Future2Task<Boolean>(handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.removeAccountAsUser(mResponse, account, false, userHandle.getIdentifier());
             }
             @Override
@@ -1257,6 +1269,7 @@ public class AccountManager {
         return new AmsTask(activity, handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(34);
                 mService.removeAccountAsUser(mResponse, account, activity != null,
                         userHandle.getIdentifier());
             }
@@ -1370,6 +1383,7 @@ public class AccountManager {
      * @param password The password to set, null to clear the password
      */
     public void setPassword(final Account account, final String password) {
+        android.util.SeempLog.record(26);
         if (account == null) throw new IllegalArgumentException("account is null");
         try {
             mService.setPassword(account, password);
@@ -1398,6 +1412,7 @@ public class AccountManager {
      * @param account The account whose password to clear
      */
     public void clearPassword(final Account account) {
+        android.util.SeempLog.record(27);
         if (account == null) throw new IllegalArgumentException("account is null");
         try {
             mService.clearPassword(account);
@@ -1425,6 +1440,7 @@ public class AccountManager {
      * @param value String value to set, {@code null} to clear this user data key
      */
     public void setUserData(final Account account, final String key, final String value) {
+        android.util.SeempLog.record(28);
         if (account == null) throw new IllegalArgumentException("account is null");
         if (key == null) throw new IllegalArgumentException("key is null");
         try {
@@ -1575,6 +1591,7 @@ public class AccountManager {
         return new AmsTask(activity, handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.getAuthToken(mResponse, account, authTokenType,
                         false /* notifyOnAuthFailure */, true /* expectActivityLaunch */,
                         optionsIn);
@@ -1746,6 +1763,7 @@ public class AccountManager {
         return new AmsTask(null, handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.getAuthToken(mResponse, account, authTokenType,
                         notifyAuthFailure, false /* expectActivityLaunch */, optionsIn);
             }
@@ -1806,6 +1824,7 @@ public class AccountManager {
             final String authTokenType, final String[] requiredFeatures,
             final Bundle addAccountOptions,
             final Activity activity, AccountManagerCallback<Bundle> callback, Handler handler) {
+        android.util.SeempLog.record(29);
         if (accountType == null) throw new IllegalArgumentException("accountType is null");
         final Bundle optionsIn = new Bundle();
         if (addAccountOptions != null) {
@@ -1816,6 +1835,7 @@ public class AccountManager {
         return new AmsTask(activity, handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.addAccount(mResponse, accountType, authTokenType,
                         requiredFeatures, activity != null, optionsIn);
             }
@@ -1841,6 +1861,7 @@ public class AccountManager {
         return new AmsTask(activity, handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.addAccountAsUser(mResponse, accountType, authTokenType,
                         requiredFeatures, activity != null, optionsIn, userHandle.getIdentifier());
             }
@@ -1890,6 +1911,7 @@ public class AccountManager {
         return new Future2Task<Boolean>(handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(34);
                 mService.copyAccountToUser(
                         mResponse, account, fromUser.getIdentifier(), toUser.getIdentifier());
             }
@@ -2016,6 +2038,7 @@ public class AccountManager {
         return new AmsTask(activity, handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.confirmCredentialsAsUser(mResponse, account, options, activity != null,
                         userId);
             }
@@ -2129,10 +2152,12 @@ public class AccountManager {
     public AccountManagerFuture<Bundle> editProperties(final String accountType,
             final Activity activity, final AccountManagerCallback<Bundle> callback,
             final Handler handler) {
+        android.util.SeempLog.record(30);
         if (accountType == null) throw new IllegalArgumentException("accountType is null");
         return new AmsTask(activity, handler, callback) {
             @Override
             public void doWork() throws RemoteException {
+                android.util.SeempLog.record(31);
                 mService.editProperties(mResponse, accountType, activity != null);
             }
         }.start();
@@ -2549,6 +2574,7 @@ public class AccountManager {
 
         @Override
         public void doWork() throws RemoteException {
+            android.util.SeempLog.record(31);
             getAccountByTypeAndFeatures(mAccountType, mFeatures,
                     new AccountManagerCallback<Bundle>() {
                         @Override

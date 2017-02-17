@@ -2002,6 +2002,7 @@
   <java-symbol type="string" name="demo_user_inactivity_timeout_countdown" />
   <java-symbol type="string" name="demo_user_inactivity_timeout_left_button" />
   <java-symbol type="string" name="demo_user_inactivity_timeout_right_button" />
+  <java-symbol type="string" name="config_optionalPackageVerifierName" />
 
   <java-symbol type="layout" name="resolver_list" />
   <java-symbol type="id" name="resolver_list" />
@@ -3031,4 +3032,6 @@
   <java-symbol type="array" name="config_batteryPackageTypeService" />
 
   <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+  <java-symbol type="integer" name="config_sms_authorization_timeout_ms" />
+  <java-symbol type="bool" name="config_sms_authorization_enabled" />
 </resources>
