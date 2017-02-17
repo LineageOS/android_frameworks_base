@@ -661,6 +661,8 @@ java_defaults {
         "packages/services/Proxy/com/android/net/IProxyPortListener.aidl",
         "core/java/android/service/quicksettings/IQSService.aidl",
         "core/java/android/service/quicksettings/IQSTileService.aidl",
+        "telephony/java/com/android/internal/telephony/ISmsSecurityService.aidl",
+        "telephony/java/com/android/internal/telephony/ISmsSecurityAgent.aidl",
 
         ":libupdate_engine_aidl",
 
