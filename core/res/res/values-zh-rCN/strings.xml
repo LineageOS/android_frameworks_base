@@ -1681,10 +1681,5 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"恢复出厂设置即可正常使用此设备，不受任何限制"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"触摸即可了解详情。"</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"已停用的<xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="other_permissions">其他权限</string>
-    <string name="permission_remember_choice">永远记住</string>
-    <string name="permission_title">权限</string>
-    <string name="allow_button">允许</string>
-    <string name="deny_button">拒绝</string>
     <string name="conference_call" msgid="3751093130790472426">"电话会议"</string>
 </resources>

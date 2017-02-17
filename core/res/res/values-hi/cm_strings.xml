@@ -21,12 +21,6 @@
   <string name="app_killed_message">ऐप को मार दिया गया</string>
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">स्क्रीनशॉट</string>
-  <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">सुरक्षा</string>
-  <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">उपकरण सुरक्षा जानकारी से संबंधित अनुमतियाँ।</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">प्रोफ़ाइल</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">वर्तमान</string>
@@ -112,4 +106,5 @@
   <!-- Protected Apps Notification -->
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">इस स्क्रीन को अनपिन करने के लिए पीछे के बटन को कुछ देर के लिए छुएँ।</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

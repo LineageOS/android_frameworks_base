@@ -27,5 +27,5 @@
   <string name="picker_activities">Aktivity</string>
   <string name="select_custom_app_title">Vyberte vlastnú aplikáciu</string>
   <string name="select_custom_activity_title">Vyberte vlastnú aktivitu</string>
-  <string name="lockscreen_targets_message">Ikony na obrazovke uzamknutia</string>
+  <string name="lockscreen_targets_message">Ikony obrazovky uzamknutia</string>
 </resources>

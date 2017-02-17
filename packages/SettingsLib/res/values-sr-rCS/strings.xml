@@ -50,6 +50,7 @@
   <!-- Package name for Settings app-->
   <!-- Package name for Certinstaller app-->
   <!-- Summary for Connected wifi network without internet -->
+  <!-- Text when wrong password entered for psk networks -->
   <!-- Bluetooth settings.  Message when a device is disconnected -->
   <!-- Bluetooth settings.  Message when disconnecting from a device -->
   <!-- Bluetooth settings.  Message when connecting to a device -->

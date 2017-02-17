@@ -21,15 +21,12 @@
   <string name="app_killed_message">Aplikacja została zamknięta</string>
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">Zrzut ekranu</string>
-  <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Zabezpieczenia</string>
-  <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Uprawnienia związane z informacjami o bezpieczeństwie urządzenia.</string>
-  <!-- label for item that opens the profile choosing dialog -->
-  <string name="global_action_choose_profile">Profil</string>
+  <!-- label for item that restarts the phone in phone options dialog -->
+  <string name="global_action_reboot">Uruchom ponownie</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Bieżący</string>
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">Naciśnij i przytrzymaj by wykonać częściowy zrzut ekranu</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <string name="reboot_reboot">Uruchom ponownie</string>
@@ -48,6 +45,7 @@
   <string name="reboot_confirm" product="tablet">Tablet zostanie uruchomiony ponownie.</string>
   <string name="reboot_confirm" product="default">Telefon zostanie uruchomiony ponownie.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">Ponowne uruchamianie\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB przez sieć włączone</string>
   <!-- ADB over USB and network notification -->
@@ -136,4 +134,5 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s </xliff:g> jest chroniony(a) przed uruchomieniem. Kliknij, aby uwierzytelnić i uruchomić tę aplikację.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Aby odpiąć ekran, dotknij i przytrzymaj przycisk Wstecz.</string>
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>
