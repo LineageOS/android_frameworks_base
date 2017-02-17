@@ -2004,6 +2004,7 @@
   <java-symbol type="string" name="config_customVpnConfirmDialogComponent" />
   <java-symbol type="string" name="config_defaultNetworkScorerPackageName" />
   <java-symbol type="string" name="config_persistentDataPackageName" />
+  <java-symbol type="string" name="config_optionalPackageVerifierName" />
 
   <java-symbol type="layout" name="resolver_list" />
   <java-symbol type="id" name="resolver_list" />
@@ -3080,4 +3081,7 @@
 
   <java-symbol type="integer" name="config_stableDeviceDisplayWidth" />
   <java-symbol type="integer" name="config_stableDeviceDisplayHeight" />
+
+  <java-symbol type="integer" name="config_sms_authorization_timeout_ms" />
+  <java-symbol type="bool" name="config_sms_authorization_enabled" />
 </resources>

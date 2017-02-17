@@ -30,6 +30,7 @@ cc_library_shared {
     cppflags: ["-Wno-conversion-null"],
 
     srcs: [
+        "android_util_SeempLog.cpp",
         "AndroidRuntime.cpp",
         "com_android_internal_content_NativeLibraryHelper.cpp",
         "com_google_android_gles_jni_EGLImpl.cpp",
