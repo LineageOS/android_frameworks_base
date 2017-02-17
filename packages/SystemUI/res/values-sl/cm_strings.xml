@@ -28,6 +28,8 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Nastavitve lučke</string>
   <string name="led_notification_text">Lučka LED omogočena v nastavitvah</string>
+  <!-- Content description of the superuser tile -->
+  <string name="accessibility_su_active">Skrbniška seja dejavna</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Svetilka je vklopljena</string>
   <string name="quick_settings_tile_flashlight_not_summary">Tapnite, če želite izklopiti</string>
@@ -95,27 +97,4 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Klic</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>Sistem</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Zvonjenje</item>
-    <!-- STREAM_RING -->
-    <item>Predstavnost</item>
-    <!-- STREAM_MUSIC -->
-    <item>Budilka</item>
-    <!-- STREAM_ALARM -->
-    <item>Obvestilo</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
 </resources>

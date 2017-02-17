@@ -208,6 +208,7 @@ public class MobileSignalController extends SignalController<
 		} else {
 		hGroup = TelephonyIcons.H;
 		}
+
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSDPA, hGroup);
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSUPA, hGroup);
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSPA, hGroup);

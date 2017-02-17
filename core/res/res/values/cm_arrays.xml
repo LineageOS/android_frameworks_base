@@ -39,7 +39,7 @@
         <item>soft_reboot</item>
         <item>recovery</item>
         <item>bootloader</item>
-		<item>systemui_reboot</item>
+	<item>systemui_reboot</item>
      </string-array>
 
     <!-- Do not translate. App ops request strings -->

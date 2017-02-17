@@ -25,12 +25,14 @@
   <string name="permgrouplab_security">Beveiliging</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Machtigingen gerelateerd aan beveiligingsinformatie van het apparaat.</string>
+  <!-- label for item that opens the profile choosing dialog -->
+  <string name="global_action_choose_profile">Profiel</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Herstarten</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Huidige</string>
   <!-- status message in phone options dialog for screenshot action -->
-  <string name="global_actions_screenshot_status">Lang indrukken voor gedeeltelijke schermafbeelding</string>
+  <string name="global_actions_screenshot_status">Lang drukken voor gedeeltelijke schermafbeelding</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <string name="reboot_reboot">Herstarten</string>
@@ -138,6 +140,4 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> is beschermd tegen opstarten. Tik om aan te melden en de app te starten.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Blijf de Terug-knop aanraken om dit scherm los te maken.</string>
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="lineage_system_error_manufacturer">Er is een discrepantie geconstateerd in de vendor-image. Over het algemeen betekent dit dat de vendor-image verouderd is. Zorg ervoor dat de vendor-image overeenkomt met <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
 </resources>

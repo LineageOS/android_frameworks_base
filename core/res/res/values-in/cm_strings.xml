@@ -25,8 +25,8 @@
   <string name="permgrouplab_security">Keamanan</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Izin terkait dengan informasi keamanan perangkat.</string>
-  <!-- label for item that restarts the phone in phone options dialog -->
-  <string name="global_action_reboot">Mulai ulang</string>
+  <!-- label for item that opens the profile choosing dialog -->
+  <string name="global_action_choose_profile">Profil</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Saat ini</string>
   <!-- status message in phone options dialog for screenshot action -->
@@ -138,5 +138,4 @@
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> dilindungi dari peluncuran. Ketuk untuk mengautentikasi dan meluncurkan aplikasi.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Untuk melepas sematan layar ini, sentuh dan tahan tombol Kembali.</string>
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
 </resources>

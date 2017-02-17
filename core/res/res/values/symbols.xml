@@ -298,6 +298,7 @@
   <java-symbol type="bool" name="config_wifi_revert_country_code_on_cellular_loss" />
   <java-symbol type="bool" name="config_wifi_enable_wifi_firmware_debugging" />
   <java-symbol type="bool" name="config_wifi_ipreachability_monitor" />
+  <java-symbol type="integer" name="config_wifi_logger_ring_buffer_size_limit_kb" />
   <java-symbol type="integer" name="config_wifi_logger_ring_buffer_default_size_limit_kb" />
   <java-symbol type="integer" name="config_wifi_logger_ring_buffer_verbose_size_limit_kb" />
   <java-symbol type="bool" name="config_wifi_turn_off_during_emergency_call" />
@@ -1120,7 +1121,6 @@
   <java-symbol type="string" name="demo_restarting_message" />
   <java-symbol type="string" name="conference_call" />
 
-
   <java-symbol type="plurals" name="bugreport_countdown" />
   <java-symbol type="plurals" name="duration_hours" />
   <java-symbol type="plurals" name="duration_minutes" />
@@ -1605,6 +1605,7 @@
   <java-symbol type="string" name="bugreport_title" />
   <java-symbol type="string" name="faceunlock_multiple_failures" />
   <java-symbol type="string" name="global_action_power_off" />
+  <java-symbol type="string" name="global_action_reboot" />
   <java-symbol type="string" name="global_action_restart" />
   <java-symbol type="string" name="global_actions_airplane_mode_off_status" />
   <java-symbol type="string" name="global_actions_airplane_mode_on_status" />
@@ -1871,6 +1872,9 @@
   <java-symbol type="string" name="smv_application" />
   <java-symbol type="string" name="smv_process" />
   <java-symbol type="string" name="tethered_notification_message" />
+  <java-symbol type="string" name="tethered_notification_no_device_message" />
+  <java-symbol type="string" name="tethered_notification_one_device_message" />
+  <java-symbol type="string" name="tethered_notification_multi_device_message" />
   <java-symbol type="string" name="tethered_notification_title" />
   <java-symbol type="string" name="usb_accessory_notification_title" />
   <java-symbol type="string" name="usb_mtp_notification_title" />
@@ -2698,6 +2702,7 @@
   <java-symbol type="bool" name="config_regional_hotspot_show_broadcast_ssid_checkbox" />
   <java-symbol type="bool" name="config_regional_hotspot_show_notification_when_turn_on" />
 
+  <java-symbol type="bool" name="config_video_call_datausage_enable" />
   <java-symbol type="bool" name="config_showOperatorNameInStatusBar" />
   <java-symbol type="bool" name="config_passpoint_setting_on" />
   <java-symbol type="integer" name="wifi_hotspot_security_type" />
@@ -2737,11 +2742,13 @@
   <java-symbol type="bool" name="config_emergencyCallOnPowerkeyTapGestureEnabled" />
   <java-symbol type="bool" name="config_usb_data_unlock" />
   <java-symbol type="bool" name="config_volte_preferred" />
-
-  <!-- Last app switch animations -->
-  <java-symbol type="anim" name="last_app_in" />
-  <java-symbol type="anim" name="last_app_out" />
-
+  <java-symbol type="bool" name="operator_custom_sim_icon" />
+  <!-- config softap extention feature -->
+  <java-symbol type="bool" name="config_softap_extention" />
+  <java-symbol type="array" name="config_operatorConsideredDomesticRoaming" />
+  <java-symbol type="array" name="config_operatorConsideredDomesticRoamingExceptions" />
+  <!-- config softap extention feature -->
+  <java-symbol type="string" name="def_custom_bt_defname" />
   <java-symbol type="layout" name="notification_material_action_emphasized" />
 
   <!-- Package name for the device provisioning package -->
@@ -2805,6 +2812,39 @@
   <java-symbol type="integer" name="time_picker_mode" />
   <java-symbol type="integer" name="date_picker_mode" />
 
+  <!-- Gesture Sensor -->
+  <java-symbol type="bool" name="config_enableGestureService" />
+
+  <!-- Config.xml entries -->
+  <java-symbol type="bool" name="config_show_cmIMESwitcher"/>
+  <java-symbol type="bool" name="config_samsung_stk" />
+
+  <!-- Developer settings - Kill app back press -->
+  <java-symbol type="string" name="app_killed_message" />
+
+  <!-- Config.xml entries -->
+  <java-symbol type="integer" name="config_backKillTimeout" />
+
+  <!-- Power menu -->
+  <java-symbol type="drawable" name="ic_lock_screenshot" />
+  <java-symbol type="string" name="global_action_screenshot" />
+  <java-symbol type="drawable" name="ic_lock_settings" />
+  <java-symbol type="drawable" name="ic_lock_user" />
+
+  <!-- ADB notification -->
+  <java-symbol type="string" name="adb_net_active_notification_title" />
+  <java-symbol type="string" name="adb_both_active_notification_title" />
+  <java-symbol type="string" name="adb_active_generic_notification_message" />
+
+  <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+
+  <!-- Last app switch animations -->
+  <java-symbol type="anim" name="last_app_in" />
+  <java-symbol type="anim" name="last_app_out" />
+
   <!-- config softap extention feature -->
   <java-symbol type="bool" name="config_softap_extention" />
+
+  <!-- Accelerometer batching -->
+  <java-symbol type="bool" name="config_useDefaultBatchingForAccel" />
 </resources>

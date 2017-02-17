@@ -85,6 +85,7 @@
     <protected-broadcast android:name="android.intent.action.INTENT_FILTER_NEEDS_VERIFICATION" />
     <protected-broadcast android:name="android.intent.action.SU_SESSION_CHANGED" />
 
+    <protected-broadcast android:name="Auth_password_wrong" />
     <protected-broadcast android:name="android.os.action.POWER_SAVE_MODE_CHANGED" />
     <protected-broadcast android:name="android.os.action.POWER_SAVE_MODE_CHANGING" />
     <protected-broadcast android:name="android.os.action.DEVICE_IDLE_MODE_CHANGED" />
@@ -304,6 +305,7 @@
 
     <protected-broadcast android:name="android.net.wifi.WIFI_STATE_CHANGED" />
     <protected-broadcast android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
+    <protected-broadcast android:name="android.net.wifi.WIFI_AP_SUB_SYSTEM_RESTART" />
     <protected-broadcast android:name="android.net.wifi.WIFI_CREDENTIAL_CHANGED" />
     <protected-broadcast android:name="android.net.wifi.WIFI_SCAN_AVAILABLE" />
     <protected-broadcast android:name="android.net.wifi.SCAN_RESULTS" />
@@ -319,6 +321,7 @@
     <protected-broadcast android:name="android.net.wifi.p2p.PEERS_CHANGED" />
     <protected-broadcast android:name="android.net.wifi.p2p.CONNECTION_STATE_CHANGE" />
     <protected-broadcast android:name="android.net.wifi.p2p.PERSISTENT_GROUPS_CHANGED" />
+    <protected-broadcast android:name="codeaurora.net.conn.TETHER_CONNECT_STATE_CHANGED" />
     <protected-broadcast android:name="android.net.conn.TETHER_STATE_CHANGED" />
     <protected-broadcast android:name="android.net.conn.INET_CONDITION_ACTION" />
     <protected-broadcast android:name="android.net.conn.NETWORK_CONDITIONS_MEASURED" />
@@ -507,7 +510,6 @@
 
     <protected-broadcast android:name="android.telecom.action.TTY_PREFERRED_MODE_CHANGED" />
     <protected-broadcast android:name="android.telecom.action.CURRENT_TTY_MODE_CHANGED" />
-
     <protected-broadcast android:name="com.android.server.retaildemo.ACTION_RESET_DEMO" />
 
     <protected-broadcast android:name="cyanogenmod.intent.action.LID_STATE_CHANGED" />
@@ -1323,14 +1325,12 @@
     <eat-comment />
 
     <!-- Allows access to the list of accounts in the Accounts Service.
-
     <p class="note"><strong>Note:</strong> Beginning with Android 6.0 (API level
     23), if an app shares the signature of the authenticator that manages an
     account, it does not need <code>"GET_ACCOUNTS"</code> permission to read
     information about that account. On Android 5.1 and lower, all apps need
     <code>"GET_ACCOUNTS"</code> permission to read information about any
     account.</p>
-
     <p>Protection level: dangerous
     -->
     <permission android:name="android.permission.GET_ACCOUNTS"
@@ -1751,7 +1751,6 @@
          shown on top of all other apps.  Very few apps
          should use this permission; these windows are intended for
          system-level interaction with the user.
-
          <p class="note"><strong>Note:</strong> If the app
          targets API level 23 or higher, the app user must explicitly grant
          this permission to the app through a permission management screen. The app requests
@@ -1883,7 +1882,6 @@
         android:protectionLevel="signature|privileged|development" />
 
     <!-- Allows an application to read or write the system settings.
-
         <p class="note"><strong>Note:</strong> If the app targets API level 23
         or higher, the app user
         must explicitly grant this permission to the app through a permission management screen.
@@ -1891,7 +1889,6 @@
         {@link android.provider.Settings#ACTION_MANAGE_WRITE_SETTINGS}. The app
         can check whether it has this authorization by calling {@link
         android.provider.Settings.System#canWrite Settings.System.canWrite()}.
-
         <p>Protection level: signature
     -->
     <permission android:name="android.permission.WRITE_SETTINGS"

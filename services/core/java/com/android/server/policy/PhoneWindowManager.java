@@ -3662,7 +3662,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         mContext.sendOrderedBroadcastAsUser(intent, UserHandle.CURRENT,
                                 null, null, null, 0, null, null);
                         return -1;
-                    }
+                     }
                 } else if (longPress) {
                     if (!keyguardOn && mLongPressOnMenuBehavior != KEY_ACTION_NOTHING) {
                         if (mLongPressOnMenuBehavior != KEY_ACTION_APP_SWITCH) {
@@ -4693,8 +4693,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             navVisible |= !canHideNavigationBar();
 
             boolean updateSysUiVisibility = layoutNavigationBar(displayWidth, displayHeight,
-                    displayRotation, uiMode, overscanLeft, overscanRight, overscanBottom, dcf, navVisible, navTranslucent,
-                    navAllowedHidden, statusBarExpandedNotKeyguard);
+                    displayRotation, uiMode, overscanLeft, overscanRight, overscanBottom,
+                    dcf, navVisible, navTranslucent, navAllowedHidden, statusBarExpandedNotKeyguard);
             if (DEBUG_LAYOUT) Slog.i(TAG, String.format("mDock rect: (%d,%d - %d,%d)",
                     mDockLeft, mDockTop, mDockRight, mDockBottom));
             updateSysUiVisibility |= layoutStatusBar(pf, df, of, vf, dcf, sysui, isKeyguardShowing);
@@ -4809,7 +4809,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     // we can tell the app that it is covered by it.
                     mSystemBottom = mTmpNavigationFrame.top;
                 }
-            } else if (mNavigationBarLeftInLandscape) {
+            } else if (mNavigationBarPosition == NAV_BAR_LEFT) {
                 // Landscape screen; nav bar goes to the left.
                 int right = overscanLeft + getNavigationBarWidth(displayRotation, uiMode);
                 mTmpNavigationFrame.set(0, 0, right, displayHeight);

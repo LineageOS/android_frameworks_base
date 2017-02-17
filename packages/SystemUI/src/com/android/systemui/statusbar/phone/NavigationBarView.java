@@ -74,7 +74,6 @@ public class NavigationBarView extends LinearLayout implements TunerService.Tuna
     boolean mVertical;
     boolean mScreenOn;
     boolean mLeftInLandscape;
-
     private int mCurrentRotation = -1;
 
     boolean mShowMenu;

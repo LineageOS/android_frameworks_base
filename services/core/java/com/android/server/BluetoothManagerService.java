@@ -150,7 +150,11 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
     private int mErrorRecoveryRetryCounter;
     private final int mSystemUiUid;
     private boolean mIntentPending = false;
-    private int mIBluetoothConnectedMsgQueued = 0;
+
+    // Save a ProfileServiceConnections object for each of the bound
+    // bluetooth profile services
+    private final Map <Integer, ProfileServiceConnections> mProfileServices =
+            new HashMap <Integer, ProfileServiceConnections>();
 
     // Save a ProfileServiceConnections object for each of the bound
     // bluetooth profile services
@@ -730,7 +734,6 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
             if (mUnbinding) return;
             mUnbinding = true;
             mHandler.removeMessages(MESSAGE_BLUETOOTH_STATE_CHANGE);
-            mHandler.removeMessages(MESSAGE_BIND_PROFILE_SERVICE);
             if (mBluetooth != null) {
                 //Unregister callback object
                 try {
@@ -1122,9 +1125,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                 return;
             }
             msg.obj = service;
-            boolean sent = mHandler.sendMessage(msg);
-            if (sent && (msg.arg1 == SERVICE_IBLUETOOTH))
-                mIBluetoothConnectedMsgQueued++;
+            mHandler.sendMessage(msg);
         }
 
         public void onServiceDisconnected(ComponentName className) {
@@ -1320,8 +1321,6 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                             break;
                         } // else must be SERVICE_IBLUETOOTH
 
-                        mIBluetoothConnectedMsgQueued--;
-
                         //Remove timeout
                         mHandler.removeMessages(MESSAGE_TIMEOUT_BIND);
 
@@ -1456,7 +1455,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                         mBluetoothLock.writeLock().unlock();
                     }
 
-                    if (mEnable && (mIBluetoothConnectedMsgQueued == 0)) {
+                    if (mEnable) {
                         mEnable = false;
                         // Send a Bluetooth Restart message
                         Message restartMsg = mHandler.obtainMessage(
@@ -1532,7 +1531,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                             mState = BluetoothAdapter.STATE_TURNING_ON;
                         }
 
-                        waitForOnOff(true, false);
+                        waitForMonitoredOnOff(true, false);
 
                         if (mState == BluetoothAdapter.STATE_TURNING_ON) {
                             bluetoothStateChangeHandler(mState, BluetoothAdapter.STATE_ON);
@@ -1540,27 +1539,30 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
 
                         unbindAllBluetoothProfileServices();
                         // disable
+                        clearBleApps();
                         handleDisable();
                         // Pbap service need receive STATE_TURNING_OFF intent to close
                         bluetoothStateChangeHandler(BluetoothAdapter.STATE_ON,
                                                     BluetoothAdapter.STATE_TURNING_OFF);
 
-                        boolean didDisableTimeout = !waitForOnOff(false, true);
+                        boolean didDisableTimeout = !waitForMonitoredOnOff(false, true);
 
                         bluetoothStateChangeHandler(BluetoothAdapter.STATE_TURNING_OFF,
                                                     BluetoothAdapter.STATE_OFF);
                         sendBluetoothServiceDownCallback();
 
-                        try {
-                            mBluetoothLock.writeLock().lock();
-                            if (mBluetooth != null) {
-                                mBluetooth = null;
-                                // Unbind
-                                mContext.unbindService(mConnection);
+                        if(!didDisableTimeout) {
+                            try {
+                                mBluetoothLock.writeLock().lock();
+                                if (mBluetooth != null) {
+                                    mBluetooth = null;
+                                    // Unbind
+                                    mContext.unbindService(mConnection);
+                                }
+                                mBluetoothGatt = null;
+                            } finally {
+                                mBluetoothLock.writeLock().unlock();
                             }
-                            mBluetoothGatt = null;
-                        } finally {
-                            mBluetoothLock.writeLock().unlock();
                         }
 
                         //
@@ -1570,6 +1572,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                         //
                         if (didDisableTimeout) {
                             SystemClock.sleep(3000);
+                            mHandler.removeMessages(MESSAGE_BLUETOOTH_SERVICE_DISCONNECTED);
                         } else {
                             SystemClock.sleep(100);
                         }
@@ -1833,6 +1836,47 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
         return false;
     }
 
+    /**
+     *  if on is true, wait for state become ON
+     *  if off is true, wait for state become OFF
+     *  if both on and off are false, wait for state not ON
+     */
+    private boolean waitForMonitoredOnOff(boolean on, boolean off) {
+        int i = 0;
+        while (i < 16) {
+            synchronized(mConnection) {
+                try {
+                    if (mBluetooth == null) break;
+                    if (on) {
+                        if (mBluetooth.getState() == BluetoothAdapter.STATE_ON) return true;
+                        if (mBluetooth.getState() == BluetoothAdapter.STATE_BLE_ON) {
+                            bluetoothStateChangeHandler(BluetoothAdapter.STATE_BLE_TURNING_ON,
+                                                        BluetoothAdapter.STATE_BLE_ON);
+                        }
+                    } else if (off) {
+                        if (mBluetooth.getState() == BluetoothAdapter.STATE_OFF) return true;
+                        if (mBluetooth.getState() == BluetoothAdapter.STATE_BLE_ON)
+                            bluetoothStateChangeHandler(BluetoothAdapter.STATE_TURNING_OFF,
+                                                        BluetoothAdapter.STATE_BLE_ON);
+                    } else {
+                        if (mBluetooth.getState() != BluetoothAdapter.STATE_ON) return true;
+                    }
+                } catch (RemoteException e) {
+                    Slog.e(TAG, "getState()", e);
+                    break;
+                }
+            }
+            if (on || off) {
+                SystemClock.sleep(500);
+            } else {
+                SystemClock.sleep(30);
+            }
+            i++;
+        }
+        Slog.e(TAG,"waitForOnOff time out");
+        return false;
+    }
+
     private void sendDisableMsg() {
         mHandler.sendMessage(mHandler.obtainMessage(MESSAGE_DISABLE));
     }
@@ -1856,40 +1900,9 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
             mBluetoothLock.readLock().unlock();
         }
 
-        SystemClock.sleep(500);
-
-        // disable
-        handleDisable();
-
         waitForOnOff(false, true);
 
-        // If there is a MESSAGE_BLUETOOTH_SERVICE_CONNECTED in mHandler queue, we should not
-        // unbindService as below. Otherwise, after unbind, com.android.bluetooth will die, but
-        // later mBluetooth will be assigned to adapterService in handleMessage of
-        // MESSAGE_BLUETOOTH_SERVICE_CONNECTED. From then on, mBluetooth is not null,
-        // and com.android.bluetooth is dead, but doBind will not be triggered again.
-        if (mIBluetoothConnectedMsgQueued > 0) {
-            Slog.e(TAG, "recoverBluetoothServiceFromError: "
-                    + "MESSAGE_BLUETOOTH_SERVICE_CONNECTED exists in mHandler queue, "
-                    + "should not unbindService, return directly.");
-            mHandler.removeMessages(MESSAGE_BLUETOOTH_STATE_CHANGE);
-            mState = BluetoothAdapter.STATE_OFF;
-            return;
-        }
-
         sendBluetoothServiceDownCallback();
-
-        try {
-            mBluetoothLock.writeLock().lock();
-            if (mBluetooth != null) {
-                mBluetooth = null;
-                // Unbind
-                mContext.unbindService(mConnection);
-            }
-            mBluetoothGatt = null;
-        } finally {
-            mBluetoothLock.writeLock().unlock();
-        }
 
         mHandler.removeMessages(MESSAGE_BLUETOOTH_STATE_CHANGE);
         mState = BluetoothAdapter.STATE_OFF;

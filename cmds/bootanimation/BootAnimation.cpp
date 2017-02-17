@@ -27,7 +27,6 @@
 #include <utils/misc.h>
 #include <signal.h>
 #include <time.h>
-#include <sys/syscall.h>
 
 #include <cutils/properties.h>
 
@@ -59,9 +58,10 @@
 #include <EGL/eglext.h>
 
 #include "BootAnimation.h"
-#include "audioplay.h"
 
 #include <private/regionalization/Environment.h>
+
+#include "audioplay.h"
 
 namespace android {
 
@@ -90,62 +90,6 @@ static const std::vector<std::string> PLAY_SOUND_BOOTREASON_BLACKLIST {
 };
 
 // ---------------------------------------------------------------------------
-
-#ifdef MULTITHREAD_DECODE
-static const int MAX_DECODE_THREADS = 2;
-static const int MAX_DECODE_CACHE = 3;
-#endif
-
-static unsigned long getFreeMemory(void)
-{
-    int fd = open("/proc/meminfo", O_RDONLY);
-    const char* const sums[] = { "MemFree:", "Cached:", NULL };
-    const size_t sumsLen[] = { strlen("MemFree:"), strlen("Cached:"), 0 };
-    unsigned int num = 2;
-
-    if (fd < 0) {
-        ALOGW("Unable to open /proc/meminfo");
-        return -1;
-    }
-
-    char buffer[256];
-    const int len = read(fd, buffer, sizeof(buffer)-1);
-    close(fd);
-
-    if (len < 0) {
-        ALOGW("Unable to read /proc/meminfo");
-        return -1;
-    }
-    buffer[len] = 0;
-
-    size_t numFound = 0;
-    unsigned long mem = 0;
-
-    char* p = buffer;
-    while (*p && numFound < num) {
-        int i = 0;
-        while (sums[i]) {
-            if (strncmp(p, sums[i], sumsLen[i]) == 0) {
-                p += sumsLen[i];
-                while (*p == ' ') p++;
-                char* num = p;
-                while (*p >= '0' && *p <= '9') p++;
-                if (*p != 0) {
-                    *p = 0;
-                    p++;
-                    if (*p == 0) p--;
-                }
-                mem += atoll(num);
-                numFound++;
-                break;
-            }
-            i++;
-        }
-        p++;
-    }
-
-    return numFound > 0 ? mem : -1;
-}
 
 BootAnimation::BootAnimation() : Thread(false), mClockEnabled(true), mTimeIsAccurate(false),
         mTimeCheckThread(NULL) {
@@ -237,42 +181,33 @@ status_t BootAnimation::initTexture(Texture* texture, AssetManager& assets,
     return NO_ERROR;
 }
 
-SkBitmap* BootAnimation::decode(const Animation::Frame& frame)
+status_t BootAnimation::initTexture(const Animation::Frame& frame)
 {
+    //StopWatch watch("blah");
 
-    SkBitmap *bitmap = NULL;
+    SkBitmap bitmap;
     SkMemoryStream  stream(frame.map->getDataPtr(), frame.map->getDataLength());
     SkImageDecoder* codec = SkImageDecoder::Factory(&stream);
     if (codec != NULL) {
-        bitmap = new SkBitmap();
         codec->setDitherImage(false);
-        codec->decode(&stream, bitmap,
-                #ifdef USE_565
-                kRGB_565_SkColorType,
-                #else
+        codec->decode(&stream, &bitmap,
                 kN32_SkColorType,
-                #endif
                 SkImageDecoder::kDecodePixels_Mode);
         delete codec;
     }
 
-    return bitmap;
-}
+    // FileMap memory is never released until application exit.
+    // Release it now as the texture is already loaded and the memory used for
+    // the packed resource can be released.
+    delete frame.map;
 
-status_t BootAnimation::initTexture(const Animation::Frame& frame)
-{
-    //StopWatch watch("blah");
-    return initTexture(decode(frame));
-}
+    // ensure we can call getPixels(). No need to call unlock, since the
+    // bitmap will go out of scope when we return from this method.
+    bitmap.lockPixels();
 
-status_t BootAnimation::initTexture(SkBitmap *bitmap)
-{
-    // ensure we can call getPixels().
-    bitmap->lockPixels();
-
-    const int w = bitmap->width();
-    const int h = bitmap->height();
-    const void* p = bitmap->getPixels();
+    const int w = bitmap.width();
+    const int h = bitmap.height();
+    const void* p = bitmap.getPixels();
 
     GLint crop[4] = { 0, h, w, -h };
     int tw = 1 << (31 - __builtin_clz(w));
@@ -280,7 +215,7 @@ status_t BootAnimation::initTexture(SkBitmap *bitmap)
     if (tw < w) tw <<= 1;
     if (th < h) th <<= 1;
 
-    switch (bitmap->colorType()) {
+    switch (bitmap.colorType()) {
         case kN32_SkColorType:
             if (!mUseNpotTextures && (tw != w || th != h)) {
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tw, th, 0, GL_RGBA,
@@ -310,8 +245,6 @@ status_t BootAnimation::initTexture(SkBitmap *bitmap)
 
     glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_CROP_RECT_OES, crop);
 
-    bitmap->unlockPixels();
-    delete bitmap;
     return NO_ERROR;
 }
 
@@ -414,33 +347,6 @@ status_t BootAnimation::readyToRun() {
     else if (access(getAnimationFileName(IMG_SYS), R_OK) == 0) {
         mZipFileName = getAnimationFileName(IMG_SYS);
     }
-
-#ifdef PRELOAD_BOOTANIMATION
-    // Preload the bootanimation zip on memory, so we don't stutter
-    // when showing the animation
-    FILE* fd;
-    if (encryptedAnimation && access(getAnimationFileName(IMG_ENC), R_OK) == 0)
-        fd = fopen(getAnimationFileName(IMG_ENC), "r");
-    else if (access(getAnimationFileName(IMG_OEM), R_OK) == 0)
-        fd = fopen(getAnimationFileName(IMG_OEM), "r");
-    else if (access(getAnimationFileName(IMG_SYS), R_OK) == 0)
-        fd = fopen(getAnimationFileName(IMG_SYS), "r");
-    else
-        return NO_ERROR;
-
-    if (fd != NULL) {
-        // Since including fcntl.h doesn't give us the wrapper, use the syscall.
-        // 32 bits takes LO/HI offset (we don't care about endianness of 0).
-#if defined(__aarch64__) || defined(__x86_64__)
-        if (syscall(__NR_readahead, fd, 0, INT_MAX))
-#else
-        if (syscall(__NR_readahead, fd, 0, 0, INT_MAX))
-#endif
-            ALOGW("Unable to cache the animation");
-        fclose(fd);
-    }
-#endif
-
     return NO_ERROR;
 }
 
@@ -899,33 +805,7 @@ bool BootAnimation::playAnimation(const Animation& animation)
     for (size_t i=0 ; i<pcount ; i++) {
         const Animation::Part& part(animation.parts[i]);
         const size_t fcount = part.frames.size();
-
-        // can be 1, 0, or not set
-        #ifdef NO_TEXTURE_CACHE
-        const int noTextureCache = NO_TEXTURE_CACHE;
-        #else
-        const int noTextureCache =
-                ((animation.width * animation.height * fcount) > 48 * 1024 * 1024) ? 1 : 0;
-        #endif
-
         glBindTexture(GL_TEXTURE_2D, 0);
-
-        // Calculate if we need to save memory by disabling texture cache
-        // If free memory is less than the max texture size, cache will be disabled
-        GLint mMaxTextureSize;
-        bool needSaveMem = false;
-        GLuint mTextureid;
-        glGetIntegerv(GL_MAX_TEXTURE_SIZE, &mMaxTextureSize);
-        ALOGD("Free memory: %ld, max texture size: %d", getFreeMemory(), mMaxTextureSize);
-        if (getFreeMemory() < mMaxTextureSize * mMaxTextureSize * fcount / 1024 ||
-                noTextureCache) {
-            ALOGD("Disabled bootanimation texture cache, FPS drops might occur.");
-            needSaveMem = true;
-            glGenTextures(1, &mTextureid);
-            glBindTexture(GL_TEXTURE_2D, mTextureid);
-            glTexParameterx(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-            glTexParameterx(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        }
 
         // Handle animation package
         if (part.animation != NULL) {
@@ -952,32 +832,20 @@ bool BootAnimation::playAnimation(const Animation& animation)
                     part.backgroundColor[2],
                     1.0f);
 
-#ifdef MULTITHREAD_DECODE
-            FrameManager *frameManager = NULL;
-            if (r == 0 || needSaveMem) {
-                frameManager = new FrameManager(MAX_DECODE_THREADS,
-                    MAX_DECODE_CACHE, part.frames);
-            }
-#endif
-
             for (size_t j=0 ; j<fcount && (!exitPending() || part.playUntilComplete) ; j++) {
                 const Animation::Frame& frame(part.frames[j]);
                 nsecs_t lastFrame = systemTime();
 
-                if (r > 0 && !needSaveMem) {
+                if (r > 0) {
                     glBindTexture(GL_TEXTURE_2D, frame.tid);
                 } else {
-                    if (!needSaveMem && part.count != 1) {
+                    if (part.count != 1) {
                         glGenTextures(1, &frame.tid);
                         glBindTexture(GL_TEXTURE_2D, frame.tid);
                         glTexParameterx(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
                         glTexParameterx(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                     }
-#ifdef MULTITHREAD_DECODE
-                    initTexture(frameManager->next());
-#else
                     initTexture(frame);
-#endif
                 }
 
                 const int xc = animationX + frame.trimX;
@@ -1025,20 +893,11 @@ bool BootAnimation::playAnimation(const Animation& animation)
 
             usleep(part.pause * ns2us(frameDuration));
 
-#ifdef MULTITHREAD_DECODE
-            if (frameManager) {
-                delete frameManager;
-            }
-#endif
-
             // For infinite parts, we've now played them at least once, so perhaps exit
             if(exitPending() && !part.count)
                 break;
         }
 
-        if (needSaveMem) {
-            glDeleteTextures(1, &mTextureid);
-        }
     }
 
     // Free textures created for looping parts now that the animation is done.
@@ -1099,117 +958,6 @@ BootAnimation::Animation* BootAnimation::loadAnimation(const String8& fn)
     mLoadedFiles.remove(fn);
     return animation;
 }
-
-#ifdef MULTITHREAD_DECODE
-FrameManager::FrameManager(int numThreads, size_t maxSize, const SortedVector<BootAnimation::Animation::Frame>& frames) :
-    mMaxSize(maxSize),
-    mFrameCounter(0),
-    mNextIdx(0),
-    mFrames(frames),
-    mExit(false)
-{
-    pthread_mutex_init(&mBitmapsMutex, NULL);
-    pthread_cond_init(&mSpaceAvailableCondition, NULL);
-    pthread_cond_init(&mBitmapReadyCondition, NULL);
-    for (int i = 0; i < numThreads; i++) {
-        DecodeThread *thread = new DecodeThread(this);
-        thread->run("bootanimation", PRIORITY_URGENT_DISPLAY);
-        mThreads.add(thread);
-    }
-}
-
-FrameManager::~FrameManager()
-{
-    mExit = true;
-    pthread_cond_broadcast(&mSpaceAvailableCondition);
-    pthread_cond_broadcast(&mBitmapReadyCondition);
-    for (size_t i = 0; i < mThreads.size(); i++) {
-        mThreads.itemAt(i)->requestExitAndWait();
-    }
-
-    // Any bitmap left in the queue won't get cleaned up by
-    // the consumer.  Clean up now.
-    for (size_t i = 0; i < mDecodedFrames.size(); i++) {
-        delete mDecodedFrames[i].bitmap;
-    }
-}
-
-SkBitmap* FrameManager::next()
-{
-    pthread_mutex_lock(&mBitmapsMutex);
-
-    while (mDecodedFrames.size() == 0 ||
-            mDecodedFrames.itemAt(0).idx != mNextIdx) {
-        pthread_cond_wait(&mBitmapReadyCondition, &mBitmapsMutex);
-    }
-    DecodeWork work = mDecodedFrames.itemAt(0);
-    mDecodedFrames.removeAt(0);
-    mNextIdx++;
-    pthread_cond_signal(&mSpaceAvailableCondition);
-    pthread_mutex_unlock(&mBitmapsMutex);
-    // The caller now owns the bitmap
-    return work.bitmap;
-}
-
-FrameManager::DecodeWork FrameManager::getWork()
-{
-    DecodeWork work = {
-        .frame = NULL,
-        .bitmap = NULL,
-        .idx = 0
-    };
-
-    pthread_mutex_lock(&mBitmapsMutex);
-
-    while (mDecodedFrames.size() >= mMaxSize && !mExit) {
-        pthread_cond_wait(&mSpaceAvailableCondition, &mBitmapsMutex);
-    }
-
-    if (!mExit) {
-        work.frame = &mFrames.itemAt(mFrameCounter % mFrames.size());
-        work.idx = mFrameCounter;
-        mFrameCounter++;
-    }
-
-    pthread_mutex_unlock(&mBitmapsMutex);
-    return work;
-}
-
-void FrameManager::completeWork(DecodeWork work) {
-    size_t insertIdx;
-    pthread_mutex_lock(&mBitmapsMutex);
-
-    for (insertIdx = 0; insertIdx < mDecodedFrames.size(); insertIdx++) {
-        if (work.idx < mDecodedFrames.itemAt(insertIdx).idx) {
-            break;
-        }
-    }
-
-    mDecodedFrames.insertAt(work, insertIdx);
-    pthread_cond_signal(&mBitmapReadyCondition);
-
-    pthread_mutex_unlock(&mBitmapsMutex);
-}
-
-FrameManager::DecodeThread::DecodeThread(FrameManager* manager) :
-    Thread(false),
-    mManager(manager)
-{
-
-}
-
-bool FrameManager::DecodeThread::threadLoop()
-{
-    DecodeWork work = mManager->getWork();
-    if (work.frame != NULL) {
-        work.bitmap = BootAnimation::decode(*work.frame);
-        mManager->completeWork(work);
-        return true;
-    }
-
-    return false;
-}
-#endif
 
 bool BootAnimation::playSoundsAllowed() const {
     // Only play sounds for system boots, not runtime restarts.

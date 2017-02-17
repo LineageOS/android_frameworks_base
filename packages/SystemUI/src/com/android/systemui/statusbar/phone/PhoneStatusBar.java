@@ -360,8 +360,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     FingerprintUnlockController mFingerprintUnlockController;
     LightStatusBarController mLightStatusBarController;
     protected LockscreenWallpaper mLockscreenWallpaper;
-    WeatherControllerImpl mWeatherController;
     SuControllerImpl mSuController;
+    WeatherControllerImpl mWeatherController;
 
     int mNaturalBarHeight = -1;
 
@@ -539,10 +539,41 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 		updateSettings();
 	}
 
+    class DevForceNavbarObserver extends ContentObserver {
+        DevForceNavbarObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(CMSettings.Global.getUriFor(
+                    CMSettings.Global.DEV_FORCE_SHOW_NAVBAR), false, this, UserHandle.USER_ALL);
+
+            CurrentUserTracker userTracker = new CurrentUserTracker(mContext) {
+                @Override
+                public void onUserSwitched(int newUserId) {
+                    update();
+                }
+            };
+            userTracker.startTracking();
+        }
+
         @Override
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
             updateSettings();
+            update();
+        }
+
+        private void update() {
+            boolean visible = CMSettings.Global.getIntForUser(mContext.getContentResolver(),
+                    CMSettings.Global.DEV_FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) == 1;
+
+            if (visible) {
+                forceAddNavigationBar();
+            } else {
+                removeNavigationBar();
+            }
         }
     }
 
@@ -857,6 +888,18 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         addNavigationBar();
 
+        // Developer options - Force Navigation bar
+        try {
+            boolean needsNav = mWindowManagerService.needsNavigationBar();
+            if (!needsNav) {
+                final DevForceNavbarObserver observer = new DevForceNavbarObserver(mHandler);
+                observer.observe();
+            }
+        } catch (RemoteException ex) {
+            // no window manager? good luck with that
+        }
+
+
         SettingsObserver observer = new SettingsObserver(mHandler);
 	observer.observe();
 
@@ -1135,8 +1178,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mKeyguardStatusBar.setBatteryController(mBatteryController);
         mHeader.setWeatherController(mWeatherController);
 
-        mNotificationPanel.setWeatherController(mWeatherController);
-
         mReportRejectedTouch = mStatusBarWindow.findViewById(R.id.report_rejected_touch);
         if (mReportRejectedTouch != null) {
             updateReportRejectedTouchVisibility();
@@ -1166,6 +1207,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             });
         }
 
+
+        mNotificationPanel.setWeatherController(mWeatherController);
 
         PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         mBroadcastReceiver.onReceive(mContext,

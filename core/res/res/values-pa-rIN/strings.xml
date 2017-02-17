@@ -1677,5 +1677,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਬਿਨਾਂ ਪਾਬੰਦੀਆਂ ਦੇ ਵਰਤਣ ਲਈ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰੋ"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"ਹੋਰ ਜਾਣਨ ਲਈ ਸਪਰਸ਼ ਕਰੋ।"</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"ਅਯੋਗ ਬਣਾਇਆ ਗਿਆ <xliff:g id="LABEL">%1$s</xliff:g>"</string>
+    <string name="global_action_reboot">"ਰੀਬੂਟ ਕਰੋ"</string>
     <string name="conference_call" msgid="3751093130790472426">"ਕਾਨਫਰੰਸ ਕਾਲ"</string>
 </resources>

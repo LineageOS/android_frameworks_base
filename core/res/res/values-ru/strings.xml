@@ -1749,5 +1749,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"Сброс до заводских настроек для работы без ограничений"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"Нажмите, чтобы узнать больше."</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"Виджет <xliff:g id="LABEL">%1$s</xliff:g> отключен"</string>
+    <string name="global_action_reboot">"Перезагрузка"</string>
     <string name="conference_call" msgid="3751093130790472426">"Конференц-связь"</string>
 </resources>

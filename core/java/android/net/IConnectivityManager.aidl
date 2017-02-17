@@ -26,6 +26,7 @@ import android.net.NetworkQuotaInfo;
 import android.net.NetworkRequest;
 import android.net.NetworkState;
 import android.net.ProxyInfo;
+import android.net.wifi.WifiDevice;
 import android.os.IBinder;
 import android.os.Messenger;
 import android.os.ParcelFileDescriptor;

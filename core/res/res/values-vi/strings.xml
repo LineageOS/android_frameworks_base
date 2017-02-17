@@ -1677,5 +1677,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"Khôi phục cài đặt gốc để sử dụng thiết bị này mà không bị hạn chế"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"Chạm để tìm hiểu thêm."</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"Đã tắt <xliff:g id="LABEL">%1$s</xliff:g>"</string>
+    <string name="global_action_reboot">"Khởi động lại"</string>
     <string name="conference_call" msgid="3751093130790472426">"Cuộc gọi nhiều bên"</string>
 </resources>

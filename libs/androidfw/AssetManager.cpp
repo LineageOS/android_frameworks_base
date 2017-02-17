@@ -814,9 +814,16 @@ void AssetManager::addSystemOverlays(const char* pathOverlaysList,
             sharedRes->add(oass, oidmap, offset + 1, false);
             const_cast<AssetManager*>(this)->mAssetPaths.add(oap);
             const_cast<AssetManager*>(this)->mZipSet.addOverlay(targetPackagePath, oap);
-            delete oidmap;
-        }
-    }
+
+            oidmap->close();
+            ALOGD("close idmap=%s pid=%d\n", oap.idmap.string(), getpid());
+       }
+
+        if (oap.path.find(OVERLAY_DIR) != -1) {
+           const_cast<AssetManager*>(this)->mZipSet.closeZipFromPath(oap.path);
+           ALOGD("close: %s and reset entry\n", oap.path.string());
+      }
+  }
 
 #ifndef _WIN32
     TEMP_FAILURE_RETRY(flock(fileno(fin), LOCK_UN));
@@ -2014,6 +2021,22 @@ AssetManager::ZipSet::~ZipSet(void)
     size_t N = mZipFile.size();
     for (size_t i = 0; i < N; i++)
         closeZip(i);
+}
+
+/*
+ * Close a Zip file from path and reset the entry
+ */
+void AssetManager::ZipSet::closeZipFromPath(const String8& zip)
+{
+    //close zip fd
+    int fd = getZip(zip)->getFileDescriptor();
+
+    if (fd > 0) {
+        close(fd);
+        //reset zip object and entry
+        int idx = getIndex(zip);
+        mZipFile.editItemAt(idx) = NULL;
+    }
 }
 
 /*

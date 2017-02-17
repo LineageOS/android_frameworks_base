@@ -445,6 +445,9 @@
     <!-- IpReachability monitor enable/Disable -->
     <bool translatable="false" name="config_wifi_ipreachability_monitor">false</bool>
 
+    <!-- Integer size limit, in KB, for a single WifiLogger ringbuffer -->
+    <integer translatable="false" name="config_wifi_logger_ring_buffer_size_limit_kb">32</integer>
+
     <!-- Integer size limit, in KB, for a single WifiLogger ringbuffer, in default logging mode -->
     <integer translatable="false" name="config_wifi_logger_ring_buffer_default_size_limit_kb">32</integer>
 
@@ -2678,6 +2681,8 @@
         <item>-44</item>
     </integer-array>
 
+    <!--  Enable framework to record video call data usage -->
+    <bool name="config_video_call_datausage_enable">false</bool>
     <!-- Enables the feature that can show/hide the operator name in statusbar.
         When true, the user can select to show/hide operator name through a
         checkbox in Settings. When false, there is no option to show operator
@@ -2726,6 +2731,14 @@
          the Emergency Call while the device is non-interactive. -->
     <bool name="config_emergencyCallOnPowerkeyTapGestureEnabled">false</bool>
     <bool name="config_volte_preferred">false</bool>
+
+    <!-- Array of numeric that operator considered as domestic roaming -->
+    <string-array translatable="false" name="config_operatorConsideredDomesticRoaming">
+    </string-array>
+
+    <!-- Exceptions of above list -->
+    <string-array translatable="false" name="config_operatorConsideredDomesticRoamingExceptions">
+    </string-array>
 
     <!-- True if camera app should be pinned via Pinner Service -->
     <bool name="config_pinnerCameraApp">false</bool>
@@ -2785,8 +2798,35 @@
     <!-- An array of packages for which notifications cannot be blocked. -->
     <string-array translatable="false" name="config_nonBlockableNotificationPackages" />
 
+    <!-- Timeout in MS for how long you have to long-press the back key to
+         kill the foreground app. -->
+    <integer name="config_backKillTimeout">2000</integer>
+
+    <!-- Setting to false will disable CM's IME switcher implementation for tablets -->
+    <bool name="config_show_cmIMESwitcher">true</bool>
+
+    <!-- The list of components which should be automatically disabled. -->
+    <string-array name="config_disabledComponents" translatable="false">
+    </string-array>
+
+    <!-- The list of components which should be forced to be enabled. -->
+    <string-array name="config_forceEnabledComponents" translatable="false">
+    </string-array>
+
+    <!-- Whether to persist the notification for when a usb drive device is plugged in -->
+    <bool name="config_persistUsbDriveNotification">false</bool>
+
+    <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
+         true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
+    <bool name="config_useSystemClockforRotationSensor">false</bool>
+
     <!-- Boolean to enable stk functionality on Samsung phones -->
     <bool name="config_samsung_stk">false</bool>
+
+    <!-- Certain sensor firmwares break with having a batch
+         size set. By setting this to false, devices can opt
+         out of setting a batch size, which fixes rotation. -->
+    <bool name="config_useDefaultBatchingForAccel">true</bool>
 
     <!-- Support in Surfaceflinger for blur layers.
          NOTE: This requires additional hardware-specific code. -->

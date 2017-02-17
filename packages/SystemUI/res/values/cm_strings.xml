@@ -19,12 +19,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_data_connection_hspap">HSPA+</string>
-
-    <!-- Weather string format in expanded statusbar header -->
-    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-
     <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_notification_brightness">Light brightness</string>
 
@@ -100,12 +94,6 @@
     <string name="menu_ime_always_show">Menu / Keyboard Switcher (always show)</string>
     <string name="search">Search</string>
 
-    <!-- Wi-Fi hotspot label when enabled -->
-    <plurals name="wifi_hotspot_connected_clients_label">
-        <item quantity="one">%1$d client</item>
-        <item quantity="other">%1$d clients</item>
-    </plurals>
-
     <!-- Path data for portrait battery -->
     <string name="battery_portrait_path_full" translatable="false">M 5 2 H 19 V 21 H 5 V 2 Z</string>
     <string name="battery_portrait_path_empty" translatable="false">M 5 21 H 19 V 21 H 5 V 21 Z</string>
@@ -118,6 +106,15 @@
 
     <!-- Path data for circle battery -->
     <string name="battery_circle_path" translatable="false">M 12 3.5 C 16.6944203736 3.5 20.5 7.30557962644 20.5 12 C 20.5 16.6944203736 16.6944203736 20.5 12 20.5 C 7.30557962644 20.5 3.5 16.6944203736 3.5 12 C 3.5 7.30557962644 7.30557962644 3.5 12 3.5 Z</string>
+
+    <!-- Wi-Fi hotspot label when enabled -->
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d client</item>
+        <item quantity="other">%1$d clients</item>
+    </plurals>
+
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
 
     <!-- Volume stream titles - should match the string-array in AOSP -->
     <string-array name="volume_stream_titles_lineage">
@@ -132,6 +129,9 @@
         <item></item> <!-- STREAM_DTMF -->
         <item></item> <!-- STREAM_TTS -->
     </string-array>
+
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
 
     <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in

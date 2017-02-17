@@ -19,6 +19,7 @@ package android.hardware.camera2;
 import android.annotation.RequiresPermission;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.app.ActivityThread;
 import android.content.Context;
 import android.hardware.ICameraService;
 import android.hardware.ICameraServiceListener;
@@ -34,6 +35,8 @@ import android.os.Looper;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.ServiceSpecificException;
+import android.os.SystemProperties;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.ArrayMap;
 
@@ -689,6 +692,25 @@ public final class CameraManager {
 
             try {
                 numCameras = cameraService.getNumberOfCameras(CAMERA_TYPE_ALL);
+                /* Force to expose only two cameras
+                 * if the package name does not falls in this bucket
+                 */
+                boolean exposeAuxCamera = false;
+                String packageName = ActivityThread.currentOpPackageName();
+                String packageList = SystemProperties.get("camera.aux.packagelist");
+                if (packageList.length() > 0) {
+                    TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
+                    splitter.setString(packageList);
+                    for (String str : splitter) {
+                        if (packageName.equals(str)) {
+                            exposeAuxCamera = true;
+                            break;
+                        }
+                    }
+                }
+                if (exposeAuxCamera == false && (numCameras > 2)) {
+                    numCameras = 2;
+                }
             } catch(ServiceSpecificException e) {
                 throwAsPublicException(e);
             } catch (RemoteException e) {
@@ -1016,6 +1038,30 @@ public final class CameraManager {
         }
 
         private void onStatusChangedLocked(int status, String id) {
+            /* Force to ignore the last mono/aux camera status update
+             * if the package name does not falls in this bucket
+             */
+            boolean exposeMonoCamera = false;
+            String packageName = ActivityThread.currentOpPackageName();
+            String packageList = SystemProperties.get("camera.aux.packagelist");
+            if (packageList.length() > 0) {
+                TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
+                splitter.setString(packageList);
+                for (String str : splitter) {
+                    if (packageName.equals(str)) {
+                        exposeMonoCamera = true;
+                        break;
+                    }
+                }
+            }
+
+            if (exposeMonoCamera == false) {
+                if (Integer.parseInt(id) >= 2) {
+                    Log.w(TAG, "[soar.cts] ignore the status update of camera: " + id);
+                    return;
+                }
+            }
+
             if (DEBUG) {
                 Log.v(TAG,
                         String.format("Camera id %s has status changed to 0x%x", id, status));

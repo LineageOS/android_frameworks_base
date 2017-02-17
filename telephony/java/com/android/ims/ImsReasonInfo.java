@@ -30,6 +30,7 @@ public class ImsReasonInfo implements Parcelable {
      * Specific code of each types
      */
     public static final int CODE_UNSPECIFIED = 0;
+    public static final int CODE_NORMAL_UNSPECIFIED = 31;
 
     /**
      * LOCAL

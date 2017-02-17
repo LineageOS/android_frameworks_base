@@ -46,4 +46,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <!-- Default wi-fi direct name -->
     <string name="def_wifi_direct_name" translatable="false"></string>
 
+    <!--  operator custom sim icon feature -->
+    <bool name="operator_custom_sim_icon">false</bool>
+    <!-- Setting customize default bluetooth name -->
+    <string name="def_custom_bt_defname"></string>
 </resources>

@@ -128,4 +128,5 @@
             android:visibility="gone"
             />
     </com.android.keyguard.AlphaOptimizedLinearLayout>
+
 </com.android.systemui.statusbar.phone.PhoneStatusBarView>

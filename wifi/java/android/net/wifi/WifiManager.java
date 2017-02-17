@@ -90,6 +90,13 @@ public class WifiManager {
     public static final String EXTRA_SCAN_AVAILABLE = "scan_enabled";
 
     /**
+     *  ACTION_AUTH_PASSWORD_WRONG
+     *
+     * @ @hide
+     **/
+    public static final String  ACTION_AUTH_PASSWORD_WRONG = "Auth_password_wrong";
+
+    /**
      * Broadcast intent action indicating that the credential of a Wi-Fi network
      * has been changed. One extra provides the ssid of the network. Another
      * extra provides the event type, whether the credential is saved or forgot.
@@ -234,6 +241,14 @@ public class WifiManager {
     @SystemApi
     public static final String WIFI_AP_STATE_CHANGED_ACTION =
         "android.net.wifi.WIFI_AP_STATE_CHANGED";
+
+    /**
+     * Broadcast intent action indicating that Wi-Fi AP sub system has been restarted.
+     *
+     * @hide
+     */
+    public static final String WIFI_AP_SUB_SYSTEM_RESTART =
+        "android.net.wifi.WIFI_AP_SUB_SYSTEM_RESTART";
 
     /**
      * The lookup key for an int that indicates whether Wi-Fi AP is enabled,
@@ -2688,6 +2703,21 @@ public class WifiManager {
             return mService.getAllowScansWithTraffic();
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * get concurrency support
+     *
+     * @return true if concurrency is allowed.
+     *
+     * @hide no intent to publish
+     */
+    public boolean getWifiStaSapConcurrency() {
+        try {
+            return mService.getWifiStaSapConcurrency();
+        } catch (RemoteException e) {
+             throw e.rethrowFromSystemServer();
         }
     }
 

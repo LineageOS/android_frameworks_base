@@ -1677,5 +1677,6 @@
     <string name="audit_safemode_notification" msgid="6416076898350685856">"ನಿರ್ಬಂಧಗಳು ಇಲ್ಲದೆಯೇ ಈ ಸಾಧನವನ್ನು ಬಳಸಲು ಫ್ಯಾಕ್ಟರಿ ಮರುಹೊಂದಿಸಿ"</string>
     <string name="audit_safemode_notification_details" msgid="1860601176690176413">"ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಸ್ಪರ್ಶಿಸಿ."</string>
     <string name="suspended_widget_accessibility" msgid="6712143096475264190">"<xliff:g id="LABEL">%1$s</xliff:g> ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ"</string>
+    <string name="global_action_reboot">"ರೀಬೂಟ್ ಮಾಡು"</string>
     <string name="conference_call" msgid="3751093130790472426">"ಕಾನ್ಫರೆನ್ಸ್ ಕರೆ"</string>
 </resources>
