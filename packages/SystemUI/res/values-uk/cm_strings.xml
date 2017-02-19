@@ -25,6 +25,7 @@
   <string name="led_notification_title">Індикатор подій</string>
   <string name="led_notification_text">Світлодіод увімкнено параметрами</string>
   <!-- Notification which notifies user flashlight is enabled -->
+  <string name="quick_settings_tile_flashlight_not_title">Ліхтарик увімкнено</string>
   <string name="quick_settings_tile_flashlight_not_summary">Торкніться для вимкнення</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
   <string name="cm_power_notification_controls_description">За допомогою елементів керування сповіщеннями ви можете налаштувати пріоритет сповіщень додатка – від 0 до 6 рівня.
@@ -84,6 +85,11 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Wi-Fi hotspot label when enabled -->
+  <plurals name="wifi_hotspot_connected_clients_label">
+    <item quantity="one">%1$d клієнт</item>
+    <item quantity="few">%1$d клієнти</item>
+    <item quantity="other">%1$d клієнтів</item>
+  </plurals>
   <!-- Weather string format in expanded statusbar header -->
   <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <!-- Volume stream titles - should match the string-array in AOSP -->
