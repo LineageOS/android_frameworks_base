@@ -46,6 +46,7 @@ import android.renderscript.ScriptIntrinsicBlur;
 import android.os.Handler;
 import android.graphics.PixelFormat;
 import android.widget.RelativeLayout;
+import android.view.KeyCharacterMap;
 import android.view.ViewGroup;
 import android.provider.Settings;
 import android.widget.ImageView;
@@ -106,7 +107,6 @@ final class SingleHandWindow {
     private boolean mPointDownOuter = false;
     private ImageView mImageView;
     private TextView overlay_display_window = null;
-    private TextView singlehandmode_slide_hint = null;
     private boolean mAttachedToWindow=false;
     private boolean mIsNeedRelayout=false;
     private boolean mIsBlurTopWindow = false;
@@ -237,9 +237,6 @@ final class SingleHandWindow {
         Slog.d(TAG, "updateLocale .");
         if (null != overlay_display_window) {
             overlay_display_window.setText(mContext.getResources().getString(com.android.internal.R.string.singlehandmode_click_hint_message));
-        }
-        if (null != singlehandmode_slide_hint) {
-            singlehandmode_slide_hint.setText(mContext.getResources().getString(com.android.internal.R.string.singlehandmode_slide_hint_message));
         }
     }
 
@@ -453,34 +450,6 @@ final class SingleHandWindow {
 
         ImageView imageView = (ImageView) mWindowContent.findViewById(com.android.internal.R.id.click_hint);
 
-        show(imageView, visible);
-
-        /* put slide_hint in correct place */
-        LinearLayout viewSlideHint = (LinearLayout)mWindowContent.findViewById(com.android.internal.R.id.slide_hint_area);
-        if (null != viewSlideHint) {
-            if (visible) {
-                ViewGroup.LayoutParams layoutParams = viewSlideHint.getLayoutParams();
-                if (mLeft)
-                    ((android.widget.RelativeLayout.LayoutParams)layoutParams).addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                else
-                    ((android.widget.RelativeLayout.LayoutParams)layoutParams).addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                viewSlideHint.setLayoutParams(layoutParams);
-                viewSlideHint.setVisibility(View.VISIBLE);
-            } else {
-                viewSlideHint.setVisibility(View.INVISIBLE);
-            }
-        }
-
-        /* show/hide slide hint */
-        singlehandmode_slide_hint = (TextView)mWindowContent.findViewById(com.android.internal.R.id.singlehandmode_slide_hint_text);
-        show(singlehandmode_slide_hint, visible);
-        imageView = (ImageView) mWindowContent.findViewById(com.android.internal.R.id.slide_hint);
-        if (null != imageView) {
-            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            params.width = (int)(mDefaultDisplayInfo.logicalWidth * INITIAL_SCALE);
-            params.height = (int)(mContext.getResources().getDimensionPixelSize(com.android.internal.R.dimen.navigation_bar_height) * INITIAL_SCALE);
-            imageView.setLayoutParams(params);
-        }
         show(imageView, visible);
 
         /* update title, InputFlinger filter click_event depending on title */

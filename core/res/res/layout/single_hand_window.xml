@@ -15,73 +15,68 @@
 -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-  <RelativeLayout android:layout_width="match_parent"
-                  android:layout_height="0px"
-                  android:background="#FF000000"
-                  android:id="@+id/relative_top">
-    <FrameLayout android:id="@+id/hint_section"
-        android:layout_width="60dp"
-        android:layout_height="70dp"
-        android:clickable="true">
-       <ImageView
-              android:id="@+id/hint_info"
-              android:visibility="invisible"
-              android:layout_width="32dp"
-              android:layout_height="32dp"
-              android:layout_marginTop="16dip"
-              android:layout_marginStart="10dip"
-              android:focusable="true"
-              android:clickable="true"
-              android:background="@android:drawable/singlehandmode_hintinfo" />
-    </FrameLayout>
-    <TextView android:id="@+id/single_hand_window_title"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="32dip"
-              android:layout_marginStart="18dip"
-              android:layout_marginEnd="18dip"
-              android:textSize="14dp"
-              android:textColor="#d9ffffff"
-              android:text="@android:string/singlehandmode_click_hint_message"
-              android:visibility="invisible"
-              android:gravity="center" />
-    <ImageView
-              android:id="@+id/click_hint"
-              android:layout_below="@id/single_hand_window_title"
-              android:visibility="invisible"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="2dip"
-              android:layout_centerHorizontal="true"
-              android:src="@android:drawable/singlehandmode_click_hint" />
-  </RelativeLayout>
-  <RelativeLayout android:layout_width="0px"
-                  android:layout_height="0px"
-                  android:background="#FF000000"
-                  android:id="@+id/relative_bottom" />
-  <LinearLayout android:id="@+id/slide_hint_area"
-                android:visibility="invisible"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:orientation="vertical">
-    <TextView android:id="@+id/singlehandmode_slide_hint_text"
-              android:layout_width="240dip"
-              android:layout_height="wrap_content"
-              android:visibility="invisible"
-              android:textSize="14dp"
-              android:textColor="#d9ffffff"
-              android:text="@android:string/singlehandmode_slide_hint_message"
-              android:layout_gravity="center_horizontal"
-              android:gravity="center" />
-    <ImageView
-              android:id="@+id/slide_hint"
-              android:visibility="invisible"
-              android:layout_width="0px"
-              android:layout_height="0px"
-              android:layout_marginTop="12dip"
-              android:background="@android:drawable/singlehandmode_slide_hint" />
- </LinearLayout>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relative_top"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:background="@android:color/black">
+
+        <FrameLayout
+            android:id="@+id/hint_section"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:clickable="true">
+
+            <ImageView
+                android:id="@+id/hint_info"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@android:drawable/singlehandmode_hintinfo"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="invisible" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/single_hand_window_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@android:string/singlehandmode_click_hint_message"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/click_hint"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_below="@id/single_hand_window_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:src="@android:drawable/singlehandmode_click_hint"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_bottom"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/slide_hint_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:visibility="invisible"/>
 </RelativeLayout>

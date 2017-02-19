@@ -97,10 +97,7 @@
     <java-symbol type="id" name="click_hint" />
     <java-symbol type="id" name="hint_section" />
     <java-symbol type="id" name="relative_bottom" />
-    <java-symbol type="id" name="singlehandmode_slide_hint_text" />
-    <java-symbol type="id" name="slide_hint" />
     <java-symbol type="id" name="slide_hint_area" />
     <java-symbol type="layout" name="single_hand_window" />
     <java-symbol type="string" name="singlehandmode_click_hint_message" />
-    <java-symbol type="string" name="singlehandmode_slide_hint_message" />
 </resources>
