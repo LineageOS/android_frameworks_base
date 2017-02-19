@@ -88,5 +88,4 @@
     
     <!-- Single hand mode -->
     <java-symbol type="string" name="singlehandmode_click_hint_message" />
-    <java-symbol type="string" name="singlehandmode_slide_hint_message" />
 </resources>
