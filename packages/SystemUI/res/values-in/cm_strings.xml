@@ -29,7 +29,7 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Geser ke kanan untuk %1$s</string>
   <string name="right_shortcut_hint">Geser ke kiri untuk %1$s</string>
-  <string name="lockscreen_message">Ketuk ikon di sebelah kiri atau kanan untuk menugaskan kembali pintasan layar kunci.</string>
+  <string name="lockscreen_message">Ketuk ikon di sebelah kiri atau kanan untuk mengatur pintasan kunci layar.</string>
   <string name="lockscreen_default_target">Standar</string>
   <string name="select_application">Pilih aplikasi</string>
   <string name="lockscreen_choose_action_title">Pilih tindakan</string>
@@ -101,7 +101,7 @@
   <string name="accessibility_quick_settings_sync_changed_on">Sinkronisasi dihidupkan.</string>
   <string name="quick_settings_sync_label">Sinkronisasi</string>
   <string name="quick_settings_volume_panel_label">Panel volume</string>
-  <string name="quick_settings_usb_tether_label">Tethering USB</string>
+  <string name="quick_settings_usb_tether_label">Penambatan USB</string>
   <string name="quick_settings_screen_timeout_detail_title">Waktu layar mati</string>
   <string name="quick_settings_lockscreen_label">Kunci layar</string>
   <string name="quick_settings_ambient_display_label">Tampilan ambien</string>
@@ -111,13 +111,13 @@
   <string name="accessibility_quick_settings_screen_timeout">Batas waktu layar: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
   <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_screen_timeout_changed">Batas waktu layar diubah menjadi <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
-  <string name="qs_tile_performance">Mode Baterai</string>
+  <string name="qs_tile_performance">Mode baterai</string>
   <!-- Content description of the battery mode tile in quick settings when on, power save mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_perf_profile_pwrsv">Mode baterai: hemat daya.</string>
   <!-- Content description of the battery mode tile in quick settings when on, balanced mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bal">Mode Baterai: seimbang.</string>
+  <string name="accessibility_quick_settings_perf_profile_bal">Mode baterai: seimbang.</string>
   <!-- Content description of the battery mode tile in quick settings when on, performance mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_perf">Mode Baterai: Performa.</string>
+  <string name="accessibility_quick_settings_perf_profile_perf">Mode baterai: Performa.</string>
   <!-- Content description of the battery mode tile in quick settings when on, efficiency mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_perf_profile_bias_power">Mode baterai: efisien.</string>
   <!-- Content description of the battery mode tile in quick settings when on, quick mode (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -132,7 +132,7 @@
   <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Mode baterai diubah menjadi mode efisien.</string>
   <!-- Announcement made when the battery mode tile changes to quick (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Mode baterai diubah menjadi mode cepat.</string>
-  <string name="quick_settings_performance_profile_detail_title">Mode Baterai</string>
+  <string name="quick_settings_performance_profile_detail_title">Mode baterai</string>
   <!-- Content description of the lock screen tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_lock_screen_off">Kunci layar mati.</string>
   <!-- Content description of the lock screen tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -174,6 +174,7 @@
   <string name="dynamic_qs_tile_next_alarm_label">Alarm selanjutnya</string>
   <string name="dynamic_qs_tile_ime_selector_label">Pemilih IME</string>
   <string name="dynamic_qs_tile_su_label">Akses root</string>
+  <string name="dynamic_qs_tile_themes_label">Tema</string>
   <string name="quick_settings_title_advanced_location">Lokasi Tri-state</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Laporan Lokasi: mode hemat baterai.</string>

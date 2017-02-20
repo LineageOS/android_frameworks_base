@@ -188,4 +188,6 @@
          whether they want to allow the application to do this. -->
   <string name="permdesc_resetBatteryStats">Дозволити програмі скидати дані про використання акумулятора.</string>
   <!-- Uicc hotswapped event configuration needed notification -->
+  <string name="uicc_hot_swapped_event_title">SIM-карти було змінено</string>
+  <string name="uicc_hot_swapped_event_text">Натисніть, аби встановити типові параметри для SIM-карти</string>
 </resources>

@@ -67,7 +67,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Ajustes de luz de notificación</string>
   <string name="led_notification_text">Luz LED activada por ajustes</string>
-  <string name="qs_tile_edit_header_instruction">Tocar y dejar presionados los mosaicos para reorganizarlos</string>
+  <string name="qs_tile_edit_header_instruction">Pulsa y mantén presionados los mosaicos para reorganizarlos</string>
   <string name="quick_settings_edit_label">Editar mosaicos</string>
   <string name="quick_settings_cannot_delete_edit_tile">No se puede eliminar el mosaico Editar</string>
   <string name="qs_tiles_reset_confirmation">¿Restaurar lo mosaicos de ajustes rápidos a su configuración predeterminada?</string>
@@ -106,7 +106,7 @@
   <string name="quick_settings_lockscreen_label">Pantalla bloqueada</string>
   <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
   <string name="quick_settings_lockscreen_label_enforced">Pantalla bloqueada forzada</string>
-  <string name="quick_settings_lockscreen_label_locked_by_profile">Deshabilitado por perfil</string>
+  <string name="quick_settings_lockscreen_label_locked_by_profile">Desactivado por perfil</string>
   <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_screen_timeout">Tiempo de espera de pantalla: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
   <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -158,9 +158,9 @@
   <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emergentes activadas.</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">Deshabilitar cafeína.</string>
+  <string name="accessibility_quick_settings_caffeine_off">Desactivar Cafeína.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">Habilitar cafeína.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Activar Cafeína.</string>
   <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_battery_saver_off">Apagar modo de ahorro de batería.</string>
   <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->

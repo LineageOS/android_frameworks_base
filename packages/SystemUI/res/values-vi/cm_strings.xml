@@ -174,6 +174,7 @@
   <string name="dynamic_qs_tile_next_alarm_label">Báo thức tiếp theo</string>
   <string name="dynamic_qs_tile_ime_selector_label">Trình chọn IME</string>
   <string name="dynamic_qs_tile_su_label">Truy cập root</string>
+  <string name="dynamic_qs_tile_themes_label">Chủ đề</string>
   <string name="quick_settings_title_advanced_location">Ba trạng thái cho cài đặt vị trí</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Báo cáo vị trí: chế độ tiết kiệm pin.</string>
@@ -217,4 +218,8 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+  <string name="expand_hint">Vuốt xuống để mở rộng</string>
+  <string name="swipe_left_hint">Vuốt sang trái để <xliff:g id="app_name">%1$s</xliff:g></string>
+  <string name="swipe_right_hint">Vuốt sang trái để đến các thông báo</string>
 </resources>

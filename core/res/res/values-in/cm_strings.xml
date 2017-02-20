@@ -62,8 +62,8 @@
   <string name="reboot_title">Mulai ulang</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
          be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm" product="tablet">Tablet anda akan dimulai ulang.</string>
-  <string name="reboot_confirm" product="default">Ponsel anda akan mulai ulang.</string>
+  <string name="reboot_confirm" product="tablet">Tablet Anda akan dimulai ulang.</string>
+  <string name="reboot_confirm" product="default">Ponsel Anda akan dimulai ulang.</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
   <string name="reboot_progress">Memulai ulang\u2026</string>
   <!-- Long-press back kill application -->
@@ -82,7 +82,7 @@
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_interceptPackageLaunch">Mencegah memulai aplikasi</string>
   <!-- stylus gestures support -->
-  <string name="stylus_app_not_installed">%s tidak terinstal</string>
+  <string name="stylus_app_not_installed">%s tidak terpasang</string>
   <!-- Zen mode buttons -->
   <string name="silent_mode_priority">Prioritas</string>
   <string name="silent_mode_none">Tidak ada</string>
@@ -183,10 +183,10 @@
   <string name="notify_battery_fully_charged_text">Lepaskan perangkat dari pengisi daya agar meningkatkan umur baterai.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose
          whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">set ulang statistik baterai</string>
+  <string name="permlab_resetBatteryStats">atur ulang statistik baterai</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose
          whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Mengizinkan aplikasi untuk set ulang data penggunaan baterai rendah yang sekarang.</string>
+  <string name="permdesc_resetBatteryStats">Mengizinkan aplikasi untuk mengatur ulang data penggunaan baterai rendah yang sekarang.</string>
   <!-- Uicc hotswapped event configuration needed notification -->
   <string name="uicc_hot_swapped_event_title">Kartu SIM telah diganti</string>
   <string name="uicc_hot_swapped_event_text">Ketuk untuk mengatur preferensi standar kartu SIM</string>

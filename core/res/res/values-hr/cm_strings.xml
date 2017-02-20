@@ -18,35 +18,35 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- label for item that screenshots in phone options dialog -->
-  <string name="global_action_screenshot">Snimak zaslona</string>
+  <string name="global_action_screenshot">Snimka zaslona</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_receiveProtectedSms">primaj zaštićeni SMS</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_receiveProtectedSms">Dopušta aplikaciji da prima dolazeći zaštićeni SMS.</string>
+  <string name="permdesc_receiveProtectedSms">Dopušta aplikaciji da prima dolazni zaštićeni SMS.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_modifyProtectedSmsList">Izmjena popisa zaštićenih SMS poruka</string>
+  <string name="permlab_modifyProtectedSmsList">mijenjati popis zaštićenih SMS poruka</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_modifyProtectedSmsList">Dozvoljava aplikaciji izmjenu popisa adresa zaštićenih SMS poruka.</string>
+  <string name="permdesc_modifyProtectedSmsList">Dopušta aplikaciji izmjenu popisa adresa zaštićenih SMS poruka.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_security">Sigurnost</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Dopuštenja vezana za sigurnosne informacije uređaja.</string>
+  <string name="permgroupdesc_security">Dopuštenja vezana uz sigurnosne informacije uređaja.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">čitati listu blokiranih poziva</string>
+  <string name="permlab_readPhoneBlacklist">čitati popis blokiranih poziva</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_readPhoneBlacklist">Dopušta aplikaciji čitanje informacija o telefonskim brojevima čije su dolazne poruke ili pozivi blokirani.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">promjeniti popis blokiranih poziva</string>
+  <string name="permlab_changePhoneBlacklist">mijenajti popis blokiranih poziva</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_changePhoneBlacklist">Dopušta aplikaciji promjenu telefonskih brojeva čije su dolazne poruke ili pozivi blokirani.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">postaviti pozadinu zaslona zaključavanja</string>
+  <string name="permlab_setKeyguardWallpaper">postaviti pozadine zaslona zaključavanja</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Dozvoljava aplikaciji promjenu pozadine zaslona zaključavanja.</string>
+  <string name="permdesc_setKeyguardWallpaper">Dopušta aplikaciji promjenu pozadine zaslona zaključavanja.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
   <string name="global_action_reboot">Ponovno pokreni</string>
   <!-- label for current user in phone options dialog -->
-  <string name="global_action_current_user">Trenutna</string>
+  <string name="global_action_current_user">Trenutni</string>
   <!-- Reboot menu -->
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">Ponovno pokreni</string>
@@ -62,132 +62,132 @@
   <string name="reboot_title">Ponovno pokretanje</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
          be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm" product="tablet">Tablet će ponovno biti pokrenut.</string>
-  <string name="reboot_confirm" product="default">Telefon će ponovno biti pokrenut.</string>
+  <string name="reboot_confirm" product="tablet">Tablet će se ponovno pokrenuti.</string>
+  <string name="reboot_confirm" product="default">Telefon će se ponovno pokrenuti.</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
   <string name="reboot_progress">Ponovno pokretanje\u2026</string>
   <!-- Long-press back kill application -->
   <string name="app_killed_message">Aplikacija prisilno zaustavljena</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">Mrežni ADB omogućen</string>
+  <string name="adb_net_active_notification_title">ADB preko mreže je omogućen</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB preko USB &amp; mreže omogućen</string>
+  <string name="adb_both_active_notification_title">ADB preko USB-a i mreže je omogućen</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Dodirnite za onemogućavanje ispravljanja pogrešaka.</string>
+  <string name="adb_active_generic_notification_message">Dodirnite da onemogućite ispravljanje grešaka.</string>
   <!-- ADB custom tile -->
   <string name="adb_active_custom_tile">ADB - <xliff:g id="adb_type" example="USB">%1$s </xliff:g></string>
-  <string name="adb_active_custom_tile_both">USB i mrežni</string>
+  <string name="adb_active_custom_tile_both">USB i mreža</string>
   <string name="adb_active_custom_tile_usb">USB</string>
   <string name="adb_active_custom_tile_net">Mreža</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_interceptPackageLaunch">Presresti pokretanje aplikacija</string>
+  <string name="permlab_interceptPackageLaunch">prekidati pokretanja aplikacija</string>
   <!-- stylus gestures support -->
-  <string name="stylus_app_not_installed">%s nije instalirano</string>
+  <string name="stylus_app_not_installed">Aplikacija %s nije instalirana</string>
   <!-- Zen mode buttons -->
   <string name="silent_mode_priority">Prioritet</string>
   <string name="silent_mode_none">Ništa</string>
   <!-- Wifi Hotspot disabled due to subscription change -->
-  <string name="subscription_change_disabled_wifi_ap">Wi- Fi Hotspot onemogućen zbog SIM promjene</string>
+  <string name="subscription_change_disabled_wifi_ap">Wi-Fi hotspot onemogućen je zbog promjene SIM-a</string>
   <!-- WiFi turn off notification action text -->
   <string name="notify_turn_wifi_off_title">Isključite Wi-Fi</string>
   <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">omogućiti ili onemogućiti Zaštitu privatnosti</string>
-  <string name="permdesc_changePrivacyGuardState">Dopušta aplikaciji odrediti hoće li druga aplikacija biti pokrenuta pod Nadzorom Privatnosti. Kada ja aplikacija pod Nadzorom Privatnosti, neće imati pristup osobnim podacima kao što su kontakti, zapisi poziva ili poruke.</string>
-  <string name="privacy_guard_notification">Nadzor privatnosti aktivan</string>
+  <string name="permlab_changePrivacyGuardState">omogućavanje ili onemogućavanje Nadzora privatnosti</string>
+  <string name="permdesc_changePrivacyGuardState">Dopušta aplikaciji odrediti hoće li druga aplikacija biti pokrenuta pod Nadzorom privatnosti. Kada ja aplikacija pod Nadzorom privatnosti, neće imati pristup osobnim podacima kao što su kontakti, zapisi poziva ili poruke.</string>
+  <string name="privacy_guard_notification">Nadzor privatnosti je aktivan</string>
   <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> neće moći pristupiti osobnim podacima</string>
   <string name="privacy_guard_dialog_title">Nadzor privatnosti</string>
   <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> želi <xliff:g id="op">%2$s</xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <string name="permission_remember_choice">Zapamti moj odabir</string>
   <!-- App ops requests -->
-  <string name="app_ops_access_camera">pristupiti kameri</string>
+  <string name="app_ops_access_camera">pristupiti fotoaparatu</string>
   <string name="app_ops_access_location">pristupiti vašoj lokaciji</string>
   <string name="app_ops_access_notifications">čitati vaše obavijesti</string>
-  <string name="app_ops_activate_vpn">Aktiviraj VPN</string>
-  <string name="app_ops_auto_start">Pokrenuti pri podizanju sustava</string>
-  <string name="app_ops_delete_call_log">Obriši popis poziva</string>
-  <string name="app_ops_delete_contacts">Obriši kontakte</string>
-  <string name="app_ops_delete_mms">Obriši MMS poruke</string>
-  <string name="app_ops_delete_sms">Obriši SMS poruke</string>
-  <string name="app_ops_draw_on_top">Iscrtaj prozore na vrhu</string>
-  <string name="app_ops_get_usage_stats">Statistika korištenja aplikacija</string>
+  <string name="app_ops_activate_vpn">aktivirati VPN</string>
+  <string name="app_ops_auto_start">pokretati se pri uključivanju uređaja</string>
+  <string name="app_ops_delete_call_log">brisati zapise poziva</string>
+  <string name="app_ops_delete_contacts">brisati vaše kontakte</string>
+  <string name="app_ops_delete_mms">brisati MMS poruke</string>
+  <string name="app_ops_delete_sms">brisati SMS poruke</string>
+  <string name="app_ops_draw_on_top">iscrtavati prozore na vrhu</string>
+  <string name="app_ops_get_usage_stats">skupljati statistiku o uporabi aplikacije</string>
   <string name="app_ops_keep_device_awake">održavati uređaj budnim</string>
   <string name="app_ops_make_phone_call">uspostaviti poziv</string>
   <string name="app_ops_modify_calendar">ažurirati kalendar</string>
   <string name="app_ops_modify_call_log">ažurirati zapisnik poziva</string>
-  <string name="app_ops_modify_clipboard">urediti clipboard</string>
+  <string name="app_ops_modify_clipboard">izmijeniti međuspremnik</string>
   <string name="app_ops_modify_contacts">ažurirati kontakte</string>
-  <string name="app_ops_modify_settings">ažurirati postavke sistema</string>
-  <string name="app_ops_mute_unmute_microphone">Isključiti/uključiti mikrofon</string>
-  <string name="app_ops_play_audio">producirati zvuk</string>
-  <string name="app_ops_post_notification">obavijestiti</string>
-  <string name="app_ops_project_media">Pokrenuti multimediju</string>
+  <string name="app_ops_modify_settings">ažurirati postavke sustava</string>
+  <string name="app_ops_mute_unmute_microphone">isključiti/uključiti mikrofon</string>
+  <string name="app_ops_play_audio">reproducirati zvuk</string>
+  <string name="app_ops_post_notification">poslati obavijest</string>
+  <string name="app_ops_project_media">projektirati medij</string>
   <string name="app_ops_read_calendar">čitati vaš kalendar</string>
   <string name="app_ops_read_call_log">čitati zapisnik poziva</string>
-  <string name="app_ops_read_clipboard">čitati Clipboard</string>
+  <string name="app_ops_read_clipboard">čitati međuspremnik</string>
   <string name="app_ops_read_contacts">čitati vaše kontakte</string>
   <string name="app_ops_read_mms">čitati vaše MMS poruke</string>
   <string name="app_ops_read_sms">čitati vaše SMS poruke</string>
   <string name="app_ops_receive_sms">primiti SMS poruku</string>
-  <string name="app_ops_record_audio">snimiti zvuk</string>
+  <string name="app_ops_record_audio">snimati zvuk</string>
   <string name="app_ops_send_mms">poslati MMS poruku</string>
   <string name="app_ops_send_sms">poslati SMS poruku</string>
-  <string name="app_ops_start_at_bootup">se pokrenuti pri pokretanju sistema</string>
-  <string name="app_ops_toast_window">Prikazivati toast poruke</string>
-  <string name="app_ops_toggle_bluetooth">upravljati Bluetooth-om</string>
-  <string name="app_ops_toggle_mobile_data">uključi/isključi mobilne podatke</string>
-  <string name="app_ops_toggle_nfc">Uključi/isključi NFC</string>
-  <string name="app_ops_toggle_wifi">upravljati Wi-Fi-em</string>
+  <string name="app_ops_start_at_bootup">pokretati se pri uključivanju uređaja</string>
+  <string name="app_ops_toast_window">prikazivati tost poruke</string>
+  <string name="app_ops_toggle_bluetooth">upravljati Bluetoothom</string>
+  <string name="app_ops_toggle_mobile_data">uključivati/isključivati mobilne podatke</string>
+  <string name="app_ops_toggle_nfc">uključivati/isključivati NFC</string>
+  <string name="app_ops_toggle_wifi">uključivati/isključivati Wi-Fi</string>
   <string name="app_ops_use_alarm_volume">kontrolirati glasnoću alarma</string>
   <string name="app_ops_use_audio_focus">kontrolirati fokus zvuka</string>
-  <string name="app_ops_use_bluetooth_volume">kontrolirati glasnoću Bluetooth-a</string>
+  <string name="app_ops_use_bluetooth_volume">kontrolirati glasnoću Bluetootha</string>
   <string name="app_ops_use_master_volume">kontrolirati glavnu glasnoću zvuka</string>
   <string name="app_ops_use_media_buttons">koristiti tipke medija</string>
   <string name="app_ops_use_media_volume">kontrolirati glasnoću medija</string>
   <string name="app_ops_use_notification_volume">kontrolirati glasnoću zvuka obavijesti</string>
-  <string name="app_ops_use_ring_volume">kontrolirati glasnoću melodije zvona</string>
-  <string name="app_ops_use_vibrate">koristiti vibraciju</string>
+  <string name="app_ops_use_ring_volume">kontrolirati glasnoću zvona zvona</string>
+  <string name="app_ops_use_vibrate">upotrebljavati vibraciju</string>
   <string name="app_ops_use_voice_volume">kontrolirati glasnoću glasovnog poziva</string>
   <string name="app_ops_write_mms">napisati MMS poruku</string>
   <string name="app_ops_write_sms">napisati SMS poruku</string>
-  <string name="app_ops_use_fingerprint">koristite otisak prsta</string>
-  <string name="app_ops_add_voicemail">dodajte glasovnu poruku</string>
-  <string name="app_ops_read_phone_state">pristup stanju telefona</string>
-  <string name="app_ops_scan_wifi">skeniraj Wi-Fi mreže</string>
-  <string name="app_ops_change_wallpaper">promjeni pozadinsku sliku</string>
-  <string name="app_ops_assist_structure">koristi pomoćne strukture</string>
-  <string name="app_ops_assist_screenshot">snimak zaslona</string>
-  <string name="app_ops_use_body_sensors">koristi senzore</string>
-  <string name="app_ops_read_cell_broadcasts">pročitati signal odašiljača</string>
-  <string name="app_ops_mock_location">prikazivanje lažne lokacije</string>
-  <string name="app_ops_read_external_storage">čitaj vanjsku pohranu</string>
-  <string name="app_ops_write_external_storage">piši na vanjsku pohranu</string>
-  <string name="app_ops_turn_on_screen">uključite zaslon</string>
-  <string name="app_ops_get_accounts">dobavi račune uređaja</string>
-  <string name="app_ops_wifi_change">promjeni Wi-Fi stanje</string>
-  <string name="app_ops_su">Zatraži root pristup</string>
+  <string name="app_ops_use_fingerprint">upotrebljavati otisak prsta</string>
+  <string name="app_ops_add_voicemail">dodati glasovnu poruku</string>
+  <string name="app_ops_read_phone_state">pristupati stanju telefona</string>
+  <string name="app_ops_scan_wifi">skenirati Wi-Fi mreže</string>
+  <string name="app_ops_change_wallpaper">mijenjati pozadinsku sliku</string>
+  <string name="app_ops_assist_structure">upotrebljavati pomoćne strukture</string>
+  <string name="app_ops_assist_screenshot">snimiti zaslon</string>
+  <string name="app_ops_use_body_sensors">upotrebljavati senzore</string>
+  <string name="app_ops_read_cell_broadcasts">čitati signal odašiljača</string>
+  <string name="app_ops_mock_location">lažirati vašu lokaciju</string>
+  <string name="app_ops_read_external_storage">čitati vanjsku pohranu</string>
+  <string name="app_ops_write_external_storage">pisati po vanjskoj pohrani</string>
+  <string name="app_ops_turn_on_screen">uključiti zaslon</string>
+  <string name="app_ops_get_accounts">dobiti račune uređaja</string>
+  <string name="app_ops_wifi_change">mijenjati Wi-Fi stanje</string>
+  <string name="app_ops_su">dobiti root pristup</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Za otkvačiti ovaj zaslon dodirnite i držite tipku za natrag</string>
+  <string name="lock_to_app_toast_no_navbar">Da biste otkvačili ovaj zaslon dodirnite i držite tipku za natrag.</string>
   <!-- Template for showing cellular network operator name while LTE calling is enabled -->
   <string name="tethered_notification_no_device_message">Nema spojenih uređaja</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> povezani uređaj</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> povezanih uređaja</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> povezanih(a) uređaja</string>
   <!-- Keyguard strings -->
   <!-- Sequence of characters used to separate carrier message strings in keyguard. Typically just vertical line
          with spaces on either side. [CHAR LIMIT=3] -->
   <!-- Protected Apps Notification -->
   <string name="notify_package_component_protected_title">Blokirana aktivnost pokretanja</string>
-  <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> je zaštićena od pokretanja. Dodirnite za potvrdu i pokrenite aplikaciju.</string>
+  <string name="notify_package_component_protected_text">Aplikacija <xliff:g id="app_name">%1$s</xliff:g> je zaštićena od pokretanja. Dodirnite za potvrdu i pokrenite aplikaciju.</string>
   <!-- Battery fully charged notification -->
-  <string name="notify_battery_fully_charged_title">Baterija puna</string>
-  <string name="notify_battery_fully_charged_text">Odspojite punjač s uređaja da bi poboljšali trajnost baterije.</string>
+  <string name="notify_battery_fully_charged_title">Baterija je potpuno napunjena</string>
+  <string name="notify_battery_fully_charged_text">Odspojite punjač da biste poboljšali životni vijek baterije.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose
          whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">Resetirati statistike baterije</string>
+  <string name="permlab_resetBatteryStats">poništiti statistike baterije</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose
          whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Dopušta aplikaciji resetiranje trenutnog korištenja podataka uz štednju energije.</string>
+  <string name="permdesc_resetBatteryStats">Dopušta aplikaciji poništavanje trenutnog korištenja podacima uz štednju energije.</string>
   <!-- Uicc hotswapped event configuration needed notification -->
   <string name="uicc_hot_swapped_event_title">SIM kartice su se promijenile</string>
-  <string name="uicc_hot_swapped_event_text">Dodirnite za postavljanje SIM kartice zadane postavke</string>
+  <string name="uicc_hot_swapped_event_text">Dodirnite za postavljanje zadanih postavki SIM kartice</string>
 </resources>

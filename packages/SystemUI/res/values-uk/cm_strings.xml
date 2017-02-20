@@ -75,6 +75,7 @@
   <string name="quick_settings_title_header">Заголовок</string>
   <string name="quick_settings_title_tiles">Плитки</string>
   <string name="quick_settings_title_show_weather">Показати погоду</string>
+  <string name="quick_settings_title_show_brightness_slider">Показати повзунок яскравості</string>
   <string name="quick_settings_title_enlarge_first_row">Збільшити перший рядок</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Триматиме це перед Вами, доки не відкріпите. Торкніться й утримуйте кнопку «Назад», щоб відкріпити.</string>
@@ -88,6 +89,8 @@
   <string name="quick_settings_heads_up_label">Спливаючі сповіщення</string>
   <string name="quick_settings_battery_saver_label">Енергозбереження</string>
   <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
+  <string name="quick_settings_battery_saver_label_charging">Енергозберігання (триває зарядка)</string>
+  <string name="quick_settings_caffeine_label">Кофеїн</string>
   <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_sync_off">Синхронізацію вимкнено.</string>
   <!-- Content description of the sync tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -103,6 +106,7 @@
   <string name="quick_settings_lockscreen_label">Заблокувати екран</string>
   <string name="quick_settings_ambient_display_label">Ambient display</string>
   <string name="quick_settings_lockscreen_label_enforced">Блокування екрану ввімкнено</string>
+  <string name="quick_settings_lockscreen_label_locked_by_profile">Вимкнено профілем</string>
   <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_screen_timeout">Вимкнення екрана через: <xliff:g id="timeout" example="30 seconds">%s</xliff:g> секунд.</string>
   <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -154,7 +158,9 @@
   <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_heads_up_changed_on">Спливаючі сповіщення увімкнено.</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_caffeine_off">Кофеїн вимкнено.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_caffeine_on">Кофеїн увімкнено.</string>
   <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_battery_saver_off">Енергозбереження вимкнено.</string>
   <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -168,6 +174,7 @@
   <string name="dynamic_qs_tile_next_alarm_label">Наступний сигнал</string>
   <string name="dynamic_qs_tile_ime_selector_label">Вибір способу вводу</string>
   <string name="dynamic_qs_tile_su_label">Root доступ</string>
+  <string name="dynamic_qs_tile_themes_label">Теми</string>
   <string name="quick_settings_title_advanced_location">Параметри відправки геоданих</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Надсилання місця розташування: економія батареї.</string>
@@ -193,9 +200,18 @@
   <!-- detail header when adding a tile -->
   <string name="quick_settings_tiles_add_tiles">Додати плитку</string>
   <!-- Hotspot dialog message -->
+  <string name="hotspot_apm_message">Неможливо під\'єднатися до мобільної мережі, доки увімкнуто режим польоту. Вимкніть цей режим та спробуйте ще раз.</string>
   <!-- Notification which notifies user flashlight is enabled -->
+  <string name="quick_settings_tile_flashlight_not_title">Ліхтарик увімкнено</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Торкніться для вимкнення</string>
   <!-- Wi-Fi hotspot label when enabled -->
+  <plurals name="wifi_hotspot_connected_clients_label">
+    <item quantity="one">%1$d клієнт</item>
+    <item quantity="few">%1$d клієнти</item>
+    <item quantity="other">%1$d клієнтів</item>
+  </plurals>
   <!-- CellularTile data sim not configured state string -->
+  <string name="data_sim_not_configured">Відсутня SIM для мобільних даних</string>
   <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_dock_battery_level">Заряд батареї док-станції <xliff:g id="number">%d</xliff:g> процентів.</string>
   <!-- Play queue -->
@@ -204,4 +220,8 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+  <string name="expand_hint">Потягніть вниз, щоб розгорнути</string>
+  <string name="swipe_left_hint">Потягніть ліворуч, щоб перейти до <xliff:g id="app_name">%1$s</xliff:g></string>
+  <string name="swipe_right_hint">Потягніть праворуч, щоб перейти до сповіщень</string>
 </resources>

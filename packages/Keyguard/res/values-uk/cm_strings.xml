@@ -27,4 +27,5 @@
     <item quantity="other">Введіть PIN-код. У вас залишилася <xliff:g id="number">%d</xliff:g> спроб перед тим, як вам доведеться звернутися до оператора для розблокування.</item>
   </plurals>
   <!-- Shown in the KeyguardSimPinView when entry length is too short. -->
+  <string name="kg_invalid_sim_length">Помилка: введено меньше мінімальної довжини</string>
 </resources>
