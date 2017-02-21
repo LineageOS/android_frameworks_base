@@ -298,6 +298,20 @@ public class MediaFile {
         addFileType("DSF", FILE_TYPE_DSD, "audio/x-dsf");
         addFileType("DFF", FILE_TYPE_DSD, "audio/x-dff");
         addFileType("DSD", FILE_TYPE_DSD, "audio/dsd");
+
+        addFileType("CONF", FILE_TYPE_TEXT, "text/plain");
+        addFileType("DEF", FILE_TYPE_TEXT, "text/plain");
+        addFileType("DIFF", FILE_TYPE_TEXT, "text/plain");
+        addFileType("IN", FILE_TYPE_TEXT, "text/plain");
+        addFileType("LIST", FILE_TYPE_TEXT, "text/plain");
+        addFileType("LOG", FILE_TYPE_TEXT, "text/plain");
+        addFileType("PL", FILE_TYPE_TEXT, "text/plain");
+        addFileType("PROP", FILE_TYPE_TEXT, "text/plain");
+        addFileType("PROPERTIES", FILE_TYPE_TEXT, "text/plain");
+        addFileType("RC", FILE_TYPE_TEXT, "text/plain");
+        addFileType("TEXT", FILE_TYPE_TEXT, "text/plain");
+        addFileType("XML", FILE_TYPE_TEXT, "text/plain");
+        addFileType("KSH", FILE_TYPE_TEXT, "text/plain");
     }
 
     public static boolean isAudioFileType(int fileType) {
