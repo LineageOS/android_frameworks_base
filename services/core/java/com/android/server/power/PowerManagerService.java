@@ -3260,10 +3260,6 @@ public final class PowerManagerService extends SystemService
                 case MSG_CHECK_FOR_LONG_WAKELOCKS:
                     checkForLongWakeLocks();
                     break;
-                case MSG_WAKE_UP:
-                    cleanupProximity();
-                    ((Runnable) msg.obj).run();
-                    break;
             }
         }
     }

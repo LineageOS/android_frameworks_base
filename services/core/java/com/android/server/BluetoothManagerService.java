@@ -151,10 +151,6 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
     private final int mSystemUiUid;
     private boolean mIntentPending = false;
 
-    // Save a ProfileServiceConnections object for each of the bound
-    // bluetooth profile services
-    private final Map <Integer, ProfileServiceConnections> mProfileServices =
-            new HashMap <Integer, ProfileServiceConnections>();
 
     // Save a ProfileServiceConnections object for each of the bound
     // bluetooth profile services
