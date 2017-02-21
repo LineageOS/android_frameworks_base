@@ -1801,7 +1801,9 @@ public class Instrumentation {
 
     /** @hide */
     public static void checkStartActivityResult(int res, Object intent) {
-        if (res >= ActivityManager.START_SUCCESS) {
+        // Allow START_PROTECTED_APP for protected apps
+        if (res >= ActivityManager.START_SUCCESS ||
+                res == ActivityManager.START_PROTECTED_APP) {
             return;
         }
 
