@@ -37,7 +37,7 @@ public class HumanInteractionClassifier extends Classifier {
     private static final float FINGER_DISTANCE = 0.1f;
 
     /** Default value for the HIC_ENABLE setting: 1 - enabled, 0 - disabled */
-    private static final int HIC_ENABLE_DEFAULT = 1;
+    private static final int HIC_ENABLE_DEFAULT = 0;
 
     private static HumanInteractionClassifier sInstance = null;
 
