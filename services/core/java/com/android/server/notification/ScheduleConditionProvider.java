@@ -161,26 +161,24 @@ public class ScheduleConditionProvider extends SystemConditionProviderService {
             mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
         }
         final long now = System.currentTimeMillis();
-        mNextAlarmTime = 0;
-        long nextUserAlarmTime = getNextAlarm();
-        for (Uri conditionId : mSubscriptions.keySet()) {
-            final ScheduleCalendar cal = mSubscriptions.get(conditionId);
-            if (cal != null && cal.isInSchedule(now)) {
-                if (conditionSnoozed(conditionId) || cal.shouldExitForAlarm(now)) {
-                    notifyCondition(conditionId, Condition.STATE_FALSE, "alarmCanceled");
-                    addSnoozed(conditionId);
-                } else {
-                    notifyCondition(conditionId, Condition.STATE_TRUE, "meetsSchedule");
-                }
-                cal.maybeSetNextAlarm(now, nextUserAlarmTime);
-            } else {
-                notifyCondition(conditionId, Condition.STATE_FALSE, "!meetsSchedule");
-                removeSnoozed(conditionId);
-                if (nextUserAlarmTime == 0) {
+        synchronized (mSubscriptions) {
+            setRegistered(!mSubscriptions.isEmpty());
+            mNextAlarmTime = 0;
+            long nextUserAlarmTime = getNextAlarm();
+            for (Uri conditionId : mSubscriptions.keySet()) {
+                final ScheduleCalendar cal = mSubscriptions.get(conditionId);
+                if (cal != null && cal.isInSchedule(now)) {
+                    if (conditionSnoozed(conditionId) || cal.shouldExitForAlarm(now)) {
+                        notifyCondition(conditionId, Condition.STATE_FALSE, "alarmCanceled");
+                        addSnoozed(conditionId);
+                    } else {
+                        notifyCondition(conditionId, Condition.STATE_TRUE, "meetsSchedule");
+                    }
                     cal.maybeSetNextAlarm(now, nextUserAlarmTime);
                 } else {
                     notifyCondition(conditionId, Condition.STATE_FALSE, "!meetsSchedule");
-                    if ((cal != null) && (nextUserAlarmTime == 0)) {
+                    removeSnoozed(conditionId);
+                    if (cal != null && nextUserAlarmTime == 0) {
                         cal.maybeSetNextAlarm(now, nextUserAlarmTime);
                     }
                 }
