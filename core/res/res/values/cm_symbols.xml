@@ -85,4 +85,7 @@
 
     <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
     <java-symbol type="string" name="lineage_system_error_manufacturer" />
+
+    <!-- Whether to enable HumanInteractionController by default -->
+    <java-symbol type="bool" name="config_HICEnabledDefault" />
 </resources>
