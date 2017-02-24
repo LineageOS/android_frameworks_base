@@ -816,6 +816,7 @@ void AssetManager::addSystemOverlays(const char* pathOverlaysList,
             const_cast<AssetManager*>(this)->mZipSet.addOverlay(targetPackagePath, oap);
 
             oidmap->close();
+            delete oidmap;
             ALOGD("close idmap=%s pid=%d\n", oap.idmap.string(), getpid());
        }
 
