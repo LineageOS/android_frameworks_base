@@ -37,7 +37,9 @@
   <!-- Title of dialog to confirm restarting. -->
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">태블릿이 다시 시작됩니다.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">다시 시작하는 중\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">네트워크 ADB 활성화됨</string>
   <!-- ADB over USB and network notification -->
@@ -118,6 +120,7 @@
   <string name="app_ops_write_external_storage">외부 저장소에 쓰기</string>
   <string name="app_ops_turn_on_screen">화면을 켬</string>
   <string name="app_ops_get_accounts">기기 계정 읽기</string>
+  <string name="app_ops_run_in_background">백그라운드에서 실행</string>
   <string name="app_ops_wifi_change">Wi-Fi 상태 변경</string>
   <string name="app_ops_su">루트 권한 얻기</string>
   <!-- Protected Apps Notification -->

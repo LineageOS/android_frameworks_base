@@ -22,11 +22,14 @@
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">Screenshot</string>
   <!-- label for item that restarts the phone in phone options dialog -->
+  <string name="global_action_reboot">Restart</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Current</string>
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">Long-press for partial screenshot</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
+  <string name="reboot_reboot">Restart</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <string name="reboot_recovery">Recovery</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
@@ -34,10 +37,15 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">Download</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">Soft restart</string>
   <!-- Title of dialog to confirm restarting. -->
+  <string name="reboot_title">Restart</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">Your tablet will restart.</string>
+  <string name="reboot_confirm" product="default">Your phone will restart.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">Restarting\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB over network enabled</string>
   <!-- ADB over USB and network notification -->
@@ -89,6 +97,7 @@
   <string name="app_ops_start_at_bootup">start at power up</string>
   <string name="app_ops_toast_window">display toast messages</string>
   <string name="app_ops_toggle_bluetooth">toggle Bluetooth</string>
+  <string name="app_ops_toggle_mobile_data">toggle mobile data</string>
   <string name="app_ops_toggle_nfc">toggle NFC</string>
   <string name="app_ops_use_alarm_volume">control alarm volume</string>
   <string name="app_ops_use_audio_focus">control the audio focus</string>
@@ -102,8 +111,10 @@
   <string name="app_ops_use_voice_volume">control the voice call volume</string>
   <string name="app_ops_write_mms">write an MMS message</string>
   <string name="app_ops_write_sms">write an SMS message</string>
+  <string name="app_ops_run_in_background">run in background</string>
   <string name="app_ops_su">get root access</string>
   <!-- Protected Apps Notification -->
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">A vendor image mismatch has been detected. Typically this means your vendor image is out of date. Please ensure your vendor image matches <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
 </resources>

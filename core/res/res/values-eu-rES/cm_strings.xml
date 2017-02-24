@@ -120,7 +120,7 @@
   <string name="app_ops_assist_structure">estruktura lagungarria erabili</string>
   <string name="app_ops_assist_screenshot">egin pantaila-argazkia</string>
   <string name="app_ops_use_body_sensors">erabili gorputz sentsoreak</string>
-  <string name="app_ops_read_cell_broadcasts">zelulen banaketa mezuak irakurri</string>
+  <string name="app_ops_read_cell_broadcasts">irakurri difusio zelularrak</string>
   <string name="app_ops_mock_location">kokapena faltsutu</string>
   <string name="app_ops_read_external_storage">kanpo biltegiratzea irakurri</string>
   <string name="app_ops_write_external_storage">kanpo biltegiratzean idatzi</string>
