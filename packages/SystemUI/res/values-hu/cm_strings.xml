@@ -28,7 +28,38 @@
   <string name="quick_settings_tile_flashlight_not_title">Zseblámpa bekapcsolva</string>
   <string name="quick_settings_tile_flashlight_not_summary">Kikapcsoláshoz érintse meg</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
+  <string name="cm_power_notification_controls_description">Teljes körű értesítésvezérlőkkel beállíthatja az alkalmazás értesítéseinek fontosságát 0 - 6 szint között.
+        \n\n<b>6. szint</b>
+        \n- Értesítési lista tetején jelenik meg
+        \n- Teljes képernyő megszakításának engedélyezése
+        \n- Mindig felugrik
+        \n\n<b>5. szint</b>
+        \n- Teljes képernyő megszakításának engedélyezése
+        \n- Mindig felugrik
+        \n\n<b>4. szint</b>
+        \n- Teljes képernyő megszakításának tiltása
+        \n- Soha nem ugrik fel
+        \n\n<b>3. szint</b>
+        \n- Teljes képernyő megszakításának tiltása
+        \n- Soha nem ugrik fel
+        \n- Nincs rezgés és hang
+        \n\n<b>2. szint</b>
+        \n- Teljes képernyő megszakításának tiltása
+        \n- Soha nem ugrik fel
+        \n- Nincs rezgés és hang
+        \n- Elrejtés a zárképernyőn
+        \n- Értesítési lista alján jelenik meg
+        \n\n<b>1. szint</b>
+        \n- Teljes képernyő megszakításának tiltása
+        \n- Soha nem ugrik fel
+        \n- Nincs rezgés és hang
+        \n- Elrejtés a zárképernyőn és az állapotsoron
+        \n- Értesítési lista alján jelenik meg
+        \n\n<b>0. szint</b>
+        \n- Alkalmazás minden értesítésének tiltása
+    </string>
   <!-- Notification importance level title-->
+  <string name="importance_level_title">Fontosság: %1$d. szint</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <string name="notification_importance_very_low">Nem szakítja meg a teljes képernyőt, nem ugrik fel, illetve nincs hang vagy rezgés. Elrejtés a lezárási képernyőről.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
@@ -48,6 +79,7 @@
   <string name="accessibility_dpad_left">Kurzor balra</string>
   <string name="accessibility_dpad_right">Kurzor jobbra</string>
   <!-- NavBar Tuner -->
+  <string name="menu_ime_always_show">Menü / Billentyűzetváltó (mindig mutat)</string>
   <string name="search">Keresés</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->

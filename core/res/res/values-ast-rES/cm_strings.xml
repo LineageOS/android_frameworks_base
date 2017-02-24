@@ -28,11 +28,8 @@
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
-  <string name="reboot_recovery">Mou Recovery</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
-  <string name="reboot_bootloader">Mou Bootloader</string>
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
-  <string name="reboot_download">Descargar</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
   <!-- Title of dialog to confirm restarting. -->
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
