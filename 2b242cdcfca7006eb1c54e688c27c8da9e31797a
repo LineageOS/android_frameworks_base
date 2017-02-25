@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa5d592f_a46385b0",
+        "filename": "libs/androidfw/AssetManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 16826
+      },
+      "writtenOn": "2017-02-25T09:11:58Z",
+      "side": 1,
+      "message": "mb \ndelete [] assets",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 21
+      },
+      "revId": "2b242cdcfca7006eb1c54e688c27c8da9e31797a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
