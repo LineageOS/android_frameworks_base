@@ -25,6 +25,7 @@
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">현재</string>
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">길게 눌러 부분 스크린샷 촬영</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
