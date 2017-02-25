@@ -70,6 +70,30 @@
       "revId": "2b242cdcfca7006eb1c54e688c27c8da9e31797a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_84264167",
+        "filename": "libs/androidfw/AssetManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 16426
+      },
+      "writtenOn": "2017-02-25T10:00:47Z",
+      "side": 1,
+      "message": "Ok thanks for the info, I only made a cherry-pick from the Substratum team without any change to be 100% same. I\u0027ll change this ASAP.",
+      "parentUuid": "fa5d592f_c42c394d",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 21
+      },
+      "revId": "2b242cdcfca7006eb1c54e688c27c8da9e31797a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
