@@ -959,7 +959,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             mTorchEnabled = !mTorchEnabled;
                         }
                     } catch (CameraAccessException e) {
-                        // Ignore
+                        //Ignore
                     }
                     break;
                 }
