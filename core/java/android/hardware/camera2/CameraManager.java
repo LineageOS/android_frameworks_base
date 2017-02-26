@@ -32,6 +32,8 @@ import android.os.Binder;
 import android.os.DeadObjectException;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.ServiceSpecificException;
@@ -39,6 +41,8 @@ import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.ArrayMap;
+
+import com.android.internal.R;
 
 import java.util.ArrayList;
 
@@ -71,6 +75,10 @@ public final class CameraManager {
 
     private ArrayList<String> mDeviceIdList;
 
+    private PowerManager mPowerManager;
+    private boolean mUseWakeLockForFlashLight;
+    private WakeLock mFlashlightWakeLock;
+
     private final Context mContext;
     private final Object mLock = new Object();
 
@@ -80,6 +88,10 @@ public final class CameraManager {
     public CameraManager(Context context) {
         synchronized(mLock) {
             mContext = context;
+
+            mUseWakeLockForFlashLight = context.getResources().getBoolean(R.bool.config_useWakelockForFlashlight);
+            mPowerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
+            mFlashlightWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
         }
     }
 
@@ -521,7 +533,21 @@ public final class CameraManager {
      */
     public void setTorchMode(@NonNull String cameraId, boolean enabled)
             throws CameraAccessException {
-        CameraManagerGlobal.get().setTorchMode(cameraId, enabled);
+        if (mUseWakeLockForFlashLight) {
+            if (enabled) {
+                if (!mFlashlightWakeLock.isHeld()) mFlashlightWakeLock.acquire();
+            } else {
+                if (mFlashlightWakeLock.isHeld()) mFlashlightWakeLock.release();
+            }
+        }
+        try {
+            CameraManagerGlobal.get().setTorchMode(cameraId, enabled);
+        } catch (CameraAccessException e) {
+            if (mUseWakeLockForFlashLight && mFlashlightWakeLock.isHeld())
+               mFlashlightWakeLock.release();
+
+            throw e;
+        }
     }
 
     /**
