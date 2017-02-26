@@ -2804,4 +2804,7 @@
 
     <!-- Whether to enable HumanInteractionController by default -->
     <bool name="config_HICEnabledDefault">true</bool>
+
+    <!-- Allow the flashlight to use wakelocks -->
+    <bool name="config_useWakeLockForFlashlight">false</bool>
 </resources>
