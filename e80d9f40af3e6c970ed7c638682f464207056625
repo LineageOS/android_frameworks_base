@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa5d592f_2c009ba9",
+        "filename": "core/java/android/app/ActivityThread.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1867,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-26T11:18:43Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 1867,
+        "startChar": 100,
+        "endLine": 1867,
+        "endChar": 104
+      },
+      "revId": "e80d9f40af3e6c970ed7c638682f464207056625",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_0c2dd746",
+        "filename": "core/java/android/app/ContextImpl.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 2020,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-26T11:18:43Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 2019,
+        "startChar": 100,
+        "endLine": 2020,
+        "endChar": 108
+      },
+      "revId": "e80d9f40af3e6c970ed7c638682f464207056625",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_ec3163a3",
+        "filename": "core/java/android/app/ResourcesManager.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-26T11:18:43Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 820,
+        "startChar": 100,
+        "endLine": 820,
+        "endChar": 108
+      },
+      "revId": "e80d9f40af3e6c970ed7c638682f464207056625",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_ac148bf5",
+        "filename": "libs/androidfw/AssetManager.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-26T11:18:43Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 817,
+        "startChar": 100,
+        "endLine": 818,
+        "endChar": 123
+      },
+      "revId": "e80d9f40af3e6c970ed7c638682f464207056625",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_8cf9c7ca",
+        "filename": "libs/androidfw/AssetManager.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-26T11:18:43Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 881,
+        "startChar": 100,
+        "endLine": 881,
+        "endChar": 113
+      },
+      "revId": "e80d9f40af3e6c970ed7c638682f464207056625",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_6cf693d9",
+        "filename": "libs/androidfw/ResourceTypes.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 3780,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-26T11:18:43Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 3780,
+        "startChar": 101,
+        "endLine": 3780,
+        "endChar": 110
+      },
+      "revId": "e80d9f40af3e6c970ed7c638682f464207056625",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_4c03cfb8",
+        "filename": "libs/androidfw/ResourceTypes.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 3890,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-02-26T11:18:43Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 3890,
+        "startChar": 100,
+        "endLine": 3890,
+        "endChar": 105
+      },
+      "revId": "e80d9f40af3e6c970ed7c638682f464207056625",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
