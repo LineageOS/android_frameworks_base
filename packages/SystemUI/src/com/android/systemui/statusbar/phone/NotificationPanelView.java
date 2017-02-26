@@ -2453,7 +2453,7 @@ public class NotificationPanelView extends PanelView implements
                 break;
             case STATUS_BAR_QUICK_QS_PULLDOWN:
                 mOneFingerQuickSettingsIntercept =
-                        newValue == null ? 1 : Integer.parseInt(newValue);
+                        newValue == null ? 0 : Integer.parseInt(newValue);
                 break;
             case LOCK_SCREEN_WEATHER_ENABLED:
                 final boolean wasKeyguardWeatherEnabled = mKeyguardWeatherEnabled;
