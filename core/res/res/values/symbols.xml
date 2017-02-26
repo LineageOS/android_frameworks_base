@@ -2817,4 +2817,7 @@
 
   <!-- Accelerometer batching -->
   <java-symbol type="bool" name="config_useDefaultBatchingForAccel" />
+
+  <!-- Allow devices to use wakelock for flashlight -->
+  <java-symbol type="bool" name="config_useWakeLockForFlashlight" />
 </resources>
