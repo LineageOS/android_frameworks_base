@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa5d592f_0f002900",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2461,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-02-26T17:49:44Z",
+      "side": 1,
+      "message": "Probably best not to stick this in the middle of the AOSP config options for upstream mergability reasons.",
+      "range": {
+        "startLine": 2460,
+        "startChar": 4,
+        "endLine": 2461,
+        "endChar": 61
+      },
+      "revId": "52344b2edba36a86fc977778911ccde5db5c2841",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_cf09f12d",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-02-26T17:49:44Z",
+      "side": 1,
+      "message": "I\u0027ve seen we have wakelock logic for flashlight in several places. Have we considered removing all the places in favor of putting the wakelock into CameraManager.setTorchMode instead?",
+      "range": {
+        "startLine": 968,
+        "startChar": 28,
+        "endLine": 968,
+        "endChar": 91
+      },
+      "revId": "52344b2edba36a86fc977778911ccde5db5c2841",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
