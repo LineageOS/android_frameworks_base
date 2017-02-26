@@ -1,0 +1,227 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa5d592f_ac724be3",
+        "filename": "core/java/android/app/ActivityThread.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 1867,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "100 chars",
+      "range": {
+        "startLine": 1867,
+        "startChar": 89,
+        "endLine": 1867,
+        "endChar": 104
+      },
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_8c7787d4",
+        "filename": "core/java/android/app/IconPackHelper.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "Maybe 2017 :)",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 45
+      },
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_6c7453cf",
+        "filename": "core/java/android/app/IconPackHelper.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "missing space",
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_4c818f8e",
+        "filename": "core/java/android/app/ResourcesManager.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "100 chars",
+      "range": {
+        "startLine": 820,
+        "startChar": 92,
+        "endLine": 820,
+        "endChar": 108
+      },
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_2c7e5baf",
+        "filename": "core/java/android/content/res/AssetManager.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "4 chars",
+      "range": {
+        "startLine": 707,
+        "startChar": 4,
+        "endLine": 707,
+        "endChar": 5
+      },
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_0c4b9788",
+        "filename": "core/java/android/content/res/Configuration.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "Should be moved near stylePkgName",
+      "range": {
+        "startLine": 546,
+        "startChar": 6,
+        "endLine": 546,
+        "endChar": 7
+      },
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_ec4f2391",
+        "filename": "core/java/android/content/res/ResourcesImpl.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "Alphabetic order",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_6c5b3355",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 19434,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "Missing space",
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_4c586f56",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "space",
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_2c553b1d",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 1786,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "space",
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_0c327710",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 9252,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-02-26T17:19:55Z",
+      "side": 1,
+      "message": "space",
+      "revId": "b5b2df849b2156d56c06204b3f7cb59387482725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
