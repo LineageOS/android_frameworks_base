@@ -96,6 +96,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.os.PowerManagerInternal;
 import android.os.Process;
 import android.os.RemoteException;
@@ -871,6 +872,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private String mRearFlashCameraId;
     private boolean mTorchLongPressPowerEnabled;
     private boolean mTorchEnabled;
+    private boolean mUseWakeLockForFlashLight;
+    private WakeLock mFlashlightWakeLock;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -955,11 +958,20 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     try {
                         final String rearFlashCameraId = getRearFlashCameraId();
                         if (rearFlashCameraId != null) {
+                            if (mUseWakeLockForFlashLight) {
+                                if (!mTorchEnabled) {
+                                    if (!mFlashlightWakeLock.isHeld()) mFlashlightWakeLock.acquire();
+                                } else {
+                                    if (mFlashlightWakeLock.isHeld()) mFlashlightWakeLock.release();
+                                }
+                            }
                             mCameraManager.setTorchMode(rearFlashCameraId, !mTorchEnabled);
                             mTorchEnabled = !mTorchEnabled;
                         }
                     } catch (CameraAccessException e) {
-                        // Ignore
+                        if (mUseWakeLockForFlashLight && mFlashlightWakeLock.isHeld()) {
+                            mFlashlightWakeLock.release();
+                        }
                     }
                     break;
                 }
@@ -1896,6 +1908,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 "PhoneWindowManager.mBroadcastWakeLock");
         mPowerKeyWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                 "PhoneWindowManager.mPowerKeyWakeLock");
+        mFlashlightWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                "PhoneWindowManager.mFlashlightWakeLock");
         mEnableShiftMenuBugReports = "1".equals(SystemProperties.get("ro.debuggable"));
         mSupportAutoRotation = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_supportAutoRotation);
@@ -1964,6 +1978,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 com.android.internal.R.integer.config_deviceHardwareKeys);
         mBackKillTimeout = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_backKillTimeout);
+        mUseWakeLockForFlashLight = mContext.getResources().getBoolean(R.bool.config_useWakelockForFlashlight);
 
         updateKeyAssignments();
 
