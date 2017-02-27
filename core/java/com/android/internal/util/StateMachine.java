@@ -2041,7 +2041,7 @@ public class StateMachine {
     public String toString() {
         StringWriter sr = new StringWriter();
         PrintWriter pr = new PrintWriter(sr);
-        dump(null, pr, null);
+        dump(null, pr, new String[0]);
         pr.flush();
         pr.close();
         return sr.toString();
