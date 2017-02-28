@@ -36,6 +36,7 @@ import com.android.internal.telephony.IOnSubscriptionsChangedListener;
 import com.android.internal.telephony.ITelephonyRegistry;
 import com.android.internal.telephony.PhoneConstants;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -613,6 +614,18 @@ public class SubscriptionManager {
         } catch (RemoteException ex) {
             // ignore it
         }
+
+        if (result != null) {
+            Iterator<SubscriptionInfo> info = result.iterator();
+            while (info.hasNext()) {
+                SubscriptionInfo subInfo = info.next();
+                int slotId = subInfo.getSimSlotIndex();
+                if (getSimStateForSlotIdx(slotId) == TelephonyManager.SIM_STATE_NOT_READY) {
+                    info.remove();
+                }
+            }
+        }
+
         return result;
     }
 
