@@ -22,6 +22,46 @@
       "revId": "a8151d2ec355702f810844968b6e4acca6a4d222",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_0dd82e1c",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-03-01T04:13:29Z",
+      "side": 1,
+      "message": "This can just be a local variable.",
+      "range": {
+        "startLine": 93,
+        "startChar": 12,
+        "endLine": 93,
+        "endChar": 25
+      },
+      "revId": "a8151d2ec355702f810844968b6e4acca6a4d222",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_ed04ba7f",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-03-01T04:13:29Z",
+      "side": 1,
+      "message": "Don\u0027t need to change this",
+      "revId": "a8151d2ec355702f810844968b6e4acca6a4d222",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
