@@ -28,6 +28,36 @@
   <string name="quick_settings_tile_flashlight_not_title">손전등 켜짐</string>
   <string name="quick_settings_tile_flashlight_not_summary">탭하여 끄기</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
+  <string name="cm_power_notification_controls_description">알림 강도 컨트롤을 이용하면 앱의 알림에 0에서 6까지 중요도 단계를 설정할 수 있습니다.
+        \n\n<b>6단계</b>
+        \n- 알림 목록의 최상단에 표시
+        \n- 전체 화면 인터럽션 허용
+        \n- 상단 알림 팝업 항상 표시
+        \n\n<b>5단계</b>
+        \n- 전체 화면 인터럽션 차단
+        \n- 상단 알림 팝업 항상 표시
+        \n\n<b>4단계</b>
+        \n- 전체 화면 인터럽션 차단
+        \n- 상단 알림 팝업 표시 안 함
+        \n\n<b>3단계</b>
+        \n- 전체 화면 인터럽션 차단
+        \n- 상단 알림 팝업 표시 안 함
+        \n- 소리 또는 진동이 발생하지 않음
+        \n\n<b>2단계</b>
+        \n- 전체 화면 인터럽션 차단
+        \n- 상단 알림 팝업 표시 안 함
+        \n- 소리 또는 진동이 발생하지 않음
+        \n- 잠금 화면에 표시 안 함
+        \n- 알림 목록의 하단에 표시
+        \n\n<b>1단계</b>
+        \n- 전체 화면 인터럽션 차단
+        \n- 상단 알림 팝업 표시 안 함
+        \n- 소리 또는 진동이 발생하지 않음
+        \n- 잠금 화면 및 상태 표시줄에 표시 안 함
+        \n- 알림 목록의 하단에 표시
+        \n\n<b>0단계</b>
+        \n- 해당 앱의 모든 알림 차단
+    </string>
   <!-- Notification importance level title-->
   <string name="importance_level_title">중요도: %1$d단계</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
@@ -45,6 +75,7 @@
   <!-- Play queue -->
   <string name="play_queue_extension">재생 대기열 표시</string>
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
   <string name="accessibility_dpad_left">커서 왼쪽</string>
   <string name="accessibility_dpad_right">커서 오른쪽</string>
   <!-- NavBar Tuner -->

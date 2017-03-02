@@ -22,12 +22,14 @@
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">스크린샷</string>
   <!-- label for item that restarts the phone in phone options dialog -->
+  <string name="global_action_reboot">다시 시작</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">현재</string>
   <!-- status message in phone options dialog for screenshot action -->
   <string name="global_actions_screenshot_status">길게 눌러 부분 스크린샷 촬영</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
+  <string name="reboot_reboot">다시 시작</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <string name="reboot_recovery">복구 모드</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
@@ -35,10 +37,13 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">다운로드</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">빠른 다시 시작</string>
   <!-- Title of dialog to confirm restarting. -->
+  <string name="reboot_title">다시 시작</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
   <string name="reboot_confirm" product="tablet">태블릿이 다시 시작됩니다.</string>
+  <string name="reboot_confirm" product="default">휴대전화가 다시 시작됩니다.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
   <string name="reboot_progress">다시 시작하는 중\u2026</string>
   <!-- ADB over network notification -->
@@ -128,6 +133,7 @@
   <string name="notify_package_component_protected_title">액티비티 실행 제한됨</string>
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g>은(는) 실행이 제한되어 있습니다. 탭하여 제한을 해제하고 애플리케이션을 실행하세요.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">화면 고정을 해제하려면 뒤로 버튼을 계속 누르세요</string>
+  <string name="lock_to_app_toast_no_navbar">화면 고정을 해제하려면 뒤로 버튼을 길게 누르세요.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">공급 업체 이미지 불일치가 감지되었습니다. 일반적으로 이것은 당신의 공급 업체 이미지가 오래되었다는 것을 의미합니다. 공급 업체 이미지가 <xliff:g id="fingerprint">%1$s</xliff:g>과 일치하는지 확인하십시오.</string>
 </resources>
