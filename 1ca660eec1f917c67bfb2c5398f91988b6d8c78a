@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa5d592f_43d835ef",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-03-02T02:21:12Z",
+      "side": 1,
+      "message": "Consider using line breaks",
+      "revId": "1ca660eec1f917c67bfb2c5398f91988b6d8c78a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
