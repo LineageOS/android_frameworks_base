@@ -19,5 +19,4 @@
 -->
 <resources>
   <!-- Name of the activity for Settings storage. -->
-  <string name="app_label">Axustes d\'almacenamientu</string>
 </resources>
