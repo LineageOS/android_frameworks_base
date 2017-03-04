@@ -692,18 +692,18 @@ public final class CameraManager {
 
             try {
                 numCameras = cameraService.getNumberOfCameras(CAMERA_TYPE_ALL);
-                /* Force to expose only two cameras
-                 * if the package name does not falls in this bucket
+                /* Force to exposing only two cameras
+                 * if the package name falls in this bucket
                  */
-                boolean exposeAuxCamera = false;
+                boolean exposeAuxCamera = true;
                 String packageName = ActivityThread.currentOpPackageName();
-                String packageList = SystemProperties.get("camera.aux.packagelist");
+                String packageList = SystemProperties.get("camera.auxdisable.packagelist");
                 if (packageList.length() > 0) {
                     TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
                     splitter.setString(packageList);
                     for (String str : splitter) {
                         if (packageName.equals(str)) {
-                            exposeAuxCamera = true;
+                            exposeAuxCamera = false;
                             break;
                         }
                     }
@@ -1038,18 +1038,18 @@ public final class CameraManager {
         }
 
         private void onStatusChangedLocked(int status, String id) {
-            /* Force to ignore the last mono/aux camera status update
-             * if the package name does not falls in this bucket
+            /* Force ignoring the last mono/aux camera status update
+             * if the package name falls in this bucket
              */
-            boolean exposeMonoCamera = false;
+            boolean exposeMonoCamera = true;
             String packageName = ActivityThread.currentOpPackageName();
-            String packageList = SystemProperties.get("camera.aux.packagelist");
+            String packageList = SystemProperties.get("camera.auxdisable.packagelist");
             if (packageList.length() > 0) {
                 TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
                 splitter.setString(packageList);
                 for (String str : splitter) {
                     if (packageName.equals(str)) {
-                        exposeMonoCamera = true;
+                        exposeMonoCamera = false;
                         break;
                     }
                 }
