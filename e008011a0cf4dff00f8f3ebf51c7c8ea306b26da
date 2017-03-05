@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa5d592f_2831955a",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-03-05T00:36:00Z",
+      "side": 1,
+      "message": "These can probably be marked \u0027final\u0027.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 41
+      },
+      "revId": "e008011a0cf4dff00f8f3ebf51c7c8ea306b26da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_a83c6530",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-03-05T00:36:00Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this (my suggestion) is a good idea, but what we could do instead is:\n\n\n  boolean useWakeLockForFlashLight \u003d mContext.getResources().getBoolean(R.bool.config_useWakeLockForFlashlight);\n  if (useWakelockForFlashlight) {\n      PowerManager pm \u003d (PowerManager) context.getSystemService(Context.POWER_SERVICE);\n      mFlashlightWakeLock \u003d pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);\n  }\n\n\nThen, checking:\n\n\n  if (mUseWakelockForFlashlight) {\n      ...\n  }\n\n\nbelow, we could instead check:\n\n\n  if (mFlashlightWakeLock !\u003d null) {\n      ...\n  }\n\n\nThis gets rid of the need for the mUseWakeLockForFlashLight member variable, at the same time handling the (possible?) case whereby mFlashlightWakeLock is null.",
+      "range": {
+        "startLine": 91,
+        "startChar": 12,
+        "endLine": 95,
+        "endChar": 96
+      },
+      "revId": "e008011a0cf4dff00f8f3ebf51c7c8ea306b26da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_8849a1d2",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-03-05T00:36:00Z",
+      "side": 1,
+      "message": "This should be:\n\n  if (mUseWakeLockForFlashLight \u0026\u0026 mFlashlightWakeLock.isHeld()) {\n      mFlashlightWakeLock.release();\n  }\n\n(Note the braces)",
+      "range": {
+        "startLine": 547,
+        "startChar": 12,
+        "endLine": 548,
+        "endChar": 45
+      },
+      "revId": "e008011a0cf4dff00f8f3ebf51c7c8ea306b26da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_68466dc1",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 2810,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-03-05T00:36:00Z",
+      "side": 1,
+      "message": "Might as well take this chance to correct this to:\n  config_useWake*L*ockForFlashlight\n\nBut it\u0027s fine either way.",
+      "revId": "e008011a0cf4dff00f8f3ebf51c7c8ea306b26da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
