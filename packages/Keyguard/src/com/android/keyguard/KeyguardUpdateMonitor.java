@@ -800,12 +800,16 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
 
         @Override
         public void onAuthenticationHelp(int helpMsgId, CharSequence helpString) {
-            handleFingerprintHelp(helpMsgId, helpString.toString());
+            if (helpString != null) {
+                handleFingerprintHelp(helpMsgId, helpString.toString());
+            }
         }
 
         @Override
         public void onAuthenticationError(int errMsgId, CharSequence errString) {
-            handleFingerprintError(errMsgId, errString.toString());
+            if (errString != null) {
+                handleFingerprintError(errMsgId, errString.toString());
+            }
         }
 
         @Override
