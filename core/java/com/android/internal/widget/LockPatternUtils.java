@@ -598,9 +598,6 @@ public class LockPatternUtils {
             setCredentialRequiredToDecrypt(false);
         }
 
-        getDevicePolicyManager().setActivePasswordState(
-                DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED, 0, 0, 0, 0, 0, 0, 0, userHandle);
-
         onAfterChangingPassword(userHandle);
     }
 
@@ -647,6 +644,7 @@ public class LockPatternUtils {
                         + MIN_LOCK_PATTERN_SIZE + " dots long.");
             }
 
+            setLong(PASSWORD_TYPE_KEY, DevicePolicyManager.PASSWORD_QUALITY_SOMETHING, userId);
             getLockSettings().setLockPattern(patternToString(pattern, userId), savedPattern, userId);
             DevicePolicyManager dpm = getDevicePolicyManager();
 
@@ -664,9 +662,6 @@ public class LockPatternUtils {
 
             setBoolean(PATTERN_EVER_CHOSEN_KEY, true, userId);
 
-            setLong(PASSWORD_TYPE_KEY, DevicePolicyManager.PASSWORD_QUALITY_SOMETHING, userId);
-            dpm.setActivePasswordState(DevicePolicyManager.PASSWORD_QUALITY_SOMETHING,
-                    pattern.size(), 0, 0, 0, 0, 0, 0, userId);
             onAfterChangingPassword(userId);
         } catch (RemoteException re) {
             Log.e(TAG, "Couldn't save lock pattern " + re);
@@ -880,9 +875,9 @@ public class LockPatternUtils {
                         + "of length " + MIN_LOCK_PASSWORD_SIZE);
             }
 
+            final int computedQuality = computePasswordQuality(password);
+            setLong(PASSWORD_TYPE_KEY, Math.max(quality, computedQuality), userHandle);
             getLockSettings().setLockPassword(password, savedPassword, userHandle);
-            getLockSettings().setSeparateProfileChallengeEnabled(userHandle, true, null);
-            int computedQuality = computePasswordQuality(password);
 
             // Update the device encryption password.
             if (userHandle == UserHandle.USER_SYSTEM
@@ -899,40 +894,6 @@ public class LockPatternUtils {
                             : StorageManager.CRYPT_TYPE_PASSWORD;
                     updateEncryptionPassword(type, password);
                 }
-            }
-
-            setLong(PASSWORD_TYPE_KEY, Math.max(quality, computedQuality), userHandle);
-            if (computedQuality != DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED) {
-                int letters = 0;
-                int uppercase = 0;
-                int lowercase = 0;
-                int numbers = 0;
-                int symbols = 0;
-                int nonletter = 0;
-                for (int i = 0; i < password.length(); i++) {
-                    char c = password.charAt(i);
-                    if (c >= 'A' && c <= 'Z') {
-                        letters++;
-                        uppercase++;
-                    } else if (c >= 'a' && c <= 'z') {
-                        letters++;
-                        lowercase++;
-                    } else if (c >= '0' && c <= '9') {
-                        numbers++;
-                        nonletter++;
-                    } else {
-                        symbols++;
-                        nonletter++;
-                    }
-                }
-                dpm.setActivePasswordState(Math.max(quality, computedQuality),
-                        password.length(), letters, uppercase, lowercase,
-                        numbers, symbols, nonletter, userHandle);
-            } else {
-                // The password is not anything.
-                dpm.setActivePasswordState(
-                        DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED,
-                        0, 0, 0, 0, 0, 0, 0, userHandle);
             }
 
             // Add the password to the password history. We assume all
