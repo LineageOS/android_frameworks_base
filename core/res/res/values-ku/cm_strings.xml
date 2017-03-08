@@ -106,4 +106,5 @@
   <!-- Protected Apps Notification -->
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <!-- Single hand mode -->
 </resources>

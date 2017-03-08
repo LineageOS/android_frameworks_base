@@ -136,4 +136,6 @@
   <string name="lock_to_app_toast_no_navbar">כדי לבטל נעיצת מסך זה, גע והחזק בלחצן \"הקודם\".</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">זוהתה חוסר התאמה בקושחת הספק (Firmware). בדרך כלל זה אומר שהיא צריכה עדכון. נא וודא שקושחת הספק שלך מתאימה ל־<xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+  <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">גע מחוץ למסך כדי לצאת ממצב שימוש ביד אחת</string>
 </resources>

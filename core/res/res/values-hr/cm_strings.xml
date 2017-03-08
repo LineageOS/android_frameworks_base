@@ -136,4 +136,5 @@
   <string name="lock_to_app_toast_no_navbar">Da biste otkvačili ovaj zaslon dodirnite i držite tipku za natrag.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">Otkriveno je nepodudaranje slike dobavljača. To obično znači da je slika dobavljača zastarjela. Provjerite odgovara li vaša slika dobavljača <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+  <!-- Single hand mode -->
 </resources>

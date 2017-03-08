@@ -21,10 +21,13 @@
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">স্ক্রীনসর্ট</string>
   <!-- label for item that restarts the phone in phone options dialog -->
+  <string name="global_action_reboot">রিস্টার্ট</string>
   <!-- label for current user in phone options dialog -->
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">আংশিক স্ক্রিনশটের জন্য দীর্ঘ চাপ দিন</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
+  <string name="reboot_reboot">রিস্টার্ট</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <string name="reboot_recovery">পুনরুদ্ধার</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
@@ -32,10 +35,15 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">ডাউনলোড</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">মৃদু রিস্টার্ট দিন</string>
   <!-- Title of dialog to confirm restarting. -->
+  <string name="reboot_title">রিস্টার্ট</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">আপনার ট্যাবলেট পুনরায় চালু হবে.</string>
+  <string name="reboot_confirm" product="default">আপনার ফোন পুনরায় চালু হবে।</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">রিস্টার্টিং\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">নেটওয়ার্কের উপর এডিবি সক্রিয়</string>
   <!-- ADB over USB and network notification -->
@@ -92,4 +100,5 @@
   <!-- Protected Apps Notification -->
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <!-- Single hand mode -->
 </resources>

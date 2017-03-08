@@ -136,4 +136,6 @@
   <string name="lock_to_app_toast_no_navbar">Para deixar de fixar esta pantalla, mantén tocado o botón Atrás.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">Se ha detectado unha falta de coincidencia coa imaxen do proveedor. Polo xeral esto significa que dicha imaxe está desactualizada. Asegúrese de que coincida con <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
+  <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Toca fora da pantalla para saír do modo dunha soa man</string>
 </resources>

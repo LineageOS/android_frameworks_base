@@ -136,4 +136,6 @@
   <string name="lock_to_app_toast_no_navbar">Pentru a anula fixarea acestui ecran, atingeți și țineți apăsat butonul Înapoi.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">S-a detectat o nepotrivire a imaginii vânzătorului. În mod obișnuit, asta înseamnă că imaginea vânzătorului dvs. este expirată. Vă rugăm să vă asigurați că imaginea vânzătorului dvs. corespunde cu <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+  <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Apăsați în afara ecranului pentru a ieşi din modul cu o singură mână</string>
 </resources>

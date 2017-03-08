@@ -107,4 +107,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">इस स्क्रीन को अनपिन करने के लिए पीछे के बटन को कुछ देर के लिए छुएँ।</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <!-- Single hand mode -->
 </resources>

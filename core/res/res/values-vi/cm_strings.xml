@@ -136,4 +136,6 @@
   <string name="lock_to_app_toast_no_navbar">Để bỏ ghim màn hình này, hãy chạm và giữ phím Quay lại.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">Một hình ảnh nhà cung cấp không phù hợp đã được phát hiện. Thông thường, điều này có nghĩa là hình ảnh nhà cung cấp của bạn hết hạn. Vui lòng đảm bảo rằng hình ảnh nhà cung cấp của bạn phù hợp <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+  <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Chạm vào bên ngoài màn hình để thoát chế độ một tay</string>
 </resources>

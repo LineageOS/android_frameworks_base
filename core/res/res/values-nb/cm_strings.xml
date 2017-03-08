@@ -136,4 +136,5 @@
   <string name="lock_to_app_toast_no_navbar">For å unpin denne skjermen, trykk og hold tilbake-knappen.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">En leverandørbilde-feil har oppstått. Dette betyr vanligvis at leverandørbildet er utdatert. Kontroller at leverandørbildet ditt samsvarer med <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
+  <!-- Single hand mode -->
 </resources>

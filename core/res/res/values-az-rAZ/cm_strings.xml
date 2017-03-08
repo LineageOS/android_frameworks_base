@@ -107,4 +107,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Bu ekranı çıxarmaq üçün Geri düyməsinə toxunub basılı tutun.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <!-- Single hand mode -->
 </resources>

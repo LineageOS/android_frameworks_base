@@ -135,4 +135,6 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Pantaila hau desiltzatzeko sakatu eta mantendu atzera botoia.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Ekoizlearen irudia bat ez datorrela antzeman da. Normalean irudia zaharkituta dagoela esan nahi du. Ziurtatu ekoizlearen irudia <xliff:g id="fingerprint">%1$s</xliff:g> honekin bat datorrela.</string>
+  <!-- Single hand mode -->
 </resources>

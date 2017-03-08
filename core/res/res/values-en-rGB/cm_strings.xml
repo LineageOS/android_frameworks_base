@@ -37,11 +37,15 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">Download</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">Soft restart</string>
   <!-- Title of dialog to confirm restarting. -->
+  <string name="reboot_title">Restart</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">Your tablet will restart.</string>
   <string name="reboot_confirm" product="default">Your phone will restart.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">Restarting\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB over network enabled</string>
   <!-- ADB over USB and network notification -->
@@ -130,4 +134,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">To unpin this screen, touch and hold the Back button.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <!-- Single hand mode -->
 </resources>

@@ -126,4 +126,5 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">ഈ സ്ക്രീൻ വേര്‍തിരിക്കുക ചെയ്യുന്നതിന്, പിന്നിലേക്ക് ബട്ടൺ അമര്‍ത്തിപ്പിടിക്കുക.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <!-- Single hand mode -->
 </resources>

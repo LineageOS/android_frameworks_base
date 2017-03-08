@@ -136,4 +136,6 @@
   <string name="lock_to_app_toast_no_navbar">Щоб відкріпити цей екран, торкніться й утримуйте кнопку назад.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">Виявлено несумісний образ виробника пристрою. Як правило, це означає, що необхідно встановити оновлене програмне забезпечення від виробника. Переконайтеся, що його версія буде відповідати <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+  <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Торкніться поза межами екрану, щоб вийти з режиму однією рукою</string>
 </resources>

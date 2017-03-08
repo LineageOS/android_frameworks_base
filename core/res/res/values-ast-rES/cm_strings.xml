@@ -21,24 +21,77 @@
   <!-- label for item that screenshots in phone options dialog -->
   <!-- label for item that restarts the phone in phone options dialog -->
   <!-- label for current user in phone options dialog -->
+  <string name="global_action_current_user">Actual</string>
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">Primíu llargu pa captura parcial de pantalla</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
+  <string name="reboot_reboot">Reaniciar</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">Reaniciu suave</string>
   <!-- Title of dialog to confirm restarting. -->
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">Reaniciando\u2026</string>
   <!-- ADB over network notification -->
   <!-- ADB over USB and network notification -->
   <!-- ADB notification message-->
   <!-- Privacy Guard -->
+  <string name="privacy_guard_notification">Guardián de privacidá activu</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nun sedrá a acceder a los datos personales</string>
+  <string name="privacy_guard_dialog_title">Guardián de privacidá</string>
+  <string name="privacy_guard_dialog_summary">A <xliff:g id="app">%1$s</xliff:g> prestaría-y <xliff:g id="op">%2$s</xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+  <string name="permission_remember_choice">Recordar la mio escoyeta</string>
   <!-- App ops requests -->
+  <string name="app_ops_access_camera">acceder a la cámara</string>
+  <string name="app_ops_access_location">acceder al to allugamientu</string>
+  <string name="app_ops_access_notifications">lleer los tos avisos</string>
+  <string name="app_ops_activate_vpn">activar una VPN</string>
+  <string name="app_ops_auto_start">executase nel aniciu</string>
+  <string name="app_ops_modify_clipboard">modificar el cartafueyu</string>
+  <string name="app_ops_modify_contacts">anovar los tos contautos</string>
+  <string name="app_ops_modify_settings">anovar axustes del sistema</string>
+  <string name="app_ops_play_audio">reproducir audiu</string>
+  <string name="app_ops_read_call_log">lleer el rexistru de llamaes</string>
+  <string name="app_ops_read_clipboard">lleer el cartafueyu</string>
+  <string name="app_ops_read_contacts">lleer los tos contautos</string>
+  <string name="app_ops_read_mms">lleer los tos mensaxes MMS</string>
+  <string name="app_ops_read_sms">lleer los tos mensaxes SMS</string>
+  <string name="app_ops_receive_sms">recibir un mensaxe SMS</string>
+  <string name="app_ops_record_audio">grabar audiu</string>
+  <string name="app_ops_send_mms">unviar un mensaxe MMS</string>
+  <string name="app_ops_send_sms">unviar un mensaxe SMS</string>
+  <string name="app_ops_start_at_bootup">executase nel aniciu</string>
+  <string name="app_ops_toggle_bluetooth">alternar Bluetooth</string>
+  <string name="app_ops_toggle_mobile_data">alternar datos móviles</string>
+  <string name="app_ops_toggle_nfc">alternar NFC</string>
+  <string name="app_ops_toggle_wifi">alternar Wi-Fi</string>
+  <string name="app_ops_use_alarm_volume">controlar volume d\'alarma</string>
+  <string name="app_ops_use_notification_volume">controlar el volume d\'avisu</string>
+  <string name="app_ops_write_mms">escribir un mensaxe MMS</string>
+  <string name="app_ops_write_sms">escribir un mensaxe SMS</string>
+  <string name="app_ops_use_fingerprint">usar buelga</string>
+  <string name="app_ops_read_phone_state">acceder al estáu\'l teléfonu</string>
+  <string name="app_ops_scan_wifi">escaniar redes Wi-Fi</string>
+  <string name="app_ops_assist_structure">usar cadarma d\'asistencia</string>
+  <string name="app_ops_assist_screenshot">facer una captura</string>
+  <string name="app_ops_use_body_sensors">usar sensores corporales</string>
+  <string name="app_ops_mock_location">simular l\'allugamientu</string>
+  <string name="app_ops_read_external_storage">lleer almacenamientu esternu</string>
+  <string name="app_ops_write_external_storage">escribir nel almacenamientu esternu</string>
+  <string name="app_ops_turn_on_screen">prender pantalla</string>
+  <string name="app_ops_get_accounts">consiguir cuentes del preséu</string>
+  <string name="app_ops_run_in_background">executase de fondu</string>
+  <string name="app_ops_wifi_change">camudar estáu del Wi-Fi</string>
+  <string name="app_ops_su">consiguir accesu root</string>
   <!-- Protected Apps Notification -->
+  <string name="notify_package_component_protected_title">Bloquióse\'l llanzamientu de l\'actividá</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <!-- Single hand mode -->
 </resources>

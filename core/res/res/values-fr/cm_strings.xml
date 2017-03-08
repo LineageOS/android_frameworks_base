@@ -26,6 +26,7 @@
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Actuel</string>
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">Appui long pour une capture d\'écran partielle</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <string name="reboot_reboot">Redémarrer</string>
@@ -134,4 +135,7 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Pour déverrouiller l\'écran, appuyez et maintenez le bouton Retour.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Une discordance d\'image fournisseur a été détectée. En général, cela signifie que votre image fournisseur n\'est pas à jour. Veuillez vous assurer que votre image fournisseur correspond à <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+  <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Toucher en dehors de l’écran pour quitter le mode à une seule main</string>
 </resources>

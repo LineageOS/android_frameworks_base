@@ -68,7 +68,7 @@
   <string name="left_shortcut_hint">Deslizar a la derecha para %1$s</string>
   <string name="right_shortcut_hint">Deslizar a la izquierda para %1$s</string>
   <string name="lockscreen_message">Pulsar un icono a la izquierda o derecha para reasignar un atajo de la pantalla bloqueada.</string>
-  <string name="lockscreen_default_target">Predeterminado</string>
+  <string name="lockscreen_default_target">Predefinido</string>
   <string name="select_application">Selecciona una aplicación</string>
   <string name="lockscreen_choose_action_title">Elegir acción</string>
   <string name="lockscreen_none_target">Ninguna</string>
