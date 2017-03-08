@@ -293,6 +293,8 @@ public final class ActivityThread {
     // The lock of mProviderMap protects the following variables.
     final ArrayMap<ProviderKey, ProviderClientRecord> mProviderMap
         = new ArrayMap<ProviderKey, ProviderClientRecord>();
+    final ArrayMap<ProviderKey, ProviderAcquiringCount> mProviderAcquiringCountMap
+        = new ArrayMap<>();
     final ArrayMap<IBinder, ProviderRefCount> mProviderRefCountMap
         = new ArrayMap<IBinder, ProviderRefCount>();
     final ArrayMap<IBinder, ProviderClientRecord> mLocalProviders
@@ -3832,6 +3834,14 @@ public final class ActivityThread {
         }
     }
 
+    static final class ProviderAcquiringCount {
+        public int acquiringCount;
+
+        ProviderAcquiringCount(int aCount) {
+            acquiringCount = aCount;
+        }
+    }
+
     /**
      * Core implementation of stopping an activity.  Note this is a little
      * tricky because the server's meaning of stop is slightly different
@@ -5495,9 +5505,21 @@ public final class ActivityThread {
 
     public final IContentProvider acquireProvider(
             Context c, String auth, int userId, boolean stable) {
-        final IContentProvider provider = acquireExistingProvider(c, auth, userId, stable);
+        final ProviderKey key = new ProviderKey(auth, userId);
+        final IContentProvider provider = acquireExistingProvider(c, key, stable);
         if (provider != null) {
             return provider;
+        }
+
+        ProviderAcquiringCount pac;
+        synchronized (mProviderMap) {
+            pac = mProviderAcquiringCountMap.get(key);
+            if (pac == null) {
+                pac = new ProviderAcquiringCount(1);
+                mProviderAcquiringCountMap.put(key, pac);
+            } else {
+                pac.acquiringCount++;
+            }
         }
 
         // There is a possible race here.  Another thread may try to acquire
@@ -5507,11 +5529,17 @@ public final class ActivityThread {
         // provider since it might take a long time to run and it could also potentially
         // be re-entrant in the case where the provider is in the same process.
         IActivityManager.ContentProviderHolder holder = null;
-        try {
-            holder = ActivityManagerNative.getDefault().getContentProvider(
-                    getApplicationThread(), auth, userId, stable);
-        } catch (RemoteException ex) {
-            throw ex.rethrowFromSystemServer();
+        synchronized (pac) {
+            try {
+                holder = ActivityManagerNative.getDefault().getContentProvider(
+                        getApplicationThread(), auth, userId, stable);
+            } catch (RemoteException ex) {
+            }
+        }
+        synchronized (mProviderMap) {
+            if(--pac.acquiringCount == 0) {
+                mProviderAcquiringCountMap.remove(key);
+            }
         }
         if (holder == null) {
             Slog.e(TAG, "Failed to find provider info for " + auth);
@@ -5595,8 +5623,12 @@ public final class ActivityThread {
 
     public final IContentProvider acquireExistingProvider(
             Context c, String auth, int userId, boolean stable) {
+        return acquireExistingProvider(c, new ProviderKey(auth, userId), stable);
+    }
+
+    public final IContentProvider acquireExistingProvider(
+            Context c, ProviderKey key, boolean stable) {
         synchronized (mProviderMap) {
-            final ProviderKey key = new ProviderKey(auth, userId);
             final ProviderClientRecord pr = mProviderMap.get(key);
             if (pr == null) {
                 return null;
@@ -5607,7 +5639,7 @@ public final class ActivityThread {
             if (!jBinder.isBinderAlive()) {
                 // The hosting process of the provider has died; we can't
                 // use this one.
-                Log.i(TAG, "Acquiring provider " + auth + " for user " + userId
+                Log.i(TAG, "Acquiring provider " + key.authority + " for user " + key.userId
                         + ": existing object's process dead");
                 handleUnstableProviderDiedLocked(jBinder, true);
                 return null;
