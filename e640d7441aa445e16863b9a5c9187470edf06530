@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da6255ed_63311ea2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-03-09T10:47:20Z",
+      "side": 1,
+      "message": "You are not the author of this!\nhttps://android.googlesource.com/platform/frameworks/base/+/d22261fef84481651e12995062105239d551cbc6%5E%21/#F0",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "e640d7441aa445e16863b9a5c9187470edf06530",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6255ed_43261a6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-03-09T10:47:20Z",
+      "side": 1,
+      "message": "add a white line after this",
+      "revId": "e640d7441aa445e16863b9a5c9187470edf06530",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6255ed_c3020ab4",
+        "filename": "services/java/com/android/server/LocationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2387,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-03-09T10:47:20Z",
+      "side": 1,
+      "message": "Whitespace issue",
+      "range": {
+        "startLine": 2387,
+        "startChar": 0,
+        "endLine": 2387,
+        "endChar": 24
+      },
+      "revId": "e640d7441aa445e16863b9a5c9187470edf06530",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6255ed_a3ff16aa",
+        "filename": "services/java/com/android/server/LocationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2392,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-03-09T10:47:20Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 2392,
+        "startChar": 0,
+        "endLine": 2392,
+        "endChar": 1
+      },
+      "revId": "e640d7441aa445e16863b9a5c9187470edf06530",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6255ed_832c124c",
+        "filename": "services/java/com/android/server/LocationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2398,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-03-09T10:47:20Z",
+      "side": 1,
+      "message": "tabs instead of spaces",
+      "range": {
+        "startLine": 2398,
+        "startChar": 0,
+        "endLine": 2398,
+        "endChar": 3
+      },
+      "revId": "e640d7441aa445e16863b9a5c9187470edf06530",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
