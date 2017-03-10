@@ -290,6 +290,7 @@ public class NotificationManagerService extends SystemService {
     // for enabling and disabling notification pulse behavior
     private boolean mScreenOn = true;
     private boolean mInCall = false;
+    private boolean mIsMissedCall = false;
     private boolean mNotificationPulseEnabled;
     private ArrayMap<String, NotificationLedValues> mNotificationPulseCustomLedValues;
     private Map<String, String> mPackageNameMappings;
@@ -3834,6 +3835,11 @@ public class NotificationManagerService extends SystemService {
             if (ledNotification == null) {
                 Slog.wtfStack(TAG, "LED Notification does not exist: " + owner);
                 mLights.remove(owner);
+            } else {
+                Notification mc = ledNotification.sbn.getNotification();
+                if (mc.extras != null) {
+                    mIsMissedCall = mc.extras.getBoolean("missed_call", false);
+                }
             }
         }
 
@@ -3845,9 +3851,13 @@ public class NotificationManagerService extends SystemService {
         } else if (isLedNotificationForcedOn(ledNotification)) {
             enableLed = true;
         } else if (!mScreenOnEnabled && (mInCall || mScreenOn)) {
-            enableLed = false;
+            enableLed = !mInCall && !mScreenOn && mIsMissedCall;
         } else {
             enableLed = true;
+        }
+
+        if (!mInCall && !mScreenOn && mIsMissedCall) {
+            mIsMissedCall = false;
         }
 
         if (!enableLed) {
