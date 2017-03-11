@@ -1221,17 +1221,17 @@ public abstract class NotificationListenerService extends Service {
                 case IMPORTANCE_MIN:
                     return 1;
                 case IMPORTANCE_VERY_LOW:
-                    return 2;
-                case IMPORTANCE_LOW:
-                    return 3;
-                case IMPORTANCE_DEFAULT:
-                    return 4;
-                case IMPORTANCE_HIGH:
-                    return 5;
-                case IMPORTANCE_MAX:
                     return 6;
-                default:
+                case IMPORTANCE_LOW:
+                    return 2;
+                case IMPORTANCE_DEFAULT:
+                    return 3;
+                case IMPORTANCE_HIGH:
                     return 4;
+                case IMPORTANCE_MAX:
+                    return 5;
+                default:
+                    return 3;
             }
         }
 
@@ -1244,15 +1244,15 @@ public abstract class NotificationListenerService extends Service {
                     return IMPORTANCE_NONE;
                 case 1:
                     return IMPORTANCE_MIN;
-                case 2:
-                    return IMPORTANCE_VERY_LOW;
-                case 3:
-                    return IMPORTANCE_LOW;
-                case 4:
-                    return IMPORTANCE_DEFAULT;
-                case 5:
-                    return IMPORTANCE_HIGH;
                 case 6:
+                    return IMPORTANCE_VERY_LOW;
+                case 2:
+                    return IMPORTANCE_LOW;
+                case 3:
+                    return IMPORTANCE_DEFAULT;
+                case 4:
+                    return IMPORTANCE_HIGH;
+                case 5:
                     return IMPORTANCE_MAX;
                 default:
                     return IMPORTANCE_UNSPECIFIED;
