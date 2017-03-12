@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_ae05c315",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-03-12T02:30:11Z",
+      "side": 0,
+      "message": "Unnecessary change",
+      "revId": "3572432232eec4d41f0dc865ba3d48cb5afb19d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

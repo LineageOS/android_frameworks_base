@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_ce08f72f",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-03-12T02:30:11Z",
+      "side": 1,
+      "message": "m-prefixed variable names are for member variables. Rename this to just torchCallback to avoid confusion and to keep with the coding standard.",
+      "range": {
+        "startLine": 96,
+        "startChar": 30,
+        "endLine": 96,
+        "endChar": 44
+      },
+      "revId": "c430d66d876466bf31d440860ef2266e5d24e35a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
