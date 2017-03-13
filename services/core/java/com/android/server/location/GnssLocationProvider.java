@@ -1467,7 +1467,7 @@ public class GnssLocationProvider implements LocationProviderInterface {
 
             // reset SV count to zero
             updateStatus(LocationProvider.TEMPORARILY_UNAVAILABLE, 0);
-            mFixRequestTime = System.currentTimeMillis();
+            mFixRequestTime = SystemClock.elapsedRealtime(); //return milliseconds since boot
             if (!hasCapability(GPS_CAPABILITY_SCHEDULING)) {
                 // set timer to give up if we do not receive a fix within NO_FIX_TIMEOUT
                 // and our fix interval is not short
@@ -1565,7 +1565,7 @@ public class GnssLocationProvider implements LocationProviderInterface {
             }
         }
 
-        mLastFixTime = System.currentTimeMillis();
+        mLastFixTime = SystemClock.elapsedRealtime(); //return milliseconds since boot
         // report time to first fix
         if (mTimeToFirstFix == 0 && (flags & LOCATION_HAS_LAT_LONG) == LOCATION_HAS_LAT_LONG) {
             mTimeToFirstFix = (int)(mLastFixTime - mFixRequestTime);
