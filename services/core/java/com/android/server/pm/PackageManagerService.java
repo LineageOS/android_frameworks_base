@@ -771,6 +771,9 @@ public class PackageManagerService extends IPackageManager.Stub {
 
     private UserManagerInternal mUserManagerInternal;
 
+    private static final ComponentName FALLBACK_HOME_COMPONENT = new ComponentName(
+            "com.android.settings", "com.android.settings.FallbackHome");
+
     private static class IFVerificationParams {
         PackageParser.Package pkg;
         boolean replacing;
@@ -20943,6 +20946,13 @@ Slog.v(TAG, ":: stepped forward, applying functor at tag " + parser.getName());
                         CMSettings.Secure.PROTECTED_COMPONENT_MANAGERS, "|");
         if (protectedComponentManagers.contains(callingPackage)) {
             if (DEBUG_PROTECTED) Log.d(TAG, "Calling package is a protected manager, allow");
+            return false;
+        }
+
+        // FallbackHome is started on boot. If we block it, we will never finish booting
+        if (callingUid == 0 && FALLBACK_HOME_COMPONENT.equals(componentName)) {
+            if (DEBUG_PROTECTED) Log.d(TAG, "Letting callinguid 0 start " +
+                    componentName.flattenToShortString());
             return false;
         }
 
