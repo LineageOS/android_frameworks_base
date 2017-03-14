@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_32f80de5",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-03-14T17:21:13Z",
+      "side": 1,
+      "message": "Given this",
+      "revId": "a723309a1f1932010caefab6eaa351773e8c39a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_12dd0971",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-03-14T17:21:13Z",
+      "side": 1,
+      "message": "and this",
+      "revId": "a723309a1f1932010caefab6eaa351773e8c39a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_f2d95584",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-03-14T17:21:13Z",
+      "side": 1,
+      "message": "..could you move the wakelock code here into the onTorchModeChanged() and onTorchModeUnavailable() callbacks that you create above ?",
+      "revId": "a723309a1f1932010caefab6eaa351773e8c39a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
