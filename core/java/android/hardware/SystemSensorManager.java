@@ -16,12 +16,10 @@
 
 package android.hardware;
 
-import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.MessageQueue;
@@ -49,6 +47,7 @@ import java.util.Map;
 public class SystemSensorManager extends SensorManager {
     //TODO: disable extra logging before release
     private static boolean DEBUG_DYNAMIC_SENSOR = true;
+    private static final int MAX_LISTENER_COUNT = 128;
 
     private static native void nativeClassInit();
     private static native long nativeCreate(String opPackageName);
@@ -144,6 +143,11 @@ public class SystemSensorManager extends SensorManager {
             Log.e(TAG, "maxBatchReportLatencyUs and delayUs should be non-negative");
             return false;
         }
+        if (mSensorListeners.size() >= MAX_LISTENER_COUNT) {
+            throw new IllegalStateException("register failed, " +
+                "the sensor listeners size has exceeded the maximum limit " +
+                MAX_LISTENER_COUNT);
+        }
 
         // Invariants to preserve:
         // - one Looper per SensorEventListener
@@ -203,6 +207,12 @@ public class SystemSensorManager extends SensorManager {
         if (listener == null) throw new IllegalArgumentException("listener cannot be null");
 
         if (sensor.getReportingMode() != Sensor.REPORTING_MODE_ONE_SHOT) return false;
+
+        if (mTriggerListeners.size() >= MAX_LISTENER_COUNT) {
+            throw new IllegalStateException("request failed, " +
+                    "the trigger listeners size has exceeded the maximum limit " +
+                    MAX_LISTENER_COUNT);
+        }
 
         synchronized (mTriggerListeners) {
             TriggerEventQueue queue = mTriggerListeners.get(listener);
