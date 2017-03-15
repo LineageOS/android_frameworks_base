@@ -137,4 +137,5 @@
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">Ekoizlearen irudia bat ez datorrela antzeman da. Normalean irudia zaharkituta dagoela esan nahi du. Ziurtatu ekoizlearen irudia <xliff:g id="fingerprint">%1$s</xliff:g> honekin bat datorrela.</string>
   <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Ukitu pantailatik kanpo esku bakarreko modutik ateratzeko</string>
 </resources>

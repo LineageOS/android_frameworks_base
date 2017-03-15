@@ -22,7 +22,7 @@
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">Lluminositat</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Ajustaments de llum</string>
+  <string name="led_notification_title">Configuració de llums</string>
   <string name="led_notification_text">Llum LED habilitada per ajustos</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">La llanterna està encesa</string>

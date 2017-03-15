@@ -25,11 +25,44 @@
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_summary">Calca p\'apagala</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
+  <string name="cm_power_notification_controls_description">Colos controles d\'avisu d\'enerxía, pues afitar el nivel d\'importancia dende\'l 0 al 6 pa los avisos d\'una aplicación.
+        \n\n<b>Nivel 6</b>
+        \n- Amuésense no cimero\'l llistáu d\'avisos
+        \n- Permiten la interrupción de pantalla completa
+        \n- Siempres son intrusives
+        \n\n<b>Nivel 5</b>
+        \n- Eviten la interrupción de pantalla completa
+        \n- Siempres son intrusives
+        \n\n<b>Nivel 4</b>
+        \n- Eviten la interrupción de pantalla completa
+        \n- Enxamás son intrusives
+        \n\n<b>Nivel 3</b>
+        \n- Eviten la interrupción de pantalla completa
+        \n- Enxamás son intrusives
+        \n- Enxamás suenen o vibren
+        \n\n<b>Nivel 2</b>
+        \n- Eviten la interrupción de pantalla completa
+        \n- Enxamás son intrusives
+        \n- Enxamás suenen o vibren
+        \n- Anúbrense de la pantalla de bloquéu
+        \n- Amuésense no baxero\'l llistáu d\'avisos
+        \n\n<b>Nivel 1</b>
+        \n- Eviten la interrupción de pantalla completa
+        \n- Enxamás son intrusives
+        \n- Enxamás suenen o vibren
+        \n- Anúbrense de la pantalla de bloquéu y barra d\'estáu
+        \n- Amuésense no baxero\'l llistáu d\'avisos
+        \n\n<b>Nivel 0</b>
+        \n- Blóquiense tolos avisos d\'esta aplicación
+    </string>
   <!-- Notification importance level title-->
   <string name="importance_level_title">Importancia: Nivel %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">Ensin interrupción de pantalla completa, intrusión, soníu o vibración. Anubrir de la pantalla de bloquéu.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <!-- Strings for lockscreen shortcut hints -->
+  <string name="select_application">Esbillar aplicación</string>
+  <string name="lockscreen_choose_action_title">Escoyer aición</string>
   <!-- Play queue -->
   <!-- Weather string format in keyguard -->
   <!-- NavBar Tuner -->
@@ -51,7 +84,7 @@
     <!-- STREAM_VOICE_CALL -->
     <item>Sistema</item>
     <!-- STREAM_SYSTEM -->
-    <item>Ring</item>
+    <item>Timbre</item>
     <!-- STREAM_RING -->
     <item>Medios</item>
     <!-- STREAM_MUSIC -->

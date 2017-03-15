@@ -20,6 +20,7 @@
   <!-- Long-press back kill application -->
   <!-- label for item that screenshots in phone options dialog -->
   <!-- label for item that restarts the phone in phone options dialog -->
+  <string name="global_action_reboot">Reaniciar</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Actual</string>
   <!-- status message in phone options dialog for screenshot action -->
@@ -33,8 +34,11 @@
   <!-- Button to soft restart the device, within the Restart Options dialog -->
   <string name="reboot_soft">Reaniciu suave</string>
   <!-- Title of dialog to confirm restarting. -->
+  <string name="reboot_title">Reaniciu</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">Reaniciaráse la to tableta.</string>
+  <string name="reboot_confirm" product="default">Reaniciaráse\'l to teléfonu.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
   <string name="reboot_progress">Reaniciando\u2026</string>
   <!-- ADB over network notification -->
@@ -93,5 +97,7 @@
   <string name="notify_package_component_protected_title">Bloquióse\'l llanzamientu de l\'actividá</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Deteutóse una imaxe del fabricante que nun coincide. Davezu, esto quier dicir que la to imaxe del fabricante ta desanovada. Asegúrate que concasen con <xliff:g id="fingerprint">%1$s</xliff:g>, por favor.</string>
   <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Toca fuera la pantalla pa colar del mou d\'una mano</string>
 </resources>

@@ -55,7 +55,7 @@
         \n- Вимкнути звук і вібросигнал
         \n- Не показувати на заблокованому екрані та в рядку стану
         \n- Показувати сповіщення внизу списку
-        \n\n<b>Level 0</b>
+        \n\n<b>Рівень 0</b>
         \n- Блокувати всі сповіщення з додатка
     </string>
   <!-- Notification importance level title-->
@@ -71,7 +71,7 @@
   <string name="lockscreen_default_target">За замовчуванням</string>
   <string name="select_application">Вибрати програму</string>
   <string name="lockscreen_choose_action_title">Виберіть дію</string>
-  <string name="lockscreen_none_target">НІчого</string>
+  <string name="lockscreen_none_target">Нічого</string>
   <!-- Play queue -->
   <string name="play_queue_extension">Показати чергу відтворення</string>
   <!-- Weather string format in keyguard -->

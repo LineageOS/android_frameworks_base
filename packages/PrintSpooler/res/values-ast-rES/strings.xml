@@ -17,39 +17,54 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Title of the PrintSpooler application. [CHAR LIMIT=50] -->
   <!-- Label of the print dialog's button for more print options. [CHAR LIMIT=25] -->
+  <string name="more_options_button">Más opciones</string>
   <!-- Label of the destination widget. [CHAR LIMIT=20] -->
+  <string name="label_destination">Destín</string>
   <!-- Label of the copies count widget. [CHAR LIMIT=20] -->
+  <string name="label_copies">Copies</string>
   <!-- Label of the copies count for the print options summary. [CHAR LIMIT=20] -->
+  <string name="label_copies_summary">Copies:</string>
   <!-- Label of the paper size widget. [CHAR LIMIT=20] -->
   <!-- Label of the paper size for the print options summary. [CHAR LIMIT=20] -->
   <!-- Label of the color mode widget. [CHAR LIMIT=20] -->
+  <string name="label_color">Color</string>
   <!-- Label of the printer mode to print on both sides of paper. [CHAR LIMIT=20] -->
   <!-- Label of the orientation widget. [CHAR LIMIT=20] -->
   <!-- Label of the page selection widget. [CHAR LIMIT=20] -->
+  <string name="label_pages">Páxines</string>
   <!-- Label of the destination widget. [CHAR LIMIT=20] -->
   <!-- Template for the all pages option in the page selection widget. [CHAR LIMIT=20] -->
   <!-- Template for the page range option in the page selection widget. [CHAR LIMIT=20] -->
+  <string name="template_page_range">Rangu de <xliff:g id="page_count" example="100">%1$s</xliff:g></string>
   <!-- Page range exmple used as a hint of how to specify such. [CHAR LIMIT=20] -->
   <!-- Title for the pring preview button .[CHAR LIMIT=30] -->
   <!-- Title for the pring preview button if there is no PDF viewer isntalled. [CHAR LIMIT=50] -->
   <!-- Title of the message that the printing application crashed. [CHAR LIMIT=50] -->
   <!-- Title for the temporary dialog show while an app is generating a print job. [CHAR LIMIT=30] -->
+  <string name="generating_print_job">Xenerando trabayu d\'imprentación</string>
   <!-- Title for the save as PDF option in the printer list. [CHAR LIMIT=30] -->
+  <string name="save_as_pdf">Guardar como PDF</string>
   <!-- Title for the open all printers UI option in the printer list. [CHAR LIMIT=30] -->
+  <string name="all_printers">Toles imprentadores&#8230;</string>
   <!-- Title for the print dialog announced to the user for accessibility. Not shown in the UI. [CHAR LIMIT=none] -->
+  <string name="print_dialog">Diálogu d\'imprentación</string>
   <!-- Template for the message that shows the current page out of the total number of pages [CHAR LIMIT=none] -->
   <!-- Description of the current page - spoken to the user [CHAR LIMIT=none] -->
   <!-- Template for the message to announce the print options summary - spoken to the user. [CHAR LIMIT=none] -->
   <!-- Description for the handle to expand all print options - spoken to the user. [CHAR LIMIT=none] -->
   <!-- Description for the handle to collapse all print options - spoken to the user. [CHAR LIMIT=none] -->
   <!-- Description for the print button - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="print_button">Imprentar</string>
   <!-- Description for the save to PDF button - spoken to the user. [CHAR LIMIT=none] -->
   <!-- Message to announce print options are expanded - spoken to the user. [CHAR LIMIT=none] -->
   <!-- Message to announce print options are collapsed - spoken to the user. [CHAR LIMIT=none] -->
   <!-- Select printer activity -->
   <!-- Title for the share action bar menu item. [CHAR LIMIT=20] -->
+  <string name="search">Guetar</string>
   <!-- Title for the select printer activity. [CHAR LIMIT=30] -->
+  <string name="all_printers_label">Toles imprentadores</string>
   <!-- Title of the button to install a print service. [CHAR LIMIT=25] -->
+  <string name="add_print_service_label">Amestar serviciu</string>
   <!-- Utterance to announce that the search box is shown. This is spoken to a blind user. [CHAR LIMIT=none] -->
   <!-- Utterance to announce that the search box is hidden. This is spoken to a blind user. [CHAR LIMIT=none] -->
   <!-- Label of add printers button when no printers are found. [CHAR LIMIT=25] -->
@@ -75,9 +90,11 @@
   <!-- Notifications -->
   <!-- Template for the notification label for a printing print job. [CHAR LIMIT=25] -->
   <!-- Template for the notification label for a cancelling print job. [CHAR LIMIT=25] -->
+  <string name="cancelling_notification_title_template">Encaboxando <xliff:g id="PRINT_JOB_NAME">%1$s</xliff:g></string>
   <!-- Template for the notification label for a failed print job. [CHAR LIMIT=25] -->
   <!-- Template for the notification label for a blocked print job. [CHAR LIMIT=25] -->
   <!-- Label for the notification button for cancelling a print job. [CHAR LIMIT=25] -->
+  <string name="cancel">Encaboxar</string>
   <!-- Label for the notification button for restarting a filed print job. [CHAR LIMIT=25] -->
   <!-- Message that there is no connection to a printer. [CHAR LIMIT=40] -->
   <!-- Label for an unknown reason for failed or blocked print job. [CHAR LIMIT=25] -->

@@ -58,7 +58,7 @@
         \n\n<b>Level 0</b>
         \n- חוסם את כל ההתראות מהיישום    </string>
   <!-- Notification importance level title-->
-  <string name="importance_level_title">מידת חשיבות: %1$d</string>
+  <string name="importance_level_title">מידת חשיבות: רמה %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <string name="notification_importance_very_low">ללא התרעה במסך מלא, הפעלת מסך בקבלת התראה, קול, ורטט. יוסתר ממסך הנעילה.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->

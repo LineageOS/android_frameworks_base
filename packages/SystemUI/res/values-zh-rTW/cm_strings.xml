@@ -61,7 +61,7 @@
   <!-- Notification importance level title-->
   <string name="importance_level_title">重要性︰級別 %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">無全螢幕中斷、窺視、聲音或震動。 從螢幕鎖定中隱藏。</string>
+  <string name="notification_importance_very_low">無全螢幕中斷、窺視、聲音或震動。 從鎖定畫面中隱藏。</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">此功能會固定螢幕顯示直到您取消固定。觸控並長按 [返回] 鍵即可解除固定。</string>
   <!-- Strings for lockscreen shortcut hints -->

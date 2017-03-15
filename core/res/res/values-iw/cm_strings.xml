@@ -43,7 +43,7 @@
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
   <string name="reboot_confirm" product="tablet">הטאבלט יופעל מחדש.</string>
-  <string name="reboot_confirm" product="default">המכשיר יופעל מחדש.</string>
+  <string name="reboot_confirm" product="default">מכשירך יופעל מחדש.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
   <string name="reboot_progress">מאתחל\u2026</string>
   <!-- ADB over network notification -->
@@ -65,7 +65,7 @@
   <string name="app_ops_access_camera">גישה למצלמה</string>
   <string name="app_ops_access_location">גישה למיקום שלך</string>
   <string name="app_ops_access_notifications">קריאת ההתראות שלך</string>
-  <string name="app_ops_activate_vpn">הפעלת VPN</string>
+  <string name="app_ops_activate_vpn">הפעל VPN</string>
   <string name="app_ops_auto_start">התחל פעילות בהדלקת המכשיר</string>
   <string name="app_ops_delete_call_log">מחיקת יומן השיחות שלך</string>
   <string name="app_ops_delete_contacts">מחיקת אנשי הקשר שלך</string>
@@ -126,7 +126,7 @@
   <string name="app_ops_write_external_storage">כתוב לאחסון חיצוני</string>
   <string name="app_ops_turn_on_screen">הפעל המסך</string>
   <string name="app_ops_get_accounts">קבל חשבונות מכשיר</string>
-  <string name="app_ops_run_in_background">הרץ ברקע</string>
+  <string name="app_ops_run_in_background">פועל ברקע</string>
   <string name="app_ops_wifi_change">שנה מצב Wi-Fi</string>
   <string name="app_ops_su">קבלת גישת שורש (Root)</string>
   <!-- Protected Apps Notification -->
