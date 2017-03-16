@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_bed726ed",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-03-16T15:40:40Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "f53b1ed6e9d34fc10bad2bdfa5f53b7b34746047",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_9e04627f",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-03-16T15:40:40Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "f53b1ed6e9d34fc10bad2bdfa5f53b7b34746047",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_7e09ae94",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-03-16T15:40:40Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "f53b1ed6e9d34fc10bad2bdfa5f53b7b34746047",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
