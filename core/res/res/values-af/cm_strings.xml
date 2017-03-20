@@ -22,11 +22,14 @@
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">Skermfoto</string>
   <!-- label for item that restarts the phone in phone options dialog -->
+  <string name="global_action_reboot">Herbegin</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Huidige</string>
   <!-- status message in phone options dialog for screenshot action -->
+  <string name="global_actions_screenshot_status">Lang-druk vir gedeeltelike skermskoot</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
+  <string name="reboot_reboot">Herbegin</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <string name="reboot_recovery">Recovery</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
@@ -34,10 +37,15 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">Download</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">Sag herlaai</string>
   <!-- Title of dialog to confirm restarting. -->
+  <string name="reboot_title">Herbegin</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">Jou tablet sal herbegin.</string>
+  <string name="reboot_confirm" product="default">Jou foon sal herbegin.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+  <string name="reboot_progress">Herbegin tans\u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB oor netwerk is aktief</string>
   <!-- ADB over USB and network notification -->
@@ -118,6 +126,7 @@
   <string name="app_ops_write_external_storage">skryf eksterne spasie</string>
   <string name="app_ops_turn_on_screen">skakel skerm aan</string>
   <string name="app_ops_get_accounts">kry toestel rekeninge</string>
+  <string name="app_ops_run_in_background">loop in die agtergrond</string>
   <string name="app_ops_wifi_change">verander Wi-Fi status</string>
   <string name="app_ops_su">kry root toegang</string>
   <!-- Protected Apps Notification -->
@@ -126,5 +135,7 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Om die skerm te ontspeld, raak en hou die Terug knoppie.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">\'n Teenstrydigheid in die verskaffer beeld is opgespoor. Gewoonlik beteken dat jou verskaffer beeld verouderd is. Maak asseblief seker jou verskaffer beeld stem met <xliff:g id="fingerprint">%1$s </xliff:g> ooreen.</string>
   <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Raak buite die skerm om enkelhandmodus te verlaat</string>
 </resources>

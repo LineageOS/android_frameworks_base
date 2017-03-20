@@ -26,7 +26,7 @@
   <string name="led_notification_text">Luz LED activada por ajustes</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">La linterna está encendida</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Pulsar para apagarla</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Pulsa para apagar</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
   <string name="cm_power_notification_controls_description">Los controles de energía de las notificaciones, permiten establecer un nivel de importancia de 0 a 6 para las notificaciones de la aplicaciones.
         \n\n<b>Nivel 6</b>
@@ -67,7 +67,7 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Deslizar a la derecha para %1$s</string>
   <string name="right_shortcut_hint">Deslizar a la izquierda para %1$s</string>
-  <string name="lockscreen_message">Pulsar un icono a la izquierda o derecha para reasignar un atajo de la pantalla bloqueada.</string>
+  <string name="lockscreen_message">Pulsa el icono de la izquierda o derecha para reasignar un atajo a la pantalla de bloqueo.</string>
   <string name="lockscreen_default_target">Predefinido</string>
   <string name="select_application">Selecciona una aplicación</string>
   <string name="lockscreen_choose_action_title">Elegir acción</string>

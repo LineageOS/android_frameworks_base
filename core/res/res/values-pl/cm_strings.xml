@@ -136,4 +136,5 @@
   <string name="lock_to_app_toast_no_navbar">Aby odpiąć ekran, dotknij i przytrzymaj przycisk Wstecz.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Dotknij miejsca poza ekranem, by opuścić tryb obsługi jedną ręką</string>
 </resources>

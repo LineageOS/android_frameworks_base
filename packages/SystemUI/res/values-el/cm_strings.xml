@@ -92,6 +92,28 @@
   <!-- Weather string format in expanded statusbar header -->
   <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <!-- Volume stream titles - should match the string-array in AOSP -->
+  <string-array name="volume_stream_titles_lineage">
+    <item>Κλήση</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>Σύστημα</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Ήχος κλήσης</item>
+    <!-- STREAM_RING -->
+    <item>Μέσα</item>
+    <!-- STREAM_MUSIC -->
+    <item>Ξυπνητήρι</item>
+    <!-- STREAM_ALARM -->
+    <item>Ειδοποίηση</item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- Text to use when the number in a notification info is too large

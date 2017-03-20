@@ -135,5 +135,7 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε και κρατήστε πατημένο το πλήκτρο Πίσω.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Εντοπίστηκε μια ασυμφωνία κατάτμησης vendor. Συνήθως αυτό σημαίνει ότι η κατάτμηση vendor της συσκευής σας δεν είναι ενημερωμένη. Παρακαλούμε βεβαιωθείτε ότι έχετε ενημερώσει την κατάτμηση vendor στην έκδοση <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Αγγίξτε έξω από την οθόνη για να βγείτε από την λειτουργία ενός χεριού</string>
 </resources>

@@ -70,23 +70,38 @@
   <!-- Label of add printers button when no printers are found. [CHAR LIMIT=25] -->
   <!-- Title of the menu item to select a printer. [CHAR LIMIT=25] -->
   <!-- Title of the menu item to forget a printer. [CHAR LIMIT=25] -->
+  <string name="print_forget_printer">Escacer imprentadora</string>
   <!-- Utterance to announce a change in the number of matches during a search. This is spoken to a blind user. [CHAR LIMIT=none] -->
   <!-- Template for an extended description of a printer. [CHAR LIMIT=50] -->
+  <string name="printer_extended_description_template"><xliff:g id="print_service_label" example="Canon Print Service">%1$s</xliff:g> - <xliff:g id="printer_description" example="Printer under the stairs">%2$s</xliff:g></string>
   <!-- Description of printer info icon. [CHAR LIMIT=50] -->
+  <string name="printer_info_desc">Más información tocante a esta imprentadora</string>
   <!-- Notification that we could not create a file name for the printed PDF. [CHAR LIMIT=50] -->
+  <string name="could_not_create_file">Nun pudo crease\'l ficheru</string>
   <!-- Notification that print services as disabled. [CHAR LIMIT=50] -->
+  <string name="print_services_disabled_toast">Deshabilitáronse dellos servicios d\'imprentación</string>
   <!-- Title for the prompt shown as a placeholder if no printers are found while not searching. [CHAR LIMIT=50] -->
   <!-- Title for the prompt shown as a placeholder if there are no print services. [CHAR LIMIT=50] -->
+  <string name="print_no_print_services">Nun s\'habilitaron servicios d\'imprentación</string>
   <!-- Title for the prompt shown as a placeholder if there are no printers while searching. [CHAR LIMIT=50] -->
   <!-- Add printer activity -->
   <!-- Subtitle for services that cannot add printers. [CHAR LIMIT=50] -->
+  <string name="cannot_add_printer">Nun puen amestase imprentadores</string>
   <!-- Subtitle for services that can add printers. [CHAR LIMIT=50] -->
   <!-- Subtitle for disabled services. [CHAR LIMIT=50] -->
   <!-- Header for the list of enabled print services. [CHAR LIMIT=50] -->
+  <string name="enabled_services_title">Servicios habilitaos</string>
   <!-- Header for the list of recommended print services. [CHAR LIMIT=50] -->
+  <string name="recommended_services_title">Servicios aconseyaos</string>
   <!-- Header for the list of disabled print services. [CHAR LIMIT=50] -->
+  <string name="disabled_services_title">Servicios deshabilitaos</string>
   <!-- Label for the list item that links to the list of all print services. [CHAR LIMIT=50] -->
+  <string name="all_services_title">Tolos servicios</string>
   <!-- Subtitle for a print service recommendation. [CHAR LIMIT=50] -->
+  <plurals name="print_services_recommendation_subtitle">
+    <item quantity="one">Instala pa descubrir <xliff:g id="count" example="1">%1$s</xliff:g> imprentadora</item>
+    <item quantity="other">Instala pa descubrir <xliff:g id="count" example="2">%1$s</xliff:g> imprentadores</item>
+  </plurals>
   <!-- Notifications -->
   <!-- Template for the notification label for a printing print job. [CHAR LIMIT=25] -->
   <!-- Template for the notification label for a cancelling print job. [CHAR LIMIT=25] -->
@@ -101,9 +116,13 @@
   <!-- Title for a warning message about security implications of using a print service,
          displayed as a dialog message when the user prints using a print service that has not been
          used before. [CHAR LIMIT=NONE] -->
+  <string name="print_service_security_warning_title">¿Usar
+         <xliff:g id="service" example="My Print Service">%1$s</xliff:g>?</string>
   <!-- Summary for a warning message about security implications of using a print service,
          displayed as a dialog message when the user prints using a print service that has not been
          used before. [CHAR LIMIT=NONE] -->
+  <string name="print_service_security_warning_summary">Quiciabes el to documentu pase pente ún
+         o más servicios enantes d\'imprentase.</string>
   <!-- Arrays -->
   <!-- Color mode labels. -->
   <!-- Duplex mode labels. -->
@@ -115,6 +134,7 @@
   <!-- Message for the currently selected printer being unavailable. [CHAR LIMIT=100] -->
   <!-- Message for the case when a preview of a page cannot be loaded because the printing app
          provided a broken print preview rendering for this page. [CHAR LIMIT=50] -->
+  <string name="print_cannot_load_page">Nun pue amosase la previsualización</string>
   <!-- Long running operations -->
   <!-- Message long running operation when preparing print preview. [CHAR LIMIT=50] -->
 </resources>

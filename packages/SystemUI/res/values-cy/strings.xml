@@ -337,6 +337,9 @@
   <!-- QuickSettings: Label for the toggle to activate Night display (renamed "Night Light" with title caps). [CHAR LIMIT=20] -->
   <!-- QuickSettings: Summary for the toggle to deactivate Night display when it's on (renamed "Night Light" with title caps). [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Label for the toggle to activate Night display when it's off (renamed "Night Light" with title caps). [CHAR LIMIT=NONE] -->
+  <!-- QuickSettings: NFC tile [CHAR LIMIT=NONE] -->
+  <!-- QuickSettings: NFC (off) [CHAR LIMIT=NONE] -->
+  <!-- QuickSettings: NFC (on) [CHAR LIMIT=NONE] -->
   <!-- Recents: The empty recents string. [CHAR LIMIT=NONE] -->
   <!-- Recents: The empty recents string after dismissing all tasks. [CHAR LIMIT=NONE] -->
   <!-- Recents: The info panel app info button string. [CHAR LIMIT=NONE] -->

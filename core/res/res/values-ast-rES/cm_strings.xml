@@ -19,6 +19,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Long-press back kill application -->
   <!-- label for item that screenshots in phone options dialog -->
+  <string name="global_action_screenshot">Capturar pantalla</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Reaniciar</string>
   <!-- label for current user in phone options dialog -->
@@ -77,6 +78,7 @@
   <string name="app_ops_toggle_wifi">alternar Wi-Fi</string>
   <string name="app_ops_use_alarm_volume">controlar volume d\'alarma</string>
   <string name="app_ops_use_notification_volume">controlar el volume d\'avisu</string>
+  <string name="app_ops_use_ring_volume">controlar el volume del timbre</string>
   <string name="app_ops_write_mms">escribir un mensaxe MMS</string>
   <string name="app_ops_write_sms">escribir un mensaxe SMS</string>
   <string name="app_ops_use_fingerprint">usar buelga</string>
