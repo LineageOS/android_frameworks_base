@@ -64,11 +64,11 @@ public class ZenModeConfig implements Parcelable {
     public static final int MAX_SOURCE = SOURCE_STAR;
     private static final int DEFAULT_SOURCE = SOURCE_CONTACT;
 
-    public static final int[] ALL_DAYS = { Calendar.SUNDAY, Calendar.MONDAY, Calendar.TUESDAY,
-            Calendar.WEDNESDAY, Calendar.THURSDAY, Calendar.FRIDAY, Calendar.SATURDAY };
-    public static final int[] WEEKNIGHT_DAYS = { Calendar.SUNDAY, Calendar.MONDAY, Calendar.TUESDAY,
-            Calendar.WEDNESDAY, Calendar.THURSDAY };
-    public static final int[] WEEKEND_DAYS = { Calendar.FRIDAY, Calendar.SATURDAY };
+    public static final int[] ALL_DAYS = { Calendar.MONDAY, Calendar.TUESDAY,
+            Calendar.WEDNESDAY, Calendar.THURSDAY, Calendar.FRIDAY, Calendar.SATURDAY, Calendar.SUNDAY };
+    public static final int[] WEEKNIGHT_DAYS = { Calendar.MONDAY, Calendar.TUESDAY,
+            Calendar.WEDNESDAY, Calendar.THURSDAY, Calendar.FRIDAY };
+    public static final int[] WEEKEND_DAYS = { Calendar.FRIDAY, Calendar.SATURDAY, Calendar.SUNDAY };
 
     public static final int[] MINUTE_BUCKETS = generateMinuteBuckets();
     private static final int SECONDS_MS = 1000;
