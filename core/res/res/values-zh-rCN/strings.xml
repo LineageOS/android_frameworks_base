@@ -1254,9 +1254,6 @@
     <string name="car_mode_disable_notification_message" msgid="6301524980144350051">"点按即可退出车载模式。"</string>
     <string name="tethered_notification_title" msgid="3146694234398202601">"网络共享或热点已启用"</string>
     <string name="tethered_notification_message" msgid="2113628520792055377">"点按即可进行设置。"</string>
-    <string name="tethered_notification_no_device_message">"没有设备已连接。"</string>
-    <string name="tethered_notification_one_device_message">""<xliff:g id="count">%1$s</xliff:g>"个设备已连接。"</string>
-    <string name="tethered_notification_multi_device_message">""<xliff:g id="count">%1$s</xliff:g>"个设备已连接。"</string>
     <string name="back_button_label" msgid="2300470004503343439">"上一步"</string>
     <string name="next_button_label" msgid="1080555104677992408">"下一步"</string>
     <string name="skip_button_label" msgid="1275362299471631819">"跳过"</string>
