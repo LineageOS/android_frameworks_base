@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">Ekoizlearen irudia bat ez datorrela antzeman da. Normalean irudia zaharkituta dagoela esan nahi du. Ziurtatu ekoizlearen irudia <xliff:g id="fingerprint">%1$s</xliff:g> honekin bat datorrela.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Ukitu pantailatik kanpo esku bakarreko modutik ateratzeko</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Ez da gailurik konektatu</string>
+  <string name="tethered_notification_one_device_message">gailu <xliff:g id="count">%1$s</xliff:g> konektatuta</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> gailu konektatuta</string>
 </resources>

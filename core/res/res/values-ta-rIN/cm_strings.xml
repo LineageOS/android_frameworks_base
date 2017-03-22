@@ -127,4 +127,9 @@
   <string name="lock_to_app_toast_no_navbar">இந்த திரையை அன்பின் செய்ய, பின்செல் பொத்தானைத் தொட்டு பிடித்துக்கொள்.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">இணைக்கப்பட்ட சாதனம் இல்லை</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> இணைக்கப்பட்ட சாதனம்</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> இணைக்கப்பட்ட சாதனங்கள்</string>
 </resources>

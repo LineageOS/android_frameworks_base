@@ -133,4 +133,9 @@
   <string name="lock_to_app_toast_no_navbar">För att frigöra denna skärm, tryck och håll nere Bakåt-knappen.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Ingen ansluten enhet</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> ansluten enhet</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> anslutna enheter</string>
 </resources>

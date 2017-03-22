@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">ベンダーイメージの不一致を検出しました。ベンダーイメージが最新でない可能性があります。ベンダーイメージが<xliff:g id="fingerprint">%1$s</xliff:g>と一致しているか確認してください。</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">画面の外をタップすると片手モードを終了します</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">接続しているデバイスはありません</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g>台のデバイスが接続しています</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g>台のデバイスが接続しています</string>
 </resources>

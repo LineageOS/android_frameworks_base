@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">זוהתה חוסר התאמה בקושחת הספק (Firmware). בדרך כלל זה אומר שהיא צריכה עדכון. נא וודא שקושחת הספק שלך מתאימה ל־<xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">גע מחוץ למסך כדי לצאת ממצב שימוש ביד אחת</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">אין מכשירים מחוברים</string>
+  <string name="tethered_notification_one_device_message">מכשיר <xliff:g id="count">%1$s</xliff:g> מחובר</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> מכשירים מחוברים</string>
 </resources>

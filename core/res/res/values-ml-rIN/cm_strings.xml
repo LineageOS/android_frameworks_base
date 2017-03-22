@@ -127,4 +127,9 @@
   <string name="lock_to_app_toast_no_navbar">ഈ സ്ക്രീൻ വേര്‍തിരിക്കുക ചെയ്യുന്നതിന്, പിന്നിലേക്ക് ബട്ടൺ അമര്‍ത്തിപ്പിടിക്കുക.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">ബന്ധിപ്പിച്ച ഉപകരണം ഇല്ല</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> ബന്ധിപ്പിച്ച ഉപകരണം</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> ബന്ധിപ്പിച്ച ഉപകരണങ്ങൾ</string>
 </resources>

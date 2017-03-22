@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">Une discordance d\'image fournisseur a été détectée. En général, cela signifie que votre image fournisseur n\'est pas à jour. Veuillez vous assurer que votre image fournisseur correspond à <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Toucher en dehors de l’écran pour quitter le mode à une seule main</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Aucun appareil connecté</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> appareil connecté</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> appareils connectés</string>
 </resources>

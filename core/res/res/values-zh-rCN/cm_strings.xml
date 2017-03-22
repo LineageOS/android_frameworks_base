@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">检测到供应商映像不匹配。这通常意味着您的供应商映像是过时的。请确保您的供应商映像匹配 <xliff:g id="fingerprint">%1$s</xliff:g>。</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">触摸屏幕外缘退出单手模式</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">没有已连接设备</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> 个已连接的设备</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> 个已连接的设备</string>
 </resources>

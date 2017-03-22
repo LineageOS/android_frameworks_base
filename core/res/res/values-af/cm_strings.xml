@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">\'n Teenstrydigheid in die verskaffer beeld is opgespoor. Gewoonlik beteken dat jou verskaffer beeld verouderd is. Maak asseblief seker jou verskaffer beeld stem met <xliff:g id="fingerprint">%1$s </xliff:g> ooreen.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Raak buite die skerm om enkelhandmodus te verlaat</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Geen gekoppelde toestel</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> gekoppelde toestel</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> gekoppelde toestelle</string>
 </resources>

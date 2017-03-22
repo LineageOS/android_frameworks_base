@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">Gyártói kép eltérés észlelve. Ez jellemzően azt jelenti, hogy a gyártói kép elavult. Ellenőrizze, hogy a gyártói képe megfelel ennek: <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Koppintson a képernyőn kívülre az egykezes módból való kilépéshez</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Nincs csatlakoztatott készülék</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> csatlakoztatott eszköz</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> csatlakoztatott eszköz</string>
 </resources>

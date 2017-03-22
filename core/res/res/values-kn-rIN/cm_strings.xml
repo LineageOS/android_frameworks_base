@@ -127,4 +127,9 @@
   <string name="lock_to_app_toast_no_navbar">ಪರದೆಯನ್ನು ಅನ್‍ಪಿನ್‍ಮಾಡಲು, ಹಿಂದೆ ಬಟನ್‍ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">ಯಾವುದೇ ಸಂಪರ್ಕಗೊಂಡ ಸಾಧನವಿಲ್ಲ</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> ಸಂಪರ್ಕಗೊಳಿಸಿದ ಸಾಧನ</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> ಸಂಪರ್ಕಗೊಳಿಸಿದ ಸಾಧನಗಳು</string>
 </resources>

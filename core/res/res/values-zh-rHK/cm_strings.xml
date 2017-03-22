@@ -98,4 +98,7 @@
   <string name="lock_to_app_toast_no_navbar">要解鎖此螢幕，觸碰並按住返回鍵。</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">沒有已連接的裝置</string>
 </resources>

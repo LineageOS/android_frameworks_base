@@ -108,4 +108,9 @@
   <string name="lock_to_app_toast_no_navbar">इस स्क्रीन को अनपिन करने के लिए पीछे के बटन को कुछ देर के लिए छुएँ।</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">कोई जुड़ा हुआ उपकरण नहीं है</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> जुड़ा हुआ उपकरण</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> जुड़े हुए उपकरण</string>
 </resources>

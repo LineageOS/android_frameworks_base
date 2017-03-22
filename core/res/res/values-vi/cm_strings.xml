@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">Một hình ảnh nhà cung cấp không phù hợp đã được phát hiện. Thông thường, điều này có nghĩa là hình ảnh nhà cung cấp của bạn hết hạn. Vui lòng đảm bảo rằng hình ảnh nhà cung cấp của bạn phù hợp <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Chạm vào bên ngoài màn hình để thoát chế độ một tay</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Không có thiết bị kết nối</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> thiết bị đã kết nối</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> thiết bị đã kết nối</string>
 </resources>

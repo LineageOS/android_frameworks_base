@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">Виявлено несумісний образ виробника пристрою. Як правило, це означає, що необхідно встановити оновлене програмне забезпечення від виробника. Переконайтеся, що його версія буде відповідати <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Торкніться поза межами екрану, щоб вийти з режиму однією рукою</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Немає під\'єднаного пристрою</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> підключений пристрій</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> підключених пристроїв</string>
 </resources>

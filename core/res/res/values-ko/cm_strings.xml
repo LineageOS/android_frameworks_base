@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">공급 업체 이미지 불일치가 감지되었습니다. 일반적으로 이것은 당신의 공급 업체 이미지가 오래되었다는 것을 의미합니다. 공급 업체 이미지가 <xliff:g id="fingerprint">%1$s</xliff:g>과 일치하는지 확인하십시오.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">화면 바깥을 누르면 한 손 모드를 종료합니다</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">연결된 기기 없음</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g>대의 기기가 연결되어 있습니다</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g>대의 기기가 연결되어 있습니다</string>
 </resources>

@@ -137,4 +137,9 @@
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">Otkriveno je nepodudaranje slike dobavljača. To obično znači da je slika dobavljača zastarjela. Provjerite odgovara li vaša slika dobavljača <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Nema spojenih uređaja</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> povezani uređaj</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> povezanih(a) uređaja</string>
 </resources>

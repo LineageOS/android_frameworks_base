@@ -137,4 +137,9 @@
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Sentuh bagian luar layar untuk keluar dari mode satu tangan</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Tidak ada perangkat yang terhubung</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> perangkat yang terhubung</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> perangkat yang terhubung</string>
 </resources>

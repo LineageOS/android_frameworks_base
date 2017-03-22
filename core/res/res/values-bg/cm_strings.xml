@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">Открито е несъответствие. Обикновено това означава, че изображението е остаряло. Проверете дали вашето изображение съвпада с <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Докоснете извън екрана, за да излезете от режима на една ръка</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Няма свързано устройство</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> устройството е свързано</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> устройствата са свързани</string>
 </resources>

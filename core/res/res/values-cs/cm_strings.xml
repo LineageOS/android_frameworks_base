@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">Byla zjištěna neshoda obrazu dodavatele. Obvykle to znamená, že obraz dodavatele je zastaralý. Zkontrolujte, zda že obraz dodavatele odpovídá „otisku“ <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Pro odchod z Režimu jednou rukou klepněte mimo obrazovku</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Žádné připojené zařízení</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> připojené zařízení</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> připojená zařízení</string>
 </resources>

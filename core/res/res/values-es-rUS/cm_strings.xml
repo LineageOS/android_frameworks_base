@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">Se detectó una falta de coincidencia con la imagen del proveedor. Por lo general esto significa que dicha imagen está desactualizada. Asegúrese de que coincida con <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Pulsa fuera de la pantalla para salir del modo de una sola mano</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Ningún dispositivo conectado</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> dispositivo conectado</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> dispositivos conectados</string>
 </resources>

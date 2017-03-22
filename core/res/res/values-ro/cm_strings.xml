@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">S-a detectat o nepotrivire a imaginii vânzătorului. În mod obișnuit, asta înseamnă că imaginea vânzătorului dvs. este expirată. Vă rugăm să vă asigurați că imaginea vânzătorului dvs. corespunde cu <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Apăsați în afara ecranului pentru a ieşi din modul cu o singură mână</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Niciun dispozitiv conectat</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitiv conectat</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitive conectate</string>
 </resources>

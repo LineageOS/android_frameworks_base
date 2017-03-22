@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">Es wurde ein unpassendes Vendor-Image erkannt. Dies bedeutet in der Regel, dass es veraltet ist. Stellen Sie sicher, dass ihr Vendor-Image <xliff:g id="fingerprint">%1$s</xliff:g> entspricht.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Tippen Sie in den freien Bereich, um den Einhandmodus zu beenden</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Kein verbundenes Gerät</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> verbundenes Gerät</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> verbundene Geräte</string>
 </resources>

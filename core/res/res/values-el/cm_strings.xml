@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">Εντοπίστηκε μια ασυμφωνία κατάτμησης vendor. Συνήθως αυτό σημαίνει ότι η κατάτμηση vendor της συσκευής σας δεν είναι ενημερωμένη. Παρακαλούμε βεβαιωθείτε ότι έχετε ενημερώσει την κατάτμηση vendor στην έκδοση <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Αγγίξτε έξω από την οθόνη για να βγείτε από την λειτουργία ενός χεριού</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Καμία συνδεδεμένη συσκευή</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> συνδεδεμένη συσκευή</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> συνδεδεμένες συσκευές</string>
 </resources>

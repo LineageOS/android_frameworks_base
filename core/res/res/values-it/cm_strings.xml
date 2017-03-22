@@ -138,4 +138,9 @@
   <string name="lineage_system_error_manufacturer">È stata rilevata una mancata corrispondenza con l\'immagine del fornitore. In genere ciò significa che l\'immagine del fornitore è obsoleta. Assicurarsi che l\'immagine del fornitore corrisponda a <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Tocca fuori dallo schermo per uscire dalla modalità ad una mano</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Nessun dispositivo connesso</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> dispositivo connesso</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> dispositivi connessi</string>
 </resources>

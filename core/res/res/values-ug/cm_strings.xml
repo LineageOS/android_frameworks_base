@@ -127,4 +127,9 @@
   <string name="lock_to_app_toast_no_navbar">بۇ مۇقىم ئېكراننى يوق قىلىش ئۈچۈن، قايتىش كۇنۇپكىسىنى بېسىپ تۇرۇڭ.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">ئۇلانغان ئۈسكۈنە يوق</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> ئۈسكۈنە ئۇلاندى</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> ئۈسكۈنە ئۇلاندى</string>
 </resources>

@@ -102,4 +102,8 @@
   <string name="lineage_system_error_manufacturer">Deteutóse una imaxe del fabricante que nun coincide. Davezu, esto quier dicir que la to imaxe del fabricante ta desanovada. Asegúrate que concasen con <xliff:g id="fingerprint">%1$s</xliff:g>, por favor.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Toca fuera la pantalla pa colar del mou d\'una mano</string>
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> preséu coneutáu</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> preseos coneutaos</string>
 </resources>

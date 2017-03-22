@@ -105,4 +105,9 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
+  <!-- Strings for tethered notification -->
+  <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Nav pievienota ierīce</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> pievienota ierīce</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> pievienotas ierīces</string>
 </resources>
