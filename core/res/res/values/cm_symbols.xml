@@ -100,4 +100,9 @@
     <java-symbol type="id" name="slide_hint_area" />
     <java-symbol type="layout" name="single_hand_window" />
     <java-symbol type="string" name="singlehandmode_click_hint_message" />
+
+    <!-- Tethering -->
+    <java-symbol type="string" name="tethered_notification_no_device_message" />
+    <java-symbol type="string" name="tethered_notification_one_device_message" />
+    <java-symbol type="string" name="tethered_notification_multi_device_message" />
 </resources>
