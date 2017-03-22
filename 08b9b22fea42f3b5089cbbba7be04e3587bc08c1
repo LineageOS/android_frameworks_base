@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_fa47dc49",
+        "filename": "core/res/res/values/cm_symbols.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-03-22T19:19:40Z",
+      "side": 1,
+      "message": "moved this to the top so it stops conflicting with shit hopefully...",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 60
+      },
+      "revId": "08b9b22fea42f3b5089cbbba7be04e3587bc08c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
