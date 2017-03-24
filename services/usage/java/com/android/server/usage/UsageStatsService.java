@@ -58,6 +58,7 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -192,7 +193,8 @@ public class UsageStatsService extends SystemService implements
 
         mAppIdleEnabled = getContext().getResources().getBoolean(
                 com.android.internal.R.bool.config_enableAutoPowerModes) &&
-                PackageManagerUtils.isAppInstalled(getContext(), "com.google.android.gms");
+                (PackageManagerUtils.isAppInstalled(getContext(), "com.google.android.gms") ||
+                SystemProperties.getBoolean("persist.autopowermodes.nogms", false));
         if (mAppIdleEnabled) {
             IntentFilter deviceStates = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
             deviceStates.addAction(BatteryManager.ACTION_DISCHARGING);
