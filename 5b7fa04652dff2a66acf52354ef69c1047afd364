@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_676fd093",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 27
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2017-03-25T15:46:25Z",
+      "side": 1,
+      "message": "I suggest 2dp as margin top/bottom. It allows a larger font size in 2-line mode without exceeding other icons.",
+      "revId": "5b7fa04652dff2a66acf52354ef69c1047afd364",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_476ccc9c",
+        "filename": "packages/SystemUI/res/values/cm_dimens.xml",
+        "patchSetId": 27
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2017-03-25T15:46:25Z",
+      "side": 1,
+      "message": "8dp in two line mode has much better readability. Requires 2dp margin top/bottom.",
+      "revId": "5b7fa04652dff2a66acf52354ef69c1047afd364",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
