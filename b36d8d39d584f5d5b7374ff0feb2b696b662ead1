@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_079c94bf",
+        "filename": "services/usage/java/com/android/server/usage/UsageStatsService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 13897
+      },
+      "writtenOn": "2017-03-25T14:16:39Z",
+      "side": 1,
+      "message": "Add 8 white-spaces here.\n\nAlso, I\u0027m not really sure about the name. \"doze\" is usually used for anything related to Ambient Display. I would say something like \"persist.power.autopowermodes\", although such a name would imply that we override the overlay, which is not true.",
+      "range": {
+        "startLine": 197,
+        "startChar": 16,
+        "endLine": 197,
+        "endChar": 78
+      },
+      "revId": "b36d8d39d584f5d5b7374ff0feb2b696b662ead1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
