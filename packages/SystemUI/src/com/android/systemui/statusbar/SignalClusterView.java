@@ -271,7 +271,7 @@ public class SignalClusterView
     @Override
     public void setMobileDataIndicators(IconState statusIcon, IconState qsIcon, int statusType,
             int qsType, boolean activityIn, boolean activityOut, String typeContentDescription,
-            String description, boolean isWide, int subId) {
+            String description, boolean isWide, int subId, int imsIconId) {
         PhoneState state = getState(subId);
         if (state == null) {
             return;
@@ -282,6 +282,7 @@ public class SignalClusterView
         state.mMobileDescription = statusIcon.contentDescription;
         state.mMobileTypeDescription = typeContentDescription;
         state.mIsMobileTypeIconWide = statusType != 0 && isWide;
+        state.mMobileImsId = imsIconId;
 
         apply();
     }
@@ -587,7 +588,9 @@ public class SignalClusterView
         private String mMobileDescription, mMobileTypeDescription;
 
         private ViewGroup mMobileGroup;
-        private ImageView mMobile, mMobileDark, mMobileType;
+        private ImageView mMobile, mMobileDark, mMobileType, mMobileIms;
+        private int mMobileImsId = 0;
+
 
         public PhoneState(int subId, Context context) {
             ViewGroup root = (ViewGroup) LayoutInflater.from(context)
@@ -601,6 +604,7 @@ public class SignalClusterView
             mMobile         = (ImageView) root.findViewById(R.id.mobile_signal);
             mMobileDark     = (ImageView) root.findViewById(R.id.mobile_signal_dark);
             mMobileType     = (ImageView) root.findViewById(R.id.mobile_type);
+            mMobileIms      = (ImageView) root.findViewById(R.id.volte_vowifi);
         }
 
         public boolean apply(boolean isSecondaryIcon) {
@@ -615,6 +619,7 @@ public class SignalClusterView
                     mMobileType.setImageResource(mMobileTypeId);
                     mLastMobileTypeId = mMobileTypeId;
                 }
+                mMobileIms.setImageResource(mMobileImsId);
                 mMobileGroup.setContentDescription(mMobileTypeDescription
                         + " " + mMobileDescription);
                 mMobileGroup.setVisibility(View.VISIBLE);
@@ -636,6 +641,7 @@ public class SignalClusterView
                         (mMobileVisible ? "VISIBLE" : "GONE"), mMobileStrengthId, mMobileTypeId));
 
             mMobileType.setVisibility(mMobileTypeId != 0 ? View.VISIBLE : View.GONE);
+            mMobileIms.setVisibility(mMobileImsId != 0 ? View.VISIBLE : View.GONE);
 
             return mMobileVisible;
         }

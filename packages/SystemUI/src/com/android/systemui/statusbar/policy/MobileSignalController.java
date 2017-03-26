@@ -260,7 +260,7 @@ public class MobileSignalController extends SignalController<
         int typeIcon = showDataIcon ? icons.mDataType : 0;
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, dataContentDescription, description, icons.mIsWide,
-                mSubscriptionInfo.getSubscriptionId());
+                mSubscriptionInfo.getSubscriptionId(), getImsIconId());
     }
 
     @Override
@@ -460,6 +460,20 @@ public class MobileSignalController extends SignalController<
         pw.println("  mDataNetType=" + mDataNetType + ",");
     }
 
+    private int getImsIconId() {
+        if (mServiceState == null || (mServiceState.getVoiceRegState() !=
+                ServiceState.STATE_IN_SERVICE)) {
+            return 0;
+        }
+        if (mServiceState.getRilImsRadioTechnology() == ServiceState.RIL_RADIO_TECHNOLOGY_LTE) {
+            return R.drawable.volte;
+        } else if (mServiceState.getRilImsRadioTechnology() ==
+                ServiceState.RIL_RADIO_TECHNOLOGY_IWLAN) {
+            return R.drawable.vowifi;
+        } else
+        return 0;
+    }
+
     class MobilePhoneStateListener extends PhoneStateListener {
         public MobilePhoneStateListener(int subId, Looper looper) {
             super(subId, looper);
@@ -553,6 +567,7 @@ public class MobileSignalController extends SignalController<
         boolean carrierNetworkChangeMode;
         boolean isDefault;
         boolean userSetup;
+        int imsRadioTechnology;
 
         @Override
         public void copyFrom(State s) {
@@ -567,6 +582,7 @@ public class MobileSignalController extends SignalController<
             airplaneMode = state.airplaneMode;
             carrierNetworkChangeMode = state.carrierNetworkChangeMode;
             userSetup = state.userSetup;
+            imsRadioTechnology = state.imsRadioTechnology;
         }
 
         @Override
@@ -583,6 +599,7 @@ public class MobileSignalController extends SignalController<
             builder.append("carrierNetworkChangeMode=").append(carrierNetworkChangeMode)
                     .append(',');
             builder.append("userSetup=").append(userSetup);
+            builder.append("imsRadioTechnology").append(imsRadioTechnology);
         }
 
         @Override
@@ -596,7 +613,8 @@ public class MobileSignalController extends SignalController<
                     && ((MobileState) o).airplaneMode == airplaneMode
                     && ((MobileState) o).carrierNetworkChangeMode == carrierNetworkChangeMode
                     && ((MobileState) o).userSetup == userSetup
-                    && ((MobileState) o).isDefault == isDefault;
+                    && ((MobileState) o).isDefault == isDefault
+                    && ((MobileState) o).imsRadioTechnology == imsRadioTechnology;
         }
     }
 }

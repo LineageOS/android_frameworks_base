@@ -1,0 +1,41 @@
+<!--
+ Copyright (c) 2016, The Linux Foundation. All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are
+ met:
+        * Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        * Redistributions in binary form must reproduce the above
+        copyright notice, this list of conditions and the following
+        disclaimer in the documentation and/or other materials provided
+        with the distribution.
+        * Neither the name of The Linux Foundation nor the names of its
+        contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportHeight="24.0"
+    android:viewportWidth="28.0">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M9.26,11.671c-0.206,0 -0.377,0.086 -0.511,0.259c-0.135,0.172 -0.202,0.434 -0.202,0.785c0,0.357 0.066,0.621 0.2,0.791c0.133,0.172 0.301,0.256 0.503,0.256c0.203,0 0.371,-0.084 0.502,-0.252s0.196,-0.438 0.196,-0.811c0,-0.345 -0.065,-0.604 -0.198,-0.773C9.62,11.756 9.457,11.671 9.26,11.671z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M26.369,7.708H1.63c-0.552,0 -1,0.448 -1,1v6.583c0,0.553 0.448,1 1,1h24.739c0.553,0 1,-0.447 1,-1V8.708C27.369,8.157 26.922,7.708 26.369,7.708zM3.643,14.709L1.716,9.184h1.647L4.51,13.16l1.133,-3.976h1.6L5.35,14.709H3.643zM10.807,14.209c-0.377,0.393 -0.897,0.59 -1.563,0.59c-0.593,0 -1.073,-0.164 -1.439,-0.49c-0.45,-0.404 -0.675,-0.934 -0.675,-1.59c0,-0.611 0.19,-1.113 0.57,-1.509c0.38,-0.395 0.894,-0.594 1.541,-0.594c0.739,0 1.298,0.232 1.676,0.697c0.305,0.375 0.456,0.836 0.456,1.382C11.373,13.313 11.184,13.816 10.807,14.209zM16.182,14.709h-4.034V9.184h1.576v4.164h2.458V14.709L16.182,14.709zM20.969,10.549h-1.607v4.16h-1.573v-4.16H16.18V9.184h4.791v1.365H20.969zM25.977,14.709h-4.299V9.184h4.221v1.18h-2.643v0.878h2.451v1.127h-2.451v1.088h2.721V14.709z" />
+</vector>
