@@ -799,9 +799,6 @@ public class VolumeDialog implements TunerService.Tunable {
                         : mAutomute && ss.level == 0 ? row.iconMuteRes
                         : (ss.muted ? row.iconMuteRes : row.iconRes);
         if (iconRes != row.cachedIconRes) {
-            if (row.cachedIconRes != 0 && isRingVibrate) {
-                mController.vibrate();
-            }
             row.cachedIconRes = iconRes;
             row.icon.setImageResource(iconRes);
         }
