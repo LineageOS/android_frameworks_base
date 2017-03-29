@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:background="@drawable/btn_borderless_rect"
+    android:orientation="horizontal"
+    android:paddingBottom="4dp"
+    android:paddingEnd="48dp"
+    android:paddingStart="16dp"
+    android:paddingTop="4dp">
+
+    <ImageView
+        android:id="@android:id/icon"
+        android:layout_width="48dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lineSpacingExtra="0dp"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.QS.DetailItemPrimary"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@android:id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lineSpacingExtra="0dp"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.QS.DetailItemSecondary"
+            tools:text="Artist" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@android:id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="0dp"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.QS.DetailItemSecondary"
+        tools:text="8:00" />
+</LinearLayout>
