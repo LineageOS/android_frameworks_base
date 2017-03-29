@@ -137,6 +137,7 @@
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">Er is een discrepantie geconstateerd in de vendor-image. Over het algemeen betekent dit dat de vendor-image verouderd is. Zorg ervoor dat de vendor-image overeenkomt met <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Tik buiten het scherm om enkelhandige bediening te verlaten</string>
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_no_device_message">Geen aangesloten apparaat</string>

@@ -55,6 +55,7 @@
          power usage activity to find out what drained the battery.  [CHAR LIMIT=30] -->
   <string name="battery_low_why">Axustes</string>
   <!-- Battery saver confirmation dialog title [CHAR LIMIT=NONE]-->
+  <string name="battery_saver_confirmation_title">¿Activar l\'aforrador de batería?</string>
   <!-- Battery saver confirmation dialog ok text [CHAR LIMIT=40]-->
   <!-- Battery saver notification action [CHAR LIMIT=NONE]-->
   <!-- Name of the button that links to the Settings app. [CHAR LIMIT=NONE] -->
@@ -335,6 +336,10 @@
   <!-- The overflow indicator shown when a group has more notification inside the group than the visible ones. An example is "+ 3" [CHAR LIMIT=5] -->
   <string name="notification_group_overflow_indicator">+ <xliff:g id="number" example="3">%s</xliff:g></string>
   <!-- Content description describing how many more notifications are in a group [CHAR LIMIT=NONE] -->
+  <plurals name="notification_group_overflow_description">
+    <item quantity="one"><xliff:g id="number" example="1">%s</xliff:g> avisu más dientro.</item>
+    <item quantity="other"><xliff:g id="number" example="1">%s</xliff:g> avisos más dientro.</item>
+  </plurals>
   <!-- Content description of button in notification inspector for system settings relating to
          notifications from this application [CHAR LIMIT=NONE] -->
   <string name="status_bar_notification_inspect_item_title">Axustes d\'avisos</string>
@@ -747,7 +752,7 @@
   <!-- Title of the battery settings detail panel [CHAR LIMIT=20] -->
   <string name="battery_panel_title">Usu de batería</string>
   <!-- Summary of battery saver not available [CHAR LIMIT=NONE] -->
-  <string name="battery_detail_charging_summary">L\'aforrador d\'enerxía nun ta disponible na carga</string>
+  <string name="battery_detail_charging_summary">L\'aforrador de batería nun ta disponible na carga</string>
   <!-- Title of switch for battery saver [CHAR LIMIT=NONE] -->
   <string name="battery_detail_switch_title">Aforrador de batería</string>
   <!-- Summary of switch for battery saver [CHAR LIMIT=NONE] -->
@@ -842,8 +847,11 @@
   <!-- Accessibility description of headphones icon [CHAR LIMIT=NONE] -->
   <!-- Accessibility description of headset icon [CHAR LIMIT=NONE] -->
   <!-- Label for quick settings tile for data saver [CHAR LIMIT=30] -->
+  <string name="data_saver">Aforrador de datos</string>
   <!-- Accessibility description for data saver being on [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_saver_on">L\'aforrador de datos ta activáu</string>
   <!-- Accessibility description for data saver being off [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_saver_off">L\'aforrador de datos ta desactiváu</string>
   <!-- Label for feature switch [CHAR LIMIT=30] -->
   <!-- Label for feature switch [CHAR LIMIT=30] -->
   <!-- SysUI Tuner: Button that leads to the navigation bar customization screen [CHAR LIMIT=60] -->

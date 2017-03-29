@@ -22,7 +22,10 @@
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">Brilléu de lluz</string>
   <!-- Lights settings, LED notification -->
+  <string name="led_notification_title">Axustes de lluz</string>
+  <string name="led_notification_text">Lluz LED habilitada polos axustes</string>
   <!-- Notification which notifies user flashlight is enabled -->
+  <string name="quick_settings_tile_flashlight_not_title">La llinterna ta encesa</string>
   <string name="quick_settings_tile_flashlight_not_summary">Calca p\'apagala</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
   <string name="cm_power_notification_controls_description">Colos controles d\'avisu d\'enerxía, pues afitar el nivel d\'importancia dende\'l 0 al 6 pa los avisos d\'una aplicación.
@@ -60,11 +63,21 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <string name="notification_importance_very_low">Ensin interrupción de pantalla completa, intrusión, soníu o vibración. Anubrir de la pantalla de bloquéu.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
+  <string name="screen_pinning_description_no_navbar">Esto caltién la pantalla nesta vista hasta que se llibera. Caltén primíu\'l botón Atrás pa lliberala.</string>
   <!-- Strings for lockscreen shortcut hints -->
+  <string name="left_shortcut_hint">Esliza a la derecha pa %1$s</string>
+  <string name="right_shortcut_hint">Esliza a la esquierda pa %1$s</string>
+  <string name="lockscreen_message">Toca nun iconu de la esquierda o derecha pa reasignar un atayu na pantalla de bloquéu.</string>
+  <string name="lockscreen_default_target">Por defeutu</string>
   <string name="select_application">Esbillar aplicación</string>
   <string name="lockscreen_choose_action_title">Escoyer aición</string>
+  <string name="lockscreen_none_target">Nengún</string>
   <!-- Play queue -->
+  <string name="play_queue_extension">Amosar la cola de reproducción</string>
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+  <string name="accessibility_dpad_left">Cursor esquierda</string>
+  <string name="accessibility_dpad_right">Cursor derecha</string>
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Menú/Conmutador de tecláu (amosar siempres)</string>
   <string name="search">Guetar</string>

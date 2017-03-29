@@ -58,9 +58,9 @@
         \n\n<b>Level 0</b>
         \n- חוסם את כל ההתראות מהיישום    </string>
   <!-- Notification importance level title-->
-  <string name="importance_level_title">מידת חשיבות: רמה %1$d</string>
+  <string name="importance_level_title">חשיבות: רמה %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">ללא התרעה במסך מלא, הפעלת מסך בקבלת התראה, קול, ורטט. יוסתר ממסך הנעילה.</string>
+  <string name="notification_importance_very_low">ללא הפרעה, הצצה, קול או רטט במסך מלא. הסתר ממסך הנעילה.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">הפעולה שומרת זאת בתצוגה עד שתבטל את ההצמדה. גע והחזק את לחצן \"הקודם\" כדי לבטל את ההצמדה.</string>
   <!-- Strings for lockscreen shortcut hints -->

@@ -104,6 +104,7 @@
   <!-- Displayed as the title for a success/failure report enabling/disabling call barring. -->
   <!-- Displayed as the title for a success/failure report changing the SIM password. -->
   <!-- Displayed as the title for a success/failure report changing the SIM PIN. -->
+  <string name="DndMmi">Nun molestar</string>
   <!-- Displayed to confirm to the user that caller ID will be restricted on the next call as usual. -->
   <!-- Displayed to confirm to the user that caller ID will be not restricted on the next call even though it usually is. -->
   <!-- Displayed to confirm to the user that caller ID will not be restricted on the next call but usually is. -->

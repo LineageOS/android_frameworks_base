@@ -315,6 +315,7 @@
   <string name="debug_app_set">Aplicación de depuración: <xliff:g id="app_name">%1$s</xliff:g></string>
   <!-- UI debug setting: title for app picker dialog [CHAR LIMIT=50] -->
   <!-- UI debug setting: label for app picker to select no applicatiojn [CHAR LIMIT=50] -->
+  <string name="no_application">Nada</string>
   <!-- UI debug setting: wait for debugger to attach to debugging process? [CHAR LIMIT=50] -->
   <string name="wait_for_debugger">Esperar pol depurador</string>
   <!-- UI debug setting: wait for debugger to attach to debugging process summary [CHAR LIMIT=500] -->
