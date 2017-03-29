@@ -2252,6 +2252,15 @@ message MetricsEvent {
     // CATEGORY: QUICK_SETTINGS
     QS_NFC = 800;
 
+    // OPEN: QS Music tile shown
+    // ACTION: QS Music tile tapped
+    // CATEGORY: QUICK_SETTINGS
+    QS_MUSIC = 750;
+
+    // OPEN: QS Music detail panel
+    // CATEGORY: QUICK_SETTINGS
+    QS_MUSIC_DETAILS = 751;
+
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
 

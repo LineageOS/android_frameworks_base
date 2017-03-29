@@ -739,6 +739,10 @@
     <string name="quick_settings_notifications_label">Notifications</string>
     <!-- QuickSettings: Flashlight [CHAR LIMIT=NONE] -->
     <string name="quick_settings_flashlight_label">Flashlight</string>
+    <!-- QuickSettings: Music [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_music_label">Music</string>
+    <!-- QuickSettings: Music alert [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_music_label_no_playback">No playback</string>
     <!-- QuickSettings: Cellular detail panel title [CHAR LIMIT=NONE] -->
     <string name="quick_settings_cellular_detail_title">Cellular data</string>
     <!-- QuickSettings: Cellular detail panel, data usage title [CHAR LIMIT=NONE] -->
