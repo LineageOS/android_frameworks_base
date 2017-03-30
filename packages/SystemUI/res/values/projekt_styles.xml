@@ -20,5 +20,8 @@
     <style name="TextAppearance.SwitchBar" parent="@android:style/TextAppearance.Material.Title">
         <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
     </style>
+
+    <!-- Phyisical Keyboard Dialog style -->
+    <style name="KeyboardShortcutsDialog" parent="@*android:style/Theme.DeviceDefault.Light" />
 </resources>
 
