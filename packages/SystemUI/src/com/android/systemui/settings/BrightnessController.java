@@ -168,8 +168,8 @@ public class BrightnessController implements ToggleSlider.Listener {
 
             // Update the slider and mode before attaching the listener so we don't
             // receive the onChanged notifications for the initial values.
-            mUpdateModeRunnable.run();
-            mUpdateSliderRunnable.run();
+            mHandler.post(mUpdateModeRunnable);
+            mHandler.post(mUpdateSliderRunnable);
 
             mHandler.sendEmptyMessage(MSG_ATTACH_LISTENER);
         }
