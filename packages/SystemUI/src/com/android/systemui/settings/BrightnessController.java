@@ -142,11 +142,12 @@ public class BrightnessController implements ToggleSlider.Listener {
         public void run() {
             mBrightnessObserver.startObserving();
             mUserTracker.startTracking();
+            mBackgroundHandler = new Handler(Looper.getMainLooper());
 
             // Update the slider and mode before attaching the listener so we don't
             // receive the onChanged notifications for the initial values.
-            mUpdateModeRunnable.run();
-            mUpdateSliderRunnable.run();
+            mBackgroundHandler.post(mUpdateModeRunnable);
+            mBackgroundHandler.post(mUpdateSliderRunnable);
 
             mHandler.sendEmptyMessage(MSG_ATTACH_LISTENER);
         }
