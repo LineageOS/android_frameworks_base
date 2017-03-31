@@ -16,6 +16,7 @@
 
 package com.android.systemui.settings;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.ContentObserver;
@@ -43,7 +44,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import java.util.ArrayList;
 
-public class BrightnessController implements ToggleSlider.Listener {
+public class BrightnessController extends Activity implements ToggleSlider.Listener {
     private static final String TAG = "StatusBar.BrightnessController";
     private static final boolean SHOW_AUTOMATIC_ICON = false;
 
@@ -152,8 +153,13 @@ public class BrightnessController implements ToggleSlider.Listener {
 
             // Update the slider and mode before attaching the listener so we don't
             // receive the onChanged notifications for the initial values.
-            mUpdateModeRunnable.run();
-            mUpdateSliderRunnable.run();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mUpdateModeRunnable.run();
+                    mUpdateSliderRunnable.run();
+                }
+            });
 
             mHandler.sendEmptyMessage(MSG_ATTACH_LISTENER);
         }
