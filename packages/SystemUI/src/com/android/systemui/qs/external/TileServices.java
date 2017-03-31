@@ -44,6 +44,7 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Map;
 
 /**
  * Runs the day-to-day operations of which tiles should be bound and when.
@@ -51,6 +52,8 @@ import java.util.Comparator;
 public class TileServices extends IQSService.Stub {
     static final int DEFAULT_MAX_BOUND = 3;
     static final int REDUCED_MAX_BOUND = 1;
+
+    private static final String CUSTOM_TILES_PACKAGE = "org.lineageos.customtiles";
 
     private final ArrayMap<CustomTile, TileServiceManager> mServices = new ArrayMap<>();
     private final ArrayMap<ComponentName, CustomTile> mTiles = new ArrayMap<>();
@@ -117,9 +120,17 @@ public class TileServices extends IQSService.Stub {
     }
 
     public void recalculateBindAllowance() {
-        final ArrayList<TileServiceManager> services;
+        final ArrayList<TileServiceManager> services = new ArrayList<>();
         synchronized (mServices) {
-            services = new ArrayList<>(mServices.values());
+            for (Map.Entry<CustomTile, TileServiceManager> entry : mServices.entrySet()) {
+                CustomTile tile = entry.getKey();
+                TileServiceManager service = entry.getValue();
+                if (isThisUs(tile)) {
+                    service.setBindAllowed(true);
+                } else {
+                    services.add(service);
+                }
+            }
         }
         final int N = services.size();
         if (N > mMaxBound) {
@@ -323,4 +334,8 @@ public class TileServices extends IQSService.Stub {
             return -Integer.compare(left.getBindPriority(), right.getBindPriority());
         }
     };
+
+    private boolean isThisUs(CustomTile tile) {
+        return CUSTOM_TILES_PACKAGE.equals(tile.getComponent().getPackageName());
+    }
 }
