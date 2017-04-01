@@ -1202,6 +1202,9 @@
     <!-- Name of the alarm status bar icon. -->
     <string name="status_bar_alarm">Alarm</string>
 
+    <!-- Name of the root status bar icon. -->
+    <string name="status_bar_root">Root</string>
+
     <!-- Name of the work status bar icon. -->
     <string name="status_bar_work">Work profile</string>
 
