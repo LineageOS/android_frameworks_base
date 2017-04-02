@@ -2865,7 +2865,8 @@ public class NotificationManagerService extends SystemService {
 
                 // blocked apps
                 if (r.getImportance() == NotificationListenerService.Ranking.IMPORTANCE_NONE
-                        || !noteNotificationOp(pkg, callingUid) || isPackageSuspended) {
+                        || !noteNotificationOp(pkg, callingUid) || isPackageSuspended
+                        || isComponentProtected(n)) {
                     if (!isSystemNotification) {
                         if (isPackageSuspended) {
                             Slog.e(TAG, "Suppressing notification from package due to package "
@@ -4679,6 +4680,23 @@ public class NotificationManagerService extends SystemService {
                 rt[i] = pkgs.get(i).packageName;
             }
             return rt;
+        }
+    }
+
+    private boolean isComponentProtected(StatusBarNotification n) {
+        PackageManager pm = getContext().getPackageManager();
+        final Notification notification = n.getNotification();
+        final PendingIntent pendingIntent = notification.contentIntent != null
+                ? notification.contentIntent
+                : notification.fullScreenIntent;
+        ComponentName componentName = pendingIntent.getIntent().resolveActivity(pm);
+        if (componentName == null) {
+            return false;
+        }
+        try {
+            return pm.isComponentProtected(null, -1, componentName);
+        } catch (IllegalArgumentException ex) {
+            return false;
         }
     }
 }
