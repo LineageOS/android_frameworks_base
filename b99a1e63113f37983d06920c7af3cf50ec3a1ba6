@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_ba5832fb",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CellularTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-04-02T10:06:05Z",
+      "side": 1,
+      "message": "missing the letter \u0027d\u0027 here? \u0027isMobileDataEnabled\u0027 \u003c- last letter",
+      "revId": "b99a1e63113f37983d06920c7af3cf50ec3a1ba6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
