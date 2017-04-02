@@ -20959,12 +20959,6 @@ Slog.v(TAG, ":: stepped forward, applying functor at tag " + parser.getName());
         String packageName = componentName.getPackageName();
         String className = componentName.getClassName();
 
-        //If this component is launched from the same package, allow it.
-        if (TextUtils.equals(packageName, callingPackage)) {
-            if (DEBUG_PROTECTED) Log.d(TAG, "Calling package is same as target, allow");
-            return false;
-        }
-
         //If this component is launched from a validation component, allow it.
         if (TextUtils.equals(PROTECTED_APPS_TARGET_VALIDATION_COMPONENT,
                 componentName.flattenToString()) && callingUid == Process.SYSTEM_UID) {
@@ -20979,6 +20973,12 @@ Slog.v(TAG, ":: stepped forward, applying functor at tag " + parser.getName());
             if (packageUid != -1 && callingUid == packageUid) {
                 fromProtectedComponentUid = true;
             }
+        }
+
+        //If this component is launched from the same package, allow it.
+        if (fromProtectedComponentUid && TextUtils.equals(packageName, callingPackage)) {
+            if (DEBUG_PROTECTED) Log.d(TAG, "Calling package is same as target, allow");
+            return false;
         }
 
         if (TextUtils.equals(callingPackage, "android") && callingUid == Process.SYSTEM_UID
