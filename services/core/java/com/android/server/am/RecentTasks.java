@@ -104,13 +104,13 @@ class RecentTasks extends ArrayList<TaskRecord> {
      * @param userId the user Id
      */
     void loadUserRecentsLocked(int userId) {
+        cleanupProtectedComponentTasksLocked(userId);
         if (!mUsersWithRecentsLoaded.get(userId)) {
             // Load the task ids if not loaded.
             loadPersistedTaskIdsForUserLocked(userId);
             Slog.i(TAG, "Loading recents for user " + userId + " into memory.");
             addAll(mTaskPersister.restoreTasksForUserLocked(userId));
             cleanupLocked(userId);
-            cleanupProtectedComponentTasksLocked(userId);
             mUsersWithRecentsLoaded.put(userId, true);
         }
     }
