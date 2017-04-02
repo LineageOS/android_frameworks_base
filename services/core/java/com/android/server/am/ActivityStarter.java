@@ -68,6 +68,7 @@ import static com.android.server.am.ActivityManagerService.ANIMATE;
 import static com.android.server.am.ActivityRecord.APPLICATION_ACTIVITY_TYPE;
 import static com.android.server.am.ActivityRecord.HOME_ACTIVITY_TYPE;
 import static com.android.server.am.ActivityRecord.RECENTS_ACTIVITY_TYPE;
+import static com.android.server.am.ActivityStack.ActivityState.INITIALIZING;
 import static com.android.server.am.ActivityStack.ActivityState.RESUMED;
 import static com.android.server.am.ActivityStack.STACK_INVISIBLE;
 import static com.android.server.am.ActivityStackSupervisor.CREATE_IF_NEEDED;
@@ -1074,6 +1075,30 @@ class ActivityStarter {
 
         setInitialState(r, options, inTask, doResume, startFlags, sourceRecord, voiceSession,
                 voiceInteractor);
+
+        try {
+            final Intent intent = r.intent;
+            //TODO: This needs to be a flushed out API in the future.
+            boolean isProtected = intent.getComponent() != null
+                    && AppGlobals.getPackageManager()
+                    .isComponentProtected(sourceRecord == null ? "android" :
+                                    sourceRecord.launchedFromPackage, r.launchedFromUid,
+                            intent.getComponent(), r.userId) &&
+                    (intent.getFlags()&Intent.FLAG_GRANT_READ_URI_PERMISSION) == 0;
+
+            if (isProtected && r.state == INITIALIZING) {
+                Message msg = mService.mHandler.obtainMessage(
+                        ActivityManagerService.POST_COMPONENT_PROTECTED_MSG);
+                //Store start flags, userid
+                intent.setFlags(startFlags);
+                intent.putExtra("com.android.settings.PROTECTED_APPS_USER_ID", r.userId);
+                msg.obj = intent;
+                mService.mHandler.sendMessage(msg);
+                return ActivityManager.START_NOT_CURRENT_USER_ACTIVITY;
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
 
         computeLaunchingTaskFlags();
 
