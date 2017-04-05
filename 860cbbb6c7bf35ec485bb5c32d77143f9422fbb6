@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a51691d_a9c7f963",
+        "filename": "packages/Keyguard/res/values/cm_strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-04-05T18:52:12Z",
+      "side": 1,
+      "message": "should probably get rid of all those extra spaces in the header",
+      "revId": "860cbbb6c7bf35ec485bb5c32d77143f9422fbb6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
