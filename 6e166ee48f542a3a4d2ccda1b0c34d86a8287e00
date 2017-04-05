@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a51691d_664dae72",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-04-05T04:45:21Z",
+      "side": 1,
+      "message": "Just nuke this and ...",
+      "revId": "6e166ee48f542a3a4d2ccda1b0c34d86a8287e00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51691d_2657b604",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-04-05T04:45:21Z",
+      "side": 1,
+      "message": "... post those into mHandler.",
+      "revId": "6e166ee48f542a3a4d2ccda1b0c34d86a8287e00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
