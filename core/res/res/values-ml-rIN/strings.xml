@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"കണക്ഷൻ പ്രശ്‌നം അല്ലെങ്കിൽ MMI കോഡ് അസാധുവാണ്."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"നിശ്ചയിച്ചുറപ്പിച്ച ഡയൽ ചെയ്യൽ നമ്പറുകൾക്ക് മാത്രമായി പ്രവർത്തനം പരിമിതപ്പെടുത്തിയിരിക്കുന്നു."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"റോമിംഗിൽ ആയിരിക്കുമ്പോൾ നിങ്ങളുടെ ഫോണിൽ നിന്ന് കോൾ കൈമാറൽ ക്രമീകരണം മാറ്റാൻ കഴിയില്ല."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"സേവനം പ്രവർത്തനക്ഷമമാക്കി."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"സേവനം ഇവയ്‌ക്കായി പ്രവർത്തനക്ഷമമാക്കി:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"സേവനം പ്രവർത്തനരഹിതമാക്കി."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"വോയ്‌സ്/ഡാറ്റ സേവനങ്ങൾ തടഞ്ഞു."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"വോയ്‌സ്/SMS സേവനങ്ങൾ തടഞ്ഞു."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"എല്ലാ വോയ്‌സ്/ഡാറ്റ/SMS സേവനങ്ങളും തടഞ്ഞു."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"നെറ്റ്‌വർക്കിലേക്ക് കണക്റ്റുചെയ്യാനാവുന്നില്ല"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"സ്വീകരണം മെച്ചപ്പെടുത്തുന്നതിന് ക്രമീകരണം &gt; സെല്ലുലാർ നെറ്റ്‌വർക്കുകൾ &gt; തിരഞ്ഞെടുത്ത നെറ്റ്‌വർക്ക് തരം എന്നതിൽ തിരഞ്ഞെടുത്തിരിക്കുന്ന തരം മാറ്റിക്കൊണ്ട് ശ്രമിച്ചുനോക്കുക."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"പിയർ അഭ്യർത്ഥിച്ച TTY മോഡ് \'ഫുൾ\'"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"പിയർ അഭ്യർത്ഥിച്ച TTY മോഡ് HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"പിയർ അഭ്യർത്ഥിച്ച TTY മോഡ് VCO"</string>
@@ -163,7 +166,7 @@
     <string name="notification_title" msgid="8967710025036163822">"<xliff:g id="ACCOUNT">%1$s</xliff:g> എന്നതിൽ സൈൻ ഇൻ ചെയ്യുന്നതിൽ പിശക്"</string>
     <string name="contentServiceSync" msgid="8353523060269335667">"സമന്വയിപ്പിക്കുക"</string>
     <string name="contentServiceSyncNotificationTitle" msgid="397743349191901458">"സമന്വയിപ്പിക്കുക"</string>
-    <string name="contentServiceTooManyDeletesNotificationDesc" msgid="8100981435080696431">"വളരെയധികം <xliff:g id="CONTENT_TYPE">%s</xliff:g> ഇല്ലാതാക്കലുകൾ."</string>
+    <string name="contentServiceTooManyDeletesNotificationDesc" msgid="8100981435080696431">"വളരെയധികം <xliff:g id="CONTENT_TYPE">%s</xliff:g> ഇല്ലാതാക്കുന്നു."</string>
     <string name="low_memory" product="tablet" msgid="6494019234102154896">"ടാബ്‌ലെറ്റ് സ്റ്റോറേജ്  കഴിഞ്ഞു. ഇടം ശൂന്യമാക്കാൻ ചില ഫയലുകൾ ഇല്ലാതാക്കുക."</string>
     <string name="low_memory" product="watch" msgid="4415914910770005166">"വാച്ചിലെ സ്റ്റോറേജ്  നിറഞ്ഞു. ഇടം ശൂന്യമാക്കാൻ കുറച്ച് ഫയലുകൾ ഇല്ലാതാക്കുക."</string>
     <string name="low_memory" product="tv" msgid="516619861191025923">"ടിവി സ്റ്റോറേജ്  നിറഞ്ഞു. ഇടം ശൂന്യമാക്കാൻ കുറച്ച് ഫയലുകൾ ഇല്ലാതാക്കുക."</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"അഡ്‌മിൻ അപ്ലിക്കേഷൻ നഷ്‌ടപ്പെട്ടതിനാൽ ഔദ്യോഗിക പ്രൊഫൈൽ ഇല്ലാതാക്കി."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"ഔദ്യോഗിക പ്രൊഫൈൽ അഡ്‌മിൻ അപ്ലിക്കേഷൻ നഷ്‌ടപ്പെട്ടതോ കേടായതോ ആണ്. അക്കാരണത്താൽ നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലും ബന്ധപ്പെട്ട വിവരവും ഇല്ലാതാക്കിയിരിക്കുന്നു. സഹായത്തിന് അഡ്‌മിനിസ്‌ട്രേറ്ററുമായി ബന്ധപ്പെടുക."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"ഈ ഉപകരണത്തിൽ തുടർന്നങ്ങോട്ട് നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ ലഭ്യമല്ല."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"നെറ്റ്‌വർക്ക് ട്രാഫിക്ക് നിരീക്ഷിക്കപ്പെടുന്നു"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"കൂടുതലറിയുന്നതിന് ടാപ്പുചെയ്യുക"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"നിങ്ങളുടെ ഉപകരണം മായ്‌ക്കും"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"അഡ്‌മിൻ അപ്ലിക്കേഷൻ, ഘടകഭാഗങ്ങൾ നഷ്‌ടപ്പെട്ടതോ കേടായതോ ആണെങ്കിൽ ഉപയോഗിക്കാനാവില്ല. നിങ്ങളുടെ ഉപകരണം ഇപ്പോൾ ഇല്ലാതാക്കും. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനിസ്‌ട്രേറ്ററെ ബന്ധപ്പെടുക."</string>
     <string name="me" msgid="6545696007631404292">"ഞാന്‍"</string>
@@ -265,7 +270,7 @@
     <string name="capability_desc_canRetrieveWindowContent" msgid="3772225008605310672">"നിങ്ങൾ സംവദിക്കുന്ന ഒരു വിൻഡോയുടെ ഉള്ളടക്കം പരിശോധിക്കുക."</string>
     <string name="capability_title_canRequestTouchExploration" msgid="3108723364676667320">"സ്‌പർശനം വഴി പര്യവേക്ഷണം ചെയ്യുക ഓൺ ചെയ്യുക"</string>
     <string name="capability_desc_canRequestTouchExploration" msgid="7543249041581408313">"ടാപ്പുചെയ്ത ഇനങ്ങൾ ഉച്ചത്തിൽ പറയപ്പെടും, ജെസ്റ്ററുകൾ ഉപയോഗിച്ച് സ്‌ക്രീൻ അടുത്തറിയാവുന്നതാണ്."</string>
-    <string name="capability_title_canRequestEnhancedWebAccessibility" msgid="1739881766522594073">"മെച്ചപ്പെടുത്തിയ വെബ് പ്രവേശനക്ഷമത ഓണാക്കുക"</string>
+    <string name="capability_title_canRequestEnhancedWebAccessibility" msgid="1739881766522594073">"മെച്ചപ്പെടുത്തിയ വെബ് ഉപയോഗസഹായി ഓണാക്കുക"</string>
     <string name="capability_desc_canRequestEnhancedWebAccessibility" msgid="7881063961507511765">"അപ്ലിക്കേഷൻ ഉള്ളടക്കം കൂടുതൽ ആക്‌സസ്സുചെയ്യാൻ കഴിയുന്നതാക്കാൻ സ്‌ക്രിപ്റ്റുകൾ ഇൻസ്റ്റാളുചെയ്യാനിടയുണ്ട്."</string>
     <string name="capability_title_canRequestFilterKeyEvents" msgid="2103440391902412174">"നിങ്ങൾ ടൈപ്പുചെയ്യുന്ന വാചകം നിരീക്ഷിക്കുക"</string>
     <string name="capability_desc_canRequestFilterKeyEvents" msgid="7463135292204152818">"ക്രെഡിറ്റ് കാർഡ് നമ്പറുകളും പാസ്‌വേഡുകളും പോലുള്ള വ്യക്തിഗത ഡാറ്റ ഉൾപ്പെടുന്നു."</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"ഇൻസ്റ്റാൾ ചെയ്‌ത സെഷനുകൾ റീഡുചെയ്യുന്നതിന് ഒരു അപ്ലിക്കേഷനെ അനുവദിക്കുന്നു. സജീവ പാക്കേജ് ഇൻസ്റ്റാളേഷനുകളെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ കാണുന്നതിന് ഇത് അനുവദിക്കുന്നു."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"പാക്കേജുകൾ ഇൻസ്റ്റാൾ ചെയ്യാൻ അഭ്യർത്ഥിക്കുക"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"പാക്കേജുകളുടെ ഇൻസ്റ്റാളേഷൻ അഭ്യർത്ഥിക്കാൻ ഒരു അപ്ലിക്കേഷനെ അനുവദിക്കുന്നു."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"ബാറ്ററി ഒപ്റ്റിമൈസേഷനുകൾ അവഗണിക്കാൻ ആവശ്യപ്പെടുക"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"ആപ്പിന് വേണ്ടിയുള്ള ബാറ്ററി ഒപ്റ്റിമൈസേഷനുകളെ അവഗണിക്കാനുള്ള അനുമതി ചോദിക്കുന്നതിന് ആപ്പിനെ അനുവദിക്കുന്നു."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"സൂം നിയന്ത്രണം ലഭിക്കാൻ രണ്ടുതവണ ടാപ്പുചെയ്യുക"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"വിജറ്റ് ചേർക്കാനായില്ല."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"പോവുക"</string>
@@ -1230,7 +1237,7 @@
     <string name="forward_intent_to_work" msgid="621480743856004612">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിൽ ഈ അപ്ലിക്കേഷൻ ഉപയോഗിക്കുന്നു"</string>
     <string name="input_method_binding_label" msgid="1283557179944992649">"ടൈപ്പുചെയ്യൽ രീതി"</string>
     <string name="sync_binding_label" msgid="3687969138375092423">"സമന്വയിപ്പിക്കുക"</string>
-    <string name="accessibility_binding_label" msgid="4148120742096474641">"പ്രവേശനക്ഷമത"</string>
+    <string name="accessibility_binding_label" msgid="4148120742096474641">"ഉപയോഗസഹായി"</string>
     <string name="wallpaper_binding_label" msgid="1240087844304687662">"വാൾപേപ്പർ"</string>
     <string name="chooser_wallpaper" msgid="7873476199295190279">"വാൾപേപ്പർ മാറ്റുക"</string>
     <string name="notification_listener_binding_label" msgid="2014162835481906429">"അറിയിപ്പ് ലിസണർ"</string>
@@ -1432,9 +1439,9 @@
     <string name="kg_text_message_separator" product="default" msgid="4160700433287233771">" — "</string>
     <string name="kg_reordering_delete_drop_target_text" msgid="7899202978204438708">"നീക്കംചെയ്യുക"</string>
     <string name="safe_media_volume_warning" product="default" msgid="2276318909314492312">"മുകളിൽക്കൊടുത്തിരിക്കുന്ന ശുപാർശചെയ്‌ത ലെവലിലേക്ക് വോളിയം വർദ്ധിപ്പിക്കണോ?\n\nഉയർന്ന വോളിയത്തിൽ ദീർഘനേരം കേൾക്കുന്നത് നിങ്ങളുടെ ശ്രവണ ശേഷിയെ ദോഷകരമായി ബാധിക്കാം."</string>
-    <string name="continue_to_enable_accessibility" msgid="1626427372316070258">"പ്രവേശനക്ഷമത പ്രവർത്തനക്ഷമമാക്കാൻ രണ്ട് വിരലുകൾ അമർത്തിപ്പിടിക്കുക."</string>
-    <string name="accessibility_enabled" msgid="1381972048564547685">"പ്രവേശനക്ഷമത പ്രവർത്തനക്ഷമമാക്കി."</string>
-    <string name="enable_accessibility_canceled" msgid="3833923257966635673">"പ്രവേശനക്ഷമത റദ്ദാക്കി."</string>
+    <string name="continue_to_enable_accessibility" msgid="1626427372316070258">"ഉപയോഗസഹായി പ്രവർത്തനക്ഷമമാക്കാൻ രണ്ട് വിരലുകൾ അമർത്തിപ്പിടിക്കുക."</string>
+    <string name="accessibility_enabled" msgid="1381972048564547685">"ഉപയോഗസഹായി പ്രവർത്തനക്ഷമമാക്കി."</string>
+    <string name="enable_accessibility_canceled" msgid="3833923257966635673">"ഉപയോഗസഹായി റദ്ദാക്കി."</string>
     <string name="user_switched" msgid="3768006783166984410">"നിലവിലെ ഉപയോക്താവ് <xliff:g id="NAME">%1$s</xliff:g> ആണ്."</string>
     <string name="user_switching_message" msgid="2871009331809089783">"<xliff:g id="NAME">%1$s</xliff:g> എന്ന ഉപയോക്താവിലേക്ക് മാറുന്നു…"</string>
     <string name="user_logging_out_message" msgid="8939524935808875155">"<xliff:g id="NAME">%1$s</xliff:g> ലോഗൌട്ട് ചെയ്യുന്നു…"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"വർഷം തിരഞ്ഞെടുക്കുക"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> ഇല്ലാതാക്കി"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"ഔദ്യോഗികം <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"ഈ സ്‌ക്രീൻ അൺപിൻ ചെയ്യാൻ, ബാക്ക് ബട്ടൺ സ്‌പർശിച്ച് പിടിക്കുക"</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"ഈ സ്‌ക്രീൻ അൺപിൻ ചെയ്യാൻ, ബാക്കും ചുരുക്കവിവരണവും സ്‌പർശിച്ച് പിടിക്കുക."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"അപ്ലിക്കേഷൻ പിൻ ചെയ്‌തു: ഈ ഉപകരണത്തിൽ അൺപിൻ ചെയ്യാനാവില്ല."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"സ്ക്രീൻ പിൻ ചെയ്തു"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"സ്ക്രീൻ അൺപിൻ ചെയ്തു"</string>

@@ -40,6 +40,7 @@ public class ButtonDispatcher implements Drawable.Callback {
     private int mImageResource = -1;
     private Drawable mImageDrawable;
     private View mCurrentView;
+    private boolean mVertical;
 
     public ButtonDispatcher(int id) {
         mId = id;
@@ -47,13 +48,6 @@ public class ButtonDispatcher implements Drawable.Callback {
 
     void clear() {
         mViews.clear();
-    }
-
-    void addView(View view, boolean landscape) {
-        addView(view);
-        if (view instanceof ButtonInterface) {
-            ((ButtonInterface) view).setLandscape(landscape);
-        }
     }
 
     void addView(View view) {
@@ -75,6 +69,10 @@ public class ButtonDispatcher implements Drawable.Callback {
         } else if (mImageDrawable != null) {
             ((ButtonInterface) view).setImageDrawable(mImageDrawable);
             updateDrawable();
+        }
+
+        if (view instanceof  ButtonInterface) {
+            ((ButtonInterface) view).setVertical(mVertical);
         }
     }
 
@@ -218,6 +216,17 @@ public class ButtonDispatcher implements Drawable.Callback {
         }
     }
 
+    public void setVertical(boolean vertical) {
+        mVertical = vertical;
+        final int N = mViews.size();
+        for (int i = 0; i < N; i++) {
+            final View view = mViews.get(i);
+            if (view instanceof ButtonInterface) {
+                ((ButtonInterface) view).setVertical(vertical);
+            }
+        }
+    }
+
     /**
      * Interface for button actions.
      */
@@ -228,7 +237,7 @@ public class ButtonDispatcher implements Drawable.Callback {
 
         void abortCurrentGesture();
 
-        void setLandscape(boolean landscape);
+        void setVertical(boolean vertical);
 
         void setCarMode(boolean carMode);
     }

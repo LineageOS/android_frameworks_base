@@ -101,6 +101,8 @@
     <!-- Displayed when the user dialed an MMI code whose function
          could not be performed because FDN is enabled. This will be displayed in a toast. -->
     <string name="mmiFdnError">Operation is restricted to fixed dialing numbers only.</string>
+    <!-- Displayed when a carrier does not support call forwarding queries when roaming. -->
+    <string name="mmiErrorWhileRoaming">Can not change call forwarding settings from your phone while you are roaming.</string>
 
     <!-- Displayed when a phone feature such as call barring was activated. -->
     <string name="serviceEnabled">Service was enabled.</string>
@@ -201,6 +203,12 @@
     <string name="RestrictedOnVoiceSms">Voice/SMS services are blocked.</string>
     <!-- Displayed to tell the user that all service is blocked by access control. -->
     <string name="RestrictedOnAll">All voice/data/SMS services are blocked.</string>
+
+    <!-- Displayed to tell the user that they should switch their network preference. -->
+    <string name="NetworkPreferenceSwitchTitle">Can\u2019t reach network</string>
+    <!-- Displayed to tell the user that they should switch their network preference. -->
+    <string name="NetworkPreferenceSwitchSummary">To improve reception, try changing the type selected at Settings > Cellular networks > Preferred network type."</string>
+
 
     <!-- Displayed to tell the user that peer changed TTY mode -->
     <string name="peerTtyModeFull">Peer requested TTY Mode FULL</string>
@@ -381,6 +389,13 @@
     <!-- Content text for a notification. The Title of the notification is "work_profile_deleted",
         This indicates that a work profile has been deleted. [CHAR LIMIT=NONE]-->
     <string name="work_profile_deleted_description_dpm_wipe">Your work profile is no longer available on this device.</string>
+
+    <!-- Content title for a notification. This indicates that network logging was activated by
+        a device owner. [CHAR LIMIT=NONE]-->
+    <string name="network_logging_notification_title">Network traffic is being monitored</string>
+    <!-- Content text for a notification. Tapping opens a dialog with more information on network
+        logging. [CHAR LIMIT=NONE]-->
+    <string name="network_logging_notification_text">Tap to learn more</string>
 
     <!-- Factory reset warning dialog strings--> <skip />
     <!-- Shows up in the dialog's title to warn about an impeding factory reset. [CHAR LIMIT=NONE] -->
@@ -1959,7 +1974,7 @@
     <string name="lockscreen_access_pattern_cleared">Pattern cleared</string>
     <!-- Accessibility description sent when user adds a dot to the pattern. [CHAR LIMIT=NONE]  -->
     <string name="lockscreen_access_pattern_cell_added">Cell added</string>
-    <!-- Accessibility description sent when user adds a dot to the pattern. Announces the 
+    <!-- Accessibility description sent when user adds a dot to the pattern. Announces the
     actual cell when headphones are connected [CHAR LIMIT=NONE]  -->
     <string name="lockscreen_access_pattern_cell_added_verbose">
             Cell <xliff:g id="cell_index" example="3">%1$s</xliff:g> added</string>
@@ -2038,6 +2053,12 @@
         FACTORY_TEST action.</string>
     <!-- Button to restart the device after the factory test. -->
     <string name="factorytest_reboot">Reboot</string>
+
+    <!-- Do not translate.  timepicker mode, overridden for watch -->
+    <string name="time_picker_mode" translatable="false">"clock"</string>
+
+    <!-- Do not translate.  datepicker mode, overridden for watch -->
+    <string name="date_picker_mode" translatable="false">"calendar"</string>
 
     <!-- Do not translate.  WebView User Agent string -->
     <string name="web_user_agent" translatable="false">Mozilla/5.0 (Linux; U; <xliff:g id="x">Android %s</xliff:g>)
@@ -3230,6 +3251,11 @@
     <!-- Description of an application permission that lets it read install sessions. -->
     <string name="permdesc_requestInstallPackages">Allows an application to request installation of packages.</string>
 
+    <!-- Title of an application permission that lets it ask user to ignore battery optimizations for that app. -->
+    <string name="permlab_requestIgnoreBatteryOptimizations">ask to ignore battery optimizations</string>
+    <!-- Description of an application permission that lets it ask user to ignore battery optimizations for that app-->
+    <string name="permdesc_requestIgnoreBatteryOptimizations">Allows an app to ask for permission to ignore battery optimizations for that app.</string>
+
     <!-- Shown in the tutorial for tap twice for zoom control. -->
     <string name="tutorial_double_tap_to_zoom_message_short">Tap twice for zoom control</string>
 
@@ -4165,7 +4191,7 @@
     <string name="date_picker_day_typeface">sans-serif-medium</string>
 
     <!-- Notify use that they are in Lock-to-app -->
-    <string name="lock_to_app_toast">To unpin this screen, touch &amp; hold Back.</string>
+    <string name="lock_to_app_toast">To unpin this screen, touch &amp; hold Back and Overview.</string>
     <!-- Notify user that they are locked in lock-to-app mode -->
     <string name="lock_to_app_toast_locked">App is pinned: Unpinning isn\'t allowed on this device.</string>
     <!-- Starting lock-to-app indication. -->

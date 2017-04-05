@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Problème de connexion ou code IHM non valide."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Opération réservée aux numéros autorisés"</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Impossible de modifier les paramètres de transfert d\'appel depuis votre téléphone lorsque vous êtes en itinérance."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Le service a été activé."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Ce service a été activé pour :"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Ce service a été désactivé."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Les services vocaux/de données sont bloqués."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Les services voix/SMS sont bloqués."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Tous les services vocaux/de données/SMS sont bloqués."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Impossible d\'accéder au réseau"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Pour améliorer la réception, essayez de modifier le type sélectionné sous Paramètres &gt; Réseaux mobiles &gt; Type de réseau préféré."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Mode TTY demandé par l\'interlocuteur : COMPLET"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Mode TTY demandé par l\'interlocuteur : HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Mode TTY demandé par l\'interlocuteur : VCO"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Le profil professionnel a été supprimé, car une application d\'administration est manquante."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"L\'application d\'administration du profil professionnel est manquante ou endommagée. Par conséquent, votre profil professionnel et toutes les données associées ont été supprimés. Pour obtenir de l\'aide, contactez l\'administrateur."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Votre profil professionnel n\'est plus disponible sur cet appareil."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Le trafic réseau est surveillé"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Appuyez sur cette notification pour en savoir plus"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Les données de votre appareil vont être effacées"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Certains composants de l\'application d\'administration sont manquants ou endommagés, et l\'application est donc inutilisable. Les données de votre appareil vont maintenant être effacées. Pour obtenir de l\'aide, contactez l\'administrateur."</string>
     <string name="me" msgid="6545696007631404292">"Moi"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Permet à une application d\'accéder aux sessions d\'installation. Cela lui permet de consulter les détails relatifs à l\'installation des packages actifs."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"demander l\'installation de packages"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Permet à une application de demander l\'installation de packages."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"demander à ignorer les optimisations de batterie"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Autorise une application à demander l\'autorisation d\'ignorer les optimisations de batterie pour cette application."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Appuyer deux fois pour régler le zoom"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Impossible d\'ajouter le widget."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"OK"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Sélectionner une année"</string>
     <string name="deleted_key" msgid="7659477886625566590">"\"<xliff:g id="KEY">%1$s</xliff:g>\" supprimé"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> (travail)"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Pour annuler l\'épinglage, appuyez de manière prolongée sur \"Retour\"."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Pour annuler l\'épinglage de l\'écran, appuyez de manière prolongée sur les boutons Retour et Aperçu."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"L\'application est épinglée. L\'annulation de l\'épinglage n\'est pas autorisée sur cet appareil."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Écran épinglé."</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Épinglage d\'écran annulé."</string>

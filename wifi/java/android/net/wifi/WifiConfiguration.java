@@ -100,10 +100,22 @@ public class WifiConfiguration implements Parcelable {
          */
         public static final int OSEN = 5;
 
+        /**
+         * IEEE 802.11r Fast BSS Transition with PSK authentication.
+         * @hide
+         */
+        public static final int FT_PSK = 6;
+
+        /**
+         * IEEE 802.11r Fast BSS Transition with EAP authentication.
+         * @hide
+         */
+        public static final int FT_EAP = 7;
+
         public static final String varName = "key_mgmt";
 
         public static final String[] strings = { "NONE", "WPA_PSK", "WPA_EAP", "IEEE8021X",
-                "WPA2_PSK", "OSEN" };
+                "WPA2_PSK", "OSEN", "FT_PSK", "FT_EAP" };
     }
 
     /**
@@ -479,6 +491,12 @@ public class WifiConfiguration implements Parcelable {
      */
     /** @hide **/
     public static int INVALID_RSSI = -127;
+
+    /**
+     * @hide
+     * Set to true if this is a Carrier Network, else set to false.
+     */
+    public boolean isCarrierNetwork = false;
 
     /**
      * @hide
@@ -1560,6 +1578,7 @@ public class WifiConfiguration implements Parcelable {
         sbuf.append(" lcuid=" + lastConnectUid);
         sbuf.append(" userApproved=" + userApprovedAsString(userApproved));
         sbuf.append(" noInternetAccessExpected=" + noInternetAccessExpected);
+        sbuf.append(" isCarrierNetwork=" + isCarrierNetwork);
         sbuf.append(" ");
 
         if (this.lastConnected != 0) {
@@ -1925,6 +1944,7 @@ public class WifiConfiguration implements Parcelable {
             userApproved = source.userApproved;
             numNoInternetAccessReports = source.numNoInternetAccessReports;
             noInternetAccessExpected = source.noInternetAccessExpected;
+            isCarrierNetwork = source.isCarrierNetwork;
             creationTime = source.creationTime;
             updateTime = source.updateTime;
             shared = source.shared;
@@ -1998,6 +2018,7 @@ public class WifiConfiguration implements Parcelable {
         dest.writeInt(userApproved);
         dest.writeInt(numNoInternetAccessReports);
         dest.writeInt(noInternetAccessExpected ? 1 : 0);
+        dest.writeInt(isCarrierNetwork ? 1 : 0);
         dest.writeInt(shared ? 1 : 0);
         dest.writeString(mPasspointManagementObjectTree);
         dest.writeInt(SIMNum);
@@ -2071,6 +2092,7 @@ public class WifiConfiguration implements Parcelable {
                 config.userApproved = in.readInt();
                 config.numNoInternetAccessReports = in.readInt();
                 config.noInternetAccessExpected = in.readInt() != 0;
+                config.isCarrierNetwork = in.readInt() != 0;
                 config.shared = in.readInt() != 0;
                 config.mPasspointManagementObjectTree = in.readString();
                 config.SIMNum = in.readInt();

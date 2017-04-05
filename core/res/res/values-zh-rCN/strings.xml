@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"出现连接问题或 MMI 码无效。"</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"只能对固定拨号号码执行此类操作。"</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"漫游时无法通过您的手机来更改来电转接设置。"</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"已启用服务。"</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"已针对以下内容启用了服务："</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"已停用服务。"</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"语音/数据服务已停用。"</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"语音/短信服务已停用。"</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"所有语音/数据/短信服务都已停用。"</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"无法连接网络"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"要改善信号情况，请尝试更改在“设置”&gt;“移动网络”&gt;“首选网络类型”中选择的类型。"</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"对方请求使用“TTY 完整”模式"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"对方请求使用“TTY HCO”模式"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"对方请求使用“TTY VCO”模式"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"由于缺少管理应用，工作资料已被删除。"</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"工作资料管理应用缺失或损坏，因此系统已删除您的工作资料及相关数据。请与您的管理员联系以寻求帮助。"</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"您的工作资料已不在此设备上。"</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"网络流量正受到监控"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"点按即可了解详情"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"系统将清空您的设备"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"由于缺少组件或软件包已损坏，无法使用此管理应用。系统现在将清空您的设备。请与您的管理员联系以寻求帮助。"</string>
     <string name="me" msgid="6545696007631404292">"我"</string>
@@ -278,7 +283,7 @@
     <string name="permlab_statusBarService" msgid="4826835508226139688">"用作状态栏"</string>
     <string name="permdesc_statusBarService" msgid="716113660795976060">"允许以状态栏形式显示应用。"</string>
     <string name="permlab_expandStatusBar" msgid="1148198785937489264">"展开/收拢状态栏"</string>
-    <string name="permdesc_expandStatusBar" msgid="6917549437129401132">"允许应用展开或折叠状态栏。"</string>
+    <string name="permdesc_expandStatusBar" msgid="6917549437129401132">"允许应用展开或收起状态栏。"</string>
     <string name="permlab_install_shortcut" msgid="4279070216371564234">"安装快捷方式"</string>
     <string name="permdesc_install_shortcut" msgid="8341295916286736996">"允许应用自行添加主屏幕快捷方式。"</string>
     <string name="permlab_uninstall_shortcut" msgid="4729634524044003699">"卸载快捷方式"</string>
@@ -329,7 +334,7 @@
     <string name="permdesc_broadcastSticky" product="tablet" msgid="7749760494399915651">"允许该应用发送持久广播消息，此类消息在广播结束后仍会保留。过度使用可能会导致平板电脑使用过多内存，从而降低其速度或稳定性。"</string>
     <string name="permdesc_broadcastSticky" product="tv" msgid="6839285697565389467">"允许应用发送持久广播消息，此类消息在广播结束后仍会保留。过度使用可能会导致电视使用过多内存，从而降低其速度或稳定性。"</string>
     <string name="permdesc_broadcastSticky" product="default" msgid="2825803764232445091">"允许该应用发送持久广播消息，此类消息在广播结束后仍会保留。过度使用可能会导致手机使用过多内存，从而降低其速度或稳定性。"</string>
-    <string name="permlab_readContacts" msgid="8348481131899886131">"读取您的通讯录"</string>
+    <string name="permlab_readContacts" msgid="8348481131899886131">"读取联系人"</string>
     <string name="permdesc_readContacts" product="tablet" msgid="5294866856941149639">"允许该应用读取您平板电脑上存储的联系人的相关数据，包括您通过打电话、发送电子邮件或以其他方式与特定个人通信的频率。此权限可让应用保存您的联系人数据，而恶意应用可能会在您不知情的情况下分享联系人数据。"</string>
     <string name="permdesc_readContacts" product="tv" msgid="1839238344654834087">"允许应用读取您的电视上存储的联系人相关数据，包括您与特定联系人通话、发送电子邮件或通过其他方式进行通信的频率。此权限可让应用保存您的联系人数据，而且恶意应用可能会在您不知情的情况下分享联系人数据。"</string>
     <string name="permdesc_readContacts" product="default" msgid="8440654152457300662">"允许该应用读取您手机上存储的联系人的相关数据，包括您通过打电话、发送电子邮件或以其他方式与特定个人通信的频率。此权限可让应用保存您的联系人数据，而恶意应用可能会在您不知情的情况下分享联系人数据。"</string>
@@ -738,7 +743,7 @@
     <string name="keyguard_accessibility_add_widget" msgid="8273277058724924654">"添加小部件。"</string>
     <string name="keyguard_accessibility_widget_empty_slot" msgid="1281505703307930757">"空白"</string>
     <string name="keyguard_accessibility_unlock_area_expanded" msgid="2278106022311170299">"已展开解锁区域。"</string>
-    <string name="keyguard_accessibility_unlock_area_collapsed" msgid="6366992066936076396">"已折叠解锁区域。"</string>
+    <string name="keyguard_accessibility_unlock_area_collapsed" msgid="6366992066936076396">"已收起解锁区域。"</string>
     <string name="keyguard_accessibility_widget" msgid="6527131039741808240">"<xliff:g id="WIDGET_INDEX">%1$s</xliff:g>小部件。"</string>
     <string name="keyguard_accessibility_user_selector" msgid="1226798370913698896">"用户选择器"</string>
     <string name="keyguard_accessibility_status" msgid="8008264603935930611">"状态"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"允许应用读取安装会话。这样，应用将可以查看有关当前软件包安装的详情。"</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"请求安装文件包"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"允许应用请求安装文件包。"</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"请求忽略电池优化"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"允许应用请求相应的权限，以便忽略针对该应用的电池优化。"</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"双击可以进行缩放控制"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"无法添加小部件。"</string>
     <string name="ime_action_go" msgid="8320845651737369027">"开始"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"选择年份"</string>
     <string name="deleted_key" msgid="7659477886625566590">"已删除<xliff:g id="KEY">%1$s</xliff:g>"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"工作<xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"要取消固定此屏幕，请触摸并按住“返回”按钮。"</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"要取消固定此屏幕，请触摸并按住“返回”和“概览”。"</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"应用处于固定状态：在此设备上不允许退出该模式。"</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"已固定屏幕"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"已取消固定屏幕"</string>

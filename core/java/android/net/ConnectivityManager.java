@@ -89,6 +89,13 @@ public class ConnectivityManager {
      * sent as an extra; it should be consulted to see what kind of
      * connectivity event occurred.
      * <p/>
+     * Apps targeting Android 7.0 (API level 24) and higher do not receive this
+     * broadcast if they declare the broadcast receiver in their manifest. Apps
+     * will still receive broadcasts if they register their
+     * {@link android.content.BroadcastReceiver} with
+     * {@link android.content.Context#registerReceiver Context.registerReceiver()}
+     * and that context is still valid.
+     * <p/>
      * If this is a connection that was the result of failing over from a
      * disconnected network, then the FAILOVER_CONNECTION boolean extra is
      * set to true.
@@ -223,6 +230,13 @@ public class ConnectivityManager {
      * Key for passing a URL to the captive portal login activity.
      */
     public static final String EXTRA_CAPTIVE_PORTAL_URL = "android.net.extra.CAPTIVE_PORTAL_URL";
+
+    /**
+     * Key for passing a user agent string to the captive portal login activity.
+     * {@hide}
+     */
+    public static final String EXTRA_CAPTIVE_PORTAL_USER_AGENT =
+            "android.net.extra.CAPTIVE_PORTAL_USER_AGENT";
 
     /**
      * Broadcast action to indicate the change of data activity status

@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Konexio-arazoren bat gertatu da edo MMI kodea baliogabea da."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Eragiketa markatze finkoko zenbakietara murriztua dago."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Ezin dira aldatu deiak desbideratzeko ezarpenak telefonoa ibiltaritzan dagoenean."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Zerbitzua gaitu da."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Zerbitzua honetarako gaitu da:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Zerbitzua desgaitu da."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Ahots- eta datu-zerbitzuak blokeatuta daude."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Ahots eta SMS zerbitzuak blokeatuta daude."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Ahotsaren, datuen eta SMSen zerbitzuak blokeatuta daude."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Ezin da konektatu sarera"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Seinalea hobea izan dadin, aldatu hautatutako mota Ezarpenak &gt; Sare mugikorrak &gt; Sare mota hobetsia atalean."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Beste gailuak TTY osagarria FULL moduan erabiltzea eskatu du"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Beste gailuak TTY osagarria HCO moduan erabiltzea eskatu du"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Beste gailuak TTY osagarria VCO moduan erabiltzea eskatu du"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Laneko profila ezabatu egin da hura administratzeko aplikazioa falta delako."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Laneko profila administratzeko aplikazioa falta da edo hondatuta dago. Ondorioz, laneko profila eta horrekin erlazionatutako datuak ezabatu egin dira. Laguntza lortzeko, jarri administratzailearekin harremanetan."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Work profila ez dago erabilgarri gailu honetan."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Sareko trafikoa gainbegiratzen da"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Sakatu informazio gehiago lortzeko"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Gailuko datuak ezabatu egingo dira"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Administrazio-aplikazioaren osagai batzuk falta dira edo aplikazioa hondatuta dago eta ezin da erabili. Gailuko datuak ezabatu egingo dira. Laguntza lortzeko, jarri administratzailearekin harremanetan."</string>
     <string name="me" msgid="6545696007631404292">"Ni"</string>
@@ -1075,7 +1080,7 @@
     <string name="network_available_sign_in" msgid="1848877297365446605">"Hasi saioa sarean"</string>
     <!-- no translation found for network_available_sign_in_detailed (8000081941447976118) -->
     <skip />
-    <string name="wifi_no_internet" msgid="8451173622563841546">"Wi-Fi eginbidea ezin da Internetera konektatu"</string>
+    <string name="wifi_no_internet" msgid="8451173622563841546">"Ezin da konektatu Internetera Wi-Fi bidez"</string>
     <string name="wifi_no_internet_detailed" msgid="8083079241212301741">"Sakatu aukerak ikusteko"</string>
     <string name="network_switch_metered" msgid="4671730921726992671">"<xliff:g id="NETWORK_TYPE">%1$s</xliff:g> erabiltzen ari zara orain"</string>
     <string name="network_switch_metered_detail" msgid="5325661434777870353">"<xliff:g id="PREVIOUS_NETWORK">%2$s</xliff:g> Internetera konektatzeko gauza ez denean, <xliff:g id="NEW_NETWORK">%1$s</xliff:g> erabiltzen du gailuak. Agian kostuak ordaindu beharko dituzu."</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Instalazio-saioak irakurtzea baimentzen die aplikazioei. Horrela, pakete-instalazio aktiboei buruzko xehetasunak ikus ditzakete."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"Eskatu instalazio-paketeak"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Paketeak instalatzeko eskatzea baimentzen die aplikazioei."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"Eskatu bateriaren optimizazioei ez ikusi egitea"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Bateriaren optimizazioei ez ikusi egiteko baimena eskatzea baimentzen die aplikazioei."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Sakatu birritan zooma kontrolatzeko"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Ezin izan da widgeta gehitu."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Joan"</string>
@@ -1234,7 +1241,7 @@
     <string name="wallpaper_binding_label" msgid="1240087844304687662">"Horma-papera"</string>
     <string name="chooser_wallpaper" msgid="7873476199295190279">"Aldatu horma-papera"</string>
     <string name="notification_listener_binding_label" msgid="2014162835481906429">"Jakinarazpenak hautemateko zerbitzua"</string>
-    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Errealitate birtualeko hautemailea"</string>
+    <string name="vr_listener_binding_label" msgid="4316591939343607306">"EB hautemailea"</string>
     <string name="condition_provider_service_binding_label" msgid="1321343352906524564">"Baldintza-hornitzailea"</string>
     <string name="notification_ranker_binding_label" msgid="774540592299064747">"Jakinarazpenen sailkapen-zerbitzua"</string>
     <string name="vpn_title" msgid="19615213552042827">"VPN eginbidea aktibatuta"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Hautatu urtea"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> ezabatu da"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Laneko <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Pantailari aingura kentzeko, eduki sakatuta Atzera botoia."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Pantailari aingura kentzeko, eduki sakatuta Atzera eta Ikuspegi orokorra botoiak."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Aplikazioa ainguratuta dago. Gailu honetan ezin da aingura kendu."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Pantaila ainguratu da"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Aingura kendu zaio pantailari"</string>

@@ -57,4 +57,12 @@
 
     <!-- Use a custom transition for RemoteViews. -->
     <bool name="config_overrideRemoteViewsActivityTransition">true</bool>
+
+    <!-- Default value for android:focusableInTouchMode for some framework scrolling containers.
+         ListView/GridView are notably absent since this is their default anyway.
+         Set to true for watch devices. -->
+    <bool name="config_focusScrollContainersInTouchMode">true</bool>
+
+    <!-- The small screens of watch devices makes multi-window support undesireable. -->
+    <bool name="config_supportsMultiWindow">false</bool>
 </resources>

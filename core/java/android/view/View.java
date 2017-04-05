@@ -12940,7 +12940,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Any previously attached StateListAnimator will be detached.
      *
      * @param stateListAnimator The StateListAnimator to update the view
-     * @see {@link android.animation.StateListAnimator}
+     * @see android.animation.StateListAnimator
      */
     public void setStateListAnimator(StateListAnimator stateListAnimator) {
         if (mStateListAnimator == stateListAnimator) {
@@ -23914,8 +23914,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Determine if this view is rendered on a round wearable device and is the main view
      * on the screen.
      */
-    private boolean shouldDrawRoundScrollbar() {
-        if (!mResources.getConfiguration().isScreenRound()) {
+    boolean shouldDrawRoundScrollbar() {
+        if (!mResources.getConfiguration().isScreenRound() || mAttachInfo == null) {
             return false;
         }
 
@@ -23931,7 +23931,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             return false;
         }
 
-        getLocationOnScreen(mAttachInfo.mTmpLocation);
+        getLocationInWindow(mAttachInfo.mTmpLocation);
         return mAttachInfo.mTmpLocation[0] == insets.getStableInsetLeft()
                 && mAttachInfo.mTmpLocation[1] == insets.getStableInsetTop();
     }

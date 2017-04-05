@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Праблема падлучэння ці няправільны код MMI."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Выкарыстанне абмежаванае толькі дазволенымі нумарамі."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Немагчыма змяніць налады пераадрасацыі выклікаў з тэлефона, пакуль вы знаходзіцеся ў роўмінгу."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Служба была ўключана."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Служба была ўключана для:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Служба была адключаная."</string>
@@ -98,6 +99,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Службы перадачы голаса/дадзеных заблакаваны."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Службы перадачы голаса і SMS заблакаваныя."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Усе службы перадачы дадзеных, галасавыя і SMS-службы заблакаваны."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Немагчыма падключыцца да сеткі"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Каб палепшыць якасць прыёму, паспрабуйце змяніць тып, выбраны ў меню \"Налады &gt; Сотавыя сеткі &gt; Прыярытэтны тып сеткі\"."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Аднарангавая прылада запытала рэжым TTY FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Аднарангавая прылада запытала рэжым TTY НСО"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Аднарангавая прылада запытала рэжым TTY VCO"</string>
@@ -183,6 +186,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Рабочы профіль выдалены з-за адсутнасці праграмы адміністравання."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Праграма для адміністравання рабочага профілю адсутнічае або пашкоджана. У выніку гэтага ваш рабочы профіль і звязаныя з ім даныя былі выдаленыя. Звярніцеся па дапамогу да адміністратара."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Ваш працоўны профіль больш не даступны на гэтай прыладзе."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Сеткавы трафік адсочваецца"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Дакраніцеся, каб даведацца больш"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Даныя вашай прылады будуць сцерты"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Праграма для адміністравання не можа быць выкарыстана, таму што ў яе адсутнічаюць кампаненты або яна пашкоджана. Зараз даныя вашай прылады будуць сцерты. Звярніцеся па дапамогу да адміністратара."</string>
     <string name="me" msgid="6545696007631404292">"Я"</string>
@@ -1258,6 +1263,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Дазваляе праграме счытваць сеансы ўсталёўкі. Гэта дазваляе ёй праглядаць інфармацыю аб актыўных усталёўках пакета."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"запытваць усталёўку пакетаў"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Дазваляе праграме запытваць усталёўку пакетаў."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"запытваць дазвол на ігнараванне аптымізацыі акумулятара"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Дазваляе праграме запытваць дазвол на ігнараванне аптымізацыі акумулятара для гэтай праграмы."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Націсніце двойчы, каб кіраваць маштабаваннем"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Немагчыма дадаць віджэт."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Пачаць"</string>
@@ -1612,7 +1619,7 @@
     <string name="select_year" msgid="7952052866994196170">"Выберыце год"</string>
     <string name="deleted_key" msgid="7659477886625566590">"Выдалена: <xliff:g id="KEY">%1$s</xliff:g>"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> (праца)"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Каб адмацаваць гэты экран, дакраніцеся і ўтрымлівайце кнопку \"Назад\"."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Каб адмацаваць гэты экран, дакраніцеся і ўтрымлівайце кнопкі \"Назад\" і \"Агляд\"."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Праграма замацавана: адмацаванне на гэтай прыладзе не дапускаецца."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Экран замацаваны"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Экран адмацаваны"</string>

@@ -408,19 +408,25 @@
     <string name="monitoring_title_device_owned" msgid="7121079311903859610">"کنترل دستگاه"</string>
     <string name="monitoring_title_profile_owned" msgid="6790109874733501487">"کنترل نمایه"</string>
     <string name="monitoring_title" msgid="169206259253048106">"کنترل شبکه"</string>
+    <string name="monitoring_subtitle_vpn" msgid="876537538087857300">"VPN"</string>
+    <string name="monitoring_subtitle_network_logging" msgid="5569072711320784030">"گزارش‌گیری شبکه"</string>
     <string name="disable_vpn" msgid="4435534311510272506">"‏غیرفعال کردن VPN"</string>
     <string name="disconnect_vpn" msgid="1324915059568548655">"‏قطع اتصال VPN"</string>
-    <string name="monitoring_description_device_owned" msgid="5780988291898461883">"مدیریت دستگاه شما توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g>.\n\nسرپرستتان می‌تواند تنظیمات، دسترسی شرکت، برنامه‌ها داده‌های مرتبط با دستگاهتان و اطلاعات مکان دستگاهتان را کنترل و مدیریت کند. برای دریافت اطلاعات بیشتر، با سرپرستتان تماس بگیرید."</string>
+    <string name="monitoring_description_device_owned" msgid="220006422537330981">"دستگاهتان توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g> مدیریت می‌شود.\n\nسرپرست شما می‌تواند تنظیمات، دسترسی شرکتی، برنامه‌ها، داده‌های مرتبط با دستگاه و اطلاعات مکان دستگاه شما را مدیریت کند و بر آن‌ها نظارت داشته باشد. برای اطلاعات بیشتر، با سرپرست خود تماس بگیرید."</string>
+    <string name="monitoring_description_do_body_vpn" msgid="8255218762488901796">"به <xliff:g id="VPN_APP">%1$s</xliff:g> وصل شده‌اید، که می‌تواند فعالیت شبکه شما را (ازجمله رایانامه‌‌ها، برنامه‌‌ها و وب‌سایت‌ها) کنترل کند."</string>
+    <string name="monitoring_description_vpn_settings_separator" msgid="1933186756733474388">" "</string>
+    <string name="monitoring_description_vpn_settings" msgid="8869300202410505143">"‏باز کردن تنظیمات VPN"</string>
+    <string name="monitoring_description_network_logging" msgid="7223505523384076027">"سرپرست سیستم شما گزارش‌گیری شبکه را (که بر ترافیک دستگاهتان نظارت می‌کند) روشن کرده است.\n\nبرای اطلاعات بیشتر، با سرپرست خود تماس بگیرید."</string>
     <string name="monitoring_description_vpn" msgid="4445150119515393526">"‏شما به برنامه‌ای برای تنظیم اتصال VPN اجازه دادید.\n\n این برنامه می‌تواند دستگاه و فعالیت شبکه‌تان را کنترل کند، از جمله رایانامه‌، برنامه‌ و وب‌سایت‌ها."</string>
-    <string name="monitoring_description_vpn_device_owned" msgid="3090670777499161246">"‏دستگاهتان توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g> مدیریت می‌شود.\n\nسرپرستتان می‌تواند تنظیمات، دسترسی شرکت، برنامه‌ها، داده‌های مرتبط با دستگاهتان و اطلاعات مکان دستگاهتان را کنترل و مدیریت کند.\n\nشما به یک VPN وصل هستید که می‌تواند فعالیت شبکه شما را کنترل کند، از جمله ایمیل‌ها، برنامه‌ها و وب‌سایت‌ها.\n\nبرای دریافت اطلاعات بیشتر، با سرپرستتان تماس بگیرید."</string>
-    <string name="monitoring_description_vpn_profile_owned" msgid="2054949132145039290">"‏نمایه کاری شما توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g> مدیریت می‌شود.\n\nسرپرستتان می‌تواند فعالیت شبکه‌تان از جمله رایانامه‌، برنامه‌ و وب‌‌سایت‌ها را کنترل کند.\n\nبرای دریافت اطلاعات بیشتر با سرپرستتان تماس بگیرید.\n\nهمچنین به یک VPN وصل هستید که می‌تواند فعالیت شبکه شما را کنترل کند."</string>
+    <string name="monitoring_description_vpn_device_owned" msgid="6741053132592567634">"‏دستگاهتان توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g> مدیریت می‌شود.\n\nسرپرست شما می‌تواند تنظیمات، دسترسی شرکتی، برنامه‌ها، داده‌های مرتبط با دستگاه و اطلاعات مکان دستگاه شما را مدیریت کند و بر آن‌ها نظارت داشته باشد.\n\nشما با یک VPN مرتبط هستید که می‌تواند بر فعالیت شبکه شما (ازجمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌ها) نظارت داشته باشد.\n\nبرای اطلاعات بیشتر، با سرپرست خود تماس بگیرید."</string>
+    <string name="monitoring_description_vpn_profile_owned" msgid="2958019119161161530">"‏نمایه کاری شما توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g> مدیریت می‌شود.\n\nسرپرست سیستم شما می‌تواند بر فعالیت شبکه شما (ازجمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌ها) نظارت داشته باشد.\n\nبرای اطلاعات بیشتر، با سرپرست خود تماس بگیرید.\n\nهمچنین به VPN متصل هستید که می‌تواند بر فعالیت شبکه شما نظارت داشته باشد."</string>
     <string name="legacy_vpn_name" msgid="6604123105765737830">"VPN"</string>
     <string name="monitoring_description_app" msgid="6259179342284742878">"شما به <xliff:g id="APPLICATION">%1$s</xliff:g> وصل شده‌اید، که می‌تواند فعالیت شبکه شما از جمله رایانامه‌، برنامه‌ و وب‌سایت‌ها را کنترل کند."</string>
     <string name="monitoring_description_app_personal" msgid="484599052118316268">"شما به <xliff:g id="APPLICATION">%1$s</xliff:g> وصل شده‌اید، که می‌تواند فعالیت شبکه شخصی شما از جمله رایانامه‌، برنامه‌ و وب‌سایت‌ها را کنترل کند."</string>
     <string name="branded_monitoring_description_app_personal" msgid="2669518213949202599">"به <xliff:g id="APPLICATION">%1$s</xliff:g> وصل شده‌اید، که می‌تواند فعالیت شبکه شخصی شما را (ازجمله رایانامه‌‌ها، برنامه‌‌ها و وب‌سایت‌ها) کنترل کند."</string>
-    <string name="monitoring_description_app_work" msgid="1754325860918060897">"نمایه کاری‌تان توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g> مدیریت می‌شود. این به <xliff:g id="APPLICATION">%2$s</xliff:g> وصل است که فعالیت شبکه کاری‌تان از جمله رایانامه، برنامه و وب‌سایت‌ها را کنترل می‌کند.\n\nبرای دریافت اطلاعات بیشتر، با سرپرستتان تماس بگیرید."</string>
+    <string name="monitoring_description_app_work" msgid="7777228449969022305">"نمایه کاری شما توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g> مدیریت می‌شود. این نمایه با <xliff:g id="APPLICATION">%2$s</xliff:g> مرتبط است که می‌تواند بر فعالیت شبکه شما (ازجمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌ها) نظارت داشته باشد.\n\nبرای اطلاعات بیشتر، با سرپرست سیستم خود تماس بگیرید."</string>
     <string name="monitoring_description_app_personal_work" msgid="4946600443852045903">"نمایه کاری شما توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g> مدیریت می‌شود. این به <xliff:g id="APPLICATION_WORK">%2$s</xliff:g> متصل است که می‌تواند فعالیت شبکه کاری‌تان از جمله رایانامه، برنامه و وب‌سایت‌ها را کنترل کند.\n\nشما همچنین به <xliff:g id="APPLICATION_PERSONAL">%3$s</xliff:g> متصل هستید که می‌تواند فعالیت شبکه شخصی‌تان را کنترل کند."</string>
-    <string name="monitoring_description_vpn_app_device_owned" msgid="4970443827043261703">"دستگاهتان توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g> مدیریت می‌شود.\n\nسرپرستتان می‌تواند تنظیمات، دسترسی شرکت، برنامه‌ها، داده‌های مرتبط با دستگاهتان و اطلاعات مکان دستگاهتان را کنترل و مدیریت کند.\n\nشما به <xliff:g id="APPLICATION">%2$s</xliff:g> وصل هستید که می‌تواند فعالیت شبکه شما را کنترل کند، از جمله رایانامه‌، برنامه‌ و وب‌سایت‌ها.\n\nبرای دریافت اطلاعات بیشتر، با سرپرستتان تماس بگیرید."</string>
+    <string name="monitoring_description_vpn_app_device_owned" msgid="6157262536135989204">"دستگاهتان توسط <xliff:g id="ORGANIZATION">%1$s</xliff:g> مدیریت می‌شود.\n\nسرپرست شما می‌تواند تنظیمات، دسترسی شرکتی، برنامه‌ها، داده‌های مرتبط با دستگاه و اطلاعات مکان دستگاه شما را مدیریت کند و بر آن‌ها نظارت داشته باشد.\n\nشما با <xliff:g id="APPLICATION">%2$s</xliff:g> مرتبط هستید که می‌تواند بر فعالیت شبکه شما (ازجمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌ها) نظارت داشته باشد.\n\nبرای اطلاعات بیشتر، با سرپرست خود تماس بگیرید."</string>
     <string name="keyguard_indication_trust_disabled" msgid="7412534203633528135">"دستگاه قفل باقی می‌ماند تا زمانی که قفل آن را به صورت دستی باز کنید"</string>
     <string name="hidden_notifications_title" msgid="7139628534207443290">"دریافت سریع‌تر اعلان‌ها"</string>
     <string name="hidden_notifications_text" msgid="2326409389088668981">"قبل از باز کردن قفل آنها را مشاهده کنید"</string>
@@ -431,7 +437,8 @@
     <string name="accessibility_volume_expand" msgid="5946812790999244205">"بزرگ کردن"</string>
     <string name="accessibility_volume_collapse" msgid="3609549593031810875">"کوچک کردن"</string>
     <string name="screen_pinning_title" msgid="3273740381976175811">"صفحه نمایش پین شد"</string>
-    <string name="screen_pinning_description" msgid="7238941806855968768">"تا زمانی که پین را بردارید، در نما نگه‌داشته می‌شود. برای برداشتن پین، «برگشت» را لمس کنید و نگه‌دارید."</string>
+    <string name="screen_pinning_description" msgid="8909878447196419623">"تا زمانی که پین را بردارید، در نما نگه‌داشته می‌شود. برای برداشتن پین، «برگشت» و «نمای کلی» را لمس کنید و نگه‌دارید."</string>
+    <string name="screen_pinning_description_accessible" msgid="426190689254018656">"تا زمانی که پین را بردارید، در نما نگه‌داشته می‌شود. برای برداشتن پین، «نمای کلی» را لمس کنید و نگه‌دارید."</string>
     <string name="screen_pinning_positive" msgid="3783985798366751226">"متوجه شدم"</string>
     <string name="screen_pinning_negative" msgid="3741602308343880268">"نه متشکرم"</string>
     <string name="quick_settings_reset_confirmation_title" msgid="748792586749897883">"<xliff:g id="TILE_LABEL">%1$s</xliff:g> مخفی شود؟"</string>
@@ -652,4 +659,7 @@
     <string name="accessibility_quick_settings_edit" msgid="7839992848995240393">"ویرایش ترتیب تنظیمات."</string>
     <string name="accessibility_quick_settings_page" msgid="5032979051755200721">"صفحه <xliff:g id="ID_1">%1$d</xliff:g> از <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="cant_silence_or_block" msgid="999689262131488625">"نمی‌توان اعلان‌ها را بی‌صدا یا مسدود کرد"</string>
+    <string name="high_temp_title" msgid="4589508026407318374">"تلفن درحال گرم شدن است"</string>
+    <string name="high_temp_notif_message" msgid="5642466103153429279">"وقتی تلفن درحال خنک شدن است، بعضی از قابلیت‌ها محدود می‌شوند"</string>
+    <string name="high_temp_dialog_message" msgid="6840700639374113553">"تلفنتان به‌طور خودکار سعی می‌کند خنک شود. همچنان می‌توانید از تلفنتان استفاده کنید، اما ممکن است کندتر عمل کند.\n\nوقتی تلفن خنک شد، عملکرد عادی‌اش از سرگرفته می‌شود."</string>
 </resources>

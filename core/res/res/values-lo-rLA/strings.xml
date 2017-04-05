@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"ມີບັນຫາໃນການເຊື່ອມຕໍ່ ຫຼືລະຫັດ MMI ບໍ່ຖືກຕ້ອງ."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"ການດຳເນີນການຖືກຈຳກັດເປັນ ຈຳກັດໝາຍເລກໂທອອກເທົ່ານັ້ນ."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Can not change call forwarding settings from your phone while you are roaming."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"ບໍລິການຖືກເປີດໄວ້ແລ້ວ."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"ບໍລິການຖືກເປີດໃຊ້ສຳລັບ:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"ບໍ​ລິ​ການ​ໄດ້​ຖືກ​ປິດແລ້ວ."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"ບໍລິການ ຂໍ້ມູນ/ສຽງ ຖືກບລັອກ."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"ບໍລິການ ສຽງ/SMS ຖືກບລັອກ."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"ບໍລິການ ການໂທ/ອິນເຕີເນັດ/SMS ຖືກປິດກັ້ນໄວ້."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Can’t reach network"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"To improve reception, try changing the type selected at Settings &gt; Cellular networks &gt; Preferred network type."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"ໂໝດ TTY ທີ່​ເພື່ອນ​ຂໍ​ນັ້ນ​ເຕັມ​ແລ້ວ"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"ໂໝດ TTY ທີ່​ເພື່ອນ​ຂໍ HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"ໂໝດ TTY ທີ່​ເພື່ອນ​ຂໍ VCO"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"ລຶບ​ໂປ​ຣ​ໄຟ​ລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ແລ້ວ ເນື່ອງ​ຈາກຂາດ​ແອັບ​ບໍ​ລິ​ຫານ​ໄປ."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"ແອັບ​ບໍ​ລິ​ຫານ​ໂປ​ຣ​ໄຟ​ລ໌​ວຽກ​ຂາດ​ໄປ ຫຼື​ຖືກ​​ເສຍ​ຫາຍ. ດ້ວຍ​ເຫດ​ຜົນ​ນັ້ນ, ໂປ​ຣ​ໄຟ​ລ໌​ບ່ອນ​ເຮັດວຽກ​ຂອງ​ທ່ານ ແລະ​ຂໍ້​ມູນ​ທີ່​ກ່ຽວ​ຂ້ອງ​ຈິ່ງ​ຖືກ​ລຶບ​ໄປ. ຕິດ​ຕໍ່​ຜູ້​ຄວບ​ຄຸ​ມ​ຂອງ​ທ່ານ ເພື່ອ​ຂໍ​ຄວາມ​ຊ່ວຍ​ເຫຼືອ."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"ໂປຣໄຟລ໌ບ່ອນເຮັດວຽກບໍ່ມີໃຫ້ໃຊ້ງານເທິງອຸປະກອນນີ້ອີກຕໍ່ໄປ."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"ກຳລັງຕິດຕາມທຣາບຟິກເຄືອຂ່າຍ"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"ແຕະເພື່ອສຶກສາເພີ່ມເຕີມ"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ຈະ​ຖືກ​ລຶບ"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"ແອັບ​ບໍ​ລິ​ຫານ​ຂາດ​ອົງ​ປະ​ກອບ​ ຫ​ຼື​ຖືກ​ຂັດ​ຈັງ​ຫວະ, ແລະ​ບໍ່​ສາ​ມາດ​ໃຊ​ໄດ້. ດຽວ​ນີ້​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ຈະ​ຖືກ​ລຶບ. ຕິດ​ຕໍ່​ຜູ້​ຄວບ​ຄຸມ​ຂອງ​ທ່ານ ເພື່ອ​ຂໍ​ຄວາມ​ຊ່ວຍ​ເຫຼືອ."</string>
     <string name="me" msgid="6545696007631404292">"ຂ້າພະເຈົ້າ"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"​ອະ​ນຸ​ຍາດ​ໃຫ້​ແອັບ​ພລິ​ເຄ​ຊັນ​ອ່ານ​ເຊດ​ຊັນ​ການ​ຕິດ​ຕັ້ງ​ໄດ້. ນີ້​ຈະ​ອະ​ນຸ​ຍາດ​ໃຫ້​ມັນ​ເບິ່ງ​ເຫັນ​ລາຍ​ລະ​ອຽດ​ກ່ຽວ​ກັບ​ການ​ຕິດ​ຕັ້ງ​ແພັກ​ເກດ​ທີ່​ເຮັດ​​ວຽກ​ຢູ່​ໄດ້."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"ຂໍ​ຕິດ​ຕັ້ງ​ແພັກ​ເກດ"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"ອະ​ນຸ​ຍາດ​ໃຫ້​ແອັບ​ພ​ລິ​ເຄ​ຊັນ​ຂອງ​ການ​ຕິດ​ຕັ້ງ​ແພັກ​ເກດ."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"ຖາມເພື່ອໃຫ້ເພີກເສີຍການປັບແຕ່ງແບັດເຕີຣີ"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"ອະນຸຍາດໃຫ້ແອັບຖາມສິດອະນຸຍາດເພື່ອເພີກເສີຍຕໍ່ການປັບແຕ່ງແບັດເຕີຣີສຳລັບແອັບນັ້ນ."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"ແຕະສອງເທື່ອເພື່ອຄວບຄຸມການຊູມ"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"ບໍ່ສາມາດເພີ່ມວິດເຈັດໄດ້."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"ໄປ"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"ເລືອກ​ປີ"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> ຖືກລຶບແລ້ວ"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"​ບ່ອນ​ເຮັດ​ວຽກ <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"ກົດປຸ່ມກັບຄືນຄ້າງໄວ້ເພື່ອເຊົາປັກໝຸດໜ້າຈໍນີ້."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"To unpin this screen, touch &amp; hold Back and Overview."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"ແອັບ​ຖືກ​ປັກ​ໝຸດ​ແລ້ວ: ບໍ່​ອະ​ນຸ​ຍາດ​ໃຫ້​ຖອນ​ປັກ​ໝຸດ​ຢູ່​ເທິງ​ອຸ​ປະ​ກອນ​ນີ້."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"​ປັກ​ໝຸດ​ໜ້າ​ຈໍ​ແລ້ວ"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"ຍົກ​ເລີກ​ການ​ປັກ​ໝຸນ​​ຫນ້າ​ຈໍ​ແລ້ວ"</string>

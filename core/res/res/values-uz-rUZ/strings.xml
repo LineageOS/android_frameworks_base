@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Tarmoqda xato yoki MMI kod noto‘g‘ri."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Bu amal faqat ruxsat etilgan raqamlar uchun mavjud."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Rouming vaqtida telefondagi chaqiruvni boshqa raqamga uzatish sozlamalarini o‘zgartirib bo‘lmadi."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Xizmat yoqildi."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Xizmat quyidagi uchun yoqildi:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Xizmat o‘chirib qo‘yilgan."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Ovozli/internet xizmatlari to‘sib qo‘yilgan."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Ovoz/SMS xizmatlari bloklandi."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Barcha ovozli/internet/SMS xizmatlari to‘sib qo‘yilgan."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Tarmoq bilan bog‘lanib bo‘lmadi"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Qabul qilish sifatini yaxshilash uchun Sozlamalar &gt; Mobil tarmoqlar &gt; Asosiy tarmoq turi orqali tarmoqni o‘zgartirib ko‘ring."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Teng huquqli ishtirokchi teletayp rejimini FULL (to‘liq) qilib o‘zgartirdi"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Teng huquqli ishtirokchi teletayp rejimini HCO (eshitadi, gapirolmaydi) qilib o‘zgartirdi"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Teng huquqli ishtirokchi teletayp rejimini VCO (gapiradi, eshitolmaydi) qilib o‘zgartirdi"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Administrator ilovasi yo‘qligi sababli ishchi profil o‘chirib tashlandi"</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Ishchi profilning administrator ilovasi yo‘q yoki buzilgan. Shuning uchun, ishchi profilingiz va unga aloqador ma’lumotlar o‘chirib tashlandi. Yordam olish uchun administratoringizga murojaat qiling."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Bu qurilmada endi ishchi profilingiz mavjud emas."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Tarmoq trafigi nazorat qilinmoqda"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Batafsil ma’lumot olish uchun bosing"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Qurilmangizdagi ma’lumotlar o‘chirib tashlanadi"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Administrator ilovasining ba’zi qismlari yo‘qolgan yoki buzilgan, shuning uchun undan foydalanib bo‘lmaydi. Qurilmangizdagi ma’lumotlar o‘chirib tashlanadi. Yordam olish uchun administratoringizga murojaat qiling."</string>
     <string name="me" msgid="6545696007631404292">"Men"</string>
@@ -696,7 +701,7 @@
     <string name="lockscreen_transport_stop_description" msgid="5907083260651210034">"To‘xtatish"</string>
     <string name="lockscreen_transport_rew_description" msgid="6944412838651990410">"Orqaga o‘tkazish"</string>
     <string name="lockscreen_transport_ffw_description" msgid="42987149870928985">"Oldinga o‘tkazish"</string>
-    <string name="emergency_calls_only" msgid="6733978304386365407">"Faqat favqulodda qo‘ng‘iroqlar"</string>
+    <string name="emergency_calls_only" msgid="6733978304386365407">"Faqat favqulodda chaqiruvlar"</string>
     <string name="lockscreen_network_locked_message" msgid="143389224986028501">"Tarmoq qulflangan"</string>
     <string name="lockscreen_sim_puk_locked_message" msgid="7441797339976230">"SIM karta PUK kod bilan qulflangan."</string>
     <string name="lockscreen_sim_puk_locked_instructions" msgid="8127916255245181063">"Foydalanuvchi qo‘llanmasiga qarang yoki Abonentlarni qo‘llab-quvvatlash markaziga murojaat qiling."</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Ilovaga o‘rnatilgan seanslarni o‘qish uchun ruxsat beradi. Bu unga faol paket o‘rnatmalari haqidagi ma’lumotlarni ko‘rish imkonini beradi."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"paketlarni o‘rnatish so‘rovini yuborish"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Ilovaga paketlarni o‘rnatish so‘rovini yuborish imkonini beradi."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"batareya quvvatidan xohlagancha foydalanishni so‘rash"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Ilovaga batareya quvvatidan xohlagancha foydalanish uchun ruxsat so‘rashga imkon beradi."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Ko‘lamini o‘zgartirish uchun ikki marta bosing"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Vidjet qo‘shilmadi."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"O‘tish"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Yilni tanlash"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> raqami o‘chirib tashlandi"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Ish <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Bu ekrandan chiqish uchun “Orqaga” tugmasini bosib turing."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Bu ekrandan chiqish uchun “Orqaga” va “Umumiy ma’lumot” tugmalarini bosib turing."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Ilova qadab qo‘yilgan. Uni ekrandan yechish ushbu qurilmada ta’qiqlangan."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Ekran qadab qo‘yildi"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Ekran bo‘shatildi"</string>

@@ -50,6 +50,7 @@ import com.android.systemui.recents.events.activity.DockedTopTaskEvent;
 import com.android.systemui.recents.events.activity.EnterRecentsWindowLastAnimationFrameEvent;
 import com.android.systemui.recents.events.activity.HideRecentsEvent;
 import com.android.systemui.recents.events.activity.IterateRecentsEvent;
+import com.android.systemui.recents.events.activity.LaunchMostRecentTaskRequestEvent;
 import com.android.systemui.recents.events.activity.LaunchNextTaskRequestEvent;
 import com.android.systemui.recents.events.activity.RecentsActivityStartingEvent;
 import com.android.systemui.recents.events.activity.ToggleRecentsEvent;
@@ -71,6 +72,7 @@ import com.android.systemui.recents.views.TaskStackView;
 import com.android.systemui.recents.views.TaskStackViewScroller;
 import com.android.systemui.recents.views.TaskViewHeader;
 import com.android.systemui.recents.views.TaskViewTransform;
+import com.android.systemui.recents.views.grid.TaskGridLayoutAlgorithm;
 import com.android.systemui.stackdivider.DividerView;
 import com.android.systemui.statusbar.BaseStatusBar;
 import com.android.systemui.statusbar.phone.NavigationBarGestureHelper;
@@ -180,10 +182,7 @@ public class RecentsImpl implements ActivityOptions.OnAnimationFinishedListener 
         ssp.registerTaskStackListener(mTaskStackListener);
 
         // Initialize the static configuration resources
-        LayoutInflater inflater = LayoutInflater.from(mContext);
         mDummyStackView = new TaskStackView(mContext);
-        mHeaderBar = (TaskViewHeader) inflater.inflate(R.layout.recents_task_view_header,
-                null, false);
         reloadResources();
     }
 
@@ -204,14 +203,6 @@ public class RecentsImpl implements ActivityOptions.OnAnimationFinishedListener 
         Resources res = mContext.getResources();
         reloadResources();
         mDummyStackView.reloadOnConfigurationChange();
-        // Update the header bar direction directly as it is not attached to anything and does not
-        // layout except in updateHeaderBarLayout()
-        mHeaderBar.setLayoutDirection(res.getConfiguration().getLayoutDirection());
-        mHeaderBar.onConfigurationChanged();
-        mHeaderBar.forceLayout();
-        mHeaderBar.measure(
-                MeasureSpec.makeMeasureSpec(mHeaderBar.getMeasuredWidth(), MeasureSpec.EXACTLY),
-                MeasureSpec.makeMeasureSpec(mHeaderBar.getMeasuredHeight(), MeasureSpec.EXACTLY));
     }
 
     /**
@@ -314,15 +305,23 @@ public class RecentsImpl implements ActivityOptions.OnAnimationFinishedListener 
                 RecentsConfiguration config = Recents.getConfiguration();
                 RecentsActivityLaunchState launchState = config.getLaunchState();
                 if (!launchState.launchedWithAltTab) {
-                    // If the user taps quickly
-                    if (!debugFlags.isPagingEnabled() ||
-                            (ViewConfiguration.getDoubleTapMinTime() < elapsedTime &&
-                                    elapsedTime < ViewConfiguration.getDoubleTapTimeout())) {
-                        // Launch the next focused task
-                        EventBus.getDefault().post(new LaunchNextTaskRequestEvent());
+                    // Has the user tapped quickly?
+                    boolean isQuickTap = ViewConfiguration.getDoubleTapMinTime() < elapsedTime &&
+                            elapsedTime < ViewConfiguration.getDoubleTapTimeout();
+                    if (Recents.getConfiguration().isGridEnabled) {
+                        if (isQuickTap) {
+                            EventBus.getDefault().post(new LaunchNextTaskRequestEvent());
+                        } else {
+                            EventBus.getDefault().post(new LaunchMostRecentTaskRequestEvent());
+                        }
                     } else {
-                        // Notify recents to move onto the next task
-                        EventBus.getDefault().post(new IterateRecentsEvent());
+                        if (!debugFlags.isPagingEnabled() || isQuickTap) {
+                            // Launch the next focused task
+                            EventBus.getDefault().post(new LaunchNextTaskRequestEvent());
+                        } else {
+                            // Notify recents to move onto the next task
+                            EventBus.getDefault().post(new IterateRecentsEvent());
+                        }
                     }
                 } else {
                     // If the user has toggled it too quickly, then just eat up the event here (it's
@@ -582,7 +581,13 @@ public class RecentsImpl implements ActivityOptions.OnAnimationFinishedListener 
                 R.dimen.recents_task_view_header_height,
                 R.dimen.recents_task_view_header_height_tablet_land,
                 R.dimen.recents_task_view_header_height,
-                R.dimen.recents_task_view_header_height_tablet_land);
+                R.dimen.recents_task_view_header_height_tablet_land,
+                R.dimen.recents_grid_task_view_header_height);
+
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        mHeaderBar = (TaskViewHeader) inflater.inflate(R.layout.recents_task_view_header,
+                null, false);
+        mHeaderBar.setLayoutDirection(res.getConfiguration().getLayoutDirection());
     }
 
     /**
@@ -623,13 +628,28 @@ public class RecentsImpl implements ActivityOptions.OnAnimationFinishedListener 
             stackLayout.initialize(displayRect, windowRect, mTaskStackBounds,
                     TaskStackLayoutAlgorithm.StackState.getStackStateForStack(stack));
             mDummyStackView.setTasks(stack, false /* allowNotifyStackChanges */);
+            // Get the width of a task view so that we know how wide to draw the header bar.
+            int taskViewWidth = 0;
+            if (mDummyStackView.useGridLayout()) {
+                TaskGridLayoutAlgorithm gridLayout = mDummyStackView.getGridAlgorithm();
+                gridLayout.initialize(windowRect);
+                taskViewWidth = (int) gridLayout.getTransform(0 /* taskIndex */,
+                        stack.getTaskCount(), new TaskViewTransform(), stackLayout).rect.width();
+            } else {
+                Rect taskViewBounds = stackLayout.getUntransformedTaskViewBounds();
+                if (!taskViewBounds.isEmpty()) {
+                    taskViewWidth = taskViewBounds.width();
+                }
+            }
 
-            Rect taskViewBounds = stackLayout.getUntransformedTaskViewBounds();
-            if (!taskViewBounds.isEmpty()) {
-                int taskViewWidth = taskViewBounds.width();
+            if (taskViewWidth > 0) {
                 synchronized (mHeaderBarLock) {
                     if (mHeaderBar.getMeasuredWidth() != taskViewWidth ||
                             mHeaderBar.getMeasuredHeight() != mTaskBarHeight) {
+                        if (mDummyStackView.useGridLayout()) {
+                            mHeaderBar.setShouldDarkenBackgroundColor(true);
+                            mHeaderBar.setNoUserInteractionState();
+                        }
                         mHeaderBar.forceLayout();
                         mHeaderBar.measure(
                                 MeasureSpec.makeMeasureSpec(taskViewWidth, MeasureSpec.EXACTLY),
@@ -739,7 +759,7 @@ public class RecentsImpl implements ActivityOptions.OnAnimationFinishedListener 
             TaskViewTransform toTransform = getThumbnailTransitionTransform(stackView, toTask,
                     windowOverrideRect);
             Bitmap thumbnail = drawThumbnailTransitionBitmap(toTask, toTransform,
-                    mThumbTransitionBitmapCache);
+                            mThumbTransitionBitmapCache);
             if (thumbnail != null) {
                 RectF toTaskRect = toTransform.rect;
                 return ActivityOptions.makeThumbnailAspectScaleDownAnimation(mDummyStackView,

@@ -410,19 +410,25 @@
     <string name="monitoring_title_device_owned" msgid="7121079311903859610">"기기 모니터링"</string>
     <string name="monitoring_title_profile_owned" msgid="6790109874733501487">"프로필 모니터링"</string>
     <string name="monitoring_title" msgid="169206259253048106">"네트워크 모니터링"</string>
+    <string name="monitoring_subtitle_vpn" msgid="876537538087857300">"VPN"</string>
+    <string name="monitoring_subtitle_network_logging" msgid="5569072711320784030">"네트워크 로깅"</string>
     <string name="disable_vpn" msgid="4435534311510272506">"VPN 사용 중지"</string>
     <string name="disconnect_vpn" msgid="1324915059568548655">"VPN 연결 해제"</string>
-    <string name="monitoring_description_device_owned" msgid="5780988291898461883">"이 기기는 <xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 관리합니다.\n\n관리자는 설정, 기업 액세스, 앱, 기기와 관련된 데이터, 기기의 위치 정보를 모니터링하고 관리할 수 있습니다. 자세한 내용은 관리자에게 문의하세요."</string>
+    <string name="monitoring_description_device_owned" msgid="220006422537330981">"<xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 기기를 관리합니다.\n\n관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터 및 기기의 위치 정보를 모니터링하고 관리할 수 있습니다. 자세한 내용은 관리자에게 문의하세요."</string>
+    <string name="monitoring_description_do_body_vpn" msgid="8255218762488901796">"<xliff:g id="VPN_APP">%1$s</xliff:g>에 연결되었습니다. 이 앱은 이메일, 앱, 웹사이트와 같은 내 네트워크 활동을 모니터링할 수 있습니다."</string>
+    <string name="monitoring_description_vpn_settings_separator" msgid="1933186756733474388">" "</string>
+    <string name="monitoring_description_vpn_settings" msgid="8869300202410505143">"공개 VPN 설정"</string>
+    <string name="monitoring_description_network_logging" msgid="7223505523384076027">"관리자가 기기에서 발생하는 트래픽을 모니터링하는 네트워크 로깅을 사용 설정했습니다.\n\n자세한 정보는 관리자에게 문의하세요."</string>
     <string name="monitoring_description_vpn" msgid="4445150119515393526">"VPN 연결을 설정할 수 있는 권한을 앱에 부여했습니다.\n\n이 앱에서 이메일, 앱, 웹사이트와 같은 내 네트워크 활동 및 기기를 모니터링할 수 있습니다."</string>
-    <string name="monitoring_description_vpn_device_owned" msgid="3090670777499161246">"이 기기는 <xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 관리합니다.\n\n관리자는 설정, 기업 액세스, 앱, 기기와 관련된 데이터, 기기의 위치 정보를 모니터링하고 관리할 수 있습니다.\n\nVPN에 연결되어 있으므로 VPN 업체에서 이메일, 앱, 웹사이트를 비롯한 내 네트워크 활동을 모니터링할 수 있습니다.\n\n자세한 내용은 관리자에게 문의하세요."</string>
-    <string name="monitoring_description_vpn_profile_owned" msgid="2054949132145039290">"직장 프로필은 <xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 관리합니다.\n\n관리자는 이메일, 앱, 웹사이트와 같은 네트워크 활동을 모니터링할 수 있습니다.\n\n자세한 내용은 관리자에게 문의하세요.\n\n또한 VPN에 연결되어 있으며 여기에서 내 네트워크 활동을 모니터링할 수 있습니다."</string>
+    <string name="monitoring_description_vpn_device_owned" msgid="6741053132592567634">"<xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 기기를 관리합니다.\n\n관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터 및 기기의 위치 정보를 모니터링하고 관리할 수 있습니다.\n\nVPN에 연결된 상태이며, VPN에서 이메일, 앱, 웹사이트를 비롯한 내 네트워크 활동을 모니터링할 수 있습니다.\n\n자세한 내용은 관리자에게 문의하세요."</string>
+    <string name="monitoring_description_vpn_profile_owned" msgid="2958019119161161530">"<xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 직장 프로필을 관리합니다.\n\n관리자가 이메일, 앱, 웹사이트를 비롯한 네트워크 활동을 모니터링할 수 있습니다.\n\n자세한 정보는 관리자에게 문의하세요.\n\n또한 VPN에 연결되어 있으며, VPN에서 네트워크 활동을 모니터링할 수 있습니다."</string>
     <string name="legacy_vpn_name" msgid="6604123105765737830">"VPN"</string>
     <string name="monitoring_description_app" msgid="6259179342284742878">"<xliff:g id="APPLICATION">%1$s</xliff:g>에 연결되었습니다. 이 앱은 이메일, 앱, 웹사이트와 같은 내 네트워크 활동을 모니터링할 수 있습니다."</string>
     <string name="monitoring_description_app_personal" msgid="484599052118316268">"<xliff:g id="APPLICATION">%1$s</xliff:g>에 연결되었습니다. 이 앱은 이메일, 앱, 웹사이트와 같은 내 네트워크 활동을 모니터링할 수 있습니다."</string>
     <string name="branded_monitoring_description_app_personal" msgid="2669518213949202599">"<xliff:g id="APPLICATION">%1$s</xliff:g>에 연결되었습니다. 이 앱은 이메일, 앱, 웹사이트와 같은 내 개인 네트워크 활동을 모니터링할 수 있습니다."</string>
-    <string name="monitoring_description_app_work" msgid="1754325860918060897">"직장 프로필은 <xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 관리합니다. 이는 <xliff:g id="APPLICATION">%2$s</xliff:g>에 연결되어 있으며 여기에서 이메일, 앱, 웹사이트와 같은 직장 네트워크 활동을 모니터링할 수 있습니다.\n\n자세한 내용은 관리자에게 문의하세요."</string>
+    <string name="monitoring_description_app_work" msgid="7777228449969022305">"<xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 직장 프로필을 관리합니다. 직장 프로필은 <xliff:g id="APPLICATION">%2$s</xliff:g>에 연결되며, 이 애플리케이션에서 이메일, 앱, 웹사이트를 비롯한 직장 네트워크 활동을 모니터링할 수 있습니다.\n\n자세한 내용은 관리자에게 문의하세요."</string>
     <string name="monitoring_description_app_personal_work" msgid="4946600443852045903">"직장 프로필은 <xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 관리합니다. 이는 <xliff:g id="APPLICATION_WORK">%2$s</xliff:g>에 연결되어 있으며 여기에서 이메일, 앱, 웹사이트와 같은 직장 네트워크 활동을 모니터링할 수 있습니다.\n\n또한 <xliff:g id="APPLICATION_PERSONAL">%3$s</xliff:g>에 연결되어 있으며, 여기에서 내 개인 네트워크 활동을 모니터링할 수 있습니다."</string>
-    <string name="monitoring_description_vpn_app_device_owned" msgid="4970443827043261703">"<xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 기기를 관리합니다.\n\n관리자는 설정, 기업 액세스, 앱, 기기와 연결된 데이터, 기기의 위치 정보를 모니터링하고 관리할 수 있습니다.\n\n<xliff:g id="APPLICATION">%2$s</xliff:g>에 연결되어 있으며 여기에서 이메일, 앱, 웹사이트와 같은 내 네트워크 활동을 모니터링할 수 있습니다.\n\n자세한 내용은 관리자에게 문의하세요."</string>
+    <string name="monitoring_description_vpn_app_device_owned" msgid="6157262536135989204">"<xliff:g id="ORGANIZATION">%1$s</xliff:g>에서 기기를 관리합니다.\n\n관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터 및 기기의 위치 정보를 모니터링하고 관리할 수 있습니다.\n\n<xliff:g id="APPLICATION">%2$s</xliff:g>에 연결된 상태이며, 이 애플리케이션에서 이메일, 앱, 웹사이트를 비롯한 내 네트워크 활동을 모니터링할 수 있습니다.\n\n자세한 내용은 관리자에게 문의하세요."</string>
     <string name="keyguard_indication_trust_disabled" msgid="7412534203633528135">"수동으로 잠금 해제할 때까지 기기가 잠금 상태로 유지됩니다."</string>
     <string name="hidden_notifications_title" msgid="7139628534207443290">"알림을 더욱 빠르게 받기"</string>
     <string name="hidden_notifications_text" msgid="2326409389088668981">"잠금 해제하기 전에 알림을 봅니다."</string>
@@ -433,7 +439,8 @@
     <string name="accessibility_volume_expand" msgid="5946812790999244205">"펼치기"</string>
     <string name="accessibility_volume_collapse" msgid="3609549593031810875">"접기"</string>
     <string name="screen_pinning_title" msgid="3273740381976175811">"화면 고정됨"</string>
-    <string name="screen_pinning_description" msgid="7238941806855968768">"고정 해제될 때까지 계속 볼 수 있습니다. 고정 해제하려면 길게 터치하세요."</string>
+    <string name="screen_pinning_description" msgid="8909878447196419623">"고정 해제할 때까지 계속 표시됩니다. 고정 해제하려면 뒤로 및 최근 사용을 길게 터치하세요."</string>
+    <string name="screen_pinning_description_accessible" msgid="426190689254018656">"고정 해제할 때까지 계속 표시됩니다. 고정 해제하려면 최근 사용을 길게 터치하세요."</string>
     <string name="screen_pinning_positive" msgid="3783985798366751226">"확인"</string>
     <string name="screen_pinning_negative" msgid="3741602308343880268">"거부"</string>
     <string name="quick_settings_reset_confirmation_title" msgid="748792586749897883">"<xliff:g id="TILE_LABEL">%1$s</xliff:g>을(를) 숨기시겠습니까?"</string>
@@ -654,4 +661,7 @@
     <string name="accessibility_quick_settings_edit" msgid="7839992848995240393">"설정 순서 수정"</string>
     <string name="accessibility_quick_settings_page" msgid="5032979051755200721">"<xliff:g id="ID_2">%2$d</xliff:g>페이지 중 <xliff:g id="ID_1">%1$d</xliff:g>페이지"</string>
     <string name="cant_silence_or_block" msgid="999689262131488625">"알림을 무음으로 설정하거나 차단할 수 없습니다."</string>
+    <string name="high_temp_title" msgid="4589508026407318374">"휴대전화 온도가 높음"</string>
+    <string name="high_temp_notif_message" msgid="5642466103153429279">"휴대전화 온도를 낮추는 동안 일부 기능이 제한됩니다."</string>
+    <string name="high_temp_dialog_message" msgid="6840700639374113553">"휴대전화 온도를 자동으로 낮추려고 시도합니다. 휴대전화를 계속 사용할 수는 있지만 작동이 느려질 수도 있습니다.\n\n휴대전화 온도가 낮아지면 정상적으로 작동됩니다."</string>
 </resources>

@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Problema de connexió o codi MMI no vàlid."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"L\'operació està restringida a números de marcatge fixos."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"No es pot canviar la configuració de desviació de trucades del telèfon quan estàs en itinerància."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"El servei s\'ha activat."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"S\'ha activat el servei per a:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"El servei s\'ha desactivat."</string>
@@ -67,8 +68,8 @@
     </plurals>
     <string name="imei" msgid="2625429890869005782">"IMEI"</string>
     <string name="meid" msgid="4841221237681254195">"MEID"</string>
-    <string name="ClipMmi" msgid="6952821216480289285">"ID de l\'emissor (trucada entrant)"</string>
-    <string name="ClirMmi" msgid="7784673673446833091">"ID de l\'emissor (trucada de sortida)"</string>
+    <string name="ClipMmi" msgid="6952821216480289285">"Identificador de trucada (trucada entrant)"</string>
+    <string name="ClirMmi" msgid="7784673673446833091">"Identificador de trucada (trucada de sortida)"</string>
     <string name="ColpMmi" msgid="3065121483740183974">"Identificador de la línia connectada"</string>
     <string name="ColrMmi" msgid="4996540314421889589">"Restricció de l\'identificador de la línia connectada"</string>
     <string name="CfMmi" msgid="5123218989141573515">"Desviació de trucades"</string>
@@ -82,12 +83,12 @@
     <string name="RuacMmi" msgid="7827887459138308886">"Rebuig de trucades molestes no desitjades"</string>
     <string name="CndMmi" msgid="3116446237081575808">"Lliurament de número que truca"</string>
     <string name="DndMmi" msgid="1265478932418334331">"No molesteu"</string>
-    <string name="CLIRDefaultOnNextCallOn" msgid="429415409145781923">"El valor predeterminat de l\'identificador de l\'emissor és restringit. Següent trucada: restringit"</string>
-    <string name="CLIRDefaultOnNextCallOff" msgid="3092918006077864624">"El valor predeterminat de l\'identificador de l\'emissor és restringit. Següent trucada: no restringit"</string>
-    <string name="CLIRDefaultOffNextCallOn" msgid="6179425182856418465">"El valor predeterminat de l\'identificador de l\'emissor és no restringit. Següent trucada: restringit"</string>
-    <string name="CLIRDefaultOffNextCallOff" msgid="2567998633124408552">"El valor predeterminat de l\'identificador de l\'emissor és no restringit. Següent trucada: no restringit"</string>
+    <string name="CLIRDefaultOnNextCallOn" msgid="429415409145781923">"El valor predeterminat de l\'identificador de trucada és restringit. Trucada següent: restringit"</string>
+    <string name="CLIRDefaultOnNextCallOff" msgid="3092918006077864624">"El valor predeterminat de l\'identificador de trucada és restringit. Trucada següent: no restringit"</string>
+    <string name="CLIRDefaultOffNextCallOn" msgid="6179425182856418465">"El valor predeterminat de l\'identificador de trucada és no restringit. Trucada següent: restringit"</string>
+    <string name="CLIRDefaultOffNextCallOff" msgid="2567998633124408552">"El valor predeterminat de l\'identificador de trucada és no restringit. Trucada següent: no restringit"</string>
     <string name="serviceNotProvisioned" msgid="8614830180508686666">"No s\'ha proveït el servei."</string>
-    <string name="CLIRPermanent" msgid="3377371145926835671">"No pots canviar la configuració de l\'identificador de l\'emissor."</string>
+    <string name="CLIRPermanent" msgid="3377371145926835671">"No pots canviar la configuració de l\'identificador de trucada."</string>
     <string name="RestrictedOnData" msgid="8653794784690065540">"El servei de dades està bloquejat."</string>
     <string name="RestrictedOnEmergency" msgid="6581163779072833665">"El servei d\'emergència està bloquejat."</string>
     <string name="RestrictedOnNormal" msgid="4953867011389750673">"El servei de veu està bloquejat."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Els serveis de veu/dades estan bloquejats."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Els serveis de veu/SMS estan bloquejats."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Tots els serveis de veu/dades/SMS estan bloquejats."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"No es pot accedir a la xarxa"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Per millorar la recepció, prova de canviar-ne el tipus a Configuració &gt; Xarxes mòbils &gt; Tipus de xarxa preferit."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"L\'altre dispositiu ha sol·licitat el mode TTY COMPLET."</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"L\'altre dispositiu ha sol·licitat el mode TTY HCO."</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"L\'altre dispositiu ha sol·licitat el mode TTY VCO."</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"S\'ha suprimit el perfil professional perquè no s\'ha detectat cap aplicació d\'administració."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"L\'aplicació d\'administració del perfil professional està malmesa o no es detecta. Com a conseqüència, el perfil professional i les dades relacionades s\'han suprimit. Contacta amb l\'administrador per obtenir ajuda."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"El perfil professional ja no està disponible en aquest dispositiu."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"El trànsit de xarxa s\'està supervisant"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Toca per obtenir més informació"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"El contingut del dispositiu s\'esborrarà"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"L\'aplicació d\'administració està malmesa o hi falten components, i no es pot fer servir. El contingut del dispositiu s\'esborrarà. Contacta amb l\'administrador per obtenir ajuda."</string>
     <string name="me" msgid="6545696007631404292">"Mi"</string>
@@ -503,7 +508,7 @@
     <string name="permlab_setInputCalibration" msgid="4902620118878467615">"canviar el calibratge del dispositiu d\'entrada"</string>
     <string name="permdesc_setInputCalibration" msgid="4527511047549456929">"Permet que l\'aplicació modifiqui els paràmetres de calibratge de la pantalla tàctil. No ha de ser mai necessari per a aplicacions normals."</string>
     <string name="permlab_accessDrmCertificates" msgid="7436886640723203615">"accedir als certificats de DRM"</string>
-    <string name="permdesc_accessDrmCertificates" msgid="8073288354426159089">"Permet que una aplicació proporcioni i utilitzi certificats de gestió de drets digitals (DRM, Digital Rights Management). No ha de ser mai necessari per a aplicacions normals."</string>
+    <string name="permdesc_accessDrmCertificates" msgid="8073288354426159089">"Permet que una aplicació proporcioni i utilitzi certificats DRM. No ha de ser mai necessari per a aplicacions normals."</string>
     <string name="permlab_handoverStatus" msgid="7820353257219300883">"rebre l\'estat de la transferència d\'Android Beam"</string>
     <string name="permdesc_handoverStatus" msgid="4788144087245714948">"Permet que aquesta aplicació rebi informació sobre les transferències d\'Android Beam actuals."</string>
     <string name="permlab_removeDrmCertificates" msgid="7044888287209892751">"suprimir els certificats DRM"</string>
@@ -596,7 +601,7 @@
     <string name="phoneTypeFaxHome" msgid="2067265972322971467">"Fax de casa"</string>
     <string name="phoneTypePager" msgid="7582359955394921732">"Cercapersones"</string>
     <string name="phoneTypeOther" msgid="1544425847868765990">"Altres"</string>
-    <string name="phoneTypeCallback" msgid="2712175203065678206">"Torna la trucada"</string>
+    <string name="phoneTypeCallback" msgid="2712175203065678206">"Devolució de trucada"</string>
     <string name="phoneTypeCar" msgid="8738360689616716982">"Cotxe"</string>
     <string name="phoneTypeCompanyMain" msgid="540434356461478916">"Telèfon d\'empresa"</string>
     <string name="phoneTypeIsdn" msgid="8022453193171370337">"XDSI"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Permet que una aplicació llegeixi les sessions d\'instal·lació i això permet veure detalls sobre les instal·lacions de paquet actives."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"sol·licitar la instal·lació de paquets"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Permet que una aplicació sol·liciti la instal·lació de paquets."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"Demanar permís per ignorar les optimitzacions de bateria"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Permet que una aplicació demani permís per ignorar les optimitzacions de bateria per a l\'aplicació."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Piqueu dos cops per controlar el zoom"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"No s\'ha pogut afegir el widget."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Vés"</string>
@@ -1234,7 +1241,7 @@
     <string name="wallpaper_binding_label" msgid="1240087844304687662">"Fons de pantalla"</string>
     <string name="chooser_wallpaper" msgid="7873476199295190279">"Canvia el fons de pantalla"</string>
     <string name="notification_listener_binding_label" msgid="2014162835481906429">"Oient de notificacions"</string>
-    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Processador de realitat virtual"</string>
+    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Processador de RV"</string>
     <string name="condition_provider_service_binding_label" msgid="1321343352906524564">"Proveïdor de condicions"</string>
     <string name="notification_ranker_binding_label" msgid="774540592299064747">"Servei de classificació de notificacions"</string>
     <string name="vpn_title" msgid="19615213552042827">"VPN activada"</string>
@@ -1246,7 +1253,7 @@
     <string name="vpn_lockdown_disconnected" msgid="4532298952570796327">"La VPN sempre activada està desconnectada"</string>
     <string name="vpn_lockdown_error" msgid="6009249814034708175">"Error de la VPN sempre activada"</string>
     <string name="vpn_lockdown_config" msgid="5099330695245008680">"Toca per configurar"</string>
-    <string name="upload_file" msgid="2897957172366730416">"Trieu un fitxer"</string>
+    <string name="upload_file" msgid="2897957172366730416">"Tria un fitxer"</string>
     <string name="no_file_chosen" msgid="6363648562170759465">"No s\'ha escollit cap fitxer"</string>
     <string name="reset" msgid="2448168080964209908">"Restableix"</string>
     <string name="submit" msgid="1602335572089911941">"Envia"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Selecciona un any"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> suprimit"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> de la feina"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Toca i mantén premuda l\'opció Enrere per deixar de fixar aquesta pantalla."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Toca i mantén premudes les opcions Enrere i Visió general per deixar de fixar aquesta pantalla."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"S\'ha fixat l\'aplicació. En aquest dispositiu no es permet anul·lar-ne la fixació."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Pantalla fixada"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Fixació de la pantalla anul·lada"</string>

@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"‏בעיה בחיבור או קוד MMI לא חוקי."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"הפעולה מוגבלת למספרי חיוג קבועים בלבד."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"לא ניתן לשנות את הגדרות העברת השיחות מהטלפון שלך כשאתה במצב נדידה."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"השירות הופעל."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"השירות הופעל עבור:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"השירות הושבת."</string>
@@ -98,6 +99,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"שירותי הקול/נתונים חסומים."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"‏שירותי קול/SMS חסומים."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"‏כל השירותים של קול/נתונים/SMS חסומים."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"לא ניתן להתחבר לרשת"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"כדי לשפר את הקליטה, נסה לשנות את סוג הרשת באפשרות \'הגדרות\' &gt; \'רשתות סלולריות\' &gt; \'סוג רשת מועדף\'."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"‏העמית ביקש TTY במצב FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"‏העמית ביקש TTY במצב HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"‏העמית ביקש TTY במצב VCO"</string>
@@ -183,6 +186,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"פרופיל העבודה נמחק מפני שחסרה אפליקציית ניהול."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"אפליקציית הניהול של פרופיל העבודה חסרה או פגומה. כתוצאה מכך פרופיל העבודה שלך נמחק, כולל כל הנתונים הקשורים אליו. לקבלת סיוע, פנה למנהל המערכת שלך."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"פרופיל העבודה שלך אינו זמין עוד במכשיר הזה."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"התנועה ברשת מנוטרת"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"למידע נוסף, הקש"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"תתבצע מחיקה של המכשיר"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"באפליקציית הניהול חסרים מרכיבים או שהיא פגומה ולא ניתן להשתמש בה. תתבצע כעת מחיקה של המכשיר. לקבלת סיוע, פנה למנהל המערכת שלך."</string>
     <string name="me" msgid="6545696007631404292">"אני"</string>
@@ -324,7 +329,7 @@
     <string name="permdesc_persistentActivity" product="tv" msgid="5086862529499103587">"מאפשרת לאפליקציה ליצור חלקים ממנה השמורים בזיכרון באופן עקבי. הדבר עלול להגביל את הזיכרון הזמין לאפליקציות אחרות וכתוצאה מכך להאט את פעולת הטלוויזיה."</string>
     <string name="permdesc_persistentActivity" product="default" msgid="4384760047508278272">"מאפשר לאפליקציה להפוך חלקים ממנו לקבועים בזיכרון. פעולה זו עשויה להגביל את הזיכרון הזמין לאפליקציות אחרים ולהאט את פעולת הטלפון."</string>
     <string name="permlab_getPackageSize" msgid="7472921768357981986">"מדידת נפח האחסון של אפליקציות"</string>
-    <string name="permdesc_getPackageSize" msgid="3921068154420738296">"מאפשר לאפליקציה לאחזר את הקוד, הנתונים, וגודלי הקבצים השמורים שלו"</string>
+    <string name="permdesc_getPackageSize" msgid="3921068154420738296">"מאפשר לאפליקציה לאחזר את הקוד, הנתונים, וגודלי קובצי המטמון שלו"</string>
     <string name="permlab_writeSettings" msgid="2226195290955224730">"שינוי הגדרות מערכת"</string>
     <string name="permdesc_writeSettings" msgid="7775723441558907181">"מאפשר לאפליקציה לשנות את נתוני הגדרות המערכת. אפליקציות זדוניות עלולות לשבש את תצורת המערכת שלך."</string>
     <string name="permlab_receiveBootCompleted" msgid="5312965565987800025">"הפעלה בעת אתחול"</string>
@@ -599,7 +604,7 @@
     <string name="phoneTypeMobile" msgid="6501463557754751037">"נייד"</string>
     <string name="phoneTypeWork" msgid="8863939667059911633">"עבודה"</string>
     <string name="phoneTypeFaxWork" msgid="3517792160008890912">"פקס בעבודה"</string>
-    <string name="phoneTypeFaxHome" msgid="2067265972322971467">"מס\' פקס בבית"</string>
+    <string name="phoneTypeFaxHome" msgid="2067265972322971467">"פקס בבית"</string>
     <string name="phoneTypePager" msgid="7582359955394921732">"זימונית"</string>
     <string name="phoneTypeOther" msgid="1544425847868765990">"אחר"</string>
     <string name="phoneTypeCallback" msgid="2712175203065678206">"התקשרות חזרה"</string>
@@ -612,7 +617,7 @@
     <string name="phoneTypeTelex" msgid="3367879952476250512">"טלקס"</string>
     <string name="phoneTypeTtyTdd" msgid="8606514378585000044">"TTY TDD"</string>
     <string name="phoneTypeWorkMobile" msgid="1311426989184065709">"נייד של העבודה"</string>
-    <string name="phoneTypeWorkPager" msgid="649938731231157056">"איתורית של העבודה"</string>
+    <string name="phoneTypeWorkPager" msgid="649938731231157056">"זימונית מהעבודה"</string>
     <string name="phoneTypeAssistant" msgid="5596772636128562884">"מסייע"</string>
     <string name="phoneTypeMms" msgid="7254492275502768992">"MMS"</string>
     <string name="eventTypeCustom" msgid="7837586198458073404">"מותאם אישית"</string>
@@ -1258,6 +1263,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"מאפשר לאפליקציה לקרוא הפעלות התקנה. הרשאה זו מאפשרת לה לראות פרטים על התקנות פעילות של חבילות."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"בקשה להתקנת חבילות"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"מתיר לאפליקציה לבקש התקנה של חבילות."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"בקשה להתעלם מאופטימיזציות של הסוללה"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"מאפשר לאפליקציה לבקש רשות להתעלם מאופטימיזציות של הסוללה לאפליקציה הזו."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"הקש פעמיים לבקרת מרחק מתצוגה"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"‏לא ניתן להוסיף widget."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"התחל"</string>
@@ -1612,7 +1619,7 @@
     <string name="select_year" msgid="7952052866994196170">"בחר שנה"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> נמחק"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"עבודה <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"כדי לבטל את הצמדת המסך הזה, לחץ לחיצה ממושכת על הלחצן \'הקודם\'."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"כדי לבטל את ההצמדה של מסך זה, גע בלחצן \'הקודם\' והחזק אותו, ואז גע בלחצן \'סקירה\'."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"האפליקציה מוצמדת: ביטול ההצמדה אסור במכשיר הזה."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"המסך מוצמד"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"הצמדת המסך בוטלה"</string>

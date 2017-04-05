@@ -2495,6 +2495,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         // System.out.println("Features: 0x" + Integer.toHexString(features));
         if ((features & (1 << FEATURE_SWIPE_TO_DISMISS)) != 0) {
             layoutResource = R.layout.screen_swipe_dismiss;
+            setCloseOnSwipeEnabled(true);
         } else if ((features & ((1 << FEATURE_LEFT_ICON) | (1 << FEATURE_RIGHT_ICON))) != 0) {
             if (mIsFloating) {
                 TypedValue res = new TypedValue();
@@ -2566,7 +2567,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         }
 
         if ((features & (1 << FEATURE_SWIPE_TO_DISMISS)) != 0) {
-            registerSwipeCallbacks();
+            registerSwipeCallbacks(contentParent);
         }
 
         // Remaining setup -- of background and title -- that only applies
@@ -2980,25 +2981,27 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         return (mRightIconView = (ImageView)findViewById(R.id.right_icon));
     }
 
-    private void registerSwipeCallbacks() {
-        SwipeDismissLayout swipeDismiss =
-                (SwipeDismissLayout) findViewById(R.id.content);
+    private void registerSwipeCallbacks(ViewGroup contentParent) {
+        if (!(contentParent instanceof SwipeDismissLayout)) {
+            Log.w(TAG, "contentParent is not a SwipeDismissLayout: " + contentParent);
+            return;
+        }
+        SwipeDismissLayout swipeDismiss = (SwipeDismissLayout) contentParent;
         swipeDismiss.setOnDismissedListener(new SwipeDismissLayout.OnDismissedListener() {
             @Override
             public void onDismissed(SwipeDismissLayout layout) {
-                dispatchOnWindowDismissed(false /*finishTask*/);
+                dispatchOnWindowSwipeDismissed();
+                dispatchOnWindowDismissed(false /*finishTask*/, true /*suppressWindowTransition*/);
             }
         });
         swipeDismiss.setOnSwipeProgressChangedListener(
                 new SwipeDismissLayout.OnSwipeProgressChangedListener() {
-                    private static final float ALPHA_DECREASE = 0.5f;
-                    private boolean mIsTranslucent = false;
                     @Override
                     public void onSwipeProgressChanged(
-                            SwipeDismissLayout layout, float progress, float translate) {
+                            SwipeDismissLayout layout, float alpha, float translate) {
                         WindowManager.LayoutParams newParams = getAttributes();
                         newParams.x = (int) translate;
-                        newParams.alpha = 1 - (progress * ALPHA_DECREASE);
+                        newParams.alpha = alpha;
                         setAttributes(newParams);
 
                         int flags = 0;
@@ -3013,12 +3016,26 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                     @Override
                     public void onSwipeCancelled(SwipeDismissLayout layout) {
                         WindowManager.LayoutParams newParams = getAttributes();
-                        newParams.x = 0;
-                        newParams.alpha = 1;
-                        setAttributes(newParams);
-                        setFlags(FLAG_FULLSCREEN, FLAG_FULLSCREEN | FLAG_LAYOUT_NO_LIMITS);
+                        // Swipe changes only affect the x-translation and alpha, check to see if
+                        // those values have changed first before resetting them.
+                        if (newParams.x != 0 || newParams.alpha != 1) {
+                            newParams.x = 0;
+                            newParams.alpha = 1;
+                            setAttributes(newParams);
+                            setFlags(FLAG_FULLSCREEN, FLAG_FULLSCREEN | FLAG_LAYOUT_NO_LIMITS);
+                        }
                     }
                 });
+    }
+
+    /** @hide */
+    @Override
+    public void setCloseOnSwipeEnabled(boolean closeOnSwipeEnabled) {
+        if (hasFeature(Window.FEATURE_SWIPE_TO_DISMISS) // swipe-to-dismiss feature is requested
+                && mContentParent instanceof SwipeDismissLayout) { // check casting mContentParent
+            ((SwipeDismissLayout) mContentParent).setDismissable(closeOnSwipeEnabled);
+        }
+        super.setCloseOnSwipeEnabled(closeOnSwipeEnabled);
     }
 
     /**

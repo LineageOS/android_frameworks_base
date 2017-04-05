@@ -2819,6 +2819,15 @@ public final class Settings {
                 new InclusiveIntegerRangeValidator(0, 255);
 
         /**
+         * The screen backlight brightness between 0 and 255.
+         * @hide
+         */
+        public static final String SCREEN_BRIGHTNESS_FOR_VR = "screen_brightness_for_vr";
+
+        private static final Validator SCREEN_BRIGHTNESS_FOR_VR_VALIDATOR =
+                new InclusiveIntegerRangeValidator(0, 255);
+
+        /**
          * Control whether to enable automatic brightness mode.
          */
         public static final String SCREEN_BRIGHTNESS_MODE = "screen_brightness_mode";
@@ -3873,6 +3882,7 @@ public final class Settings {
             VALIDATORS.put(DIM_SCREEN, DIM_SCREEN_VALIDATOR);
             VALIDATORS.put(SCREEN_OFF_TIMEOUT, SCREEN_OFF_TIMEOUT_VALIDATOR);
             VALIDATORS.put(SCREEN_BRIGHTNESS, SCREEN_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(SCREEN_BRIGHTNESS_FOR_VR, SCREEN_BRIGHTNESS_FOR_VR_VALIDATOR);
             VALIDATORS.put(SCREEN_BRIGHTNESS_MODE, SCREEN_BRIGHTNESS_MODE_VALIDATOR);
             VALIDATORS.put(MODE_RINGER_STREAMS_AFFECTED, MODE_RINGER_STREAMS_AFFECTED_VALIDATOR);
             VALIDATORS.put(MUTE_STREAMS_AFFECTED, MUTE_STREAMS_AFFECTED_VALIDATOR);
@@ -5547,6 +5557,13 @@ public final class Settings {
         public static final String LONG_PRESS_TIMEOUT = "long_press_timeout";
 
         /**
+         * The duration in milliseconds between the first tap's up event and the second tap's
+         * down event for an interaction to be considered part of the same multi-press.
+         * @hide
+         */
+        public static final String MULTI_PRESS_TIMEOUT = "multi_press_timeout";
+
+        /**
          * List of the enabled print services.
          *
          * N and beyond uses {@link #DISABLED_PRINT_SERVICES}. But this might be used in an upgrade
@@ -6119,6 +6136,36 @@ public final class Settings {
                 INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF;
 
         /**
+         * What happens when the user presses the Back button while in-call
+         * and the screen is on.<br/>
+         * <b>Values:</b><br/>
+         * 0 - The Back buttons does nothing different.<br/>
+         * 1 - The Back button hangs up the current call.<br/>
+         *
+         * @hide
+         */
+        public static final String INCALL_BACK_BUTTON_BEHAVIOR = "incall_back_button_behavior";
+
+        /**
+         * INCALL_BACK_BUTTON_BEHAVIOR value for no action.
+         * @hide
+         */
+        public static final int INCALL_BACK_BUTTON_BEHAVIOR_NONE = 0x0;
+
+        /**
+         * INCALL_BACK_BUTTON_BEHAVIOR value for "hang up".
+         * @hide
+         */
+        public static final int INCALL_BACK_BUTTON_BEHAVIOR_HANGUP = 0x1;
+
+        /**
+         * INCALL_POWER_BUTTON_BEHAVIOR default value.
+         * @hide
+         */
+        public static final int INCALL_BACK_BUTTON_BEHAVIOR_DEFAULT =
+                INCALL_BACK_BUTTON_BEHAVIOR_NONE;
+
+        /**
          * Whether the device should wake when the wake gesture sensor detects motion.
          * @hide
          */
@@ -6310,6 +6357,14 @@ public final class Settings {
                 "lock_screen_show_notifications";
 
         /**
+         * This preference stores the last stack active task time for each user, which affects what
+         * tasks will be visible in Overview.
+         * @hide
+         */
+        public static final String OVERVIEW_LAST_STACK_ACTIVE_TIME =
+                "overview_last_stack_active_time";
+
+        /**
          * List of TV inputs that are currently hidden. This is a string
          * containing the IDs of all hidden TV inputs. Each ID is encoded by
          * {@link android.net.Uri#encode(String)} and separated by ':'.
@@ -6419,12 +6474,6 @@ public final class Settings {
          * @hide
          */
         public static final String NIGHT_DISPLAY_CUSTOM_END_TIME = "night_display_custom_end_time";
-
-        /**
-         * Whether brightness should automatically adjust based on twilight state.
-         * @hide
-         */
-        public static final String BRIGHTNESS_USE_TWILIGHT = "brightness_use_twilight";
 
         /**
          * Names of the service components that the current user has explicitly allowed to
@@ -6552,6 +6601,12 @@ public final class Settings {
         public static final String WEB_ACTION_ENABLED = "web_action_enabled";
 
         /**
+         * Has this pairable device been paired or upgraded from a previously paired system.
+         * @hide
+         */
+        public static final String DEVICE_PAIRED = "device_paired";
+
+        /**
          * Whether to include options in power menu for rebooting into recovery or bootloader
          * @hide
          */
@@ -6648,6 +6703,7 @@ public final class Settings {
             DOZE_ENABLED,
             DOZE_PULSE_ON_PICK_UP,
             DOZE_PULSE_ON_DOUBLE_TAP,
+            NFC_PAYMENT_DEFAULT_COMPONENT,
             ADVANCED_REBOOT,
             CAMERA_GESTURE_DISABLED
         };
@@ -7036,6 +7092,12 @@ public final class Settings {
         public static final String DOCK_SOUNDS_ENABLED = "dock_sounds_enabled";
 
         /**
+         * Whether to play a sound for dock events, only when an accessibility service is on.
+         * @hide
+         */
+        public static final String DOCK_SOUNDS_ENABLED_WHEN_ACCESSIBILITY = "dock_sounds_enabled_when_accessbility";
+
+        /**
          * URI for the "device locked" (keyguard shown) sound.
          * @hide
          */
@@ -7336,6 +7398,13 @@ public final class Settings {
         * @hide
         */
        public static final String MOBILE_DATA_ALWAYS_ON = "mobile_data_always_on";
+
+        /**
+         * Size of the event buffer for IP connectivity metrics.
+         * @hide
+         */
+        public static final String CONNECTIVITY_METRICS_BUFFER_SIZE =
+              "connectivity_metrics_buffer_size";
 
        /** {@hide} */
        public static final String NETSTATS_ENABLED = "netstats_enabled";
@@ -7761,6 +7830,13 @@ public final class Settings {
         */
        public static final String WIMAX_NETWORKS_AVAILABLE_NOTIFICATION_ON =
                "wimax_networks_available_notification_on";
+
+       /**
+        * Whether we support connecting to Carrier Networks.
+        * @hide
+        **/
+        public static final String WIFI_CONNECT_CARRIER_NETWORKS =
+               "wifi_connect_carrier_networks";
 
        /**
         * Delay (in seconds) before repeating the Wi-Fi networks available notification.
@@ -8190,11 +8266,45 @@ public final class Settings {
         public static final String PAC_CHANGE_DELAY = "pac_change_delay";
 
         /**
-         * Setting to turn off captive portal detection. Feature is enabled by
-         * default and the setting needs to be set to 0 to disable it.
+         * Don't attempt to detect captive portals.
          *
          * @hide
          */
+        public static final int CAPTIVE_PORTAL_MODE_IGNORE = 0;
+
+        /**
+         * When detecting a captive portal, display a notification that
+         * prompts the user to sign in.
+         *
+         * @hide
+         */
+        public static final int CAPTIVE_PORTAL_MODE_PROMPT = 1;
+
+        /**
+         * When detecting a captive portal, immediately disconnect from the
+         * network and do not reconnect to that network in the future.
+         *
+         * @hide
+         */
+        public static final int CAPTIVE_PORTAL_MODE_AVOID = 2;
+
+        /**
+         * What to do when connecting a network that presents a captive portal.
+         * Must be one of the CAPTIVE_PORTAL_MODE_* constants above.
+         *
+         * The default for this setting is CAPTIVE_PORTAL_MODE_PROMPT.
+         * @hide
+         */
+        public static final String CAPTIVE_PORTAL_MODE = "captive_portal_mode";
+
+        /**
+         * Setting to turn off captive portal detection. Feature is enabled by
+         * default and the setting needs to be set to 0 to disable it.
+         *
+         * @deprecated use CAPTIVE_PORTAL_MODE_IGNORE to disable captive portal detection
+         * @hide
+         */
+        @Deprecated
         public static final String
                 CAPTIVE_PORTAL_DETECTION_ENABLED = "captive_portal_detection_enabled";
 
@@ -9575,6 +9685,24 @@ public final class Settings {
          * @hide
          */
         public static final String CELL_ON = "cell_on";
+
+        /**
+         * Whether to show the high temperature warning notification.
+         * @hide
+         */
+        public static final String SHOW_TEMPERATURE_WARNING = "show_temperature_warning";
+
+        /**
+         * Temperature at which the high temperature warning notification should be shown.
+         * @hide
+         */
+        public static final String WARNING_TEMPERATURE = "warning_temperature";
+
+        /**
+         * Whether the diskstats logging task is enabled/disabled.
+         * @hide
+         */
+        public static final String ENABLE_DISKSTATS_LOGGING = "enable_diskstats_logging";
     }
 
     /**

@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"සම්බන්ධතා ගැටළුවක් හෝ අවලංගු MMI කේතයකි."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"ස්ථාවර ඇමතීම් අංක වලට පමණක් මෙහෙයුම සීමාකර ඇත."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"ඔබ රෝමිං තුළ සිටින අතරතුර ඔබේ දුරකථනයෙන් ඇමතුම් ප්‍රතියොමු සැකසීම් වෙනස් කළ නොහැකිය."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"සේවාව සබල කරන ලදි."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"සේවාව සබලයි, සඳහා:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"සේවාව අබල කරන ලදි."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"හඬ/දත්ත සේවා අවහිර කර ඇත."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"හඬ/SMS සේවා අවහිර කර ඇත."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"සියලුම හඬ/දත්ත/SMS සේවාවන් බාධා කර ඇත."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"ජාලය වෙත ළඟා විය නොහැකිය"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"ලැබීම වැඩි දියුණු කිරීමට, සැකසීම් &gt; සෙලියුලර් ජාල &gt; වඩා කැමති ජාල වර්ගය තුළ තෝරන ලද වර්ගය වෙනස් කිරීම උත්සාහ කරන්න."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"සම ඉල්ලීම් කළ TTY ප්‍රකාරය පූර්ණයි"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"සම ඉල්ලීම් කළ TTY ප්‍රකාරය HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"සම ඉල්ලීම් කළ TTY ප්‍රකාරය VCO"</string>
@@ -108,7 +111,7 @@
     <string name="serviceClassDataSync" msgid="7530000519646054776">"සමමුහුර්ත කිරීම"</string>
     <string name="serviceClassPacket" msgid="6991006557993423453">"පැකැට්ටුව"</string>
     <string name="serviceClassPAD" msgid="3235259085648271037">"PAD"</string>
-    <string name="roamingText0" msgid="7170335472198694945">"රෝමිං දර්ශකය සක්‍රියයි"</string>
+    <string name="roamingText0" msgid="7170335472198694945">"රෝමිං දර්ශකය ක්‍රියාත්මකයි"</string>
     <string name="roamingText1" msgid="5314861519752538922">"රෝමිං දර්ශකය අක්‍රියයි"</string>
     <string name="roamingText2" msgid="8969929049081268115">"රෝමිං දර්ශකය සැණෙලි වෙයි"</string>
     <string name="roamingText3" msgid="5148255027043943317">"වටපිටාවෙන් ඉවත්ව"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"පරිපාලක යෙදුමක් නොමැති වීමෙන් කාර්යාල පැතිකඩ මකා දමන ලදි."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"කාර්යාල පැතිකඩ පාලක යෙදුම නොමැති හෝ දූෂණය වී ඇත. ප්‍රතිඵලයක් ලෙස ඔබගේ කාර්යාල පැතිකඩ සහ අදාළ දත්ත මකා දමා ඇත. සහය සඳහා ඔබගේ පරිපාලකයා සම්බන්ධ කර ගන්න."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"ඔබේ කාර්යාල පැතිකඩ මෙම උපාංගය මත තවදුරටත් ලබා ගැනීමට නොහැකිය."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"ජාල තදබදය නිරීක්ෂණය කරමින් පවතී"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"තව දැන ගැනීමට තට්ටු කරන්න"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"ඔබගේ උපාංගය මකා දැමෙනු ඇත"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"යෙදුමේ කොටස් නොමැති හෝ දූෂණය වී ඇති නිසා, භාවිතා කළ නොහැක. ඔබගේ උපාංගය දැන් මකා දැමෙනු ඇත. සහය සඳහා ඔබගේ පරිපාලකයා සම්බන්ධ කරගන්න."</string>
     <string name="me" msgid="6545696007631404292">"මම"</string>
@@ -189,7 +194,7 @@
     <string name="turn_on_radio" msgid="3912793092339962371">"නොරැහන් සක්‍රිය කරන්න"</string>
     <string name="turn_off_radio" msgid="8198784949987062346">"නොරැහැන් අක්‍රිය කරන්න"</string>
     <string name="screen_lock" msgid="799094655496098153">"තිර අගුල"</string>
-    <string name="power_off" msgid="4266614107412865048">"බලය අක්‍රිය කරන්න"</string>
+    <string name="power_off" msgid="4266614107412865048">"බල රහිත කරන්න"</string>
     <string name="silent_mode_silent" msgid="319298163018473078">"හඬ නඟනය අක්‍රියයි"</string>
     <string name="silent_mode_vibrate" msgid="7072043388581551395">"හඬ නඟනය කම්පනය"</string>
     <string name="silent_mode_ring" msgid="8592241816194074353">"හඬ නඟනය සක්‍රීයයි"</string>
@@ -213,7 +218,7 @@
     <string name="global_actions" product="tv" msgid="7240386462508182976">"රූපවාහිනී විකල්ප"</string>
     <string name="global_actions" product="default" msgid="2406416831541615258">"දුරකථන විකල්ප"</string>
     <string name="global_action_lock" msgid="2844945191792119712">"තිර අගුල"</string>
-    <string name="global_action_power_off" msgid="4471879440839879722">"බලය අක්‍රිය කරන්න"</string>
+    <string name="global_action_power_off" msgid="4471879440839879722">"බල රහිත කරන්න"</string>
     <string name="global_action_emergency" msgid="7112311161137421166">"හදිසි"</string>
     <string name="global_action_bug_report" msgid="7934010578922304799">"දෝෂ වර්තාව"</string>
     <string name="bugreport_title" msgid="2667494803742548533">"දෝෂ වාර්තාවක් ගන්න"</string>
@@ -228,7 +233,7 @@
     </plurals>
     <string name="global_action_toggle_silent_mode" msgid="8219525344246810925">"නිහඬ ආකාරය"</string>
     <string name="global_action_silent_mode_on_status" msgid="3289841937003758806">"ශබ්දය අක්‍රියයි"</string>
-    <string name="global_action_silent_mode_off_status" msgid="1506046579177066419">"හඬ සක්‍රියයි"</string>
+    <string name="global_action_silent_mode_off_status" msgid="1506046579177066419">"හඬ ක්‍රියාත්මකයි"</string>
     <string name="global_actions_toggle_airplane_mode" msgid="5884330306926307456">"අහස්යානා ආකාරය"</string>
     <string name="global_actions_airplane_mode_on_status" msgid="2719557982608919750">"අහස්යානා ආකාරය සක්‍රීයයි."</string>
     <string name="global_actions_airplane_mode_off_status" msgid="5075070442854490296">"අහස්යානා අකාරය අක්‍රියයි"</string>
@@ -269,8 +274,8 @@
     <string name="capability_desc_canRequestEnhancedWebAccessibility" msgid="7881063961507511765">"යෙදුම් අන්තර්ගතයට ප්‍රවේශ්‍යතාවය වැඩිවන ලෙස සකස් කිරීමට ඇතැම් විට ස්ක්‍රිප්ට් ස්ථාපනය කර ඇත."</string>
     <string name="capability_title_canRequestFilterKeyEvents" msgid="2103440391902412174">"ඔබ ටයිප් කළ පෙළ බලන්න"</string>
     <string name="capability_desc_canRequestFilterKeyEvents" msgid="7463135292204152818">"ණයවරපත් අංක සහ මුරපද වැනි පුද්ගලික දත්ත ඇතුළත් වේ."</string>
-    <string name="capability_title_canControlMagnification" msgid="3593493281059424855">"සංදර්ශන විශාලන මට්ටම පාලනය කිරීම"</string>
-    <string name="capability_desc_canControlMagnification" msgid="4791858203568383773">"සංදර්ශනයේ විශාලන මට්ටම සහ පිහිටීම පාලනය කිරීම."</string>
+    <string name="capability_title_canControlMagnification" msgid="3593493281059424855">"සංදර්ශනයේ විශාලනය පාලනය කරන්න"</string>
+    <string name="capability_desc_canControlMagnification" msgid="4791858203568383773">"සංදර්ශනයේ විශාලන මට්ටම සහ පිහිටීම පාලනය කරන්න."</string>
     <string name="capability_title_canPerformGestures" msgid="7418984730362576862">"අභින සිදු කරන්න"</string>
     <string name="capability_desc_canPerformGestures" msgid="8296373021636981249">"තට්ටු කිරීමට, ස්වයිප් කිරීමට, පින්ච් කිරීමට, සහ වෙනත් අභින සිදු කිරීමට හැකිය."</string>
     <string name="permlab_statusBar" msgid="7417192629601890791">"තත්ව තීරුව අබල කරන්න හෝ වෙනස් කරන්න"</string>
@@ -284,7 +289,7 @@
     <string name="permlab_uninstall_shortcut" msgid="4729634524044003699">"කෙටිමං අස්ථාපනය කරන්න"</string>
     <string name="permdesc_uninstall_shortcut" msgid="6745743474265057975">"පරිශීලක මැදිහත්වීමෙන් තොරව මුල්තිර කෙටිමං එක් කිරීමට යෙදුමකට අවසර දෙයි."</string>
     <string name="permlab_processOutgoingCalls" msgid="3906007831192990946">"පිටවන ඇමතුම් වල මග වෙනස් කිරීම"</string>
-    <string name="permdesc_processOutgoingCalls" msgid="5156385005547315876">"ඇමතුම වෙනත් අංකයකට හරවා යැවීම හෝ ඇමතුම මුළුමනින්ම නැවත් වීම වැනි විකල්ප සමඟ පිටතට යන ඇමතුමකදී ඩයල් කළ අංකය බැලීමට යෙදුමට ඉඩ දෙන්න."</string>
+    <string name="permdesc_processOutgoingCalls" msgid="5156385005547315876">"ඇමතුම වෙනත් අංකයකට හරවා යැවීම හෝ ඇමතුම මුළුමනින්ම නැවත්වීම වැනි විකල්ප සමඟ පිටතට යන ඇමතුමකදී අංකනය කළ අංකය බැලීමට යෙදුමට ඉඩ දෙයි."</string>
     <string name="permlab_receiveSms" msgid="8673471768947895082">"කෙටි පණිවිඩ ලබාගැනීම (SMS)"</string>
     <string name="permdesc_receiveSms" msgid="6424387754228766939">"SMS පණිවිඩ ලැබීමට සහ ක්‍රියාත්මක කිරීමට යෙදුමට අවසර දෙන්න. මෙහි තේරුම යෙදුමට ඔබගේ උපාංගයට ලැබෙන පණිවිඩ අධීක්ෂණය කිරීමට හැකිවීම වන අතර, ඒවා ඔබට නොපෙන්වා මකා දැමීමටද හැකි වීමයි."</string>
     <string name="permlab_receiveMms" msgid="1821317344668257098">"පෙළ පණිවුඩ ලබාගන්න (MMS)"</string>
@@ -376,7 +381,7 @@
     <string name="permlab_accessImsCallService" msgid="3574943847181793918">"IMS ඇමතුම් සේවාවට පිවිසෙන්න"</string>
     <string name="permdesc_accessImsCallService" msgid="8992884015198298775">"ඔබේ මැදිහත්වීමකින් තොරව ඇමතුම් සිදු කිරීමට  IMS සේවාව භාවිතයට යෙදුමට ඉඩ දෙන්න."</string>
     <string name="permlab_readPhoneState" msgid="9178228524507610486">"දුරකථනයේ තත්වය සහ අනන්‍යතාවය කියවීම"</string>
-    <string name="permdesc_readPhoneState" msgid="1639212771826125528">"උපාංගයේ දුරකථන විශේෂාංග වෙත පිවිසීමට යෙදුමට අවසර දෙන්න. ඇමතුම සක්‍රිය වුවත් සහ ඇමතුමකින් දුරස්ථ අංකය සම්බන්ධ වුවත් දුරකථන අංකය සහ උපාංග ID හඳුනා ගැනීමට මෙම අවසරය යෙදුමට අවසර දෙයි."</string>
+    <string name="permdesc_readPhoneState" msgid="1639212771826125528">"උපාංගයේ දුරකථන විශේෂාංග වෙත ප්‍රවේශයට යෙදුමට ඉඩ දෙයි.  ඇමතුම සක්‍රිය වුවත්, සහ ඇමතුමකින් දුරස්ථ අංකය සම්බන්ධ වුවත් දුරකථන අංකය සහ උපාංග ID හඳුනා ගැනීමට මෙම අවසරය යෙදුමට ඉඩ දෙයි."</string>
     <string name="permlab_wakeLock" product="tablet" msgid="1531731435011495015">"ටැබ්ලටය නින්දෙන් වැළක්වීම"</string>
     <string name="permlab_wakeLock" product="tv" msgid="2601193288949154131">"රූපවාහිනිය නින්දට යාමෙන් නවත්වන්න"</string>
     <string name="permlab_wakeLock" product="default" msgid="573480187941496130">"දුරකථනය නින්දට යාමෙන් වළකන්න"</string>
@@ -457,13 +462,13 @@
     <string name="permlab_readSyncSettings" msgid="6201810008230503052">"සමමුහුර්ත සැකසීම් කියවන්න"</string>
     <string name="permdesc_readSyncSettings" msgid="2706745674569678644">"ගිණුම සඳහා සමමුහුර්ත සැකසීම් කියවීමට යෙදුමට අවසර දෙන්න. උදාහරණයක් ලෙස, ගිණුමක් සමඟ පුද්ගල යෙදුම සමමුහුර්ත දැයි මෙයට හඳුනා ගත හැක."</string>
     <string name="permlab_writeSyncSettings" msgid="5408694875793945314">"සමමුහුර්ත කිරීම සක්‍රිය කරන්න සහ අක්‍රිය කරන්න"</string>
-    <string name="permdesc_writeSyncSettings" msgid="8956262591306369868">"ගිණුම සඳහා සමමුහුර්ත සැකසීම් වෙනස් කිරීමට යෙදුමට අවසර දෙන්න. උදාහරණයක් ලෙස, ගිණුම සමඟ පුද්ගල යෙදුම සමමුහුර්ත කිරීම සක්‍රිය කිරීමට භාවිත කල හැක."</string>
+    <string name="permdesc_writeSyncSettings" msgid="8956262591306369868">"ගිණුමක් සඳහා සමමුහුර්ත සැකසීම් විකරණය කිරීමට යෙදුමකට ඉඩ දෙයි. උදාහරණයක් ලෙස, ගිණුමක් සමඟ පුද්ගල යෙදුම සමමුහුර්ත කිරීම සබල කිරීමට මෙය භාවිත කළ හැක."</string>
     <string name="permlab_readSyncStats" msgid="7396577451360202448">"සමමුහුර්ත කිරීමේ සංඛ්‍යාන කියවීම"</string>
     <string name="permdesc_readSyncStats" msgid="1510143761757606156">"සමමුහුර්ත කිරීමේ සිදුවීම් ඉතිහාසය සහ කෙතරම් දත්ත සමමුහුර්ත වී ඇතිදැයි ඇතුලත් ගිණුම සඳහා සමමුහුර්ත කිරීමේ සංඛ්‍යාන කියවීමට යෙදුමට අවසර දෙන්න."</string>
     <string name="permlab_sdcardRead" product="nosdcard" msgid="367275095159405468">"ඔබගේ USB ආචයනය හි අන්තර්ගතය කියවන්න"</string>
     <string name="permlab_sdcardRead" product="default" msgid="2188156462934977940">"ඔබගේ SD කාඩ් පතෙහි අන්තර්ගතය කියවන්න"</string>
     <string name="permdesc_sdcardRead" product="nosdcard" msgid="3446988712598386079">"යෙදුමට ඔබගේ USB ආචයනය අන්තර්ගතය කියවීමට අවසර දෙන්න."</string>
-    <string name="permdesc_sdcardRead" product="default" msgid="2607362473654975411">"යෙදුමට ඔබගේ SD කාඩ් පතින් අන්තර්ගත කියවීමට අවසර දෙන්න."</string>
+    <string name="permdesc_sdcardRead" product="default" msgid="2607362473654975411">"යෙදුමට ඔබගේ SD කාඩ්පතේ අන්තර්ගතය කියවීමට ඉඩ දෙයි."</string>
     <string name="permlab_sdcardWrite" product="nosdcard" msgid="8485979062254666748">"ඔබගේ USB ආචයනයේ අන්තර්ගත වෙනස් කිරීම හෝ මැකීම"</string>
     <string name="permlab_sdcardWrite" product="default" msgid="8805693630050458763">"ඔබගේ SD පතේ අන්තර්ගත වෙනස් කිරීම හෝ මැකීම"</string>
     <string name="permdesc_sdcardWrite" product="nosdcard" msgid="6175406299445710888">"USB ආචයනය වෙත ලිවීමට යෙදුමට අවසර දෙන්න."</string>
@@ -737,7 +742,7 @@
     <!-- String.format failed for translation -->
     <!-- no translation found for keyguard_accessibility_widget_changed (5678624624681400191) -->
     <skip />
-    <string name="keyguard_accessibility_add_widget" msgid="8273277058724924654">"විජටය එකතු කරන්න."</string>
+    <string name="keyguard_accessibility_add_widget" msgid="8273277058724924654">"විජටය එක් කරන්න."</string>
     <string name="keyguard_accessibility_widget_empty_slot" msgid="1281505703307930757">"හිස්"</string>
     <string name="keyguard_accessibility_unlock_area_expanded" msgid="2278106022311170299">"අගුළු අරින ප්‍රදේශය විදහා ඇත."</string>
     <string name="keyguard_accessibility_unlock_area_collapsed" msgid="6366992066936076396">"අගුළු අරින ප්‍රදේශය හැකිලී ඇත."</string>
@@ -950,7 +955,7 @@
     <string name="undo" msgid="7905788502491742328">"අස් කරන්න"</string>
     <string name="redo" msgid="7759464876566803888">"යළි කරන්න"</string>
     <string name="textSelectionCABTitle" msgid="5236850394370820357">"පෙළ තේරීම"</string>
-    <string name="addToDictionary" msgid="4352161534510057874">"ශබ්ද කෝෂයට එකතු කරන්න"</string>
+    <string name="addToDictionary" msgid="4352161534510057874">"ශබ්ද කෝෂයට එක් කරන්න"</string>
     <string name="deleteText" msgid="6979668428458199034">"මකන්න"</string>
     <string name="inputMethod" msgid="1653630062304567879">"ආදාන ක්‍රමය"</string>
     <string name="editTextMenuTitle" msgid="4909135564941815494">"පෙළ ක්‍රියාවන්"</string>
@@ -975,7 +980,7 @@
     <string name="whichViewApplicationLabel" msgid="2666774233008808473">"විවෘත කරන්න"</string>
     <string name="whichEditApplication" msgid="144727838241402655">"සමඟ සංස්කරණය කරන්න"</string>
     <string name="whichEditApplicationNamed" msgid="1775815530156447790">"%1$s සමඟ සංස්කරණය කරන්න"</string>
-    <string name="whichEditApplicationLabel" msgid="7183524181625290300">"සංස්කරණය කරන්න"</string>
+    <string name="whichEditApplicationLabel" msgid="7183524181625290300">"සංස්කරණය"</string>
     <string name="whichSendApplication" msgid="6902512414057341668">"සමඟ බෙදාගන්න"</string>
     <string name="whichSendApplicationNamed" msgid="2799370240005424391">"%s සමඟ බෙදාගන්න"</string>
     <string name="whichSendApplicationLabel" msgid="4579076294675975354">"බෙදා ගන්න"</string>
@@ -1095,10 +1100,10 @@
     <string name="wifi_connect_alert_title" msgid="8455846016001810172">"සම්බන්ධතාවයට ඉඩ දෙන්නද?"</string>
     <string name="wifi_connect_alert_message" msgid="6451273376815958922">"යෙදුම් %1$s ක් WiFi ජාලය %2$s වෙත සම්බන්ධ කිරීමට කැමතියි"</string>
     <string name="wifi_connect_default_application" msgid="7143109390475484319">"යෙදුම"</string>
-    <string name="wifi_p2p_dialog_title" msgid="97611782659324517">"ඍජු Wi-Fi"</string>
-    <string name="wifi_p2p_turnon_message" msgid="2909250942299627244">"ඍජු Wi-Fi ආරම්භ කරන්න. මෙය Wi-Fi සේවාදායක/හොට්ස්පොට් එක අක්‍රිය කරනු ඇත."</string>
-    <string name="wifi_p2p_failed_message" msgid="3763669677935623084">"ඍජු Wi-Fi ආරම්භ කළ නොහැක."</string>
-    <string name="wifi_p2p_enabled_notification_title" msgid="2068321881673734886">"Wi-Fi ඍජු සම්බන්ධතාව සක්‍රියයි"</string>
+    <string name="wifi_p2p_dialog_title" msgid="97611782659324517">"Wi-Fi Direct"</string>
+    <string name="wifi_p2p_turnon_message" msgid="2909250942299627244">"Wi-Fi Direct ආරම්භ කරන්න. මෙය Wi-Fi සේවාදායක/හොට්ස්පොට් එක අක්‍රිය කරනු ඇත."</string>
+    <string name="wifi_p2p_failed_message" msgid="3763669677935623084">"Wi-Fi Direct ආරම්භ කළ නොහැක."</string>
+    <string name="wifi_p2p_enabled_notification_title" msgid="2068321881673734886">"Wi-Fi Direct ක්‍රියාත්මකයි"</string>
     <string name="wifi_p2p_enabled_notification_message" msgid="8064677407830620023">"සැකසීම් සඳහා තට්ටු කරන්න"</string>
     <string name="accept" msgid="1645267259272829559">"පිළිගන්න"</string>
     <string name="decline" msgid="2112225451706137894">"ප්‍රතික්ෂේප කරන්න"</string>
@@ -1210,6 +1215,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"ස්ථාපන සැසිය කියවීමට යෙදුමට ඉඩ දෙන්න. සක්‍රිය පැකේජ ස්ථාපනය පිළිබඳ විස්තර බැලීමට එයට මෙයින් ඉඩ දෙයි."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"ස්ථාපන පැකේජ ඉල්ලීම"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"ස්ථාපන පැකේජ ඉල්ලීමට යෙදුමකට අවසර දීම."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"බැටරි ප්‍රශස්තකරණ නොසලකා හැරීමට ඉල්ලන්න"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"යෙදුමකට එම යෙදුම සඳහා බැටරි ප්‍රශස්තකරණ නොසලකා හැරීමට අවසර ඉල්ලීමට ඉඩ දෙයි."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"විශාලන පාලක සඳහා දෙවතාවක් තට්ටු කරන්න"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"විජටය එකතු කිරීමට නොහැකි විය."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"යන්න"</string>
@@ -1284,7 +1291,7 @@
     <string name="sync_undo_deletes" msgid="2941317360600338602">"මැකීම් අස් කරන්න"</string>
     <string name="sync_do_nothing" msgid="3743764740430821845">"දැනට කිසිවක් නොකරන්න"</string>
     <string name="choose_account_label" msgid="5655203089746423927">"ගිණුමක් තෝරන්න"</string>
-    <string name="add_account_label" msgid="2935267344849993553">"ගිණුමක් එකතු කරන්න"</string>
+    <string name="add_account_label" msgid="2935267344849993553">"ගිණුමක් එක් කරන්න"</string>
     <string name="add_account_button_label" msgid="3611982894853435874">"ගිණුමක් එක් කරන්න"</string>
     <string name="number_picker_increment_button" msgid="2412072272832284313">"වැඩි කරන්න"</string>
     <string name="number_picker_decrement_button" msgid="476050778386779067">"අඩු කරන්න"</string>
@@ -1330,7 +1337,7 @@
     <string name="storage_usb_drive" msgid="6261899683292244209">"USB ධාවකය"</string>
     <string name="storage_usb_drive_label" msgid="4501418548927759953">"<xliff:g id="MANUFACTURER">%s</xliff:g> USB ධාවකය"</string>
     <string name="storage_usb" msgid="3017954059538517278">"USB ආචයනය"</string>
-    <string name="extract_edit_menu_button" msgid="8940478730496610137">"සංස්කරණය කරන්න"</string>
+    <string name="extract_edit_menu_button" msgid="8940478730496610137">"සංස්කරණය"</string>
     <string name="data_usage_warning_title" msgid="3620440638180218181">"දත්ත භාවිතය ගැන ඇඟවීම"</string>
     <string name="data_usage_warning_body" msgid="6660692274311972007">"භාවිතය සහ සැකසීම් බැලීමට තට්ටු කරන්න."</string>
     <string name="data_usage_3g_limit_title" msgid="4361523876818447683">"2G-3G දත්ත සීමාවට ළඟාවී ඇත"</string>
@@ -1376,7 +1383,7 @@
     <string name="default_media_route_name_hdmi" msgid="2450970399023478055">"HDMI"</string>
     <string name="default_audio_route_category_name" msgid="3722811174003886946">"පද්ධතිය"</string>
     <string name="bluetooth_a2dp_audio_route_name" msgid="8575624030406771015">"බ්ලූටූත් ශ්‍රව්‍ය"</string>
-    <string name="wireless_display_route_description" msgid="9070346425023979651">"රැහැන් රහිත දර්ශනය"</string>
+    <string name="wireless_display_route_description" msgid="9070346425023979651">"නොරැහැන් සංදර්ශකය"</string>
     <string name="media_route_button_content_description" msgid="591703006349356016">"Cast"</string>
     <string name="media_route_chooser_title" msgid="1751618554539087622">"උපාංගයට සම්බන්ධ වන්න"</string>
     <string name="media_route_chooser_title_for_remote_display" msgid="3395541745872017583">"තිරය උපාංගයට යොමු කරන්න"</string>
@@ -1560,7 +1567,7 @@
     <string name="select_year" msgid="7952052866994196170">"වසර තෝරන්න"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> මකා දමන ලදි"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"වැඩ <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"මෙම තිරය ඇමුණුම් ඉවත් කිරීමට, ස්පර්ශ කර අල්ලා ගෙන සිටින්න."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"මෙම තිරය ඇමුණුම් ඉවත් කිරීමට, දළ විශ්ලේෂණය ස්පර්ශ කර අල්ලා ගෙන සිටින්න."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"යෙදුම අමුණා ඇත: ගැලවීමට මෙම උපාංගය මත ඉඩ දිය නොහැකිය.‍"</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"තිරය අගුළු දමා ඇත"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"තිරයේ අගුළු ඇර ඇත"</string>
@@ -1608,7 +1615,7 @@
     </plurals>
     <string name="zen_mode_until" msgid="7336308492289875088">"<xliff:g id="FORMATTEDTIME">%1$s</xliff:g> තෙක්"</string>
     <string name="zen_mode_alarm" msgid="9128205721301330797">"<xliff:g id="FORMATTEDTIME">%1$s</xliff:g> තෙක් (ඊළඟ එලාමය)"</string>
-    <string name="zen_mode_forever" msgid="7420011936770086993">"ඔබ මෙය අක්‍රිය කරන තුරු"</string>
+    <string name="zen_mode_forever" msgid="7420011936770086993">"ඔබ මෙය ක්‍රියාවිරහිත කරන තුරු"</string>
     <string name="zen_mode_forever_dnd" msgid="3792132696572189081">"බාධා නොකරන්න ඔබ අක්‍රිය කරන තුරු"</string>
     <string name="zen_mode_rule_name_combination" msgid="191109939968076477">"<xliff:g id="FIRST">%1$s</xliff:g> / <xliff:g id="REST">%2$s</xliff:g>"</string>
     <string name="toolbar_collapse_description" msgid="2821479483960330739">"හකුළන්න"</string>

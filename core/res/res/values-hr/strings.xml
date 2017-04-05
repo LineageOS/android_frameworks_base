@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Problem s vezom ili nevažeći MMI kôd."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Operacija je ograničena samo na brojeve s fiksnim biranjem."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Nije moguće promijeniti postavke preusmjeravanja poziva na telefonu dok ste u roamingu."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Usluga nije omogućena."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Usluga je omogućena za korisnika:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Usluga je onemogućena."</string>
@@ -97,6 +98,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Glasovne/podatkovne usluge blokirane su."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Glasovne/SMS usluge su blokirane."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Sve su glasovne/podatkovne/SMS usluge blokirane."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Pristup mreži nije moguć"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Za bolji prijem pokušajte odabrati drugu vrstu mreže u odjeljku Postavke &gt; Mobilne mreže &gt; Željena vrsta mreže."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Način TTY FULL koji zahtijeva paralelni uređaj"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Način TTY HCO koji zahtijeva paralelni uređaj"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Način TTY VCO koji zahtijeva paralelni uređaj"</string>
@@ -181,6 +184,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Radni je profil izbrisan jer nedostaje administratorska aplikacija."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Administratorska aplikacija radnog profila nedostaje ili je oštećena. Zbog toga su radni profil i povezani podaci izbrisani. Za pomoć se obratite svom administratoru."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Vaš poslovni profil više nije dostupan na ovom uređaju."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Mrežni se promet prati"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Dodirnite da biste saznali više"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Uređaj će se izbrisati"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Nije moguće upotrijebiti administratorsku aplikaciju jer joj nedostaju komponente ili je oštećena. Vaš će se uređaj sada izbrisati. Za pomoć se obratite svom administratoru."</string>
     <string name="me" msgid="6545696007631404292">"Ja"</string>
@@ -646,7 +651,7 @@
     <string name="relationTypeAssistant" msgid="6274334825195379076">"Pomoćnik"</string>
     <string name="relationTypeBrother" msgid="8757913506784067713">"Brat"</string>
     <string name="relationTypeChild" msgid="1890746277276881626">"Dijete"</string>
-    <string name="relationTypeDomesticPartner" msgid="6904807112121122133">"Partner u kućan."</string>
+    <string name="relationTypeDomesticPartner" msgid="6904807112121122133">"Vanbračni partner"</string>
     <string name="relationTypeFather" msgid="5228034687082050725">"Otac"</string>
     <string name="relationTypeFriend" msgid="7313106762483391262">"Prijatelj"</string>
     <string name="relationTypeManager" msgid="6365677861610137895">"Voditelj"</string>
@@ -1233,6 +1238,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Omogućuje aplikaciji čitanje sesija instaliranja. Aplikacija može vidjeti pojedinosti o aktivnim instaliranjima paketa."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"zahtijevati instaliranje paketa"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Aplikaciji omogućuje zahtijevanje instaliranja paketa."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"tražiti zanemarivanje optimizacija baterije"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Aplikaciji omogućuje da traži dopuštenje za zanemarivanje optimizacija baterije za tu aplikaciju."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Dvaput dotaknite za upravljanje zumiranjem"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Widget nije moguće dodati."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Idi"</string>
@@ -1585,7 +1592,7 @@
     <string name="select_year" msgid="7952052866994196170">"Odaberite godinu"</string>
     <string name="deleted_key" msgid="7659477886625566590">"Izbrisan je broj <xliff:g id="KEY">%1$s</xliff:g>"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> za posao"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Da biste otkvačili ovaj zaslon, dodirnite i zadržite Natrag."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Da biste otkvačili ovaj zaslon, dodirnite i zadržite Natrag i Pregled."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Aplikacija je prikvačena: otkvačivanje nije dopušteno na tom uređaju."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Zaslon je pričvršćen"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Zaslon je otkvačen"</string>

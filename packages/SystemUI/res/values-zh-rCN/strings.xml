@@ -408,19 +408,25 @@
     <string name="monitoring_title_device_owned" msgid="7121079311903859610">"设备监测"</string>
     <string name="monitoring_title_profile_owned" msgid="6790109874733501487">"资料监控"</string>
     <string name="monitoring_title" msgid="169206259253048106">"网络监控"</string>
+    <string name="monitoring_subtitle_vpn" msgid="876537538087857300">"VPN"</string>
+    <string name="monitoring_subtitle_network_logging" msgid="5569072711320784030">"网络日志"</string>
     <string name="disable_vpn" msgid="4435534311510272506">"关闭VPN"</string>
     <string name="disconnect_vpn" msgid="1324915059568548655">"断开VPN连接"</string>
-    <string name="monitoring_description_device_owned" msgid="5780988291898461883">"您的设备由以下单位管理：<xliff:g id="ORGANIZATION">%1$s</xliff:g>。\n\n您单位的管理员可以监控和管理与此设备相关的设置、企业权限、应用、数据以及设备位置信息。若要了解详情，请与您单位的管理员联系。"</string>
+    <string name="monitoring_description_device_owned" msgid="220006422537330981">"您的设备由以下单位管理：<xliff:g id="ORGANIZATION">%1$s</xliff:g>。\n\n您单位的管理员可以监控和管理与此设备相关的设置、企业权限、应用、数据，以及您设备的位置信息。若要了解详情，请与您单位的管理员联系。"</string>
+    <string name="monitoring_description_do_body_vpn" msgid="8255218762488901796">"您已连接到<xliff:g id="VPN_APP">%1$s</xliff:g>，该应用可以监控您的网络活动，包括收发电子邮件、使用应用和浏览网站。"</string>
+    <string name="monitoring_description_vpn_settings_separator" msgid="1933186756733474388">" "</string>
+    <string name="monitoring_description_vpn_settings" msgid="8869300202410505143">"打开 VPN 设置"</string>
+    <string name="monitoring_description_network_logging" msgid="7223505523384076027">"您的管理员已开启网络日志功能，该功能会监控您设备上的流量。\n\n如需更多信息，请与您的管理员联系。"</string>
     <string name="monitoring_description_vpn" msgid="4445150119515393526">"您已授权应用设置 VPN 连接。\n\n该应用可以监控您的设备和网络活动，包括收发电子邮件、使用应用和浏览网站。"</string>
-    <string name="monitoring_description_vpn_device_owned" msgid="3090670777499161246">"您的设备由以下单位管理：<xliff:g id="ORGANIZATION">%1$s</xliff:g>。\n\n您单位的管理员可以监控和管理与此设备相关的设置、企业权限、应用、数据以及设备位置信息。\n\n您已连接到 VPN，此 VPN 也可以监控您的网络活动，包括收发电子邮件、使用应用和浏览网站。\n\n若要了解详情，请与您单位的管理员联系。"</string>
-    <string name="monitoring_description_vpn_profile_owned" msgid="2054949132145039290">"您的工作资料由以下单位管理：<xliff:g id="ORGANIZATION">%1$s</xliff:g>。\n\n您单位的管理员可以监控您的网络活动，包括收发电子邮件、使用应用和浏览网站。\n\n若要了解详情，请与您单位的管理员联系。\n\n此外，您还连接到了 VPN，此 VPN 也可以监控您的网络活动。"</string>
+    <string name="monitoring_description_vpn_device_owned" msgid="6741053132592567634">"您的设备由以下单位管理：<xliff:g id="ORGANIZATION">%1$s</xliff:g>。\n\n您单位的管理员可以监控和管理与此设备相关的设置、企业权限、应用、数据，以及您设备的位置信息。\n\n您已连接到 VPN，该 VPN 可以监控您的网络活动，包括收发电子邮件、使用应用和浏览网站。\n\n若要了解详情，请与您单位的管理员联系。"</string>
+    <string name="monitoring_description_vpn_profile_owned" msgid="2958019119161161530">"您的工作资料由“<xliff:g id="ORGANIZATION">%1$s</xliff:g>”管理。\n\n您的管理员能够监控您的网络活动，其中包括收发电子邮件、使用应用和访问网站。\n\n如需更多信息，请与您的管理员联系。\n\n此外，您还连接到了 VPN，它同样可以监控您的网络活动。"</string>
     <string name="legacy_vpn_name" msgid="6604123105765737830">"VPN"</string>
     <string name="monitoring_description_app" msgid="6259179342284742878">"您已连接到<xliff:g id="APPLICATION">%1$s</xliff:g>，该应用可以监控您的网络活动，包括收发电子邮件、使用应用和浏览网站。"</string>
     <string name="monitoring_description_app_personal" msgid="484599052118316268">"您已连接到<xliff:g id="APPLICATION">%1$s</xliff:g>，该应用可以监控您的个人网络活动，包括收发电子邮件、使用应用和浏览网站。"</string>
     <string name="branded_monitoring_description_app_personal" msgid="2669518213949202599">"您已连接到<xliff:g id="APPLICATION">%1$s</xliff:g>，该应用可以监控您的个人网络活动，包括收发电子邮件、使用应用和浏览网站。"</string>
-    <string name="monitoring_description_app_work" msgid="1754325860918060897">"您的工作资料由以下单位管理：<xliff:g id="ORGANIZATION">%1$s</xliff:g>。您已连接到<xliff:g id="APPLICATION">%2$s</xliff:g>，该应用可以监控您的工作网络活动，包括收发电子邮件、使用应用和浏览网站。\n\n若要了解详情，请与您单位的管理员联系。"</string>
+    <string name="monitoring_description_app_work" msgid="7777228449969022305">"您的工作资料由“<xliff:g id="ORGANIZATION">%1$s</xliff:g>”管理，并已关联到<xliff:g id="APPLICATION">%2$s</xliff:g>（该应用能够监控您的工作网络活动，其中包括收发电子邮件、使用应用和访问网站）。\n\n如需更多信息，请与您的管理员联系。"</string>
     <string name="monitoring_description_app_personal_work" msgid="4946600443852045903">"您的工作资料由以下单位管理：<xliff:g id="ORGANIZATION">%1$s</xliff:g>。您已连接到<xliff:g id="APPLICATION_WORK">%2$s</xliff:g>，该应用可以监控您的工作网络活动，包括收发电子邮件、使用应用和浏览网站。\n\n此外，您还连接到了<xliff:g id="APPLICATION_PERSONAL">%3$s</xliff:g>，该应用可以监控您的个人网络活动。"</string>
-    <string name="monitoring_description_vpn_app_device_owned" msgid="4970443827043261703">"您的设备由以下单位管理：<xliff:g id="ORGANIZATION">%1$s</xliff:g>。\n\n您单位的管理员可以监控和管理与此设备相关的设置、企业权限、应用、数据以及设备位置信息。\n\n您已连接到<xliff:g id="APPLICATION">%2$s</xliff:g>，该应用可以监控您的网络活动，包括收发电子邮件、使用应用和浏览网站。\n\n若要了解详情，请与您单位的管理员联系。"</string>
+    <string name="monitoring_description_vpn_app_device_owned" msgid="6157262536135989204">"您的设备由以下单位管理：<xliff:g id="ORGANIZATION">%1$s</xliff:g>。\n\n您单位的管理员可以监控和管理与此设备相关的设置、企业权限、应用、数据，以及您设备的位置信息。\n\n您已连接到<xliff:g id="APPLICATION">%2$s</xliff:g>，该应用可以监控您的网络活动，包括收发电子邮件、使用应用和浏览网站。\n\n若要了解详情，请与您单位的管理员联系。"</string>
     <string name="keyguard_indication_trust_disabled" msgid="7412534203633528135">"在您手动解锁之前，设备会保持锁定状态"</string>
     <string name="hidden_notifications_title" msgid="7139628534207443290">"更快捷地查看通知"</string>
     <string name="hidden_notifications_text" msgid="2326409389088668981">"无需解锁即可查看通知"</string>
@@ -431,7 +437,8 @@
     <string name="accessibility_volume_expand" msgid="5946812790999244205">"展开"</string>
     <string name="accessibility_volume_collapse" msgid="3609549593031810875">"收起"</string>
     <string name="screen_pinning_title" msgid="3273740381976175811">"已固定屏幕"</string>
-    <string name="screen_pinning_description" msgid="7238941806855968768">"这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。"</string>
+    <string name="screen_pinning_description" msgid="8909878447196419623">"这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”和“概览”即可取消固定屏幕。"</string>
+    <string name="screen_pinning_description_accessible" msgid="426190689254018656">"这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“概览”即可取消固定屏幕。"</string>
     <string name="screen_pinning_positive" msgid="3783985798366751226">"知道了"</string>
     <string name="screen_pinning_negative" msgid="3741602308343880268">"不用了"</string>
     <string name="quick_settings_reset_confirmation_title" msgid="748792586749897883">"要隐藏“<xliff:g id="TILE_LABEL">%1$s</xliff:g>”吗？"</string>
@@ -652,4 +659,7 @@
     <string name="accessibility_quick_settings_edit" msgid="7839992848995240393">"修改设置顺序。"</string>
     <string name="accessibility_quick_settings_page" msgid="5032979051755200721">"第 <xliff:g id="ID_1">%1$d</xliff:g> 页，共 <xliff:g id="ID_2">%2$d</xliff:g> 页"</string>
     <string name="cant_silence_or_block" msgid="999689262131488625">"无法将通知静音或屏蔽"</string>
+    <string name="high_temp_title" msgid="4589508026407318374">"手机温度上升中"</string>
+    <string name="high_temp_notif_message" msgid="5642466103153429279">"手机降温时，部分功能的使用会受限制"</string>
+    <string name="high_temp_dialog_message" msgid="6840700639374113553">"您的手机将自动尝试降温。您依然可以使用您的手机，但是手机运行速度可能会更慢。\n\n手机降温后，就会恢复正常的运行速度。"</string>
 </resources>

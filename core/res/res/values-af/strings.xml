@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Verbindingsprobleem of ongeldige MMI-kode."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Bewerking is beperk tot belbeperking-nommers."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Kan oproep-aanstuurinstellings nie van jou foon af verander tewyl jy swerf nie."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Diens is geaktiveer."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Diens geaktiveer vir:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Diens is gedeaktiveer."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Stem/data-dienste is geblokkeer."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Stem-/SMS-dienste is geblokkeer."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Alle stem-/data-/SMS-dienste is geblokkeer."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Kan netwerk nie bereik nie"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Probeer om die soort te verander wat jy by Instellings &gt; Sellulêre netwerke &gt; Voorkeurnetwerksoort kies, om ontvangs te verbeter."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Ander party het TTY-modus VOL versoek"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Ander party het TTY-modus GOD versoek"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Ander party het TTY-modus SOD versoek"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Werkprofiel is uitgevee weens ontbrekende administrasieprogram."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Die werkprofiel se administrasieprogram ontbreek of is korrup. Gevolglik is jou werkprofiel en verwante data uitgevee. Kontak jou administrateur vir bystand."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Jou werkprofiel is nie meer op hierdie toestel beskikbaar nie."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Netwerkverkeer word gemonitor"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Tik om meer te wete te kom"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Jou toestel sal uitgevee word"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Die administrasieprogram kort komponente of is korrup en kan nie gebruik word nie. Jou toestel sal nou uitgevee word. Kontak jou administrateur vir bystand."</string>
     <string name="me" msgid="6545696007631404292">"Ek"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Laat \'n program toe om installasiesessies te lees. Dit laat dit toe om besonderhede van aktiewe pakketinstallasies te sien."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"versoek installeerpakkette"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Laat \'n program toe om te versoek dat pakkette geïnstalleer word."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"vra om batteryoptimerings te ignoreer"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Laat \'n program toe om toestemming te vra om batteryoptimerings vir daardie program ignoreer."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Klop twee keer vir zoembeheer"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Kon nie legstuk byvoeg nie."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Gaan"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Kies jaar"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> uitgevee"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Werk-<xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Raak en hou Terug om hierdie skerm te ontspeld."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Raak en hou Terug en Oorsig om hierdie skerm te ontspeld."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Program is vasgespeld: Dit mag nie op hierdie toestel ontspeld word nie."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Skerm vasgespeld"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Skerm ontspeld"</string>

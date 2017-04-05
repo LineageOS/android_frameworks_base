@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Bağlantı problemi və ya yalnış MM kodu."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Əməliyyat yalnız sabit nömrələrə yığımla məhdudlaşıb."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Roaminqdə olarkən zəng yönləndirmə ayarlarını telefonunuzdan dəyişə bilməz."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Servis işə salındı."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Xidmət aktiv edilmişdir:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Xidmət deaktiv edilib."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Səs/data xidmətləri bloklanıb."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Səs/SMS xidmətləri bloklanıb."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Bütün səs/data/SMS xidmətləri bağlıdır."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Şəbəkəyə daxil olmaq mümkün deyil"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Qəbulu inkişaf etdirmək üçün, Ayarlar &gt; Mobil Şəbəkə &gt; Tərcih edilən şəbəkə növü bölməsindən seçilmiş növü dəyişməyə çalışın."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Eskpert TTY Rejimi FULL-u sorğuladı"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Ekspert TTY Rejimi HCO-nu sorğuladı"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Ekspert TTY Rejimi VCO-nu sorğuladı"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"İnzibatçı proqramı olmadığından iş profili silindi."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"İnzibatçı proqramın iş profili ya yoxdur, ya da korlanıb. Nəticədə iş profiliniz və onunla bağlı məlumatlar silinib. Yardım üçün inzibatçınızla əlaqə saxlayın."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"İş profiliniz daha bu cihazda əlçatan deyil."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Şəbəkə trafikinə nəzarət edilir"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Ətraflı məlumat üçün klikləyin"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Cihazınız təmizlənəcəkdir"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"İnzibatçı proqramında komponentlər yoxdur və ya korlanıb və istifadə oluna bilməz. Cihazınız indi təmizlənəcəkdir. Yardım üçün inzibatçınızla əlaqə saxlayın."</string>
     <string name="me" msgid="6545696007631404292">"Mən"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Tətbiqə quraşdırma sessiyalarını oxumağa yardım edir. Bu da aktiv paket quraşdırmaları haqqında məlumatları görməyə imkan verir."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"paketləri quraşdırma sorğusu"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Tətbiqə paketləri quraşdırma sorğusu göndərməyə icazə verir."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"batareya optimallaşdırmasını iqnor etmək üçün soruşun"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Tatareya optimallaşdırılmasını o tətbiq üçün iqnor edilməsinə icazə vermək məqsədilə soruşmağa tətbiqə icazə verilir."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Zoom kontrolu üçün iki dəfə toxunun"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Widget əlavə edilə bilmədi."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Get"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"İl seçin"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> silindi"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"İş <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Sancağı götürmək üçün Geri düyməsinə toxunun və saxlayın."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Sancağı götürmək üçün Geri və İcmal düymələrinə basıb saxlayın"</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Tətbiq sancılıb: Açmağa bu cihazda icazə verilmir."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Screen pinned"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Screen unpinned"</string>

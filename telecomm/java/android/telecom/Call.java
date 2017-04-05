@@ -366,6 +366,7 @@ public final class Call {
         private final PhoneAccountHandle mAccountHandle;
         private final int mCallCapabilities;
         private final int mCallProperties;
+        private final int mSupportedAudioRoutes = CallAudioState.ROUTE_ALL;
         private final DisconnectCause mDisconnectCause;
         private final long mCreateTimeMillis;
         private final long mConnectTimeMillis;
@@ -598,6 +599,15 @@ public final class Call {
          */
         public int getCallProperties() {
             return mCallProperties;
+        }
+
+        /**
+         * @return a bitmask of the audio routes available for the call.
+         *
+         * @hide
+         */
+        public int getSupportedAudioRoutes() {
+            return mSupportedAudioRoutes;
         }
 
         /**

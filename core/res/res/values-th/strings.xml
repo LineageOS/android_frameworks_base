@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"ปัญหาการเชื่อมต่อหรือรหัส MMI ไม่ถูกต้อง"</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"การดำเนินการถูกจำกัดไว้ที่การจำกัดหมายเลขโทรออกเท่านั้น"</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"ไม่สามารถเปลี่ยนการตั้งค่าการโอนสายจากโทรศัพท์ในขณะที่โรมมิ่ง"</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"เปิดใช้งานบริการแล้ว"</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"เปิดการใช้งานบริการสำหรับ:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"ปิดใช้บริการไว้"</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"บริการเสียง/ข้อมูลถูกบล็อก"</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"บริการเสียง/SMS ถูกปิดกั้น"</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"บริการเสียง/ข้อมูล/SMS ทั้งหมดถูกบล็อก"</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"เข้าถึงเครือข่ายไม่ได้"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"เพื่อให้การรับสัญญาณดีขึ้น ลองเปลี่ยนประเภทที่เลือกที่ \"การตั้งค่า\" &gt; \"เครือข่ายมือถือ\" &gt; \"ประเภทเครือข่ายที่ต้องการ\""</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"อีกฝั่งหนึ่งขอโหมด TTY เป็น \"เต็ม\""</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"อีกฝั่งหนึ่งขอโหมด TTY เป็น \"HCO\""</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"อีกฝั่งหนึ่งขอโหมด TTY เป็น \"VCO\""</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"ลบโปรไฟล์งานแล้วเนื่องจากไม่มีแอปผู้ดูแลระบบ"</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"แอปผู้ดูแลระบบโปรไฟล์งานไม่มีอยู่หรือเสียหาย ระบบจึงทำการลบโปรไฟล์งานและข้อมูลที่เกี่ยวข้องของคุณออก โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"โปรไฟล์งานของคุณไม่สามารถใช้บนอุปกรณ์นี้ได้อีกต่อไป"</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"มีการติดตามดูการจราจรของข้อมูลในเครือข่าย"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"แตะเพื่อเรียนรู้เพิ่มเติม"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"ระบบจะลบข้อมูลในอุปกรณ์ของคุณ"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"แอปผู้ดูแลระบบมีองค์ประกอบไม่ครบหรือเสียหาย และใช้งานไม่ได้ ระบบจะลบข้อมูลอุปกรณ์ของคุณ โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
     <string name="me" msgid="6545696007631404292">"ฉัน"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"อนุญาตให้แอปพลิเคชันอ่านเซสชันการติดตั้ง ซึ่งจะอนุญาตให้อ่านรายละเอียดเกี่ยวกับการติดตั้งแพ็กเกจที่ใช้งาน"</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"ขอติดตั้งแพ็กเกจ"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"อนุญาตให้แอปพลิเคชันขอการติดตั้งแพ็กเกจ"</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"ขอเพิกเฉยต่อการเพิ่มประสิทธิภาพแบตเตอรี่"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"อนุญาตให้แอปขอสิทธิ์เพิกเฉยต่อการเพิ่มประสิทธิภาพแบตเตอรี่สำหรับแอปนั้น"</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"แตะสองครั้งเพื่อควบคุมการซูม"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"ไม่สามารถเพิ่มวิดเจ็ต"</string>
     <string name="ime_action_go" msgid="8320845651737369027">"ไป"</string>
@@ -1234,7 +1241,7 @@
     <string name="wallpaper_binding_label" msgid="1240087844304687662">"วอลเปเปอร์"</string>
     <string name="chooser_wallpaper" msgid="7873476199295190279">"เปลี่ยนวอลเปเปอร์"</string>
     <string name="notification_listener_binding_label" msgid="2014162835481906429">"ตัวฟังการแจ้งเตือน"</string>
-    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Listener ความเป็นจริงเสมือน"</string>
+    <string name="vr_listener_binding_label" msgid="4316591939343607306">"VR Listener"</string>
     <string name="condition_provider_service_binding_label" msgid="1321343352906524564">"ผู้เสนอเงื่อนไข"</string>
     <string name="notification_ranker_binding_label" msgid="774540592299064747">"บริการตัวจัดอันดับการแจ้งเตือน"</string>
     <string name="vpn_title" msgid="19615213552042827">"VPN เปิดใช้งานแล้ว"</string>
@@ -1547,7 +1554,7 @@
     </plurals>
     <string name="restr_pin_try_later" msgid="973144472490532377">"ลองอีกครั้งในภายหลัง"</string>
     <string name="immersive_cling_title" msgid="8394201622932303336">"กำลังดูแบบเต็มหน้าจอ"</string>
-    <string name="immersive_cling_description" msgid="3482371193207536040">"หากต้องการออกไป ให้เลื่อนลงจากด้านบน"</string>
+    <string name="immersive_cling_description" msgid="3482371193207536040">"หากต้องการออก ให้เลื่อนลงจากด้านบน"</string>
     <string name="immersive_cling_positive" msgid="5016839404568297683">"รับทราบ"</string>
     <string name="done_label" msgid="2093726099505892398">"เสร็จสิ้น"</string>
     <string name="hour_picker_description" msgid="6698199186859736512">"ตัวเลื่อนหมุนระบุชั่วโมง"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"เลือกปี"</string>
     <string name="deleted_key" msgid="7659477886625566590">"ลบ <xliff:g id="KEY">%1$s</xliff:g> แล้ว"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g>ที่ทำงาน"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"หากต้องการเลิกตรึงหน้าจอนี้ แตะ \"กลับ\" ค้างไว้"</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"หากต้องการเลิกตรึงหน้าจอนี้ ให้แตะ \"กลับ\" และ \"ภาพรวม\" ค้างไว้"</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"มีการตรึงแอป: ไม่อนุญาตให้เลิกตรึงบนอุปกรณ์นี้"</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"ตรึงหน้าจอแล้ว"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"เลิกตรึงหน้าจอแล้ว"</string>

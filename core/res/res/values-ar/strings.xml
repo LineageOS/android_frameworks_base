@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"‏حدثت مشكلة في الاتصال أو أن كود MMI غير صحيح."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"تم تقييد التشغيل لأرقام الاتصال الثابت فقط."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"يتعذر تغيير إعدادات إعادة توجيه المكالمات من هاتفك أثناء التجوال."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"تم تمكين الخدمة."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"تم تمكين الخدمة لـ:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"تم تعطيل الخدمة."</string>
@@ -100,6 +101,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"خدمات الصوت/البيانات محظورة."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"‏خدمات الصوت/الرسائل القصيرة SMS محظورة."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"‏جميع خدمات الصوت/البيانات/الرسائل القصيرة SMS محظورة."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"يتعذر الوصول إلى الشبكة"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"لتحسين الاستقبال، يمكنك تجربة تغيير النوع المحدّد في الإعدادات &gt; شبكات الجوّال &gt; نوع الشبكة المفضَّل."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"‏طلب النظير وضع TTY الكامل"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"‏طلب النظير وضع TTY على HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"‏طلب النظير وضع TTY على VCO"</string>
@@ -187,6 +190,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"تم حذف الملف الشخصي للعمل نتيجة فقد تطبيق المشرف."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"تطبيق المشرف للملف الشخصي للعمل مفقود أو تالف لذا تم حذف الملف والبيانات ذات الصلة. اتصل بالمشرف للحصول على المساعدة."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"لم يعد ملفك الشخصي للعمل متاحًا على هذا الجهاز."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"تتم مراقبة حركة بيانات الشبكة"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"انقر لمعرفة المزيد من المعلومات"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"سيتم محو بيانات جهازك."</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"تطبيق المشرف فاقد لمكونات أو تالف ويتعذر استخدامه. سيتم محو بيانات جهازك الآن. اتصل بالمشرف للحصول على المساعدة."</string>
     <string name="me" msgid="6545696007631404292">"أنا"</string>
@@ -783,7 +788,7 @@
     <string name="js_dialog_before_unload_title" msgid="2619376555525116593">"تأكيد الانتقال"</string>
     <string name="js_dialog_before_unload_positive_button" msgid="3112752010600484130">"مغادرة هذه الصفحة"</string>
     <string name="js_dialog_before_unload_negative_button" msgid="5614861293026099715">"البقاء في هذه الصفحة"</string>
-    <string name="js_dialog_before_unload" msgid="3468816357095378590">"<xliff:g id="MESSAGE">%s</xliff:g>\n\nهل تريد بالتأكيد الانتقال بعيدًا عن هذه الصفحة؟"</string>
+    <string name="js_dialog_before_unload" msgid="3468816357095378590">"<xliff:g id="MESSAGE">%s</xliff:g>\n\nهل تريد فعلًا الانتقال بعيدًا عن هذه الصفحة؟"</string>
     <string name="save_password_label" msgid="6860261758665825069">"تأكيد"</string>
     <string name="double_tap_toast" msgid="4595046515400268881">"نصيحة: اضغط مرتين للتكبير والتصغير."</string>
     <string name="autofill_this_form" msgid="4616758841157816676">"ملء تلقائي"</string>
@@ -1308,6 +1313,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"للسماح لأحد التطبيقات بقراءة جلسات التثبيت. ويسمح لك هذا بالاطلاع على تفاصيل بشأن عمليات تثبيت الحزم النشطة."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"طلب حزم التثبيت"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"للسماح لتطبيق ما بطلب تثبيت الحزم."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"طلب تجاهل تحسينات البطارية"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"للسماح للتطبيق بطلب الإذن لتجاهل تحسينات البطارية في هذا التطبيق."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"اضغط مرتين للتحكم في التكبير/التصغير"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"تعذرت إضافة أداة."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"تنفيذ"</string>
@@ -1666,7 +1673,7 @@
     <string name="select_year" msgid="7952052866994196170">"تحديد العام"</string>
     <string name="deleted_key" msgid="7659477886625566590">"تم حذف <xliff:g id="KEY">%1$s</xliff:g>"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> المخصص للعمل"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"لإزالة تثبيت هذه الشاشة، يمكنك لمس زر الرجوع مع الاستمرار."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"لإزالة تثبيت هذه الشاشة، يمكنك لمس زر \"رجوع\" و\"نظرة عامة\" مع الاستمرار."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"التطبيق مقيد: ولا يسمح بإلغاء التقييد على هذا الجهاز."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"تم تثبيت الشاشة"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"تم إلغاء تثبيت الشاشة"</string>

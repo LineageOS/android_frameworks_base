@@ -255,6 +255,8 @@ please see styles_device_defaults.xml.
         <item name="textColor">?attr/textColorPrimary</item>
     </style>
 
+    <style name="TextAppearance.Material.NumberPicker" parent="TextAppearance.Material.Body1"/>
+
     <!-- Deprecated text styles -->
 
     <style name="TextAppearance.Material.Inverse">
@@ -475,6 +477,9 @@ please see styles_device_defaults.xml.
         <item name="textColor">#66000000</item>
     </style>
 
+    <style name="TextAppearance.Material.ListItem" parent="TextAppearance.Material.Subhead" />
+    <style name="TextAppearance.Material.ListItemSecondary" parent="TextAppearance.Material.Body1" />
+
     <style name="Widget.Material.Notification.ProgressBar" parent="Widget.Material.Light.ProgressBar.Horizontal" />
 
     <style name="Widget.Material.Notification.MessagingText" parent="Widget.Material.Light.TextView">
@@ -548,11 +553,7 @@ please see styles_device_defaults.xml.
         <item name="textOff">@string/capital_off</item>
     </style>
 
-    <style name="Widget.Material.BaseButtonBar">
-        <item name="background">?attr/colorBackgroundFloating</item>
-    </style>
-
-    <style name="Widget.Material.ButtonBar" parent="Widget.Material.BaseButtonBar">
+    <style name="Widget.Material.ButtonBar">
         <item name="background">@null</item>
     </style>
 
@@ -684,7 +685,7 @@ please see styles_device_defaults.xml.
     </style>
 
     <style name="Widget.Material.TimePicker">
-        <item name="timePickerMode">clock</item>
+        <item name="timePickerMode">@integer/time_picker_mode_material</item>
         <item name="legacyLayout">@layout/time_picker_legacy_material</item>
         <!-- Attributes for new-style TimePicker. -->
         <item name="internalLayout">@layout/time_picker_material</item>
@@ -698,7 +699,7 @@ please see styles_device_defaults.xml.
     </style>
 
     <style name="Widget.Material.DatePicker">
-        <item name="datePickerMode">calendar</item>
+        <item name="datePickerMode">@integer/date_picker_mode_material</item>
         <item name="legacyLayout">@layout/date_picker_legacy_holo</item>
         <item name="calendarViewShown">true</item>
         <!-- Attributes for new-style DatePicker. -->
@@ -738,6 +739,10 @@ please see styles_device_defaults.xml.
 
     <style name="Widget.Material.ProgressBar" parent="Widget.ProgressBar">
         <item name="indeterminateDrawable">@drawable/progress_medium_material</item>
+        <item name="minWidth">@dimen/progress_bar_size_medium</item>
+        <item name="maxWidth">@dimen/progress_bar_size_medium</item>
+        <item name="minHeight">@dimen/progress_bar_size_medium</item>
+        <item name="maxHeight">@dimen/progress_bar_size_medium</item>
     </style>
 
     <style name="Widget.Material.ProgressBar.Inverse"/>
@@ -751,6 +756,10 @@ please see styles_device_defaults.xml.
 
     <style name="Widget.Material.ProgressBar.Small" parent="Widget.ProgressBar.Small">
         <item name="indeterminateDrawable">@drawable/progress_small_material</item>
+        <item name="minWidth">@dimen/progress_bar_size_small</item>
+        <item name="maxWidth">@dimen/progress_bar_size_small</item>
+        <item name="minHeight">@dimen/progress_bar_size_small</item>
+        <item name="maxHeight">@dimen/progress_bar_size_small</item>
     </style>
 
     <style name="Widget.Material.ProgressBar.Small.Inverse"/>
@@ -758,6 +767,10 @@ please see styles_device_defaults.xml.
 
     <style name="Widget.Material.ProgressBar.Large" parent="Widget.ProgressBar.Large">
         <item name="indeterminateDrawable">@drawable/progress_large_material</item>
+        <item name="minWidth">@dimen/progress_bar_size_large</item>
+        <item name="maxWidth">@dimen/progress_bar_size_large</item>
+        <item name="minHeight">@dimen/progress_bar_size_large</item>
+        <item name="maxHeight">@dimen/progress_bar_size_large</item>
     </style>
 
     <style name="Widget.Material.ProgressBar.Large.Inverse"/>
@@ -1208,6 +1221,7 @@ please see styles_device_defaults.xml.
         <item name="multiChoiceItemLayout">@layout/select_dialog_multichoice_material</item>
         <item name="singleChoiceItemLayout">@layout/select_dialog_singlechoice_material</item>
         <item name="controllerType">@integer/config_alertDialogController</item>
+        <item name="selectionScrollOffset">@dimen/config_alertDialogSelectionScrollOffset</item>
     </style>
 
     <style name="AlertDialog.Material.Light" />
@@ -1246,7 +1260,7 @@ please see styles_device_defaults.xml.
     <style name="DialogWindowTitleBackground.Material.Light" />
 
     <style name="DialogWindowTitle.Material">
-        <item name="maxLines">@integer/config_dialogWindowTitleMaxLines</item>
+        <item name="maxLines">1</item>
         <item name="scrollHorizontally">true</item>
         <item name="textAppearance">@style/TextAppearance.Material.DialogWindowTitle</item>
     </style>

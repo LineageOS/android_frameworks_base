@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Verbindungsproblem oder ungültiger MMI-Code."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Der Vorgang ist nur für deine zugelassenen Rufnummern möglich."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Die Einstellungen für die Anrufweiterleitung von deinem Smartphone können während des Roamings nicht geändert werden."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Dienst wurde aktiviert."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Dienst wurde aktiviert für:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Dienst wurde deaktiviert."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Sprach-/Datendienste sind gesperrt."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Sprach-/SMS-Dienste sind gesperrt."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Alle Sprach-/Daten-/SMS-Dienste sind gesperrt."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Netzwerk nicht erreichbar"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Der Empfang lässt sich möglicherweise verbessern, indem du unter \"Einstellungen\" &gt; \"Mobilfunknetze\" &gt; \"Bevorzugter Netzwerktyp\" einen anderen Typ auswählst."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Peer hat TTY-Modus \"Vollständig\" angefordert."</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Peer hat TTY-Modus \"HCO\" angefordert."</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Peer hat TTY-Modus \"VC\" angefordert."</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Arbeitsprofil aufgrund fehlender Admin-App gelöscht"</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Die Admin-App für das Arbeitsprofil fehlt oder ist beschädigt. Daher wurden dein Arbeitsprofil und alle zugehörigen Daten gelöscht. Wende dich für weitere Hilfe an deinen Administrator."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Dein Arbeitsprofil ist auf diesem Gerät nicht mehr verfügbar."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Der Netzwerkverkehr wird protokolliert"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Für weitere Informationen tippen"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Die Daten auf deinem Gerät werden gelöscht."</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Die Admin-App kann nicht verwendet werden, da sie beschädigt wurde oder Komponenten fehlen. Die Daten auf deinem Gerät werden nun gelöscht. Wende dich für weitere Hilfe an deinen Administrator."</string>
     <string name="me" msgid="6545696007631404292">"Eigene"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Ermöglicht der App, Installationssitzungen zu lesen. Dadurch kann sie Details aktiver Paketinstallationen abrufen."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"Installation von Paketen anfordern"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Ermöglicht der App, die Installation von Paketen anzufordern"</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"fragen, ob Akku-Leistungsoptimierungen ignoriert werden können"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Erlaubt einer App, nach der Berechtigung zum Ignorieren der Akku-Leistungsoptimierungen zu fragen."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Für Zoomeinstellung zweimal berühren"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Widget konnte nicht hinzugefügt werden."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Los"</string>
@@ -1226,7 +1233,7 @@
     <string name="deny" msgid="2081879885755434506">"Ablehnen"</string>
     <string name="permission_request_notification_title" msgid="6486759795926237907">"Berechtigung angefordert"</string>
     <string name="permission_request_notification_with_subtitle" msgid="8530393139639560189">"Berechtigung angefordert\nfür Konto <xliff:g id="ACCOUNT">%s</xliff:g>"</string>
-    <string name="forward_intent_to_owner" msgid="1207197447013960896">"Sie verwenden diese App außerhalb Ihres Arbeitsprofils"</string>
+    <string name="forward_intent_to_owner" msgid="1207197447013960896">"Du verwendest diese App außerhalb deines Arbeitsprofils"</string>
     <string name="forward_intent_to_work" msgid="621480743856004612">"Du verwendest diese App in deinem Arbeitsprofil."</string>
     <string name="input_method_binding_label" msgid="1283557179944992649">"Eingabemethode"</string>
     <string name="sync_binding_label" msgid="3687969138375092423">"Synchronisieren"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Jahr auswählen"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> gelöscht"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> (geschäftlich)"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Um die Fixierung dieses Bildschirms aufzuheben, \"Zurück\" berühren und halten."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Um die Fixierung dieses Bildschirms aufzuheben, berühre und halte gleichzeitig \"Zurück\" und \"Übersicht\"."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Die App ist fixiert. Das Aufheben der Fixierung ist auf diesem Gerät nicht zulässig."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Bildschirm fixiert"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Bildschirm gelöst"</string>

@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Savienojuma problēma vai nederīgs MMI kods."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Darbība ir atļauta tikai fiksēto numuru sastādīšanai."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Nevar mainīt zvanu pāradresēšanas iestatījumus tālrunī, kamēr izmantojat viesabonēšanu."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Pakalpojums tika iespējots."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Pakalpojums tika iespējots šādai pakalpojumu klasei:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Pakalpojums ir atspējots."</string>
@@ -97,6 +98,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Balss/datu pakalpojumi ir bloķēti."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Balss/īsziņu pakalpojumi ir bloķēti."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Visi balss/datu/īsziņu pakalpojumi ir bloķēti."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Nevar sasniegt tīklu"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Lai uzlabotu uztveršanu, mainiet atlasīto veidu sadaļā Iestatījumi &gt; Mobilie tīkli gt; Ieteicamais tīkla veids."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Vienādranga ierīce pieprasīja teksta tālruņa režīmu FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Vienādranga ierīce pieprasīja teksta tālruņa režīmu HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Vienādranga ierīce pieprasīja teksta tālruņa režīmu VCO"</string>
@@ -181,6 +184,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Darba profils tika dzēsts, jo trūkst administratora lietotnes."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Trūkst darba profila administratora lietotnes, vai šī lietotne ir bojāta. Šī iemesla dēļ jūsu darba profils un saistītie dati tika dzēsti. Lai saņemtu palīdzību, sazinieties ar administratoru."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Jūsu darba profils šai ierīcē vairs nav pieejams."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Tīkla datplūsma tiek pārraudzīta"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Pieskarieties, lai uzzinātu vairāk"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Jūsu ierīces dati tiks dzēsti"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Administratora lietotnē trūkst komponentu, vai šī lietotne ir bojāta. Lietotni nevar izmantot. Ierīces dati tūlīt tiks dzēsti. Lai saņemtu palīdzību, sazinieties ar administratoru."</string>
     <string name="me" msgid="6545696007631404292">"Man"</string>
@@ -1233,6 +1238,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Ļauj lietojumprogrammai lasīt instalēšanas sesijas. Tādējādi lietojumprogrammai ir pieejama informācija par aktīvajām pakotņu instalācijām."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"Pieprasīt pakotņu instalēšanu"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Ļauj lietojumprogrammai pieprasīt pakotņu instalēšanu."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"Lūgt akumulatora optimizācijas ignorēšanu"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Ļauj lietotnei lūgt atļauju ignorēt akumulatora optimizāciju šai lietotnei."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Pieskarieties divreiz, lai kontrolētu tālummaiņu."</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Nevarēja pievienot logrīku."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Doties uz"</string>
@@ -1585,7 +1592,7 @@
     <string name="select_year" msgid="7952052866994196170">"Atlasiet gadu."</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> tika dzēsts."</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Darbā: <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Lai atspraustu šo ekrānu, pieskarieties pogai “Atpakaļ” un turiet to."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Lai atspraustu šo ekrānu, pieskarieties pogām “Atpakaļ” un “Pārskats” un turiet tās."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Lietotne ir piesprausta. Atspraušana šajā ierīcē nav atļauta."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Ekrāns ir piesprausts"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Ekrāns ir atsprausts"</string>

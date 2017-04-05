@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"კავშირის პრობლემა ან არასწორი MMI კოდი."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"ოპერაცია შეზღუდულია მხოლოდ დაშვებულ ნომრებზე."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"ზარის გადამისამართების პარამეტრების თქვენი ტელეფონიდან შეცვლა როუმინგისას ვერ მოხერხდება."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"სერვისი ჩართულია."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"სერვისი ჩართულია შემდეგისთვის:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"სერვისი გამორთულია."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"ხმის/მონაცემების სერვისები დაბლოკილია."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"ყველა ხმოვანი/SMS-ის სერვისი დაბლოკილია."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"ხმის/მონაცემების/SMS-ის ყველა სერვისი დაბლოკილია."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"ქსელთან დაკავშირება ვერ ხერხდება"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"მიღების გასაუმჯობესებლად ცადეთ არჩეული ტიპის შეცვლა აქ: პარამეტრები &gt; ფიჭური ქსელები &gt; ქსელის სასურველი ტიპი."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"მოთხოვნილია კვანძი TTY რეჟიმი FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"მოთხოვნილია კვანძი TTY რეჟიმი HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"მოთხოვნილია კვანძი TTY რეჟიმი VCO"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"სამუშაო პროფილი წაშლილია ადმინისტრატორის აპლიკაციის არ ქონის გამო."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"სამუშაო პროფილის ადმინისტრატორის აპლიკაცია გამოტოვებული ან დაზიანებულია. შედეგად, თქვენი სამუშაო პროფილი და მასთან დაკავშირებული მონაცემები წაიშალა. დახმარებისათვის დაუკავშირდით თქვენს ადმინისტრატორს."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"თქვენი სამუშაო პროფილი აღარ არის ხელმისაწვდომი ამ მოწყობილობაზე."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"ქსელის ტრაფიკი მონიტორინგს გადის"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"შეეხეთ, რათა შეიტყოთ მეტი"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"თქვენი მოწყობილობა წაიშლება"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"ადმინისტრატორის აპლიკაციას კომპონენტები აკლია ან დაზიანებულია, შესაბამისად, მისი გამოყენება ვერ მოხერხდება. თქვენი მოწყობილობა წაიშლება. დახმარებისათვის დაუკავშირდით თქვენს ადმინისტრატორს."</string>
     <string name="me" msgid="6545696007631404292">"მე"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"საშუალებას აძლევს აპლიკაციას წაიკითხოს ინსტალაციის სესიები. ამით მას საშუალება აქვს იხილოს პაკეტის აქტიური ინსტალაციები."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"პაკეტების ინსტალაციის მოთხოვნა"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"აპლიკაციას შეეძლება მოითხოვოს პაკეტების ინსტალაცია."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"ბატარეის ოპტიმიზაციის იგნორირების მოთხოვნა"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"საშუალებას მისცემს აპს, მოითხოვოს მასთან დაკავშირებული ბატარეის ოპტიმიზაციის იგნორირების ნებართვა."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"მასშტაბის ცვლილებისთვის შეეხეთ ორჯერ"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"ვერ დაემატა ვიჯეტი."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"გადასვლა"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"აირჩიეთ წელი"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> წაიშალა"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"სამსახური <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"ამ ეკრანის ჩამაგრების მოსახსნელად, ხანგრძლივად შეეხეთ ღილაკს „უკან“."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"ამ ეკრანის ჩამაგრების მოსახსნელად, ხანგრძლივად შეეხეთ ღილაკს „უკან და მიმოხილვა“."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"აპი მიმაგრებულია: მიმაგრების მოხსნა არ არის ნებადართული ამ მოწყობილობაზე."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"ეკრანი დაფიქსირდა"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"ეკრანს ფიქსაცია მოეხსნა"</string>

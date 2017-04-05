@@ -124,6 +124,13 @@ public class ResolverActivity extends Activity {
                 bindProfileView();
             }
         }
+
+        @Override
+        public boolean onPackageChanged(String packageName, int uid, String[] components) {
+            // We care about all package changes, not just the whole package itself which is
+            // default behavior.
+            return true;
+        }
     };
 
     /**
@@ -1322,6 +1329,14 @@ public class ResolverActivity extends Activity {
                             PackageManager.MATCH_DEFAULT_ONLY
                             | (shouldGetResolvedFilter ? PackageManager.GET_RESOLVED_FILTER : 0)
                             | (shouldGetActivityMetadata ? PackageManager.GET_META_DATA : 0));
+                    // Remove any activities that are not exported.
+                    int totalSize = infos.size();
+                    for (int j = totalSize - 1; j >= 0 ; j--) {
+                        ResolveInfo info = infos.get(j);
+                        if (info.activityInfo != null && !info.activityInfo.exported) {
+                            infos.remove(j);
+                        }
+                    }
                     if (infos != null) {
                         if (currentResolveList == null) {
                             currentResolveList = mOrigResolveList = new ArrayList<>();
@@ -1494,7 +1509,15 @@ public class ResolverActivity extends Activity {
         }
 
         public void onListRebuilt() {
-            // This space for rent
+            int count = getUnfilteredCount();
+            if (count == 1 && getOtherProfile() == null) {
+                // Only one target, so we're a candidate to auto-launch!
+                final TargetInfo target = targetInfoForPosition(0, false);
+                if (shouldAutoLaunchSingleChoice(target)) {
+                    safelyStartActivity(target);
+                    finish();
+                }
+            }
         }
 
         public boolean shouldGetResolvedFilter() {

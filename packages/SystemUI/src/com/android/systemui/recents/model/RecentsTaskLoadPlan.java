@@ -26,6 +26,8 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings;
+import android.provider.Settings.Secure;
 import android.util.ArraySet;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
@@ -37,6 +39,7 @@ import com.android.systemui.recents.RecentsConfiguration;
 import com.android.systemui.recents.RecentsDebugFlags;
 import com.android.systemui.recents.misc.SystemServicesProxy;
 
+import com.android.systemui.recents.views.grid.TaskGridLayoutAlgorithm;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -128,14 +131,17 @@ public class RecentsTaskLoadPlan {
             preloadRawTasks(includeFrontMostExcludedTask);
         }
 
+        SystemServicesProxy ssp = SystemServicesProxy.getInstance(mContext);
         SparseArray<Task.TaskKey> affiliatedTasks = new SparseArray<>();
         SparseIntArray affiliatedTaskCounts = new SparseIntArray();
         String dismissDescFormat = mContext.getString(
                 R.string.accessibility_recents_item_will_be_dismissed);
         String appInfoDescFormat = mContext.getString(
                 R.string.accessibility_recents_item_open_app_info);
-        long lastStackActiveTime = Prefs.getLong(mContext,
-                Prefs.Key.OVERVIEW_LAST_STACK_TASK_ACTIVE_TIME, 0);
+        int currentUserId = ssp.getCurrentUser();
+        long legacyLastStackActiveTime = migrateLegacyLastStackActiveTime(currentUserId);
+        long lastStackActiveTime = Settings.Secure.getLongForUser(mContext.getContentResolver(),
+                Secure.OVERVIEW_LAST_STACK_ACTIVE_TIME, legacyLastStackActiveTime, currentUserId);
         if (RecentsDebugFlags.Static.EnableMockTasks) {
             lastStackActiveTime = 0;
         }
@@ -148,11 +154,19 @@ public class RecentsTaskLoadPlan {
             Task.TaskKey taskKey = new Task.TaskKey(t.persistentId, t.stackId, t.baseIntent,
                     t.userId, t.firstActiveTime, t.lastActiveTime);
 
-            // This task is only shown in the stack if it statisfies the historical time or min
+            // This task is only shown in the stack if it satisfies the historical time or min
             // number of tasks constraints. Freeform tasks are also always shown.
             boolean isFreeformTask = SystemServicesProxy.isFreeformStack(t.stackId);
-            boolean isStackTask = isFreeformTask || !isHistoricalTask(t) ||
+            boolean isStackTask;
+            if (Recents.getConfiguration().isGridEnabled) {
+                // When grid layout is enabled, we only show the first
+                // TaskGridLayoutAlgorithm.MAX_LAYOUT_TASK_COUNT} tasks.
+                isStackTask = t.lastActiveTime >= lastStackActiveTime &&
+                    i >= taskCount - TaskGridLayoutAlgorithm.MAX_LAYOUT_TASK_COUNT;
+            } else {
+                isStackTask = isFreeformTask || !isHistoricalTask(t) ||
                     (t.lastActiveTime >= lastStackActiveTime && i >= (taskCount - MIN_NUM_TASKS));
+            }
             boolean isLaunchTarget = taskKey.id == runningTaskId;
 
             // The last stack active time is the baseline for which we show visible tasks.  Since
@@ -189,8 +203,8 @@ public class RecentsTaskLoadPlan {
             affiliatedTasks.put(taskKey.id, taskKey);
         }
         if (newLastStackActiveTime != -1) {
-            Prefs.putLong(mContext, Prefs.Key.OVERVIEW_LAST_STACK_TASK_ACTIVE_TIME,
-                    newLastStackActiveTime);
+            Settings.Secure.putLongForUser(mContext.getContentResolver(),
+                    Secure.OVERVIEW_LAST_STACK_ACTIVE_TIME, newLastStackActiveTime, currentUserId);
         }
 
         // Initialize the stacks
@@ -268,5 +282,36 @@ public class RecentsTaskLoadPlan {
      */
     private boolean isHistoricalTask(ActivityManager.RecentTaskInfo t) {
         return t.lastActiveTime < (System.currentTimeMillis() - SESSION_BEGIN_TIME);
+    }
+
+    /**
+     * Migrate the last active time from the prefs to the secure settings.
+     *
+     * The first time this runs, it will:
+     * 1) fetch the last stack active time from the prefs
+     * 2) set the prefs to the last stack active time for all users
+     * 3) clear the pref
+     * 4) return the last stack active time
+     *
+     * Subsequent calls to this will return zero.
+     */
+    private long migrateLegacyLastStackActiveTime(int currentUserId) {
+        long legacyLastStackActiveTime = Prefs.getLong(mContext,
+                Prefs.Key.OVERVIEW_LAST_STACK_TASK_ACTIVE_TIME, -1);
+        if (legacyLastStackActiveTime != -1) {
+            Prefs.remove(mContext, Prefs.Key.OVERVIEW_LAST_STACK_TASK_ACTIVE_TIME);
+            UserManager userMgr = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+            List<UserInfo> users = userMgr.getUsers();
+            for (int i = 0; i < users.size(); i++) {
+                int userId = users.get(i).id;
+                if (userId != currentUserId) {
+                    Settings.Secure.putLongForUser(mContext.getContentResolver(),
+                            Secure.OVERVIEW_LAST_STACK_ACTIVE_TIME, legacyLastStackActiveTime,
+                            userId);
+                }
+            }
+            return legacyLastStackActiveTime;
+        }
+        return 0;
     }
 }

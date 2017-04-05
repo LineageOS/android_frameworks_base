@@ -387,6 +387,12 @@ public abstract class BaseActivity extends Activity
         }
 
         mNavigator.update();
+        // Causes talkback to announce the activity's new title
+        if (mState.stack.isRecents()) {
+            setTitle(mRoots.getRecentsRoot().title);
+        } else {
+            setTitle(mState.stack.getTitle());
+        }
         invalidateOptionsMenu();
     }
 
@@ -612,11 +618,21 @@ public abstract class BaseActivity extends Activity
             return;
         }
 
-        if (popDir()) {
+        if (!mState.hasLocationChanged()) {
+            super.onBackPressed();
+            return;
+        }
+
+        if (onBeforePopDir() || popDir()) {
             return;
         }
 
         super.onBackPressed();
+    }
+
+    boolean onBeforePopDir() {
+        // Files app overrides this with some fancy logic.
+        return false;
     }
 
     public void onStackPicked(DocumentStack stack) {

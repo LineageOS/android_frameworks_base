@@ -33,12 +33,10 @@ import android.app.IStopUserCallback;
 import android.app.KeyguardManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
-import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
@@ -573,7 +571,7 @@ public class UserManagerService extends IUserManager.Stub {
     @Override
     public int[] getProfileIds(int userId, boolean enabledOnly) {
         if (userId != UserHandle.getCallingUserId()) {
-            checkManageUsersPermission("getting profiles related to user " + userId);
+            checkManageOrCreateUsersPermission("getting profiles related to user " + userId);
         }
         final long ident = Binder.clearCallingIdentity();
         try {
@@ -654,12 +652,10 @@ public class UserManagerService extends IUserManager.Stub {
     public boolean isSameProfileGroup(int userId, int otherUserId) {
         if (userId == otherUserId) return true;
         checkManageUsersPermission("check if in the same profile group");
-        synchronized (mPackagesLock) {
-            return isSameProfileGroupLP(userId, otherUserId);
-        }
+        return isSameProfileGroupNoChecks(userId, otherUserId);
     }
 
-    private boolean isSameProfileGroupLP(int userId, int otherUserId) {
+    private boolean isSameProfileGroupNoChecks(int userId, int otherUserId) {
         synchronized (mUsersLock) {
             UserInfo userInfo = getUserInfoLU(userId);
             if (userInfo == null || userInfo.profileGroupId == UserInfo.NO_PROFILE_GROUP_ID) {
@@ -861,17 +857,46 @@ public class UserManagerService extends IUserManager.Stub {
     public boolean isManagedProfile(int userId) {
         int callingUserId = UserHandle.getCallingUserId();
         if (callingUserId != userId && !hasManageUsersPermission()) {
-            synchronized (mPackagesLock) {
-                if (!isSameProfileGroupLP(callingUserId, userId)) {
-                    throw new SecurityException(
-                            "You need MANAGE_USERS permission to: check if specified user a " +
-                            "managed profile outside your profile group");
-                }
+            if (!isSameProfileGroupNoChecks(callingUserId, userId)) {
+                throw new SecurityException(
+                        "You need MANAGE_USERS permission to: check if specified user a " +
+                        "managed profile outside your profile group");
             }
         }
         synchronized (mUsersLock) {
             UserInfo userInfo = getUserInfoLU(userId);
             return userInfo != null && userInfo.isManagedProfile();
+        }
+    }
+
+    @Override
+    public boolean isUserUnlockingOrUnlocked(int userId) {
+        checkManageOrInteractPermIfCallerInOtherProfileGroup(userId, "isUserUnlockingOrUnlocked");
+        return mLocalService.isUserUnlockingOrUnlocked(userId);
+    }
+
+    @Override
+    public boolean isUserUnlocked(int userId) {
+        checkManageOrInteractPermIfCallerInOtherProfileGroup(userId, "isUserUnlocked");
+        return mLocalService.isUserUnlockingOrUnlocked(userId);
+    }
+
+    @Override
+    public boolean isUserRunning(int userId) {
+        checkManageOrInteractPermIfCallerInOtherProfileGroup(userId, "isUserRunning");
+        return mLocalService.isUserRunning(userId);
+    }
+
+    private void checkManageOrInteractPermIfCallerInOtherProfileGroup(int userId, String name) {
+        int callingUserId = UserHandle.getCallingUserId();
+        if (callingUserId == userId || isSameProfileGroupNoChecks(callingUserId, userId) ||
+                hasManageUsersPermission()) {
+            return;
+        }
+        if (ActivityManager.checkComponentPermission(Manifest.permission.INTERACT_ACROSS_USERS,
+                Binder.getCallingUid(), -1, true) != PackageManager.PERMISSION_GRANTED) {
+            throw new SecurityException("You need INTERACT_ACROSS_USERS or MANAGE_USERS permission "
+                    + "to: check " + name);
         }
     }
 
@@ -2890,8 +2915,6 @@ public class UserManagerService extends IUserManager.Stub {
                 applyUserRestrictionsLR(userId);
             }
         }
-
-        maybeInitializeDemoMode(userId);
     }
 
     /**
@@ -2922,29 +2945,6 @@ public class UserManagerService extends IUserManager.Stub {
         }
         userData.info.lastLoggedInFingerprint = Build.FINGERPRINT;
         scheduleWriteUser(userData);
-    }
-
-    private void maybeInitializeDemoMode(int userId) {
-        if (UserManager.isDeviceInDemoMode(mContext) && userId != UserHandle.USER_SYSTEM) {
-            String demoLauncher =
-                    mContext.getResources().getString(
-                            com.android.internal.R.string.config_demoModeLauncherComponent);
-            if (!TextUtils.isEmpty(demoLauncher)) {
-                ComponentName componentToEnable = ComponentName.unflattenFromString(demoLauncher);
-                String demoLauncherPkg = componentToEnable.getPackageName();
-                try {
-                    final IPackageManager iPm = AppGlobals.getPackageManager();
-                    iPm.setComponentEnabledSetting(componentToEnable,
-                            PackageManager.COMPONENT_ENABLED_STATE_ENABLED, /* flags= */ 0,
-                            /* userId= */ userId);
-                    iPm.setApplicationEnabledSetting(demoLauncherPkg,
-                            PackageManager.COMPONENT_ENABLED_STATE_ENABLED, /* flags= */ 0,
-                            /* userId= */ userId, null);
-                } catch (RemoteException re) {
-                    // Internal, shouldn't happen
-                }
-            }
-        }
     }
 
     /**
@@ -3485,6 +3485,14 @@ public class UserManagerService extends IUserManager.Stub {
                 int state = mUserStates.get(userId, -1);
                 return (state == UserState.STATE_RUNNING_UNLOCKING)
                         || (state == UserState.STATE_RUNNING_UNLOCKED);
+            }
+        }
+
+        @Override
+        public boolean isUserUnlocked(int userId) {
+            synchronized (mUserStates) {
+                int state = mUserStates.get(userId, -1);
+                return state == UserState.STATE_RUNNING_UNLOCKED;
             }
         }
     }

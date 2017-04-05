@@ -21,7 +21,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="byteShort" msgid="8340973892742019101">"B"</string>
-    <string name="kilobyteShort" msgid="5973789783504771878">"Kb"</string>
+    <string name="kilobyteShort" msgid="5973789783504771878">"KB"</string>
     <string name="megabyteShort" msgid="6355851576770428922">"MB"</string>
     <string name="gigabyteShort" msgid="3259882455212193214">"GB"</string>
     <string name="terabyteShort" msgid="231613018159186962">"TB"</string>
@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Problema de conexão ou código MMI inválido."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"A operação é limitada somente a números de chamadas fixas."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Não é possível alterar as configurações de encaminhamento de chamada do seu smartphone em roaming."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"O serviço foi ativado."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"O serviço foi ativado para:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"O serviço foi desativado."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Os serviços de voz/dados estão bloqueados."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Os serviços de voz/SMS estão bloqueados."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Todos os serviços de voz/dados/SMS estão bloqueados."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Não foi possível acessar a rede"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Para melhorar a recepção, tente alterar o tipo selecionado em Configurações &gt; Redes celulares &gt; Tipo de rede preferencial."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"TTD modo COMPLETO solicitado"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"TTD modo HCO solicitado"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"TTD modo VCO solicitado"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Perfil de trabalho excluído devido à ausência de um app para administrador."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"O app para administrador do perfil de trabalho não foi encontrado ou está corrompido. Consequentemente, seu perfil de trabalho e os dados relacionados foram excluídos. Entre em contato com seu administrador para receber assistência."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Seu perfil de trabalho não está mais disponível neste dispositivo."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"O tráfego de rede está sendo monitorado"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Toque para saber mais"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Seu dispositivo será limpo"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"O app para administrador está sem alguns componentes ou foi corrompido e não pode ser usado. Seu dispositivo será limpo agora. Entre em contato com seu administrador para receber assistência."</string>
     <string name="me" msgid="6545696007631404292">"Eu"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Permite que um app leia sessões de instalação. Isso permite que ele veja detalhes sobre as instalações de pacote ativas."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"solicitar pacotes de instalação"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Permite que um app solicite a instalação de pacotes."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"solicitar que as otimizações de bateria sejam ignoradas"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Permite que um app peça permissão para ignorar as otimizações de bateria para esse app."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Toque duas vezes para ter controle do zoom"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Não foi possível adicionar widget."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Ir"</string>
@@ -1268,7 +1275,7 @@
     <string name="progress_erasing" product="default" msgid="6596988875507043042">"Apagando cartão SD..."</string>
     <string name="share" msgid="1778686618230011964">"Compartilhar"</string>
     <string name="find" msgid="4808270900322985960">"Localizar"</string>
-    <string name="websearch" msgid="4337157977400211589">"Pesquisa na web do Google"</string>
+    <string name="websearch" msgid="4337157977400211589">"Pesquisa Google na Web"</string>
     <string name="find_next" msgid="5742124618942193978">"Localizar próximo"</string>
     <string name="find_previous" msgid="2196723669388360506">"Localizar anterior"</string>
     <string name="gpsNotifTicker" msgid="5622683912616496172">"Solicitação de local de <xliff:g id="NAME">%s</xliff:g>"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Selecione o ano"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> excluído"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Trabalho: <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Para liberar esta tela, toque no botão \"Voltar\" e mantenha-o pressionado."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Para liberar essa tela, toque nos botões Voltar e Visão geral e mantenha-os pressionados."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"O app está fixado. A liberação não é permitida neste dispositivo."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Tela fixada"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Tela liberada"</string>

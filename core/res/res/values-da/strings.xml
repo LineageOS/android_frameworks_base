@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Forbindelsesproblemer eller ugyldigt MMI-nummer."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Du kan kun foretage handlinger med dine numre til begrænset opkald."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Det er ikke muligt at ændre indstillingerne for viderestilling af opkald fra din telefon, mens du bruger roaming."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Tjenesten blev aktiveret."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Tjenesten blev aktiveret for:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Tjenesten er deaktiveret."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Stemme-/datatjenester er blokeret."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Stemme-/sms-tjenester er blokerede."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Alle stemme-/data-/sms-tjenester er blokeret."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Der er ingen forbindelse til netværket"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"For at forbedre signalet kan du prøve at ændre den valgte netværkstype i Indstillinger &gt; Mobilnetværk &gt; Foretrukken netværkstype."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Den anden enhed har skiftet til FULD TTY-tilstand"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Den anden enhed har skiftet til TTY-tilstanden HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Den anden enhed har skiftet til TTY-tilstanden VCO"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Arbejdsprofilen blev slettet, fordi der mangler en administrationsapp."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Administrationsappen til arbejdsprofilen mangler eller er beskadiget. Derfor er din arbejdsprofil og dine relaterede data blevet slettet. Kontakt din administrator for at få hjælp."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Din arbejdsprofil er ikke længere tilgængelig på denne enhed."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Netværkstrafikken overvåges"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Tryk for at få flere oplysninger"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Enheden slettes"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Administrationsappen mangler komponenter eller er beskadiget og kan ikke bruges. Enheden vil nu blive slettet. Kontakt din administrator for at få hjælp."</string>
     <string name="me" msgid="6545696007631404292">"Mig"</string>
@@ -219,12 +224,12 @@
     <string name="bugreport_title" msgid="2667494803742548533">"Lav fejlrapport"</string>
     <string name="bugreport_message" msgid="398447048750350456">"Der indsamles oplysninger om din enheds aktuelle status, der efterfølgende sendes i en e-mail. Der går lidt tid, fra fejlrapporten påbegyndes, til den er klar til at blive sendt. Tak for tålmodigheden."</string>
     <string name="bugreport_option_interactive_title" msgid="8635056131768862479">"Interaktiv rapport"</string>
-    <string name="bugreport_option_interactive_summary" msgid="229299488536107968">"Brug dette workflow under de fleste omstændigheder. Det giver dig mulighed for at se status på rapporten, angive flere oplysninger om problemet og tage skærmbilleder. Nogle mindre brugte sektioner, der tager lang tid at rapportere, udelades muligvis."</string>
+    <string name="bugreport_option_interactive_summary" msgid="229299488536107968">"Brug dette workflow under de fleste omstændigheder. Det giver dig mulighed for at se status på rapporten, angive flere oplysninger om problemet og tage screenshots. Nogle mindre brugte sektioner, der tager lang tid at rapportere, udelades muligvis."</string>
     <string name="bugreport_option_full_title" msgid="6354382025840076439">"Fuld rapport"</string>
-    <string name="bugreport_option_full_summary" msgid="7210859858969115745">"Brug denne mulighed for at gribe mindst muligt ind, når enheden ikke reagerer eller er for langsom, eller når du har brug for alle rapportsektioner. Du har ikke mulighed for at angive flere oplysninger eller tage yderligere skærmbilleder."</string>
+    <string name="bugreport_option_full_summary" msgid="7210859858969115745">"Brug denne mulighed for at gribe mindst muligt ind, når enheden ikke reagerer eller er for langsom, eller når du har brug for alle rapportsektioner. Du har ikke mulighed for at angive flere oplysninger eller tage yderligere screenshots."</string>
     <plurals name="bugreport_countdown" formatted="false" msgid="6878900193900090368">
-      <item quantity="one">Der tages et skærmbillede til fejlrapporten om <xliff:g id="NUMBER_1">%d</xliff:g> sekund.</item>
-      <item quantity="other">Der tages et skærmbillede til fejlrapporten om <xliff:g id="NUMBER_1">%d</xliff:g> sekunder.</item>
+      <item quantity="one">Der tages et screenshot til fejlrapporten om <xliff:g id="NUMBER_1">%d</xliff:g> sekund.</item>
+      <item quantity="other">Der tages et screenshot til fejlrapporten om <xliff:g id="NUMBER_1">%d</xliff:g> sekunder.</item>
     </plurals>
     <string name="global_action_toggle_silent_mode" msgid="8219525344246810925">"Lydløs"</string>
     <string name="global_action_silent_mode_on_status" msgid="3289841937003758806">"Lyden er slået FRA"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Tillader, at en applikation læser installationssessioner. Dermed kan applikationen se oplysninger om aktive pakkeinstallationer."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"anmod om installation af pakker"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Tillader, at en app anmoder om installation af pakker."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"bede om at ignorere batterioptimeringer"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Gør det muligt for en app at bede om tilladelse til at ignorere batterioptimeringer for den pågældende app."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Tryk to gange for zoomkontrol"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Widget kunne ikke tilføjes."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Gå"</string>
@@ -1397,7 +1404,7 @@
     <string name="kg_wrong_pin" msgid="1131306510833563801">"Forkert pinkode"</string>
     <string name="kg_too_many_failed_attempts_countdown" msgid="6358110221603297548">"Prøv igen om <xliff:g id="NUMBER">%1$d</xliff:g> sekunder."</string>
     <string name="kg_pattern_instructions" msgid="398978611683075868">"Tegn dit mønster"</string>
-    <string name="kg_sim_pin_instructions" msgid="2319508550934557331">"Indtast pinkode til SIM"</string>
+    <string name="kg_sim_pin_instructions" msgid="2319508550934557331">"Indtast pinkode til SIM-kort"</string>
     <string name="kg_pin_instructions" msgid="2377242233495111557">"Indtast pinkode"</string>
     <string name="kg_password_instructions" msgid="5753646556186936819">"Angiv adgangskode"</string>
     <string name="kg_puk_enter_puk_hint" msgid="453227143861735537">"SIM-kortet er nu deaktiveret. Indtast PUK-koden for at fortsætte. Kontakt mobiloperatøren for at få flere oplysninger."</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Vælg år"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> er slettet"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> – arbejde"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Hvis du vil frigøre dette skærmbillede, skal du trykke på Tilbage og holde fingeren nede."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Hvis du vil frigøre dette skærmbillede, skal du trykke på Tilbage og Oversigt samt holde fingeren nede."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Appen er fastgjort: Det er ikke tilladt at frigøre den på denne enhed."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Skærmen blev fastgjort"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Skærmen blev frigjort"</string>
@@ -1606,7 +1613,7 @@
     </plurals>
     <string name="zen_mode_until" msgid="7336308492289875088">"Indtil <xliff:g id="FORMATTEDTIME">%1$s</xliff:g>"</string>
     <string name="zen_mode_alarm" msgid="9128205721301330797">"Indtil <xliff:g id="FORMATTEDTIME">%1$s</xliff:g> (næste alarm)"</string>
-    <string name="zen_mode_forever" msgid="7420011936770086993">"Indtil du slår denne indstilling fra"</string>
+    <string name="zen_mode_forever" msgid="7420011936770086993">"Indtil du slår dette fra"</string>
     <string name="zen_mode_forever_dnd" msgid="3792132696572189081">"Indtil du slår \"Forstyr ikke\" fra"</string>
     <string name="zen_mode_rule_name_combination" msgid="191109939968076477">"<xliff:g id="FIRST">%1$s</xliff:g>/<xliff:g id="REST">%2$s</xliff:g>"</string>
     <string name="toolbar_collapse_description" msgid="2821479483960330739">"Skjul"</string>

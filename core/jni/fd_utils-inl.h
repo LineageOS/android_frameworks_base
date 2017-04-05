@@ -20,6 +20,7 @@
 #include <vector>
 #include <algorithm>
 
+#include <android-base/strings.h>
 #include <dirent.h>
 #include <fcntl.h>
 #include <grp.h>

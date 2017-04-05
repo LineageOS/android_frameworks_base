@@ -80,6 +80,7 @@ public class ZygoteInit {
     private static final String TAG = "Zygote";
 
     private static final String PROPERTY_DISABLE_OPENGL_PRELOADING = "ro.zygote.disable_gl_preload";
+    private static final String PROPERTY_GFX_DRIVER = "ro.gfx.driver.0";
     private static final String PROPERTY_RUNNING_IN_CONTAINER = "ro.boot.container";
 
     private static final String ANDROID_SOCKET_PREFIX = "ANDROID_SOCKET_";
@@ -243,7 +244,9 @@ public class ZygoteInit {
     }
 
     private static void preloadOpenGL() {
-        if (!SystemProperties.getBoolean(PROPERTY_DISABLE_OPENGL_PRELOADING, false)) {
+        String driverPackageName = SystemProperties.get(PROPERTY_GFX_DRIVER);
+        if (!SystemProperties.getBoolean(PROPERTY_DISABLE_OPENGL_PRELOADING, false) ||
+                driverPackageName == null || driverPackageName.isEmpty()) {
             EGL14.eglGetDisplay(EGL14.EGL_DEFAULT_DISPLAY);
         }
     }

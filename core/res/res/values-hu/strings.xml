@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Kapcsolódási probléma vagy érvénytelen MMI-kód."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"A művelet fix hívószámokra van korlátozva."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"A hívásátirányítási beállításokat barangolás közben telefonról nem lehet módosítani."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"A szolgáltatás engedélyezésre került."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Engedélyezett szolgáltatás(ok):"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"A szolgáltatás ki van kapcsolva."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"A hang- és adatszolgáltatások le vannak tiltva."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"A hang- és SMS szolgáltatások le vannak tiltva."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Minden hang-, adat- és SMS szolgáltatás le van tiltva."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"A hálózat nem érhető el"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"A vétel javítása érdekében próbálja módosítani a kiválasztott hálózattípust a Beállítások &gt; Mobilhálózatok &gt; Preferált hálózattípus lehetőségnél."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Partner által kért TTY-mód: FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Partner által kért TTY-mód: HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Partner által kért TTY-mód: VCO"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"A munkahelyi profilt a rendszer a hiányzó rendszergazda alkalmazás miatt törölte."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"A munkahelyi profil rendszergazda alkalmazása hiányzik vagy sérült. A rendszer ezért törölte munkahelyi profilját, és az ahhoz kapcsolódó adatokat. Ha segítségre van szüksége, vegye fel a kapcsolatot rendszergazdájával."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Munkaprofilja már nem érhető el ezen az eszközön."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"A hálózati forgalmat figyelik"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Koppintson, ha további információt szeretne kapni"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"A rendszer törölni fogja eszközét"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"A rendszergazda alkalmazás egyes részei hiányoznak, vagy az alkalmazás sérült, ezért nem használható. A rendszer most törölni fogja eszközét. Ha segítségre van szüksége, vegye fel a kapcsolatot rendszergazdájával."</string>
     <string name="me" msgid="6545696007631404292">"Saját"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Engedélyezi az alkalmazásnak a telepítési munkamenetek olvasását. Ezáltal részleteket kaphat az egyes csomagok éppen folyamatban lévő telepítéséről."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"telepítőcsomagok kérése"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Lehetővé teszi az alkalmazás számára csomagok telepítésének kérését."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"Akkumulátoroptimalizálási beállítások mellőzésének kérése"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Az alkalmazás engedélyt kérhet az akkumulátoroptimalizálási beállítások mellőzésére."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Érintse meg kétszer a nagyítás beállításához"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Nem sikerült hozzáadni a modult."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Ugrás"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Válassza ki az évet"</string>
     <string name="deleted_key" msgid="7659477886625566590">"A(z) <xliff:g id="KEY">%1$s</xliff:g> érték törölve"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Munkahelyi <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"A képernyő rögzítésének feloldásához tartsa lenyomva a Vissza lehetőséget."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"A képernyő rögzítésének feloldásához tartsa lenyomva a Vissza és az Áttekintés lehetőségeket."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Az alkalmazás rögzítve van: a rögzítés feloldása nem engedélyezett ezen az eszközön."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Képernyő rögzítve"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Képernyő rögzítése feloldva"</string>

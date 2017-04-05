@@ -307,6 +307,7 @@
   <java-symbol type="bool" name="config_supportsMultiWindow" />
   <java-symbol type="bool" name="config_guestUserEphemeral" />
   <java-symbol type="bool" name="config_localDisplaysMirrorContent" />
+  <java-symbol type="integer" name="config_defaultDisplayDefaultColorMode" />
   <java-symbol type="bool" name="config_enableAppWidgetService" />
   <java-symbol type="string" name="config_defaultPictureInPictureBounds" />
   <java-symbol type="integer" name="config_wifi_framework_5GHz_preference_boost_threshold" />
@@ -377,6 +378,7 @@
   <java-symbol type="integer" name="config_immersive_mode_confirmation_panic" />
   <java-symbol type="integer" name="config_longPressOnPowerBehavior" />
   <java-symbol type="integer" name="config_longPressOnBackBehavior" />
+  <java-symbol type="integer" name="config_backPanicBehavior" />
   <java-symbol type="integer" name="config_lowMemoryKillerMinFreeKbytesAdjust" />
   <java-symbol type="integer" name="config_lowMemoryKillerMinFreeKbytesAbsolute" />
   <java-symbol type="integer" name="config_max_pan_devices" />
@@ -417,6 +419,7 @@
   <java-symbol type="dimen" name="config_viewConfigurationTouchSlop" />
   <java-symbol type="dimen" name="config_viewMinFlingVelocity" />
   <java-symbol type="dimen" name="config_viewMaxFlingVelocity" />
+  <java-symbol type="dimen" name="config_scrollFactor" />
   <java-symbol type="dimen" name="default_app_widget_padding_bottom" />
   <java-symbol type="dimen" name="default_app_widget_padding_left" />
   <java-symbol type="dimen" name="default_app_widget_padding_right" />
@@ -485,6 +488,8 @@
   <java-symbol type="string" name="RestrictedOnData" />
   <java-symbol type="string" name="RestrictedOnEmergency" />
   <java-symbol type="string" name="RestrictedOnNormal" />
+  <java-symbol type="string" name="NetworkPreferenceSwitchSummary" />
+  <java-symbol type="string" name="NetworkPreferenceSwitchTitle" />
   <java-symbol type="string" name="SetupCallDefault" />
   <java-symbol type="string" name="accept" />
   <java-symbol type="string" name="accessibility_enabled" />
@@ -724,6 +729,7 @@
   <java-symbol type="string" name="mmiComplete" />
   <java-symbol type="string" name="mmiError" />
   <java-symbol type="string" name="mmiFdnError" />
+  <java-symbol type="string" name="mmiErrorWhileRoaming" />
   <java-symbol type="string" name="month_day_year" />
   <java-symbol type="string" name="more_item_label" />
   <java-symbol type="string" name="needPuk" />
@@ -1108,6 +1114,8 @@
   <java-symbol type="string" name="work_profile_deleted_description" />
   <java-symbol type="string" name="work_profile_deleted_details" />
   <java-symbol type="string" name="work_profile_deleted_description_dpm_wipe" />
+  <java-symbol type="string" name="network_logging_notification_title" />
+  <java-symbol type="string" name="network_logging_notification_text" />
   <java-symbol type="string" name="factory_reset_warning" />
   <java-symbol type="string" name="factory_reset_message" />
   <java-symbol type="string" name="lockscreen_transport_play_description" />
@@ -1115,6 +1123,9 @@
   <java-symbol type="string" name="config_ethernet_tcp_buffers" />
   <java-symbol type="string" name="config_wifi_tcp_buffers" />
   <java-symbol type="string" name="config_demoModeLauncherComponent" />
+  <java-symbol type="string" name="config_carrierDemoModePassword" />
+  <java-symbol type="string" name="config_carrierDemoModeSetting" />
+  <java-symbol type="string" name="config_carrierDemoModePackages" />
   <java-symbol type="string" name="demo_starting_message" />
   <java-symbol type="string" name="demo_restarting_message" />
   <java-symbol type="string" name="conference_call" />
@@ -1218,6 +1229,7 @@
   <java-symbol type="drawable" name="ic_print" />
   <java-symbol type="drawable" name="ic_print_error" />
   <java-symbol type="drawable" name="ic_grayedout_printer" />
+  <java-symbol type="drawable" name="ic_qs_network_logging" />
   <java-symbol type="drawable" name="jog_dial_arrow_long_left_green" />
   <java-symbol type="drawable" name="jog_dial_arrow_long_right_red" />
   <java-symbol type="drawable" name="jog_dial_arrow_short_left_and_right" />
@@ -1411,7 +1423,6 @@
   <java-symbol type="raw" name="color_fade_vert" />
   <java-symbol type="raw" name="color_fade_frag" />
   <java-symbol type="raw" name="accessibility_gestures" />
-  <java-symbol type="raw" name="incognito_mode_start_page" />
   <java-symbol type="raw" name="loaderror" />
   <java-symbol type="raw" name="nodomain" />
 
@@ -1653,6 +1664,11 @@
   <java-symbol type="array" name="config_autoBrightnessKeyboardBacklightValues" />
   <java-symbol type="array" name="config_autoBrightnessLcdBacklightValues" />
   <java-symbol type="array" name="config_autoBrightnessLevels" />
+  <java-symbol type="array" name="config_dynamicHysteresisBrightLevels" />
+  <java-symbol type="array" name="config_dynamicHysteresisDarkLevels" />
+  <java-symbol type="array" name="config_dynamicHysteresisLuxLevels" />
+  <java-symbol type="array" name="config_dozeBrightnessBacklightValues" />
+  <java-symbol type="array" name="config_dozeSensorLuxLevels" />
   <java-symbol type="array" name="config_protectedNetworks" />
   <java-symbol type="array" name="config_statusBarIcons" />
   <java-symbol type="array" name="config_tether_bluetooth_regexs" />
@@ -1670,6 +1686,8 @@
   <java-symbol type="array" name="config_defaultNotificationVibePattern" />
   <java-symbol type="array" name="config_notificationFallbackVibePattern" />
   <java-symbol type="array" name="config_onlySingleDcAllowed" />
+  <java-symbol type="bool" name="config_useNewSensorSamplesForDoze" />
+  <java-symbol type="bool" name="config_allowAutoBrightnessActiveDozeLightSensor" />
   <java-symbol type="bool" name="config_useAttentionLight" />
   <java-symbol type="bool" name="config_animateScreenLights" />
   <java-symbol type="bool" name="config_automatic_brightness_available" />
@@ -1701,6 +1719,7 @@
   <java-symbol type="bool" name="wifi_autocon" />
   <java-symbol type="bool" name="config_wifi_dual_band_support" />
   <java-symbol type="bool" name="config_wifi_hotspot2_enabled" />
+  <java-symbol type="bool" name="config_wifi_fast_bss_transition_enabled" />
   <java-symbol type="bool" name="config_wimaxEnabled" />
   <java-symbol type="bool" name="show_ongoing_ime_switcher" />
   <java-symbol type="color" name="config_defaultNotificationColor" />
@@ -1739,6 +1758,7 @@
   <java-symbol type="integer" name="config_autoBrightnessAmbientLightHorizon"/>
   <java-symbol type="integer" name="config_autoBrightnessBrighteningLightDebounce"/>
   <java-symbol type="integer" name="config_autoBrightnessDarkeningLightDebounce"/>
+  <java-symbol type="integer" name="config_autoBrightnessInitialLightSensorRate"/>
   <java-symbol type="integer" name="config_autoBrightnessLightSensorRate"/>
   <java-symbol type="integer" name="config_carDockKeepsScreenOn" />
   <java-symbol type="integer" name="config_criticalBatteryWarningLevel" />
@@ -1769,6 +1789,9 @@
   <java-symbol type="integer" name="config_screenBrightnessSettingMinimum" />
   <java-symbol type="integer" name="config_screenBrightnessSettingMaximum" />
   <java-symbol type="integer" name="config_screenBrightnessSettingDefault" />
+  <java-symbol type="integer" name="config_screenBrightnessForVrSettingDefault" />
+  <java-symbol type="integer" name="config_screenBrightnessForVrSettingMaximum" />
+  <java-symbol type="integer" name="config_screenBrightnessForVrSettingMinimum" />
   <java-symbol type="integer" name="config_screenBrightnessDark" />
   <java-symbol type="integer" name="config_screenBrightnessDim" />
   <java-symbol type="integer" name="config_screenBrightnessDoze" />
@@ -1779,6 +1802,7 @@
   <java-symbol type="integer" name="config_undockedHdmiRotation" />
   <java-symbol type="integer" name="config_virtualKeyQuietTimeMillis" />
   <java-symbol type="integer" name="config_brightness_ramp_rate_fast" />
+  <java-symbol type="integer" name="config_brightness_ramp_rate_slow" />
   <java-symbol type="layout" name="am_compat_mode_dialog" />
   <java-symbol type="layout" name="launch_warning" />
   <java-symbol type="layout" name="safe_mode" />
@@ -2724,6 +2748,10 @@
   <!-- Colon separated list of package names that should be granted DND access -->
   <java-symbol type="string" name="config_defaultDndAccessPackages" />
 
+  <!-- For NetworkPolicyManagerService -->
+  <java-symbol type="string" name="config_networkOverLimitComponent" />
+  <java-symbol type="string" name="config_dataUsageSummaryComponent" />
+
   <java-symbol type="string" name="lockscreen_storage_locked" />
 
   <java-symbol type="string" name="global_action_emergency" />
@@ -2817,4 +2845,10 @@
 
   <!-- Allow devices to use wakelock for flashlight -->
   <java-symbol type="bool" name="config_useWakeLockForFlashlight" />
+
+  <java-symbol type="bool" name="config_permissionReviewRequired" />
+
+  <java-symbol type="bool" name="use_lock_pattern_drawable" />
+  <java-symbol type="drawable" name="lockscreen_notselected" />
+  <java-symbol type="drawable" name="lockscreen_selected" />
 </resources>

@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Проблем со поврзување или неважечки MMI код."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Операцијата е ограничена на бирање само фиксни броеви."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Не може да се сменат поставките за проследување повик од телефонот додека сте во роаминг."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Услугата беше овозможена."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Услугата беше овозможена за:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Услугата е оневозможена."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Услугите со говор/податоци се блокирани."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Услугите за гласовно бирање/SMS пораки се блокирани."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Сите услугите со говор/податоци/SMS пораки се блокирани."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Не може да се дојде до мрежата"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"За да се подобри приемот, обидете се да го смените избраниот тип во „Поставки“ &gt; „Мобилни мрежи“ &gt; „Претпочитан тип мрежа“."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Рамноправен уред го побара режимот на TTY „FULL“"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Рамноправен уред го побара режимот на TTY „HCO“"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Рамноправен уред го побара режимот на TTY „VCO“"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Работниот профил е избришан заради отсуството на апликација на администратор."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Апликацијата на администраторот за работниот профил недостасува или е оштетена. Како резултат на тоа, работниот профил и поврзаните податоци ќе се избришат. Контактирајте со администраторот за помош."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Работниот профил веќе не е достапен на уредов."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Се следи сообраќајот на мрежата"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Допрете за да дознаете повеќе"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Уредот ќе се избрише"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"На апликацијата на администраторот ѝ недостасуваат компоненти или е оштетена, па не може да се користи. Уредот ќе се избрише сега. Контактирајте со администраторот за помош."</string>
     <string name="me" msgid="6545696007631404292">"Јас"</string>
@@ -196,9 +201,9 @@
     <string name="reboot_to_update_title" msgid="6212636802536823850">"Системско ажурирање на Android"</string>
     <string name="reboot_to_update_prepare" msgid="6305853831955310890">"Се подготвува ажурирањето…"</string>
     <string name="reboot_to_update_package" msgid="3871302324500927291">"Пакетот за ажурирање се обработува..."</string>
-    <string name="reboot_to_update_reboot" msgid="6428441000951565185">"Се престартува…"</string>
+    <string name="reboot_to_update_reboot" msgid="6428441000951565185">"Се рестартира…"</string>
     <string name="reboot_to_reset_title" msgid="4142355915340627490">"Ресетирање фабрички податоци"</string>
-    <string name="reboot_to_reset_message" msgid="2432077491101416345">"Се престартува…"</string>
+    <string name="reboot_to_reset_message" msgid="2432077491101416345">"Се рестартира…"</string>
     <string name="shutdown_progress" msgid="2281079257329981203">"Се исклучува..."</string>
     <string name="shutdown_confirm" product="tablet" msgid="3385745179555731470">"Вашиот таблет ќе се исклучи."</string>
     <string name="shutdown_confirm" product="tv" msgid="476672373995075359">"Вашиот телевизор ќе се исклучи."</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Дозволува апликација да чита сесии на инсталирање. Тоа овозможува апликацијата да гледа детали за активни инсталации на пакет."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"барање пакети за инсталирање"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Дозволува апликацијата да бара инсталација на пакети."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"прашај дали да се игнорираат оптимизациите на батеријата"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Овозможува апликацијата да побара дозвола за игнорирање на оптимизациите на батеријата за таа апликација."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Допрете двапати за контрола на зумот"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Не можеше да се додаде виџет."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Оди"</string>
@@ -1560,7 +1567,7 @@
     <string name="select_year" msgid="7952052866994196170">"Избери година"</string>
     <string name="deleted_key" msgid="7659477886625566590">"Избришано <xliff:g id="KEY">%1$s</xliff:g>"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Работа <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"За откачување на екранов, допрете и задржете Назад."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"За откачување на екранов, допрете и задржете Назад и Краток преглед."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Апликацијата е закачена: откачување не е дозволено на уредов."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Екранот е закачен"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Екранот е откачен"</string>

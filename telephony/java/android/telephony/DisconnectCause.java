@@ -288,6 +288,13 @@ public class DisconnectCause {
 
     public static final int NON_SELECTED_USER_CLEARING = 105;
 
+    /**
+     * The call being placed was detected as a call forwarding number and was being dialed while
+     * roaming on a carrier that does not allow this.
+     * @hide
+     */
+    public static final int DIALED_CALL_FORWARDING_WHILE_ROAMING = 106;
+
     //*********************************************************************************************
     // When adding a disconnect type:
     // 1) Please assign the new type the next id value below.
@@ -296,14 +303,14 @@ public class DisconnectCause {
     // 4) Update toString() with the newly added disconnect type.
     // 5) Update android.telecom.DisconnectCauseUtil with any mappings to a telecom.DisconnectCause.
     //
-    // NextId: 106
+    // NextId: 107
     //*********************************************************************************************
 
     /** Smallest valid value for call disconnect codes. */
     public static final int MINIMUM_VALID_VALUE = NOT_DISCONNECTED;
 
     /** Largest valid value for call disconnect codes. */
-    public static final int MAXIMUM_VALID_VALUE = NON_SELECTED_USER_CLEARING;
+    public static final int MAXIMUM_VALID_VALUE = DIALED_CALL_FORWARDING_WHILE_ROAMING;
 
     /** Private constructor to avoid class instantiation. */
     private DisconnectCause() {
@@ -523,6 +530,8 @@ public class DisconnectCause {
             return "HO_NOT_FEASIBLE";
         case NON_SELECTED_USER_CLEARING:
             return "NON_SELECTED_USER_CLEARING";
+        case DIALED_CALL_FORWARDING_WHILE_ROAMING:
+            return "DIALED_CALL_FORWARDING_WHILE_ROAMING";
         default:
             return "INVALID: " + cause;
         }

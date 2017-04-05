@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Vandamál með tengingu eða ógild MMI-kóðaskipun."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Aðgerð takmarkast við fast númeraval."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Ekki er hægt að breyta stillingum fyrir framsendingu símtala úr símanum á meðan þú ert í reiki."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Þjónustan var virkjuð."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Þjónustan var virkjuð fyrir:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Þjónustan hefur verið gerð óvirk."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Lokað er á radd-/gagnaþjónustu."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Lokað er fyrir raddþjónustu/SMS-þjónustu."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Lokað á alla radd-, gagna- og SMS-þjónustu."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Ekki næst samband við símkerfi"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Reyndu að breyta valinni gerð í Stillingar &gt; Farsímakerfi &gt; Valin símkerfistegund til að bæta móttökuskilyrðin."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Jafningi bað um FULLA stillingu fjarrita"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Jafningi bað um HCO-stillingu fjarrita"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Jafningi bað um VCO-stillingu fjarrita"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Vinnusniði eytt vegna þess að stjórnunarforrit vantar."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Stjórnunarforrit vinnusniðsins vantar eða er skemmt. Vinnusniðinu og gögnum því tengdu hefur því verið eytt. Hafðu samband við kerfisstjórann til að fá frekari aðstoð."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Vinnusniðið þitt er ekki lengur í boði á þessu tæki."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Verið er að fylgjast með netumferð"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Ýttu til að fá frekari upplýsingar"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Tækið verður hreinsað"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Stjórnunarforritið vantar íhluti eða er skemmt og ekki er hægt að nota það. Þurrkað verður út af tækinu. Hafðu samband við kerfisstjórann til að fá aðstoð."</string>
     <string name="me" msgid="6545696007631404292">"Ég"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Leyfir forriti að lesa uppsetningarlotur. Þetta gerir því kleift að sjá upplýsingar um virkar pakkauppsetningar."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"fara fram á uppsetningu pakka"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Leyfir forriti að fara fram á uppsetningu pakka."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"biðja um að hunsa rafhlöðusparnað"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Gerir forriti kleift að biðja um heimild til að hunsa rafhlöðusparnað fyrir forritið."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Ýttu tvisvar til að opna aðdráttarstýringar"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Ekki tókst að bæta græju við."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Áfram"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Veldu ár"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> eytt"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> í vinnu"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Til að taka lásinn af þessari skjámynd skaltu halda inni bakkhnappinum."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Til að losa þessa skjámynd skaltu halda „Til baka“ og „Yfirlit“ inni."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Forritið er fest: Ekki er hægt að losa forrit í þessu tæki."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Skjár festur"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Skjár opnaður"</string>

@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"కనెక్షన్ సమస్య లేదా చెల్లని MMI కోడ్."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"చర్య స్థిరమైన డయలింగ్ నంబర్‌లకు మాత్రమే పరిమితం చేయబడింది."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"మీరు రోమింగ్‌లో ఉన్నప్పుడు మీ ఫోన్‌ నుండి కాల్ ఫార్వార్డింగ్ సెట్టింగ్‌లను మార్చలేరు."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"సేవ ప్రారంభించబడింది."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"వీటి కోసం సేవ ప్రారంభించబడింది:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"సేవ నిలిపివేయబడింది."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"వాయిస్/డేటా సేవలు బ్లాక్ చేయబడ్డాయి."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"వాయిస్/SMS సేవలు బ్లాక్ చేయబడ్డాయి."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"అన్ని వాయిస్/డేటా/SMS సేవలు బ్లాక్ చేయబడ్డాయి."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"నెట్‌వర్క్‌ను చేరుకోలేరు"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"స్వీకరణను మెరుగుపరచడానికి, సెట్టింగ్‌లు &gt; సెల్యులార్ నెట్‌వర్క్‌లు &gt; ప్రాధాన్య నెట్‌వర్క్ రకం ఎంపికలో ఎంచుకున్న రకాన్ని మార్చడానికి ప్రయత్నించండి."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"అవతలి వారు FULL TTY మోడ్‌ని అభ్యర్థించారు"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"అవతలి వారు HCO TTY మోడ్‌ని అభ్యర్థించారు"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"అవతలి వారు VCO TTY మోడ్‌ని అభ్యర్థించారు"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"నిర్వాహక అనువర్తనం లేనందున కార్యాలయ ప్రొఫైల్ తొలగించబడింది."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"కార్యాలయ ప్రొఫైల్ నిర్వాహక అనువర్తనం లేదు లేదా పాడైంది. తత్ఫలితంగా, మీ కార్యాలయ ప్రొఫైల్ మరియు సంబంధిత డేటా తొలగించబడ్డాయి. సహాయం కోసం మీ నిర్వాహకుడిని సంప్రదించండి."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"ఈ పరికరంలో మీ కార్యాలయ ప్రొఫైల్ ఇప్పుడు అందుబాటులో లేదు."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"నెట్‌వర్క్ ట్రాఫిక్ పర్యవేక్షించబడుతోంది"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"మరింత తెలుసుకోవడానికి నొక్కండి"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"మీ పరికరంలోని డేటా తొలగించబడుతుంది"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"నిర్వాహక అనువర్తనంలో కొన్ని అంతర్భాగాలు లేవు లేదా అది పాడైపోయి, నిరుపయోగంగా మారింది. మీ పరికరంలోని డేటా ఇప్పుడు తొలగించబడుతుంది. సహాయం కోసం మీ నిర్వాహకుడిని సంప్రదించండి."</string>
     <string name="me" msgid="6545696007631404292">"నేను"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"ఇన్‌స్టాల్ సెషన్‌లను చదవడానికి అనువర్తనాన్ని అనుమతిస్తుంది. ఇది సక్రియ ప్యాకేజీ ఇన్‌స్టాలేషన్‌ల గురించి వివరాలను చూడటానికి అనువర్తనాన్ని అనుమతిస్తుంది."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"ఇన్‌స్టాల్ ప్యాకేజీలను అభ్యర్థించడం"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"ప్యాకేజీల ఇన్‌స్టాలేషన్ అభ్యర్థించడానికి అనువర్తనాన్ని అనుమతిస్తుంది."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"బ్యాటరీ అనుకూలీకరణలను విస్మరించడానికి అడగాలి"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"ఆ అనువర్తనం కోసం బ్యాటరీ అనుకూలీకరణలు విస్మరించేలా అనుమతి కోరడానికి అనువర్తనాన్ని అనుమతిస్తుంది."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"జూమ్ నియంత్రణ కోసం రెండుసార్లు నొక్కండి"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"విడ్జెట్‌ను జోడించడం సాధ్యపడలేదు."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"వెళ్లు"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"సంవత్సరాన్ని ఎంచుకోండి"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> తొలగించబడింది"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"కార్యాలయం <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"ఈ స్క్రీన్‌ని అన్‌పిన్ చేయడానికి, వెనుకకు తాకి &amp; అలాగే పట్టుకోండి."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"ఈ స్క్రీన్‌ను అన్‌పిన్ చేయడానికి, వెనుకకు మరియు స్థూలదృష్టి తాకి &amp; అలాగే పట్టుకోండి."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"అనువర్తనం పిన్ చేయబడింది: ఈ పరికరంలో అన్‌పిన్ చేయడానికి అనుమతి లేదు."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"స్క్రీన్ పిన్ చేయబడింది"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"స్క్రీన్ అన్‌పిన్ చేయబడింది"</string>

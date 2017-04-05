@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Problema sa koneksyon o di-wastong MMI code."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Pinaghihigpitan ang pagpapatakbo sa mga fixed dialing number lang."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Hindi maaaring baguhin ang mga setting ng pagpapasa ng tawag mula sa iyong telepono habang naka-roaming ka."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Pinagana ang serbisyo."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Pinagana ang serbisyo para sa:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Hindi pinagana ang serbisyo."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Naka-block ang mga serbisyo sa boses/data."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Naka-block ang mga serbisyo ng Voice/SMS."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Naka-block ang lahat ng serbisyo sa boses/data/SMS."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Hindi maabot ang network"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Upang mapahusay ang reception, subukang baguhin ang uring napili sa Mga Setting &gt; Mga cellular network &gt; Gustong uri ng network."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Hiniling ng peer ang TTY Mode FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Hiniling ng peer ang TTY Mode HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Hiniling ng peer ang TTY Mode VCO"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Na-delete ang profile sa trabaho dahil wala itong admin app."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Ang admin app ng profile sa trabaho ay nawawala o sira. Bilang resulta, na-delete na ang iyong profile sa trabaho at nauugnay na data. Makipag-ugnayan sa iyong administrator para sa tulong."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Hindi na available ang iyong profile sa trabaho sa device na ito."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Sinusubaybayan ang trapiko sa network"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"I-tap upang matuto pa"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Buburahin ang iyong device"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Ang admin app ay may mga kulang na bahagi o sira, at hindi ito magagamit. Buburahin na ngayon ang iyong device. Makipag-ugnayan sa iyong administrator para sa tulong."</string>
     <string name="me" msgid="6545696007631404292">"Ako"</string>
@@ -244,23 +249,23 @@
     <string name="user_owner_label" msgid="1119010402169916617">"Lumipat sa Personal"</string>
     <string name="managed_profile_label" msgid="5289992269827577857">"Lumipat sa para sa Trabaho"</string>
     <string name="permgrouplab_contacts" msgid="3657758145679177612">"Mga Contact"</string>
-    <string name="permgroupdesc_contacts" msgid="6951499528303668046">"ina-access ang iyong mga contact"</string>
+    <string name="permgroupdesc_contacts" msgid="6951499528303668046">"i-access ang iyong mga contact"</string>
     <string name="permgrouplab_location" msgid="7275582855722310164">"Lokasyon"</string>
     <string name="permgroupdesc_location" msgid="1346617465127855033">"i-access ang lokasyon ng device na ito"</string>
     <string name="permgrouplab_calendar" msgid="5863508437783683902">"Kalendaryo"</string>
-    <string name="permgroupdesc_calendar" msgid="3889615280211184106">"ina-access ang iyong kalendaryo"</string>
+    <string name="permgroupdesc_calendar" msgid="3889615280211184106">"i-access ang iyong kalendaryo"</string>
     <string name="permgrouplab_sms" msgid="228308803364967808">"SMS"</string>
     <string name="permgroupdesc_sms" msgid="4656988620100940350">"magpadala at tumingin ng mga mensaheng SMS"</string>
     <string name="permgrouplab_storage" msgid="1971118770546336966">"Imbakan"</string>
-    <string name="permgroupdesc_storage" msgid="637758554581589203">"mag-access ng mga larawan, media at file sa iyong device"</string>
+    <string name="permgroupdesc_storage" msgid="637758554581589203">"i-access ang mga larawan, media at file sa iyong device"</string>
     <string name="permgrouplab_microphone" msgid="171539900250043464">"Mikropono"</string>
     <string name="permgroupdesc_microphone" msgid="4988812113943554584">"mag-record ng audio"</string>
     <string name="permgrouplab_camera" msgid="4820372495894586615">"Camera"</string>
     <string name="permgroupdesc_camera" msgid="3250611594678347720">"kumuha ng mga larawan at mag-record ng video"</string>
     <string name="permgrouplab_phone" msgid="5229115638567440675">"Telepono"</string>
-    <string name="permgroupdesc_phone" msgid="6234224354060641055">"tumatawag sa telepono at namamahala sa mga tawag sa telepono"</string>
+    <string name="permgroupdesc_phone" msgid="6234224354060641055">"tumawag at mamahala ng mga tawag sa telepono"</string>
     <string name="permgrouplab_sensors" msgid="416037179223226722">"Mga Sensor ng Katawan"</string>
-    <string name="permgroupdesc_sensors" msgid="7147968539346634043">"i-access ang data ng sensor tungkol sa iyong mahahalagang senyales"</string>
+    <string name="permgroupdesc_sensors" msgid="7147968539346634043">"i-access ang data ng sensor tungkol sa iyong vital signs"</string>
     <string name="capability_title_canRetrieveWindowContent" msgid="3901717936930170320">"Kunin ang content ng window"</string>
     <string name="capability_desc_canRetrieveWindowContent" msgid="3772225008605310672">"Siyasatin ang nilalaman ng isang window kung saan ka nakikipag-ugnayan."</string>
     <string name="capability_title_canRequestTouchExploration" msgid="3108723364676667320">"I-on ang Explore by Touch"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Pinapayagan ang isang application na magbasa ng mga session ng pag-install. Nagbibigay-daan ito upang makita ang mga detalye tungkol sa mga aktibong pag-install ng package."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"humiling ng mga package sa pag-install"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Pinapayagan ang isang application na hilingin ang pag-install ng mga package."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"hilingin na balewalain ang mga pag-optimize ng baterya"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Pinapayagang humingi ng pahintulot ang isang app na balewalain ang mga pag-optimize ng baterya para sa app na iyon."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Tapikin ng dalawang beses para sa pagkontrol ng zoom"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Hindi maidagdag ang widget."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Pumunta"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Pumili ng taon"</string>
     <string name="deleted_key" msgid="7659477886625566590">"Tinanggal ang <xliff:g id="KEY">%1$s</xliff:g>"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> sa Trabaho"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Upang i-unpin ang screen na ito, pindutin nang matagal ang Bumalik."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Upang i-unpin ang screen na ito, pindutin nang matagal ang Bumalik at Pangkalahatang-ideya."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Naka-pin ang app: Hindi pinapayagan ang pag-a-unpin sa device na ito."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Naka-pin ang screen"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Naka-unpin ang screen"</string>

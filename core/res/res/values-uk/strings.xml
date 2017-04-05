@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Пробл. підключення чи недійсний код MMI."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Операція лише для номерів фіксованого набору."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"У роумінгу на телефоні не можна змінити налаштування переадресації викликів."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Послугу ввімкнено."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Службу ввімкнено для:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Службу вимкнено."</string>
@@ -98,6 +99,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Голосові служби чи служби даних заблоковано."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Голос.служ. чи служ. даних заблок."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Усі голосові служби, служби даних і SMS заблоковано."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Не вдається під’єднатися до мережі"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Щоб покращити якість сигналу, змініть тип у меню \"Налаштування &gt; Мобільні мережі &gt; Тип мережі\"."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Пристрій змінив режим TTY на FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Пристрій змінив режим TTY на HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Пристрій змінив режим TTY на VCO"</string>
@@ -183,6 +186,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Робочий профіль видалено через відсутність додатка адміністратора."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Додаток адміністратора в робочому профілі відсутній або пошкоджений. У результаті ваш робочий профіль і пов’язані з ним дані видалено. Зверніться до свого адміністратора по допомогу."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Робочий профіль більше не доступний на цьому пристрої."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Відстежується мережевий трафік"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Торкніться, щоб дізнатися більше"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"З вашого пристрою буде стерто всі дані"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Неможливо скористатися додатком адміністратора, оскільки в ньому немає певних компонентів або його пошкоджено. З вашого пристрою буде стерто всі дані. Зверніться до свого адміністратора по допомогу."</string>
     <string name="me" msgid="6545696007631404292">"Я"</string>
@@ -1258,6 +1263,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Дозволяє додатку читати дані сеансів встановлення. Додаток може бачити деталі про активні встановлення пакетів."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"запитувати дані про пакети встановлення"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Додаток зможе надсилати запити на встановлення пакетів."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"запитувати дозвіл ігнорувати оптимізацію використання заряду акумулятора"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Додаток зможе запитувати дозвіл ігнорувати оптимізацію використання заряду акумулятора."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Двічі натис. для кер. масшт."</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Не вдалося додати віджет."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Йти"</string>
@@ -1284,7 +1291,7 @@
     <string name="wallpaper_binding_label" msgid="1240087844304687662">"Фоновий мал."</string>
     <string name="chooser_wallpaper" msgid="7873476199295190279">"Змінити фоновий малюнок"</string>
     <string name="notification_listener_binding_label" msgid="2014162835481906429">"Служба читання сповіщень"</string>
-    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Обробник віртуальної реальності"</string>
+    <string name="vr_listener_binding_label" msgid="4316591939343607306">"VR-режим"</string>
     <string name="condition_provider_service_binding_label" msgid="1321343352906524564">"Постачальник умов"</string>
     <string name="notification_ranker_binding_label" msgid="774540592299064747">"Служба встановлення пріоритетності сповіщень"</string>
     <string name="vpn_title" msgid="19615213552042827">"Мережу VPN активовано"</string>
@@ -1371,7 +1378,7 @@
     <string name="keyboard_password_character_no_headset" msgid="2859873770886153678">"Крапка."</string>
     <string name="action_bar_home_description" msgid="5293600496601490216">"Перейти на головну"</string>
     <string name="action_bar_up_description" msgid="2237496562952152589">"Перейти вгору"</string>
-    <string name="action_menu_overflow_description" msgid="2295659037509008453">"Інші варіанти"</string>
+    <string name="action_menu_overflow_description" msgid="2295659037509008453">"Більше"</string>
     <string name="action_bar_home_description_format" msgid="7965984360903693903">"%1$s, %2$s"</string>
     <string name="action_bar_home_subtitle_description_format" msgid="6985546530471780727">"%1$s, %2$s, %3$s"</string>
     <string name="storage_internal" msgid="3570990907910199483">"Внутрішнє спільне сховище"</string>
@@ -1612,7 +1619,7 @@
     <string name="select_year" msgid="7952052866994196170">"Виберіть рік"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> видалено"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Робоча <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Щоб відкріпити цей екран, натисніть і утримуйте кнопку \"Назад\"."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Щоб відкріпити цей екран, натисніть і втримуйте кнопки \"Назад\" та \"Огляд\"."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Додаток закріплено. Його не можна відкріпити на цьому пристрої."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Екран закріплено"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Екран відкріплено"</string>

@@ -31,6 +31,7 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.provider.Settings.Secure;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -42,7 +43,6 @@ import android.view.WindowManager.LayoutParams;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.systemui.Interpolators;
-import com.android.systemui.Prefs;
 import com.android.systemui.R;
 import com.android.systemui.recents.events.EventBus;
 import com.android.systemui.recents.events.activity.CancelEnterRecentsWindowAnimationEvent;
@@ -74,6 +74,8 @@ import com.android.systemui.recents.events.ui.UserInteractionEvent;
 import com.android.systemui.recents.events.ui.focus.DismissFocusedTaskViewEvent;
 import com.android.systemui.recents.events.ui.focus.FocusNextTaskViewEvent;
 import com.android.systemui.recents.events.ui.focus.FocusPreviousTaskViewEvent;
+import com.android.systemui.recents.events.ui.focus.NavigateTaskViewEvent;
+import com.android.systemui.recents.events.ui.focus.NavigateTaskViewEvent.Direction;
 import com.android.systemui.recents.misc.DozeTrigger;
 import com.android.systemui.recents.misc.SystemServicesProxy;
 import com.android.systemui.recents.misc.Utilities;
@@ -177,8 +179,10 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
                 // is still valid.  Otherwise, we need to reset the lastStackactiveTime to the
                 // currentTime and remove the old tasks in between which would not be previously
                 // visible, but currently would be in the new currentTime
-                long oldLastStackActiveTime = Prefs.getLong(RecentsActivity.this,
-                        Prefs.Key.OVERVIEW_LAST_STACK_TASK_ACTIVE_TIME, -1);
+                int currentUser = SystemServicesProxy.getInstance(RecentsActivity.this)
+                        .getCurrentUser();
+                long oldLastStackActiveTime = Settings.Secure.getLongForUser(getContentResolver(),
+                        Secure.OVERVIEW_LAST_STACK_ACTIVE_TIME, -1, currentUser);
                 if (oldLastStackActiveTime != -1) {
                     long currentTime = System.currentTimeMillis();
                     if (currentTime < oldLastStackActiveTime) {
@@ -196,8 +200,8 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
                                 Recents.getSystemServices().removeTask(task.persistentId);
                             }
                         }
-                        Prefs.putLong(RecentsActivity.this,
-                                Prefs.Key.OVERVIEW_LAST_STACK_TASK_ACTIVE_TIME, currentTime);
+                        Settings.Secure.putLongForUser(RecentsActivity.this.getContentResolver(),
+                                Secure.OVERVIEW_LAST_STACK_ACTIVE_TIME, currentTime, currentUser);
                     }
                 }
             }
@@ -590,13 +594,12 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
                 }
                 return true;
             }
-            case KeyEvent.KEYCODE_DPAD_UP: {
-                EventBus.getDefault().send(
-                        new FocusNextTaskViewEvent(0 /* timerIndicatorDuration */));
-                return true;
-            }
-            case KeyEvent.KEYCODE_DPAD_DOWN: {
-                EventBus.getDefault().send(new FocusPreviousTaskViewEvent());
+            case KeyEvent.KEYCODE_DPAD_UP:
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+            case KeyEvent.KEYCODE_DPAD_RIGHT: {
+                final Direction direction = NavigateTaskViewEvent.getDirectionFromKeyCode(keyCode);
+                EventBus.getDefault().send(new NavigateTaskViewEvent(direction));
                 return true;
             }
             case KeyEvent.KEYCODE_DEL:
@@ -824,8 +827,9 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
         Recents.getTaskLoader().dump(prefix, writer);
 
         String id = Integer.toHexString(System.identityHashCode(this));
-        long lastStackActiveTime = Prefs.getLong(this,
-                Prefs.Key.OVERVIEW_LAST_STACK_TASK_ACTIVE_TIME, -1);
+        long lastStackActiveTime = Settings.Secure.getLongForUser(getContentResolver(),
+                Secure.OVERVIEW_LAST_STACK_ACTIVE_TIME, -1,
+                SystemServicesProxy.getInstance(this).getCurrentUser());
 
         writer.print(prefix); writer.print(TAG);
         writer.print(" visible="); writer.print(mIsVisible ? "Y" : "N");

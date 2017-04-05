@@ -40,6 +40,7 @@ public final class ParcelableCall implements Parcelable {
     private final int mCapabilities;
     private final int mProperties;
     private final long mCreateTimeMillis;
+    private final int mSupportedAudioRoutes;
     private final long mConnectTimeMillis;
     private final Uri mHandle;
     private final int mHandlePresentation;
@@ -66,6 +67,7 @@ public final class ParcelableCall implements Parcelable {
             int capabilities,
             int properties,
             long createTimeMillis,
+            int supportedAudioRoutes,
             long connectTimeMillis,
             Uri handle,
             int handlePresentation,
@@ -89,6 +91,7 @@ public final class ParcelableCall implements Parcelable {
         mCapabilities = capabilities;
         mProperties = properties;
         mCreateTimeMillis = createTimeMillis;
+        mSupportedAudioRoutes = supportedAudioRoutes;
         mConnectTimeMillis = connectTimeMillis;
         mHandle = handle;
         mHandlePresentation = handlePresentation;
@@ -143,6 +146,11 @@ public final class ParcelableCall implements Parcelable {
     /** The time that the call object was created */
     public long getCreateTimeMillis() {
         return mCreateTimeMillis;
+    }
+
+    /** Bitmask of supported routes of the call */
+    public int getSupportedAudioRoutes() {
+        return mSupportedAudioRoutes;
     }
 
     /** The time that the call switched to the active state. */
@@ -301,6 +309,7 @@ public final class ParcelableCall implements Parcelable {
             source.readList(conferenceableCallIds, classLoader);
             Bundle intentExtras = source.readBundle(classLoader);
             Bundle extras = source.readBundle(classLoader);
+            int supportedAudioRoutes = source.readInt();
             return new ParcelableCall(
                     id,
                     state,
@@ -309,6 +318,7 @@ public final class ParcelableCall implements Parcelable {
                     capabilities,
                     properties,
                     createTimeMillis,
+                    supportedAudioRoutes,
                     connectTimeMillis,
                     handle,
                     handlePresentation,
@@ -366,6 +376,7 @@ public final class ParcelableCall implements Parcelable {
         destination.writeList(mConferenceableCallIds);
         destination.writeBundle(mIntentExtras);
         destination.writeBundle(mExtras);
+        destination.writeInt(mSupportedAudioRoutes);
     }
 
     @Override

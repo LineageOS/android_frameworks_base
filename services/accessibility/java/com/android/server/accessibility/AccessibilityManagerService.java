@@ -538,7 +538,7 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub {
 
     @Override
     public void interrupt(int userId) {
-        CopyOnWriteArrayList<Service> services;
+        List<IAccessibilityServiceClient> interfacesToInterrupt;
         synchronized (mLock) {
             // We treat calls from a profile as if made by its parent as profiles
             // share the accessibility state of the parent. The call below
@@ -549,15 +549,24 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub {
             if (resolvedUserId != mCurrentUserId) {
                 return;
             }
-            services = getUserStateLocked(resolvedUserId).mBoundServices;
+            List<Service> services = getUserStateLocked(resolvedUserId).mBoundServices;
+            int numServices = services.size();
+            interfacesToInterrupt = new ArrayList<>(numServices);
+            for (int i = 0; i < numServices; i++) {
+                Service service = services.get(i);
+                IBinder a11yServiceBinder = service.mService;
+                IAccessibilityServiceClient a11yServiceInterface = service.mServiceInterface;
+                if ((a11yServiceBinder != null) && (a11yServiceInterface != null)) {
+                    interfacesToInterrupt.add(a11yServiceInterface);
+                }
+            }
         }
-        for (int i = 0, count = services.size(); i < count; i++) {
-            Service service = services.get(i);
+        for (int i = 0, count = interfacesToInterrupt.size(); i < count; i++) {
             try {
-                service.mServiceInterface.onInterrupt();
+                interfacesToInterrupt.get(i).onInterrupt();
             } catch (RemoteException re) {
-                Slog.e(LOG_TAG, "Error during sending interrupt request to "
-                    + service.mService, re);
+                Slog.e(LOG_TAG, "Error sending interrupt request to "
+                        + interfacesToInterrupt.get(i), re);
             }
         }
     }
@@ -2891,8 +2900,8 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub {
                         sendDownAndUpKeyEvents(KeyEvent.KEYCODE_HOME);
                     } return true;
                     case AccessibilityService.GLOBAL_ACTION_RECENTS: {
-                        openRecents();
-                    } return true;
+                        return openRecents();
+                    }
                     case AccessibilityService.GLOBAL_ACTION_NOTIFICATIONS: {
                         expandNotifications();
                     } return true;
@@ -3385,14 +3394,19 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub {
             Binder.restoreCallingIdentity(token);
         }
 
-        private void openRecents() {
+        private boolean openRecents() {
             final long token = Binder.clearCallingIdentity();
-
-            StatusBarManagerInternal statusBarService = LocalServices.getService(
-                    StatusBarManagerInternal.class);
-            statusBarService.toggleRecentApps();
-
-            Binder.restoreCallingIdentity(token);
+            try {
+                StatusBarManagerInternal statusBarService = LocalServices.getService(
+                        StatusBarManagerInternal.class);
+                if (statusBarService == null) {
+                    return false;
+                }
+                statusBarService.toggleRecentApps();
+            } finally {
+                Binder.restoreCallingIdentity(token);
+            }
+            return true;
         }
 
         private void showGlobalActions() {

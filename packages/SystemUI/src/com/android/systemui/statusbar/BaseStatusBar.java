@@ -89,6 +89,7 @@ import android.widget.Toast;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.messages.SystemMessageProto.SystemMessage;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.internal.widget.LockPatternUtils;
@@ -104,6 +105,7 @@ import com.android.systemui.assist.AssistManager;
 import com.android.systemui.recents.Recents;
 import com.android.systemui.statusbar.NotificationData.Entry;
 import com.android.systemui.statusbar.NotificationGuts.OnGutsClosedListener;
+import com.android.systemui.statusbar.notification.VisualStabilityManager;
 import com.android.systemui.statusbar.phone.NavigationBarView;
 import com.android.systemui.statusbar.phone.NotificationGroupManager;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
@@ -119,6 +121,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.Stack;
 
 import static android.service.notification.NotificationListenerService.Ranking.IMPORTANCE_HIGH;
 import static android.service.notification.NotificationListenerService.Ranking.IMPORTANCE_MIN;
@@ -128,8 +131,7 @@ import static android.service.notification.NotificationListenerService.Ranking.i
 public abstract class BaseStatusBar extends SystemUI implements
         CommandQueue.Callbacks, ActivatableNotificationView.OnActivatedListener,
         ExpandableNotificationRow.ExpansionLogger, NotificationData.Environment,
-        ExpandableNotificationRow.OnExpandClickListener,
-        OnGutsClosedListener {
+        ExpandableNotificationRow.OnExpandClickListener, OnGutsClosedListener {
     public static final String TAG = "StatusBar";
     public static final boolean DEBUG = false;
     public static final boolean MULTIUSER_DEBUG = false;
@@ -182,6 +184,9 @@ public abstract class BaseStatusBar extends SystemUI implements
 
     // for heads up notifications
     protected HeadsUpManager mHeadsUpManager;
+
+    // handling reordering
+    protected VisualStabilityManager mVisualStabilityManager = new VisualStabilityManager();
 
     protected int mCurrentUserId = 0;
     final protected SparseArray<UserInfo> mCurrentProfiles = new SparseArray<UserInfo>();
@@ -551,7 +556,7 @@ public abstract class BaseStatusBar extends SystemUI implements
             } else if (BANNER_ACTION_CANCEL.equals(action) || BANNER_ACTION_SETUP.equals(action)) {
                 NotificationManager noMan = (NotificationManager)
                         mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-                noMan.cancel(R.id.notification_hidden);
+                noMan.cancel(SystemMessage.NOTE_HIDDEN_NOTIFICATIONS);
 
                 Settings.Secure.putInt(mContext.getContentResolver(),
                         Settings.Secure.SHOW_NOTE_ABOUT_NOTIFICATION_HIDING, 0);
@@ -882,7 +887,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
             NotificationManager noMan =
                     (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-            noMan.notify(R.id.notification_hidden, note.build());
+            noMan.notify(SystemMessage.NOTE_HIDDEN_NOTIFICATIONS, note.build());
         }
     }
 
@@ -991,12 +996,12 @@ public abstract class BaseStatusBar extends SystemUI implements
                 // Accessibility feedback
                 v.announceForAccessibility(
                         mContext.getString(R.string.accessibility_notification_dismissed));
-                performRemoveNotification(row.getStatusBarNotification(), false /* removeView */);
+                performRemoveNotification(row.getStatusBarNotification());
             }
         });
     }
 
-    protected void performRemoveNotification(StatusBarNotification n, boolean removeView) {
+    protected void performRemoveNotification(StatusBarNotification n) {
         final String pkg = n.getPackageName();
         final String tag = n.getTag();
         final int id = n.getId();
@@ -1006,14 +1011,8 @@ public abstract class BaseStatusBar extends SystemUI implements
             if (FORCE_REMOTE_INPUT_HISTORY
                     && mKeysKeptForRemoteInput.contains(n.getKey())) {
                 mKeysKeptForRemoteInput.remove(n.getKey());
-                removeView = true;
             }
-            if (mRemoteInputEntriesToRemoveOnCollapse.remove(mNotificationData.get(n.getKey()))) {
-                removeView = true;
-            }
-            if (removeView) {
-                removeNotification(n.getKey(), null);
-            }
+            removeNotification(n.getKey(), null);
 
         } catch (RemoteException ex) {
             // system process is dead if we're here.
@@ -2028,8 +2027,7 @@ public abstract class BaseStatusBar extends SystemUI implements
                                         Runnable removeRunnable = new Runnable() {
                                             @Override
                                             public void run() {
-                                                performRemoveNotification(parentToCancelFinal,
-                                                        true);
+                                                performRemoveNotification(parentToCancelFinal);
                                             }
                                         };
                                         if (isCollapsing()) {
@@ -2280,9 +2278,8 @@ public abstract class BaseStatusBar extends SystemUI implements
      */
     protected void updateRowStates() {
         mKeyguardIconOverflowContainer.getIconsView().removeAllViews();
+        final int N = mStackScroller.getChildCount();
 
-        ArrayList<Entry> activeNotifications = mNotificationData.getActiveNotifications();
-        final int N = activeNotifications.size();
 
         int visibleNotifications = 0;
         boolean onKeyguard = mState == StatusBarState.KEYGUARD;
@@ -2290,14 +2287,23 @@ public abstract class BaseStatusBar extends SystemUI implements
         if (onKeyguard) {
             maxNotifications = getMaxKeyguardNotifications(true /* recompute */);
         }
-        for (int i = 0; i < N; i++) {
-            NotificationData.Entry entry = activeNotifications.get(i);
+        Stack<ExpandableNotificationRow> stack = new Stack<>();
+        for (int i = N - 1; i >= 0; i--) {
+            View child = mStackScroller.getChildAt(i);
+            if (!(child instanceof ExpandableNotificationRow)) {
+                continue;
+            }
+            stack.push((ExpandableNotificationRow) child);
+        }
+        while(!stack.isEmpty()) {
+            ExpandableNotificationRow row = stack.pop();
+            NotificationData.Entry entry = row.getEntry();
             boolean childNotification = mGroupManager.isChildInGroupWithSummary(entry.notification);
             if (onKeyguard) {
-                entry.row.setOnKeyguard(true);
+                row.setOnKeyguard(true);
             } else {
-                entry.row.setOnKeyguard(false);
-                entry.row.setSystemExpanded(visibleNotifications == 0 && !childNotification);
+                row.setOnKeyguard(false);
+                row.setSystemExpanded(visibleNotifications == 0 && !childNotification);
             }
             boolean suppressedSummary = mGroupManager.isSummaryOfSuppressedGroup(
                     entry.notification) && !entry.row.isRemoved();
@@ -2314,7 +2320,9 @@ public abstract class BaseStatusBar extends SystemUI implements
                 }
             } else {
                 boolean wasGone = entry.row.getVisibility() == View.GONE;
-                entry.row.setVisibility(View.VISIBLE);
+                if (wasGone) {
+                    entry.row.setVisibility(View.VISIBLE);
+                }
                 if (!childNotification && !entry.row.isRemoved()) {
                     if (wasGone) {
                         // notify the scroller of a child addition
@@ -2322,6 +2330,14 @@ public abstract class BaseStatusBar extends SystemUI implements
                                 !showOnKeyguard /* fromMoreCard */);
                     }
                     visibleNotifications++;
+                }
+            }
+            if (row.isSummaryWithChildren()) {
+                List<ExpandableNotificationRow> notificationChildren =
+                        row.getNotificationChildren();
+                int size = notificationChildren.size();
+                for (int i = size - 1; i >= 0; i--) {
+                    stack.push(notificationChildren.get(i));
                 }
             }
         }
@@ -2563,9 +2579,7 @@ public abstract class BaseStatusBar extends SystemUI implements
             return false;
         }
 
-        boolean inUse = mPowerManager.isScreenOn()
-                && (!mStatusBarKeyguardViewManager.isShowing()
-                || mStatusBarKeyguardViewManager.isOccluded());
+        boolean inUse = mPowerManager.isScreenOn();
         try {
             inUse = inUse && !mDreamManager.isDreaming();
         } catch (RemoteException e) {
@@ -2605,7 +2619,9 @@ public abstract class BaseStatusBar extends SystemUI implements
                 if (DEBUG) Log.d(TAG, "No peeking: accessible fullscreen: " + sbn.getKey());
                 return false;
             } else {
-                return true;
+                // we only allow head-up on the lockscreen if it doesn't have a fullscreen intent
+                return !mStatusBarKeyguardViewManager.isShowing()
+                        || mStatusBarKeyguardViewManager.isOccluded();
             }
         }
 

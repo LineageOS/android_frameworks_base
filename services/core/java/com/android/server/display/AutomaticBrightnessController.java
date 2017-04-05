@@ -18,9 +18,6 @@ package com.android.server.display;
 
 import com.android.server.EventLogTags;
 import com.android.server.LocalServices;
-import com.android.server.twilight.TwilightListener;
-import com.android.server.twilight.TwilightManager;
-import com.android.server.twilight.TwilightState;
 
 import android.annotation.Nullable;
 import android.hardware.Sensor;
@@ -66,9 +63,6 @@ class AutomaticBrightnessController {
     // non-zero, which in turn ensures that the total weight is non-zero.
     private static final long AMBIENT_LIGHT_PREDICTION_TIME_MILLIS = 100;
 
-    // Specifies the maximum magnitude of the time of day adjustment.
-    private static final float TWILIGHT_ADJUSTMENT_MAX_GAMMA = 1f;
-
     // Debounce for sampling user-initiated changes in display brightness to ensure
     // the user is satisfied with the result before storing the sample.
     private static final int BRIGHTNESS_ADJUSTMENT_SAMPLE_DEBOUNCE_MILLIS = 10000;
@@ -76,7 +70,7 @@ class AutomaticBrightnessController {
     private static final int MSG_UPDATE_AMBIENT_LUX = 1;
     private static final int MSG_BRIGHTNESS_ADJUSTMENT_SAMPLE = 2;
 
-    // Callbacks for requesting updates to the the display's power state
+    // Callbacks for requesting updates to the display's power state
     private final Callbacks mCallbacks;
 
     // The sensor manager.
@@ -84,9 +78,6 @@ class AutomaticBrightnessController {
 
     // The light sensor, or null if not available or needed.
     private final Sensor mLightSensor;
-
-    // The twilight service.
-    private final TwilightManager mTwilight;
 
     // The auto-brightness spline adjustment.
     // The brightness values have been scaled to a range of 0..1.
@@ -97,8 +88,14 @@ class AutomaticBrightnessController {
     private final int mScreenBrightnessRangeMaximum;
     private final float mDozeScaleFactor;
 
-    // Light sensor event rate in milliseconds.
-    private final int mLightSensorRate;
+    // Initial light sensor event rate in milliseconds.
+    private final int mInitialLightSensorRate;
+
+    // Steady-state light sensor event rate in milliseconds.
+    private final int mNormalLightSensorRate;
+
+    // The current light sensor event rate in milliseconds.
+    private int mCurrentLightSensorRate;
 
     // Stability requirements in milliseconds for accepting a new brightness level.  This is used
     // for debouncing the light sensor.  Different constants are used to debounce the light sensor
@@ -120,6 +117,9 @@ class AutomaticBrightnessController {
     // The intercept used for the weighting calculation. This is used in order to keep all possible
     // weighting values positive.
     private final int mWeightingIntercept;
+
+    // accessor object for determining lux levels
+    private final LuxLevels mLuxLevels;
 
     // Amount of time to delay auto-brightness after screen on while waiting for
     // the light sensor to warm-up in milliseconds.
@@ -181,6 +181,14 @@ class AutomaticBrightnessController {
     // Are we going to adjust brightness while dozing.
     private boolean mDozing;
 
+    // True if we are collecting light samples when dozing to set the screen brightness. A single
+    // light sample is collected when entering doze mode. If autobrightness is enabled, calls to
+    // DisplayPowerController#updatePowerState in doze mode will also collect light samples.
+    private final boolean mUseActiveDozeLightSensorConfig;
+
+    // True if the ambient light sensor ring buffer should be cleared when entering doze mode.
+    private final boolean mUseNewSensorSamplesForDoze;
+
     // True if we are collecting a brightness adjustment sample, along with some data
     // for the initial state of the sample.
     private boolean mBrightnessAdjustmentSamplePending;
@@ -189,24 +197,25 @@ class AutomaticBrightnessController {
     private int mBrightnessAdjustmentSampleOldBrightness;
     private float mBrightnessAdjustmentSampleOldGamma;
 
-    private boolean mUseTwilight;
-
     public AutomaticBrightnessController(Callbacks callbacks, Looper looper,
             SensorManager sensorManager, Spline autoBrightnessSpline, int lightSensorWarmUpTime,
             int brightnessMin, int brightnessMax, float dozeScaleFactor,
-            int lightSensorRate, long brighteningLightDebounceConfig,
+            int lightSensorRate, int initialLightSensorRate, long brighteningLightDebounceConfig,
             long brighteningLightFastDebounceConfig,
             long darkeningLightDebounceConfig, boolean resetAmbientLuxAfterWarmUpConfig,
-            int ambientLightHorizon, float autoBrightnessAdjustmentMaxGamma ) {
+            int ambientLightHorizon, float autoBrightnessAdjustmentMaxGamma,
+            boolean activeDozeLightSensor, boolean useNewSensorSamplesForDoze,
+            LuxLevels luxLevels) {
         mCallbacks = callbacks;
-        mTwilight = LocalServices.getService(TwilightManager.class);
         mSensorManager = sensorManager;
         mScreenAutoBrightnessSpline = autoBrightnessSpline;
         mScreenBrightnessRangeMinimum = brightnessMin;
         mScreenBrightnessRangeMaximum = brightnessMax;
         mLightSensorWarmUpTimeConfig = lightSensorWarmUpTime;
         mDozeScaleFactor = dozeScaleFactor;
-        mLightSensorRate = lightSensorRate;
+        mNormalLightSensorRate = lightSensorRate;
+        mInitialLightSensorRate = initialLightSensorRate;
+        mCurrentLightSensorRate = -1;
         mBrighteningLightDebounceConfig = brighteningLightDebounceConfig;
         mBrighteningLightFastDebounceConfig = brighteningLightFastDebounceConfig;
         mDarkeningLightDebounceConfig = darkeningLightDebounceConfig;
@@ -214,12 +223,15 @@ class AutomaticBrightnessController {
         mAmbientLightHorizon = ambientLightHorizon;
         mWeightingIntercept = ambientLightHorizon;
         mScreenAutoBrightnessAdjustmentMaxGamma = autoBrightnessAdjustmentMaxGamma;
+        mUseNewSensorSamplesForDoze = useNewSensorSamplesForDoze;
+        mUseActiveDozeLightSensorConfig = activeDozeLightSensor;
+        mLuxLevels = luxLevels;
 
         mHandler = new AutomaticBrightnessHandler(looper);
         mAmbientLightRingBuffer =
-            new AmbientLightRingBuffer(mLightSensorRate, mAmbientLightHorizon);
+            new AmbientLightRingBuffer(mNormalLightSensorRate, mAmbientLightHorizon);
         mInitialHorizonAmbientLightRingBuffer =
-            new AmbientLightRingBuffer(mLightSensorRate, mAmbientLightHorizon);
+            new AmbientLightRingBuffer(mNormalLightSensorRate, mAmbientLightHorizon);
 
         if (!DEBUG_PRETEND_LIGHT_SENSOR_ABSENT) {
             mLightSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
@@ -227,40 +239,39 @@ class AutomaticBrightnessController {
     }
 
     public int getAutomaticScreenBrightness() {
-        if (mDozing) {
+        if (mDozing && !mLuxLevels.hasDynamicDozeBrightness()) {
             return (int) (mScreenAutoBrightness * mDozeScaleFactor);
         }
         return mScreenAutoBrightness;
     }
 
     public void configure(boolean enable, float adjustment, boolean dozing,
-            boolean userInitiatedChange, boolean useTwilight) {
+            boolean userInitiatedChange) {
         // While dozing, the application processor may be suspended which will prevent us from
         // receiving new information from the light sensor. On some devices, we may be able to
         // switch to a wake-up light sensor instead but for now we will simply disable the sensor
         // and hold onto the last computed screen auto brightness.  We save the dozing flag for
         // debugging purposes.
+        boolean enableSensor = enable && (dozing ? mUseActiveDozeLightSensorConfig : true);
+        if (enableSensor && dozing && !mDozing && mLightSensorEnabled
+                && mUseNewSensorSamplesForDoze) {
+            mAmbientLightRingBuffer.clear();
+            mInitialHorizonAmbientLightRingBuffer.clear();
+            if (DEBUG) {
+                Slog.d(TAG, "configure: Clearing ambient light ring buffers when entering doze.");
+            }
+            mAmbientLuxValid = false;
+            adjustLightSensorRate(mInitialLightSensorRate);
+        }
         mDozing = dozing;
-        boolean changed = setLightSensorEnabled(enable && !dozing);
+        boolean changed = setLightSensorEnabled(enableSensor);
         changed |= setScreenAutoBrightnessAdjustment(adjustment);
-        changed |= setUseTwilight(useTwilight);
         if (changed) {
             updateAutoBrightness(false /*sendUpdate*/);
         }
-        if (enable && !dozing && userInitiatedChange) {
+        if (enableSensor && userInitiatedChange) {
             prepareBrightnessAdjustmentSample();
         }
-    }
-
-    private boolean setUseTwilight(boolean useTwilight) {
-        if (mUseTwilight == useTwilight) return false;
-        if (useTwilight) {
-            mTwilight.registerListener(mTwilightListener, mHandler);
-        } else {
-            mTwilight.unregisterListener(mTwilightListener);
-        }
-        mUseTwilight = useTwilight;
-        return true;
     }
 
     public void dump(PrintWriter pw) {
@@ -278,7 +289,6 @@ class AutomaticBrightnessController {
         pw.println();
         pw.println("Automatic Brightness Controller State:");
         pw.println("  mLightSensor=" + mLightSensor);
-        pw.println("  mTwilight.getLastTwilightState()=" + mTwilight.getLastTwilightState());
         pw.println("  mLightSensorEnabled=" + mLightSensorEnabled);
         pw.println("  mLightSensorEnableTime=" + TimeUtils.formatUptime(mLightSensorEnableTime));
         pw.println("  mAmbientLux=" + mAmbientLux);
@@ -301,19 +311,27 @@ class AutomaticBrightnessController {
     private boolean setLightSensorEnabled(boolean enable) {
         if (enable) {
             if (!mLightSensorEnabled) {
+                if (DEBUG) {
+                    Slog.d(TAG, "setLightSensorEnabled: sensor enabled");
+                }
                 mLightSensorEnabled = true;
+                mAmbientLightRingBuffer.clear();
+                mInitialHorizonAmbientLightRingBuffer.clear();
+                mAmbientLuxValid = !mResetAmbientLuxAfterWarmUpConfig;
                 mLightSensorEnableTime = SystemClock.uptimeMillis();
+                mCurrentLightSensorRate = mInitialLightSensorRate;
                 mSensorManager.registerListener(mLightSensorListener, mLightSensor,
-                        mLightSensorRate * 1000, mHandler);
+                        mCurrentLightSensorRate * 1000, mHandler);
                 return true;
             }
         } else {
             if (mLightSensorEnabled) {
+                if (DEBUG) {
+                    Slog.d(TAG, "setLightSensorEnabled: sensor disabled");
+                }
                 mLightSensorEnabled = false;
-                mAmbientLuxValid = !mResetAmbientLuxAfterWarmUpConfig;
                 mRecentLightSamples = 0;
-                mAmbientLightRingBuffer.clear();
-                mInitialHorizonAmbientLightRingBuffer.clear();
+                mCurrentLightSensorRate = -1;
                 mHandler.removeMessages(MSG_UPDATE_AMBIENT_LUX);
                 mSensorManager.unregisterListener(mLightSensorListener);
             }
@@ -325,8 +343,20 @@ class AutomaticBrightnessController {
         mHandler.removeMessages(MSG_UPDATE_AMBIENT_LUX);
 
         if (DEBUG) Slog.d(TAG, "handleLightSensorEvent: time=" + time + ", lux=" + lux);
+        if (mAmbientLightRingBuffer.size() == 0) {
+            // switch to using the steady-state sample rate after grabbing the initial light sample
+            adjustLightSensorRate(mNormalLightSensorRate);
+        }
         applyLightSensorMeasurement(time, lux);
         updateAmbientLux(time);
+        if (mUseActiveDozeLightSensorConfig && mDozing) {
+            // disable the ambient light sensor and update the screen brightness
+            if (DEBUG) {
+                Slog.d(TAG, "handleLightSensorEvent: doze ambient light sensor reading: " + lux);
+            }
+            setLightSensorEnabled(false);
+            updateAutoBrightness(true /*sendUpdate*/);
+        }
     }
 
     private void applyLightSensorMeasurement(long time, float lux) {
@@ -344,6 +374,20 @@ class AutomaticBrightnessController {
         mLastObservedLuxTime = time;
     }
 
+    private void adjustLightSensorRate(int lightSensorRate) {
+        // if the light sensor rate changed, update the sensor listener
+        if (lightSensorRate != mCurrentLightSensorRate) {
+            if (DEBUG) {
+                Slog.d(TAG, "adjustLightSensorRate: previousRate=" + mCurrentLightSensorRate
+                    + ", currentRate=" + lightSensorRate);
+            }
+            mCurrentLightSensorRate = lightSensorRate;
+            mSensorManager.unregisterListener(mLightSensorListener);
+            mSensorManager.registerListener(mLightSensorListener, mLightSensor,
+                    lightSensorRate * 1000, mHandler);
+        }
+    }
+
     private boolean setScreenAutoBrightnessAdjustment(float adjustment) {
         if (adjustment != mScreenAutoBrightnessAdjustment) {
             mScreenAutoBrightnessAdjustment = adjustment;
@@ -354,8 +398,8 @@ class AutomaticBrightnessController {
 
     private void setAmbientLux(float lux) {
         mAmbientLux = lux;
-        mBrighteningLuxThreshold = mAmbientLux * (1.0f + BRIGHTENING_LIGHT_HYSTERESIS);
-        mDarkeningLuxThreshold = mAmbientLux * (1.0f - DARKENING_LIGHT_HYSTERESIS);
+        mBrighteningLuxThreshold = mLuxLevels.getBrighteningThreshold(lux);
+        mDarkeningLuxThreshold = mLuxLevels.getDarkeningThreshold(lux);
     }
 
     private float calculateAmbientLux(long now) {
@@ -482,7 +526,7 @@ class AutomaticBrightnessController {
         // should be enough time to decide whether we should actually transition to the new
         // weighted ambient lux or not.
         nextTransitionTime =
-                nextTransitionTime > time ? nextTransitionTime : time + mLightSensorRate;
+                nextTransitionTime > time ? nextTransitionTime : time + mNormalLightSensorRate;
         if (DEBUG) {
             Slog.d(TAG, "updateAmbientLux: Scheduling ambient lux update for "
                     + nextTransitionTime + TimeUtils.formatUptime(nextTransitionTime));
@@ -508,19 +552,6 @@ class AutomaticBrightnessController {
             }
         }
 
-        if (mUseTwilight) {
-            TwilightState state = mTwilight.getLastTwilightState();
-            if (state != null && state.isNight()) {
-                final long duration = state.sunriseTimeMillis() - state.sunsetTimeMillis();
-                final long progress = System.currentTimeMillis() - state.sunsetTimeMillis();
-                final float amount = (float) Math.pow(2.0 * progress / duration - 1.0, 2.0);
-                gamma *= 1 + amount * TWILIGHT_ADJUSTMENT_MAX_GAMMA;
-                if (DEBUG) {
-                    Slog.d(TAG, "updateAutoBrightness: twilight amount=" + amount);
-                }
-            }
-        }
-
         if (gamma != 1.0f) {
             final float in = value;
             value = MathUtils.pow(value, gamma);
@@ -530,8 +561,14 @@ class AutomaticBrightnessController {
             }
         }
 
-        int newScreenAutoBrightness =
+        int newScreenAutoBrightness;
+        if (mUseActiveDozeLightSensorConfig && mDozing) {
+            newScreenAutoBrightness = mLuxLevels.getDozeBrightness(mAmbientLux);
+        } else {
+            newScreenAutoBrightness =
                 clampScreenBrightness(Math.round(value * PowerManager.BRIGHTNESS_ON));
+        }
+
         if (mScreenAutoBrightness != newScreenAutoBrightness) {
             if (DEBUG) {
                 Slog.d(TAG, "updateAutoBrightness: mScreenAutoBrightness="
@@ -632,13 +669,6 @@ class AutomaticBrightnessController {
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
             // Not used.
-        }
-    };
-
-    private final TwilightListener mTwilightListener = new TwilightListener() {
-        @Override
-        public void onTwilightStateChanged(@Nullable TwilightState state) {
-            updateAutoBrightness(true /*sendUpdate*/);
         }
     };
 

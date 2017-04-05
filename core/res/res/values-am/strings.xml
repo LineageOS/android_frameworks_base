@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"የተያያዥ ችግር ወይም  ትክከል ያልሆነየMMI ኮድ ባህሪ።"</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"ክዋኔ ለቋሚ መደወያ ቁጥሮች ብቻ ተገድቧል።"</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Can not change call forwarding settings from your phone while you are roaming."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"አገልግሎት ነቅቶ ነበር።"</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"ለ፡ አገልግሎት ነቅቶ ነበር"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"አገልግሎቱ ቦዝኗል።"</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"ድምፅ/ውሂብ አገልግሎቶች ታግደዋል።"</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"ድምፅ/SMS አገልግሎቶች ታግደዋል።"</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"ሁሉም ድምጽ/ውሂብ/ኤስ ኤም ኤስ  አገልግሎቶች ታግደዋል።"</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"አውታረ መረብ ላይ መድረስ አይቻልም"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"ቅበላን ለማሻሻል የተመረጠውን ዓይነት በቅንብሮች &gt; ተንቀሳቃሽ አውታረ መረቦች &gt; ተመራጭ የአውታረ መረብ ዓይነት ላይ ለመለወጥ ይሞክሩ።"</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"ቢጤ መልዕክት መጻጻፊያ ስልክ ሁነታ FULL ጠይቋል"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"ቢጤ መልዕክት መጻጻፊያ ስልክ ሁነታ HCO ጠይቋል"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"ቢጤ መልዕክት መጻጻፊያ ስልክ ሁነታ VCO ጠይቋል"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"በጎደለ የአስተዳዳሪ መተግበሪያ ምክንያት የስራ መገለጫ ተሰርዟል።"</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"የስራ መገለጫ አስተዳዳሪ መተግበሪያው ወይም ይጎድላል ወይም ተበላሽቷል። በዚህ ምክንያት የስራ መገለጫዎ እና ተዛማጅ ውሂብ ተሰርዘዋል። እርዳታን ለማግኘት አስተዳዳሪዎን ያነጋግሩ።"</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"የስራ መገለጫዎ ከዚህ በኋላ በዚህ መሳሪያ ላይ አይገኝም።"</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"የአውታረ መረብ ክትትል እየተደረገበት ነው"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"የበለጠ ለመረዳት መታ ያድርጉ"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"የእርስዎ መሣሪያ ይደመሰሳል"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"የአስተዳዳሪ መተግበሪያው ክፍሎች ይጎድሉታል ወይም ተበላሽቷል፣ እና ስራ ላይ መዋል አይችልም። የእርስዎ መሣሪያ አሁን ይደመሰሳል። እርዳታ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።"</string>
     <string name="me" msgid="6545696007631404292">"እኔ"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"መተግበሪያው የመጫን ክፍለ ጊዜዎችን እንዲያነብ ይፈቅድለታል። ይህም ስለ ገቢር የጥቅል ጭነቶች ዝርዝር መረጃን እንዲያይ ይፈቅድለታል።"</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"የጭነት ጥቅሎችን መጠየቅ"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"መተግበሪያ የጥቅሎች መጫንን እንዲጠይቅ ይፈቅዳል።"</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"የባትሪ ማትባቶችን ችላ ለማለት መጠየቅ"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"አንድ መተግበሪያ ለዚያ መተግበሪያ የባትሪ ማትባቶችን ችላ ለማለት እንዲጠይቅ ይፈቅድለታል።"</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"ለአጉላ መቆጣጠሪያ ሁለት ጊዜ ነካ አድርግ"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"ምግብር ማከል አልተቻለም።"</string>
     <string name="ime_action_go" msgid="8320845651737369027">"ሂድ"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"ዓመት ይምረጡ"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> ተሰርዟል"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"ስራ <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"ይህን ማያ ገጽ ለመንቀል ተመለስን ይንኩትና ያዙት።"</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"ይህን ማያ ገጽ ለመንቀል ተመለስ እና አጠቃላይ እይታን ተጭነው ይያዙ።"</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"መተግበሪያ ተሰክቷል፦ በዚህ መሣሪያ ላይ ማላቀቅ አይፈቀድም።"</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"ማያ ገጽ ተሰክቷል"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"ማያ ገጽ ተነቅሏል"</string>

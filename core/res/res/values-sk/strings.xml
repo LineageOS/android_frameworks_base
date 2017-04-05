@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Problém s pripojením alebo neplatný kód MMI."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Operácia je obmedzená len na povolené čísla."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Nastavenia presmerovania hovorov nie je možné zmeniť z telefónu počas roamingu."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Služba bola povolená."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Služba bola povolená pre:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Služba bola vypnutá."</string>
@@ -98,6 +99,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Hlasové a dátové služby sú zablokované."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Hlasové služby a služby SMS sú zablokované."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Všetky hlasové, údajové služby a služby SMS sú zablokované."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Nepodarilo sa pripojiť k sieti"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Ak chcete vylepšiť príjem, skúste zmeniť vybratý typ siete v časti Nastavenia &gt; Mobilné siete &gt; Preferovaný typ siete."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Používateľ, s ktorým komunikujete, požiadal o režim FULL textového telefónu"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Používateľ, s ktorým komunikujete, požiadal o režim HCO textového telefónu"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Používateľ, s ktorým komunikujete, požiadal o režim VCO textového telefónu"</string>
@@ -183,6 +186,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Pracovný profil bol odstránený z dôvodu chýbajúcej správcovskej aplikácie."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Správcovská aplikácia pracovného profilu buď chýba, alebo je poškodená. Z toho dôvodu boli váš pracovný profil a s ním súvisiace údaje odstránené. Ak potrebujete pomoc, kontaktujte svojho správcu."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Váš pracovný profil už nie je na tomto zariadení dostupný."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Sleduje sa sieťová premávka."</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Klepnutím získate ďalšie informácie"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Vaše zariadenie bude vymazané"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"V správcovskej aplikácii chýbajú komponenty alebo je poškodená, a preto sa nedá použiť. Vaše zariadenie bude vymazané. Ak potrebujete pomoc, kontaktujte svojho správcu."</string>
     <string name="me" msgid="6545696007631404292">"Ja"</string>
@@ -649,10 +654,10 @@
     <string name="relationTypeAssistant" msgid="6274334825195379076">"Asistent"</string>
     <string name="relationTypeBrother" msgid="8757913506784067713">"Brat"</string>
     <string name="relationTypeChild" msgid="1890746277276881626">"Dieťa"</string>
-    <string name="relationTypeDomesticPartner" msgid="6904807112121122133">"Partner(ka)"</string>
+    <string name="relationTypeDomesticPartner" msgid="6904807112121122133">"Druh(-žka)"</string>
     <string name="relationTypeFather" msgid="5228034687082050725">"Otec"</string>
     <string name="relationTypeFriend" msgid="7313106762483391262">"Kamarát(ka)"</string>
-    <string name="relationTypeManager" msgid="6365677861610137895">"Manažér"</string>
+    <string name="relationTypeManager" msgid="6365677861610137895">"Vedúci(-a)"</string>
     <string name="relationTypeMother" msgid="4578571352962758304">"Matka"</string>
     <string name="relationTypeParent" msgid="4755635567562925226">"Rodič"</string>
     <string name="relationTypePartner" msgid="7266490285120262781">"Partner(ka)"</string>
@@ -1258,6 +1263,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Toto povolenie umožňuje aplikácii čítať relácie inštalácií a zobraziť tak podrobnosti o aktívnych inštaláciách balíkov."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"odosielanie žiadostí o inštaláciu balíkov"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Umožňuje aplikácii vyžiadať inštaláciu balíkov."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"požiadať o ignorovanie optimalizácií výdrže batérie"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Umožňuje aplikácii požiadať o povolenie ignorovať optimalizácie výdrže batérie pre danú aplikáciu."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Dvojitým klepnutím môžete ovládať priblíženie"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Miniaplikáciu sa nepodarilo pridať."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Hľadať"</string>
@@ -1612,7 +1619,7 @@
     <string name="select_year" msgid="7952052866994196170">"Vyberte rok"</string>
     <string name="deleted_key" msgid="7659477886625566590">"Číslo <xliff:g id="KEY">%1$s</xliff:g> bolo odstránené"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Práca – <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Ak chcete uvoľniť túto obrazovku, klepnite na tlačidlo Späť a podržte ho."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Ak chcete odopnúť túto obrazovku, klepnite na tlačidlá Späť a Prehľad a podržte ich."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Aplikácia je pripnutá. Uvoľnenie nie je na tomto zariadení povolené."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Obrazovka bola pripnutá"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Obrazovka bola uvoľnená"</string>

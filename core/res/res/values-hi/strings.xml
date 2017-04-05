@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"कनेक्‍शन समस्‍या या अमान्‍य MMI कोड."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"कार्रवाई केवल फ़िक्‍स्‍ड डायलिंग नंबर के लिए प्रतिबंधित है."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"आपके रोमिंग में होने पर आपके फ़ोन से कॉल अग्रेषण की सेटिंग नहीं बदली जा सकतीं."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"सेवा अक्षम थी."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"सेवा इसके लिए सक्षम की गई थी:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"सेवा अक्षम कर दी गई है."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"ध्‍वनि/डेटा सेवाएं अवरोधित हैं."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"ध्‍वनि/SMS सेवाएं अवरोधित हैं."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"सभी ध्‍वनि/डेटा/SMS सेवाएं अवरोधित हैं."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"नेटवर्क तक नहीं पहुंच पा रहे हैं"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"रिसेप्शन बेहतर करने के लिए, सेटिंग &gt; सेल्युलर नेटवर्क &gt; पसंदीदा नेटवर्क प्रकार में चयनित प्रकार को बदलकर देखें."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"पीयर ने TTY मोड पूर्ण का अनुरोध किया"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"पीयर ने TTY मोड HCO का अनुरोध किया"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"पीयर ने TTY मोड VCO का अनुरोध किया"</string>
@@ -153,10 +156,10 @@
     <string name="httpErrorConnect" msgid="8714273236364640549">"सर्वर से कनेक्ट नहीं किया जा सका."</string>
     <string name="httpErrorIO" msgid="2340558197489302188">"सर्वर से संचार नहीं किया जा सका. बाद में पुन: प्रयास करें."</string>
     <string name="httpErrorTimeout" msgid="4743403703762883954">"सर्वर से कनेक्‍शन का समय समाप्त हुआ."</string>
-    <string name="httpErrorRedirectLoop" msgid="8679596090392779516">"पृष्ठ में कई सर्वर रीडायरेक्‍ट हैं."</string>
+    <string name="httpErrorRedirectLoop" msgid="8679596090392779516">"पेज में कई सर्वर रीडायरेक्‍ट हैं."</string>
     <string name="httpErrorUnsupportedScheme" msgid="5015730812906192208">"प्रोटोकॉल समर्थित नहीं है."</string>
     <string name="httpErrorFailedSslHandshake" msgid="96549606000658641">"सुरक्षित कनेक्शन स्थापित नहीं किया जा सका."</string>
-    <string name="httpErrorBadUrl" msgid="3636929722728881972">"URL अमान्‍य होने के कारण पृष्ठ नहीं खोला जा सका."</string>
+    <string name="httpErrorBadUrl" msgid="3636929722728881972">"URL अमान्‍य होने के कारण पेज नहीं खोला जा सका."</string>
     <string name="httpErrorFile" msgid="2170788515052558676">"फ़ाइल पर नहीं पहुंचा जा सका."</string>
     <string name="httpErrorFileNotFound" msgid="6203856612042655084">"अनुरोधित फ़ाइल नहीं मिल सकी."</string>
     <string name="httpErrorTooManyRequests" msgid="1235396927087188253">"बहुत सारे अनुरोधों का संसाधन हो रहा है. बाद में पुन: प्रयास करें."</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"अनुपलब्‍ध व्‍यवस्‍थापक ऐप के कारण कार्य प्रोफ़ाइल हटाई गई."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"कार्य प्रोफ़ाइल व्‍यवस्‍थापक ऐप या तो अनुपलब्‍ध है या दूषित है. परिणाम स्‍वरूप, आपकी कार्य प्रोफ़ाइल और संबंधित डेटा हटा दिया गया है. सहायता के लिए अपने नियंत्रक से संपर्क करें."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"आपकी कार्य प्रोफ़ाइल इस डिवाइस पर उपलब्‍ध नहीं है."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"नेटवर्क ट्रैफ़िक मॉनीटर किया जा रहा है"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"अधिक जानने के लिए टैप करें"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"आपके डिवाइस को मिटा दिया जाएगा"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"व्‍यवस्‍थापक ऐप में घटक अनुपलब्‍ध हैं या वह दूषित है और उसका उपयोग नहीं किया जा सकता. आपके डिवाइस को अब मिटा दिया जाएगा. सहायता के लिए अपने नियंत्रक से संपर्क करें."</string>
     <string name="me" msgid="6545696007631404292">"मैं"</string>
@@ -347,14 +352,14 @@
     <string name="permdesc_writeCallLog" product="default" msgid="683941736352787842">"ऐप्स को इनकमिंग और आउटगोइंग कॉल के डेटा सहित, आपके फ़ोन का कॉल लॉग संशोधित करने देता है. दुर्भावनापूर्ण ऐप्स आपके कॉल लॉग को मिटाने या संशोधित करने के लिए इसका उपयोग कर सकते हैं."</string>
     <string name="permlab_bodySensors" msgid="4683341291818520277">"शरीर संवेदक एक्सेस करें (जैसे हृदय गति मॉनीटर)"</string>
     <string name="permdesc_bodySensors" product="default" msgid="4380015021754180431">"ऐप को आपकी शारीरिक स्‍थिति, जैसे आपकी हृदय गति पर नज़र रखने वाले संवेदकों का डेटा एक्‍सेस करने देती है."</string>
-    <string name="permlab_readCalendar" msgid="5972727560257612398">"केलैंडर ईवेंट के साथ-साथ गोपनीय जानकारी पढ़ें"</string>
+    <string name="permlab_readCalendar" msgid="5972727560257612398">"केलैंडर इवेंट के साथ-साथ गोपनीय जानकारी पढ़ें"</string>
     <string name="permdesc_readCalendar" product="tablet" msgid="4216462049057658723">"ऐप्स  को मित्रों या सहकर्मियों के कैलेंडर इवेंट सहित, आपके टेबलेट पर संग्रहीत कैलेंडर इवेंट पढ़ने देता है. इससे निजता या संवेदनशीलता पर ध्यान दिए बिना, ऐप्स  आपके कैलेंडर डेटा को साझा कर सकता है या सहेज सकता है."</string>
-    <string name="permdesc_readCalendar" product="tv" msgid="3191352452242394196">"ऐप को, मित्रों और सहकर्मियों के कैलेंडर ईवेंट सहित, आपके टीवी पर संग्रहीत सभी कैलेंडर ईवेंट पढ़ने देती है. इससे ऐप को निजता या संवेदनशीलता पर ध्‍यान दिए बिना, आपका कैलेडर डेटा साझा करने या सहेजने की अनुमति मिल जाती है."</string>
+    <string name="permdesc_readCalendar" product="tv" msgid="3191352452242394196">"ऐप को, मित्रों और सहकर्मियों के कैलेंडर इवेंट सहित, आपके टीवी पर संग्रहीत सभी कैलेंडर इवेंट पढ़ने देती है. इससे ऐप को निजता या संवेदनशीलता पर ध्‍यान दिए बिना, आपका कैलेडर डेटा साझा करने या सहेजने की अनुमति मिल जाती है."</string>
     <string name="permdesc_readCalendar" product="default" msgid="7434548682470851583">"ऐप्स  को मित्रों या सहकर्मियों के कैलेंडर इवेंट सहित, आपके फ़ोन पर संग्रहीत कैलेंडर इवेंट पढ़ने देता है. इससे निजता या संवेदनशीलता पर ध्यान दिए बिना, ऐप्स  आपके कैलेंडर डेटा को साझा कर सकता है या सहेज सकता है."</string>
-    <string name="permlab_writeCalendar" msgid="8438874755193825647">"अपनी जानकारी के बि‍ना कैलेंडर ईवेंट जोड़ें या संशोधि‍त करें और अति‍थि‍यों को ईमेल भेजें"</string>
-    <string name="permdesc_writeCalendar" product="tablet" msgid="6679035520113668528">"ऐप्स  को मित्रों या सहकर्मियों के ईवेंट के साथ ही वे ईवेंट जोड़ने, निकालने, बदलने देता है जिन्हें आप अपने टेबलेट पर संशोधित कर सकते हैं. इससे ऐप्स ,अपनी जानकारी के बिना उन संदेशों को भेज सकता है जो कैलेंडर स्वामियों की ओर से आते दिखाई देते हैं, या ईवेंट संशोधित कर सकता है."</string>
-    <string name="permdesc_writeCalendar" product="tv" msgid="1273290605500902507">"ऐप को ऐसे ईवेंट जोड़ने, निकालने, बदलने देती है जिन्हें आप अपने डिवाइस पर बदल सकते हैं, जिनमें मित्रों या सहकर्मियों के ईवेंट शामिल हैं. इससे ऐप ऐसे संदेश भेज सकता है जो कैलेंडर स्वामी से आते हुए प्रतीत होते हैं या ऐप स्वामी की जानकारी के बिना ईवेंट बदल सकता है."</string>
-    <string name="permdesc_writeCalendar" product="default" msgid="2324469496327249376">"ऐप्स  को मित्रों या सहकर्मियों के ईवेंट के साथ ही वे ईवेंट जोड़ने, निकालने, बदलने देता है जिन्हें आप अपने फ़ोन पर संशोधित कर सकते हैं. इससे ऐप्स , अपनी जानकारी के बिना उन संदेशों को भेज सकता है जो कैलेंडर स्वामियों की ओर से आते दिखाई देते हैं, या ईवेंट संशोधित कर सकता है."</string>
+    <string name="permlab_writeCalendar" msgid="8438874755193825647">"अपनी जानकारी के बि‍ना कैलेंडर इवेंट जोड़ें या संशोधि‍त करें और अति‍थि‍यों को ईमेल भेजें"</string>
+    <string name="permdesc_writeCalendar" product="tablet" msgid="6679035520113668528">"ऐप्स  को मित्रों या सहकर्मियों के इवेंट के साथ ही वे इवेंट जोड़ने, निकालने, बदलने देता है जिन्हें आप अपने टेबलेट पर संशोधित कर सकते हैं. इससे ऐप्स ,अपनी जानकारी के बिना उन संदेशों को भेज सकता है जो कैलेंडर स्वामियों की ओर से आते दिखाई देते हैं, या इवेंट संशोधित कर सकता है."</string>
+    <string name="permdesc_writeCalendar" product="tv" msgid="1273290605500902507">"ऐप को ऐसे इवेंट जोड़ने, निकालने, बदलने देती है जिन्हें आप अपने डिवाइस पर बदल सकते हैं, जिनमें मित्रों या सहकर्मियों के इवेंट शामिल हैं. इससे ऐप ऐसे संदेश भेज सकता है जो कैलेंडर स्वामी से आते हुए प्रतीत होते हैं या ऐप स्वामी की जानकारी के बिना इवेंट बदल सकता है."</string>
+    <string name="permdesc_writeCalendar" product="default" msgid="2324469496327249376">"ऐप्स  को मित्रों या सहकर्मियों के इवेंट के साथ ही वे इवेंट जोड़ने, निकालने, बदलने देता है जिन्हें आप अपने फ़ोन पर संशोधित कर सकते हैं. इससे ऐप्स , अपनी जानकारी के बिना उन संदेशों को भेज सकता है जो कैलेंडर स्वामियों की ओर से आते दिखाई देते हैं, या इवेंट संशोधित कर सकता है."</string>
     <string name="permlab_accessLocationExtraCommands" msgid="2836308076720553837">"अतिरिक्त स्‍थान प्रदाता आदेशों में पहुंचे"</string>
     <string name="permdesc_accessLocationExtraCommands" msgid="6078307221056649927">"ऐप्स को अतिरिक्त स्थान प्रदाता आदेशों पर पहुंचने देती है. इससे ऐप्स GPS या अन्य स्थान स्रोतों के संचालन में अवरोध पहुंचा सकता है."</string>
     <string name="permlab_accessFineLocation" msgid="251034415460950944">"सटीक स्थान एक्सेस करें (GPS और नेटवर्क-आधारित)"</string>
@@ -410,7 +415,7 @@
     <string name="permlab_accessWifiState" msgid="5202012949247040011">"वाई-फ़ाई  कनेक्‍शन देखें"</string>
     <string name="permdesc_accessWifiState" msgid="5002798077387803726">"ऐप्स  को वाई-फ़ाई  नेटवर्क के बारे में जानकारी, जैसे WI-Fi सक्षम है या नहीं और कनेक्‍ट किए गए वाई-फ़ाई  डिवाइस के नाम, देखने देता है."</string>
     <string name="permlab_changeWifiState" msgid="6550641188749128035">"वाई-फ़ाई  से कनेक्‍ट और डिस्‍कनेक्‍ट करें"</string>
-    <string name="permdesc_changeWifiState" msgid="7137950297386127533">"ऐप्स  को वाई-फ़ाई  पहुंच बिंदुओं से कनेक्ट और डिस्कनेक्ट करने और वाई-फ़ाई  नेटवर्क के लिए डिवाइस कॉन्फ़िगरेशन में परिवर्तन करने देता है."</string>
+    <string name="permdesc_changeWifiState" msgid="7137950297386127533">"ऐप्स  को वाई-फ़ाई  पहुंच बिंदुओं से कनेक्ट और डिसकनेक्ट करने और वाई-फ़ाई  नेटवर्क के लिए डिवाइस कॉन्फ़िगरेशन में परिवर्तन करने देता है."</string>
     <string name="permlab_changeWifiMulticastState" msgid="1368253871483254784">"वाई-फ़ाई  मल्‍टीकास्‍ट प्राप्ति को अनुमति दें"</string>
     <string name="permdesc_changeWifiMulticastState" product="tablet" msgid="7969774021256336548">"ऐप्स  को वाई-फ़ाई  नेटवर्क पर मल्टीकास्ट पते के उपयोग से केवल आपके टेबलेट पर ही नहीं, बल्कि सभी डिवाइस पर भेजे गए पैकेट प्राप्‍त करने देता है. यह गैर-मल्टीकास्ट मोड से अधिक पावर का उपयोग करता है."</string>
     <string name="permdesc_changeWifiMulticastState" product="tv" msgid="9031975661145014160">"ऐप को मल्‍टीकास्‍ट पतों का उपयोग करके ना केवल आपके टीवी को, बल्‍कि वाई-फ़ाई पर मौजूद सभी डिवाइसों को पैकेट भेजने और प्राप्‍त करने देती है. इसमें गैर-मल्‍टीकास्‍ट मोड की अपेक्षा अधिक पावर का उपयोग होता है."</string>
@@ -419,7 +424,7 @@
     <string name="permdesc_bluetoothAdmin" product="tablet" msgid="6921177471748882137">"किसी ऐप्स को स्‍थानीय ब्लूटूथ टेबलेट कॉन्‍फ़िगर करने की और रिमोट डिवाइस के साथ खोजने और युग्‍मित करने देता है."</string>
     <string name="permdesc_bluetoothAdmin" product="tv" msgid="3373125682645601429">"ऐप को स्‍थानीय ब्‍लूटूथ टीवी कॉन्‍फ़िगर करने देती है और दूरस्‍थ डिवाइसों को खोजने और उनसे युग्‍मित करने देती है."</string>
     <string name="permdesc_bluetoothAdmin" product="default" msgid="8931682159331542137">"ऐप्स को स्‍थानीय ब्लूटूथ फ़ोन कॉन्‍फ़िगर करने देता है, और रिमोट डिवाइस के साथ खोजने और युग्‍मित करने देता है."</string>
-    <string name="permlab_accessWimaxState" msgid="4195907010610205703">"WiMAX से कनेक्ट और डिस्कनेक्ट करें"</string>
+    <string name="permlab_accessWimaxState" msgid="4195907010610205703">"WiMAX से कनेक्ट और डिसकनेक्ट करें"</string>
     <string name="permdesc_accessWimaxState" msgid="6360102877261978887">"ऐप्स  को WiMAX सक्षम है या नहीं और कनेक्‍ट किए गए किसी WiMAX नेटवर्क के बारे में जानकारी निर्धारित करने देता है."</string>
     <string name="permlab_changeWimaxState" msgid="340465839241528618">"WiMAX स्‍थिति बदलें"</string>
     <string name="permdesc_changeWimaxState" product="tablet" msgid="3156456504084201805">"ऐप्स को WiMAX नेटवर्क से टेबलेट को कनेक्‍ट और डिस्‍कनेक्‍ट करने देता है."</string>
@@ -459,7 +464,7 @@
     <string name="permlab_writeSyncSettings" msgid="5408694875793945314">"समन्‍वयन बंद या चालू टॉगल करें"</string>
     <string name="permdesc_writeSyncSettings" msgid="8956262591306369868">"ऐप्स  को किसी खाते की समन्वयन सेटिंग संशोधित करने देता है. उदाहरण के लिए, इसका उपयोग लोग ऐप्स  का समन्‍वयन किसी खाते से सक्षम करने में हो सकता है."</string>
     <string name="permlab_readSyncStats" msgid="7396577451360202448">"समन्वयन आंकड़े पढ़ें"</string>
-    <string name="permdesc_readSyncStats" msgid="1510143761757606156">"ऐप्स  को किसी खाते के समन्वयन आंकड़े, साथ ही समन्‍वयित ईवेंट का इतिहास और समन्‍वयित डेटा की मात्रा पढ़ने देता है."</string>
+    <string name="permdesc_readSyncStats" msgid="1510143761757606156">"ऐप्स  को किसी खाते के समन्वयन आंकड़े, साथ ही समन्‍वयित इवेंट का इतिहास और समन्‍वयित डेटा की मात्रा पढ़ने देता है."</string>
     <string name="permlab_sdcardRead" product="nosdcard" msgid="367275095159405468">"अपने USB मेमोरी की सामग्री पढ़ें"</string>
     <string name="permlab_sdcardRead" product="default" msgid="2188156462934977940">"अपने SD कार्ड की सामग्री पढ़ें"</string>
     <string name="permdesc_sdcardRead" product="nosdcard" msgid="3446988712598386079">"एप्‍लिकेशन को आपके USB मेमोरी की सामग्री पढ़ने की अनुमति देता है."</string>
@@ -766,12 +771,12 @@
     <string name="factorytest_not_system" msgid="4435201656767276723">"FACTORY_TEST क्रिया केवल /system/app में इंस्‍टॉल किए गए पैकेज के लिए समर्थित है."</string>
     <string name="factorytest_no_action" msgid="872991874799998561">"ऐसा कोई पैकेज नहीं मिला था जो FACTORY_TEST कार्रवाई प्रदान करता हो."</string>
     <string name="factorytest_reboot" msgid="6320168203050791643">"रीबूट करें"</string>
-    <string name="js_dialog_title" msgid="1987483977834603872">"\'<xliff:g id="TITLE">%s</xliff:g>\' पर यह पृष्ठ दर्शाता है:"</string>
+    <string name="js_dialog_title" msgid="1987483977834603872">"\'<xliff:g id="TITLE">%s</xliff:g>\' पर यह पेज दर्शाता है:"</string>
     <string name="js_dialog_title_default" msgid="6961903213729667573">"JavaScript"</string>
     <string name="js_dialog_before_unload_title" msgid="2619376555525116593">"मार्गदर्शक की दुबारा पूछें"</string>
-    <string name="js_dialog_before_unload_positive_button" msgid="3112752010600484130">"इस पृष्ठ से आगे बढ़ें"</string>
-    <string name="js_dialog_before_unload_negative_button" msgid="5614861293026099715">"इस पृष्ठ पर बने रहें"</string>
-    <string name="js_dialog_before_unload" msgid="3468816357095378590">"<xliff:g id="MESSAGE">%s</xliff:g>\n\nक्या आप वाकई इस पृष्ठ से दूर नेविगेट करना चाहते हैं?"</string>
+    <string name="js_dialog_before_unload_positive_button" msgid="3112752010600484130">"इस पेज से आगे बढ़ें"</string>
+    <string name="js_dialog_before_unload_negative_button" msgid="5614861293026099715">"इस पेज पर बने रहें"</string>
+    <string name="js_dialog_before_unload" msgid="3468816357095378590">"<xliff:g id="MESSAGE">%s</xliff:g>\n\nक्या आप वाकई इस पेज से दूर नेविगेट करना चाहते हैं?"</string>
     <string name="save_password_label" msgid="6860261758665825069">"दुबारा पूछें"</string>
     <string name="double_tap_toast" msgid="4595046515400268881">"युक्ति: ज़ूम इन और आउट करने के लिए डबल-टैप करें."</string>
     <string name="autofill_this_form" msgid="4616758841157816676">"स्‍वत: भरण"</string>
@@ -808,7 +813,7 @@
     <string name="save_password_notnow" msgid="6389675316706699758">"अभी नहीं"</string>
     <string name="save_password_remember" msgid="6491879678996749466">"याद रखें"</string>
     <string name="save_password_never" msgid="8274330296785855105">"कभी नहीं"</string>
-    <string name="open_permission_deny" msgid="7374036708316629800">"आपके पास इस पृष्ठ को खोलने की अनुमति नहीं है."</string>
+    <string name="open_permission_deny" msgid="7374036708316629800">"आपके पास इस पेज को खोलने की अनुमति नहीं है."</string>
     <string name="text_copied" msgid="4985729524670131385">"लेख की क्‍लिपबोर्ड पर प्रतिलिपि बनाई गई."</string>
     <string name="more_item_label" msgid="4650918923083320495">"अधिक"</string>
     <string name="prepend_shortcut_label" msgid="2572214461676015642">"मेनू+"</string>
@@ -1010,7 +1015,7 @@
     <string name="force_close" msgid="8346072094521265605">"ठीक है"</string>
     <string name="report" msgid="4060218260984795706">"रिपोर्ट करें"</string>
     <string name="wait" msgid="7147118217226317732">"प्रतीक्षा करें"</string>
-    <string name="webpage_unresponsive" msgid="3272758351138122503">"पृष्ठ प्रतिसाद नहीं दे रहा है.\n\nक्‍या आप इसे बंद करना चाहते हैं?"</string>
+    <string name="webpage_unresponsive" msgid="3272758351138122503">"पेज प्रतिसाद नहीं दे रहा है.\n\nक्‍या आप इसे बंद करना चाहते हैं?"</string>
     <string name="launch_warning_title" msgid="1547997780506713581">"एप्‍लि. रीडायरेक्‍ट किया गया"</string>
     <string name="launch_warning_replace" msgid="6202498949970281412">"<xliff:g id="APP_NAME">%1$s</xliff:g> अभी चल रहा है."</string>
     <string name="launch_warning_original" msgid="188102023021668683">"<xliff:g id="APP_NAME">%1$s</xliff:g> को वास्‍तविक रूप से लॉन्‍च किया गया था."</string>
@@ -1106,9 +1111,9 @@
     <string name="wifi_p2p_to_message" msgid="248968974522044099">"प्रति:"</string>
     <string name="wifi_p2p_enter_pin_message" msgid="5920929550367828970">"आवश्‍यक पिन लिखें:"</string>
     <string name="wifi_p2p_show_pin_message" msgid="8530563323880921094">"पिन:"</string>
-    <string name="wifi_p2p_frequency_conflict_message" product="tablet" msgid="8012981257742232475">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> से कनेक्ट रहने पर टेबलेट वाई-फ़ाई  से अस्थायी रूप से डिस्कनेक्ट हो जाएगा"</string>
+    <string name="wifi_p2p_frequency_conflict_message" product="tablet" msgid="8012981257742232475">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> से कनेक्ट रहने पर टेबलेट वाई-फ़ाई  से अस्थायी रूप से डिसकनेक्ट हो जाएगा"</string>
     <string name="wifi_p2p_frequency_conflict_message" product="tv" msgid="3087858235069421128">"जब टीवी <xliff:g id="DEVICE_NAME">%1$s</xliff:g> से कनेक्‍ट होगा तब वह वाई-फ़ाई से अस्‍थायी रूप से डिस्‍कनेक्‍ट हो जाएगा"</string>
-    <string name="wifi_p2p_frequency_conflict_message" product="default" msgid="7363907213787469151">"फ़ोन <xliff:g id="DEVICE_NAME">%1$s</xliff:g> से कनेक्ट रहते समय वाई-फ़ाई  से अस्थायी रूप से डिस्कनेक्ट हो जाएगा"</string>
+    <string name="wifi_p2p_frequency_conflict_message" product="default" msgid="7363907213787469151">"फ़ोन <xliff:g id="DEVICE_NAME">%1$s</xliff:g> से कनेक्ट रहते समय वाई-फ़ाई  से अस्थायी रूप से डिसकनेक्ट हो जाएगा"</string>
     <string name="select_character" msgid="3365550120617701745">"वर्ण सम्‍मिलित करें"</string>
     <string name="sms_control_title" msgid="7296612781128917719">"SMS संदेश भेज रहा है"</string>
     <string name="sms_control_message" msgid="3867899169651496433">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; बड़ी संख्या में SMS संदेश भेज रहा है. क्या आप इस ऐप्स  को संदेश भेजना जारी रखने देना चाहते हैं?"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"ऐप्लिकेशन को इंस्टॉल सत्रों को पढ़ने देती है. इससे उसे सक्रिय पैकेज इंस्टॉलेशन के बारे में विवरण देखने की अनुमति मिल जाती है."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"पैकेज इंस्टॉल करने का अनुरोध करें"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"किसी ऐप्लिकेशन को पैकेज इंस्टॉल करने के अनुरोध की अनुमति देता है."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"बैटरी ऑप्टिमाइज़ेशन पर ध्यान ना देने के लिए पूछें"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"किसी ऐप्लिकेशन को उस ऐप्लिकेशन के लिए बैटरी ऑप्टिमाइज़ेशन पर ध्यान ना देने की अनुमति के लिए पूछने देता है."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"ज़ूम नियंत्रण के लिए दो बार टैप करें"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"विजेट नहीं जोड़ा जा सका."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"जाएं"</string>
@@ -1258,7 +1265,7 @@
     <string name="next_button_label" msgid="1080555104677992408">"आगे"</string>
     <string name="skip_button_label" msgid="1275362299471631819">"अभी नहीं"</string>
     <string name="no_matches" msgid="8129421908915840737">"कोई मिलान नहीं"</string>
-    <string name="find_on_page" msgid="1946799233822820384">"पृष्ठ पर ढूंढें"</string>
+    <string name="find_on_page" msgid="1946799233822820384">"पेज पर ढूंढें"</string>
     <plurals name="matches_found" formatted="false" msgid="1210884353962081884">
       <item quantity="one"><xliff:g id="TOTAL">%d</xliff:g> में से <xliff:g id="INDEX">%d</xliff:g></item>
       <item quantity="other"><xliff:g id="TOTAL">%d</xliff:g> में से <xliff:g id="INDEX">%d</xliff:g></item>
@@ -1329,7 +1336,7 @@
     <string name="storage_usb_drive_label" msgid="4501418548927759953">"<xliff:g id="MANUFACTURER">%s</xliff:g> USB डिस्‍क"</string>
     <string name="storage_usb" msgid="3017954059538517278">"USB मेमोरी"</string>
     <string name="extract_edit_menu_button" msgid="8940478730496610137">"संपादित करें"</string>
-    <string name="data_usage_warning_title" msgid="3620440638180218181">"डेटा उपयोग की सूचना"</string>
+    <string name="data_usage_warning_title" msgid="3620440638180218181">"डेटा उपयोग की चेतावनी"</string>
     <string name="data_usage_warning_body" msgid="6660692274311972007">"उपयोग व सेटिंग देखने हेतु टैप करें."</string>
     <string name="data_usage_3g_limit_title" msgid="4361523876818447683">"2G-3G डेटा सीमा पूर्ण हो गई"</string>
     <string name="data_usage_4g_limit_title" msgid="4609566827219442376">"4G डेटा सीमा पूर्ण हो गई"</string>
@@ -1380,7 +1387,7 @@
     <string name="media_route_chooser_title_for_remote_display" msgid="3395541745872017583">"स्क्रीन को डिवाइस में कास्ट करें"</string>
     <string name="media_route_chooser_searching" msgid="4776236202610828706">"डिवाइस खोजे जा रहे हैं…"</string>
     <string name="media_route_chooser_extended_settings" msgid="87015534236701604">"सेटिंग"</string>
-    <string name="media_route_controller_disconnect" msgid="8966120286374158649">"डिस्कनेक्ट करें"</string>
+    <string name="media_route_controller_disconnect" msgid="8966120286374158649">"डिसकनेक्ट करें"</string>
     <string name="media_route_status_scanning" msgid="7279908761758293783">"स्‍कैन कर रहा है..."</string>
     <string name="media_route_status_connecting" msgid="6422571716007825440">"कनेक्ट हो रहा है..."</string>
     <string name="media_route_status_available" msgid="6983258067194649391">"उपलब्ध"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"वर्ष चुनें"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> को हटा दिया गया"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"कार्यस्थल का <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"इस स्क्रीन को अनपिन करने के लिए, वापस जाएं को स्पर्श करके रखें."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"इस स्क्रीन को अनपिन करने के लिए, वापस जाएं और अवलोकन को स्पर्श करके रखें."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"ऐप पिन किया गया है: इस डिवाइस पर अनपिन करने की अनुमति नहीं है."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"स्‍क्रीन पिन की गई"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"स्‍क्रीन अनपिन की गई"</string>
@@ -1614,7 +1621,7 @@
     <string name="zen_mode_downtime_feature_name" msgid="2626974636779860146">"बंद रहने का समय"</string>
     <string name="zen_mode_default_weeknights_name" msgid="3081318299464998143">"सप्ताह की रात"</string>
     <string name="zen_mode_default_weekends_name" msgid="2786495801019345244">"सप्ताहांत"</string>
-    <string name="zen_mode_default_events_name" msgid="8158334939013085363">"ईवेंट"</string>
+    <string name="zen_mode_default_events_name" msgid="8158334939013085363">"इवेंट"</string>
     <string name="muted_by" msgid="6147073845094180001">"<xliff:g id="THIRD_PARTY">%1$s</xliff:g> द्वारा म्यूट किया गया"</string>
     <string name="system_error_wipe_data" msgid="6608165524785354962">"आपके डिवाइस के साथ कोई आंतरिक त्रुटि हुई और यह तब तक अस्‍थिर रह सकता है, जब तक आप फ़ैक्‍टरी डेटा रीसेट नहीं करते हैं."</string>
     <string name="system_error_manufacturer" msgid="8086872414744210668">"आपके डिवाइस के साथ कोई आंतरिक त्रुटि हुई. विवरणों के लिए अपने निर्माता से संपर्क करें."</string>

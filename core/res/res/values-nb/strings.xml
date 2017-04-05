@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Tilkoblingsproblem eller ugyldig MMI-kode."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Handlingen kan kun utføres på numre med anropsbegrensning."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Får ikke endret innstillinger for viderekobling fra telefonen din når du bruker roaming."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Tjenesten ble aktivert."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Tjenesten ble aktivert for:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Tjenesten ble deaktivert."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Alle tjenester for tale og data er blokkert."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Tjenester for tale og tekstmeldinger er blokkert."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Alle tjenester for tale, data og tekstmeldinger er blokkert."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Får ikke kontakt med nettverket"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"For å forbedre signalet, prøv å endre valgt nettverkstype i Innstillinger &gt; Mobilnettverk &gt; Foretrukket nettverkstype."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Motpart ba om TTY-modus FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Motpart ba om TTY-modus HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Motpart ba om TTY-modus VCO"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Arbeidsprofilen er slettet på grunn av manglende admin-app."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Arbeidsprofilens admin-app mangler eller er ødelagt. Dette har ført til at arbeidsprofilen og alle data knyttet til den er blitt slettet. Kontakt administratoren for å få hjelp."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Arbeidsprofilen din er ikke lenger tilgjengelig på denne enheten."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Nettverkstrafikken blir overvåket"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Trykk for å finne ut mer"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Enheten blir slettet"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Admin-appen mangler komponenter eller er ødelagt, og kan ikke brukes. Enheten din blir nå slettet. Kontakt administratoren for å få hjelp."</string>
     <string name="me" msgid="6545696007631404292">"Meg"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Tillater en app å lese installeringsøkter. Dette gjør det mulig for den å se detaljer om aktive pakkeinstallasjoner."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"be om installasjon av pakker"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Lar apper be om installasjon av pakker."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"be om å ignorere batterioptimaliseringer"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Gjør det mulig for apper å be om tillatelse til å ignorere batterioptimaliseringer for disse appene."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Trykk to ganger for zoomkontroll"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Kunne ikke legge til modulen."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Utfør"</string>
@@ -1234,7 +1241,7 @@
     <string name="wallpaper_binding_label" msgid="1240087844304687662">"Bakgrunnsbilde"</string>
     <string name="chooser_wallpaper" msgid="7873476199295190279">"Velg bakgrunnsbilde"</string>
     <string name="notification_listener_binding_label" msgid="2014162835481906429">"Varsellytteren"</string>
-    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Lyttetjeneste for virtuell virkelighet"</string>
+    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Lyttetjeneste for VR"</string>
     <string name="condition_provider_service_binding_label" msgid="1321343352906524564">"Betingelsesleverandør"</string>
     <string name="notification_ranker_binding_label" msgid="774540592299064747">"Tjeneste for rangering av varsler"</string>
     <string name="vpn_title" msgid="19615213552042827">"VPN er aktivert"</string>
@@ -1328,7 +1335,7 @@
     <string name="storage_usb_drive" msgid="6261899683292244209">"USB-stasjon"</string>
     <string name="storage_usb_drive_label" msgid="4501418548927759953">"<xliff:g id="MANUFACTURER">%s</xliff:g> USB-stasjon"</string>
     <string name="storage_usb" msgid="3017954059538517278">"USB-lagring"</string>
-    <string name="extract_edit_menu_button" msgid="8940478730496610137">"Rediger"</string>
+    <string name="extract_edit_menu_button" msgid="8940478730496610137">"Endre"</string>
     <string name="data_usage_warning_title" msgid="3620440638180218181">"Varsel om databruk"</string>
     <string name="data_usage_warning_body" msgid="6660692274311972007">"Trykk for å se bruken og innstillingene."</string>
     <string name="data_usage_3g_limit_title" msgid="4361523876818447683">"Datagrensen for 2G-3G er nådd"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Velg året"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> er slettet"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Jobb-<xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"For å løsne denne skjermen, trykk og hold inne Tilbake."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"For å løsne denne skjermen, trykk på og hold inne Tilbake og Oversikt."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Appen er festet – du kan ikke løsne apper på denne enheten."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Skjermen er festet"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Skjermen er løsnet"</string>

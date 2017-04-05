@@ -439,7 +439,8 @@ class ActivityStarter {
         // If permissions need a review before any of the app components can run, we
         // launch the review activity and pass a pending intent to start the activity
         // we are to launching now after the review is completed.
-        if (Build.PERMISSIONS_REVIEW_REQUIRED && aInfo != null) {
+        if ((mService.mPermissionReviewRequired
+                || Build.PERMISSIONS_REVIEW_REQUIRED) && aInfo != null) {
             if (mService.getPackageManagerInternalLocked().isPermissionsReviewRequired(
                     aInfo.packageName, userId)) {
                 IIntentSender target = mService.getIntentSenderLocked(
@@ -1123,6 +1124,10 @@ class ActivityStarter {
                         top.task.setIntent(mStartActivity);
                     }
                     ActivityStack.logStartActivity(AM_NEW_INTENT, mStartActivity, top.task);
+
+                    if (shouldActivityBeBroughtToFront(mReusedActivity)) {
+                        mStartActivity.intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+                    }
                     top.deliverNewIntentLocked(mCallingUid, mStartActivity.intent,
                             mStartActivity.launchedFromPackage);
                 }
@@ -1555,6 +1560,16 @@ class ActivityStarter {
         return intentActivity;
     }
 
+    private boolean shouldActivityBeBroughtToFront(ActivityRecord intentActivity) {
+        final ActivityStack focusStack = mSupervisor.getFocusedStack();
+        ActivityRecord curTop = (focusStack == null)
+            ? null : focusStack.topRunningNonDelayedActivityLocked(mNotTop);
+
+        return curTop != null
+            && (curTop.task != intentActivity.task || curTop.task != focusStack.topTask())
+            && !mAvoidMoveToFront;
+    }
+
     private ActivityRecord setTargetStackAndMoveToFrontIfNeeded(ActivityRecord intentActivity) {
         mTargetStack = intentActivity.task.stack;
         mTargetStack.mLastPausedActivity = null;
@@ -1563,13 +1578,8 @@ class ActivityStarter {
         // the same behavior as if a new instance was being started, which means not bringing it
         // to the front if the caller is not itself in the front.
         final ActivityStack focusStack = mSupervisor.getFocusedStack();
-        ActivityRecord curTop = (focusStack == null)
-                ? null : focusStack.topRunningNonDelayedActivityLocked(mNotTop);
 
-        if (curTop != null
-                && (curTop.task != intentActivity.task || curTop.task != focusStack.topTask())
-                && !mAvoidMoveToFront) {
-            mStartActivity.intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+        if (shouldActivityBeBroughtToFront(intentActivity)) {
             if (mSourceRecord == null || (mSourceStack.topActivity() != null &&
                     mSourceStack.topActivity().task == mSourceRecord.task)) {
                 // We really do want to push this one into the user's face, right now.

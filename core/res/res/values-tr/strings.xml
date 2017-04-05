@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Bağlantı sorunu veya geçersiz MMI kodu."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"İşlem sadece sabit arama numaralarıyla sınırlandırılmıştır."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Dolaşımdayken telefonunuzdan çağrı yönlendirme ayarları değiştirilemiyor."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Hizmet etkindi."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Hizmet şunun için etkinleştirildi:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Hizmet devre dışı bırakıldı."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Ses/Veri hizmetleri engellendi."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Ses/SMS hizmetleri engellendi."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Tüm Ses/Veri/SMS hizmetleri engellendi."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Ağa erişilemiyor"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Sinyal gücünü iyileştirmek için Ayarlar &gt; Hücresel ağlar &gt; Tercih Edilen Ağ Modu\'ndan seçili türü değiştirmeyi deneyin."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Karşı taraf TTY Modunu TAM yaptı"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Karşı taraf TTY Modunu HCO yaptı"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Karşı taraf TTY Modunu VCO yaptı"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Eksik yönetici uygulaması nedeniyle iş profili silindi."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"İş profili yönetici uygulaması eksik ya da bozuk. Bunun sonucunda iş profiliniz ve ilgili veriler silindi. Yardım almak için yöneticiniz ile iletişim kurun."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"İş profiliniz arık bu cihazda kullanılamıyor."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Ağ trafiği izleniyor"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Daha fazla bilgi için dokunun"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Cihazınız silinecek"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Yönetici uygulamasında bileşen eksik ya da uygulama bozuk ve kullanılamaz durumda. Cihazınız şimdi silinecek. Yardım için yöneticinizle iletişim kurun."</string>
     <string name="me" msgid="6545696007631404292">"Ben"</string>
@@ -605,7 +610,7 @@
     <string name="phoneTypeRadio" msgid="4093738079908667513">"Telsiz"</string>
     <string name="phoneTypeTelex" msgid="3367879952476250512">"Teleks"</string>
     <string name="phoneTypeTtyTdd" msgid="8606514378585000044">"TTY TDD"</string>
-    <string name="phoneTypeWorkMobile" msgid="1311426989184065709">"İş Cep Telefonu"</string>
+    <string name="phoneTypeWorkMobile" msgid="1311426989184065709">"İş Mobil"</string>
     <string name="phoneTypeWorkPager" msgid="649938731231157056">"İş Çağrı Cihazı"</string>
     <string name="phoneTypeAssistant" msgid="5596772636128562884">"Yardımcı"</string>
     <string name="phoneTypeMms" msgid="7254492275502768992">"MMS"</string>
@@ -649,7 +654,7 @@
     <string name="relationTypeManager" msgid="6365677861610137895">"Yönetici"</string>
     <string name="relationTypeMother" msgid="4578571352962758304">"Anne"</string>
     <string name="relationTypeParent" msgid="4755635567562925226">"Ebeveyn"</string>
-    <string name="relationTypePartner" msgid="7266490285120262781">"Hayat Arkadaşı"</string>
+    <string name="relationTypePartner" msgid="7266490285120262781">"Ortak"</string>
     <string name="relationTypeReferredBy" msgid="101573059844135524">"Öneren"</string>
     <string name="relationTypeRelative" msgid="1799819930085610271">"Akraba"</string>
     <string name="relationTypeSister" msgid="1735983554479076481">"Kız Kardeş"</string>
@@ -773,7 +778,7 @@
     <string name="js_dialog_before_unload_negative_button" msgid="5614861293026099715">"Bu sayfada kal"</string>
     <string name="js_dialog_before_unload" msgid="3468816357095378590">"<xliff:g id="MESSAGE">%s</xliff:g>\n\nBu sayfadan ayrılmak istediğinizden emin misiniz?"</string>
     <string name="save_password_label" msgid="6860261758665825069">"Onayla"</string>
-    <string name="double_tap_toast" msgid="4595046515400268881">"İpucu: Yakınlaştırmak ve uzaklaştırmak için iki kez hafifçe dokunun."</string>
+    <string name="double_tap_toast" msgid="4595046515400268881">"İpucu: Yakınlaştırmak ve uzaklaştırmak için iki kez dokunun."</string>
     <string name="autofill_this_form" msgid="4616758841157816676">"Otomatik Doldur"</string>
     <string name="setup_autofill" msgid="7103495070180590814">"Otomatik doldurma ayarla"</string>
     <string name="autofill_address_name_separator" msgid="6350145154779706772">" "</string>
@@ -1133,7 +1138,7 @@
     <string name="carrier_app_dialog_button" msgid="7900235513678617329">"UYGULAMAYI AL"</string>
     <string name="carrier_app_dialog_not_now" msgid="6361378684292268027">"ŞİMDİ DEĞİL"</string>
     <string name="carrier_app_notification_title" msgid="8921767385872554621">"Yeni SIM kart takıldı"</string>
-    <string name="carrier_app_notification_text" msgid="1132487343346050225">"Kurmak için hafifçe dokunun"</string>
+    <string name="carrier_app_notification_text" msgid="1132487343346050225">"Kurmak için dokunun"</string>
     <string name="time_picker_dialog_title" msgid="8349362623068819295">"Saati ayarlayın"</string>
     <string name="date_picker_dialog_title" msgid="5879450659453782278">"Tarihi ayarlayın"</string>
     <string name="date_time_set" msgid="5777075614321087758">"Ayarla"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Bir uygulamanın yükleme oturumlarını okumasına izin verir. Bu, etkin paket yüklemeleriyle ilgili ayrıntıların görülmesine olanak tanır."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"paket yükleme isteğinde bulunma"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Uygulamaya, paketleri yükleme isteğinde bulunma izni verir."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"pil optimizasyonlarını göz ardı etme izni iste"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Bir uygulamanın, kendisi için pil optimizasyonlarını göz ardı etme izni istemesine olanak sağlar."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Zum denetimi için iki kez dokun"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Widget eklenemedi."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Git"</string>
@@ -1234,7 +1241,7 @@
     <string name="wallpaper_binding_label" msgid="1240087844304687662">"Duvar Kağıdı"</string>
     <string name="chooser_wallpaper" msgid="7873476199295190279">"Duvar kağıdını değiştir"</string>
     <string name="notification_listener_binding_label" msgid="2014162835481906429">"Bildirim dinleyici"</string>
-    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Sanal Gerçeklik dinleyici"</string>
+    <string name="vr_listener_binding_label" msgid="4316591939343607306">"VR dinleyici"</string>
     <string name="condition_provider_service_binding_label" msgid="1321343352906524564">"Durum sağlayıcı"</string>
     <string name="notification_ranker_binding_label" msgid="774540592299064747">"Bildirim sıralama hizmeti"</string>
     <string name="vpn_title" msgid="19615213552042827">"VPN etkinleştirildi"</string>
@@ -1531,7 +1538,7 @@
     <string name="reason_unknown" msgid="6048913880184628119">"bilinmiyor"</string>
     <string name="reason_service_unavailable" msgid="7824008732243903268">"Yazdırma hizmeti etkin değil"</string>
     <string name="print_service_installed_title" msgid="2246317169444081628">"<xliff:g id="NAME">%s</xliff:g> hizmeti yüklendi"</string>
-    <string name="print_service_installed_message" msgid="5897362931070459152">"Etkinleştirmek için hafifçe dokunun"</string>
+    <string name="print_service_installed_message" msgid="5897362931070459152">"Etkinleştirmek için dokunun"</string>
     <string name="restr_pin_enter_admin_pin" msgid="783643731895143970">"Yönetici PIN\'ini girin"</string>
     <string name="restr_pin_enter_pin" msgid="3395953421368476103">"PIN\'i girin"</string>
     <string name="restr_pin_incorrect" msgid="8571512003955077924">"Yanlış"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Yılı seçin"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> silindi"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> (İş)"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Bu ekranın sabitlemesini kaldırmak için Geri\'ye dokunup basılı tutun."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Bu ekranın sabitlemesini kaldırmak için Geri\'ye ve Genel Bakış\'a dokunup basılı tutun."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Uygulama sabitlendi. Bu cihazda sabitlemenin kaldırılmasına izin verilmiyor."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Ekran sabitlendi"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Ekran sabitlemesi kaldırıldı"</string>
@@ -1659,9 +1666,9 @@
     <string name="user_encrypted_message" msgid="4923292604515744267">"Kilidi açmak için dokunun"</string>
     <string name="user_encrypted_detail" msgid="5708447464349420392">"Kullanıcı verileri kilitlendi"</string>
     <string name="profile_encrypted_detail" msgid="3700965619978314974">"İş profili kilitlendi"</string>
-    <string name="profile_encrypted_message" msgid="6964994232310195874">"İş profilinin kilidini açmak için hafifçe dokunun"</string>
+    <string name="profile_encrypted_message" msgid="6964994232310195874">"İş profilinin kilidini açmak için dokunun"</string>
     <string name="usb_mtp_launch_notification_title" msgid="8359219638312208932">"<xliff:g id="PRODUCT_NAME">%1$s</xliff:g> cihazına bağlandı"</string>
-    <string name="usb_mtp_launch_notification_description" msgid="8541876176425411358">"Dosyaları görüntülemek için hafifçe dokunun"</string>
+    <string name="usb_mtp_launch_notification_description" msgid="8541876176425411358">"Dosyaları görüntülemek için dokunun"</string>
     <string name="pin_target" msgid="3052256031352291362">"Sabitle"</string>
     <string name="unpin_target" msgid="3556545602439143442">"Sabitlemeyi kaldır"</string>
     <string name="app_info" msgid="6856026610594615344">"Uygulama bilgileri"</string>

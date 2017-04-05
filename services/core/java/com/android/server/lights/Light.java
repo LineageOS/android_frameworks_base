@@ -45,4 +45,5 @@ public abstract class Light {
     public abstract void pulse();
     public abstract void pulse(int color, int onMS);
     public abstract void turnOff();
+    public abstract void setVrMode(boolean enabled);
 }

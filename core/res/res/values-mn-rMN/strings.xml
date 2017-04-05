@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Холболтын асуудал эсвэл буруу MMI код."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Ажиллагаа зөвөх тогтсон дугаараар хязгаарлагдсан."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Таныг роуминг үйлчилгээг идэвхжүүлсэн үед таны утаснаас дуудлага дамжуулах тохиргоог өөрчлөх боломжгүй."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Үйлчилгээ идэвхжсэн."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Дараах үйлчилгээ идэвхтэй болсон:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Үйлчилгээ идэвхгүй болсон."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Дуут/дата үйлчилгээ хаагдсан."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Дуут/SMS үйлчилгээнүүд хориглогдсон."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Бүх дуут/дата/SMS үйлчилгээнүүд хориглогдсон."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Сүлжээнд холбогдох боломжгүй байна"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Хүлээн авалтыг сайжруулахын тулд Тохиргоо &gt; Үүрэн сүлжээ &gt; Сүлжээний төрөл хэсгийг сонгон төрлөө өөрчилнө үү."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Хандлагын цэгт хүсэлт тавьсан TTY Mode FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Хандлагын цэгт хүсэлт тавьсан TTY Mode HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Хандлагын цэгт хүсэлт тавьсан TTY Mode VCO"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Зохицуулагч аппликейшн алга болсон учраас ажлын профайл устсан байна."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Ажлын профайлын зохицуулагч аппликейшн алга болсон эсвэл эвдэрсэн байна. Үүний улмаас таны ажлын профайл болон холбогдох мэдээллүүд устсан байна. Тусламж хэрэгтэй байгаа бол админтай холбоо барина уу."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Таны ажлын профайл энэ төхөөрөмж дээр ажиллахгүй болсон байна."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Сүлжээний ачааллыг хянаж байна"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Дэлгэрэнгүй үзэхийн тулд товшино уу"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Таны төхөөрөмж устах болно."</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Зохицуулагч аппликейшны зарим нэг хэсэг дутуу эсвэл эвдэрсэн байгаа тул ашиглах боломжгүй байна. Таны төхөөрөмжийг одоо устгах болно. Танд тусламж хэрэгтэй байгаа бол админтайгаа холбоо барина уу."</string>
     <string name="me" msgid="6545696007631404292">"Би"</string>
@@ -436,7 +441,7 @@
     <string name="permlab_manageFingerprint" msgid="5640858826254575638">"хурууны хээний програм хангамжийг удирдах"</string>
     <string name="permdesc_manageFingerprint" msgid="178208705828055464">"Хурууны хээний загварыг нэмэх эсвэл усгтах үйлдлийг хийх зөвшөөрлийг програмд олгодог."</string>
     <string name="permlab_useFingerprint" msgid="3150478619915124905">"хурууны хээний програм хангамжийг ашиглах"</string>
-    <string name="permdesc_useFingerprint" msgid="9165097460730684114">"Баталгаажуулалт хийх зорилгоор хурууны хээний програм хамгамжийг ашиглах зөвшөөрлийг програмд олгодог"</string>
+    <string name="permdesc_useFingerprint" msgid="9165097460730684114">"Баталгаажуулалт хийх зорилгоор хурууны хээний апп хамгамжийг ашиглах зөвшөөрлийг аппд олгодог"</string>
     <string name="fingerprint_acquired_partial" msgid="735082772341716043">"Хурууны хээг дутуу уншуулсан байна. Дахин оролдоно уу."</string>
     <string name="fingerprint_acquired_insufficient" msgid="4596546021310923214">"Хурууны хээ боловсруулж чадахгүй байна. Дахин оролдоно уу."</string>
     <string name="fingerprint_acquired_imager_dirty" msgid="1087209702421076105">"Хурууны хээ мэдрэгч бохирдсон байна. Та цэвэрлэсний дараагаар дахин оролдоно уу."</string>
@@ -1202,12 +1207,14 @@
     <string name="ext_media_status_formatting" msgid="1085079556538644861">"Хэлбэршүүлж байна..."</string>
     <string name="ext_media_status_missing" msgid="5638633895221670766">"Оруулаагүй байна"</string>
     <string name="activity_list_empty" msgid="1675388330786841066">"Таарах активити олдсонгүй."</string>
-    <string name="permlab_route_media_output" msgid="6243022988998972085">"медиа гаралтын маршрут"</string>
+    <string name="permlab_route_media_output" msgid="6243022988998972085">"медиа гаралтын чиглэл"</string>
     <string name="permdesc_route_media_output" msgid="4932818749547244346">"Аппликешн нь медиа гаралтыг бусад гадаад төхөөрөмжрүү чиглүүлэх боломжтой."</string>
     <string name="permlab_readInstallSessions" msgid="3713753067455750349">"Суулгах харилцан үйлдлийг унших"</string>
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Аппликешн-д суулгах сешн уншихыг зөвшөөрнө. Энэ нь идэвхтэй багцуудыг суулгалтын талаар дэлгэрэнгүй мэдээллийг үзэх боломж олгоно."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"багц суулгахыг хүсэх"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Аппликейшн нь багц суулгахыг хүсэх боломжтой."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"батерейны оновчлол алгасахыг асуух"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Тухайн аппaaс батерейны оновчлол алгасах зөвшөөрөл асуухыг зөвшөөрдөг."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Өсгөх контрол дээр хоёр удаа товшино уу"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Виджет нэмж чадсангүй."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Очих"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Жилийг сонгоно уу"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> устсан"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Ажлын <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Энэ дэлгэцийг эхэнд нээхийг болиулахын тулд Буцах товчлуурыг дараад, хүлээнэ үү."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Энэ дэлгэцийг тогтоосныг болиулахын тулд Буцах, Тойм гэснийг товшоод, хүлээнэ үү."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"App-ыг тусгайлан тэмдэглэсэн байна: Энэ төхөөрөмж дээр тусгайлан тэмдэглэсэн сонголтыг устгах боломжгүй."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Дэлгэцийг тогтоосон"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Дэлгэцийг сулласан"</string>

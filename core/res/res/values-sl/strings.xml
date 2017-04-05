@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Težava s povezavo ali neveljavna koda MMI."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Operacija je omejena na dovoljene telefonske številke, za katere ne velja zapora odhodnega klica."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Nastavitev preusmerjanja klicev ni mogoče spremeniti v telefonu med gostovanjem v tujem omrežju."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Storitev je omogočena."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Storitev je bila omogočena za:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Storitev je onemogočena."</string>
@@ -98,6 +99,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Storitvi za govor/podatke sta blokirani."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Storitvi za govor/SMS sta blokirani."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Vse storitve za govor/podatke/SMS so blokirane."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Povezave z omrežjem ni mogoče vzpostaviti"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Če želite izboljšati sprejem, poskusite zamenjati vrsto omrežja v »Nastavitve« &gt; »Mobilna omrežja« &gt; »Prednostna vrsta omrežja«."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Enakovredna naprava je zahtevala način TTY FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Enakovredna naprava je zahtevala način TTY HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Enakovredna naprava je zahtevala način TTY VCO"</string>
@@ -183,6 +186,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Delovni profil izbrisan zaradi manjkajoče skrbniške aplikacije."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Skrbniška aplikacija delovnega profila manjka ali pa je poškodovana, zaradi česar je bil delovni profil s povezanimi podatki izbrisan. Za pomoč se obrnite na skrbnika."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Vaš delovni profil ni več na voljo v tej napravi."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Omrežni promet je nadzorovan"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Dotaknite se, če želite izvedeti več"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Podatki v napravi bodo izbrisani"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Skrbniška aplikacija je nepopolna ali poškodovana, zato je ni mogoče uporabiti. Podatki v napravi bodo izbrisani. Za pomoč se obrnite na skrbnika."</string>
     <string name="me" msgid="6545696007631404292">"Jaz"</string>
@@ -656,7 +661,7 @@
     <string name="relationTypeMother" msgid="4578571352962758304">"Mati"</string>
     <string name="relationTypeParent" msgid="4755635567562925226">"Starši"</string>
     <string name="relationTypePartner" msgid="7266490285120262781">"Partner"</string>
-    <string name="relationTypeReferredBy" msgid="101573059844135524">"Predlagatelj:"</string>
+    <string name="relationTypeReferredBy" msgid="101573059844135524">"Predlagatelj"</string>
     <string name="relationTypeRelative" msgid="1799819930085610271">"Sorodnik"</string>
     <string name="relationTypeSister" msgid="1735983554479076481">"Sestra"</string>
     <string name="relationTypeSpouse" msgid="394136939428698117">"Zakonski partner"</string>
@@ -1258,6 +1263,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Aplikaciji omogoča branje sej namestitev. Tako lahko bere podrobnosti o aktivnih namestitvah paketov."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"zahtevanje paketov za namestitev"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Aplikaciji omogoča zahtevanje namestitve paketov."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"Dovoljenje za prezrtje optimizacij akumulatorja"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Aplikaciji dovoljuje, da vpraša za dovoljenje, ali naj prezre optimizacije akumulatorja."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Tapnite dvakrat za nadzor povečave/pomanjšave"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Pripomočka ni bilo mogoče dodati."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Pojdi"</string>
@@ -1284,7 +1291,7 @@
     <string name="wallpaper_binding_label" msgid="1240087844304687662">"Ozadje"</string>
     <string name="chooser_wallpaper" msgid="7873476199295190279">"Spreminjanje ozadja"</string>
     <string name="notification_listener_binding_label" msgid="2014162835481906429">"Poslušalec obvestil"</string>
-    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Poslušalec za navidezno resničnost"</string>
+    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Poslušalec za VR"</string>
     <string name="condition_provider_service_binding_label" msgid="1321343352906524564">"Ponudnik pogojev"</string>
     <string name="notification_ranker_binding_label" msgid="774540592299064747">"Storitev za določanje stopenj pomembnosti obvestil"</string>
     <string name="vpn_title" msgid="19615213552042827">"VPN aktiviran"</string>
@@ -1612,7 +1619,7 @@
     <string name="select_year" msgid="7952052866994196170">"Izberite leto"</string>
     <string name="deleted_key" msgid="7659477886625566590">"Številka <xliff:g id="KEY">%1$s</xliff:g> je izbrisana"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> za delo"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Če želite odpeti ta zaslon, se dotaknite tipke za nazaj in jo pridržite."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Če želite odpeti ta zaslon, hkrati pridržite gumba Nazaj in Pregled."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Aplikacija je pripeta: v tej napravi odpenjanje ni dovoljeno."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Zaslon je pripet"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Zaslon je odpet"</string>

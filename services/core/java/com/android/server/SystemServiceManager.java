@@ -35,6 +35,7 @@ public class SystemServiceManager {
 
     private final Context mContext;
     private boolean mSafeMode;
+    private boolean mRuntimeRestarted;
 
     // Services that should receive lifecycle events.
     private final ArrayList<SystemService> mServices = new ArrayList<SystemService>();
@@ -243,6 +244,17 @@ public class SystemServiceManager {
      */
     public boolean isSafeMode() {
         return mSafeMode;
+    }
+
+    /**
+     * @return true if runtime was restarted, false if it's normal boot
+     */
+    public boolean isRuntimeRestarted() {
+        return mRuntimeRestarted;
+    }
+
+    void setRuntimeRestarted(boolean runtimeRestarted) {
+        mRuntimeRestarted = runtimeRestarted;
     }
 
     /**

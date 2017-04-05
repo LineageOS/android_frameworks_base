@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Problem sa povezivanjem ili nevažeći MMI kôd."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Operacija je ograničena samo na brojeve fiksnog biranja."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Nije moguće promijeniti postavke za preusmjeravanje poziva s vašeg telefona dok ste u romingu."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Usluga je omogućena."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Usluga je omogućena za:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Usluga je onemogućena."</string>
@@ -97,6 +98,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Blokirane su govorne usluge i usluge prijenosa podataka."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Blokirane su govorne/SMS usluge."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Blokirane su sve govorne i SMS usluge te usluge prijenosa podataka."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Nije moguće dosegnuti mrežu"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Da poboljšate prijem, pokušajte promijeniti odabranu vrstu mreže u meniju Postavke &gt; Mobilne mreže &gt; Preferirana vrsta mreže."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Ravnopravni uređaj zatražio TTY PUNI način rada"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Ravnopravni uređaj zatražio TTY HCO način rada"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Ravnopravni uređaj zatražio TTY VCO način rada"</string>
@@ -181,6 +184,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Poslovni profil je obrisan jer nedostaje aplikacija administratora."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Aplikacija administratora za poslovni profil nedostaje ili je neispravna. Zbog toga su vaš poslovni profil i vezani podaci obrisani. Za pomoć se obratite administratoru."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Profil za posao više nije dostupan na ovom uređaju."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Mrežni saobraćaj se nadgleda"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Dodirnite da saznate više"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Uređaj će biti izbrisan"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Aplikaciji administratora nedostaju komponente ili je neispravna, i ne može se koristiti. Vaš uređaj će sada biti izbrisan. Za pomoć se obratite administratoru."</string>
     <string name="me" msgid="6545696007631404292">"Ja"</string>
@@ -551,35 +556,35 @@
   <string-array name="phoneTypes">
     <item msgid="8901098336658710359">"Kuća"</item>
     <item msgid="869923650527136615">"Mobilni"</item>
-    <item msgid="7897544654242874543">"Poslovni"</item>
+    <item msgid="7897544654242874543">"Posao"</item>
     <item msgid="1103601433382158155">"Poslovni faks"</item>
     <item msgid="1735177144948329370">"Kućni faks"</item>
     <item msgid="603878674477207394">"Pejdžer"</item>
     <item msgid="1650824275177931637">"Ostalo"</item>
-    <item msgid="9192514806975898961">"Dodatno"</item>
+    <item msgid="9192514806975898961">"Prilagođeno"</item>
   </string-array>
   <string-array name="emailAddressTypes">
     <item msgid="8073994352956129127">"Kućni"</item>
-    <item msgid="7084237356602625604">"Poslovni"</item>
-    <item msgid="1112044410659011023">"Ostali"</item>
-    <item msgid="2374913952870110618">"Dodatni"</item>
+    <item msgid="7084237356602625604">"Posao"</item>
+    <item msgid="1112044410659011023">"Ostalo"</item>
+    <item msgid="2374913952870110618">"Prilagođeno"</item>
   </string-array>
   <string-array name="postalAddressTypes">
     <item msgid="6880257626740047286">"Kuća"</item>
     <item msgid="5629153956045109251">"Posao"</item>
     <item msgid="4966604264500343469">"Ostalo"</item>
-    <item msgid="4932682847595299369">"Dodatno"</item>
+    <item msgid="4932682847595299369">"Prilagođeno"</item>
   </string-array>
   <string-array name="imAddressTypes">
     <item msgid="1738585194601476694">"Kućni"</item>
-    <item msgid="1359644565647383708">"Poslovni"</item>
-    <item msgid="7868549401053615677">"Ostali"</item>
-    <item msgid="3145118944639869809">"Dodatni"</item>
+    <item msgid="1359644565647383708">"Posao"</item>
+    <item msgid="7868549401053615677">"Ostalo"</item>
+    <item msgid="3145118944639869809">"Prilagođeno"</item>
   </string-array>
   <string-array name="organizationTypes">
     <item msgid="7546335612189115615">"Posao"</item>
     <item msgid="4378074129049520373">"Ostalo"</item>
-    <item msgid="3455047468583965104">"Dodatno"</item>
+    <item msgid="3455047468583965104">"Prilagođeno"</item>
   </string-array>
   <string-array name="imProtocols">
     <item msgid="8595261363518459565">"AIM"</item>
@@ -600,15 +605,15 @@
     <string name="phoneTypePager" msgid="7582359955394921732">"Pejdžer"</string>
     <string name="phoneTypeOther" msgid="1544425847868765990">"Ostalo"</string>
     <string name="phoneTypeCallback" msgid="2712175203065678206">"Povratni poziv"</string>
-    <string name="phoneTypeCar" msgid="8738360689616716982">"Auto"</string>
-    <string name="phoneTypeCompanyMain" msgid="540434356461478916">"Glavni broj kompanije"</string>
+    <string name="phoneTypeCar" msgid="8738360689616716982">"Automobil"</string>
+    <string name="phoneTypeCompanyMain" msgid="540434356461478916">"Poslovni glavni"</string>
     <string name="phoneTypeIsdn" msgid="8022453193171370337">"ISDN"</string>
     <string name="phoneTypeMain" msgid="6766137010628326916">"Glavni"</string>
     <string name="phoneTypeOtherFax" msgid="8587657145072446565">"Drugi faks"</string>
     <string name="phoneTypeRadio" msgid="4093738079908667513">"Radio"</string>
     <string name="phoneTypeTelex" msgid="3367879952476250512">"Teleks"</string>
     <string name="phoneTypeTtyTdd" msgid="8606514378585000044">"TTY TDD"</string>
-    <string name="phoneTypeWorkMobile" msgid="1311426989184065709">"Posao mobilni"</string>
+    <string name="phoneTypeWorkMobile" msgid="1311426989184065709">"Poslovni mobilni"</string>
     <string name="phoneTypeWorkPager" msgid="649938731231157056">"Poslovni pejdžer"</string>
     <string name="phoneTypeAssistant" msgid="5596772636128562884">"Pomoćnik"</string>
     <string name="phoneTypeMms" msgid="7254492275502768992">"MMS"</string>
@@ -616,10 +621,10 @@
     <string name="eventTypeBirthday" msgid="2813379844211390740">"Rođendan"</string>
     <string name="eventTypeAnniversary" msgid="3876779744518284000">"Godišnjica"</string>
     <string name="eventTypeOther" msgid="7388178939010143077">"Ostalo"</string>
-    <string name="emailTypeCustom" msgid="8525960257804213846">"Prilagođeni"</string>
+    <string name="emailTypeCustom" msgid="8525960257804213846">"Prilagođeno"</string>
     <string name="emailTypeHome" msgid="449227236140433919">"Kućni"</string>
-    <string name="emailTypeWork" msgid="3548058059601149973">"Poslovni"</string>
-    <string name="emailTypeOther" msgid="2923008695272639549">"Ostali"</string>
+    <string name="emailTypeWork" msgid="3548058059601149973">"Posao"</string>
+    <string name="emailTypeOther" msgid="2923008695272639549">"Ostalo"</string>
     <string name="emailTypeMobile" msgid="119919005321166205">"Mobilni"</string>
     <string name="postalTypeCustom" msgid="8903206903060479902">"Prilagođeno"</string>
     <string name="postalTypeHome" msgid="8165756977184483097">"Kućna adresa"</string>
@@ -646,17 +651,17 @@
     <string name="relationTypeAssistant" msgid="6274334825195379076">"Pomoćnik"</string>
     <string name="relationTypeBrother" msgid="8757913506784067713">"Brat"</string>
     <string name="relationTypeChild" msgid="1890746277276881626">"Dijete"</string>
-    <string name="relationTypeDomesticPartner" msgid="6904807112121122133">"Domaći partner"</string>
+    <string name="relationTypeDomesticPartner" msgid="6904807112121122133">"Nevjenčani partner"</string>
     <string name="relationTypeFather" msgid="5228034687082050725">"Otac"</string>
     <string name="relationTypeFriend" msgid="7313106762483391262">"Prijatelj"</string>
-    <string name="relationTypeManager" msgid="6365677861610137895">"Menadžer"</string>
+    <string name="relationTypeManager" msgid="6365677861610137895">"Šef"</string>
     <string name="relationTypeMother" msgid="4578571352962758304">"Majka"</string>
     <string name="relationTypeParent" msgid="4755635567562925226">"Roditelj"</string>
     <string name="relationTypePartner" msgid="7266490285120262781">"Partner"</string>
     <string name="relationTypeReferredBy" msgid="101573059844135524">"Uputio(la)"</string>
-    <string name="relationTypeRelative" msgid="1799819930085610271">"Rođak"</string>
+    <string name="relationTypeRelative" msgid="1799819930085610271">"Rođak/ica"</string>
     <string name="relationTypeSister" msgid="1735983554479076481">"Sestra"</string>
-    <string name="relationTypeSpouse" msgid="394136939428698117">"Bračni partner"</string>
+    <string name="relationTypeSpouse" msgid="394136939428698117">"Suprug/a"</string>
     <string name="sipAddressTypeCustom" msgid="2473580593111590945">"Prilagođeno"</string>
     <string name="sipAddressTypeHome" msgid="6093598181069359295">"Kuća"</string>
     <string name="sipAddressTypeWork" msgid="6920725730797099047">"Posao"</string>
@@ -1084,7 +1089,7 @@
     <string name="volume_icon_description_media" msgid="4217311719665194215">"Jačina zvuka za medijske sadržaje"</string>
     <string name="volume_icon_description_notification" msgid="7044986546477282274">"Jačina zvuka za obavještenja"</string>
     <string name="ringtone_default" msgid="3789758980357696936">"Zadana melodija zvona"</string>
-    <string name="ringtone_default_with_actual" msgid="8129563480895990372">"Zadano zvono (<xliff:g id="ACTUAL_RINGTONE">%1$s</xliff:g>)"</string>
+    <string name="ringtone_default_with_actual" msgid="8129563480895990372">"Zadana melodija zvona (<xliff:g id="ACTUAL_RINGTONE">%1$s</xliff:g>)"</string>
     <string name="ringtone_silent" msgid="7937634392408977062">"Bez zvuka"</string>
     <string name="ringtone_picker_title" msgid="3515143939175119094">"Melodije zvona"</string>
     <string name="ringtone_unknown" msgid="5477919988701784788">"Nepoznato zvono"</string>
@@ -1235,6 +1240,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Dozvoljava aplikaciji da čita sesije instalacija. Ovim se aplikaciji omogućava da vidi detalje o aktivnim instalacijama paketa."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"zahtijevanje paketa za instaliranje"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Omogućava aplikaciji da zahtijeva instalaciju paket ā."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"traži zanemarivanje optimizacije baterije"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Omogućava aplikaciji da traži dozvolu za zanemarivanje optimizacije baterije za tu aplikaciju."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Dodirnite dvaput za kontrolu uvećanja"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Dodavanje vidžeta nije uspjelo."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Počni"</string>
@@ -1587,7 +1594,7 @@
     <string name="select_year" msgid="7952052866994196170">"Odaberite godinu"</string>
     <string name="deleted_key" msgid="7659477886625566590">"Broj <xliff:g id="KEY">%1$s</xliff:g> je izbrisan"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Poslovni <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Da biste otkačili ovaj ekran, dodirnite i držite dugme Nazad."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Da biste otkačili ovaj ekran, dodirnite i držite dugme Nazad i Pregled."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Aplikacija je prikačena. Na ovom uređaju nije dozvoljeno otkačivanje."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Ekran je zakačen"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Ekran je otkačen"</string>

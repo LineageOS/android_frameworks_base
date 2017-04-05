@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Masalah sambungan atau kod MMI tidak sah"</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Pengendalian dihadkan kepada nombor dailan tetap sahaja."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Tidak dapat mengubah tetapan pemajuan panggilan daripad telefon anda semasa dalam perayauan."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Perkhidmatan telah didayakan."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Perkhidmatan didayakan untuk:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Perkhidmatan telah dilumpuhkan."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Perkhidmatan suara/data disekat."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Perkhidmatan suara/SMS disekat."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Semua perkhidmatan suara/data/SMS disekat."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Tidak dapat mencapai rangkaian"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Untuk mempertingkat penerimaan, cuba tukar jenis yang dipilih di Tetapan &gt; Rangkaian selular &gt; Jenis rangkaian yang dipilih."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Rakan meminta Mod TTY PENUH"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Rakan meminta Mod TTY HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Rakan meminta Mod TTY VCO"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Profil kerja dipadam kerana apl pentadbir hilang."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Apl admin profil kerja hilang atau pun rosak. Akibatnya, profil kerja anda dan data yang berkaitan telah dipadam. Hubungi pentadbir anda untuk mendapatkan bantuan."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Profil kerja anda tidak tersedia pada peranti ini lagi."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Trafik rangkaian sedang dipantau"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Ketik untuk mengetahui lebih lanjut"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Peranti anda akan dipadam"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Apl pentadbir kehilangan komponen atau rosak dan tidak boleh digunakan. Sekarang peranti anda akan dipadam. Hubungi pentadbir anda untuk mendapatkan bantuan."</string>
     <string name="me" msgid="6545696007631404292">"Saya"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Membenarkan aplikasi membaca sesi pemasangan Ini membenarkan apl melihat butiran mengenai pemasangan pakej yang aktif."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"minta pakej pemasangan"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Membenarkan aplikasi meminta pemasangan pakej."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"minta kebenaran untuk mengabaikan pengoptimuman bateri"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Membenarkan apl meminta kebenaran untuk mengabaikan pengoptimuman bateri untuk apl itu."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Ketik dua kali untuk mendapatkan kawalan zum"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Tidak dapat menambahkan widget."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Pergi"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Pilih tahun"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> dipadamkan"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Kerja <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Untuk menyahsematkan skrin ni, ketik &amp; tahan Kembali."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Untuk menyahsematkan skrin ini, sentuh &amp; tahan Kembali dan Ikhtisar."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Apl disemat: Nyahsemat tidak dibenarkan pada peranti ini."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Skrin disemat"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Skrin dinyahsemat"</string>

@@ -17,6 +17,8 @@
 package com.android.systemui.keyguard;
 
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
+
+import static com.android.internal.telephony.IccCardConstants.State.ABSENT;
 import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.SOME_AUTH_REQUIRED_AFTER_USER_REQUEST;
 import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_REQUIRED_AFTER_DPM_LOCK_NOW;
 import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_REQUIRED_AFTER_LOCKOUT;
@@ -66,6 +68,8 @@ import android.view.animation.AnimationUtils;
 import cyanogenmod.app.Profile;
 import cyanogenmod.app.ProfileManager;
 
+import com.android.internal.logging.MetricsLogger;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.policy.IKeyguardDrawnCallback;
 import com.android.internal.policy.IKeyguardExitCallback;
 import com.android.internal.policy.IKeyguardStateCallback;
@@ -202,6 +206,7 @@ public class KeyguardViewMediator extends SystemUI {
     private boolean mSystemReady;
     private boolean mBootCompleted;
     private boolean mBootSendUserPresent;
+    private boolean mShuttingDown;
 
     /** High level access to the power manager for WakeLocks */
     private PowerManager mPM;
@@ -338,6 +343,7 @@ public class KeyguardViewMediator extends SystemUI {
 
     private boolean mWakeAndUnlocking;
     private IKeyguardDrawnCallback mDrawnCallback;
+    private boolean mLockWhenSimRemoved;
 
     private boolean mIsPerUserLock;
 
@@ -432,7 +438,7 @@ public class KeyguardViewMediator extends SystemUI {
                 case ABSENT:
                     // only force lock screen in case of missing sim if user hasn't
                     // gone through setup wizard
-                    synchronized (this) {
+                    synchronized (KeyguardViewMediator.this) {
                         if (shouldWaitForProvisioning()) {
                             if (!mShowing) {
                                 if (DEBUG_SIM_STATES) Log.d(TAG, "ICC_ABSENT isn't showing,"
@@ -443,11 +449,16 @@ public class KeyguardViewMediator extends SystemUI {
                                 resetStateLocked();
                             }
                         }
+                        if (simState == ABSENT) {
+                            // MVNO SIMs can become transiently NOT_READY when switching networks,
+                            // so we should only lock when they are ABSENT.
+                            onSimAbsentLocked();
+                        }
                     }
                     break;
                 case PIN_REQUIRED:
                 case PUK_REQUIRED:
-                    synchronized (this) {
+                    synchronized (KeyguardViewMediator.this) {
                         if (!mShowing) {
                             if (DEBUG_SIM_STATES) Log.d(TAG,
                                     "INTENT_VALUE_ICC_LOCKED and keygaurd isn't "
@@ -459,7 +470,7 @@ public class KeyguardViewMediator extends SystemUI {
                     }
                     break;
                 case PERM_DISABLED:
-                    synchronized (this) {
+                    synchronized (KeyguardViewMediator.this) {
                         if (!mShowing) {
                             if (DEBUG_SIM_STATES) Log.d(TAG, "PERM_DISABLED and "
                                   + "keygaurd isn't showing.");
@@ -469,18 +480,35 @@ public class KeyguardViewMediator extends SystemUI {
                                   + "show permanently disabled message in lockscreen.");
                             resetStateLocked();
                         }
+                        onSimAbsentLocked();
                     }
                     break;
                 case READY:
-                    synchronized (this) {
+                    synchronized (KeyguardViewMediator.this) {
                         if (mShowing) {
                             resetStateLocked();
                         }
+                        mLockWhenSimRemoved = true;
                     }
                     break;
                 default:
-                    if (DEBUG_SIM_STATES) Log.v(TAG, "Ignoring state: " + simState);
+                    if (DEBUG_SIM_STATES) Log.v(TAG, "Unspecific state: " + simState);
+                    synchronized (KeyguardViewMediator.this) {
+                        onSimAbsentLocked();
+                    }
                     break;
+            }
+        }
+
+        private void onSimAbsentLocked() {
+            if (isSecure() && mLockWhenSimRemoved && !mShuttingDown) {
+                mLockWhenSimRemoved = false;
+                MetricsLogger.action(mContext,
+                        MetricsEvent.ACTION_LOCK_BECAUSE_SIM_REMOVED, mShowing);
+                if (!mShowing) {
+                    Log.i(TAG, "SIM removed, showing keyguard");
+                    doKeyguardLocked(null);
+                }
             }
         }
 
@@ -641,9 +669,12 @@ public class KeyguardViewMediator extends SystemUI {
         mShowKeyguardWakeLock = mPM.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "show keyguard");
         mShowKeyguardWakeLock.setReferenceCounted(false);
         mProfileManager = ProfileManager.getInstance(mContext);
-        mContext.registerReceiver(mBroadcastReceiver, new IntentFilter(DELAYED_KEYGUARD_ACTION));
-        mContext.registerReceiver(
-                mBroadcastReceiver, new IntentFilter(DELAYED_LOCK_PROFILE_ACTION));
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(DELAYED_KEYGUARD_ACTION);
+        filter.addAction(DELAYED_LOCK_PROFILE_ACTION);
+        filter.addAction(Intent.ACTION_SHUTDOWN);
+        mContext.registerReceiver(mBroadcastReceiver, filter);
 
         mKeyguardDisplayManager = new KeyguardDisplayManager(mContext);
 
@@ -1245,7 +1276,7 @@ public class KeyguardViewMediator extends SystemUI {
             // if the setup wizard hasn't run yet, don't show
             final boolean requireSim = !SystemProperties.getBoolean("keyguard.no_require_sim", false);
             final boolean absent = SubscriptionManager.isValidSubscriptionId(
-                    mUpdateMonitor.getNextSubIdForState(IccCardConstants.State.ABSENT));
+                    mUpdateMonitor.getNextSubIdForState(ABSENT));
             final boolean disabled = SubscriptionManager.isValidSubscriptionId(
                     mUpdateMonitor.getNextSubIdForState(IccCardConstants.State.PERM_DISABLED));
             final boolean lockedOrMissing = mUpdateMonitor.isSimPinSecure()
@@ -1418,6 +1449,10 @@ public class KeyguardViewMediator extends SystemUI {
                             lockProfile(userId);
                         }
                     }
+                }
+            } else if (Intent.ACTION_SHUTDOWN.equals(intent.getAction())) {
+                synchronized (KeyguardViewMediator.this){
+                    mShuttingDown = true;
                 }
             }
         }
@@ -1983,6 +2018,7 @@ public class KeyguardViewMediator extends SystemUI {
         pw.print("  mBootCompleted: "); pw.println(mBootCompleted);
         pw.print("  mBootSendUserPresent: "); pw.println(mBootSendUserPresent);
         pw.print("  mExternallyEnabled: "); pw.println(mExternallyEnabled);
+        pw.print("  mShuttingDown: "); pw.println(mShuttingDown);
         pw.print("  mNeedToReshowWhenReenabled: "); pw.println(mNeedToReshowWhenReenabled);
         pw.print("  mShowing: "); pw.println(mShowing);
         pw.print("  mInputRestricted: "); pw.println(mInputRestricted);

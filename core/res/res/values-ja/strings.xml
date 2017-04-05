@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"接続に問題があるか、MMIコードが正しくありません。"</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"発信番号制限で指定された番号に対してのみ操作できます。"</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"ローミング中はスマートフォンから着信転送設定の変更はできません。"</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"サービスが有効になりました。"</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"次のサービスが有効になりました:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"サービスが無効になりました。"</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"音声/データサービスがブロックされています。"</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"音声/SMSサービスがブロックされています。"</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"すべての音声/データ/SMSサービスがブロックされています。"</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"ネットワークにアクセスできません"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"受信状態を改善するには、[設定] &gt; [モバイル ネットワーク] &gt; [優先ネットワーク タイプ] で選択したタイプを変更してみてください。"</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"ピアから、TTYモードをFULLにするようリクエストされました"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"ピアから、TTYモードをHCOにするようリクエストされました"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"ピアから、TTYモードをVCOにするようリクエストされました"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"管理アプリがないため仕事用プロファイルが削除されました。"</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"仕事用プロファイルの管理アプリがないか、破損しています。そのため仕事用プロファイルと関連データが削除されました。管理者にサポートをご依頼ください。"</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"お使いの仕事用プロファイルはこの端末で使用できなくなりました"</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"ネットワーク トラフィックの監視中"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"詳細を確認するにはタップします"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"端末のデータが消去されます"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"管理アプリの構成要素が不足しているか、アプリが破損しているため、ご利用になれません。端末のデータはこれから消去されます。管理者にサポートをご依頼ください。"</string>
     <string name="me" msgid="6545696007631404292">"自分"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"インストールセッションの読み取りをアプリに許可します。これにより、アプリはアクティブパッケージのインストールに関する詳細情報を参照できるようになります。"</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"インストールパッケージのリクエスト"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"パッケージのインストールをリクエストすることをアプリケーションに許可します。"</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"電池の最適化を無視するかどうかの確認"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"電池の最適化の無視についてアプリが確認することを許可します。"</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"ダブルタップでズームします"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"ウィジェットを追加できませんでした。"</string>
     <string name="ime_action_go" msgid="8320845651737369027">"移動"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"年を選択"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g>を削除しました"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"仕事の<xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"この画面の固定を解除するには [戻る] を押し続けます。"</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"この画面の固定を解除するには [戻る] と [概要] を押し続けます。"</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"アプリは固定されています。この端末では固定を解除できません。"</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"画面を固定しました"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"画面固定を解除しました"</string>

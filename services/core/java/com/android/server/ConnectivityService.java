@@ -882,6 +882,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
 
         mAvoidBadWifiTracker = createAvoidBadWifiTracker(
                 mContext, mHandler, () -> rematchForAvoidBadWifiUpdate());
+        mAvoidBadWifiTracker.start();
     }
 
     private NetworkRequest createInternetRequestForTransport(
@@ -2307,11 +2308,19 @@ public class ConnectivityService extends IConnectivityManager.Stub
                     synchronized (mNetworkForNetId) {
                         nai = mNetworkForNetId.get(netId);
                     }
-                    // If captive portal status has changed, update capabilities.
+                    // If captive portal status has changed, update capabilities or disconnect.
                     if (nai != null && (visible != nai.lastCaptivePortalDetected)) {
                         final int oldScore = nai.getCurrentScore();
                         nai.lastCaptivePortalDetected = visible;
                         nai.everCaptivePortalDetected |= visible;
+                        if (nai.lastCaptivePortalDetected &&
+                            Settings.Global.CAPTIVE_PORTAL_MODE_AVOID == getCaptivePortalMode()) {
+                            if (DBG) log("Avoiding captive portal network: " + nai.name());
+                            nai.asyncChannel.sendMessage(
+                                    NetworkAgent.CMD_PREVENT_AUTOMATIC_RECONNECT);
+                            teardownUnneededNetwork(nai);
+                            break;
+                        }
                         updateCapabilities(oldScore, nai, nai.networkCapabilities);
                     }
                     if (!visible) {
@@ -2330,6 +2339,12 @@ public class ConnectivityService extends IConnectivityManager.Stub
                 }
             }
             return true;
+        }
+
+        private int getCaptivePortalMode() {
+            return Settings.Global.getInt(mContext.getContentResolver(),
+                    Settings.Global.CAPTIVE_PORTAL_MODE,
+                    Settings.Global.CAPTIVE_PORTAL_MODE_PROMPT);
         }
 
         private boolean maybeHandleNetworkAgentInfoMessage(Message msg) {

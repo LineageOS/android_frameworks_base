@@ -46,6 +46,7 @@ import static com.android.server.am.UserState.STATE_RUNNING_UNLOCKING;
 import android.annotation.NonNull;
 import android.annotation.UserIdInt;
 import android.app.ActivityManager;
+import android.app.AppGlobals;
 import android.app.AppOpsManager;
 import android.app.Dialog;
 import android.app.IStopUserCallback;
@@ -54,6 +55,7 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.IIntentReceiver;
 import android.content.Intent;
+import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.BatteryStats;
@@ -112,7 +114,7 @@ final class UserController {
 
     // Amount of time we wait for observers to handle a user switch before
     // giving up on them and unfreezing the screen.
-    static final int USER_SWITCH_TIMEOUT = 2 * 1000;
+    static final int USER_SWITCH_TIMEOUT = 3 * 1000;
 
     private final ActivityManagerService mService;
     private final Handler mHandler;
@@ -239,11 +241,14 @@ final class UserController {
             // storage is already unlocked.
             if (uss.setState(STATE_BOOTING, STATE_RUNNING_LOCKED)) {
                 getUserManagerInternal().setUserState(userId, uss.state);
-
-                int uptimeSeconds = (int)(SystemClock.elapsedRealtime() / 1000);
-                MetricsLogger.histogram(mService.mContext, "framework_locked_boot_completed",
-                    uptimeSeconds);
-
+                // Do not report secondary users, runtime restarts or first boot/upgrade
+                if (userId == UserHandle.USER_SYSTEM
+                        && !mService.mSystemServiceManager.isRuntimeRestarted()
+                        && !isFirstBootOrUpgrade()) {
+                    int uptimeSeconds = (int)(SystemClock.elapsedRealtime() / 1000);
+                    MetricsLogger.histogram(mService.mContext, "framework_locked_boot_completed",
+                            uptimeSeconds);
+                }
                 Intent intent = new Intent(Intent.ACTION_LOCKED_BOOT_COMPLETED, null);
                 intent.putExtra(Intent.EXTRA_USER_HANDLE, userId);
                 intent.addFlags(Intent.FLAG_RECEIVER_NO_ABORT
@@ -415,8 +420,14 @@ final class UserController {
             }
 
             Slog.d(TAG, "Sending BOOT_COMPLETE user #" + userId);
-            int uptimeSeconds = (int)(SystemClock.elapsedRealtime() / 1000);
-            MetricsLogger.histogram(mService.mContext, "framework_boot_completed", uptimeSeconds);
+            // Do not report secondary users, runtime restarts or first boot/upgrade
+            if (userId == UserHandle.USER_SYSTEM
+                    && !mService.mSystemServiceManager.isRuntimeRestarted()
+                    && !isFirstBootOrUpgrade()) {
+                int uptimeSeconds = (int) (SystemClock.elapsedRealtime() / 1000);
+                MetricsLogger
+                        .histogram(mService.mContext, "framework_boot_completed", uptimeSeconds);
+            }
             final Intent bootIntent = new Intent(Intent.ACTION_BOOT_COMPLETED, null);
             bootIntent.putExtra(Intent.EXTRA_USER_HANDLE, userId);
             bootIntent.addFlags(Intent.FLAG_RECEIVER_NO_ABORT
@@ -424,6 +435,15 @@ final class UserController {
             mService.broadcastIntentLocked(null, null, bootIntent, null, null, 0, null, null,
                     new String[] { android.Manifest.permission.RECEIVE_BOOT_COMPLETED },
                     AppOpsManager.OP_BOOT_COMPLETED, null, true, false, MY_PID, SYSTEM_UID, userId);
+        }
+    }
+
+    private static boolean isFirstBootOrUpgrade() {
+        IPackageManager pm = AppGlobals.getPackageManager();
+        try {
+            return pm.isFirstBoot() || pm.isUpgrade();
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
         }
     }
 
@@ -1085,6 +1105,7 @@ final class UserController {
                 mCurWaitingUserSwitchCallbacks = curWaitingUserSwitchCallbacks;
             }
             final AtomicInteger waitingCallbacksCount = new AtomicInteger(observerCount);
+            final long dispatchStartedTime = SystemClock.elapsedRealtime();
             for (int i = 0; i < observerCount; i++) {
                 try {
                     // Prepend with unique prefix to guarantee that keys are unique
@@ -1096,6 +1117,11 @@ final class UserController {
                         @Override
                         public void sendResult(Bundle data) throws RemoteException {
                             synchronized (mService) {
+                                long delay = SystemClock.elapsedRealtime() - dispatchStartedTime;
+                                if (delay > USER_SWITCH_TIMEOUT) {
+                                    Slog.wtf(TAG, "User switch timeout: observer "  + name
+                                            + " sent result after " + delay + " ms");
+                                }
                                 // Early return if this session is no longer valid
                                 if (curWaitingUserSwitchCallbacks
                                         != mCurWaitingUserSwitchCallbacks) {

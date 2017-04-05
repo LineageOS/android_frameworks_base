@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Ryšio problema arba neteisingas MMI kodas."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Operacija ribojama tik naudojant fiksuoto rinkimo numerius."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Negalima pakeisti telefono skambučio peradresavimo nustatymų, kai naudojate tarptinklinį ryšį."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Paslauga įgalinta."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Paslauga buvo įgalinta:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Paslauga išjungta."</string>
@@ -98,6 +99,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Balso / duomenų paslaugos užblokuotos."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Balso / SMS paslaugos blokuojamos."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Blokuojamos visos balso / duomenų / SMS paslaugos."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Nepavyko pasiekti tinklo"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Kad pagerintumėte ryšį, pabandykite pakeisti tipą, pasirinktą skiltyje „Nustatymai“ &gt; „Mobiliojo ryšio tinklai“ &gt; „Pageidaujamas tinklo tipas“."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Lygiavertis naudotojas pateikė užklausą dėl TTY režimo FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Lygiavertis naudotojas pateikė užklausą dėl TTY režimo HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Lygiavertis naudotojas pateikė užklausą dėl TTY režimo VCO"</string>
@@ -183,6 +186,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Darbo profilis ištrintas dėl trūkstamos administratoriaus programos."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Trūksta darbo profilio administratoriaus programos arba ji sugadinta. Todėl darbo profilis ir susiję duomenys buvo ištrinti. Dėl pagalbos susisiekite su administratoriumi."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Darbo profilis nebepasiekiamas šiame įrenginyje."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Tinklo srautas stebimas"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Palieskite, kad sužinotumėte daugiau"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Įrenginys bus ištrintas"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Trūksta administratoriaus programos komponentų arba programa sugadinta ir jos negalima naudoti. Dabar įrenginys bus ištrintas. Dėl pagalbos susisiekite su administratoriumi."</string>
     <string name="me" msgid="6545696007631404292">"Aš"</string>
@@ -1258,6 +1263,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Leidžiama programai skaityti diegimo seansus. Leidžiama peržiūrėti išsamią aktyvių paketų diegimo informaciją."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"pateikti užklausą dėl diegimo paketų"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Programai leidžiama pateikti užklausą dėl paketų diegimo."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"prašyti nepaisyti akumuliatoriaus optimizavimo nustatymų"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Programai leidžiama prašyti leidimo nepaisyti tai programai skirto akumuliatoriaus optimizavimo nustatymų."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Bakstelėkite du kartus, kad valdytumėte mastelio keitimą"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Nepavyko pridėti."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Pradėti"</string>
@@ -1612,7 +1619,7 @@
     <string name="select_year" msgid="7952052866994196170">"Pasirinkite metus"</string>
     <string name="deleted_key" msgid="7659477886625566590">"Ištrinta: <xliff:g id="KEY">%1$s</xliff:g>"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Darbo <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Kad atsegtumėte šį ekraną, palieskite ir palaikykite „Atgal“."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Kad atsegtumėte šį ekraną, palieskite ir palaikykite „Atgal“ ir „Apžvalga“."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Programa prisegta: šiame įrenginyje negalima atsegti."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Ekrano prisegtas"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Ekranas atsegtas"</string>
@@ -1682,7 +1689,7 @@
     <string name="toolbar_collapse_description" msgid="2821479483960330739">"Sutraukti"</string>
     <string name="zen_mode_feature_name" msgid="5254089399895895004">"Netrukdyti"</string>
     <string name="zen_mode_downtime_feature_name" msgid="2626974636779860146">"Prastova"</string>
-    <string name="zen_mode_default_weeknights_name" msgid="3081318299464998143">"Savaitgalio vakarą"</string>
+    <string name="zen_mode_default_weeknights_name" msgid="3081318299464998143">"Darbo dienos vakarą"</string>
     <string name="zen_mode_default_weekends_name" msgid="2786495801019345244">"Savaitgalį"</string>
     <string name="zen_mode_default_events_name" msgid="8158334939013085363">"Įvykis"</string>
     <string name="muted_by" msgid="6147073845094180001">"Nutildė <xliff:g id="THIRD_PARTY">%1$s</xliff:g>"</string>

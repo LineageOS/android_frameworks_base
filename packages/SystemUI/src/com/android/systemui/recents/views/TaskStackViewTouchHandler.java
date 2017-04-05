@@ -168,7 +168,7 @@ class TaskStackViewTouchHandler implements SwipeHelper.Callback {
     /** Touch preprocessing for handling below */
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         // Pass through to swipe helper if we are swiping
-        mInterceptedBySwipeHelper = mSwipeHelper.onInterceptTouchEvent(ev);
+        mInterceptedBySwipeHelper = isSwipingEnabled() && mSwipeHelper.onInterceptTouchEvent(ev);
         if (mInterceptedBySwipeHelper) {
             return true;
         }
@@ -342,8 +342,9 @@ class TaskStackViewTouchHandler implements SwipeHelper.Callback {
                         mSv.invalidate();
                     }
 
-                    // Reset the focused task after the user has scrolled
-                    if (!mSv.mTouchExplorationEnabled) {
+                    // Reset the focused task after the user has scrolled, but we have no scrolling
+                    // in grid layout and therefore we don't want to reset the focus there.
+                    if (!mSv.mTouchExplorationEnabled && !mSv.useGridLayout()) {
                         mSv.resetFocusedTask(mSv.getFocusedTask());
                     }
                 } else if (mActiveTaskView == null) {
@@ -679,5 +680,12 @@ class TaskStackViewTouchHandler implements SwipeHelper.Callback {
      */
     public float getScaledDismissSize() {
         return 1.5f * Math.max(mSv.getWidth(), mSv.getHeight());
+    }
+
+    /**
+     * Returns whether swiping is enabled.
+     */
+    private boolean isSwipingEnabled() {
+        return !mSv.useGridLayout();
     }
 }

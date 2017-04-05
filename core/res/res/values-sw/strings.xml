@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Tatizo la muunganisho au msimbo batili MMI."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Uendeshaji umepunguzwa kwa namba za upigaji simu za kudumu pekee."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Haiwezi kubadilisha mipangilio ya kusambaza simu kutoka kwenye simu yako ukiwa unatumia mitandao mingine."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Huduma iliwezeshwa"</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Huduma iliwezesha kwa:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Hitilafu ya huduma!"</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Huduma za sauti/data zimezuiwa."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Huduma za Sauti/Ujumbe mfupi zimezuiwa."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Huduma zote za Sauti/data/SMS zimezuiwa."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Haiwezi kufikia mtandao"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Ili uboreshe upokeaji, jaribu kubadilisha aina iliyochaguliwa katika Mipangilio &gt; Mitandao ya simu &gt; Aina ya mtandao unaopendelea."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Hali ya TTY iliyoombwa na mtandao mwenza KAMILI"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Hali ya TTY iliyoombwa na mtandao mwenza HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Hali ya TTY iliyoombwa na mtandao mwenza VCO"</string>
@@ -177,6 +180,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Wasifu wa kazini umefutwa kutokana na kupotea kwa programu ya msimamizi."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Programu ya msimamizi wa wasifu wa kazini imepotea au ina hitilafu. Kwa sbabu hiyo, wasifu wako wa kazini na data husika imefutwa. Wasiliana na msimamizi wako kwa usaidizi."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Wasifu wako wa kazini haupatikani tena kwenye kifaa hiki."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Trafiki ya mtandao inachunguzwa"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Gonga ili upate maelezo zaidi"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Data iliyomo kwenye kifaa chako itafutwa"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Programu ya msimamizi inakosa vipengele au ina hitilafu, na haiwezi kutumika. Data iliyomo kwenye kifaa chako sasa itafutwa. Wasiliana na msimamizi wako kwa usaidizi."</string>
     <string name="me" msgid="6545696007631404292">"Mimi"</string>
@@ -1206,6 +1211,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Huruhusu programu kusoma vipindi vya kusanikisha. Hii huiruhusu kuona maelezo kuhusu usanikishaji wa programu unaoendelea."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"omba ruhusa ya kusakinisha vifurushi"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Huruhusu programu kuomba idhini ya kusakinisha vifurushi."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"omba kupuuza uimarishji wa betri"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Huruhusu programu kuomba ruhusa ya kupuuza uimarishaji wa betri katika programu yako."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Gonga mara mbili kwa udhibiti wa kuza"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Haikuweza kuongeza wijeti."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Nenda"</string>
@@ -1232,7 +1239,7 @@
     <string name="wallpaper_binding_label" msgid="1240087844304687662">"Mandhari"</string>
     <string name="chooser_wallpaper" msgid="7873476199295190279">"Badilisha mandhari"</string>
     <string name="notification_listener_binding_label" msgid="2014162835481906429">"Kisikilizi cha arifa"</string>
-    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Kisikilizaji cha Uhalisia Pepe"</string>
+    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Kisikilizaji cha VR"</string>
     <string name="condition_provider_service_binding_label" msgid="1321343352906524564">"Mtoa masharti"</string>
     <string name="notification_ranker_binding_label" msgid="774540592299064747">"Huduma ya kupanga arifa"</string>
     <string name="vpn_title" msgid="19615213552042827">"VPN imewezeshwa"</string>
@@ -1556,7 +1563,7 @@
     <string name="select_year" msgid="7952052866994196170">"Chagua mwaka"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> kimefutwa"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"Ya kazini <xliff:g id="LABEL">%1$s</xliff:g>"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Ili kubandua skrini hii, gusa na ushikilie Nyuma."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Ili kubandua skrini hii, gusa na ushikilie kitufe cha Nyuma na Muhtasari."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Programu imebanwa: Kubanuliwa hakuruhusiwi kwenye kifaa hiki."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Skrini imebandikwa"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Skrini imebanduliwa"</string>

@@ -58,6 +58,7 @@ import com.android.systemui.recents.misc.Utilities;
 import com.android.systemui.recents.model.Task;
 import com.android.systemui.recents.model.TaskStack;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -148,9 +149,9 @@ public class TaskView extends FixedSizeFrameLayout implements Task.TaskCallbacks
     private ArrayList<Animator> mTmpAnimators = new ArrayList<>();
 
     @ViewDebug.ExportedProperty(deepExport=true, prefix="thumbnail_")
-    TaskViewThumbnail mThumbnailView;
+    protected TaskViewThumbnail mThumbnailView;
     @ViewDebug.ExportedProperty(deepExport=true, prefix="header_")
-    TaskViewHeader mHeaderView;
+    protected TaskViewHeader mHeaderView;
     private View mActionButtonView;
     private View mIncompatibleAppToastView;
     private TaskViewCallbacks mCb;
@@ -176,8 +177,7 @@ public class TaskView extends FixedSizeFrameLayout implements Task.TaskCallbacks
         super(context, attrs, defStyleAttr, defStyleRes);
         RecentsConfiguration config = Recents.getConfiguration();
         Resources res = context.getResources();
-        mViewBounds = new AnimateableViewBounds(this, res.getDimensionPixelSize(
-                R.dimen.recents_task_view_shadow_rounded_corners_radius));
+        mViewBounds = createOutlineProvider();
         if (config.fakeShadows) {
             setBackground(new FakeShadowDrawable(res, config));
         }
@@ -194,7 +194,9 @@ public class TaskView extends FixedSizeFrameLayout implements Task.TaskCallbacks
      * Called from RecentsActivity when it is relaunched.
      */
     void onReload(boolean isResumingFromVisible) {
-        resetNoUserInteractionState();
+        if (!Recents.getSystemServices().hasFreeformWorkspaceSupport()) {
+            resetNoUserInteractionState();
+        }
         if (!isResumingFromVisible) {
             resetViewProperties();
         }
@@ -203,6 +205,12 @@ public class TaskView extends FixedSizeFrameLayout implements Task.TaskCallbacks
     /** Gets the task */
     public Task getTask() {
         return mTask;
+    }
+
+    /* Create an outline provider to clip and outline the view */
+    protected AnimateableViewBounds createOutlineProvider() {
+        return new AnimateableViewBounds(this, mContext.getResources().getDimensionPixelSize(
+            R.dimen.recents_task_view_shadow_rounded_corners_radius));
     }
 
     /** Returns the view bounds. */
@@ -232,7 +240,7 @@ public class TaskView extends FixedSizeFrameLayout implements Task.TaskCallbacks
     /**
      * Update the task view when the configuration changes.
      */
-    void onConfigurationChanged() {
+    protected void onConfigurationChanged() {
         mHeaderView.onConfigurationChanged();
     }
 
@@ -260,7 +268,6 @@ public class TaskView extends FixedSizeFrameLayout implements Task.TaskCallbacks
         }
         return super.onInterceptTouchEvent(ev);
     }
-
 
     @Override
     protected void measureContents(int width, int height) {
@@ -360,12 +367,12 @@ public class TaskView extends FixedSizeFrameLayout implements Task.TaskCallbacks
     }
 
     /** Enables/disables handling touch on this task view. */
-    void setTouchEnabled(boolean enabled) {
+    public void setTouchEnabled(boolean enabled) {
         setOnClickListener(enabled ? this : null);
     }
 
     /** Animates this task view if the user does not interact with the stack after a certain time. */
-    void startNoUserInteractionAnimation() {
+    public void startNoUserInteractionAnimation() {
         mHeaderView.startNoUserInteractionAnimation();
     }
 
@@ -666,10 +673,16 @@ public class TaskView extends FixedSizeFrameLayout implements Task.TaskCallbacks
     @Override
     public boolean onLongClick(View v) {
         SystemServicesProxy ssp = Recents.getSystemServices();
-        // Since we are clipping the view to the bounds, manually do the hit test
+        boolean inBounds = false;
         Rect clipBounds = new Rect(mViewBounds.mClipBounds);
-        clipBounds.scale(getScaleX());
-        boolean inBounds = clipBounds.contains(mDownTouchPos.x, mDownTouchPos.y);
+        if (!clipBounds.isEmpty()) {
+            // If we are clipping the view to the bounds, manually do the hit test.
+            clipBounds.scale(getScaleX());
+            inBounds = clipBounds.contains(mDownTouchPos.x, mDownTouchPos.y);
+        } else {
+            // Otherwise just make sure we're within the view's bounds.
+            inBounds = mDownTouchPos.x <= getWidth() && mDownTouchPos.y <= getHeight();
+        }
         if (v == this && inBounds && !ssp.hasDockedTask()) {
             // Start listening for drag events
             setClipViewInStack(false);
@@ -701,5 +714,15 @@ public class TaskView extends FixedSizeFrameLayout implements Task.TaskCallbacks
         event.addPostAnimationCallback(() -> {
             setClipViewInStack(true);
         });
+    }
+
+    public void dump(String prefix, PrintWriter writer) {
+        String innerPrefix = prefix + "  ";
+
+        writer.print(prefix); writer.print("TaskView");
+        writer.print(" mTask="); writer.print(mTask.key.id);
+        writer.println();
+
+        mThumbnailView.dump(innerPrefix, writer);
     }
 }

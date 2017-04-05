@@ -70,7 +70,7 @@
     <string name="screenshot_saving_ticker" msgid="7403652894056693515">"ਸਕ੍ਰੀਨਸ਼ੌਟ ਸੁਰੱਖਿਅਤ ਕਰ ਰਿਹਾ ਹੈ…"</string>
     <string name="screenshot_saving_title" msgid="8242282144535555697">"ਸਕ੍ਰੀਨਸ਼ੌਟ ਸੁਰੱਖਿਅਤ ਕਰ ਰਿਹਾ ਹੈ…"</string>
     <string name="screenshot_saving_text" msgid="2419718443411738818">"ਸਕ੍ਰੀਨਸ਼ੌਟ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ।"</string>
-    <string name="screenshot_saved_title" msgid="6461865960961414961">"ਸਕ੍ਰੀਨਸ਼ੌਟ ਕੈਪਚਰ ਕੀਤਾ।"</string>
+    <string name="screenshot_saved_title" msgid="6461865960961414961">"ਸਕ੍ਰੀਨਸ਼ਾਟ ਕੈਪਚਰ ਕੀਤਾ।"</string>
     <string name="screenshot_saved_text" msgid="2685605830386712477">"ਆਪਣਾ ਸਕ੍ਰੀਨਸ਼ਾਟ ਵੇਖਣ ਲਈ ਟੈਪ ਕਰੋ।"</string>
     <string name="screenshot_failed_title" msgid="705781116746922771">"ਸਕ੍ਰੀਨਸ਼ੌਟ ਕੈਪਚਰ ਨਹੀਂ ਕਰ ਸਕਿਆ।"</string>
     <string name="screenshot_failed_to_save_unknown_text" msgid="7887826345701753830">"ਸਕ੍ਰੀਨਸ਼ਾਟ ਰੱਖਿਅਤ ਕਰਨ ਦੌਰਾਨ ਸਮੱਸਿਆ ਆਈ।"</string>
@@ -398,7 +398,7 @@
     <string name="battery_saver_notification_action_text" msgid="109158658238110382">"ਬੈਟਰੀ ਸੇਵਰ ਬੰਦ ਕਰੋ"</string>
     <string name="media_projection_dialog_text" msgid="3071431025448218928">"<xliff:g id="APP_SEEKING_PERMISSION">%s</xliff:g> ਉਹ ਸਭ ਕੁਝ ਕੈਪਚਰ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰ ਦੇਵੇਗਾ, ਜੋ ਤੁਹਾਡੀ ਸਕ੍ਰੀਨ ਤੇ ਡਿਸਪਲੇ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।"</string>
     <string name="media_projection_remember_text" msgid="3103510882172746752">"ਦੁਬਾਰਾ ਨਾ ਦਿਖਾਓ"</string>
-    <string name="clear_all_notifications_text" msgid="814192889771462828">"ਸਾਰੇ ਹਟਾਓ"</string>
+    <string name="clear_all_notifications_text" msgid="814192889771462828">"ਸਭ ਸਾਫ਼ ਕਰੋ"</string>
     <string name="media_projection_action_text" msgid="8470872969457985954">"ਹੁਣ ਚਾਲੂ ਕਰੋ"</string>
     <string name="empty_shade_text" msgid="708135716272867002">"ਕੋਈ ਸੂਚਨਾਵਾਂ ਨਹੀਂ"</string>
     <string name="device_owned_footer" msgid="3802752663326030053">"ਡੀਵਾਈਸ ਦਾ ਨਿਰੀਖਣ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ"</string>
@@ -408,19 +408,25 @@
     <string name="monitoring_title_device_owned" msgid="7121079311903859610">"ਡੀਵਾਈਸ ਦਾ ਨਿਰੀਖਣ ਕਰਨਾ"</string>
     <string name="monitoring_title_profile_owned" msgid="6790109874733501487">"ਪ੍ਰੋਫਾਈਲ ਦਾ ਨਿਰੀਖਣ ਕਰਨਾ"</string>
     <string name="monitoring_title" msgid="169206259253048106">"ਨੈੱਟਵਰਕ ਨਿਰੀਖਣ ਕਰ ਰਿਹਾ ਹੈ"</string>
+    <string name="monitoring_subtitle_vpn" msgid="876537538087857300">"VPN"</string>
+    <string name="monitoring_subtitle_network_logging" msgid="5569072711320784030">"ਨੈੱਟਵਰਕ ਲੌਗਿੰਗ"</string>
     <string name="disable_vpn" msgid="4435534311510272506">"VPN ਨੂੰ ਅਸਮਰੱਥ ਬਣਾਓ"</string>
     <string name="disconnect_vpn" msgid="1324915059568548655">"VPN ਨੂੰ ਡਿਸਕਨੈਕਟ ਕਰੋ"</string>
-    <string name="monitoring_description_device_owned" msgid="5780988291898461883">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ <xliff:g id="ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਵਿਵਸਥਿਤ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।\n\nਤੁਹਾਡਾ ਪ੍ਰਬੰਧਕ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਸ, ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨਾਲ ਸੰਬੰਧਿਤ ਡੈਟਾ ਅਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦੀ ਨਿਰਧਾਰਿਤ ਸਥਾਨ ਜਾਣਕਾਰੀ ਦਾ ਨਿਰੀਖਣ ਅਤੇ ਉਸਨੂੰ ਵਿਵਸਥਿਤ ਕਰ ਸਕਦਾ ਹੈ। ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="monitoring_description_device_owned" msgid="220006422537330981">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ <xliff:g id="ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।\n\nਤੁਹਾਡਾ ਪ੍ਰਸ਼ਾਸਕ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨਾਲ ਸਬੰਧਿਤ ਡੈਟੇ ਅਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦੀ ਟਿਕਾਣਾ ਜਾਣਕਾਰੀ ਦੀ ਨਿਗਰਾਨੀ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰ ਸਕਦਾ ਹੈ। ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="monitoring_description_do_body_vpn" msgid="8255218762488901796">"ਤੁਸੀਂ <xliff:g id="VPN_APP">%1$s</xliff:g> ਨਾਲ ਕਨੈਕਟ ਹੋ, ਜੋ ਈਮੇਲਾਂ, ਐਪਾਂ, ਅਤੇ ਵੈੱਬਸਾਈਟਾਂ ਸਮੇਤ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰ ਸਕਦੀ ਹੈ।"</string>
+    <string name="monitoring_description_vpn_settings_separator" msgid="1933186756733474388">" "</string>
+    <string name="monitoring_description_vpn_settings" msgid="8869300202410505143">"VPN ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ"</string>
+    <string name="monitoring_description_network_logging" msgid="7223505523384076027">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਨੇ ਨੈੱਟਵਰਕ ਲੌਗਿੰਗ ਨੂੰ ਚਾਲੂ ਕੀਤਾ ਹੋਇਆ ਹੈ, ਜੋ ਤੁਹਾਡੀ ਡੀਵਾਈਸ \'ਤੇ ਟ੍ਰੈਫਿਕ ਦੀ ਨਿਗਰਾਨੀ ਕਰਦਾ ਹੈ।\n\nਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="monitoring_description_vpn" msgid="4445150119515393526">"ਤੁਸੀਂ ਇੱਕ ਐਪ ਨੂੰ ਇੱਕ VPN ਕਨੈਕਸ਼ਨ ਸੈਟ ਅਪ ਕਰਨ ਦੀ ਅਨੁਮਤੀ ਦਿੱਤੀ ਹੈ।\n\nਇਹ ਐਪ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਅਤੇ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਦਾ ਨਿਰੀਖਣ ਕਰ ਸਕਦਾ ਹੈ, ਈਮੇਲਾਂ, ਐਪਸ ਅਤੇ ਸੁਰੱਖਿਅਤ ਵੈਬਸਾਈਟਾਂ ਸਮੇਤ।"</string>
-    <string name="monitoring_description_vpn_device_owned" msgid="3090670777499161246">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ <xliff:g id="ORGANIZATION">%1$s</xliff:g>ਵੱਲੋਂ ਵਿਵਸਥਿਤ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।\n\nਪ੍ਰਬੰਧਕ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਸ, ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨਾਲ ਸੰਬੰਧਿਤ ਡੈਟਾ ਅਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦੀ ਨਿਰਧਾਰਿਤ ਸਥਾਨ ਜਾਣਕਾਰੀ ਦਾ ਨਿਰੀਖਣ ਅਤੇ ਉਸਨੂੰ ਵਿਵਸਥਿਤ ਕਰ ਸਕਦਾ ਹੈ।\n\nਤੁਸੀਂ ਇੱਕ VPN ਨਾਲ ਵੀ ਕਨੈਕਟ ਕੀਤਾ ਹੈ, ਜੋ ਤੁਹਾਡੀ ਨਿੱਜੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਦਾ ਨਿਰੀਖਣ ਕਰ ਸਕਦਾ ਹੈ, ਈਮੇਲਾਂ, ਐਪਸ ਅਤੇ ਵੈਬਸਾਈਟਾਂ ਸਮੇਤ।\n\nਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
-    <string name="monitoring_description_vpn_profile_owned" msgid="2054949132145039290">"ਤੁਹਾਡੀ ਕਾਰਜ ਪ੍ਰੋਫ਼ਾਈਲ <xliff:g id="ORGANIZATION">%1$s</xliff:g> ਦੁਆਰਾ ਵਿਵਸਥਿਤ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।\n\nਤੁਹਾਡਾ ਪ੍ਰਸ਼ਾਸਕ ਈਮੇਲ, ਐਪਸ, ਅਤੇ ਵੈੱਬਪੰਨੇ ਸੰਤੇ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਦੇ ਸਮਰੱਥ ਹੈ।\n\nਵਧੇਰੇ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।\n\nਤੁਸੀਂ VPN ਨਾਲ ਵੀ ਕਨੈਕਟ ਹੋ, ਜੋ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰ ਸਕਦਾ ਹੈ।"</string>
+    <string name="monitoring_description_vpn_device_owned" msgid="6741053132592567634">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ <xliff:g id="ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।\n\nਤੁਹਾਡਾ ਪ੍ਰਸ਼ਾਸਕ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨਾਲ ਜੁੜੇ ਡੈਟੇ ਅਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦੀ ਟਿਕਾਣਾ ਜਾਣਕਾਰੀ ਦੀ ਨਿਗਰਾਨੀ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰ ਸਕਦਾ ਹੈ।\n\nਤੁਸੀਂ ਇੱਕ VPN ਨਾਲ ਕਨੈਕਟ ਹੋ, ਜੋ ਈਮੇਲਾਂ, ਐਪਾਂ, ਅਤੇ ਵੈੱਬਸਾਈਟਾਂ ਸਮੇਤ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰ ਸਕਦਾ ਹੈ।\n\nਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="monitoring_description_vpn_profile_owned" msgid="2958019119161161530">"ਤੁਹਾਡੇ ਕਾਰਜ-ਸਥਾਨ ਪ੍ਰੋਫ਼ਾਈਲ ਦਾ ਪ੍ਰਬੰਧਨ <xliff:g id="ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।\n\nਤੁਹਾਡਾ ਪ੍ਰਸ਼ਾਸਕ ਈਮੇਲ, ਐਪਾਂ, ਅਤੇ ਵੈੱਬਸਾਈਟਾਂ ਸਮੇਤ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਦੇ ਸਮਰੱਥ ਹੈ।\n\nਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।\n\nਤੁਸੀਂ ਇੱਕ VPN ਨਾਲ ਵੀ ਕਨੈਕਟ ਹੋਂ, ਜੋ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰ ਸਕਦਾ ਹੈ।"</string>
     <string name="legacy_vpn_name" msgid="6604123105765737830">"VPN"</string>
     <string name="monitoring_description_app" msgid="6259179342284742878">"ਤੁਸੀਂ <xliff:g id="APPLICATION">%1$s</xliff:g> ਨਾਲ ਕਨੈਕਟ ਹੋ, ਜੋ ਈਮੇਲ, ਐਪਸ ਅਤੇ ਵੈਬਸਫ਼ਿਆਂ ਸਮੇਤ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਦਾ ਨਿਰੀਖਣ ਕਰ ਸਕਦੀ ਹੈ।"</string>
     <string name="monitoring_description_app_personal" msgid="484599052118316268">"ਤੁਸੀਂ <xliff:g id="APPLICATION">%1$s</xliff:g> ਨਾਲ ਕਨੈਕਟ ਹੋ, ਜੋ ਈਮੇਲ, ਐਪਸ ਅਤੇ ਵੈਬਸਫ਼ਿਆਂ ਸਮੇਤ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਦਾ ਨਿਰੀਖਣ ਕਰ ਸਕਦੀ ਹੈ।"</string>
     <string name="branded_monitoring_description_app_personal" msgid="2669518213949202599">"ਤੁਸੀਂ <xliff:g id="APPLICATION">%1$s</xliff:g> ਨਾਲ ਕਨੈਕਟ ਹੋ, ਜੋ ਈਮੇਲਾਂ, ਐਪਾਂ, ਅਤੇ ਵੈੱਬਸਾਈਟਾਂ ਸਮੇਤ ਤੁਹਾਡੀ ਨਿੱਜੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰ ਸਕਦੀ ਹੈ।"</string>
-    <string name="monitoring_description_app_work" msgid="1754325860918060897">"ਤੁਹਾਡੀ ਕਾਰਜ ਪ੍ਰੋਫ਼ਾਈਲ <xliff:g id="ORGANIZATION">%1$s</xliff:g> ਦੁਆਰਾ ਵਿਵਸਥਿਤ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਇਹ <xliff:g id="APPLICATION">%2$s</xliff:g> ਨਾਲ ਕਨੈਕਟ ਹੈ, ਜੋ ਈਮੇਲ, ਐਪਸ ਅਤੇ ਵੈਬਸਫ਼ਿਆਂ ਸਮੇਤ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਦਾ ਨਿਰੀਖਣ ਕਰ ਸਕਦੀ ਹੈ।\n\nਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="monitoring_description_app_work" msgid="7777228449969022305">"ਤੁਹਾਡੇ ਕਾਰਜ-ਸਥਾਨ ਪ੍ਰੋਫ਼ਾਈਲ ਦਾ ਪ੍ਰਬੰਧਨ <xliff:g id="ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਇਹ <xliff:g id="APPLICATION">%2$s</xliff:g> ਨਾਲ ਕਨੈਕਟ ਹੈ, ਜੋ ਈਮੇਲਾਂ, ਐਪਾਂ, ਅਤੇ ਵੈੱਬਸਾਈਟਾਂ ਸਮੇਤ ਤੁਹਾਡੇ ਕਾਰਜ-ਸਥਾਨ ਨੈੱਟਵਰਕ ਦੀ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰ ਸਕਦੀ ਹੈ।\n\nਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="monitoring_description_app_personal_work" msgid="4946600443852045903">"ਤੁਹਾਡੀ ਕਾਰਜ ਪ੍ਰੋਫ਼ਾਈਲ <xliff:g id="ORGANIZATION">%1$s</xliff:g> ਦੁਆਰਾ ਵਿਵਸਥਿਤ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਇਹ <xliff:g id="APPLICATION_WORK">%2$s</xliff:g> ਨਾਲ ਕਨੈਕਟ ਹੈ, ਜੋ ਈਮੇਲ, ਐਪਸ ਅਤੇ ਵੈਬਸਫ਼ਿਆਂ ਸਮੇਤ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਦਾ ਨਿਰੀਖਣ ਕਰ ਸਕਦੀ ਹੈ।\n\nਤੁਸੀਂ <xliff:g id="APPLICATION_PERSONAL">%3$s</xliff:g> ਨਾਲ ਵੀ ਕਨੈਕਟ ਹੋ, ਜੋ ਤੁਹਾਡੀ ਨਿੱਜੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਦਾ ਨਿਰੀਖਣ ਕਰ ਸਕਦਾ ਹੈ।"</string>
-    <string name="monitoring_description_vpn_app_device_owned" msgid="4970443827043261703">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ <xliff:g id="ORGANIZATION">%1$s</xliff:g> ਦੁਆਰਾ ਵਿਵਸਥਿਤ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।\n\nਪ੍ਰਬੰਧਕ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਸ, ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨਾਲ ਸੰਬੰਧਿਤ ਡੈਟਾ ਅਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦੀ ਨਿਰਧਾਰਿਤ ਸਥਾਨ ਜਾਣਕਾਰੀ ਦਾ ਨਿਰੀਖਣ ਅਤੇ ਉਸਨੂੰ ਵਿਵਸਥਿਤ ਕਰ ਸਕਦਾ ਹੈ।\n\nਤੁਸੀਂ ਇੱਕ <xliff:g id="APPLICATION">%2$s</xliff:g> ਨਾਲ ਕਨੈਕਟ ਹੋ, ਜੋ ਈਮੇਲ, ਐਪਸ ਅਤੇ ਵੈੱਬਪੰਨੇ ਸਮੇਤ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰ ਸਕਦਾ ਹੈ।\n\nਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="monitoring_description_vpn_app_device_owned" msgid="6157262536135989204">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ <xliff:g id="ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।\n\nਤੁਹਾਡਾ ਪ੍ਰਸ਼ਾਸਕ ਤੁਹਾਡੀ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨਾਲ ਸਬੰਧਿਤ ਡੈਟੇ ਅਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦੀ ਟਿਕਾਣਾ ਜਾਣਕਾਰੀ ਦੀ ਨਿਗਰਾਨੀ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰ ਸਕਦਾ ਹੈ।\n\nਤੁਸੀਂ ਇੱਕ <xliff:g id="APPLICATION">%2$s</xliff:g> ਐਪ ਨਾਲ ਕਨੈਕਟ ਹੋ, ਜੋ ਈਮੇਲਾਂ, ਐਪਾਂ, ਅਤੇ ਵੈੱਬਸਾਈਟਾਂ ਸਮੇਤ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰ ਸਕਦੀ ਹੈ।\n\nਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="keyguard_indication_trust_disabled" msgid="7412534203633528135">"ਡੀਵਾਈਸ ਲੌਕ ਰਹੇਗੀ ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਮੈਨੂਅਲੀ ਅਨਲੌਕ ਨਹੀਂ ਕਰਦੇ"</string>
     <string name="hidden_notifications_title" msgid="7139628534207443290">"ਤੇਜ਼ੀ ਨਾਲ ਸੂਚਨਾਵਾਂ ਪ੍ਰਾਪਤ ਕਰੋ"</string>
     <string name="hidden_notifications_text" msgid="2326409389088668981">"ਅਨਲੌਕ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਉਹਨਾਂ ਨੂੰ ਦੇਖੋ"</string>
@@ -431,7 +437,8 @@
     <string name="accessibility_volume_expand" msgid="5946812790999244205">"ਵਿਸਤਾਰ ਕਰੋ"</string>
     <string name="accessibility_volume_collapse" msgid="3609549593031810875">"ਨਸ਼ਟ ਕਰੋ"</string>
     <string name="screen_pinning_title" msgid="3273740381976175811">"ਸਕ੍ਰੀਨ ਪਿੰਨ ਕੀਤੀ"</string>
-    <string name="screen_pinning_description" msgid="7238941806855968768">"ਇਹ ਇਸ ਨੂੰ ਤੁਹਾਡੇ ਵੱਲੋਂ ਅਨਪਿੰਨ ਨਾ ਕੀਤੇ ਜਾਣ ਤੱਕ ਦ੍ਰਿਸ਼ ਵਿੱਚ ਰੱਖਦਾ ਹੈ। ਅਨਪਿੰਨ ਕਰਨ ਲਈ ਵਾਪਸ ਜਾਓ ਨੂੰ ਸਪਰਸ਼ ਕਰਕੇ ਦਬਾਈ ਰੱਖੋ।"</string>
+    <string name="screen_pinning_description" msgid="8909878447196419623">"ਇਹ ਇਸ ਨੂੰ ਤਦ ਤੱਕ ਦ੍ਰਿਸ਼ ਵਿੱਚ ਰੱਖਦਾ ਹੈ ਜਦ ਤੱਕ ਤੁਸੀਂ ਅਨਪਿੰਨ ਨਹੀਂ ਕਰਦੇ। ਅਨਪਿੰਨ ਕਰਨ ਲਈ \'ਪਿੱਛੇ\' ਅਤੇ \'ਰੂਪ-ਰੇਖਾ\' ਨੂੰ ਸਪੱਰਸ਼ ਕਰੋ ਅਤੇ ਦਬਾ ਕੇ ਰੱਖੋ।"</string>
+    <string name="screen_pinning_description_accessible" msgid="426190689254018656">"ਇਹ ਇਸ ਨੂੰ ਤਦ ਤੱਕ ਦ੍ਰਿਸ਼ ਵਿੱਚ ਰੱਖਦਾ ਹੈ ਜਦ ਤੱਕ ਤੁਸੀਂ ਅਨਪਿੰਨ ਨਹੀਂ ਕਰਦੇ। ਅਨਪਿੰਨ ਕਰਨ ਲਈ \'ਰੂਪ-ਰੇਖਾ\' ਨੂੰ ਸਪੱਰਸ਼ ਕਰੋ ਅਤੇ ਦਬਾ ਕੇ ਰੱਖੋ।"</string>
     <string name="screen_pinning_positive" msgid="3783985798366751226">"ਸਮਝ ਲਿਆ"</string>
     <string name="screen_pinning_negative" msgid="3741602308343880268">"ਨਹੀਂ ਧੰਨਵਾਦ"</string>
     <string name="quick_settings_reset_confirmation_title" msgid="748792586749897883">"ਕੀ <xliff:g id="TILE_LABEL">%1$s</xliff:g> ਨੂੰ ਲੁਕਾਉਣਾ ਹੈ?"</string>
@@ -652,4 +659,7 @@
     <string name="accessibility_quick_settings_edit" msgid="7839992848995240393">"ਸੈਟਿੰਗਾਂ ਦੇ ਕ੍ਰਮ ਦਾ ਸੰਪਾਦਨ ਕਰੋ।"</string>
     <string name="accessibility_quick_settings_page" msgid="5032979051755200721">"<xliff:g id="ID_2">%2$d</xliff:g> ਦਾ <xliff:g id="ID_1">%1$d</xliff:g> ਪੰਨਾ"</string>
     <string name="cant_silence_or_block" msgid="999689262131488625">"ਸੂਚਨਾਵਾਂ ਨੂੰ ਖਾਮੋਸ਼ ਜਾਂ ਬਲੌਕ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
+    <string name="high_temp_title" msgid="4589508026407318374">"ਫ਼ੋਨ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ"</string>
+    <string name="high_temp_notif_message" msgid="5642466103153429279">"ਫ਼ੋਨ ਦੇ ਠੰਡਾ ਹੋਣ ਦੇ ਦੌਰਾਨ ਕੁਝ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਸੀਮਿਤ ਹੁੰਦੀਆਂ ਹਨ"</string>
+    <string name="high_temp_dialog_message" msgid="6840700639374113553">"ਤੁਹਾਡਾ ਫ਼ੋਨ ਸਵੈਚਲਿਤ ਰੂਪ ਵਿੱਚ ਠੰਡਾ ਹੋਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੇਗਾ। ਤੁਸੀਂ ਹਾਲੇ ਵੀ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਵਰਤ ਸਕਦੇ ਹੋ, ਪਰੰਤੂ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਇਹ ਵਧੇਰੇ ਹੌਲੀ ਚੱਲੇ।\n\nਇੱਕ ਵਾਰ ਠੰਡਾ ਹੋਣ ਤੋਂ ਬਾਅਦ ਤੁਹਾਡਾ ਫ਼ੋਨ ਸਧਾਰਨ ਤੌਰ \'ਤੇ ਚੱਲੇਗਾ।"</string>
 </resources>

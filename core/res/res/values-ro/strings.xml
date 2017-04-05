@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Problemă de conexiune sau cod MMI nevalid."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"Operația este limitată la numerele cu apelări restricționate."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"Nu puteți schimba setările de redirecționare a apelurilor de pe telefon când sunteți în roaming."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"Serviciul a fost activat."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Serviciul a fost activat pentru:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"Serviciul a fost dezactivat."</string>
@@ -97,6 +98,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Serviciile de voce/date sunt blocate."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Serviciile de voce/SMS sunt blocate."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Toate serviciile de voce/date/SMS sunt blocate."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"Nu se poate stabili conexiunea la rețea"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Pentru o recepție mai bună, încercați să schimbați tipul selectat în Setări &gt; Rețele mobile &gt; Tip preferat de rețea."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Cealaltă persoană a solicitat modul TTY cu setarea COMPLET"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Cealaltă persoană a solicitat modul TTY cu setarea HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Cealaltă persoană a solicitat modul TTY cu setarea VCO"</string>
@@ -181,6 +184,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Profilul de serviciu a fost șters, deoarece aplicația de administrare lipsește."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"Aplicația de administrare a profilului de serviciu lipsește sau este deteriorată. Prin urmare, profilul de serviciu și datele asociate au fost șterse. Pentru asistență, contactați administratorul."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Profilul de serviciu nu mai este disponibil pe acest dispozitiv."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Traficul de rețea este monitorizat"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Atingeți ca să aflați mai multe"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Datele de pe dispozitiv vor fi șterse"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"Aplicația de administrare nu poate fi utilizată, deoarece este deteriorată sau îi lipsesc componente. Datele de pe dispozitiv vor fi șterse. Pentru asistență, contactați administratorul."</string>
     <string name="me" msgid="6545696007631404292">"Eu"</string>
@@ -1084,7 +1089,7 @@
     <string name="ringtone_default" msgid="3789758980357696936">"Ton de apel prestabilit"</string>
     <string name="ringtone_default_with_actual" msgid="8129563480895990372">"Ton de apel prestabilit (<xliff:g id="ACTUAL_RINGTONE">%1$s</xliff:g>)"</string>
     <string name="ringtone_silent" msgid="7937634392408977062">"Niciunul"</string>
-    <string name="ringtone_picker_title" msgid="3515143939175119094">"Tonuri de sonerie"</string>
+    <string name="ringtone_picker_title" msgid="3515143939175119094">"Tonuri de apel"</string>
     <string name="ringtone_unknown" msgid="5477919988701784788">"Ton de apel necunoscut"</string>
     <plurals name="wifi_available" formatted="false" msgid="7900333017752027322">
       <item quantity="few">Rețele Wi-Fi disponibile</item>
@@ -1233,6 +1238,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Permite unei aplicații accesul la citirea sesiunilor de instalare. Aceasta poate vedea detalii despre instalările de pachete active."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"să solicite pachete de instalare"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Permite unei aplicații să solicite instalarea pachetelor."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"să solicite ignorarea optimizărilor bateriei"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Permite unei aplicații să solicite permisiunea de a ignora optimizările bateriei pentru aplicația respectivă."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Apăsați de două ori pentru a controla mărirea/micșorarea"</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"Nu s-a putut adăuga widgetul."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Accesați"</string>
@@ -1259,7 +1266,7 @@
     <string name="wallpaper_binding_label" msgid="1240087844304687662">"Imagine de fundal"</string>
     <string name="chooser_wallpaper" msgid="7873476199295190279">"Schimbați imaginea de fundal"</string>
     <string name="notification_listener_binding_label" msgid="2014162835481906429">"Serviciu de citire a notificărilor"</string>
-    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Instrument de ascultare pentru Realitatea virtuală"</string>
+    <string name="vr_listener_binding_label" msgid="4316591939343607306">"Instrument de ascultare pentru RV"</string>
     <string name="condition_provider_service_binding_label" msgid="1321343352906524564">"Furnizor de condiții"</string>
     <string name="notification_ranker_binding_label" msgid="774540592299064747">"Serviciul de clasificare a notificărilor"</string>
     <string name="vpn_title" msgid="19615213552042827">"VPN activat"</string>
@@ -1585,7 +1592,7 @@
     <string name="select_year" msgid="7952052866994196170">"Selectați anul"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> a fost șters"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> de serviciu"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Pentru a anula fixarea acestui ecran, atingeți lung opțiunea Înapoi."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Pentru a anula fixarea acestui ecran, atingeți lung opțiunile Înapoi și Recente."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"Aplicația este fixată: Anularea fixării nu este permisă pe acest dispozitiv."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Ecran fixat"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"Fixarea ecranului anulată"</string>

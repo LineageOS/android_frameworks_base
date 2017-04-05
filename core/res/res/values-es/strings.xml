@@ -46,6 +46,7 @@
     <string name="defaultMsisdnAlphaTag" msgid="2850889754919584674">"MSISDN1"</string>
     <string name="mmiError" msgid="5154499457739052907">"Se ha producido un problema de conexión o el código MMI no es válido."</string>
     <string name="mmiFdnError" msgid="5224398216385316471">"La operación solo es válida para números de marcación fija."</string>
+    <string name="mmiErrorWhileRoaming" msgid="762488890299284230">"No se puede cambiar la configuración de desvío de llamada desde tu teléfono mientras estás en itinerancia."</string>
     <string name="serviceEnabled" msgid="8147278346414714315">"El servicio se ha habilitado."</string>
     <string name="serviceEnabledFor" msgid="6856228140453471041">"Se ha habilitado el servicio para:"</string>
     <string name="serviceDisabled" msgid="1937553226592516411">"El servicio se ha inhabilitado."</string>
@@ -96,6 +97,8 @@
     <string name="RestrictedOnVoiceData" msgid="996636487106171320">"Los servicios de voz y de datos están bloqueados."</string>
     <string name="RestrictedOnVoiceSms" msgid="1888588152792023873">"Todos los servicios de voz y de SMS están bloqueados."</string>
     <string name="RestrictedOnAll" msgid="5643028264466092821">"Todos los servicios de voz, de datos y de SMS están bloqueados."</string>
+    <string name="NetworkPreferenceSwitchTitle" msgid="4008877505368566980">"No se puede establecer conexión con la red"</string>
+    <string name="NetworkPreferenceSwitchSummary" msgid="7335915397439759249">"Para mejorar la recepción, intenta cambiar el tipo seleccionado en Ajustes &gt; Redes móviles &gt; Tipo de red preferida."</string>
     <string name="peerTtyModeFull" msgid="6165351790010341421">"Un dispositivo ha solicitado el modo TTY FULL"</string>
     <string name="peerTtyModeHco" msgid="5728602160669216784">"Un dispositivo ha solicitado el modo TTY HCO"</string>
     <string name="peerTtyModeVco" msgid="1742404978686538049">"Un dispositivo ha solicitado el modo TTY VCO"</string>
@@ -179,6 +182,8 @@
     <string name="work_profile_deleted_description" msgid="6305147513054341102">"Perfil de trabajo eliminado porque falta la aplicación de administración."</string>
     <string name="work_profile_deleted_details" msgid="226615743462361248">"La aplicación de administración del perfil de trabajo falta o está dañada. Como consecuencia, se han eliminado tu perfil de trabajo y todos los datos asociados. Si necesitas ayuda, ponte en contacto con tu administrador."</string>
     <string name="work_profile_deleted_description_dpm_wipe" msgid="6019770344820507579">"Tu perfil de trabajo ya no está disponible en este dispositivo."</string>
+    <string name="network_logging_notification_title" msgid="1805392571290161924">"Se está controlando el tráfico de la red"</string>
+    <string name="network_logging_notification_text" msgid="2671761001956320094">"Toca la notificación para obtener más información"</string>
     <string name="factory_reset_warning" msgid="5423253125642394387">"Tu dispositivo se borrará"</string>
     <string name="factory_reset_message" msgid="4905025204141900666">"La aplicación de administración no se puede usar porque está dañada o le faltan componentes. Tu dispositivo se borrará. Si necesitas ayuda, ponte en contacto con tu administrador."</string>
     <string name="me" msgid="6545696007631404292">"Yo"</string>
@@ -258,7 +263,7 @@
     <string name="permgrouplab_camera" msgid="4820372495894586615">"Cámara"</string>
     <string name="permgroupdesc_camera" msgid="3250611594678347720">"hacer fotos y grabar vídeos"</string>
     <string name="permgrouplab_phone" msgid="5229115638567440675">"Teléfono"</string>
-    <string name="permgroupdesc_phone" msgid="6234224354060641055">"hacer y administrar llamadas de teléfono"</string>
+    <string name="permgroupdesc_phone" msgid="6234224354060641055">"hacer y administrar llamadas telefónicas"</string>
     <string name="permgrouplab_sensors" msgid="416037179223226722">"Sensores corporales"</string>
     <string name="permgroupdesc_sensors" msgid="7147968539346634043">"acceder a datos de sensores de tus constantes vitales"</string>
     <string name="capability_title_canRetrieveWindowContent" msgid="3901717936930170320">"Recuperar el contenido de la ventana"</string>
@@ -1208,6 +1213,8 @@
     <string name="permdesc_readInstallSessions" msgid="2049771699626019849">"Permite que una aplicación consulte sesiones de instalación para ver detalles sobre instalaciones de paquetes activos."</string>
     <string name="permlab_requestInstallPackages" msgid="5782013576218172577">"solicitar instalación de paquetes"</string>
     <string name="permdesc_requestInstallPackages" msgid="5740101072486783082">"Permite a una aplicación solicitar la instalación de paquetes."</string>
+    <string name="permlab_requestIgnoreBatteryOptimizations" msgid="8021256345643918264">"solicitar permiso para ignorar las optimizaciones de la batería"</string>
+    <string name="permdesc_requestIgnoreBatteryOptimizations" msgid="8359147856007447638">"Permite que una aplicación solicite permiso para ignorar las optimizaciones de la batería."</string>
     <string name="tutorial_double_tap_to_zoom_message_short" msgid="1311810005957319690">"Da dos toques para acceder al control de zoom."</string>
     <string name="gadget_host_error_inflating" msgid="4882004314906466162">"No se ha podido añadir el widget."</string>
     <string name="ime_action_go" msgid="8320845651737369027">"Ir"</string>
@@ -1558,7 +1565,7 @@
     <string name="select_year" msgid="7952052866994196170">"Seleccionar año"</string>
     <string name="deleted_key" msgid="7659477886625566590">"<xliff:g id="KEY">%1$s</xliff:g> eliminado"</string>
     <string name="managed_profile_label_badge" msgid="2355652472854327647">"<xliff:g id="LABEL">%1$s</xliff:g> de trabajo"</string>
-    <string name="lock_to_app_toast" msgid="1420543809500606964">"Mantén pulsado el botón Atrás para dejar de fijar esta pantalla."</string>
+    <string name="lock_to_app_toast" msgid="7693684144593484">"Mantén pulsado el botón Atrás y el de aplicaciones recientes para dejar de fijar esta pantalla."</string>
     <string name="lock_to_app_toast_locked" msgid="9125176335701699164">"La aplicación está fijada: no se puede deshacer la fijación en este dispositivo."</string>
     <string name="lock_to_app_start" msgid="6643342070839862795">"Pantalla fijada"</string>
     <string name="lock_to_app_exit" msgid="8598219838213787430">"La pantalla ya no está fija"</string>

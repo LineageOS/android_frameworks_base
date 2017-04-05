@@ -25,6 +25,7 @@ import android.annotation.SdkConstant.SdkConstantType;
 import android.annotation.SystemApi;
 import android.annotation.UserIdInt;
 import android.app.Activity;
+import android.app.admin.NetworkEvent;
 import android.app.admin.SecurityLog.SecurityEvent;
 import android.content.ComponentName;
 import android.content.Context;
@@ -360,7 +361,7 @@ public class DevicePolicyManager {
      * @hide
      */
     public static final String ACTION_BUGREPORT_SHARING_ACCEPTED =
-            "com.android.server.action.BUGREPORT_SHARING_ACCEPTED";
+            "com.android.server.action.REMOTE_BUGREPORT_SHARING_ACCEPTED";
 
     /**
      * Action: Bugreport sharing with device owner has been declined by the user.
@@ -368,7 +369,7 @@ public class DevicePolicyManager {
      * @hide
      */
     public static final String ACTION_BUGREPORT_SHARING_DECLINED =
-            "com.android.server.action.BUGREPORT_SHARING_DECLINED";
+            "com.android.server.action.REMOTE_BUGREPORT_SHARING_DECLINED";
 
     /**
      * Action: Bugreport has been collected and is dispatched to {@link DevicePolicyManagerService}.
@@ -947,6 +948,15 @@ public class DevicePolicyManager {
     @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
     public static final String ACTION_SET_NEW_PARENT_PROFILE_PASSWORD
             = "android.app.action.SET_NEW_PARENT_PROFILE_PASSWORD";
+
+    /**
+     * Broadcast action: Tell the status bar to open the device monitoring dialog, e.g. when
+     * Network logging was enabled and the user tapped the notification.
+     * <p class="note">This is a protected intent that can only be sent by the system.</p>
+     * @hide
+     */
+    public static final String ACTION_SHOW_DEVICE_MONITORING_DIALOG
+            = "android.app.action.SHOW_DEVICE_MONITORING_DIALOG";
 
     /**
      * Flag used by {@link #addCrossProfileIntentFilter} to allow activities in
@@ -6620,6 +6630,83 @@ public class DevicePolicyManager {
     public boolean isBackupServiceEnabled(@NonNull ComponentName admin) {
         try {
             return mService.isBackupServiceEnabled(admin);
+        } catch (RemoteException re) {
+            throw re.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * Called by a device owner to control the network logging feature. Logging can only be
+     * enabled on single user devices where the sole user is managed by the device owner. If a new
+     * user is added on the device, logging is disabled.
+     *
+     * <p> Network logs contain DNS lookup and connect() library call events.
+     *
+     * @param admin Which {@link DeviceAdminReceiver} this request is associated with.
+     * @param enabled whether network logging should be enabled or not.
+     * @throws {@link SecurityException} if {@code admin} is not a device owner.
+     * @see #retrieveNetworkLogs
+     *
+     * @hide
+     */
+    public void setNetworkLoggingEnabled(@NonNull ComponentName admin, boolean enabled) {
+        throwIfParentInstance("setNetworkLoggingEnabled");
+        try {
+            mService.setNetworkLoggingEnabled(admin, enabled);
+        } catch (RemoteException re) {
+            throw re.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * Return whether network logging is enabled by a device owner.
+     *
+     * @param admin Which {@link DeviceAdminReceiver} this request is associated with. Can only
+     * be {@code null} if the caller has MANAGE_USERS permission.
+     * @return {@code true} if network logging is enabled by device owner, {@code false} otherwise.
+     * @throws {@link SecurityException} if {@code admin} is not a device owner and caller has
+     * no MANAGE_USERS permission
+     *
+     * @hide
+     */
+    public boolean isNetworkLoggingEnabled(@Nullable ComponentName admin) {
+        throwIfParentInstance("isNetworkLoggingEnabled");
+        try {
+            return mService.isNetworkLoggingEnabled(admin);
+        } catch (RemoteException re) {
+            throw re.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * Called by device owner to retrieve the most recent batch of network logging events.
+     * A device owner has to provide a batchToken provided as part of
+     * {@link DeviceAdminReceiver#onNetworkLogsAvailable} callback. If the token doesn't match the
+     * token of the most recent available batch of logs, {@code null} will be returned.
+     *
+     * <p> {@link NetworkEvent} can be one of {@link DnsEvent} or {@link ConnectEvent}.
+     *
+     * <p> The list of network events is sorted chronologically, and contains at most 1200 events.
+     *
+     * <p> Access to the logs is rate limited and this method will only return a new batch of logs
+     * after the device device owner has been notified via
+     * {@link DeviceAdminReceiver#onNetworkLogsAvailable}.
+     *
+     * @param admin Which {@link DeviceAdminReceiver} this request is associated with.
+     * @param batchToken A token of the batch to retrieve
+     * @return A new batch of network logs which is a list of {@link NetworkEvent}. Returns
+     *        {@code null} if the batch represented by batchToken is no longer available or if
+     *        logging is disabled.
+     * @throws {@link SecurityException} if {@code admin} is not a device owner.
+     * @see DeviceAdminReceiver#onNetworkLogsAvailable
+     *
+     * @hide
+     */
+    public @Nullable List<NetworkEvent> retrieveNetworkLogs(@NonNull ComponentName admin,
+            long batchToken) {
+        throwIfParentInstance("retrieveNetworkLogs");
+        try {
+            return mService.retrieveNetworkLogs(admin, batchToken);
         } catch (RemoteException re) {
             throw re.rethrowFromSystemServer();
         }
