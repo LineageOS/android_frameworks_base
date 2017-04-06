@@ -380,11 +380,6 @@ public class ConnectivityService extends IConnectivityManager.Stub
     private static final int EVENT_SET_ACCEPT_UNVALIDATED = 28;
 
     /**
-     * used to specify whether a network should not be penalized when it becomes unvalidated.
-     */
-    private static final int EVENT_SET_AVOID_UNVALIDATED = 35;
-
-    /**
      * used to ask the user to confirm a connection to an unvalidated network.
      * obj  = network
      */
@@ -410,6 +405,16 @@ public class ConnectivityService extends IConnectivityManager.Stub
      */
     private static final int EVENT_REQUEST_LINKPROPERTIES  = 32;
     private static final int EVENT_REQUEST_NETCAPABILITIES = 33;
+
+    /**
+     * used to specify whether a network should not be penalized when it becomes unvalidated.
+     */
+    private static final int EVENT_SET_AVOID_UNVALIDATED = 35;
+
+    /**
+     * used to trigger revalidation of a network.
+     */
+    private static final int EVENT_REVALIDATE_NETWORK = 36;
 
     /** Handler thread used for both of the handlers below. */
     @VisibleForTesting
@@ -3046,6 +3051,11 @@ public class ConnectivityService extends IConnectivityManager.Stub
                     }
                     break;
                 }
+                case EVENT_REVALIDATE_NETWORK: {
+                    boolean hasConnectivity = (msg.arg2 == 1);
+                    handleReportNetworkConnectivity((Network) msg.obj, msg.arg1, hasConnectivity);
+                    break;
+                }
             }
         }
     }
@@ -3226,8 +3236,14 @@ public class ConnectivityService extends IConnectivityManager.Stub
     public void reportNetworkConnectivity(Network network, boolean hasConnectivity) {
         enforceAccessPermission();
         enforceInternetPermission();
+        final int uid = Binder.getCallingUid();
+        final int connectivityInfo = hasConnectivity ? 1 : 0;
+        mHandler.sendMessage(
+                mHandler.obtainMessage(EVENT_REVALIDATE_NETWORK, uid, connectivityInfo, network));
+    }
 
-        // TODO: execute this logic on ConnectivityService handler.
+    private void handleReportNetworkConnectivity(
+            Network network, int uid, boolean hasConnectivity) {
         final NetworkAgentInfo nai;
         if (network == null) {
             nai = getDefaultNetwork();
@@ -3242,10 +3258,9 @@ public class ConnectivityService extends IConnectivityManager.Stub
         if (hasConnectivity == nai.lastValidated) {
             return;
         }
-        final int uid = Binder.getCallingUid();
         if (DBG) {
-            log("reportNetworkConnectivity(" + nai.network.netId + ", " + hasConnectivity +
-                    ") by " + uid);
+            int netid = nai.network.netId;
+            log("reportNetworkConnectivity(" + netid + ", " + hasConnectivity + ") by " + uid);
         }
         // Validating a network that has not yet connected could result in a call to
         // rematchNetworkAndRequests() which is not meant to work on such networks.
