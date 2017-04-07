@@ -1433,6 +1433,15 @@ public class WifiP2pManager {
         }
     }
 
+    /** @hide */
+    public boolean isAutonomousGroupOwner() {
+        try {
+            return mService.isAutonomousGroupOwner();
+        } catch(RemoteException e) {
+            return false;
+        }
+    }
+
     /**
      * Get a reference to WifiP2pService handler. This is used to establish
      * an AsyncChannel communication with WifiService
