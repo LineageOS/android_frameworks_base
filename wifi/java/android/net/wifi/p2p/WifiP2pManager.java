@@ -1027,6 +1027,34 @@ public class WifiP2pManager {
     }
 
     /**
+     * Create a p2p group with the current device as the group owner. This essentially creates
+     * an access point that can accept connections from legacy clients as well as other p2p
+     * devices.
+     *
+     * <p class="note"><strong>Note:</strong>
+     * This function would normally not be used unless the current device needs
+     * to form a p2p connection with a legacy client
+     *
+     * <p> The function call immediately returns after sending a group creation request
+     * to the framework. The application is notified of a success or failure to initiate
+     * group creation through listener callbacks {@link ActionListener#onSuccess} or
+     * {@link ActionListener#onFailure}.
+     *
+     * <p> Application can request for the group details with {@link #requestGroupInfo}.
+     *
+     * @param c is the channel created at {@link #initialize}
+     * @param mNetId is the net id
+     * @param listener for callbacks on success or failure. Can be null.
+     */
+    public void createGroup(Channel c, int mNetId, ActionListener listener) {
+        checkChannel(c);
+        if (mNetId < 0)
+                this.createGroup(c, listener);
+        else
+                c.mAsyncChannel.sendMessage(CREATE_GROUP, mNetId, c.putListener(listener));
+    }
+
+    /**
      * Remove the current p2p group.
      *
      * <p> The function call immediately returns after sending a group removal request
