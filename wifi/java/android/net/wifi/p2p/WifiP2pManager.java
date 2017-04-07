@@ -1076,6 +1076,22 @@ public class WifiP2pManager {
     }
 
     /**
+     * Start a saved p2p group with the current device as the group owner.
+     *
+     * @param c is the channel created at {@link #initialize}
+     * @param mNetId is the net id
+     * @param listener for callbacks on success or failure. Can be null.
+     * @hide
+     */
+    public void createGroup(Channel c, int mNetId, ActionListener listener) {
+        checkChannel(c);
+        if (mNetId < 0)
+                this.createGroup(c, listener);
+        else
+                c.mAsyncChannel.sendMessage(CREATE_GROUP, mNetId, c.putListener(listener));
+    }
+
+    /**
      * Remove the current p2p group.
      *
      * <p> The function call immediately returns after sending a group removal request
