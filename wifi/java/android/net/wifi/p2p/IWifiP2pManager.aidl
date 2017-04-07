@@ -30,5 +30,6 @@ interface IWifiP2pManager
     oneway void close(in IBinder binder);
     void setMiracastMode(int mode);
     void checkConfigureWifiDisplayPermission();
+    boolean isAutonomousGroupOwner();
 }
 
