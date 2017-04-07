@@ -477,6 +477,13 @@ public class WifiP2pManager {
     /** @hide */
     public static final int REPORT_NFC_HANDOVER_FAILED              = BASE + 81;
 
+    /** @hide */
+    public static final int CANCEL_WPS                              = BASE + 82;
+    /** @hide */
+    public static final int CANCEL_WPS_FAILED                       = BASE + 83;
+    /** @hide */
+    public static final int CANCEL_WPS_SUCCEEDED                    = BASE + 84;
+
 
     /**
      * Create a new WifiP2pManager instance. Applications use
@@ -767,6 +774,7 @@ public class WifiP2pManager {
                     case DELETE_PERSISTENT_GROUP_FAILED:
                     case SET_WFD_INFO_FAILED:
                     case START_WPS_FAILED:
+                    case CANCEL_WPS_FAILED:
                     case START_LISTEN_FAILED:
                     case STOP_LISTEN_FAILED:
                     case SET_CHANNEL_FAILED:
@@ -793,6 +801,7 @@ public class WifiP2pManager {
                     case DELETE_PERSISTENT_GROUP_SUCCEEDED:
                     case SET_WFD_INFO_SUCCEEDED:
                     case START_WPS_SUCCEEDED:
+                    case CANCEL_WPS_SUCCEEDED:
                     case START_LISTEN_SUCCEEDED:
                     case STOP_LISTEN_SUCCEEDED:
                     case SET_CHANNEL_SUCCEEDED:
@@ -1120,6 +1129,15 @@ public class WifiP2pManager {
     public void startWps(Channel c, WpsInfo wps, ActionListener listener) {
         checkChannel(c);
         c.mAsyncChannel.sendMessage(START_WPS, 0, c.putListener(listener), wps);
+    }
+
+    /**
+     * Cancel any ongoing Wi-fi Protected Setup sessions.
+     * @hide
+     */
+    public void cancelWps(Channel c, ActionListener listener) {
+         checkChannel(c);
+         c.mAsyncChannel.sendMessage(CANCEL_WPS, 0, c.putListener(listener));
     }
 
     /**
