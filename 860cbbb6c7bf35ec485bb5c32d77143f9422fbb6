@@ -16,6 +16,23 @@
       "revId": "860cbbb6c7bf35ec485bb5c32d77143f9422fbb6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51691d_3b090b2d",
+        "filename": "packages/Keyguard/res/values/cm_strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-04-09T11:30:24Z",
+      "side": 1,
+      "message": "Don\u0027t wrap the strings to new lines, it looks bad in crowdin",
+      "revId": "860cbbb6c7bf35ec485bb5c32d77143f9422fbb6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
