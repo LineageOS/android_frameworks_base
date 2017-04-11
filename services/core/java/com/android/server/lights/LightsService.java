@@ -149,7 +149,7 @@ public class LightsService extends SystemService {
             }
 
             if ((mModesUpdate || color != mColor || mode != mMode || onMS != mOnMS || offMS != mOffMS ||
-                    mBrightnessMode != brightnessMode)) {
+                    mBrightnessMode != brightnessMode || mReset)) {
                 if (DEBUG) Slog.v(TAG, "setLight #" + mId + ": color=#"
                         + Integer.toHexString(color) + ": brightnessMode=" + brightnessMode);
                 mLastColor = mColor;
@@ -185,11 +185,11 @@ public class LightsService extends SystemService {
         private int mBrightnessMode;
         private int mLastBrightnessMode;
         private int mLastColor;
+        private boolean mVrModeEnabled;
+        private boolean mUseLowPersistenceForVR;
         private boolean mModesUpdate;
         private boolean mMultipleLeds;
         private boolean mReset = true;
-        private boolean mVrModeEnabled;
-        private boolean mUseLowPersistenceForVR;
     }
 
     public LightsService(Context context) {

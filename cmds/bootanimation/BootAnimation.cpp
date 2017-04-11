@@ -58,9 +58,6 @@
 #include <EGL/eglext.h>
 
 #include "BootAnimation.h"
-
-#include <private/regionalization/Environment.h>
-
 #include "audioplay.h"
 
 namespace android {
@@ -261,35 +258,6 @@ status_t BootAnimation::initTexture(FileMap* map, int* width, int* height)
     return NO_ERROR;
 }
 
-
-// Get bootup Animation File
-// Parameter: ImageID: IMG_OEM IMG_SYS IMG_ENC
-// Return Value : File path
-const char *BootAnimation::getAnimationFileName(ImageID image)
-{
-    const char *fileName[3] = { OEM_BOOTANIMATION_FILE,
-            SYSTEM_BOOTANIMATION_FILE,
-            SYSTEM_ENCRYPTED_BOOTANIMATION_FILE };
-
-    // Load animations of Carrier through regionalization environment
-    if (Environment::isSupported()) {
-        Environment* environment = new Environment();
-        const char* animFile = environment->getMediaFile(
-                Environment::ANIMATION_TYPE, Environment::BOOT_STATUS);
-        ALOGE("Get Carrier Animation type: %d,status:%d", Environment::ANIMATION_TYPE,Environment::BOOT_STATUS);
-        if (animFile != NULL && strcmp(animFile, "") != 0) {
-           return animFile;
-        }else{
-           ALOGD("Get Carrier Animation file: %s failed", animFile);
-        }
-        delete environment;
-    }else{
-           ALOGE("Get Carrier Animation file,since it's not support carrier");
-    }
-
-    return fileName[image];
-}
-
 status_t BootAnimation::readyToRun() {
     mAssets.addDefaultAssets();
 
@@ -351,14 +319,14 @@ status_t BootAnimation::readyToRun() {
 
     bool encryptedAnimation = atoi(decrypt) != 0 || !strcmp("trigger_restart_min_framework", decrypt);
 
-    if (encryptedAnimation && (access(getAnimationFileName(IMG_ENC), R_OK) == 0)) {
-        mZipFileName = getAnimationFileName(IMG_ENC);
+    if (encryptedAnimation && (access(SYSTEM_ENCRYPTED_BOOTANIMATION_FILE, R_OK) == 0)) {
+        mZipFileName = SYSTEM_ENCRYPTED_BOOTANIMATION_FILE;
     }
-    else if (access(getAnimationFileName(IMG_OEM), R_OK) == 0) {
-        mZipFileName = getAnimationFileName(IMG_OEM);
+    else if (access(OEM_BOOTANIMATION_FILE, R_OK) == 0) {
+        mZipFileName = OEM_BOOTANIMATION_FILE;
     }
-    else if (access(getAnimationFileName(IMG_SYS), R_OK) == 0) {
-        mZipFileName = getAnimationFileName(IMG_SYS);
+    else if (access(SYSTEM_BOOTANIMATION_FILE, R_OK) == 0) {
+        mZipFileName = SYSTEM_BOOTANIMATION_FILE;
     }
     return NO_ERROR;
 }

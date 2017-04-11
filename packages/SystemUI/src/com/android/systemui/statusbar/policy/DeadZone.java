@@ -24,7 +24,6 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.util.Slog;
 import android.view.MotionEvent;
-import android.view.Surface;
 import android.view.View;
 
 import com.android.systemui.R;
@@ -56,7 +55,6 @@ public class DeadZone extends View {
     private boolean mVertical;
     private boolean mStartFromRight;
     private long mLastPokeTime;
-    private int mDisplayRotation;
 
     private final Runnable mDebugFlash = new Runnable() {
         @Override
@@ -206,9 +204,5 @@ public class DeadZone extends View {
         if (DEBUG && size > mSizeMin)
             // crazy aggressive redrawing here, for debugging only
             postInvalidateDelayed(100);
-    }
-
-    public void setDisplayRotation(int rotation) {
-        mDisplayRotation = rotation;
     }
 }

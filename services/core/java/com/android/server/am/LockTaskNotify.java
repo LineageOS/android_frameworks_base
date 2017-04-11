@@ -62,7 +62,7 @@ public class LockTaskNotify {
         } else if (lockTaskModeState == ActivityManager.LOCK_TASK_MODE_PINNED) {
             textResId = R.string.lock_to_app_toast;
         } else {
-            textResId = hasNavigationBar() ? 
+            textResId = hasNavigationBar() ?
                     R.string.lock_to_app_toast : R.string.lock_to_app_toast_no_navbar;
         }
         if (mLastToast != null) {
