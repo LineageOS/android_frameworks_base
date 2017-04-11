@@ -1283,10 +1283,6 @@
     <integer-array name="config_autoBrightnessKeyboardBacklightValues">
     </integer-array>
 
-    <integer name="config_buttonBrightnessSettingDefault">255</integer>
-    <integer name="config_keyboardBrightnessSettingDefault">0</integer>
-    <bool name="config_deviceHasVariableButtonBrightness">false</bool>
-
     <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
          percent. The length of this array is assumed to be one greater than
          config_dynamicHysteresisLuxLevels. The brightening threshold is calculated as
@@ -1341,6 +1337,10 @@
          config_dozeModeSensorLuxLevels description for how the backlight value is chosen. -->
     <integer-array name="config_dozeBrightnessBacklightValues">
     </integer-array>
+
+    <integer name="config_buttonBrightnessSettingDefault">255</integer>
+    <integer name="config_keyboardBrightnessSettingDefault">0</integer>
+    <bool name="config_deviceHasVariableButtonBrightness">false</bool>
 
     <!-- Amount of time it takes for the light sensor to warm up in milliseconds.
          For this time after the screen turns on, the Power Manager
@@ -2850,8 +2850,6 @@
     <!-- emergency call number for the emergency affordance -->
     <string name="config_emergency_call_number" translatable="false">112</string>
 
-    <bool name="single_hand_mode">true</bool>
-
     <!-- Do not translate. Mcc codes whose existence trigger the presence of emergency
          affordances-->
     <integer-array name="config_emergency_mcc_codes" translatable="false">
@@ -2898,6 +2896,13 @@
     <!-- An array of packages for which notifications cannot be blocked. -->
     <string-array translatable="false" name="config_nonBlockableNotificationPackages" />
 
+    <!-- Specifies whether the permissions needed by a legacy app should be
+         reviewed before any of its components can run. A legacy app is one
+         with targetSdkVersion < 23, i.e apps using the old permission model.
+         If review is not required, permissions are reviewed before the app
+         is installed. -->
+    <bool name="config_permissionReviewRequired">false</bool>
+
     <!-- Timeout in MS for how long you have to long-press the back key to
          kill the foreground app. -->
     <integer name="config_backKillTimeout">2000</integer>
@@ -2938,11 +2943,5 @@
     <!-- Allow the flashlight to use wakelocks -->
     <bool name="config_useWakeLockForFlashlight">false</bool>
 
-    <!-- Specifies whether the permissions needed by a legacy app should be
-         reviewed before any of its components can run. A legacy app is one
-         with targetSdkVersion < 23, i.e apps using the old permission model.
-         If review is not required, permissions are reviewed before the app
-         is installed. -->
-    <bool name="config_permissionReviewRequired">false</bool>
-
+    <bool name="single_hand_mode">true</bool>
 </resources>
