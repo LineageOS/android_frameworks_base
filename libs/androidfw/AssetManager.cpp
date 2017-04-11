@@ -815,7 +815,6 @@ void AssetManager::addSystemOverlays(const char* pathOverlaysList,
             sharedRes->add(oass, oidmap, offset + 1, false);
             const_cast<AssetManager*>(this)->mAssetPaths.add(oap);
             const_cast<AssetManager*>(this)->mZipSet.addOverlay(targetPackagePath, oap);
-
             oidmap->close();
             delete oidmap;
             ALOGD("close idmap=%s pid=%d\n", oap.idmap.string(), getpid());
@@ -824,8 +823,8 @@ void AssetManager::addSystemOverlays(const char* pathOverlaysList,
         if (oap.path.find(OVERLAY_DIR) != -1) {
            const_cast<AssetManager*>(this)->mZipSet.closeZipFromPath(oap.path);
            ALOGD("close: %s and reset entry\n", oap.path.string());
-        }
-    }
+       }
+   }
 
 #ifndef _WIN32
     TEMP_FAILURE_RETRY(flock(fileno(fin), LOCK_UN));

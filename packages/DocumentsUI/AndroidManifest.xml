@@ -12,7 +12,7 @@
         android:name=".DocumentsApplication"
         android:label="@string/app_label"
         android:icon="@mipmap/ic_launcher_filemanager"
-        android:roundIcon="@mipmap/ic_app_icon"
+        android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true">
 
         <activity

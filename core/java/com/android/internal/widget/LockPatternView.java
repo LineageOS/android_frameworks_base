@@ -1173,6 +1173,7 @@ public class LockPatternView extends View {
                     CellState cellState = mCellStates[i][j];
                     float centerX = getCenterXForColumn(j);
                     float translationY = cellState.translationY;
+
                     if (mUseLockPatternDrawable) {
                         drawCellDrawable(canvas, i, j, cellState.radius, drawLookup[i][j]);
                     } else {
