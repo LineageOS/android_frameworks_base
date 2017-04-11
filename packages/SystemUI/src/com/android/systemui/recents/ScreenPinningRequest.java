@@ -260,6 +260,7 @@ public class ScreenPinningRequest implements View.OnClickListener {
             }
             return false;
         }
+
         private void swapChildrenIfRtlAndVertical(View group) {
             if (mContext.getResources().getConfiguration().getLayoutDirection()
                     != View.LAYOUT_DIRECTION_RTL) {
