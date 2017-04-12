@@ -53,7 +53,7 @@ import java.util.ArrayList;
  * <p>Pin the default camera application if specified in config_pinnerCameraApp.</p>
  */
 public final class PinnerService extends SystemService {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     private static final String TAG = "PinnerService";
 
     private final Context mContext;
