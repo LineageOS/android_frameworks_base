@@ -610,7 +610,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     private VisualizerView mVisualizerView;
     private boolean mScreenOn;
-    private boolean mKeyguardShowingMedia;
 
     private MediaSessionManager mMediaSessionManager;
     private MediaController mMediaController;
@@ -2395,7 +2394,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), artworkBitmap);
             }
         }
-        mKeyguardShowingMedia = artworkDrawable != null;
+
+        final boolean hasArtwork = artworkDrawable != null;
 
         boolean allowWhenShade = false;
         if (ENABLE_LOCKSCREEN_WALLPAPER && artworkDrawable == null) {
@@ -2414,7 +2414,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 && mStatusBarKeyguardViewManager.isOccluded();
 
         final boolean keyguardVisible = (mState != StatusBarState.SHADE);
-        final boolean hasArtwork = artworkDrawable != null;
+        final boolean blurEnabled = CMSettings.Secure.getInt(mContext.getContentResolver(),
+                    CMSettings.Secure.LOCK_SCREEN_BLUR_ENABLED, 0) == 1;
+        final boolean showWallPaper = hasArtwork || (!blurEnabled && artworkDrawable != null);
 
         if (!mKeyguardFadingAway && keyguardVisible && hasArtwork && mScreenOn) {
             // if there's album art, ensure visualizer is visible
@@ -2424,13 +2426,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                             == PlaybackState.STATE_PLAYING);
         }
 
-        if (keyguardVisible && mKeyguardShowingMedia &&
+        if (keyguardVisible && hasArtwork &&
                 (artworkDrawable instanceof BitmapDrawable)) {
             // always use current backdrop to color eq
             mVisualizerView.setBitmap(((BitmapDrawable)artworkDrawable).getBitmap());
         }
 
-        if ((hasArtwork || DEBUG_MEDIA_FAKE_ARTWORK)
+        if ((showWallPaper || DEBUG_MEDIA_FAKE_ARTWORK)
                 && (mState != StatusBarState.SHADE || allowWhenShade)
                 && mFingerprintUnlockController.getMode()
                         != FingerprintUnlockController.MODE_WAKE_AND_UNLOCK_PULSING
@@ -3752,7 +3754,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mStatusBarWindowManager = new StatusBarWindowManager(mContext);
         mRemoteInputController = new RemoteInputController(mStatusBarWindowManager,
                 mHeadsUpManager);
-        mStatusBarWindowManager.setShowingMedia(mKeyguardShowingMedia);
         mStatusBarWindowManager.add(mStatusBarWindow, getStatusBarHeight());
         mKeyguardMonitor.addCallback(mStatusBarWindowManager);
     }
