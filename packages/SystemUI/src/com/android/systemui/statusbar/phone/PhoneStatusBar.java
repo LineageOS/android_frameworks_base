@@ -2512,7 +2512,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
 
         if (mStatusBarWindowManager != null) {
-            mStatusBarWindowManager.setShowingMedia(hasArtwork);
+            mStatusBarWindowManager.setShowingMedia(mKeyguardShowingMedia);
         }
         Trace.endSection();
     }
