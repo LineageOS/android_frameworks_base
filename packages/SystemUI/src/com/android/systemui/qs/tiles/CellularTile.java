@@ -37,6 +37,8 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 
+import cyanogenmod.providers.CMSettings;
+
 /** Quick settings tile: Cellular **/
 public class CellularTile extends QSTile<QSTile.SignalState> {
     static final Intent CELLULAR_SETTINGS = new Intent().setComponent(new ComponentName(
@@ -45,6 +47,7 @@ public class CellularTile extends QSTile<QSTile.SignalState> {
     private final NetworkController mController;
     private final DataUsageController mDataController;
     private final CellularDetailAdapter mDetailAdapter;
+    private final QSTile.SignalState mStateBeforeClick = newTileState();
 
     private final CellSignalCallback mSignalCallback = new CellSignalCallback();
 
@@ -82,6 +85,21 @@ public class CellularTile extends QSTile<QSTile.SignalState> {
     @Override
     public Intent getLongClickIntent() {
         return CELLULAR_SETTINGS;
+    }
+
+    @Override
+    protected void handleSecondaryClick() {
+        boolean enableTapToggle = (CMSettings.System.getInt(mContext.getContentResolver(),
+                CMSettings.System.QS_ENABLE_MOBILE_DATA_ONETAP_TOGGLE, 0) == 1);
+
+        if (enableTapToggle) {
+            mState.copyTo(mStateBeforeClick);
+            MetricsLogger.action(mContext, getMetricsCategory(), !mState.value);
+            mDataController.setMobileDataEnabled(!mState.value);
+        }
+        else {
+            handleClick();
+        }
     }
 
     @Override
