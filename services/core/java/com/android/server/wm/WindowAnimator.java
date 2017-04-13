@@ -46,6 +46,8 @@ import static com.android.server.wm.WindowSurfacePlacer.SET_WALLPAPER_ACTION_PEN
 import static com.android.server.wm.WindowSurfacePlacer.SET_WALLPAPER_MAY_CHANGE;
 
 import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
 import android.os.Trace;
 import android.util.Slog;
 import android.util.SparseArray;
@@ -57,6 +59,8 @@ import android.view.WindowManager;
 import android.view.WindowManagerPolicy;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+
+import cyanogenmod.providers.CMSettings;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -135,11 +139,20 @@ public class WindowAnimator {
         }
     }
 
+    private boolean mKeyguardBlurEnabled;
+
     WindowAnimator(final WindowManagerService service) {
         mService = service;
         mContext = service.mContext;
         mPolicy = service.mPolicy;
         mWindowPlacerLocked = service.mWindowPlacerLocked;
+
+        final boolean isBlurSupported = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_uiBlurEnabled);
+        if (isBlurSupported) {
+            final SettingsObserver observer = new SettingsObserver(new Handler());
+            observer.observe(mContext);
+        }
 
         mAnimationFrameCallback = new Choreographer.FrameCallback() {
             public void doFrame(long frameTimeNs) {
@@ -345,6 +358,10 @@ public class WindowAnimator {
                 final boolean nowAnimating = winAnimator.stepAnimationLocked(mCurrentTime);
                 winAnimator.mWasAnimating = nowAnimating;
                 orAnimating(nowAnimating);
+
+                if (mPolicy.getWinKeyguardPanelLw() == null && !winAnimator.mAnimating) {
+                    shouldBeForceHidden &= !mKeyguardBlurEnabled;
+                }
 
                 if (DEBUG_WALLPAPER) {
                     Slog.v(TAG, win + ": wasAnimating=" + wasAnimating +
@@ -1009,5 +1026,24 @@ public class WindowAnimator {
 
     void orAnimating(boolean animating) {
         mAnimating |= animating;
+    }
+
+    private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe(Context context) {
+            context.getContentResolver().registerContentObserver(
+                    CMSettings.Secure.getUriFor(CMSettings.Secure.LOCK_SCREEN_BLUR_ENABLED),
+                    false, this);
+            onChange(true);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            mKeyguardBlurEnabled = CMSettings.Secure.getInt(mContext.getContentResolver(),
+                    CMSettings.Secure.LOCK_SCREEN_BLUR_ENABLED, 0) == 1;
+        }
     }
 }
