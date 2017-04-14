@@ -587,7 +587,7 @@ public class OpaLayout extends FrameLayout implements ButtonDispatcher.ButtonInt
         ((ImageView) mWhite).setImageResource(resId);
     }
 
-    public void setLandscape(boolean landscape) {
+    public void setVertical(boolean landscape) {
         mIsLandscape = landscape;
         if (mIsLandscape) {
             mTop = mGreen;
