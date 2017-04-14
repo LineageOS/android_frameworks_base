@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a51691d_77b0acdd",
+        "filename": "core/jni/android_util_AssetManager.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 2001,
+      "author": {
+        "id": 16426
+      },
+      "writtenOn": "2017-04-14T14:56:48Z",
+      "side": 1,
+      "message": "I dunno if letting the\n\nif (isSystem) {\nverifySys.......\n}\n\nthere will work... Needs to be tested",
+      "revId": "c5fe6b5c6e774c22bea87a00fcd576d32d1f7557",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
