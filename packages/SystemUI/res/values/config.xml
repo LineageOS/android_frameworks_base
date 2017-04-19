@@ -282,7 +282,7 @@
     <!-- Nav bar button default ordering/layout -->
     <string name="config_navBarLayout" translatable="false">space,back;home;recent,menu_ime</string>
 
-    <bool name="quick_settings_show_full_alarm">false</bool>
+    <bool name="quick_settings_show_full_alarm">true</bool>
 
     <!-- Whether to show a warning notification when the device reaches a certain temperature. -->
     <integer name="config_showTemperatureWarning">0</integer>
