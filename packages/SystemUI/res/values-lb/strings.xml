@@ -721,11 +721,17 @@ iwwerwaacht sinn</string>
   <string name="monitoring_title_profile_owned">Profil-Iwwerwaachung</string>
   <!-- Monitoring dialog title for normal devices  [CHAR LIMIT=35]-->
   <string name="monitoring_title">Netzwierk-Iwwerwaachung</string>
+  <!-- Monitoring dialog subtitle for the section describing VPN [CHAR LIMIT=35]-->
+  <!-- Monitoring dialog subtitle for the section describing network logging [CHAR LIMIT=35]-->
   <!-- Monitoring dialog disable vpn button [CHAR LIMIT=30] -->
   <string name="disable_vpn">VPN desaktivéieren</string>
   <!-- Monitoring dialog disconnect vpn button [CHAR LIMIT=30] -->
   <string name="disconnect_vpn">VPN deconnectéieren</string>
   <!-- Monitoring dialog device owner body text [CHAR LIMIT=400] -->
+  <!-- Monitoring dialog: Part of text body explaining that a VPN is connected and what it can do, for devices managed by a Device Owner app [CHAR LIMIT=130] -->
+  <!-- Monitoring dialog: Space that separates the VPN body text and the "Open VPN Settings" link that follows it. [CHAR LIMIT=5] -->
+  <!-- Monitoring dialog: Link to open the VPN settings page [CHAR LIMIT=60] -->
+  <!-- Monitoring dialog: Network logging text [CHAR LIMIT=400] -->
   <!-- Monitoring dialog VPN text [CHAR LIMIT=400] -->
   <!-- Monitoring dialog VPN with device owner text [CHAR LIMIT=400] -->
   <!-- Monitoring dialog VPN with profile owner text [CHAR LIMIT=400] -->
@@ -753,6 +759,7 @@ iwwerwaacht sinn</string>
   <!-- Content description for accessibility (not shown on the screen): volume dialog collapse button. [CHAR LIMIT=NONE] -->
   <!-- Screen pinning dialog title. -->
   <string name="screen_pinning_title">Schierm ass fixéiert</string>
+  <!-- Screen pinning dialog description. -->
   <!-- Screen pinning dialog description. -->
   <!-- Screen pinning positive response. -->
   <string name="screen_pinning_positive">Verstanen</string>
@@ -992,4 +999,7 @@ iwwerwaacht sinn</string>
   <!-- accessibility label for paging indicator in quick settings [CHAR LIMIT=NONE] -->
   <!-- Label that replaces other notification controls when the notification is from the system
          and cannot be silenced (see @string/show_silently) or blocked (see @string/block) -->
+  <!-- Title for notification (and dialog) that user's phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=30] -->
+  <!-- Message body for notification that user's phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=100] -->
+  <!-- Text body for dialog alerting user that their phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=300] -->
 </resources>

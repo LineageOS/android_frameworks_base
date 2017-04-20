@@ -72,6 +72,7 @@
          could not be performed. This will be displayed in a toast. -->
   <!-- Displayed when the user dialed an MMI code whose function
          could not be performed because FDN is enabled. This will be displayed in a toast. -->
+  <!-- Displayed when a carrier does not support call forwarding queries when roaming. -->
   <!-- Displayed when a phone feature such as call barring was activated. -->
   <!-- Displayed in front of the list of a set of service classes
          (voice, data, fax, etc.) that were enabled. -->
@@ -120,6 +121,8 @@
   <!-- Displayed to tell the user that voice/data service is blocked by access control. -->
   <!-- Displayed to tell the user that voice and sms service are blocked by access control. -->
   <!-- Displayed to tell the user that all service is blocked by access control. -->
+  <!-- Displayed to tell the user that they should switch their network preference. -->
+  <!-- Displayed to tell the user that they should switch their network preference. -->
   <!-- Displayed to tell the user that peer changed TTY mode -->
   <!-- Mappings between TS 27.007 +CFCC/+CLCK "service classes" and human-readable strings-->
   <!-- Example: Service was enabled for: Voice, Data -->
@@ -216,6 +219,11 @@
          as a result of the current profile admin gone missing. [CHAR LIMIT=NONE]-->
   <!-- Content text for a notification. The Title of the notification is "work_profile_deleted",
         This indicates that a work profile has been deleted. [CHAR LIMIT=NONE]-->
+  <string name="work_profile_deleted_description_dpm_wipe">El to perfil de trabayu yá nun ta disponible nesti preséu.</string>
+  <!-- Content title for a notification. This indicates that network logging was activated by
+        a device owner. [CHAR LIMIT=NONE]-->
+  <!-- Content text for a notification. Tapping opens a dialog with more information on network
+        logging. [CHAR LIMIT=NONE]-->
   <!-- Factory reset warning dialog strings-->
   <!-- Shows up in the dialog's title to warn about an impeding factory reset. [CHAR LIMIT=NONE] -->
   <!-- Text message in the factory reset warning dialog. This says that the the device admin app
@@ -863,7 +871,7 @@
   <!-- Accessibility description sent when user starts drawing a lock pattern. [CHAR LIMIT=NONE] -->
   <!-- Accessibility description sent when the pattern times out and is cleared. [CHAR LIMIT=NONE] -->
   <!-- Accessibility description sent when user adds a dot to the pattern. [CHAR LIMIT=NONE]  -->
-  <!-- Accessibility description sent when user adds a dot to the pattern. Announces the 
+  <!-- Accessibility description sent when user adds a dot to the pattern. Announces the
     actual cell when headphones are connected [CHAR LIMIT=NONE]  -->
   <!-- Accessibility description sent when user completes drawing a pattern. [CHAR LIMIT=NONE] -->
   <!-- Accessibility description of the unlock pattern area. [CHAR_LIMIT=none] -->
@@ -905,6 +913,8 @@
   <!-- Error message displayed when the factory test could not be started. -->
   <!-- Button to restart the device after the factory test. -->
   <string name="factorytest_reboot">Reaniciar</string>
+  <!-- Do not translate.  timepicker mode, overridden for watch -->
+  <!-- Do not translate.  datepicker mode, overridden for watch -->
   <!-- Do not translate.  WebView User Agent string -->
   <!-- Do not translate.  WebView User Agent targeted content -->
   <!-- Title for a JavaScript dialog. "The page at <url of current page> says:" -->
@@ -1586,6 +1596,8 @@
   <!-- Description of an application permission that lets it read install sessions. -->
   <!-- Title of an application permission that lets it read install sessions. -->
   <!-- Description of an application permission that lets it read install sessions. -->
+  <!-- Title of an application permission that lets it ask user to ignore battery optimizations for that app. -->
+  <!-- Description of an application permission that lets it ask user to ignore battery optimizations for that app-->
   <!-- Shown in the tutorial for tap twice for zoom control. -->
   <string name="tutorial_double_tap_to_zoom_message_short">Calca dos vegaes pal control de zoom</string>
   <!-- Shown in gadget hosts (e.g. the home screen) when there was an error inflating
@@ -2231,6 +2243,7 @@
   <!-- Hint text in a search edit box (used to filter long language / country lists) [CHAR LIMIT=25] -->
   <!-- List section subheader for the language picker, containing a list of suggested languages determined by the default region [CHAR LIMIT=30] -->
   <!-- List section subheader for the language picker, containing a list of all languages available [CHAR LIMIT=30] -->
+  <string name="language_picker_section_all">Toles llingües</string>
   <!-- List section subheader for the region picker, containing a list of all regions supported for the selected language.
     Warning: this is a more 'neutral' term for 'country', not for the sub-divisions of a country. [CHAR LIMIT=30] -->
   <!-- Menu item in the locale menu  [CHAR LIMIT=30] -->
@@ -2263,6 +2276,7 @@
   <!-- Text of button to allow user to abort countdown and immediately start another session in retail demo mode [CHAR LIMIT=40] -->
   <!-- Title of notification shown when device has been forced to safe mode after a security compromise. -->
   <!-- Description of notification shown when device has been forced to safe mode after a security compromise. -->
+  <string name="audit_safemode_notification_details">Toca pa deprender más.</string>
   <!-- Accessibilty string added to a widget that has been suspended [CHAR LIMIT=20] -->
   <!-- Label used by Telephony code, assigned as the display name for conference calls [CHAR LIMIT=60] -->
 </resources>

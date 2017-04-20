@@ -135,6 +135,7 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Aby odpiąć ekran, dotknij i przytrzymaj przycisk Wstecz.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Wykryto niezgodność obrazu dostawcy. Zazwyczaj oznacza to, że obraz twojego dostawcy nie jest aktualny. Upewnij się, że obraz odpowiada <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Dotknij miejsca poza ekranem, by opuścić tryb obsługi jedną ręką</string>
   <!-- Strings for tethered notification -->

@@ -99,6 +99,7 @@
   <string name="app_ops_toggle_bluetooth">toggle Bluetooth</string>
   <string name="app_ops_toggle_mobile_data">toggle mobile data</string>
   <string name="app_ops_toggle_nfc">toggle NFC</string>
+  <string name="app_ops_toggle_wifi">toggle Wi-Fi</string>
   <string name="app_ops_use_alarm_volume">control alarm volume</string>
   <string name="app_ops_use_audio_focus">control the audio focus</string>
   <string name="app_ops_use_bluetooth_volume">control the Bluetooth volume</string>
@@ -111,13 +112,32 @@
   <string name="app_ops_use_voice_volume">control the voice call volume</string>
   <string name="app_ops_write_mms">write an MMS message</string>
   <string name="app_ops_write_sms">write an SMS message</string>
+  <string name="app_ops_use_fingerprint">use fingerprint</string>
+  <string name="app_ops_add_voicemail">add a voicemail</string>
+  <string name="app_ops_read_phone_state">access phone state</string>
+  <string name="app_ops_scan_wifi">scan Wi-Fi networks</string>
+  <string name="app_ops_change_wallpaper">change the wallpaper</string>
+  <string name="app_ops_assist_structure">use assist structure</string>
+  <string name="app_ops_assist_screenshot">take a screenshot</string>
+  <string name="app_ops_use_body_sensors">use body sensors</string>
+  <string name="app_ops_read_cell_broadcasts">read cell broadcasts</string>
+  <string name="app_ops_mock_location">mock your location</string>
+  <string name="app_ops_read_external_storage">read external storage</string>
+  <string name="app_ops_write_external_storage">write external storage</string>
+  <string name="app_ops_turn_on_screen">turn the screen on</string>
+  <string name="app_ops_get_accounts">get device accounts</string>
   <string name="app_ops_run_in_background">run in background</string>
+  <string name="app_ops_wifi_change">change Wi-Fi state</string>
   <string name="app_ops_su">get root access</string>
   <!-- Protected Apps Notification -->
+  <string name="notify_package_component_protected_title">Activity launch blocked</string>
+  <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> is protected from being launched. Tap to authenticate and launch the application.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+  <string name="lock_to_app_toast_no_navbar">To unpin this screen, touch and hold the Back button.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">A vendor image mismatch has been detected. Typically this means your vendor image is out of date. Please ensure your vendor image matches <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Touch outside the screen to exit single hand mode</string>
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_no_device_message">No connected device</string>

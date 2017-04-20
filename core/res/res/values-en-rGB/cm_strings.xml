@@ -126,6 +126,7 @@
   <string name="app_ops_write_external_storage">write external storage</string>
   <string name="app_ops_turn_on_screen">turn the screen on</string>
   <string name="app_ops_get_accounts">get device accounts</string>
+  <string name="app_ops_run_in_background">run in background</string>
   <string name="app_ops_wifi_change">change Wi-Fi state</string>
   <string name="app_ops_su">get root access</string>
   <!-- Protected Apps Notification -->
@@ -134,7 +135,9 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">To unpin this screen, touch and hold the Back button.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">A vendor image mismatch has been detected. Typically this means your vendor image is out of date. Please ensure your vendor image matches <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Touch outside the screen to exit single hand mode</string>
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_no_device_message">No connected device</string>

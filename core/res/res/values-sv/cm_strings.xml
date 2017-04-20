@@ -124,6 +124,7 @@
   <string name="app_ops_write_external_storage">skriv extern lagring</string>
   <string name="app_ops_turn_on_screen">aktivera skärmen</string>
   <string name="app_ops_get_accounts">hämta enhetskonton</string>
+  <string name="app_ops_run_in_background">kör i bakgrunden</string>
   <string name="app_ops_wifi_change">ändra Wi\u2011Fi status</string>
   <string name="app_ops_su">få root-åtkomst</string>
   <!-- Protected Apps Notification -->

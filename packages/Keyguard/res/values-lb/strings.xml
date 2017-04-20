@@ -170,6 +170,10 @@ Kontaktéier däi Provider fir eng aner SIM-Kaart ze kréien.</string>
   <string name="kg_password_wrong_pin_code_pukked">Inkorrekte SIM-PIN-Code. Du muss elo däi Provider kontaktéiere fir däin Apparat z\'entspären.</string>
   <!-- Instructions telling the user that they entered the wrong SIM PIN while trying
          to unlock the keyguard.  Displayed in a dialog box.  -->
+  <plurals name="kg_password_wrong_pin_code">
+    <item quantity="one">Inkorrekte SIM-PIN-Code, du hues nach <xliff:g id="number">%d</xliff:g> Versuch iwwreg ier s de däi Provider kontaktéiere muss fir däin Apparat z\'entspären.</item>
+    <item quantity="other">Inkorrekte SIM-PIN-Code, du hues nach <xliff:g id="number">%d</xliff:g> Versich iwwreg.</item>
+  </plurals>
   <!-- Instructions telling the user that they have exhausted SIM PUK retries and the SIM is now unusable.
          Displayed in a dialog box.  -->
   <string name="kg_password_wrong_puk_code_dead">D\'SIM ass onbrauchbar. Kontaktéier däi Provider.</string>

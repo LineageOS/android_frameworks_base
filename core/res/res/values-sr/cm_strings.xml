@@ -137,6 +137,7 @@
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">Откривено је неподударање слике добављача. Обично ово значи да је слици добављача истекао рок. Увери се да се слика добављача подудара са <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
+  <string name="singlehandmode_click_hint_message">Додирните изван екрана да би изашли из режима за једну руку</string>
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_no_device_message">Нема повезаног уређаја</string>

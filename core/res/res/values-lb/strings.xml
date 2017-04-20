@@ -77,6 +77,7 @@
   <!-- Displayed when the user dialed an MMI code whose function
          could not be performed because FDN is enabled. This will be displayed in a toast. -->
   <string name="mmiFdnError">De Virgank ass just fir deng zougeloosse Ruffnummer méiglech.</string>
+  <!-- Displayed when a carrier does not support call forwarding queries when roaming. -->
   <!-- Displayed when a phone feature such as call barring was activated. -->
   <string name="serviceEnabled">Service gouf aktivéiert.</string>
   <!-- Displayed in front of the list of a set of service classes
@@ -170,6 +171,8 @@
   <string name="RestrictedOnVoiceSms">Sprooch-/SMS-Servicer si gespaart.</string>
   <!-- Displayed to tell the user that all service is blocked by access control. -->
   <string name="RestrictedOnAll">Alle Sprooch-/Date-/SMS-Servicer si gespaart.</string>
+  <!-- Displayed to tell the user that they should switch their network preference. -->
+  <!-- Displayed to tell the user that they should switch their network preference. -->
   <!-- Displayed to tell the user that peer changed TTY mode -->
   <string name="peerTtyModeFull">Peer huet TTY-Modus \"Vollstänneg\" ugefrot</string>
   <string name="peerTtyModeHco">Peer huet TTY-Modus \"HCO\" ugefrot</string>
@@ -322,6 +325,10 @@
   <string name="work_profile_deleted_details">D\'Admin-App fir den Aarbechtsprofil feelt oder ass futti. Dowéinst gouf däin Aarbechtsprofil an all d\'Daten déi dozougehéiere geläscht. Kontaktéier däin Administrateur fir Hëllef ze kréien.</string>
   <!-- Content text for a notification. The Title of the notification is "work_profile_deleted",
         This indicates that a work profile has been deleted. [CHAR LIMIT=NONE]-->
+  <!-- Content title for a notification. This indicates that network logging was activated by
+        a device owner. [CHAR LIMIT=NONE]-->
+  <!-- Content text for a notification. Tapping opens a dialog with more information on network
+        logging. [CHAR LIMIT=NONE]-->
   <!-- Factory reset warning dialog strings-->
   <!-- Shows up in the dialog's title to warn about an impeding factory reset. [CHAR LIMIT=NONE] -->
   <string name="factory_reset_warning">Däin Apparat gëtt geläscht</string>
@@ -1328,7 +1335,7 @@ Kontaktéier däi Provider fir eng aner SIM-Kaart ze kréien.</string>
   <string name="lockscreen_access_pattern_cleared">Muster geläscht</string>
   <!-- Accessibility description sent when user adds a dot to the pattern. [CHAR LIMIT=NONE]  -->
   <string name="lockscreen_access_pattern_cell_added">Zell dobäigesat</string>
-  <!-- Accessibility description sent when user adds a dot to the pattern. Announces the 
+  <!-- Accessibility description sent when user adds a dot to the pattern. Announces the
     actual cell when headphones are connected [CHAR LIMIT=NONE]  -->
   <!-- Accessibility description sent when user completes drawing a pattern. [CHAR LIMIT=NONE] -->
   <string name="lockscreen_access_pattern_detected">Muster ofgeschloss</string>
@@ -1399,6 +1406,8 @@ Kontaktéier däi Provider fir eng aner SIM-Kaart ze kréien.</string>
   <string name="factorytest_no_action">Et gouf kee Pak fonnt deen d\'FACTORY_TEST-Aktioun zur Verfügung stellt.</string>
   <!-- Button to restart the device after the factory test. -->
   <string name="factorytest_reboot">Nei starten</string>
+  <!-- Do not translate.  timepicker mode, overridden for watch -->
+  <!-- Do not translate.  datepicker mode, overridden for watch -->
   <!-- Do not translate.  WebView User Agent string -->
   <!-- Do not translate.  WebView User Agent targeted content -->
   <!-- Title for a JavaScript dialog. "The page at <url of current page> says:" -->
@@ -2167,6 +2176,8 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
   <string name="permdesc_readInstallSessions">Erlaabt der App, Installatiounssëtzungen ze liesen. Dat erméiglecht der App, Detailer iwwer Päck ze gesinn, déi grad installéiert ginn.</string>
   <!-- Title of an application permission that lets it read install sessions. -->
   <!-- Description of an application permission that lets it read install sessions. -->
+  <!-- Title of an application permission that lets it ask user to ignore battery optimizations for that app. -->
+  <!-- Description of an application permission that lets it ask user to ignore battery optimizations for that app-->
   <!-- Shown in the tutorial for tap twice for zoom control. -->
   <!-- Shown in gadget hosts (e.g. the home screen) when there was an error inflating
     the gadget. -->

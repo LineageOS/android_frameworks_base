@@ -97,7 +97,7 @@
     <!-- STREAM_VOICE_CALL -->
     <item>System</item>
     <!-- STREAM_SYSTEM -->
-    <item>Ring</item>
+    <item>Ringing</item>
     <!-- STREAM_RING -->
     <item>Media</item>
     <!-- STREAM_MUSIC -->

@@ -408,6 +408,7 @@
   <!-- QuickSettings: Wifi (Off) [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Wifi (On) [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Wifi detail panel, text when there are no items [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_wifi_detail_empty_text">Nun hai redes Wi-Fi disponibles</string>
   <!-- QuickSettings: Cast title [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Cast detail panel, status text when casting [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Cast detail panel, default device name [CHAR LIMIT=NONE] -->
@@ -452,6 +453,7 @@
   <!-- QuickSettings: Summary for the toggle to deactivate Night display when it's on (renamed "Night Light" with title caps). [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Label for the toggle to activate Night display when it's off (renamed "Night Light" with title caps). [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: NFC tile [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_nfc_label">NFC</string>
   <!-- QuickSettings: NFC (off) [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: NFC (on) [CHAR LIMIT=NONE] -->
   <!-- Recents: The empty recents string. [CHAR LIMIT=NONE] -->
@@ -590,9 +592,16 @@
   <string name="monitoring_title_profile_owned">Monitorización de perfiles</string>
   <!-- Monitoring dialog title for normal devices  [CHAR LIMIT=35]-->
   <string name="monitoring_title">Monitorización de rede</string>
+  <!-- Monitoring dialog subtitle for the section describing VPN [CHAR LIMIT=35]-->
+  <string name="monitoring_subtitle_vpn">VPN</string>
+  <!-- Monitoring dialog subtitle for the section describing network logging [CHAR LIMIT=35]-->
   <!-- Monitoring dialog disable vpn button [CHAR LIMIT=30] -->
   <!-- Monitoring dialog disconnect vpn button [CHAR LIMIT=30] -->
   <!-- Monitoring dialog device owner body text [CHAR LIMIT=400] -->
+  <!-- Monitoring dialog: Part of text body explaining that a VPN is connected and what it can do, for devices managed by a Device Owner app [CHAR LIMIT=130] -->
+  <!-- Monitoring dialog: Space that separates the VPN body text and the "Open VPN Settings" link that follows it. [CHAR LIMIT=5] -->
+  <!-- Monitoring dialog: Link to open the VPN settings page [CHAR LIMIT=60] -->
+  <!-- Monitoring dialog: Network logging text [CHAR LIMIT=400] -->
   <!-- Monitoring dialog VPN text [CHAR LIMIT=400] -->
   <!-- Monitoring dialog VPN with device owner text [CHAR LIMIT=400] -->
   <!-- Monitoring dialog VPN with profile owner text [CHAR LIMIT=400] -->
@@ -617,6 +626,7 @@
   <!-- Content description for accessibility (not shown on the screen): volume dialog expand button. [CHAR LIMIT=NONE] -->
   <!-- Content description for accessibility (not shown on the screen): volume dialog collapse button. [CHAR LIMIT=NONE] -->
   <!-- Screen pinning dialog title. -->
+  <!-- Screen pinning dialog description. -->
   <!-- Screen pinning dialog description. -->
   <!-- Screen pinning positive response. -->
   <string name="screen_pinning_positive">Coyío</string>
@@ -937,4 +947,7 @@
   <!-- Label that replaces other notification controls when the notification is from the system
          and cannot be silenced (see @string/show_silently) or blocked (see @string/block) -->
   <string name="cant_silence_or_block">Los avisos nun puen silenciase o bloquiase</string>
+  <!-- Title for notification (and dialog) that user's phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=30] -->
+  <!-- Message body for notification that user's phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=100] -->
+  <!-- Text body for dialog alerting user that their phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=300] -->
 </resources>

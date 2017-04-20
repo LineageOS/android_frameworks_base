@@ -96,13 +96,13 @@
     <!-- STREAM_VOICE_CALL -->
     <item>System</item>
     <!-- STREAM_SYSTEM -->
-    <item>Ring</item>
+    <item>Dzwonek</item>
     <!-- STREAM_RING -->
-    <item>Media</item>
+    <item>Multimedia</item>
     <!-- STREAM_MUSIC -->
     <item>Budzik</item>
     <!-- STREAM_ALARM -->
-    <item>Notification</item>
+    <item>Powiadomienie</item>
     <!-- STREAM_NOTIFICATION -->
     <item>Bluetooth</item>
     <!-- STREAM_BLUETOOTH_SCO -->

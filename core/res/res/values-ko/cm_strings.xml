@@ -97,7 +97,7 @@
   <string name="app_ops_start_at_bootup">전원을 켤 때 실행</string>
   <string name="app_ops_toast_window">팝업 메시지 표시</string>
   <string name="app_ops_toggle_bluetooth">블루투스 켜기/끄기</string>
-  <string name="app_ops_toggle_mobile_data">셀룰러 데이터 켜기/끄기</string>
+  <string name="app_ops_toggle_mobile_data">이동 통신망 데이터 켜기/끄기</string>
   <string name="app_ops_toggle_nfc">NFC 켜기/끄기</string>
   <string name="app_ops_toggle_wifi">Wi-Fi 켜기/끄기</string>
   <string name="app_ops_use_alarm_volume">알람 볼륨 제어</string>
@@ -140,4 +140,7 @@
   <string name="singlehandmode_click_hint_message">화면 바깥을 누르면 한 손 모드를 종료합니다</string>
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">연결된 장치 없음</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g>대의 장치가 연결되어 있습니다.</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g>대의 장치가 연결되어 있습니다.</string>
 </resources>

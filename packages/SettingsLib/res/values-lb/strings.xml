@@ -373,4 +373,7 @@
          density in raw pixels per inch rather than using a relative description. [CHAR LIMIT=24] -->
   <!-- Label for Help and feedback menu item -->
   <!-- Content description for drawer menu button [CHAR_LIMIT=30]-->
+  <!-- Label for carrier demo mode factory reset confirmation dialog. [CHAR LIMIT=40] -->
+  <!-- Label for positive button on carrier demo  mode factory reset confirmation dialog [CHAR LIMIT=40] -->
+  <!-- Title for carrier demo mode factory reset confirmation dialog. [CHAR LIMIT=40] -->
 </resources>
