@@ -139,6 +139,10 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
                 R.layout.qs_paged_tile_layout, this, false);
         mTileLayout.setListening(mListening);
         addView((View) mTileLayout);
+        if (getResources().getBoolean(
+                com.android.internal.R.bool.config_automatic_brightness_available)) {
+            ((ImageView) findViewById(R.id.brightness_icon)).setVisibility(View.VISIBLE);
+        }
     }
 
     public boolean isShowingCustomize() {
