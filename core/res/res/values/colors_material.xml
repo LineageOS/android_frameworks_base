@@ -32,9 +32,9 @@
     <color name="primary_dark_material_light_light_status_bar">@color/material_grey_300</color>
     <color name="primary_dark_material_settings">@color/black</color>
 
-    <color name="secondary_material_settings">@color/material_blue_grey_800</color>
-    <color name="tertiary_material_settings">@color/material_blue_grey_700</color>
-    <color name="quaternary_material_settings">@color/material_blue_grey_200</color>
+    <color name="secondary_material_settings">@color/material_grey_800</color>
+    <color name="tertiary_material_settings">@color/material_grey_700</color>
+    <color name="quaternary_material_settings">@color/material_grey_300</color>
 
     <color name="accent_material_700">@color/material_deep_teal_700</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
@@ -81,8 +81,10 @@
     <color name="material_grey_900">#ff212121</color>
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_800">#ff424242</color>
+    <color name="material_grey_700">#ff616161</color>
     <color name="material_grey_600">#ff757575</color>
     <color name="material_grey_300">#ffe0e0e0</color>
+    <color name="material_grey_200">#ffEEEEEE</color>
     <color name="material_grey_100">#fff5f5f5</color>
     <color name="material_grey_50">#fffafafa</color>
 
