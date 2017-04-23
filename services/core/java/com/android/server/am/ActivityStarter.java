@@ -94,6 +94,7 @@ import android.content.IntentSender;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.content.res.Configuration;
@@ -120,6 +121,8 @@ import com.android.server.am.ActivityStackSupervisor.PendingActivityLaunch;
 import com.android.server.wm.WindowManagerService;
 
 import java.util.ArrayList;
+
+import cyanogenmod.providers.CMSettings;
 
 /**
  * Controller for interpreting how and then launching activities.
@@ -370,14 +373,8 @@ class ActivityStarter {
                         (launchFlags & Intent.FLAG_GRANT_READ_URI_PERMISSION) == 0;
 
                 if (isProtected) {
-                    Message msg = mService.mHandler.obtainMessage(
-                            ActivityManagerService.POST_COMPONENT_PROTECTED_MSG);
-                    // Store launch flags, userid
-                    intent.setFlags(launchFlags);
-                    intent.putExtra("com.android.settings.PROTECTED_APPS_USER_ID", userId);
-                    msg.obj = intent;
-                    mService.mHandler.sendMessage(msg);
-                    err = ActivityManager.START_PROTECTED_APP;
+                    err = startProtectedAppIfProtected(intent, callingUid, callingPackage,
+                                                       startFlags, userId);
                 }
             } catch (RemoteException e) {
                 Slog.w(TAG, "Failure checking protected apps status", e);
@@ -793,27 +790,10 @@ class ActivityStarter {
                 return ActivityManager.START_CANCELED;
             }
 
-            try {
-                //TODO: This needs to be a flushed out API in the future.
-                boolean isProtected = intent.getComponent() != null
-                        && AppGlobals.getPackageManager()
-                        .isComponentProtected(callingPackage, callingUid,
-                                intent.getComponent(), userId) &&
-                        (intent.getFlags()&Intent.FLAG_GRANT_READ_URI_PERMISSION) == 0;
-
-                if (isProtected) {
-                    Message msg = mService.mHandler.obtainMessage(
-                            ActivityManagerService.POST_COMPONENT_PROTECTED_MSG);
-                    //Store start flags, userid
-                    intent.setFlags(startFlags);
-                    intent.putExtra("com.android.settings.PROTECTED_APPS_USER_ID", userId);
-                    msg.obj = intent;
-                    mService.mHandler.sendMessage(msg);
-                    return ActivityManager.START_PROTECTED_APP;
-                }
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
+            if (startProtectedAppIfProtected(intent, callingUid, callingPackage,
+                                             startFlags, userId)
+                    == ActivityManager.START_PROTECTED_APP)
+                return ActivityManager.START_PROTECTED_APP;
 
             final int realCallingPid = Binder.getCallingPid();
             final int realCallingUid = Binder.getCallingUid();
@@ -2135,5 +2115,67 @@ class ActivityStarter {
                 mPendingActivityLaunches.remove(palNdx);
             }
         }
+    }
+
+    private int startProtectedAppIfProtected(Intent intent, int callingUid, String callingPackage,
+                                             int startFlags, int userId) {
+        synchronized (mService) {
+            try {
+                boolean isProtected = intent.getComponent() != null
+                        && AppGlobals.getPackageManager()
+                        .isComponentProtected(callingPackage, callingUid,
+                                intent.getComponent(), userId) &&
+                        (intent.getFlags()&Intent.FLAG_GRANT_READ_URI_PERMISSION) == 0;
+
+                if (isProtected) {
+                    //Store start flags, userid
+                    intent.setFlags(startFlags);
+                    intent.putExtra("com.android.settings.PROTECTED_APPS_USER_ID", userId);
+
+                    boolean postMessage = false;
+                    try {
+                        postMessage = CMSettings.Secure.getIntForUser(
+                                mService.mContext.getContentResolver(),
+                                CMSettings.Secure.PROTECTED_COMPONENT_POST_MSG,
+                                userId) == 1;
+                    } catch (CMSettings.CMSettingNotFoundException e) {
+                        Slog.d(TAG, "Protected app post message setting not found");
+                    }
+
+                    if (postMessage) {
+                        Message msg = mService.mHandler.obtainMessage(
+                            ActivityManagerService.POST_COMPONENT_PROTECTED_MSG);
+                        msg.obj = intent;
+                        mService.mHandler.sendMessage(msg);
+                    } else {
+                        // Start ProtectedAppsActivity directly.
+                        Intent protectedAppIntent = new Intent();
+                        protectedAppIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        protectedAppIntent.setComponent(
+                                new ComponentName("com.android.settings",
+                                        "com.android.settings.applications.ProtectedAppsActivity"));
+                        protectedAppIntent.putExtra(
+                                "com.android.settings.PROTECTED_APP_TARGET_INTENT",
+                                intent);
+
+                        try {
+                            Context context = mService.mContext.createPackageContext(
+                                    "com.android.settings", 0);
+                            context.startActivityAsUser(protectedAppIntent,
+                                                        new UserHandle(userId));
+                        } catch (NameNotFoundException e) {
+                            Slog.w(TAG, "Unable to create context for protected app activity", e);
+                            return ActivityManager.START_CANCELED;
+                        }
+                    }
+
+                    return ActivityManager.START_PROTECTED_APP;
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return ActivityManager.START_CANCELED;
     }
 }
