@@ -193,13 +193,14 @@ public class DimLayer {
         }
 
         if (mDimSurface != null) {
-            mDimSurface.setPosition(mBounds.left, mBounds.top);
-            mDimSurface.setSize(mBounds.width(), mBounds.height());
-            if (DEBUG_DIM_LAYER) Slog.v(TAG,
-                    "adjustBounds user=" + mUser.toShortString() + " mBounds=" + mBounds);
+            if(!mLastBounds.equals(mBounds)) {
+                 mDimSurface.setPosition(mBounds.left, mBounds.top);
+                 mDimSurface.setSize(mBounds.width(), mBounds.height());
+                 if (DEBUG_DIM_LAYER) Slog.v(TAG,
+                        "adjustBounds user=" + mUser.toShortString() + " mBounds=" + mBounds);
+                 mLastBounds.set(mBounds);
+           }
         }
-
-        mLastBounds.set(mBounds);
     }
 
     private void getBoundsForFullscreen(Rect outBounds) {
