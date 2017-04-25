@@ -156,6 +156,10 @@ public final class BatteryService extends SystemService {
 
     private boolean mBatteryLevelLow;
 
+    private boolean mDashCharger;
+    private boolean mHasDashCharger;
+    private boolean mLastDashCharger;
+    
     private long mDischargeStartTime;
     private int mDischargeStartLevel;
 
