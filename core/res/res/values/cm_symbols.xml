@@ -108,4 +108,7 @@
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
+
+    <!-- Wether device has dash charging support -->
+    <java-symbol type="bool" name="config_hasDashCharger" />
 </resources>
