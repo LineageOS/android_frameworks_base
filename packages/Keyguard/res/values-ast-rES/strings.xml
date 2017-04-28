@@ -33,7 +33,6 @@
          Displayed in one line in a large font.  -->
   <!-- Instructions telling the user that they entered the wrong pin while trying
          to unlock the keyguard.  Displayed in one line in a large font.  -->
-  <!-- Shown in the lock screen when there is SIM card IO error. -->
   <!-- When the lock screen is showing, the phone is plugged in and the battery is fully
          charged, say that it is charged. -->
   <!-- When the lock screen is showing and the phone plugged in, and the battery
@@ -152,6 +151,4 @@
   <!-- An explanation text that the pin needs to be entered since it hasn't been entered in a while. [CHAR LIMIT=80]-->
   <!-- An explanation text that the password needs to be entered since it hasn't been entered in a while. [CHAR LIMIT=80]-->
   <!-- Fingerprint hint message when finger was not recognized.-->
-  <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
-  <!-- Instructions telling the user remaining times when enter SIM PUK view.  -->
 </resources>
