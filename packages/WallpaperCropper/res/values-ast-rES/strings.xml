@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="crop_wallpaper">Recortar el fondu de pantalla</string>
+  <string name="crop_wallpaper">Recortar fondu de pantalla</string>
   <!-- Button label on Wallpaper picker screen; user selects this button to set a specific wallpaper -->
   <string name="wallpaper_instructions">Afitar fondu de pantalla</string>
   <!-- Error message when an image is selected as a wallpaper,

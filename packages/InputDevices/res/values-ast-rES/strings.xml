@@ -6,15 +6,15 @@
   <!-- Keyboard layouts label, used to describe the set of all built-in layouts in the UI. [CHAR LIMIT=35] -->
   <string name="keyboard_layouts_label">Tecláu d\'Android</string>
   <!-- UK English keyboard layout label. [CHAR LIMIT=35] -->
-  <string name="keyboard_layout_english_uk_label">Inglés (UK)</string>
+  <string name="keyboard_layout_english_uk_label">Inglés (Reinu Xuníu)</string>
   <!-- US English keyboard layout label. [CHAR LIMIT=35] -->
-  <string name="keyboard_layout_english_us_label">Inglés (US)</string>
+  <string name="keyboard_layout_english_us_label">Inglés (EE.XX)</string>
   <!-- US English (International style) keyboard layout label. [CHAR LIMIT=35] -->
-  <string name="keyboard_layout_english_us_intl">Inglés (US), estilu International</string>
+  <string name="keyboard_layout_english_us_intl">Inglés (EE.XX), estilu Internacional</string>
   <!-- US English (Colemak style) keyboard layout label. [CHAR LIMIT=35] -->
-  <string name="keyboard_layout_english_us_colemak_label">Inglés (US), estilu Colemak</string>
+  <string name="keyboard_layout_english_us_colemak_label">Inglés (EE.XX), estilu Colemak</string>
   <!-- US English (Dvorak style) keyboard layout label. [CHAR LIMIT=35] -->
-  <string name="keyboard_layout_english_us_dvorak_label">Inglés (US), estilu Dvorak</string>
+  <string name="keyboard_layout_english_us_dvorak_label">Inglés (EE.XX), estilu Dvorak</string>
   <!-- German keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_german_label">Alemán</string>
   <!-- French keyboard layout label. [CHAR LIMIT=35] -->
@@ -30,7 +30,7 @@
   <!-- Swiss French keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_swiss_french_label">Francés de Suiza</string>
   <!-- Swiss German keyboard layout label. [CHAR LIMIT=35] -->
-  <string name="keyboard_layout_swiss_german_label">Alemán suizu</string>
+  <string name="keyboard_layout_swiss_german_label">Alemán de Suiza</string>
   <!-- Belgian keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_belgian">Belga</string>
   <!-- Bulgarian keyboard layout label. [CHAR LIMIT=35] -->
@@ -38,7 +38,7 @@
   <!-- Italian keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_italian">Italianu</string>
   <!-- Danish keyboard layout label. [CHAR LIMIT=35] -->
-  <string name="keyboard_layout_danish">Danés</string>
+  <string name="keyboard_layout_danish">Neerlandés</string>
   <!-- Norwegian keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_norwegian">Noruegu</string>
   <!-- Swedish keyboard layout label. [CHAR LIMIT=35] -->
@@ -66,7 +66,7 @@
   <!-- Turkish keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_turkish">Turcu</string>
   <!-- Ukrainian keyboard layout label. [CHAR LIMIT=35] -->
-  <string name="keyboard_layout_ukrainian">Ucrainianu</string>
+  <string name="keyboard_layout_ukrainian">Ucraín</string>
   <!-- Arabic keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_arabic">Árabe</string>
   <!-- Greek keyboard layout label. [CHAR LIMIT=35] -->

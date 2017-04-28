@@ -17,80 +17,209 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- Content description of the data connection type 4G+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_connection_4g_plus">4G+</string>
   <!-- Weather string format in expanded statusbar header -->
+  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Strings for lockscreen shortcut hints -->
+  <string name="left_shortcut_hint">Rrëshqit gishtin djathtas për %1$s</string>
+  <string name="right_shortcut_hint">Rrëshqit gishtin majtas për %1$s</string>
+  <string name="lockscreen_message">Shtyp një ikonë në të majtë apo të djathtë për të ricaktuar një shkurtore në ekranin bllokues.</string>
+  <string name="lockscreen_default_target">E paracaktuar</string>
+  <string name="select_application">Zgjidh aplikacionin</string>
+  <string name="lockscreen_choose_action_title">Zgjidh veprimin</string>
+  <string name="lockscreen_none_target">Asnjë</string>
   <!-- Dialog title for navigation bar button selection -->
+  <string name="navbar_dialog_title">Zgjidh veprimin për ta caktuar</string>
+  <string name="navbar_home_button">Butoni Home</string>
+  <string name="navbar_recent_button">Butoni Të Fundit</string>
+  <string name="navbar_search_button">Butoni i kërkimit</string>
+  <string name="navbar_back_button">Butoni Prapa</string>
+  <string name="navbar_empty_button">Buton bosh</string>
+  <string name="navbar_menu_conditional_button">Butoni i Menusë (fshih automatikisht)</string>
+  <string name="navbar_menu_always_button">Butoni i Menusë (trego gjithmonë)</string>
+  <string name="navbar_menu_big_button">Butoni i Menusë</string>
+  <string name="accessibility_dpad_left">Kursori majtas</string>
+  <string name="accessibility_dpad_right">Kursori djathtas</string>
   <!-- Development shortcuts -->
   <!-- Title shown in recents popup for wiping application's data -->
+  <string name="advanced_dev_option_wipe_app">Fshi të dhënat e aplikacionit</string>
   <!-- Title shown in recents popup for force stopping the application -->
+  <string name="advanced_dev_option_force_stop">Impono mbylljen</string>
   <!-- Title shown in recents popup for uninstalling the application -->
+  <string name="advanced_dev_option_uninstall">Çinstalo</string>
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_notification_brightness">Ndriçimi i dritës</string>
   <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">Profilet inaktive.</string>
   <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">Profili: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">Profilet u çaktivizuan.</string>
   <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">Profili u ndërrua në <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <string name="quick_settings_compass_init">Duke u nisur\u2026</string>
   <!-- Lights settings, LED notification -->
+  <string name="led_notification_title">Parametrat e dritës</string>
+  <string name="led_notification_text">Drita LED e aktivizuar nga parametrat</string>
+  <string name="qs_tile_edit_header_instruction">Shtyp dhe mbaj shtypur një tjegull për ta riorganizuar</string>
+  <string name="quick_settings_edit_label">Redakto tjegullat</string>
+  <string name="quick_settings_cannot_delete_edit_tile">Tjegulla \"Redakto\" nuk mund të fshihet</string>
+  <string name="qs_tiles_reset_confirmation">Dëshiron të rikthesh tjegullat në konfigurimin e tyre të paracaktuar?</string>
+  <string name="quick_settings_tile_reset_to_default">Rikthe në pozicionet e paracaktuara</string>
+  <string name="quick_settings_title_tiles">Tjegullat</string>
+  <string name="quick_settings_title_show_weather">Trego motin</string>
+  <string name="quick_settings_title_show_brightness_slider">Trego shiritin e kontrollit të ndriçimit</string>
+  <string name="quick_settings_title_enlarge_first_row">Zmadho rreshtin e parë</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
+  <string name="screen_pinning_description_no_navbar">Kjo e mban në ekran derisa ta shqitësh. Shtyp dhe mbaj shtypur butonin Prapa për ta shqitur.</string>
+  <string name="quick_settings_custom_tile_detail_title">Tjegull e personalizuar</string>
+  <string name="quick_settings_remove">Hiq tjegullën</string>
+  <string name="quick_settings_network_adb_label">ADB mbi rrjet</string>
+  <string name="quick_settings_compass_label">Busulla</string>
+  <string name="quick_settings_nfc_label">NFC</string>
+  <string name="quick_settings_profiles">Profilet e sistemit</string>
+  <string name="quick_settings_profiles_off">Profilet janë të çaktivizuar</string>
+  <string name="quick_settings_heads_up_label">Heads up</string>
+  <string name="quick_settings_battery_saver_label">Kursimi i baterisë</string>
   <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
+  <string name="quick_settings_battery_saver_label_charging">Kursimi i baterisë (duke u karikuar)</string>
+  <string name="quick_settings_caffeine_label">Kafeina</string>
   <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_sync_off">Sinkronizimi inaktiv.</string>
   <!-- Content description of the sync tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_sync_on">Sinkronizimi aktiv.</string>
   <!-- Announcement made when sync changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_sync_changed_off">Sinkronizimi u çaktivizua.</string>
   <!-- Announcement made when sync changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_sync_changed_on">Sinkronizimi u aktivizua.</string>
+  <string name="quick_settings_sync_label">Sinkronizimi</string>
+  <string name="quick_settings_volume_panel_label">Paneli i volumit</string>
+  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <string name="quick_settings_screen_timeout_detail_title">Kohëzgjatja e ekranit ndezur</string>
+  <string name="quick_settings_lockscreen_label">Ekrani bllokues</string>
+  <string name="quick_settings_ambient_display_label">Drita e ekranit sipas ambientit</string>
+  <string name="quick_settings_lockscreen_label_enforced">Ekrani bllokues i imponuar</string>
+  <string name="quick_settings_lockscreen_label_locked_by_profile">I çaktivizuar nga profili</string>
   <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_screen_timeout">Afati kohor i qëndrimit ndezur të ekranit: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
   <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_screen_timeout_changed">Afati kohor i qëndrimit ndezur të ekranit u ndryshua në <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+  <string name="qs_tile_performance">Profili i baterisë</string>
   <!-- Content description of the battery mode tile in quick settings when on, power save mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_pwrsv">Profili i baterisë: kursim i energjisë.</string>
   <!-- Content description of the battery mode tile in quick settings when on, balanced mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_bal">Profili i baterisë: i balancuar.</string>
   <!-- Content description of the battery mode tile in quick settings when on, performance mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_perf">Profili i baterisë: përformancë.</string>
   <!-- Content description of the battery mode tile in quick settings when on, efficiency mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_bias_power">Profili i baterisë: efikasitet.</string>
   <!-- Content description of the battery mode tile in quick settings when on, quick mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_bias_perf">Profili i baterisë: i shpejtë.</string>
   <!-- Announcement made when the battery mode tile changes to power save (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">Profili i baterisë u kthye në profilin e kursimit të energjisë.</string>
   <!-- Announcement made when the battery mode tile changes to balanced (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_changed_bal">Profili i baterisë u kthye në profilin e balancuar.</string>
   <!-- Announcement made when the battery mode tile changes to performance (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_changed_perf">Profili i baterisë u kthye në proflin e përformancës.</string>
   <!-- Announcement made when the battery mode tile changes to efficiency (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Profili i baterisë u kthye në profilin e efikasitetit.</string>
   <!-- Announcement made when the battery mode tile changes to quick (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Profili i baterisë u kthye në profilin e shpejtë.</string>
+  <string name="quick_settings_performance_profile_detail_title">Profili i baterisë</string>
   <!-- Content description of the lock screen tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_lock_screen_off">Ekrani bllokues inaktiv.</string>
   <!-- Content description of the lock screen tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_lock_screen_on">Ekrani bllokues aktiv.</string>
   <!-- Announcement made when lock screen changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_lock_screen_changed_off">Ekrani bllokues u çaktivizua.</string>
   <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_lock_screen_changed_on">Ekrani bllokues u aktivizua.</string>
   <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_ambient_display_off">Drita e ekranit sipas ambientit inaktive.</string>
   <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_ambient_display_on">Drita e ekranit sipas ambientit aktive.</string>
   <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Drita e ekranit sipas ambientit u çaktivizua.</string>
   <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Drita e ekranit sipas ambientit u aktivizua.</string>
   <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_off">Heads-up inaktiv.</string>
   <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_on">Heads-up Aktiv.</string>
   <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_changed_off">Njoftimet Heads-up u çaktivizuan.</string>
   <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_changed_on">Njoftimet Heads-up u aktivizuan.</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_caffeine_off">Kafeina inaktive.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_caffeine_on">Kafeina aktive.</string>
   <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_off">Kursimi i baterisë inaktiv.</string>
   <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_on">Kursimi i baterisë aktiv.</string>
   <!-- Announcement made when battery saver changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_changed_off">Kursimi i baterisë u çaktivizua.</string>
   <!-- Announcement made when battery saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_changed_on">Kursimi i baterisë u aktivizua.</string>
   <!-- Dynamic tiles -->
+  <string name="quick_settings_dynamic_tile_detail_title">Tjegull dinamike</string>
+  <string name="dynamic_qs_tile_next_alarm_label">Alarmi i radhës</string>
+  <string name="dynamic_qs_tile_ime_selector_label">Zgjedhësi IME</string>
+  <string name="dynamic_qs_tile_su_label">Aksesi Root</string>
+  <string name="dynamic_qs_tile_themes_label">Temat</string>
+  <string name="quick_settings_title_advanced_location">Vendndodhja në 3 shtete</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_battery_saving">Raportimi i vendndodhjes: kursim i baterisë.</string>
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_gps_only">Raportimi i vendndodhjes: vetëm nga sensorët.</string>
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_high_accuracy">Raportimi i vendndodhjes: me saktësi të lartë.</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_title">Profili i vendndodhjes</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_battery_saving_label">Kursim i baterisë</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_gps_only_label">Vetëm pajisja</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_high_accuracy_label">Saktësi e lartë</string>
   <!-- Announcement made when the location tile changes to battery saving (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_changed_battery_saving">Raportimi i vendndodhjes u kthye në profilin e kursimit të baterisë.</string>
   <!-- Announcement made when the location tile changes to sensors only (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_changed_gps_only">Raportimi i vendndodhjes u kthye në profilin \'vetëm sensorët\'.</string>
   <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_changed_high_accuracy">Raportimi i vendndodhjes u kthye në profilin me saktësi të lartë.</string>
+  <string name="quick_settings_tiles_category_system">Tjegullat e sistemit</string>
   <!-- detail header when adding a tile -->
+  <string name="quick_settings_tiles_add_tiles">Shto një tjegull</string>
   <!-- Hotspot dialog message -->
+  <string name="hotspot_apm_message">Lidhja me rrjetet celulare është e pamundur kur profili Avion është i aktivizuar. Çaktivizo profilin Avion dhe provo përsëri.</string>
   <!-- Notification which notifies user flashlight is enabled -->
+  <string name="quick_settings_tile_flashlight_not_title">Elektriku i dorës është i ndezur</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Shtyp për ta fikur</string>
   <!-- Wi-Fi hotspot label when enabled -->
+  <plurals name="wifi_hotspot_connected_clients_label">
+    <item quantity="one">%1$d klient</item>
+    <item quantity="other">%1$d klientë</item>
+  </plurals>
   <!-- CellularTile data sim not configured state string -->
+  <string name="data_sim_not_configured">SIM pa internet</string>
   <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_dock_battery_level">Bateria e Dokut <xliff:g id="number">%d</xliff:g> përqind.</string>
   <!-- Play queue -->
+  <string name="play_queue_extention">Trego këngët në radhë</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+  <string name="expand_hint">Rrëshqit gishtin poshtë për të shfaqur</string>
+  <string name="swipe_left_hint">Rrëshqit majtas për <xliff:g id="app_name">%1$s</xliff:g></string>
+  <string name="swipe_right_hint">Rrëshqit gishtin djathtas për të parë njoftimet</string>
 </resources>

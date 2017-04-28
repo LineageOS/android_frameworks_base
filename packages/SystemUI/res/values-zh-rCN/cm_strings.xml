@@ -170,7 +170,7 @@
   <!-- Announcement made when battery saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_battery_saver_changed_on">已开启省电模式。</string>
   <!-- Dynamic tiles -->
-  <string name="quick_settings_dynamic_tile_detail_title">动态按钮</string>
+  <string name="quick_settings_dynamic_tile_detail_title">动态瓷块</string>
   <string name="dynamic_qs_tile_next_alarm_label">下一个闹铃</string>
   <string name="dynamic_qs_tile_ime_selector_label">输入法选择器</string>
   <string name="dynamic_qs_tile_su_label">Root 授权</string>
@@ -198,7 +198,7 @@
   <string name="accessibility_quick_settings_location_changed_high_accuracy">位置报告已修改为准确度高模式。</string>
   <string name="quick_settings_tiles_category_system">系统磁块</string>
   <!-- detail header when adding a tile -->
-  <string name="quick_settings_tiles_add_tiles">添加磁块</string>
+  <string name="quick_settings_tiles_add_tiles">添加瓷块</string>
   <!-- Hotspot dialog message -->
   <string name="hotspot_apm_message">飞行模式启用时无法连接到移动网络。请禁用飞行模式并重试。</string>
   <!-- Notification which notifies user flashlight is enabled -->

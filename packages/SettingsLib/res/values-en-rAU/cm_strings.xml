@@ -18,4 +18,10 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="profile_applist_title">Apps</string>
+  <string name="picker_activities">Activities</string>
+  <string name="select_custom_app_title">Select custom app</string>
+  <string name="select_custom_activity_title">Select custom activity</string>
+  <string name="lockscreen_targets_message">Lock screen shortcuts</string>
+</resources>

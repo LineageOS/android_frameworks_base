@@ -40,7 +40,7 @@
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_changePhoneBlacklist">允許應用程式變更被封鎖來電或訊息的電話號碼。</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">設定鎖定螢幕桌布</string>
+  <string name="permlab_setKeyguardWallpaper">設定鍵盤鎖桌布</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_setKeyguardWallpaper">允許應用程式變更鎖定畫面桌布。</string>
   <!-- label for item that reboots the phone in phone options dialog -->

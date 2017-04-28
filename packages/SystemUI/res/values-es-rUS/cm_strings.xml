@@ -29,8 +29,8 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Deslizar a la derecha para %1$s</string>
   <string name="right_shortcut_hint">Deslizar a la izquierda para %1$s</string>
-  <string name="lockscreen_message">Pulsar un icono a la izquierda o derecha para reasignar un atajo de la pantalla bloqueada.</string>
-  <string name="lockscreen_default_target">Predeterminado</string>
+  <string name="lockscreen_message">Pulsa el icono de la izquierda o derecha para reasignar un atajo a la pantalla de bloqueo.</string>
+  <string name="lockscreen_default_target">Predefinido</string>
   <string name="select_application">Selecciona una aplicación</string>
   <string name="lockscreen_choose_action_title">Elegir acción</string>
   <string name="lockscreen_none_target">Ninguna</string>
@@ -67,11 +67,11 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Ajustes de luz de notificación</string>
   <string name="led_notification_text">Luz LED activada por ajustes</string>
-  <string name="qs_tile_edit_header_instruction">Pulsa y mantén presionados los mosaicos para reorganizarlos</string>
+  <string name="qs_tile_edit_header_instruction">Mantén pulsado los mosaicos para reorganizarlos</string>
   <string name="quick_settings_edit_label">Editar mosaicos</string>
-  <string name="quick_settings_cannot_delete_edit_tile">No se puede eliminar el mosaico Editar</string>
-  <string name="qs_tiles_reset_confirmation">¿Restaurar lo mosaicos de ajustes rápidos a su configuración predeterminada?</string>
-  <string name="quick_settings_tile_reset_to_default">Restaurar disposición predeterminada</string>
+  <string name="quick_settings_cannot_delete_edit_tile">No se puede borrar el mosaico Editar</string>
+  <string name="qs_tiles_reset_confirmation">¿Restaurar lo mosaicos de ajustes rápidos a su configuración predefinida?</string>
+  <string name="quick_settings_tile_reset_to_default">Restaurar disposición predefinida</string>
   <string name="quick_settings_title_header">Encabezado</string>
   <string name="quick_settings_title_tiles">Mosaicos</string>
   <string name="quick_settings_title_show_weather">Mostrar clima</string>
@@ -80,7 +80,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Esto fija la pantalla en esta vista hasta que se desancla. Mantén pulsado el botón Atrás para desanclar.</string>
   <string name="quick_settings_custom_tile_detail_title">Control personalizado</string>
-  <string name="quick_settings_remove">Eliminar control</string>
+  <string name="quick_settings_remove">Quitar control</string>
   <string name="quick_settings_network_adb_label">ADB sobre red</string>
   <string name="quick_settings_compass_label">Brújula</string>
   <string name="quick_settings_nfc_label">NFC</string>
@@ -173,9 +173,9 @@
   <string name="quick_settings_dynamic_tile_detail_title">Control dinámico</string>
   <string name="dynamic_qs_tile_next_alarm_label">Próxima alarma</string>
   <string name="dynamic_qs_tile_ime_selector_label">Selector IME</string>
-  <string name="dynamic_qs_tile_su_label">Acceso a raíz</string>
+  <string name="dynamic_qs_tile_su_label">Acceso administrativo</string>
   <string name="dynamic_qs_tile_themes_label">Temas</string>
-  <string name="quick_settings_title_advanced_location">Localización trizona</string>
+  <string name="quick_settings_title_advanced_location">Ubicación por triangulación</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Informes de ubicación: modo de ahorro de batería.</string>
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -203,7 +203,7 @@
   <string name="hotspot_apm_message">No se puede conectar con redes móviles cuando el modo avión está activado. Desactivar el modo avión y volver a intentarlo.</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">La linterna está encendida</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Pulsar para apagarla</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Pulsa para apagar</string>
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d cliente</item>

@@ -28,11 +28,11 @@
     <!-- South east -->
     <item>S</item>
     <!-- South -->
-    <item>SW</item>
+    <item>SO</item>
     <!-- South west -->
-    <item>W</item>
+    <item>O</item>
     <!-- West -->
-    <item>NW</item>
+    <item>NO</item>
     <!-- North west -->
   </string-array>
   <!-- Performance profiles description-->

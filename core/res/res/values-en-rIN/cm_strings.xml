@@ -135,6 +135,7 @@
   <string name="app_ops_start_at_bootup">start at power up</string>
   <string name="app_ops_toast_window">display toast messages</string>
   <string name="app_ops_toggle_bluetooth">toggle Bluetooth</string>
+  <string name="app_ops_toggle_mobile_data">toggle cellular data</string>
   <string name="app_ops_toggle_nfc">toggle NFC</string>
   <string name="app_ops_toggle_wifi">toggle Wi-Fi</string>
   <string name="app_ops_use_alarm_volume">control alarm volume</string>
@@ -175,7 +176,11 @@
   <!-- Sequence of characters used to separate carrier message strings in keyguard. Typically just vertical line
          with spaces on either side. [CHAR LIMIT=3] -->
   <!-- Protected Apps Notification -->
+  <string name="notify_package_component_protected_title">Activity launch blocked</string>
+  <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> is protected from being launched. Tap to authenticate and launch the application.</string>
   <!-- Battery fully charged notification -->
+  <string name="notify_battery_fully_charged_title">Battery fully charged</string>
+  <string name="notify_battery_fully_charged_text">Disconnect your device from the charger to improve battery longevity.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose
          whether they want to allow the application to do this. -->
   <string name="permlab_resetBatteryStats">reset battery statistics</string>
@@ -183,4 +188,6 @@
          whether they want to allow the application to do this. -->
   <string name="permdesc_resetBatteryStats">Allows an application to reset the current low-level battery use data.</string>
   <!-- Uicc hotswapped event configuration needed notification -->
+  <string name="uicc_hot_swapped_event_title">SIM cards have changed</string>
+  <string name="uicc_hot_swapped_event_text">Tap to set SIM card default preferences</string>
 </resources>

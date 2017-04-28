@@ -101,7 +101,7 @@
   <string name="accessibility_quick_settings_sync_changed_on">Sinkronisasi dihidupkan.</string>
   <string name="quick_settings_sync_label">Sinkronisasi</string>
   <string name="quick_settings_volume_panel_label">Panel volume</string>
-  <string name="quick_settings_usb_tether_label">Penambatan USB</string>
+  <string name="quick_settings_usb_tether_label">Tethering USB</string>
   <string name="quick_settings_screen_timeout_detail_title">Waktu layar mati</string>
   <string name="quick_settings_lockscreen_label">Kunci layar</string>
   <string name="quick_settings_ambient_display_label">Tampilan ambien</string>

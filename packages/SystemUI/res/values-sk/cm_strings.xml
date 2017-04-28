@@ -117,7 +117,7 @@
   <!-- Content description of the battery mode tile in quick settings when on, balanced mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_perf_profile_bal">Režim batérie: vyvážený režim.</string>
   <!-- Content description of the battery mode tile in quick settings when on, performance mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_perf">Režim batérie: režim výkonu.</string>
+  <string name="accessibility_quick_settings_perf_profile_perf">Režim batérie: vysoký výkon.</string>
   <!-- Content description of the battery mode tile in quick settings when on, efficiency mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_perf_profile_bias_power">Režim batérie: efektívny režim.</string>
   <!-- Content description of the battery mode tile in quick settings when on, quick mode (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -127,11 +127,11 @@
   <!-- Announcement made when the battery mode tile changes to balanced (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_perf_profile_changed_bal">Režim batérie sa zmenil na vyvážený režim.</string>
   <!-- Announcement made when the battery mode tile changes to performance (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_perf">Režim batérie sa zmenil na režim výkonu.</string>
+  <string name="accessibility_quick_settings_perf_profile_changed_perf">Režim batérie sa zmenil na režim vysokého výkonu.</string>
   <!-- Announcement made when the battery mode tile changes to efficiency (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Režim batérie sa zmenil na efektívny režim.</string>
   <!-- Announcement made when the battery mode tile changes to quick (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Režim batérie sa zmenil na výkonný režim.</string>
+  <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Režim batérie sa zmenil na rýchly režim.</string>
   <string name="quick_settings_performance_profile_detail_title">Režim batérie</string>
   <!-- Content description of the lock screen tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_lock_screen_off">Obrazovka uzamknutia vyp.</string>

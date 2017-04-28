@@ -26,15 +26,15 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_modifyProtectedSmsList">modificar llista de SMS protexíos</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_modifyProtectedSmsList">Permite que l\'aplicación modifique la llista de direiciones de mensaxes SMS protexíos.</string>
+  <string name="permdesc_modifyProtectedSmsList">Permite que l\'aplicación modifique\'l llistáu de direiciones de SMS protexíos.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Seguridá</string>
+  <string name="permgrouplab_security">Seguranza</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Permisos rellacionaos a la seguridá de la información del preséu.</string>
+  <string name="permgroupdesc_security">Permisos venceyaos a la información de seguranza del preséu.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readPhoneBlacklist">Lleer llista prieta del teléfonu</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Permite a una aplicación lleer información sobre los númberos telefónicos bloquiaos pa llamaes o mensaxes entrantes.</string>
+  <string name="permdesc_readPhoneBlacklist">Permite qu\'una aplicación llea información tocante a los númberos telefónicos que tán bloquiaos pa llamaes o mensaxes entrantes.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_changePhoneBlacklist">camudar la llista prieta del teléfonu</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -42,7 +42,7 @@
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">Afita\'l fondu de pantalla de bloquéu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Permite que l\'aplicación afite\'l fondu de la pantalla de bloquéu.</string>
+  <string name="permdesc_setKeyguardWallpaper">Permite qu\'una aplicación camude\'l fondu de la pantalla de bloquéu.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
   <string name="global_action_reboot">Reaniciar</string>
   <!-- label for current user in phone options dialog -->
@@ -51,18 +51,18 @@
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">Reaniciar</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Mou Recovery</string>
+  <string name="reboot_recovery">Recovery</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Mou Bootloader</string>
+  <string name="reboot_bootloader">Cargador d\'arranque</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Descargar</string>
+  <string name="reboot_download">Descarga</string>
   <!-- Button to soft reboot the device, within the Reboot Options dialog -->
   <string name="reboot_soft">Reaniciu suave</string>
   <!-- Title of dialog to confirm rebooting. -->
   <string name="reboot_title">Reaniciar</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
          be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm" product="tablet">La tablet va reaniciase.</string>
+  <string name="reboot_confirm" product="tablet">La tableta va reaniciase.</string>
   <string name="reboot_confirm" product="default">El teléfonu va reaniciase.</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
   <string name="reboot_progress">Reaniciando\u2026</string>
@@ -93,18 +93,18 @@
   <!-- Privacy Guard -->
   <string name="permlab_changePrivacyGuardState">habilitar o deshabilitar la privacidá</string>
   <string name="permdesc_changePrivacyGuardState">Permite que l\'aplicación cambie l\'estáu de privacidá d\'otra. Cuando una aplicación s\'executa cola privacidá habilitada, nun va poder acceder a los datos personales, talos como contautos, mensaxes o rexistros de llamaes.</string>
-  <string name="privacy_guard_notification">Privacidá activada</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nun va poder acceder a los datos personales</string>
-  <string name="privacy_guard_dialog_title">Privacidá</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> quies <xliff:g id="op">%2$s</xliff:g>.</string>
+  <string name="privacy_guard_notification">Guardián de privacidá activu</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nun sedrá a acceder a los datos personales</string>
+  <string name="privacy_guard_dialog_title">Guardián de privacidá</string>
+  <string name="privacy_guard_dialog_summary">A <xliff:g id="app">%1$s</xliff:g> prestaría-y <xliff:g id="op">%2$s</xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <string name="permission_remember_choice">Recordar la mio escoyeta</string>
   <!-- App ops requests -->
   <string name="app_ops_access_camera">acceder a la cámara</string>
-  <string name="app_ops_access_location">acceder a la to llocalización</string>
-  <string name="app_ops_access_notifications">lleer les tos notificaciones</string>
+  <string name="app_ops_access_location">acceder al to allugamientu</string>
+  <string name="app_ops_access_notifications">lleer los tos avisos</string>
   <string name="app_ops_activate_vpn">activar una VPN</string>
-  <string name="app_ops_auto_start">executase al aniciu</string>
+  <string name="app_ops_auto_start">executase nel aniciu</string>
   <string name="app_ops_delete_call_log">desaniciar rexistru de llamaes</string>
   <string name="app_ops_delete_contacts">desaniciar contautos</string>
   <string name="app_ops_delete_mms">desaniciar los tos MMS</string>
@@ -117,10 +117,10 @@
   <string name="app_ops_modify_call_log">anovar el rexistru de llamaes</string>
   <string name="app_ops_modify_clipboard">modificar el cartafueyu</string>
   <string name="app_ops_modify_contacts">anovar los tos contautos</string>
-  <string name="app_ops_modify_settings">anovar los axustes del sistema</string>
+  <string name="app_ops_modify_settings">anovar axustes del sistema</string>
   <string name="app_ops_mute_unmute_microphone">activar/silenciar micrófonu</string>
-  <string name="app_ops_play_audio">reproducir soníu</string>
-  <string name="app_ops_post_notification">espublizar una notificación</string>
+  <string name="app_ops_play_audio">reproducir audiu</string>
+  <string name="app_ops_post_notification">espublizar un avisu</string>
   <string name="app_ops_project_media">Proyeutu Media</string>
   <string name="app_ops_read_calendar">lleer el to calendariu</string>
   <string name="app_ops_read_call_log">lleer el rexistru de llamaes</string>
@@ -129,43 +129,43 @@
   <string name="app_ops_read_mms">lleer los tos mensaxes MMS</string>
   <string name="app_ops_read_sms">lleer los tos mensaxes SMS</string>
   <string name="app_ops_receive_sms">recibir un mensaxe SMS</string>
-  <string name="app_ops_record_audio">grabar soníu</string>
+  <string name="app_ops_record_audio">grabar audiu</string>
   <string name="app_ops_send_mms">unviar un mensaxe MMS</string>
   <string name="app_ops_send_sms">unviar un mensaxe SMS</string>
-  <string name="app_ops_start_at_bootup">executase al aniciu</string>
+  <string name="app_ops_start_at_bootup">executase nel aniciu</string>
   <string name="app_ops_toast_window">notificaciones emerxentes</string>
-  <string name="app_ops_toggle_bluetooth">cambiar Bluetooth</string>
-  <string name="app_ops_toggle_mobile_data">conmutar datos móviles</string>
-  <string name="app_ops_toggle_nfc">cambiar NFC</string>
+  <string name="app_ops_toggle_bluetooth">alternar Bluetooth</string>
+  <string name="app_ops_toggle_mobile_data">alternar datos móviles</string>
+  <string name="app_ops_toggle_nfc">alternar NFC</string>
   <string name="app_ops_toggle_wifi">alternar Wi-Fi</string>
-  <string name="app_ops_use_alarm_volume">remanar volume de l\'alarma</string>
+  <string name="app_ops_use_alarm_volume">controlar volume d\'alarma</string>
   <string name="app_ops_use_audio_focus">remanar el volume de soníu</string>
   <string name="app_ops_use_bluetooth_volume">remanar el volume del Bluetooth</string>
   <string name="app_ops_use_master_volume">remanar el volume principal</string>
   <string name="app_ops_use_media_buttons">usar los botones multimedia</string>
   <string name="app_ops_use_media_volume">remanar el volume multimedia</string>
-  <string name="app_ops_use_notification_volume">remanar el volume de notificaciones</string>
-  <string name="app_ops_use_ring_volume">remanar el volume de llamada</string>
+  <string name="app_ops_use_notification_volume">controlar el volume d\'avisu</string>
+  <string name="app_ops_use_ring_volume">controlar el volume del timbre</string>
   <string name="app_ops_use_vibrate">usar rempuesta háptica</string>
   <string name="app_ops_use_voice_volume">remanar el volume de la llamada</string>
   <string name="app_ops_write_mms">escribir un mensaxe MMS</string>
   <string name="app_ops_write_sms">escribir un mensaxe SMS</string>
   <string name="app_ops_use_fingerprint">usar buelga</string>
   <string name="app_ops_add_voicemail">amestar corréu de voz</string>
-  <string name="app_ops_read_phone_state">estáu d\'accesu al teléfonu</string>
-  <string name="app_ops_scan_wifi">escaniar rede Wi-Fi</string>
+  <string name="app_ops_read_phone_state">acceder al estáu\'l teléfonu</string>
+  <string name="app_ops_scan_wifi">escaniar redes Wi-Fi</string>
   <string name="app_ops_change_wallpaper">camudar el fondu</string>
   <string name="app_ops_assist_structure">usar cadarma d\'asistencia</string>
   <string name="app_ops_assist_screenshot">facer una captura</string>
   <string name="app_ops_use_body_sensors">usar sensores corporales</string>
   <string name="app_ops_read_cell_broadcasts">lleer tresmisiones celulares</string>
-  <string name="app_ops_mock_location">simular la llocalización</string>
+  <string name="app_ops_mock_location">simular l\'allugamientu</string>
   <string name="app_ops_read_external_storage">lleer almacenamientu esternu</string>
-  <string name="app_ops_write_external_storage">escribir almacenamientu esternu</string>
+  <string name="app_ops_write_external_storage">escribir nel almacenamientu esternu</string>
   <string name="app_ops_turn_on_screen">prender pantalla</string>
   <string name="app_ops_get_accounts">consiguir cuentes del preséu</string>
   <string name="app_ops_wifi_change">camudar estáu del Wi-Fi</string>
-  <string name="app_ops_su">obtener accesu root</string>
+  <string name="app_ops_su">consiguir accesu root</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Pa desfixar esta pantalla, ten primíu\'l botón Atrás.</string>
   <!-- Template for showing cellular network operator name while LTE calling is enabled -->

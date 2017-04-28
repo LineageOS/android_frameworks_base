@@ -18,53 +18,169 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- label for item that screenshots in phone options dialog -->
+  <string name="global_action_screenshot">Foto e ekranit</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_receiveProtectedSms">merr SMS të mbrojtura</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_receiveProtectedSms">Lejon një aplikacion që të marrë SMS të mbrojtura.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_modifyProtectedSmsList">modifiko listën e SMS-ve të mbrojtura</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_modifyProtectedSmsList">Lejon një aplikacion të modifikojë listën e SMS-ve të mbrojtura.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgrouplab_security">Siguria</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgroupdesc_security">Leje që kanë të bëjnë me sigurinë e pajisjes.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_readPhoneBlacklist">lexo listën e zezë të telefonit</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readPhoneBlacklist">Lejon një aplikacion të lexojë listën e numrave të telefonit që u është bllokuar dërgimi i thirrjeve apo mesazheve.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_changePhoneBlacklist">ndrysho listën e zezë të telefonit</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_changePhoneBlacklist">Lejon një aplikacion të bëjë ndryshime në listën e numrave të telefonit që u është bllokuar dërgimi i thirrjeve apo mesazheve.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setKeyguardWallpaper">Lejon një aplikacion që të ndryshojë sfondin e ekranit bllokues.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
+  <string name="global_action_reboot">Rindiz</string>
   <!-- label for current user in phone options dialog -->
+  <string name="global_action_current_user">Aktual</string>
   <!-- Reboot menu -->
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
+  <string name="reboot_reboot">Rindiz</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
+  <string name="reboot_recovery">Recovery</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
+  <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
+  <string name="reboot_download">Download</string>
   <!-- Button to soft reboot the device, within the Reboot Options dialog -->
+  <string name="reboot_soft">Rindezje e shpejtë</string>
   <!-- Title of dialog to confirm rebooting. -->
+  <string name="reboot_title">Rindiz</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">Tableta juaj do të rindizet.</string>
+  <string name="reboot_confirm" product="default">Telefoni juaj do të rindizet.</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
+  <string name="reboot_progress">Duke u rindezur\u2026</string>
   <!-- Long-press back kill application -->
+  <string name="app_killed_message">Aplikacioni u mbyll</string>
   <!-- ADB over network notification -->
+  <string name="adb_net_active_notification_title">ADB mbi rrjet u aktivizua</string>
   <!-- ADB over USB and network notification -->
+  <string name="adb_both_active_notification_title">ADB mbi rrjet USB &amp; u aktivizua</string>
   <!-- ADB notification message-->
+  <string name="adb_active_generic_notification_message">Prek për të çaktivizuar debugimin.</string>
   <!-- ADB custom tile -->
+  <string name="adb_active_custom_tile">ADB - <xliff:g id="adb_type" example="USB">%1$s</xliff:g></string>
+  <string name="adb_active_custom_tile_both">USB &amp; rrjeti</string>
+  <string name="adb_active_custom_tile_usb">USB</string>
+  <string name="adb_active_custom_tile_net">Rrjeti</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
+  <string name="permlab_interceptPackageLaunch">ndërprit nisjen e aplikacionit</string>
   <!-- stylus gestures support -->
+  <string name="stylus_app_not_installed">%s nuk është instaluar</string>
   <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Prioritet</string>
+  <string name="silent_mode_none">Asnjë</string>
   <!-- Wifi Hotspot disabled due to subscription change -->
+  <string name="subscription_change_disabled_wifi_ap">Hotspoti Wi-Fi u çaktivizua për shkak të një ndryshimi të abonimit SIM</string>
   <!-- WiFi turn off notification action text -->
+  <string name="notify_turn_wifi_off_title">Fik Wi-Fi</string>
   <!-- Privacy Guard -->
+  <string name="permlab_changePrivacyGuardState">aktivizo/çaktivizo Mbrojtësin e të Dhënave</string>
+  <string name="privacy_guard_notification">Mrojtësi i të Dhënave është i aktivizuar</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nuk do të jetë në gjendje të aksesojë të dhëna personale</string>
+  <string name="privacy_guard_dialog_title">Mbrojtësi i të Dhënave</string>
+  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> kërkon të <xliff:g id="op">%2$s</xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+  <string name="permission_remember_choice">Kujtoje zgjedhjen</string>
   <!-- App ops requests -->
+  <string name="app_ops_access_camera">aksesojë kamerën</string>
+  <string name="app_ops_access_location">aksesojë vendndodhjen</string>
+  <string name="app_ops_access_notifications">lexojë njoftimet</string>
+  <string name="app_ops_activate_vpn">aktivizojë një VPN</string>
+  <string name="app_ops_auto_start">niset kur ndizet telefoni</string>
+  <string name="app_ops_delete_call_log">fshijë listën e thirrjeve</string>
+  <string name="app_ops_delete_contacts">fshijë kontaktet</string>
+  <string name="app_ops_delete_mms">fshijë mesazhet MMS</string>
+  <string name="app_ops_delete_sms">fshijë mesazhet SMS</string>
+  <string name="app_ops_get_usage_stats">marrë të dhënat statistikore të përdorimit të aplikacionit</string>
+  <string name="app_ops_keep_device_awake">mbajë pajisjen zgjuar</string>
+  <string name="app_ops_make_phone_call">kryejë një telefonatë</string>
+  <string name="app_ops_modify_calendar">përditësojë kalendarin</string>
+  <string name="app_ops_modify_call_log">përditësojë listën e thirrjeve</string>
+  <string name="app_ops_modify_contacts">përditësojë kontaktet</string>
+  <string name="app_ops_modify_settings">përditësojë parametrat e sistemit</string>
+  <string name="app_ops_mute_unmute_microphone">heqi/vëri zërin mikrofonit</string>
+  <string name="app_ops_play_audio">luajë audio</string>
+  <string name="app_ops_post_notification">postojë një njoftim</string>
+  <string name="app_ops_project_media">projektojë media</string>
+  <string name="app_ops_read_calendar">lexojë kalendarin</string>
+  <string name="app_ops_read_call_log">lexojë listën e thirrjeve</string>
+  <string name="app_ops_read_contacts">lexojë kontaktet e tua</string>
+  <string name="app_ops_read_mms">lexojë mesazhet e tua MMS</string>
+  <string name="app_ops_read_sms">lexojë mesazhet e tua SMS</string>
+  <string name="app_ops_receive_sms">marrë një mesazh SMS</string>
+  <string name="app_ops_record_audio">regjistrojë audio</string>
+  <string name="app_ops_send_mms">dërgojë një mesazh MMS</string>
+  <string name="app_ops_send_sms">dërgojë një mesazh SMS</string>
+  <string name="app_ops_start_at_bootup">niset kur ndizet telefoni</string>
+  <string name="app_ops_toggle_bluetooth">aktivizojë/çaktivizojë Bluetoothin</string>
+  <string name="app_ops_toggle_mobile_data">aktivizojë/çaktivizojë internetin e celularit</string>
+  <string name="app_ops_toggle_nfc">aktivizojë/çaktivizojë NFC</string>
+  <string name="app_ops_toggle_wifi">aktivizojë/çaktivizojë Wi-Fi</string>
+  <string name="app_ops_use_alarm_volume">kontrollojë volumin e alarmit</string>
+  <string name="app_ops_use_audio_focus">kontrollojë fokusin e audios</string>
+  <string name="app_ops_use_bluetooth_volume">kontrollojë volumin e Bluetooth</string>
+  <string name="app_ops_use_master_volume">kontrollojë volumin kryesor</string>
+  <string name="app_ops_use_media_buttons">përdorë butonat e medias</string>
+  <string name="app_ops_use_media_volume">kontrollojë volumin e medias</string>
+  <string name="app_ops_use_notification_volume">kontrollojë volumin e njoftimeve</string>
+  <string name="app_ops_use_ring_volume">kontrollojë volumin e zileve</string>
+  <string name="app_ops_use_vibrate">përdorë reagimin haptik</string>
+  <string name="app_ops_use_voice_volume">kontrollojë volumin e thirrjeve</string>
+  <string name="app_ops_write_mms">shkruajë një mesazh MMS</string>
+  <string name="app_ops_write_sms">shkruajë një mesazh SMS</string>
+  <string name="app_ops_use_fingerprint">përdorë shenjën e gishtit</string>
+  <string name="app_ops_add_voicemail">shtojë një mesazh zanor</string>
+  <string name="app_ops_read_phone_state">aksesojë statusin e telefonit</string>
+  <string name="app_ops_scan_wifi">kërkojë për rrjete Wi-Fi</string>
+  <string name="app_ops_change_wallpaper">ndërrojë sfondin</string>
+  <string name="app_ops_assist_screenshot">kapë një foto të ekranit</string>
+  <string name="app_ops_use_body_sensors">përdorë sensorët për trupin</string>
+  <string name="app_ops_read_cell_broadcasts">lexojë transmetimet celulare</string>
+  <string name="app_ops_mock_location">simulojë vendndodhjen tënde</string>
+  <string name="app_ops_read_external_storage">lexojë memorien e jashtme</string>
+  <string name="app_ops_write_external_storage">shkruajë në memorien e jashtme</string>
+  <string name="app_ops_turn_on_screen">ndezi ekranin</string>
+  <string name="app_ops_get_accounts">marrë llogaritë e pajisjes</string>
+  <string name="app_ops_wifi_change">ndërrojë statusin e Wi-Fi</string>
+  <string name="app_ops_su">marrë akses Root</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+  <string name="lock_to_app_toast_no_navbar">Për ta shqitur këtë ekran, prek dhe mbaj shtypur butonin Prapa.</string>
   <!-- Template for showing cellular network operator name while LTE calling is enabled -->
+  <string name="tethered_notification_no_device_message">Asnjë pajisje e lidhur</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> pajisje e lidhur</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> pajisje të lidhura</string>
   <!-- Keyguard strings -->
   <!-- Sequence of characters used to separate carrier message strings in keyguard. Typically just vertical line
          with spaces on either side. [CHAR LIMIT=3] -->
   <!-- Protected Apps Notification -->
+  <string name="notify_package_component_protected_title">Nisja e aktivitetit u bllokua</string>
+  <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> është aplikacion i mbrojtur. Shtyp këtu për të vërtetuar identitetin dhe për të hapur aplikacionin.</string>
   <!-- Battery fully charged notification -->
+  <string name="notify_battery_fully_charged_title">Bateria është plotësisht e karikuar</string>
+  <string name="notify_battery_fully_charged_text">Shkëpute pajisjen nga ushqyesi për të zgjatur jetëgjatësinë e baterisë.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose
          whether they want to allow the application to do this. -->
+  <string name="permlab_resetBatteryStats">fshi statistikat e baterisë</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose
          whether they want to allow the application to do this. -->
+  <string name="permdesc_resetBatteryStats">Lejon një aplikacion që të fshijë të dhënat aktuale të përdorimit të baterisë.</string>
   <!-- Uicc hotswapped event configuration needed notification -->
+  <string name="uicc_hot_swapped_event_title">Kartat SIM janë ndërruar</string>
+  <string name="uicc_hot_swapped_event_text">Shtyp për të vendosur preferencat e paracaktuara të kartës SIM</string>
 </resources>

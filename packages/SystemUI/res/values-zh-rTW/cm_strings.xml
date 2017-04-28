@@ -81,7 +81,7 @@
   <string name="screen_pinning_description_no_navbar">此功能會固定螢幕顯示直到您取消固定。觸控並長按 [返回] 鍵即可解除固定。</string>
   <string name="quick_settings_custom_tile_detail_title">自訂圖塊</string>
   <string name="quick_settings_remove">移除圖塊</string>
-  <string name="quick_settings_network_adb_label">網路 ADB</string>
+  <string name="quick_settings_network_adb_label">透過網路 ADB</string>
   <string name="quick_settings_compass_label">指南針</string>
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_profiles">系統設定檔</string>

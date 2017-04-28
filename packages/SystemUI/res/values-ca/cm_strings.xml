@@ -65,12 +65,12 @@
   <string name="accessibility_quick_settings_profiles_changed">Perfil canviat a <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <string name="quick_settings_compass_init">S\'està inicialitzant\u2026</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Ajustaments de llum</string>
+  <string name="led_notification_title">Configuració de llums</string>
   <string name="led_notification_text">Llum LED habilitada per ajustos</string>
   <string name="qs_tile_edit_header_instruction">Prem i aguanta les cel·les per reordenar-les</string>
   <string name="quick_settings_edit_label">Edita cel·les</string>
   <string name="quick_settings_cannot_delete_edit_tile">No s\'ha pogut esborrar la cel·la Edita</string>
-  <string name="qs_tiles_reset_confirmation">Vols restablir les cel·les d\'ajustaments ràpids a la configuració predeterminada?</string>
+  <string name="qs_tiles_reset_confirmation">Vols restablir les cel·les de configuració ràpida als paràmetres predeterminats?</string>
   <string name="quick_settings_tile_reset_to_default">Restableix la disposició per defecte</string>
   <string name="quick_settings_title_header">Capçalera</string>
   <string name="quick_settings_title_tiles">Cel·les</string>

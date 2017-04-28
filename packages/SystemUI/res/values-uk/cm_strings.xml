@@ -33,7 +33,7 @@
   <string name="lockscreen_default_target">За замовчуванням</string>
   <string name="select_application">Вибрати програму</string>
   <string name="lockscreen_choose_action_title">Виберіть дію</string>
-  <string name="lockscreen_none_target">НІчого</string>
+  <string name="lockscreen_none_target">Нічого</string>
   <!-- Dialog title for navigation bar button selection -->
   <string name="navbar_dialog_title">Виберіть дію щоб призначити</string>
   <string name="navbar_home_button">Кнопка Додому</string>
@@ -104,7 +104,7 @@
   <string name="quick_settings_usb_tether_label">USB-модем</string>
   <string name="quick_settings_screen_timeout_detail_title">Тайм-аут екрану</string>
   <string name="quick_settings_lockscreen_label">Заблокувати екран</string>
-  <string name="quick_settings_ambient_display_label">Ambient display</string>
+  <string name="quick_settings_ambient_display_label">Ambient дисплей</string>
   <string name="quick_settings_lockscreen_label_enforced">Блокування екрану ввімкнено</string>
   <string name="quick_settings_lockscreen_label_locked_by_profile">Вимкнено профілем</string>
   <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -142,13 +142,13 @@
   <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_lock_screen_changed_on">Блокування екрана увімкнено.</string>
   <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient display вимкнено.</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambient дисплей вимкнено.</string>
   <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient display увімкнено.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient дисплей увімкнено.</string>
   <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient дисплей вимкнено.</string>
   <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display увімкнено.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient дисплей увімкнено.</string>
   <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_heads_up_off">Спливаючі сповіщення вимкнено.</string>
   <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -177,13 +177,13 @@
   <string name="dynamic_qs_tile_themes_label">Теми</string>
   <string name="quick_settings_title_advanced_location">Параметри відправки геоданих</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Надсилання місця розташування: економія батареї.</string>
+  <string name="accessibility_quick_settings_location_battery_saving">Надсилання місцезнаходження: економія батареї.</string>
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_gps_only">Надсилання місця розташування: тільки датчики.</string>
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Надсилання місця розташування: висока точність.</string>
+  <string name="accessibility_quick_settings_location_high_accuracy">Надсилання місцезнаходження: висока точність.</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Режим розташування</string>
+  <string name="quick_settings_location_detail_title">Режим місцезнаходження</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Економія батареї</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->

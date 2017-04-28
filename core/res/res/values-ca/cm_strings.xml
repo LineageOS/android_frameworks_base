@@ -55,7 +55,7 @@
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
   <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Descàrrega</string>
+  <string name="reboot_download">Download</string>
   <!-- Button to soft reboot the device, within the Reboot Options dialog -->
   <string name="reboot_soft">Reinici ràpid</string>
   <!-- Title of dialog to confirm rebooting. -->

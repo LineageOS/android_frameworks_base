@@ -174,6 +174,7 @@
   <string name="dynamic_qs_tile_next_alarm_label">다음 알람</string>
   <string name="dynamic_qs_tile_ime_selector_label">입력 방법 선택</string>
   <string name="dynamic_qs_tile_su_label">루트 권한</string>
+  <string name="dynamic_qs_tile_themes_label">테마</string>
   <string name="quick_settings_title_advanced_location">3가지 위치 설정</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">위치 보고: 배터리 절약 모드.</string>
@@ -199,7 +200,7 @@
   <!-- detail header when adding a tile -->
   <string name="quick_settings_tiles_add_tiles">타일 추가</string>
   <!-- Hotspot dialog message -->
-  <string name="hotspot_apm_message">비행기 모드가 활성화되어 있어 셀룰러 네트워크에 연결할 수 없습니다. 비행기 모드를 해제하고 다시 시도하세요.</string>
+  <string name="hotspot_apm_message">비행기 모드가 켜져 있어 이동 통신망 네트워크에 연결할 수 없습니다. 비행기 모드를 해제하고 다시 시도하세요.</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">손전등 켜짐</string>
   <string name="quick_settings_tile_flashlight_not_summary">탭하여 끄기</string>
@@ -217,4 +218,8 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+  <string name="expand_hint">아래로 쓸어 내려 확장</string>
+  <string name="swipe_left_hint">왼쪽으로 밀어 <xliff:g id="app_name">%1$s</xliff:g> 실행</string>
+  <string name="swipe_right_hint">오른쪽으로 밀어 알림 열기</string>
 </resources>

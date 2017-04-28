@@ -31,14 +31,14 @@
   <string name="right_shortcut_hint">Esliza a la esquierda pa %1$s</string>
   <string name="lockscreen_message">Toca nun iconu de la esquierda o derecha pa reasignar un atayu na pantalla de bloquéu.</string>
   <string name="lockscreen_default_target">Por defeutu</string>
-  <string name="select_application">Esbillar app</string>
-  <string name="lockscreen_choose_action_title">Esbillar aición</string>
+  <string name="select_application">Esbillar aplicación</string>
+  <string name="lockscreen_choose_action_title">Escoyer aición</string>
   <string name="lockscreen_none_target">Nengún</string>
   <!-- Dialog title for navigation bar button selection -->
-  <string name="navbar_dialog_title">Seleicionar botón a amosar</string>
+  <string name="navbar_dialog_title">Escoyer aición p\'asignar</string>
   <string name="navbar_home_button">Botón Aniciu</string>
   <string name="navbar_recent_button">Botón Recientes</string>
-  <string name="navbar_search_button">Botón Gueta</string>
+  <string name="navbar_search_button">Botón Guetar</string>
   <string name="navbar_back_button">Botón Atrás</string>
   <string name="navbar_empty_button">Botón baleru</string>
   <string name="navbar_menu_conditional_button">Botón Menú (auto-anubrir)</string>
@@ -48,13 +48,13 @@
   <string name="accessibility_dpad_right">Cursor derecha</string>
   <!-- Development shortcuts -->
   <!-- Title shown in recents popup for wiping application's data -->
-  <string name="advanced_dev_option_wipe_app">Desaniciar datos</string>
+  <string name="advanced_dev_option_wipe_app">Llimpiar datos d\'aplicaciones</string>
   <!-- Title shown in recents popup for force stopping the application -->
   <string name="advanced_dev_option_force_stop">Forciar detención</string>
   <!-- Title shown in recents popup for uninstalling the application -->
   <string name="advanced_dev_option_uninstall">Desinstalar</string>
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">Rellumu de lluz</string>
+  <string name="accessibility_notification_brightness">Brilléu de lluz</string>
   <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_profiles_off">Perfiles desactivaos.</string>
   <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -63,7 +63,7 @@
   <string name="accessibility_quick_settings_profiles_changed_off">Perfiles desactivaos.</string>
   <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_profiles_changed">Perfil camudáu a <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
-  <string name="quick_settings_compass_init">Anicializando\u2026</string>
+  <string name="quick_settings_compass_init">Aniciando\u2026</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Axustes de lluz</string>
   <string name="led_notification_text">Lluz LED habilitada polos axustes</string>
@@ -73,9 +73,9 @@
   <string name="qs_tiles_reset_confirmation">¿Restaurar los controles d\'axustes rápidos a la configuración predeterminada?</string>
   <string name="quick_settings_tile_reset_to_default">Reafitar distribución</string>
   <string name="quick_settings_title_header">Testera</string>
-  <string name="quick_settings_title_tiles">Controles</string>
+  <string name="quick_settings_title_tiles">Caxelles</string>
   <string name="quick_settings_title_show_weather">Amosar clima</string>
-  <string name="quick_settings_title_show_brightness_slider">Amosar barra de lluminosidá</string>
+  <string name="quick_settings_title_show_brightness_slider">Amosar eslizador de brilléu</string>
   <string name="quick_settings_title_enlarge_first_row">Ampliar la primer filera</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Esto caltién la pantalla nesta vista hasta que se llibera. Caltén primíu\'l botón Atrás pa lliberala.</string>
@@ -86,8 +86,8 @@
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_profiles">Perfiles del sistema</string>
   <string name="quick_settings_profiles_off">Perfiles deshabilitaos</string>
-  <string name="quick_settings_heads_up_label">Notificaciones emerxentes</string>
-  <string name="quick_settings_battery_saver_label">Aforrador d\'enerxía</string>
+  <string name="quick_settings_heads_up_label">Avisos emerxente</string>
+  <string name="quick_settings_battery_saver_label">Aforrador de batería</string>
   <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
   <string name="quick_settings_battery_saver_label_charging">Aforrador de batería (cargando)</string>
   <string name="quick_settings_caffeine_label">Cafeína</string>
@@ -101,25 +101,25 @@
   <string name="accessibility_quick_settings_sync_changed_on">Sincronización activada.</string>
   <string name="quick_settings_sync_label">Sincronización</string>
   <string name="quick_settings_volume_panel_label">Panel de volume</string>
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
-  <string name="quick_settings_screen_timeout_detail_title">Tiempu d\'espera</string>
+  <string name="quick_settings_usb_tether_label">Tethering USB</string>
+  <string name="quick_settings_screen_timeout_detail_title">Escosa de tiempu</string>
   <string name="quick_settings_lockscreen_label">Pantalla de bloquéu</string>
   <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
   <string name="quick_settings_lockscreen_label_enforced">Bloquéu de pantalla forzáu</string>
   <string name="quick_settings_lockscreen_label_locked_by_profile">Deshabilitáu por perfil</string>
   <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_screen_timeout">Tiempu d\'espera de pantalla: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_screen_timeout">Tiempu d\'escosa de pantalla: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
   <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_screen_timeout_changed">Tiempu d\'espera de pantalla camudáu a <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_screen_timeout_changed">Camudóse\'l tiempu d\'escosa de pantalla a <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
   <string name="qs_tile_performance">Mou de batería</string>
   <!-- Content description of the battery mode tile in quick settings when on, power save mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_pwrsv">Mou de batería: mou d\'aforru d\'enerxía.</string>
+  <string name="accessibility_quick_settings_perf_profile_pwrsv">Mou de batería: aforru d\'enerxía.</string>
   <!-- Content description of the battery mode tile in quick settings when on, balanced mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bal">Mou de batería: mou balanceáu.</string>
+  <string name="accessibility_quick_settings_perf_profile_bal">Mou de batería: balanceáu.</string>
   <!-- Content description of the battery mode tile in quick settings when on, performance mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_perf">Mou de batería: mou rindimientu.</string>
+  <string name="accessibility_quick_settings_perf_profile_perf">Mou de batería: rindimientu.</string>
   <!-- Content description of the battery mode tile in quick settings when on, efficiency mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bias_power">Mou de batería: mou eficiente.</string>
+  <string name="accessibility_quick_settings_perf_profile_bias_power">Mou de batería: eficiencia.</string>
   <!-- Content description of the battery mode tile in quick settings when on, quick mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_perf_profile_bias_perf">Mou batería: mou rápidu.</string>
   <!-- Announcement made when the battery mode tile changes to power save (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -142,13 +142,13 @@
   <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_lock_screen_changed_on">Bloquéu de pantalla activáu.</string>
   <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente apagada.</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente activada.</string>
   <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente prendida.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente desactivada.</string>
   <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Apagóse la pantalla ambiente.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Desactivóse la pantalla ambiente.</string>
   <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Prendióse la pantalla ambiente.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Activóse la pantalla ambiente.</string>
   <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_heads_up_off">Desactivar notificaciones emerxentes.</string>
   <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -162,18 +162,15 @@
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_caffeine_on">Activar Cafeína.</string>
   <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_off">Aforru de bateríu apagáu.</string>
   <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_on">Aforru de bateríu encesu.</string>
   <!-- Announcement made when battery saver changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_changed_off">Aforru de bateríu apagáu.</string>
   <!-- Announcement made when battery saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_changed_on">Aforru de bateríu encesu.</string>
   <!-- Dynamic tiles -->
   <string name="quick_settings_dynamic_tile_detail_title">Caxella dinámica</string>
   <string name="dynamic_qs_tile_next_alarm_label">Alarma siguiente</string>
   <string name="dynamic_qs_tile_ime_selector_label">Seleutor d\'IME</string>
   <string name="dynamic_qs_tile_su_label">Accesu root</string>
+  <string name="dynamic_qs_tile_themes_label">Temes</string>
   <string name="quick_settings_title_advanced_location">Llocalización por triangulación</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Informes de llocalización: mou d\'aforru de batería.</string>
@@ -182,7 +179,7 @@
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_high_accuracy">Informes de llocalización: mou d\'alta precisión.</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Mou de llocalización</string>
+  <string name="quick_settings_location_detail_title">Mou d\'allugamientu</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Aforru d\'enerxía</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
@@ -195,14 +192,14 @@
   <string name="accessibility_quick_settings_location_changed_gps_only">Informes de llocalización camudaron a mou namái preséu.</string>
   <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_changed_high_accuracy">Informes de llocalización camudaron a mou d\'alta precisión.</string>
-  <string name="quick_settings_tiles_category_system">Controles del sistema</string>
+  <string name="quick_settings_tiles_category_system">Caxelles del sistema</string>
   <!-- detail header when adding a tile -->
   <string name="quick_settings_tiles_add_tiles">Amestar un control</string>
   <!-- Hotspot dialog message -->
   <string name="hotspot_apm_message">Nun pue coneutase a redes móviles mentanto tea activáu el mou Avión. Desactiva\'l mou Avión ya inténtalo de nueves.</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">La llinterna ta encesa</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Toca p\'apagala</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Calca p\'apagala</string>
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d veceru</item>
@@ -218,5 +215,8 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+  <string name="expand_hint">Eslizar hacia abaxo pa espander</string>
+  <string name="swipe_left_hint">Eslizar a la izquierda pa <xliff:g id="app_name">%1$s</xliff:g></string>
+  <string name="swipe_right_hint">Eslizar a la drecha p\'avisos</string>
 </resources>

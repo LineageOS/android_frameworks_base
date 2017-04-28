@@ -36,8 +36,8 @@
   <string name="lockscreen_none_target">Няма</string>
   <!-- Dialog title for navigation bar button selection -->
   <string name="navbar_dialog_title">Изберете действие</string>
-  <string name="navbar_home_button">Начален бутон</string>
-  <string name="navbar_recent_button">Последен бутон</string>
+  <string name="navbar_home_button">Бутон \"Начало\"</string>
+  <string name="navbar_recent_button">Бутон \"Последно\"</string>
   <string name="navbar_search_button">Бутон за търсене</string>
   <string name="navbar_back_button">Бутон \"Назад\"</string>
   <string name="navbar_empty_button">Празен бутон</string>

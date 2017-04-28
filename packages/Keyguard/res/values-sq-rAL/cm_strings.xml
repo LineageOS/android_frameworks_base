@@ -17,7 +17,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- When the user inserts a sim card with some personalization enabled -->
+  <string name="keyguard_perso_locked_message">Karta SIM ka bllokim Perso</string>
   <!-- Shown in the lock screen when there is SIM card IO error. -->
+  <string name="lockscreen_sim_error_message_short">Kartë e pavlefshme.</string>
   <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
+  <plurals name="kg_password_default_pin_message">
+    <item quantity="one">Vendosni kodin PIN të kartës SIM. Ju keni edhe <xliff:g id="number">%d</xliff:g> përpjekje të mbetur përpara se të detyroheni të kontaktoni operatorin për të zhbllokuar pajisjen.</item>
+    <item quantity="other">Vendosni kodin PIN të kartës SIM. Ju keni <xliff:g id="number">%d</xliff:g> përpjekje të mbetura përpara se të detyroheni të kontaktoni operatorin për të zhbllokuar pajisjen.</item>
+  </plurals>
   <!-- Shown in the KeyguardSimPinView when entry length is too short. -->
+  <string name="kg_invalid_sim_length">Gabim: Gjatësia e kodit të vendosur është më e shkurtër se gjatësia minimale</string>
 </resources>
