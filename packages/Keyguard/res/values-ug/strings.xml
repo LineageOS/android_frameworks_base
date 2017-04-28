@@ -42,7 +42,6 @@
   <!-- Instructions telling the user that they entered the wrong pin while trying
          to unlock the keyguard.  Displayed in one line in a large font.  -->
   <string name="keyguard_password_wrong_pin_code">PIN كودى خاتا.</string>
-  <!-- Shown in the lock screen when there is SIM card IO error. -->
   <!-- When the lock screen is showing, the phone is plugged in and the battery is fully
          charged, say that it is charged. -->
   <string name="keyguard_charged">توكلاندى</string>
@@ -190,6 +189,4 @@
   <!-- An explanation text that the pin needs to be entered since it hasn't been entered in a while. [CHAR LIMIT=80]-->
   <!-- An explanation text that the password needs to be entered since it hasn't been entered in a while. [CHAR LIMIT=80]-->
   <!-- Fingerprint hint message when finger was not recognized.-->
-  <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
-  <!-- Instructions telling the user remaining times when enter SIM PUK view.  -->
 </resources>
