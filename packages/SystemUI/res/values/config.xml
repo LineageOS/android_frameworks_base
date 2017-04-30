@@ -293,4 +293,7 @@
 
     <bool name="config_show4gForIWlan">false</bool>
     <bool name="config_showSignalForIWlan">false</bool>
+
+    <!-- When true, show the AutoBrightness imageview -->
+    <bool name="config_show_auto_brightness">true</bool>
 </resources>
