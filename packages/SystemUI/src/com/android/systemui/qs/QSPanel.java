@@ -52,6 +52,8 @@ import cyanogenmod.providers.CMSettings;
 public class QSPanel extends LinearLayout implements Tunable, Callback {
 
     public static final String QS_SHOW_BRIGHTNESS = "qs_show_brightness";
+    public static final String QS_SHOW_AUTO_BRIGHTNESS =
+            "cmsystem:" + CMSettings.System.QS_SHOW_AUTO_BRIGHTNESS;
 
     protected final Context mContext;
     protected final ArrayList<TileRecord> mRecords = new ArrayList<TileRecord>();
@@ -102,6 +104,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
                 (ImageView) findViewById(R.id.brightness_icon),
                 (ToggleSlider) findViewById(R.id.brightness_slider));
 
+        mAutoBrightnessView = (ImageView) findViewById(R.id.brightness_icon);
     }
 
     protected void setupTileLayout() {
@@ -109,10 +112,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
                 R.layout.qs_paged_tile_layout, this, false);
         mTileLayout.setListening(mListening);
         addView((View) mTileLayout);
-        if (getResources().getBoolean(
-                com.android.internal.R.bool.config_automatic_brightness_available)) {
-            ((ImageView) findViewById(R.id.brightness_icon)).setVisibility(View.VISIBLE);
-        }
     }
 
     public boolean isShowingCustomize() {
@@ -122,7 +121,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        TunerService.get(mContext).addTunable(this, QS_SHOW_BRIGHTNESS);
+        TunerService.get(mContext).addTunable(this, QS_SHOW_BRIGHTNESS, QS_SHOW_AUTO_BRIGHTNESS);
         if (mHost != null) {
             setTiles(mHost.getTiles());
         }
@@ -147,6 +146,9 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
     public void onTuningChanged(String key, String newValue) {
         if (QS_SHOW_BRIGHTNESS.equals(key)) {
             mBrightnessView.setVisibility(newValue == null || Integer.parseInt(newValue) != 0
+                    ? VISIBLE : GONE);
+        } else if (QS_SHOW_AUTO_BRIGHTNESS.equals(key)) {
+            mAutoBrightnessView.setVisibility(newValue == null || Integer.parseInt(newValue) != 0
                     ? VISIBLE : GONE);
         }
     }
