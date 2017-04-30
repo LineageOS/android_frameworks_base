@@ -439,7 +439,8 @@ class TaskStackViewTouchHandler implements SwipeHelper.Callback {
     @Override
     public View getChildAtPosition(MotionEvent ev) {
         TaskView tv = findViewAtPoint((int) ev.getX(), (int) ev.getY());
-        if (tv != null && canChildBeDismissed(tv)) {
+        if (tv != null && (canChildBeDismissed(tv)
+                || Recents.sLockedTasks.contains(tv.getTask()))) {
             return tv;
         }
         return null;
