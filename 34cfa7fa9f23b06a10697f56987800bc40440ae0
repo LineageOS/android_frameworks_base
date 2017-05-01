@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a486d77_9be231d4",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 444
+      },
+      "writtenOn": "2017-05-01T02:42:27Z",
+      "side": 1,
+      "message": "} else if ((QS_SHOW_AUTO_BRIGHTNESS.equals(key)) \u0026\u0026 (getResources()\n                .getBoolean(com.android.internal.R.bool.config_automatic_brightness_available))) {\n\n\nIf I use that, everything works as it should.",
+      "revId": "34cfa7fa9f23b06a10697f56987800bc40440ae0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
