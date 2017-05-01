@@ -34,6 +34,24 @@
       "revId": "34cfa7fa9f23b06a10697f56987800bc40440ae0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_c447aa4a",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 444
+      },
+      "writtenOn": "2017-05-01T19:10:49Z",
+      "side": 1,
+      "message": "Yeah that\u0027s a fair point. I\u0027ll test.",
+      "parentUuid": "1a486d77_4903d373",
+      "revId": "34cfa7fa9f23b06a10697f56987800bc40440ae0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
