@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a486d77_9b8d9134",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 444
+      },
+      "writtenOn": "2017-05-01T01:07:48Z",
+      "side": 0,
+      "message": "Maybe we need to keep this.",
+      "revId": "ac8641d9e4ce48dfa6abb3231e24653afb3416e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
