@@ -16,6 +16,24 @@
       "revId": "ac8641d9e4ce48dfa6abb3231e24653afb3416e0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_9bbb51c4",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-05-01T01:42:52Z",
+      "side": 0,
+      "message": "No, we need to hide the tunable in settings instead using this overlay",
+      "parentUuid": "1a486d77_9b8d9134",
+      "revId": "ac8641d9e4ce48dfa6abb3231e24653afb3416e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
