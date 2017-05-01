@@ -503,6 +503,18 @@ public class Camera {
         }
     }
 
+    private boolean isPackageInList(String packageList, String packageName) {
+        TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
+        splitter.setString(packageList);
+        for (String str : splitter) {
+            if (packageName.equals(str)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private int cameraInitVersion(int cameraId, int halVersion) {
         mShutterCallback = null;
         mRawImageCallback = null;
@@ -526,18 +538,18 @@ public class Camera {
         }
 
         String packageName = ActivityThread.currentOpPackageName();
+        String packageList;
 
         //Force HAL1 if the package name falls in this bucket
-        String packageList = SystemProperties.get("camera.hal1.packagelist", "");
-        if (packageList.length() > 0) {
-            TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
-            splitter.setString(packageList);
-            for (String str : splitter) {
-                if (packageName.equals(str)) {
-                    halVersion = CAMERA_HAL_API_VERSION_1_0;
-                    break;
-                }
-            }
+        packageList = SystemProperties.get("camera.hal1.packagelist", "");
+        if (packageList.length() > 0 && isPackageInList(packageList, packageName)) {
+            halVersion = CAMERA_HAL_API_VERSION_1_0;
+        }
+
+        //Force HAL1 if the package name is not in this list
+        packageList = SystemProperties.get("camera.hal3.packagelist", "");
+        if (packageList.length() > 0 && !isPackageInList(packageList, packageName)) {
+            halVersion = CAMERA_HAL_API_VERSION_1_0;
         }
         return native_setup(new WeakReference<Camera>(this), cameraId, halVersion, packageName);
     }
