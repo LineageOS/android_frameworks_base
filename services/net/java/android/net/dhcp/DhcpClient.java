@@ -128,6 +128,9 @@ public class DhcpClient extends StateMachine {
     public static final int CMD_CONFIGURE_LINKADDRESS       = PUBLIC_BASE + 8;
     public static final int EVENT_LINKADDRESS_CONFIGURED    = PUBLIC_BASE + 9;
 
+    /* Command from controller to start DHCP with Rapid commit */
+    public static final int CMD_START_DHCP_RAPID_COMMIT     = PUBLIC_BASE + 10;
+
     /* Message.arg1 arguments to CMD_POST_DHCP_ACTION notification */
     public static final int DHCP_SUCCESS = 1;
     public static final int DHCP_FAILURE = 2;
@@ -195,6 +198,8 @@ public class DhcpClient extends StateMachine {
     private DhcpResults mDhcpLease;
     private long mDhcpLeaseExpiry;
     private DhcpResults mOffer;
+    public boolean mRapidCommit;
+    public boolean mDiscoverSent;
 
     // Milliseconds SystemClock timestamps used to record transition times to DhcpBoundState.
     private long mLastInitEnterTime;
@@ -204,6 +209,7 @@ public class DhcpClient extends StateMachine {
     private State mStoppedState = new StoppedState();
     private State mDhcpState = new DhcpState();
     private State mDhcpInitState = new DhcpInitState();
+    private State mDhcpRapidCommitInitState = new DhcpRapidCommitInitState();
     private State mDhcpSelectingState = new DhcpSelectingState();
     private State mDhcpRequestingState = new DhcpRequestingState();
     private State mDhcpHaveLeaseState = new DhcpHaveLeaseState();
@@ -214,6 +220,7 @@ public class DhcpClient extends StateMachine {
     private State mDhcpInitRebootState = new DhcpInitRebootState();
     private State mDhcpRebootingState = new DhcpRebootingState();
     private State mWaitBeforeStartState = new WaitBeforeStartState(mDhcpInitState);
+    private State mRapidCommitWaitBeforeStartState = new WaitBeforeStartState(mDhcpRapidCommitInitState);
     private State mWaitBeforeRenewalState = new WaitBeforeRenewalState(mDhcpRenewingState);
 
     private WakeupMessage makeWakeupMessage(String cmdName, int cmd) {
@@ -231,7 +238,9 @@ public class DhcpClient extends StateMachine {
         addState(mStoppedState);
         addState(mDhcpState);
             addState(mDhcpInitState, mDhcpState);
+            addState(mDhcpRapidCommitInitState, mDhcpState);
             addState(mWaitBeforeStartState, mDhcpState);
+            addState(mRapidCommitWaitBeforeStartState, mDhcpState);
             addState(mDhcpSelectingState, mDhcpState);
             addState(mDhcpRequestingState, mDhcpState);
             addState(mDhcpHaveLeaseState, mDhcpState);
@@ -420,10 +429,17 @@ public class DhcpClient extends StateMachine {
         return true;
     }
 
+    public ByteBuffer buildDiscoverWithRapidCommitPacket() {
+        startNewTransaction();
+        return DhcpPacket.buildDiscoverPacket(
+                DhcpPacket.ENCAP_L2, mTransactionId, getSecs(), mHwAddr,
+                DO_UNICAST, REQUESTED_PARAMS, mRapidCommit);
+    }
+
     private boolean sendDiscoverPacket() {
         ByteBuffer packet = DhcpPacket.buildDiscoverPacket(
                 DhcpPacket.ENCAP_L2, mTransactionId, getSecs(), mHwAddr,
-                DO_UNICAST, REQUESTED_PARAMS);
+                DO_UNICAST, REQUESTED_PARAMS, mRapidCommit);
         return transmitPacket(packet, "DHCPDISCOVER", DhcpPacket.ENCAP_L2, INADDR_BROADCAST);
     }
 
@@ -588,8 +604,71 @@ public class DhcpClient extends StateMachine {
                         transitionTo(mDhcpInitState);
                     }
                     return HANDLED;
+                case CMD_START_DHCP_RAPID_COMMIT:
+                    mRapidCommit =  message.arg1 == 1 ? true: false;
+                    mDiscoverSent = message.arg2 == 1 ? true : false;
+                    if (mRegisteredForPreDhcpNotification) {
+                        if (mRapidCommit) {
+                            transitionTo(mRapidCommitWaitBeforeStartState);
+                        } else {
+                            transitionTo(mWaitBeforeStartState);
+                        }
+                    } else {
+                        if (mRapidCommit) {
+                            transitionTo(mDhcpRapidCommitInitState);
+                        } else {
+                            transitionTo(mDhcpInitState);
+                        }
+                    }
+                    return HANDLED;
                 default:
                     return NOT_HANDLED;
+            }
+        }
+    }
+
+    class DhcpRapidCommitInitState extends PacketRetransmittingState {
+        public DhcpRapidCommitInitState() {
+            super();
+        }
+
+        @Override
+        public void enter() {
+            super.enter();
+            if (!mDiscoverSent) {
+                startNewTransaction();
+            }
+            mLastInitEnterTime = SystemClock.elapsedRealtime();
+        }
+
+        protected boolean sendPacket() {
+            if (mDiscoverSent) {
+                mDiscoverSent = false;
+                return true;
+            }
+            return sendDiscoverPacket();
+        }
+
+        protected void receivePacket(DhcpPacket packet) {
+            if (!isValidPacket(packet)) return;
+            if (packet instanceof DhcpOfferPacket) {
+                mOffer = packet.toDhcpResults();
+                if (mOffer != null) {
+                    Log.d(TAG, "DhcpRapidCommitInitState:Got pending lease: " + mOffer);
+                    transitionTo(mDhcpRequestingState);
+                }
+            } else if ((packet instanceof DhcpAckPacket)) {
+                DhcpResults results = packet.toDhcpResults();
+                Log.d(TAG,"Received ACK in DhcpRapidCommitInitState");
+                if (results != null) {
+                    setDhcpLeaseExpiry(packet);
+                    acceptDhcpResults(results, "Confirmed");
+                    transitionTo(mConfiguringInterfaceState);
+                }
+            } else if (packet instanceof DhcpNakPacket) {
+                Log.d(TAG, "Received NAK in DhcpRapidCommitInitState, returning to INIT");
+                mOffer = null;
+                transitionTo(mDhcpInitState);
             }
         }
     }

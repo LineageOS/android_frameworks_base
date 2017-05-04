@@ -29,6 +29,11 @@ class DhcpDiscoverPacket extends DhcpPacket {
     DhcpDiscoverPacket(int transId, short secs, byte[] clientMac, boolean broadcast) {
         super(transId, secs, INADDR_ANY, INADDR_ANY, INADDR_ANY, INADDR_ANY, clientMac, broadcast);
     }
+    DhcpDiscoverPacket(int transId, short secs, byte[] clientMac, boolean broadcast,
+                       boolean rapidCommit) {
+        super(transId, secs, INADDR_ANY, INADDR_ANY, INADDR_ANY, INADDR_ANY,
+              clientMac, broadcast, rapidCommit);
+    }
 
     public String toString() {
         String s = super.toString();
@@ -55,6 +60,9 @@ class DhcpDiscoverPacket extends DhcpPacket {
         addTlv(buffer, DHCP_CLIENT_IDENTIFIER, getClientId());
         addCommonClientTlvs(buffer);
         addTlv(buffer, DHCP_PARAMETER_LIST, mRequestedParams);
+        if (mRapidCommit) {
+            addTlv(buffer, DHCP_OPTION_RAPID_COMMIT);
+        }
         addTlvEnd(buffer);
     }
 }
