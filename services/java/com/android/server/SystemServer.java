@@ -202,7 +202,7 @@ public final class SystemServer {
      * visual content.
      */
     private static final int DEFAULT_SYSTEM_THEME =
-            com.android.internal.R.style.Theme_DeviceDefault_System;
+            com.android.internal.R.style.Theme_Material_DayNight_DarkActionBar;
 
     private final int mFactoryTestMode;
     private Timer mProfilerSnapshotTimer;
