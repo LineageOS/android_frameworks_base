@@ -105,8 +105,12 @@ public abstract class CurrentUserTracker {
         private void notifyUserSwitched(int newUserId) {
             if (mCurrentUserId != newUserId) {
                 mCurrentUserId = newUserId;
-                for (Consumer<Integer> consumer : mCallbacks) {
-                    consumer.accept(newUserId);
+                List<Consumer<Integer>> callbacks = new ArrayList<>(mCallbacks);
+                for (Consumer<Integer> consumer : callbacks) {
+                    // Accepting may modify this list
+                    if (mCallbacks.contains(consumer)) {
+                        consumer.accept(newUserId);
+                    }
                 }
             }
         }
