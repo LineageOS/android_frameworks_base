@@ -290,6 +290,7 @@ public final class ParcelableCall implements Parcelable {
             int capabilities = source.readInt();
             int properties = source.readInt();
             long createTimeMillis = source.readLong();
+            int supportedAudioRoutes = source.readInt();
             long connectTimeMillis = source.readLong();
             Uri handle = source.readParcelable(classLoader);
             int handlePresentation = source.readInt();
@@ -309,7 +310,6 @@ public final class ParcelableCall implements Parcelable {
             source.readList(conferenceableCallIds, classLoader);
             Bundle intentExtras = source.readBundle(classLoader);
             Bundle extras = source.readBundle(classLoader);
-            int supportedAudioRoutes = source.readInt();
             return new ParcelableCall(
                     id,
                     state,
@@ -359,6 +359,7 @@ public final class ParcelableCall implements Parcelable {
         destination.writeInt(mCapabilities);
         destination.writeInt(mProperties);
         destination.writeLong(mCreateTimeMillis);
+        destination.writeInt(mSupportedAudioRoutes);
         destination.writeLong(mConnectTimeMillis);
         destination.writeParcelable(mHandle, 0);
         destination.writeInt(mHandlePresentation);
@@ -376,7 +377,6 @@ public final class ParcelableCall implements Parcelable {
         destination.writeList(mConferenceableCallIds);
         destination.writeBundle(mIntentExtras);
         destination.writeBundle(mExtras);
-        destination.writeInt(mSupportedAudioRoutes);
     }
 
     @Override
