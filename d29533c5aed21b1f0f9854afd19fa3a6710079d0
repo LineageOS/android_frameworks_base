@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a486d77_9381e34c",
+        "filename": "obex/javax/obex/ServerSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-05-08T05:09:05Z",
+      "side": 1,
+      "message": "Is there any case where we wouldn\u0027t want to set this value unconditionally anyway?",
+      "revId": "d29533c5aed21b1f0f9854afd19fa3a6710079d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
