@@ -16,6 +16,24 @@
       "revId": "d29533c5aed21b1f0f9854afd19fa3a6710079d0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_dfd195fc",
+        "filename": "obex/javax/obex/ServerSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 444
+      },
+      "writtenOn": "2017-05-13T01:58:37Z",
+      "side": 1,
+      "message": "Sorry, I really don\u0027t know. I guess it will be slower in normal usecases, ie. not using a2dp at the same time.",
+      "parentUuid": "1a486d77_9381e34c",
+      "revId": "d29533c5aed21b1f0f9854afd19fa3a6710079d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
