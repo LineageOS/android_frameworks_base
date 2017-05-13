@@ -420,11 +420,13 @@ public final class KeyboardShortcuts {
         final AssistUtils assistUtils = new AssistUtils(mContext);
         final ComponentName assistComponent = assistUtils.getAssistComponentForUser(userId);
         PackageInfo assistPackageInfo = null;
-        try {
-            assistPackageInfo = mPackageManager.getPackageInfo(
-                    assistComponent.getPackageName(), 0, userId);
-        } catch (RemoteException e) {
-            Log.e(TAG, "PackageManagerService is dead");
+        if (assistComponent != null) {
+            try {
+                assistPackageInfo = mPackageManager.getPackageInfo(
+                        assistComponent.getPackageName(), 0, userId);
+            } catch (RemoteException e) {
+                Log.e(TAG, "PackageManagerService is dead");
+            }
         }
 
         if (assistPackageInfo != null) {
