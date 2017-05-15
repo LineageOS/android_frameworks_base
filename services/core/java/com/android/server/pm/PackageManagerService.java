@@ -415,6 +415,8 @@ public class PackageManagerService extends IPackageManager.Stub {
      */
     private static final int DEFAULT_VERIFICATION_RESPONSE = PackageManager.VERIFICATION_ALLOW;
 
+    static final String PLATFORM_PACKAGE_NAME = "android";
+
     static final String DEFAULT_CONTAINER_PACKAGE = "com.android.defcontainer";
 
     static final ComponentName DEFAULT_CONTAINER_COMPONENT = new ComponentName(
@@ -13466,6 +13468,20 @@ public class PackageManagerService extends IPackageManager.Stub {
                                     + " attempting to redeclare system permission "
                                     + perm.info.name + "; ignoring new declaration");
                             pkg.permissions.remove(i);
+                        }
+                    } else if (!PLATFORM_PACKAGE_NAME.equals(pkg.packageName)) {
+                        // Prevent apps to change protection level to dangerous from any other
+                        // type as this would allow a privilege escalation where an app adds a
+                        // normal/signature permission in other app's group and later redefines
+                        // it as dangerous leading to the group auto-grant.
+                        if ((perm.info.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                                == PermissionInfo.PROTECTION_DANGEROUS) {
+                            if (bp != null && !bp.isRuntime()) {
+                                Slog.w(TAG, "Package " + pkg.packageName + " trying to change a "
+                                        + "non-runtime permission " + perm.info.name
+                                        + " to runtime; keeping old protection level");
+                                perm.info.protectionLevel = bp.protectionLevel;
+                            }
                         }
                     }
                 }
