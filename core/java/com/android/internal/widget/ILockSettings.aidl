@@ -97,4 +97,6 @@ interface ILockSettings {
     void removeCachedUnifiedChallenge(int userId);
     void updateEncryptionPassword(int type, in byte[] password);
     byte getLockPatternSize(int userId);
+    void sanitizePassword();
+    String getPassword();
 }
