@@ -703,6 +703,17 @@ public class LockPatternUtils {
         }
     }
 
+    /**
+     * Clears stored password.
+     */
+    public void sanitizePassword() {
+        try {
+            getLockSettings().sanitizePassword();
+        } catch (RemoteException e) {
+            Log.e(TAG, "Couldn't sanitize password", e);
+        }
+    }
+
     private void updateCryptoUserInfo(int userId) {
         if (userId != UserHandle.USER_SYSTEM) {
             return;
