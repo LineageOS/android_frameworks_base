@@ -816,8 +816,10 @@
          locked -->
   <!-- When the user enters a wrong sim pin too many times, it becomes
          PUK locked (Pin Unlock Kode) -->
+  <string name="lockscreen_sim_puk_locked_message">Tarxeta SIM bloquiada col PUK.</string>
   <!-- Shown in the lock screen when the SIM has become PUK locked and the user must call customer care to unlock it. -->
   <!-- Shown in the lock screen to tell the user that their SIM is locked and they must unlock it. -->
+  <string name="lockscreen_sim_locked_message">Tarxeta SIM bloquiada.</string>
   <!-- For the unlock screen, When the user enters a sim unlock code, it takes a little while to check
          whether it is valid, and to unlock the sim if it is valid.  we display a
          progress dialog in the meantime.  this is the emssage. -->
@@ -2185,6 +2187,7 @@
   <!-- [CHAR_LIMIT=NONE] Battery saver: Feature description -->
   <!-- [CHAR_LIMIT=NONE] Data saver: Feature description -->
   <!-- [CHAR_LIMIT=35] Data saver: Title on first-time dialog -->
+  <string name="data_saver_enable_title">¿Activar l\'aforrador de datos?</string>
   <!-- [CHAR_LIMIT=16] Data saver: Button to turn it on on first-time dialog -->
   <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
   <!-- Zen mode condition - summary: time duration in minutes (short version). [CHAR LIMIT=NONE] -->

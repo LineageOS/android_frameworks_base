@@ -31,8 +31,11 @@
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <string name="reboot_reboot">Reaniciar</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
+  <string name="reboot_recovery">Recovery</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
+  <string name="reboot_bootloader">Cargador d\'arranque</string>
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
+  <string name="reboot_download">Descarga</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
   <string name="reboot_soft">Reaniciu suave</string>
   <!-- Title of dialog to confirm restarting. -->

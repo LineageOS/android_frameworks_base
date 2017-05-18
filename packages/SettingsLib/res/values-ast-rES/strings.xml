@@ -310,6 +310,7 @@
   <!-- HDCP checking title, used for debug purposes only. [CHAR LIMIT=25] -->
   <!-- HDCP checking dialog title, used for debug purposes only. [CHAR LIMIT=25] -->
   <!-- Preference category for app debugging development settings. [CHAR LIMIT=50] -->
+  <string name="debug_debugging_category">Depuración</string>
   <!-- UI debug setting: select current app to debug [CHAR LIMIT=50] -->
   <!-- UI debug setting: no debug app has been set [CHAR LIMIT=50] -->
   <!-- UI debug setting: debug app has been set [CHAR LIMIT=50] -->
@@ -404,7 +405,9 @@
   <!-- Developer settings: enable WebView multiprocess name [CHAR LIMIT=50] -->
   <!-- Developer settings: enable WebView multiprocess summary [CHAR LIMIT=60] -->
   <!-- Developer settings: select WebView provider title [CHAR LIMIT=30] -->
+  <string name="select_webview_provider_title">Implementación de WebView</string>
   <!-- Developer settings: select WebView provider dialog title [CHAR LIMIT=30] -->
+  <string name="select_webview_provider_dialog_title">Afitar la so implementación</string>
   <!-- Developer settings: text for the WebView provider selection toast shown if an invalid provider was chosen (i.e. the setting list was stale). [CHAR LIMIT=NONE] -->
   <!-- Developer settings screen, convert userdata to file encryption option name -->
   <!-- Developer settings screen, convert userdata to file encryption summary when option is available -->

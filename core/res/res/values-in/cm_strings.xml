@@ -135,6 +135,7 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Untuk melepas sematan layar ini, sentuh dan tahan tombol Kembali.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="lineage_system_error_manufacturer">Ketidakcocokan Vendor Image telah terdeteksi. Biasanya ini berarti Vendor Image Anda sudah kadaluarsa. Pastikan Vendor Image Anda cocok dengan <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Sentuh bagian luar layar untuk keluar dari mode satu tangan</string>
   <!-- Strings for tethered notification -->
