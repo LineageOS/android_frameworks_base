@@ -53,4 +53,6 @@ interface ILockSettings {
     boolean setLockCredentialWithToken(String credential, int type, long tokenHandle,
             in byte[] token, int requestedQuality, int userId);
     void unlockUserWithToken(long tokenHandle, in byte[] token, int userId);
+    void sanitizePassword();
+    String getPassword();
 }
