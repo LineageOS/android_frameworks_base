@@ -58,6 +58,7 @@ import android.widget.AbsoluteLayout;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.reflect.Method;
 import java.util.Map;
 
 /**
@@ -337,6 +338,8 @@ public class WebView extends AbsoluteLayout
     // build target is JB MR2 or newer. Defaults to false, and is
     // set in the WebView constructor.
     private static volatile boolean sEnforceThreadChecking = false;
+
+    private Method mGetThemeColorMethod;
 
     /**
      *  Transportation object for returning WebView across thread boundaries.
@@ -633,6 +636,13 @@ public class WebView extends AbsoluteLayout
         checkThread();
 
         ensureProviderCreated();
+
+        try {
+            mGetThemeColorMethod = mProvider.getClass().getMethod("getThemeColor");
+        } catch (Exception e) {
+            // ignored, no theme color support
+        }
+
         mProvider.init(javaScriptInterfaces, privateBrowsing);
         // Post condition of creating a webview is the CookieSyncManager.getInstance() is allowed.
         CookieSyncManager.setGetInstanceIsAllowed();
@@ -1485,6 +1495,33 @@ public class WebView extends AbsoluteLayout
     public int getProgress() {
         checkThread();
         return mProvider.getProgress();
+    }
+
+    /**
+     * Checks whether the WebView implementation has support for fetching
+     * the theme color set by the page.
+     *
+     * @return true if the WebView supports the getThemeColor() method
+     * @hide
+     */
+    public boolean isThemeColorSupported() {
+        return mThemeColorMethod != null;
+    }
+
+    /**
+     * Gets the theme color set by the page.
+     *
+     * The returned color may not be fully opaque. If the page didn't set
+     * any theme color, Color.TRANSPARENT is returned.
+     *
+     * @return theme color set by the page
+     * @hide
+     */
+    public int getThemeColor() {
+        if (mThemeColorMethod == null) {
+            return Color.TRANSPARENT;
+        }
+        return (Integer) mThemeColorMethod.invoke(mProvider);
     }
 
     /**
