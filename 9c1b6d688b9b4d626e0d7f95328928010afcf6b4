@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a486d77_2ca2bcae",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 16914
+      },
+      "writtenOn": "2017-05-18T00:12:10Z",
+      "side": 1,
+      "message": "This is not part of the upstream patch.  If it is part of a different patch, please unsqueeze the two and submit them as separate CRs",
+      "range": {
+        "startLine": 418,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 0
+      },
+      "revId": "9c1b6d688b9b4d626e0d7f95328928010afcf6b4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
