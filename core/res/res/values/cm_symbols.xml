@@ -108,4 +108,8 @@
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
+
+    <!-- Carrier names -->
+    <java-symbol type="array" name="origin_carrier_names" />
+    <java-symbol type="array" name="locale_carrier_names" />
 </resources>

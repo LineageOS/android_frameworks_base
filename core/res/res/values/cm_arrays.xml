@@ -188,4 +188,40 @@
          regardless of the SIM inserted. These applications will be granted phone and
          location permissions, and must obtain user content through other means -->
     <string-array name="config_enabledPreinstalledCarrierApps" translatable="false" />
+
+    <!-- Original carrier names -->
+    <string-array name="origin_carrier_names" translatable="false" >
+        <item>CHINA\u0020\u0020MOBILE</item>
+        <item>CMCC</item>
+        <item>CHN-UNICOM</item>
+        <item>China Mobile</item>
+        <item>China Unicom</item>
+        <item>China Telecom</item>
+        <item>CHN-CT</item>
+        <item>中国移动</item>
+        <item>中国联通</item>
+        <item>中国电信</item>
+        <item>中國移動</item>
+        <item>中國聯通</item>
+        <item>中國電信</item>
+        <item>Searching for Service</item>
+    </string-array>
+
+    <!-- Localized carrier names -->
+    <string-array name="locale_carrier_names" translatable="false" >
+        <item>China_Mobile</item>
+        <item>China_Mobile</item>
+        <item>China_Unicom</item>
+        <item>China_Mobile</item>
+        <item>China_Unicom</item>
+        <item>China_Telecom</item>
+        <item>China_Telecom</item>
+        <item>China_Mobile</item>
+        <item>China_Unicom</item>
+        <item>China_Telecom</item>
+        <item>China_Mobile</item>
+        <item>China_Unicom</item>
+        <item>China_Telecom</item>
+        <item>roamingTextSearching</item>
+    </string-array>
 </resources>

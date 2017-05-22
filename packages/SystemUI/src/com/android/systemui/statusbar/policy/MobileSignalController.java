@@ -58,6 +58,12 @@ public class MobileSignalController extends SignalController<
     // @VisibleForDemoMode
     final SparseArray<MobileIconGroup> mNetworkToIconLookup;
 
+    private boolean mLastShowSpn;
+    private String mLastSpn;
+    private String mLastDataSpn;
+    private boolean mLastShowPlmn;
+    private String mLastPlmn;
+
     // Since some pieces of the phone state are interdependent we store it locally,
     // this could potentially become part of MobileState for simplification/complication
     // of code.
@@ -328,6 +334,9 @@ public class MobileSignalController extends SignalController<
         } else if (action.equals(TelephonyIntents.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED)) {
             updateDataSim();
             notifyListenersIfNecessary();
+        } else if (action.equals(Intent.ACTION_LOCALE_CHANGED)) {
+            updateNetworkName(mLastShowSpn, mLastSpn, mLastDataSpn, mLastShowPlmn, mLastPlmn);
+            notifyListenersIfNecessary();
         }
     }
 
@@ -347,6 +356,12 @@ public class MobileSignalController extends SignalController<
         }
     }
 
+    private String getLocalString(String originalString) {
+        return android.util.NativeTextHelper.getLocalString(mContext, originalString,
+                          com.android.internal.R.array.origin_carrier_names,
+                          com.android.internal.R.array.locale_carrier_names);
+    }
+
     /**
      * Updates the network's name based on incoming spn and plmn.
      */
@@ -356,6 +371,24 @@ public class MobileSignalController extends SignalController<
             Log.d("CarrierLabel", "updateNetworkName showSpn=" + showSpn
                     + " spn=" + spn + " dataSpn=" + dataSpn
                     + " showPlmn=" + showPlmn + " plmn=" + plmn);
+        }
+        mLastShowSpn = showSpn;
+        mLastSpn = spn;
+        mLastDataSpn = dataSpn;
+        mLastShowPlmn = showPlmn;
+        mLastPlmn = plmn;
+        if (showSpn && !TextUtils.isEmpty(spn)) {
+            spn = getLocalString(spn);
+        }
+        if (showSpn && !TextUtils.isEmpty(dataSpn)) {
+            dataSpn = getLocalString(dataSpn);
+        }
+        if (showPlmn && !TextUtils.isEmpty(plmn)) {
+            plmn = getLocalString(plmn);
+        }
+        if (showPlmn && showSpn && !TextUtils.isEmpty(spn) && !TextUtils.isEmpty(plmn)
+                && plmn.equals(spn)) {
+            showSpn = false;
         }
         StringBuilder str = new StringBuilder();
         StringBuilder strData = new StringBuilder();

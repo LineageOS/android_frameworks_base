@@ -159,4 +159,9 @@
     <string name="tethered_notification_no_device_message">No connected device</string>
     <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
     <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+
+    <!-- Carrier Names -->
+    <string name="China_Mobile">China Mobile</string>
+    <string name="China_Unicom">China Unicom</string>
+    <string name="China_Telecom">China Telecom</string>
 </resources>

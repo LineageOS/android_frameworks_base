@@ -219,6 +219,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
         filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         filter.addAction(ConnectivityManager.INET_CONDITION_ACTION);
         filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        filter.addAction(Intent.ACTION_LOCALE_CHANGED);
         mContext.registerReceiver(this, filter, null, mReceiverHandler);
         mListening = true;
 
@@ -395,6 +396,10 @@ public class NetworkControllerImpl extends BroadcastReceiver
                 // If none of the subscriptions are active, we might need to recalculate
                 // emergency state.
                 recalculateEmergency();
+            }
+        } else if (action.equals(Intent.ACTION_LOCALE_CHANGED)) {
+            for (MobileSignalController controller : mMobileSignalControllers.values()) {
+                controller.handleBroadcast(intent);
             }
         } else {
             int subId = intent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,

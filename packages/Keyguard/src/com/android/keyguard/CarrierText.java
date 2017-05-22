@@ -182,6 +182,21 @@ public class CarrierText extends TextView {
             int subId = subs.get(i).getSubscriptionId();
             State simState = mKeyguardUpdateMonitor.getSimState(subId);
             CharSequence carrierName = subs.get(i).getCarrierName();
+            String[] names = carrierName.toString().split(mSeparator.toString(), 2);
+            StringBuilder newCarrierName = new StringBuilder();
+            for (int j = 0; j < names.length; j++) {
+                names[j] = android.util.NativeTextHelper.getLocalString(getContext(),
+                        names[j], com.android.internal.R.array.origin_carrier_names,
+                        com.android.internal.R.array.locale_carrier_names);
+                if (!TextUtils.isEmpty(names[j])) {
+                    if (j > 0 && names[j].equals(names[j-1])) {
+                        continue;
+                    }
+                    if (j > 0) newCarrierName.append(mSeparator);
+                    newCarrierName.append(names[j]);
+                }
+            }
+            carrierName = newCarrierName.toString();
             CharSequence carrierTextForSimState = getCarrierTextForSimState(simState, carrierName);
             if (DEBUG) {
                 Log.d(TAG, "Handling (subId=" + subId + "): " + simState + " " + carrierName);
