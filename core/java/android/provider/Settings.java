@@ -5141,6 +5141,12 @@ public final class Settings {
         public static final String LOCK_SCREEN_ALLOW_REMOTE_INPUT =
                 "lock_screen_allow_remote_input";
 
+         /**
+         * Whether to show media art on lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_METADATA = "lockscreen_media_metadata";
+
         /**
          * Set by the system to track if the user needs to see the call to action for
          * the lockscreen notification policy.
