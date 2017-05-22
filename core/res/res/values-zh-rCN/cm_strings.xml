@@ -143,4 +143,8 @@
   <string name="tethered_notification_no_device_message">没有已连接设备</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> 个已连接的设备</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> 个已连接的设备</string>
+  <!-- Carrier Name -->
+  <string name="China_Mobile">中国移动</string>
+  <string name="China_Unicom">中国联通</string>
+  <string name="China_Telecom">中国电信</string>
 </resources>
