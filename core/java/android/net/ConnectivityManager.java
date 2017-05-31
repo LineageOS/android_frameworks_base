@@ -419,6 +419,13 @@ public class ConnectivityManager {
      * @hide
      */
     public static final String EXTRA_REM_TETHER_TYPE = "extraRemTetherType";
+   /** Broadcast intent action indicating that a Station is connected
+     * or disconnected.
+     *
+     * @hide
+     */
+    public static final String TETHER_CONNECT_STATE_CHANGED =
+        "codeaurora.net.conn.TETHER_CONNECT_STATE_CHANGED";
 
     /**
      * Extra used for communicating with the TetherService. True to schedule a recheck of tether
