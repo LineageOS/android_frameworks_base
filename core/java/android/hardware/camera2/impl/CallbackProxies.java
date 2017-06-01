@@ -110,6 +110,13 @@ public class CallbackProxies {
         }
 
         @Override
+        public void onCaptureBufferLost(CameraDevice camera,
+                CaptureRequest request, Surface target, long frameNumber) {
+            mProxy.invoke("onCaptureBufferLost", camera, request, target, frameNumber);
+        }
+
+
+        @Override
         public void onCaptureProgressed(CameraDevice camera,
                 CaptureRequest request, CaptureResult partialResult) {
             mProxy.invoke("onCaptureProgressed", camera, request, partialResult);
