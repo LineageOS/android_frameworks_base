@@ -330,6 +330,7 @@
          [CHAR LIMIT=20] -->
   <!-- Notification text: when GPS is getting a fix [CHAR LIMIT=50] -->
   <!-- Notification text: when GPS has found a fix [CHAR LIMIT=50] -->
+  <string name="gps_notification_found_text">Allugamientu afitáu pol GPS</string>
   <!-- Accessibility text describing the presence of active location requests by one or more apps -->
   <!-- Content description of the clear button in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_clear_all">Llimpiar tolos avisos.</string>
@@ -701,6 +702,9 @@
   <!-- Name of a quick settings tile controlled by broadcast -->
   <string name="broadcast_tile">Caxella de tresmisión</string>
   <!-- For preview release. DO NOT TRANSLATE -->
+  <string name="regrettable_lack_of_easter_egg">
+        ¯\\_(ツ)_/¯
+    </string>
   <!-- Warning text when an alarm might be silenced by Do Not Disturb [CHAR LIMIT=NONE] -->
   <!-- Warning text when an alarm might be silenced by Do Not Disturb due to a time-based condition [CHAR LIMIT=NONE] -->
   <!-- Alarm template for near alarms [CHAR LIMIT=25] -->

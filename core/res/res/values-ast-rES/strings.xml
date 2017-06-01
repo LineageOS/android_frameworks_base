@@ -326,6 +326,7 @@
   <!-- Text shown in place of notification contents when the notification is hidden on a secure lockscreen -->
   <!-- Text shown in place of notification contents when the notification is hidden by policy on a secure lockscreen -->
   <!-- Displayed to the user to tell them that they have started up the phone in "safe mode" -->
+  <string name="safeMode">Mou seguru</string>
   <!-- Label for the Android system components when they are shown to the user. -->
   <!-- Label for the user owner in the intent forwarding app. -->
   <!-- Label for a corporate profile in the intent forwarding app. -->
@@ -1663,6 +1664,7 @@
   <!-- Label for <input type="submit"> button in html -->
   <!-- Strings for car mode notification -->
   <!-- Shown when car mode is enabled -->
+  <string name="car_mode_disable_notification_message">Calca pa colar del mou coche.</string>
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
@@ -1696,8 +1698,10 @@
   <!-- ActionBar action to find the previous match in the page [CHAR LIMIT=24] -->
   <!-- Network positioning notification ticker. The name of the user (e.g. John Doe) who sent
          the request is shown as a dynamic string. -->
+  <string name="gpsNotifTicker">Solicitú d\'allugamientu de <xliff:g id="name">%s</xliff:g></string>
   <!-- Network positioning notification and verification title to inform the user about
          an incoming location request. -->
+  <string name="gpsNotifTitle">Solicitú d\'allugamientu</string>
   <!-- Network positioning notification message. The name of the user (e.g. John Doe) and
          service (SUPL-service) who sent the request is shown as dynamic strings.
          Translation should not be longer than master text. -->
