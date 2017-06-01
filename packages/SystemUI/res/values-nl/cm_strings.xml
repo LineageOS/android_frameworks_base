@@ -128,10 +128,15 @@
   <string name="accessibility_quick_settings_location_high_accuracy">Locatiemelding: grote nauwkeurigheid.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Accubesparing</string>
+  <string name="quick_settings_location_battery_saving_label_twoline">Accu\nbesparing</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_gps_only_label">Alleen GPS</string>
+  <string name="quick_settings_location_gps_only_label_twoline">Alleen GPS</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Grote nauwkeurigheid</string>
+  <string name="quick_settings_location_high_accuracy_label_twoline">Grote\nnauwkeurigheid</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_title">Locatie</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_title">Grote nauwkeurigheid</string>

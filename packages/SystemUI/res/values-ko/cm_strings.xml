@@ -132,14 +132,14 @@
   <string name="quick_settings_location_gps_only_label">기기 전용</string>
   <string name="quick_settings_location_gps_only_label_twoline">기기 전용</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">높은 정확도</string>
+  <string name="quick_settings_location_high_accuracy_label">높은 정확성</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">높은\n정확성</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_detail_title">위치</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_detail_menu_title">모드 선택:</string>
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">높은 정확도</string>
+  <string name="quick_settings_location_detail_mode_high_accuracy_title">높은 정확성</string>
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_title">배터리 절약</string>
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
