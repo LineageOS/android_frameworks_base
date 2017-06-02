@@ -137,17 +137,11 @@ public interface BluetoothProfile {
     public static final int PBAP_CLIENT = 17;
 
     /**
-     * DUN
-     * @hide
-     */
-    public static final int DUN = 21;
-
-    /**
      * Max profile ID. This value should be updated whenever a new profile is added to match
      * the largest value assigned to a profile.
      * @hide
      */
-    public static final int MAX_PROFILE_ID = 21;
+    public static final int MAX_PROFILE_ID = 17;
 
     /**
      * Default priority for devices that we try to auto-connect to and
