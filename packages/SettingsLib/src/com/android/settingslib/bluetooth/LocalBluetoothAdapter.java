@@ -186,13 +186,8 @@ public final class LocalBluetoothAdapter {
         return mState;
     }
 
-    void setBluetoothStateInt(int state) {
-        synchronized(this) {
-            if(mState == state){
-                return;
-            }
-            mState = state;
-        }
+    synchronized void setBluetoothStateInt(int state) {
+        mState = state;
 
         if (state == BluetoothAdapter.STATE_ON) {
             // if mProfileManager hasn't been constructed yet, it will

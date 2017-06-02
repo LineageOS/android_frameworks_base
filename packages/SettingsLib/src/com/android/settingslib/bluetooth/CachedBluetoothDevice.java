@@ -126,9 +126,7 @@ public final class CachedBluetoothDevice implements Comparable<CachedBluetoothDe
             Log.d(TAG, "onProfileStateChanged: profile " + profile +
                     " newProfileState " + newProfileState);
         }
-        int bluetoothState = mLocalAdapter.getBluetoothState();
-        if (bluetoothState == BluetoothAdapter.STATE_TURNING_OFF ||
-                bluetoothState == BluetoothAdapter.STATE_OFF)
+        if (mLocalAdapter.getBluetoothState() == BluetoothAdapter.STATE_TURNING_OFF)
         {
             if (Utils.D) Log.d(TAG, " BT Turninig Off...Profile conn state change ignored...");
             return;
@@ -137,8 +135,6 @@ public final class CachedBluetoothDevice implements Comparable<CachedBluetoothDe
         if (newProfileState == BluetoothProfile.STATE_CONNECTED) {
             if (profile instanceof MapProfile) {
                 profile.setPreferred(mDevice, true);
-                mRemovedProfiles.remove(profile);
-                mProfiles.add(profile);
             } else if (!mProfiles.contains(profile)) {
                 mRemovedProfiles.remove(profile);
                 mProfiles.add(profile);
@@ -525,29 +521,7 @@ public final class CachedBluetoothDevice implements Comparable<CachedBluetoothDe
      * Refreshes the UI when framework alerts us of a UUID change.
      */
     void onUuidChanged() {
-        Log.d(TAG, " onUuidChanged, mProfile Size " + mProfiles.size());
-        List<LocalBluetoothProfile> mPrevProfiles =
-                new ArrayList<LocalBluetoothProfile>();
-        mPrevProfiles.clear();
-        mPrevProfiles.addAll(mProfiles);
         updateProfiles();
-        /*
-         * Check if new profiles are added
-         */
-        if ((mPrevProfiles.containsAll(mProfiles)) && (!mPrevProfiles.isEmpty())) {
-            Log.d(TAG,"UUID not udpated, returning");
-            mProfiles.clear();
-            mProfiles.addAll(mPrevProfiles);
-            return;
-        }
-        for (int i = 0; i<mProfiles.size(); ++i) {
-            if (!mPrevProfiles.contains(mProfiles.get(i))) {
-                mPrevProfiles.add(mProfiles.get(i));
-            }
-        }
-        mProfiles.clear();
-        mProfiles.addAll(mPrevProfiles);
-
         ParcelUuid[] uuids = mDevice.getUuids();
 
         long timeout = MAX_UUID_DELAY_FOR_AUTO_CONNECT;
