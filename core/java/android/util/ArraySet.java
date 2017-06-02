@@ -154,7 +154,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     private void allocArrays(final int size) {
         if (size == (BASE_SIZE*2)) {
             synchronized (ArraySet.class) {
-                if (mTwiceBaseCache != null) {
+                if (mTwiceBaseCache != null && mTwiceBaseCache[1] != null) {
                     final Object[] array = mTwiceBaseCache;
                     try {
                         mArray = array;
@@ -177,7 +177,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
             }
         } else if (size == BASE_SIZE) {
             synchronized (ArraySet.class) {
-                if (mBaseCache != null) {
+                if (mBaseCache != null && mBaseCache[1] != null) {
                     final Object[] array = mBaseCache;
                     try {
                         mArray = array;
