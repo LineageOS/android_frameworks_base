@@ -173,4 +173,7 @@
     <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
     <string name="quick_settings_location_detail_mode_sensors_only_description">Use GPS to determine your location</string>
 
+    <!-- Reset QS tiles Message -->
+    <string name="reset_qs_tiles_message">Do you want to reset all Quick Settings tiles to defaults? This cannot be undone.</string>
+
 </resources>

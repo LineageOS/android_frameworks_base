@@ -19,6 +19,7 @@ import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -42,6 +43,7 @@ import com.android.systemui.qs.QSTile;
 import com.android.systemui.statusbar.phone.NotificationsQuickSettingsContainer;
 import com.android.systemui.statusbar.phone.PhoneStatusBar;
 import com.android.systemui.statusbar.phone.QSTileHost;
+import com.android.systemui.statusbar.phone.SystemUIDialog;
 import com.android.systemui.statusbar.policy.KeyguardMonitor.Callback;
 
 import java.util.ArrayList;
@@ -180,7 +182,20 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         switch (item.getItemId()) {
             case MENU_RESET:
                 MetricsLogger.action(getContext(), MetricsProto.MetricsEvent.ACTION_QS_EDIT_RESET);
-                reset();
+                // Pop up a dialog to re-confirm whether to reset all QS tiles to default
+                SystemUIDialog dialog = new SystemUIDialog(mContext);
+                dialog.setTitle(com.android.internal.R.string.reset);
+                dialog.setMessage(R.string.reset_qs_tiles_message);
+                dialog.setPositiveButton(com.android.internal.R.string.reset,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    reset();
+                    }
+                });
+                dialog.setNegativeButton(com.android.internal.R.string.cancel, null);
+                dialog.setShowForAllUsers(true);
+                dialog.show();
                 break;
         }
         return false;
