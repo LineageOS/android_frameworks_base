@@ -226,6 +226,9 @@ public final class PowerManagerService extends SystemService
     private int mKeyboardBrightness;
     private int mKeyboardBrightnessSettingDefault;
 
+    private int mEvent;
+    private boolean mButtonLightOnKeypressOnly;
+
     private final Object mLock = new Object();
 
     // A bitfield that indicates what parts of the power state have
@@ -272,6 +275,7 @@ public final class PowerManagerService extends SystemService
     private long mLastSleepTime;
 
     // Timestamp of the last call to user activity.
+    private long mLastButtonActivityTime;
     private long mLastUserActivityTime;
     private long mLastUserActivityTimeNoChangeLights;
 
@@ -826,6 +830,8 @@ public final class PowerManagerService extends SystemService
             mProximityWakeLock = ((PowerManager) mContext.getSystemService(Context.POWER_SERVICE))
                     .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ProximityWakeLock");
         }
+        mButtonLightOnKeypressOnly = resources.getBoolean(
+                com.android.internal.R.bool.config_ButtonLightOnKeypressOnly);
     }
 
     private void updateSettingsLocked() {
@@ -1281,6 +1287,7 @@ public final class PowerManagerService extends SystemService
 
         Trace.traceBegin(Trace.TRACE_TAG_POWER, "userActivity");
         try {
+            mEvent = event;
             if (eventTime > mLastInteractivePowerHintTime) {
                 powerHintInternal(POWER_HINT_INTERACTION, 0);
                 mLastInteractivePowerHintTime = eventTime;
@@ -1297,6 +1304,10 @@ public final class PowerManagerService extends SystemService
                     || mWakefulness == WAKEFULNESS_DOZING
                     || (flags & PowerManager.USER_ACTIVITY_FLAG_INDIRECT) != 0) {
                 return false;
+            }
+
+            if ((event & PowerManager.USER_ACTIVITY_EVENT_BUTTON) != 0) {
+                mLastButtonActivityTime = eventTime;
             }
 
             if ((flags & PowerManager.USER_ACTIVITY_FLAG_NO_CHANGE_LIGHTS) != 0) {
@@ -1843,6 +1854,8 @@ public final class PowerManagerService extends SystemService
                 final int screenOffTimeout = getScreenOffTimeoutLocked(sleepTimeout);
                 final int screenDimDuration = getScreenDimDurationLocked(screenOffTimeout);
                 final boolean userInactiveOverride = mUserInactiveOverrideFromWindowManager;
+                final boolean buttonPressed = mButtonLightOnKeypressOnly ?
+                        (mEvent == PowerManager.USER_ACTIVITY_EVENT_BUTTON) : true;
 
                 mUserActivitySummary = 0;
                 if (mLastUserActivityTime >= mLastWakeTime) {
@@ -1866,11 +1879,13 @@ public final class PowerManagerService extends SystemService
 
                             mKeyboardLight.setBrightness(mKeyboardVisible ?
                                     keyboardBrightness : 0);
+                            mLastButtonActivityTime = mButtonLightOnKeypressOnly ?
+                                    mLastButtonActivityTime : mLastUserActivityTime;
                             if (mButtonTimeout != 0
-                                    && now > mLastUserActivityTime + mButtonTimeout) {
+                                    && now > mLastButtonActivityTime + mButtonTimeout) {
                                 mButtonsLight.setBrightness(0);
                             } else {
-                                if (!mProximityPositive) {
+                                if (buttonPressed && !mProximityPositive) {
                                     mButtonsLight.setBrightness(buttonBrightness);
                                     if (buttonBrightness != 0 && mButtonTimeout != 0) {
                                         nextTimeout = now + mButtonTimeout;
