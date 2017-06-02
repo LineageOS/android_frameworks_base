@@ -1797,6 +1797,7 @@
   <java-symbol type="integer" name="config_screenBrightnessDoze" />
   <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
   <java-symbol type="integer" name="config_keyboardBrightnessSettingDefault" />
+  <java-symbol type="bool" name="config_ButtonLightOnKeypressOnly" />
   <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
   <java-symbol type="integer" name="config_shutdownBatteryTemperature" />
   <java-symbol type="integer" name="config_undockedHdmiRotation" />
