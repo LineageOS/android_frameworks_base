@@ -108,4 +108,7 @@
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
+
+    <!-- Whether light up buttons only when pressed -->
+    <java-symbol type="bool" name="config_buttonLightOnKeypressOnly" />
 </resources>
