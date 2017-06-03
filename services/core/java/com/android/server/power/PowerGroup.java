@@ -73,6 +73,9 @@ public class PowerGroup {
     /** The current wakefulness of this group */
     private int mWakefulness;
     private int mWakeLockSummary;
+    private boolean mButtonOn;
+    private boolean mButtonPressed;
+    private long mLastButtonActivityTime;
     private long mLastPowerOnTime;
     private long mLastUserActivityTime;
     private long mLastUserActivityTimeNoChangeLights;
@@ -294,8 +297,32 @@ public class PowerGroup {
         return true;
     }
 
+    boolean getButtonOnLocked() {
+        return mButtonOn;
+    }
+
+    boolean getButtonPressedLocked() {
+        return mButtonPressed;
+    }
+
+    long getLastButtonActivityTimeLocked() {
+        return mLastButtonActivityTime;
+    }
+
     long getLastUserActivityTimeLocked() {
         return mLastUserActivityTime;
+    }
+
+    void setButtonOnLocked(boolean on) {
+        mButtonOn = on;
+    }
+
+    void setButtonPressedLocked(boolean pressed) {
+        mButtonPressed = pressed;
+    }
+
+    void setLastButtonActivityTimeLocked(long lastButtonActivityTime) {
+        mLastButtonActivityTime = lastButtonActivityTime;
     }
 
     void setLastUserActivityTimeLocked(long lastUserActivityTime,
