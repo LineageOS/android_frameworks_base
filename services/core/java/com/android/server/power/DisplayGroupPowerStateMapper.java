@@ -260,6 +260,18 @@ public class DisplayGroupPowerStateMapper {
         return false;
     }
 
+    boolean getButtonOnLocked(int groupId) {
+        return mDisplayGroupInfos.get(groupId).buttonOn;
+    }
+
+    boolean getButtonPressedLocked(int groupId) {
+        return mDisplayGroupInfos.get(groupId).buttonPressed;
+    }
+
+    long getLastButtonActivityTimeLocked(int groupId) {
+        return mDisplayGroupInfos.get(groupId).lastButtonActivityTime;
+    }
+
     long getLastUserActivityTimeLocked(int groupId) {
         return mDisplayGroupInfos.get(groupId).lastUserActivityTime;
     }
@@ -270,6 +282,18 @@ public class DisplayGroupPowerStateMapper {
 
     int getUserActivitySummaryLocked(int groupId) {
         return mDisplayGroupInfos.get(groupId).userActivitySummary;
+    }
+
+    void setButtonOnLocked(int groupId, boolean on) {
+        mDisplayGroupInfos.get(groupId).buttonOn = on;
+    }
+
+    void setButtonPressedLocked(int groupId, boolean pressed) {
+        mDisplayGroupInfos.get(groupId).buttonPressed = pressed;
+    }
+
+    void setLastButtonActivityTimeLocked(int groupId, long time) {
+        mDisplayGroupInfos.get(groupId).lastButtonActivityTime = time;
     }
 
     void setLastUserActivityTimeLocked(int groupId, long time) {
@@ -310,6 +334,9 @@ public class DisplayGroupPowerStateMapper {
         public long lastPowerOnTime;
         boolean poweringOn;
         public boolean sandmanSummoned;
+        public boolean buttonOn;
+        public boolean buttonPressed;
+        public long lastButtonActivityTime;
         public long lastUserActivityTime;
         public long lastUserActivityTimeNoChangeLights;
         public int userActivitySummary;
