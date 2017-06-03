@@ -30,6 +30,7 @@ import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.CountDownTimer;
@@ -472,6 +473,7 @@ public class TaskViewHeader extends FrameLayout
         mLockTaskButton.setImageDrawable(mTask.useLightOnPrimaryColor ?
                 (Recents.sLockedTasks.contains(mTask) ? mLightLockedDrawable : mLightUnlockedDrawable) :
                 (Recents.sLockedTasks.contains(mTask) ? mDarkLockedDrawable : mDarkUnlockedDrawable));
+        ((AnimatedVectorDrawable) mLockTaskButton.getDrawable()).start();
     }
 
     /**
