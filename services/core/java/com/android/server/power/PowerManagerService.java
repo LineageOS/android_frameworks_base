@@ -315,6 +315,8 @@ public final class PowerManagerService extends SystemService
     private int mButtonTimeout;
     private float mButtonBrightness;
 
+    private boolean mButtonLightOnKeypressOnly;
+
     private InattentiveSleepWarningController mInattentiveSleepWarningOverlayController;
     private final AmbientDisplaySuppressionController mAmbientDisplaySuppressionController;
 
@@ -1297,6 +1299,9 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(LineageSettings.Secure.getUriFor(
                 LineageSettings.Secure.BUTTON_BACKLIGHT_TIMEOUT),
                 false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                LineageSettings.System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED),
+                false, mSettingsObserver, UserHandle.USER_ALL);
 
         IVrManager vrManager = IVrManager.Stub.asInterface(getBinderService(Context.VR_SERVICE));
         if (vrManager != null) {
@@ -1450,6 +1455,9 @@ public final class PowerManagerService extends SystemService
         mButtonBrightness = LineageSettings.Secure.getFloatForUser(resolver,
                 LineageSettings.Secure.BUTTON_BRIGHTNESS, mButtonBrightnessDefault,
                 UserHandle.USER_CURRENT);
+        mButtonLightOnKeypressOnly = LineageSettings.System.getIntForUser(resolver,
+                LineageSettings.System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED,
+                0, UserHandle.USER_CURRENT) == 1;
 
         mDirty |= DIRTY_SETTINGS;
     }
@@ -1881,6 +1889,15 @@ public final class PowerManagerService extends SystemService
             } else {
                 if (eventTime > mDisplayGroupPowerStateMapper.getLastUserActivityTimeLocked(
                         groupId)) {
+                    mDisplayGroupPowerStateMapper.setButtonPressedLocked(
+                            groupId, event == PowerManager.USER_ACTIVITY_EVENT_BUTTON);
+                    if ((mButtonLightOnKeypressOnly &&
+                            mDisplayGroupPowerStateMapper.getButtonPressedLocked(groupId))
+                            || eventTime == mLastWakeTime) {
+                        mDisplayGroupPowerStateMapper.setButtonPressedLocked(groupId, true);
+                        mDisplayGroupPowerStateMapper.setLastButtonActivityTimeLocked(
+                                groupId, eventTime);
+                    }
                     mDisplayGroupPowerStateMapper.setLastUserActivityTimeLocked(groupId, eventTime);
                     mDirty |= DIRTY_USER_ACTIVITY;
                     if (event == PowerManager.USER_ACTIVITY_EVENT_BUTTON) {
@@ -2670,14 +2687,37 @@ public final class PowerManagerService extends SystemService
                                     }
                                 }
 
-                                if (mButtonTimeout != 0 &&
-                                        now > lastUserActivityTime + mButtonTimeout) {
+                                if (!mButtonLightOnKeypressOnly) {
+                                    mDisplayGroupPowerStateMapper.setLastButtonActivityTimeLocked(
+                                            groupId, lastUserActivityTime);
+                                }
+                                final long lastButtonActivityTimeout = mButtonTimeout +
+                                        mDisplayGroupPowerStateMapper
+                                                .getLastButtonActivityTimeLocked(groupId);
+
+                                if (mButtonTimeout != 0 && now > lastButtonActivityTimeout) {
                                     mButtonsLight.setBrightness(BRIGHTNESS_OFF_FLOAT);
+                                    mDisplayGroupPowerStateMapper.setButtonOnLocked(groupId, false);
                                 } else {
-                                    mButtonsLight.setBrightness(buttonBrightness);
-                                    if (buttonBrightness != BRIGHTNESS_OFF_FLOAT &&
-                                            mButtonTimeout != 0) {
-                                        groupNextTimeout = now + mButtonTimeout;
+                                    if (!mProximityPositive && (!mButtonLightOnKeypressOnly ||
+                                            mDisplayGroupPowerStateMapper
+                                                    .getButtonPressedLocked(groupId))) {
+                                        mButtonsLight.setBrightness(buttonBrightness);
+                                        mDisplayGroupPowerStateMapper.setButtonPressedLocked(
+                                                groupId, false);
+                                        if (buttonBrightness != BRIGHTNESS_OFF_FLOAT &&
+                                                mButtonTimeout != 0) {
+                                            mDisplayGroupPowerStateMapper.setButtonOnLocked(
+                                                    groupId, true);
+                                            if (now + mButtonTimeout < nextTimeout) {
+                                                groupNextTimeout = now + mButtonTimeout;
+                                            }
+                                        }
+                                    } else if (mButtonLightOnKeypressOnly &&
+                                            lastButtonActivityTimeout < nextTimeout &&
+                                            mDisplayGroupPowerStateMapper
+                                                    .getButtonOnLocked(groupId)) {
+                                        groupNextTimeout = lastButtonActivityTimeout;
                                     }
                                 }
                             }
@@ -2689,6 +2729,7 @@ public final class PowerManagerService extends SystemService
                             if (getWakefulnessLocked() == WAKEFULNESS_AWAKE) {
                                 if (mButtonsLight != null) {
                                     mButtonsLight.setBrightness(BRIGHTNESS_OFF_FLOAT);
+                                    mDisplayGroupPowerStateMapper.setButtonOnLocked(groupId, false);
                                 }
                             }
                         }
