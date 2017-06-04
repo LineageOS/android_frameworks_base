@@ -310,6 +310,7 @@
          for most appropriate textual indicator of "more than X".
          [CHAR LIMIT=4] -->
   <!-- Displayed to the user to tell them that they have started up the phone in "safe mode" -->
+  <string name="safeMode">Mou seguru</string>
   <!-- Label for the Android system components when they are shown to the user. -->
   <!-- Label for the user owner in the intent forwarding app. [CHAR LIMIT=15] -->
   <!-- Label for a corporate profile in the intent forwarding app. [CHAR LIMIT=15] -->
@@ -794,8 +795,10 @@
          locked -->
   <!-- When the user enters a wrong sim pin too many times, it becomes
          PUK locked (Pin Unlock Kode) -->
+  <string name="lockscreen_sim_puk_locked_message">Tarxeta SIM bloquiada col PUK.</string>
   <!-- Shown in the lock screen when the SIM has become PUK locked and the user must call customer care to unlock it. -->
   <!-- Shown in the lock screen to tell the user that their SIM is locked and they must unlock it. -->
+  <string name="lockscreen_sim_locked_message">Tarxeta SIM bloquiada.</string>
   <!-- For the unlock screen, When the user enters a sim unlock code, it takes a little while to check
          whether it is valid, and to unlock the sim if it is valid.  we display a
          progress dialog in the meantime.  this is the emssage. -->
@@ -1572,8 +1575,10 @@
   <!-- ActionBar action to find the previous match in the page [CHAR LIMIT=24] -->
   <!-- Network positioning notification ticker. The name of the user (e.g. John Doe) who sent
          the request is shown as a dynamic string. -->
+  <string name="gpsNotifTicker">Solicitú d\'allugamientu de <xliff:g id="name">%s</xliff:g></string>
   <!-- Network positioning notification and verification title to inform the user about
          an incoming location request. -->
+  <string name="gpsNotifTitle">Solicitú d\'allugamientu</string>
   <!-- Network positioning notification message. The name of the user (e.g. John Doe) and
          service (SUPL-service) who sent the request is shown as dynamic strings.
          Translation should not be longer than master text. -->

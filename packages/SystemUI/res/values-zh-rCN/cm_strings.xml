@@ -196,7 +196,7 @@
   <string name="accessibility_quick_settings_location_changed_gps_only">位置报告已修改为仅使用传感器模式。</string>
   <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_changed_high_accuracy">位置报告已修改为准确度高模式。</string>
-  <string name="quick_settings_tiles_category_system">系统磁块</string>
+  <string name="quick_settings_tiles_category_system">系统瓷块</string>
   <!-- detail header when adding a tile -->
   <string name="quick_settings_tiles_add_tiles">添加瓷块</string>
   <!-- Hotspot dialog message -->

@@ -47,6 +47,7 @@
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <string name="wifi_security_eap">802.1x EAP</string>
   <!-- Do not translate.  Concise terminology for Passpoint network -->
+  <string name="wifi_security_passpoint">Passpoint</string>
   <!-- Summary for the remembered network. -->
   <!-- Status for networks disabled for unknown reason -->
   <!-- Status for networked disabled from a DNS or DHCP failure -->
