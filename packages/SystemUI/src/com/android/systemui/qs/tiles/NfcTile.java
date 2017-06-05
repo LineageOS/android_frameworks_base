@@ -50,6 +50,7 @@ public class NfcTile extends QSTile<QSTile.BooleanState> {
 
     @Override
     public void setListening(boolean listening) {
+        if (mListening == listening) return;
         mListening = listening;
         if (mListening) {
             mContext.registerReceiver(mNfcReceiver,
