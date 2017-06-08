@@ -747,7 +747,6 @@ public final class PowerManager {
         try {
             mService.wakeUpWithProximityCheck(time, reason, mContext.getOpPackageName());
         } catch (RemoteException e) {
-            throw e.rethrowFromSystemServer();
         }
     }
 

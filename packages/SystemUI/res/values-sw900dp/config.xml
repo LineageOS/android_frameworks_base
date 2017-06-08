@@ -21,4 +21,10 @@
     <!-- Nav bar button default ordering/layout -->
     <string name="config_navBarLayout" translatable="false">back,home;space;menu_ime,recent</string>
 
+    <!-- Proximity check on screen on -->
+    <java-symbol type="bool" name="config_proximityCheckOnWake" />
+
+    <!-- Proximity check timeout on screen on -->
+    <java-symbol type="integer" name="config_proximityCheckTimeout" />
+
 </resources>
