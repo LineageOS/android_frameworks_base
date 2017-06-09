@@ -493,4 +493,19 @@ public class BaseWifiService extends IWifiManager.Stub {
     public void unregisterStaStateCallback(int callbackIdentifier) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    String getAppProperty(String key) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    int setAppProperty(String key, String value) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    int setAppPropertyOnDeath(IBinder binder, String key, String value) {
+        throw new UnsupportedOperationException();
+    }
 }
