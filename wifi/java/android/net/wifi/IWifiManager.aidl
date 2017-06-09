@@ -180,5 +180,11 @@ interface IWifiManager
     void registerSoftApCallback(in IBinder binder, in ISoftApCallback callback, int callbackIdentifier);
 
     void unregisterSoftApCallback(int callbackIdentifier);
+
+    String getAppProperty(String key);
+
+    int setAppProperty(String key, String value);
+
+    int setAppPropertyOnDeath(IBinder binder, String key, String value);
 }
 
