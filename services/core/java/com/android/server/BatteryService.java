@@ -700,10 +700,21 @@ public final class BatteryService extends SystemService {
         intent.putExtra(BatteryManager.EXTRA_MAX_CHARGING_VOLTAGE, mHealthInfo.maxChargingVoltage);
         intent.putExtra(BatteryManager.EXTRA_CHARGE_COUNTER, mHealthInfo.batteryChargeCounter);
         intent.putExtra(BatteryManager.EXTRA_OEM_FAST_CHARGER, mOemFastCharger);
+
+        intent.putExtra(BatteryManager.EXTRA_MOD_LEVEL, mBatteryProps.modLevel);
+        intent.putExtra(BatteryManager.EXTRA_MOD_STATUS, mBatteryProps.modStatus);
+        intent.putExtra(BatteryManager.EXTRA_MOD_TYPE, mBatteryProps.modType);
+        intent.putExtra(BatteryManager.EXTRA_MOD_FLAG, mBatteryProps.modFlag);
+
         if (DEBUG) {
             Slog.d(TAG, "Sending ACTION_BATTERY_CHANGED. scale:" + BATTERY_SCALE
                     + ", info:" + mHealthInfo.toString()
-                    + ", mOemFastCharger:" + mOemFastCharger);
+                    + ", mOemFastCharger:" + mOemFastCharger
+                    + ", mod_type:" + mBatteryProps.modType
+                    + ", mod_flag:" + mBatteryProps.modFlag
+                    + ", mod_level:" + mBatteryProps.modLevel
+                    + ", mod_status:" + mBatteryProps.modStatus
+                    + ", mod_type:" + mBatteryProps.modType );
         }
 
         mHandler.post(() -> ActivityManager.broadcastStickyIntent(intent, UserHandle.USER_ALL));

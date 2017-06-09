@@ -1,4 +1,4 @@
-/*
+'/*
  * Copyright (C) 2008 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -162,6 +162,11 @@ public class BatteryManager {
      * {@hide}
      */
     public static final String EXTRA_OEM_FAST_CHARGER = "oem_fast_charger";
+
+    public static final String EXTRA_MOD_LEVEL = "mod_level";
+    public static final String EXTRA_MOD_STATUS = "mod_status";
+    public static final String EXTRA_MOD_TYPE = "mod_type";
+    public static final String EXTRA_MOD_FLAG = "mod_flag";
 
     // values for "status" field in the ACTION_BATTERY_CHANGED Intent
     public static final int BATTERY_STATUS_UNKNOWN = Constants.BATTERY_STATUS_UNKNOWN;
