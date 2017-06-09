@@ -4850,6 +4850,42 @@ public class WifiManager {
             mService.stopDppSession();
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
+
+    /**
+     * Class to access wifi application properties
+     * @hide
+     */
+    public class WifiAppPropertyManager {
+        private final IBinder mBinder;
+
+        private WifiAppPropertyManager() {
+            mBinder = new Binder();
+        }
+
+        public String getProperty(String key) {
+            try {
+                return mService.getAppProperty(key);
+            } catch (RemoteException e) {
+                return null;
+            }
+        }
+
+        public int setProperty(String key, String value) {
+            try {
+                return mService.setAppProperty(key, value);
+            } catch (RemoteException e) {
+                return -1;
+            }
+        }
+
+        public int setPropertyOnDeath(String key, String value) {
+            synchronized (mBinder) {
+                try {
+                    return mService.setAppPropertyOnDeath(mBinder, key, value);
+                } catch (RemoteException e) {
+                    return -1;
+                }
+            }
         }
     }
 
@@ -5010,5 +5046,12 @@ public class WifiManager {
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
         }
+
+    /**
+     * API to get wifi application property manager
+     * @hide
+     */
+    public WifiAppPropertyManager getWifiAppPropertyManager() {
+        return new WifiAppPropertyManager();
     }
 }
