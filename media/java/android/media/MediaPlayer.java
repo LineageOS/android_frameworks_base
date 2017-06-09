@@ -1172,6 +1172,10 @@ public class MediaPlayer implements SubtitleController.Listener
      * @throws IllegalStateException if it is called in an invalid state
      */
     public native void prepareAsync() throws IllegalStateException;
+    
+    public void prepareWithoutScan() throws IOException, IllegalStateException {
+        _prepare();
+    }
 
     /**
      * Starts or resumes playback. If playback had previously been paused,
