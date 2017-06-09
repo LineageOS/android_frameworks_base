@@ -128,6 +128,11 @@ public class BatteryManager {
      */
     public static final String EXTRA_SEQUENCE = "seq";
 
+    @hide public static final String EXTRA_MOD_LEVEL = "mod_level";
+    @hide public static final String EXTRA_MOD_STATUS = "mod_status";
+    @hide public static final String EXTRA_MOD_TYPE = "mod_type";
+    @hide public static final String EXTRA_MOD_FLAG = "mod_flag";
+
     // values for "status" field in the ACTION_BATTERY_CHANGED Intent
     public static final int BATTERY_STATUS_UNKNOWN = Constants.BATTERY_STATUS_UNKNOWN;
     public static final int BATTERY_STATUS_CHARGING = Constants.BATTERY_STATUS_CHARGING;
