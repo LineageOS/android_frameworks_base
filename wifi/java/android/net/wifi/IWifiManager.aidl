@@ -184,5 +184,11 @@ interface IWifiManager
     void restoreBackupData(in byte[] data);
 
     void restoreSupplicantBackupData(in byte[] supplicantData, in byte[] ipConfigData);
+
+    String getAppProperty(String key);
+
+    int setAppProperty(String key, String value);
+
+    int setAppPropertyOnDeath(IBinder binder, String key, String value);
 }
 
