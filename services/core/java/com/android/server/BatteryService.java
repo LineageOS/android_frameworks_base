@@ -577,6 +577,12 @@ public final class BatteryService extends SystemService {
         intent.putExtra(BatteryManager.EXTRA_MAX_CHARGING_VOLTAGE, mBatteryProps.maxChargingVoltage);
         intent.putExtra(BatteryManager.EXTRA_CHARGE_COUNTER, mBatteryProps.batteryChargeCounter);
         intent.putExtra(BatteryManager.EXTRA_OEM_FAST_CHARGER, mOemFastCharger);
+
+        intent.putExtra(BatteryManager.EXTRA_MOD_LEVEL, mBatteryProps.modLevel);
+        intent.putExtra(BatteryManager.EXTRA_MOD_STATUS, mBatteryProps.modStatus);
+        intent.putExtra(BatteryManager.EXTRA_MOD_TYPE, mBatteryProps.modType);
+        intent.putExtra(BatteryManager.EXTRA_MOD_FLAG, mBatteryProps.modFlag);
+
         if (DEBUG) {
             Slog.d(TAG, "Sending ACTION_BATTERY_CHANGED.  level:" + mBatteryProps.batteryLevel +
                     ", scale:" + BATTERY_SCALE + ", status:" + mBatteryProps.batteryStatus +
@@ -592,7 +598,11 @@ public final class BatteryService extends SystemService {
                     ", maxChargingCurrent:" + mBatteryProps.maxChargingCurrent +
                     ", maxChargingVoltage:" + mBatteryProps.maxChargingVoltage +
                     ", chargeCounter:" + mBatteryProps.batteryChargeCounter +
-                    ", mOemFastCharger:" + mOemFastCharger);
+                    ", mOemFastCharger:" + mOemFastCharger +
+                    ", mod_flag:" + mBatteryProps.modFlag +
+                    ", mod_level:" + mBatteryProps.modLevel +
+                    ", mod_status:" + mBatteryProps.modStatus +
+                    ", mod_type:" + mBatteryProps.modType );
         }
 
         mHandler.post(new Runnable() {
