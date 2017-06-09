@@ -280,4 +280,10 @@ interface IWifiManager
     void registerStaStateCallback(in IBinder binder, in IStaStateCallback callback, int callbackIdentifier);
 
     void unregisterStaStateCallback(int callbackIdentifier);
+
+    String getAppProperty(String key);
+
+    int setAppProperty(String key, String value);
+
+    int setAppPropertyOnDeath(IBinder binder, String key, String value);
 }
