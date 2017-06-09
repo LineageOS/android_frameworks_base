@@ -138,8 +138,8 @@ public class StorageManager {
     // try the most likely candidates - a long-term solution would be a device-specific vold
     // function that returns the calculated size.
     private static final String[] INTERNAL_STORAGE_SIZE_PATHS = {
-            "/sys/block/mmcblk0/size",
-            "/sys/block/sda/size"
+            "/sys/block/sda/size",
+            "/sys/block/mmcblk0/size"
     };
     private static final int INTERNAL_STORAGE_SECTOR_SIZE = 512;
 
