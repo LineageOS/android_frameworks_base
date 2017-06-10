@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_98e8167e",
+        "filename": "services/core/java/com/android/server/connectivity/PacManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-06-10T20:24:30Z",
+      "side": 1,
+      "message": "I get that moving the file fetch out of the synchronized section is the point of this patch, but I must be missing why these two variables are changed to volatile too.",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 44
+      },
+      "revId": "35a45b94d9614b33607c85e813c0ffd8f4c1fe0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
