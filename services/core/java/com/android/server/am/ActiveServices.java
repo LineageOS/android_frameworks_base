@@ -2747,6 +2747,7 @@ public final class ActiveServices {
                 if (r.processName.equals(app.processName) &&
                         r.serviceInfo.applicationInfo.uid == app.info.uid) {
                     mRestartingServices.remove(i);
+                    r.resetRestartCounter();
                     clearRestartingIfNeededLocked(r);
                 }
             }
