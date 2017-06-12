@@ -6156,6 +6156,19 @@ public final class ActivityManagerService extends ActivityManagerNative
             return -1;
         }
 
+        // Bail early if system is trying to hand out permissions directly; it
+        // must always grant permissions on behalf of someone explicit.
+        final int callingAppId = UserHandle.getAppId(callingUid);
+        if (callingAppId == Process.SYSTEM_UID) {
+            if ("com.android.settings.files".equals(uri.getAuthority())) {
+                // Exempted authority for cropping user photos in Settings app
+            } else {
+                Slog.w(TAG, "For security reasons, the system cannot issue a Uri permission" +
+                       " grant to " + uri.getAuthority() + "; use startActivityAsCaller() instead");
+                return -1;
+            }
+        }
+
         final String authority = uri.getAuthority();
         final ProviderInfo pi = getProviderInfoLocked(authority, UserHandle.getUserId(callingUid));
         if (pi == null) {
