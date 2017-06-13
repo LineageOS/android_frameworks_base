@@ -214,6 +214,12 @@ public class ServiceState implements Parcelable {
      * @hide
      */
     public static final int ROAMING_TYPE_INTERNATIONAL = 3;
+    /**
+     * Roaming type
+     * EU : in EU roaming network
+     * @hide
+     */
+    public static final int ROAMING_TYPE_EU = 4;
 
     private int mVoiceRoamingType;
     private int mDataRoamingType;
@@ -259,6 +265,9 @@ public class ServiceState implements Parcelable {
 
             case ROAMING_TYPE_INTERNATIONAL:
                 return "International Roaming";
+
+            case ROAMING_TYPE_EU:
+                return "EU Roaming";
 
             default:
                 return "UNKNOWN";
@@ -445,7 +454,8 @@ public class ServiceState implements Parcelable {
      * @hide
      */
     public boolean getVoiceRoaming() {
-        return mVoiceRoamingType != ROAMING_TYPE_NOT_ROAMING;
+        return mVoiceRoamingType != ROAMING_TYPE_NOT_ROAMING &&
+                mVoiceRoamingType != ROAMING_TYPE_EU;
     }
 
     /**
@@ -463,7 +473,8 @@ public class ServiceState implements Parcelable {
      * @hide
      */
     public boolean getDataRoaming() {
-        return mDataRoamingType != ROAMING_TYPE_NOT_ROAMING;
+        return mDataRoamingType != ROAMING_TYPE_NOT_ROAMING &&
+                mDataRoamingType != ROAMING_TYPE_EU;
     }
 
     /**
