@@ -10171,6 +10171,13 @@ public final class Settings {
         public static final String LTE_SERVICE_FORCED = "lte_service_forced";
 
         /**
+         * Whether to enable roaming within the EU.
+         *
+         * @hide
+         */
+         public static final String EU_ROAMING = "eu_roaming";
+
+        /**
          * Ephemeral app cookie max size in bytes.
          * <p>
          * Type: int
