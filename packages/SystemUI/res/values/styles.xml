@@ -359,8 +359,4 @@
         <item name="android:colorBackground">?android:attr/colorSecondary</item>
     </style>
 
-    <style name="ThemeOverlay.SwitchBar.Secondary" parent="@android:style/ThemeOverlay">
-        <item name="android:colorAccent">?android:attr/colorSecondary</item>
-    </style>
-
 </resources>
