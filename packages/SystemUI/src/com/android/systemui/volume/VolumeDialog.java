@@ -794,7 +794,8 @@ public class VolumeDialog implements TunerService.Tunable {
                 isRingVibrate ? R.drawable.ic_volume_ringer_vibrate
                         : isRingSilent || zenMuted ? row.cachedIconRes
                         : ss.routedToBluetooth ?
-                        (ss.muted ? R.drawable.ic_volume_media_bt_mute
+                        ((mAutomute && ss.level == 0) || ss.muted ?
+                                  R.drawable.ic_volume_media_bt_mute
                                 : R.drawable.ic_volume_media_bt)
                         : mAutomute && ss.level == 0 ? row.iconMuteRes
                         : (ss.muted ? row.iconMuteRes : row.iconRes);
