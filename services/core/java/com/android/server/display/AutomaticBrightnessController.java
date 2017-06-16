@@ -662,7 +662,7 @@ class AutomaticBrightnessController {
             if (mLightSensorEnabled) {
                 final long time = SystemClock.uptimeMillis();
                 final float lux = event.values[0];
-                handleLightSensorEvent(time, lux);
+                handleLightSensorEvent(time, lux * 10f);
             }
         }
 
