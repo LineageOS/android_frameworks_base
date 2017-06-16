@@ -106,7 +106,7 @@ public class NotificationPanelView extends PanelView implements
 
     private static final Rect mDummyDirtyRect = new Rect(0, 0, 1, 1);
 
-    public static final long DOZE_ANIMATION_DURATION = 700;
+    public static final long DOZE_ANIMATION_DURATION = 640;
 
     private static final FloatProperty<NotificationPanelView> SET_DARK_AMOUNT_PROPERTY =
             new FloatProperty<NotificationPanelView>("mDarkAmount") {
@@ -452,7 +452,7 @@ public class NotificationPanelView extends PanelView implements
             mQsSizeChangeAnimator.cancel();
         }
         mQsSizeChangeAnimator = ValueAnimator.ofInt(oldHeight, newHeight);
-        mQsSizeChangeAnimator.setDuration(300);
+        mQsSizeChangeAnimator.setDuration(280);
         mQsSizeChangeAnimator.setInterpolator(Interpolators.FAST_OUT_SLOW_IN);
         mQsSizeChangeAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override

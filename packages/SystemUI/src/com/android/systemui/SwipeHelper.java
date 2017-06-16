@@ -51,10 +51,10 @@ public class SwipeHelper implements Gefingerpoken {
     public static final int Y = 1;
 
     private static final float SWIPE_ESCAPE_VELOCITY = 500f; // dp/sec
-    private static final int DEFAULT_ESCAPE_ANIMATION_DURATION = 200; // ms
-    private static final int MAX_ESCAPE_ANIMATION_DURATION = 400; // ms
+    private static final int DEFAULT_ESCAPE_ANIMATION_DURATION = 160; // ms
+    private static final int MAX_ESCAPE_ANIMATION_DURATION = 300; // ms
     private static final int MAX_DISMISS_VELOCITY = 4000; // dp/sec
-    private static final int SNAP_ANIM_LEN = SLOW_ANIMATIONS ? 1000 : 150; // ms
+    private static final int SNAP_ANIM_LEN = SLOW_ANIMATIONS ? 800 : 130; // ms
 
     static final float SWIPE_PROGRESS_FADE_END = 0.5f; // fraction of thumbnail width
                                               // beyond which swipe progress->0

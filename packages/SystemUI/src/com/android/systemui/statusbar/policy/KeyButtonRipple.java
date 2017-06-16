@@ -42,8 +42,8 @@ public class KeyButtonRipple extends Drawable {
     private static final float GLOW_MAX_SCALE_FACTOR = 1.35f;
     private static final float GLOW_MAX_ALPHA = 0.2f;
     private static final float GLOW_MAX_ALPHA_DARK = 0.1f;
-    private static final int ANIMATION_DURATION_SCALE = 350;
-    private static final int ANIMATION_DURATION_FADE = 450;
+    private static final int ANIMATION_DURATION_SCALE = 340;
+    private static final int ANIMATION_DURATION_FADE = 420;
 
     private Paint mRipplePaint;
     private CanvasProperty<Float> mLeftProp;
