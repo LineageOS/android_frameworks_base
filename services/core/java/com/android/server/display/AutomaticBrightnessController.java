@@ -29,6 +29,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.text.format.DateUtils;
 import android.util.EventLog;
 import android.util.MathUtils;
@@ -184,6 +185,8 @@ class AutomaticBrightnessController {
     private int mBrightnessAdjustmentSampleOldBrightness;
     private float mBrightnessAdjustmentSampleOldGamma;
 
+    private boolean mAutoBrightnessLuxHack;
+
     public AutomaticBrightnessController(Callbacks callbacks, Looper looper,
             SensorManager sensorManager, Spline autoBrightnessSpline, int lightSensorWarmUpTime,
             int brightnessMin, int brightnessMax, float dozeScaleFactor,
@@ -218,6 +221,8 @@ class AutomaticBrightnessController {
         if (!DEBUG_PRETEND_LIGHT_SENSOR_ABSENT) {
             mLightSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         }
+
+        mAutoBrightnessLuxHack = SystemProperties.getBoolean("persist.autobrightness.lux_hack", false);
     }
 
     public int getAutomaticScreenBrightness() {
@@ -648,6 +653,7 @@ class AutomaticBrightnessController {
             if (mLightSensorEnabled) {
                 final long time = SystemClock.uptimeMillis();
                 final float lux = event.values[0];
+                if (mAutoBrightnessLuxHack) lux *= 10f;
                 handleLightSensorEvent(time, lux);
             }
         }
