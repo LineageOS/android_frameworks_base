@@ -124,8 +124,17 @@ public class TunerActivity extends SettingsDrawerActivity implements
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             PreferenceScreen p = (PreferenceScreen) ((PreferenceFragment) getTargetFragment())
                     .getPreferenceScreen().findPreference(rootKey);
+            
             setPreferenceScreen(p);
             getActivity().getActionBar().setTitle(p.getTitle());
         }
-    }
+        
+        
+        @Override
+		public void onSaveInstanceState(final Bundle outState) {
+			setTargetFragment(null, -1);
+		}
+	}
+    
+    
 }
