@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_95e44b0e",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-06-20T13:39:19Z",
+      "side": 1,
+      "message": "why not track mEvent \u003d\u003d user activity here instead of saving the event and checking it everywhere?",
+      "revId": "08ec9142dc94a3c27bd384ed89baa5d5ba43afe1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
