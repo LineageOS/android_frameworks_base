@@ -20,8 +20,11 @@ import static com.android.systemui.qs.tileimpl.QSTileImpl.getColorForState;
 import static com.android.systemui.util.InjectionInflationController.VIEW_CONTEXT;
 
 import android.annotation.Nullable;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.metrics.LogMaker;
@@ -150,6 +153,9 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
         mIsAutomaticBrightnessAvailable = getResources().getBoolean(
                 com.android.internal.R.bool.config_automatic_brightness_available);
+
+        mContext.registerReceiver(mReceiver, new IntentFilter(
+                lineageos.content.Intent.ACTION_UPDATE_QUICKSETTINGS));
     }
 
     protected void addDivider() {
@@ -730,4 +736,11 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
         int getNumVisibleTiles();
     }
+
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateResources();
+        }
+    };
 }
