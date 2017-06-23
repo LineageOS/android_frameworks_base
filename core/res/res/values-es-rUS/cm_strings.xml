@@ -165,7 +165,7 @@
   <string name="app_ops_turn_on_screen">encender pantalla</string>
   <string name="app_ops_get_accounts">obtener cuentas del dispositivo</string>
   <string name="app_ops_wifi_change">cambiar estado del Wi-Fi</string>
-  <string name="app_ops_su">obtener acceso de Superusuario</string>
+  <string name="app_ops_su">obtener acceso de superusuario</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Para desanclar esta pantalla, mantén pulsado el botón Atrás.</string>
   <!-- Template for showing cellular network operator name while LTE calling is enabled -->

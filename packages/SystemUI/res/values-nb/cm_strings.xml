@@ -65,8 +65,8 @@
   <string name="accessibility_quick_settings_profiles_changed">Profil endret til <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <string name="quick_settings_compass_init">Initialiserer\u2026</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Lys innstillinger</string>
-  <string name="led_notification_text">LED lyset aktiveres av innstillingene</string>
+  <string name="led_notification_title">Lysinnstillinger</string>
+  <string name="led_notification_text">LED-lys aktivert av innstillingene</string>
   <string name="qs_tile_edit_header_instruction">Trykk og hold fliser for å omorganisere</string>
   <string name="quick_settings_edit_label">Rediger fliser</string>
   <string name="quick_settings_cannot_delete_edit_tile">Kan ikke slette Rediger-flisen</string>
