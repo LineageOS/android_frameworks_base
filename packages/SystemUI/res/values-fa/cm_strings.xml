@@ -27,9 +27,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">این صفحه تا زمانی که آن را از سنجاق درآورید نمایش داده می‌شود. برای از سنجاق درآوردن دکمه بازگشت را نگه دارید.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">برای %1$s به راست بکشید</string>
-  <string name="right_shortcut_hint">برای %1$s به چپ بکشید</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="select_application">انتخاب برنامه</string>
   <string name="lockscreen_choose_action_title">انتخاب عملکرد</string>
   <string name="lockscreen_none_target">هیچ‌کدام</string>

@@ -27,9 +27,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Ekrandan çıxarılana qədər görsənəcək. Çıxartmaq üçün Geri düyməsinə toxunub basılı tutun.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$s üçün sağa sürüşdürün</string>
-  <string name="right_shortcut_hint">%1$s üçün sola sürüşdürün</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="select_application">Tətbiqetmə seç</string>
   <string name="lockscreen_choose_action_title">Hərəkət seç</string>
   <string name="lockscreen_none_target">Yoxdur</string>

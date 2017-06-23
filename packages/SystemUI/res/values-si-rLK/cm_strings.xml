@@ -26,7 +26,7 @@
   <!-- Notification importance level title-->
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
-  <!-- Strings for lockscreen shortcut hints -->
+  <!-- String for lockscreen shortcut hints -->
   <!-- Play queue -->
   <!-- Weather string format in keyguard -->
   <string name="accessibility_dpad_left">වම් කර්සරය</string>

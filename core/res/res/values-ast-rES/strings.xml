@@ -1625,6 +1625,7 @@
   <!-- This string array should be overridden by the manufacture to present a list of carrier-id,locale. The wifi regulatory domain is extracted from the locale information. This is used at startup to set system defaults by checking the system property ro.carrier for the carrier-id and searching through this array -->
   <!-- An Array of [[Carrier-ID]                     -->
   <!--              [default-locale]]                -->
+  <string name="grant_credentials_permission_message_header">Una o más aplicaciones de darréu soliciten permisu p\'acceder a la to cuenta, agora y nel futuru.</string>
   <string name="grant_credentials_permission_message_footer">¿Quies permitir esta solicitú?</string>
   <string name="grant_permissions_header_text">Solicitú d\'accesu</string>
   <string name="allow">Permitir</string>

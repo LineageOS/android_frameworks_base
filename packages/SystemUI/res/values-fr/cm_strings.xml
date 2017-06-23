@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Aucune interruption, notification sonore, vibration, ni d\'aperçu en mode plein écran. Masquée depuis l\'écran de verrouillage.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Cela le laisse en vue jusqu\'à ce que vous le détachiez. Appuyez et maintenez le bouton retour pour détacher.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Balayer à droite pour %1$s</string>
-  <string name="right_shortcut_hint">Balayer à gauche pour %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Appuyez sur une icône à gauche ou à droite pour réattribuer un raccourci sur l\'écran de verrouillage.</string>
   <string name="lockscreen_default_target">Par défaut</string>
   <string name="select_application">Sélectionner une application</string>
@@ -128,11 +126,16 @@
   <string name="accessibility_quick_settings_location_high_accuracy">Localisation : mode haute précision.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Économie de batterie</string>
+  <string name="quick_settings_location_battery_saving_label_twoline">Economie de\nbatterie</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_gps_only_label">GPS uniquement</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Haute précision</string>
+  <string name="quick_settings_location_high_accuracy_label_twoline">Haute\nprécision</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_title">Position</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_menu_title">Sélection du mode :</string>
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_title">Haute précision</string>
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
@@ -141,5 +144,7 @@
   <string name="quick_settings_location_detail_mode_sensors_only_title">Appareil uniquement</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+  <string name="quick_settings_location_detail_mode_battery_saving_description">Utiliser le Wi\u2011Fi, le Bluetooth ou les réseaux mobiles pour déterminer la position</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <string name="quick_settings_location_detail_mode_sensors_only_description">Utiliser le GPS pour déterminer votre position</string>
 </resources>

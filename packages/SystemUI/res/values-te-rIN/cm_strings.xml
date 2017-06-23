@@ -32,9 +32,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">మీరు అన్పిన్ చేసేంతవరకు ఇది దానిని వీక్షణలో ఉంచుతుంది. అన్పిన్ చేసేందుకు బ్యాక్ బటనును తాకి అంతే పట్టుకోండి.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$s కొరకు కుడి వైపుకు స్వైప్ చేయుము</string>
-  <string name="right_shortcut_hint">%1$s కొరకు ఎడమ వైపుకు స్వైప్ చేయుము</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">లాక్ స్క్రీన్ సత్వరమార్గాన్ని తిరిగి కేటాయించేందుకు ఎడమ లేదా కుడి వైపున ఉన్న చిహ్నం పైన ట్యాప్ చేయండి.</string>
   <string name="lockscreen_default_target">డిఫాల్ట్</string>
   <string name="select_application">అనువర్తనాన్ని ఎంచుకోండి</string>

@@ -25,7 +25,7 @@
   <string name="screen_zoom_summary_smallest">Најмањи</string>
   <string name="profile_applist_title">Апликације</string>
   <string name="picker_activities">Активности</string>
-  <string name="select_custom_app_title">Изабери прилагођену апликацију</string>
-  <string name="select_custom_activity_title">Изабери прилагођену активност</string>
-  <string name="lockscreen_targets_message">Пречица закључаног екрана</string>
+  <string name="select_custom_app_title">Избор апликације</string>
+  <string name="select_custom_activity_title">Избор активности</string>
+  <string name="lockscreen_targets_message">Пречице закључаног екрана</string>
 </resources>

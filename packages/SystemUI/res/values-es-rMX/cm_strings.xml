@@ -31,7 +31,7 @@
   <!-- Notification importance level title-->
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
-  <!-- Strings for lockscreen shortcut hints -->
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Toca un icono a la izquierda o derecha para volver a asignar un atajo a la pantalla de bloqueo.</string>
   <string name="lockscreen_default_target">Por defecto</string>
   <!-- Play queue -->

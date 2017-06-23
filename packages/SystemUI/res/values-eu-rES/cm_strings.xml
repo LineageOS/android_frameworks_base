@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Pantaila osoko eten, ikuspegi azkar, soinu edo bibraziorik ez. Ezkutatu blokeo-pantailatik.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Honek bistan mantenduko du desiltzatzen duzun arte. Sakatu eta mantendu atzera botoia desiltzatzeko.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Pasatu hatza eskumara: %1$s</string>
-  <string name="right_shortcut_hint">Pasatu hatza ezkerrera: %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Sakatu ezker edo eskuineko ikono bat blokeo-pantailako lasterbide bat aldatzeko.</string>
   <string name="lockscreen_default_target">Lehenetsia</string>
   <string name="select_application">Hautatu aplikazioa</string>
@@ -128,11 +126,17 @@
   <string name="accessibility_quick_settings_location_high_accuracy">Kokaleku txostena: Zehaztasun handiko modua.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Bateria aurreztea</string>
+  <string name="quick_settings_location_battery_saving_label_twoline">Bateria\naurreztea</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_gps_only_label">GPSa besterik ez</string>
+  <string name="quick_settings_location_gps_only_label_twoline">GPSa besterik ez</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Zehaztasun handia</string>
+  <string name="quick_settings_location_high_accuracy_label_twoline">Zehaztasun\nhandia</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_title">Kokalekua</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_menu_title">Hautaketa modua:</string>
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_title">Zehaztasun handia</string>
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
@@ -141,5 +145,7 @@
   <string name="quick_settings_location_detail_mode_sensors_only_title">Gailua bakarrik</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+  <string name="quick_settings_location_detail_mode_battery_saving_description">Erabili Wi\u2011Fi, Bluetooth, edo sare mugikorrak kokalekua zehazteko</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <string name="quick_settings_location_detail_mode_sensors_only_description">Erabili GPSa zure kokalekua zehazteko</string>
 </resources>

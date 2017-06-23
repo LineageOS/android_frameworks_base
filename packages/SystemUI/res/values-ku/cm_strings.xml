@@ -27,9 +27,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">ئەمە لەسەر پیشاندان ئەمێنێتەوە تاوەکو لەیەکدادەبڕێن. دەستلێدە و دووگمەی دواوە هەڵبگرە بۆ لێدابڕان.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">رایکێشە بۆلای ڕاست بۆ %1$s</string>
-  <string name="right_shortcut_hint">ڕایکێشە بۆلای چەپ بۆ %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="select_application">دیاریکردنی بەرنامە</string>
   <string name="lockscreen_choose_action_title">چالاکیه‌ک هه‌ڵبژێره‌</string>
   <string name="lockscreen_none_target">هیچیان</string>

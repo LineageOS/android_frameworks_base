@@ -27,9 +27,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">這將保持畫面在視野範圍內，直至您解鎖畫面位置。觸摸并按住返回按鈕即可解鎖畫面。</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">向右滑動即可%1$s</string>
-  <string name="right_shortcut_hint">向左滑動即可%1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="select_application">選擇應用程式</string>
   <string name="lockscreen_choose_action_title">選擇操作</string>
   <string name="lockscreen_none_target">無</string>

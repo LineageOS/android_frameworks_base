@@ -27,9 +27,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">यह इसे तब तक दृश्य में रखता है जब तक आप अनपिन नहीं करते। अनपिन करने के लिए बैक बटन को कुछ देर छूते रहें।</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$s के लिए दायाँ स्वाइप करें</string>
-  <string name="right_shortcut_hint">%1$s के लिए बायाँ स्वाइप करें</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="select_application">अनुप्रयोग चुनें</string>
   <string name="lockscreen_choose_action_title">कार्य चुनें</string>
   <string name="lockscreen_none_target">कोई नहीं</string>

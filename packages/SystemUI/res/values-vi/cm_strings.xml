@@ -63,9 +63,7 @@
   <string name="notification_importance_very_low">Không có sự gián đoạn toàn màn hình, hé nhìn, âm thanh hay rung. Ẩn từ màn hình khóa.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Điều này sẽ giúp nó hiển thị cho đến khi bạn bỏ ghim. Chạm và giữ nút Quay lại để bỏ ghim.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Vuốt sang phải cho %1$s</string>
-  <string name="right_shortcut_hint">Vuốt sang trái cho %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Chạm vào một biểu tượng bên trái hoặc phải để tái chỉ định một lối tắt màn hình khóa.</string>
   <string name="lockscreen_default_target">Mặc định</string>
   <string name="select_application">Chọn ứng dụng</string>
@@ -144,7 +142,6 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Chỉ thiết bị</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Sử dụng GPS, Wi\u2011Fi, Bluetooth hoặc mạng di động để xác định vị trí </string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Sử dụng Wi\u2011Fi, Bluetooth hoặc mạng di động để xác định vị trí</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

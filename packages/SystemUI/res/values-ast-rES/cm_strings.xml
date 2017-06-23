@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Ensin interrupción de pantalla completa, intrusión, soníu o vibración. Anubrir de la pantalla de bloquéu.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Esto caltién la pantalla nesta vista hasta que se llibera. Caltén primíu\'l botón Atrás pa lliberala.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Esliza a la derecha pa %1$s</string>
-  <string name="right_shortcut_hint">Esliza a la esquierda pa %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Toca nun iconu de la esquierda o derecha pa reasignar un atayu na pantalla de bloquéu.</string>
   <string name="lockscreen_default_target">Por defeutu</string>
   <string name="select_application">Esbillar aplicación</string>
@@ -146,7 +144,6 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Namái preséu</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Usa\'l GPS, Wi\u2011Fi, Bluetooth o redes móviles pa determinar l\'allugamientu </string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Usa\'l Wi\u2011Fi, Bluetooth o redes móviles pa determinar l\'allugamientu</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

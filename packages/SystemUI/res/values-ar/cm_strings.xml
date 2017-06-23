@@ -32,9 +32,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">ستظل ظاهرة حتى يمكنك إزالتها. المس مع الاستمرار زر العودة لإزالتها.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">تحريك إلى اليمين من أجل %1$s</string>
-  <string name="right_shortcut_hint">تحريك إلى اليسار من أجل %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">انقر فوق رمز على اليسار أو اليمين لتخصيص اختصار جديد على شاشة التأمين.</string>
   <string name="lockscreen_default_target">الافتراضي</string>
   <string name="select_application">حدد التطبيق</string>

@@ -63,9 +63,7 @@
   <string name="notification_importance_very_low">Geen volskerm onderbreking, loer, klank of vibrasie. Versteek op sluitskerm.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Dit hou dit binne sig totdat jy dit ontspeld. Raak en hou die knoppie Terug om te ontspeld.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Swiep regs vir %1$s</string>
-  <string name="right_shortcut_hint">Swiep links vir %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Tik \'n ikoon op die linker of regter kant om \'n slot skerm kortpad toe te wys.</string>
   <string name="lockscreen_default_target">Standaard</string>
   <string name="select_application">Kies program</string>

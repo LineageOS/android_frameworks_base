@@ -63,9 +63,7 @@
   <string name="notification_importance_very_low">Nie pokazuj powiadomień na pełnym ekranie (ani ich podglądu) i nie sygnalizuj ich dźwiękiem ani wibracjami. Ukrywaj je na ekranie blokady.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Zostaje na widoku do czasu odpięcia. Dotknij i przytrzymaj przycisk Wstecz, aby odpiąć.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Przesuń palcem w prawo do %1$s</string>
-  <string name="right_shortcut_hint">Przesuń palcem w lewo do %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Dotknij ikony po lewej lub prawej, aby przypisać skrót ekranu blokady.</string>
   <string name="lockscreen_default_target">Domyślna</string>
   <string name="select_application">Wybierz aplikację</string>
@@ -145,7 +143,6 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Tylko urządzenie</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Ustalaj lokalizację przez GPS, Wi‑Fi, Bluetooth lub sieci komórkowe </string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Ustalaj lokalizację przez Wi‑Fi, Bluetooth lub sieci komórkowe</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

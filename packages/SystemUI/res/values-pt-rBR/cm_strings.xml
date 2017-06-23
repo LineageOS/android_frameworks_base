@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Sem interrupção em tela cheia, espiar, som, ou vibração. Ocultar da tela de bloqueio.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Isto a manterá na tela até ser desafixada. Toque e segure o botão Voltar para desafixar.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Deslize para a direita para %1$s</string>
-  <string name="right_shortcut_hint">Deslize para a esquerda para %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Toque em um ícone da esquerda ou da direita para reatribuir o atalho da tela de bloqueio.</string>
   <string name="lockscreen_default_target">Padrão</string>
   <string name="select_application">Selecionar aplicativo</string>
@@ -146,7 +144,6 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Somente no dispositivo</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Usar GPS, Wi\u2011Fi, Bluetooth ou redes celulares para determinar localização </string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Usar Wi\u2011Fi, Bluetooth ou redes celulares para determinar a localização</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

@@ -63,9 +63,7 @@
   <string name="notification_importance_very_low">Žiadne prerušenia na obrazovke, upozorňovanie, zvuk či vibrácie. Skryť z obrazovky uzamknutia.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Zobrazenie aktuálnej obrazovky je zaistené, dokým ju neuvoľníte. Dotknite a podržte tlačidlo Späť pre uvoľnenie.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Potiahnite doprava pre %1$s</string>
-  <string name="right_shortcut_hint">Potiahnite doľava pre %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Kliknutím na ikonu vľavo alebo vpravo a zmeňte ikony na obrazovke uzamknutia.</string>
   <string name="lockscreen_default_target">Predvolené</string>
   <string name="select_application">Vyberte aplikáciu</string>
@@ -146,7 +144,6 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Iba zariadenie</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Pre zisťovanie polohy používať GPS, Wi-Fi, Bluetooth alebo mobilné siete </string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Pre zisťovanie polohy používať Wi-Fi, Bluetooth alebo mobilné siete</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

@@ -32,9 +32,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">हे तुम्ही अनपिन करेपर्यंत व्ह्यूमध्ये राहते. अनपिन करण्यासाठी मागे बटणास स्पर्श करून ठेवा.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$s साठी उजवीकडे स्वाईप करा</string>
-  <string name="right_shortcut_hint">%1$s साठी डावीकडे स्वाईप करा</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">लॉक स्क्रीन शॉर्टकट पुन्हा नेमण्यासाठी डावीकडील किंवा उजवीकडील प्रतीक टॅप करा.</string>
   <string name="lockscreen_default_target">डीफॉल्ट</string>
   <string name="select_application">अनुप्रयोग निवडा</string>

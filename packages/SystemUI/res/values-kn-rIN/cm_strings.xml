@@ -32,9 +32,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">ಇದು ನೀವು ಅನ್‍ಪಿನ್ ಮಾಡುವವರೆಗೂ ವೀಕ್ಷಣೆಯಲ್ಲಿ ಇಡುತ್ತದೆ. ಅನ್‍ಪಿನ್ ಮಾಡಲು ಬ್ಯಾಕ್ ಬಟನ್ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$sಗಾಗಿ ಬಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
-  <string name="right_shortcut_hint">%1$sಗಾಗಿ ಎಡಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">ಲಾಕ್‌ ಸ್ಕ್ರೀನ್ ಶಾರ್ಟ್‌ಕಟ್‌ ಮರು ಅಸೈನ್‌ ಮಾಡಲು ಎಡ ಅಥವಾ ಬಲಕ್ಕೆ ಐಕಾನ್ ತಟ್ಟಿ.</string>
   <string name="lockscreen_default_target">ಡೀಫಾಲ್ಟ್</string>
   <string name="select_application">ಅಪ್ಲಿಕೇಶನ್ ಆಯ್ಕೆಮಾಡಿ</string>

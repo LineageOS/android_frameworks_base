@@ -33,9 +33,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">നിങ്ങൾ അൺപിന്‍ ചെയ്യുന്നതുവരെ ഇത് ഇതിനെ കാഴ്ചയില്‍ നിലനിർത്തുന്നു. അൺപിന്‍ ചെയ്യുന്നതിന് പിന്നിലേക്ക് ബട്ടൺ
 അമര്‍ത്തിപ്പിടിക്കുക.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$s ന് വേണ്ടി വലത്തേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
-  <string name="right_shortcut_hint">%1$s ന് വേണ്ടി ഇടത്തേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">ഒരു ലോക്ക് സ്ക്രീന്‍ ഷോര്‍ട്ട്കട്ട് വീണ്ടും നിയോഗിക്കുന്നതിന് ഇടത് അല്ലെങ്കില്‍ വലത്തുള്ള ഒരു ഐക്കണ്‍ ക്ലിക്ക് ചെയ്യുക.</string>
   <string name="lockscreen_default_target">സ്ഥിരമായത്</string>
   <string name="select_application">അപ്ലിക്കേഷൻ തിരഞ്ഞെടുക്കുക</string>

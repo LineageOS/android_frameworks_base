@@ -32,9 +32,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">நீங்கள் பின்நீக்கு செய்யும்வரை இது காட்சியில் வைக்கும். பின்நீக்கு செய்ய பின்செல் பொத்தானை தொட்டு பிடித்துக்கொள்.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$sக்காக வலதுபுறம் தேய்.</string>
-  <string name="right_shortcut_hint">%1$sக்காக இடதுபுறம் தேய்.</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">ஒரு லாக் திரை குறுக்குவழியை மறுசீரமைக்க இடது அல்லது வலதுபுறம் உள்ள ஐகானை தட்டு</string>
   <string name="lockscreen_default_target">இயல்புநிலை</string>
   <string name="select_application">பயன்பாட்டைத் தேர்ந்தெடுக்கவும்</string>

@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">전체 화면 인터럽션, 상단 알림, 소리 또는 진동이 발생하지 않습니다. 잠금 화면에서 숨겨집니다.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">고정을 해제할 때까지 계속 표시합니다. 뒤로 버튼을 계속 눌러 고정을 해제하세요.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">오른쪽으로 밀어서 %1$s</string>
-  <string name="right_shortcut_hint">왼쪽으로 밀어서 %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">잠금화면 바로가기를 다시 지정하려면 왼쪽이나 오른쪽의 아이콘을 탭하세요.</string>
   <string name="lockscreen_default_target">기본</string>
   <string name="select_application">앱 선택</string>
@@ -145,7 +143,6 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">기기 전용</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, Wi‑Fi, 블루투스 또는 이동통신망을 사용하여 위치를 찾습니다.</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, 블루투스 또는 이동통신망을 사용하여 위치를 찾습니다.</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

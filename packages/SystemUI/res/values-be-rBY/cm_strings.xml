@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Не перапыняць рэжым поўнага экрану, не дазваляць кароткі паказ, прайграньне гуку або вібрацыю.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Гэты дадатак застанецца актыўным, пакуль вы не скасуеце блакаванне доўгім націскам кнопкі \"Назад\".</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Правядзіце направа, каб адкрыць дадатак %1$s</string>
-  <string name="right_shortcut_hint">Правядзіце налева, каб адкрыць дадатак %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Націсніце значок злева альбо справа для змянення цэтліка экрана блакавання.</string>
   <string name="lockscreen_default_target">Па змаўчанні</string>
   <string name="select_application">Выбар дадатку</string>

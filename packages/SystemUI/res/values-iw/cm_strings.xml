@@ -22,7 +22,7 @@
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">בהירות נורית</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">הגדרות נורית</string>
+  <string name="led_notification_title">הגדרות תאורה</string>
   <string name="led_notification_text">נורית LED מופעלת על ידי ההגדרות</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">פנס מופעל</string>
@@ -63,9 +63,7 @@
   <string name="notification_importance_very_low">ללא הפרעה, הצצה, קול או רטט במסך מלא. הסתר ממסך הנעילה.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">הפעולה שומרת זאת בתצוגה עד שתבטל את ההצמדה. גע והחזק את לחצן \"הקודם\" כדי לבטל את ההצמדה.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">החלק ימינה ל- %1$s</string>
-  <string name="right_shortcut_hint">החלקה שמאלה ל- %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">הקש על סמל בצד שמאל או ימין כדי להקצות מחדש קיצור דרך של מסך הנעילה.</string>
   <string name="lockscreen_default_target">ברירת מחדל</string>
   <string name="select_application">בחר יישום</string>
@@ -147,9 +145,8 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">מכשיר בלבד</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">‏השתמש ב-GPS‏, Wi‑Fi‏, Bluetooth או רשתות סלולריות כדי לקבוע את המיקום </string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">‏השתמש ב-Wi‑Fi‏, Bluetooth או רשתות סלולריות כדי לקבוע את המיקום</string>
+  <string name="quick_settings_location_detail_mode_battery_saving_description">‏השתמש ב-Wi\u2011Fi‏, Bluetooth או רשתות סלולריות כדי לקבוע מיקום</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">‏השתמש בלוויני GPS לקביעת המיקום</string>
 </resources>

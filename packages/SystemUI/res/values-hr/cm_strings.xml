@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Bez prekida preko cijelog zaslona, virenja, zvuka ili vibracije. Sakrij sa zaključanog zaslona.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Ovo drži zaslon u pogledu dok ga ne otkvačite. Dodirnite i držite gumb za povratak natrag da biste ga otkvačili.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Kliznite udesno za %1$s</string>
-  <string name="right_shortcut_hint">Kliznite ulijevo za %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Dodirnite ikonu na lijevoj ili desnoj strani da biste postavili prečac zaključanog zaslona.</string>
   <string name="lockscreen_default_target">Zadano</string>
   <string name="select_application">Odaberite aplikaciju</string>

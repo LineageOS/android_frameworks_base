@@ -32,9 +32,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">بۇ ئېكراننى سىز بىكار قىلغانغا قەدەر مۇقىملاشتۇرىدۇ. قايتىش كونۇپكىسىنى بېسىپ تۇرۇش ئارقىلىق مۇقىملاشتۇرۇشنى بىكار قىلىڭ.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$s ئۈچۈن ئوڭغا سۈرۈڭ</string>
-  <string name="right_shortcut_hint">%1$s ئۈچۈن سولغا سۈرۈڭ</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">ئوڭ ياكى سول تەرەپتىكى سىنبەلگىنى چېكىپ قۇلۇپ ئېكران قىسقا يولىنى قايتا تەقسىملەڭ.</string>
   <string name="lockscreen_default_target">كۆڭۈلدىكى</string>
   <string name="select_application">ئەپ تاللاڭ</string>

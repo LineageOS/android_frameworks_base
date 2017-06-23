@@ -32,9 +32,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">See hoiab vaate kuni vabastamiseni. Vajuta ja hoia tagasi nuppu vabastamiseks.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Libista paremale et käivitada %1$s</string>
-  <string name="right_shortcut_hint">Libista vasakule et käivitada %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Koputage vasaku või parema ikooni peale, et muuta lukustusekraani lühiteid.</string>
   <string name="lockscreen_default_target">Vaikimisi</string>
   <string name="select_application">Valige rakendus</string>

@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">全画面表示の中断、ポップアップ通知、通知音、バイブレーションが無効になります。ロック画面から非表示になります。</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">固定を解除するまで表示し続けます。固定を解除するには戻るボタンを押し続けます。</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">右にスワイプして%1$s</string>
-  <string name="right_shortcut_hint">左にスワイプして%1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">左右のアイコンをタップしてロック画面のショートカットを変更します。</string>
   <string name="lockscreen_default_target">デフォルト</string>
   <string name="select_application">アプリケーションを選択</string>
@@ -137,6 +135,7 @@
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_detail_title">位置情報</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_menu_title">選択モード:</string>
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_title">高精度</string>
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
@@ -145,5 +144,7 @@
   <string name="quick_settings_location_detail_mode_sensors_only_title">端末のみ</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+  <string name="quick_settings_location_detail_mode_battery_saving_description">Wi‑Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <string name="quick_settings_location_detail_mode_sensors_only_description">GPS で現在地を特定します</string>
 </resources>

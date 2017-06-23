@@ -108,7 +108,7 @@
   <string name="app_ops_use_media_volume">控制媒體音量</string>
   <string name="app_ops_use_notification_volume">控制通知音量</string>
   <string name="app_ops_use_ring_volume">控制鈴聲音量</string>
-  <string name="app_ops_use_vibrate">使用觸覺回饋</string>
+  <string name="app_ops_use_vibrate">使用觸控震動</string>
   <string name="app_ops_use_voice_volume">控制語音通話音量</string>
   <string name="app_ops_write_mms">撰寫多媒體訊息</string>
   <string name="app_ops_write_sms">撰寫簡訊訊息</string>

@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Prepreči obvestila preko celega zaslona, kukanje, zvok ali vibriranje. Skrij na zaklenjenem zaslonu.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">To jo ohrani prikazano, dokler je ne odpnete. Tapnite in pridržite gumb Nazaj, da jo odpnete.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Potegnite desno za %1$s</string>
-  <string name="right_shortcut_hint">Potegnite levo za %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Tapnite ikono na levi ali desni, da ponovno dodelite bližnjico zaklenjenega zaslona.</string>
   <string name="lockscreen_default_target">Privzeto</string>
   <string name="select_application">Izberite aplikacijo</string>
@@ -148,7 +146,6 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Samo naprava</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Uporabi GPS, Wi\u2011Fi, Bluetooth ali mobilna omrežja za določanje lokacije </string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Uporabi Wi\u2011Fi, Bluetooth ali mobilna omrežja za določanje lokacije</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

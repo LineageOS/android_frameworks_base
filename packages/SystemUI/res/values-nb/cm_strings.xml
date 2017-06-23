@@ -22,8 +22,8 @@
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">Lys lysstyrke</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Lys innstillinger</string>
-  <string name="led_notification_text">LED lyset aktiveres av innstillingene</string>
+  <string name="led_notification_title">Lysinnstillinger</string>
+  <string name="led_notification_text">LED-lys aktivert av innstillingene</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Lommelykt er på</string>
   <string name="quick_settings_tile_flashlight_not_summary">Trykk for å slå av</string>
@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Ingen fullskjermsforstyrring, vising på avslått skjerm eller vibrasjon. Skjules fra låseskjermen.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Dette holder den i syne inntill du løsner den. Trykk og hold på tilbake knappen for å løsne.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Sveip til høyre for %1$s</string>
-  <string name="right_shortcut_hint">Sveip til venstre for %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Trykk på ikonet til venstre eller høyre for å tilordne en låseskjermsnarvei.</string>
   <string name="lockscreen_default_target">Standard</string>
   <string name="select_application">Velg app</string>
@@ -146,7 +144,6 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Kun enhet</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Bruk GPS, Wi\u2011Fi, Bluetooth, eller mobilnettverk for å bestemme plassering </string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Bruk Wi\u2011Fi, Bluetooth, eller mobilnettverk for å bestemme plassering</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Geen onderbreking van volledig scherm, korte weergave, geluid of trillen. Verbergen op vergrendelingsscherm.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Met scherm vastzetten wordt het beeldscherm vergrendeld op één weergave.\n\nBlijf de Terug-knop aanraken om het scherm los te maken.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Veeg naar rechts voor %1$s</string>
-  <string name="right_shortcut_hint">Veeg naar links voor %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Tik links of rechts op een pictogram om de snelkoppeling opnieuw toe te wijzen.</string>
   <string name="lockscreen_default_target">Standaard</string>
   <string name="select_application">App selecteren</string>

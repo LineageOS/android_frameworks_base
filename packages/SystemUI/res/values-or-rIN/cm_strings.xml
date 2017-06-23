@@ -32,9 +32,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">ଆପଣ ଅନପିନ୍‌ ନକରିବା ପର୍ଯ୍ୟନ୍ତ ଏହାକୁ ଦର୍ଶନ ରଖନ୍ତୁ। ଅନ୍‍ପିନ୍‍ କରିବା ପାଇଁ ବ୍ୟାକ୍‍ ବଟନ୍‍ ସ୍ପର୍ଶ କରନ୍ତୁ ଓ ଧରି ରଖନ୍ତୁ।</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$s ପାଇଁ ଡାହାଣକୁ ସ୍ୱାଇପ୍‍ କରନ୍ତୁ</string>
-  <string name="right_shortcut_hint">%1$s ପାଇଁ ବାମକୁ ସ୍ୱାଇପ୍‍ କରନ୍ତୁ</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">ଏକ ଲକ୍‍ ସ୍କ୍ରିନ୍‍ ସର୍ଟକ‍ ପୁନଃ ପ୍ରଦାନ କରିବା ପାଇଁ ବାମ ବା ଡାହାଣରେ ଥିବା ଏକ ଆଇକନ୍‍କୁ ଟ୍ୟାପ୍‍ କରନ୍ତୁ।</string>
   <string name="lockscreen_default_target">ଡିଫଲ୍ଟ</string>
   <string name="select_application">ଆପ୍ଲିକେସନ୍ ଚୟନ କରନ୍ତୁ</string>

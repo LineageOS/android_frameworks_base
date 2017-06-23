@@ -32,9 +32,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">ই আপুনি আনপিন নকৰালৈকে এইটো দৰ্শনত ৰাখিব৷ আনপিন কৰিবলৈ বেক বুটাম স্পৰ্শ কৰি ধৰি থাকক।</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$s ৰ বাবে সোঁফালে ছোৱাইপ কৰক</string>
-  <string name="right_shortcut_hint">%1$s ৰ বাবে বাওঁফালে ছোৱাইপ কৰক</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">লক স্ক্ৰীণ চমুপথ আৰোপ কৰিবলৈ বাওঁফালে বা সোঁফালে এটা আইকনত টেপ কৰক।</string>
   <string name="lockscreen_default_target">ডিফল্ট</string>
   <string name="select_application">এপ্লিকেশ্যন বাচনি কৰক</string>

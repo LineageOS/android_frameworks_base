@@ -348,8 +348,11 @@
          for its own notifications [CHAR LIMIT=NONE] -->
   <string name="status_bar_notification_app_settings_title">Axustes de <xliff:g id="app_name" example="Calendar">%s</xliff:g></string>
   <!-- Description of the button in the phone-style notification panel that controls auto-rotation, when auto-rotation is on. [CHAR LIMIT=NONE] -->
+  <string name="accessibility_rotation_lock_off">La pantalla voltiará automáticamente.</string>
   <!-- Description of the button in the phone-style notification panel that controls auto-rotation, when auto-rotation is off. [CHAR LIMIT=NONE] -->
+  <string name="accessibility_rotation_lock_on_landscape">La pantalla ta bloquiada en mou horizontal.</string>
   <!-- Description of the button in the phone-style notification panel that controls auto-rotation, when auto-rotation is off. [CHAR LIMIT=NONE] -->
+  <string name="accessibility_rotation_lock_on_portrait">La pantalla ta bloquiada en mou vertical.</string>
   <!-- Announcement made when the screen is rotating automatically again (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Announcement made when the rotation lock state changes to landscape only (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Announcement made when the rotation lock state changes to portrait only (not shown on the screen).  [CHAR LIMIT=NONE] -->
@@ -458,6 +461,7 @@
   <string name="quick_settings_nfc_label">NFC</string>
   <!-- QuickSettings: NFC (off) [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: NFC (on) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_nfc_on">El NFC ta habilitáu</string>
   <!-- Recents: The empty recents string. [CHAR LIMIT=NONE] -->
   <string name="recents_empty_message">Nun hai elementos recientes</string>
   <!-- Recents: The empty recents string after dismissing all tasks. [CHAR LIMIT=NONE] -->
@@ -520,8 +524,11 @@
   <!-- Interruption level: Priority. [CHAR LIMIT=40] -->
   <!-- Interruption level: Alarms only. [CHAR LIMIT=40] -->
   <!-- Interruption level: None.  Optimized for narrow two-line display. [CHAR LIMIT=40] -->
+  <string name="interruption_level_none_twoline">Silenciu\ntotal</string>
   <!-- Interruption level: Priority.  Optimized for narrow two-line display. [CHAR LIMIT=40] -->
+  <string name="interruption_level_priority_twoline">Namái\nprioridá</string>
   <!-- Interruption level: Alarms only.  Optimized for narrow two-line display. [CHAR LIMIT=40] -->
+  <string name="interruption_level_alarms_twoline">Namái\nalarmes</string>
   <!-- Indication on the keyguard that is shown when the device is charging. [CHAR LIMIT=40]-->
   <!-- Indication on the keyguard that is shown when the device is charging rapidly. Should match keyguard_plugged_in_charging_fast [CHAR LIMIT=40]-->
   <!-- Indication on the keyguard that is shown when the device is charging slowly. Should match keyguard_plugged_in_charging_slowly [CHAR LIMIT=40]-->

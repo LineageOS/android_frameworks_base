@@ -396,6 +396,11 @@
     <item>Estándar</item>
   </string-array>
   <!-- Description of each color mode for the display. [CHAR LIMIT=NONE] -->
+  <string-array name="color_mode_descriptions">
+    <item>Enhanced colors</item>
+    <item>Natural colors as seen by the eye</item>
+    <item>Colores optimizaes pal conteníu dixital</item>
+  </string-array>
   <!-- Settings item title for inactive apps [CHAR LIMIT=35] -->
   <string name="inactive_apps_title">Aplicaciones inactives</string>
   <!-- Settings item summary for inactive app [CHAR LIMIT=100] -->

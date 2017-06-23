@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Не виводити на весь екран. Вимкнути короткі сповіщення, звук і вібросигнал. Не показувати на заблокованому екрані.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Триматиме це перед Вами, доки не відкріпите. Торкніться й утримуйте кнопку «Назад», щоб відкріпити.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Проведіть вправо для %1$s</string>
-  <string name="right_shortcut_hint">Проведіть вліво для %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Натисніть на іконку ліворуч або праворуч для зміни ярлика екрану блокування.</string>
   <string name="lockscreen_default_target">За замовчуванням</string>
   <string name="select_application">Вибрати програму</string>
@@ -147,7 +145,6 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">По датчиках пристрою</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Використовувати GPS, Wi‑Fi, Bluetooth і мобільні мережі, щоб визначати місцезнаходження </string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Використовувати Wi‑Fi, Bluetooth і мобільні мережі, щоб визначати місцезнаходження</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

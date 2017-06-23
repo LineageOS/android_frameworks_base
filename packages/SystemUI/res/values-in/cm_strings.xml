@@ -64,9 +64,7 @@
   <string name="notification_importance_very_low">Tidak ada gangguan penuh, mengintip, suara atau getaran. Sembunyikan dari layar kunci.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh dan tahan tombol kembali untuk melepas sematan.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Geser ke kanan untuk %1$s</string>
-  <string name="right_shortcut_hint">Geser ke kiri untuk %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Ketuk ikon di sebelah kiri atau kanan untuk mengatur pintasan kunci layar.</string>
   <string name="lockscreen_default_target">Standar</string>
   <string name="select_application">Pilih aplikasi</string>
@@ -145,7 +143,6 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Hanya perangkat</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Menggunakan GPS, Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Menggunakan Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
