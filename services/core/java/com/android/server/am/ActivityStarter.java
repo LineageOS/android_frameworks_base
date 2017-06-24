@@ -1094,7 +1094,7 @@ class ActivityStarter {
                 intent.putExtra("com.android.settings.PROTECTED_APPS_USER_ID", r.userId);
                 msg.obj = intent;
                 mService.mHandler.sendMessage(msg);
-                return ActivityManager.START_NOT_CURRENT_USER_ACTIVITY;
+                return ActivityManager.START_PROTECTED_APP;
             }
         } catch (RemoteException e) {
             e.printStackTrace();
