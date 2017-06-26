@@ -22,6 +22,30 @@
       "revId": "c52e05a2056443e3f56084a0e7cdb77baeb54b48",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_6a1af418",
+        "filename": "packages/SystemUI/res/layout/notification_guts_media_extension.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 14873
+      },
+      "writtenOn": "2017-06-26T20:02:47Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "da87b5cf_9748c55c",
+      "range": {
+        "startLine": 38,
+        "startChar": 28,
+        "endLine": 38,
+        "endChar": 66
+      },
+      "revId": "c52e05a2056443e3f56084a0e7cdb77baeb54b48",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
