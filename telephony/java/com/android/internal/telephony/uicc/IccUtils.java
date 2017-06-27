@@ -23,10 +23,12 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.internal.telephony.EncodeException;
 import com.android.internal.telephony.GsmAlphabet;
 import com.android.telephony.Rlog;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.util.List;
 
 /**
@@ -924,5 +926,31 @@ public class IccUtils {
             serializedFplmns[offset++] = (byte) 0xff;
         }
         return serializedFplmns;
+    }
+
+    static byte[]
+    stringToAdnStringField(String alphaTag) {
+        boolean isUcs2 = false;
+        try {
+           for(int i = 0; i < alphaTag.length(); i++) {
+               GsmAlphabet.countGsmSeptets(alphaTag.charAt(i), true);
+           }
+        } catch (EncodeException e) {
+            isUcs2 = true;
+        }
+        return stringToAdnStringField(alphaTag, isUcs2);
+    }
+
+    static byte[]
+    stringToAdnStringField(String alphaTag, boolean isUcs2) {
+        if (!isUcs2) {
+            return GsmAlphabet.stringToGsm8BitPacked(alphaTag);
+        }
+        byte[] alphaTagBytes = alphaTag.getBytes(Charset.forName("UTF-16BE"));
+        byte[] ret = new byte[1 + alphaTagBytes.length];
+        ret[0] = (byte)0x80;
+        System.arraycopy(alphaTagBytes, 0, ret, 1, alphaTagBytes.length);
+
+        return ret;
     }
 }
