@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_5ce819b4",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-06-30T01:13:35Z",
+      "side": 1,
+      "message": "should we do something cooler here?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 69
+      },
+      "revId": "e5aec5030b5093185dcb03d5a1ffc1bb5fd13e11",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
