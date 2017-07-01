@@ -64,6 +64,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Това допълнение ще остане активено, докато не натиснете и зъдържите на бутона \"Назад\".</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Плъзнете от иконата за %1$s</string>
   <string name="lockscreen_message">Докоснете иконата в наляво или надясно, за да присвоите команда за бърз достъп при заключен на екран.</string>
   <string name="lockscreen_default_target">По подразбиране</string>
   <string name="select_application">Изберете приложение</string>
@@ -143,6 +144,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Само по GPS</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Използвай GPS, Wi\u2011Fi, Bluetooth или клетъчни мрежи за определяне на местоположението</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Използвай Wi\u2011Fi, Bluetooth или клетъчни мрежи за определяне на местоположението</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

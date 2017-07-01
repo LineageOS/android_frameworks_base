@@ -64,6 +64,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Això ho manté a la vista fins que el desancoris. Toca i aguanta el botó Enrera per desancorar.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Llisca des de la icona per %1$s</string>
   <string name="lockscreen_message">Toca una icona a l\'esquerra o a la dreta per reassignar una drecera a la pantalla de bloqueig.</string>
   <string name="lockscreen_default_target">Per defecte</string>
   <string name="select_application">Selecciona l\'aplicació</string>
@@ -143,6 +144,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Només dispositiu</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilitza el GPS, la Wi\u2011Fi, el Bluetooth, o les xarxes mòbils per determinar la ubicació</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Utilitza la Wi\u2011Fi, el Bluetooth o les xarxes mòbils per determinar la ubicació</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

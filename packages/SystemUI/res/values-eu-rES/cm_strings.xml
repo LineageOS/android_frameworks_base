@@ -65,6 +65,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Honek bistan mantenduko du desiltzatzen duzun arte. Sakatu eta mantendu atzera botoia desiltzatzeko.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Pasatu hatza ikonotik %1$s nahi baduzu</string>
   <string name="lockscreen_message">Sakatu ezker edo eskuineko ikono bat blokeo-pantailako lasterbide bat aldatzeko.</string>
   <string name="lockscreen_default_target">Lehenetsia</string>
   <string name="select_application">Hautatu aplikazioa</string>
@@ -144,6 +145,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Gailua bakarrik</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Erabili GPS, Wi\u2011Fi, Bluetooth, edo sare mugikorrak kokalekua zehazteko</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Erabili Wi\u2011Fi, Bluetooth, edo sare mugikorrak kokalekua zehazteko</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

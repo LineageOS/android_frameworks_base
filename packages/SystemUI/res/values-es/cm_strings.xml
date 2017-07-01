@@ -65,6 +65,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Esto fija la pantalla en esta vista hasta que es liberada. Mantén pulsado el botón Atrás para liberarla.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Desliza desde el icono para %1$s</string>
   <string name="lockscreen_message">Toca un icono a la izquierda o derecha para volver a asignar un atajo a la pantalla de bloqueo.</string>
   <string name="lockscreen_default_target">Por defecto</string>
   <string name="select_application">Selecciona una aplicación</string>
@@ -144,6 +145,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Solo en dispositivo</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Use GPS, Wi\u2011Fi, Bluetooth, o redes móviles para calcular la ubicación</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Usa Wi\u2011Fi, Bluetooth o redes móviles para determinar la ubicación</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

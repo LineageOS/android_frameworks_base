@@ -65,6 +65,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">固定を解除するまで表示し続けます。固定を解除するには戻るボタンを押し続けます。</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">%1$s のアイコンからスワイプ</string>
   <string name="lockscreen_message">左右のアイコンをタップしてロック画面のショートカットを変更します。</string>
   <string name="lockscreen_default_target">デフォルト</string>
   <string name="select_application">アプリケーションを選択</string>
@@ -143,6 +144,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">端末のみ</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS、Wi‑Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Wi‑Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

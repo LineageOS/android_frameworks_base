@@ -64,6 +64,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">הפעולה שומרת זאת בתצוגה עד שתבטל את ההצמדה. גע והחזק את לחצן \"הקודם\" כדי לבטל את ההצמדה.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">החלק מהסמל בשביל %1$s</string>
   <string name="lockscreen_message">הקש על סמל בצד שמאל או ימין כדי להקצות מחדש קיצור דרך של מסך הנעילה.</string>
   <string name="lockscreen_default_target">ברירת מחדל</string>
   <string name="select_application">בחר יישום</string>
@@ -145,6 +146,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">מכשיר בלבד</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">‏השתמש ב-GPS‏, Wi\u2011Fi‏, Bluetooth או רשתות סלולריות כדי לקבוע מיקום</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">‏השתמש ב-Wi\u2011Fi‏, Bluetooth או רשתות סלולריות כדי לקבוע מיקום</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

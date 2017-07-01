@@ -136,6 +136,7 @@
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_detail_title">Lokalizacja</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_menu_title">Wybierz tryb:</string>
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_title">Wysoka dokładność</string>
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
@@ -143,6 +144,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Tylko urządzenie</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Używaj GPS, Wi\u2011Fi, Bluetooth oraz sieci komórkowej, aby ustalić lokalizację</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Ustalaj lokalizację przez Wi‑Fi, Bluetooth lub sieci komórkowe</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

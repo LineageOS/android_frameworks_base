@@ -65,6 +65,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Dette holder den i syne inntill du løsner den. Trykk og hold på tilbake knappen for å løsne.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Sveip fra ikonet for %1$s</string>
   <string name="lockscreen_message">Trykk på ikonet til venstre eller høyre for å tilordne en låseskjermsnarvei.</string>
   <string name="lockscreen_default_target">Standard</string>
   <string name="select_application">Velg app</string>
@@ -144,6 +145,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Kun enhet</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Bruk GPS, Wi\u2011Fi, Bluetooth eller mobilnettverk for å bestemme plassering</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Bruk Wi\u2011Fi, Bluetooth, eller mobilnettverk for å bestemme plassering</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

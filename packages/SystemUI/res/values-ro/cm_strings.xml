@@ -65,6 +65,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Aceasta ține în vizualizare ecranul până îl deblocați. Apăsați și țineți apăsat butonul Înapoi pentru a debloca.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Glisați de pe iconiță pentru %1$s</string>
   <string name="lockscreen_message">Apăsaţi o pictogramă din stânga sau dreapta pentru a realoca o comandă rapidă pe ecranul de blocare.</string>
   <string name="lockscreen_default_target">Implicit</string>
   <string name="select_application">Selectați aplicația</string>
@@ -145,6 +146,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Doar dispozitiv</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilizează GPS, Wi\u2011Fi, Bluetooth sau rețelele mobile pentru determinarea locației</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Utilizează Wi\u2011Fi, Bluetooth sau rețelele mobile pentru determinarea locației</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

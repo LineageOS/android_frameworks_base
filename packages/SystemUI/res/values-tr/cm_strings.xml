@@ -65,6 +65,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Ekrandan kaldırana kadar görünümde tutar. Kaldırmak için Geri tuşuna dokunun ve tutun.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">%1$s için simgeyi kaydırın</string>
   <string name="lockscreen_message">Kilit ekranı kısayollarını ayarlamak için sağ ya da soldaki simgeye dokunun.</string>
   <string name="lockscreen_default_target">Varsayılan</string>
   <string name="select_application">Uygulama seçin</string>
@@ -144,6 +145,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Sadece cihaz</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Konumu belirlemek için GPS, Wi\u2011Fi, Bluetooth veya hücresel şebekeler kullanın</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Konumu belirlemek için Wi\u2011Fi, Bluetooth veya hücresel ağlar kullanın</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

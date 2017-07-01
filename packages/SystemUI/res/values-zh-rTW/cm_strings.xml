@@ -65,6 +65,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">此功能會固定螢幕顯示直到您取消固定。觸控並長按 [返回] 鍵即可解除固定。</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">滑動圖示即可 %1$s</string>
   <string name="lockscreen_message">輕觸左側或右側的圖示即可設定鎖定畫面捷徑</string>
   <string name="lockscreen_default_target">預設</string>
   <string name="select_application">選擇應用程式</string>
@@ -143,6 +144,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">僅限裝置</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">使用 GPS、Wi\u2011Fi、藍牙或行動網路判斷位置</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">使用 Wi\u2011Fi、藍牙或行動網路判斷位置</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->

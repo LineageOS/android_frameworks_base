@@ -26,7 +26,7 @@
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Тренутни</string>
   <!-- status message in phone options dialog for screenshot action -->
-  <string name="global_actions_screenshot_status">Задржите да бисте одредили област за снимак екрана.</string>
+  <string name="global_actions_screenshot_status">Додирните и задржите да бисте одредили област за снимак екрана.</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <string name="reboot_reboot">Поново покрени</string>
@@ -66,78 +66,78 @@
   <string name="app_ops_access_location">приступ локацији</string>
   <string name="app_ops_access_notifications">читање обавештења</string>
   <string name="app_ops_activate_vpn">активирање VPN-а</string>
-  <string name="app_ops_auto_start">покретање при подизању система</string>
+  <string name="app_ops_auto_start">покретање са системом</string>
   <string name="app_ops_delete_call_log">брисање евиденције позива</string>
   <string name="app_ops_delete_contacts">брисање контаката</string>
   <string name="app_ops_delete_mms">брисање MMS порука</string>
   <string name="app_ops_delete_sms">брисање SMS порука</string>
-  <string name="app_ops_draw_on_top">приказивање преко других апликација</string>
-  <string name="app_ops_get_usage_stats">преузимање статистике коришћења апликација</string>
-  <string name="app_ops_keep_device_awake">одржавање уређаја будним</string>
-  <string name="app_ops_make_phone_call">обављање телефонског позива</string>
-  <string name="app_ops_modify_calendar">ажурирање календара</string>
-  <string name="app_ops_modify_call_log">ажурирање евиденције позива</string>
-  <string name="app_ops_modify_clipboard">измену привремене меморије</string>
-  <string name="app_ops_modify_contacts">ажурирање контаката</string>
-  <string name="app_ops_modify_settings">измену подешавања система</string>
-  <string name="app_ops_mute_unmute_microphone">укључивање/искључивање микрофона</string>
-  <string name="app_ops_play_audio">репродуковање звука</string>
-  <string name="app_ops_post_notification">приказ обавештења</string>
-  <string name="app_ops_project_media">пројектовање медија</string>
-  <string name="app_ops_read_calendar">читање из календара</string>
+  <string name="app_ops_draw_on_top">повлачење прозора на врх</string>
+  <string name="app_ops_get_usage_stats">преузимање статистике о коришћењу апликација</string>
+  <string name="app_ops_keep_device_awake">задржавање ван стања спавања</string>
+  <string name="app_ops_make_phone_call">позивање телефона</string>
+  <string name="app_ops_modify_calendar">мењање календара</string>
+  <string name="app_ops_modify_call_log">мењање евиденције позива</string>
+  <string name="app_ops_modify_clipboard">мењање меморије</string>
+  <string name="app_ops_modify_contacts">мењање контаката</string>
+  <string name="app_ops_modify_settings">мењање подешавања система</string>
+  <string name="app_ops_mute_unmute_microphone">искључивање/укључивање звука микрофона</string>
+  <string name="app_ops_play_audio">пуштање аудио-записа</string>
+  <string name="app_ops_post_notification">постављање обавештења</string>
+  <string name="app_ops_project_media">медије за пројекат</string>
+  <string name="app_ops_read_calendar">читање календара</string>
   <string name="app_ops_read_call_log">читање евиденције позива</string>
-  <string name="app_ops_read_clipboard">читање из привремене меморије</string>
+  <string name="app_ops_read_clipboard">читање меморије</string>
   <string name="app_ops_read_contacts">читање контаката</string>
   <string name="app_ops_read_mms">читање MMS порука</string>
   <string name="app_ops_read_sms">читање SMS порука</string>
   <string name="app_ops_receive_sms">пријем SMS порука</string>
-  <string name="app_ops_record_audio">снимање звука</string>
-  <string name="app_ops_send_mms">слање MMS поруке</string>
-  <string name="app_ops_send_sms">слање SMS поруке</string>
-  <string name="app_ops_start_at_bootup">покретање при подизању система</string>
-  <string name="app_ops_toast_window">приказ искачућих обавештења</string>
+  <string name="app_ops_record_audio">снимање аудио-записа</string>
+  <string name="app_ops_send_mms">слање MMS порука</string>
+  <string name="app_ops_send_sms">слање SMS порука</string>
+  <string name="app_ops_start_at_bootup">покретање са системом</string>
+  <string name="app_ops_toast_window">приказивање искачућих порука</string>
   <string name="app_ops_toggle_bluetooth">укључивање/искључивање Bluetooth-а</string>
   <string name="app_ops_toggle_mobile_data">укључивање/искључивање мобилних података</string>
   <string name="app_ops_toggle_nfc">укључивање/искључивање NFC-а</string>
   <string name="app_ops_toggle_wifi">укључивање/искључивање Wi-Fi-а</string>
   <string name="app_ops_use_alarm_volume">управљање јачином звука аларма</string>
-  <string name="app_ops_use_audio_focus">управљање фокусом звука</string>
-  <string name="app_ops_use_bluetooth_volume">управљање јачином звука Bluetooth уређаја</string>
-  <string name="app_ops_use_master_volume">управљање јачином звука уређаја</string>
+  <string name="app_ops_use_audio_focus">управљање аудио-фокусом</string>
+  <string name="app_ops_use_bluetooth_volume">управљање јачином звука Bluetooth-а</string>
+  <string name="app_ops_use_master_volume">управљање главном јачином звука</string>
   <string name="app_ops_use_media_buttons">коришћење дугмади за медије</string>
   <string name="app_ops_use_media_volume">управљање јачином звука медија</string>
   <string name="app_ops_use_notification_volume">управљање јачином звука обавештења</string>
   <string name="app_ops_use_ring_volume">управљање јачином звука звона</string>
-  <string name="app_ops_use_vibrate">коришћење додирних повратних информација</string>
-  <string name="app_ops_use_voice_volume">управљање јачином звука при разговору</string>
-  <string name="app_ops_write_mms">писање MMS поруке</string>
-  <string name="app_ops_write_sms">писање SMS поруке</string>
-  <string name="app_ops_use_fingerprint">коришћење сензора за отисак прста</string>
+  <string name="app_ops_use_vibrate">коришћење вибрације</string>
+  <string name="app_ops_use_voice_volume">управљање јачином звука позива</string>
+  <string name="app_ops_write_mms">писање MMS порука</string>
+  <string name="app_ops_write_sms">писање SMS порука</string>
+  <string name="app_ops_use_fingerprint">коришћење отиска прста</string>
   <string name="app_ops_add_voicemail">додавање говорне поште</string>
   <string name="app_ops_read_phone_state">приступ стању телефона</string>
   <string name="app_ops_scan_wifi">скенирање Wi-Fi мрежа</string>
-  <string name="app_ops_change_wallpaper">промену позадине</string>
-  <string name="app_ops_assist_structure">коришћење помоћне структуре</string>
+  <string name="app_ops_change_wallpaper">мењање позадине</string>
+  <string name="app_ops_assist_structure">коришћење структуре помоћи</string>
   <string name="app_ops_assist_screenshot">прављење снимка екрана</string>
-  <string name="app_ops_use_body_sensors">коришћење сензора покрета</string>
-  <string name="app_ops_read_cell_broadcasts">читање порука у хитним случајевима</string>
-  <string name="app_ops_mock_location">симулирање локације</string>
-  <string name="app_ops_read_external_storage">читање са спољног складишта</string>
-  <string name="app_ops_write_external_storage">писање на спољно складиште</string>
+  <string name="app_ops_use_body_sensors">коришћење сензора за тело</string>
+  <string name="app_ops_read_cell_broadcasts">читање порука за мобилне уређаје на локалитету</string>
+  <string name="app_ops_mock_location">лажирање локације</string>
+  <string name="app_ops_read_external_storage">читање екстерног меморијског простора</string>
+  <string name="app_ops_write_external_storage">упис података у екстерни меморијски простор</string>
   <string name="app_ops_turn_on_screen">укључивање екрана</string>
-  <string name="app_ops_get_accounts">информације о налозима на уређају</string>
-  <string name="app_ops_run_in_background">покретање у позадини</string>
-  <string name="app_ops_wifi_change">промену стања Wi-Fi-а</string>
-  <string name="app_ops_su">права суперкорисника</string>
+  <string name="app_ops_get_accounts">приступ налозима на уређају</string>
+  <string name="app_ops_run_in_background">рад у позадини</string>
+  <string name="app_ops_wifi_change">мењање стања Wi-Fi-а</string>
+  <string name="app_ops_su">приступ правима суперкорисника</string>
   <!-- Protected Apps Notification -->
   <string name="notify_package_component_protected_title">Блокирано покретање апликације</string>
   <string name="notify_package_component_protected_text">Апликација <xliff:g id="app_name">%1$s</xliff:g> је блокирана. Додирните да бисте унели лозинку и покренули апликацију.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Да бисте откачили екран, додирните и држите дугме „Назад“.</string>
+  <string name="lock_to_app_toast_no_navbar">Да бисте откачили екран, додирните и задржите дугме „Назад“.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="lineage_system_error_manufacturer">Неодговарајућа софтверска слика произвођача уређаја. То обично значи да је потребно ажурирање партиције vendor. Проверите да ли се верзија слике поклапа са <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Single hand mode -->
-  <string name="singlehandmode_click_hint_message">Додирните изван предела слике да бисте искључили управљање једном руком.</string>
+  <string name="singlehandmode_click_hint_message">Додирните ван предела слике да бисте искључили управљање једном руком.</string>
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_no_device_message">Нема повезаних уређаја</string>
