@@ -1169,7 +1169,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     }
 
     private boolean shouldListenForFingerprint() {
-        return (mKeyguardIsVisible || !mDeviceInteractive || mBouncer || mGoingToSleep)
+        return (mKeyguardIsVisible || !mDeviceInteractive || mBouncer) && !mGoingToSleep
                 && !mSwitchingUser && !mFingerprintAlreadyAuthenticated
                 && !isFingerprintDisabled(getCurrentUser());
     }
