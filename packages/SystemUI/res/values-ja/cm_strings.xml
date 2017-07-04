@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -149,4 +150,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Wi‑Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">GPS で現在地を特定します</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ネットワーク経由のADB</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">常に画面表示ディスプレイ</string>
+  <string name="accessibility_quick_settings_ambient_display_off">常に画面表示ディスプレイはOFFです。</string>
+  <string name="accessibility_quick_settings_ambient_display_on">常に画面表示ディスプレイはONです。</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">常に画面表示ディスプレイがOFFになりました。</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">常に画面表示ディスプレイがONになりました。</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">カフェイン</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">ヘッドアップ</string>
+  <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>
+  <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップがOFFになりました。</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップがONになりました。</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">同期</string>
+  <string name="accessibility_quick_settings_sync_off">同期はOFFです。</string>
+  <string name="accessibility_quick_settings_sync_on">同期はONです。</string>
+  <string name="accessibility_quick_settings_sync_changed_off">同期がOFFになりました。</string>
+  <string name="accessibility_quick_settings_sync_changed_on">同期がONになりました。</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USBテザリング</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">同期</string>
+  <string name="quick_settings_volume_panel_label">音量パネル</string>
 </resources>

@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -119,4 +120,31 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB preko mreže</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Ambijentalni zaslon</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambijentalni zaslon isključen.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambijentalni zaslon uključen.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambijentalni je zaslon isključen.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambijentalni je zaslon uključen.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Kofein</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Plutajuće obavijesti</string>
+  <string name="accessibility_quick_settings_heads_up_off">Plutajuće obavijesti isključene.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Plutajuće su obavijesti isključene.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Plutajuće su obavijesti uključene.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Sinkronizacija</string>
+  <string name="accessibility_quick_settings_sync_off">Sinkronizacija isključena.</string>
+  <string name="accessibility_quick_settings_sync_on">Sinkronizacija uključena.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sinkronizacija je isključena.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sinkronizacija je uključena.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">Dijeljenje veze preko USB-a</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Sinkronizacija</string>
+  <string name="quick_settings_volume_panel_label">Zvučna ploča</string>
 </resources>

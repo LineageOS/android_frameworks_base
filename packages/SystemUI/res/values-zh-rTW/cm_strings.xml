@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -149,4 +150,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">使用 Wi\u2011Fi、藍牙或行動網路判斷位置</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">使用 GPS 判斷您的所在位置</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">透過網路 ADB</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">環境顯示</string>
+  <string name="accessibility_quick_settings_ambient_display_off">環境顯示關閉</string>
+  <string name="accessibility_quick_settings_ambient_display_on">環境顯示開啟</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">環境顯示已關閉</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">環境顯示已開啟</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">暫停休眠</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">浮動通知</string>
+  <string name="accessibility_quick_settings_heads_up_off">浮動通知關閉</string>
+  <string name="accessibility_quick_settings_heads_up_on">浮動通知開啟</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">浮動通知已關閉</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">浮動通知已開啟</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">同步處理</string>
+  <string name="accessibility_quick_settings_sync_off">同步處理關閉</string>
+  <string name="accessibility_quick_settings_sync_on">同步處理開啟</string>
+  <string name="accessibility_quick_settings_sync_changed_off">同步處理已關閉</string>
+  <string name="accessibility_quick_settings_sync_changed_on">同步處理已開啟</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB 網路共享</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">同步處理</string>
+  <string name="quick_settings_volume_panel_label">音量面板</string>
 </resources>

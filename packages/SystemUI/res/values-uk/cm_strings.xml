@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -149,4 +150,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Використовувати Wi‑Fi, Bluetooth і мобільні мережі, щоб визначати місцезнаходження</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Використовувати GPS для визначення місцезнаходження</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">Налагодження по мережі</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Ambient дисплей</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambient дисплей вимкнено.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient дисплей увімкнено.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient дисплей вимкнено.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient дисплей увімкнено.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Кофеїн</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Спливаючі сповіщення</string>
+  <string name="accessibility_quick_settings_heads_up_off">Спливаючі сповіщення вимкнено.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Спливаючі сповіщення увімкнено.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Спливаючі сповіщення вимкнено.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Спливаючі сповіщення увімкнено.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Синхронізація</string>
+  <string name="accessibility_quick_settings_sync_off">Синхронізацію вимкнено.</string>
+  <string name="accessibility_quick_settings_sync_on">Синхронізацію увімкнено.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Синхронізацію вимкнено.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Синхронізація увімкнено.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB-модем</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Синхронізація</string>
+  <string name="quick_settings_volume_panel_label">Панель гучності</string>
 </resources>

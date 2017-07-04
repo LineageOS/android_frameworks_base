@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -149,4 +150,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, 블루투스 또는 이동통신망을 사용하여 위치를 찾습니다.</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">GPS를 사용하여 위치를 찾습니다.</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">네트워크 ADB</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">절전 모드 자동 해제</string>
+  <string name="accessibility_quick_settings_ambient_display_off">절전 모드 자동 해제가 꺼짐.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">절전 모드 자동 해제가 켜짐.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">절전 모드 자동 해제가 꺼졌습니다.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">절전 모드 자동 해제가 켜졌습니다.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">카페인</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">헤드업 알림</string>
+  <string name="accessibility_quick_settings_heads_up_off">헤드업 알림이 꺼짐.</string>
+  <string name="accessibility_quick_settings_heads_up_on">헤드업 알림이 켜짐.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">헤드업 알림이 꺼졌습니다.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">헤드업 알림이 켜졌습니다.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">동기화</string>
+  <string name="accessibility_quick_settings_sync_off">동기화 꺼짐</string>
+  <string name="accessibility_quick_settings_sync_on">동기화 켜짐</string>
+  <string name="accessibility_quick_settings_sync_changed_off">동기화가 해제되었습니다.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">동기화가 설정되었습니다.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB 테더링</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">동기화</string>
+  <string name="quick_settings_volume_panel_label">볼륨 패널</string>
 </resources>

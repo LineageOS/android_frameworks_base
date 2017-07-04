@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -79,4 +80,32 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB عبر الشبكة</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">العرض المحيط</string>
+  <string name="accessibility_quick_settings_ambient_display_off">تعطيل العرض المحيط.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">تشغيل العرض المحيط.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">تم تعطيل العرض المحيط.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">تم تشغيل العرض المحيط.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">وضع الكافيين</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">إنذار مسبق</string>
+  <string name="accessibility_quick_settings_heads_up_off">تعطيل الإنذار المسبق.</string>
+  <string name="accessibility_quick_settings_heads_up_on">تشغيل الإنذار المسبق.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">تم تعطيل الإنذار المسبق.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الإنذار المسبق.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">المزامنة</string>
+  <string name="accessibility_quick_settings_sync_off">تعطيل المزامنة. </string>
+  <string name="accessibility_quick_settings_sync_on">تشغيل المزامنة.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">تم تعطيل المزامنة.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">تم تشغيل المزامنة.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">الربط عبر USB
+</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">المزامنة</string>
+  <string name="quick_settings_volume_panel_label">لوحة مستوى الصوت</string>
 </resources>

@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -148,4 +149,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Brug Wi\u2011Fi, Bluetooth eller mobildata til at afgøre placeringen</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Brug GPS for at afgøre din placering</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB via netværk</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Inaktivitetsvisning</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Inaktivitetsvisning fra.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Inaktivitetsvisning til.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Inaktivitetsvisning er slået fra.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitetsvisning er slået til.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Koffein</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Svævende meddelelser</string>
+  <string name="accessibility_quick_settings_heads_up_off">Svævende meddelelser fra.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Svævende meddelelser til.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Svævende meddelelser er slået fra.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Svævende meddelelser er slået til.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Synkr.</string>
+  <string name="accessibility_quick_settings_sync_off">Synkr. fra.</string>
+  <string name="accessibility_quick_settings_sync_on">Synkr. til.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Synkr. er slået fra.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Synkr. er slået til.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB-tethering</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Synkr.</string>
+  <string name="quick_settings_volume_panel_label">Lydstyrkepanel</string>
 </resources>

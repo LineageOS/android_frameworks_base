@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -82,4 +83,31 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB บนเครือข่าย</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">หน้าจอแวดล้อม</string>
+  <string name="accessibility_quick_settings_ambient_display_off">ปิดหน้าจอแวดล้อม</string>
+  <string name="accessibility_quick_settings_ambient_display_on">เปิดหน้าจอแวดล้อม</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">หน้าจอแวดล้อมปิดอยู่</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">หน้าจอแวดล้อมเปิดอยู่</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">คาเฟอีน</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Heads up</string>
+  <string name="accessibility_quick_settings_heads_up_off">Heads up ปิดอยู่</string>
+  <string name="accessibility_quick_settings_heads_up_on">Heads up เปิดอยู่</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up ปิดอยู่</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up เปิดอยู่</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">ซิงค์</string>
+  <string name="accessibility_quick_settings_sync_off">ปิดการซิงค์</string>
+  <string name="accessibility_quick_settings_sync_on">การซิงค์เปิดอยู่</string>
+  <string name="accessibility_quick_settings_sync_changed_off">การซิงค์ปิดอยู่</string>
+  <string name="accessibility_quick_settings_sync_changed_on">การซิงค์เปิดอยู่</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">ปล่อยสัญญาณผ่าน USB</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">ซิงค์</string>
+  <string name="quick_settings_volume_panel_label">แผงควบคุมระดับเสียง</string>
 </resources>

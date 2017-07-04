@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -70,4 +71,29 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">नेटवर्क पर एडीबी</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">परिवेशी प्रदर्शन</string>
+  <string name="accessibility_quick_settings_ambient_display_off">परिवेशी प्रदर्शन बंद है।</string>
+  <string name="accessibility_quick_settings_ambient_display_on">परिवेशी प्रदर्शन चालू है।</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">परिवेशी प्रदर्शन को बंद किया गया है।</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">परिवेशी प्रदर्शन को चालू किया गया।</string>
+  <!-- Caffeine -->
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">हेड्स अप।</string>
+  <string name="accessibility_quick_settings_heads_up_off">हेड्स अप बंद है।</string>
+  <string name="accessibility_quick_settings_heads_up_on">हेड्स अप चालू है।</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">हेड्स अप को बंद किया गया है।</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">हेड्स अप को चालू किया गया।</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">संकालन</string>
+  <string name="accessibility_quick_settings_sync_off">संकालन बंद है।</string>
+  <string name="accessibility_quick_settings_sync_on">संकालन चालू है।</string>
+  <string name="accessibility_quick_settings_sync_changed_off">संकालन को बंद किया गया है।</string>
+  <string name="accessibility_quick_settings_sync_changed_on">संकालन को चालू किया गया है।</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">यूएसबी टेदरिंग</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">संकालन</string>
 </resources>

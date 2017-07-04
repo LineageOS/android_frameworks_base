@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -151,4 +152,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Користите Wi-Fi, Bluetooth или мобилне мреже за одређивање локације.</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Користите GPS за одређивање локације.</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB преко мреже</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Амбијент приказ</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Амбијент приказ искључен.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Амбијент приказ укључен.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Амбијент приказ ће бити искључен.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Амбијент приказ ће бити укључен.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Кофеин</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Искачуће поруке</string>
+  <string name="accessibility_quick_settings_heads_up_off">Искачуће поруке искључене.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Искачуће поруке укључене.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Искачуће поруке ће бити искључене.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Искачуће поруке ће бити укључене.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Синхрон</string>
+  <string name="accessibility_quick_settings_sync_off">Синхрон. искључено.</string>
+  <string name="accessibility_quick_settings_sync_on">Синхрон. укључено.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Синхронизација је искључена.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Синхронизација је укључена.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB повезивање</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Синхрон</string>
+  <string name="quick_settings_volume_panel_label">Панел гласноће</string>
 </resources>

@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -149,4 +150,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">使用 Wi\u2011Fi、蓝牙或移动网络确定位置</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">使用 GPS 确定位置</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">网络 ADB 调试</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">环境显示</string>
+  <string name="accessibility_quick_settings_ambient_display_off">关闭环境显示。</string>
+  <string name="accessibility_quick_settings_ambient_display_on">开启环境显示。</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">环境显示已关闭。</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">环境显示已开启。</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">保持亮屏</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">浮动通知</string>
+  <string name="accessibility_quick_settings_heads_up_off">浮动通知关。</string>
+  <string name="accessibility_quick_settings_heads_up_on">浮动通知开。</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭。</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启。</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">同步</string>
+  <string name="accessibility_quick_settings_sync_off">同步关闭。</string>
+  <string name="accessibility_quick_settings_sync_on">同步开启。</string>
+  <string name="accessibility_quick_settings_sync_changed_off">同步已关闭。</string>
+  <string name="accessibility_quick_settings_sync_changed_on">同步已开启。</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB 共享网络</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">同步</string>
+  <string name="quick_settings_volume_panel_label">音量面板</string>
 </resources>

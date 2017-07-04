@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -121,4 +122,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Use Wi\u2011Fi, Bluetooth, or mobile networks to determine location</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Use GPS to determine your location</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB over network</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Ambient display</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Heads up</string>
+  <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Sync</string>
+  <string name="accessibility_quick_settings_sync_off">Sync off.</string>
+  <string name="accessibility_quick_settings_sync_on">Sync on.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Sync</string>
+  <string name="quick_settings_volume_panel_label">Volume panel</string>
 </resources>

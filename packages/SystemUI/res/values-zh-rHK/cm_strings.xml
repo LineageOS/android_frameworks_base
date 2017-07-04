@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -70,4 +71,26 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">透過網絡連接 ADB</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">環境顯示</string>
+  <!-- Caffeine -->
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">浮動通知</string>
+  <string name="accessibility_quick_settings_heads_up_off">已關閉浮動通知。</string>
+  <string name="accessibility_quick_settings_heads_up_on">已開啟浮動通知。</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">已關閉浮動通知。</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">已開啟浮動通知。</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">同步</string>
+  <string name="accessibility_quick_settings_sync_off">已關閉同步。</string>
+  <string name="accessibility_quick_settings_sync_on">已開啟同步。</string>
+  <string name="accessibility_quick_settings_sync_changed_off">同步已關閉。</string>
+  <string name="accessibility_quick_settings_sync_changed_on">同步已開啟。</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB 網絡共享</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">同步</string>
+  <string name="quick_settings_volume_panel_label">音量區</string>
 </resources>

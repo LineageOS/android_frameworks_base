@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -148,4 +149,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Menggunakan Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Menggunakan GPS untuk menentukan lokasi Anda</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB melalui jaringan</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Tampilan ambien</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Tampilan ambien mati.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Tampilan ambien hidup.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Tampilan ambien dimatikan.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan ambien dihidupkan.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Kafein</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Notifikasi mengambang</string>
+  <string name="accessibility_quick_settings_heads_up_off">Notifikasi mengambang mati.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang hidup.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dimatikan.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang dihidupkan.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Sinkronisasi</string>
+  <string name="accessibility_quick_settings_sync_off">Sinkronisasi mati.</string>
+  <string name="accessibility_quick_settings_sync_on">Sinkronisasi hidup.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sinkronisasi dimatikan.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sinkronisasi dihidupkan.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">Tethering USB</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Sinkronisasi</string>
+  <string name="quick_settings_volume_panel_label">Panel volume</string>
 </resources>

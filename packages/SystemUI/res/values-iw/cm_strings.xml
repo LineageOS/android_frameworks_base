@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -151,4 +152,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">‏השתמש ב-Wi\u2011Fi‏, Bluetooth או רשתות סלולריות כדי לקבוע מיקום</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">‏השתמש בלוויני GPS לקביעת המיקום</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB דרך רשת</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">תצוגת התראות עמומה</string>
+  <string name="accessibility_quick_settings_ambient_display_off">תצוגת התראות עמומה כבויה.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">תצוגת התראות עמומה פעילה.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">תצוגת התראות עמומה כובתה.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">תצוגת התראות עמומה הופעלה.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">קפאין</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">התראות קופצות</string>
+  <string name="accessibility_quick_settings_heads_up_off">התראות קופצות כבויות.</string>
+  <string name="accessibility_quick_settings_heads_up_on">התראות קופצות פעילות.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">התראות קופצות כובו.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">התראות קופצות הופעלו.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">סנכרון</string>
+  <string name="accessibility_quick_settings_sync_off">סנכרון כבוי.</string>
+  <string name="accessibility_quick_settings_sync_on">סנכרון מופעל.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">סנכרון כובה.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">סנכרון הופעל.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">קשירת USB</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">סנכרון</string>
+  <string name="quick_settings_volume_panel_label">לוח עוצמת קול</string>
 </resources>

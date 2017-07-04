@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -85,4 +86,31 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB ఓవర్ నెట్వర్క్</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">యాంబియెంట్ డిస్‌ప్లే</string>
+  <string name="accessibility_quick_settings_ambient_display_off">పరిసర ప్రదర్శన ఆఫ్.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">పరిసర ప్రదర్శన ఆన్.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">పరిసర ప్రదర్శన ఆపివేయబడింది.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">పరిసర ప్రదర్శన ఆన్ చేయబడింది.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">కాఫిన్</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">హెచ్చరిక</string>
+  <string name="accessibility_quick_settings_heads_up_off">హెచ్చరిక ఆఫ్.</string>
+  <string name="accessibility_quick_settings_heads_up_on">హెచ్చరిక ఆన్.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">హెచ్చరిక ఆపివేయబడింది.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">హెచ్చరిక ఆన్ చేయబడింది.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">సమకాలీకరణ</string>
+  <string name="accessibility_quick_settings_sync_off">సమకాలీకరణ ఆఫ్.</string>
+  <string name="accessibility_quick_settings_sync_on">సమకాలీకరణ ఆన్.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">సమకాలీకరణ ఆపివేయబడింది.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">సమకాలీకరణ ఆన్ చేయబడింది.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB టీథరింగ్</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">సమకాలీకరణ</string>
+  <string name="quick_settings_volume_panel_label">వాల్యూమ్ ప్యానల్</string>
 </resources>

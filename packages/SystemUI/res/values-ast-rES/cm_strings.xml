@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -148,4 +149,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Usa\'l Wi\u2011Fi, Bluetooth o redes móviles pa determinar l\'allugamientu</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Usa\'l GPS pa determinar l\'allugamientu</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB sobre rede</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente activada.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente desactivada.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Desactivóse la pantalla ambiente.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Activóse la pantalla ambiente.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Cafeína</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Avisos emerxente</string>
+  <string name="accessibility_quick_settings_heads_up_off">Desactivar notificaciones emerxentes.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Activar notificaciones emerxentes.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emerxentes desactivaes.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emerxentes activaes.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Sincronización</string>
+  <string name="accessibility_quick_settings_sync_off">Sincronización desactivada.</string>
+  <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sincronización desactivada.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sincronización activada.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">Tethering USB</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Sincronización</string>
+  <string name="quick_settings_volume_panel_label">Panel de volume</string>
 </resources>

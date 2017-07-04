@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -83,4 +84,31 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB অভাৰ নেটৱৰ্ক</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">পৰিপাৰ্শ্বিক ডিচপ্লে</string>
+  <string name="accessibility_quick_settings_ambient_display_off">পাৰিপাৰ্শ্বিক প্রদর্শন অফ।</string>
+  <string name="accessibility_quick_settings_ambient_display_on">পাৰিপাৰ্শ্বিক প্রদর্শন অন।</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">পাৰিপাৰ্শ্বিক প্রদর্শন অফ কৰা হৈছে।</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">পাৰিপাৰ্শ্বিক প্রদর্শন অন কৰা হৈছে।</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">কেফেইন</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">হেডচ আপ</string>
+  <string name="accessibility_quick_settings_heads_up_off">হেডচ আপ অফ।</string>
+  <string name="accessibility_quick_settings_heads_up_on">হেডচ আপ অন।</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">হেডচ আপ অফ কৰা হৈছে।</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">হেডচ আপ অন কৰা হৈছে।</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">সংযোজন</string>
+  <string name="accessibility_quick_settings_sync_off">সকালীকৄত অফ কৰক।</string>
+  <string name="accessibility_quick_settings_sync_on">সকালীকৄত অন কৰক।</string>
+  <string name="accessibility_quick_settings_sync_changed_off">সকালীকৄত অফ কৰা হৈছে।</string>
+  <string name="accessibility_quick_settings_sync_changed_on">সকালীকৄত অন কৰা হৈছে।</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB টেথাৰিং</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">সংযোজন</string>
+  <string name="quick_settings_volume_panel_label">ভলিউম পেনেল</string>
 </resources>

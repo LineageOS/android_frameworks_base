@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -111,4 +112,31 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB mbi rrjet</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Drita e ekranit sipas ambientit</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Drita e ekranit sipas ambientit inaktive.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Drita e ekranit sipas ambientit aktive.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Drita e ekranit sipas ambientit u çaktivizua.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Drita e ekranit sipas ambientit u aktivizua.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Kafeina</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Heads up</string>
+  <string name="accessibility_quick_settings_heads_up_off">Heads-up inaktiv.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Heads-up Aktiv.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Njoftimet Heads-up u çaktivizuan.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Njoftimet Heads-up u aktivizuan.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Sinkronizimi</string>
+  <string name="accessibility_quick_settings_sync_off">Sinkronizimi inaktiv.</string>
+  <string name="accessibility_quick_settings_sync_on">Sinkronizimi aktiv.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sinkronizimi u çaktivizua.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sinkronizimi u aktivizua.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Sinkronizimi</string>
+  <string name="quick_settings_volume_panel_label">Paneli i volumit</string>
 </resources>

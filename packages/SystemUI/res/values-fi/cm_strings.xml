@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -148,4 +149,31 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Paikanna WiF\u2011i-, Bluetooth- ja mobiiliverkkojen avulla</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Paikanna sijaintisi GPS:n avulla</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB verkon yli</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Ambient-näyttö</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambient-näyttö pois.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient-näyttö päällä.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient-näyttö pois päältä.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient-näyttö päällä.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Kofeiini</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Heads up</string>
+  <string name="accessibility_quick_settings_heads_up_off">Heads up pois.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Heads up päällä.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up pois päältä.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up päällä.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Synkronointi</string>
+  <string name="accessibility_quick_settings_sync_off">Synkronointi pois.</string>
+  <string name="accessibility_quick_settings_sync_on">Synkronointi päällä.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Synkronointi pois päältä.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Synkronointi päällä.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB-jakaminen</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Synkronointi</string>
+  <string name="quick_settings_volume_panel_label">Äänenvoimakkuuspaneeli</string>
 </resources>

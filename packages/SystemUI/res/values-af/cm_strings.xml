@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -139,4 +140,31 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB oor netwerk</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Omgewingstemperatuur skerm</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Omgewingstemperatuur vertoning af.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Omgewingstemperatuur vertoning aan.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Omgewingstemperatuur skerm vertoning is afgeskakel.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Omgewingstemperatuur skerm vertoning is aangeskakel.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Kafeïen</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Loer boodskap</string>
+  <string name="accessibility_quick_settings_heads_up_off">Loer boodskap af.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Loer boodskap aan.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Loer boodskap is afgeskakel.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Loer boodskap is aangeskakel.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Sinkroniseer</string>
+  <string name="accessibility_quick_settings_sync_off">Sinchronisering af.</string>
+  <string name="accessibility_quick_settings_sync_on">Sinchronisering aan.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sinchronisering afgeskakel.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sinchronisering aangeskakel.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB internet verbinding</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Sinkroniseer</string>
+  <string name="quick_settings_volume_panel_label">Volume paneel</string>
 </resources>
