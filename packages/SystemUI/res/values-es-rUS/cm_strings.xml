@@ -212,7 +212,7 @@
   <!-- CellularTile data sim not configured state string -->
   <string name="data_sim_not_configured">Sin datos SIM</string>
   <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_dock_battery_level">Batería del dock al <xliff:g id="number">%d</xliff:g> %.</string>
+  <string name="accessibility_dock_battery_level">Batería de la base al <xliff:g id="number">%d</xliff:g> por ciento.</string>
   <!-- Play queue -->
   <string name="play_queue_extention">Mostrar la cola de reproducción</string>
   <!-- Path data for portrait battery -->

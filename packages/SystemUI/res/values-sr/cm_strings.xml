@@ -31,7 +31,7 @@
   <string name="right_shortcut_hint">Превуци лево за %1$s</string>
   <string name="lockscreen_message">Додирни икону лево или десно да доделиш пречицу за закључани екран.</string>
   <string name="lockscreen_default_target">Подразумевано</string>
-  <string name="select_application">Изабери апликацију</string>
+  <string name="select_application">Избор апликације</string>
   <string name="lockscreen_choose_action_title">Изабери акцију</string>
   <string name="lockscreen_none_target">Ниједан</string>
   <!-- Dialog title for navigation bar button selection -->
@@ -173,7 +173,7 @@
   <string name="quick_settings_dynamic_tile_detail_title">Динамичне плочице</string>
   <string name="dynamic_qs_tile_next_alarm_label">Следећи аларм</string>
   <string name="dynamic_qs_tile_ime_selector_label">IME бирач</string>
-  <string name="dynamic_qs_tile_su_label">Root приступ</string>
+  <string name="dynamic_qs_tile_su_label">Приступ правима суперкорисника</string>
   <string name="dynamic_qs_tile_themes_label">Теме</string>
   <string name="quick_settings_title_advanced_location">Локација три-државе</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
