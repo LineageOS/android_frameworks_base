@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_d19647f0",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2017-07-05T11:33:31Z",
+      "side": 1,
+      "message": "Is this intentional?",
+      "revId": "740f922aed11b1fc5b2565e68d973905c9a5ae79",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
