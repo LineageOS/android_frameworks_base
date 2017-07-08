@@ -160,6 +160,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">절전 모드 자동 해제가 켜졌습니다.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">카페인</string>
+  <string name="accessibility_quick_settings_caffeine_off">카페인 꺼짐</string>
+  <string name="accessibility_quick_settings_caffeine_on">카페인 켜짐</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">헤드업 알림</string>
   <string name="accessibility_quick_settings_heads_up_off">헤드업 알림이 꺼짐.</string>

@@ -161,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Pantalla ambiente activada.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Cafeína</string>
+  <string name="accessibility_quick_settings_caffeine_off">Cafeína desactivada</string>
+  <string name="accessibility_quick_settings_caffeine_on">Cafeína activada</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Notificaciones emergentes</string>
   <string name="accessibility_quick_settings_heads_up_off">Desactivar notificaciones emergentes.</string>

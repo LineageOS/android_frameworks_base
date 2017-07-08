@@ -161,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientné zobrazenie zakázané.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Kofeín</string>
+  <string name="accessibility_quick_settings_caffeine_off">Čas na kávu vypnuté</string>
+  <string name="accessibility_quick_settings_caffeine_on">Čas na kávu zapnuté</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Plávajúce oznámenia</string>
   <string name="accessibility_quick_settings_heads_up_off">Plávajúce oznámenia zakázané.</string>

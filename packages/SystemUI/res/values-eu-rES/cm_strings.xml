@@ -161,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display piztuta.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Kafeina</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kafeina ez</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kafeina bai</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Jakinarazpen flotatzaileak</string>
   <string name="accessibility_quick_settings_heads_up_off">Jakinarazpen flotatzaileak ezgaituta.</string>

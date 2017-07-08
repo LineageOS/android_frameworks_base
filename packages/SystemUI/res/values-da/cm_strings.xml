@@ -66,6 +66,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Dette fastholder det i visningen indtil du frigører det. Tryk og hold tilbage-knappen nede for at frigøre.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Stryg fra ikonet for %1$s</string>
   <string name="lockscreen_message">Tryk på et ikon til venstre eller højre for at tildele en genvej til skærmlåsen.</string>
   <string name="lockscreen_default_target">Standard</string>
   <string name="select_application">Vælg applikation</string>
@@ -145,6 +146,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Kun enhed</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Brug GPS, Wi\u2011Fi, Bluetooth eller mobildata til at afgøre placeringen</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Brug Wi\u2011Fi, Bluetooth eller mobildata til at afgøre placeringen</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
@@ -159,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitetsvisning er slået til.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Koffein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Koffein fra</string>
+  <string name="accessibility_quick_settings_caffeine_on">Koffein til</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Svævende meddelelser</string>
   <string name="accessibility_quick_settings_heads_up_off">Svævende meddelelser fra.</string>

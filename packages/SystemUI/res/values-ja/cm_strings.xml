@@ -153,13 +153,15 @@
   <!-- Adb over network QS tile -->
   <string name="quick_settings_network_adb_label">ネットワーク経由のADB</string>
   <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">常に画面表示ディスプレイ</string>
-  <string name="accessibility_quick_settings_ambient_display_off">常に画面表示ディスプレイはOFFです。</string>
-  <string name="accessibility_quick_settings_ambient_display_on">常に画面表示ディスプレイはONです。</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">常に画面表示ディスプレイがOFFになりました。</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">常に画面表示ディスプレイがONになりました。</string>
+  <string name="quick_settings_ambient_display_label">アンビエント表示</string>
+  <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示は OFF です。</string>
+  <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示は ON です。</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示が OFF になりました。</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示が ON になりました。</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">カフェイン</string>
+  <string name="accessibility_quick_settings_caffeine_off">カフェインがOFFです</string>
+  <string name="accessibility_quick_settings_caffeine_on">カフェインがONです</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">ヘッドアップ</string>
   <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>

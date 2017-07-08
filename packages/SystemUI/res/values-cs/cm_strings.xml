@@ -65,6 +65,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Zůstává zobrazeno, dokud není uvolněn. Dotykem a podržením tlačítka Zpět bude provedeno uvolnění.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Přejeďte prstem od ikony pro %1$s</string>
   <string name="lockscreen_message">Dotykem na ikonu na levé nebo pravé straně zamykací obrazovky změňte zástupce.</string>
   <string name="lockscreen_default_target">Výchozí</string>
   <string name="select_application">Vybrat aplikaci</string>
@@ -145,6 +146,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Pouze zařízení</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">K určování polohy používat GPS, Wi\u2011Fi, Bluetooth nebo mobilní sítě</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">K určování polohy používat Wi\u2011Fi, Bluetooth nebo mobilní sítě</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
@@ -159,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientní zobrazení zapnuto.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Kofein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kofein vyp.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kofein zap.</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Plovoucí upozornění</string>
   <string name="accessibility_quick_settings_heads_up_off">Plovoucí upozorněn vyp.</string>

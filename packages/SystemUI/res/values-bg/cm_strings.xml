@@ -160,6 +160,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Активен дисплей е включен.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Кофеин</string>
+  <string name="accessibility_quick_settings_caffeine_off">Кофеин изключен</string>
+  <string name="accessibility_quick_settings_caffeine_on">Кофеин включен</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Изскачащи известия</string>
   <string name="accessibility_quick_settings_heads_up_off">Изключи изскачащи известия.</string>

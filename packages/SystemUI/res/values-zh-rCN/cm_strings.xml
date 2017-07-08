@@ -160,6 +160,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">环境显示已开启。</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">保持亮屏</string>
+  <string name="accessibility_quick_settings_caffeine_off">保持亮屏关闭</string>
+  <string name="accessibility_quick_settings_caffeine_on">保持亮屏开启</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">浮动通知</string>
   <string name="accessibility_quick_settings_heads_up_off">浮动通知关。</string>

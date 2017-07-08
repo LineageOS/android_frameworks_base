@@ -160,6 +160,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">環境顯示已開啟</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">暫停休眠</string>
+  <string name="accessibility_quick_settings_caffeine_off">暫停休眠關閉</string>
+  <string name="accessibility_quick_settings_caffeine_on">暫停休眠開啟</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">浮動通知</string>
   <string name="accessibility_quick_settings_heads_up_off">浮動通知關閉</string>

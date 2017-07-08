@@ -162,6 +162,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">תצוגת התראות עמומה הופעלה.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">קפאין</string>
+  <string name="accessibility_quick_settings_caffeine_off">קפאין כבוי</string>
+  <string name="accessibility_quick_settings_caffeine_on">קפאין פועל</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">התראות קופצות</string>
   <string name="accessibility_quick_settings_heads_up_off">התראות קופצות כבויות.</string>

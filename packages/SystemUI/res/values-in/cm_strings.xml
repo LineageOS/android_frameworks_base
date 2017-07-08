@@ -159,6 +159,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan ambien dihidupkan.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Kafein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kafein mati</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kafein hidup</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Notifikasi mengambang</string>
   <string name="accessibility_quick_settings_heads_up_off">Notifikasi mengambang mati.</string>

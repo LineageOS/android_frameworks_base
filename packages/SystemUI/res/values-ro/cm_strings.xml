@@ -162,6 +162,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Afișaj ambiental activat.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Cofeină</string>
+  <string name="accessibility_quick_settings_caffeine_off">Cofeină oprită</string>
+  <string name="accessibility_quick_settings_caffeine_on">Cofeină pornită</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Atenționare</string>
   <string name="accessibility_quick_settings_heads_up_off">Heads-up oprit.</string>

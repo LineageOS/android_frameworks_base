@@ -162,6 +162,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Амбијент приказ ће бити укључен.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Кофеин</string>
+  <string name="accessibility_quick_settings_caffeine_off">Кофеин је искључен</string>
+  <string name="accessibility_quick_settings_caffeine_on">Кофеин је укључен</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Искачуће поруке</string>
   <string name="accessibility_quick_settings_heads_up_off">Искачуће поруке искључене.</string>

@@ -65,6 +65,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Zostaje na widoku do czasu odpięcia. Dotknij i przytrzymaj przycisk Wstecz, aby odpiąć.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Przesuń od ikony do %1$s</string>
   <string name="lockscreen_message">Dotknij ikony po lewej lub prawej, aby przypisać skrót ekranu blokady.</string>
   <string name="lockscreen_default_target">Domyślna</string>
   <string name="select_application">Wybierz aplikację</string>

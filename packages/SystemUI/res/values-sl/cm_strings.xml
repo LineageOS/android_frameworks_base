@@ -163,6 +163,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Okoliški zaslon vklopljen.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Kofein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kofein izklopljen</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kofein vklopljen</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Obvestila na zaslonu</string>
   <string name="accessibility_quick_settings_heads_up_off">Obvestila na zas. izk.</string>

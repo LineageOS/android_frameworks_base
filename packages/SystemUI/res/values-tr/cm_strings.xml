@@ -161,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Bildirim ekranı açıldı.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Kafein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kafein açık</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
   <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
