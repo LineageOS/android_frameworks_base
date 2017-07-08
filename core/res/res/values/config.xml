@@ -835,7 +835,7 @@
             0 - Nothing
             1 - Go to home
     -->
-    <integer name="config_backPanicBehavior">0</integer>
+    <integer name="config_backPanicBehavior">1</integer>
 
     <!-- Control the behavior when the user short presses the power button.
             0 - Nothing
