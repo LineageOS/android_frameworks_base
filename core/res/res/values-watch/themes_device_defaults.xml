@@ -37,6 +37,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -49,6 +50,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -62,6 +64,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -77,6 +80,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -91,6 +95,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -134,6 +139,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -156,6 +162,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -168,6 +175,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -182,6 +190,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -195,6 +204,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -209,6 +219,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -222,6 +233,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -236,6 +248,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -248,6 +261,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -262,6 +276,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -275,6 +290,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -288,6 +304,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -301,6 +318,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -314,6 +332,7 @@ a similar way.
         <!-- Color palette Dialog -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -325,6 +344,7 @@ a similar way.
         <!-- Color palette Dark -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">@color/background_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
@@ -337,6 +357,7 @@ a similar way.
         <!-- Color palette Dialog -->
         <item name="colorPrimary">@color/primary_device_default_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark_device_default_dark</item>
+        <item name="colorForeground">@color/foreground_device_default_dark</item>
         <item name="colorAccent">@color/accent_device_default_dark</item>
         <item name="colorBackground">?attr/colorBackgroundFloating</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
