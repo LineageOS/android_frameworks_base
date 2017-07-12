@@ -56,6 +56,7 @@ import java.net.InetAddress;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
+import android.net.wifi.WifiDevice;
 
 /**
  * This class provides the primary API for managing all aspects of Wi-Fi
@@ -3553,6 +3554,20 @@ public class WifiManager {
             mService.restoreSupplicantBackupData(supplicantData, ipConfigData);
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * Get the list of Stations connected to Hotspot.
+     *
+     * @return a list of {@link WifiDevice} objects.
+     * {@hide}
+     */
+    public List<WifiDevice> getConnectedStations() {
+        try {
+            return mService.getConnectedStations();
+        } catch (RemoteException e) {
+            return null;
         }
     }
 }

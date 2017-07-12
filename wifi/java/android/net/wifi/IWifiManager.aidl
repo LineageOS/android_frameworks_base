@@ -35,6 +35,7 @@ import android.net.DhcpInfo;
 import android.os.Messenger;
 import android.os.ResultReceiver;
 import android.os.WorkSource;
+import android.net.wifi.WifiDevice;
 
 /**
  * Interface that allows controlling and querying Wi-Fi connectivity.
@@ -183,5 +184,7 @@ interface IWifiManager
     void restoreSupplicantBackupData(in byte[] supplicantData, in byte[] ipConfigData);
 
     boolean getWifiStaSapConcurrency();
+
+    List<WifiDevice> getConnectedStations();
 }
 
