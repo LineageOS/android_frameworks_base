@@ -1883,12 +1883,30 @@ public class PhoneNumberUtils
 
         emergencyNumbers = SystemProperties.get(ecclist, "");
 
+
         Rlog.d(LOG_TAG, "slotId:" + slotId + " subId:" + subId + " country:"
                 + defaultCountryIso + " emergencyNumbers: " +  emergencyNumbers);
 
         if (TextUtils.isEmpty(emergencyNumbers)) {
             // then read-only ecclist property since old RIL only uses this
             emergencyNumbers = SystemProperties.get("ro.ril.ecclist");
+        }
+
+        // If someone is testing emergency calls, handle it as such
+        String testEn = SystemProperties.get("ril.test.emergencynumber");
+        if (!TextUtils.isEmpty(testEn) {
+            String[] emergencyProp = testEn.split(":");
+            if (emergencyProp.length > 1) {
+                if (!TextUtils.isEmpty(emergencyNumbers) {
+                    for (eNum : emergencyNumbers.split(",")) {
+                        if (eNum.equals(emergencyProp[0]) {
+                            emergencyNumbers += ","
+                            emergencyNumbers += emergencyProp[1];
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         if (!TextUtils.isEmpty(emergencyNumbers)) {
