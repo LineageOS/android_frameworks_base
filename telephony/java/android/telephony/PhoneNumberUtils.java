@@ -1891,6 +1891,23 @@ public class PhoneNumberUtils
             emergencyNumbers = SystemProperties.get("ro.ril.ecclist");
         }
 
+        // If someone is testing emergency calls, handle it as such
+        String testEn = SystemProperties.get("ril.test.emergencynumber");
+        if (!TextUtils.isEmpty(testEn) {
+            String[] emergencyProp = testEn.split(":");
+            if (emergencyProp.length > 1) {
+                if (!TextUtils.isEmpty(emergencyNumbers) {
+                    for (eNum : emergencyNumbers.split(",")) {
+                        if (eNum.equals(emergencyProp[0]) {
+                            emergencyNumbers += ","
+                            emergencyNumbers += emergencyProp[1];
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
         if (!TextUtils.isEmpty(emergencyNumbers)) {
             // searches through the comma-separated list for a match,
             // return true if one is found.
