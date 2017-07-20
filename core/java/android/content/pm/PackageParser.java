@@ -3600,7 +3600,7 @@ public class PackageParser {
                     R.styleable.AndroidManifestActivity_screenOrientation,
                     SCREEN_ORIENTATION_UNSPECIFIED);
 
-            a.info.resizeMode = RESIZE_MODE_UNRESIZEABLE;
+            a.info.resizeMode = RESIZE_MODE_FORCE_RESIZEABLE;
             final boolean appDefault = (owner.applicationInfo.privateFlags
                     & PRIVATE_FLAG_RESIZEABLE_ACTIVITIES) != 0;
             // This flag is used to workaround the issue with ignored resizeableActivity param when
@@ -3619,11 +3619,6 @@ public class PackageParser {
                 } else {
                     a.info.resizeMode = RESIZE_MODE_RESIZEABLE;
                 }
-            } else if (owner.applicationInfo.targetSdkVersion >= Build.VERSION_CODES.N
-                    || resizeableSetExplicitly) {
-                a.info.resizeMode = RESIZE_MODE_UNRESIZEABLE;
-            } else if (!a.info.isFixedOrientation() && (a.info.flags & FLAG_IMMERSIVE) == 0) {
-                a.info.resizeMode = RESIZE_MODE_FORCE_RESIZEABLE;
             }
 
             if (sa.getBoolean(R.styleable.AndroidManifestActivity_alwaysFocusable, false)) {
