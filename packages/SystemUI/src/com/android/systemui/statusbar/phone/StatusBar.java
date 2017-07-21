@@ -4488,7 +4488,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             animateCollapsePanels();
             return true;
         }
-        if (mKeyguardUserSwitcher.hideIfNotSimple(true)) {
+        if (mKeyguardUserSwitcher != null && mKeyguardUserSwitcher.hideIfNotSimple(true)) {
             return true;
         }
         return false;
