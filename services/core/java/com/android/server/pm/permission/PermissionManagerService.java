@@ -767,7 +767,8 @@ public class PermissionManagerService {
                     // their permissions as always granted runtime ones since we need
                     // to keep the review required permission flag per user while an
                     // install permission's state is shared across all users.
-                    if (!appSupportsRuntimePermissions && !mSettings.mPermissionReviewRequired) {
+                    if (!appSupportsRuntimePermissions && !mSettings.mPermissionReviewRequired
+                           && !isAlwaysRuntimePermission(bp.name)) {
                         // For legacy apps dangerous permissions are install time ones.
                         grant = GRANT_INSTALL;
                     } else if (origPermissions.hasInstallPermission(bp.getName())) {
@@ -877,7 +878,8 @@ public class PermissionManagerService {
                                                 updatedUserIds, userId);
                                     }
                                 } else if (mSettings.mPermissionReviewRequired
-                                        && !appSupportsRuntimePermissions) {
+                                        && !appSupportsRuntimePermissions
+                                        && !isAlwaysRuntimePermission(bp.name)) {
                                     // For legacy apps that need a permission review, every new
                                     // runtime permission is granted but it is pending a review.
                                     // We also need to review only platform defined runtime
@@ -892,6 +894,14 @@ public class PermissionManagerService {
                                                     updatedUserIds, userId);
                                         }
                                     }
+                                    if (permissionsState.grantRuntimePermission(bp, userId)
+                                            != PermissionsState.PERMISSION_OPERATION_FAILURE) {
+                                        // We changed the permission, hence have to write.
+                                        updatedUserIds = ArrayUtils.appendInt(
+                                                updatedUserIds, userId);
+                                    }
+                                } else if (isAlwaysRuntimePermission(bp.name) &&
+                                        origPermissions.getRuntimePermissionState(bp.name, userId) == null) {
                                     if (permissionsState.grantRuntimePermission(bp, userId)
                                             != PermissionsState.PERMISSION_OPERATION_FAILURE) {
                                         // We changed the permission, hence have to write.
@@ -1322,6 +1332,10 @@ public class PermissionManagerService {
         }
     }
 
+    public static boolean isAlwaysRuntimePermission(final String permission) {
+        return Manifest.permission.INTERNET.equals(permission);
+    }
+
     private void grantRequestedRuntimePermissionsForUser(PackageParser.Package pkg, int userId,
             String[] grantedPermissions, int callingUid, PermissionCallback callback) {
         PackageSetting ps = (PackageSetting) pkg.mExtras;
@@ -1350,7 +1364,7 @@ public class PermissionManagerService {
                     && (grantedPermissions == null
                            || ArrayUtils.contains(grantedPermissions, permission))) {
                 final int flags = permissionsState.getPermissionFlags(permission, userId);
-                if (supportsRuntimePermissions) {
+                if (supportsRuntimePermissions || isAlwaysRuntimePermission(bp.name)) {
                     // Installer cannot change immutable permissions.
                     if ((flags & immutableFlags) == 0) {
                         grantRuntimePermission(permission, pkg.packageName, false, callingUid,
@@ -1409,7 +1423,7 @@ public class PermissionManagerService {
         // install permission's state is shared across all users.
         if (mSettings.mPermissionReviewRequired
                 && pkg.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M
-                && bp.isRuntime()) {
+                && bp.isRuntime() && !isAlwaysRuntimePermission(permName)) {
             return;
         }
 
@@ -1445,7 +1459,8 @@ public class PermissionManagerService {
                     + permName + " for package " + packageName);
         }
 
-        if (pkg.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M) {
+        if (pkg.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M &&
+                !isAlwaysRuntimePermission(permName)) {
             Slog.w(TAG, "Cannot grant runtime permission to a legacy app");
             return;
         }
@@ -1530,7 +1545,7 @@ public class PermissionManagerService {
         // install permission's state is shared across all users.
         if (mSettings.mPermissionReviewRequired
                 && pkg.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M
-                && bp.isRuntime()) {
+                && bp.isRuntime() && !isAlwaysRuntimePermission(permName)) {
             return;
         }
 
