@@ -159,6 +159,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Hiển thị môi trường xung quanh đã bật.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Cafein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Tắt Cafein</string>
+  <string name="accessibility_quick_settings_caffeine_on">Bật Cafein</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Heads up</string>
   <string name="accessibility_quick_settings_heads_up_off">Heads up tắt.</string>

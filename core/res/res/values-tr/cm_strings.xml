@@ -24,7 +24,7 @@
   <!-- label for item that restarts the phone in phone options dialog -->
   <string name="global_action_reboot">Yeniden Başlat</string>
   <!-- label for current user in phone options dialog -->
-  <string name="global_action_current_user">Şimdiki</string>
+  <string name="global_action_current_user">Mevcut</string>
   <!-- status message in phone options dialog for screenshot action -->
   <string name="global_actions_screenshot_status">Kısmi ekran görüntüsü için basılı tutun</string>
   <!-- Restart menu -->
@@ -65,7 +65,7 @@
   <string name="app_ops_access_camera">kameraya eriş</string>
   <string name="app_ops_access_location">konuma erişim</string>
   <string name="app_ops_access_notifications">bildirimleri oku</string>
-  <string name="app_ops_activate_vpn">VPN\'yi etkinleştir</string>
+  <string name="app_ops_activate_vpn">VPN\'i etkinleştir</string>
   <string name="app_ops_auto_start">açılışta başla</string>
   <string name="app_ops_delete_call_log">arama kaydını sil</string>
   <string name="app_ops_delete_contacts">kişileri sil</string>
@@ -128,14 +128,14 @@
   <string name="app_ops_get_accounts">cihaz hesaplarını al</string>
   <string name="app_ops_run_in_background">arka planda çalıştır</string>
   <string name="app_ops_wifi_change">Wi-Fi durumunu değiştir</string>
-  <string name="app_ops_su">root erişimi al</string>
+  <string name="app_ops_su">kök erişimi al</string>
   <!-- Protected Apps Notification -->
   <string name="notify_package_component_protected_title">Etkinlik başlatma engellendi</string>
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> başlatılmadan önce sistem korumaya alındı. Uygulamayı doğrulamak ve başlatmak için dokunun.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Bu ekranı kaldırmak için Geri tuşuna dokunun ve tutun.</string>
+  <string name="lock_to_app_toast_no_navbar">Bu ekranı silmek için Geri tuşuna dokunup basılı tutun.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="lineage_system_error_manufacturer">Vendor image eşleşmiyor. Bu eski bir vendor olduğu anlamına geliyor. Lütfen vendor image\'nin <xliff:g id="fingerprint">%1$s</xliff:g> ile eşleştiğinden emin olun.</string>
+  <string name="lineage_system_error_manufacturer">Bir üretici dosyası uyuşmazlığı tespit edildi. Bu üretici dosyanızın eski olduğunu gösterir. Lütfen üretici dosyanızın <xliff:g id="fingerprint">%1$s</xliff:g> ile eşleştiğine emin olun.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Tek el modundan çıkmak için ekranın dışına dokunun</string>
   <!-- Strings for tethered notification -->

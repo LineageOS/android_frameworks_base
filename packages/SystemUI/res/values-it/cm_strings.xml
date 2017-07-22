@@ -160,6 +160,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display attivato.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Caffeina</string>
+  <string name="accessibility_quick_settings_caffeine_off">Caffeina off</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caffeina on</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Heads Up</string>
   <string name="accessibility_quick_settings_heads_up_off">Heads Up disattivato.</string>

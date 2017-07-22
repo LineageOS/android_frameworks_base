@@ -66,6 +66,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Αυτό κλειδώνει την συγκεκριμένη οθόνη μέχρι να την ξεκαρφιτσώσετε. Αγγίξτε και κρατήστε πατημένο το πλήκτρο Πίσω για ξεκαρφίτσωμα.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Σύρετε προς τα έξω για %1$s</string>
   <string name="lockscreen_message">Πιέστε ένα εικονίδιο στα αριστερά ή δεξιά για να αντιστοιχίσετε εκ νέου μια συντόμευση οθόνης κλειδώματος.</string>
   <string name="lockscreen_default_target">Προεπιλογή</string>
   <string name="select_application">Επιλέξτε εφαρμογή</string>
@@ -145,6 +146,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Μόνο συσκευή</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Χρήση GPS, Wi\u2011Fi, Bluetooth ή δικτύων κινητής τηλεφωνίας για τον καθορισμό της τοποθεσίας</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Χρήση Wi\u2011Fi, Bluetooth ή δικτύων κινητής τηλεφωνίας για καθορισμό τοποθεσίας</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
@@ -159,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Η οθόνη ambient ενεργοποιήθηκε.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Καφεΐνη</string>
+  <string name="accessibility_quick_settings_caffeine_off">Καφεΐνη ανενεργή</string>
+  <string name="accessibility_quick_settings_caffeine_on">Καφεΐνη ενεργή</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Αναδυόμενες ειδοποιήσεις</string>
   <string name="accessibility_quick_settings_heads_up_off">Ανενεργές αναδυόμενες ειδοποιήσεις.</string>

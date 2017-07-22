@@ -123,7 +123,7 @@
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Informes de ubicación: modo de ahorro de batería.</string>
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Informes de ubicación: modo de solo sensores.</string>
+  <string name="accessibility_quick_settings_location_gps_only">Informes de ubicación: modo sólo dispositivo.</string>
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_high_accuracy">Informes de ubicación: modo de alta precisión.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
@@ -144,7 +144,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_title">Ahorro de batería</string>
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Solo dispositivo</string>
+  <string name="quick_settings_location_detail_mode_sensors_only_title">Sólo dispositivo</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_description">Usa el GPS, Wi\u2011Fi, Bluetooth o redes móviles para determinar la ubicación</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->

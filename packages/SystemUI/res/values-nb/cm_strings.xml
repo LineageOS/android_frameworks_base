@@ -161,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Omgivelsesskjerm er skrudd på.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Koffein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Koffein av</string>
+  <string name="accessibility_quick_settings_caffeine_on">Koffein på</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Flytende varsler</string>
   <string name="accessibility_quick_settings_heads_up_off">Heads up varsler er av.</string>

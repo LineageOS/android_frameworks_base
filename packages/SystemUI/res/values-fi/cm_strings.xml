@@ -66,6 +66,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Tämä pitää sen näkyvissä, kunnes poistat kiinnityksen. Paina ja pidä Takasin-näppäintä pohjassa irrottaaksesi.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Pyyhkäise kuvaketta %1$s</string>
   <string name="lockscreen_message">Napauta vasenta tai oikeaa kuvaketta määrittääksesi lukitusnäytön pikakuvakkeen.</string>
   <string name="lockscreen_default_target">Oletus</string>
   <string name="select_application">Valitse sovellus</string>
@@ -145,6 +146,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Vain laite</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Paikanna GPS:n ja Wi\u2011Fi-, Bluetooth- ja mobiiliverkkojen avulla</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Paikanna WiF\u2011i-, Bluetooth- ja mobiiliverkkojen avulla</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
@@ -159,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient-näyttö päällä.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Kofeiini</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kofeiini pois päältä</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kofeiini päälle</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Heads up</string>
   <string name="accessibility_quick_settings_heads_up_off">Heads up pois.</string>

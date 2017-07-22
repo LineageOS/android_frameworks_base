@@ -26,7 +26,7 @@
   <string name="led_notification_title">Işık ayarları</string>
   <string name="led_notification_text">LED ışık ayarlar tarafından etkinleştirilmiş</string>
   <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Flaş ışığı açık</string>
+  <string name="quick_settings_tile_flashlight_not_title">El feneri açık</string>
   <string name="quick_settings_tile_flashlight_not_summary">Kapatmak için dokunun</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
   <string name="cm_power_notification_controls_description">Güçlü bildirim kontrolleriyle. bir uygulamanın bildirimleri için 0 ile 6 arasında önem düzeyini ayarlayabilirsiniz.
@@ -60,18 +60,18 @@
         \n- Uygulamadan gelen tüm bildirimleri engelle
     </string>
   <!-- Notification importance level title-->
-  <string name="importance_level_title">Önem: %1$d. Düzey</string>
+  <string name="importance_level_title">Önem: Seviye %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <string name="notification_importance_very_low">Tam ekran kesintisi, ekranda kısaca belirme, ses veya titreşim yok. Kilit ekranından gizlensin.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Ekrandan kaldırana kadar görünümde tutar. Kaldırmak için Geri tuşuna dokunun ve tutun.</string>
+  <string name="screen_pinning_description_no_navbar">Bu, siz sabitleyene kadar onu korur. Sabitlemek için Geri düğmesine dokunun ve basılı tutun.</string>
   <!-- String for lockscreen shortcut hints -->
   <string name="shortcut_hint">%1$s için simgeyi kaydırın</string>
-  <string name="lockscreen_message">Kilit ekranı kısayollarını ayarlamak için sağ ya da soldaki simgeye dokunun.</string>
+  <string name="lockscreen_message">Kilit ekranı kısayolunu atamak için sol veya sağdaki bir simgeye dokunun.</string>
   <string name="lockscreen_default_target">Varsayılan</string>
   <string name="select_application">Uygulama seçin</string>
   <string name="lockscreen_choose_action_title">Eylem seçin</string>
-  <string name="lockscreen_none_target">Yok</string>
+  <string name="lockscreen_none_target">Hiçbiri</string>
   <!-- Play queue -->
   <string name="play_queue_extension">Oynatma kuyruğunu göster</string>
   <!-- Weather string format in keyguard -->
@@ -86,14 +86,14 @@
   <!-- Path data for circle battery -->
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d istemci</item>
-    <item quantity="other">%1$d istemci</item>
+    <item quantity="one">%1$d cihaz</item>
+    <item quantity="other">%1$d cihaz</item>
   </plurals>
   <!-- Weather string format in expanded statusbar header -->
   <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <!-- Volume stream titles - should match the string-array in AOSP -->
   <string-array name="volume_stream_titles_lineage">
-    <item>Çağrı</item>
+    <item>Arama</item>
     <!-- STREAM_VOICE_CALL -->
     <item>Sistem</item>
     <!-- STREAM_SYSTEM -->
@@ -146,11 +146,11 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Sadece cihaz</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Konumu belirlemek için GPS, Wi\u2011Fi, Bluetooth veya hücresel şebekeler kullanın</string>
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Konumu belirlemek için GPS, Wi\u2011Fi, Bluetooth veya hücresel ağlar kullanır</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Konumu belirlemek için Wi\u2011Fi, Bluetooth veya hücresel ağlar kullanın</string>
+  <string name="quick_settings_location_detail_mode_battery_saving_description">Konumu belirlemek için Wifi, Bluetooth veya hücresel ağlar kullanılır</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Konumu belirlemek için GPS kullanın</string>
+  <string name="quick_settings_location_detail_mode_sensors_only_description">Konumu belirlemek için GPS kullanılır</string>
   <!-- Adb over network QS tile -->
   <string name="quick_settings_network_adb_label">Ağ üzerinden ADB</string>
   <!-- Ambient display QS tile -->

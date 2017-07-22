@@ -161,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Aktywny wyświetlacz został włączony.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Kofeina</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kofeina wyłączona</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kofeina włączona</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Wyskakujące powiadomienia</string>
   <string name="accessibility_quick_settings_heads_up_off">Wyskakujące powiadomienia wyłączone.</string>
