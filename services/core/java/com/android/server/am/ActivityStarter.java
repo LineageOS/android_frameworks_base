@@ -277,7 +277,7 @@ class ActivityStarter {
             }
         }
 
-        final int launchFlags = intent.getFlags();
+        int launchFlags = intent.getFlags();
 
         if ((launchFlags & Intent.FLAG_ACTIVITY_FORWARD_RESULT) != 0 && sourceRecord != null) {
             // Transfer the result target from the source activity to the new
@@ -384,6 +384,16 @@ class ActivityStarter {
                 Slog.w(TAG, "Failure checking protected apps status", e);
                 err = ActivityManager.START_PROTECTED_APP;
             }
+        }
+
+        try {
+            if (shouldClearTask(intent, userId)) {
+                launchFlags |= Intent.FLAG_ACTIVITY_CLEAR_TASK;
+                intent.setFlags(launchFlags);
+            }
+        } catch (RemoteException e) {
+            Slog.w(TAG, "Failure checking protected apps status", e);
+            err = ActivityManager.START_PROTECTED_APP;
         }
 
         final ActivityStack resultStack = resultRecord == null ? null : resultRecord.task.stack;
@@ -816,6 +826,15 @@ class ActivityStarter {
                 e.printStackTrace();
             }
 
+            try {
+                if (shouldClearTask(intent, userId)) {
+                    startFlags |= Intent.FLAG_ACTIVITY_CLEAR_TASK;
+                    intent.setFlags(startFlags);
+                }
+            } catch (RemoteException e) {
+                Slog.w(TAG, "Failure checking protected apps status", e);
+            }
+
             final int realCallingPid = Binder.getCallingPid();
             final int realCallingUid = Binder.getCallingUid();
             int callingPid;
@@ -1098,6 +1117,14 @@ class ActivityStarter {
             }
         } catch (RemoteException e) {
             e.printStackTrace();
+        }
+
+        try {
+            if (shouldClearTask(r.intent, r.userId)) {
+                mLaunchFlags |= Intent.FLAG_ACTIVITY_CLEAR_TASK;
+            }
+        } catch (RemoteException e) {
+            Slog.w(TAG, "Failure checking protected apps status", e);
         }
 
         computeLaunchingTaskFlags();
@@ -2160,5 +2187,10 @@ class ActivityStarter {
                 mPendingActivityLaunches.remove(palNdx);
             }
         }
+    }
+
+    private boolean shouldClearTask(final Intent intent, final int userId) throws RemoteException {
+        return AppGlobals.getPackageManager().isComponentProtected(
+                null, -1, intent.getComponent(), userId);
     }
 }
