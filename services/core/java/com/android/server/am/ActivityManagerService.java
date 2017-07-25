@@ -2745,7 +2745,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         GL_ES_VERSION = 0;
         mActivityStarter = null;
         mAppErrors = null;
-        mAppOpsService = mInjector.getAppOpsService(null, null);
+        mAppOpsService = mInjector.getAppOpsService(null, null, this);
         mBatteryStatsService = null;
         mCompatModePackages = null;
         mConstants = null;
@@ -2824,7 +2824,8 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         mProcessStats = new ProcessStatsService(this, new File(systemDir, "procstats"));
 
-        mAppOpsService = mInjector.getAppOpsService(new File(systemDir, "appops.xml"), mHandler);
+        mAppOpsService = mInjector.getAppOpsService(new File(systemDir, "appops.xml"), mHandler,
+                this);
         mAppOpsService.startWatchingMode(AppOpsManager.OP_RUN_IN_BACKGROUND, null,
                 new IAppOpsCallback.Stub() {
                     @Override public void opChanged(int op, int uid, String packageName) {
@@ -24709,8 +24710,9 @@ public class ActivityManagerService extends IActivityManager.Stub
             return null;
         }
 
-        public AppOpsService getAppOpsService(File file, Handler handler) {
-            return new AppOpsService(file, handler);
+        public AppOpsService getAppOpsService(File file, Handler handler,
+                                              ActivityManagerService service) {
+            return new AppOpsService(file, handler, service);
         }
 
         public Handler getUiHandler(ActivityManagerService service) {
