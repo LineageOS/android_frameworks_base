@@ -21,6 +21,7 @@ import android.os.storage.VolumeInfo;
 import android.util.Log;
 
 import java.io.File;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -36,7 +37,17 @@ public class PrivateStorageInfo {
         this.totalBytes = totalBytes;
     }
 
+    public static long getPrimaryPhysicalTotalSpace(List<VolumeInfo> volumes) {
+        for (VolumeInfo vol : volumes) {
+            if (vol.isPrimaryPhysical()) {
+                return vol.getPath().getTotalSpace();
+            }
+        }
+        return 0;
+    }
+
     public static PrivateStorageInfo getPrivateStorageInfo(StorageVolumeProvider sm) {
+
         long totalInternalStorage = sm.getPrimaryStorageSize();
         long privateFreeBytes = 0;
         long privateTotalBytes = 0;
@@ -48,6 +59,8 @@ public class PrivateStorageInfo {
             privateTotalBytes += getTotalSize(info, totalInternalStorage);
             privateFreeBytes += path.getFreeSpace();
         }
+
+        privateTotalBytes -= getPrimaryPhysicalTotalSpace(sm.getVolumes());
         return new PrivateStorageInfo(privateFreeBytes, privateTotalBytes);
     }
 
