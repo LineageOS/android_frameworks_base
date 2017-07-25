@@ -1105,17 +1105,31 @@ public class AppOpsService extends IAppOpsService.Stub {
 
     @Override
     public int noteOperation(int code, int uid, String packageName) {
+        return noteOperation(code, uid, packageName, false);
+    }
+
+    @Override
+    public int noteOperationLocked(int code, int uid, String packageName) {
+        return noteOperation(code, uid, packageName, true);
+    }
+
+    private int noteOperation(int code, int uid, String packageName, boolean locked) {
         verifyIncomingUid(uid);
         verifyIncomingOp(code);
         String resolvedPackageName = resolvePackageName(uid, packageName);
         if (resolvedPackageName == null) {
             return AppOpsManager.MODE_IGNORED;
         }
-        return noteOperationUnchecked(code, uid, resolvedPackageName, 0, null);
+        return noteOperationUnchecked(code, uid, resolvedPackageName, 0, null, locked);
     }
 
     private int noteOperationUnchecked(int code, int uid, String packageName,
             int proxyUid, String proxyPackageName) {
+        return noteOperationUnchecked(code, uid, packageName, proxyUid, proxyPackageName, false);
+    }
+
+    private int noteOperationUnchecked(int code, int uid, String packageName,
+            int proxyUid, String proxyPackageName, boolean locked) {
         PermissionDialogReq req = null;
         synchronized (this) {
             Ops ops = getOpsRawLocked(uid, packageName, true);
@@ -1159,7 +1173,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                     op.ignoredCount++;
                     return switchOp.mode;
                 } else if (switchOp.mode == AppOpsManager.MODE_ASK) {
-                    if (Looper.myLooper() == mLooper) {
+                    if (Looper.myLooper() == mLooper || locked) {
                         Log.e(TAG,
                                 "noteOperation: This method will deadlock if called from the main thread. (Code: "
                                         + code

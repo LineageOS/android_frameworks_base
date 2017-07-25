@@ -516,7 +516,7 @@ public final class BroadcastQueue {
             } else {
                 final int opCode = AppOpsManager.permissionToOpCode(filter.requiredPermission);
                 if (opCode != AppOpsManager.OP_NONE
-                        && mService.mAppOpsService.noteOperation(opCode, r.callingUid,
+                        && mService.mAppOpsService.noteOperationLocked(opCode, r.callingUid,
                                 r.callerPackage) != AppOpsManager.MODE_ALLOWED) {
                     Slog.w(TAG, "Appop Denial: broadcasting "
                             + r.intent.toString()
@@ -548,7 +548,7 @@ public final class BroadcastQueue {
                 }
                 int appOp = AppOpsManager.permissionToOpCode(requiredPermission);
                 if (appOp != AppOpsManager.OP_NONE && appOp != r.appOp
-                        && mService.mAppOpsService.noteOperation(appOp,
+                        && mService.mAppOpsService.noteOperationLocked(appOp,
                         filter.receiverList.uid, filter.packageName)
                         != AppOpsManager.MODE_ALLOWED) {
                     Slog.w(TAG, "Appop Denial: receiving "
@@ -580,7 +580,7 @@ public final class BroadcastQueue {
             }
         }
         if (!skip && r.appOp != AppOpsManager.OP_NONE
-                && mService.mAppOpsService.noteOperation(r.appOp,
+                && mService.mAppOpsService.noteOperationLocked(r.appOp,
                 filter.receiverList.uid, filter.packageName)
                 != AppOpsManager.MODE_ALLOWED) {
             Slog.w(TAG, "Appop Denial: receiving "
@@ -1008,7 +1008,7 @@ public final class BroadcastQueue {
             } else if (!skip && info.activityInfo.permission != null) {
                 final int opCode = AppOpsManager.permissionToOpCode(info.activityInfo.permission);
                 if (opCode != AppOpsManager.OP_NONE
-                        && mService.mAppOpsService.noteOperation(opCode, r.callingUid,
+                        && mService.mAppOpsService.noteOperationLocked(opCode, r.callingUid,
                                 r.callerPackage) != AppOpsManager.MODE_ALLOWED) {
                     Slog.w(TAG, "Appop Denial: broadcasting "
                             + r.intent.toString()
@@ -1046,7 +1046,7 @@ public final class BroadcastQueue {
                     }
                     int appOp = AppOpsManager.permissionToOpCode(requiredPermission);
                     if (appOp != AppOpsManager.OP_NONE && appOp != r.appOp
-                            && mService.mAppOpsService.noteOperation(appOp,
+                            && mService.mAppOpsService.noteOperationLocked(appOp,
                             info.activityInfo.applicationInfo.uid, info.activityInfo.packageName)
                             != AppOpsManager.MODE_ALLOWED) {
                         Slog.w(TAG, "Appop Denial: receiving "
@@ -1062,7 +1062,7 @@ public final class BroadcastQueue {
                 }
             }
             if (!skip && r.appOp != AppOpsManager.OP_NONE
-                    && mService.mAppOpsService.noteOperation(r.appOp,
+                    && mService.mAppOpsService.noteOperationLocked(r.appOp,
                     info.activityInfo.applicationInfo.uid, info.activityInfo.packageName)
                     != AppOpsManager.MODE_ALLOWED) {
                 Slog.w(TAG, "Appop Denial: receiving "
