@@ -2561,7 +2561,7 @@ public final class ActivityManagerService extends ActivityManagerNative
 
         mProcessStats = new ProcessStatsService(this, new File(systemDir, "procstats"));
 
-        mAppOpsService = new AppOpsService(new File(systemDir, "appops.xml"), mHandler);
+        mAppOpsService = new AppOpsService(new File(systemDir, "appops.xml"), mHandler, this);
 
         mGrantFile = new AtomicFile(new File(systemDir, "urigrants.xml"));
 
