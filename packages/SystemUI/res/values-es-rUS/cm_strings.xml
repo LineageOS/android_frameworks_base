@@ -23,8 +23,8 @@
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">Ajuste de brillo</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Ajustes de luz de notificación</string>
-  <string name="led_notification_text">Luz LED activada por ajustes</string>
+  <string name="led_notification_title">Configuración de la luz de notificación</string>
+  <string name="led_notification_text">Luz LED activada por los ajustes</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">La linterna está encendida</string>
   <string name="quick_settings_tile_flashlight_not_summary">Pulsa para apagar</string>
