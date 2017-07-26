@@ -33,6 +33,8 @@ import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.statusbar.policy.DataSaverController;
 import com.android.systemui.statusbar.policy.HotspotController;
+import com.android.systemui.plugins.ActivityStarter;
+import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
 /** Quick settings tile: Hotspot **/
 public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
@@ -48,10 +50,14 @@ public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
     private final GlobalSetting mAirplaneMode;
     private boolean mListening;
 
+    private final KeyguardMonitor mKeyguard;
+    private final KeyguardCallback mKeyguardCallback = new KeyguardCallback();
+
     public HotspotTile(QSHost host) {
         super(host);
         mHotspotController = Dependency.get(HotspotController.class);
         mDataSaverController = Dependency.get(DataSaverController.class);
+        mKeyguard = Dependency.get(KeyguardMonitor.class);
         mAirplaneMode = new GlobalSetting(mContext, mHandler, Global.AIRPLANE_MODE_ON) {
             @Override
             protected void handleValueChanged(int value) {
@@ -83,9 +89,11 @@ public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
             mHotspotController.addCallback(mCallbacks);
             mDataSaverController.addCallback(mCallbacks);
             refreshState();
+            mKeyguard.addCallback(mKeyguardCallback);
         } else {
             mHotspotController.removeCallback(mCallbacks);
             mDataSaverController.removeCallback(mCallbacks);
+            mKeyguard.removeCallback(mKeyguardCallback);
         }
         mAirplaneMode.setListening(listening);
     }
@@ -104,6 +112,13 @@ public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
         }
         // Immediately enter transient enabling state when turning hotspot on.
         refreshState(isEnabled ? null : ARG_SHOW_TRANSIENT_ENABLING);
+        if (mKeyguard.isSecure() && mKeyguard.isShowing()) {
+            Dependency.get(ActivityStarter.class).postQSRunnableDismissingKeyguard(() -> {
+                mHost.openPanels();
+                mHotspotController.setHotspotEnabled(!isEnabled);
+            });
+            return;
+        }
         mHotspotController.setHotspotEnabled(!isEnabled);
     }
 
@@ -231,4 +246,11 @@ public class HotspotTile extends QSTileImpl<AirplaneBooleanState> {
                     .append(']').toString();
         }
     }
+
+    private final class KeyguardCallback implements KeyguardMonitor.Callback {
+        @Override
+        public void onKeyguardShowingChanged() {
+            refreshState();
+        }
+    };
 }
