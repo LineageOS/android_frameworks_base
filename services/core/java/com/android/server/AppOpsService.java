@@ -1120,6 +1120,7 @@ public class AppOpsService extends IAppOpsService.Stub {
     private int noteOperationUnchecked(int code, int uid, String packageName,
             int proxyUid, String proxyPackageName) {
         PermissionDialogReq req = null;
+        final boolean isInteractive = mPowerManager != null ? mPowerManager.isInteractive() : false;
         synchronized (this) {
             Ops ops = getOpsRawLocked(uid, packageName, true);
             if (ops == null) {
@@ -1195,7 +1196,6 @@ public class AppOpsService extends IAppOpsService.Stub {
                     // we move them to the back of the line. NOTE: these values are magic, and may need
                     // tuning. Ideally we'd want a ringbuffer or token bucket here to do proper rate
                     // limiting.
-                    final boolean isInteractive = mPowerManager.isInteractive();
                     if (isInteractive &&
                             (ops.uidState.pkgOps.size() < AppOpsPolicy.RATE_LIMIT_OPS_TOTAL_PKG_COUNT
                             && op.noteOpCount < AppOpsPolicy.RATE_LIMIT_OP_COUNT
