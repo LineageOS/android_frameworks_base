@@ -20,25 +20,25 @@
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">Ekran görüntüsü</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_receiveProtectedSms">korumalı SMS al</string>
+  <string name="permlab_receiveProtectedSms">korunan SMS al</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_receiveProtectedSms">Uygulamaya korumalı bir SMS alma izni verir.</string>
+  <string name="permdesc_receiveProtectedSms">Uygulamaya korunan bir SMS\'i alma izni verir.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_modifyProtectedSmsList">korumalı SMS listesini değiştir</string>
+  <string name="permlab_modifyProtectedSmsList">korunan SMS listesini değiştir</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_modifyProtectedSmsList">Uygulamaya korumalı SMS adres listesini değiştirme izni verir.</string>
+  <string name="permdesc_modifyProtectedSmsList">Uygulamaya korunan SMS adres listesini değiştirme izin verir.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_security">Güvenlik</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Cihaz güvenlik bilgisi ile ilgili izinler.</string>
+  <string name="permgroupdesc_security">Cihaz güvenlik bilgileri ile ilgili izinler.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readPhoneBlacklist">telefon kara listesini oku</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Bir uygulamanın gelen çağrıları ya da mesajları engellenmiş telefon numaralarını okumasına izin verir.</string>
+  <string name="permdesc_readPhoneBlacklist">Bir uygulamanın gelen aramaları ya da mesajları engellenmiş telefon numaralarını okumasına izin verir.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_changePhoneBlacklist">telefon kara listesini değiştir</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Bir uygulamanın gelen çağrıları ya da mesajları engellenmiş telefon numaralarını değiştirmesine izin verir.</string>
+  <string name="permdesc_changePhoneBlacklist">Bir uygulamanın gelen aramaları ya da mesajları engellenmiş telefon numaralarını değiştirmesine izin verir.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">tuş kilidi duvar kağıdını ayarla</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -46,7 +46,7 @@
   <!-- label for item that reboots the phone in phone options dialog -->
   <string name="global_action_reboot">Yeniden başlat</string>
   <!-- label for current user in phone options dialog -->
-  <string name="global_action_current_user">Şimdiki</string>
+  <string name="global_action_current_user">Mevcut</string>
   <!-- Reboot menu -->
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">Yeniden başlat</string>
@@ -59,7 +59,7 @@
   <!-- Button to soft reboot the device, within the Reboot Options dialog -->
   <string name="reboot_soft">Yazılımsal yeniden başlatma</string>
   <!-- Title of dialog to confirm rebooting. -->
-  <string name="reboot_title">Yeniden Başlat</string>
+  <string name="reboot_title">Yeniden başlat</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
          be a confirmation dialog.  This is the message. -->
   <string name="reboot_confirm" product="tablet">Tabletiniz yeniden başlatılacak.</string>
@@ -103,7 +103,7 @@
   <string name="app_ops_access_camera">kameraya eriş</string>
   <string name="app_ops_access_location">konuma erişim</string>
   <string name="app_ops_access_notifications">bildirimleri oku</string>
-  <string name="app_ops_activate_vpn">VPN\'yi etkinleştir</string>
+  <string name="app_ops_activate_vpn">VPN\'i etkinleştir</string>
   <string name="app_ops_auto_start">açılışta başla</string>
   <string name="app_ops_delete_call_log">arama kaydını sil</string>
   <string name="app_ops_delete_contacts">kişileri sil</string>
@@ -165,9 +165,9 @@
   <string name="app_ops_turn_on_screen">ekranı aç</string>
   <string name="app_ops_get_accounts">cihaz hesaplarını al</string>
   <string name="app_ops_wifi_change">Wi-Fi durumunu değiştir</string>
-  <string name="app_ops_su">root erişimi al</string>
+  <string name="app_ops_su">kök erişimi al</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Bu ekranı kaldırmak için Geri tuşuna dokunun ve tutun.</string>
+  <string name="lock_to_app_toast_no_navbar">Bu ekranı silmek için Geri tuşuna dokunup basılı tutun.</string>
   <!-- Template for showing cellular network operator name while LTE calling is enabled -->
   <string name="tethered_notification_no_device_message">Bağlı cihaz yok</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> cihaz bağlı</string>
@@ -179,8 +179,8 @@
   <string name="notify_package_component_protected_title">Etkinlik başlatma engellendi</string>
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> başlatılmadan önce sistem korumaya alındı. Uygulamayı doğrulamak ve başlatmak için dokunun.</string>
   <!-- Battery fully charged notification -->
-  <string name="notify_battery_fully_charged_title">Batarya tam olarak şarj edildi</string>
-  <string name="notify_battery_fully_charged_text">Aygıtınızın pil ömrünü artırmak için şarjdan çıkarın.</string>
+  <string name="notify_battery_fully_charged_title">Pil tamamen şarj edildi</string>
+  <string name="notify_battery_fully_charged_text">Cihazınızın pil ömrünü artırmak için şarjdan çıkarın.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose
          whether they want to allow the application to do this. -->
   <string name="permlab_resetBatteryStats">pil istatistiklerini sıfırla</string>

@@ -65,8 +65,8 @@
   <string name="accessibility_quick_settings_profiles_changed">Perfil cambiado a <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <string name="quick_settings_compass_init">Inicializando\u2026</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Ajustes de luz de notificación</string>
-  <string name="led_notification_text">Luz LED activada por ajustes</string>
+  <string name="led_notification_title">Configuración de la luz de notificación</string>
+  <string name="led_notification_text">Luz LED activada por los ajustes</string>
   <string name="qs_tile_edit_header_instruction">Mantén pulsado los mosaicos para reorganizarlos</string>
   <string name="quick_settings_edit_label">Editar mosaicos</string>
   <string name="quick_settings_cannot_delete_edit_tile">No se puede borrar el mosaico Editar</string>
@@ -179,7 +179,7 @@
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Informes de ubicación: modo de ahorro de batería.</string>
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Informes de ubicación: modo de solo sensores.</string>
+  <string name="accessibility_quick_settings_location_gps_only">Informes de ubicación: modo sólo dispositivo.</string>
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_high_accuracy">Informes de ubicación: modo de alta precisión.</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
@@ -187,13 +187,13 @@
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Ahorro de batería</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Solo dispositivo</string>
+  <string name="quick_settings_location_gps_only_label">Sólo dispositivo</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Alta precisión</string>
   <!-- Announcement made when the location tile changes to battery saving (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_changed_battery_saving">Informes de ubicación cambiados a modo de ahorro de batería.</string>
   <!-- Announcement made when the location tile changes to sensors only (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_gps_only">Informes de ubicación cambiados a modo solo dispositivo.</string>
+  <string name="accessibility_quick_settings_location_changed_gps_only">Informes de ubicación cambiados a modo sólo dispositivo.</string>
   <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_changed_high_accuracy">Informes de ubicación cambiados a modo de gran precisión.</string>
   <string name="quick_settings_tiles_category_system">Mosaicos del sistema</string>

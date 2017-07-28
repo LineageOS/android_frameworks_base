@@ -513,6 +513,7 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Message shown during fingerprint acquisision when the fingerprint cannot be recognized -->
   <!-- Message shown during fingerprint acquisision when the fingerprint cannot be recognized -->
+  <string name="fingerprint_acquired_insufficient">Nun pudo procesase la buelga. Volvi tentalo.</string>
   <!-- Message shown during fingerprint acquisision when the fingerprint sensor needs cleaning -->
   <!-- Message shown during fingerprint acquisision when the user removes their finger from the sensor too quickly -->
   <!-- Message shown during fingerprint acquisision when the user moves their finger too slowly -->

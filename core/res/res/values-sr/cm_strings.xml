@@ -22,27 +22,27 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_receiveProtectedSms">пријем заштићених SMS порука</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_receiveProtectedSms">Дозволи да апликације приме долазећи заштићени SMS.</string>
+  <string name="permdesc_receiveProtectedSms">Апликација може да прима долазне заштићене SMS поруке.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_modifyProtectedSmsList">измените заштићену SMS листу</string>
+  <string name="permlab_modifyProtectedSmsList">мењање списка заштићених SMS порука</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_modifyProtectedSmsList">Дозвољава апликацији да мења заштићену SMS листу адреса.</string>
+  <string name="permdesc_modifyProtectedSmsList">Апликација може да мења списак адреса заштићених SMS порука.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_security">Безбедност</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Дозволе које се односе на безбедносне информације уређаја.</string>
+  <string name="permgroupdesc_security">Дозволе које се односе на информације о безбедности уређаја.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">читај црну листу телефона</string>
+  <string name="permlab_readPhoneBlacklist">читање списка блокираних бројева</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Омогућава апликацији да чита информације о телефонским бројевима који су блокирани за долазне позиве или поруке.</string>
+  <string name="permdesc_readPhoneBlacklist">Дозвољава апликацији да чита информације о телефонским бројевима чији су долазни позиви или поруке блокирани.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">мењај црну листу телефона</string>
+  <string name="permlab_changePhoneBlacklist">мењање списка блокираних бројева</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Омогућава апликацији да промени бројеве телефона које су блокирани за долазне позиве или поруке.</string>
+  <string name="permdesc_changePhoneBlacklist">Дозвољава апликацији да мења телефонске бројеве чији су долазни позиви или поруке блокирани.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">постављање позадине закључаног екрана</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Омогућава апликацији да промени позадину на закључаном екрану.</string>
+  <string name="permdesc_setKeyguardWallpaper">Дозвољава апликацији да мења позадину закључаног екрана.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
   <string name="global_action_reboot">Поново покрени</string>
   <!-- label for current user in phone options dialog -->
@@ -57,13 +57,13 @@
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
   <string name="reboot_download">Режим ажурирања система</string>
   <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Рестартуј интерфејс</string>
+  <string name="reboot_soft">Поново покрени интерфејс</string>
   <!-- Title of dialog to confirm rebooting. -->
-  <string name="reboot_title">Рестартуј</string>
+  <string name="reboot_title">Поново покрени</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
          be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm" product="tablet">Tаблет ће се рестартовати.</string>
-  <string name="reboot_confirm" product="default">Телефон ће бити поново покренут.</string>
+  <string name="reboot_confirm" product="tablet">Таблет ће се поново покренути.</string>
+  <string name="reboot_confirm" product="default">Телефон ће се поново покренути.</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
   <string name="reboot_progress">Поново покрећем\u2026</string>
   <!-- Long-press back kill application -->
@@ -71,23 +71,23 @@
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB преко мреже је омогућен</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB преко USB &amp; мреже омогућен</string>
+  <string name="adb_both_active_notification_title">ADB преко USB-а и мреже је омогућен</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Додирните да бисте онемогућили отклањање грешака.</string>
   <!-- ADB custom tile -->
-  <string name="adb_active_custom_tile">ADB - <xliff:g id="adb_type" example="USB">%1$s</xliff:g></string>
-  <string name="adb_active_custom_tile_both">USB &amp; мрежа</string>
+  <string name="adb_active_custom_tile">ADB – <xliff:g id="adb_type" example="USB">%1$s</xliff:g></string>
+  <string name="adb_active_custom_tile_both">USB и мрежа</string>
   <string name="adb_active_custom_tile_usb">USB</string>
   <string name="adb_active_custom_tile_net">Мрежа</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_interceptPackageLaunch">пресретни подизање апликације</string>
   <!-- stylus gestures support -->
-  <string name="stylus_app_not_installed">%s није инсталирано</string>
+  <string name="stylus_app_not_installed">Апликација %s није инсталирана</string>
   <!-- Zen mode buttons -->
   <string name="silent_mode_priority">Приоритет</string>
   <string name="silent_mode_none">Ниједан</string>
   <!-- Wifi Hotspot disabled due to subscription change -->
-  <string name="subscription_change_disabled_wifi_ap">Онемогућен Wi-Fi hotspot због промене SIM претплате</string>
+  <string name="subscription_change_disabled_wifi_ap">Wi-Fi хотспот је онемогућен због промене SIM претплате</string>
   <!-- WiFi turn off notification action text -->
   <string name="notify_turn_wifi_off_title">Искључи Wi-Fi</string>
   <!-- Privacy Guard -->

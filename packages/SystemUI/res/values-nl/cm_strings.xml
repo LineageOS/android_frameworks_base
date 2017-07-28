@@ -52,7 +52,7 @@
   <!-- Title shown in recents popup for force stopping the application -->
   <string name="advanced_dev_option_force_stop">Nu stoppen</string>
   <!-- Title shown in recents popup for uninstalling the application -->
-  <string name="advanced_dev_option_uninstall">Verwijderen</string>
+  <string name="advanced_dev_option_uninstall">Deïnstalleren</string>
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">Verlichtingshelderheid</string>
   <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->

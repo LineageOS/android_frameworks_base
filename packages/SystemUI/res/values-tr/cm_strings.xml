@@ -29,11 +29,11 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">%1$s için sağa kaydırın</string>
   <string name="right_shortcut_hint">%1$s için sola kaydırın</string>
-  <string name="lockscreen_message">Kilit ekranı kısayollarını ayarlamak için sağ ya da soldaki simgeye dokunun.</string>
+  <string name="lockscreen_message">Kilit ekranı kısayolunu atamak için sol veya sağdaki bir simgeye dokunun.</string>
   <string name="lockscreen_default_target">Varsayılan</string>
   <string name="select_application">Uygulama seçin</string>
   <string name="lockscreen_choose_action_title">Eylem seçin</string>
-  <string name="lockscreen_none_target">Yok</string>
+  <string name="lockscreen_none_target">Hiçbiri</string>
   <!-- Dialog title for navigation bar button selection -->
   <string name="navbar_dialog_title">Atamak için işlev seçin</string>
   <string name="navbar_home_button">Ana ekran tuşu</string>
@@ -41,8 +41,8 @@
   <string name="navbar_search_button">Arama tuşu</string>
   <string name="navbar_back_button">Geri tuşu</string>
   <string name="navbar_empty_button">Boş tuş</string>
-  <string name="navbar_menu_conditional_button">Menü (otoGizle) tuşu</string>
-  <string name="navbar_menu_always_button">Menü (hepGöster) tuşu</string>
+  <string name="navbar_menu_conditional_button">Menü (otomatik gizle) tuşu</string>
+  <string name="navbar_menu_always_button">Menü (herzaman göster) tuşu</string>
   <string name="navbar_menu_big_button">Menü tuşu</string>
   <string name="accessibility_dpad_left">Sol imleç</string>
   <string name="accessibility_dpad_right">Sağ imleç</string>
@@ -78,7 +78,7 @@
   <string name="quick_settings_title_show_brightness_slider">Parlaklık kaydırıcısını göster</string>
   <string name="quick_settings_title_enlarge_first_row">İlk satırı büyüt</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Ekrandan kaldırana kadar görünümde tutar. Kaldırmak için Geri tuşuna dokunun ve tutun.</string>
+  <string name="screen_pinning_description_no_navbar">Bu, siz sabitleyene kadar onu korur. Sabitlemek için Geri düğmesine dokunun ve basılı tutun.</string>
   <string name="quick_settings_custom_tile_detail_title">Özel kare</string>
   <string name="quick_settings_remove">Kareyi kaldır</string>
   <string name="quick_settings_network_adb_label">Ağ üzerinden ADB</string>
@@ -89,7 +89,7 @@
   <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
   <string name="quick_settings_battery_saver_label">Pil tasarrufu</string>
   <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
-  <string name="quick_settings_battery_saver_label_charging">Batarya kurtarıcı (şarj ediliyor)</string>
+  <string name="quick_settings_battery_saver_label_charging">Pil koruyucu (şarj ediliyor)</string>
   <string name="quick_settings_caffeine_label">Kafein</string>
   <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_sync_off">Eşitleme kapalı.</string>
@@ -108,7 +108,7 @@
   <string name="quick_settings_lockscreen_label_enforced">Kilit ekranı zorunlu</string>
   <string name="quick_settings_lockscreen_label_locked_by_profile">Profil tarafından devre dışı</string>
   <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_screen_timeout">Ekran zaman aşımı : <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_screen_timeout">Ekran zaman aşımı: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
   <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_screen_timeout_changed">Ekran zaman aşımı <xliff:g id="timeout" example="30 seconds">%s</xliff:g> olarak ayarlandı.</string>
   <string name="qs_tile_performance">Pil modu</string>
@@ -172,8 +172,8 @@
   <!-- Dynamic tiles -->
   <string name="quick_settings_dynamic_tile_detail_title">Dinamik kare</string>
   <string name="dynamic_qs_tile_next_alarm_label">Sonraki alarm</string>
-  <string name="dynamic_qs_tile_ime_selector_label">IME seçici</string>
-  <string name="dynamic_qs_tile_su_label">Root erişimi</string>
+  <string name="dynamic_qs_tile_ime_selector_label">Klavye seçici</string>
+  <string name="dynamic_qs_tile_su_label">Kök erişimi</string>
   <string name="dynamic_qs_tile_themes_label">Temalar</string>
   <string name="quick_settings_title_advanced_location">3-durumlu konum</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -202,12 +202,12 @@
   <!-- Hotspot dialog message -->
   <string name="hotspot_apm_message">Uçak modu etkinken hücresel ağlarla bağlantı kurulamıyor. Uçak modunu devre dışı bırakın ve tekrar deneyin.</string>
   <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Flaş ışığı açık</string>
+  <string name="quick_settings_tile_flashlight_not_title">El feneri açık</string>
   <string name="quick_settings_tile_flashlight_not_summary">Kapatmak için dokunun</string>
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d istemci</item>
-    <item quantity="other">%1$d istemci</item>
+    <item quantity="one">%1$d cihaz</item>
+    <item quantity="other">%1$d cihaz</item>
   </plurals>
   <!-- CellularTile data sim not configured state string -->
   <string name="data_sim_not_configured">SIM verisi yok</string>

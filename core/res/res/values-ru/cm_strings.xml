@@ -57,7 +57,7 @@
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
   <string name="reboot_download">Режим обновления ПО</string>
   <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Перезапуск интерфейса</string>
+  <string name="reboot_soft">Перезапуск оболочки</string>
   <!-- Title of dialog to confirm rebooting. -->
   <string name="reboot_title">Перезагрузка</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
