@@ -42,8 +42,8 @@
   <string name="reboot_title">Поновно покретање</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm" product="tablet">Таблет ће бити поново покренут.</string>
-  <string name="reboot_confirm" product="default">Телефон ће бити поново покренут.</string>
+  <string name="reboot_confirm" product="tablet">Таблет ће се поново покренути.</string>
+  <string name="reboot_confirm" product="default">Телефон ће се поново покренути.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
   <string name="reboot_progress">Поново покрећем\u2026</string>
   <!-- ADB over network notification -->
@@ -60,7 +60,7 @@
   <string name="privacy_guard_dialog_title">Заштита приватности</string>
   <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> захтева <xliff:g id="op">%2$s</xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">Запамти избор</string>
+  <string name="permission_remember_choice">Запамти мој избор</string>
   <!-- App ops requests -->
   <string name="app_ops_access_camera">приступ камери</string>
   <string name="app_ops_access_location">приступ локацији</string>

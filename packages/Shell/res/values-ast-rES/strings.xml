@@ -31,7 +31,7 @@
   <!-- Text of notification indicating that tapping will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
   <!-- Body of dialog informing user about contents of a bugreport. [CHAR LIMIT=NONE] -->
   <!-- Checkbox that indicates this dialog should not be shown again when the next bugreport is taken. [CHAR LIMIT=50] -->
-  <string name="bugreport_confirm_dont_repeat">Nun amosar más</string>
+  <string name="bugreport_confirm_dont_repeat">Nun amosar de nueves</string>
   <!-- Title for documents backend that offers bugreports. -->
   <string name="bugreport_storage_title">Informes de fallu</string>
   <!-- Toast message sent when the bugreport file could be read. -->
