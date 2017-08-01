@@ -1108,8 +1108,9 @@ public final class SystemServer {
                     mSystemServiceManager.startService(BACKUP_MANAGER_SERVICE_CLASS);
                 }
 
-                if (mPackageManager.hasSystemFeature(PackageManager.FEATURE_APP_WIDGETS)
-                    || context.getResources().getBoolean(R.bool.config_enableAppWidgetService)) {
+                if ((mPackageManager.hasSystemFeature(PackageManager.FEATURE_APP_WIDGETS)
+                    || context.getResources().getBoolean(R.bool.config_enableAppWidgetService))
+                    && !mIsAlarmBoot) {
                     mSystemServiceManager.startService(APPWIDGET_SERVICE_CLASS);
                 }
 
