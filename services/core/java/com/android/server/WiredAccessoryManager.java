@@ -70,6 +70,7 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
     private static final String NAME_H2W = "h2w";
     private static final String NAME_USB_AUDIO = "usb_audio";
     private static final String NAME_HDMI_AUDIO = "hdmi_audio";
+    private static final String NAME_DP_AUDIO = "soc:qcom,msm-ext-disp";
     private static final String NAME_HDMI = "hdmi";
 
     private static final int MSG_NEW_DEVICE_STATE = 1;
@@ -416,22 +417,86 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
                 }
             }
 
+            // Monitor DisplayPort
+            uei = new UEventInfo(NAME_DP_AUDIO, BIT_HDMI_AUDIO, 0, 0);
+            if (uei.checkSwitchExists()) {
+                retVal.add(uei);
+            } else {
+                Slog.w(TAG, "This kernel does not have DP audio support");
+            }
+
             return retVal;
         }
 
         @Override
         public void onUEvent(UEventObserver.UEvent event) {
-            if (LOG) Slog.v(TAG, "Headset UEVENT: " + event.toString());
+            String devPath = event.get("DEVPATH");
+            String name = event.get("NAME");
+            int state = 0;
+
+            if (name == null) {
+                name = event.get("SWITCH_NAME");
+            }
 
             try {
-                String devPath = event.get("DEVPATH");
-                String name = event.get("SWITCH_NAME");
-                int state = Integer.parseInt(event.get("SWITCH_STATE"));
-                synchronized (mLock) {
-                    updateStateLocked(devPath, name, state);
+                if (name.equals(NAME_DP_AUDIO)) {
+                    String stateStr = event.get("STATE");
+                    int offset = 0;
+                    int length = stateStr.length();
+
+                    // parse DP=1\nHDMI=1\0
+                    while (offset < length) {
+                        int equals = stateStr.indexOf('=', offset);
+
+                        if (equals > offset) {
+                            String intfName = stateStr.substring(offset, equals);
+
+                            if (intfName.equals("DP")) {
+                                state = Integer.parseInt(
+                                        stateStr.substring(equals + 1, equals + 2));
+                                break;
+                            }
+                        }
+
+                        offset = equals + 3;
+                    }
+                } else {
+                    state = Integer.parseInt(event.get("SWITCH_STATE"));
                 }
             } catch (NumberFormatException e) {
-                Slog.e(TAG, "Could not parse switch state from event " + event);
+                Slog.i(TAG, "couldn't get state from event, checking node");
+
+                for (int i = 0; i < mUEventInfo.size(); ++i) {
+                    UEventInfo uei = mUEventInfo.get(i);
+
+                    if (name.equals(uei.getDevName())) {
+                        char[] buffer = new char[1024];
+                        int len = 0;
+
+                        try {
+                            FileReader file = new FileReader(uei.getSwitchStatePath());
+                            len = file.read(buffer, 0, 1024);
+                            file.close();
+                        } catch (FileNotFoundException e1) {
+                            Slog.e(TAG, "file not found");
+                            break;
+                        } catch (Exception e11) {
+                            Slog.e(TAG, "onUEvent exception", e11);
+                        }
+
+                        try {
+                            state = Integer.parseInt((new String(buffer, 0, len)).trim());
+                        } catch (NumberFormatException e2) {
+                            Slog.e(TAG, "could not convert to number");
+                            break;
+                        }
+                        break;
+                    }
+                }
+            }
+
+            synchronized (mLock) {
+                updateStateLocked(devPath, name, state);
             }
         }
 
@@ -450,12 +515,79 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
             private final int mState1Bits;
             private final int mState2Bits;
             private final int mStateNbits;
+            private int mDevIndex;
+            private int mCableIndex;
 
             public UEventInfo(String devName, int state1Bits, int state2Bits, int stateNbits) {
                 mDevName = devName;
                 mState1Bits = state1Bits;
                 mState2Bits = state2Bits;
                 mStateNbits = stateNbits;
+
+                if (mDevName.equals(NAME_DP_AUDIO)) {
+                    getDevIndex();
+                    getCableIndex();
+                }
+            }
+
+            private void getDevIndex() {
+                int index = 0;
+                char[] buffer = new char[1024];
+
+                while (true) {
+                    String devPath = String.format(Locale.US,
+                            "/sys/class/switch/extcon%d/name",
+                            index);
+
+                    try {
+                        FileReader file = new FileReader(devPath);
+                        int len = file.read(buffer, 0, 1024);
+                        file.close();
+
+                        String devName = (new String(buffer, 0, len)).trim();
+                        if (devName.equals(mDevName)) {
+                            mDevIndex = index;
+                            break;
+                        } else {
+                            index++;
+                        }
+                    } catch (FileNotFoundException e) {
+                        break;
+                    } catch (Exception e) {
+                        Slog.e(TAG, "getDevIndex exception", e);
+                        break;
+                    }
+                }
+            }
+
+            private void getCableIndex() {
+                int index = 0;
+                char[] buffer = new char[1024];
+
+                while (true) {
+                    String cablePath = String.format(Locale.US,
+                            "/sys/class/switch/extcon%d/cable.%d/name",
+                            mDevIndex, index);
+
+                    try {
+                        FileReader file = new FileReader(cablePath);
+                        int len = file.read(buffer, 0, 1024);
+                        file.close();
+
+                        String cableName = (new String(buffer, 0, len)).trim();
+                        if (cableName.equals("DP")) {
+                            mCableIndex = index;
+                            break;
+                        } else {
+                            index++;
+                        }
+                    } catch (FileNotFoundException e) {
+                        break;
+                    } catch (Exception e) {
+                        Slog.e(TAG, "getCableIndex exception", e);
+                        break;
+                    }
+                }
             }
 
             public String getDevName() {
@@ -463,10 +595,20 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
             }
 
             public String getDevPath() {
+                if (mDevName.equals(NAME_DP_AUDIO)) {
+                    return String.format(Locale.US,
+                            "/devices/platform/soc/%s/extcon/extcon%d",
+                            mDevName, mDevIndex);
+                }
                 return String.format(Locale.US, "/devices/virtual/switch/%s", mDevName);
             }
 
             public String getSwitchStatePath() {
+                if (mDevName.equals(NAME_DP_AUDIO)) {
+                    return String.format(Locale.US,
+                            "/sys/class/switch/extcon%d/cable.%d/state",
+                            mDevIndex, mCableIndex);
+                }
                 return String.format(Locale.US, "/sys/class/switch/%s/state", mDevName);
             }
 
