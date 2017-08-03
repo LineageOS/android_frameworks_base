@@ -438,6 +438,9 @@ public class NotificationData {
                 final int N = mEntries.size();
                 for (int i = 0; i < N; i++) {
                     Entry entry = mEntries.valueAt(i);
+                    if (!mRankingMap.getRanking(entry.key, mTmpRanking)) {
+                        continue;
+                    }
                     final StatusBarNotification oldSbn = entry.notification.cloneLight();
                     final String overrideGroupKey = getOverrideGroupKey(entry.key);
                     if (!Objects.equals(oldSbn.getOverrideGroupKey(), overrideGroupKey)) {
