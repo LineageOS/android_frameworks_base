@@ -30,6 +30,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.HapticFeedbackConstants;
 import android.view.InputDevice;
@@ -52,6 +53,8 @@ import static android.view.accessibility.AccessibilityNodeInfo.ACTION_CLICK;
 import static android.view.accessibility.AccessibilityNodeInfo.ACTION_LONG_CLICK;
 
 public class KeyButtonView extends ImageView implements ButtonDispatcher.ButtonInterface {
+
+    private static final String TAG = "KeyButtonView";
 
     private int mContentDescriptionRes;
 
@@ -135,7 +138,24 @@ public class KeyButtonView extends ImageView implements ButtonDispatcher.ButtonI
         new AsyncTask<String, Void, Drawable>() {
             @Override
             protected Drawable doInBackground(String... params) {
-                return Icon.createWithContentUri(params[0]).loadDrawable(mContext);
+                // HACK: The content provider is probably not ready when we
+                // are here and we are still booting, so the image can't be
+                // loaded right away. Try a few times before giving up.
+                Icon icon = Icon.createWithContentUri(params[0]);
+                for (int i = 0;; i++) {
+                    Drawable drawable = icon.loadDrawable(mContext);
+                    if (drawable != null) {
+                        return drawable;
+                    } else if (i == 10) {
+                        Log.w(TAG, "Could not load drawable, file deleted?");
+                        return null;
+                    }
+                    try {
+                        Log.d(TAG, "Could not load drawable, retrying...");
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                    }
+                }
             }
 
             @Override
