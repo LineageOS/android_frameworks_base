@@ -70,6 +70,7 @@
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">ประหยัดแบตเตอรี่</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_gps_only_label">อุปกรณ์เท่านั้น</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">ความแม่นยำสูง</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->

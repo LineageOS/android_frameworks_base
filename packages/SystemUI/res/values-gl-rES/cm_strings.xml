@@ -130,8 +130,7 @@
   <string name="quick_settings_location_battery_saving_label">Aforro de batería</string>
   <string name="quick_settings_location_battery_saving_label_twoline">Aforro\nde batería</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Só GPS</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Só GPS</string>
+  <string name="quick_settings_location_gps_only_label">Só dispositivo</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Alta precisión</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisión</string>
@@ -161,6 +160,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">A visualización de ambiente foi activada.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Cafeína</string>
+  <string name="accessibility_quick_settings_caffeine_off">Cafeína desactivada</string>
+  <string name="accessibility_quick_settings_caffeine_on">Cafeína activada</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Notificacións emerxentes</string>
   <string name="accessibility_quick_settings_heads_up_off">Notificacións emerxentes desactivadas.</string>

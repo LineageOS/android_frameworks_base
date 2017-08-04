@@ -53,11 +53,11 @@
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Pulsa para desactivar la depuración.</string>
   <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">activar o desactivar Privacy Guard</string>
-  <string name="permdesc_changePrivacyGuardState">Permite que la aplicación modifique si otra aplicación se ejecuta con Guardián de Privacidad. Cuando una aplicación se ejecuta con Guardián de Privacidad, no tendrá acceso a datos personales como contactos, registros de llamadas o mensajes.</string>
-  <string name="privacy_guard_notification">Guardián de Privacidad activado</string>
+  <string name="permlab_changePrivacyGuardState">activar o desactivar «Guardián de privacidad»</string>
+  <string name="permdesc_changePrivacyGuardState">Permite que la aplicación modifique si otra aplicación se ejecuta con «Guardián de privacidad». Cuando una aplicación se ejecuta con «Guardián de privacidad», no tendrá acceso a datos personales como contactos, registros de llamadas o mensajes.</string>
+  <string name="privacy_guard_notification">Guardián de privacidad activado</string>
   <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> no podrá acceder a los datos personales</string>
-  <string name="privacy_guard_dialog_title">Guardián de Privacidad</string>
+  <string name="privacy_guard_dialog_title">Guardián de privacidad</string>
   <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> quisiera <xliff:g id="op">%2$s</xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <string name="permission_remember_choice">Recordar mi elección</string>

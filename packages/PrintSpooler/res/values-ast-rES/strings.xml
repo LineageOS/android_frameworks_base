@@ -30,6 +30,7 @@
   <string name="label_color">Color</string>
   <!-- Label of the printer mode to print on both sides of paper. [CHAR LIMIT=20] -->
   <!-- Label of the orientation widget. [CHAR LIMIT=20] -->
+  <string name="label_orientation">Orientación</string>
   <!-- Label of the page selection widget. [CHAR LIMIT=20] -->
   <string name="label_pages">Páxines</string>
   <!-- Label of the destination widget. [CHAR LIMIT=20] -->
@@ -82,9 +83,11 @@
   <!-- Notification that print services as disabled. [CHAR LIMIT=50] -->
   <string name="print_services_disabled_toast">Deshabilitáronse dellos servicios d\'imprentación</string>
   <!-- Title for the prompt shown as a placeholder if no printers are found while not searching. [CHAR LIMIT=50] -->
+  <string name="print_searching_for_printers">Guetando imprentadores</string>
   <!-- Title for the prompt shown as a placeholder if there are no print services. [CHAR LIMIT=50] -->
-  <string name="print_no_print_services">Nun s\'habilitaron servicios d\'imprentación</string>
+  <string name="print_no_print_services">Nun s\'activaron servicios d\'imprentación</string>
   <!-- Title for the prompt shown as a placeholder if there are no printers while searching. [CHAR LIMIT=50] -->
+  <string name="print_no_printers">Nun s\'alcontraron imprentadores</string>
   <!-- Add printer activity -->
   <!-- Subtitle for services that cannot add printers. [CHAR LIMIT=50] -->
   <string name="cannot_add_printer">Nun puen amestase imprentadores</string>
@@ -113,7 +116,9 @@
   <string name="cancel">Encaboxar</string>
   <!-- Label for the notification button for restarting a filed print job. [CHAR LIMIT=25] -->
   <!-- Message that there is no connection to a printer. [CHAR LIMIT=40] -->
+  <string name="no_connection_to_printer">Nun hai conexón cola imprentadora</string>
   <!-- Label for an unknown reason for failed or blocked print job. [CHAR LIMIT=25] -->
+  <string name="reason_unknown">desconozse</string>
   <!-- Title for a warning message about security implications of using a print service,
          displayed as a dialog message when the user prints using a print service that has not been
          used before. [CHAR LIMIT=NONE] -->
@@ -126,13 +131,23 @@
          o más servicios enantes d\'imprentase.</string>
   <!-- Arrays -->
   <!-- Color mode labels. -->
+  <string-array name="color_mode_labels">
+    <!-- Color mode label: Monochrome color scheme, e.g. one color is used. [CHAR LIMIT=20] -->
+    <item>Blancu y prietu</item>
+    <!-- Color mode label: Color color scheme, e.g. many colors are used. [CHAR LIMIT=20] -->
+    <item>Color</item>
+  </string-array>
   <!-- Duplex mode labels. -->
   <!-- Orientation labels. -->
   <!-- Error messages -->
   <!-- Message for an error when trying to print to a PDF file. [CHAR LIMIT=50] -->
+  <string name="print_write_error_message">Nun pudo escribise nel ficheru</string>
   <!-- Default message for an error while generating a print job. [CHAR LIMIT=50] -->
+  <string name="print_error_default_message">Perdón, eso nun funcionó. Volvi tentalo.</string>
   <!-- Label for the retry button in the error message. [CHAR LIMIT=50] -->
+  <string name="print_error_retry">Repitir</string>
   <!-- Message for the currently selected printer being unavailable. [CHAR LIMIT=100] -->
+  <string name="print_error_printer_unavailable">Nesti momentu la imprentadora nun ta disponible.</string>
   <!-- Message for the case when a preview of a page cannot be loaded because the printing app
          provided a broken print preview rendering for this page. [CHAR LIMIT=50] -->
   <string name="print_cannot_load_page">Nun pue amosase la previsualización</string>

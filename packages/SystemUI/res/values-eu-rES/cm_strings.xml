@@ -130,8 +130,7 @@
   <string name="quick_settings_location_battery_saving_label">Bateria aurreztea</string>
   <string name="quick_settings_location_battery_saving_label_twoline">Bateria\naurreztea</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">GPSa besterik ez</string>
-  <string name="quick_settings_location_gps_only_label_twoline">GPSa besterik ez</string>
+  <string name="quick_settings_location_gps_only_label">Gailua bakarrik</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Zehaztasun handia</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Zehaztasun\nhandia</string>

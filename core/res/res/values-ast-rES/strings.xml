@@ -57,13 +57,22 @@
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one minute -->
   <string name="durationMinute"><xliff:g id="minutes">%1$d</xliff:g> min</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one minute with seconds -->
+  <string name="durationMinuteSeconds"><xliff:g id="minutes">%1$d</xliff:g> min
+            <xliff:g id="seconds">%2$d</xliff:g> segs</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one minute with one second -->
+  <string name="durationMinuteSecond"><xliff:g id="minutes">%1$d</xliff:g> min
+            <xliff:g id="seconds">%2$d</xliff:g> seg</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration in seconds -->
+  <string name="durationSeconds"><xliff:g id="seconds">%1$d</xliff:g> segs</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one second -->
+  <string name="durationSecond"><xliff:g id="seconds">%1$d</xliff:g> seg</string>
   <!-- Used in Contacts for a field that has no label and in Note Pad
          for a note with no name. -->
+  <string name="untitled">&lt;Ensin títulu&gt;</string>
   <!-- How to display the lack of a phone number -->
+  <string name="emptyPhoneNumber">(Ensin númberu telefónicu)</string>
   <!-- How to display the lack of a name -->
+  <string name="unknownName">Desconozse</string>
   <!-- What the UI should display for "voice mail" unless overridden by the SIM-->
   <!-- What the UI should display for "Msisdn" unless overridden by the SIM-->
   <string name="defaultMsisdnAlphaTag">MSISDN1</string>
@@ -80,6 +89,7 @@
   <!-- Displayed when a phone property such as a SIM password was registered. -->
   <!-- Displayed when a phone property such as a SIM password was erased. -->
   <!-- Displayed when a SIM password was entered incorrectly. -->
+  <string name="passwordIncorrect">Contraseña incorreuta</string>
   <!-- Displayed when a phone feature triggered by an MMI code is complete. -->
   <!-- Displayed when a SIM PIN password is entered incorrectly. -->
   <!-- Displayed when a SIM PUK password is entered incorrectly. -->
@@ -104,7 +114,9 @@
   <!-- Displayed as the title for a success/failure report enabling/disabling call waiting. -->
   <!-- Displayed as the title for a success/failure report enabling/disabling call barring. -->
   <!-- Displayed as the title for a success/failure report changing the SIM password. -->
+  <string name="PwdMmi">Cambéu de contraseña</string>
   <!-- Displayed as the title for a success/failure report changing the SIM PIN. -->
+  <string name="PinMmi">Cambéu de PIN</string>
   <string name="DndMmi">Nun molestar</string>
   <!-- Displayed to confirm to the user that caller ID will be restricted on the next call as usual. -->
   <!-- Displayed to confirm to the user that caller ID will be not restricted on the next call even though it usually is. -->
@@ -113,16 +125,22 @@
   <!-- Displayed to tell the user that caller ID is not provisioned for their SIM. -->
   <!-- Displayed to tell the user that they cannot change the caller ID setting. -->
   <!-- Displayed to tell the user that data service is blocked by access control. -->
+  <string name="RestrictedOnData">El serviciu de datos ta bloquiáu.</string>
   <!-- Displayed to tell the user that emergency service is blocked by access control. -->
   <string name="RestrictedOnEmergency">El serviciu d\'emerxencia ta bloquiáu.</string>
   <!-- Displayed to tell the user that normal service is blocked by access control. -->
+  <string name="RestrictedOnNormal">El serviciu de voz ta bloquiáu.</string>
   <!-- Displayed to tell the user that all emergency and normal voice services are blocked by access control. -->
+  <string name="RestrictedOnAllVoice">Tán bloquiaos tolos servicios de voz.</string>
   <!-- Displayed to tell the user that sms service is blocked by access control. -->
+  <string name="RestrictedOnSms">El serviciu de SMS ta bloquiáu.</string>
   <!-- Displayed to tell the user that voice/data service is blocked by access control. -->
   <!-- Displayed to tell the user that voice and sms service are blocked by access control. -->
   <!-- Displayed to tell the user that all service is blocked by access control. -->
+  <string name="RestrictedOnAll">Tán bloquiaos tolos servicios de voz, datos y SMS.</string>
   <!-- Displayed to tell the user that they should switch their network preference. -->
   <!-- Displayed to tell the user that they should switch their network preference. -->
+  <string name="NetworkPreferenceSwitchSummary">P\'ameyorar la receición, tenta de camudar la triba esbillada n\'Axustes &gt; Redes móviles &gt; Triba preferida de rede.</string>
   <!-- Displayed to tell the user that peer changed TTY mode -->
   <!-- Mappings between TS 27.007 +CFCC/+CLCK "service classes" and human-readable strings-->
   <!-- Example: Service was enabled for: Voice, Data -->
@@ -135,6 +153,7 @@
   <string name="serviceClassSMS">SMS</string>
   <!-- Meaning: asynchronous data.  Example: Service was enabled for: Voice, Async -->
   <!-- Meaning: synchronous data.  Example: Service was enabled for: Voice, Async -->
+  <string name="serviceClassDataSync">Sincronización</string>
   <!-- Meaning: packet data.  Example: Service was enabled for: Voice, Packet -->
   <string name="serviceClassPacket">Paquete</string>
   <!-- Meaning: unknown.  Example: Service was enabled for: Voice, PAD -->
@@ -145,6 +164,10 @@
   <!-- WFC Operator Error Messages showed as alerts -->
   <!-- WFC Operator Error Messages showed as notifications -->
   <!-- Template for showing cellular network operator name while WFC is active -->
+  <string-array name="wfcSpnFormats">
+    <item>%s</item>
+    <item>%s Wi-Fi Calling</item>
+  </string-array>
   <!-- WFC, summary for Disabled -->
   <!-- WFC, summary for Wi-Fi Preferred -->
   <!-- WFC, summary for Cellular Preferred -->
@@ -178,15 +201,22 @@
   <string name="httpErrorAuth">Nun pudo autenticase.</string>
   <!-- Displayed when a web request failed because the authentication with the proxy failed. -->
   <!-- Displayed when a web request failed because there was a connection error. -->
+  <string name="httpErrorConnect">Nun pudo coneutase col sirvidor.</string>
   <!-- Displayed when a web request failed because there was an input or output error. -->
   <!-- Displayed when a web request failed because the request timed out -->
   <!-- Displayed when a web request failed because the site tried to redirect us one too many times -->
   <!-- Displayed when a web request failed because the protocol of the server is not supported. -->
+  <string name="httpErrorUnsupportedScheme">Nun se sofita\'l protocolu.</string>
   <!-- Displayed when a web request failed because the a secure connection couldn't be made to the server.-->
+  <string name="httpErrorFailedSslHandshake">Nun pudo afitase una conexón segura.</string>
   <!-- Displayed when a web request failed because the URL isn't in a valid form. -->
+  <string name="httpErrorBadUrl">Nun pudo abrise la páxina porque la URL nun ye válida.</string>
   <!-- Displayed when a request failed because we failed to open the file. -->
+  <string name="httpErrorFile">Nun pudo accedese al ficheru.</string>
   <!-- Displayed when a request failed because the file wasn't found. -->
+  <string name="httpErrorFileNotFound">Nun pudo alcontrase\'l ficheru solicitáu.</string>
   <!-- Displayed when a request failed because there are too many requests right now. -->
+  <string name="httpErrorTooManyRequests">Tán procesándose milenta solicitúes. Volvi tentalo más sero.</string>
   <!-- Account notifications -->
   <!-- A notification is shown when the AccountManager is unable to
     supply an auth token without prompting the user to re-enter the
@@ -194,7 +224,9 @@
     notification bar (will be seen by the user as he uses another application). -->
   <!-- Sync notifications -->
   <!-- A notification is shown when there is a sync error.  This is the text that will scroll through the notification bar (will be seen by the user as he uses another application). -->
+  <string name="contentServiceSync">Sincronización</string>
   <!-- A notification is shown when there is a sync error.  This is the title of the notification.  It will be seen in the pull-down notification tray. -->
+  <string name="contentServiceSyncNotificationTitle">Sincronización</string>
   <!-- A notification is shown when there is a sync error.  This is the message of the notification.  It describes the error, in this case is there were too many deletes. The argument is the type of content, for example Gmail or Calendar. It will be seen in the pull-down notification tray. -->
   <!-- If MMS discovers there isn't much space left on the device, it will show a toast with this message. -->
   <!-- If MMS discovers there isn't much space left on the device, it will show a toast with this message. -->
@@ -241,6 +273,7 @@
   <!-- Button to turn on the radio, within the Phone Options dialog -->
   <!-- Button to turn off the radio, within the Phone Options dialog -->
   <!-- Button to lock the screen, within the Phone Options dialog -->
+  <string name="screen_lock">Bloquéu de pantalla</string>
   <!-- Button to turn off the phone, within the Phone Options dialog -->
   <!-- Spoken description for ringer silent option. [CHAR LIMIT=NONE] -->
   <!-- Spoken description for ringer vibrate option. [CHAR LIMIT=NONE] -->
@@ -256,19 +289,27 @@
   <string name="shutdown_progress">Apagando\u2026</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="shutdown_confirm" product="tablet">Apagaráse la to tableta.</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the TV, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="shutdown_confirm" product="tv">Apagaráse la to TV.</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the watch, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="shutdown_confirm" product="watch">Apagaráse\'l to reló.</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="shutdown_confirm" product="default">El teléfonu va apagase.</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, it asks
          the user if they'd like to shut down.  This is the message.  This is used instead of
          shutdown_confirm when the system is configured to use long press to go directly to the
          power off dialog instead of the global actions menu. -->
+  <string name="shutdown_confirm_question">¿De xuru que quies apagar?</string>
   <!-- Title of dialog to confirm rebooting into safe mode. [CHAR LIMIT=50] -->
   <!-- Shutdown Confirmation Dialog.  Message in the confirmation dialog
          when the user asks to reboot into safe mode. [CHAR LIMIT=NONE] -->
+  <string name="reboot_safemode_confirm">¿Quies reaniciar nel mou seguru?
+         Esto desactivará toles aplicaciones de terceros qu\'instalares.
+         Restauraránse cuando reanicies de nueves.</string>
   <!-- Recent Tasks dialog: title
      TODO: this should move to SystemUI.apk, but the code for the old
             recent dialog is still in the framework
@@ -287,6 +328,7 @@
   <!-- label for item that locks the phone in the phone options dialog -->
   <string name="global_action_lock">Bloquéu de pantalla</string>
   <!-- label for item that turns off power in phone options dialog -->
+  <string name="global_action_power_off">Apagar</string>
   <!-- label for item that restarts phone in phone options dialog -->
   <!-- TODO: promote to separate string-->
   <!-- label for item that starts emergency call -->
@@ -295,6 +337,10 @@
   <!-- Take bug report menu title [CHAR LIMIT=NONE] -->
   <!-- Message in bugreport dialog describing what it does [CHAR LIMIT=NONE] -->
   <!-- TODO: remove if not used anymore -->
+  <string name="bugreport_message">Esto recoyerá información tocante al
+        estáu actual del preséu pa unvialu como mensaxe de corréu. Entardará
+        daque dende que se tresna l\'informe de fallu fasta que s\'unvia. Ten
+        paciencia, por favor.</string>
   <!-- Title in the bugreport dialog for the interactive workflow. Should fit in one line. [CHAR LIMIT=30] -->
   <string name="bugreport_option_interactive_title">Informe interautivu</string>
   <!-- Summary in the bugreport dialog for the interactive workflow. [CHAR LIMIT=NONE] -->
@@ -304,8 +350,11 @@
   <!--  Toast message informing user in how many seconds a bugreport screenshot will be taken -->
   <!-- Format for build summary info [CHAR LIMIT=NONE] -->
   <!-- label for item that enables silent mode in phone options dialog -->
+  <string name="global_action_toggle_silent_mode">Mou silenciu</string>
   <!-- status message in phone options dialog for when silent mode is enabled -->
+  <string name="global_action_silent_mode_on_status">El soniu ta DESACTIVÁU</string>
   <!-- status message in phone options dialog for when silent mode is disabled -->
+  <string name="global_action_silent_mode_off_status">El soníu ta ACTIVÁU</string>
   <!-- label for item that toggles airplane mode -->
   <string name="global_actions_toggle_airplane_mode">Mou avión</string>
   <!-- status message in phone options dialog for when airplane mode is on -->
@@ -315,22 +364,27 @@
   <!-- label for item that launches settings in phone options dialog [CHAR LIMIT=15]-->
   <string name="global_action_settings">Axustes</string>
   <!-- label for item that launches assist in phone options dialog [CHAR LIMIT=15]-->
+  <string name="global_action_assist">Asistencia</string>
   <!-- label for item that launches voice assist in phone options dialog [CHAR LIMIT=15]-->
   <!-- label for item that locks the phone and enforces that it can't be unlocked without entering a credential. [CHAR LIMIT=15] -->
+  <string name="global_action_lockdown">Bloquiar agora</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated. May need to be localized
          for most appropriate textual indicator of "more than X".
          [CHAR LIMIT=4] -->
+  <string name="status_bar_notification_info_overflow">999+</string>
   <!-- The divider symbol between different parts of the notification header. not translatable [CHAR LIMIT=1] -->
   <!-- Text shown in place of notification contents when the notification is hidden on a secure lockscreen -->
   <!-- Text shown in place of notification contents when the notification is hidden by policy on a secure lockscreen -->
   <!-- Displayed to the user to tell them that they have started up the phone in "safe mode" -->
   <string name="safeMode">Mou seguru</string>
   <!-- Label for the Android system components when they are shown to the user. -->
+  <string name="android_system_label">Sistema Android</string>
   <!-- Label for the user owner in the intent forwarding app. -->
   <!-- Label for a corporate profile in the intent forwarding app. -->
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgrouplab_contacts">Contautos</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_location">Allugamientu</string>
@@ -343,10 +397,12 @@
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_sms">SMS</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgrouplab_storage">Almacenamientu</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of a category of application permissioncds, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_microphone">Micrófonu</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgroupdesc_microphone">grabar audiu</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_camera">Cámara</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -374,14 +430,19 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_statusBarService">Permite que l\'aplicación tea na barra d\'estáu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can install application shortcuts
     in their Launcher -->
+  <string name="permlab_install_shortcut">instalar atayos</string>
   <!-- Description of an application permission, listed so the user can install application shortcuts
     in their Launcher -->
+  <string name="permdesc_install_shortcut">Permite qu\'una aplicación amieste atayos
+        a la pantalla d\'aniciu ensin intervención del usuariu.</string>
   <!-- Title of an application permission, listed so the user can uninstall application shortcuts
     in their Launcher -->
+  <string name="permlab_uninstall_shortcut">desinstalar atayos</string>
   <!-- Description of an application permission, listed so the user can install application shortcuts
     in their Launcher -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -395,6 +456,7 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_sendSms">unviar mensaxes SMS</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -421,6 +483,12 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_writeSettings">modificar los axustes del sistema</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_receiveBootCompleted">executase nel aniciu</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -431,14 +499,12 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_writeContacts">modificar/desaniciar los tos contautos</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_readCallLog">lleer el rexistru de llamaes</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -464,6 +530,37 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_modifyAudioSettings">camudar los tos axustes d\'audiu</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_recordAudio">grabar audiu</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_sim_communication">unviar comandos a la SIM</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_camera">facer semeyes y vídeos</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_vibrate">controlar la vibración</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_callPhone">llamar per teléfonu</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_wakeLock" product="tv">evitar que la TV se duerma</string>
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -471,33 +568,10 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_getAccounts">alcontrar cuentes nel preséu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -517,9 +591,11 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_bluetoothAdmin">activar Bluetooth</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_changeWimaxState">camudar l\'estáu de WiMAX</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -529,8 +605,10 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_manageFingerprint">xestionar hardware de buelgues</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_useFingerprint">Usar hardware de buelgues</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Message shown during fingerprint acquisision when the fingerprint cannot be recognized -->
   <!-- Message shown during fingerprint acquisision when the fingerprint cannot be recognized -->
@@ -568,6 +646,7 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. [CHAR LIMIT=30] -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_use_sip">facer/recibir llamaes SIP</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -584,6 +663,12 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_manageNetworkPolicy">xestionar política de rede</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_accessNotifications">acceder a los avisos</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -595,22 +680,21 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_accessDrmCertificates">acceder a certificaos DRM</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_handoverStatus">recibir estáu de tresferencies d\'Android Beam</string>
   <string name="permdesc_handoverStatus">Permite qu\'esta aplicación reciba información tocante a les tos tresferencies actuales d\'Android Beam</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_removeDrmCertificates">desaniciar certificaos DRM</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, for applications that wish to access notification policy. -->
+  <string name="permlab_access_notification_policy">Accesu a la función Nun molestar</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Policy administration -->
   <!-- Title of policy access to limiting the user's password choices -->
@@ -638,19 +722,53 @@
   <!-- Title of policy access to require encrypted storage [CHAR LIMIT=30]-->
   <!-- Description of policy access to require encrypted storage [CHAR LIMIT=110]-->
   <!-- Title of policy access to disable all device cameras [CHAR LIMIT=30]-->
+  <string name="policylab_disableCamera">Desactivar cámares</string>
   <!-- Description of policy access to disable all device cameras [CHAR LIMIT=110]-->
   <!-- Title of policy access to disable keyguard features [CHAR LIMIT=30]-->
   <!-- Description of policy access to disable keyguard features. [CHAR LIMIT=110]-->
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Phone number types from android.provider.Contacts. This could be used when adding a new phone number for a contact, for example. -->
+  <string-array name="phoneTypes">
+    <item>Casa</item>
+    <item>Móvil</item>
+    <item>Trabayu</item>
+    <item>Fax del trabayu</item>
+    <item>Fax de casa</item>
+    <item>Pager</item>
+    <item>Other</item>
+    <item>Custom</item>
+  </string-array>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Email address types from android.provider.Contacts. This could be used when adding a new e-mail address for a contact, for example. -->
+  <string-array name="emailAddressTypes">
+    <item>Casa</item>
+    <item>Trabayu</item>
+    <item>Other</item>
+    <item>Custom</item>
+  </string-array>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Postal address types from android.provider.Contacts. This could be used when adding a new address for a contact, for example. -->
+  <string-array name="postalAddressTypes">
+    <item>Casa</item>
+    <item>Trabayu</item>
+    <item>Other</item>
+    <item>Custom</item>
+  </string-array>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Instant Messenger ID types from android.provider.Contacts. This could be used when adding a new IM for a contact, for example. -->
+  <string-array name="imAddressTypes">
+    <item>Casa</item>
+    <item>Trabayu</item>
+    <item>Other</item>
+    <item>Custom</item>
+  </string-array>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Organization types from android.provider.Contacts. This could be used when adding a new organization for a contact, for example. -->
+  <string-array name="organizationTypes">
+    <item>Trabayu</item>
+    <item>Other</item>
+    <item>Custom</item>
+  </string-array>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Instant Message protocols/providers from android.provider.Contacts -->
   <string-array name="imProtocols">
@@ -665,10 +783,15 @@
   </string-array>
   <!-- Custom phone number type -->
   <!-- Home phone number type -->
+  <string name="phoneTypeHome">Casa</string>
   <!-- Mobile phone number type -->
+  <string name="phoneTypeMobile">Móvil</string>
   <!-- Work phone number type -->
+  <string name="phoneTypeWork">Trabayu</string>
   <!-- Work fax phone number type -->
+  <string name="phoneTypeFaxWork">Fax del trabayu</string>
   <!-- Home fax phone number type -->
+  <string name="phoneTypeFaxHome">Fax de casa</string>
   <!-- Pager phone number type -->
   <!-- Other phone number type -->
   <!-- Callback phone number type -->
@@ -679,6 +802,7 @@
   <string name="phoneTypeIsdn">RDSI</string>
   <!-- Main phone number type -->
   <!-- Other fax phone number type -->
+  <string name="phoneTypeOtherFax">Otru fax</string>
   <!-- Radio phone number type -->
   <!-- Telex phone number type -->
   <!-- TTY TDD phone number type -->
@@ -686,6 +810,7 @@
   <!-- Work mobile phone number type -->
   <!-- Work pager phone number type -->
   <!-- Assistant phone number type -->
+  <string name="phoneTypeAssistant">Asistente</string>
   <!-- MMS phone number type -->
   <string name="phoneTypeMms">MMS</string>
   <!-- Label for custom events  [CHAR LIMIT=20] -->
@@ -694,16 +819,23 @@
   <!-- Label for other events  [CHAR LIMIT=20] -->
   <!-- Custom email type -->
   <!-- Home email type -->
+  <string name="emailTypeHome">Casa</string>
   <!-- Work email type -->
+  <string name="emailTypeWork">Trabayu</string>
   <!-- Other email type -->
   <!-- Mobile email type -->
+  <string name="emailTypeMobile">Móvil</string>
   <!-- Custom postal address type -->
   <!-- Home postal address type -->
+  <string name="postalTypeHome">Casa</string>
   <!-- Work postal address type -->
+  <string name="postalTypeWork">Trabayu</string>
   <!-- Other postal address type -->
   <!-- Custom IM address type -->
   <!-- Home IM address type -->
+  <string name="imTypeHome">Casa</string>
   <!-- Work IM address type -->
+  <string name="imTypeWork">Trabayu</string>
   <!-- Other IM address type -->
   <!-- Custom IM protocol type -->
   <!-- AIM IM protocol type -->
@@ -725,12 +857,16 @@
   <!-- NetMeeting IM protocol type -->
   <string name="imProtocolNetMeeting">NetMeeting</string>
   <!-- Work organization type -->
+  <string name="orgTypeWork">Trabayu</string>
   <!-- Other organization type -->
   <!-- Custom organization type -->
   <!-- Custom relationship custom [CHAR LIMIT=20] -->
   <!-- Assistant relationship type [CHAR LIMIT=20] -->
+  <string name="relationTypeAssistant">Asistente</string>
   <!-- Brother relationship type [CHAR LIMIT=20] -->
+  <string name="relationTypeBrother">Hermanu</string>
   <!-- Child relationship type [CHAR LIMIT=20] -->
+  <string name="relationTypeChild">Fíu/a</string>
   <!-- Domestic Partner relationship type [CHAR LIMIT=20] -->
   <string name="relationTypeDomesticPartner">Pareya de fechu</string>
   <!-- Father relationship type [CHAR LIMIT=20] -->
@@ -751,7 +887,9 @@
   <!-- Spouse relationship type [CHAR LIMIT=20] -->
   <!-- Custom SIP address type. Same context as Custom phone type.  -->
   <!-- Home SIP address type. Same context as Home phone type. -->
+  <string name="sipAddressTypeHome">Casa</string>
   <!-- Work SIP address type. Same context as Work phone type. -->
+  <string name="sipAddressTypeWork">Trabayu</string>
   <!-- Other SIP address type. Same context as Other phone type. -->
   <!-- Error message that is displayed when the user clicks on a quick contacts badge, but
          there is no contacts application installed that can display the quick contact -->
@@ -776,6 +914,7 @@
        *** touch based lock / unlock ***
                                           -->
   <!-- On the keyguard screen, it shows the carrier the phone is connected to.  This is displayed if the phone is not connected to a carrier.-->
+  <string name="lockscreen_carrier_default">Ensin serviciu</string>
   <!-- Shown in the lock screen to tell the user that the screen is locked. -->
   <!-- when pattern lock is enabled, tell them about the emergency dial -->
   <!-- On the keyguard screen, when pattern lock is disabled, only tell them to press menu to unlock.  This is shown in small font at the bottom. -->
@@ -792,10 +931,15 @@
   <!-- On the keyguard screen, this string explains that some features or data may not be available until the device is unlocked. [CHAR LIMIT=48] -->
   <!-- Shown when face unlock failed multiple times so we're just using the backup -->
   <!-- Shown in the lock screen when there is no SIM card. -->
+  <string name="lockscreen_missing_sim_message_short">Nun hai tarxeta SIM</string>
   <!-- Shown in the lock screen when there is no SIM card. -->
+  <string name="lockscreen_missing_sim_message" product="tablet">Nun hai tarxeta SIM na tableta.</string>
   <!-- Shown in the lock screen when there is no SIM card. -->
+  <string name="lockscreen_missing_sim_message" product="tv">Nun hai tarxeta SIM na TV.</string>
   <!-- Shown in the lock screen when there is no SIM card. -->
+  <string name="lockscreen_missing_sim_message" product="default">Nun hai tarxeta SIM nel teléfonu.</string>
   <!-- Shown in the lock screen to ask the user to insert a SIM card. -->
+  <string name="lockscreen_missing_sim_instructions">Inxerta una tarxeta SIM.</string>
   <!-- Shown in the lock screen to ask the user to insert a SIM card when sim is missing or not readable. -->
   <!-- Shown in the lock screen when SIM card is permanently disabled. -->
   <!-- Shown in the lock screen to inform the user to SIM card is permanently disabled. -->
@@ -825,6 +969,7 @@
   <!-- For the unlock screen, When the user enters a sim unlock code, it takes a little while to check
          whether it is valid, and to unlock the sim if it is valid.  we display a
          progress dialog in the meantime.  this is the emssage. -->
+  <string name="lockscreen_sim_unlock_progress_dialog_message">Desbloquiando tarxeta SIM\u2026</string>
   <!-- For the unlock screen, Information message shown in dialog when user has too many failed attempts at
          drawing the unlock pattern -->
   <!-- For the unlock screen, Information message shown in dialog when user has too many failed attempts at
@@ -879,7 +1024,9 @@
     actual cell when headphones are connected [CHAR LIMIT=NONE]  -->
   <!-- Accessibility description sent when user completes drawing a pattern. [CHAR LIMIT=NONE] -->
   <!-- Accessibility description of the unlock pattern area. [CHAR_LIMIT=none] -->
+  <string name="lockscreen_access_pattern_area" msgid="">Área del patrón.</string>
   <!-- Accessibility description sent when user changes the current lock screen widget. [CHAR_LIMIT=none] -->
+  <string name="keyguard_accessibility_widget_changed">%1$s. Widget %2$d de %3$d.</string>
   <!-- Accessibility description of the add widget button. [CHAR_LIMIT=none] -->
   <string name="keyguard_accessibility_add_widget">Amestar widget.</string>
   <!-- Accessibility description of the empty sidget slot (place holder for a new widget). [CHAR_LIMIT=none] -->
@@ -887,6 +1034,7 @@
   <!-- Accessibility description of the event of collapsing an unlock area. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of a lock screen widget. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the lock screen user selector widget. [CHAR_LIMIT=none] -->
+  <string name="keyguard_accessibility_user_selector">Seleutor d\'usuarios</string>
   <!-- Accessibility description of the lock screen status widget. [CHAR_LIMIT=none] -->
   <string name="keyguard_accessibility_status">Estáu</string>
   <!-- Accessibility description of the camera widget. [CHAR_LIMIT=none] -->
@@ -902,16 +1050,23 @@
   <!-- Accessibility description of the pin lock. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the password lock. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the unlock pattern area. [CHAR_LIMIT=none] -->
+  <string name="keyguard_accessibility_pattern_area">Área de patrón.</string>
   <!-- Accessibility description of the unlock slide area. [CHAR_LIMIT=none] -->
+  <string name="keyguard_accessibility_slide_area">Área pa eslizar.</string>
   <!-- Password keyboard strings. Used by LockScreen and Settings -->
   <!-- Label for "switch to symbols" key.  Must be short to fit on key! -->
   <string name="password_keyboard_label_symbol_key">\?123</string>
   <!-- Label for "switch to alphabetic" key.  Must be short to fit on key! -->
+  <string name="password_keyboard_label_alpha_key">ABC</string>
   <!-- Label for ALT modifier key.  Must be short to fit on key! -->
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by character. Only spoken to the user. [CHAR LIMIT=NONE] -->
+  <string name="granularity_label_character">caráuter</string>
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by word. Only spoken to the user. [CHAR LIMIT=NONE] -->
+  <string name="granularity_label_word">pallabra</string>
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by link. Only spoken to the user. [CHAR LIMIT=NONE] -->
+  <string name="granularity_label_link">enllaz</string>
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by line. Only spoken to the user. [CHAR LIMIT=NONE] -->
+  <string name="granularity_label_line">llinia</string>
   <!-- Title of the alert when something went wrong in the factory test. -->
   <!-- Error message displayed when a non-system application tries to start a factory test. -->
   <!-- Error message displayed when the factory test could not be started. -->
@@ -929,9 +1084,12 @@
   <!-- Text for the negative button on the unload javascript dialog -->
   <!-- Message in a javascript dialog asking if the user wishes to leave the current page -->
   <!-- Title of the WebView save password dialog.  If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. -->
+  <string name="save_password_label">Confirmar</string>
   <!-- Toast for double-tap -->
   <!-- Text to show in the auto complete drop down list on a text view when the WebView can auto fill the entire form, and the user has configured an AutoFill profile [CHAR-LIMIT=8] -->
+  <string name="autofill_this_form">Autocompletáu</string>
   <!-- Text to show in the auto complete drop down list on a text view when the WebView can auto fill the entire form but the user has not configured an AutoFill profile [CHAR-LIMIT=19] -->
+  <string name="setup_autofill">Configurar autocompletáu</string>
   <!-- String used to separate FirstName and LastName when writing out a local name
          e.g. John<separator>Smith [CHAR-LIMIT=NONE]-->
   <string name="autofill_address_name_separator">\u0020</string>
@@ -1056,6 +1214,7 @@
         they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
+  <string name="permlab_writeHistoryBookmarks">escribir nel historial y nos marcadores web</string>
   <!-- Description of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether
@@ -1064,17 +1223,20 @@
         they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether
     they want to allow the application to do this. -->
+  <string name="permlab_setAlarm">afitar una alarma</string>
   <!-- Description of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether
         they want to allow the application to do this. [CHAR LIMIT=NONE] -->
   <!-- Description of an application permission, listed so the user can choose whether
         they want to allow the application to do this. [CHAR LIMIT=NONE] -->
+  <string name="permdesc_addVoicemail">Permite que l\'aplicación amieste mensaxes a la bandexa d\'entrada del to buzón de voz.</string>
   <!-- Title of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
   <!-- If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. Text in the save password dialog, asking if the browser should remember a password. -->
+  <string name="save_password_message">¿Quies que\'l restolador web recuerde esta contraseña?</string>
   <!-- If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. Button in the save password dialog, saying not to remember this password. -->
   <string name="save_password_notnow">Agora non</string>
   <!-- If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. Button in the save password dialog, saying to remember this password. -->
@@ -1113,12 +1275,17 @@
   <!-- String used to display the date. This is the string to say something happened 1 month ago. -->
   <string name="oneMonthDurationPast">Hai un mes</string>
   <!-- String used to display the date. This is the string to say something happened more than 1 month ago. -->
+  <string name="beforeOneMonthDurationPast">Hai enantes d\'un mes</string>
   <!-- This is used to express that something occurred within the last X days (e.g., Last 7 days). -->
   <!-- This is used to express that something has occurred within the last month -->
+  <string name="last_month">El mes pasáu</string>
   <!-- This is used to express that something happened longer ago than the previous options -->
   <!-- String used to display the date. Preposition for date display ("on May 29") -->
+  <string name="preposition_for_date">el <xliff:g id="date" example="May 29">%s</xliff:g></string>
   <!-- String used to display the date. Preposition for time display ("at 2:33am") -->
+  <string name="preposition_for_time">a les <xliff:g id="time" example="2:33 am">%s</xliff:g></string>
   <!-- String used to display the date. Preposition for year display ("in 2008") -->
+  <string name="preposition_for_year">de <xliff:g id="year" example="2003">%s</xliff:g></string>
   <!-- Appened to express the value is this unit of time: singular day -->
   <string name="day">día</string>
   <!-- Appened to express the value is this unit of time: plural days -->
@@ -1149,12 +1316,17 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g> segundos</item>
   </plurals>
   <!-- Phrase describing a time duration using minutes [CHAR LIMIT=16] -->
+  <plurals name="duration_minutes">
+    <item quantity="one">1 minutu</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> minutos</item>
+  </plurals>
   <!-- Phrase describing a time duration using hours [CHAR LIMIT=16] -->
   <plurals name="duration_hours">
     <item quantity="one">1 hora</item>
     <item quantity="other"><xliff:g id="count">%d</xliff:g> hores</item>
   </plurals>
   <!-- A string denoting the current point in time that should be as short as possible. Abbreviations are preferred to full strings as this might be shown repetitively. It is used in the header of notifications. [CHAR LIMIT=8]-->
+  <string name="now_string_shortest">agora</string>
   <!-- Phrase describing a time duration using minutes that is as short as possible, preferrably one character. If the language needs a space in between the integer and the unit, please also integrate it in the string, but preferably it should not have a space in between.[CHAR LIMIT=6] -->
   <plurals name="duration_minutes_shortest">
     <item quantity="one"><xliff:g example="1" id="count">%d</xliff:g>m</item>
@@ -1221,8 +1393,20 @@
     <item quantity="other">en <xliff:g example="1" id="count">%d</xliff:g> minutos</item>
   </plurals>
   <!-- Phrase describing a relative time using hours that is not shown on the screen but used for accessibility. This version should be a future point in time. [CHAR LIMIT=NONE] -->
+  <plurals name="duration_hours_relative_future">
+    <item quantity="one">en <xliff:g example="1" id="count">%d</xliff:g> hora</item>
+    <item quantity="other">en <xliff:g example="1" id="count">%d</xliff:g> hores</item>
+  </plurals>
   <!-- Phrase describing a relative time using days that is not shown on the screen but used for accessibility. This version should be a future point in time. [CHAR LIMIT=NONE] -->
+  <plurals name="duration_days_relative_future">
+    <item quantity="one">en <xliff:g example="1" id="count">%d</xliff:g> día</item>
+    <item quantity="other">en <xliff:g example="1" id="count">%d</xliff:g> díes</item>
+  </plurals>
   <!-- Phrase describing a relative time using years that is not shown on the screen but used for accessibility. This version should be a future point in time. [CHAR LIMIT=NONE] -->
+  <plurals name="duration_years_relative_future">
+    <item quantity="one">en <xliff:g example="2" id="count">%d</xliff:g> añu</item>
+    <item quantity="other">en <xliff:g example="2" id="count">%d</xliff:g> años</item>
+  </plurals>
   <!-- Title for error alert when a video cannot be played.  it can be used by any app. -->
   <!-- Text for error alert when a video container is not valid for progressive download/playback. -->
   <!-- Text for error alert when a video cannot be played. it can be used by any app. -->
@@ -1233,11 +1417,17 @@
          Example: "4 hours ago, 11:00 am" -->
   <string name="relative_time">"<xliff:g id="date" example="4 hours ago">%1$s</xliff:g>, <xliff:g id="time" example="11:00 am">%2$s</xliff:g>"</string>
   <!-- Quoted name for 12pm, lowercase -->
+  <string name="noon">"meudía"</string>
   <!-- Quoted name for 12pm, uppercase first letter -->
+  <string name="Noon">"Meudía"</string>
   <!-- Quoted name for 12am, lowercase -->
+  <string name="midnight">"medianueche"</string>
   <!-- Quoted name for 12am, uppercase first letter -->
+  <string name="Midnight">"Medianueche"</string>
   <!-- Format string for durations like "01:23" (1 minute, 23 seconds) -->
+  <string name="elapsed_time_short_format_mm_ss"><xliff:g id="minutes" example="1">%1$02d</xliff:g>:<xliff:g id="seconds" example="23">%2$02d</xliff:g></string>
   <!-- Format string for times like "1:43:33" (1 hour, 43 minutes, 33 seconds) -->
+  <string name="elapsed_time_short_format_h_mm_ss"><xliff:g id="hours" example="1">%1$d</xliff:g>:<xliff:g id="minutes" example="43">%2$02d</xliff:g>:<xliff:g id="seconds" example="33">%3$02d</xliff:g></string>
   <!-- Item on EditText context menu. This action is used to select all text in the edit field. -->
   <string name="selectAll">Esbillar too</string>
   <!-- Item on EditText context menu.  This action is used to cut selected the text into the clipboard.  -->
@@ -1256,7 +1446,9 @@
   <!-- Item on EditText context menu. Added only when the context menu is not empty, it enable selection context mode. [CHAR LIMIT=20] -->
   <string name="selectTextMode">Esbillar testu</string>
   <!-- Item on EditText context menu. This action is used to undo a text edit operation. -->
+  <string name="undo">Desfacer</string>
   <!-- Item on EditText context menu. This action is used to redo a text edit operation. -->
+  <string name="redo">Refacer</string>
   <!-- Text selection contextual mode title, displayed in the CAB. [CHAR LIMIT=20] -->
   <string name="textSelectionCABTitle">Esbilla de testu</string>
   <!-- Option to add the current misspelled word to the user dictionary. [CHAR LIMIT=25] -->
@@ -1274,6 +1466,8 @@
          a bad bad notification for itself. -->
   <!-- [CHAR LIMIT=NONE] Stub notification text for an app running a service that has provided
          a bad bad notification for itself. -->
+  <string name="app_running_notification_text">Calca pa más información
+        o pa parar l\'aplicación.</string>
   <!-- Preference framework strings. -->
   <string name="ok">Aceutar</string>
   <!-- Preference framework strings. -->
@@ -1289,23 +1483,30 @@
   <!-- Text shown by list fragment when waiting for data to display. -->
   <string name="loading">Cargando\u2026</string>
   <!-- Default text for a button that can be toggled on and off. -->
+  <string name="capital_on">SÍ</string>
   <!-- Default text for a button that can be toggled on and off. -->
+  <string name="capital_off">NON</string>
   <!-- Title of intent resolver dialog when selecting an application to run. -->
+  <string name="whichApplication">Completar aición usando</string>
   <!-- Title of intent resolver dialog when selecting an application to run
          and a previously used application is known. -->
+  <string name="whichApplicationNamed">Completar aición usando %1$s</string>
   <!-- Generic label for a link to a intent resolver. -->
+  <string name="whichApplicationLabel">Completar aición</string>
   <!-- Title of intent resolver dialog when selecting a viewer application to run. -->
   <string name="whichViewApplication">Abrir con</string>
   <!-- Title of intent resolver dialog when selecting a viewer application to run
          and a previously used application is known. -->
   <string name="whichViewApplicationNamed">Abrir con %1$s</string>
   <!-- Label for a link to a intent resolver dialog to view something -->
+  <string name="whichViewApplicationLabel">Abrir</string>
   <!-- Title of intent resolver dialog when selecting an editor application to run. -->
   <string name="whichEditApplication">Editar con</string>
   <!-- Title of intent resolver dialog when selecting an editor application to run
          and a previously used application is known. -->
   <string name="whichEditApplicationNamed">Editar con %1$s</string>
   <!-- Label for a link to a intent resolver dialog when selecting an editor application -->
+  <string name="whichEditApplicationLabel">Editar</string>
   <!-- Title of intent resolver dialog when selecting a sharing application to run. -->
   <string name="whichSendApplication">Compartir con</string>
   <!-- Title of intent resolver dialog when selecting a sharing application to run
@@ -1315,39 +1516,56 @@
   <string name="whichSendApplicationLabel">Compartir</string>
   <!-- Title of intent resolver dialog when selecting an application to run to
          send content to a specific recipient. Often used for email. -->
+  <string name="whichSendToApplication">Unviar usando</string>
   <!-- Title of intent resolver dialog when selecting an application to run to
          send content to a specific recipient and a previously used application is known.
          Often used for email. -->
+  <string name="whichSendToApplicationNamed">Unviar usando %1$s</string>
   <!-- Label for a link to a intent resolver dialog to send content to a specific recipient. -->
   <string name="whichSendToApplicationLabel">Unviar</string>
   <!-- Title of intent resolver dialog when selecting a HOME application to run. -->
   <!-- Title of intent resolver dialog when selecting a HOME application to run
          and a previously used application is known. -->
+  <string name="whichHomeApplicationNamed">Usar %1$s como Aniciu</string>
   <!-- Label for a link to a intent resolver dialog when selecting a HOME -->
+  <string name="whichHomeApplicationLabel">Capturar imaxe</string>
   <!-- Option to always use the selected application resolution in the future. See the "Complete action using" dialog title-->
   <!-- Title of intent resolver dialog when capturing an image. -->
+  <string name="whichImageCaptureApplication">Capturar imaxe con</string>
   <!-- Title of intent resolver dialog when capturing an image
          and a previously used application is known. -->
+  <string name="whichImageCaptureApplicationNamed">Capturar imaxe con %1$s</string>
   <!-- Label for a link to a intent resolver dialog when capturing an image -->
+  <string name="whichImageCaptureApplicationLabel">Capturar imaxe</string>
   <!-- Option to always use the selected application resolution in the future. See the "Complete action using" dialog title-->
   <!-- Title of the list of alternate options to complete an action shown when the
          last used option is being displayed separately. -->
   <!-- Text displayed when the user selects the check box for setting default application.  See the "Use by default for this action" check box. -->
   <!-- Default title for the activity chooser, when one is not given. Android allows multiple activities to perform an action.  for example, there may be many ringtone pickers installed.  A dialog is shown to the user allowing him to pick which activity should be used.  This is the title. -->
+  <string name="chooseActivity">Escueyi una aición</string>
   <!-- title for the USB activity chooser. -->
   <!-- Text to display when there are no activities found to display in the
          activity chooser. See the "Select an action" title. -->
   <string name="noApplications">Denguna aplicación pue facer esta aición.</string>
   <!-- Text of the alert that is displayed when an application has crashed. -->
+  <string name="aerr_application"><xliff:g id="application">%1$s</xliff:g> paró</string>
   <!-- Text of the alert that is displayed when a process has crashed. -->
+  <string name="aerr_process"><xliff:g id="process">%1$s</xliff:g> paró</string>
   <!-- Text of the alert that is displayed when an application has crashed repeatedly. -->
+  <string name="aerr_application_repeated"><xliff:g id="application">%1$s</xliff:g> sigue paráu</string>
   <!-- Text of the alert that is displayed when a process has crashed repeatedly. -->
+  <string name="aerr_process_repeated"><xliff:g id="process">%1$s</xliff:g> sigue paráu</string>
   <!-- Button that restarts a crashed application -->
+  <string name="aerr_restart">Volver abrir</string>
   <!-- Button that sends feedback about a crashed application -->
+  <string name="aerr_report">Unviar feedback</string>
   <!-- Button that closes a crashed application -->
+  <string name="aerr_close">Zarrar</string>
   <!-- Button that mutes further crashes of the crashed application. Note that this only appears on engineering builds. -->
   <!-- Button that waits a bit more for an unresponsive app -->
+  <string name="aerr_wait">Esperar</string>
   <!-- Button that closes an unresponsive application -->
+  <string name="aerr_close_app">Zarrar aplicación</string>
   <!-- Title of the alert when an application is not responding. -->
   <!-- Text of the alert that is displayed when an application is not responding. -->
   <string name="anr_activity_application"><xliff:g id="application">%2$s</xliff:g> nun ta respondiendo</string>
@@ -1360,7 +1578,9 @@
   <!-- Button allowing the user to close an application that is not responding. This will kill the application. -->
   <string name="force_close">Aceutar</string>
   <!-- Button allowing the user to send a bug report for application which has encountered an error. -->
+  <string name="report">Informar</string>
   <!-- Button allowing the user to choose to wait for an application that is not responding to become responsive again. -->
+  <string name="wait">Esperar</string>
   <!-- Text of the alert that is displayed when a web page is not responding. [CHAR-LIMIT=NONE] -->
   <!-- [CHAR LIMIT=25] Title of the alert when application launches on top of another. -->
   <!-- [CHAR LIMIT=50] Title of the alert when application launches on top of another. -->
@@ -1390,15 +1610,22 @@
         <xliff:g id="number" example="123">%1$d</xliff:g> de
         <xliff:g id="number" example="123">%2$d</xliff:g>.</string>
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog for each .apk pre boot broadcast -->
+  <string name="android_preparing_apk">Tresnando <xliff:g id="appname">%1$s</xliff:g>.</string>
   <!-- [CHAR LIMIT=NONE] Message to show in upgrading dialog when reached the point of starting apps. -->
   <string name="android_upgrading_starting_apps">Aniciando aplicaciones.</string>
   <!-- [CHAR LIMIT=NONE] Message to show in upgrading dialog when the bulk of the upgrade work is done. -->
   <string name="android_upgrading_complete">Finando arranque.</string>
   <!-- Notification text to tell the user that a heavy-weight application is running. -->
+  <string name="heavy_weight_notification"><xliff:g id="app">%1$s</xliff:g> n\'execución</string>
   <!-- Notification details to tell the user that a heavy-weight application is running. -->
+  <string name="heavy_weight_notification_detail">Calca pa camudar d\'aplicación</string>
   <!-- Title of dialog prompting whether user wants to switch between heavy-weight apps. -->
   <!-- Descriptive text for switching to a new heavy-weight application. -->
+  <string name="heavy_weight_switcher_text">Yá hai otra aplicación n\'execución
+    qu\'ha parase enantes d\'aniciar una nueva.</string>
   <!-- Notification text to tell the user that a process has exceeded its memory limit. -->
+  <string name="dump_heap_notification"><xliff:g id="proc">%1$s</xliff:g> perpasó la llende de
+        memoria</string>
   <!-- Notification details to tell the user that a process has exceeded its memory limit. -->
   <!-- Title of dialog prompting the user to share a heap dump. -->
   <!-- Text of dialog prompting the user to share a heap dump. -->
@@ -1407,20 +1634,26 @@
          text through SMS or IM.  A dialog with those choices would be shown,
          and this would be the title. -->
   <!-- Title of the dialog where the user is adjusting the phone ringer volume -->
+  <string name="volume_ringtone">Volume del timbre</string>
   <!-- Title of the dialog where the user is adjusting the music volume -->
   <!-- Hint shown in the volume toast to inform the user that the media audio is playing through Bluetooth. -->
+  <string name="volume_music_hint_playing_through_bluetooth">Reproduciendo pente Bluetooth</string>
   <!-- Hint shown in the volume toast to inform the user that the current ringtone is the silent ringtone. -->
   <!-- Title of the dialog where the user is adjusting the phone call volume -->
   <!-- Title of the dialog where the user is adjusting the phone call volume when connected on bluetooth-->
   <!-- Title of the dialog where the user is adjusting the audio volume for alarms -->
+  <string name="volume_alarm">Volume d\'alarma</string>
   <!-- Title of the dialog where the user is adjusting the audio volume for notifications -->
+  <string name="volume_notification">Volume d\'avisos</string>
   <!-- Title of the dialog where the user is adjusting the general audio volume -->
   <string name="volume_unknown">Volume</string>
   <!-- Content description for bluetooth volume icon [CHAR LIMIT=100] -->
+  <string name="volume_icon_description_bluetooth">Volume Bluetooth</string>
   <!-- Content description for ringer volume icon [CHAR LIMIT=100] -->
   <string name="volume_icon_description_ringer">Volume del timbre</string>
   <!-- Content description for in-call volume icon [CHAR LIMIT=100] -->
   <!-- Content description for media volume icon [CHAR LIMIT=100] -->
+  <string name="volume_icon_description_media">Volume de medios</string>
   <!-- Content description for notification volume icon [CHAR LIMIT=100] -->
   <!-- Ringtone picker strings -->
   <!-- Choice in the ringtone picker.  If chosen, the default ringtone will be used. -->
@@ -1447,12 +1680,22 @@
   <!-- A notification is shown when the user connects to a Wi-Fi network and the system detects that that network has no Internet access. This is the notification's title. -->
   <string name="wifi_no_internet">La Wi-Fi nun tien accesu a Internet</string>
   <!-- A notification is shown when the user connects to a Wi-Fi network and the system detects that that network has no Internet access. This is the notification's message. -->
+  <string name="wifi_no_internet_detailed">Calca pa opciones</string>
   <!-- A notification might be shown if the device switches to another network type (e.g., cellular data) because it detects that the network it was using (e.g., Wi-Fi) has lost Internet connectivity. This is the notification's title. %1$s is the network type that the device switched to, e.g., cellular data. It is one of the strings in the network_switch_type_name array. -->
   <!-- A notification might be shown if the device switches to another network type (e.g., cellular data) because it detects that the network it was using (e.g., Wi-Fi) has lost Internet connectivity. This is the notification's message. %1$s is the network that the device switched to, e.g., cellular data. %2$s is the network type the device switched from, e.g., Wi-Fi. Both are strings in the network_switch_type_name array. -->
   <!-- A toast might be shown if the device switches to another network type (e.g., cellular data) because it detects that the network it was using (e.g., Wi-Fi) has lost Internet connectivity. This is the text of the toast. %1$s is the network that the device switched from, e.g., Wi-Fi. %2$s is the network type the device switched from, e.g., cellular data. Both are strings in the network_switch_type_name array. -->
   <!-- Network type names used in the network_switch_metered and network_switch_metered_detail strings. These must be kept in the sync with the values NetworkCapabilities.TRANSPORT_xxx values, and in the same order. -->
+  <string-array name="network_switch_type_name">
+    <item>cellular data</item>
+    <item>Wi-Fi</item>
+    <item>Bluetooth</item>
+    <item>Ethernet</item>
+    <item>VPN</item>
+  </string-array>
   <!-- Network type name displayed if one of the types is not found in network_switch_type_name. -->
+  <string name="network_switch_type_name_unknown">un triba desconocida de rede</string>
   <!-- A notification is shown when a user's selected SSID is later disabled due to connectivity problems.  This is the notification's title / ticker. -->
+  <string name="wifi_watchdog_network_disabled">Nun pudo coneutase a la Wi-Fi</string>
   <!-- A notification is shown when a user's selected SSID is later disabled due to connectivity problems.  The complete alert msg is: <hotspot name> + this string, i.e. "Linksys has a poor internet connection" -->
   <!-- Do not translate. Default access point SSID used for tethering -->
   <!-- A notification is shown the first time a connection is attempted on an app owned AP -->
@@ -1467,10 +1710,12 @@
   <string name="accept">Aceutar</string>
   <string name="decline">Refugar</string>
   <string name="wifi_p2p_from_message">De:</string>
+  <string name="wifi_p2p_enter_pin_message">Teclexa\'l PIN riquíu: </string>
   <string name="wifi_p2p_show_pin_message">PIN:</string>
   <!-- Name of the dialog that lets the user choose an accented character to insert -->
   <!-- SMS per-application rate control Dialog -->
   <!-- SMS_DIALOG: An SMS dialog is shown if an application tries to send too many SMSes.  This is the title of that dialog. -->
+  <string name="sms_control_title">Unviando mensaxes SMS</string>
   <!-- See SMS_DIALOG.  This is the message shown in that dialog. [CHAR LIMIT=NONE] -->
   <!-- See SMS_DIALOG.  This is a button choice to allow sending the SMSes. [CHAR LIMIT=30] -->
   <string name="sms_control_yes">Permitir</string>
@@ -1500,7 +1745,10 @@
   <!-- See SIM_ADDED_DIALOG.  This is the button of that dialog. -->
   <!-- See Carrier_App_Dialog. This is the message of that dialog. -->
   <!-- See Carrier_App_Dialog. This is the button of that dialog. -->
+  <string name="carrier_app_dialog_not_now">AGORA NON</string>
   <!-- See carrier_app_notification. This is the headline. -->
+  <string name="carrier_app_notification_title">Inxertóse SIM nueva</string>
+  <string name="carrier_app_notification_text">Calca pa configurala</string>
   <!-- Date/Time picker dialogs strings -->
   <!-- The title of the time picker dialog. [CHAR LIMIT=NONE] -->
   <string name="time_picker_dialog_title">Afitar hora</string>
@@ -1519,6 +1767,7 @@
   <!-- Dialog ok button-->
   <string name="dlg_ok">Aceutar</string>
   <!-- USB_PREFERENCES: Notification for when the user connected to the charger only.  This is the title -->
+  <string name="usb_charging_notification_title">Cargando esti preséu per USB</string>
   <!-- USB_PREFERENCES: Notification for when the user connects the phone to supply power to attached device.  This is the title -->
   <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in MTP mode.  This is the title -->
   <string name="usb_mtp_notification_title">USB pa tresferir ficheros</string>
@@ -1528,13 +1777,18 @@
   <string name="usb_midi_notification_title">USB pa MIDI</string>
   <!-- USB_PREFERENCES: Notification for when a USB accessory is attached.  This is the title -->
   <!-- See USB_PREFERENCES. This is the message. -->
+  <string name="usb_notification_message">Calca pa más opciones.</string>
   <!-- Title of notification shown when ADB is actively connected to the phone. -->
   <!-- Message of notification shown when ADB is actively connected to the phone. -->
+  <string name="adb_active_notification_message">Calca pa desactivar la depuración USB.</string>
   <!-- Title of notification shown to indicate that bug report is being collected. -->
   <!-- Title of notification shown to ask for user consent for sharing a bugreport that was requested remotely by the IT administrator. -->
+  <string name="share_remote_bugreport_notification_title">¿Compatir informe de fallu?</string>
   <!-- Title of notification shown to indicate that bug report is still being collected after sharing was accepted. -->
+  <string name="sharing_remote_bugreport_notification_title">Compartiendo l\'informe de fallu\u2026</string>
   <!-- Message of a notification shown to ask for user consent for sharing a bugreport that was requested remotely by the IT administrator. -->
   <!-- Acceptance label of notification shown to ask for user consent for sharing the remote bugreport. -->
+  <string name="share_remote_bugreport_action">COMPARTIR</string>
   <!-- Decline label of notification shown to ask for user consent for sharing the remote bugreport. -->
   <!-- Used to replace %s in urls retreived from the signin server with locales.  For Some        -->
   <!-- devices we don't support all the locales we ship to and need to replace the '%s' with a    -->
@@ -1546,9 +1800,11 @@
   <!-- Summary text of a toggle switch to enable/disable use of the IME while a physical
          keyboard is connected -->
   <!-- Title of the physical keyboard category in the input method selector [CHAR LIMIT=30] -->
+  <string name="hardware">Amosar tecláu virtual</string>
   <!-- Title of the notification to prompt the user to configure physical keyboard settings. -->
   <!-- Message of the notification to prompt the user to configure physical keyboard settings
          where the user can associate language with physical keyboard layout. -->
+  <string name="select_keyboard_layout_notification_message">Calca pa esbillar la llingua y distribución</string>
   <string name="fast_scroll_alphabet">\u0020ABCDEFGHḤIJKLḶMNÑOPQRSTUVWXYZ</string>
   <string name="fast_scroll_numeric_alphabet">\u00200123456789ABCDEFGHḤIJKLḶMNOPQRSTUVWXYZ</string>
   <!-- External media notification strings -->
@@ -1597,7 +1853,9 @@
   <!-- Short summary of storage media status when formatting [CHAR LIMIT=32] -->
   <string name="ext_media_status_formatting">Formatiando\u2026</string>
   <!-- Short summary of storage media status when missing [CHAR LIMIT=32] -->
+  <string name="ext_media_status_missing">Nun s\'inxertó</string>
   <!-- Shown in LauncherActivity when the requested target Intent didn't return any matching Activities, leaving the list empty. -->
+  <string name="activity_list_empty">Nun s\'alcontraron actividaes que concasen.</string>
   <!-- Title of an application permission that lets an application route media output. -->
   <!-- Description of an application permission that lets an application route media output. -->
   <!-- Title of an application permission that lets it read install sessions. -->
@@ -1610,6 +1868,7 @@
   <string name="tutorial_double_tap_to_zoom_message_short">Calca dos vegaes pal control de zoom</string>
   <!-- Shown in gadget hosts (e.g. the home screen) when there was an error inflating
     the gadget. -->
+  <string name="gadget_host_error_inflating">Nun pudo amestase\'l widget.</string>
   <!-- Long label for a button on a full-screen input method for the "Go" action. -->
   <string name="ime_action_go">Dir</string>
   <!-- Long label for a button on a full-screen input method for the "Search" action. -->
@@ -1652,19 +1911,23 @@
   <string name="condition_provider_service_binding_label">Fornidor de condiciones</string>
   <!-- Label to show for a service that is running because it is observing and modifying the
          importance of the user's notifications. -->
+  <string name="notification_ranker_binding_label">Serviciu de clasificación d\'avisos</string>
   <!-- Do Not Translate: Alternate eri.xml -->
   <string name="alternate_eri_file">/data/eri.xml</string>
   <!-- The title of the notification when VPN is active. -->
   <!-- The title of the notification when VPN is active with an application name. -->
   <!-- The text of the notification when VPN is active. -->
+  <string name="vpn_text">Calca pa xestionar la rede.</string>
   <!-- The text of the notification when VPN is active with a session name. -->
   <!-- Notification title when connecting to lockdown VPN. -->
   <!-- Notification title when connected to lockdown VPN. -->
   <!-- Notification title when not connected to lockdown VPN. -->
   <!-- Notification title when error connecting to lockdown VPN. -->
   <!-- Notification body that indicates user can touch to configure lockdown VPN connection. -->
+  <string name="vpn_lockdown_config">Calca pa configurar</string>
   <!-- Localized strings for WebView -->
   <!-- Label for button in a WebView that will open a chooser to choose a file to upload -->
+  <string name="upload_file">Escoyer ficheru</string>
   <!-- Label for the file upload control when no file has been chosen yet -->
   <!-- Label for <input type="reset"> button in html -->
   <!-- Label for <input type="submit"> button in html -->
@@ -1673,6 +1936,7 @@
   <string name="car_mode_disable_notification_message">Calca pa colar del mou coche.</string>
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_message">Calca pa configurar.</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Atrás</string>
   <string name="next_button_label">Siguiente</string>
@@ -1693,13 +1957,16 @@
   <string name="action_mode_done">Listo</string>
   <!-- Strings for MasterClearReceiver. -->
   <!-- Text for progress dialog while erasing USB storage volume [CHAR LIMIT=NONE] -->
+  <string name="progress_erasing" product="nosdcard">Desaniciando almacenamientu USB\u2026</string>
   <!-- Text for progress dialog while erasing SD card [CHAR LIMIT=NONE] -->
+  <string name="progress_erasing" product="default">Desaniciando tarxeta SD\u2026</string>
   <!-- Text for WebView's text selection Action Mode -->
   <!-- ActionBar action to share the current selection [CHAR LIMIT=10] -->
   <string name="share">Compartir</string>
   <!-- ActionBar action to use the current selection to open the Find on page functionality [CHAR LIMIT=10]-->
   <string name="find">Alcontrar</string>
   <!-- ActionBar action to use the current selection to perform a web search [CHAR-LIMIT=16] -->
+  <string name="websearch">Gueta web</string>
   <!-- ActionBar action to find the next match in the page [CHAR LIMIT=24] -->
   <!-- ActionBar action to find the previous match in the page [CHAR LIMIT=24] -->
   <!-- Network positioning notification ticker. The name of the user (e.g. John Doe) who sent
@@ -1723,6 +1990,7 @@
   <!-- Dialog action for when there are too many deletes that would take place and we want user confirmation, and the user wants to do nothing for now -->
   <!-- Choose Account Activity label -->
   <!-- List item to add an account [CHAR LIMIT=20] -->
+  <string name="add_account_button_label">Amestar cuenta</string>
   <!-- NumberPicker - accessibility support -->
   <!-- Description of the button to increase the NumberPicker value. [CHAR LIMIT=NONE] -->
   <!-- Description of the button to decrease the NumberPicker value. [CHAR LIMIT=NONE] -->
@@ -1737,13 +2005,16 @@
   <!-- Description of the button to decrease the TimePicker's set AM value. [CHAR LIMIT=NONE] -->
   <!-- DatePicker - accessibility support -->
   <!-- Description of the button to increase the DatePicker's month value. [CHAR LIMIT=NONE] -->
+  <string name="date_picker_increment_month_button">Aumentar mes</string>
   <!-- Description of the button to decrease the DatePicker's month value. [CHAR LIMIT=NONE] -->
   <!-- Description of the button to increase the DatePicker's day value. [CHAR LIMIT=NONE] -->
   <!-- Description of the button to decrease the DatePicker's day value. [CHAR LIMIT=NONE] -->
   <!-- Description of the button to increase the DatePicker's year value. [CHAR LIMIT=NONE] -->
+  <string name="date_picker_increment_year_button">Aumentar añu</string>
   <!-- Description of the button to decrease the DatePicker's year value. [CHAR LIMIT=NONE] -->
   <!-- Description of the button to move to the previous month. [CHAR LIMIT=NONE] -->
   <!-- Description of the button to move to the next month. [CHAR LIMIT=NONE] -->
+  <string name="date_picker_next_month_button">Mes siguiente</string>
   <!-- KeyboardView - accessibility support -->
   <!-- Description of the Alt button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <string name="keyboardview_keycode_alt">Alt</string>
@@ -1761,6 +2032,7 @@
   <!-- ActivityChooserView - accessibility support -->
   <!-- Description of the shwoing of a popup window with activities to choose from. [CHAR LIMIT=NONE] -->
   <!-- Error message if the share target app cannto be launched. [CHAR LIMIT=NONE] -->
+  <string name="activitychooserview_choose_application_error">Nun pudo llanzase <xliff:g id="application_name" example="Acme">%s</xliff:g></string>
   <!-- ShareActionProvider - accessibility support -->
   <!-- Description of the choose target button in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] -->
   <string name="shareactionprovider_share_with">Compartir con</string>
@@ -1787,6 +2059,7 @@
          tapping/clicking the whole thing is going to do. -->
   <string name="action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
   <!-- Storage description for internal shared storage. [CHAR LIMIT=NONE] -->
+  <string name="storage_internal">Almacenamientu compartíu internu</string>
   <!-- Storage description for a generic SD card. [CHAR LIMIT=NONE] -->
   <string name="storage_sd_card">Tarxeta SD</string>
   <!-- Storage description for a SD card from a specific manufacturer. [CHAR LIMIT=NONE] -->
@@ -1796,8 +2069,11 @@
   <!-- Storage description for USB storage. [CHAR LIMIT=NONE] -->
   <string name="storage_usb">Almacenamientu USB</string>
   <!-- Button text for the edit menu in input method extract mode. [CHAR LIMIT=16] -->
+  <string name="extract_edit_menu_button">Editar</string>
   <!-- Notification title when data usage has exceeded warning threshold. [CHAR LIMIT=50] -->
+  <string name="data_usage_warning_title">Alerta d\'usu de datos</string>
   <!-- Notification body when data usage has exceeded warning threshold. [CHAR LIMIT=32] -->
+  <string name="data_usage_warning_body">Calca pa ver l\'usu y axustes.</string>
   <!-- Notification title when 2G-3G data usage has exceeded limit threshold, and has been disabled. [CHAR LIMIT=32] -->
   <string name="data_usage_3g_limit_title">Algamóse la llende de datos 2G-3G</string>
   <!-- Notification title when 4G data usage has exceeded limit threshold, and has been disabled. [CHAR LIMIT=32] -->
@@ -1814,6 +2090,7 @@
   <!-- Notification body when data usage has exceeded limit threshold. [CHAR LIMIT=32] -->
   <!-- Notification title when background data usage is limited. [CHAR LIMIT=32] -->
   <!-- Notification body when background data usage is limited. [CHAR LIMIT=32] -->
+  <string name="data_usage_restricted_body">Calca pa desaniciar la torga.</string>
   <!-- SSL Certificate dialogs -->
   <!-- Title for an SSL Certificate dialog -->
   <string name="ssl_certificate">Certificáu de seguranza</string>
@@ -1886,6 +2163,7 @@
   <string name="media_route_chooser_title">Coneutar a preséu</string>
   <!-- Title of the media route chooser dialog for selecting remote display routes. [CHAR LIMIT=40] -->
   <!-- Placeholder text to show when no devices have been found. [CHAR LIMIT=50] -->
+  <string name="media_route_chooser_searching">Guetando preseos\u2026</string>
   <!-- Button to access extended settings.  [CHAR LIMIT=30] -->
   <string name="media_route_chooser_extended_settings">Axustes</string>
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
@@ -2196,9 +2474,11 @@
   <!-- Notification shown when device owner silently deletes a package [CHAR LIMIT=NONE] -->
   <!-- [CHAR_LIMIT=NONE] Battery saver: Feature description -->
   <!-- [CHAR_LIMIT=NONE] Data saver: Feature description -->
+  <string name="data_saver_description">P\'amenorgar l\'usu de datos, l\'aforrador de datos evita que delles aplicaciones unvien o reciban datos de fondu. Les aplicaciones que teas usando puen acceder a los datos, pero igual menos davezu. Esto podría significar que les imáxenes nun s\'amuesen fasta que calques nelles.</string>
   <!-- [CHAR_LIMIT=35] Data saver: Title on first-time dialog -->
   <string name="data_saver_enable_title">¿Activar l\'aforrador de datos?</string>
   <!-- [CHAR_LIMIT=16] Data saver: Button to turn it on on first-time dialog -->
+  <string name="data_saver_enable_button">Activar</string>
   <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
   <!-- Zen mode condition - summary: time duration in minutes (short version). [CHAR LIMIT=NONE] -->
   <!-- Zen mode condition - summary: time duration in hours. [CHAR LIMIT=NONE] -->
@@ -2240,56 +2520,79 @@
   <!-- Content description for the button that closes the floating toolbar overflow. [CHAR LIMIT=NONE] -->
   <!-- Free style window strings -->
   <!-- Accessibility text for the maximize window button -->
+  <string name="maximize_button_text">Maximizar</string>
   <!-- Accessibility text for the close window button -->
+  <string name="close_button_text">Zarrar</string>
   <!-- Ellipsis character to appear in notification templates, e.g.
          notification_template_material_inbox.xml.
          DO NOT TRANSLATE -->
   <string name="notification_inbox_ellipsis">\u2026</string>
   <!-- Tempalate for Notification.MessagingStyle to join a conversation name with the name of the sender of a message, to make a notification title [CHAR LIMIT=NONE] -->
+  <string name="notification_messaging_title_template"><xliff:g id="conversation_title" example="Tasty Treat Team">%1$s</xliff:g>: <xliff:g id="sender_name" example="Adrian Baker">%2$s</xliff:g></string>
   <!-- Label describing the number of selected items [CHAR LIMIT=48] -->
   <string name="importance_from_user">Afitesti la importancia d\'estos avisos.</string>
+  <string name="importance_from_person">Esto ye importante pola mor de la xente que collaboró.</string>
   <!-- Message to user that app trying to create user for an account that already exists. [CHAR LIMIT=none] -->
   <!-- Message to user that app is trying to create user for a specified account. [CHAR LIMIT=none] -->
   <!-- Locale picker strings -->
   <!-- Title for the language selection screen [CHAR LIMIT=25] -->
+  <string name="language_selection_title">Amestar una llingua</string>
   <!-- Title for the region selection screen [CHAR LIMIT=25] -->
+  <string name="country_selection_title">Preferencia de rexón</string>
   <!-- Hint text in a search edit box (used to filter long language / country lists) [CHAR LIMIT=25] -->
   <!-- List section subheader for the language picker, containing a list of suggested languages determined by the default region [CHAR LIMIT=30] -->
+  <string name="language_picker_section_suggested">Suxerse</string>
   <!-- List section subheader for the language picker, containing a list of all languages available [CHAR LIMIT=30] -->
   <string name="language_picker_section_all">Toles llingües</string>
   <!-- List section subheader for the region picker, containing a list of all regions supported for the selected language.
     Warning: this is a more 'neutral' term for 'country', not for the sub-divisions of a country. [CHAR LIMIT=30] -->
+  <string name="region_picker_section_all">Toles rexones</string>
   <!-- Menu item in the locale menu  [CHAR LIMIT=30] -->
   <!-- Title for dialog displayed when work profile is turned off. [CHAR LIMIT=30] -->
   <!-- Message displayed in dialog when work profile is turned off. [CHAR LIMIT=NONE] -->
   <!-- Title for button to turn on work profile. [CHAR LIMIT=NONE] -->
+  <string name="work_mode_turn_on">Activar</string>
   <!-- Notification title shown when new SMS/MMS is received while the device is locked [CHAR LIMIT=NONE] -->
+  <string name="new_sms_notification_title">Tienes mensaxes nuevos</string>
   <!-- Notification content shown when new SMS/MMS is received while the device is locked [CHAR LIMIT=NONE] -->
   <!-- Notification title shown when user profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
   <!-- Notification message shown when user profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
+  <string name="user_encrypted_message">Calca pa desbloquiar</string>
   <!-- Notification detail shown when user profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
   <!-- Notification detail shown when work profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
   <!-- Notification message shown when work profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
+  <string name="profile_encrypted_message">Calca pa desbloquiar el perfil de trabayu</string>
   <!-- Title of notification shown after a MTP device is connected to Android. -->
   <!-- Description of notification shown after a MTP device is connected to Android. -->
+  <string name="usb_mtp_launch_notification_description">Calca pa ver los ficheros</string>
   <!-- Resolver target actions strings -->
   <!-- Pin (as in to a bulletin board with a pushpin) a resolver
          target to the front of the list. -->
+  <string name="pin_target">Fixar</string>
   <!-- Unpin a resolver target such that it sorts normally. -->
+  <string name="unpin_target">Desfixar</string>
   <!-- View application info for a target. -->
   <!-- The representation of a time duration when negative. An example is -1:14. This can be used with a countdown timer for example.-->
+  <string name="negative_duration">\u2212<xliff:g id="time" example="1:14">%1$s</xliff:g></string>
   <!-- Title of notification to start a new demo session when device is in retail mode [CHAR LIMIT=NONE] -->
+  <string name="reset_retail_demo_mode_title">¿Reafitar preséu?</string>
   <!-- Text of notification to start a new demo session when device is in retail mode [CHAR LIMIT=NONE] -->
+  <string name="reset_retail_demo_mode_text">Calca pa reafitar el preséu</string>
   <!-- Text of dialog shown when starting a demo user for the first time [CHAR LIMIT=40] -->
+  <string name="demo_starting_message">Aniciando demostración\u2026</string>
   <!-- Text of dialog shown when starting a new demo user in retail demo mode [CHAR LIMIT=40] -->
+  <string name="demo_restarting_message">Reafitando\'l preséu\u2026</string>
   <!-- Title of the dialog shown when user inactivity times out in retail demo mode [CHAR LIMIT=40] -->
+  <string name="demo_user_inactivity_timeout_title">¿Reafitar preséu?</string>
   <!-- Warning message shown when user inactivity times out in retail demo mode [CHAR LIMIT=none] -->
   <!-- Text of button to allow user to abort countdown and continue current session in retail demo mode [CHAR LIMIT=40] -->
   <string name="demo_user_inactivity_timeout_left_button">Encaboxar</string>
   <!-- Text of button to allow user to abort countdown and immediately start another session in retail demo mode [CHAR LIMIT=40] -->
+  <string name="demo_user_inactivity_timeout_right_button">Reafitar agora</string>
   <!-- Title of notification shown when device has been forced to safe mode after a security compromise. -->
   <!-- Description of notification shown when device has been forced to safe mode after a security compromise. -->
   <string name="audit_safemode_notification_details">Toca pa deprender más.</string>
   <!-- Accessibilty string added to a widget that has been suspended [CHAR LIMIT=20] -->
   <!-- Label used by Telephony code, assigned as the display name for conference calls [CHAR LIMIT=60] -->
+  <string name="conference_call">Conferencia telefónica</string>
 </resources>

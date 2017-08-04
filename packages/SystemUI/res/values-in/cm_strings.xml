@@ -128,8 +128,7 @@
   <string name="quick_settings_location_battery_saving_label">Hemat baterai</string>
   <string name="quick_settings_location_battery_saving_label_twoline">Hemat\nbaterai</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Hanya GPS</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Hanya GPS</string>
+  <string name="quick_settings_location_gps_only_label">Hanya perangkat</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Akurasi tinggi</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Akurasi\ntinggi</string>

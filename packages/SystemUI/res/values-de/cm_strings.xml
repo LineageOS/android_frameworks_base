@@ -101,8 +101,7 @@
   <string name="quick_settings_location_battery_saving_label">Akku-Sparmodus</string>
   <string name="quick_settings_location_battery_saving_label_twoline">Energie\nsparen</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Nur GPS</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Nur GPS</string>
+  <string name="quick_settings_location_gps_only_label">Nur Gerät</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Hohe Genauigkeit</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Hohe\nGenauigkeit</string>
