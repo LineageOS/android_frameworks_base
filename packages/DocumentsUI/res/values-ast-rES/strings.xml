@@ -56,7 +56,9 @@
   <!-- Menu item title that pastes files from the clipboard [CHAR LIMIT=24] -->
   <string name="menu_paste_from_clipboard">Apegar</string>
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
+  <string name="menu_advanced_show">Amosar almac. internu</string>
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
+  <string name="menu_advanced_hide">Anubrir almac. internu</string>
   <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
   <string name="menu_file_size_show">Amosar tamañu de ficheru</string>
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
@@ -86,6 +88,7 @@
   <string name="query_error">Nesti momentu nun pue cargase\u2019l conteníu</string>
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
   <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
+  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> llibre</string>
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
   <string name="root_type_service">Servicios d\'almacenamientu</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
@@ -95,6 +98,7 @@
   <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
   <string name="root_type_apps">Más aplicaciones</string>
   <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
+  <string name="empty">Ensin elementos</string>
   <!-- Text shown when a file search returns no items [CHAR LIMIT=32] -->
   <string name="no_results">Nun hai coincidendies en %1$s</string>
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
@@ -123,6 +127,7 @@
   <!-- Text shown for the undo button -->
   <string name="undo">Desfacer</string>
   <!-- Text shown on the notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
+  <string name="copy_preparing">Tresnando pa copiar\u2026</string>
   <!-- Text shown on the notification while DocumentsUI performs setup in preparation for moving files [CHAR LIMIT=32] -->
   <string name="move_preparing">Tresnando pa mover\u2026</string>
   <!-- Text shown on the notification while DocumentsUI performs setup in preparation for deleting files [CHAR LIMIT=32] -->

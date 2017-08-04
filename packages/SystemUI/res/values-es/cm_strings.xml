@@ -130,8 +130,7 @@
   <string name="quick_settings_location_battery_saving_label">Ahorro de batería</string>
   <string name="quick_settings_location_battery_saving_label_twoline">Ahorro\nde batería</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Sólo GPS</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Sólo GPS</string>
+  <string name="quick_settings_location_gps_only_label">Solo en dispositivo</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Alta precisión</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisión</string>

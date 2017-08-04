@@ -130,8 +130,7 @@
   <string name="quick_settings_location_battery_saving_label">Úspora baterie</string>
   <string name="quick_settings_location_battery_saving_label_twoline">Úspora\nbaterie</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Pouze GPS</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Pouze GPS</string>
+  <string name="quick_settings_location_gps_only_label">Pouze zařízení</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Vysoká přesnost</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Vysoká\npřesnost</string>

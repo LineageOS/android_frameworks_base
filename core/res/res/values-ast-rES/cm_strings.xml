@@ -121,7 +121,7 @@
   <string name="app_ops_assist_screenshot">facer una captura</string>
   <string name="app_ops_use_body_sensors">usar sensores corporales</string>
   <string name="app_ops_read_cell_broadcasts">lleer tresmisiones celulares</string>
-  <string name="app_ops_mock_location">simular l\'allugamientu</string>
+  <string name="app_ops_mock_location">falsiar el to allugamientu</string>
   <string name="app_ops_read_external_storage">lleer almacenamientu esternu</string>
   <string name="app_ops_write_external_storage">escribir nel almacenamientu esternu</string>
   <string name="app_ops_turn_on_screen">prender pantalla</string>

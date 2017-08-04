@@ -129,8 +129,7 @@
   <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
   <string name="quick_settings_location_battery_saving_label_twoline">バッテリー\n節約</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">GPS のみ</string>
-  <string name="quick_settings_location_gps_only_label_twoline">GPS のみ</string>
+  <string name="quick_settings_location_gps_only_label">端末のみ</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">高精度</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">高精度</string>

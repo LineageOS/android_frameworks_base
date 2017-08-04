@@ -67,6 +67,7 @@
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">பேட்டரி சேமிப்பு</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_gps_only_label">சாதனம் மட்டும்</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">அதிக துல்லியத்தன்மை</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->

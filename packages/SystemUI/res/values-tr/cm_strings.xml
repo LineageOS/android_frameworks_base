@@ -130,8 +130,7 @@
   <string name="quick_settings_location_battery_saving_label">Pil tasarrufu</string>
   <string name="quick_settings_location_battery_saving_label_twoline">Pil\ntasarrufu</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Sadece GPS</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Sadece GPS</string>
+  <string name="quick_settings_location_gps_only_label">Sadece cihaz</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Yüksek doğruluk</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Yüksek\ndoğruluk</string>

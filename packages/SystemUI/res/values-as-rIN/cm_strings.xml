@@ -71,6 +71,7 @@
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">বেটাৰী ছেভ কৰা</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_gps_only_label">কেৱল ডিভাইচ</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">উচ্চ সঠিকতা</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
