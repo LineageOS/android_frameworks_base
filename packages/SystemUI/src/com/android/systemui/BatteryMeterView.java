@@ -83,7 +83,9 @@ public class BatteryMeterView extends ImageView implements
     public void onTuningChanged(String key, String newValue) {
         if (StatusBarIconController.ICON_BLACKLIST.equals(key)) {
             ArraySet<String> icons = StatusBarIconController.getIconBlacklist(newValue);
-            setVisibility(icons.contains(mSlotBattery) ? View.GONE : View.VISIBLE);
+            if (icons.contains(mSlotBattery)) {
+                setVisibility(View.GONE);
+            }
         } else if (STATUS_BAR_BATTERY_STYLE.equals(key)) {
             updateBatteryStyle(newValue);
         }
