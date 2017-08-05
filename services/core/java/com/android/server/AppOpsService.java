@@ -717,11 +717,6 @@ public class AppOpsService extends IAppOpsService.Stub {
                         }
                         repCbs.addAll(cbs);
                     }
-                    if (mode == getDefaultMode(code, uid, packageName)) {
-                        // If going into the default mode, prune this op
-                        // if there is nothing else interesting in it.
-                        pruneOp(op, uid, packageName);
-                    }
                     scheduleFastWriteLocked();
                 }
             }
