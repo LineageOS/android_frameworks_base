@@ -18,7 +18,9 @@ package com.android.server.fingerprint;
 
 import android.content.Context;
 import android.hardware.fingerprint.Fingerprint;
+import android.os.UserHandle;
 import android.os.Vibrator;
+import android.provider.CMSettings;
 import android.text.TextUtils;
 import android.util.SparseArray;
 
@@ -73,15 +75,21 @@ public class FingerprintUtils {
     }
 
     public static void vibrateFingerprintError(Context context) {
+        final boolean doFpHaptic = CMSettings.System.getIntForUser(
+                context.getContentResolver(), CMSettings.System.VIBRATE_ON_FP, 1,
+                UserHandle.USER_CURRENT) != 0;
         Vibrator vibrator = context.getSystemService(Vibrator.class);
-        if (vibrator != null) {
+        if (doFpHaptic && vibrator != null) {
             vibrator.vibrate(FP_ERROR_VIBRATE_PATTERN, -1);
         }
     }
 
     public static void vibrateFingerprintSuccess(Context context) {
+        final boolean doFpHaptic = CMSettings.System.getIntForUser(
+                context.getContentResolver(), CMSettings.System.VIBRATE_ON_FP, 1,
+                UserHandle.USER_CURRENT) != 0;
         Vibrator vibrator = context.getSystemService(Vibrator.class);
-        if (vibrator != null) {
+        if (doFpHaptic && vibrator != null) {
             vibrator.vibrate(FP_SUCCESS_VIBRATE_PATTERN, -1);
         }
     }
