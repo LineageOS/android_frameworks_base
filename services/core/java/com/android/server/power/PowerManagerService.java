@@ -227,6 +227,7 @@ public final class PowerManagerService extends SystemService
     private int mKeyboardBrightnessSettingDefault;
 
     private boolean mButtonPressed = false;
+    private boolean mButtonOn = false;
     private boolean mButtonLightOnKeypressOnly;
 
     private final Object mLock = new Object();
@@ -1881,14 +1882,20 @@ public final class PowerManagerService extends SystemService
                             if (mButtonTimeout != 0
                                     && now > mLastButtonActivityTime + mButtonTimeout) {
                                 mButtonsLight.setBrightness(0);
+                                mButtonOn = false;
                             } else {
                                 if ((!mButtonLightOnKeypressOnly || mButtonPressed) &&
                                         !mProximityPositive) {
                                     mButtonsLight.setBrightness(buttonBrightness);
                                     mButtonPressed = false;
                                     if (buttonBrightness != 0 && mButtonTimeout != 0) {
-                                        nextTimeout = now + mButtonTimeout;
+                                        mButtonOn = true;
+                                        if (now + mButtonTimeout < nextTimeout)
+                                            nextTimeout = now + mButtonTimeout;
                                     }
+                                } else if (mButtonLightOnKeypressOnly && mButtonOn &&
+                                           mLastButtonActivityTime + mButtonTimeout < nextTimeout) {
+                                    nextTimeout = mLastButtonActivityTime + mButtonTimeout;
                                 }
                             }
                         }
@@ -1899,6 +1906,7 @@ public final class PowerManagerService extends SystemService
                             if (mWakefulness == WAKEFULNESS_AWAKE) {
                                 mButtonsLight.setBrightness(0);
                                 mKeyboardLight.setBrightness(0);
+                                mButtonOn = false;
                             }
                         }
                     }
