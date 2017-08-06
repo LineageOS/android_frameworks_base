@@ -1204,6 +1204,14 @@ public class AppOpsManager {
 
     private static HashMap<String, Integer> sNameToOp = new HashMap<String, Integer>();
 
+    public static final int[] PRIVACY_GUARD_OP_STATES = new int[] {
+            OP_COARSE_LOCATION,
+            OP_READ_CALL_LOG,
+            OP_READ_CONTACTS,
+            OP_READ_CALENDAR,
+            OP_READ_SMS,
+    };
+
     static {
         if (sOpToSwitch.length != _NUM_OP) {
             throw new IllegalStateException("sOpToSwitch length " + sOpToSwitch.length
