@@ -2886,16 +2886,20 @@ public class AppOpsService extends IAppOpsService.Stub {
         for (int op : AppOpsManager.PRIVACY_GUARD_OP_STATES) {
             int switchOp = AppOpsManager.opToSwitch(op);
             int mode = checkOperation(op, uid, packageName);
-            if (mode != AppOpsManager.MODE_ALLOWED && mode != AppOpsManager.MODE_IGNORED) {
-                return true;
+            if (mode == AppOpsManager.MODE_ALLOWED) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     @Override
     public void setPrivacyGuardSettingForPackage(int uid, String packageName, boolean state) {
         for (int op : AppOpsManager.PRIVACY_GUARD_OP_STATES) {
+            int mode = checkOperation(op, uid, packageName);
+            if (state && (mode == AppOpsManager.MODE_ASK || mode == AppOpsManager.MODE_IGNORED)) {
+                continue;
+            }
             int switchOp = AppOpsManager.opToSwitch(op);
             setMode(switchOp, uid, packageName, state
                     ? AppOpsManager.MODE_ASK : AppOpsManager.MODE_ALLOWED);
