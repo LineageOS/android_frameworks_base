@@ -24,6 +24,8 @@ import android.util.SparseArray;
 
 import com.android.internal.annotations.GuardedBy;
 
+import cyanogenmod.providers.CMSettings;
+
 import java.util.List;
 
 /**
@@ -73,15 +75,19 @@ public class FingerprintUtils {
     }
 
     public static void vibrateFingerprintError(Context context) {
+        final boolean doFpHaptic = CMSettings.Secure.getInt(context.getContentResolver(),
+                CMSettings.Secure.VIBRATE_ON_FP, 1) != 0;
         Vibrator vibrator = context.getSystemService(Vibrator.class);
-        if (vibrator != null) {
+        if (doFpHaptic && vibrator != null) {
             vibrator.vibrate(FP_ERROR_VIBRATE_PATTERN, -1);
         }
     }
 
     public static void vibrateFingerprintSuccess(Context context) {
+        final boolean doFpHaptic = CMSettings.Secure.getInt(context.getContentResolver(),
+                CMSettings.Secure.VIBRATE_ON_FP, 1) != 0;
         Vibrator vibrator = context.getSystemService(Vibrator.class);
-        if (vibrator != null) {
+        if (doFpHaptic && vibrator != null) {
             vibrator.vibrate(FP_SUCCESS_VIBRATE_PATTERN, -1);
         }
     }
