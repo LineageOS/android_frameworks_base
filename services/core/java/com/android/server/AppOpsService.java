@@ -111,14 +111,6 @@ public class AppOpsService extends IAppOpsService.Stub {
     AppOpsPolicy mPolicy;
     private PowerManager mPowerManager;
 
-    private static final int[] PRIVACY_GUARD_OP_STATES = new int[] {
-        AppOpsManager.OP_COARSE_LOCATION,
-        AppOpsManager.OP_READ_CALL_LOG,
-        AppOpsManager.OP_READ_CONTACTS,
-        AppOpsManager.OP_READ_CALENDAR,
-        AppOpsManager.OP_READ_SMS
-    };
-
     boolean mWriteScheduled;
     boolean mFastWriteScheduled;
     final Runnable mWriteRunner = new Runnable() {
@@ -3106,7 +3098,7 @@ public class AppOpsService extends IAppOpsService.Stub {
 
     @Override
     public boolean getPrivacyGuardSettingForPackage(int uid, String packageName) {
-        for (int op : PRIVACY_GUARD_OP_STATES) {
+        for (int op : AppOpsManager.PRIVACY_GUARD_OP_STATES) {
             int switchOp = AppOpsManager.opToSwitch(op);
             int mode = checkOperation(op, uid, packageName);
             if (mode != AppOpsManager.MODE_ALLOWED && mode != AppOpsManager.MODE_IGNORED) {
@@ -3118,7 +3110,7 @@ public class AppOpsService extends IAppOpsService.Stub {
 
     @Override
     public void setPrivacyGuardSettingForPackage(int uid, String packageName, boolean state) {
-        for (int op : PRIVACY_GUARD_OP_STATES) {
+        for (int op : AppOpsManager.PRIVACY_GUARD_OP_STATES) {
             int switchOp = AppOpsManager.opToSwitch(op);
             setMode(switchOp, uid, packageName, state
                     ? AppOpsManager.MODE_ASK : AppOpsManager.MODE_ALLOWED);
