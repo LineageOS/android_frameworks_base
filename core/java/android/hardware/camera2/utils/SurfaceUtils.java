@@ -20,11 +20,14 @@ import static android.system.OsConstants.EINVAL;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import android.app.ActivityThread;
 import android.compat.annotation.UnsupportedAppUsage;
 import android.graphics.ImageFormat;
 import android.graphics.PixelFormat;
 import android.hardware.HardwareBuffer;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.os.SystemProperties;
+import android.text.TextUtils;
 import android.util.Range;
 import android.util.Size;
 import android.view.Surface;
@@ -241,6 +244,11 @@ public class SurfaceUtils {
                     + " the size must be 1 or 2");
         }
 
+        if (isPrivilegedApp()) {
+            //skip checks for privileged apps
+            return;
+        }
+
         List<Size> highSpeedSizes = null;
         if (fpsRange == null) {
             highSpeedSizes = Arrays.asList(config.getHighSpeedVideoSizes());
@@ -303,4 +311,21 @@ public class SurfaceUtils {
             /*out*/int[/*2*/] dimens);
 
     private static native long nativeGetSurfaceId(Surface surface);
+
+    private static boolean isPrivilegedApp() {
+        String packageName = ActivityThread.currentOpPackageName();
+        String packageList = SystemProperties.get("persist.vendor.camera.privapp.list");
+
+        if (packageList.length() > 0) {
+            TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
+            splitter.setString(packageList);
+            for (String str : splitter) {
+                if (packageName.equals(str)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }
