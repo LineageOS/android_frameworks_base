@@ -23,9 +23,11 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLayoutChangeListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -423,6 +425,18 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
         if (position == mFocusIndex) {
             focusOnHolder(holder);
         }
+        holder.mTileView.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent ev) {
+                if (ev.getAction() == MotionEvent.ACTION_UP) {
+                    int position = holder.getLayoutPosition();
+                    if (position >= mEditIndex || canRemoveTiles()) {
+                        move(position, mEditIndex, true);
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     private void focusOnHolder(Holder holder) {
