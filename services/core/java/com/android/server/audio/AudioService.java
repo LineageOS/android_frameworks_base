@@ -2968,8 +2968,10 @@ public class AudioService extends IAudioService.Stub
                 }
             }
             mForcedUseForComm = AudioSystem.FORCE_BT_SCO;
+            AudioSystem.setParameters("BT_SCO=on");
         } else if (mForcedUseForComm == AudioSystem.FORCE_BT_SCO) {
             mForcedUseForComm = AudioSystem.FORCE_NONE;
+            AudioSystem.setParameters("BT_SCO=off");
         }
         mForcedUseForCommExt = mForcedUseForComm;
         AudioSystem.setParameters("BT_SCO="+ (on ? "on" : "off"));
