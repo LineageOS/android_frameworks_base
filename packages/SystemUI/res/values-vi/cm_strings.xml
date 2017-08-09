@@ -129,6 +129,7 @@
   <string name="quick_settings_location_battery_saving_label_twoline">Pin\ntiết kiệm</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">Chỉ thiết bị</string>
+  <string name="quick_settings_location_gps_only_label_twoline">Chỉ\nthiết bị</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Chính xác cao</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Cao\nchính xác</string>

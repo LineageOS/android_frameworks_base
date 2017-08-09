@@ -133,6 +133,7 @@
   <string name="quick_settings_location_battery_saving_label_twoline">Varčevanje\nz energijo</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">Samo naprava</string>
+  <string name="quick_settings_location_gps_only_label_twoline">Samo v\nnapravi</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Visoka natančnost</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Visoka\nnatančnost</string>
