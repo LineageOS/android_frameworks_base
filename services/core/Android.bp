@@ -19,6 +19,7 @@ java_library_static {
         ":mediaupdateservice_aidl",
         "java/com/android/server/EventLogTags.logtags",
         "java/com/android/server/am/EventLogTags.logtags",
+        "java/com/android/server/wm/onehand/EventLogTags.logtags",
     ],
 
     libs: [
