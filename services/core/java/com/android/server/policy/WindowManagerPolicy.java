@@ -43,6 +43,7 @@ import static android.view.WindowManager.LayoutParams.TYPE_POINTER;
 import static android.view.WindowManager.LayoutParams.TYPE_PRESENTATION;
 import static android.view.WindowManager.LayoutParams.TYPE_PRIORITY_PHONE;
 import static android.view.WindowManager.LayoutParams.TYPE_PRIVATE_PRESENTATION;
+import static android.view.WindowManager.LayoutParams.TYPE_ONEHAND_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_QS_DIALOG;
 import static android.view.WindowManager.LayoutParams.TYPE_SCREENSHOT;
 import static android.view.WindowManager.LayoutParams.TYPE_SEARCH_BAR;
@@ -818,6 +819,9 @@ public interface WindowManagerPolicy extends WindowManagerPolicyConstants {
         }
 
         switch (type) {
+            case TYPE_ONEHAND_OVERLAY:
+                // the one hand window goes under everything.
+                return  0;
             case TYPE_WALLPAPER:
                 // wallpaper is at the bottom, though the window manager may move it.
                 return  1;
