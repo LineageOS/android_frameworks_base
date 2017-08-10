@@ -264,7 +264,7 @@ class ScreenRotationAnimation {
 
         final SurfaceControl.Transaction t = new SurfaceControl.Transaction();
         try {
-            mSurfaceControl = displayContent.makeOverlay()
+            mSurfaceControl = displayContent.makeScreenRotationAnimationOverlay()
                     .setName("ScreenshotSurface")
                     .setSize(mWidth, mHeight)
                     .setSecure(isSecure)
