@@ -53,4 +53,7 @@ public abstract class InputManagerInternal {
      * Set whether the input stack should deliver pulse gesture events when the device is asleep.
      */
     public abstract void setPulseGestureEnabled(boolean enabled);
+
+    public abstract void updatePointerMappingParameters(int offsetX, int offsetY, float scale,
+            int width, int height);
 }

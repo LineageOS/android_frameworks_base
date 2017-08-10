@@ -1,0 +1,5 @@
+# See system/core/logcat/event.logtags for a description of the format of this file.
+
+option java_package com.android.server.wm.onehand
+
+1031000 onehand_action (Action|3),(CurrentApp|3)
