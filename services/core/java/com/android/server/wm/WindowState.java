@@ -64,6 +64,7 @@ import static android.view.WindowManager.LayoutParams.TYPE_INPUT_METHOD_DIALOG;
 import static android.view.WindowManager.LayoutParams.TYPE_MAGNIFICATION_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_NAVIGATION_BAR;
 import static android.view.WindowManager.LayoutParams.TYPE_NAVIGATION_BAR_PANEL;
+import static android.view.WindowManager.LayoutParams.TYPE_ONEHAND_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_TOAST;
 import static android.view.WindowManager.LayoutParams.TYPE_WALLPAPER;
 import static android.view.WindowManager.LayoutParams.isSystemAlertWindowType;
@@ -201,6 +202,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
+import android.view.animation.Transformation;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.ToBooleanFunction;
@@ -833,6 +835,10 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
         setDrawnStateEvaluated(false /*evaluated*/);
 
         getDisplayContent().reapplyMagnificationSpec();
+
+        if (mSurfaceControl != null && isOneHandedWindow()) {
+            getDisplayContent().reparentToOneHandOverlay(getPendingTransaction(), mSurfaceControl);
+        }
     }
 
     @Override
@@ -1560,7 +1566,12 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
      */
     boolean isPotentialDragTarget() {
         return isVisibleNow() && !mRemoved
-                && mInputChannel != null && mInputWindowHandle != null;
+                && mInputChannel != null && mInputWindowHandle != null
+                && !isOneHandedWindow(); // One handed window does't care about drags.
+    }
+
+    boolean isOneHandedWindow() {
+        return mAttrs.type == TYPE_ONEHAND_OVERLAY;
     }
 
     /**
@@ -4409,7 +4420,8 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
         // to prevent issues with the crop for screenshot.
         final boolean cropToDecor =
                 !(inFreeformWindowingMode() && isAnimatingLw()) && !isDockedResizing();
-        if (cropToDecor) {
+        // The one handed window don't intersect with the decor rect.
+        if (cropToDecor && !isOneHandedWindow()) {
             // Intersect with the decor rect, offsetted by window position.
             systemDecorRect.intersect(decorRect.left - left, decorRect.top - top,
                     decorRect.right - left, decorRect.bottom - top);
@@ -4657,7 +4669,8 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
                 mAttrs.type == TYPE_NAVIGATION_BAR ||
                 // It's tempting to wonder: Have we forgotten the rounded corners overlay?
                 // worry not: it's a fake TYPE_NAVIGATION_BAR_PANEL
-                mAttrs.type == TYPE_NAVIGATION_BAR_PANEL) {
+                mAttrs.type == TYPE_NAVIGATION_BAR_PANEL ||
+                mAttrs.type == TYPE_ONEHAND_OVERLAY) {
             return false;
         }
         return true;
@@ -4706,6 +4719,7 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
             applyDims(dimmer);
         }
         updateSurfacePosition();
+        applyOneHandTransformationIfNeeded();
 
         mWinAnimator.prepareSurfaceLocked(true);
         super.prepareSurfaces();
@@ -4809,6 +4823,28 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
             return inTokenWithAndAboveImeTarget;
         }
         return false;
+    }
+
+    private void applyOneHandTransformationIfNeeded() {
+        if (mSurfaceControl == null || !isOneHandedWindow()) {
+            return;
+        }
+
+        Transformation oneHandTrans =
+                mService.mAnimator.mOneHandAnimator.getTransformationForWindow(this);
+        if (oneHandTrans == null) {
+            return;
+        }
+
+        mTmpMatrix.reset();
+        mTmpMatrix.setTranslate(mSurfacePosition.x, mSurfacePosition.y);
+        mTmpMatrix.postConcat(oneHandTrans.getMatrix());
+
+        final float[] tmpFloats = mService.mTmpFloats;
+        getPendingTransaction().setMatrix(mSurfaceControl, mTmpMatrix, tmpFloats);
+        getPendingTransaction().setAlpha(mSurfaceControl, oneHandTrans.getAlpha());
+
+        mLastSurfacePosition.set((int)tmpFloats[Matrix.MTRANS_X], (int)tmpFloats[Matrix.MTRANS_Y]);
     }
 
     @Override
