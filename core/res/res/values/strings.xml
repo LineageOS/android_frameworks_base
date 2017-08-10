@@ -4966,6 +4966,11 @@
     <string name="volume_dialog_ringer_guidance_vibrate">Calls and notifications will vibrate</string>
     <string name="volume_dialog_ringer_guidance_silent">Calls and notifications will be muted</string>
 
+    <!-- Informative text shown when the device is in One handed mode. It also explains how to exit the mode. -->
+    <string name="onehand_guide" xliff:restype="x-GENERIC/FULLSCREEN/TEXT">Tap blank area to exit One handed mode</string>
+    <!-- Link text shown when the device is in One handed mode. By tapping this link, Settings menu of this mode opens. -->
+    <string name="onehand_link" xliff:restype="x-GENERIC/FULLSCREEN/CAPTION">LEARN MORE</string>
+
     <!-- Title for the notification channel notifying user of settings system changes. [CHAR LIMIT=NONE] -->
     <string name="notification_channel_system_changes">System changes</string>
     <!-- Title for the notification channel notifying user of do not disturb system changes (i.e. Do Not Disturb has changed). [CHAR LIMIT=NONE] -->

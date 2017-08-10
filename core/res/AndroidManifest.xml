@@ -604,6 +604,8 @@
     <protected-broadcast android:name="android.intent.action.DOCK_IDLE" />
     <protected-broadcast android:name="android.intent.action.DOCK_ACTIVE" />
 
+    <protected-broadcast android:name="com.android.server.wm.onehand.intent.action.ONEHAND_TRIGGER_EVENT" />
+
     <!-- LineageOS additions -->
 
     <!-- Used to launch a common app (FlipFlap) for devices with flip cover. -->
@@ -3519,6 +3521,11 @@
          accessible to the system.
          @hide -->
     <permission android:name="android.permission.COPY_PROTECTED_DATA"
+        android:protectionLevel="signature" />
+
+    <!-- Allows applications to control one handed mode.
+         @hide -->
+    <permission android:name="android.permission.ONE_HANDED_MODE"
         android:protectionLevel="signature" />
 
     <!-- @SystemApi Internal permission protecting access to the encryption methods

@@ -1867,6 +1867,8 @@
     <string name="shortcut_restore_signature_mismatch" msgid="2406209324521327518">"アプリの署名が一致しないため、ショートカットを復元できませんでした"</string>
     <string name="shortcut_restore_unknown_issue" msgid="8703738064603262597">"ショートカットを復元できませんでした"</string>
     <string name="shortcut_disabled_reason_unknown" msgid="5276016910284687075">"ショートカットは無効になっています"</string>
+    <string name="onehand_guide">縮小画面の外側をタップして片手モードを終了します</string>
+    <string name="onehand_link">詳細を確認</string>
     <string name="harmful_app_warning_uninstall" msgid="4837672735619532931">"アンインストール"</string>
     <string name="harmful_app_warning_open_anyway" msgid="596432803680914321">"開く"</string>
     <string name="harmful_app_warning_title" msgid="8982527462829423432">"有害なアプリが検出されました"</string>

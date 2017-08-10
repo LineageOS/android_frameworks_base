@@ -601,6 +601,8 @@ java_library {
         "lowpan/java/android/net/lowpan/ILowpanManagerListener.aidl",
         "lowpan/java/android/net/lowpan/ILowpanManager.aidl",
 
+        "core/java/com/android/internal/onehand/IOneHandedModeListener.aidl",
+
         "core/java/android/app/admin/SecurityLogTags.logtags",
         "core/java/android/content/EventLogTags.logtags",
         "core/java/android/speech/tts/EventLogTags.logtags",
