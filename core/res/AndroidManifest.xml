@@ -84,6 +84,10 @@
     <protected-broadcast android:name="android.intent.action.USER_INITIALIZE" />
     <protected-broadcast android:name="android.intent.action.INTENT_FILTER_NEEDS_VERIFICATION" />
     <protected-broadcast android:name="android.intent.action.SU_SESSION_CHANGED" />
+    <protected-broadcast android:name="android.intent.action.OVERLAY_ADDED" />
+    <protected-broadcast android:name="android.intent.action.OVERLAY_CHANGED" />
+    <protected-broadcast android:name="android.intent.action.OVERLAY_REMOVED" />
+    <protected-broadcast android:name="android.intent.action.OVERLAY_PRIORITY_CHANGED" />
 
     <protected-broadcast android:name="Auth_password_wrong" />
     <protected-broadcast android:name="android.os.action.POWER_SAVE_MODE_CHANGED" />
@@ -525,6 +529,8 @@
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
     <eat-comment />
+
+    <protected-broadcast android:name="projekt.substratum.APP_CRASHED" />
 
     <!-- ====================================================================== -->
     <!-- Permissions for accessing user's contacts including personal profile   -->
@@ -3168,6 +3174,13 @@
          @hide  <p>Not for use by third-party applications.</p> -->
     <permission android:name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME"
                 android:protectionLevel="signature|privileged" />
+
+    <!-- Allows an application to make calls to OverlayManagerService.
+         @hide -->
+    <permission android:name="oms.permission.MODIFY_OVERLAYS"
+        android:label="@string/permlab_modifyOverlays"
+        android:description="@string/permdesc_modifyOverlays"
+        android:protectionLevel="signatureOrSystem" />
 
     <application android:process="system"
                  android:persistent="true"
