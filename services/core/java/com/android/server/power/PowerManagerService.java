@@ -1891,9 +1891,9 @@ public final class PowerManagerService extends SystemService
                         groupId)) {
                     mDisplayGroupPowerStateMapper.setButtonPressedLocked(
                             groupId, event == PowerManager.USER_ACTIVITY_EVENT_BUTTON);
-                    if ((mButtonLightOnKeypressOnly &&
-                            mDisplayGroupPowerStateMapper.getButtonPressedLocked(groupId))
-                            || eventTime == mLastWakeTime) {
+                    if (eventTime == mLastWakeTime || (mButtonLightOnKeypressOnly &&
+                            mDisplayGroupPowerStateMapper.getButtonPressedLocked(groupId) &&
+                            (flags & PowerManager.USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS) == 0)) {
                         mDisplayGroupPowerStateMapper.setButtonPressedLocked(groupId, true);
                         mDisplayGroupPowerStateMapper.setLastButtonActivityTimeLocked(
                                 groupId, eventTime);
