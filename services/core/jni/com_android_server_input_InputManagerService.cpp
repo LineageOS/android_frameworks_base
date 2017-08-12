@@ -332,7 +332,7 @@ public:
                                           uint32_t policyFlags) override;
     bool dispatchUnhandledKey(const sp<IBinder>& token, const KeyEvent* keyEvent,
                               uint32_t policyFlags, KeyEvent* outFallbackKeyEvent) override;
-    void pokeUserActivity(nsecs_t eventTime, int32_t eventType, int32_t displayId) override;
+    void pokeUserActivity(nsecs_t eventTime, int32_t eventType, int32_t displayId, int32_t keyCode) override;
     void onPointerDownOutsideFocus(const sp<IBinder>& touchedToken) override;
     void setPointerCapture(const PointerCaptureRequest& request) override;
     void notifyDropWindow(const sp<IBinder>& token, float x, float y) override;
@@ -1395,9 +1395,9 @@ bool NativeInputManager::dispatchUnhandledKey(const sp<IBinder>& token,
     return result;
 }
 
-void NativeInputManager::pokeUserActivity(nsecs_t eventTime, int32_t eventType, int32_t displayId) {
+void NativeInputManager::pokeUserActivity(nsecs_t eventTime, int32_t eventType, int32_t displayId, int32_t keyCode) {
     ATRACE_CALL();
-    android_server_PowerManagerService_userActivity(eventTime, eventType, displayId);
+    android_server_PowerManagerService_userActivity(eventTime, eventType, displayId, keyCode);
 }
 
 void NativeInputManager::onPointerDownOutsideFocus(const sp<IBinder>& touchedToken) {
