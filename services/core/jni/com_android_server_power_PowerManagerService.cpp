@@ -37,6 +37,7 @@
 #include <hardware/power.h>
 #include <hardware_legacy/power.h>
 #include <suspend/autosuspend.h>
+#include <android/keycodes.h>
 
 #include "com_android_server_power_PowerManagerService.h"
 
@@ -122,7 +123,8 @@ static void processReturn(const Return<void> &ret, const char* functionName) {
     }
 }
 
-void android_server_PowerManagerService_userActivity(nsecs_t eventTime, int32_t eventType) {
+void android_server_PowerManagerService_userActivity(nsecs_t eventTime, int32_t eventType,
+        int32_t keyCode) {
     if (gPowerManagerServiceObj) {
         // Throttle calls into user activity by event type.
         // We're a little conservative about argument checking here in case the caller
@@ -156,9 +158,14 @@ void android_server_PowerManagerService_userActivity(nsecs_t eventTime, int32_t 
 
         JNIEnv* env = AndroidRuntime::getJNIEnv();
 
+        int flags = 0;
+        if (keyCode == AKEYCODE_VOLUME_UP || keyCode == AKEYCODE_VOLUME_DOWN) {
+            flags |= USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS;
+        }
+
         env->CallVoidMethod(gPowerManagerServiceObj,
                 gPowerManagerServiceClassInfo.userActivityFromNative,
-                nanoseconds_to_milliseconds(eventTime), eventType, 0);
+                nanoseconds_to_milliseconds(eventTime), eventType, flags);
         checkAndClearExceptionFromCallback(env, "userActivityFromNative");
     }
 }
