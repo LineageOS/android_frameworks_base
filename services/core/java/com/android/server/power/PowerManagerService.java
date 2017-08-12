@@ -2200,8 +2200,9 @@ public final class PowerManagerService extends SystemService
                 if (eventTime > powerGroup.getLastUserActivityTimeLocked()) {
                     powerGroup.setButtonPressedLocked(
                             event == PowerManager.USER_ACTIVITY_EVENT_BUTTON);
-                    if ((mButtonLightOnKeypressOnly && powerGroup.getButtonPressedLocked())
-                            || eventTime == powerGroup.getLastWakeTimeLocked()) {
+                    if (eventTime == powerGroup.getLastWakeTimeLocked() ||
+                            (mButtonLightOnKeypressOnly && powerGroup.getButtonPressedLocked() &&
+                            (flags & PowerManager.USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS) == 0)) {
                         powerGroup.setButtonPressedLocked(true);
                         powerGroup.setLastButtonActivityTimeLocked(eventTime);
                     }
