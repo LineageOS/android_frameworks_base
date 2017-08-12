@@ -256,7 +256,7 @@ public:
                                                   uint32_t policyFlags) override;
     virtual bool dispatchUnhandledKey(const sp<IBinder>& token, const KeyEvent* keyEvent,
                                       uint32_t policyFlags, KeyEvent* outFallbackKeyEvent) override;
-    virtual void pokeUserActivity(nsecs_t eventTime, int32_t eventType) override;
+    virtual void pokeUserActivity(nsecs_t eventTime, int32_t eventType, int32_t keyCode) override;
     virtual bool checkInjectEventsPermissionNonReentrant(int32_t injectorPid,
                                                          int32_t injectorUid) override;
     virtual void onPointerDownOutsideFocus(const sp<IBinder>& touchedToken) override;
@@ -1166,9 +1166,9 @@ bool NativeInputManager::dispatchUnhandledKey(const sp<IBinder>& token,
     return result;
 }
 
-void NativeInputManager::pokeUserActivity(nsecs_t eventTime, int32_t eventType) {
+void NativeInputManager::pokeUserActivity(nsecs_t eventTime, int32_t eventType, int32_t keyCode) {
     ATRACE_CALL();
-    android_server_PowerManagerService_userActivity(eventTime, eventType);
+    android_server_PowerManagerService_userActivity(eventTime, eventType, keyCode);
 }
 
 
