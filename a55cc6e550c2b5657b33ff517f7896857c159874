@@ -212,6 +212,52 @@
     },
     {
       "key": {
+        "uuid": "da82392b_27155164",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDetailItemsList.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-08-15T15:31:42Z",
+      "side": 1,
+      "message": "Whut, mContext isn\u0027t defined",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 27
+      },
+      "revId": "a55cc6e550c2b5657b33ff517f7896857c159874",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aa4b0d1_98157dc3",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDetailItemsList.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-08-15T15:31:42Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 19
+      },
+      "revId": "a55cc6e550c2b5657b33ff517f7896857c159874",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a8df2d9_ad50277c",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/QSTile.java",
         "patchSetId": 2
