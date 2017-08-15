@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d3f457d_793e1ab1",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-15T15:28:47Z",
+      "side": 1,
+      "message": "will be fixed...",
+      "revId": "bc867d3e31caeea62d32c32618a43ebc37076349",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07da1490_88eaaf52",
+        "filename": "packages/SystemUI/res/values/strings.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-15T15:28:47Z",
+      "side": 1,
+      "message": "not edited after removing the strings, so should this copyright be removed?",
+      "revId": "bc867d3e31caeea62d32c32618a43ebc37076349",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
