@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b743549_7f75134a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-15T15:07:03Z",
+      "side": 1,
+      "message": "Will be fixed",
+      "revId": "3052552b152ced64d3343b7c5e81fe5552213bd3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
