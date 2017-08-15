@@ -304,6 +304,30 @@
     },
     {
       "key": {
+        "uuid": "d4286845_30555c33",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/ProfilesTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-15T15:28:47Z",
+      "side": 1,
+      "message": "These comments were for me!",
+      "parentUuid": "aa43407b_feaec4cd",
+      "range": {
+        "startLine": 209,
+        "startChar": 12,
+        "endLine": 209,
+        "endChar": 61
+      },
+      "revId": "a55cc6e550c2b5657b33ff517f7896857c159874",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "987c63b6_7cc9b2f9",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/ProfilesTile.java",
         "patchSetId": 2
@@ -315,6 +339,30 @@
       "writtenOn": "2017-08-15T14:35:46Z",
       "side": 1,
       "message": "see above; the comment doesnt mean anything here, remove",
+      "range": {
+        "startLine": 231,
+        "startChar": 52,
+        "endLine": 231,
+        "endChar": 81
+      },
+      "revId": "a55cc6e550c2b5657b33ff517f7896857c159874",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fd54dbc_e50c082c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/ProfilesTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-15T15:28:47Z",
+      "side": 1,
+      "message": "Just like above! After all I added what it was needed",
+      "parentUuid": "987c63b6_7cc9b2f9",
       "range": {
         "startLine": 231,
         "startChar": 52,
