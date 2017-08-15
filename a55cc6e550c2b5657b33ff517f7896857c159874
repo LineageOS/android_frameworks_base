@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7f333e5c_e4af1253",
+        "filename": "packages/SystemUI/res/values/cm_dimens.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-15T15:07:03Z",
+      "side": 1,
+      "message": "This line is copied/pasted from other file. It is used small \"c\" instead of capital \"C\"",
+      "parentUuid": "2af4603b_f14575b4",
+      "range": {
+        "startLine": 5,
+        "startChar": 14,
+        "endLine": 5,
+        "endChar": 15
+      },
+      "revId": "a55cc6e550c2b5657b33ff517f7896857c159874",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49e2e4a1_bb6e4da6",
         "filename": "packages/SystemUI/res/values/cm_dimens.xml",
         "patchSetId": 2
@@ -83,6 +107,30 @@
       "writtenOn": "2017-08-15T14:35:46Z",
       "side": 1,
       "message": "No need to change the complete header",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 3
+      },
+      "revId": "a55cc6e550c2b5657b33ff517f7896857c159874",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2beb998c_db7e390d",
+        "filename": "packages/SystemUI/res/values/cm_dimens.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-15T15:07:03Z",
+      "side": 1,
+      "message": "Changed to make it look like the other licence agreements at the other files",
+      "parentUuid": "49e2e4a1_bb6e4da6",
       "range": {
         "startLine": 6,
         "startChar": 0,
