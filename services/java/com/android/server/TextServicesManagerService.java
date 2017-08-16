@@ -33,6 +33,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -124,7 +125,7 @@ public class TextServicesManagerService extends ITextServicesManager.Stub {
         buildSpellCheckerMapLocked(mContext, mSpellCheckerList, mSpellCheckerMap, mSettings);
         SpellCheckerInfo sci = getCurrentSpellChecker(null);
         if (sci == null) {
-            sci = findAvailSpellCheckerLocked(null, null);
+            sci = findAvailSystemSpellCheckerLocked(null, null);
             if (sci != null) {
                 // Set the current spell checker if there is one or more spell checkers
                 // available. In this case, "sci" is the first one in the available spell
@@ -163,7 +164,7 @@ public class TextServicesManagerService extends ITextServicesManager.Stub {
                         change == PACKAGE_PERMANENT_CHANGE || change == PACKAGE_TEMPORARY_CHANGE
                         // Package modified
                         || isPackageModified(packageName)) {
-                    sci = findAvailSpellCheckerLocked(null, packageName);
+                    sci = findAvailSystemSpellCheckerLocked(null, packageName);
                     if (sci != null) {
                         setCurrentSpellCheckerLocked(sci.getId());
                     }
@@ -262,18 +263,26 @@ public class TextServicesManagerService extends ITextServicesManager.Stub {
     }
 
     // TODO: find an appropriate spell checker for specified locale
-    private SpellCheckerInfo findAvailSpellCheckerLocked(String locale, String prefPackage) {
-        final int spellCheckersCount = mSpellCheckerList.size();
+    private SpellCheckerInfo findAvailSystemSpellCheckerLocked(String locale, String prefPackage) {
+        // Filter the spell checker list to remove spell checker services that are not pre-installed
+        ArrayList<SpellCheckerInfo> spellCheckerList = new ArrayList<SpellCheckerInfo>();
+        for (SpellCheckerInfo sci : mSpellCheckerList) {
+            if ((sci.getServiceInfo().applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                spellCheckerList.add(sci);
+            }
+        }
+
+        final int spellCheckersCount = spellCheckerList.size();
         if (spellCheckersCount == 0) {
             Slog.w(TAG, "no available spell checker services found");
             return null;
         }
         if (prefPackage != null) {
             for (int i = 0; i < spellCheckersCount; ++i) {
-                final SpellCheckerInfo sci = mSpellCheckerList.get(i);
+                final SpellCheckerInfo sci = spellCheckerList.get(i);
                 if (prefPackage.equals(sci.getPackageName())) {
                     if (DBG) {
-                        Slog.d(TAG, "findAvailSpellCheckerLocked: " + sci.getPackageName());
+                        Slog.d(TAG, "findAvailSystemSpellCheckerLocked: " + sci.getPackageName());
                     }
                     return sci;
                 }
@@ -282,7 +291,7 @@ public class TextServicesManagerService extends ITextServicesManager.Stub {
         if (spellCheckersCount > 1) {
             Slog.w(TAG, "more than one spell checker service found, picking first");
         }
-        return mSpellCheckerList.get(0);
+        return spellCheckerList.get(0);
     }
 
     // TODO: Save SpellCheckerService by supported languages. Currently only one spell
