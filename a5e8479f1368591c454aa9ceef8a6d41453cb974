@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "649bd1c9_8d940c69",
+        "filename": "packages/SystemUI/res/values/cm_dimens.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-08-16T05:52:26Z",
+      "side": 1,
+      "message": "I told you to not modify this, just take the change (adding the dimension) and dont touch anything else",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 3
+      },
+      "revId": "a5e8479f1368591c454aa9ceef8a6d41453cb974",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "835f767e_329661cc",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-08-16T05:52:26Z",
+      "side": 1,
+      "message": "Probably wrong, or is there a change which wasnt part of the original patch?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 44
+      },
+      "revId": "a5e8479f1368591c454aa9ceef8a6d41453cb974",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e1f78d6_fc2fdc90",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-08-16T05:52:26Z",
+      "side": 1,
+      "message": "Don\u0027t touch this",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "a5e8479f1368591c454aa9ceef8a6d41453cb974",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
