@@ -31,6 +31,8 @@ import static android.net.NetworkStats.IFACE_ALL;
 import static android.net.NetworkStats.SET_ALL;
 import static android.net.NetworkStats.SET_DEFAULT;
 import static android.net.NetworkStats.SET_FOREGROUND;
+import static android.net.NetworkStats.STATS_PER_IFACE;
+import static android.net.NetworkStats.STATS_PER_UID;
 import static android.net.NetworkStats.TAG_ALL;
 import static android.net.NetworkStats.TAG_NONE;
 import static android.net.NetworkStats.UID_ALL;
@@ -1071,6 +1073,12 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
         final NetworkStats xtSnapshot = getNetworkStatsXtAndVt();
         final NetworkStats devSnapshot = mNetworkManager.getNetworkStatsSummaryDev();
 
+        // Tethering snapshot for dev and xt stats. Counts per-interface data from tethering stats
+        // providers that isn't already counted by dev and XT stats.
+        final NetworkStats tetherSnapshot = getNetworkStatsTethering(STATS_PER_IFACE);
+        xtSnapshot.combineAllValues(tetherSnapshot);
+        devSnapshot.combineAllValues(tetherSnapshot);
+
         NetPluginDelegate.getTetherStats(uidSnapshot, xtSnapshot, devSnapshot);
 
         if (mConfigEnableDataUsage) {
@@ -1371,7 +1379,7 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
         final NetworkStats uidSnapshot = mNetworkManager.getNetworkStatsUidDetail(UID_ALL);
 
         // fold tethering stats and operations into uid snapshot
-        final NetworkStats tetherSnapshot = getNetworkStatsTethering();
+        final NetworkStats tetherSnapshot = getNetworkStatsTethering(STATS_PER_UID);
         uidSnapshot.combineAllValues(tetherSnapshot);
         uidSnapshot.combineAllValues(mUidOperations);
 
@@ -1418,9 +1426,9 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
      * Return snapshot of current tethering statistics. Will return empty
      * {@link NetworkStats} if any problems are encountered.
      */
-    private NetworkStats getNetworkStatsTethering() throws RemoteException {
+    private NetworkStats getNetworkStatsTethering(int how) throws RemoteException {
         try {
-            return mNetworkManager.getNetworkStatsTethering();
+            return mNetworkManager.getNetworkStatsTethering(how);
         } catch (IllegalStateException e) {
             Log.wtf(TAG, "problem reading network stats", e);
             return new NetworkStats(0L, 10);
@@ -1598,7 +1606,6 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
             performPollLocked(FLAG_PERSIST_ALL);
         }
     }
-
 
     private NetworkStats.Entry createVideoCallDataEntry(String iface) {
         NetworkStats.Entry dataEntry = new NetworkStats.Entry();
