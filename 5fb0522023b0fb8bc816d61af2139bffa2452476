@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "cb670294_cb88a586",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-08-17T09:11:34Z",
+      "side": 1,
+      "message": "This line throws an exception here when adding the tile because mImage isn\u0027t initialized in this case",
+      "revId": "5fb0522023b0fb8bc816d61af2139bffa2452476",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "775c5833_8de7bff3",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
         "patchSetId": 13
@@ -59,6 +76,24 @@
       "writtenOn": "2017-08-17T08:30:58Z",
       "side": 1,
       "message": "The resulting matrix will always be the same because you are only changing the passed values once in L#166 (acceleration) / L#173 (magnetic sensor) - probably the reason why you don\u0027t get the expected result?",
+      "revId": "5fb0522023b0fb8bc816d61af2139bffa2452476",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c03f4bdf_59a966f2",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-08-17T09:11:34Z",
+      "side": 1,
+      "message": "I was wrong here, clone() doesnt just copy but reference the array, it\u0027s fine :)",
+      "parentUuid": "9fe4356b_dc4d562c",
       "revId": "5fb0522023b0fb8bc816d61af2139bffa2452476",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
