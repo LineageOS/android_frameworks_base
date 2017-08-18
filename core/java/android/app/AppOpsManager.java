@@ -1204,6 +1204,7 @@ public class AppOpsManager {
 
     private static HashMap<String, Integer> sNameToOp = new HashMap<String, Integer>();
 
+    /** @hide */
     public static final int[] PRIVACY_GUARD_OP_STATES = new int[] {
             OP_COARSE_LOCATION,
             OP_READ_CALL_LOG,
