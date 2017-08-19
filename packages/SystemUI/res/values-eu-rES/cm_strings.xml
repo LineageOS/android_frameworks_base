@@ -77,7 +77,7 @@
   <!-- Weather string format in keyguard -->
   <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
   <string name="accessibility_dpad_left">Kurtsorea ezkerrean</string>
-  <string name="accessibility_dpad_right">Kurtsorea eskuman</string>
+  <string name="accessibility_dpad_right">Kurtsorearen eskuinean</string>
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Menu / Teklatu aldatzailea (erakutsi beti)</string>
   <string name="search">Bilatu</string>

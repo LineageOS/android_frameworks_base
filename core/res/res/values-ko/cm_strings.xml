@@ -135,7 +135,7 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">화면 고정을 해제하려면 뒤로 버튼을 길게 누르세요.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="lineage_system_error_manufacturer">공급 업체 이미지 불일치가 감지되었습니다. 일반적으로 이것은 당신의 공급 업체 이미지가 오래되었다는 것을 의미합니다. 공급 업체 이미지가 <xliff:g id="fingerprint">%1$s</xliff:g>과 일치하는지 확인하십시오.</string>
+  <string name="lineage_system_error_manufacturer">공급 업체 이미지가 일치하지 않습니다. 이는 일반적으로 사용자의 공급 업체 이미지가 오래되었음을 의미합니다. 공급 업체 이미지가 <xliff:g id="fingerprint">%1$s</xliff:g>과 일치하는지 확인하십시오.</string>
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">화면 바깥을 누르면 한 손 모드를 종료합니다</string>
   <!-- Strings for tethered notification -->

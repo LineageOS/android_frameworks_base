@@ -132,7 +132,7 @@
   <string name="quick_settings_location_battery_saving_label">Varčevanje z energijo</string>
   <string name="quick_settings_location_battery_saving_label_twoline">Varčevanje\nz energijo</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Samo naprava</string>
+  <string name="quick_settings_location_gps_only_label">Samo v napravi</string>
   <string name="quick_settings_location_gps_only_label_twoline">Samo v\nnapravi</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Visoka natančnost</string>
@@ -146,13 +146,13 @@
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_title">Varčevanje z energijo</string>
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Samo naprava</string>
+  <string name="quick_settings_location_detail_mode_sensors_only_title">Samo v napravi</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Uporabi GPS, Wi\u2011Fi, Bluetooth ali mobilna omrežja za določanje lokacije</string>
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Uporaba GPS-ja, Bluetootha, Wi\u2011Fi-ja in mobilnih omrežij za določanje lokacije</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Uporabi Wi\u2011Fi, Bluetooth ali mobilna omrežja za določanje lokacije</string>
+  <string name="quick_settings_location_detail_mode_battery_saving_description">Uporaba Wi\u2011Fi-ja, Bluetootha in mobilnih omrežij za določanje lokacije</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Uporabi GPS za določanje vaše lokacije</string>
+  <string name="quick_settings_location_detail_mode_sensors_only_description">Uporaba GPS-ja za določanje lokacije</string>
   <!-- Adb over network QS tile -->
   <string name="quick_settings_network_adb_label">ADB preko omrežja</string>
   <!-- Ambient display QS tile -->

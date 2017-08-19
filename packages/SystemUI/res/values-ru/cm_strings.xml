@@ -132,6 +132,7 @@
   <string name="quick_settings_location_battery_saving_label_twoline">По коорди-\nнатам сети</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">По спутникам GPS</string>
+  <string name="quick_settings_location_gps_only_label_twoline">Только\nGPS</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">По всем источникам</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">По всем\nисточникам</string>
