@@ -127,6 +127,10 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.zip.ZipEntry;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.LinkedBlockingQueue;
+
 
 /**
  * Parser for package files (APKs) on disk. This supports apps packaged either
@@ -209,6 +213,14 @@ public class PackageParser {
     private static final String META_DATA_INSTANT_APPS = "instantapps.clients.allowed";
 
     private static final String METADATA_MAX_ASPECT_RATIO = "android.max_aspect";
+    // multithread verification
+    private static final int NUMBER_OF_CORES = Runtime.getRuntime().availableProcessors();
+    private static int sTaskCount = 0;
+    private static Object sObjWaitAll = new Object();
+    private static boolean sWaitingForVerificationDone = false;
+    private static int sPackageParseExceptionFlag = 0;
+    private static Exception sException = null;
+
 
     /**
      * Bit mask of all the valid bits that can be set in recreateOnConfigChanges.
@@ -1646,39 +1658,95 @@ public class PackageParser {
             // Verify that entries are signed consistently with the first entry
             // we encountered. Note that for splits, certificates may have
             // already been populated during an earlier parse of a base APK.
-            for (ZipEntry entry : toVerify) {
-                final Certificate[][] entryCerts = loadCertificates(jarFile, entry);
-                if (ArrayUtils.isEmpty(entryCerts)) {
-                    throw new PackageParserException(INSTALL_PARSE_FAILED_NO_CERTIFICATES,
-                            "Package " + apkPath + " has no certificates at entry "
-                            + entry.getName());
-                }
-                final Signature[] entrySignatures = convertToSignatures(entryCerts);
-
-                if (pkg.mCertificates == null) {
-                    pkg.mCertificates = entryCerts;
-                    pkg.mSignatures = entrySignatures;
-                    pkg.mSigningKeys = new ArraySet<PublicKey>();
-                    for (int i=0; i < entryCerts.length; i++) {
-                        pkg.mSigningKeys.add(entryCerts[i][0].getPublicKey());
+            final StrictJarFile sJarFile = jarFile;
+            final ThreadPoolExecutor verificationExecutor = new ThreadPoolExecutor(
+                    NUMBER_OF_CORES,
+                    NUMBER_OF_CORES,
+                    1,/*keep alive time*/
+                    TimeUnit.SECONDS,
+                    new LinkedBlockingQueue<Runnable>()){
+                protected void afterExecute(Runnable r, Throwable t) {
+                    synchronized (sObjWaitAll) {
+                        sTaskCount--;
+                        if(sTaskCount <= 0 && sWaitingForVerificationDone) {
+                            sObjWaitAll.notify();
+                        }
                     }
-                } else {
-                    if (!Signature.areExactMatch(pkg.mSignatures, entrySignatures)) {
-                        throw new PackageParserException(
-                                INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES, "Package " + apkPath
-                                        + " has mismatched certificates at entry "
+                    super.afterExecute(r,t);
+                }
+                protected void beforeExecute(Thread t, Runnable r) {
+                    super.beforeExecute(t,r);
+                }
+            };
+            for (ZipEntry entry : toVerify) {
+                Runnable verifyTask = new Runnable(){
+                    public void run() {
+                        try {
+                            final Certificate[][] entryCerts = loadCertificates(sJarFile, entry);
+                            if (ArrayUtils.isEmpty(entryCerts)) {
+                                throw new PackageParserException(INSTALL_PARSE_FAILED_NO_CERTIFICATES,
+                                        "Package " + apkPath + " has no certificates at entry "
                                         + entry.getName());
+                            }
+                            final Signature[] entrySignatures = convertToSignatures(entryCerts);
+
+                            if (pkg.mCertificates == null) {
+                                pkg.mCertificates = entryCerts;
+                                pkg.mSignatures = entrySignatures;
+                                pkg.mSigningKeys = new ArraySet<PublicKey>();
+                                for (int i=0; i < entryCerts.length; i++) {
+                                    pkg.mSigningKeys.add(entryCerts[i][0].getPublicKey());
+                                }
+                            } else {
+                                if (!Signature.areExactMatch(pkg.mSignatures, entrySignatures)) {
+                                    throw new PackageParserException(
+                                            INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES, "Package " + apkPath
+                                            + " has mismatched certificates at entry "
+                                            + entry.getName());
+                                }
+                            }
+                        } catch (GeneralSecurityException e) {
+                            synchronized (sObjWaitAll) {
+                                sPackageParseExceptionFlag = INSTALL_PARSE_FAILED_CERTIFICATE_ENCODING;
+                                sException = e;
+                                sObjWaitAll.notify();
+                            }
+                        } catch (PackageParserException e) {
+                            synchronized (sObjWaitAll) {
+                                sPackageParseExceptionFlag = INSTALL_PARSE_FAILED_UNEXPECTED_EXCEPTION;
+                                sException = e;
+                                sObjWaitAll.notify();
+                            }
+                        }
+                    }};
+                synchronized (sObjWaitAll) {
+                    sTaskCount++;
+                }
+                verificationExecutor.execute(verifyTask);
+            }
+            synchronized (sObjWaitAll) {
+                if(sTaskCount > 0) {
+                    try {
+                        sWaitingForVerificationDone = true;
+                        sObjWaitAll.wait();
+                    } catch (Exception e) {
+                        Slog.w(TAG, "verification threads waiting exit failed " + apkPath, e);
+                    } finally {
+                        sWaitingForVerificationDone = false;
+                        verificationExecutor.shutdownNow();
+                        if (sPackageParseExceptionFlag != 0 )
+                            throw new PackageParserException(sPackageParseExceptionFlag,
+                                    "Failed to collect certificates from " + apkPath, sException);
                     }
                 }
             }
             Trace.traceEnd(TRACE_TAG_PACKAGE_MANAGER);
-        } catch (GeneralSecurityException e) {
-            throw new PackageParserException(INSTALL_PARSE_FAILED_CERTIFICATE_ENCODING,
-                    "Failed to collect certificates from " + apkPath, e);
+        //We don't need catch GeneralSecurityException in this place because it's catched above.
         } catch (IOException | RuntimeException e) {
             throw new PackageParserException(INSTALL_PARSE_FAILED_NO_CERTIFICATES,
                     "Failed to collect certificates from " + apkPath, e);
         } finally {
+            sException = null;
             closeQuietly(jarFile);
         }
     }
