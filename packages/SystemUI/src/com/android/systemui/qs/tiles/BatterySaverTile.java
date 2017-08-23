@@ -28,6 +28,8 @@ import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.statusbar.policy.BatteryController;
+import com.android.systemui.plugins.ActivityStarter;
+import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
 public class BatterySaverTile extends QSTileImpl<BooleanState> implements
         BatteryController.BatteryStateChangeCallback {
@@ -39,9 +41,13 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
     private boolean mCharging;
     private boolean mPluggedIn;
 
+    private final KeyguardMonitor mKeyguard;
+    private final KeyguardCallback mKeyguardCallback = new KeyguardCallback();
+
     public BatterySaverTile(QSHost host) {
         super(host);
         mBatteryController = Dependency.get(BatteryController.class);
+        mKeyguard = Dependency.get(KeyguardMonitor.class);
     }
 
     @Override
@@ -58,8 +64,10 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
     public void handleSetListening(boolean listening) {
         if (listening) {
             mBatteryController.addCallback(this);
+            mKeyguard.addCallback(mKeyguardCallback);
         } else {
             mBatteryController.removeCallback(this);
+            mKeyguard.removeCallback(mKeyguardCallback);
         }
     }
 
@@ -70,6 +78,13 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
 
     @Override
     protected void handleClick() {
+        if (mKeyguard.isSecure() && mKeyguard.isShowing()) {
+            Dependency.get(ActivityStarter.class).postQSRunnableDismissingKeyguard(() -> {
+                mHost.openPanels();
+                mBatteryController.setPowerSaveMode(!mPowerSave);
+            });
+            return;
+        }
         mBatteryController.setPowerSaveMode(!mPowerSave);
     }
 
@@ -148,4 +163,11 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
             // Don't change the actual level, otherwise this won't draw correctly
         }
     }
+
+    private final class KeyguardCallback implements KeyguardMonitor.Callback {
+        @Override
+        public void onKeyguardShowingChanged() {
+            refreshState();
+        }
+    };
 }
