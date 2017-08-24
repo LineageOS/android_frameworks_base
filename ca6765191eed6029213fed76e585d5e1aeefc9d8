@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "794094c7_77ab2d49",
+        "filename": "core/jni/android_util_Process.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-08-24T11:23:05Z",
+      "side": 1,
+      "message": "name8.string()",
+      "range": {
+        "startLine": 583,
+        "startChar": 25,
+        "endLine": 583,
+        "endChar": 33
+      },
+      "revId": "ca6765191eed6029213fed76e585d5e1aeefc9d8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
