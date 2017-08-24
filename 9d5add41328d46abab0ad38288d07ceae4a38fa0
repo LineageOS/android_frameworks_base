@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ca5c03d_7b74ea37",
+        "filename": "packages/SystemUI/res/drawable/ic_qs_profiles_off.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-08-24T17:10:14Z",
+      "side": 1,
+      "message": "Copyright (c) 2015 The CyanogenMod Project\nCopyright (c) 2017 The LineageOS Project",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 46
+      },
+      "revId": "9d5add41328d46abab0ad38288d07ceae4a38fa0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5da39fae_cc112b6d",
+        "filename": "packages/SystemUI/res/drawable/ic_qs_profiles_on.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-08-24T17:10:14Z",
+      "side": 1,
+      "message": "Copyright (c) 2015 The CyanogenMod Project\nCopyright (c) 2017 The LineageOS Project",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 46
+      },
+      "revId": "9d5add41328d46abab0ad38288d07ceae4a38fa0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6403352a_44173d84",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-08-24T17:10:14Z",
+      "side": 1,
+      "message": "The change of the Copyright notice is not necessary",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 70
+      },
+      "revId": "9d5add41328d46abab0ad38288d07ceae4a38fa0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22406ee0_1a0f9773",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-08-24T17:10:14Z",
+      "side": 0,
+      "message": "Why did you remove that?!",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 44
+      },
+      "revId": "e8836cd0171a7b750d8523831009510ba5a8d32d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
