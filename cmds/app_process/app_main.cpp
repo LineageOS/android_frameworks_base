@@ -337,6 +337,7 @@ int main(int argc, char* const argv[])
     }
 
     if (!niceName.isEmpty()) {
+        set_process_name(niceName.string());
         runtime.setArgv0(niceName.string(), true /* setProcName */);
     }
 
