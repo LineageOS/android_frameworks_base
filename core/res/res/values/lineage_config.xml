@@ -37,4 +37,8 @@
     <!-- Button backlight -->
     <integer name="config_buttonBrightnessSettingDefault">255</integer>
     <bool name="config_deviceHasVariableButtonBrightness">false</bool>
+
+    <!-- Paths to fast charging status file to detect whether an oem fast charger is active -->
+    <string-array name="config_oemFastChargerStatusPaths" translatable="false">
+    </string-array>
 </resources>
