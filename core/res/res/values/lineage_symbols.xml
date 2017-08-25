@@ -57,4 +57,7 @@
     <java-symbol type="layout" name="permission_confirmation_dialog" />
     <java-symbol type="array" name="app_ops_labels" />
     <java-symbol type="string" name="status_bar_su" />
+
+    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+    <java-symbol type="string" name="config_oemFastChargerStatusPath" />
 </resources>
