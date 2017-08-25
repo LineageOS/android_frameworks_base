@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c0eb2f0_ed2418af",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-25T12:30:40Z",
+      "side": 1,
+      "message": "I removed the LineageOS copyright cuz I did not add anything new. Just copy/paste from CyanogenMod.\nI only removed the whitespaces. Should I make it to look like the old one?",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 70
+      },
+      "revId": "0c42947c3358e88377593f2566ca2b3990d4b3ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ab4ff38_2d79d010",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSDetailItemsList.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-25T12:30:40Z",
+      "side": 1,
+      "message": "I deleted 2 lines from the source code, that\u0027s why I added this line here.\nIs it OK?",
+      "range": {
+        "startLine": 3,
+        "startChar": 3,
+        "endLine": 3,
+        "endChar": 43
+      },
+      "revId": "0c42947c3358e88377593f2566ca2b3990d4b3ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
