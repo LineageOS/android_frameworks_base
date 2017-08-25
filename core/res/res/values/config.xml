@@ -4495,6 +4495,12 @@
      and a second time clipped to the fill level to indicate charge -->
     <bool name="config_batterymeterDualTone">false</bool>
 
+    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+    <string name="config_oemFastChargerStatusPath" translatable="false"></string>
+
+    <!-- Expected value from fast charging status file  -->
+    <string name="config_oemFastChargerStatusValue" translatable="false">1</string>
+
     <!-- The default refresh rate for a given device. Change this value to set a higher default
          refresh rate. If the hardware composer on the device supports display modes with a higher
          refresh rate than the default value specified here, the framework may use those higher

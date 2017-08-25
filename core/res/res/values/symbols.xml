@@ -3394,6 +3394,10 @@
   <java-symbol type="string" name="config_batterymeterBoltPath" />
   <java-symbol type="string" name="config_batterymeterPowersavePath" />
   <java-symbol type="bool" name="config_batterymeterDualTone" />
+  <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+  <java-symbol type="string" name="config_oemFastChargerStatusPath" />
+  <!-- Expected value from fast charging status file -->
+  <java-symbol type="string" name="config_oemFastChargerStatusValue" />
   <java-symbol type="string" name="config_signalAttributionPath" />
   <java-symbol type="dimen" name="config_signalCutoutWidthFraction" />
   <java-symbol type="dimen" name="config_signalCutoutHeightFraction" />
