@@ -206,6 +206,11 @@ public class KeyguardIndicationController {
                         ? R.string.keyguard_indication_charging_time_fast
                         : R.string.keyguard_plugged_in_charging_fast;
                 break;
+            case KeyguardUpdateMonitor.BatteryStatus.CHARGING_FAST_OEM:
+                chargingId = hasChargingTime
+                        ? R.string.keyguard_indication_oem_fast_charging_time
+                        : R.string.keyguard_plugged_in_oem_fast_charging;
+                break;
             case KeyguardUpdateMonitor.BatteryStatus.CHARGING_SLOWLY:
                 chargingId = hasChargingTime
                         ? R.string.keyguard_indication_charging_time_slowly
