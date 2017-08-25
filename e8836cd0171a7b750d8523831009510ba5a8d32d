@@ -22,6 +22,30 @@
       "revId": "e8836cd0171a7b750d8523831009510ba5a8d32d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5425e006_c899cae5",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-25T12:30:40Z",
+      "side": 0,
+      "message": "Oops! I don\u0027t know what I was thinking!",
+      "parentUuid": "22406ee0_1a0f9773",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 44
+      },
+      "revId": "e8836cd0171a7b750d8523831009510ba5a8d32d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }

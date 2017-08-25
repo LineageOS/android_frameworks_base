@@ -68,6 +68,30 @@
       "revId": "9d5add41328d46abab0ad38288d07ceae4a38fa0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f99fde4_a8382877",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-25T12:30:40Z",
+      "side": 1,
+      "message": "Would you suggest to add them back in order to keep the commit more dedicated to the changes or leave it like this?",
+      "parentUuid": "6403352a_44173d84",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 70
+      },
+      "revId": "9d5add41328d46abab0ad38288d07ceae4a38fa0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
