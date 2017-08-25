@@ -207,4 +207,8 @@
     <!-- Volume panel QS tile -->
     <string name="quick_settings_sync_label">Sync</string>
     <string name="quick_settings_volume_panel_label">Volume panel</string>
+
+    <!-- Indication on the keyguard that is shown when the device is charging with a oem fast charger. Should match keyguard_plugged_in_oem_fast_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_oem_fast_charging_time">Fast charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_oem_fast_charging">Fast charging</string>
 </resources>
