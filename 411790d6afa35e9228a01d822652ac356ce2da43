@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93d54ad7_50347d45",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 18029
+      },
+      "writtenOn": "2017-08-25T12:30:40Z",
+      "side": 1,
+      "message": "Would you suggest to add them back in order to keep the commit more dedicated to the changes or leave it like this?",
+      "range": {
+        "startLine": 8,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "411790d6afa35e9228a01d822652ac356ce2da43",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
