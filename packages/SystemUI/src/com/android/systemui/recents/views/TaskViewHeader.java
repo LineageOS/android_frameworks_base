@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -470,9 +471,17 @@ public class TaskViewHeader extends FrameLayout
     }
 
     private void updateLockTaskDrawable() {
-        mLockTaskButton.setImageDrawable(mTask.useLightOnPrimaryColor ?
-                (Recents.sLockedTasks.contains(mTask) ? mLightLockedDrawable : mLightUnlockedDrawable) :
-                (Recents.sLockedTasks.contains(mTask) ? mDarkLockedDrawable : mDarkUnlockedDrawable));
+        if (Recents.sLockedTasks.contains(mTask)) {
+            mLockTaskButton.setImageDrawable(mTask.useLightOnPrimaryColor ?
+                    mLightLockedDrawable : mDarkLockedDrawable);
+            mLockTaskButton.setContentDescription(
+                    getResources().getString(R.string.task_locked_desc, mTask.title));
+        } else {
+            mLockTaskButton.setImageDrawable(mTask.useLightOnPrimaryColor ?
+                    mLightUnlockedDrawable : mDarkUnlockedDrawable);
+            mLockTaskButton.setContentDescription(
+                    getResources().getString(R.string.task_unlocked_desc, mTask.title));
+        }
         ((AnimatedVectorDrawable) mLockTaskButton.getDrawable()).start();
     }
 
