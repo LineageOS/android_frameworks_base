@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcc33514_306adac8",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2017-08-27T18:01:10Z",
+      "side": 1,
+      "message": "I had a couple of other ideas, cos this is ugly IMO:\n- (prevent|allow) %1$s (from being|to be) dismissed\n- (unlock|lock) %1$s",
+      "range": {
+        "startLine": 21,
+        "startChar": 38,
+        "endLine": 21,
+        "endChar": 67
+      },
+      "revId": "1ff264103666938c35c639983cfe8066a95d936c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
