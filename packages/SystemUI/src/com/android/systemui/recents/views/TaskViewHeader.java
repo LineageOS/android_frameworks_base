@@ -479,9 +479,17 @@ public class TaskViewHeader extends FrameLayout
     }
 
     private void updateLockTaskDrawable() {
-        mLockTaskButton.setImageDrawable(mTask.useLightOnPrimaryColor ?
-                (Recents.sLockedTasks.contains(mTask) ? mLightLockedDrawable : mLightUnlockedDrawable) :
-                (Recents.sLockedTasks.contains(mTask) ? mDarkLockedDrawable : mDarkUnlockedDrawable));
+        if (Recents.sLockedTasks.contains(mTask)) {
+            mLockTaskButton.setImageDrawable(mTask.useLightOnPrimaryColor ?
+                    mLightLockedDrawable : mDarkLockedDrawable);
+            mLockTaskButton.setContentDescription(
+                    getResources().getString(R.string.accessibility_unlock_task, mTask.title));
+        } else {
+            mLockTaskButton.setImageDrawable(mTask.useLightOnPrimaryColor ?
+                    mLightUnlockedDrawable : mDarkUnlockedDrawable);
+            mLockTaskButton.setContentDescription(
+                    getResources().getString(R.string.accessibility_lock_task, mTask.title));
+        }
         ((AnimatedVectorDrawable) mLockTaskButton.getDrawable()).start();
     }
 

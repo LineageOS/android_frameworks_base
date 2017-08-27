@@ -207,4 +207,9 @@
     <!-- Volume panel QS tile -->
     <string name="quick_settings_sync_label">Sync</string>
     <string name="quick_settings_volume_panel_label">Volume panel</string>
+
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task">Prevent <xliff:g id="task">%1$s</xliff:g> from being dismissed</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task">Allow <xliff:g id="task">%1$s</xliff:g> to be dismissed</string>
 </resources>
