@@ -883,11 +883,11 @@
     <integer name="config_defaultNightDisplayCustomEndTime">21600000</integer>
 
     <!-- Minimum color temperature, in Kelvin, supported by Night display. -->
-    <integer name="config_nightDisplayColorTemperatureMin">2596</integer>
+    <integer name="config_nightDisplayColorTemperatureMin">1600</integer>
 
     <!-- Default color temperature, in Kelvin, to tint the screen when Night display is
          activated. -->
-    <integer name="config_nightDisplayColorTemperatureDefault">2850</integer>
+    <integer name="config_nightDisplayColorTemperatureDefault">2650</integer>
 
     <!-- Maximum color temperature, in Kelvin, supported by Night display. -->
     <integer name="config_nightDisplayColorTemperatureMax">4082</integer>
