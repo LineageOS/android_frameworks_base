@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e49d2d28_800abcbc",
+        "filename": "packages/SystemUI/res/layout/recents_task_view_header.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2017-08-27T11:58:19Z",
+      "side": 1,
+      "message": "Needs a fallback for accessibility",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 36
+      },
+      "revId": "6439c48d305f8428acee38479c59ccc470854321",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
