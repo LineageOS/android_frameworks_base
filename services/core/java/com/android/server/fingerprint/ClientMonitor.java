@@ -18,7 +18,7 @@ package com.android.server.fingerprint;
 
 import android.Manifest;
 import android.content.Context;
-import android.hardware.biometrics.fingerprint.V2_1.IBiometricsFingerprint;
+import android.hardware.biometrics.fingerprint.V2_0.IBiometricsFingerprint;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.fingerprint.IFingerprintServiceReceiver;
 import android.os.IBinder;

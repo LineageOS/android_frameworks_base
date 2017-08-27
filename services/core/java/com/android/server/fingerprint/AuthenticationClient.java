@@ -16,7 +16,7 @@
 
 package com.android.server.fingerprint;
 
-import android.hardware.biometrics.fingerprint.V2_1.IBiometricsFingerprint;
+import android.hardware.biometrics.fingerprint.V2_0.IBiometricsFingerprint;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
