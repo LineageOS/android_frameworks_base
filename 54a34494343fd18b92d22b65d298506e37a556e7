@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "e1bf1563_4dc65198",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-08-29T13:28:18Z",
+      "side": 1,
+      "message": "Spaces after commas",
+      "revId": "54a34494343fd18b92d22b65d298506e37a556e7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e254eb3_63ae298e",
         "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
         "patchSetId": 3
@@ -30,6 +47,23 @@
       "writtenOn": "2017-08-29T13:27:03Z",
       "side": 1,
       "message": "Spaces before and after parenthesis",
+      "revId": "54a34494343fd18b92d22b65d298506e37a556e7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07c8643e_ae01aa04",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-08-29T13:28:18Z",
+      "side": 1,
+      "message": "Space after comma",
       "revId": "54a34494343fd18b92d22b65d298506e37a556e7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
