@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec51e6cc_3e1ef059",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2017-09-01T14:31:20Z",
+      "side": 1,
+      "message": "Second argument in here specifies whether do we want wakeup sensor.\n\n \u003e \u003e Device must have NON-WAKEUP proximity sensor\n \u003e \n \u003e Could this be enforced (https://developer.android.com/reference/android/hardware/Sensor.html#isWakeUpSensor()\n \u003e ), or do we assume everyone knows the difference and the note above\n \u003e the overlay is enough?",
+      "revId": "aef38d13bb5dc0e6d7ed38aeb5e497a8ef1c25bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
