@@ -16,6 +16,24 @@
       "revId": "aef38d13bb5dc0e6d7ed38aeb5e497a8ef1c25bf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd34745_c8527703",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 13897
+      },
+      "writtenOn": "2017-09-01T14:35:55Z",
+      "side": 1,
+      "message": "Sorry, I read the documentation incorrectly and thought the flag was a preference, but I see that I was wrong and the method returns null if there are no non-wakeup sensors.",
+      "parentUuid": "ec51e6cc_3e1ef059",
+      "revId": "aef38d13bb5dc0e6d7ed38aeb5e497a8ef1c25bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
