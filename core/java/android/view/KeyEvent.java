@@ -787,8 +787,11 @@ public class KeyEvent extends InputEvent implements Parcelable {
     /** Key code constant: put device to sleep unless a wakelock is held.
      * @hide */
     public static final int KEYCODE_SOFT_SLEEP = 276;
+    /** Key code constant: wake device to ambient
+     * @hide */
+    public static final int KEYCODE_SOFT_WAKE = 277;
 
-    private static final int LAST_KEYCODE = KEYCODE_SOFT_SLEEP;
+    private static final int LAST_KEYCODE = KEYCODE_SOFT_WAKE;
 
     // NOTE: If you add a new keycode here you must also add it to:
     //  isSystem()
@@ -1859,6 +1862,12 @@ public class KeyEvent extends InputEvent implements Parcelable {
         }
         return false;
     }
+
+    /** @hide */
+    public static final boolean isDozeKey(int keyCode) {
+        return keyCode == KeyEvent.KEYCODE_SOFT_WAKE;
+    }
+
 
     /** @hide */
     public static final boolean isMetaKey(int keyCode) {
