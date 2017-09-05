@@ -331,6 +331,8 @@
                          android:permission="cyanogenmod.permission.SEND_PROTECTED_THEME_BROADCAST" />
 
     <protected-broadcast android:name="android.net.action.SHOW_NETWORK_POLICY_NOTIFICATION" />
+  
+    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
