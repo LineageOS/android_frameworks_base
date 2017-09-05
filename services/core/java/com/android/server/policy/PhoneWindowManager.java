@@ -5956,6 +5956,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case KeyEvent.KEYCODE_MEDIA_REWIND:
             case KeyEvent.KEYCODE_MEDIA_RECORD:
             case KeyEvent.KEYCODE_MEDIA_FAST_FORWARD:
+            case KeyEvent.KEYCODE_SOFT_WAKE: {
+               Intent intent = new Intent(com.android.systemui.doze.pulse);
+               mContext.sendBroadcastAsUser(intent, new UserHandle(UserHandle.USER_CURRENT));
+            }
             case KeyEvent.KEYCODE_MEDIA_AUDIO_TRACK: {
                 if (MediaSessionLegacyHelper.getHelper(mContext).isGlobalPriorityActive()) {
                     // If the global session is active pass all media keys to it
