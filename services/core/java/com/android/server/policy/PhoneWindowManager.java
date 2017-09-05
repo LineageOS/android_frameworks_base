@@ -218,6 +218,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     static public final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
     static public final String SYSTEM_DIALOG_REASON_HOME_KEY = "homekey";
     static public final String SYSTEM_DIALOG_REASON_ASSIST = "assist";
+    static public final String DOZE_INTENT = "com.android.systemui.doze.pulse";
 
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
@@ -5956,6 +5957,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case KeyEvent.KEYCODE_MEDIA_REWIND:
             case KeyEvent.KEYCODE_MEDIA_RECORD:
             case KeyEvent.KEYCODE_MEDIA_FAST_FORWARD:
+            case KeyEvent.KEYCODE_SOFT_WAKE: {
+               Intent intent = new Intent(DOZE_INTENT);
+               mContext.sendBroadcastAsUser(intent, new UserHandle(UserHandle.USER_CURRENT));
+            }
             case KeyEvent.KEYCODE_MEDIA_AUDIO_TRACK: {
                 if (MediaSessionLegacyHelper.getHelper(mContext).isGlobalPriorityActive()) {
                     // If the global session is active pass all media keys to it
