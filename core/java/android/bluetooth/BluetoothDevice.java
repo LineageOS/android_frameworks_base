@@ -229,6 +229,18 @@ public final class BluetoothDevice implements Parcelable {
     public static final String ACTION_BOND_STATE_CHANGED =
             "android.bluetooth.device.action.BOND_STATE_CHANGED";
 
+     /**
+     * Broadcast Action: Broadcast details of IOT device when an IOT
+     * related issue is observed.
+     * <p>Always contains the extra fields {@link #EXTRA_NAME}.
+     * <p>Requires {@link android.Manifest.permission#BLUETOOTH} to receive.
+     * @hide
+     **/
+
+    @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
+    public static final String ACTION_REMOTE_ISSUE_OCCURRED  =
+            "org.codeaurora.intent.bluetooth.action.REMOTE_ISSUE_OCCURRED";
+
     /**
      * Broadcast Action: Indicates the battery level of a remote device has
      * been retrieved for the first time, or changed since the last retrieval
@@ -290,6 +302,69 @@ public final class BluetoothDevice implements Parcelable {
      * @hide
      */
     public static final String EXTRA_BQR = "android.bluetooth.qti.extra.EXTRA_BQR";
+
+    /**
+     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED}
+     * intents. It contains the type of IOT issue that occurred.
+     * @hide
+     */
+    public static final String EXTRA_ISSUE_TYPE = "android.bluetooth.qti.extra.ERROR_TYPE";
+
+    /**
+     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
+     * It contains the details of details of the issue.
+     * @hide
+     */
+    public static final String EXTRA_ERROR_CODE = "android.bluetooth.qti.extra.ERROR_CODE";
+
+    /**
+     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
+     * It contains the SoC event mask when issue occurred.
+     * @hide
+     */
+    public static final String EXTRA_ERROR_EVENT_MASK = "android.bluetooth.qti.extra.ERROR_EVENT_MASK";
+
+    /**
+     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
+     * It contains the LMP Version of IOT device.
+     * @hide
+     */
+    public static final String EXTRA_LMP_VERSION = "android.bluetooth.qti.extra.EXTRA_LMP_VERSION";
+
+    /**
+     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
+     * It contains the LMP Sub Version of IOT device.
+     * @hide
+     */
+    public static final String EXTRA_LMP_SUBVER = "android.bluetooth.qti.extra.EXTRA_LMP_SUBVER";
+
+    /**
+     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
+     * It contains the Manufacturer ID of IOT device.
+     * @hide
+     */
+    public static final String EXTRA_MANUFACTURER = "android.bluetooth.qti.extra.EXTRA_MANUFACTURER";
+
+    /**
+     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
+     * It contains the Power level.
+     * @hide
+     */
+    public static final String EXTRA_POWER_LEVEL = "android.bluetooth.qti.extra.EXTRA_POWER_LEVEL";
+
+    /**
+     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
+     * It contains the Link Quality of the connection.
+     * @hide
+     */
+    public static final String EXTRA_LINK_QUALITY = "android.bluetooth.qti.extra.EXTRA_LINK_QUALITY";
+
+    /**
+     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
+     * It contains the coutnt of glitches occured since last broadcast.
+     * @hide
+     */
+    public static final String EXTRA_GLITCH_COUNT = "android.bluetooth.qti.extra.EXTRA_GLITCH_COUNT";
 
     /**
      * Used as an optional short extra field in {@link #ACTION_FOUND} intents.
