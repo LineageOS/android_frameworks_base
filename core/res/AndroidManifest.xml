@@ -160,6 +160,7 @@
     <protected-broadcast android:name="android.bluetooth.device.action.BATTERY_LEVEL_CHANGED" />
     <protected-broadcast android:name="android.bluetooth.devicepicker.action.LAUNCH" />
     <protected-broadcast android:name="android.bluetooth.devicepicker.action.DEVICE_SELECTED" />
+    <protected-broadcast android:name="org.codeaurora.intent.bluetooth.action.REMOTE_ISSUE_OCCURRED" />
     <protected-broadcast
         android:name="android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED" />
     <protected-broadcast
