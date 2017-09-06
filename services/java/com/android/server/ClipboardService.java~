@@ -275,7 +275,7 @@ public class ClipboardService extends IClipboard.Stub {
     }
 
     private boolean isDeviceLocked() {
-        return isDeviceLocked(mContext);
+        return isKeyguardLocked(mContext);
     }
 
     private final void checkUriOwnerLocked(Uri uri, int uid) {
