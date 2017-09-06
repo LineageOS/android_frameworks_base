@@ -252,17 +252,30 @@ public class ClipboardService extends IClipboard.Stub {
         }
     }
 
-    private boolean isDeviceLocked() {
+    private boolean isDeviceLocked(Context context) {
         boolean isLocked = false;
-        KeyguardManager keyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
+
+        // First we check the locked state
+        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
         boolean inKeyguardRestrictedInputMode = keyguardManager.inKeyguardRestrictedInputMode();
+
         if (inKeyguardRestrictedInputMode) {
             isLocked = true;
+
         } else {
-            PowerManager powerManager = (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
+            // If password is not set in the settings, the inKeyguardRestrictedInputMode() returns false,
+            // so we need to check if screen on for this case
+
+            PowerManager powerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
+            //noinspection deprecation
             isLocked = !powerManager.isScreenOn();
         }
+
         return isLocked;
+    }
+
+    private boolean isDeviceLocked() {
+        return isKeyguardLocked(mContext);
     }
 
     private final void checkUriOwnerLocked(Uri uri, int uid) {
