@@ -193,9 +193,12 @@ static void nativeSetFeature(JNIEnv *env, jclass clazz, jint featureId, jint dat
 static jint nativeGetFeature(JNIEnv *env, jclass clazz, jint featureId) {
     int value = -1;
 
+    /* BRINGUP */
+    /*
     if (gPowerModule && gPowerModule->getFeature) {
         value = gPowerModule->getFeature(gPowerModule, (feature_t)featureId);
     }
+    */
 
     return (jint)value;
 }
