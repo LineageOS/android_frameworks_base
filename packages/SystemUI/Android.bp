@@ -95,6 +95,7 @@ android_library {
         "dagger2",
         "jsr330",
         "lottie",
+        "org.lineageos.platform.internal",
     ],
     manifest: "AndroidManifest.xml",
 
@@ -182,6 +183,7 @@ android_library {
         "dagger2",
         "jsr330",
         "WindowManager-Shell",
+        "org.lineageos.platform.internal",
     ],
     libs: [
         "android.test.runner",
