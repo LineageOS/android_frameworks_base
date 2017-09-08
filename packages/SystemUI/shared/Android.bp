@@ -69,6 +69,7 @@ android_library {
         "dagger2",
         "jsr330",
         "//frameworks/libs/systemui:com_android_systemui_shared_flags_lib",
+        "org.lineageos.platform.internal",
     ],
     resource_dirs: [
         "res",
