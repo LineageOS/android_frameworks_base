@@ -39,6 +39,9 @@ LOCAL_JAVA_LIBRARIES := \
     telephony-common \
     android.test.base \
 
+LOCAL_STATIC_JAVA_LIBRARIES := \
+    org.lineageos.platform.internal
+
 LOCAL_AAPT_FLAGS := --extra-packages com.android.systemui:com.android.keyguard
 
 # sign this with platform cert, so this test is allowed to inject key events into
