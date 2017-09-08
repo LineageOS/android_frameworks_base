@@ -59,6 +59,7 @@ android_library {
         "kotlinx_coroutines",
         "dagger2",
         "jsr330",
+        "org.lineageos.platform.internal",
     ],
     resource_dirs: [
         "res",
