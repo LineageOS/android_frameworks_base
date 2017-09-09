@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fe805ce_3dfb8d23",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 12705,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-09-09T04:07:54Z",
+      "side": 0,
+      "message": "This comment change was in the original patch but we should clean it up so that it makes sense anyway.",
+      "revId": "a79ab16af443658bc76f3b82531668badef5d053",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
