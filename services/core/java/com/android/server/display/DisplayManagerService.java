@@ -1,5 +1,7 @@
 /*
  * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (C) 2015-2016 Preetam J. D'Souza
+ * Copyright (C) 2016 The Maru OS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -150,6 +152,11 @@ public final class DisplayManagerService extends SystemService {
     // services should be started.  This option may disable certain display adapters.
     public boolean mOnlyCore;
 
+    /**
+     * maru
+     */
+    private boolean mHdmiMirroringEnabled;
+
     // True if the display manager service should pretend there is only one display
     // and only tell applications about the existence of the default logical display.
     // The display manager can still mirror content to secondary displays but applications
@@ -170,7 +177,7 @@ public final class DisplayManagerService extends SystemService {
     // List of all logical displays indexed by logical display id.
     private final SparseArray<LogicalDisplay> mLogicalDisplays =
             new SparseArray<LogicalDisplay>();
-    private int mNextNonDefaultDisplayId = Display.DEFAULT_DISPLAY + 1;
+    private int mNextNonDefaultDisplayId = Display.DEFAULT_EXTERNAL_DISPLAY + 1;
 
     // List of all display transaction listeners.
     private final CopyOnWriteArrayList<DisplayTransactionListener> mDisplayTransactionListeners =
@@ -432,6 +439,22 @@ public final class DisplayManagerService extends SystemService {
         synchronized (mSyncRoot) {
             mCallbacks.remove(record.mPid);
             stopWifiDisplayScanLocked(record);
+        }
+    }
+
+    private void setHdmiMirroringEnabledInternal(boolean enabled) {
+        synchronized(mSyncRoot) {
+            if (mHdmiMirroringEnabled != enabled) {
+                Slog.d(TAG, "setHdmiMirroringEnabledInternal -> " + enabled);
+                mHdmiMirroringEnabled = enabled;
+                scheduleTraversalLocked(false);
+            }
+        }
+    }
+
+    private boolean isHdmiMirroringEnabledInternal() {
+        synchronized(mSyncRoot) {
+            return mHdmiMirroringEnabled;
         }
     }
 
@@ -769,6 +792,8 @@ public final class DisplayManagerService extends SystemService {
         DisplayDeviceInfo deviceInfo = device.getDisplayDeviceInfoLocked();
         boolean isDefault = (deviceInfo.flags
                 & DisplayDeviceInfo.FLAG_DEFAULT_DISPLAY) != 0;
+        boolean isDefaultExternalDisplay = (deviceInfo.flags
+                & DisplayDeviceInfo.FLAG_DEFAULT_EXTERNAL_DISPLAY) != 0;
         if (isDefault && mLogicalDisplays.get(Display.DEFAULT_DISPLAY) != null) {
             Slog.w(TAG, "Ignoring attempt to add a second default display: " + deviceInfo);
             isDefault = false;
@@ -780,7 +805,7 @@ public final class DisplayManagerService extends SystemService {
             return;
         }
 
-        final int displayId = assignDisplayIdLocked(isDefault);
+        final int displayId = assignDisplayIdLocked(isDefault, isDefaultExternalDisplay);
         final int layerStack = assignLayerStackLocked(displayId);
 
         LogicalDisplay display = new LogicalDisplay(displayId, layerStack, device);
@@ -802,8 +827,14 @@ public final class DisplayManagerService extends SystemService {
         sendDisplayEventLocked(displayId, DisplayManagerGlobal.EVENT_DISPLAY_ADDED);
     }
 
-    private int assignDisplayIdLocked(boolean isDefault) {
-        return isDefault ? Display.DEFAULT_DISPLAY : mNextNonDefaultDisplayId++;
+    private int assignDisplayIdLocked(boolean isDefault, boolean isDefaultExternalDisplay) {
+        if (isDefault) {
+            return Display.DEFAULT_DISPLAY;
+        } else if (isDefaultExternalDisplay) {
+            return Display.DEFAULT_EXTERNAL_DISPLAY;
+        } else {
+            return mNextNonDefaultDisplayId++;
+        }
     }
 
     private int assignLayerStackLocked(int displayId) {
@@ -916,14 +947,20 @@ public final class DisplayManagerService extends SystemService {
         // Find the logical display that the display device is showing.
         // Certain displays only ever show their own content.
         LogicalDisplay display = findLogicalDisplayForDeviceLocked(device);
-        if (!ownContent) {
-            if (display != null && !display.hasContentLocked()) {
-                // If the display does not have any content of its own, then
-                // automatically mirror the default logical display contents.
-                display = null;
-            }
-            if (display == null) {
+        if ((info.flags & DisplayDeviceInfo.FLAG_DEFAULT_EXTERNAL_DISPLAY) != 0) {
+            if (isHdmiMirroringEnabledInternal()) {
                 display = mLogicalDisplays.get(Display.DEFAULT_DISPLAY);
+            }
+        } else { // stock logic
+            if (!ownContent) {
+                if (display != null && !display.hasContentLocked()) {
+                    // If the display does not have any content of its own, then
+                    // automatically mirror the default logical display contents.
+                    display = null;
+                }
+                if (display == null) {
+                    display = mLogicalDisplays.get(Display.DEFAULT_DISPLAY);
+                }
             }
         }
 
@@ -1215,6 +1252,36 @@ public final class DisplayManagerService extends SystemService {
             final long token = Binder.clearCallingIdentity();
             try {
                 registerCallbackInternal(callback, callingPid);
+            } finally {
+                Binder.restoreCallingIdentity(token);
+            }
+        }
+
+        @Override // Binder call
+        public void enableHdmiMirroring() {
+            final long token = Binder.clearCallingIdentity();
+            try {
+                setHdmiMirroringEnabledInternal(true);
+            } finally {
+                Binder.restoreCallingIdentity(token);
+            }
+        }
+
+        @Override // Binder call
+        public void disableHdmiMirroring() {
+            final long token = Binder.clearCallingIdentity();
+            try {
+                setHdmiMirroringEnabledInternal(false);
+            } finally {
+                Binder.restoreCallingIdentity(token);
+            }
+        }
+
+        @Override // Binder call
+        public boolean isHdmiMirroringEnabled() {
+            final long token = Binder.clearCallingIdentity();
+            try {
+                return isHdmiMirroringEnabledInternal();
             } finally {
                 Binder.restoreCallingIdentity(token);
             }

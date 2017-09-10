@@ -30,7 +30,7 @@
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_security">Безпека</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Дозволи, пов\'язані з безпекою даних на пристрої.</string>
+  <string name="permgroupdesc_security">Дозволи, пов\'язані з безпекою даних на пристрії.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readPhoneBlacklist">перегляд чорного списку</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -188,6 +188,4 @@
          whether they want to allow the application to do this. -->
   <string name="permdesc_resetBatteryStats">Дозволити програмі скидати дані про використання акумулятора.</string>
   <!-- Uicc hotswapped event configuration needed notification -->
-  <string name="uicc_hot_swapped_event_title">SIM-карти було змінено</string>
-  <string name="uicc_hot_swapped_event_text">Натисніть, аби встановити типові параметри для SIM-карти</string>
 </resources>

@@ -95,7 +95,7 @@ import com.android.server.usb.UsbService;
 import com.android.server.wallpaper.WallpaperManagerService;
 import com.android.server.webkit.WebViewUpdateService;
 import com.android.server.wm.WindowManagerService;
-
+import com.android.server.mperspective.PerspectiveService;
 import cyanogenmod.providers.CMSettings;
 import dalvik.system.VMRuntime;
 
@@ -886,6 +886,14 @@ public final class SystemServer {
                     Slog.e(TAG, "Failure starting SerialService", e);
                 }
             }
+
+            if (!disableNonCoreServices) {
+                try {
+                    mSystemServiceManager.startService(PerspectiveService.Lifecycle.class);
+                } catch (Throwable e) {
+                    reportWtf("starting PerspectiveService", e);
+                }
+	    }
 
             mSystemServiceManager.startService(TwilightService.class);
 

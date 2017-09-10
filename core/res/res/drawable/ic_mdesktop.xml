@@ -1,0 +1,22 @@
+<!--
+    Copyright (C) 2015-2016 Preetam J. D'Souza
+    Copyright (C) 2016 The Maru OS Project
+
+    This work is licensed under the Creative Commons Attribution 4.0
+    International License (CC-BY 4.0). To view a copy of the license, visit
+
+    https://creativecommons.org/licenses/by/4.0/
+
+    Derived from Material Design icon "desktop windows"
+    https://design.google.com/icons/#ic_desktop_windows
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="48dp"
+        android:height="48dp"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0">
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M21,2H3c-1.1,0 -2,0.9 -2,2v12c0,1.1 0.9,2 2,2h7v2H8v2h8v-2h-2v-2h7c1.1,0 2,-0.9 2,-2V4c0,-1.1 -0.9,-2 -2,-2zm0,14H3V4h18v12z"/>
+</vector>

@@ -81,7 +81,7 @@
   <string name="screen_pinning_description_no_navbar">此功能會固定螢幕顯示直到您取消固定。觸控並長按 [返回] 鍵即可解除固定。</string>
   <string name="quick_settings_custom_tile_detail_title">自訂圖塊</string>
   <string name="quick_settings_remove">移除圖塊</string>
-  <string name="quick_settings_network_adb_label">透過網路 ADB</string>
+  <string name="quick_settings_network_adb_label">網路 ADB</string>
   <string name="quick_settings_compass_label">指南針</string>
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_profiles">系統設定檔</string>
@@ -172,7 +172,7 @@
   <!-- Dynamic tiles -->
   <string name="quick_settings_dynamic_tile_detail_title">動態圖塊</string>
   <string name="dynamic_qs_tile_next_alarm_label">下一個鬧鐘</string>
-  <string name="dynamic_qs_tile_ime_selector_label">輸入法選擇工具</string>
+  <string name="dynamic_qs_tile_ime_selector_label">輸入法選擇器</string>
   <string name="dynamic_qs_tile_su_label">Root 權限</string>
   <string name="dynamic_qs_tile_themes_label">主題</string>
   <string name="quick_settings_title_advanced_location">三角定位</string>
@@ -219,7 +219,7 @@
   <!-- Path data for circle battery -->
   <!-- Weather string format in keyguard -->
   <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="expand_hint">向下滑動即可展開</string>
+  <string name="expand_hint">向下滑動即可以展開</string>
   <string name="swipe_left_hint">向左滑動即可 <xliff:g id="app_name">%1$s</xliff:g></string>
   <string name="swipe_right_hint">向右滑動即可查看通知</string>
 </resources>

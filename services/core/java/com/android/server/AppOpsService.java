@@ -76,7 +76,6 @@ import com.android.internal.os.Zygote;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.FastXmlSerializer;
 import com.android.internal.util.XmlUtils;
-import com.android.server.am.ActivityManagerService;
 import com.android.server.PermissionDialogReqQueue.PermissionDialogReq;
 
 import libcore.util.EmptyArray;
@@ -101,7 +100,6 @@ public class AppOpsService extends IAppOpsService.Stub {
     final boolean mStrictEnable;
     AppOpsPolicy mPolicy;
     private PowerManager mPowerManager;
-    private final ActivityManagerService mActivityManagerService;
 
     private static final int[] PRIVACY_GUARD_OP_STATES = new int[] {
         AppOpsManager.OP_COARSE_LOCATION,
@@ -280,12 +278,11 @@ public class AppOpsService extends IAppOpsService.Stub {
         }
     }
 
-    public AppOpsService(File storagePath, Handler handler, ActivityManagerService service) {
+    public AppOpsService(File storagePath, Handler handler) {
         mFile = new AtomicFile(storagePath);
         mHandler = handler;
         mLooper = Looper.myLooper();
         mStrictEnable = AppOpsManager.isStrictEnable();
-        mActivityManagerService = service;
         readState();
     }
 
@@ -1049,7 +1046,6 @@ public class AppOpsService extends IAppOpsService.Stub {
     private int noteOperationUnchecked(int code, int uid, String packageName,
             int proxyUid, String proxyPackageName) {
         final PermissionDialogReq req;
-        final boolean isInteractive = mPowerManager != null ? mPowerManager.isInteractive() : false;
         synchronized (this) {
             Ops ops = getOpsLocked(uid, packageName, true);
             if (ops == null) {
@@ -1101,7 +1097,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                 return AppOpsManager.MODE_ALLOWED;
 
             } else {
-                if (Looper.myLooper() == mLooper || Thread.holdsLock(mActivityManagerService)) {
+                if (Looper.myLooper() == mLooper) {
                     Log.e(TAG,
                             "noteOperation: This method will deadlock if called from the main thread. (Code: "
                                     + code
@@ -1134,6 +1130,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                 // we move them to the back of the line. NOTE: these values are magic, and may need
                 // tuning. Ideally we'd want a ringbuffer or token bucket here to do proper rate
                 // limiting.
+                final boolean isInteractive = mPowerManager.isInteractive();
                 if (isInteractive &&
                         (ops.uidState.pkgOps.size() < AppOpsPolicy.RATE_LIMIT_OPS_TOTAL_PKG_COUNT
                         && op.noteOpCount < AppOpsPolicy.RATE_LIMIT_OP_COUNT
@@ -1220,7 +1217,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                 broadcastOpIfNeeded(code);
                 return AppOpsManager.MODE_ALLOWED;
             } else {
-                if (Looper.myLooper() == mLooper || Thread.holdsLock(mActivityManagerService)) {
+                if (Looper.myLooper() == mLooper) {
                     Log.e(TAG,
                             "startOperation: This method will deadlock if called from the main thread. (Code: "
                                     + code

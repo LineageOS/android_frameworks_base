@@ -359,6 +359,34 @@ public final class DisplayManager {
         mGlobal.unregisterDisplayListener(listener);
     }
 
+
+ /**
+      * maru: enable screen mirroring
+      *
+      * @hide
+      */
+     public void enableHdmiMirroring() {
+         mGlobal.enableHdmiMirroring();
+     }
+ 
+     /**
+      * maru: disable screen mirroring
+      *
+      * @hide
+      */
+     public void disableHdmiMirroring() {
+         mGlobal.disableHdmiMirroring();
+     }
+ 
+     /**
+      * maru: check if screen mirroring is enabled or not
+      *
+      * @hide
+      */
+     public boolean isHdmiMirroringEnabled() {
+         return mGlobal.isHdmiMirroringEnabled();
+     }
+
     /**
      * Starts scanning for available Wifi displays.
      * The results are sent as a {@link #ACTION_WIFI_DISPLAY_STATUS_CHANGED} broadcast.

@@ -420,6 +420,17 @@ final class LocalDisplayAdapter extends DisplayAdapter {
                     if (SystemProperties.getBoolean("persist.demo.hdmirotates", false)) {
                         mInfo.flags |= DisplayDeviceInfo.FLAG_ROTATES_WITH_CONTENT;
                     }
+
+                    /*
+                     * maru
+                     *
+                     * Debug hook to toggle maru changes.
+                     */
+                    if (SystemProperties.getBoolean("persist.m.desktop.hdmi", true)) {
+                        /* HDMI displays are the default external display */
+                        mInfo.flags |= DisplayDeviceInfo.FLAG_DEFAULT_EXTERNAL_DISPLAY;
+                    }
+
                 }
             }
             return mInfo;

@@ -43,6 +43,9 @@ int register_android_server_hdmi_HdmiCecController(JNIEnv* env);
 int register_android_server_tv_TvInputHal(JNIEnv* env);
 int register_android_server_PersistentDataBlockService(JNIEnv* env);
 int register_android_server_Watchdog(JNIEnv* env);
+// maru
+int register_android_server_mperspective_PerspectiveService(JNIEnv* env);
+
 };
 
 using namespace android;
@@ -81,6 +84,8 @@ extern "C" jint JNI_OnLoad(JavaVM* vm, void* /* reserved */)
     register_android_server_tv_TvInputHal(env);
     register_android_server_PersistentDataBlockService(env);
     register_android_server_Watchdog(env);
+    // maru
+    register_android_server_mperspective_PerspectiveService(env);
 
 
     return JNI_VERSION_1_4;

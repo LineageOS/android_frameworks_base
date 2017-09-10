@@ -29,8 +29,8 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Deslizar a la derecha para %1$s</string>
   <string name="right_shortcut_hint">Deslizar a la izquierda para %1$s</string>
-  <string name="lockscreen_message">Pulsa el icono de la izquierda o derecha para reasignar un atajo a la pantalla de bloqueo.</string>
-  <string name="lockscreen_default_target">Predefinido</string>
+  <string name="lockscreen_message">Pulsar un icono a la izquierda o derecha para reasignar un atajo de la pantalla bloqueada.</string>
+  <string name="lockscreen_default_target">Predeterminado</string>
   <string name="select_application">Selecciona una aplicación</string>
   <string name="lockscreen_choose_action_title">Elegir acción</string>
   <string name="lockscreen_none_target">Ninguna</string>
@@ -65,13 +65,13 @@
   <string name="accessibility_quick_settings_profiles_changed">Perfil cambiado a <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <string name="quick_settings_compass_init">Inicializando\u2026</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Configuración de la luz de notificación</string>
-  <string name="led_notification_text">Luz LED activada por los ajustes</string>
-  <string name="qs_tile_edit_header_instruction">Mantén pulsado los mosaicos para reorganizarlos</string>
+  <string name="led_notification_title">Ajustes de luz de notificación</string>
+  <string name="led_notification_text">Luz LED activada por ajustes</string>
+  <string name="qs_tile_edit_header_instruction">Tocar y dejar presionados los mosaicos para reorganizarlos</string>
   <string name="quick_settings_edit_label">Editar mosaicos</string>
-  <string name="quick_settings_cannot_delete_edit_tile">No se puede borrar el mosaico Editar</string>
-  <string name="qs_tiles_reset_confirmation">¿Restaurar lo mosaicos de ajustes rápidos a su configuración predefinida?</string>
-  <string name="quick_settings_tile_reset_to_default">Restaurar disposición predefinida</string>
+  <string name="quick_settings_cannot_delete_edit_tile">No se puede eliminar el mosaico Editar</string>
+  <string name="qs_tiles_reset_confirmation">¿Restaurar lo mosaicos de ajustes rápidos a su configuración predeterminada?</string>
+  <string name="quick_settings_tile_reset_to_default">Restaurar disposición predeterminada</string>
   <string name="quick_settings_title_header">Encabezado</string>
   <string name="quick_settings_title_tiles">Mosaicos</string>
   <string name="quick_settings_title_show_weather">Mostrar clima</string>
@@ -80,7 +80,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Esto fija la pantalla en esta vista hasta que se desancla. Mantén pulsado el botón Atrás para desanclar.</string>
   <string name="quick_settings_custom_tile_detail_title">Control personalizado</string>
-  <string name="quick_settings_remove">Quitar control</string>
+  <string name="quick_settings_remove">Eliminar control</string>
   <string name="quick_settings_network_adb_label">ADB sobre red</string>
   <string name="quick_settings_compass_label">Brújula</string>
   <string name="quick_settings_nfc_label">NFC</string>
@@ -106,7 +106,7 @@
   <string name="quick_settings_lockscreen_label">Pantalla bloqueada</string>
   <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
   <string name="quick_settings_lockscreen_label_enforced">Pantalla bloqueada forzada</string>
-  <string name="quick_settings_lockscreen_label_locked_by_profile">Desactivado por perfil</string>
+  <string name="quick_settings_lockscreen_label_locked_by_profile">Deshabilitado por perfil</string>
   <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_screen_timeout">Tiempo de espera de pantalla: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
   <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -158,9 +158,9 @@
   <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emergentes activadas.</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">Desactivar Cafeína.</string>
+  <string name="accessibility_quick_settings_caffeine_off">Deshabilitar cafeína.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">Activar Cafeína.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Habilitar cafeína.</string>
   <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_battery_saver_off">Apagar modo de ahorro de batería.</string>
   <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -173,13 +173,12 @@
   <string name="quick_settings_dynamic_tile_detail_title">Control dinámico</string>
   <string name="dynamic_qs_tile_next_alarm_label">Próxima alarma</string>
   <string name="dynamic_qs_tile_ime_selector_label">Selector IME</string>
-  <string name="dynamic_qs_tile_su_label">Acceso de superusuario</string>
-  <string name="dynamic_qs_tile_themes_label">Temas</string>
-  <string name="quick_settings_title_advanced_location">Ubicación por triangulación</string>
+  <string name="dynamic_qs_tile_su_label">Acceso a raíz</string>
+  <string name="quick_settings_title_advanced_location">Localización trizona</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Informes de ubicación: modo de ahorro de batería.</string>
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Informes de ubicación: modo sólo dispositivo.</string>
+  <string name="accessibility_quick_settings_location_gps_only">Informes de ubicación: modo de solo sensores.</string>
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_high_accuracy">Informes de ubicación: modo de alta precisión.</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
@@ -187,13 +186,13 @@
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Ahorro de batería</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Sólo dispositivo</string>
+  <string name="quick_settings_location_gps_only_label">Solo dispositivo</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Alta precisión</string>
   <!-- Announcement made when the location tile changes to battery saving (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_changed_battery_saving">Informes de ubicación cambiados a modo de ahorro de batería.</string>
   <!-- Announcement made when the location tile changes to sensors only (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_gps_only">Informes de ubicación cambiados a modo sólo dispositivo.</string>
+  <string name="accessibility_quick_settings_location_changed_gps_only">Informes de ubicación cambiados a modo solo dispositivo.</string>
   <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_changed_high_accuracy">Informes de ubicación cambiados a modo de gran precisión.</string>
   <string name="quick_settings_tiles_category_system">Mosaicos del sistema</string>
@@ -203,7 +202,7 @@
   <string name="hotspot_apm_message">No se puede conectar con redes móviles cuando el modo avión está activado. Desactivar el modo avión y volver a intentarlo.</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">La linterna está encendida</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Pulsa para apagar</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Pulsar para apagarla</string>
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d cliente</item>
@@ -212,15 +211,11 @@
   <!-- CellularTile data sim not configured state string -->
   <string name="data_sim_not_configured">Sin datos SIM</string>
   <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_dock_battery_level">Batería de la base al <xliff:g id="number">%d</xliff:g> por ciento.</string>
+  <string name="accessibility_dock_battery_level">Batería del dock al <xliff:g id="number">%d</xliff:g> %.</string>
   <!-- Play queue -->
   <string name="play_queue_extention">Mostrar la cola de reproducción</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="expand_hint">Deslizar hacia abajo para ampliar</string>
-  <string name="swipe_left_hint">Deslizar a la izquierda para <xliff:g id="app_name">%1$s</xliff:g></string>
-  <string name="swipe_right_hint">Deslizar a la derecha para las notificaciones</string>
 </resources>

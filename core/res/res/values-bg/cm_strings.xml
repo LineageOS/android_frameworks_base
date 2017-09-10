@@ -34,7 +34,7 @@
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readPhoneBlacklist">Прочетете списъка с блокирани контакти</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Разрешава на приложението да чете информацията от списъка с контакти, които са блокирани за входящи повиквания или съобщения.</string>
+  <string name="permdesc_readPhoneBlacklist">Разрешава на приложението да прочетете информацията за телефонни номера, които са блокирани за входящи повиквания или съобщения.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_changePhoneBlacklist">Промяна на списъка с блокирани контакти</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -42,7 +42,7 @@
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">Задаване на тапет за заключен екран</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Разрешава на приложението да променя тапета на екрана за заключване.</string>
+  <string name="permdesc_setKeyguardWallpaper">Разрешава на едно приложение да променя тапета на заключения екран.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
   <string name="global_action_reboot">Рестартиране</string>
   <!-- label for current user in phone options dialog -->
@@ -87,7 +87,7 @@
   <string name="silent_mode_priority">Приоритет</string>
   <string name="silent_mode_none">Без</string>
   <!-- Wifi Hotspot disabled due to subscription change -->
-  <string name="subscription_change_disabled_wifi_ap">Изключена Wi-Fi точка за достъп, поради промяна в СИМ абонамента</string>
+  <string name="subscription_change_disabled_wifi_ap">Изключена Wi-Fi точка за достъп, поради промяна в абонаментна на СИМ</string>
   <!-- WiFi turn off notification action text -->
   <string name="notify_turn_wifi_off_title">Изключете Wi-Fi</string>
   <!-- Privacy Guard -->
@@ -102,10 +102,10 @@
   <!-- App ops requests -->
   <string name="app_ops_access_camera">достъп до камерата</string>
   <string name="app_ops_access_location">достъп до вашето местоположение</string>
-  <string name="app_ops_access_notifications">прочети известията</string>
+  <string name="app_ops_access_notifications">прочети своите известия</string>
   <string name="app_ops_activate_vpn">активиране на VPN</string>
   <string name="app_ops_auto_start">изпълнение при включване</string>
-  <string name="app_ops_delete_call_log">изтриване на списъка с обаждания</string>
+  <string name="app_ops_delete_call_log">изтриване на дневника за повиквания</string>
   <string name="app_ops_delete_contacts">Изтриване на контакти</string>
   <string name="app_ops_delete_mms">Изтриване на MMS съобщенията</string>
   <string name="app_ops_delete_sms">Изтриване на SMS съобщенията</string>
@@ -114,7 +114,7 @@
   <string name="app_ops_keep_device_awake">Задръж устройството будно</string>
   <string name="app_ops_make_phone_call">осъществете телефонно повикване</string>
   <string name="app_ops_modify_calendar">актуализиране на вашият календар</string>
-  <string name="app_ops_modify_call_log">актуализация на списъка с обаждания</string>
+  <string name="app_ops_modify_call_log">актуализация на дневника за повиквания</string>
   <string name="app_ops_modify_clipboard">промяна на клипборда</string>
   <string name="app_ops_modify_contacts">актуализиране на вашите контакти</string>
   <string name="app_ops_modify_settings">актуализиране на системните настройки</string>
@@ -134,13 +134,13 @@
   <string name="app_ops_send_sms">Изпращане на SMS съобщение</string>
   <string name="app_ops_start_at_bootup">изпълнение при включване</string>
   <string name="app_ops_toast_window">показвай изкачащи уведомления</string>
-  <string name="app_ops_toggle_bluetooth">активиране/деактивиране Блутуут</string>
+  <string name="app_ops_toggle_bluetooth">активиране/деактивиране Bluetooth</string>
   <string name="app_ops_toggle_mobile_data">Включване / Изключване на мобилни данни</string>
   <string name="app_ops_toggle_nfc">активиране/деактивиране NFC</string>
   <string name="app_ops_toggle_wifi">активирай/деактивирай Wi-Fi</string>
   <string name="app_ops_use_alarm_volume">контрол на силата на алармата</string>
   <string name="app_ops_use_audio_focus">контрол на силата на звука</string>
-  <string name="app_ops_use_bluetooth_volume">контрол на силата на Блутуут</string>
+  <string name="app_ops_use_bluetooth_volume">контрол на силата на Bluetooth</string>
   <string name="app_ops_use_master_volume">главен контрол на звука</string>
   <string name="app_ops_use_media_buttons">Използвайте мултимедийните бутони</string>
   <string name="app_ops_use_media_volume">контрол на звука за мултимедия</string>
@@ -176,7 +176,7 @@
   <!-- Sequence of characters used to separate carrier message strings in keyguard. Typically just vertical line
          with spaces on either side. [CHAR LIMIT=3] -->
   <!-- Protected Apps Notification -->
-  <string name="notify_package_component_protected_title">Старта на приложението е блокиран</string>
+  <string name="notify_package_component_protected_title">Старта на приложението блокиран</string>
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> е блокиран. Докосни за да потвърдиш старта на приложението.</string>
   <!-- Battery fully charged notification -->
   <string name="notify_battery_fully_charged_title">Батерията е напълно заредена</string>
