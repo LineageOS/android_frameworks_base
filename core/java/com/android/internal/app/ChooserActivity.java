@@ -609,7 +609,7 @@ public class ChooserActivity extends ResolverActivity {
         final ChooserListAdapter adapter = new ChooserListAdapter(context, payloadIntents,
                 initialIntents, rList, launchedFromUid, filterLastUsed);
         if (DEBUG) Log.d(TAG, "Adapter created; querying services");
-        queryTargetServices(adapter);
+        //queryTargetServices(adapter);
         return adapter;
     }
 
