@@ -1696,8 +1696,9 @@ public class Tethering extends BaseNetworkObserver {
             // used to verify this receiver is still current
             final private int mGenerationNumber;
 
-            // used to check the sim state transition from non-loaded to loaded
-            private boolean mSimNotLoadedSeen = false;
+            // we're interested in edge-triggered LOADED notifications, so
+            // ignore LOADED unless we saw an ABSENT state first
+            private boolean mSimAbsentSeen = false;
 
             public SimChangeBroadcastReceiver(int generationNumber) {
                 super();
@@ -1715,14 +1716,14 @@ public class Tethering extends BaseNetworkObserver {
                 final String state =
                         intent.getStringExtra(IccCardConstants.INTENT_KEY_ICC_STATE);
 
-                Log.d(TAG, "got Sim changed to state " + state + ", mSimNotLoadedSeen=" +
-                        mSimNotLoadedSeen);
-                if (!mSimNotLoadedSeen && !IccCardConstants.INTENT_VALUE_ICC_LOADED.equals(state)) {
-                    mSimNotLoadedSeen = true;
+                Log.d(TAG, "got Sim changed to state " + state + ", mSimAbsentSeen=" +
+                        mSimAbsentSeen);
+                if (!mSimAbsentSeen && IccCardConstants.INTENT_VALUE_ICC_ABSENT.equals(state)) {
+                    mSimAbsentSeen = true;
                 }
 
-                if (mSimNotLoadedSeen && IccCardConstants.INTENT_VALUE_ICC_LOADED.equals(state)) {
-                    mSimNotLoadedSeen = false;
+                if (mSimAbsentSeen && IccCardConstants.INTENT_VALUE_ICC_LOADED.equals(state)) {
+                    mSimAbsentSeen = false;
                     try {
                         if (mContext.getResources().getString(com.android.internal.R.string.
                                 config_mobile_hotspot_provision_app_no_ui).isEmpty() == false) {

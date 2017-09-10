@@ -1135,5 +1135,26 @@
 
     <!-- Bluetooth enablement ok text [CHAR LIMIT=40] -->
     <string name="enable_bluetooth_confirmation_ok">Turn on</string>
+  <!-- Maru -->
+ 
+     <!-- QuickSettings: MMirror [CHAR LIMIT=NONE] -->
+     <string name="quick_settings_mirroring_mode_label">Mirror screen</string>
+ 
+     <!-- Announcement made when mirroring changes to disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+     <string name="accessibility_qs_mirroring_changed_off">Screen mirroring turned off.</string>
+     <!-- Announcement made when mirroring changes to enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+     <string name="accessibility_qs_mirroring_changed_on">Screen mirroring turned on.</string>
+ 
+     <!-- QuickSettings: MDesktop [CHAR LIMIT=NONE] -->
+     <string name="quick_settings_mdesktop_mode_label">Desktop</string>
+ 
+     <!-- Announcement made when desktop changes to disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+     <string name="accessibility_qs_mdesktop_changed_off">Maru desktop turned off.</string>
+     <!-- Announcement made when desktop changes to enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+     <string name="accessibility_qs_mdesktop_changed_on">Maru desktop turned on.</string>
+ 
+ <!-- /Maru -->
+
+
 
 </resources>

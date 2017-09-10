@@ -1,0 +1,29 @@
+<!--
+    Copyright (C) 2015-2016 Preetam J. D'Souza
+    Copyright (C) 2016 The Maru OS Project
+
+    This work is licensed under the Creative Commons Attribution 4.0
+    International License (CC-BY 4.0). To view a copy of the license, visit
+
+    https://creativecommons.org/licenses/by/4.0/
+
+    Derived from Material Design icons "desktop windows" and "smartphone"
+    https://design.google.com/icons/#ic_desktop_windows
+    https://design.google.com/icons/#ic_smartphone
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="48dp"
+        android:height="48dp"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0">
+        <path
+            android:name="monitor"
+            android:fillColor="#FFFFFFFF"
+            android:pathData="m3 2c-1.1 0-2 0.9-2 2v9h2v-9h18v12h-13.327v2h2.327v2h-2v2h8v-2h-2v-2h7c1.1 0 2-0.9 2-2v-12c0-1.1-0.9-2-2-2h-18zm1 3v8h3.6729v2h12.327v-10h-16z"/>
+
+        <path
+            android:name="phone"
+            android:fillColor="#FFFFFFFF"
+            android:pathData="m2.2324 13.946c-0.4027 0-0.7324 0.33-0.7324 0.733v6.5889c0 0.402 0.3297 0.732 0.7324 0.732h3.6602c0.4027 0 0.7324-0.33 0.7324-0.732v-6.5889c0-0.40268-0.32974-0.72852-0.73242-0.72852l-3.6602-0.0039zm0 1.4639h3.6602v5.125h-3.6602v-5.125zm0.40625 0.52734v3.9863h2.8477v-3.9863h-2.8477z"/>
+</vector>

@@ -6,7 +6,6 @@ import android.net.NetworkUtils;
 import android.os.Build;
 import android.os.SystemProperties;
 import android.system.OsConstants;
-import com.android.internal.annotations.VisibleForTesting;
 
 import java.io.UnsupportedEncodingException;
 import java.net.Inet4Address;
@@ -14,8 +13,9 @@ import java.net.UnknownHostException;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.ShortBuffer;
 import java.nio.charset.StandardCharsets;
+import java.nio.ShortBuffer;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -701,8 +701,7 @@ abstract class DhcpPacket {
      * A subset of the optional parameters are parsed and are stored
      * in object fields.
      */
-    @VisibleForTesting
-    static DhcpPacket decodeFullPacket(ByteBuffer packet, int pktType) throws ParseException
+    public static DhcpPacket decodeFullPacket(ByteBuffer packet, int pktType) throws ParseException
     {
         // bootp parameters
         int transactionId;
@@ -810,11 +809,7 @@ abstract class DhcpPacket {
             // server-to-server packets, e.g. for relays.
             if (!isPacketToOrFromClient(udpSrcPort, udpDstPort) &&
                 !isPacketServerToServer(udpSrcPort, udpDstPort)) {
-                // This should almost never happen because we use SO_ATTACH_FILTER on the packet
-                // socket to drop packets that don't have the right source ports. However, it's
-                // possible that a packet arrives between when the socket is bound and when the
-                // filter is set. http://b/26696823 .
-                throw new ParseException("Unexpected UDP ports %d->%d", udpSrcPort, udpDstPort);
+                return null;
             }
         }
 
@@ -865,12 +860,8 @@ abstract class DhcpPacket {
                         + 64    // skip server host name (64 chars)
                         + 128); // skip boot file name (128 chars)
 
-        // Ensure this is a DHCP packet with a magic cookie, and not BOOTP. http://b/31850211
-        if (packet.remaining() < 4) {
-            throw new ParseException("DHCP packet without a magic cookie");
-        }
-
         int dhcpMagicCookie = packet.getInt();
+
         if (dhcpMagicCookie != DHCP_MAGIC_COOKIE) {
             throw new ParseException("Bad magic cookie 0x%08x, should be 0x%08x", dhcpMagicCookie,
                     DHCP_MAGIC_COOKIE);
@@ -1058,13 +1049,7 @@ abstract class DhcpPacket {
     public static DhcpPacket decodeFullPacket(byte[] packet, int length, int pktType)
             throws ParseException {
         ByteBuffer buffer = ByteBuffer.wrap(packet, 0, length).order(ByteOrder.BIG_ENDIAN);
-        try {
-            return decodeFullPacket(buffer, pktType);
-        } catch (ParseException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new ParseException("DHCP parsing error: %s", e.getMessage());
-        }
+        return decodeFullPacket(buffer, pktType);
     }
 
     /**

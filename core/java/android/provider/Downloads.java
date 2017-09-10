@@ -41,8 +41,6 @@ public final class Downloads {
     public static final class Impl implements BaseColumns {
         private Impl() {}
 
-        public static final String AUTHORITY = "downloads";
-
         /**
          * The permission to access the download manager
          */

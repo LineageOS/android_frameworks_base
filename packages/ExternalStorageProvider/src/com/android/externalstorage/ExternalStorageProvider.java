@@ -135,8 +135,7 @@ public class ExternalStorageProvider extends DocumentsProvider {
                     final VolumeInfo privateVol = mStorageManager.findPrivateForEmulated(volume);
                     title = mStorageManager.getBestVolumeDescription(privateVol);
                 }
-            } else if (volume.getType() == VolumeInfo.TYPE_PUBLIC
-                    && volume.getMountUserId() == userId) {
+            } else if (volume.getType() == VolumeInfo.TYPE_PUBLIC) {
                 rootId = volume.getFsUuid();
                 title = mStorageManager.getBestVolumeDescription(volume);
             } else {

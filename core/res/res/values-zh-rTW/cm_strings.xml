@@ -40,7 +40,7 @@
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_changePhoneBlacklist">允許應用程式變更被封鎖來電或訊息的電話號碼。</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">設定鍵盤鎖桌布</string>
+  <string name="permlab_setKeyguardWallpaper">設定鎖定螢幕桌布</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_setKeyguardWallpaper">允許應用程式變更鎖定畫面桌布。</string>
   <!-- label for item that reboots the phone in phone options dialog -->
@@ -146,7 +146,7 @@
   <string name="app_ops_use_media_volume">控制媒體音量</string>
   <string name="app_ops_use_notification_volume">控制通知音量</string>
   <string name="app_ops_use_ring_volume">控制鈴聲音量</string>
-  <string name="app_ops_use_vibrate">使用觸控震動</string>
+  <string name="app_ops_use_vibrate">使用觸覺回饋</string>
   <string name="app_ops_use_voice_volume">控制語音通話音量</string>
   <string name="app_ops_write_mms">撰寫多媒體訊息</string>
   <string name="app_ops_write_sms">撰寫簡訊訊息</string>

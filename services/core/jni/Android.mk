@@ -79,3 +79,18 @@ $(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libtime_genoff_intermediates/)
 $(shell touch $(OUT)/obj/SHARED_LIBRARIES/libtime_genoff_intermediates/export_includes)
 endif
 
+
+#---------------------------------------------------------------------------
+# maru
+ 
+LOCAL_SRC_FILES += \
+     $(LOCAL_REL_DIR)/com_android_server_mperspective_PerspectiveService.cpp
+ 
+LOCAL_C_INCLUDES += \
+     vendor/maruos/include
+ 
+LOCAL_SHARED_LIBRARIES += \
+     libperspective
+ 
+#---------------------------------------------------------------------------
+ 

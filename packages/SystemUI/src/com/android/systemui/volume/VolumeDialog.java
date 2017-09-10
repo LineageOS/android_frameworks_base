@@ -192,13 +192,8 @@ public class VolumeDialog {
                     }
                 });
 
-        if (Util.isVoiceCapable(mContext)) {
-            addRow(AudioManager.STREAM_RING,
-                    R.drawable.ic_volume_ringer, R.drawable.ic_volume_ringer_mute, true);
-        } else {
-            addRow(AudioManager.STREAM_RING, R.drawable.ic_volume_notification,
-                    R.drawable.ic_volume_notification_mute, true);
-        }
+        addRow(AudioManager.STREAM_RING,
+                R.drawable.ic_volume_ringer, R.drawable.ic_volume_ringer_mute, true);
         addRow(AudioManager.STREAM_MUSIC,
                 R.drawable.ic_volume_media, R.drawable.ic_volume_media_mute, true);
         addRow(AudioManager.STREAM_ALARM,
@@ -640,9 +635,7 @@ public class VolumeDialog {
             }
         }
 
-        if (Util.isVoiceCapable(mContext)) {
-            updateNotificationRowH();
-        }
+        updateNotificationRowH();
 
         if (mActiveStream != state.activeStream) {
             mActiveStream = state.activeStream;

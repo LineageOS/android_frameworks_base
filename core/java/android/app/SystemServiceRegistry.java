@@ -116,6 +116,8 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.CaptioningManager;
 import android.view.inputmethod.InputMethodManager;
 import android.view.textservice.TextServicesManager;
+import android.mperspective.IPerspectiveService;
+import android.mperspective.PerspectiveManager;
 
 import java.util.HashMap;
 
@@ -450,6 +452,14 @@ final class SystemServiceRegistry {
                 IBinder b = ServiceManager.getService(Context.USB_SERVICE);
                 return new UsbManager(ctx, IUsbManager.Stub.asInterface(b));
             }});
+
+         registerService(Context.PERSPECTIVE_SERVICE, PerspectiveManager.class,
+                 new CachedServiceFetcher<PerspectiveManager>() {
+             @Override
+             public PerspectiveManager createService(ContextImpl ctx) {
+                 IBinder b = ServiceManager.getService(Context.PERSPECTIVE_SERVICE);
+                 return new PerspectiveManager(IPerspectiveService.Stub.asInterface(b));
+          }});
 
         registerService(Context.SERIAL_SERVICE, SerialManager.class,
                 new CachedServiceFetcher<SerialManager>() {

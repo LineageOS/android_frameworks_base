@@ -58,6 +58,8 @@ LOCAL_SRC_FILES += \
 ##
 ## READ ME: ########################################################
 LOCAL_SRC_FILES += \
+        core/java/android/mperspective/IPerspectiveService.aidl \
+        core/java/android/mperspective/IPerspectiveServiceCallback.aidl \
 	core/java/android/accessibilityservice/IAccessibilityServiceConnection.aidl \
 	core/java/android/accessibilityservice/IAccessibilityServiceClient.aidl \
 	core/java/android/accounts/IAccountManager.aidl \

@@ -31,7 +31,7 @@
   <string name="right_shortcut_hint">Sveip til venstre for %1$s</string>
   <string name="lockscreen_message">Trykk på ikonet til venstre eller høyre for å tilordne en låseskjermsnarvei.</string>
   <string name="lockscreen_default_target">Standard</string>
-  <string name="select_application">Velg app</string>
+  <string name="select_application">Velg applikasjon</string>
   <string name="lockscreen_choose_action_title">Velg handling</string>
   <string name="lockscreen_none_target">Ingen</string>
   <!-- Dialog title for navigation bar button selection -->
@@ -65,8 +65,8 @@
   <string name="accessibility_quick_settings_profiles_changed">Profil endret til <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <string name="quick_settings_compass_init">Initialiserer\u2026</string>
   <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Lysinnstillinger</string>
-  <string name="led_notification_text">LED-lys aktivert av innstillingene</string>
+  <string name="led_notification_title">Lys innstillinger</string>
+  <string name="led_notification_text">LED lyset aktiveres av innstillingene</string>
   <string name="qs_tile_edit_header_instruction">Trykk og hold fliser for å omorganisere</string>
   <string name="quick_settings_edit_label">Rediger fliser</string>
   <string name="quick_settings_cannot_delete_edit_tile">Kan ikke slette Rediger-flisen</string>
@@ -75,7 +75,7 @@
   <string name="quick_settings_title_header">Topptekst</string>
   <string name="quick_settings_title_tiles">Fliser</string>
   <string name="quick_settings_title_show_weather">Vis været</string>
-  <string name="quick_settings_title_show_brightness_slider">Vis lysstyrke-dimmer</string>
+  <string name="quick_settings_title_show_brightness_slider">Vis lysstyrkeendrer</string>
   <string name="quick_settings_title_enlarge_first_row">Forstørr første rad</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Dette holder den i syne inntill du løsner den. Trykk og hold på tilbake knappen for å løsne.</string>
@@ -104,7 +104,7 @@
   <string name="quick_settings_usb_tether_label">USB tethering</string>
   <string name="quick_settings_screen_timeout_detail_title">Tidsavbrudd for skjermen</string>
   <string name="quick_settings_lockscreen_label">Låseskjerm</string>
-  <string name="quick_settings_ambient_display_label">Omgivelsesskjerm</string>
+  <string name="quick_settings_ambient_display_label">Ambient skjerm</string>
   <string name="quick_settings_lockscreen_label_enforced">Låseskjerm er påkrevd</string>
   <string name="quick_settings_lockscreen_label_locked_by_profile">Deaktivert av profil</string>
   <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -142,13 +142,13 @@
   <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_lock_screen_changed_on">Låseskjerm slått på.</string>
   <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_off">Omgivelsesskjerm av.</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambient skjerm av.</string>
   <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_on">Omgivelsesskjerm på.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient skjerm på.</string>
   <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Omgivelsesskjerm er skrudd av.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient skjerm er skrudd av.</string>
   <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Omgivelsesskjerm er skrudd på.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient skjerm er skrudd på.</string>
   <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_heads_up_off">Heads up varsler er av.</string>
   <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -212,7 +212,7 @@
   <!-- CellularTile data sim not configured state string -->
   <string name="data_sim_not_configured">Ingen data SIM</string>
   <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_dock_battery_level">Dokkingstasjonens batteri <xliff:g id="number">%d</xliff:g> prosent.</string>
+  <string name="accessibility_dock_battery_level">Dokkingstasjonens batteri <xliff:g id="number"> %d</xliff:g> prosent.</string>
   <!-- Play queue -->
   <string name="play_queue_extention">Vis avspillingskø</string>
   <!-- Path data for portrait battery -->

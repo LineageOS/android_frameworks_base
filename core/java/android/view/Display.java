@@ -93,6 +93,12 @@ public final class Display {
      */
     public static final int DEFAULT_DISPLAY = 0;
 
+     /**
+     * @hide
+     */
+
+    public static final int DEFAULT_EXTERNAL_DISPLAY = 1;
+
     /**
      * Invalid display id.
      */

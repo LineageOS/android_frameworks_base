@@ -2422,4 +2422,14 @@
   <java-symbol type="string" name="operator_config_url" />
   <java-symbol type="string" name="operator_ping_url" />
   <java-symbol type="bool" name="config_zero_balance_operator"/>
+   <!-- maru -->
+   <!-- From PerspectiveService -->
+   <java-symbol type="string" name="desktop_notification_title_starting" />
+   <java-symbol type="string" name="desktop_notification_title_stopping" />
+   <java-symbol type="string" name="desktop_notification_title_running" />
+   <java-symbol type="string" name="desktop_notification_msg" />
+   <java-symbol type="drawable" name="ic_mdesktop" />
+ <!-- /maru -->
+
+
 </resources>
