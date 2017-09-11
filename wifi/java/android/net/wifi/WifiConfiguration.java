@@ -66,6 +66,12 @@ public class WifiConfiguration implements Parcelable {
     public static final String updateIdentiferVarName = "update_identifier";
     /** {@hide} */
     public static final int INVALID_NETWORK_ID = -1;
+    /** {@hide} */
+    public static final int AUTOCONNECT_INVALID = -1;
+    /** {@hide} */
+    public static final int AUTOCONNECT_DISABLED = 0;
+    /** {@hide} */
+    public static final int AUTOCONNECT_ENABLED = 1;
 
     /** {@hide} */
     private String mPasspointManagementObjectTree;
@@ -289,6 +295,17 @@ public class WifiConfiguration implements Parcelable {
      * string otherwise.
      */
     public String preSharedKey;
+
+    /**
+     * -1 needs to be used as default value because an application may not set this field
+     * when it wants to change another field of WifiConfiguration.
+     * And then, framework cannot understand if the application wants to update
+     * this field with default value.
+     * see {@link com.android.settings.wifi.WifiConfigController#getConfig()}
+     * {@hide}
+     */
+    public int autoConnect = AUTOCONNECT_INVALID;
+
     /**
      * Up to four WEP keys. Either an ASCII string enclosed in double
      * quotation marks (e.g., {@code "abcdef"} or a string
@@ -1629,6 +1646,8 @@ public class WifiConfiguration implements Parcelable {
         sbuf.append('\n');
         sbuf.append("triggeredJoin: ").append(this.numUserTriggeredJoinAttempts);
         sbuf.append('\n');
+        sbuf.append("autoConnect: ").append(this.autoConnect);
+        sbuf.append('\n');
 
         return sbuf.toString();
     }
@@ -1950,6 +1969,7 @@ public class WifiConfiguration implements Parcelable {
             shared = source.shared;
             SIMNum = source.SIMNum;
             wifiApInactivityTimeout = source.wifiApInactivityTimeout;
+            autoConnect = source.autoConnect;
         }
     }
 
@@ -2023,6 +2043,7 @@ public class WifiConfiguration implements Parcelable {
         dest.writeString(mPasspointManagementObjectTree);
         dest.writeInt(SIMNum);
         dest.writeLong(wifiApInactivityTimeout);
+        dest.writeInt(autoConnect);
     }
 
     /** Implement the Parcelable interface {@hide} */
@@ -2097,6 +2118,7 @@ public class WifiConfiguration implements Parcelable {
                 config.mPasspointManagementObjectTree = in.readString();
                 config.SIMNum = in.readInt();
                 config.wifiApInactivityTimeout = in.readLong();
+                config.autoConnect = in.readInt();
                 return config;
             }
 
