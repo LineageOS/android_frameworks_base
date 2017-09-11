@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86842235_2170f882",
+        "filename": "core/res/res/values/cm_symbols.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 17941
+      },
+      "writtenOn": "2017-09-11T10:47:20Z",
+      "side": 1,
+      "message": "\u003cprivate-symbols\u003e is deprecated and should be removed. See more: https://review.lineageos.org/c/64966/",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 54
+      },
+      "revId": "22ce813f5224b47478b8ac75a5e2ff06736e8f2d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
