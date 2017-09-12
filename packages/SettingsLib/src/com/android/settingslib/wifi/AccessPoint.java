@@ -412,6 +412,8 @@ public class AccessPoint implements Comparable<AccessPoint> {
         } else if (config != null && config.isPasspoint()) {
             String format = mContext.getString(R.string.available_via_passpoint);
             summary.append(String.format(format, config.providerFriendlyName));
+        } else if (config != null && config.autoConnect == WifiConfiguration.AUTOCONNECT_DISABLED) {
+            summary.append(mContext.getString(R.string.wifi_auto_connect_off));
         } else if (config != null && config.hasNoInternetAccess()) {
             int messageID = config.getNetworkSelectionStatus().isNetworkPermanentlyDisabled()
                     ? R.string.wifi_no_internet_no_reconnect
