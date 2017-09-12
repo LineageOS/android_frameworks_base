@@ -89,6 +89,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
 
     private static final String BLUETOOTH_ADMIN_PERM = android.Manifest.permission.BLUETOOTH_ADMIN;
     private static final String BLUETOOTH_PERM = android.Manifest.permission.BLUETOOTH;
+    private static final String BLUETOOTH_PRIVILEGED_PERM = android.Manifest.permission.BLUETOOTH_PRIVILEGED;
 
     private static final String SECURE_SETTINGS_BLUETOOTH_ADDR_VALID = "bluetooth_addr_valid";
     private static final String SECURE_SETTINGS_BLUETOOTH_ADDRESS = "bluetooth_address";
@@ -1521,6 +1522,33 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
         // It alright without a lock. Here, bluetooth is off, no other thread is
         // changing mName
         return mName;
+    }
+
+    public boolean factoryReset() {
+        final int callingUid = Binder.getCallingUid();
+        final boolean callerSystem = UserHandle.getAppId(callingUid) == Process.SYSTEM_UID;
+
+        if (!callerSystem) {
+            if (!checkIfCallerIsForegroundUser()) {
+                Slog.w(TAG, "factoryReset(): not allowed for non-active and non system user");
+                return false;
+            }
+
+            mContext.enforceCallingOrSelfPermission(
+                   BLUETOOTH_PRIVILEGED_PERM, "Need BLUETOOTH PRIVILEGED permission");
+        }
+
+        try {
+            if (mBluetooth != null) {
+                // Clear registered LE apps to force shut-off
+                clearBleApps();
+                return mBluetooth.factoryReset();
+            }
+        } catch (RemoteException e) {
+            Slog.e(TAG, "factoryReset(): Unable to do factoryReset.", e);
+            return false;
+        }
+        return true;
     }
 
     private class BluetoothServiceConnection implements ServiceConnection {
