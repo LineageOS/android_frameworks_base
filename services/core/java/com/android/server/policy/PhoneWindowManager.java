@@ -3393,6 +3393,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     mHomeConsumed = false;
                     return -1;
                 }
+                // If an incoming call is ringing, HOME is totally disabled.
+                // (The user is already on the InCallUI at this point,
+                // and his ONLY options are to answer or reject the call.)
+                TelecomManager telecomManager = getTelecommService();
+                if (telecomManager != null && telecomManager.isRinging()) {
+                    Log.i(TAG, "Ignoring; " + "keyCode: " + keyCode + "there's a ringing incoming call.");
+                    return -1;
+                }
 
                 if (canceled) {
                     Log.i(TAG, "Ignoring HOME; event canceled.");
