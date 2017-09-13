@@ -309,15 +309,22 @@ public class ClipboardService extends IClipboard.Stub {
 
     private boolean isDeviceLocked() {
         boolean isLocked = false;
-        KeyguardManager keyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
-        boolean inKeyguardRestrictedInputMode = keyguardManager.inKeyguardRestrictedInputMode();
-        if (inKeyguardRestrictedInputMode) {
-            isLocked = true;
-        } else {
-            PowerManager powerManager = (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
-            isLocked = !powerManager.isScreenOn();
+        final long token = Binder.clearCallingIdentity();
+        try {
+            final KeyguardManager keyguardManager = (KeyguardManager) mContext.getSystemService(
+                    Context.KEYGUARD_SERVICE);
+            boolean inKeyguardRestrictedInputMode = keyguardManager.inKeyguardRestrictedInputMode();
+            if (inKeyguardRestrictedInputMode) {
+               isLocked = true;
+            } else {
+               PowerManager powerManager = (PowerManager)mContext.getSystemService(
+                 Context.POWER_SERVICE);
+               isLocked = !powerManager.isScreenOn();
+            }
+            return isLocked;
+        } finally {
+            Binder.restoreCallingIdentity(token);
         }
-        return isLocked;
     }
 
     private final void checkUriOwnerLocked(Uri uri, int uid) {
