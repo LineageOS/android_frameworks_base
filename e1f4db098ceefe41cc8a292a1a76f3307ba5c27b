@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0363e48b_57981166",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/ProfilesTile.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 13897
+      },
+      "writtenOn": "2017-09-14T17:32:18Z",
+      "side": 1,
+      "message": "This is not used.",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 9
+      },
+      "revId": "e1f4db098ceefe41cc8a292a1a76f3307ba5c27b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
