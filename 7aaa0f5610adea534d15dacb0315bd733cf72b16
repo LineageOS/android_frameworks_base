@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f4f2c04_2c3e964e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-09-15T05:24:54Z",
+      "side": 1,
+      "message": "m prefix is off here, but see below.",
+      "revId": "7aaa0f5610adea534d15dacb0315bd733cf72b16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aae8c35c_3352d5cd",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-09-15T05:24:54Z",
+      "side": 1,
+      "message": "Should better use a Handler here for scheduling.\n\nprivate final Handler mHandler \u003d new Handler();\nprivate final Runnable mShiftRunnable \u003d new Runnable() {\n    @Override\n    public void run() {\n        shiftItems();\n    }\n};\n\nOr, with lambda, we could probably shorten to:\nprivate final Runnable mShiftRunnable \u003d () -\u003e shiftItems();\n\nthen in startShiftTimer:\n\nmHandler.removeCallbacks(mShiftRunnable);\nmHandler.postDelayed(mShiftRunnable, INTERVAL);",
+      "revId": "7aaa0f5610adea534d15dacb0315bd733cf72b16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
