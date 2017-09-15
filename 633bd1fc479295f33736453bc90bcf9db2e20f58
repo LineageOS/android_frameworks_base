@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4c6724f_c3193d8c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-09-15T10:15:28Z",
+      "side": 1,
+      "message": "Maybe only create this if the overlay is enabled?",
+      "revId": "633bd1fc479295f33736453bc90bcf9db2e20f58",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89537951_c1955204",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 5588,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-09-15T10:15:28Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be enabled by default if the overlay says so?",
+      "revId": "633bd1fc479295f33736453bc90bcf9db2e20f58",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a50a167e_db9b75e3",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-09-15T10:15:28Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "revId": "633bd1fc479295f33736453bc90bcf9db2e20f58",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
