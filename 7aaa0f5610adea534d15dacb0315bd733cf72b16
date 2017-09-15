@@ -33,6 +33,29 @@
       "revId": "7aaa0f5610adea534d15dacb0315bd733cf72b16",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0da9692_d30dbc62",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2017-09-15T06:18:47Z",
+      "side": 1,
+      "message": "stupidest nitpick ever, but either use 3 dots (ellipsis) or none at all",
+      "range": {
+        "startLine": 113,
+        "startChar": 45,
+        "endLine": 113,
+        "endChar": 47
+      },
+      "revId": "7aaa0f5610adea534d15dacb0315bd733cf72b16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
