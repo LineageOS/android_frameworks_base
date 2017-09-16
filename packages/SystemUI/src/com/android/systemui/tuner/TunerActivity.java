@@ -44,6 +44,8 @@ public class TunerActivity extends SettingsDrawerActivity implements
                 fragment = new NavBarTuner();
             } else if ("com.android.settings.action.POWER_NOTIF_CONTROLS".equals(action)) {
                 fragment = new PowerNotificationControlsFragment();
+            } else if ("com.android.settings.action.STATUS_BAR_TUNER".equals(action)) {
+                fragment = new StatusBarTuner();
             } else {
                 fragment = new TunerFragment();
             }
