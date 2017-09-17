@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "258755c7_98afe850",
+        "filename": "packages/Keyguard/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-09-17T17:23:03Z",
+      "side": 1,
+      "message": "I think you can replace org.cyanogenmod.platform.sdk with org.cyanogenmod.platform.internal instead of having both",
+      "revId": "aef38d13bb5dc0e6d7ed38aeb5e497a8ef1c25bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec51e6cc_3e1ef059",
         "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
         "patchSetId": 5
