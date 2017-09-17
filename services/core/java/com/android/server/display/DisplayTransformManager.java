@@ -26,6 +26,8 @@ import android.util.SparseArray;
 
 import com.android.internal.annotations.GuardedBy;
 
+import org.lineageos.internal.util.FileUtils;
+
 import java.util.Arrays;
 
 /**
@@ -155,10 +157,34 @@ public class DisplayTransformManager {
         }
     }
 
+    private static final String MDSS_RGB_COLOR_FILE = "/sys/class/graphics/fb0/rgb";
+
+    private static void setMdssRGB(float fr, float fg, float fb) {
+        final int MIN = 255;
+        final int MAX = 32768;
+        int r = (int)(fr * MAX);
+        int g = (int)(fg * MAX);
+        int b = (int)(fb * MAX);
+        r = (r < MIN) ? MIN : r;
+        g = (g < MIN) ? MIN : g;
+        b = (b < MIN) ? MIN : b;
+        r = (r > MAX) ? MAX : r;
+        g = (g > MAX) ? MAX : g;
+        b = (b > MAX) ? MAX : b;
+        String s = String.format("%d %d %d", r, g, b);
+        FileUtils.writeLine(MDSS_RGB_COLOR_FILE, s);
+        Slog.v(TAG, "samm: setting rgb to "+s);
+    }
+
     /**
      * Propagates the provided color transformation matrix to the SurfaceFlinger.
      */
     private static void applyColorMatrix(float[] m) {
+        /* Use Lineage livedisplay rgb color control if possible */
+        if (FileUtils.isFileWritable(MDSS_RGB_COLOR_FILE)) {
+            setMdssRGB(m[0], m[5], m[10]);
+            return;
+        }
         final IBinder flinger = ServiceManager.getService("SurfaceFlinger");
         if (flinger != null) {
             final Parcel data = Parcel.obtain();
