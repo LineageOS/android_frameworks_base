@@ -19,9 +19,12 @@ package com.android.systemui.qs.tiles;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.os.SystemProperties;
 import android.provider.Settings;
 import android.provider.Settings.Secure;
 import android.service.quicksettings.Tile;
+import android.text.TextUtils;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.plugins.ActivityStarter;
@@ -51,6 +54,15 @@ public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
                 handleRefreshState(value);
             }
         };
+    }
+
+    @Override
+    public boolean isAvailable() {
+        String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
+        if (TextUtils.isEmpty(name)) {
+            name = mContext.getString(com.android.internal.R.string.config_dozeComponent);
+        }
+        return !TextUtils.isEmpty(name);
     }
 
     @Override
