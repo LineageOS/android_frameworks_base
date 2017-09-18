@@ -65,6 +65,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Dit hou dit binne sig totdat jy dit ontspeld. Raak en hou die knoppie Terug om te ontspeld.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Swiep vanaf ikoon vir %1$s</string>
   <string name="lockscreen_message">Tik \'n ikoon op die linker of regter kant om \'n slot skerm kortpad toe te wys.</string>
   <string name="lockscreen_default_target">Standaard</string>
   <string name="select_application">Kies program</string>
@@ -126,12 +127,17 @@
   <string name="accessibility_quick_settings_location_high_accuracy">Liggingverslaggewing: hoë akkuraatheid modus.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Battery besparend</string>
+  <string name="quick_settings_location_battery_saving_label_twoline">Battery\nbesparend</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">Slegs Toestel</string>
+  <string name="quick_settings_location_gps_only_label_twoline">Slegs\ntoestel</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Hoë akkuraatheid</string>
+  <string name="quick_settings_location_high_accuracy_label_twoline">Hoë\nakkuraatheid</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_title">Ligging</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_menu_title">Kies modus:</string>
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_title">Hoë akkuraatheid</string>
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
@@ -139,8 +145,11 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Slegs Toestel</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Gebruik GPS, Wi\u2011Fi, Bluetooth of sellulêre netwerke om ligging te bepaal</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+  <string name="quick_settings_location_detail_mode_battery_saving_description">Gebruik Wi-Fi, Bluetooth of sellulêre netwerke om ligging te bepaal</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <string name="quick_settings_location_detail_mode_sensors_only_description">Gebruik GPS om ligging te bepaal</string>
   <!-- Adb over network QS tile -->
   <string name="quick_settings_network_adb_label">ADB oor netwerk</string>
   <!-- Ambient display QS tile -->
@@ -151,6 +160,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Omgewingstemperatuur skerm vertoning is aangeskakel.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Kafeïen</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kafeïen af</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kafeïen aan</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Loer boodskap</string>
   <string name="accessibility_quick_settings_heads_up_off">Loer boodskap af.</string>
@@ -168,4 +179,6 @@
   <!-- Volume panel QS tile -->
   <string name="quick_settings_sync_label">Sinkroniseer</string>
   <string name="quick_settings_volume_panel_label">Volume paneel</string>
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

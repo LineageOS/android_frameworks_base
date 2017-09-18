@@ -112,4 +112,6 @@
   <!-- Volume panel QS tile -->
   <string name="quick_settings_sync_label">সংযোজন</string>
   <string name="quick_settings_volume_panel_label">ভলিউম পেনেল</string>
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

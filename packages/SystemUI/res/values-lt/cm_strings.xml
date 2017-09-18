@@ -99,4 +99,6 @@
   <!-- Volume panel QS tile -->
   <string name="quick_settings_sync_label">Sinchronizavimas</string>
   <string name="quick_settings_volume_panel_label">Garsumo skydelis</string>
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

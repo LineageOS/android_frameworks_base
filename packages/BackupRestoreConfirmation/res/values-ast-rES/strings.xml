@@ -18,7 +18,6 @@
   <!-- Title of the activity when a full backup has been requested and must be confirmed -->
   <string name="backup_confirm_title">Respaldu completu</string>
   <!-- Title of the activity when a full restore has been requested and must be confirmed -->
-  <string name="restore_confirm_title">Restauración completa</string>
   <!-- Text for message to user that a full backup has been requested, and must be confirmed. -->
   <string name="backup_confirm_text">Solicitóse un respaldu completu de tolos datos a un ordenador coneutáu. ¿Quies permitilo?\n\nSi nun solicitesti respaldu dalu, nun permitas la operación.</string>
   <!-- Button to allow a requested full backup to occur -->
@@ -29,7 +28,6 @@
   <!-- Button to allow a requested full restore to occur -->
   <string name="allow_restore_button_label">Restaurar los mios datos</string>
   <!-- Button to refuse to allow the requested full restore -->
-  <string name="deny_restore_button_label">Nun restaurar</string>
   <!-- Text for message to user that they must enter their predefined backup password in order to perform this operation. -->
   <!-- Text for message to user that they must enter their device encryption password in order to perform this restore operation. -->
   <!-- Text for message to user that they must enter their device encryption password in order to perform this backup operation. -->
@@ -46,9 +44,7 @@
   <!-- Text of a toast telling the user that a full backup operation has ended -->
   <string name="toast_backup_ended">Finó\'l respaldu</string>
   <!-- Text of a toast telling the user that a full restore operation has begun -->
-  <string name="toast_restore_started">Aniciando restauración...</string>
   <!-- Text of a toast telling the user that a full restore operation has ended -->
-  <string name="toast_restore_ended">Finó la restauración</string>
   <!-- Text of a toast telling the user that the operation has timed out -->
   <string name="toast_timeout">Escosó\'l tiempu d\'operación</string>
 </resources>

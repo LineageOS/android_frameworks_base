@@ -66,6 +66,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Ez a nézetben tartja, amíg a rögzítést fel nem oldja. Érintse meg és tartsa nyomva a Vissza gombot a rögzítés feloldásához.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Csúsztasson az ikonról ezért: %1$s</string>
   <string name="lockscreen_message">Érintsen meg egy ikont jobb vagy bal oldalt a zárképernyő hivatkozások ismételt hozzárendeléséhez.</string>
   <string name="lockscreen_default_target">Alapértelmezett</string>
   <string name="select_application">Válasszon alkalmazást</string>
@@ -127,12 +128,17 @@
   <string name="accessibility_quick_settings_location_high_accuracy">Helymeghatározás jelentése: nagyon pontos.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Energiatakarékos</string>
+  <string name="quick_settings_location_battery_saving_label_twoline">Energia\ntakarékos</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">Csak készülék</string>
+  <string name="quick_settings_location_gps_only_label_twoline">Csak\nkészülék</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Nagy pontosság</string>
+  <string name="quick_settings_location_high_accuracy_label_twoline">Nagy\npontosság</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_title">Helymeghatározás</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_menu_title">Válasszon módot:</string>
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_title">Nagy pontosság</string>
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
@@ -140,8 +146,11 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Csak készülék</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, Wi\u2011Fi, Bluetooth vagy mobilhálózatok használata a tartózkodási hely megállapításához</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+  <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, Bluetooth vagy mobilhálózatok használata a tartózkodási hely megállapításához</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <string name="quick_settings_location_detail_mode_sensors_only_description">GPS használata a tartózkodási hely meghatározásához</string>
   <!-- Adb over network QS tile -->
   <string name="quick_settings_network_adb_label">ADB hálózaton keresztül</string>
   <!-- Ambient display QS tile -->
@@ -152,6 +161,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Környezeti kijelző bekapcsolva.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="accessibility_quick_settings_caffeine_off">Caffeine ki</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caffeine be</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Lebegő értesítés</string>
   <string name="accessibility_quick_settings_heads_up_off">Lebegő értesítés ki.</string>
@@ -169,4 +180,6 @@
   <!-- Volume panel QS tile -->
   <string name="quick_settings_sync_label">Szinkronizálás</string>
   <string name="quick_settings_volume_panel_label">Hangerőszabályzás</string>
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

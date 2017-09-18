@@ -179,4 +179,6 @@
   <!-- Volume panel QS tile -->
   <string name="quick_settings_sync_label">同期</string>
   <string name="quick_settings_volume_panel_label">音量パネル</string>
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

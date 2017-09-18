@@ -131,6 +131,7 @@
   <string name="quick_settings_location_battery_saving_label_twoline">Virran-\nsäästö</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">Vain laite</string>
+  <string name="quick_settings_location_gps_only_label_twoline">Vain\nlaite</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Korkea tarkkuus</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Suuri\ntarkkuus</string>
@@ -179,4 +180,6 @@
   <!-- Volume panel QS tile -->
   <string name="quick_settings_sync_label">Synkronointi</string>
   <string name="quick_settings_volume_panel_label">Äänenvoimakkuuspaneeli</string>
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

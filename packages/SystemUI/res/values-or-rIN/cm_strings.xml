@@ -112,4 +112,6 @@
   <!-- Volume panel QS tile -->
   <string name="quick_settings_sync_label">ସିଙ୍କ୍</string>
   <string name="quick_settings_volume_panel_label">ଭୋଲ୍ୟୁମ୍‍ ପ୍ୟାନେଲ୍‍</string>
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

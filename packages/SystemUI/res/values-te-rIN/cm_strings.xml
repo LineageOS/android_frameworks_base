@@ -114,4 +114,6 @@
   <!-- Volume panel QS tile -->
   <string name="quick_settings_sync_label">సమకాలీకరణ</string>
   <string name="quick_settings_volume_panel_label">వాల్యూమ్ ప్యానల్</string>
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

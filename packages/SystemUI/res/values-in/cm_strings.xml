@@ -66,6 +66,7 @@
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh dan tahan tombol kembali untuk melepas sematan.</string>
   <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Geser dari ikon untuk %1$s</string>
   <string name="lockscreen_message">Ketuk ikon di sebelah kiri atau kanan untuk mengatur pintasan kunci layar.</string>
   <string name="lockscreen_default_target">Standar</string>
   <string name="select_application">Pilih aplikasi</string>
@@ -178,4 +179,6 @@
   <!-- Volume panel QS tile -->
   <string name="quick_settings_sync_label">Sinkronisasi</string>
   <string name="quick_settings_volume_panel_label">Panel volume</string>
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

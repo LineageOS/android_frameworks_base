@@ -100,7 +100,9 @@
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Hög noggrannhet</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_title">Plats</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_menu_title">Välj läge:</string>
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_title">Hög noggrannhet</string>
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
@@ -137,4 +139,6 @@
   <!-- Volume panel QS tile -->
   <string name="quick_settings_sync_label">Synk</string>
   <string name="quick_settings_volume_panel_label">Volympanel</string>
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

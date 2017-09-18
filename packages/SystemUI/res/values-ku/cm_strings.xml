@@ -83,4 +83,6 @@
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">گرتنەدەستی USB</string>
   <!-- Volume panel QS tile -->
+  <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <!-- Content description for Accessibility on locked tasks in recents -->
 </resources>

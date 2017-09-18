@@ -22,32 +22,19 @@
   <!-- Toast message when Wi-Fi cannot scan for networks -->
   <string name="wifi_fail_to_scan">Nun puen escaniase redes</string>
   <!-- Do not translate.  Concise terminology for wifi with WEP security -->
-  <string name="wifi_security_short_wep">WEP</string>
   <!-- Do not translate.  Concise terminology for wifi with WPA security -->
-  <string name="wifi_security_short_wpa">WPA</string>
   <!-- Do not translate.  Concise terminology for wifi with WPA2 security -->
-  <string name="wifi_security_short_wpa2">WPA2</string>
   <!-- Do not translate.  Concise terminology for wifi with both WPA/WPA2 security -->
-  <string name="wifi_security_short_wpa_wpa2">WPA/WPA2</string>
   <!-- Do not translate.  Concise terminology for wifi with unknown PSK type -->
-  <string name="wifi_security_short_psk_generic">@string/wifi_security_short_wpa_wpa2</string>
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
-  <string name="wifi_security_short_eap">802.1x</string>
   <!-- Used in Wi-Fi settings dialogs when Wi-Fi does not have any security. -->
   <!-- Do not translate.  Terminology for wifi with WEP security -->
-  <string name="wifi_security_wep">WEP</string>
   <!-- Do not translate.  Terminology for wifi with WPA security -->
-  <string name="wifi_security_wpa">WPA PSK</string>
   <!-- Do not translate.  Terminology for wifi with WPA2 security -->
-  <string name="wifi_security_wpa2">WPA2 PSK</string>
   <!-- Do not translate.  Terminology for wifi with both WPA/WPA2 security, or unknown -->
-  <string name="wifi_security_wpa_wpa2">WPA/WPA2 PSK</string>
   <!-- Do not translate.  Terminology for wifi with unknown PSK type -->
-  <string name="wifi_security_psk_generic">@string/wifi_security_wpa_wpa2</string>
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
-  <string name="wifi_security_eap">802.1x EAP</string>
   <!-- Do not translate.  Concise terminology for Passpoint network -->
-  <string name="wifi_security_passpoint">Passpoint</string>
   <!-- Summary for the remembered network. -->
   <!-- Status for networks disabled for unknown reason -->
   <!-- Status for networked disabled from a DNS or DHCP failure -->
@@ -55,7 +42,6 @@
   <!-- Status for networks disabled from authentication failure (wrong password
          or certificate). -->
   <!-- Summary for the remembered network but currently not in range. -->
-  <string name="wifi_not_in_range">Fuera d\'algame</string>
   <!-- Summary for the network but no internet connection was detected. -->
   <!-- Summary for the remembered network but no internet connection was detected. -->
   <string name="wifi_no_internet">Ensin accesu a internet.</string>
@@ -70,9 +56,7 @@
   <!-- Text when wrong password entered for psk networks -->
   <!-- Bluetooth settings.  Message when a device is disconnected -->
   <!-- Bluetooth settings.  Message when disconnecting from a device -->
-  <string name="bluetooth_disconnecting">Desconeutando\u2026</string>
   <!-- Bluetooth settings.  Message when connecting to a device -->
-  <string name="bluetooth_connecting">Coneutando\u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device. [CHAR LIMIT=40] -->
   <!--Bluetooth settings screen, summary text under individual Bluetooth devices when pairing -->
   <string name="bluetooth_pairing">Empareyando\u2026</string>
@@ -84,9 +68,7 @@
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the headset or handsfree profile. -->
   <string name="bluetooth_profile_headset">Audiu del teléfonu</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
-  <string name="bluetooth_profile_opp">Tresferencia de ficheros</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
-  <string name="bluetooth_profile_hid">Preséu d\'entrada</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (accessing Internet through remote device). [CHAR LIMIT=40] -->
   <string name="bluetooth_profile_pan">Accesu a internet</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PBAP profile. [CHAR LIMIT=40] -->
@@ -96,7 +78,6 @@
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (sharing this device's Internet connection). [CHAR LIMIT=40] -->
   <string name="bluetooth_profile_pan_nap">Compartición de conexón d\'internet</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the map profile. -->
-  <string name="bluetooth_profile_map">Accesu a mensaxes</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the SAP profile (sharing SIM card). -->
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the dun profile. -->
   <!-- Bluetooth settings.  Connection options screen.  The summary for the A2DP checkbox preference when A2DP is connected. -->
@@ -127,7 +108,6 @@
   <!-- Button text for accepting an incoming pairing request in all caps. [CHAR LIMIT=20] -->
   <string name="bluetooth_pairing_accept_all_caps">EMPAREYAR</string>
   <!-- Button text for declining an incoming pairing request. [CHAR LIMIT=20] -->
-  <string name="bluetooth_pairing_decline">Encaboxar</string>
   <!-- Message in pairing dialogs.  [CHAR LIMIT=NONE] -->
   <string name="bluetooth_pairing_will_share_phonebook">L\'empareyamientu concede l\'accesu a los tos contautos ya historial de llamaes al coneutar.</string>
   <!-- Message for the error dialog when BT pairing fails generically. -->
@@ -141,18 +121,13 @@
   <!-- Content description of the WIFI signal when WIFI is disabled for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the WIFI signal when no signal for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the WIFI signal when it is one bar for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_one_bar">Una barra de Wi-Fi</string>
   <!-- Content description of the WIFI signal when it is two bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_two_bars">Dos barres de Wi-Fi</string>
   <!-- Content description of the WIFI signal when it is three bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_three_bars">Trés barres de Wi-Fi</string>
   <!-- Content description of the WIFI signal when it is full for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Label for kernel threads in battery usage -->
   <string name="process_kernel_label">SO Android</string>
   <!-- Title of data usage item that represents all uninstalled applications. [CHAR LIMIT=48] -->
-  <string name="data_usage_uninstalled_apps">Aplicaciones desaniciaes</string>
   <!-- Title of data usage item that represents all uninstalled applications or removed users. [CHAR LIMIT=48] -->
-  <string name="data_usage_uninstalled_apps_users">Usuarios y aplicaciones desaniciaos</string>
   <!-- Tethering controls, item title to go into the tethering settings -->
   <!-- Tethering controls, item title to go into the tethering settings when only USB tethering is available [CHAR LIMIT=25]-->
   <!-- Tethering controls, item title to go into the tethering settings when only Wifi tethering is available [CHAR LIMIT=25]-->
@@ -162,12 +137,11 @@
   <string name="tether_settings_title_usb_bluetooth">Tethering</string>
   <!-- Tethering controls, item title to go into the tethering settings when USB, Bluetooth and Wifi tethering are available [CHAR LIMIT=25]-->
   <!-- Title for a work profile. [CHAR LIMIT=25] -->
+  <string name="managed_user_title">Toles aplicaciones de trabayu</string>
   <!-- Title for Guest user [CHAR LIMIT=35] -->
-  <string name="user_guest">Convidáu</string>
   <!-- Manage apps, individual app screen, substituted for the application's label when the app's label CAN NOT be determined.-->
   <string name="unknown">Desconozse</string>
   <!-- [CHAR LIMIT=NONE] Label of a running process that represents another user -->
-  <string name="running_process_item_user_label">Usuariu: <xliff:g id="user_name">%1$s</xliff:g></string>
   <!-- Launch defaults preference summary with some set [CHAR LIMIT=40] -->
   <!-- Launch defaults preference summary with none set [CHAR LIMIT=40] -->
   <!-- Text-To-Speech (TTS) settings -->
@@ -208,6 +182,7 @@
          selected language is fully supported by the engine [CHAR LIMIT=150]-->
   <!-- On main TTS Settings screen, current TTS engine status for the current default language,
          selected language is supported by the engine only if there's a working network connection [CHAR LIMIT=150] -->
+  <string name="tts_status_requires_network"><xliff:g id="locale" example="English (United States)">%1$s</xliff:g> rique una conexón de rede</string>
   <!-- On main TTS Settings screen, current TTS engine status for the current default language,
          selected language is not supported by the engine [CHAR LIMIT=150] -->
   <!-- On main TTS Settings screen, current TTS engine status for the current default language,
@@ -216,6 +191,7 @@
   <!-- Title for a preference in the main TTS settings screen, which
          launches the settings screen for a given TTS engine when clicked
          [CHAR LIMIT=30]-->
+  <string name="tts_engine_settings_title">Axustes pa <xliff:g id="tts_engine_name">%s</xliff:g></string>
   <!-- [CHAR LIMIT=150] Text for screen readers / accessibility programs for
          the image that launches the TTS engine settings when clicked. -->
   <!-- [CHAR LIMIT=50] The text for the settings section that users to set a
@@ -263,7 +239,9 @@
   <!-- Development Settings.  the title for the item to take the user to Development settings.  Development settings are settings meant for application developers.  -->
   <string name="development_settings_title">Opciones de desendolcador</string>
   <!-- Development settings enable title. -->
+  <string name="development_settings_enable">Activar opciones de desendolcador</string>
   <!-- Development Settings summary.  The summary of the item to take the user to Development settings.  Development settings are settings meant for application developers. -->
+  <string name="development_settings_summary">Afita les opciones pal desendolcu d\'aplicaciones</string>
   <!-- Setting checkbox title for Whether to enable USB debugging support on the phone. -->
   <!-- Error message for users that aren't allowed to modify developer options [CHAR LIMIT=none] -->
   <string name="development_settings_not_available">Les opciones de desendolcador nun tán disponibles pa esti usuariu</string>
@@ -291,13 +269,17 @@
   <!-- UI debug setting: no mock location app has been set [CHAR LIMIT=50] -->
   <!-- UI debug setting: mock location app has been set [CHAR LIMIT=50] -->
   <!-- Preference category for networking debugging development settings. [CHAR LIMIT=50] -->
+  <string name="debug_networking_category">Rede</string>
   <!-- Setting Checkbox title whether to show options for wireless display certification -->
+  <string name="wifi_display_certification">Certificación de pantalla inalámbrica</string>
   <!-- Setting Checkbox title whether to enable WiFi Verbose Logging. [CHAR LIMIT=40] -->
   <!-- Setting Checkbox title whether to enable WiFi Aggressive Handover. [CHAR LIMIT=40] -->
   <!-- Setting Checkbox title whether to enable WiFi Scanning in the presence of traffic. [CHAR LIMIT=80] -->
   <!-- Setting Checkbox title whether to always keep cellular data active. [CHAR LIMIT=80] -->
+  <string name="mobile_data_always_on">Datos móviles siempres activaos</string>
   <!-- Setting Checkbox title for disabling Bluetooth absolute volume -->
   <!-- setting Checkbox summary whether to show options for wireless display certification  -->
+  <string name="wifi_display_certification_summary">Amuesa les opciones de certificación de pantalles inalámbriques</string>
   <!-- Setting Checkbox summary whether to enable Wifi verbose Logging [CHAR LIMIT=80] -->
   <!-- Setting Checkbox summary whether to enable Wifi aggressive handover [CHAR LIMIT=130] -->
   <!-- Setting Checkbox summary whether to always allow WiFi Roam Scans [CHAR LIMIT=130] -->
@@ -308,6 +290,7 @@
   <!-- Title of checkbox setting to perform package verification on apps installed over USB/ADT/ADB [CHAR LIMIT=32] -->
   <!-- UI debug setting: select which logs to store persistently [CHAR LIMIT=80] -->
   <!-- UI debug setting: select USB configuration -->
+  <string name="select_usb_configuration_title">Esbillar configuración USB</string>
   <!-- UI debug setting: limit size of Android logger buffers [CHAR LIMIT=59] -->
   <!-- Setting Checkbox title whether to allow mock locations -->
   <string name="allow_mock_location">Permitir allugamientos falsos</string>
@@ -317,6 +300,7 @@
   <!-- Title of warning dialog about the implications of enabling USB debugging -->
   <string name="adb_warning_title">¿Permitir depuración USB?</string>
   <!-- Warning text to user about the implications of enabling USB debugging -->
+  <string name="adb_warning_message">La depuración USB namái ta indicada pa propósitos de desendolcu. Pues usala pa copiar datos ente equipu y preséu, pa instalar aplicaciones ensin avisar y pa lleer datos de rexistru.</string>
   <!-- Message of dialog confirming that user wants to revoke access to adb from all computers they have authorized -->
   <!-- Title of warning dialog about the implications of enabling developer settings -->
   <string name="dev_settings_warning_title">¿Permitir axustes de desendolcu?</string>
@@ -329,23 +313,29 @@
   <string name="enable_terminal_title">Terminal llocal</string>
   <!-- Summary of checkbox setting that enables the terminal app. [CHAR LIMIT=64] -->
   <!-- HDCP checking title, used for debug purposes only. [CHAR LIMIT=25] -->
+  <string name="hdcp_checking_title">Comprobación de HDCP</string>
   <!-- HDCP checking dialog title, used for debug purposes only. [CHAR LIMIT=25] -->
   <!-- Preference category for app debugging development settings. [CHAR LIMIT=50] -->
   <string name="debug_debugging_category">Depuración</string>
   <!-- UI debug setting: select current app to debug [CHAR LIMIT=50] -->
+  <string name="debug_app">Esbilar aplicación pa depurar</string>
   <!-- UI debug setting: no debug app has been set [CHAR LIMIT=50] -->
+  <string name="debug_app_not_set">Nun s\'afitaron aplicaciones de depuración</string>
   <!-- UI debug setting: debug app has been set [CHAR LIMIT=50] -->
   <string name="debug_app_set">Aplicación de depuración: <xliff:g id="app_name">%1$s</xliff:g></string>
   <!-- UI debug setting: title for app picker dialog [CHAR LIMIT=50] -->
+  <string name="select_application">Esbillar aplicación</string>
   <!-- UI debug setting: label for app picker to select no applicatiojn [CHAR LIMIT=50] -->
   <string name="no_application">Nada</string>
   <!-- UI debug setting: wait for debugger to attach to debugging process? [CHAR LIMIT=50] -->
   <string name="wait_for_debugger">Esperar pol depurador</string>
   <!-- UI debug setting: wait for debugger to attach to debugging process summary [CHAR LIMIT=500] -->
   <!-- Preference category for input debugging development settings. [CHAR LIMIT=25] -->
+  <string name="debug_input_category">Entrada</string>
   <!-- Preference category for drawing debugging development settings. [CHAR LIMIT=25] -->
   <!-- Preference category for hardware accelerated drawing debugging development settings. [CHAR LIMIT=50] -->
   <!-- Preference category for media development settings. [CHAR LIMIT=50] -->
+  <string name="media_category">Medios</string>
   <!-- Preference category for monitoring debugging development settings. [CHAR LIMIT=25] -->
   <!-- UI debug setting: always enable strict mode? [CHAR LIMIT=25] -->
   <!-- UI debug setting: show strict mode summary [CHAR LIMIT=50] -->
@@ -359,6 +349,7 @@
   <string name="show_screen_updates">Camudancies de superficie</string>
   <!-- UI debug setting: show surface updates summary [CHAR LIMIT=50] -->
   <!-- UI debug setting: show where window updates happen with GPU rendering? [CHAR LIMIT=25] -->
+  <string name="show_hw_screen_updates">Ver anovamientos de GPU</string>
   <!-- UI debug setting: show GPU rendering screen updates summary [CHAR LIMIT=50] -->
   <!-- UI debug setting: show when hardware layers get updated [CHAR LIMIT=25] -->
   <!-- UI debug setting: show hardware layers updates summary [CHAR LIMIT=50] -->
@@ -369,15 +360,20 @@
   <string name="simulate_color_space">Simular espaciu de color</string>
   <!-- UI debug setting: enable various types of OpenGL traces [CHAR LIMIT=25] -->
   <!-- UI debug setting: disable USB audio routing title [CHAR LIMIT=32] -->
+  <string name="usb_audio_disable_routing">Desactivar enrutamientu d\'audiu USB</string>
   <!-- UI debug setting: disable USB audio routing summary [CHAR LIMIT=50] -->
   <!-- UI debug setting: show layout bounds information [CHAR LIMIT=25] -->
+  <string name="debug_layout">Amosar llendes de diseñu</string>
   <!-- UI debug setting: show layout bounds information summary [CHAR LIMIT=50] -->
   <!-- UI debug setting: force right to left layout [CHAR LIMIT=37] -->
   <!-- UI debug setting: force right to left layout summary [CHAR LIMIT=100] -->
   <!-- UI debug setting: force hardware acceleration to render apps [CHAR LIMIT=25] -->
+  <string name="force_hw_ui">Forciar renderizáu de GPU</string>
   <!-- UI debug setting: force hardware acceleration summary [CHAR LIMIT=50] -->
   <!-- UI debug setting: force anti-aliasing to render apps [CHAR LIMIT=25] -->
+  <string name="force_msaa">Forciar MSAA 4x</string>
   <!-- UI debug setting: force anti-aliasing summary [CHAR LIMIT=50] -->
+  <string name="force_msaa_summary">Activa\'l MSAA 4x n\'aplicaciones d\'OpenGL ES 2.0</string>
   <!-- UI debug setting: show when non-rectangular clip operations are used [CHAR LIMIT=100] -->
   <!-- UI debug setting: profile time taken by hardware acceleration to render apps [CHAR LIMIT=25] -->
   <!-- UI debug setting: scaling factor for window animations [CHAR LIMIT=25] -->
@@ -394,7 +390,7 @@
   <!-- UI debug setting: show all ANRs? [CHAR LIMIT=25] -->
   <string name="show_all_anrs">Amosar tolos ANRs</string>
   <!-- UI debug setting: show all ANRs summary [CHAR LIMIT=50] -->
-  <string name="show_all_anrs_summary">Amuésa\'l diálogu de qu\'una aplicación nun
+  <string name="show_all_anrs_summary">Amuesa\'l diálogu de qu\'una aplicación nun
         respuende pa les que tean de fondu</string>
   <!-- UI debug setting: force allow apps on external storage [CHAR LIMIT=50] -->
   <!-- UI debug setting: force allow on external summary [CHAR LIMIT=150] -->
@@ -418,7 +414,7 @@
   </string-array>
   <!-- Description of each color mode for the display. [CHAR LIMIT=NONE] -->
   <string-array name="color_mode_descriptions">
-    <item>Enhanced colors</item>
+    <item>Colores ameyoraos</item>
     <item>Natural colors as seen by the eye</item>
     <item>Colores optimizaes pal conteníu dixital</item>
   </string-array>
@@ -467,6 +463,7 @@
   <!-- Title for the accessibility preference to configure display color space correction. [CHAR LIMIT=NONE] -->
   <string name="accessibility_display_daltonizer_preference_title">Correición de color</string>
   <!-- Subtitle for the accessibility preference to configure display color space correction. [CHAR LIMIT=NONE] -->
+  <string name="accessibility_display_daltonizer_preference_subtitle">Esta carauterística ye esperimental y podría afeutar al rindimientu.</string>
   <!-- Summary shown for color space correction preference when its value is overridden by another preference [CHAR LIMIT=35] -->
   <!-- [CHAR_LIMIT=40] Label for estimated remaining duration of battery charging/discharging -->
   <string name="power_remaining_duration_only">Falten <xliff:g id="time">%1$s</xliff:g> aprox.</string>
@@ -548,6 +545,7 @@
   <!-- Content description for drawer menu button [CHAR_LIMIT=30]-->
   <string name="content_description_menu_button">Menú</string>
   <!-- Label for carrier demo mode factory reset confirmation dialog. [CHAR LIMIT=40] -->
+  <string name="retail_demo_reset_message">Introduz la contraseñ pa facer un reafitamientu nel mou demostración</string>
   <!-- Label for positive button on carrier demo  mode factory reset confirmation dialog [CHAR LIMIT=40] -->
   <!-- Title for carrier demo mode factory reset confirmation dialog. [CHAR LIMIT=40] -->
 </resources>
