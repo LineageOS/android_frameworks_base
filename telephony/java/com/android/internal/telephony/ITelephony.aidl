@@ -573,6 +573,7 @@ interface ITelephony {
      * Return true if an ICC card is present
      */
     boolean hasIccCardUsingSlotIndex(int slotIndex);
+    boolean hasIccCardUsingSlotId(int slotId);
 
     /**
      * Return if the current radio is LTE on CDMA. This

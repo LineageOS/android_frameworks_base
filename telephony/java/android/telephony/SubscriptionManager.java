@@ -882,6 +882,10 @@ public class SubscriptionManager {
 
     }
 
+    public void getSlotId(int subId) {
+       getSlotIndex(subId);
+    }
+
     /** @hide */
     public static int[] getSubId(int slotIndex) {
         if (!isValidSlotIndex(slotIndex)) {
@@ -1282,6 +1286,10 @@ public class SubscriptionManager {
         }
 
         return simState;
+    }
+
+    public void getSimStateForSlotIdx(int slotIdx) {
+       getSimStateForSlotIndex(slotIdx);
     }
 
     /**
