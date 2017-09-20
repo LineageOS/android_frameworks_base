@@ -18,53 +18,176 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- label for item that screenshots in phone options dialog -->
+  <string name="global_action_screenshot">Glacadh-sgrìn</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_receiveProtectedSms">SMS dìonta fhaighinn</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_receiveProtectedSms">Leigidh seo leis aplacaid SMS dìonta a tha a’ tighinn a-steach fhaighinn.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_modifyProtectedSmsList">liosta nan SMS dìonta atharrachadh</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_modifyProtectedSmsList">Leigidh seo leis an aplacaid liosta seòlaidhean nan SMS dìonta atharrachadh.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgrouplab_security">Tèarainteachd</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgroupdesc_security">Ceadan co-cheangailte ri fiosrachadh tèarainteachd an uidheim.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_readPhoneBlacklist">dubh-liosta an fhòn a leughadh</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readPhoneBlacklist">Leigidh seo le aplacaid fiosrachadh a leughadh mu àireamhan fòn a chaidh am bacadh o ghairmean no teachdaireachdan a thigeadh a-steach.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_changePhoneBlacklist">dubh-liosta an fhòn atharrachadh</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_changePhoneBlacklist">Leigidh seo le aplacaid fiosrachadh atharrachadh mu àireamhan fòn a chaidh am bacadh o ghairmean no teachdaireachdan a thigeadh a-steach.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
+  <string name="permlab_setKeyguardWallpaper">pàipear-balla freiceadan nan iuchair a shuidheachadh</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setKeyguardWallpaper">Leigidh seo le aplacaid pàipear-balla na sgrìn-ghlasaidh atharrachadh.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
+  <string name="global_action_reboot">Dèan ath-thòiseachadh</string>
   <!-- label for current user in phone options dialog -->
+  <string name="global_action_current_user">Làithreach</string>
   <!-- Reboot menu -->
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
+  <string name="reboot_reboot">Dèan ath-thòiseachadh</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
+  <string name="reboot_recovery">Aiseag</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
+  <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
+  <string name="reboot_download">Luchdaich a-nuas</string>
   <!-- Button to soft reboot the device, within the Reboot Options dialog -->
+  <string name="reboot_soft">Dèan ath-thòiseachadh bog</string>
   <!-- Title of dialog to confirm rebooting. -->
+  <string name="reboot_title">Ath-thòisich</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="reboot_confirm" product="tablet">Thèid an tablaid agad a thòiseachadh às ùr.</string>
+  <string name="reboot_confirm" product="default">Thèid am fòn agad a thòiseachadh às ùr.</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
+  <string name="reboot_progress">’Ga ath-thòiseachadh...</string>
   <!-- Long-press back kill application -->
+  <string name="app_killed_message">Chaidh an aplacaid a mharbhadh</string>
   <!-- ADB over network notification -->
+  <string name="adb_net_active_notification_title">Tha ADB thar lìonra an comas</string>
   <!-- ADB over USB and network notification -->
+  <string name="adb_both_active_notification_title">Tha ADB thar USB ⁊ lìonra an comas</string>
   <!-- ADB notification message-->
+  <string name="adb_active_generic_notification_message">Bean ris airson an dì-bhugachadh a chur à comas.</string>
   <!-- ADB custom tile -->
+  <string name="adb_active_custom_tile">ADB - <xliff:g id="adb_type" example="USB">%1$s</xliff:g></string>
+  <string name="adb_active_custom_tile_both">USB ⁊ lìonra</string>
+  <string name="adb_active_custom_tile_usb">USB</string>
+  <string name="adb_active_custom_tile_net">Lìonra</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
+  <string name="permlab_interceptPackageLaunch">Eadar-cheap tòiseachadh aplacaid</string>
   <!-- stylus gestures support -->
+  <string name="stylus_app_not_installed">Cha deach %s a stàladh</string>
   <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Prìomhachas</string>
+  <string name="silent_mode_none">Chan eil gin</string>
   <!-- Wifi Hotspot disabled due to subscription change -->
+  <string name="subscription_change_disabled_wifi_ap">Chaidh an hotspot WiFi a chur à comas air sgàth atharrachadh fo-sgrìobhadh an t-SIM</string>
   <!-- WiFi turn off notification action text -->
+  <string name="notify_turn_wifi_off_title">Cuir WiFi dheth</string>
   <!-- Privacy Guard -->
+  <string name="permlab_changePrivacyGuardState">cuir an comas no à comas freiceadan na prìobhaideachd</string>
+  <string name="permdesc_changePrivacyGuardState">Leigidh seo leis an aplacaid atharrachadh an ruith aplacaid eile le freiceadan na prìobhaideachd no as aonais. Ma ruitheas aplacaid le freiceadan na prìobhaideachd, cha bhi cothrom aige air dàta pearsanta mar an luchd-aithne, logaichean ghairmean no teachdaireachdan.</string>
+  <string name="privacy_guard_notification">Tha freiceadan na prìobhaideachd an gnìomh</string>
+  <string name="privacy_guard_notification_detail">Cha bhi cothrom aig <xliff:g id="app">%1$s</xliff:g> air dàta pearsanta</string>
+  <string name="privacy_guard_dialog_title">Freiceadan na prìobhaideachd</string>
+  <string name="privacy_guard_dialog_summary">Bu toigh le <xliff:g id="app">%1$s</xliff:g> <xliff:g id="op">%2$s</xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+  <string name="permission_remember_choice">Cuimhnich mo roghainn</string>
   <!-- App ops requests -->
+  <string name="app_ops_access_camera">cothrom air a’ chamara</string>
+  <string name="app_ops_access_location">cothrom air d’ ionad</string>
+  <string name="app_ops_access_notifications">na brathan agad a leughadh</string>
+  <string name="app_ops_activate_vpn">VPN a ghnìomhachadh</string>
+  <string name="app_ops_auto_start">tòiseachaidh nuair a thòisicheas an t-uidheam</string>
+  <string name="app_ops_delete_call_log">loga nan gairmean agad a sguabadh às</string>
+  <string name="app_ops_delete_contacts">an luchd-aithne agad a sguabadh às</string>
+  <string name="app_ops_delete_mms">na teachdaireachdan MMS agad a sguabadh às</string>
+  <string name="app_ops_delete_sms">na teachdaireachdan SMS agad a sguabadh às</string>
+  <string name="app_ops_draw_on_top">uinneagan a tharraing an uachdar</string>
+  <string name="app_ops_get_usage_stats">stats air caitheamh aplacaidean fhaighinn</string>
+  <string name="app_ops_keep_device_awake">an t-uidheam agad a chumail ’na dhùisg</string>
+  <string name="app_ops_make_phone_call">gairm fòn a dhèanamh</string>
+  <string name="app_ops_modify_calendar">am mìosachan agad ùrachadh</string>
+  <string name="app_ops_modify_call_log">loga nan gairmean ùrachadh</string>
+  <string name="app_ops_modify_clipboard">an stòr-bhòrd atharrachadh</string>
+  <string name="app_ops_modify_contacts">an luchd-aithne agad ùrachadh</string>
+  <string name="app_ops_modify_settings">roghainnean an t-siostaim ùrachadh</string>
+  <string name="app_ops_mute_unmute_microphone">am micreofon a mhùchadh no a thilleadh</string>
+  <string name="app_ops_play_audio">fuaim a chluich</string>
+  <string name="app_ops_post_notification">brath a phostadh</string>
+  <string name="app_ops_project_media">meadhan a thilgeil</string>
+  <string name="app_ops_read_calendar">an mìosachan agad a leughadh</string>
+  <string name="app_ops_read_call_log">loga nan gairmean a leughadh</string>
+  <string name="app_ops_read_clipboard">an stòr-bhòrd a leughadh</string>
+  <string name="app_ops_read_contacts">an luchd-aithne agad a leughadh</string>
+  <string name="app_ops_read_mms">na teachdaireachdan MMS agad a leughadh</string>
+  <string name="app_ops_read_sms">na teachdaireachdan SMS agad a leughadh</string>
+  <string name="app_ops_receive_sms">teachdaireachd SMS fhaighinn</string>
+  <string name="app_ops_record_audio">fuaim a chlàradh</string>
+  <string name="app_ops_send_mms">teachdaireachd MMS a chur</string>
+  <string name="app_ops_send_sms">teachdaireachd SMS a chur</string>
+  <string name="app_ops_start_at_bootup">tòiseachaidh nuair a thòisicheas an t-uidheam</string>
+  <string name="app_ops_toast_window">teachdaireachdan toast a shealltainn</string>
+  <string name="app_ops_toggle_bluetooth">Bluetooth a thoglachadh</string>
+  <string name="app_ops_toggle_mobile_data">dàta mobile a thoglachadh</string>
+  <string name="app_ops_toggle_nfc">NFC a thoglachadh</string>
+  <string name="app_ops_toggle_wifi">WiFi a thoglachadh</string>
+  <string name="app_ops_use_alarm_volume">smachd fhaighinn air àirde fuaim nan caismeachdan</string>
+  <string name="app_ops_use_audio_focus">smachd fhaighinn air fòcas na fuaime</string>
+  <string name="app_ops_use_bluetooth_volume">smachd fhaighinn air àirde fuaim Bluetooth</string>
+  <string name="app_ops_use_master_volume">smachd fhaighinn air prìomh-àirde na fuaime</string>
+  <string name="app_ops_use_media_buttons">putanan nam meadhanan a chleachdadh</string>
+  <string name="app_ops_use_media_volume">smachd fhaighinn air àirde fuaim nam meadhanan</string>
+  <string name="app_ops_use_notification_volume">smachd fhaighinn air àirde fuaim nam brathan</string>
+  <string name="app_ops_use_ring_volume">smachd fhaighinn air àirde fuaim nan seirmean</string>
+  <string name="app_ops_use_vibrate">d’ aire a tharraing le bhith a’ crith</string>
+  <string name="app_ops_use_voice_volume">smachd fhaighinn air àirde fuaim nan gairmean-gutha</string>
+  <string name="app_ops_write_mms">teachdaireachd MMS a sgrìobhadh</string>
+  <string name="app_ops_write_sms">teachdaireachd SMS a sgrìobhadh</string>
+  <string name="app_ops_use_fingerprint">lorg do mheòir a chleachdadh</string>
+  <string name="app_ops_add_voicemail">post-gutha a chur ris</string>
+  <string name="app_ops_read_phone_state">cothrom fhaighinn air staid an fhòn</string>
+  <string name="app_ops_scan_wifi">na lìonraidhean WiFi a sganadh</string>
+  <string name="app_ops_change_wallpaper">am pàipear-balla atharrachadh</string>
+  <string name="app_ops_assist_structure">structar taice a chleachdadh</string>
+  <string name="app_ops_assist_screenshot">glacadh-sgrìn a dhèanamh</string>
+  <string name="app_ops_use_body_sensors">na mothaichearan bodhaig a chleachdadh</string>
+  <string name="app_ops_read_cell_broadcasts">craolaidhean an fhòn-làimhe a leughadh</string>
+  <string name="app_ops_mock_location">d’ ionad a chur air mas fhìor</string>
+  <string name="app_ops_read_external_storage">stòras air an taobh a-muigh a leughadh</string>
+  <string name="app_ops_write_external_storage">sgrìobhadh air stòras air an taobh a-muigh</string>
+  <string name="app_ops_turn_on_screen">an sgrìn a chur air</string>
+  <string name="app_ops_get_accounts">cunntasan an uidheim fhaighinn</string>
+  <string name="app_ops_wifi_change">an staid WiFi atharrachadh</string>
+  <string name="app_ops_su">inntrigeadh root fhaighinn</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+  <string name="lock_to_app_toast_no_navbar">Airson an sgrìn seo a dhì-phrìneachadh, bean ris a’ phutan “Air ais” is cum e.</string>
   <!-- Template for showing cellular network operator name while LTE calling is enabled -->
+  <string name="tethered_notification_no_device_message">Cha deach uidheam a cheangal ris</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> uidheam ceangailte ris</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> uidheam(an) ceangailte ris</string>
   <!-- Keyguard strings -->
   <!-- Sequence of characters used to separate carrier message strings in keyguard. Typically just vertical line
          with spaces on either side. [CHAR LIMIT=3] -->
   <!-- Protected Apps Notification -->
+  <string name="notify_package_component_protected_title">Chaidh tòiseachadh na gnìomhachd a bhacadh</string>
+  <string name="notify_package_component_protected_text">Chan eil cead aig <xliff:g id="app_name">%1$s</xliff:g> tòiseachadh. Thoir gnogag airson an aplacaid a dhearbhadh is a chur gu dol.</string>
   <!-- Battery fully charged notification -->
+  <string name="notify_battery_fully_charged_title">Tha làn-teairrds sa bhataraidh</string>
+  <string name="notify_battery_fully_charged_text">Dì-cheangail an t-uidheam agad on teairrdsear airson beatha a’ bhataraidh a leudachadh.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose
          whether they want to allow the application to do this. -->
+  <string name="permlab_resetBatteryStats">ath-shuidhich stats a’ bhataraidh</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose
          whether they want to allow the application to do this. -->
+  <string name="permdesc_resetBatteryStats">Leigidh seo le aplacaid an dàta làithreach a thaobh ìre ìseal a’ bhataraidh ath-shuidheachadh.</string>
   <!-- Uicc hotswapped event configuration needed notification -->
+  <string name="uicc_hot_swapped_event_title">Chaidh na cairtean SIM atharrachadh</string>
+  <string name="uicc_hot_swapped_event_text">Thoir gnogag airson roghainn na cairt SIM bunaiteach a shuidheachadh</string>
 </resources>

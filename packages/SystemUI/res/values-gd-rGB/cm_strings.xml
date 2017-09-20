@@ -17,80 +17,212 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- Content description of the data connection type 4G+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_connection_4g_plus">4G+</string>
   <!-- Weather string format in expanded statusbar header -->
+  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Strings for lockscreen shortcut hints -->
+  <string name="left_shortcut_hint">Grad-shlaighd deas airson %1$s</string>
+  <string name="right_shortcut_hint">Grad-shlaighd clì airson %1$s</string>
+  <string name="lockscreen_message">Thoir gnogag air ìomhaigheag air an taobh deas no chlì airson ath-ghoirid na sgrìn-ghlasaidh iomruineadh dha às ùr.</string>
+  <string name="lockscreen_default_target">Bun-roghainn</string>
+  <string name="select_application">Tagh aplacaid</string>
+  <string name="lockscreen_choose_action_title">Tagh gnìomh</string>
+  <string name="lockscreen_none_target">Chan eil gin</string>
   <!-- Dialog title for navigation bar button selection -->
+  <string name="navbar_dialog_title">Tagh gnìomh airson iomruineadh:</string>
+  <string name="navbar_home_button">Putan na dachaidh</string>
+  <string name="navbar_recent_button">Putan nan rudan o chionn goirid</string>
+  <string name="navbar_search_button">Putan nan lorg</string>
+  <string name="navbar_back_button">Am putan “Air ais”</string>
+  <string name="navbar_empty_button">Putan bàn</string>
+  <string name="navbar_menu_conditional_button">Putan a’ chlàir-thaice (autoHide)</string>
+  <string name="navbar_menu_always_button">Putan a’ chlàir-thaice (alwaysShow)</string>
+  <string name="navbar_menu_big_button">Putan a’ chlàir-thaice</string>
+  <string name="accessibility_dpad_left">Cùrsair clì</string>
+  <string name="accessibility_dpad_right">Cùrsair deas</string>
   <!-- Development shortcuts -->
   <!-- Title shown in recents popup for wiping application's data -->
+  <string name="advanced_dev_option_wipe_app">Suath dàta na h-aplacaid às</string>
   <!-- Title shown in recents popup for force stopping the application -->
+  <string name="advanced_dev_option_force_stop">Èignich stad</string>
   <!-- Title shown in recents popup for uninstalling the application -->
+  <string name="advanced_dev_option_uninstall">Dì-stàlaich</string>
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_notification_brightness">Soilleireachd an t-solais</string>
   <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">Na pròifilean dheth.</string>
   <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">A’ phròifil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">Na pròifilean dheth.</string>
   <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">Tha a’ phròifil: <xliff:g id="profile" example="Default">%s</xliff:g> an gnìomh a-nis.</string>
+  <string name="quick_settings_compass_init">’Ga thòiseachadh...</string>
   <!-- Lights settings, LED notification -->
+  <string name="led_notification_title">Roghainnean an t-solais</string>
+  <string name="led_notification_text">Solas LED an comas a-rèir nan roghainnean</string>
+  <string name="qs_tile_edit_header_instruction">Brùth ’s cum na leacagan airson an gluasad</string>
+  <string name="quick_settings_edit_label">Deasaich na leacagan</string>
+  <string name="quick_settings_cannot_delete_edit_tile">Cha ghabh an leacag “Deasaich” a sguabadh às</string>
+  <string name="qs_tiles_reset_confirmation">A bheil thu airson bun-roghainnean leacagan nan grad-roghainnean a thilleadh?</string>
+  <string name="quick_settings_tile_reset_to_default">Ath-shuidhich a’ cho-dhealbhachd bhunaiteach</string>
+  <string name="quick_settings_title_header">Bann-cinn</string>
+  <string name="quick_settings_title_tiles">Leacagan</string>
+  <string name="quick_settings_title_show_weather">Seall an aimsir</string>
+  <string name="quick_settings_title_show_brightness_slider">Seall sleamhnachan na soilleireachd</string>
+  <string name="quick_settings_title_enlarge_first_row">Dèan a’ chiad ràgh nas motha</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
+  <string name="screen_pinning_description_no_navbar">Cumaidh seo san t-sealladh e gus an dì-phrìnich thu e. Bean ris a’ phutan “Air ais” is cum e airson a dhì-phrìneachadh.</string>
+  <string name="quick_settings_custom_tile_detail_title">Leacag ghnàthaichte</string>
+  <string name="quick_settings_remove">Thoir an leacag air falbh</string>
+  <string name="quick_settings_network_adb_label">ADB thar lìonra</string>
+  <string name="quick_settings_compass_label">Combaist</string>
+  <string name="quick_settings_nfc_label">NFC</string>
+  <string name="quick_settings_profiles">Pròifilean an t-siostaim</string>
+  <string name="quick_settings_profiles_off">Tha na pròifilean à comas</string>
+  <string name="quick_settings_heads_up_label">An aire</string>
+  <string name="quick_settings_battery_saver_label">Caomhnaiche a’ bhataraidh</string>
   <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
+  <string name="quick_settings_battery_saver_label_charging">Caomhnaiche a’ bhataraidh (’ga theairrdseadh)</string>
+  <string name="quick_settings_caffeine_label">Caffeine</string>
   <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_sync_off">Sioncronachadh dheth.</string>
   <!-- Content description of the sync tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_sync_on">Sioncronachadh air.</string>
   <!-- Announcement made when sync changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_sync_changed_off">Tha an sioncronachadh dheth.</string>
   <!-- Announcement made when sync changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_sync_changed_on">Tha an sioncronachadh air.</string>
+  <string name="quick_settings_sync_label">Sioncronaich</string>
+  <string name="quick_settings_volume_panel_label">Panail àirde na fuaime</string>
+  <string name="quick_settings_usb_tether_label">Teadhrachadh USB</string>
+  <string name="quick_settings_screen_timeout_detail_title">Timeout na sgrìn</string>
+  <string name="quick_settings_lockscreen_label">An sgrìn-ghlasaidh</string>
+  <string name="quick_settings_ambient_display_label">Taisbeanadh cuairteach</string>
+  <string name="quick_settings_lockscreen_label_enforced">An sgrìn-ghlasaidh ’ga sparradh</string>
+  <string name="quick_settings_lockscreen_label_locked_by_profile">Air a chur à comas le pròifil</string>
   <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_screen_timeout">Timeout na sgrìn: <xliff:g id="timeout" example="30 diog">%s</xliff:g>.</string>
   <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_screen_timeout_changed">’S e <xliff:g id="timeout" example="30 diog">%s</xliff:g> timeout na sgrìn a-nis.</string>
+  <string name="qs_tile_performance">Modh a’ bhataraidh</string>
   <!-- Content description of the battery mode tile in quick settings when on, power save mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_pwrsv">Modh a’ bhataraidh: am modh caomhnadh cumhachd.</string>
   <!-- Content description of the battery mode tile in quick settings when on, balanced mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_bal">Modh a’ bhataraidh: am modh cothromaichte.</string>
   <!-- Content description of the battery mode tile in quick settings when on, performance mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_perf">Modh a’ bhataraidh: am modh dèanadais.</string>
   <!-- Content description of the battery mode tile in quick settings when on, efficiency mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_bias_power">Modh a’ bhataraidh: am modh èifeachdais.</string>
   <!-- Content description of the battery mode tile in quick settings when on, quick mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_bias_perf">Modh a’ bhataraidh: am modh luath.</string>
   <!-- Announcement made when the battery mode tile changes to power save (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">’S e am modh caomhnadh cumhachd am modh aig a’ bhataraidh a-nis.</string>
   <!-- Announcement made when the battery mode tile changes to balanced (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_changed_bal">’S e am modh cothromaichte am modh aig a’ bhataraidh a-nis.</string>
   <!-- Announcement made when the battery mode tile changes to performance (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_changed_perf">’S e am modh dèanadais am modh aig a’ bhataraidh a-nis.</string>
   <!-- Announcement made when the battery mode tile changes to efficiency (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_changed_bias_power">’S e am modh èifeachdais am modh aig a’ bhataraidh a-nis.</string>
   <!-- Announcement made when the battery mode tile changes to quick (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">’S e am modh luath am modh aig a’ bhataraidh a-nis.</string>
+  <string name="quick_settings_performance_profile_detail_title">Modh a’ bhataraidh</string>
   <!-- Content description of the lock screen tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_lock_screen_off">Tha an sgrìn-glasaidh dheth.</string>
   <!-- Content description of the lock screen tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_lock_screen_on">Tha an sgrìn-ghlasaidh air.</string>
   <!-- Announcement made when lock screen changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_lock_screen_changed_off">Chaidh an sgrìn-glasaidh a chur dheth.</string>
   <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_lock_screen_changed_on">Chaidh an sgrìn-glasaidh a chur air.</string>
   <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_ambient_display_off">Tha an taisbeanadh cuairteach dheth.</string>
   <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_ambient_display_on">Tha an taisbeanadh cuairteach air.</string>
   <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Chaidh an taisbeanadh cuairteach a chur dheth.</string>
   <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Chaidh an taisbeanadh cuairteach a chur air.</string>
   <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_off">Tha am modh aire dheth.</string>
   <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_on">Tha am modh aire air.</string>
   <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_changed_off">Chaidh am modh aire a chur dheth.</string>
   <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_heads_up_changed_on">Chaidh am modh aire a chur air.</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_caffeine_off">Tha Caffeine dheth.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_caffeine_on">Tha Caffeine air.</string>
   <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_off">Tha caomhnaiche a’ bhataraidh dheth.</string>
   <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_on">Tha caomhnaiche a’ bhataraidh air.</string>
   <!-- Announcement made when battery saver changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_changed_off">Chaidh caomhnaiche a’ bhataraidh a chur dheth.</string>
   <!-- Announcement made when battery saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_changed_on">Chaidh caomhnaiche a’ bhataraidh a chur air.</string>
   <!-- Dynamic tiles -->
+  <string name="quick_settings_dynamic_tile_detail_title">Leacag innsgineach</string>
+  <string name="dynamic_qs_tile_next_alarm_label">An ath-chaismeachd</string>
+  <string name="dynamic_qs_tile_ime_selector_label">Roghnaichear an IME</string>
+  <string name="dynamic_qs_tile_su_label">Inntrigeadh root</string>
+  <string name="dynamic_qs_tile_themes_label">Ùrlaran</string>
+  <string name="quick_settings_title_advanced_location">Roghainnean adhartach an ionaid</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_battery_saving">Aithriseadh an ionaid: modh chaomhnadh a’ bhataraidh.</string>
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_gps_only">Aithriseadh an ionaid: am modh mothachaidh a-mhàin.</string>
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_high_accuracy">Aithriseadh an ionaid: modh na pongalachd àrd.</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_detail_title">Modh an ionaid</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_battery_saving_label">Caomhnadh a’ bhataraidh</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_gps_only_label">An t-uidheam a-mhàin</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_location_high_accuracy_label">Pongalachd àrd</string>
   <!-- Announcement made when the location tile changes to battery saving (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_changed_battery_saving">’S e am modh caomhnadh cumhachd am modh aig aithriseadh an ionaid a-nis.</string>
   <!-- Announcement made when the location tile changes to sensors only (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_changed_gps_only">’S e am modh mothachaidh a-mhàin am modh aig aithriseadh an ionaid a-nis.</string>
   <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_location_changed_high_accuracy">’S e modh na pongalachd àrd am modh aig aithriseadh an ionaid a-nis.</string>
+  <string name="quick_settings_tiles_category_system">Leacagan an t-siostaim</string>
   <!-- detail header when adding a tile -->
+  <string name="quick_settings_tiles_add_tiles">Cuir leacag ris</string>
   <!-- Hotspot dialog message -->
+  <string name="hotspot_apm_message">Chan urrainn dhuinn ceangal ri lìonraidhean mobile fhad ’s a bhios am modh itealain an comas. Cuir am modh itealain à comas is feuch ris a-rithist.</string>
   <!-- Notification which notifies user flashlight is enabled -->
+  <string name="quick_settings_tile_flashlight_not_title">Tha an leus air</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Thoir gnogag gus a chur dheth</string>
   <!-- Wi-Fi hotspot label when enabled -->
+  <plurals name="wifi_hotspot_connected_clients_label">
+    <item quantity="one">%1$d chliant</item>
+    <item quantity="two">%1$d chliant</item>
+    <item quantity="few">%1$d cliantan</item>
+    <item quantity="other">%1$d cliant</item>
+  </plurals>
   <!-- CellularTile data sim not configured state string -->
+  <string name="data_sim_not_configured">Chan eil SIM dàta ann</string>
   <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_dock_battery_level">Tha am bataraidh docaichte aig <xliff:g id="number">%d</xliff:g>%.</string>
   <!-- Play queue -->
+  <string name="play_queue_extention">Seall ciutha na cluiche</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Weather string format in keyguard -->
+  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+  <string name="expand_hint">Grad-shlaighd a-nuas gus a leudachadh</string>
+  <string name="swipe_left_hint">Grad-shlaighd clì gus <xliff:g id="app_name">%1$s</xliff:g></string>
+  <string name="swipe_right_hint">Grad-shlaighd deas a dh’fhosgladh nam brathan</string>
 </resources>

@@ -50,7 +50,7 @@
   <!-- Title shown in recents popup for wiping application's data -->
   <string name="advanced_dev_option_wipe_app">Llimpiar datos d\'aplicaciones</string>
   <!-- Title shown in recents popup for force stopping the application -->
-  <string name="advanced_dev_option_force_stop">Forciar detención</string>
+  <string name="advanced_dev_option_force_stop">Forciar parada</string>
   <!-- Title shown in recents popup for uninstalling the application -->
   <string name="advanced_dev_option_uninstall">Desinstalar</string>
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -86,7 +86,8 @@
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_profiles">Perfiles del sistema</string>
   <string name="quick_settings_profiles_off">Perfiles deshabilitaos</string>
-  <string name="quick_settings_heads_up_label">Avisos emerxente</string>
+  <string name="quick_settings_heads_up_label">Avisos
+emerxentes</string>
   <string name="quick_settings_battery_saver_label">Aforrador de batería</string>
   <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
   <string name="quick_settings_battery_saver_label_charging">Aforrador de batería (cargando)</string>
@@ -162,9 +163,13 @@
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_caffeine_on">Activar Cafeína.</string>
   <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_off">Aforru de batería desactiváu.</string>
   <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_on">Aforru de batería activáu.</string>
   <!-- Announcement made when battery saver changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_changed_off">Desactivóse l\'aforru de batería.</string>
   <!-- Announcement made when battery saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_battery_saver_changed_on">Activóse l\'aforru de batería.</string>
   <!-- Dynamic tiles -->
   <string name="quick_settings_dynamic_tile_detail_title">Caxella dinámica</string>
   <string name="dynamic_qs_tile_next_alarm_label">Alarma siguiente</string>

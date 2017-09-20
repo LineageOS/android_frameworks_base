@@ -27,7 +27,7 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Pasatu hatza eskumara: %1$s</string>
+  <string name="left_shortcut_hint">Pasatu hatza eskuinera: %1$s</string>
   <string name="right_shortcut_hint">Pasatu hatza ezkerrera: %1$s</string>
   <string name="lockscreen_message">Sakatu ezker edo eskuineko ikono bat blokeo-pantailako lasterbide bat aldatzeko.</string>
   <string name="lockscreen_default_target">Lehenetsia</string>
@@ -45,7 +45,7 @@
   <string name="navbar_menu_always_button">Menu botoia (beti erakutsi)</string>
   <string name="navbar_menu_big_button">Menu botoia</string>
   <string name="accessibility_dpad_left">Kurtsorea ezkerrean</string>
-  <string name="accessibility_dpad_right">Kurtsorea eskuman</string>
+  <string name="accessibility_dpad_right">Kurtsorearen eskuinean</string>
   <!-- Development shortcuts -->
   <!-- Title shown in recents popup for wiping application's data -->
   <string name="advanced_dev_option_wipe_app">Ezabatu aplikazioaren datuak</string>
@@ -222,5 +222,5 @@
   <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
   <string name="expand_hint">Pasatu hatza behera zabaltzeko</string>
   <string name="swipe_left_hint">Pasatu hatza ezkerrera <xliff:g id="app_name">%1$s</xliff:g></string>
-  <string name="swipe_right_hint">Pasatu hatza eskumara jakinarazpenentzat</string>
+  <string name="swipe_right_hint">Pasatu hatza eskuinera jakinarazpenentzat</string>
 </resources>

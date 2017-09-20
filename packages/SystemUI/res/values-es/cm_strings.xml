@@ -69,7 +69,7 @@
   <string name="led_notification_text">Luz LED activada por ajustes</string>
   <string name="qs_tile_edit_header_instruction">Toca y deja presionados los controles para reorganizarlos</string>
   <string name="quick_settings_edit_label">Editar controles</string>
-  <string name="quick_settings_cannot_delete_edit_tile">No se puede eliminar el control de \"Editar\"</string>
+  <string name="quick_settings_cannot_delete_edit_tile">No se puede eliminar el control de «Editar»</string>
   <string name="qs_tiles_reset_confirmation">¿Restaurar los controles de ajustes rápidos a su configuración predeterminada?</string>
   <string name="quick_settings_tile_reset_to_default">Restaurar disposición por defecto</string>
   <string name="quick_settings_title_header">Encabezado</string>

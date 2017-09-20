@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_label">Shell</string>
   <!-- Title of notification indicating a bugreport has been successfully captured. [CHAR LIMIT=50] -->
   <string name="bugreport_finished_title">Capturóse l\'informe de fallu</string>
   <!-- Text of notification indicating that swipe left will share the captured bugreport. [CHAR LIMIT=100] -->
@@ -23,7 +22,5 @@
   <!-- Body of dialog informing user about contents of a bugreport. [CHAR LIMIT=NONE] -->
   <string name="bugreport_confirm">Los informes de fallu contienen datos de dellos ficheros de rexistru del sistema, incluyendo información personal y privada. Comparti los informes de fallu namái con aplicaciones y usuarios nos que t\'enfotes.</string>
   <!-- Checkbox that indicates this dialog should be shown again when the next bugreport is taken. [CHAR LIMIT=50] -->
-  <string name="bugreport_confirm_repeat">Amosar esti mensaxe la próxima vegada</string>
   <!-- Title for documents backend that offers bugreports. -->
-  <string name="bugreport_storage_title">Informes de fallu</string>
 </resources>
