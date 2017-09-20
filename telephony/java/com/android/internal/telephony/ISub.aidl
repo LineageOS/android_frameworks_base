@@ -143,6 +143,7 @@ interface ISub {
     int setDataRoaming(int roaming, int subId);
 
     int getSlotIndex(int subId);
+    int getSlotId(int subId);
 
     int[] getSubId(int slotIndex);
 
@@ -181,6 +182,7 @@ interface ISub {
      * @return SIM state as the ordinal of IccCardConstants.State
      */
     int getSimStateForSlotIndex(int slotIndex);
+    int getSimStateForSlotIdx(int slotIdx);
 
     boolean isActiveSubId(int subId);
 }
