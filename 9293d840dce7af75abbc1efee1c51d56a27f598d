@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49488543_b7d16214",
+        "filename": "telephony/java/android/telephony/SubscriptionManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-09-21T03:24:16Z",
+      "side": 1,
+      "message": "void -\u003e int (does this even compile?)",
+      "revId": "9293d840dce7af75abbc1efee1c51d56a27f598d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d503ed8d_ea104202",
+        "filename": "telephony/java/android/telephony/SubscriptionManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-09-21T03:24:16Z",
+      "side": 1,
+      "message": "void -\u003e int",
+      "revId": "9293d840dce7af75abbc1efee1c51d56a27f598d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
