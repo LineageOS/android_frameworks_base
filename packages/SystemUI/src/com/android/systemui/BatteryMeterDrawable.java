@@ -634,13 +634,15 @@ public class BatteryMeterDrawable extends Drawable implements
 
     private void drawPercentageText(Canvas canvas) {
         final int level = mLevel;
-        if (level > mCriticalLevel && mShowPercent && level != 100) {
+        if ((level > mCriticalLevel && mShowPercent || mPowerSaveEnabled && mShowPercent)
+                && level != 100) {
             // Draw the percentage text
             String pctText = String.valueOf(SINGLE_DIGIT_PERCENT ? (level / 10) : level);
             mTextAndBoltPaint.setColor(getColorForLevel(level));
             canvas.drawText(pctText, mTextX, mTextY, mTextAndBoltPaint);
         } else if (level <= mCriticalLevel) {
             // Draw the warning text
+            mWarningTextPaint.setColor(mPowerSaveEnabled ? 0xFFFFFFFF : mColors[1]);
             canvas.drawText(mWarningString, mTextX, mTextY, mWarningTextPaint);
         }
     }
