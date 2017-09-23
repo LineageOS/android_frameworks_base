@@ -195,7 +195,6 @@ public class BatteryMeterDrawable extends Drawable implements
                 ? mCurrentFillColor : res.getColor(R.color.batterymeter_bolt_color));
 
         mWarningTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mWarningTextPaint.setColor(mColors[1]);
         font = Typeface.create("sans-serif", Typeface.BOLD);
         mWarningTextPaint.setTypeface(font);
         mWarningTextPaint.setTextAlign(getPaintAlignmentFromGravity(mTextGravity));
@@ -634,13 +633,16 @@ public class BatteryMeterDrawable extends Drawable implements
 
     private void drawPercentageText(Canvas canvas) {
         final int level = mLevel;
-        if (level > mCriticalLevel && mShowPercent && level != 100) {
+        if ((level > mCriticalLevel || mPowerSaveEnabled) && mShowPercent && level != 100) {
             // Draw the percentage text
             String pctText = String.valueOf(SINGLE_DIGIT_PERCENT ? (level / 10) : level);
             mTextAndBoltPaint.setColor(getColorForLevel(level));
             canvas.drawText(pctText, mTextX, mTextY, mTextAndBoltPaint);
         } else if (level <= mCriticalLevel) {
             // Draw the warning text
+            mWarningTextPaint.setColor(mPowerSaveEnabled
+                    ? mColors[mColors.length - 1]
+                    : mColors[1]);
             canvas.drawText(mWarningString, mTextX, mTextY, mWarningTextPaint);
         }
     }
