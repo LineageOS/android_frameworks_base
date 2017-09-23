@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce21d1ce_6016a0d0",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterDrawable.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-09-23T11:37:43Z",
+      "side": 1,
+      "message": "Well this should be a res or at least R.color.white?",
+      "range": {
+        "startLine": 645,
+        "startChar": 59,
+        "endLine": 645,
+        "endChar": 69
+      },
+      "revId": "773aa2f0aa2b0a8049bac258bd61920a596924bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
