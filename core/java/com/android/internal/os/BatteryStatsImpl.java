@@ -4171,6 +4171,7 @@ public class BatteryStatsImpl extends BatteryStats {
                     bin = DATA_CONNECTION_EHRPD;
                     break;
                 case TelephonyManager.NETWORK_TYPE_HSPAP:
+                case TelephonyManager.NETWORK_TYPE_DC_HSPAP:
                     bin = DATA_CONNECTION_HSPAP;
                     break;
                 default:

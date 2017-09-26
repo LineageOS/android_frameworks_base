@@ -199,6 +199,7 @@ public class MobileSignalController extends SignalController<
             hGroup = TelephonyIcons.HP;
         }
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSPAP, hGroup);
+        mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_DC_HSPAP, hGroup);
 
         if (mConfig.show4gForLte) {
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_LTE, TelephonyIcons.FOUR_G);
