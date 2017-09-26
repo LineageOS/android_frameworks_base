@@ -46,6 +46,7 @@ public class RadioAccessFamily implements Parcelable {
     public static final int RAF_HSDPA = (1 << ServiceState.RIL_RADIO_TECHNOLOGY_HSDPA);
     public static final int RAF_HSPA = (1 << ServiceState.RIL_RADIO_TECHNOLOGY_HSPA);
     public static final int RAF_HSPAP = (1 << ServiceState.RIL_RADIO_TECHNOLOGY_HSPAP);
+    public static final int RAF_DC_HSPAP = (1 << ServiceState.RIL_RADIO_TECHNOLOGY_DC_HSPAP);
     public static final int RAF_UMTS = (1 << ServiceState.RIL_RADIO_TECHNOLOGY_UMTS);
     public static final int RAF_TD_SCDMA = (1 << ServiceState.RIL_RADIO_TECHNOLOGY_TD_SCDMA);
     // 4G
@@ -58,7 +59,7 @@ public class RadioAccessFamily implements Parcelable {
     private static final int CDMA = RAF_IS95A | RAF_IS95B | RAF_1xRTT;
     // 3G
     private static final int EVDO = RAF_EVDO_0 | RAF_EVDO_A | RAF_EVDO_B | RAF_EHRPD;
-    private static final int HS = RAF_HSUPA | RAF_HSDPA | RAF_HSPA | RAF_HSPAP;
+    private static final int HS = RAF_HSUPA | RAF_HSDPA | RAF_HSPA | RAF_HSPAP | RAF_DC_HSPAP;
     private static final int WCDMA = HS | RAF_UMTS;
     // 4G
     private static final int LTE = RAF_LTE | RAF_LTE_CA;
@@ -367,6 +368,7 @@ public class RadioAccessFamily implements Parcelable {
             case "EVDO":    return EVDO;
             case "WCDMA":   return WCDMA;
             case "LTE_CA":  return RAF_LTE_CA;
+            case "DC_HSPAP":return RAF_DC_HSPAP;
             default:        return RAF_UNKNOWN;
         }
     }
