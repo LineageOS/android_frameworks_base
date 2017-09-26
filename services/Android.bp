@@ -246,6 +246,7 @@ java_library {
         "service-permission.stubs.system_server",
         "service-rkp.stubs.system_server",
         "service-sdksandbox.stubs.system_server",
+        "org.lineageos.platform.internal",
     ],
 
     vintf_fragments: [
