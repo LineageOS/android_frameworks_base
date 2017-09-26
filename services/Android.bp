@@ -32,6 +32,10 @@ java_library {
         "android.hidl.base-V1.0-java",
     ],
 
+    shared_libs: [
+        "org.lineageos.platform.internal",
+    ],
+
     libs: [
         "android.hidl.manager-V1.0-java",
     ],

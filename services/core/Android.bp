@@ -44,6 +44,10 @@ java_library_static {
         "android.hardware.configstore-V1.0-java",
         "android.hardware.contexthub-V1.0-java",
     ],
+
+    shared_libs: [
+        "org.lineageos.platform.internal",
+    ],
 }
 
 java_genrule {
