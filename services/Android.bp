@@ -176,6 +176,7 @@ java_library {
         "android.hidl.manager-V1.0-java",
         "framework-tethering.stubs.module_lib",
         "service-art.stubs.system_server",
+        "org.lineageos.platform.internal",
     ],
 
     // Uncomment to enable output of certain warnings (deprecated, unchecked)
