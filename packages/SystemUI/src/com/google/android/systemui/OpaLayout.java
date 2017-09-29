@@ -2,6 +2,7 @@ package com.google.android.systemui;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ArgbEvaluator;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.ContentObserver;
@@ -91,6 +92,10 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
     private final Interpolator mHomeDisappearInterpolator;
     private SettingsObserver mSettingsObserver;
 
+    private float mOldDarkIntensity = 0f;
+    private int mDarkModeFillColor;
+    private int mLightModeFillColor;
+
     protected class SettingsObserver extends ContentObserver {
         SettingsObserver(Handler handler) {
             super(handler);
@@ -139,6 +144,8 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
             mSettingsObserver = new SettingsObserver(new Handler());
         }
         mSettingsObserver.observe();
+        mDarkModeFillColor = context.getColor(R.color.dark_mode_icon_color_single_tone);
+        mLightModeFillColor = context.getColor(R.color.light_mode_icon_color_single_tone);
     }
 
     public OpaLayout(Context context, AttributeSet attrs) {
@@ -170,6 +177,8 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
             mSettingsObserver = new SettingsObserver(new Handler());
         }
         mSettingsObserver.observe();
+        mDarkModeFillColor = context.getColor(R.color.dark_mode_icon_color_single_tone);
+        mLightModeFillColor = context.getColor(R.color.light_mode_icon_color_single_tone);
     }
 
     public OpaLayout(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -201,6 +210,8 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
             mSettingsObserver = new SettingsObserver(new Handler());
         }
         mSettingsObserver.observe();
+        mDarkModeFillColor = context.getColor(R.color.dark_mode_icon_color_single_tone);
+        mLightModeFillColor = context.getColor(R.color.light_mode_icon_color_single_tone);
     }
 
     public OpaLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -232,6 +243,8 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
             mSettingsObserver = new SettingsObserver(new Handler());
         }
         mSettingsObserver.observe();
+        mDarkModeFillColor = context.getColor(R.color.dark_mode_icon_color_single_tone);
+        mLightModeFillColor = context.getColor(R.color.light_mode_icon_color_single_tone);
     }
 
     private void startAll(ArraySet<Animator> animators) {
@@ -604,9 +617,21 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
     }
 
     public void setDarkIntensity(float darkIntensity) {
-        //((ImageView) mPaint).setColor(getBackgroundColor(darkIntensity));
-        //((ImageView) mForegroundPaint).setColor(getFillColor(darkIntensity));
-        //invalidateSelf();
+        if (darkIntensity == mOldDarkIntensity) {
+            return;
+        }
+        ((ImageView) mWhite).setColorFilter(getIntensityColor(darkIntensity));
+        ((ImageView) mHalo).setColorFilter(getIntensityColor(darkIntensity));
+        mOldDarkIntensity = darkIntensity;
+    }
+
+    private int getIntensityColor(float darkIntensity) {
+        return getColorForDarkIntensity(
+                darkIntensity, mLightModeFillColor, mDarkModeFillColor);
+    }
+
+    private int getColorForDarkIntensity(float darkIntensity, int lightColor, int darkColor) {
+        return (int) ArgbEvaluator.getInstance().evaluate(darkIntensity, lightColor, darkColor);
     }
 
     public void setOnLongClickListener(View.OnLongClickListener l) {
