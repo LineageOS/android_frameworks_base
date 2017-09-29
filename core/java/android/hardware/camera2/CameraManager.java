@@ -974,7 +974,7 @@ public final class CameraManager {
                         }
                     }
                 }
-                if (exposeAuxCamera == false && (Integer.parseInt(cameraId) >= 2)) {
+                if (exposeAuxCamera == false && (Integer.parseInt(cameraId) >= 3)) {
                     throw new IllegalArgumentException("invalid cameraId");
                 }
 
