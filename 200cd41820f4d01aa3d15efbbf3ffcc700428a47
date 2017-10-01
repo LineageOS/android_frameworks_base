@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "848c43cc_062e9c22",
+        "filename": "libs/androidfw/AssetManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-01T17:54:21Z",
+      "side": 1,
+      "message": "What\u0027s up with the all-caps?",
+      "range": {
+        "startLine": 65,
+        "startChar": 20,
+        "endLine": 65,
+        "endChar": 27
+      },
+      "revId": "200cd41820f4d01aa3d15efbbf3ffcc700428a47",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
