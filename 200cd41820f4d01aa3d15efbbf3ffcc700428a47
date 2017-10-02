@@ -46,6 +46,30 @@
       "revId": "200cd41820f4d01aa3d15efbbf3ffcc700428a47",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc363bf0_4635a0f1",
+        "filename": "libs/androidfw/AssetManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-02T20:45:09Z",
+      "side": 1,
+      "message": "kLineageAssets matches the existing pattern best.",
+      "parentUuid": "6bc02fca_5ef70df3",
+      "range": {
+        "startLine": 65,
+        "startChar": 20,
+        "endLine": 65,
+        "endChar": 27
+      },
+      "revId": "200cd41820f4d01aa3d15efbbf3ffcc700428a47",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
