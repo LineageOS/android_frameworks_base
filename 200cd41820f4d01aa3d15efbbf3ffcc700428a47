@@ -22,6 +22,30 @@
       "revId": "200cd41820f4d01aa3d15efbbf3ffcc700428a47",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc02fca_5ef70df3",
+        "filename": "libs/androidfw/AssetManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-10-02T19:46:52Z",
+      "side": 1,
+      "message": "In general, the rewrite rules I\u0027ve applied are:\nCM -\u003e LINEAGE (if used as a variable name)\nCM -\u003e Lineage (if used as a prefix to a class name)\ncm -\u003e lineage\ncyanogen -\u003e lineage\ncyanogenmod -\u003e lineageos\nCyanogenMod -\u003e LineageOS\n\nIn the location you\u0027ve highlighted, I think simply kLineageAssets would be best.\n\nThoughts ?",
+      "parentUuid": "848c43cc_062e9c22",
+      "range": {
+        "startLine": 65,
+        "startChar": 20,
+        "endLine": 65,
+        "endChar": 27
+      },
+      "revId": "200cd41820f4d01aa3d15efbbf3ffcc700428a47",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
