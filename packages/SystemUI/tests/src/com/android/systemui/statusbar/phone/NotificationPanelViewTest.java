@@ -76,6 +76,7 @@ import com.android.systemui.statusbar.notification.stack.NotificationStackScroll
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.ZenModeController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.InjectionInflationController;
 
 import org.junit.Before;
@@ -188,6 +189,8 @@ public class NotificationPanelViewTest extends SysuiTestCase {
     private NotificationPanelViewController mNotificationPanelViewController;
     private View.AccessibilityDelegate mAccessibiltyDelegate;
 
+    private TunerService mTunerService;
+
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
@@ -240,7 +243,8 @@ public class NotificationPanelViewTest extends SysuiTestCase {
                 mMetricsLogger, mActivityManager, mZenModeController, mConfigurationController,
                 mFlingAnimationUtilsBuilder, mStatusBarTouchableRegionManager,
                 mConversationNotificationManager, mMediaHiearchyManager,
-                mBiometricUnlockController, mStatusBarKeyguardViewManager);
+                mBiometricUnlockController, mStatusBarKeyguardViewManager,
+                mTunerService);
         mNotificationPanelViewController.initDependencies(mStatusBar, mGroupManager,
                 mNotificationShelf, mNotificationAreaController, mScrimController);
         mNotificationPanelViewController.setHeadsUpManager(mHeadsUpManager);

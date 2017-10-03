@@ -23,6 +23,7 @@ import android.graphics.RectF;
 import android.hardware.display.AmbientDisplayConfiguration;
 import android.media.AudioManager;
 import android.media.session.MediaSessionLegacyHelper;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -54,6 +55,8 @@ import com.android.systemui.statusbar.notification.stack.NotificationStackScroll
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.InjectionInflationController;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -101,11 +104,17 @@ public class NotificationShadeWindowViewController {
     private final DockManager mDockManager;
     private final NotificationPanelViewController mNotificationPanelViewController;
     private final SuperStatusBarViewFactory mStatusBarViewFactory;
+    private final PowerManager mPowerManager;
 
     // Used for determining view / touch intersection
     private int[] mTempLocation = new int[2];
     private RectF mTempRect = new RectF();
     private boolean mIsTrackingBarGesture = false;
+
+    private static final String DOUBLE_TAP_SLEEP_GESTURE =
+            "lineagesystem:" + LineageSettings.System.DOUBLE_TAP_SLEEP_GESTURE;
+    private boolean mDoubleTapToSleepEnabled;
+    private int mQuickQsTotalHeight;
 
     @Inject
     public NotificationShadeWindowViewController(
@@ -151,6 +160,7 @@ public class NotificationShadeWindowViewController {
         mNotificationPanelViewController = notificationPanelViewController;
         mDepthController = depthController;
         mStatusBarViewFactory = statusBarViewFactory;
+        mPowerManager = mView.getContext().getSystemService(PowerManager.class);
 
         // This view is not part of the newly inflated expanded status bar.
         mBrightnessMirror = mView.findViewById(R.id.brightness_mirror);
@@ -170,11 +180,18 @@ public class NotificationShadeWindowViewController {
                     break;
                 case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
                     mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
+                    break;
+                case DOUBLE_TAP_SLEEP_GESTURE:
+                    mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, true);
+                    break;
             }
         };
         mTunerService.addTunable(tunable,
                 Settings.Secure.DOZE_DOUBLE_TAP_GESTURE,
-                Settings.Secure.DOZE_TAP_SCREEN_GESTURE);
+                Settings.Secure.DOZE_TAP_SCREEN_GESTURE,
+                DOUBLE_TAP_SLEEP_GESTURE);
+        mQuickQsTotalHeight = mView.getResources().getDimensionPixelSize(
+                com.android.internal.R.dimen.quick_qs_total_height);
 
         GestureDetector.SimpleOnGestureListener gestureListener =
                 new GestureDetector.SimpleOnGestureListener() {
@@ -190,6 +207,11 @@ public class NotificationShadeWindowViewController {
 
                     @Override
                     public boolean onDoubleTap(MotionEvent e) {
+                        if (!mStatusBarStateController.isDozing() && mDoubleTapToSleepEnabled
+                                && e.getY() < mQuickQsTotalHeight) {
+                            mPowerManager.goToSleep(e.getEventTime());
+                            return true;
+                        }
                         if (mDoubleTapEnabled || mSingleTapEnabled) {
                             mService.wakeUpIfDozing(
                                     SystemClock.uptimeMillis(), mView, "DOUBLE_TAP");
