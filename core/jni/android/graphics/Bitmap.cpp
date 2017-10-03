@@ -725,6 +725,8 @@ static jobject Bitmap_creator(JNIEnv* env, jobject, jintArray jColors,
 
     Bitmap* nativeBitmap = GraphicsJNI::allocateJavaPixelRef(env, &bitmap, NULL);
     if (!nativeBitmap) {
+        ALOGE("OOM allocating Bitmap with dimensions %i x %i", width, height);
+        doThrowOOME(env);
         return NULL;
     }
 
