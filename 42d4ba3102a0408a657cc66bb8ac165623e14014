@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2e2d4c5_b31e40bc",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2587,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2017-10-03T19:29:52Z",
+      "side": 1,
+      "message": "Does this not need importing since it\u0027s not the fully qualified name?",
+      "range": {
+        "startLine": 2587,
+        "startChar": 20,
+        "endLine": 2587,
+        "endChar": 35
+      },
+      "revId": "42d4ba3102a0408a657cc66bb8ac165623e14014",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61ae596_3f6f23ab",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2609,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2017-10-03T19:29:52Z",
+      "side": 1,
+      "message": "(here too)",
+      "range": {
+        "startLine": 2609,
+        "startChar": 30,
+        "endLine": 2609,
+        "endChar": 45
+      },
+      "revId": "42d4ba3102a0408a657cc66bb8ac165623e14014",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
