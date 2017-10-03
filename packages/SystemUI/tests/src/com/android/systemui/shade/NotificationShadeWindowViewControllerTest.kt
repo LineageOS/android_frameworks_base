@@ -151,6 +151,7 @@ class NotificationShadeWindowViewControllerTest(flags: FlagsParameterization) : 
     private val notificationLaunchAnimationRepository = NotificationLaunchAnimationRepository()
     private val notificationLaunchAnimationInteractor =
         NotificationLaunchAnimationInteractor(notificationLaunchAnimationRepository)
+    @Mock private lateinit var qqsGestureListener: QQSGestureListener
 
     private lateinit var falsingCollector: FalsingCollectorFake
     private lateinit var fakeClock: FakeSystemClock
@@ -230,7 +231,8 @@ class NotificationShadeWindowViewControllerTest(flags: FlagsParameterization) : 
                 quickSettingsController,
                 primaryBouncerInteractor,
                 alternateBouncerInteractor,
-                mock(BouncerViewBinder::class.java)
+                mock(BouncerViewBinder::class.java),
+                qqsGestureListener,
             )
         underTest.setupExpandedStatusBar()
         underTest.setDragDownHelper(dragDownHelper)
