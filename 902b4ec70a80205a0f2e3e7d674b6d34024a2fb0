@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61569e8d_5c93d6fb",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2017-10-03T19:27:40Z",
+      "side": 1,
+      "message": "Lineage-ise",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 40
+      },
+      "revId": "902b4ec70a80205a0f2e3e7d674b6d34024a2fb0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "990ab2fc_fb2a974d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2668,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2017-10-03T19:27:40Z",
+      "side": 1,
+      "message": "Lineage-ise",
+      "range": {
+        "startLine": 2668,
+        "startChar": 30,
+        "endLine": 2668,
+        "endChar": 40
+      },
+      "revId": "902b4ec70a80205a0f2e3e7d674b6d34024a2fb0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65090149_dcef7cfa",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2017-10-03T19:27:40Z",
+      "side": 1,
+      "message": "Lineage-ise",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 40
+      },
+      "revId": "902b4ec70a80205a0f2e3e7d674b6d34024a2fb0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
