@@ -181,6 +181,9 @@ public class NotificationShadeWindowViewController implements Dumpable {
             };
     private final SystemClock mClock;
 
+    private GestureDetector mQQSGestureHandler;
+    private final QQSGestureListener mQQSGestureListener;
+
     @Inject
     public NotificationShadeWindowViewController(
             @Named("ShadeWindowBlurChoreographer") BlurChoreographer blurChoreographer,
@@ -224,7 +227,8 @@ public class NotificationShadeWindowViewController implements Dumpable {
             @Main CoroutineDispatcher mainDispatcher,
             ShadeStatusBarComponentsInteractor shadeStatusBarComponentsInteractor,
             DozeTouchInteractor dozeTouchInteractor,
-            JavaAdapter javaAdapter) {
+            JavaAdapter javaAdapter,
+            QQSGestureListener qqsGestureListener) {
         mLockscreenShadeTransitionController = transitionController;
         mFalsingCollector = falsingCollector;
         mStatusBarStateController = statusBarStateController;
@@ -253,6 +257,7 @@ public class NotificationShadeWindowViewController implements Dumpable {
         mQuickSettingsController = quickSettingsController;
         mMainDispatcher = mainDispatcher;
         mShadeStatusBarComponentsInteractor = shadeStatusBarComponentsInteractor;
+        mQQSGestureListener = qqsGestureListener;
 
         mDisableSubpixelTextTransitionListener = new DisableSubpixelTextTransitionListener(mView);
         bindBouncer(bouncerViewBinder);
@@ -380,6 +385,8 @@ public class NotificationShadeWindowViewController implements Dumpable {
         mStackScrollLayout = mView.findViewById(R.id.notification_stack_scroller);
         mPulsingWakeupGestureHandler = new GestureDetector(mView.getContext(),
                 mPulsingGestureListener);
+        mQQSGestureHandler = new GestureDetector(mView.getContext(),
+                mQQSGestureListener);
         mView.setLayoutInsetsController(mNotificationInsetsController);
         mView.setWindowRootViewKeyEventHandler(mWindowRootViewKeyEventHandler);
         mView.setInteractionEventHandler(new NotificationShadeWindowView.InteractionEventHandler() {
@@ -442,7 +449,10 @@ public class NotificationShadeWindowViewController implements Dumpable {
                 }
 
                 mFalsingCollector.onTouchEvent(ev);
-                if (!SceneContainerFlag.isEnabled()) {
+                mQQSGestureHandler.onTouchEvent(ev);
+                // Pass touch events to the pulsing gesture listener only if it's dozing,
+                // otherwise lockscreen DT2S and AOD DT2W will conflict.
+                if (!SceneContainerFlag.isEnabled() && mStatusBarStateController.isDozing()) {
                     mPulsingWakeupGestureHandler.onTouchEvent(ev);
                 }
 
