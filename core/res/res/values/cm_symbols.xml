@@ -22,4 +22,10 @@
 
     <!-- Usb drive persistent notification -->
     <java-symbol type="bool" name="config_persistUsbDriveNotification" />
+
+    <!-- Advanced reboot -->
+    <java-symbol type="string" name="reboot_confirm" />
+
+    <!-- Screenshot action status message -->
+    <java-symbol type="string" name="global_actions_screenshot_status" />
 </resources>
