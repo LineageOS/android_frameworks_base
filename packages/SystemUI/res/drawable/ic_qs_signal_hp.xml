@@ -1,5 +1,6 @@
 <!--
     Copyright (C) 2014 The CyanogenMod Project
+    Copyright (C) 2017 The LineageOS Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,14 +15,21 @@
     limitations under the License.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:width="16.4dp"
-        android:height="32dp"
-        android:viewportWidth="16.4"
-        android:viewportHeight="32">
-    <path
-        android:fillColor="#FFFFFFFF"
-        android:pathData="M8,14.667H5.867V10h-3.6v4.667H0V3.333h2.267v4.933h3.6V3.333H8V14.667Z" />
-    <path
-        android:fillColor="#FFFFFFFF"
-        android:pathData="M16.4,5.6h-2.267V3.333H12V5.6H9.733v2.133H12V10h2.133V7.733H16.4V5.6Z" />
+    android:width="24.0dp"
+    android:height="24.0dp"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0"
+    android:tint="?android:attr/colorControlNormal">
+    <group
+        android:translateX="2.5" >
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M6.000000,11.000000L4.400000,11.000000L4.400000,7.500000L1.700000,7.500000L1.700000,11.000000L0.000000,11.000000L0.000000,2.500000l1.700000,0.000000l0.000000,3.700000l2.700000,0.000000L4.400000,2.500000L6.000000,2.500000L6.000000,11.000000z"/>
+    </group>
+    <group
+        android:translateX="-3" >
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M17.7,4.4l-1.900001,0.0 0.0,-1.9 -1.2,0.0 0.0,1.9 -1.900001,0.0 0.0,1.2 1.900001,0.0 0.0,1.9 1.2,0.0 0.0,-1.9 1.900001,0.0z"/>
+    </group>
 </vector>
