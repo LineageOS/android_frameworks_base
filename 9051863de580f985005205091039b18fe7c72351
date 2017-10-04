@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a9aa500_26ad22b4",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2017-10-04T18:48:29Z",
+      "side": 1,
+      "message": "boolean statement missing:\n\nThe r81 commit is here:\nhttps://android.googlesource.com/platform/frameworks/base/+/3ecbdaf",
+      "revId": "9051863de580f985005205091039b18fe7c72351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
