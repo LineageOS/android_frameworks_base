@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2e49a24_8f113be3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-10-04T21:04:29Z",
+      "side": 1,
+      "message": "Similar to the comment on the corresponding settings patch, we\u0027re kinda adding dependencies on the library, not the actual library itself",
+      "revId": "091ed2190034bcd8a0bc6544c29678185b81a959",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
