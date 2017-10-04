@@ -35,4 +35,33 @@
 
     <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
     <string name="lock_to_app_toast_no_navbar">To unpin this screen, touch and hold the Back button.</string>
+
+    <!-- Avanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="reboot_full">Restart</string>
+    <!-- Button to soft restart the device, within the Restart Options dialog -->
+    <string name="reboot_soft">Soft restart</string>
+    <!-- Button to restart the device into recovery, within the Restart Options dialog -->
+    <string name="reboot_recovery">Recovery</string>
+    <!-- Button to restart the device into bootloader, within the Restart Options dialog -->
+    <string name="reboot_bootloader">Bootloader</string>
+    <!-- Button to restart the device into download, within the Restart Options dialog -->
+    <string name="reboot_download">Download</string>
+
+    <!-- Title of dialog to confirm restart -->
+    <string name="reboot_title">Restart</string>
+
+    <!-- Restart confirmation dialog. Message shown in the confirmation dialog
+         when the user chooses to restart the device. -->
+    <string name="reboot_confirm" product="tablet">Your tablet will restart.</string>
+    <string name="reboot_confirm" product="default">Your phone will restart.</string>
+
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="reboot_progress">Restarting\u2026</string>
+
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Current</string>
+
+    <!-- Label for item that screenshots in power menu options dialog -->
+    <string name="global_action_screenshot">Screenshot</string>
 </resources>
