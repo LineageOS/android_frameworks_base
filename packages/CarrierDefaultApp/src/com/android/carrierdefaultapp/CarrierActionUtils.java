@@ -159,7 +159,6 @@ public class CarrierActionUtils {
                 .setSmallIcon(R.drawable.ic_sim_card)
                 .setColor(context.getColor(
                         com.android.internal.R.color.system_notification_accent_color))
-                .setOngoing(true)
                 .setPriority(Notification.PRIORITY_HIGH)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setVisibility(Notification.VISIBILITY_PUBLIC)
