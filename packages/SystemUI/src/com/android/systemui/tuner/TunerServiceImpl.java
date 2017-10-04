@@ -49,6 +49,8 @@ import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
 import com.android.systemui.util.leak.LeakDetector;
 
+import lineageos.providers.LineageSettings;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -119,31 +121,102 @@ public class TunerServiceImpl extends TunerService {
         setValue(TUNER_VERSION, newVersion);
     }
 
+    private boolean isLineageSystem(String key) {
+        return key.startsWith("lineagesystem:");
+    }
+
+    private boolean isLineageSecure(String key) {
+        return key.startsWith("lineagesecure:");
+    }
+
+    private boolean isSystem(String key) {
+        return key.startsWith("system:");
+    }
+
+    private String chomp(String key) {
+        return key.replaceFirst("^(lineagesecure|lineagesystem|system):", "");
+    }
+
     @Override
     public String getValue(String setting) {
-        return Settings.Secure.getStringForUser(mContentResolver, setting, mCurrentUser);
+        if (isLineageSecure(setting)) {
+            return LineageSettings.Secure.getStringForUser(
+                    mContentResolver, chomp(setting), mCurrentUser);
+        } else if (isLineageSystem(setting)) {
+            return LineageSettings.System.getStringForUser(
+                    mContentResolver, chomp(setting), mCurrentUser);
+        } else if (isSystem(setting)) {
+            return Settings.System.getStringForUser(
+                    mContentResolver, chomp(setting), mCurrentUser);
+        } else {
+            return Settings.Secure.getStringForUser(mContentResolver, setting, mCurrentUser);
+        }
     }
 
     @Override
     public void setValue(String setting, String value) {
-         Settings.Secure.putStringForUser(mContentResolver, setting, value, mCurrentUser);
+        if (isLineageSecure(setting)) {
+            LineageSettings.Secure.putStringForUser(
+                    mContentResolver, chomp(setting), value, mCurrentUser);
+        } else if (isLineageSystem(setting)) {
+            LineageSettings.System.putStringForUser(
+                    mContentResolver, chomp(setting), value, mCurrentUser);
+        } else if (isSystem(setting)) {
+            Settings.System.putStringForUser(
+                    mContentResolver, chomp(setting), value, mCurrentUser);
+        } else {
+            Settings.Secure.putStringForUser(mContentResolver, setting, value, mCurrentUser);
+        }
     }
 
     @Override
     public int getValue(String setting, int def) {
-        return Settings.Secure.getIntForUser(mContentResolver, setting, def, mCurrentUser);
+        if (isLineageSecure(setting)) {
+            return LineageSettings.Secure.getIntForUser(
+                    mContentResolver, chomp(setting), def, mCurrentUser);
+        } else if (isLineageSystem(setting)) {
+            return LineageSettings.System.getIntForUser(
+                    mContentResolver, chomp(setting), def, mCurrentUser);
+        } else if (isSystem(setting)) {
+            return Settings.System.getIntForUser(
+                    mContentResolver, chomp(setting), def, mCurrentUser);
+        } else {
+            return Settings.Secure.getIntForUser(mContentResolver, setting, def, mCurrentUser);
+        }
     }
 
     @Override
     public String getValue(String setting, String def) {
-        String ret = Secure.getStringForUser(mContentResolver, setting, mCurrentUser);
+        String ret;
+        if (isLineageSecure(setting)) {
+            ret = LineageSettings.Secure.getStringForUser(
+                    mContentResolver, chomp(setting), mCurrentUser);
+        } else if (isLineageSystem(setting)) {
+            ret = LineageSettings.System.getStringForUser(
+                    mContentResolver, chomp(setting), mCurrentUser);
+        } else if (isSystem(setting)) {
+            ret = Settings.System.getStringForUser(
+                    mContentResolver, chomp(setting), mCurrentUser);
+        } else {
+            ret = Secure.getStringForUser(mContentResolver, setting, mCurrentUser);
+        }
         if (ret == null) return def;
         return ret;
     }
 
     @Override
     public void setValue(String setting, int value) {
-         Settings.Secure.putIntForUser(mContentResolver, setting, value, mCurrentUser);
+        if (isLineageSecure(setting)) {
+            LineageSettings.Secure.putIntForUser(
+                    mContentResolver, chomp(setting), value, mCurrentUser);
+        } else if (isLineageSystem(setting)) {
+            LineageSettings.System.putIntForUser(
+                    mContentResolver, chomp(setting), value, mCurrentUser);
+        } else if (isSystem(setting)) {
+            Settings.System.putIntForUser(mContentResolver, chomp(setting), value, mCurrentUser);
+        } else {
+            Settings.Secure.putIntForUser(mContentResolver, setting, value, mCurrentUser);
+        }
     }
 
     @Override
@@ -162,13 +235,22 @@ public class TunerServiceImpl extends TunerService {
             mTunables.add(tunable);
             Dependency.get(LeakDetector.class).trackCollection(mTunables, "TunerService.mTunables");
         }
-        Uri uri = Settings.Secure.getUriFor(key);
+        final Uri uri;
+        if (isLineageSecure(key)) {
+            uri = LineageSettings.Secure.getUriFor(chomp(key));
+        } else if (isLineageSystem(key)) {
+            uri = LineageSettings.System.getUriFor(chomp(key));
+        } else if (isSystem(key)) {
+            uri = Settings.System.getUriFor(chomp(key));
+        } else {
+            uri = Settings.Secure.getUriFor(key);
+        }
         if (!mListeningUris.containsKey(uri)) {
             mListeningUris.put(uri, key);
             mContentResolver.registerContentObserver(uri, false, mObserver, mCurrentUser);
         }
         // Send the first state.
-        String value = Settings.Secure.getStringForUser(mContentResolver, key, mCurrentUser);
+        String value = getValue(key);
         tunable.onTuningChanged(key, value);
     }
 
@@ -198,7 +280,7 @@ public class TunerServiceImpl extends TunerService {
         if (tunables == null) {
             return;
         }
-        String value = Settings.Secure.getStringForUser(mContentResolver, key, mCurrentUser);
+        String value = getValue(key);
         for (Tunable tunable : tunables) {
             tunable.onTuningChanged(key, value);
         }
@@ -206,8 +288,7 @@ public class TunerServiceImpl extends TunerService {
 
     private void reloadAll() {
         for (String key : mTunableLookup.keySet()) {
-            String value = Settings.Secure.getStringForUser(mContentResolver, key,
-                    mCurrentUser);
+            String value = getValue(key);
             for (Tunable tunable : mTunableLookup.get(key)) {
                 tunable.onTuningChanged(key, value);
             }
@@ -223,7 +304,7 @@ public class TunerServiceImpl extends TunerService {
         mContext.sendBroadcast(intent);
 
         for (String key : mTunableLookup.keySet()) {
-            Settings.Secure.putString(mContentResolver, key, null);
+            setValue(key, null);
         }
     }
 
