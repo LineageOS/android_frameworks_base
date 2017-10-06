@@ -5908,20 +5908,24 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         }
         enforceFullCrossUsersPermission(userHandle);
 
-        // It's not critical here, but let's make sure the package name is correct, in case
-        // we start using it for different purposes.
-        ensureCallerPackage(callerPackage);
-
-        final ApplicationInfo ai;
-        try {
-            ai = mIPackageManager.getApplicationInfo(callerPackage, 0, userHandle);
-        } catch (RemoteException e) {
-            throw new SecurityException(e);
-        }
-
         boolean legacyApp = false;
-        if (ai.targetSdkVersion <= Build.VERSION_CODES.M) {
-            legacyApp = true;
+        // callerPackage can only be null if we were called from within the system,
+        // which means that we are not a legacy app.
+        if (callerPackage != null) {
+            // It's not critical here, but let's make sure the package name is correct, in case
+            // we start using it for different purposes.
+            ensureCallerPackage(callerPackage);
+
+            final ApplicationInfo ai;
+            try {
+                ai = mIPackageManager.getApplicationInfo(callerPackage, 0, userHandle);
+            } catch (RemoteException e) {
+                throw new SecurityException(e);
+            }
+
+            if (ai.targetSdkVersion <= Build.VERSION_CODES.M) {
+                legacyApp = true;
+            }
         }
 
         final int rawStatus = getEncryptionStatus();
