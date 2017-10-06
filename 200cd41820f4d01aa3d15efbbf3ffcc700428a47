@@ -70,6 +70,30 @@
       "revId": "200cd41820f4d01aa3d15efbbf3ffcc700428a47",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a0f0a42_20eedb8a",
+        "filename": "libs/androidfw/AssetManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-10-06T21:49:08Z",
+      "side": 1,
+      "message": "I agree",
+      "parentUuid": "cc363bf0_4635a0f1",
+      "range": {
+        "startLine": 65,
+        "startChar": 20,
+        "endLine": 65,
+        "endChar": 27
+      },
+      "revId": "200cd41820f4d01aa3d15efbbf3ffcc700428a47",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
