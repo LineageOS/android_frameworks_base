@@ -7612,17 +7612,20 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
         final CallerIdentity caller = getCallerIdentity(callerPackage);
         Preconditions.checkCallAuthorization(hasFullCrossUsersPermission(caller, userHandle));
 
-
-        final ApplicationInfo ai;
-        try {
-            ai = mIPackageManager.getApplicationInfo(callerPackage, 0, userHandle);
-        } catch (RemoteException e) {
-            throw new SecurityException(e);
-        }
-
         boolean legacyApp = false;
-        if (ai.targetSdkVersion <= Build.VERSION_CODES.M) {
-            legacyApp = true;
+        // callerPackage can only be null if we were called from within the system,
+        // which means that we are not a legacy app.
+        if (callerPackage != null) {
+            final ApplicationInfo ai;
+            try {
+                ai = mIPackageManager.getApplicationInfo(callerPackage, 0, userHandle);
+            } catch (RemoteException e) {
+                throw new SecurityException(e);
+            }
+
+            if (ai.targetSdkVersion <= Build.VERSION_CODES.M) {
+                legacyApp = true;
+            }
         }
 
         final int rawStatus = getEncryptionStatus();
