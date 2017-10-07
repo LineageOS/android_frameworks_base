@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b8e39a4_935a6561",
+        "filename": "core/java/android/app/admin/DevicePolicyManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 8087,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-10-07T06:08:00Z",
+      "side": 1,
+      "message": "nit: Java doc comments start with two asterisks:\n/**\n  *\n  */",
+      "revId": "e5fd958da0bbfd41d379639ca3d1b05a6caa4abc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9549a034_7a5b0b09",
+        "filename": "core/java/android/app/admin/DevicePolicyManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 8088,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-10-07T06:08:00Z",
+      "side": 1,
+      "message": "nit: Remove the \u0027CM:\u0027 tag",
+      "revId": "e5fd958da0bbfd41d379639ca3d1b05a6caa4abc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
