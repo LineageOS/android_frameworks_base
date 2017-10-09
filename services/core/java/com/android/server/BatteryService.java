@@ -982,7 +982,7 @@ public final class BatteryService extends SystemService {
             if (!mLightEnabled) {
                 // No lights if explicitly disabled
                 mBatteryLight.turnOff();
-            } else if (level < mLowBatteryWarningLevel) {
+            } else if (level <= mLowBatteryWarningLevel) {
                 mBatteryLight.setModes(mNotificationLedBrightnessLevel,
                         mMultipleLedsEnabled);
                 if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
