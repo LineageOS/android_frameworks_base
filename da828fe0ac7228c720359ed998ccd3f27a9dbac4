@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d45bf63_0dc18974",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 8328
+      },
+      "writtenOn": "2017-10-10T06:47:37Z",
+      "side": 1,
+      "message": "you want this like it is, gone completly or hidden behind DEBUG and verbose?",
+      "range": {
+        "startLine": 1013,
+        "startChar": 20,
+        "endLine": 1013,
+        "endChar": 74
+      },
+      "revId": "da828fe0ac7228c720359ed998ccd3f27a9dbac4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
