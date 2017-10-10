@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1584879d_39c77a51",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-10T06:08:35Z",
+      "side": 1,
+      "message": "Don\u0027t make this public instead of @hiding it?",
+      "range": {
+        "startLine": 292,
+        "startChar": 4,
+        "endLine": 292,
+        "endChar": 10
+      },
+      "revId": "e4fb70795697b613da8065caf3aee89034a06f97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13b95116_b0e4c470",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-10T06:08:35Z",
+      "side": 1,
+      "message": "if (...) {\n\nAdd spaces to line up with the code style in the rest of the file.",
+      "range": {
+        "startLine": 299,
+        "startChar": 8,
+        "endLine": 299,
+        "endChar": 45
+      },
+      "revId": "e4fb70795697b613da8065caf3aee89034a06f97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da4e8903_ab750162",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-10T06:08:35Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 583,
+        "startChar": 8,
+        "endLine": 583,
+        "endChar": 45
+      },
+      "revId": "e4fb70795697b613da8065caf3aee89034a06f97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43414c06_8e4eb113",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-10T06:08:35Z",
+      "side": 1,
+      "message": "if (...)\n\nAdd spaces to line up with the code style of the file.",
+      "range": {
+        "startLine": 848,
+        "startChar": 20,
+        "endLine": 848,
+        "endChar": 52
+      },
+      "revId": "e4fb70795697b613da8065caf3aee89034a06f97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fda24b68_f46f2914",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-10T06:08:35Z",
+      "side": 1,
+      "message": "if (...)\n\nAdd spaces to line up with the code style of the file.",
+      "range": {
+        "startLine": 857,
+        "startChar": 20,
+        "endLine": 857,
+        "endChar": 52
+      },
+      "revId": "e4fb70795697b613da8065caf3aee89034a06f97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5886f4ff_8ce8cd2c",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-10T06:08:35Z",
+      "side": 1,
+      "message": "wat?",
+      "range": {
+        "startLine": 1013,
+        "startChar": 32,
+        "endLine": 1013,
+        "endChar": 42
+      },
+      "revId": "e4fb70795697b613da8065caf3aee89034a06f97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
