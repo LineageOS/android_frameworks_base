@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6c0717d_cfb9ad10",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-10-12T18:33:30Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 54,
+        "startChar": 20,
+        "endLine": 54,
+        "endChar": 30
+      },
+      "revId": "ed756393ea72fb44054f0dbc542a2f64c4eb6d64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaef0a2d_adee63e8",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-10-12T18:33:30Z",
+      "side": 1,
+      "message": "code style",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 7
+      },
+      "revId": "ed756393ea72fb44054f0dbc542a2f64c4eb6d64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "817565e1_d81d3436",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-10-12T18:33:30Z",
+      "side": 1,
+      "message": "new line",
+      "revId": "ed756393ea72fb44054f0dbc542a2f64c4eb6d64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
