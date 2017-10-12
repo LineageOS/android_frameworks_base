@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dcdec366_a5111bcc",
+        "filename": "core/java/android/app/admin/DevicePolicyManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 8087,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-10-12T18:21:14Z",
+      "side": 1,
+      "message": "I will fix these before merge.",
+      "parentUuid": "8b8e39a4_935a6561",
+      "revId": "e5fd958da0bbfd41d379639ca3d1b05a6caa4abc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9549a034_7a5b0b09",
         "filename": "core/java/android/app/admin/DevicePolicyManager.java",
         "patchSetId": 3
