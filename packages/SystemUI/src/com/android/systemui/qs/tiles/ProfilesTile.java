@@ -65,13 +65,7 @@ public class ProfilesTile extends QSTile<QSTile.State> implements KeyguardMonito
         mProfileManager = ProfileManager.getInstance(mContext);
         mObserver = new ProfilesObserver(mHandler);
         mKeyguardMonitor = host.getKeyguardMonitor();
-        mKeyguardMonitor.addCallback(this);
         mDetailAdapter = new ProfileDetailAdapter();
-    }
-
-    @Override
-    protected void handleDestroy() {
-        mKeyguardMonitor.removeCallback(this);
     }
 
     @Override
@@ -91,6 +85,11 @@ public class ProfilesTile extends QSTile<QSTile.State> implements KeyguardMonito
 
     @Override
     protected void handleClick() {
+        if (mKeyguardMonitor.isSecure() && mKeyguardMonitor.isShowing()) {
+            mHost.startRunnableDismissingKeyguard(() ->
+                showDetail(true));
+            return;
+        }
         showDetail(true);
     }
 
@@ -147,10 +146,12 @@ public class ProfilesTile extends QSTile<QSTile.State> implements KeyguardMonito
             filter.addAction(ProfileManager.INTENT_ACTION_PROFILE_SELECTED);
             filter.addAction(ProfileManager.INTENT_ACTION_PROFILE_UPDATED);
             mContext.registerReceiver(mReceiver, filter);
+            mKeyguardMonitor.addCallback(this);
             refreshState();
         } else {
             mObserver.endObserving();
             mContext.unregisterReceiver(mReceiver);
+            mKeyguardMonitor.removeCallback(this);
         }
     }
 
