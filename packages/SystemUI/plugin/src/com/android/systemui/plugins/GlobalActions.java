@@ -35,6 +35,6 @@ public interface GlobalActions extends Plugin {
         void onGlobalActionsHidden();
 
         void shutdown();
-        void reboot(boolean safeMode);
+        void reboot(boolean safeMode, boolean confirm);
     }
 }

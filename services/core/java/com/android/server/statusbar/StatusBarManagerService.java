@@ -795,6 +795,25 @@ public class StatusBarManagerService extends IStatusBarService.Stub {
     }
 
     @Override
+    public void reboot(boolean safeMode, boolean confirm) {
+        enforceStatusBarService();
+        long identity = Binder.clearCallingIdentity();
+        try {
+            mHandler.post(() -> {
+                // ShutdownThread displays UI, so give it a UI context.
+                if (safeMode) {
+                    ShutdownThread.rebootSafeMode(getUiContext(), confirm);
+                } else {
+                    ShutdownThread.reboot(getUiContext(),
+                            PowerManager.SHUTDOWN_USER_REQUESTED, confirm);
+                }
+            });
+        } finally {
+            Binder.restoreCallingIdentity(identity);
+        }
+    }
+
+    @Override
     public void onGlobalActionsShown() {
         enforceStatusBarService();
         long identity = Binder.clearCallingIdentity();
