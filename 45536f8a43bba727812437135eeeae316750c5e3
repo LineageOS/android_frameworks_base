@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "179d0dff_ea3b8208",
+        "filename": "core/java/android/text/method/MetaKeyKeyListener.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2017-10-13T19:03:59Z",
+      "side": 1,
+      "message": "can be removed.",
+      "revId": "45536f8a43bba727812437135eeeae316750c5e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dc8b636_71c63acb",
+        "filename": "services/core/java/com/android/server/display/DisplayPowerController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2017-10-13T19:03:59Z",
+      "side": 1,
+      "message": "Fix brightness value.",
+      "revId": "45536f8a43bba727812437135eeeae316750c5e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaf1cad8_d9f113f4",
+        "filename": "services/core/java/com/android/server/lights/LightsManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2017-10-13T19:03:59Z",
+      "side": 1,
+      "message": "The new light types can be deprecated for now.",
+      "revId": "45536f8a43bba727812437135eeeae316750c5e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6a1cb5e_63ce210b",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4274,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2017-10-13T19:03:59Z",
+      "side": 1,
+      "message": "can be removed.",
+      "revId": "45536f8a43bba727812437135eeeae316750c5e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
