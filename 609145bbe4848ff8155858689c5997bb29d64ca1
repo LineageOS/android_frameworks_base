@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7b7197b_ed54a78a",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3119,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2017-10-13T19:09:19Z",
+      "side": 1,
+      "message": "move to the commit that reverts Google\u0027s removal.",
+      "revId": "609145bbe4848ff8155858689c5997bb29d64ca1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
