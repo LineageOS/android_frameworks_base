@@ -3116,6 +3116,16 @@ public final class PowerManagerService extends SystemService
         }
     }
 
+    private void setButtonBrightnessOverrideFromWindowManagerInternal(int brightness) {
+        synchronized (mLock) {
+            if (mButtonBrightnessOverrideFromWindowManager != brightness) {
+                mButtonBrightnessOverrideFromWindowManager = brightness;
+                mDirty |= DIRTY_SETTINGS;
+                updatePowerStateLocked();
+            }
+        }
+    }
+
     private void powerHintInternal(int hintId, int data) {
         nativeSendPowerHint(hintId, data);
     }
@@ -4692,6 +4702,11 @@ public final class PowerManagerService extends SystemService
                 screenBrightness = PowerManager.BRIGHTNESS_DEFAULT;
             }
             setScreenBrightnessOverrideFromWindowManagerInternal(screenBrightness);
+        }
+
+        @Override
+        public void setButtonBrightnessOverrideFromWindowManager(int buttonBrightness) {
+            setButtonBrightnessOverrideFromWindowManagerInternal(buttonBrightness);
         }
 
         @Override
