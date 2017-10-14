@@ -18,7 +18,7 @@
         android:id="@+id/brightness_slider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_vertical"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:contentDescription="@string/accessibility_brightness"
@@ -26,14 +26,27 @@
 
         <com.android.systemui.settings.brightness.ToggleSeekBar
             android:id="@+id/slider"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="@dimen/brightness_mirror_height"
             android:layout_gravity="center_vertical"
+            android:layout_weight="1"
             android:minHeight="48dp"
             android:thumb="@null"
             android:paddingStart="0dp"
             android:paddingEnd="0dp"
             android:progressDrawable="@drawable/brightness_progress_drawable"
             android:splitTrack="false"
+        />
+
+        <ImageView
+            android:id="@+id/brightness_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_qs_brightness_auto_off"
+            android:contentDescription="@null"
+            android:visibility="gone"
         />
     </com.android.systemui.settings.brightness.BrightnessSliderView>

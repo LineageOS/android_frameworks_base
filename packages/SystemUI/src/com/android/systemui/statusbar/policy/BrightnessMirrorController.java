@@ -19,11 +19,16 @@ package com.android.systemui.statusbar.policy;
 import android.annotation.NonNull;
 import android.content.Context;
 import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.net.Uri;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.ArraySet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.android.systemui.res.R;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
@@ -32,6 +37,8 @@ import com.android.systemui.settings.brightness.ToggleSlider;
 import com.android.systemui.shade.NotificationShadeWindowView;
 import com.android.systemui.shade.ShadeViewController;
 import com.android.systemui.statusbar.NotificationShadeDepthController;
+
+import lineageos.providers.LineageSettings;
 
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -52,6 +59,9 @@ public class BrightnessMirrorController implements MirrorController {
     private FrameLayout mBrightnessMirror;
     private int mBrightnessMirrorBackgroundPadding;
     private int mLastBrightnessSliderWidth = -1;
+    private boolean mShouldShowAutoBrightness;
+    private boolean mIsAutomaticBrightnessAvailable;
+    private ImageView mIcon;
 
     public BrightnessMirrorController(NotificationShadeWindowView statusBarWindow,
             ShadeViewController shadeViewController,
@@ -69,6 +79,24 @@ public class BrightnessMirrorController implements MirrorController {
         });
         mVisibilityCallback = visibilityCallback;
         updateResources();
+
+        mIsAutomaticBrightnessAvailable = mBrightnessMirror.getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_automatic_brightness_available);
+        mShouldShowAutoBrightness = LineageSettings.Secure.getInt(
+                mBrightnessMirror.getContext().getContentResolver(),
+                LineageSettings.Secure.QS_SHOW_AUTO_BRIGHTNESS, 0) != 0;
+        updateIcon();
+        mBrightnessMirror.getContext().getContentResolver().registerContentObserver(
+                LineageSettings.Secure.getUriFor(LineageSettings.Secure.QS_SHOW_AUTO_BRIGHTNESS),
+                false, new ContentObserver(null) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        mShouldShowAutoBrightness = LineageSettings.Secure.getInt(
+                                mBrightnessMirror.getContext().getContentResolver(),
+                                LineageSettings.Secure.QS_SHOW_AUTO_BRIGHTNESS, 0) != 0;
+                        updateIcon();
+                    }
+                });
     }
 
     @Override
@@ -77,6 +105,7 @@ public class BrightnessMirrorController implements MirrorController {
         mVisibilityCallback.accept(true);
         mNotificationPanel.setAlpha(0, true /* animate */);
         mDepthController.setBrightnessMirrorVisible(true);
+        updateIcon();
     }
 
     @Override
@@ -144,6 +173,7 @@ public class BrightnessMirrorController implements MirrorController {
 
         mBrightnessMirror.addView(controller.getRootView(), ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
+        mIcon = mBrightnessMirror.findViewById(R.id.brightness_icon);
 
         return controller;
     }
@@ -175,5 +205,22 @@ public class BrightnessMirrorController implements MirrorController {
 
     public void onUiModeChanged() {
         reinflate();
+    }
+
+    private void updateIcon() {
+        if (mIsAutomaticBrightnessAvailable && mShouldShowAutoBrightness) {
+            int automatic = Settings.System.getIntForUser(mBrightnessMirror.getContext()
+                            .getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS_MODE,
+                    Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL,
+                    UserHandle.USER_CURRENT);
+            boolean isAutomatic = automatic != Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
+            mIcon.setImageResource(isAutomatic
+                    ? R.drawable.ic_qs_brightness_auto_on
+                    : R.drawable.ic_qs_brightness_auto_off);
+            mIcon.setVisibility(View.VISIBLE);
+        } else {
+            mIcon.setVisibility(View.GONE);
+        }
     }
 }
