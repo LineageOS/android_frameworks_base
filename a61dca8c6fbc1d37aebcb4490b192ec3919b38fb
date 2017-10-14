@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c1b499f_d7a96b8d",
+        "filename": "packages/SettingsProvider/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-10-14T04:06:23Z",
+      "side": 1,
+      "message": "extra blank line here needs to go",
+      "revId": "a61dca8c6fbc1d37aebcb4490b192ec3919b38fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0c30bdc_069fd299",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-10-14T04:06:23Z",
+      "side": 1,
+      "message": "long line.\n\nremove the final or add final to both",
+      "revId": "a61dca8c6fbc1d37aebcb4490b192ec3919b38fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f544b7a_a4c7b6a1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-10-14T04:06:23Z",
+      "side": 1,
+      "message": "ditto with final here",
+      "revId": "a61dca8c6fbc1d37aebcb4490b192ec3919b38fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dba503c_21ab6e53",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-10-14T04:06:23Z",
+      "side": 1,
+      "message": "change where the line ends to make this read better",
+      "revId": "a61dca8c6fbc1d37aebcb4490b192ec3919b38fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
