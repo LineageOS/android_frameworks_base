@@ -19,6 +19,8 @@ package com.android.systemui.qs;
 import static com.android.systemui.classifier.Classifier.QS_SWIPE;
 import static com.android.systemui.media.dagger.MediaModule.QS_PANEL;
 import static com.android.systemui.qs.QSPanel.QS_SHOW_BRIGHTNESS;
+import static com.android.systemui.qs.QSPanel.QS_SHOW_AUTO_BRIGHTNESS;
+import static com.android.systemui.qs.QSPanel.QS_SHOW_BRIGHTNESS_SLIDER;
 import static com.android.systemui.qs.dagger.QSFragmentModule.QS_USING_MEDIA_PLAYER;
 
 import android.annotation.NonNull;
@@ -39,6 +41,7 @@ import com.android.systemui.plugins.qs.QSTile;
 import com.android.systemui.qs.customize.QSCustomizerController;
 import com.android.systemui.qs.dagger.QSScope;
 import com.android.systemui.qs.logging.QSLogger;
+import com.android.systemui.R;
 import com.android.systemui.settings.brightness.BrightnessController;
 import com.android.systemui.settings.brightness.BrightnessMirrorHandler;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
@@ -114,9 +117,11 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
         mQsSecurityFooter.setHostEnvironment(qstileHost);
 
         mBrightnessSliderController = brightnessSliderFactory.create(getContext(), mView);
-        mView.setBrightnessView(mBrightnessSliderController.getRootView());
+        View rootView = mBrightnessSliderController.getRootView();
+        mView.setBrightnessView(rootView);
 
-        mBrightnessController = brightnessControllerFactory.create(mBrightnessSliderController);
+        mBrightnessController = brightnessControllerFactory.create(mBrightnessSliderController,
+                rootView.findViewById(R.id.brightness_icon));
         mBrightnessMirrorHandler = new BrightnessMirrorHandler(mBrightnessController);
     }
 
@@ -141,6 +146,8 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
         updateMediaDisappearParameters();
 
         mTunerService.addTunable(mView, QS_SHOW_BRIGHTNESS);
+        mTunerService.addTunable(mView, QS_SHOW_AUTO_BRIGHTNESS);
+        mTunerService.addTunable(mView, QS_SHOW_BRIGHTNESS_SLIDER);
         mView.updateResources();
         if (mView.isListening()) {
             refreshAllTiles();
