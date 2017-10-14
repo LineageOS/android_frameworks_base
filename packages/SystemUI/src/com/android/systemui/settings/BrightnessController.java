@@ -39,6 +39,7 @@ import android.provider.Settings;
 import android.service.vr.IVrManager;
 import android.service.vr.IVrStateCallbacks;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.android.internal.logging.MetricsLogger;
@@ -50,7 +51,6 @@ import java.util.ArrayList;
 
 public class BrightnessController implements ToggleSlider.Listener {
     private static final String TAG = "StatusBar.BrightnessController";
-    private static final boolean SHOW_AUTOMATIC_ICON = false;
 
     private static final int SLIDER_ANIMATION_DURATION = 3000;
 
@@ -292,6 +292,17 @@ public class BrightnessController implements ToggleSlider.Listener {
         mDisplayManager = context.getSystemService(DisplayManager.class);
         mVrManager = IVrManager.Stub.asInterface(ServiceManager.getService(
                 Context.VR_SERVICE));
+
+        mIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Settings.System.putIntForUser(mContext.getContentResolver(),
+                        Settings.System.SCREEN_BRIGHTNESS_MODE, mAutomatic ?
+                            Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL :
+                            Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC,
+                        UserHandle.USER_CURRENT);
+            }
+        });
     }
 
     public void addStateChangedCallback(BrightnessStateChangeCallback cb) {
@@ -422,7 +433,7 @@ public class BrightnessController implements ToggleSlider.Listener {
 
     private void updateIcon(boolean automatic) {
         if (mIcon != null) {
-            mIcon.setImageResource(automatic && SHOW_AUTOMATIC_ICON ?
+            mIcon.setImageResource(mAutomatic ?
                     com.android.systemui.R.drawable.ic_qs_brightness_auto_on :
                     com.android.systemui.R.drawable.ic_qs_brightness_auto_off);
         }
