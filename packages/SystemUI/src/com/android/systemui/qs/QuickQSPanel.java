@@ -108,14 +108,6 @@ public class QuickQSPanel extends QSPanel {
         mMaxTiles = maxTiles;
     }
 
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        if (QS_SHOW_BRIGHTNESS.equals(key)) {
-            // No Brightness or Tooltip for you!
-            super.onTuningChanged(key, "0");
-        }
-    }
-
     public int getNumQuickTiles() {
         return mMaxTiles;
     }

@@ -18,7 +18,6 @@ import com.android.systemui.qs.logging.QSLogger
 import com.android.systemui.settings.brightness.BrightnessController
 import com.android.systemui.settings.brightness.BrightnessSliderController
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager
-import com.android.systemui.tuner.TunerService
 import com.google.common.truth.Truth.assertThat
 import org.junit.After
 import org.junit.Before
@@ -39,7 +38,6 @@ import org.mockito.Mockito.`when` as whenever
 class QSPanelControllerTest : SysuiTestCase() {
 
     @Mock private lateinit var qsPanel: QSPanel
-    @Mock private lateinit var tunerService: TunerService
     @Mock private lateinit var qsHost: QSHost
     @Mock private lateinit var qsCustomizerController: QSCustomizerController
     @Mock private lateinit var qsTileRevealControllerFactory: QSTileRevealController.Factory
@@ -78,7 +76,6 @@ class QSPanelControllerTest : SysuiTestCase() {
 
         controller = QSPanelController(
             qsPanel,
-            tunerService,
             qsHost,
             qsCustomizerController,
             /* usingMediaPlayer= */ true,
