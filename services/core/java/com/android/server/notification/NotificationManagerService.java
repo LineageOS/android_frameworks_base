@@ -8200,6 +8200,7 @@ public class NotificationManagerService extends SystemService {
         if (!ledValues.isEnabled()) {
             mNotificationLight.turnOff();
         } else {
+            mNotificationLight.setModes(ledValues.getBrightness());
             mNotificationLight.setFlashing(ledValues.getColor(), LogicalLight.LIGHT_FLASH_TIMED,
                     ledValues.getOnMs(), ledValues.getOffMs());
         }
