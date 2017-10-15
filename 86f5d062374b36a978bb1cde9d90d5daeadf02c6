@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35b24de1_6ffebcba",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2366,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-10-15T05:21:42Z",
+      "side": 1,
+      "message": "temp until button settings is available.",
+      "revId": "86f5d062374b36a978bb1cde9d90d5daeadf02c6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ea9f79_a2191645",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2369,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-10-15T05:21:42Z",
+      "side": 1,
+      "message": "temp until button settings is available.",
+      "revId": "86f5d062374b36a978bb1cde9d90d5daeadf02c6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
