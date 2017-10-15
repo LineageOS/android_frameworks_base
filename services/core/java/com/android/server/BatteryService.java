@@ -936,6 +936,7 @@ public final class BatteryService extends SystemService {
 
             final int level = mBatteryProps.batteryLevel;
             final int status = mBatteryProps.batteryStatus;
+            final int brightnessLevel = mLineageBatteryLights.calcBrightness(level);
 
             // For convenience below.
             final int lowARGB = mLineageBatteryLights.mBatteryLowARGB;
@@ -946,6 +947,7 @@ public final class BatteryService extends SystemService {
                 // No lights if explicitly disabled
                 mBatteryLight.turnOff();
             } else if (level < mLowBatteryWarningLevel) {
+                mBatteryLight.setModes(brightnessLevel);
                 if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
                     // Battery is charging and low
                     mBatteryLight.setColor(lowARGB);
@@ -959,6 +961,7 @@ public final class BatteryService extends SystemService {
                 }
             } else if (status == BatteryManager.BATTERY_STATUS_CHARGING
                     || status == BatteryManager.BATTERY_STATUS_FULL) {
+                mBatteryLight.setModes(brightnessLevel);
                 if (status == BatteryManager.BATTERY_STATUS_FULL || level >= 90) {
                     // Battery is full or charging and nearly full
                     mBatteryLight.setColor(fullARGB);
