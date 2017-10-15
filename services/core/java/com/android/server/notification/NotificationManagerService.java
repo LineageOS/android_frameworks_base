@@ -4679,6 +4679,7 @@ public class NotificationManagerService extends SystemService {
         if (ledValues == null) {
             mNotificationLight.turnOff();
         } else {
+            mNotificationLight.setModes(ledValues.brightness);
             mNotificationLight.setFlashing(ledValues.color, Light.LIGHT_FLASH_TIMED,
                     ledValues.onMs, ledValues.offMs);
         }
