@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013 The Android Open Source Project
+ * Copyright (C) 2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,6 +74,11 @@ public abstract class LogicalLight {
      * Set the color of a light and control flashing.
      */
     public abstract void setFlashing(int color, int mode, int onMS, int offMS);
+
+    /**
+     * Set the modes of light.
+     */
+    public abstract void setModes(int brightnessLevel);
 
     /**
      * Pulses the light.
