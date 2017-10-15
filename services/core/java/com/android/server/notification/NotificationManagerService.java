@@ -9495,6 +9495,8 @@ public class NotificationManagerService extends SystemService {
         if (!ledValues.isEnabled()) {
             mNotificationLight.turnOff();
         } else {
+            mNotificationLight.setModes(ledValues.getBrightness());
+
             // we are using 1:0 to indicate LED should stay always on
             if (ledValues.getOnMs() == 1 && ledValues.getOffMs() == 0) {
                 mNotificationLight.setColor(ledValues.getColor());
