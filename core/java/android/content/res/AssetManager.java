@@ -102,6 +102,7 @@ public final class AssetManager implements AutoCloseable {
             init(false);
             if (localLOGV) Log.v(TAG, "New asset manager: " + this);
             ensureSystemAssets();
+            ensureExtraAssets(this);
         }
     }
 
@@ -111,10 +112,23 @@ public final class AssetManager implements AutoCloseable {
                 AssetManager system = new AssetManager(true);
                 system.makeStringBlocks(null);
                 sSystem = system;
+                ensureExtraAssets(sSystem);
             }
         }
     }
-    
+
+    private static void ensureExtraAssets(AssetManager m) {
+        // load extra assets after system assets, so
+        // the ordering of asset paths is preserved for
+        // RRO framework assets
+        if (m == null) {
+            Log.w(TAG, "ensureExtraAssets called on null AssetManager!");
+            return;
+        }
+        m.initExtraAssets();
+        m.makeStringBlocks(m.mStringBlocks);
+    }
+
     private AssetManager(boolean isSystem) {
         if (DEBUG_REFS) {
             synchronized (this) {
@@ -886,6 +900,7 @@ public final class AssetManager implements AutoCloseable {
     /*package*/ native final int[] getStyleAttributes(int themeRes);
 
     private native final void init(boolean isSystem);
+    private native final void initExtraAssets();
     private native final void destroy();
 
     private final void incRefsLocked(long id) {
