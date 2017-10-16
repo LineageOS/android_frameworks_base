@@ -326,16 +326,18 @@ bool AssetManager::addDefaultAssets()
     String8 path(root);
     path.appendPath(kSystemAssets);
 
-    bool ret = addAssetPath(path, NULL, false /* appAsLib */, true /* isSystemAsset */);
-    if (ret) {
-        String8 pathLineage(root);
-        pathLineage.appendPath(kLineageAssets);
+    return addAssetPath(path, NULL, false /* appAsLib */, true /* isSystemAsset */);
+}
 
-        if (!addAssetPath(pathLineage, NULL, false /* appAsLib */, false /* isSystemAsset */)) {
-            ALOGE("Failed to load Lineage SDK resources!");
-        }
-    }
-    return ret;
+bool AssetManager::addExtraAssets()
+{
+    const char* root = getenv("ANDROID_ROOT");
+    LOG_ALWAYS_FATAL_IF(root == NULL, "ANDROID_ROOT not set");
+
+    String8 pathLineage(root);
+    pathLineage.appendPath(kLineageAssets);
+
+    return addAssetPath(pathLineage, NULL, false /* appAsLib */, false /* isSystemAsset */);
 }
 
 int32_t AssetManager::nextAssetPath(const int32_t cookie) const
