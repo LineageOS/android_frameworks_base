@@ -22,6 +22,24 @@
       "revId": "ac7dc6c1be21f74550b0438d8fd26434e045595c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c8326a4_94307549",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2017-10-16T15:14:42Z",
+      "side": 1,
+      "message": "Eh, this is a pure cherry-pick, but yeah we can remove this line from the commit message",
+      "parentUuid": "e95bb2bf_e36c5886",
+      "revId": "ac7dc6c1be21f74550b0438d8fd26434e045595c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
