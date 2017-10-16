@@ -43,6 +43,7 @@ import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.demomode.DemoModeController;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.settings.UserTracker;
+import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
 import com.android.systemui.util.leak.LeakDetector;
@@ -72,7 +73,8 @@ public class TunerServiceImpl extends TunerService {
             QSTileHost.TILES_SETTING,
             Settings.Secure.DOZE_ALWAYS_ON,
             Settings.Secure.MEDIA_CONTROLS_RESUME,
-            Settings.Secure.MEDIA_CONTROLS_RECOMMENDATION
+            Settings.Secure.MEDIA_CONTROLS_RECOMMENDATION,
+            StatusBar.SCREEN_BRIGHTNESS_MODE,
     };
 
     private final Observer mObserver = new Observer();
