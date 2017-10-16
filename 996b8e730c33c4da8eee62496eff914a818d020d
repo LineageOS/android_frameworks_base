@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91c81f60_c7889d68",
+        "filename": "data/etc/lineage-sysconfig.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-10-16T06:56:00Z",
+      "side": 1,
+      "message": "I think that we could easily skip this one, if FlipFlap switches to registering the broadcast via registerReceiver().",
+      "range": {
+        "startLine": 23,
+        "startChar": 38,
+        "endLine": 23,
+        "endChar": 79
+      },
+      "revId": "996b8e730c33c4da8eee62496eff914a818d020d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
