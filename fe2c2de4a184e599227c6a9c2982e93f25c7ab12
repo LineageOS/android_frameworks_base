@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b50c67d1_bcaabbee",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-10-16T14:10:53Z",
+      "side": 1,
+      "message": "These two are missing the dot at the end. At least it should be consistent with the rest of accessibility_quick_settings_* strings.",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 80
+      },
+      "revId": "fe2c2de4a184e599227c6a9c2982e93f25c7ab12",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
