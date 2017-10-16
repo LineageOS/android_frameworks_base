@@ -22,6 +22,29 @@
       "revId": "23dd948d9465b6ede87552b25204bab99008870e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c077b83_c3a5bc31",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-10-16T20:01:14Z",
+      "side": 1,
+      "message": "Caffeine QS tile",
+      "range": {
+        "startLine": 35,
+        "startChar": 9,
+        "endLine": 35,
+        "endChar": 17
+      },
+      "revId": "23dd948d9465b6ede87552b25204bab99008870e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
