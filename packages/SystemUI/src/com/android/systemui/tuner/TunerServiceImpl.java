@@ -74,7 +74,8 @@ public class TunerServiceImpl extends TunerService {
             QSTileHost.TILES_SETTING,
             Settings.Secure.DOZE_ALWAYS_ON,
             Settings.Secure.MEDIA_CONTROLS_RESUME,
-            Settings.Secure.MEDIA_CONTROLS_RECOMMENDATION
+            Settings.Secure.MEDIA_CONTROLS_RECOMMENDATION,
+            Settings.System.SCREEN_BRIGHTNESS_MODE,
     };
 
     private final Observer mObserver = new Observer();
