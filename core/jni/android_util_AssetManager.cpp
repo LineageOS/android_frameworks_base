@@ -1608,6 +1608,18 @@ static void android_content_AssetManager_init(JNIEnv* env, jobject clazz, jboole
     env->SetLongField(clazz, gAssetManagerOffsets.mObject, reinterpret_cast<jlong>(am));
 }
 
+static void android_content_AssetManager_initExtraAssets(JNIEnv* env, jobject clazz)
+{
+    AssetManager* am = (AssetManager*)
+        (env->GetLongField(clazz, gAssetManagerOffsets.mObject));
+    if (am == NULL) {
+        jniThrowNullPointerException(env, "asset");
+        return;
+    }
+
+    am->addExtraAssets();
+}
+
 static void android_content_AssetManager_destroy(JNIEnv* env, jobject clazz)
 {
     AssetManager* am = (AssetManager*)
@@ -1755,6 +1767,8 @@ static const JNINativeMethod gAssetManagerMethods[] = {
     // Bookkeeping.
     { "init",           "(Z)V",
         (void*) android_content_AssetManager_init },
+    { "initExtraAssets", "()V",
+        (void*) android_content_AssetManager_initExtraAssets },
     { "destroy",        "()V",
         (void*) android_content_AssetManager_destroy },
     { "getGlobalAssetCount", "()I",
