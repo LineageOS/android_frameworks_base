@@ -82,6 +82,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.hardware.display.DisplayManager;
 import android.media.AudioAttributes;
 import android.media.MediaMetadata;
 import android.metrics.LogMaker;
@@ -113,6 +114,7 @@ import android.util.Log;
 import android.util.Slog;
 import android.util.SparseArray;
 import android.view.Display;
+import android.view.HapticFeedbackConstants;
 import android.view.IWindowManager;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -120,6 +122,7 @@ import android.view.MotionEvent;
 import android.view.RemoteAnimationAdapter;
 import android.view.ThreadedRenderer;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
@@ -243,6 +246,8 @@ import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.statusbar.stack.NotificationStackScrollLayout;
+import com.android.systemui.tuner.TunerService;
+import com.android.systemui.tuner.TunerService.Tunable;
 import com.android.systemui.volume.VolumeComponent;
 
 import lineageos.hardware.LiveDisplayManager;
@@ -259,7 +264,8 @@ import java.util.Map;
 public class StatusBar extends SystemUI implements DemoMode,
         DragDownHelper.DragDownCallback, ActivityStarter, OnUnlockMethodChangedListener,
         OnHeadsUpChangedListener, CommandQueue.Callbacks, ZenModeController.Callback,
-        ColorExtractor.OnColorsChangedListener, ConfigurationListener, NotificationPresenter {
+        ColorExtractor.OnColorsChangedListener, ConfigurationListener, NotificationPresenter,
+        Tunable {
     public static final boolean MULTIUSER_DEBUG = false;
 
     public static final boolean ENABLE_CHILD_NOTIFICATIONS
@@ -322,6 +328,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
             .build();
 
+    private static final float BRIGHTNESS_CONTROL_PADDING = 0.15f;
+    private static final int BRIGHTNESS_CONTROL_LONG_PRESS_TIMEOUT = 750; // ms
+    private static final int BRIGHTNESS_CONTROL_LINGER_THRESHOLD = 20;
+
     public static final int FADE_KEYGUARD_START_DELAY = 100;
     public static final int FADE_KEYGUARD_DURATION = 300;
     public static final int FADE_KEYGUARD_DURATION_PULSING = 96;
@@ -340,6 +350,11 @@ public class StatusBar extends SystemUI implements DemoMode,
      * libhwui.
      */
     private static final float SRC_MIN_ALPHA = 0.002f;
+
+    private static final String SCREEN_BRIGHTNESS_MODE =
+            "system:" + Settings.System.SCREEN_BRIGHTNESS_MODE;
+    private static final String STATUS_BAR_BRIGHTNESS_CONTROL =
+            "lineagesystem:" + LineageSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
 
     static {
         boolean onlyCoreApps;
@@ -428,6 +443,19 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected KeyguardViewMediator mKeyguardViewMediator;
     private ZenModeController mZenController;
 
+    private DisplayManager mDisplayManager;
+
+    private int mMinBrightness;
+    private int mQuickQsTotalHeight;
+    private boolean mAutomaticBrightness;
+    private boolean mBrightnessControl;
+    private boolean mBrightnessChanged;
+    private boolean mJustPeeked;
+    private float mScreenWidth;
+    int mLinger;
+    int mInitialTouchX;
+    int mInitialTouchY;
+
     /**
      * Helper that is responsible for showing the right toast when a disallowed activity operation
      * occurred. In pinned mode, we show instructions on how to break out of this mode, whilst in
@@ -497,6 +525,15 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
         }
     }
+
+    Runnable mLongPressBrightnessChange = new Runnable() {
+        @Override
+        public void run() {
+            mStatusBarView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+            adjustBrightness(mInitialTouchX);
+            mLinger = BRIGHTNESS_CONTROL_LINGER_THRESHOLD + 1;
+        }
+    };
 
     // ensure quick settings is disabled until the current user makes it through the setup wizard
     @VisibleForTesting
@@ -707,6 +744,12 @@ public class StatusBar extends SystemUI implements DemoMode,
         mColorExtractor = Dependency.get(SysuiColorExtractor.class);
         mColorExtractor.addOnColorsChangedListener(this);
 
+        final TunerService tunerService = Dependency.get(TunerService.class);
+        tunerService.addTunable(this, SCREEN_BRIGHTNESS_MODE);
+        tunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
+
+        mDisplayManager = mContext.getSystemService(DisplayManager.class);
+
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
 
         mDisplay = mWindowManager.getDefaultDisplay();
@@ -863,6 +906,11 @@ public class StatusBar extends SystemUI implements DemoMode,
     // ================================================================================
     protected void makeStatusBarView() {
         final Context context = mContext;
+
+        mScreenWidth = (float) context.getResources().getDisplayMetrics().widthPixels;
+        mMinBrightness = context.getResources().getInteger(
+                com.android.internal.R.integer.config_screenBrightnessDim);
+
         updateDisplaySize(); // populates mDisplayMetrics
         updateResources();
         updateTheme();
@@ -2504,6 +2552,88 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
     }
 
+    private void adjustBrightness(int x) {
+        mBrightnessChanged = true;
+        float raw = ((float) x) / mScreenWidth;
+
+        // Add a padding to the brightness control on both sides to
+        // make it easier to reach min/max brightness
+        float padded = Math.min(1.0f - BRIGHTNESS_CONTROL_PADDING,
+                Math.max(BRIGHTNESS_CONTROL_PADDING, raw));
+        float value = (padded - BRIGHTNESS_CONTROL_PADDING) /
+                (1 - (2.0f * BRIGHTNESS_CONTROL_PADDING));
+        if (mAutomaticBrightness) {
+            float adj = (2 * value) - 1;
+            adj = Math.max(adj, -1);
+            adj = Math.min(adj, 1);
+            final float val = adj;
+            mDisplayManager.setTemporaryAutoBrightnessAdjustment(val);
+            AsyncTask.execute(new Runnable() {
+                public void run() {
+                    Settings.System.putFloatForUser(mContext.getContentResolver(),
+                            Settings.System.SCREEN_AUTO_BRIGHTNESS_ADJ, val,
+                            UserHandle.USER_CURRENT);
+                }
+            });
+        } else {
+            int newBrightness = mMinBrightness + (int) Math.round(value *
+                    (PowerManager.BRIGHTNESS_ON - mMinBrightness));
+            newBrightness = Math.min(newBrightness, PowerManager.BRIGHTNESS_ON);
+            newBrightness = Math.max(newBrightness, mMinBrightness);
+            final int val = newBrightness;
+            mDisplayManager.setTemporaryBrightness(val);
+            AsyncTask.execute(new Runnable() {
+                @Override
+                public void run() {
+                    Settings.System.putIntForUser(mContext.getContentResolver(),
+                            Settings.System.SCREEN_BRIGHTNESS, val,
+                            UserHandle.USER_CURRENT);
+                }
+            });
+        }
+    }
+
+    private void brightnessControl(MotionEvent event) {
+        final int action = event.getAction();
+        final int x = (int) event.getRawX();
+        final int y = (int) event.getRawY();
+        if (action == MotionEvent.ACTION_DOWN) {
+            if (y < mQuickQsTotalHeight) {
+                mLinger = 0;
+                mInitialTouchX = x;
+                mInitialTouchY = y;
+                mJustPeeked = true;
+                mHandler.removeCallbacks(mLongPressBrightnessChange);
+                mHandler.postDelayed(mLongPressBrightnessChange,
+                        BRIGHTNESS_CONTROL_LONG_PRESS_TIMEOUT);
+            }
+        } else if (action == MotionEvent.ACTION_MOVE) {
+            if (y < mQuickQsTotalHeight && mJustPeeked) {
+                if (mLinger > BRIGHTNESS_CONTROL_LINGER_THRESHOLD) {
+                    adjustBrightness(x);
+                } else {
+                    final int xDiff = Math.abs(x - mInitialTouchX);
+                    final int yDiff = Math.abs(y - mInitialTouchY);
+                    final int touchSlop = ViewConfiguration.get(mContext).getScaledTouchSlop();
+                    if (xDiff > yDiff) {
+                        mLinger++;
+                    }
+                    if (xDiff > touchSlop || yDiff > touchSlop) {
+                        mHandler.removeCallbacks(mLongPressBrightnessChange);
+                    }
+                }
+            } else {
+                if (y > mQuickQsTotalHeight) {
+                    mJustPeeked = false;
+                }
+                mHandler.removeCallbacks(mLongPressBrightnessChange);
+            }
+        } else if (action == MotionEvent.ACTION_UP
+                || action == MotionEvent.ACTION_CANCEL) {
+            mHandler.removeCallbacks(mLongPressBrightnessChange);
+        }
+    }
+
     public boolean interceptTouchEvent(MotionEvent event) {
         if (DEBUG_GESTURES) {
             if (event.getActionMasked() != MotionEvent.ACTION_MOVE) {
@@ -2530,14 +2660,28 @@ public class StatusBar extends SystemUI implements DemoMode,
             mGestureRec.add(event);
         }
 
+        if (mBrightnessControl) {
+            brightnessControl(event);
+            if ((mDisabled1 & StatusBarManager.DISABLE_EXPAND) != 0) {
+                return true;
+            }
+        }
+
+        final boolean upOrCancel =
+                event.getAction() == MotionEvent.ACTION_UP ||
+                event.getAction() == MotionEvent.ACTION_CANCEL;
+
         if (mStatusBarWindowState == WINDOW_STATE_SHOWING) {
-            final boolean upOrCancel =
-                    event.getAction() == MotionEvent.ACTION_UP ||
-                    event.getAction() == MotionEvent.ACTION_CANCEL;
             if (upOrCancel && !mExpandedVisible) {
                 setInteracting(StatusBarManager.WINDOW_STATUS_BAR, false);
             } else {
                 setInteracting(StatusBarManager.WINDOW_STATUS_BAR, true);
+            }
+        }
+        if (mBrightnessChanged && upOrCancel) {
+            mBrightnessChanged = false;
+            if (mJustPeeked && mExpandedVisible) {
+                mNotificationPanel.fling(10, false);
             }
         }
         return false;
@@ -3303,6 +3447,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
         mMaxAllowedKeyguardNotifications = res.getInteger(
                 R.integer.keyguard_max_notification_count);
+
+        mQuickQsTotalHeight = res.getDimensionPixelSize(
+                com.android.internal.R.dimen.quick_qs_total_height);
 
         if (DEBUG) Log.v(TAG, "defineSlots");
     }
@@ -5703,6 +5850,21 @@ public class StatusBar extends SystemUI implements DemoMode,
     public void startAssist(Bundle args) {
         if (mAssistManager != null) {
             mAssistManager.startAssist(args);
+        }
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case SCREEN_BRIGHTNESS_MODE:
+                mAutomaticBrightness = newValue != null && Integer.parseInt(newValue)
+                        == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
+                break;
+            case STATUS_BAR_BRIGHTNESS_CONTROL:
+                mBrightnessControl = newValue != null && Integer.parseInt(newValue) == 1;
+                break;
+            default:
+                break;
         }
     }
     // End Extra BaseStatusBarMethods.
