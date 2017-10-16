@@ -98,6 +98,12 @@ public:
     bool addDefaultAssets();
 
     /*
+     * Convenience for adding the extra system assets.  Uses the
+     * ANDROID_ROOT environment variable to find them.
+     */
+    bool addExtraAssets();
+
+    /*
      * Iterate over the asset paths in this manager.  (Previously
      * added via addAssetPath() and addDefaultAssets().)  On first call,
      * 'cookie' must be 0, resulting in the first cookie being returned.
