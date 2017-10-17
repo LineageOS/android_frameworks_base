@@ -22,6 +22,30 @@
       "revId": "996b8e730c33c4da8eee62496eff914a818d020d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa0a8347_d26ebd16",
+        "filename": "data/etc/lineage-sysconfig.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-10-17T05:41:06Z",
+      "side": 1,
+      "message": "That won\u0027t really work, as FlipFlap is extremely likely to not be running at all if the lid is open.",
+      "parentUuid": "91c81f60_c7889d68",
+      "range": {
+        "startLine": 23,
+        "startChar": 38,
+        "endLine": 23,
+        "endChar": 79
+      },
+      "revId": "996b8e730c33c4da8eee62496eff914a818d020d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
