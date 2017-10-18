@@ -634,6 +634,9 @@ public final class PowerManagerService extends SystemService
     private static native void nativeSetAutoSuspend(boolean enable);
     private static native void nativeSendPowerHint(int hintId, int data);
     private static native void nativeSetFeature(int featureId, int data);
+    private static native byte nativeGetSupportedProfilesCount();
+    private static native void nativeSetProfile(byte profileId);
+    private static native void nativeBoost(int duration);
 
     public PowerManagerService(Context context) {
         super(context);
@@ -4754,6 +4757,31 @@ public final class PowerManagerService extends SystemService
         @Override
         public void powerHint(int hintId, int data) {
             powerHintInternal(hintId, data);
+        }
+
+        @Override
+        public boolean setPowerSaveMode(boolean mode) {
+            return setLowPowerModeInternal(mode);
+        }
+
+        @Override
+        public void setFeature(int featureId, int data) {
+            nativeSetFeature(featureId, data);
+        }
+
+        @Override
+        public byte getSupportedProfilesCount() {
+            return nativeGetSupportedProfilesCount();
+        }
+
+        @Override
+        public void setProfile(byte profileId) {
+            nativeSetProfile(profileId);
+        }
+
+        @Override
+        public void boost(int duration) {
+            nativeBoost(duration);
         }
     }
 }
