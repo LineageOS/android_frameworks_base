@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015 The Android Open Source Project
+ * Coypright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -93,6 +94,9 @@ public class TileUtils {
     private static final String MANUFACTURER_DEFAULT_CATEGORY =
             "com.android.settings.category.device";
 
+    private static final String LINEAGE_SETTINGS_ACTION =
+            "org.lineageos.lineageparts.action.SETTINGS";
+
     /**
      * The key used to get the category from metadata of activities of action
      * {@link #EXTRA_SETTINGS_ACTION}
@@ -163,6 +167,8 @@ public class TileUtils {
 
     public static final String SETTING_PKG = "com.android.settings";
 
+    public static final String LINEAGE_SETTING_PKG = "org.lineageos.lineageparts";
+
     /**
      * Build a list of DashboardCategory. Each category must be defined in manifest.
      * eg: .Settings$DeviceSettings
@@ -205,6 +211,10 @@ public class TileUtils {
                 // Only add Settings for this user.
                 getTilesForAction(context, user, SETTINGS_ACTION, cache, null, tiles, true,
                         settingPkg);
+                if (SETTING_PKG.equals(settingPkg)) {
+                    getTilesForAction(context, user, LINEAGE_SETTINGS_ACTION, cache, null, tiles,
+                        true, LINEAGE_SETTING_PKG);
+                }
                 getTilesForAction(context, user, OPERATOR_SETTINGS, cache,
                         OPERATOR_DEFAULT_CATEGORY, tiles, false, true, settingPkg);
                 getTilesForAction(context, user, MANUFACTURER_SETTINGS, cache,
@@ -273,8 +283,10 @@ public class TileUtils {
                 continue;
             }
             category.title = resolved.activityInfo.loadLabel(pm);
-            category.priority = SETTING_PKG.equals(
-                    resolved.activityInfo.applicationInfo.packageName) ? resolved.priority : 0;
+            String pkgName = resolved.activityInfo.applicationInfo.packageName;
+            category.priority = (SETTING_PKG.equals(pkgName) || LINEAGE_SETTING_PKG.equals(pkgName))
+                    ? resolved.priority
+                    : 0;
             if (DEBUG) Log.d(LOG_TAG, "Adding category " + category.title);
         }
 
