@@ -94,3 +94,6 @@ LOCAL_SHARED_LIBRARIES += \
     android.frameworks.sensorservice@1.0 \
 
 LOCAL_STATIC_LIBRARIES += libscrypt_static
+
+LOCAL_SHARED_LIBRARIES += \
+	vendor.lineage.power@1.0

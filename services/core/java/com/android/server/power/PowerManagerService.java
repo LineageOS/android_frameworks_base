@@ -4755,5 +4755,30 @@ public final class PowerManagerService extends SystemService
         public void powerHint(int hintId, int data) {
             powerHintInternal(hintId, data);
         }
+
+        @Override
+        public boolean setPowerSaveMode(boolean mode) {
+            return setLowPowerModeInternal(mode);
+        }
+
+        @Override
+        public void setFeature(int featureId, int data) {
+            nativeSetFeature(featureId, data);
+        }
+
+        @Override
+        public abstract byte getSupportedProfilesCount() {
+            return nativeGetSupportedProfilesCount();
+        }
+
+        @Override
+        public abstract void setProfile(byte profileId) {
+            nativeSetProfile(profileId);
+        }
+
+        @Override
+        public abstract void boost(int duration) {
+            nativeBoost(duration);
+        }
     }
 }
