@@ -19,6 +19,7 @@
 //#define LOG_NDEBUG 0
 
 #include <android/hardware/power/1.0/IPower.h>
+#include <vendor/lineage/power/1.0/IPower.h>
 #include "JNIHelp.h"
 #include "jni.h"
 
@@ -89,6 +90,21 @@ bool getPowerHal() {
         }
     }
     return gPowerHal != nullptr;
+}
+
+sp<::vendor::lineage::power::V1_0::IPower> gLineagePowerHal = nullptr;
+bool gLineagePowerHalExists = true;
+
+bool getLineagePowerHal() {
+    if (gLineagePowerHalExists && gLineagePowerHal == nullptr) {
+        gLineagePowerHal = ::vendor::lineage::power::V1_0::IPower::getService();
+        if (gLineagePowerHal != nullptr) {
+            ALOGI("Loaded Lineage power HAL service");
+        } else {
+            ALOGI("Couldn't load Lineage power HAL service");
+            gLineagePowerHalExists = false;
+        }
+    }
 }
 
 // Check if a call to a power HAL function failed; if so, log the failure and invalidate the
@@ -190,6 +206,32 @@ static void nativeSetFeature(JNIEnv *env, jclass clazz, jint featureId, jint dat
     }
 }
 
+static jbyte nativeGetSupportedProfilesCount(JNIEnv *env, jclass clazz) {
+    uint8_t count = 0;
+    std::lock_guard<std::mutex> lock(gPowerHalMutex);
+    if (getLineagePowerHal()) {
+        count = gLineagePowerHal->getSupportedProfilesCount();
+    }
+
+    return (jbyte)count;
+}
+
+static void nativeSetProfile(JNIEnv *env, jclass clazz, jbyte profile) {
+    std::lock_guard<std::mutex> lock(gPowerHalMutex);
+    if (getLineagePowerHal()) {
+        Return<void> ret = gPowerHal->setProfile(static_cast<uint8_t>(profile));
+        processReturn(ret, "setProfile");
+    }
+}
+
+static void nativeBoost(JNIEnv *env, jclass clazz, jint duration) {
+    std::lock_guard<std::mutex> lock(gPowerHalMutex);
+    if (getLineagePowerHal()) {
+        Return<void> ret = gPowerHal->boost(static_cast<uint32_t>duration));
+        processReturn(ret, "boost");
+    }
+}
+
 // ----------------------------------------------------------------------------
 
 static const JNINativeMethod gPowerManagerServiceMethods[] = {
@@ -208,6 +250,12 @@ static const JNINativeMethod gPowerManagerServiceMethods[] = {
             (void*) nativeSendPowerHint },
     { "nativeSetFeature", "(II)V",
             (void*) nativeSetFeature },
+    { "nativeGetSupportedProfilesCount", "()B",
+            (void*) nativeGetSupportedProfilesCount },
+    { "nativeSetProfile", "(B)V",
+        (void*) nativeSetProfile },
+    { "nativeBoost", "(I)V",
+        (void*) nativeBoost },
 };
 
 #define FIND_CLASS(var, className) \
