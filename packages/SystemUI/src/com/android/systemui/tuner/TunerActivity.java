@@ -15,19 +15,16 @@
  */
 package com.android.systemui.tuner;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Toolbar;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceScreen;
+
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
@@ -37,7 +34,7 @@ import com.android.systemui.util.settings.GlobalSettings;
 
 import javax.inject.Inject;
 
-public class TunerActivity extends Activity implements
+public class TunerActivity extends CollapsingToolbarBaseActivity implements
         PreferenceFragment.OnPreferenceStartFragmentCallback,
         PreferenceFragment.OnPreferenceStartScreenCallback {
 
@@ -61,23 +58,19 @@ public class TunerActivity extends Activity implements
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_AppCompat_DayNight);
-
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.tuner_activity);
-        Toolbar toolbar = findViewById(R.id.action_bar);
-        if (toolbar != null) {
-            setActionBar(toolbar);
-        }
 
         if (getFragmentManager().findFragmentByTag(TAG_TUNER) == null) {
             final String action = getIntent().getAction();
-            boolean showDemoMode = action != null && action.equals(
-                    "com.android.settings.action.DEMO_MODE");
-            final PreferenceFragment fragment = showDemoMode
-                    ? new DemoModeFragment(mDemoModeController, mGlobalSettings)
-                    : new TunerFragment(mTunerService);
+            final Fragment fragment;
+            if ("com.android.settings.action.DEMO_MODE".equals(action)) {
+                fragment = new DemoModeFragment(mDemoModeController, mGlobalSettings);
+            } else if ("com.android.settings.action.STATUS_BAR_TUNER".equals(action)) {
+                fragment = new StatusBarTuner();
+            } else {
+                fragment = new TunerFragment(mTunerService);
+            }
+
             getFragmentManager().beginTransaction().replace(R.id.content_frame,
                     fragment, TAG_TUNER).commit();
         }
@@ -87,15 +80,6 @@ public class TunerActivity extends Activity implements
     protected void onDestroy() {
         super.onDestroy();
         Dependency.destroy(FragmentService.class, s -> s.destroyAll());
-    }
-
-    @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
-        }
-        return super.onMenuItemSelected(featureId, item);
     }
 
     @Override
