@@ -30,7 +30,6 @@ import com.android.server.lights.Light;
 import com.android.server.lights.LightsManager;
 
 import android.app.ActivityManager;
-import android.app.NotificationManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -65,6 +64,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import lineageos.providers.LineageSettings;
+import org.lineageos.internal.lights.LightsCapabilities;
 
 /**
  * <p>BatteryService monitors the charging status, and charge level of the device
@@ -911,14 +911,14 @@ public final class BatteryService extends SystemService {
 
         public Led(Context context, LightsManager lights) {
             mBatteryLight = lights.getLight(LightsManager.LIGHT_ID_BATTERY);
-            final NotificationManager nm = context.getSystemService(NotificationManager.class);
 
             // Does the Device support changing battery LED colors?
-            mMultiColorLed = nm.doLightsSupport(NotificationManager.LIGHTS_RGB_BATTERY_LED);
+            mMultiColorLed = LightsCapabilities.supports(
+                    mContext, LightsCapabilities.LIGHTS_RGB_BATTERY_LED);
 
             // Is the notification LED brightness changeable ?
-            mAdjustableNotificationLedBrightness = nm.doLightsSupport(
-                    NotificationManager.LIGHTS_ADJUSTABLE_NOTIFICATION_LED_BRIGHTNESS);
+            mAdjustableNotificationLedBrightness = LightsCapabilities.supports(
+                    mContext, LightsCapabilities.LIGHTS_ADJUSTABLE_NOTIFICATION_LED_BRIGHTNESS);
 
             mBatteryLedOn = context.getResources().getInteger(
                     com.android.internal.R.integer.config_notificationsBatteryLedOn);
@@ -927,8 +927,8 @@ public final class BatteryService extends SystemService {
 
             // Does the Device have segmented battery LED support? In this case, we send the level
             // in the alpha channel of the color and let the HAL sort it out.
-            mUseSegmentedBatteryLed = nm.doLightsSupport(
-                    NotificationManager.LIGHTS_SEGMENTED_BATTERY_LED);
+            mUseSegmentedBatteryLed = LightsCapabilities.supports(
+                    mContext, LightsCapabilities.LIGHTS_SEGMENTED_BATTERY_LED);
         }
 
         /**
