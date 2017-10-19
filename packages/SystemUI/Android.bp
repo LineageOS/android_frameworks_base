@@ -124,6 +124,7 @@ android_library {
         "lottie",
     ],
     manifest: "AndroidManifest.xml",
+    additional_manifests: ["LineageManifest.xml"],
 
     kotlincflags: ["-Xjvm-default=enable"],
 
