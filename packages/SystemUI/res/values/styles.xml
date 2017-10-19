@@ -402,13 +402,49 @@
         <item name="android:layout_height">48dp</item>
     </style>
 
+    <dimen name="preference_no_icon_padding_start">72dp</dimen>
+
     <style name="TunerSettings" parent="@android:style/Theme.DeviceDefault.Settings">
         <item name="android:windowActionBar">false</item>
-        <item name="preferenceTheme">@style/TunerPreferenceTheme</item>
+        <item name="dropdownPreferenceStyle">@style/TunerSettings.DropdownPreferenceStyle</item>
+        <item name="dialogPreferenceStyle">@style/TunerSettings.DialogPreferenceStyle</item>
+        <item name="preferenceCategoryStyle">@style/TunerSettings.PreferenceCategoryStyle</item>
+        <item name="preferenceFragmentStyle">@style/TunerSettings.PreferenceFragmentStyle</item>
+        <item name="preferenceScreenStyle">@style/TunerSettings.PreferenceStyle</item>
+        <item name="preferenceStyle">@style/TunerSettings.PreferenceStyle</item>
+        <item name="preferenceTheme">@style/TunerSettings.PreferenceTheme</item>
+        <item name="switchPreferenceStyle">@style/TunerSettings.SwitchPreferenceStyle</item>
     </style>
 
-    <style name="TunerPreferenceTheme" parent="@android:style/Theme.DeviceDefault.Settings">
-        <item name="dropdownPreferenceStyle">@style/Preference.DropDown.Material</item>
+    <style name="TunerSettings.DialogPreferenceStyle" parent="@style/TunerSettings.PreferenceStyle">
+    </style>
+
+    <style name="TunerSettings.DropdownPreferenceStyle" parent="@style/TunerSettings.PreferenceStyle">
+        <item name="android:layout">@layout/preference_dropdown_material_settings</item>
+    </style>
+
+    <style name="TunerSettings.PreferenceCategoryStyle" parent="@*android:style/Preference.DeviceDefault.Category">
+        <item name="allowDividerAbove">true</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="android:layout">@layout/preference_category_material_settings</item>
+    </style>
+
+    <style name="TunerSettings.PreferenceFragmentStyle" parent="@*android:style/PreferenceFragment.Material">
+        <item name="allowDividerAfterLastItem">false</item>
+    </style>
+
+    <style name="TunerSettings.PreferenceStyle" parent="@*android:style/Preference.DeviceDefault">
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="singleLineTitle">false</item>
+        <item name="android:layout">@layout/preference_material_settings</item>
+    </style>
+
+    <style name="TunerSettings.PreferenceTheme">
+    </style>
+
+    <style name="TunerSettings.SwitchPreferenceStyle" parent="@style/TunerSettings.PreferenceStyle">
+        <item name="widgetLayout">@*android:layout/preference_widget_switch</item>
     </style>
 
     <style name="TextAppearance.NotificationInfo">
