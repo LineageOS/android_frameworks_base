@@ -140,6 +140,7 @@ android_app {
     static_libs: [
         "SystemUI-core",
     ],
+    additional_manifests: ["LineageManifest.xml"],
     resource_dirs: [],
 
     platform_apis: true,
