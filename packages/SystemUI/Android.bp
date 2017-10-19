@@ -72,6 +72,7 @@ android_library {
         "jsr330"
     ],
     manifest: "AndroidManifest.xml",
+    additional_manifests: ["LineageManifest.xml"],
 
     kotlincflags: ["-Xjvm-default=enable"],
 
