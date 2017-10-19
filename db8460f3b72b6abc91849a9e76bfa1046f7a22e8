@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb81f43e_571ccbdf",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/drawer/TileUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2017-10-19T06:24:13Z",
+      "side": 1,
+      "message": "Any reason to not use \"? resolved.priority : 0;\" ?\nAlso it should be double indented.",
+      "revId": "db8460f3b72b6abc91849a9e76bfa1046f7a22e8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
