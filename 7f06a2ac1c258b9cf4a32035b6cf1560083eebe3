@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "120fe652_62d8717d",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 4767,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-10-19T06:17:49Z",
+      "side": 1,
+      "message": "I know I swapped the function of this block and the next around in a patchset earlier today.  It\u0027s because I was looking at cm-14.1 code (and that\u0027s the ordering there).  I decided it wasn\u0027t worth swapping back.",
+      "revId": "7f06a2ac1c258b9cf4a32035b6cf1560083eebe3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
