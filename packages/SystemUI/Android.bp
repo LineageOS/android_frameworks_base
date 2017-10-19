@@ -199,6 +199,7 @@ android_library {
         "motion_tool_lib",
     ],
     manifest: "AndroidManifest.xml",
+    additional_manifests: ["LineageManifest.xml"],
 
     javacflags: ["-Adagger.fastInit=enabled"],
     kotlincflags: ["-Xjvm-default=enable"],
