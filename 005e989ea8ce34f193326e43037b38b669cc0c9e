@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67b1a913_14f5e029",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-10-19T06:10:46Z",
+      "side": 1,
+      "message": "Should use context here rather than mContext.\n\nI\u0027m planning to move this class (or similar) to the sdk though so not bothering to change right now.",
+      "revId": "005e989ea8ce34f193326e43037b38b669cc0c9e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
