@@ -66,6 +66,7 @@ android_library {
         "jsr330"
     ],
     manifest: "AndroidManifest.xml",
+    additional_manifests: ["LineageManifest.xml"],
 
     libs: [
         "telephony-common",
