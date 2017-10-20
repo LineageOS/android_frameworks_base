@@ -358,7 +358,7 @@ public class TileUtils {
             int icon = 0;
             Pair<String, Integer> iconFromUri = null;
             CharSequence title = null;
-            String summary = null;
+            String summary = "";
             String keyHint = null;
             Uri uri = null;
 
