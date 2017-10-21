@@ -353,7 +353,9 @@ public interface WindowManager extends ViewManager {
                 @ViewDebug.IntToString(from = TYPE_SCREENSHOT,
                         to = "TYPE_SCREENSHOT"),
                 @ViewDebug.IntToString(from = TYPE_APPLICATION_OVERLAY,
-                        to = "TYPE_APPLICATION_OVERLAY")
+                        to = "TYPE_APPLICATION_OVERLAY"),
+                @ViewDebug.IntToString(from = TYPE_SLIM_RECENTS,
+                        to = "TYPE_SLIM_RECENTS")
         })
         public int type;
 
@@ -748,6 +750,13 @@ public interface WindowManager extends ViewManager {
          * In multi-user systems shows only on the owning user's screen.
          */
         public static final int TYPE_APPLICATION_OVERLAY = FIRST_SYSTEM_WINDOW + 38;
+
+         /**
+         * Window type: panel that slides out from the status bar
+         * In multiuser systems shows on all users' windows.
+         * @hide
+         */
+        public static final int TYPE_SLIM_RECENTS = FIRST_SYSTEM_WINDOW+39;
 
         /**
          * End of types of system windows.
