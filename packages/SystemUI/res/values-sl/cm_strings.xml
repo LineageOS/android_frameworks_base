@@ -81,7 +81,7 @@
   <string name="screen_pinning_description_no_navbar">To jo ohrani prikazano, dokler je ne odpnete. Tapnite in pridržite gumb Nazaj, da jo odpnete.</string>
   <string name="quick_settings_custom_tile_detail_title">Ploščica po meri</string>
   <string name="quick_settings_remove">Odstrani ploščico</string>
-  <string name="quick_settings_network_adb_label">ADB preko omrežja</string>
+  <string name="quick_settings_network_adb_label">ADB prek omrežja</string>
   <string name="quick_settings_compass_label">Kompas</string>
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_profiles">Sistemski profili</string>
