@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">조명 밝기</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">프로필 꺼짐.</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">현재 프로필: <xliff:g id="profile" example="Default">%s</xliff:g></string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">프로필이 이제 꺼짐.</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">프로필이 <xliff:g id="profile" example="Default">%s</xliff:g>으(로) 바뀜.</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">프로필 꺼짐.</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">시스템 프로필</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">조명 설정</string>
   <string name="led_notification_text">설정 앱이 LED 전등을 활성화함</string>
@@ -180,5 +192,7 @@
   <string name="quick_settings_sync_label">동기화</string>
   <string name="quick_settings_volume_panel_label">볼륨 패널</string>
   <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g>이(가) 지워지지 않도록 합니다.</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
+  <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g>이(가) 지워질 수 있도록 합니다.</string>
 </resources>

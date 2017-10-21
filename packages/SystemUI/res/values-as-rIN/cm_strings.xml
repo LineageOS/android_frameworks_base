@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">লাইটৰ উজ্জ্বলতা</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">প্ৰ\'ফাইল অফ।</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">প্ৰ\'ফাইল: <xliff:g id="profile" example="Default">%s</xliff:g>।</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">প্ৰ\'ফাইল অফ কৰা হৈছে।</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">প্ৰ\'ফাইল <xliff:g id="profile" example="Default">%s</xliff:g>লৈ পৰিৱৰ্তন কৰা হৈছে।</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">প্ৰ\'ফাইল অফ।</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">ছিষ্টেম প্ৰ\'ফাইল</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">লাইট ছেটিং</string>
   <string name="led_notification_text">ছেটিংছৰ দ্বাৰা সক্ষমিত LED লাইট</string>

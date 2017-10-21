@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">Helligkeit</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">Profile aus.</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">Profile ausgeschaltet.</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">Profil auf <xliff:g id="profile" example="Default">%s</xliff:g> geändert.</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">Profile aus.</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">Systemprofile</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">LED-Einstellungen</string>
   <string name="led_notification_text">Benachrichtigungs-LED durch Einstellungen aktiviert</string>
@@ -152,5 +164,7 @@
   <string name="quick_settings_sync_label">Synchronisieren</string>
   <string name="quick_settings_volume_panel_label">Lautstärke</string>
   <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <string name="accessibility_lock_task">Verhindern, dass <xliff:g id="task">%1$s </xliff:g> beendet wird</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
+  <string name="accessibility_unlock_task">Zulassen, dass <xliff:g id="task">%1$s </xliff:g> beendet wird</string>
 </resources>

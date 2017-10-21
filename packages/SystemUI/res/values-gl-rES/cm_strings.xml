@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">Brillo da luz</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">Perfís desactivados.</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">Perfil: <xliff:g id="profile" example="Predeterminado">%s</xliff:g>.</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">Perfís desactivados.</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">Perfil cambiado a <xliff:g id="profile" example="Predeterminado">%s</xliff:g>.</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">Perfís desactivados.</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">Perfís do sistema</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Configuración de luz</string>
   <string name="led_notification_text">Luz LED activada por configuración</string>
@@ -181,5 +193,7 @@
   <string name="quick_settings_sync_label">Sincronización</string>
   <string name="quick_settings_volume_panel_label">Panel de volume</string>
   <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <string name="accessibility_lock_task">Prevenir <xliff:g id="task">%1$s</xliff:g> de ser pechado</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
+  <string name="accessibility_unlock_task">Permitir <xliff:g id="task">%1$s</xliff:g> sea pechado</string>
 </resources>

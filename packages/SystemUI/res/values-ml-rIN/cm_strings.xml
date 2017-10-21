@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">ലൈറ്റ് തെളിച്ചം</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">പ്രൊഫൈലുകൾ ഓഫ്.</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">പ്രൊഫൈൽ: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">പ്രൊഫൈലുകൾ ഓഫ് ചെയ്തു.</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">പ്രൊഫൈൽ <xliff:g id="profile" example="Default">%s</xliff:g> ലേക്ക് മാറ്റി.</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">പ്രൊഫൈലുകൾ ഓഫ്.</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">സിസ്റ്റം പ്രൊഫൈലുകൾ</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">പ്രകാശ ക്രമീകരണങ്ങള്‍</string>
   <string name="led_notification_text">ക്രമീകരണങ്ങളിലൂടെ LED വെളിച്ചം പ്രാപ്തമാക്കി</string>

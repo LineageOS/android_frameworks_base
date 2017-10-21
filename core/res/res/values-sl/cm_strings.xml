@@ -47,9 +47,9 @@
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
   <string name="reboot_progress">Ponovno zaganjanje \u2026</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB preko omrežja omogočen</string>
+  <string name="adb_net_active_notification_title">ADB prek omrežja omogočen</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB preko USB-ja in omrežja omogočen</string>
+  <string name="adb_both_active_notification_title">ADB prek USB in omrežja omogočen</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Dotaknite se, da onemogočite razhroščevanje.</string>
   <!-- Privacy Guard -->

@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">ஒளி ஒளிர்வு</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">சுயவிவரங்கள் ஆஃப்.</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">சுயவிவரம்: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">சுயவிவரங்கள் ஆஃப் செய்யப்பட்டன.</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">சுயவிவரம் <xliff:g id="profile" example="Default">%s</xliff:g>க்கு மாற்றப்பட்டது.</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">சுயவிவரங்கள் ஆஃப்.</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">சிஸ்டம் சுயவிவரங்கள்</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">ஒளி அமைப்புகள்</string>
   <string name="led_notification_text">LED ஒளி அமைப்பினால் செயல்படுத்தப்படுதல்</string>

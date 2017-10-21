@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">Soilleireachd an t-solais</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">Na pròifilean dheth.</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">A’ phròifil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">Na pròifilean dheth.</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">Tha a’ phròifil: <xliff:g id="profile" example="Default">%s</xliff:g> an gnìomh a-nis.</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">Na pròifilean dheth.</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">Pròifilean an t-siostaim</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Roghainnean an t-solais</string>
   <string name="led_notification_text">Solas LED an comas a-rèir nan roghainnean</string>

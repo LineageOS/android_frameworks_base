@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">Lluminositat</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">Perfils desactivats.</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">Perfils: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">S\'han desactivat els perfils.</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">Perfil canviat a <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">Perfils desactivats.</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">Perfils de sistema</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Configuració de llums</string>
   <string name="led_notification_text">Llum LED habilitada per ajustos</string>
@@ -180,5 +192,7 @@
   <string name="quick_settings_sync_label">Sinc</string>
   <string name="quick_settings_volume_panel_label">Panell de volum</string>
   <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <string name="accessibility_lock_task">Impedeix que <xliff:g id="task">%1$s</xliff:g> sigui descartat</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
+  <string name="accessibility_unlock_task">Permet que <xliff:g id="task">%1$s</xliff:g> sigui descartat</string>
 </resources>

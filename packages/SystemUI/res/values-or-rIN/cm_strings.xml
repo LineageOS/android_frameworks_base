@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">ଆଲୋକ ଉଜ୍ଜ୍ୱଳତା</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ ଅଫ୍‍ ଅଛି।</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">ପ୍ରୋଫାଇଲ୍‍: <xliff:g id="profile" example="Default">%s</xliff:g>।</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ ଅଫ୍‍ କରାଯାଇଛି।</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">ପ୍ରୋଫାଇଲ୍ <xliff:g id="profile" example="Default">%s</xliff:g>କୁ ପରିବର୍ତ୍ତିତ ହେଲା।</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ ଅଫ୍‍ ଅଛି।</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">ସିଷ୍ଟମ୍‍ ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">ଲାଇଟ୍‍ ସେଟିଂସ୍‍</string>
   <string name="led_notification_text">ସେଟିଂସ୍‍ ଦ୍ୱାରା LED ଆ୍ଲୋକ ସଷମ କରାଯାଇଛି</string>

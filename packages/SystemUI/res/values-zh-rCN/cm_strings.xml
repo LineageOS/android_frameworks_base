@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">指示灯亮度</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">情景模式关闭。</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">情景模式：<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">情景模式已关闭。</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">情景模式已更改为<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">情景模式关闭。</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">情景模式</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">指示灯设置</string>
   <string name="led_notification_text">LED 灯由设置启用</string>
@@ -180,5 +192,7 @@
   <string name="quick_settings_sync_label">同步</string>
   <string name="quick_settings_volume_panel_label">音量面板</string>
   <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <string name="accessibility_lock_task">阻止 <xliff:g id="task">%1$s</xliff:g> 可被解除</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
+  <string name="accessibility_unlock_task">允许 <xliff:g id="task">%1$s</xliff:g> 可被解除</string>
 </resources>

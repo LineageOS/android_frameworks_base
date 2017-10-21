@@ -21,6 +21,18 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">پروفایل‌ها خاموش.</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">پروفایل: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">پروفایل‌ها خاموش شدند.</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">پروفایل به <xliff:g id="profile" example="Default">%s</xliff:g> تغییر یافت.</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">پروفایل‌ها خاموش.</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">پروفایل‌ها</string>
   <!-- Lights settings, LED notification -->
   <!-- Notification which notifies user flashlight is enabled -->
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->

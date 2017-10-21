@@ -22,6 +22,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_notification_brightness">प्रकाश प्रखरता</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_off">प्रोफाइल्स बंद.</string>
+  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles">प्रोफाइल: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed_off">प्रोफाइल्स बंद केला.</string>
+  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_profiles_changed">प्रोफाइल <xliff:g id="profile" example="Default">%s</xliff:g>ला बदलला.</string>
+  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_profiles_off">प्रोफाइल्स बंद.</string>
+  <!-- Content description of the system profiles  -->
+  <string name="quick_settings_profiles">सिस्टिम प्रोफाइल्स</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">प्रकाश सेटिंग्ज</string>
   <string name="led_notification_text">सेटिंग्जद्वारे LED प्रकाश सक्षम केला</string>
