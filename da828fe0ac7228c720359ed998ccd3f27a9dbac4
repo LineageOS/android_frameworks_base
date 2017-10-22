@@ -2,6 +2,109 @@
   "comments": [
     {
       "key": {
+        "uuid": "5add7256_cc12a503",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-22T18:21:42Z",
+      "side": 1,
+      "message": "How about nativeGetNumberOfCameras, to fit with the standard function naming convention?",
+      "range": {
+        "startLine": 292,
+        "startChar": 30,
+        "endLine": 292,
+        "endChar": 49
+      },
+      "revId": "da828fe0ac7228c720359ed998ccd3f27a9dbac4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "125cae57_b131f916",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-22T18:21:42Z",
+      "side": 1,
+      "message": "Maybe spit out the cameraId as part of the exception?",
+      "revId": "da828fe0ac7228c720359ed998ccd3f27a9dbac4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34ce3ed5_f49c678d",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-22T18:21:42Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "da828fe0ac7228c720359ed998ccd3f27a9dbac4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1cf522_c5cab1ec",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-22T18:21:42Z",
+      "side": 1,
+      "message": "Where\u0027s the 2 coming from? Do you really want to hardcode such an assumption?",
+      "range": {
+        "startLine": 848,
+        "startChar": 45,
+        "endLine": 848,
+        "endChar": 51
+      },
+      "revId": "da828fe0ac7228c720359ed998ccd3f27a9dbac4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3719c008_0023ced5",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-22T18:21:42Z",
+      "side": 1,
+      "message": "Where\u0027s the 2 coming from? Do you really want to hardcode such an assumption?",
+      "range": {
+        "startLine": 857,
+        "startChar": 45,
+        "endLine": 857,
+        "endChar": 51
+      },
+      "revId": "da828fe0ac7228c720359ed998ccd3f27a9dbac4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d45bf63_0dc18974",
         "filename": "core/java/android/hardware/camera2/CameraManager.java",
         "patchSetId": 2
