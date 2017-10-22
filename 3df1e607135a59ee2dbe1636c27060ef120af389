@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18d01c34_c68dbb60",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsComponent.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-22T18:19:15Z",
+      "side": 1,
+      "message": "Is this actually overriding anything?",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 13
+      },
+      "revId": "3df1e607135a59ee2dbe1636c27060ef120af389",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a7f6c8b_3f285c7d",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsComponent.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-10-22T18:19:15Z",
+      "side": 1,
+      "message": "Same hre",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 13
+      },
+      "revId": "3df1e607135a59ee2dbe1636c27060ef120af389",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
