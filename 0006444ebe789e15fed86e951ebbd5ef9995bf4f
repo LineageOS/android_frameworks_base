@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10a95a2e_8df6cec8",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2017-10-22T16:38:09Z",
+      "side": 1,
+      "message": "Does not belong to this commit",
+      "revId": "0006444ebe789e15fed86e951ebbd5ef9995bf4f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
