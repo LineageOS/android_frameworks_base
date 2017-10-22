@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fcc87e8_d5a00bb1",
+        "filename": "core/res/res/values/symbols.xml",
+        "patchSetId": 21
+      },
+      "lineNbr": 3048,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2017-10-22T16:30:29Z",
+      "side": 1,
+      "message": "Reminder : To be moved to lineage_symbols.xml",
+      "revId": "2fb19c3596f8928a8f50b0f27062853dd253c7f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
