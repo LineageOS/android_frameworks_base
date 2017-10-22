@@ -1,6 +1,5 @@
 /*
 * Copyright (C) 2014 SlimRoms Project
-* Copyright (C) 2018 NucleaRom
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -39,8 +38,42 @@ public class ActionHelper {
 
     private static final String SYSTEMUI_METADATA_NAME = "com.android.systemui";
 
+    public static ArrayList<ActionConfig> getRecentAppSidebarConfig(Context context) {
+        return (ConfigSplitHelper.getActionConfigValues(context,
+                getRecentAppSidebarProvider(context), null, null, false));
+    }
+
+    public static ArrayList<ActionConfig> getRecentAppSidebarConfigWithDescription(
+            Context context, String values, String entries) {
+        return (ConfigSplitHelper.getActionConfigValues(context,
+                getRecentAppSidebarProvider(context), values, entries, false));
+    }
+
+    private static String getRecentAppSidebarProvider(Context context) {
+        String config = Settings.System.getStringForUser(
+                context.getContentResolver(),
+                Settings.System.RECENT_APP_SIDEBAR_CONTENT,
+                UserHandle.USER_CURRENT);
+        if (config == null) {
+            config = "";
+        }
+        return config;
+    }
+
+    public static void setRecentAppSidebarConfig(
+            Context context, ArrayList<ActionConfig> actionConfig, boolean reset) {
+        String config;
+        if (reset) {
+            config = "";
+        } else {
+            config = ConfigSplitHelper.setActionConfig(actionConfig, false);
+        }
+        Settings.System.putString(context.getContentResolver(),
+                Settings.System.RECENT_APP_SIDEBAR_CONTENT, config);
+    }
+
     // General methods to retrieve the correct icon for the respective action.
-    public static Drawable getButtonIconImage(Context context,
+    public static Drawable getActionIconImage(Context context,
             String clickAction, String customIcon) {
         int resId = -1;
         Drawable d = null;
@@ -138,6 +171,9 @@ public class ActionHelper {
         } else if (clickAction.equals(ActionConstants.ACTION_IME)) {
             resId = systemUiResources.getIdentifier(
                         SYSTEMUI_METADATA_NAME + ":drawable/ic_sysbar_ime_switcher", null, null);
+        } else if (clickAction.equals(ActionConstants.ACTION_KILL)) {
+            resId = systemUiResources.getIdentifier(
+                        SYSTEMUI_METADATA_NAME + ":drawable/ic_sysbar_killtask", null, null);
         } else if (clickAction.equals(ActionConstants.ACTION_POWER)) {
             resId = systemUiResources.getIdentifier(
                         SYSTEMUI_METADATA_NAME + ":drawable/ic_sysbar_power", null, null);

@@ -31,4 +31,10 @@
     <!-- Doze always on default value -->
     <bool name="config_dozeAlwaysOnDisplayEnabledDefault">false</bool>
 
+    <!-- The duration (in milliseconds) of slim recent app screen animation. -->
+    <integer name="config_recentDefaultDur">300</integer>
+
+    <!-- The duration (in milliseconds) of slim recent app screen exit animation. -->
+    <integer name="config_recentExitDur">450</integer>
+
 </resources>
