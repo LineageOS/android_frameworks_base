@@ -70,6 +70,30 @@
       "revId": "e3dc87254fa123d2ba6c735565f3c00183349beb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df9d082a_bae126b0",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-10-23T07:38:58Z",
+      "side": 1,
+      "message": "And this one in core/res in independent from the other one in SystemUI, right?",
+      "parentUuid": "f77da272_7feb914d",
+      "range": {
+        "startLine": 1471,
+        "startChar": 0,
+        "endLine": 1477,
+        "endChar": 62
+      },
+      "revId": "e3dc87254fa123d2ba6c735565f3c00183349beb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
