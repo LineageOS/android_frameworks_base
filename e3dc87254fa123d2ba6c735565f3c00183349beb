@@ -94,6 +94,30 @@
       "revId": "e3dc87254fa123d2ba6c735565f3c00183349beb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fdc691b_a465e159",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 444
+      },
+      "writtenOn": "2017-10-23T16:38:37Z",
+      "side": 1,
+      "message": "I imagine so, since it\u0027s a different package.",
+      "parentUuid": "df9d082a_bae126b0",
+      "range": {
+        "startLine": 1471,
+        "startChar": 0,
+        "endLine": 1477,
+        "endChar": 62
+      },
+      "revId": "e3dc87254fa123d2ba6c735565f3c00183349beb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
