@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb15be4c_7fa278ec",
+        "filename": "packages/SystemUI/AndroidManifest.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-10-25T07:12:51Z",
+      "side": 1,
+      "message": "Move to our custom manifest: https://review.lineageos.org/#/c/193025/",
+      "range": {
+        "startLine": 556,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 19
+      },
+      "revId": "7e3fd9a41dc1212778e24a71d3cf33a6f75b20a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
