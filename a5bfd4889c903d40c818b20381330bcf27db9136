@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f97a168_66f9854f",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2017-10-25T07:48:40Z",
+      "side": 1,
+      "message": "Should not access the variable directly in public, should use a getter instead. See my comment in the sdk commit.",
+      "revId": "a5bfd4889c903d40c818b20381330bcf27db9136",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
