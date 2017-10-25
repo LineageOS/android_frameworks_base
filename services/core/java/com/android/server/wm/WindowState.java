@@ -2315,8 +2315,12 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
 
         // If we were already visible, skip rest of preparation.
         if (wasVisible) {
-            if (DEBUG_VISIBILITY) Slog.v(TAG,
-                    "Already visible and does not turn on screen, skip preparing: " + this);
+            if (DEBUG_VISIBILITY) Slog.v(TAG, "Already visible, skip preparing: " + this);
+            if (mTurnOnScreen) {
+                // If the surface is already visible, TurnOnScreen flag is not evaluated.
+                // We should directly request turning screen on to the manager.
+                mService.mTurnOnScreen = true;
+            }
             return;
         }
 
