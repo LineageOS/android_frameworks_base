@@ -1,8 +1,8 @@
 <resources>
     <!-- OPA home dimens -->
-    <dimen name="halo_inner_radius">10.0dip</dimen>
+    <dimen name="halo_inner_radius">8.0dip</dimen>
     <dimen name="halo_thickness">1.0dip</dimen>
-    <dimen name="halo_diameter">22.0dip</dimen>
+    <dimen name="halo_diameter">18.0dip</dimen>
     <dimen name="opa_dot_diam">10.0dip</dimen>
     <dimen name="opa_diamond_translation">16.0dip</dimen>
     <dimen name="opa_line_y_translation">16.0dip</dimen>

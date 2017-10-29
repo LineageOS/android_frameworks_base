@@ -22,9 +22,6 @@
     android:layout_width="@dimen/navigation_key_width"
     android:layout_height="fill_parent"
     android:layout_weight="0.0"
-    android:scale_type="fitCenter"
-    android:paddingTop="@dimen/home_padding"
-    android:paddingBottom="@dimen/home_padding"
     android:paddingStart="@dimen/navigation_key_padding"
     android:paddingEnd="@dimen/navigation_key_padding" >
         <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
@@ -33,7 +30,7 @@
             <ImageView android:id="@+id/green" android:src="@drawable/ic_sysbar_opa_green" android:importantForAccessibility="no" style="@style/DotStyle" />
             <ImageView android:id="@+id/yellow" android:src="@drawable/ic_sysbar_opa_yellow" android:importantForAccessibility="no" style="@style/DotStyle" />
         </RelativeLayout>
-        <ImageView android:layout_gravity="center" android:id="@+id/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_sysbar_home" android:importantForAccessibility="no" />
-        <com.android.systemui.statusbar.policy.KeyButtonView android:layout_gravity="center" android:id="@+id/home_button" android:layout_width="@dimen/navigation_key_width" android:layout_height="fill_parent" android:scaleType="center" android:contentDescription="@string/accessibility_home" systemui:keyCode="3" />
         <ImageView android:layout_gravity="center" android:id="@+id/halo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/halo" android:importantForAccessibility="no" />
+        <ImageView android:layout_gravity="center" android:id="@+id/white" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/ic_sysbar_home" android:importantForAccessibility="no" />
+        <com.android.systemui.statusbar.policy.KeyButtonView android:layout_gravity="center" android:id="@+id/home_button" android:layout_width="@dimen/navigation_key_width" android:layout_height="fill_parent" android:scaleType="center" android:contentDescription="@string/accessibility_home" systemui:keyCode="3" />
 </com.google.android.systemui.OpaLayout>
