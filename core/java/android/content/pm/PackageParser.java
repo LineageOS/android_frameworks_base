@@ -1659,6 +1659,8 @@ public class PackageParser {
             // we encountered. Note that for splits, certificates may have
             // already been populated during an earlier parse of a base APK.
             final StrictJarFile sJarFile = jarFile;
+            sPackageParseExceptionFlag = 0;
+            sTaskCount = 0;
             final ThreadPoolExecutor verificationExecutor = new ThreadPoolExecutor(
                     NUMBER_OF_CORES,
                     NUMBER_OF_CORES,
@@ -1709,35 +1711,44 @@ public class PackageParser {
                             synchronized (sObjWaitAll) {
                                 sPackageParseExceptionFlag = INSTALL_PARSE_FAILED_CERTIFICATE_ENCODING;
                                 sException = e;
-                                sObjWaitAll.notify();
+                                //Slog.w(TAG, "verification GeneralSecurityException " + sPackageParseExceptionFlag + sTaskCount);
+                                if (sWaitingForVerificationDone) {
+                                    sObjWaitAll.notify();
+                                }
                             }
                         } catch (PackageParserException e) {
                             synchronized (sObjWaitAll) {
                                 sPackageParseExceptionFlag = INSTALL_PARSE_FAILED_UNEXPECTED_EXCEPTION;
                                 sException = e;
-                                sObjWaitAll.notify();
+                                //Slog.w(TAG, "verification PackageParserException " + sPackageParseExceptionFlag + sTaskCount);
+                                if (sWaitingForVerificationDone) {
+                                    sObjWaitAll.notify();
+                                }
                             }
                         }
                     }};
                 synchronized (sObjWaitAll) {
-                    sTaskCount++;
+                    if (sPackageParseExceptionFlag == 0) {
+                        sTaskCount++;
+                        verificationExecutor.execute(verifyTask);
+                    }
                 }
-                verificationExecutor.execute(verifyTask);
             }
             synchronized (sObjWaitAll) {
-                if(sTaskCount > 0) {
-                    try {
-                        sWaitingForVerificationDone = true;
+                try {
+                    sWaitingForVerificationDone = true;
+                    if (sTaskCount > 0) {
                         sObjWaitAll.wait();
-                    } catch (Exception e) {
-                        Slog.w(TAG, "verification threads waiting exit failed " + apkPath, e);
-                    } finally {
-                        sWaitingForVerificationDone = false;
-                        verificationExecutor.shutdownNow();
-                        if (sPackageParseExceptionFlag != 0 )
-                            throw new PackageParserException(sPackageParseExceptionFlag,
-                                    "Failed to collect certificates from " + apkPath, sException);
                     }
+                } catch (Exception e) {
+                    Slog.w(TAG, "verification threads waiting exit failed " + apkPath, e);
+                } finally {
+                    sWaitingForVerificationDone = false;
+                    //Slog.w(TAG, "verification end " + sPackageParseExceptionFlag + sTaskCount);
+                    verificationExecutor.shutdownNow();
+                    if (sPackageParseExceptionFlag != 0)
+                        throw new PackageParserException(sPackageParseExceptionFlag,
+                                "Failed to collect certificates from " + apkPath, sException);
                 }
             }
             Trace.traceEnd(TRACE_TAG_PACKAGE_MANAGER);
