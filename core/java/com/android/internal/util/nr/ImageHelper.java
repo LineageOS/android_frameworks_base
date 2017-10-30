@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.android.internal.util.aicp;
+package com.android.internal.util.nr;
 
 import android.content.Context;
 import android.graphics.Bitmap;

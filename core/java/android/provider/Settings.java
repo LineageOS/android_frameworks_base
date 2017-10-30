@@ -4095,12 +4095,12 @@ public final class Settings {
         public static final String RECENT_CARD_BG_COLOR = "recent_card_bg_color";
 
         /**
-         * Slim recents AICPfied empty recents drawable
+         * Slim recents Nr empty recents drawable
          *
          * @hide
          */
-        public static final String SLIM_RECENT_AICP_EMPTY_DRAWABLE =
-                "slim_recents_aicp_empty_drawable";
+        public static final String SLIM_RECENT_NR_EMPTY_DRAWABLE =
+                "slim_recents_nr_empty_drawable";
 
         /**
          * Whether to use slim recent app sidebar

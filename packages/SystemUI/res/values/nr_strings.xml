@@ -33,4 +33,8 @@
    <string name="quick_settings_reboot_label">Reboot</string>
    <string name="quick_settings_reboot_recovery_label">Recovery</string>
 
+   <color name="system_primary_color">@*android:color/primary_material_light</color>
+   <color name="system_accent_color">@*android:color/material_deep_teal_700</color>
+   <color name="system_primary_color_dark">@*android:color/primary_material_dark</color>
+
 </resources>
