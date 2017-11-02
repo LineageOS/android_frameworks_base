@@ -64,6 +64,7 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settingslib.Utils;
 import com.android.systemui.Interpolators;
 import com.android.systemui.R;
+import android.widget.LinearLayout;
 import com.android.systemui.recents.Recents;
 import com.android.systemui.recents.RecentsActivity;
 import com.android.systemui.recents.RecentsActivityLaunchState;
