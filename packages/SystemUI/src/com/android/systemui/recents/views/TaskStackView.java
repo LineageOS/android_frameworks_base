@@ -1135,6 +1135,21 @@ public class TaskStackView extends FrameLayout implements TaskStack.TaskStackCal
         return null;
     }
 
+    public void dismissAllTasks() {
+        final int count = mStack.getTasks().size();
+        final ArrayList<Task> tasks = mStack.getTasks();
+        post(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < count; i++) {
+                    Task t = tasks.get(i);
+                    TaskView tv = getChildViewForTask(t);
+                    tv.dismissTask();
+                }
+            }
+        });
+    }
+
     @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);

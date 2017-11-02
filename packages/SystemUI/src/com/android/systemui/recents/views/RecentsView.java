@@ -350,6 +350,17 @@ public class RecentsView extends FrameLayout {
         return mLastTaskLaunchedWasFreeform;
     }
 
+    public void dismissAllTasksAnimated() {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View child = getChildAt(i);
+            if (child != mSearchBar) {
+                TaskStackView stackView = (TaskStackView) child;
+                stackView.dismissAllTasks();
+            }
+        }
+    }
+
     /** Launches the focused task from the first stack if possible */
     public boolean launchFocusedTask(int logEvent) {
         if (mTaskStackView != null) {
@@ -489,6 +500,23 @@ public class RecentsView extends FrameLayout {
         EventBus.getDefault().unregister(this);
         EventBus.getDefault().unregister(mTouchHandler);
         mSettingsObserver.unobserve();
+    }
+
+    public void noUserInteraction() {
+        if (mClearRecents != null) {
+            mClearRecents.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    protected void onAttachedToWindow () {
+        super.onAttachedToWindow();
+        mClearRecents = ((View)getParent()).findViewById(R.id.clear_recents);
+        mClearRecents.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dismissAllTasksAnimated();
+            }
+        });
     }
 
     /**
