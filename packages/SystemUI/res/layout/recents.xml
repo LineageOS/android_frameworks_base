@@ -18,33 +18,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <!-- Recents View -->
+    <com.android.systemui.recents.views.RecentsView
+        android:id="@+id/recents_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-        <!-- Recents View -->
-        <com.android.systemui.recents.views.RecentsView
-            android:id="@+id/recents_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:focusable="true" />
-
-        <TextView
-            android:id="@+id/clear_recents"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:drawableStart="@drawable/clear_recents"
-            android:textAllCaps="true"
-            android:textSize="16dp"
-            android:textColor="@color/clear_recents_text_color"
-            android:text="@string/clear_recents" />
-    </LinearLayout>
+        android:focusable="true">
+    </com.android.systemui.recents.views.RecentsView>
 
     <!-- Incompatible task overlay -->
     <ViewStub android:id="@+id/incompatible_app_overlay_stub"
@@ -53,6 +33,17 @@
         android:layout_width="match_parent"
         android:layout_height="128dp"
         android:layout_gravity="center_horizontal|top" />
+
+    <!-- Clear Recents View -->
+    <ImageView
+        android:id="@+id/clear_recents"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="top|right"
+        android:src="@drawable/ic_dismiss_all"
+        android:scaleType="centerInside"
+        android:background="@drawable/recents_button_bg"
+        android:contentDescription="@string/clear_recents" />
 
     <!-- Nav Bar Scrim View -->
     <ImageView
