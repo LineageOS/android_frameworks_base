@@ -22,8 +22,7 @@
     <com.android.systemui.recents.views.RecentsView
         android:id="@+id/recents_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:focusable="true">
+        android:layout_height="match_parent">
     </com.android.systemui.recents.views.RecentsView>
 
     <!-- Incompatible task overlay -->
@@ -33,17 +32,6 @@
         android:layout_width="match_parent"
         android:layout_height="128dp"
         android:layout_gravity="center_horizontal|top" />
-
-    <!-- Clear Recents View -->
-    <ImageView
-        android:id="@+id/clear_recents"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="top|right"
-        android:src="@drawable/ic_dismiss_all"
-        android:scaleType="centerInside"
-        android:background="@drawable/recents_button_bg"
-        android:contentDescription="@string/clear_recents" />
 
     <!-- Nav Bar Scrim View -->
     <ImageView
