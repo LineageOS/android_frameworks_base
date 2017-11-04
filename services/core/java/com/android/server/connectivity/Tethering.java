@@ -57,6 +57,7 @@ import android.net.RouteInfo;
 import android.net.util.SharedLog;
 import android.net.wifi.WifiDevice;
 import android.net.wifi.WifiManager;
+import android.net.wifi.WifiConfiguration;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.INetworkManagementService;
@@ -184,6 +185,9 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
     // True iff WiFi tethering should be started when soft AP is ready.
     private boolean mWifiTetherRequested;
 
+    private long mWiFiApInactivityTimeout;
+    private final Handler mHandler;
+
     public Tethering(Context context, INetworkManagementService nmService,
             INetworkStatsService statsService, INetworkPolicyManager policyManager,
             Looper looper, MockableSystemProperties systemProperties) {
@@ -206,6 +210,8 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
         mUpstreamNetworkMonitor = new UpstreamNetworkMonitor(
                 mContext, mTetherMasterSM, TetherMasterSM.EVENT_UPSTREAM_CALLBACK, mLog);
         mForwardedDownstreams = new HashSet<>();
+
+        mHandler = new Handler(mLooper);
 
         mStateReceiver = new StateReceiver();
         IntentFilter filter = new IntentFilter();
@@ -1147,6 +1153,29 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
         return ConnectivityManager.TETHER_ERROR_NO_ERROR;
     }
 
+    private final Runnable mDisableWifiApRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (VDBG) Log.d(TAG, "Turning off hotpost due to inactivity");
+            final WifiManager wifiManager =
+                    (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
+            wifiManager.setWifiApEnabled(null, false);
+        }
+    };
+
+    private void scheduleInactivityTimeout() {
+        if (mWiFiApInactivityTimeout > 0) {
+           if (VDBG) Log.d(TAG, "scheduleInactivityTimeout: " + mWiFiApInactivityTimeout);
+            mHandler.removeCallbacks(mDisableWifiApRunnable);
+            mHandler.postDelayed(mDisableWifiApRunnable, mWiFiApInactivityTimeout);
+        }
+    }
+
+    private void cancelInactivityTimeout() {
+        if (VDBG) Log.d(TAG, "cancelInactivityTimeout");
+        mHandler.removeCallbacks(mDisableWifiApRunnable);
+    }
+
     // TODO review API - figure out how to delete these entirely.
     public String[] getTetheredIfaces() {
         ArrayList<String> list = new ArrayList<String>();
@@ -2056,6 +2085,7 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
         // If we have already started a TISM for this interface, skip.
         if (mTetherStates.containsKey(iface)) {
             mLog.log("active iface (" + iface + ") reported as added, ignoring");
+            startInterfaceTimeoutLocked(iface);
             return;
         }
 
@@ -2068,6 +2098,24 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
         tetherState.stateMachine.start();
         WifiDevice device = new WifiDevice(iface);
         mConnectedDeviceMap.put(device.deviceAddress, device);
+        startInterfaceTimeoutLocked(iface);
+    }
+
+    private void startInterfaceTimeoutLocked(final String iface) {
+        final TetheringConfiguration cfg = mConfig;
+        if (!cfg.isWifi(iface)) {
+            return;
+        }
+
+        // check if the user has specified an inactivity timeout for wifi AP and
+        // if so schedule the timeout
+        final WifiManager wm = getWifiManager();
+        final WifiConfiguration apConfig = wm.getWifiApConfiguration();
+        mWiFiApInactivityTimeout =
+                apConfig != null ? apConfig.wifiApInactivityTimeout : 0;
+        if (mWiFiApInactivityTimeout > 0 && mL2ConnectedDeviceMap.size() == 0) {
+            scheduleInactivityTimeout();
+        }
     }
 
     private void stopTrackingInterfaceLocked(final String iface) {
@@ -2076,10 +2124,15 @@ public class Tethering extends BaseNetworkObserver implements IControlsTethering
             mLog.log("attempting to remove unknown iface (" + iface + "), ignoring");
             return;
         }
+
+        final TetheringConfiguration cfg = mConfig;
         tetherState.stateMachine.sendMessage(TetherInterfaceStateMachine.CMD_INTERFACE_DOWN);
         mLog.log("removing TetheringInterfaceStateMachine for: " + iface);
         mTetherStates.remove(iface);
         mConnectedDeviceMap.remove(iface);
+        if (cfg.isWifi(iface)) {
+            cancelInactivityTimeout();
+        }
     }
 
     private static String[] copy(String[] strarray) {
