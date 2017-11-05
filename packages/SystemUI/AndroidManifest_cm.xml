@@ -37,6 +37,9 @@
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
 
+    <!-- LiveDisplay tile -->
+    <uses-permission android:name="cyanogenmod.permission.MANAGE_LIVEDISPLAY" />
+
     <application>
 
         <activity-alias
