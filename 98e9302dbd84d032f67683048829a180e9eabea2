@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "739ad383_b7eee741",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/drawer/TileUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-11-05T09:34:51Z",
+      "side": 1,
+      "message": "Can\u0027t you use PACKAGES.contains(...) instead of ArrayUtills?",
+      "revId": "98e9302dbd84d032f67683048829a180e9eabea2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
