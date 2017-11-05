@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15ad2338_e59d32cd",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-11-05T23:18:15Z",
+      "side": 1,
+      "message": "I have a vaguely familiar feeling that switching (or maybe it was vice versa) from setWifiApEnabled to stopTethering caused issues elsewhere before...",
+      "range": {
+        "startLine": 402,
+        "startChar": 20,
+        "endLine": 402,
+        "endChar": 71
+      },
+      "revId": "0797221586792819a0c833726d83f0a5b9377761",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
