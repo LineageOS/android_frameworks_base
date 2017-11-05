@@ -3241,14 +3241,16 @@ public class ConnectivityService extends IConnectivityManager.Stub
             log("reportNetworkConnectivity(" + nai.network.netId + ", " + hasConnectivity +
                     ") by " + uid);
         }
-        synchronized (nai) {
-            // Validating a network that has not yet connected could result in a call to
-            // rematchNetworkAndRequests() which is not meant to work on such networks.
-            if (!nai.everConnected) return;
+        synchronized (mVpns) {
+            synchronized (nai) {
+                // Validating a network that has not yet connected could result in a call to
+                // rematchNetworkAndRequests() which is not meant to work on such networks.
+                if (!nai.everConnected) return;
 
-            if (isNetworkWithLinkPropertiesBlocked(nai.linkProperties, uid, false)) return;
+                if (isNetworkWithLinkPropertiesBlocked(nai.linkProperties, uid, false)) return;
 
-            nai.networkMonitor.sendMessage(NetworkMonitor.CMD_FORCE_REEVALUATION, uid);
+                nai.networkMonitor.sendMessage(NetworkMonitor.CMD_FORCE_REEVALUATION, uid);
+            }
         }
     }
 
