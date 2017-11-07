@@ -29,6 +29,7 @@ import android.net.wifi.ISoftApCallback;
 import android.net.wifi.PasspointManagementObjectDefinition;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiActivityEnergyInfo;
+import android.net.wifi.WifiChannel;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 
@@ -186,5 +187,7 @@ interface IWifiManager
     int setAppProperty(String key, String value);
 
     int setAppPropertyOnDeath(IBinder binder, String key, String value);
+
+    List<WifiChannel> getChannelList();
 }
 
