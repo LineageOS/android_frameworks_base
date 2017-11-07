@@ -16,6 +16,7 @@
 
 package android.net.wifi;
 
+import android.net.wifi.WifiChannel;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.ScanSettings;
@@ -173,5 +174,7 @@ interface IWifiManager
     Network getCurrentNetwork();
 
     boolean getWifiStaSapConcurrency();
+
+    List<WifiChannel> getChannelList();
 }
 
