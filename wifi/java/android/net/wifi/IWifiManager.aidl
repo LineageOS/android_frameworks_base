@@ -176,5 +176,7 @@ interface IWifiManager
     boolean getWifiStaSapConcurrency();
 
     List<WifiChannel> getChannelList();
+
+    void updateChannelList();
 }
 

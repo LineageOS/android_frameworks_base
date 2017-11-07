@@ -2850,4 +2850,11 @@ public class WifiManager {
         catch (RemoteException localRemoteException) {}
         return null;
     }
+
+    public void updateChannelList() {
+        try {
+            mService.updateChannelList();
+        }
+        catch (RemoteException localRemoteException) {}
+    }
 }
