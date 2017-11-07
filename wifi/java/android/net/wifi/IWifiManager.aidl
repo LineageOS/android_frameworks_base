@@ -22,6 +22,7 @@ import android.content.pm.ParceledListSlice;
 import android.net.wifi.hotspot2.OsuProvider;
 import android.net.wifi.hotspot2.PasspointConfiguration;
 
+import android.net.wifi.WifiChannel;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.ScanSettings;
@@ -190,5 +191,7 @@ interface IWifiManager
     int setAppProperty(String key, String value);
 
     int setAppPropertyOnDeath(IBinder binder, String key, String value);
+
+    List<WifiChannel> getChannelList();
 }
 

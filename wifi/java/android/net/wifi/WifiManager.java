@@ -3649,4 +3649,14 @@ public class WifiManager {
     public WifiAppPropertyManager getWifiAppPropertyManager() {
         return new WifiAppPropertyManager();
     }
+
+    /** @hide */
+    public List<WifiChannel> getChannelList() {
+        try {
+            return mService.getChannelList();
+        }
+        catch (RemoteException dummy) {
+            return null;
+        }
+    }
 }
