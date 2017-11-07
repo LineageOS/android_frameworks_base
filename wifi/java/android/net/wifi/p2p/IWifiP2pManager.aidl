@@ -29,5 +29,6 @@ interface IWifiP2pManager
     Messenger getP2pStateMachineMessenger();
     void setMiracastMode(int mode);
     boolean isAutonomousGroupOwner();
+    boolean isAutonomousGroupOwnerInitiated();
 }
 
