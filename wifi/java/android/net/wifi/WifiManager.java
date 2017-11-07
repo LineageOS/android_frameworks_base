@@ -2841,4 +2841,13 @@ public class WifiManager {
     public WifiAppPropertyManager getWifiAppPropertyManager() {
         return new WifiAppPropertyManager();
     }
+
+    public List<WifiChannel> getChannelList() {
+        try {
+            List localList = mService.getChannelList();
+            return localList;
+        }
+        catch (RemoteException localRemoteException) {}
+        return null;
+    }
 }
