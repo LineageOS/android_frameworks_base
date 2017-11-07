@@ -313,7 +313,6 @@ public class MediaScanner
     private Uri mAudioUri;
     private Uri mVideoUri;
     private Uri mImagesUri;
-    private Uri mThumbsUri;
     private Uri mPlaylistsUri;
     private Uri mFilesUri;
     private Uri mFilesUriNoNotify;
@@ -1276,54 +1275,6 @@ public class MediaScanner
         return false;
     }
 
-    private void pruneDeadThumbnailFiles() {
-        HashSet<String> existingFiles = new HashSet<String>();
-        String directory = "/sdcard/DCIM/.thumbnails";
-        String [] files = (new File(directory)).list();
-        Cursor c = null;
-        if (files == null)
-            files = new String[0];
-
-        for (int i = 0; i < files.length; i++) {
-            String fullPathString = directory + "/" + files[i];
-            existingFiles.add(fullPathString);
-        }
-
-        try {
-            c = mMediaProvider.query(
-                    mPackageName,
-                    mThumbsUri,
-                    new String [] { "_data" },
-                    null,
-                    null,
-                    null, null);
-            Log.v(TAG, "pruneDeadThumbnailFiles... " + c);
-            if (c != null && c.moveToFirst()) {
-                do {
-                    String fullPathString = c.getString(0);
-                    existingFiles.remove(fullPathString);
-                } while (c.moveToNext());
-            }
-
-            for (String fileToDelete : existingFiles) {
-                if (false)
-                    Log.v(TAG, "fileToDelete is " + fileToDelete);
-                try {
-                    (new File(fileToDelete)).delete();
-                } catch (SecurityException ex) {
-                }
-            }
-
-            Log.v(TAG, "/pruneDeadThumbnailFiles... " + c);
-        } catch (RemoteException e) {
-            // We will soon be killed...
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-        }
-    }
-
     static class MediaBulkDeleter {
         StringBuilder whereClause = new StringBuilder();
         ArrayList<String> whereArgs = new ArrayList<String>(100);
@@ -1369,9 +1320,6 @@ public class MediaScanner
             processPlayLists();
         }
 
-        if (mOriginalCount == 0 && mImagesUri.equals(Images.Media.getContentUri("external")))
-            pruneDeadThumbnailFiles();
-
         // allow GC to clean up
         mPlayLists = null;
         mMediaProvider = null;
@@ -1391,7 +1339,6 @@ public class MediaScanner
         mAudioUri = Audio.Media.getContentUri(volumeName);
         mVideoUri = Video.Media.getContentUri(volumeName);
         mImagesUri = Images.Media.getContentUri(volumeName);
-        mThumbsUri = Images.Thumbnails.getContentUri(volumeName);
         mFilesUri = Files.getContentUri(volumeName);
         mFilesUriNoNotify = mFilesUri.buildUpon().appendQueryParameter("nonotify", "1").build();
 
