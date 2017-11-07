@@ -189,5 +189,7 @@ interface IWifiManager
     int setAppPropertyOnDeath(IBinder binder, String key, String value);
 
     List<WifiChannel> getChannelList();
+
+    void updateChannelList();
 }
 
