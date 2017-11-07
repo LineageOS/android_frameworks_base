@@ -1501,4 +1501,11 @@ public final class PowerManager {
         return mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_keyboardBrightnessSettingDefault);
     }
+
+    /** @hide */
+    public void powerHint(int hintId, int[] data) {
+        try {
+            mService.powerHint(hintId, data.length > 0 ? data[0] : 0);
+        } catch (RemoteException dummy) {}
+    }
 }
