@@ -2816,4 +2816,31 @@ public class WifiManager {
             throw e.rethrowFromSystemServer();
         }
     }
+
+    /** @hide */
+    public class WifiAppPropertyManager {
+        private final IBinder mBinder = new Binder();
+
+        private WifiAppPropertyManager() {}
+
+        public String getProperty(String paramString) {
+	    return "";
+        }
+
+        public int setProperty(String paramString1, String paramString2) {
+	    return 0;
+        }
+
+        public int setPropertyOnDeath(String paramString1, String paramString2)
+        {
+            synchronized (mBinder) {
+	        return 0;
+            }
+        }
+    }
+
+    /** @hide */
+    public WifiAppPropertyManager getWifiAppPropertyManager() {
+        return new WifiAppPropertyManager();
+    }
 }
