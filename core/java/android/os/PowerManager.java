@@ -1501,4 +1501,15 @@ public final class PowerManager {
         return mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_keyboardBrightnessSettingDefault);
     }
+
+    /**
+     *  powerHint used by some Nvidia devices
+     *  Ignores any bytes of data beyond the first
+     *  @hide
+     */
+    public void powerHint(int hintId, int[] data) {
+        try {
+            mService.powerHint(hintId, data.length > 0 ? data[0] : 0);
+        } catch (RemoteException dummy) {}
+    }
 }
