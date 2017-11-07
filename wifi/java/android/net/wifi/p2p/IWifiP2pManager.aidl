@@ -31,5 +31,6 @@ interface IWifiP2pManager
     void setMiracastMode(int mode);
     void checkConfigureWifiDisplayPermission();
     boolean isAutonomousGroupOwner();
+    boolean isAutonomousGroupOwnerInitiated();
 }
 
