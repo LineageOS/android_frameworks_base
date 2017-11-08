@@ -488,6 +488,10 @@ public final class BluetoothHeadset implements BluetoothProfile {
         close();
     }
 
+    public void finalize() {
+        close();
+    }
+
     /**
      * Initiate connection to a profile of the remote bluetooth device.
      *
