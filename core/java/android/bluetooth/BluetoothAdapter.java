@@ -3497,6 +3497,22 @@ public final class BluetoothAdapter {
         }
     }
 
+    /**
+     * @hide
+     */
+    public void unregisterAdapter() {
+        try {
+            //mServiceLock.writeLock().lock();
+            if (mManagerService != null){
+                mManagerService.unregisterAdapter(mManagerCallback);
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "", e);
+        } finally {
+            //mServiceLock.writeLock().unlock();
+        }
+    }
+
     private Set<BluetoothDevice> toDeviceSet(List<BluetoothDevice> devices) {
         Set<BluetoothDevice> deviceSet = new HashSet<BluetoothDevice>(devices);
         return Collections.unmodifiableSet(deviceSet);
