@@ -1154,7 +1154,7 @@ public class RecentsView extends FrameLayout {
         mFloatingButton = ((View)getParent()).findViewById(R.id.floating_action_button);
         mClearRecents = (ImageButton) ((View)getParent()).findViewById(R.id.clear_recents);
         showClearAllRecents = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.SHOW_CLEAR_ALL_RECENTS, 1, UserHandle.USER_CURRENT) != 0;
+                Settings.System.SHOW_CLEAR_ALL_RECENTS, 0, UserHandle.USER_CURRENT) != 0;
          }
      }
 }
