@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e3baef3_26cbe848",
+        "filename": "services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6553,
+      "author": {
+        "id": 15644
+      },
+      "writtenOn": "2017-11-10T17:41:16Z",
+      "side": 1,
+      "message": "Used mContext instead of mInjector.",
+      "range": {
+        "startLine": 6553,
+        "startChar": 0,
+        "endLine": 6553,
+        "endChar": 75
+      },
+      "revId": "68f04c49c17820aefc5e41ee4fd6aee5e82b6d26",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
