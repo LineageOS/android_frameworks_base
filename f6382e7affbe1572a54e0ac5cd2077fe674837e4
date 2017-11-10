@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a2c84aa_bc9ba805",
+        "filename": "services/core/java/com/android/server/content/SyncStorageEngine.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 15644
+      },
+      "writtenOn": "2017-11-10T17:40:14Z",
+      "side": 1,
+      "message": "Removed part with MATCH_DIRECT_BOOT_AWARE and MATCH_DIRECT_BOOT_UNAWARE, which added with API level 24. Is there a similar flag for MM?",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 473,
+        "endChar": 16
+      },
+      "revId": "f6382e7affbe1572a54e0ac5cd2077fe674837e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
