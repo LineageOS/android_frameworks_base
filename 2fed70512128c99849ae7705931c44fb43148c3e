@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a88fccc9_eff01010",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3261,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-11-10T14:10:55Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 3261,
+        "startChar": 8,
+        "endLine": 3261,
+        "endChar": 44
+      },
+      "revId": "2fed70512128c99849ae7705931c44fb43148c3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01b98447_b9c7e84f",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3263,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-11-10T14:10:55Z",
+      "side": 1,
+      "message": "use 0 directly here",
+      "range": {
+        "startLine": 3263,
+        "startChar": 68,
+        "endLine": 3263,
+        "endChar": 89
+      },
+      "revId": "2fed70512128c99849ae7705931c44fb43148c3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
