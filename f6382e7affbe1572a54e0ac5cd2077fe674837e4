@@ -22,6 +22,30 @@
       "revId": "f6382e7affbe1572a54e0ac5cd2077fe674837e4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "054ee9d0_6146bbb9",
+        "filename": "services/core/java/com/android/server/content/SyncStorageEngine.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2017-11-13T18:07:56Z",
+      "side": 1,
+      "message": "Causes to hang during boot (entering encrypt pw works, afterwards stuck with boot animation). Seems the code must be activated and we need to indeed come with a \"fitting\" boolean expression for authorityMap.put(authority, \u003cbool expression\u003e)",
+      "parentUuid": "6a2c84aa_bc9ba805",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 473,
+        "endChar": 16
+      },
+      "revId": "f6382e7affbe1572a54e0ac5cd2077fe674837e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
