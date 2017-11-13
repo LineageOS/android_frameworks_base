@@ -16,6 +16,24 @@
       "revId": "ac8f3a2ea0a97e741ac81d46bd371f24b446a171",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31e1a64c_84bda48f",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-11-13T04:44:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5be8e89b_3954e924",
+      "revId": "ac8f3a2ea0a97e741ac81d46bd371f24b446a171",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
