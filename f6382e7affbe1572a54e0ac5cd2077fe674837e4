@@ -46,6 +46,30 @@
       "revId": "f6382e7affbe1572a54e0ac5cd2077fe674837e4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "388c64f4_95e5363a",
+        "filename": "services/core/java/com/android/server/content/SyncStorageEngine.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2017-11-13T18:54:04Z",
+      "side": 1,
+      "message": "I suggest to uncomment and to replace the \"PackageManager.MATCH_DIRECT_BOOT_AWARE                               | PackageManager.MATCH_DIRECT_BOOT_UNAWARE\" expression with  0, so the boolean expression simply would answer the question \"is there a content provider for this user?\", since direct boot etc. is an \"N\" functionality and even in \"N\", this code simply would like to express \"don\u0027t care about direct boot!\"",
+      "parentUuid": "054ee9d0_6146bbb9",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 473,
+        "endChar": 16
+      },
+      "revId": "f6382e7affbe1572a54e0ac5cd2077fe674837e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
