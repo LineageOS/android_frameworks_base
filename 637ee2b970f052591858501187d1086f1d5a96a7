@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ae6bcd9_7d9d8fcc",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 4667,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-11-14T04:17:53Z",
+      "side": 1,
+      "message": "Is this outdated? If not, shouldn\u0027t it also be an annotation?",
+      "range": {
+        "startLine": 4667,
+        "startChar": 4,
+        "endLine": 4667,
+        "endChar": 32
+      },
+      "revId": "637ee2b970f052591858501187d1086f1d5a96a7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
