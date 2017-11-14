@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bbbcaeb_0c0336af",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-11-14T23:48:40Z",
+      "side": 1,
+      "message": "To be moved to our custom manifest.",
+      "range": {
+        "startLine": 547,
+        "startChar": 4,
+        "endLine": 548,
+        "endChar": 91
+      },
+      "revId": "69535d78b371e0f674ec0b409292e107d20c12ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
