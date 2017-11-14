@@ -22,6 +22,30 @@
       "revId": "637ee2b970f052591858501187d1086f1d5a96a7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7d051db_163b283f",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 4667,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-11-14T04:28:43Z",
+      "side": 1,
+      "message": "Ha, I\u0027m not sure at which point this went into our lights commits but it can be removed.\n\nLooks like it\u0027s origins are in cupcake though ;-)\nhttps://android.googlesource.com/platform/frameworks/base/+/9066cfe9886ac131c34d59ed0e2d287b0e3c0087/services/java/com/android/server/NotificationManagerService.java#830",
+      "parentUuid": "9ae6bcd9_7d9d8fcc",
+      "range": {
+        "startLine": 4667,
+        "startChar": 4,
+        "endLine": 4667,
+        "endChar": 32
+      },
+      "revId": "637ee2b970f052591858501187d1086f1d5a96a7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
