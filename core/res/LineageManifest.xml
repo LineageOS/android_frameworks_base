@@ -25,4 +25,5 @@
     <permission android:name="android.permission.PREVENT_POWER_KEY"
         android:protectionLevel="signature|privileged" />
 
+    <protected-broadcast android:name="lineageos.intent.action.LID_STATE_CHANGED" />
 </manifest>
