@@ -22,6 +22,30 @@
       "revId": "69535d78b371e0f674ec0b409292e107d20c12ca",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bf907f1_985c03ca",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-11-15T00:15:27Z",
+      "side": 1,
+      "message": "Actually, this gerrit is basically done (although I see I need to push up my rebase since r30).  It\u0027s just blocked on the parts button settings side.  I hardcoded the timeout to 60s for now so that it can used locally in the meantime.\n\nI\u0027ll move it.",
+      "parentUuid": "1bbbcaeb_0c0336af",
+      "range": {
+        "startLine": 547,
+        "startChar": 4,
+        "endLine": 548,
+        "endChar": 91
+      },
+      "revId": "69535d78b371e0f674ec0b409292e107d20c12ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
