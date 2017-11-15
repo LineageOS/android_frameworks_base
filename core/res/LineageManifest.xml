@@ -25,4 +25,7 @@
     <permission android:name="android.permission.PREVENT_POWER_KEY"
         android:protectionLevel="signature|privileged" />
 
+    <!-- Used to launch a common app (FlipFlap) for devices with flip cover. -->
+    <protected-broadcast android:name="lineageos.intent.action.LID_STATE_CHANGED" />
+
 </manifest>
