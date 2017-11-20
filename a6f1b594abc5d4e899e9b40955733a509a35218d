@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e106fb13_ad116596",
+        "filename": "core/java/com/android/internal/app/PlatLogoActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-11-20T08:33:42Z",
+      "side": 1,
+      "message": "Needs copyright",
+      "revId": "a6f1b594abc5d4e899e9b40955733a509a35218d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "271bc245_84da7299",
+        "filename": "core/res/res/values/cm_symbols.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-11-20T08:33:42Z",
+      "side": 1,
+      "message": "Needs \"Copyright (C)\"",
+      "range": {
+        "startLine": 5,
+        "startChar": 4,
+        "endLine": 5,
+        "endChar": 46
+      },
+      "revId": "a6f1b594abc5d4e899e9b40955733a509a35218d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
