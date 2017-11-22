@@ -1265,6 +1265,7 @@ public class NotificationManagerService extends SystemService {
                         new Intent(NotificationManager.ACTION_INTERRUPTION_FILTER_CHANGED_INTERNAL)
                                 .addFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY_BEFORE_BOOT),
                         UserHandle.ALL, android.Manifest.permission.MANAGE_NOTIFICATIONS);
+                mLineageNotificationLights.setZenMode(mZenModeHelper.getZenMode());
                 synchronized (mNotificationLock) {
                     updateInterruptionFilterLocked();
                 }
@@ -4114,7 +4115,7 @@ public class NotificationManagerService extends SystemService {
         // release the light
         boolean wasShowLights = mLights.remove(key);
         if (record.getLight() != null
-                && (aboveThreshold || isLedNotificationForcedOn(record))) {
+                && (aboveThreshold || isLedForcedOn(record))) {
             mLights.add(key);
             updateLightsLocked();
             if (mUseAttentionLight) {
@@ -5044,13 +5045,9 @@ public class NotificationManagerService extends SystemService {
         }
 
         LedValues ledValues = new LedValues(light.color, light.onMs, light.offMs);
-        final String packageName = ledNotification.sbn.getPackageName();
-        final boolean defaultLights =
-                (ledNotification.sbn.getNotification().defaults
-                        & Notification.DEFAULT_LIGHTS) != 0;
-        mLineageNotificationLights.calcLights(ledValues, packageName,
-                isLedNotificationForcedOn(ledNotification), mScreenOn,
-                mInCall, defaultLights, ledNotification.getSuppressedVisualEffects());
+        mLineageNotificationLights.calcLights(ledValues, ledNotification.sbn.getPackageName(),
+                ledNotification.sbn.getNotification(), mScreenOn || mInCall,
+                ledNotification.getSuppressedVisualEffects());
 
         if (!ledValues.isEnabled()) {
             mNotificationLight.turnOff();
@@ -5061,14 +5058,9 @@ public class NotificationManagerService extends SystemService {
         }
     }
 
-    private boolean isLedNotificationForcedOn(NotificationRecord nr) {
-        if (nr != null) {
-            final Notification n = nr.sbn.getNotification();
-            if (n.extras != null) {
-                return n.extras.getBoolean(Notification.EXTRA_FORCE_SHOW_LIGHTS, false);
-            }
-        }
-        return false;
+    private boolean isLedForcedOn(NotificationRecord nr) {
+        return nr != null ?
+                mLineageNotificationLights.isForcedOn(nr.sbn.getNotification()) : false;
     }
 
     @GuardedBy("mNotificationLock")
