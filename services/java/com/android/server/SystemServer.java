@@ -738,6 +738,8 @@ public final class SystemServer {
         boolean disableCameraService = SystemProperties.getBoolean("config.disable_cameraservice",
                 false);
         boolean enableLeftyService = SystemProperties.getBoolean("config.enable_lefty", false);
+        boolean disableSoundTrigger = SystemProperties.getBoolean("config.disable_soundtrigger",
+                false);
 
         boolean isEmulator = SystemProperties.get("ro.kernel.qemu").equals("1");
 
@@ -1318,9 +1320,11 @@ public final class SystemServer {
             mSystemServiceManager.startService(JobSchedulerService.class);
             traceEnd();
 
-            traceBeginAndSlog("StartSoundTrigger");
-            mSystemServiceManager.startService(SoundTriggerService.class);
-            traceEnd();
+            if (!disableSoundTrigger) {
+                traceBeginAndSlog("StartSoundTrigger");
+                mSystemServiceManager.startService(SoundTriggerService.class);
+                traceEnd();
+            }
 
             if (!disableNonCoreServices) {
                 if (!disableTrustManager) {
