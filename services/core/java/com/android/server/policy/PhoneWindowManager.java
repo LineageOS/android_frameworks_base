@@ -301,6 +301,8 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.lineageos.internal.buttons.LineageButtons;
+
 import dalvik.system.PathClassLoader;
 
 /**
@@ -830,6 +832,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private boolean mAodShowing;
 
     private final List<DeviceKeyHandler> mDeviceKeyHandlers = new ArrayList<>();
+    private LineageButtons mLineageButtons;
 
     private static final int MSG_ENABLE_POINTER_LOCATION = 1;
     private static final int MSG_DISABLE_POINTER_LOCATION = 2;
@@ -6288,6 +6291,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         break;
                     }
                 }
+
+                if (mLineageButtons.handleVolumeKey(event, interactive))
+                    break;
+
                 if (mUseTvRouting || mHandleVolumeKeysInWM) {
                     // Defer special key handlings to
                     // {@link interceptKeyBeforeDispatching()}.
@@ -7730,6 +7737,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
         }
 
+        mLineageButtons = new LineageButtons(mContext);
         mSystemGestures.systemReady();
         mImmersiveModeConfirmation.systemReady();
 
