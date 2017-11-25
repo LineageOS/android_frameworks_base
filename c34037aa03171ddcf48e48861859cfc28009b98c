@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f52a8a16_0c03dd76",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2017-11-25T23:33:34Z",
+      "side": 1,
+      "message": "Has to be hard-coded ? At least a final String would be cleaner imo. But if meant to reduce code impact for bringups.. Ok.",
+      "revId": "c34037aa03171ddcf48e48861859cfc28009b98c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
