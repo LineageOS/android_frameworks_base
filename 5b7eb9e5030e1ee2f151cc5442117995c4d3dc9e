@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "057c133e_03c0c23a",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2017-11-25T23:29:50Z",
+      "side": 1,
+      "message": "Double indents on line breaks",
+      "revId": "5b7eb9e5030e1ee2f151cc5442117995c4d3dc9e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdee2290_440563fb",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2017-11-25T23:29:50Z",
+      "side": 1,
+      "message": "Use a ternary operator on a !var doesn\u0027t make much sense, better reverse the results and use mAutomatic ? ... : ...",
+      "revId": "5b7eb9e5030e1ee2f151cc5442117995c4d3dc9e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65beb594_3d6b9e8e",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2017-11-25T23:29:50Z",
+      "side": 1,
+      "message": "The double indent + one for the ternary break",
+      "revId": "5b7eb9e5030e1ee2f151cc5442117995c4d3dc9e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
