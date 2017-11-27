@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.Display;
 import com.android.internal.inputmethod.InputMethodSubtypeHandle;
 import com.android.internal.os.SomeArgs;
+import com.android.internal.os.DeviceSwitchHandler;
 import com.android.internal.R;
 import com.android.internal.util.Preconditions;
 import com.android.internal.util.XmlUtils;
@@ -107,6 +108,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -116,6 +118,8 @@ import java.util.List;
 import java.util.Locale;
 
 import cyanogenmod.providers.CMSettings;
+
+import dalvik.system.PathClassLoader;
 
 import libcore.io.IoUtils;
 import libcore.io.Streams;
@@ -305,6 +309,8 @@ public class InputManagerService extends IInputManager.Stub
     /** Whether to use the dev/input/event or uevent subsystem for the audio jack. */
     final boolean mUseDevInputEventForAudioJack;
 
+    private final List<DeviceSwitchHandler> mDeviceSwitchHandlers = new ArrayList<>();
+
     public InputManagerService(Context context) {
         this.mContext = context;
         this.mHandler = new InputManagerHandler(DisplayThread.get().getLooper());
@@ -321,6 +327,27 @@ public class InputManagerService extends IInputManager.Stub
             new File(doubleTouchGestureEnablePath);
 
         LocalServices.addService(InputManagerInternal.class, new LocalService());
+
+        final Resources res = mContext.getResources();
+        final String[] deviceSwitchHandlerLibs = res.getStringArray(
+                org.lineageos.platform.internal.R.array.config_deviceSwitchHandlerLibs);
+        final String[] deviceSwitchHandlerClasses = res.getStringArray(
+                org.lineageos.platform.internal.R.array.config_deviceSwitchHandlerClasses);
+
+        for (int i = 0;
+                i < deviceSwitchHandlerLibs.length && i < deviceSwitchHandlerClasses.length; i++) {
+            try {
+                PathClassLoader loader = new PathClassLoader(
+                        deviceSwitchHandlerLibs[i], getClass().getClassLoader());
+                Class<?> klass = loader.loadClass(deviceSwitchHandlerClasses[i]);
+                Constructor<?> constructor = klass.getConstructor(Context.class);
+                mDeviceSwitchHandlers.add((DeviceSwitchHandler) constructor.newInstance(mContext));
+            } catch (Exception e) {
+                Slog.w(TAG, "Could not instantiate device switch handler "
+                        + deviceSwitchHandlerLibs[i] + " from class "
+                        + deviceSwitchHandlerClasses[i], e);
+            }
+        }
     }
 
     public void setWindowManagerCallbacks(WindowManagerCallbacks callbacks) {
@@ -1938,6 +1965,14 @@ public class InputManagerService extends IInputManager.Stub
             args.arg1 = Boolean.valueOf((switchValues & SW_TABLET_MODE_BIT) != 0);
             mHandler.obtainMessage(MSG_DELIVER_TABLET_MODE_CHANGED,
                     args).sendToTarget();
+        }
+
+        for (DeviceSwitchHandler handler : mDeviceSwitchHandlers) {
+            try {
+                handler.handleSwitchEvent(switchValues, switchMask);
+            }
+                Slog.w(TAG, "Could not dispatch event to device switch handler", e);
+            }
         }
     }
 
