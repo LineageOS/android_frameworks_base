@@ -16,6 +16,24 @@
       "revId": "6083936178f0ed4d59cabec905f676f3ca60f3ad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e44d456b_9ec81d0d",
+        "filename": "services/core/java/com/android/server/notification/ZenModeHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 13897
+      },
+      "writtenOn": "2017-11-28T23:20:26Z",
+      "side": 1,
+      "message": "No, I just wanted to initialize the value to its real default value. I guess I\u0027ll remove this, for consistency.",
+      "parentUuid": "4b287842_9e2fda05",
+      "revId": "6083936178f0ed4d59cabec905f676f3ca60f3ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
