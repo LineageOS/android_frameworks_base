@@ -105,7 +105,7 @@ public class ZenModeHelper {
     private AudioManagerInternal mAudioManager;
     private PackageManager mPm;
     private long mSuppressedEffects;
-    private boolean mAllowLights;
+    private boolean mAllowLights = true;
     private int mVibrationMode;
 
     public static final long SUPPRESSED_EFFECT_NOTIFICATIONS = 1;
@@ -751,6 +751,8 @@ public class ZenModeHelper {
                 mAllowLights = CMSettings.System.getInt(mContext.getContentResolver(),
                    CMSettings.System.ZEN_PRIORITY_ALLOW_LIGHTS, 1) == 1;
                 break;
+            default:
+                mAllowLights = true;
         }
     }
 
