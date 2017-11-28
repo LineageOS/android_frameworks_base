@@ -305,12 +305,12 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
             Uri uri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
             // Create a share intent
-            String subjectDate = DateFormat.getDateTimeInstance().format(new Date(mImageTime));
-            String subject = String.format(SCREENSHOT_SHARE_SUBJECT_TEMPLATE, subjectDate);
+            /*String subjectDate = DateFormat.getDateTimeInstance().format(new Date(mImageTime));
+            String subject = String.format(SCREENSHOT_SHARE_SUBJECT_TEMPLATE, subjectDate);*/
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("image/png");
             sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
-            sharingIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+            //sharingIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
 
             // Create a share action for the notification. Note, we proxy the call to ShareReceiver
             // because RemoteViews currently forces an activity options on the PendingIntent being
