@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b287842_9e2fda05",
+        "filename": "services/core/java/com/android/server/notification/ZenModeHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-11-28T23:13:43Z",
+      "side": 1,
+      "message": "Is this change strictly necessary ?  It looks like readAllowLightsFromSettings() is called when the ZenModeHelper is started.",
+      "revId": "6083936178f0ed4d59cabec905f676f3ca60f3ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
