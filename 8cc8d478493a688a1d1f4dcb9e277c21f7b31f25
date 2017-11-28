@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e792a400_a6ddbdaa",
+        "filename": "packages/SystemUI/res/values/cm_dimens.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-11-28T23:21:16Z",
+      "side": 1,
+      "message": "None of these res belongs to this patch. Only the one that has been removed:\n\ndimen name\u003d\"recents_task_view_header_lock_button_padding\"\u003e48dp\u003c/dimen\u003e",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 74
+      },
+      "revId": "8cc8d478493a688a1d1f4dcb9e277c21f7b31f25",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
