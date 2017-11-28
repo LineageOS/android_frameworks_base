@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62e5c585_830603a6",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardPINView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-11-28T05:47:38Z",
+      "side": 1,
+      "message": "java imports should be below lineageos import.",
+      "revId": "08260f3da8985806767833b286ec9fcc966d8809",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
