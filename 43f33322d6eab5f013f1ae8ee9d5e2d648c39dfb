@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b765753_f6b4c84a",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-11-29T15:34:26Z",
+      "side": 0,
+      "message": "IMO you keep the original code and just add is lineage usecase",
+      "range": {
+        "startLine": 278,
+        "startChar": 12,
+        "endLine": 278,
+        "endChar": 79
+      },
+      "revId": "43f33322d6eab5f013f1ae8ee9d5e2d648c39dfb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
