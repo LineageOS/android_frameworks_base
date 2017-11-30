@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8735240f_3d83da83",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-11-30T16:50:15Z",
+      "side": 1,
+      "message": "Could be moved into PowerMenuConstants.",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 60
+      },
+      "revId": "fd9aef881b6d3338aee802c06d3f33d7aed80982",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75c78ebe_a897d7d4",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-11-30T16:50:15Z",
+      "side": 1,
+      "message": "We could use GLOBAL_ACTION_KEY_RESTART here.",
+      "range": {
+        "startLine": 177,
+        "startChar": 39,
+        "endLine": 177,
+        "endChar": 48
+      },
+      "revId": "fd9aef881b6d3338aee802c06d3f33d7aed80982",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b746bea6_02b2fdc7",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-11-30T16:50:15Z",
+      "side": 1,
+      "message": "Could be moved into PowerMenuConstants. Something like GLOBAL_ACTION_KEY_SOFT_RESTART.",
+      "range": {
+        "startLine": 232,
+        "startChar": 69,
+        "endLine": 232,
+        "endChar": 80
+      },
+      "revId": "fd9aef881b6d3338aee802c06d3f33d7aed80982",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
