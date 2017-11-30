@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51acc3c9_dd668b10",
+        "filename": "core/res/res/values/symbols.xml",
+        "patchSetId": 27
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-11-30T12:40:30Z",
+      "side": 1,
+      "message": "These are all our additions. Is there any reason to add some here and others into cm_symbols.xml?",
+      "range": {
+        "startLine": 866,
+        "startChar": 0,
+        "endLine": 867,
+        "endChar": 54
+      },
+      "revId": "19baf610bd17e0f13d2866e713ceac7a80c3c67f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b55b9927_962ac998",
+        "filename": "core/res/res/values/symbols.xml",
+        "patchSetId": 27
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-11-30T12:40:30Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1555,
+        "startChar": 0,
+        "endLine": 1556,
+        "endChar": 61
+      },
+      "revId": "19baf610bd17e0f13d2866e713ceac7a80c3c67f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2546bbd1_ec28f611",
+        "filename": "core/res/res/values/symbols.xml",
+        "patchSetId": 27
+      },
+      "lineNbr": 3048,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-11-30T12:40:30Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 3044,
+        "startChar": 0,
+        "endLine": 3048,
+        "endChar": 53
+      },
+      "revId": "19baf610bd17e0f13d2866e713ceac7a80c3c67f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
