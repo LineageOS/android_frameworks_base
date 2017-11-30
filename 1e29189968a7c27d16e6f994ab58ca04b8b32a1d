@@ -22,6 +22,30 @@
       "revId": "1e29189968a7c27d16e6f994ab58ca04b8b32a1d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34188eb4_201a5380",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-11-30T17:01:33Z",
+      "side": 1,
+      "message": "_NUM_OP is an int though.\n\nI don\u0027t think a null test is needed here.  Every OP must have a string; there\u0027s a check and throw for this earlier on line 1061.  But I think you were likely asking from the perspective of expecting _NUM_OP to be an iterable.",
+      "parentUuid": "2cde6137_43c80518",
+      "range": {
+        "startLine": 1095,
+        "startChar": 13,
+        "endLine": 1095,
+        "endChar": 36
+      },
+      "revId": "1e29189968a7c27d16e6f994ab58ca04b8b32a1d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
