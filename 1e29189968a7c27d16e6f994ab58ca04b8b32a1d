@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cde6137_43c80518",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-11-30T03:31:09Z",
+      "side": 1,
+      "message": "for (int op : NUM_OP) {\n\nalso, is the null check like above necessary?",
+      "range": {
+        "startLine": 1095,
+        "startChar": 13,
+        "endLine": 1095,
+        "endChar": 36
+      },
+      "revId": "1e29189968a7c27d16e6f994ab58ca04b8b32a1d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
