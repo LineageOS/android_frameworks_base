@@ -282,7 +282,9 @@ public class TaskViewHeader extends FrameLayout
         lp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.START | Gravity.CENTER_VERTICAL);
         lp.setMarginStart(mHeaderBarHeight);
-        lp.setMarginEnd(mMoveTaskButton != null
+        lp.setMarginEnd(secondaryButton != null && tertiaryButton != null
+                ? 3 * mHeaderBarHeight
+                : secondaryButton != null || tertiaryButton != null
                 ? 2 * mHeaderBarHeight
                 : mHeaderBarHeight);
         title.setLayoutParams(lp);
