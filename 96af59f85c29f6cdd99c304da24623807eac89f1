@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b95aa54d_13049b3a",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-11-30T03:37:11Z",
+      "side": 1,
+      "message": "You could probably also try/catch earlier if RemoteException is caught (since you\u0027re re-throwing anyway in the case of failure) to avoid unnecessarily changing a lot of the code below.",
+      "range": {
+        "startLine": 288,
+        "startChar": 12,
+        "endLine": 288,
+        "endChar": 17
+      },
+      "revId": "96af59f85c29f6cdd99c304da24623807eac89f1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
