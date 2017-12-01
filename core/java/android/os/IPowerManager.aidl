@@ -127,4 +127,6 @@ interface IPowerManager
     const int GO_TO_SLEEP_REASON_MAX = 10;
     const int GO_TO_SLEEP_FLAG_NO_DOZE = 1 << 0;
 
+    // Lineage custom API
+    void wakeUpWithProximityCheck(long time, int reason, String details, String opPackageName);
 }
