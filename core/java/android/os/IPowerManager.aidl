@@ -69,6 +69,7 @@ interface IPowerManager
 
     @UnsupportedAppUsage
     void reboot(boolean confirm, String reason, boolean wait);
+    void rebootCustom(boolean confirm, String reason, boolean wait);
     void rebootSafeMode(boolean confirm, boolean wait);
     void shutdown(boolean confirm, String reason, boolean wait);
     void crash(String message);
@@ -97,4 +98,7 @@ interface IPowerManager
 
     // Forces the system to suspend even if there are held wakelocks.
     boolean forceSuspend();
+
+    // Lineage custom API
+    void wakeUpWithProximityCheck(long time, int reason, String details, String opPackageName);
 }
