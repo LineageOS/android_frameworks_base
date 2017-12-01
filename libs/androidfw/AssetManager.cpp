@@ -439,7 +439,7 @@ String8 AssetManager::getPkgName(const char *apkPath) {
 
         }
 
-        manifestAsset->close();
+        delete manifestAsset;
         return pkgName;
     }
 
