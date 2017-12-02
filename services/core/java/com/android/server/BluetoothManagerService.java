@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2013-2014, The Linux Foundation. All rights reserved.
+ * Not a Contribution.
+ *
  * Copyright (C) 2012 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,6 +22,7 @@ package com.android.server;
 import android.Manifest;
 import android.app.ActivityManager;
 import android.app.AppGlobals;
+import android.app.AppOpsManager;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.IBluetooth;
@@ -839,6 +843,12 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                     " mBinding = " + mBinding + " mState = " +
                     BluetoothAdapter.nameForState(mState));
         }
+
+        AppOpsManager appOps = (AppOpsManager) mContext
+                .getSystemService(Context.APP_OPS_SERVICE);
+        if (appOps.noteOp(AppOpsManager.OP_BLUETOOTH_CHANGE, callingUid,
+                packageName) != AppOpsManager.MODE_ALLOWED)
+            return false;
 
         synchronized(mReceiver) {
             mQuietEnableExternal = false;
