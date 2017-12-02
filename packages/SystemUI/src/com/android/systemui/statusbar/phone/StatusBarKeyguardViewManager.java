@@ -321,6 +321,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             mStatusBar.updateMediaMetaData(false, animate && !occluded);
         }
         mStatusBarWindowManager.setKeyguardOccluded(occluded);
+        mStatusBar.getVisualizer().setOccluded(occluded);
 
         // If Keyguard is reshown, don't hide the bouncer as it might just have been requested by
         // a FLAG_DISMISS_KEYGUARD_ACTIVITY.
