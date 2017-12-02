@@ -168,6 +168,8 @@ import com.android.server.wm.AppWindowContainerController;
 import com.android.server.wm.AppWindowContainerListener;
 import com.android.server.wm.TaskWindowContainerController;
 
+import lineageos.providers.LineageSettings;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
@@ -1743,6 +1745,33 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
             // the keyguard is not showing don't attempt to sleep. Otherwise the Activity will
             // pause and then resume again later, which will result in a double life-cycle event.
             stack.checkReadyForSleep();
+        }
+
+        updatePrivacyGuardNotificationLocked();
+    }
+
+    private final void updatePrivacyGuardNotificationLocked() {
+        String privacyGuardPackageName = mStackSupervisor.mPrivacyGuardPackageName;
+        if (privacyGuardPackageName != null && privacyGuardPackageName.equals(this.packageName)) {
+            return;
+        }
+
+        boolean privacy = service.mAppOpsService.getPrivacyGuardSettingForPackage(
+                this.app.uid, this.packageName);
+        boolean privacyNotification = (LineageSettings.Secure.getInt(
+                service.mContext.getContentResolver(),
+                LineageSettings.Secure.PRIVACY_GUARD_NOTIFICATION, 1) == 1);
+
+        if (privacyGuardPackageName != null && !privacy) {
+            Message msg = service.mHandler.obtainMessage(
+                    ActivityManagerService.CANCEL_PRIVACY_NOTIFICATION_MSG, this.userId);
+            msg.sendToTarget();
+            mStackSupervisor.mPrivacyGuardPackageName = null;
+        } else if (privacy && privacyNotification) {
+            Message msg = service.mHandler.obtainMessage(
+                    ActivityManagerService.POST_PRIVACY_NOTIFICATION_MSG, this);
+            msg.sendToTarget();
+            mStackSupervisor.mPrivacyGuardPackageName = this.packageName;
         }
     }
 
