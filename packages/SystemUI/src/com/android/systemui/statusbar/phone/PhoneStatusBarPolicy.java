@@ -80,6 +80,7 @@ import com.android.systemui.statusbar.policy.LocationController.LocationChangeCa
 import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.RotationLockController;
 import com.android.systemui.statusbar.policy.RotationLockController.RotationLockControllerCallback;
+import com.android.systemui.statusbar.policy.SuController;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.util.NotificationChannels;
@@ -112,6 +113,7 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
     private final String mSlotHeadset;
     private final String mSlotDataSaver;
     private final String mSlotLocation;
+    private final String mSlotSu;
 
     private final Context mContext;
     private final Handler mHandler = new Handler();
@@ -130,6 +132,7 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
     private final LocationController mLocationController;
     private final ArraySet<Pair<String, Integer>> mCurrentNotifs = new ArraySet<>();
     private final UiOffloadThread mUiOffloadThread = Dependency.get(UiOffloadThread.class);
+    private final SuController mSuController;
 
     // Assume it's all good unless we hear otherwise.  We don't always seem
     // to get broadcasts that it *is* there.
@@ -161,6 +164,7 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         mProvisionedController = Dependency.get(DeviceProvisionedController.class);
         mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
         mLocationController = Dependency.get(LocationController.class);
+        mSuController = Dependency.get(SuController.class);
 
         mSlotCast = context.getString(com.android.internal.R.string.status_bar_cast);
         mSlotHotspot = context.getString(com.android.internal.R.string.status_bar_hotspot);
@@ -175,6 +179,7 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         mSlotHeadset = context.getString(com.android.internal.R.string.status_bar_headset);
         mSlotDataSaver = context.getString(com.android.internal.R.string.status_bar_data_saver);
         mSlotLocation = context.getString(com.android.internal.R.string.status_bar_location);
+        mSlotSu = context.getString(com.android.internal.R.string.status_bar_su);
 
         // listen for broadcasts
         IntentFilter filter = new IntentFilter();
@@ -223,6 +228,11 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         mIconController.setIcon(mSlotHotspot, R.drawable.stat_sys_hotspot,
                 mContext.getString(R.string.accessibility_status_bar_hotspot));
         mIconController.setIconVisibility(mSlotHotspot, mHotspot.isHotspotEnabled());
+
+        // su
+        mIconController.setIcon(mSlotSu, R.drawable.stat_sys_su, null);
+        mIconController.setIconVisibility(mSlotSu, false);
+        mSuController.addCallback(mSuCallback);
 
         // managed profile
         mIconController.setIcon(mSlotManagedProfile, R.drawable.stat_sys_managed_profile_status,
@@ -656,6 +666,10 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         }
     };
 
+    private void updateSu() {
+        mIconController.setIconVisibility(mSlotSu, mSuController.hasActiveSessions());
+    }
+
     private final CastController.Callback mCastCallback = new CastController.Callback() {
         @Override
         public void onCastDevicesChanged() {
@@ -771,6 +785,13 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         public void run() {
             if (DEBUG) Log.v(TAG, "updateCast: hiding icon NOW");
             mIconController.setIconVisibility(mSlotCast, false);
+        }
+    };
+
+    private final SuController.Callback mSuCallback = new SuController.Callback() {
+        @Override
+        public void onSuSessionsChanged() {
+            updateSu();
         }
     };
 }

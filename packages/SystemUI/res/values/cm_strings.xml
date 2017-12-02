@@ -27,6 +27,9 @@
     <!-- Content description for Accessibility on locked tasks in recents -->
     <string name="accessibility_unlock_task">Allow <xliff:g id="task">%1$s</xliff:g> to be dismissed</string>
 
+    <!-- Content description of the superuser tile -->
+    <string name="accessibility_su_active">Superuser session active</string>
+
     <!-- ADB over network QS tile -->
     <string name="quick_settings_network_adb_label">ADB over network</string>
 
