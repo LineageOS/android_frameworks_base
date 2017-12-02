@@ -240,6 +240,8 @@ import android.util.jar.StrictJarFile;
 import android.util.proto.ProtoOutputStream;
 import android.view.Display;
 
+import lineageos.providers.LineageSettings;
+
 import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.app.IMediaContainerService;
@@ -1213,6 +1215,8 @@ public class PackageManagerService extends IPackageManager.Stub
 
     ArrayList<ComponentName> mDisabledComponentsList;
 
+    private AppOpsManager mAppOps;
+
     // Set of pending broadcasts for aggregating enable/disable of components.
     static class PendingPackageBroadcasts {
         // for each user id, a map of <package name -> components within that package>
@@ -2037,6 +2041,18 @@ public class PackageManagerService extends IPackageManager.Stub
                 }
             }
 
+            if (!update && !isSystemApp(res.pkg)) {
+                boolean privacyGuard = LineageSettings.Secure.getIntForUser(
+                        mContext.getContentResolver(),
+                        LineageSettings.Secure.PRIVACY_GUARD_DEFAULT,
+                        0, UserHandle.USER_CURRENT) == 1;
+                if (privacyGuard) {
+                    mAppOps.setPrivacyGuardSettingForPackage(
+                    res.pkg.applicationInfo.uid,
+                    res.pkg.applicationInfo.packageName, true);
+                }
+            }
+
             // Log current value of "unknown sources" setting
             EventLog.writeEvent(EventLogTags.UNKNOWN_SOURCES_ENABLED,
                     getUnknownSourcesSettings());
@@ -2405,6 +2421,8 @@ public class PackageManagerService extends IPackageManager.Stub
                 ApplicationInfo.FLAG_SYSTEM, ApplicationInfo.PRIVATE_FLAG_PRIVILEGED);
         mSettings.addSharedUserLPw("android.uid.shell", SHELL_UID,
                 ApplicationInfo.FLAG_SYSTEM, ApplicationInfo.PRIVATE_FLAG_PRIVILEGED);
+
+        mAppOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
 
         String separateProcesses = SystemProperties.get("debug.separate_processes");
         if (separateProcesses != null && separateProcesses.length() > 0) {
