@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07e28529_a5938b1b",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-03T10:24:16Z",
+      "side": 1,
+      "message": "Could be moved to LineageAndroidManifest.xml.",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 83
+      },
+      "revId": "fa307efba70af382db9c13af833fedd115f1ac5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b0a7770_fa9b96ce",
+        "filename": "services/core/java/com/android/server/am/ActivityStack.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-03T10:24:16Z",
+      "side": 1,
+      "message": "Useless import? Or something else missing?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 33
+      },
+      "revId": "fa307efba70af382db9c13af833fedd115f1ac5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b15b98e_13aee395",
+        "filename": "services/core/java/com/android/server/am/ActivityStack.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-03T10:24:16Z",
+      "side": 1,
+      "message": "Same?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 43
+      },
+      "revId": "fa307efba70af382db9c13af833fedd115f1ac5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
