@@ -25,6 +25,57 @@
     },
     {
       "key": {
+        "uuid": "f957afb4_7eac8041",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 9783
+      },
+      "writtenOn": "2017-12-03T19:13:44Z",
+      "side": 1,
+      "message": "needs to get extended equally to #509\n\n\nwould 0,0 be a solution?",
+      "revId": "fa307efba70af382db9c13af833fedd115f1ac5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34159dad_72afbf94",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 9783
+      },
+      "writtenOn": "2017-12-03T19:13:44Z",
+      "side": 1,
+      "message": "same here.",
+      "revId": "fa307efba70af382db9c13af833fedd115f1ac5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c4ed35a_a049ae88",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2843,
+      "author": {
+        "id": 9783
+      },
+      "writtenOn": "2017-12-03T19:13:44Z",
+      "side": 1,
+      "message": "should probably ben an ArraySet",
+      "revId": "fa307efba70af382db9c13af833fedd115f1ac5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b0a7770_fa9b96ce",
         "filename": "services/core/java/com/android/server/am/ActivityStack.java",
         "patchSetId": 4
