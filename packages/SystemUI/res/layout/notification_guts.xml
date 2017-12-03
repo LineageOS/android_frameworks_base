@@ -23,4 +23,14 @@
     android:visibility="gone"
     android:clickable="true"
     android:gravity="top|start"
-    android:theme="@*android:style/Theme.DeviceDefault.Light"/>
+    android:theme="@*android:style/Theme.DeviceDefault.Light">
+
+    <!-- Stub for the media extension guts -->
+    <ViewStub
+        android:layout="@layout/notification_guts_media_extension"
+        android:id="@+id/notification_guts_media_stub"
+        android:inflatedId="@+id/notification_guts_media_extension"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</com.android.systemui.statusbar.NotificationGuts>
