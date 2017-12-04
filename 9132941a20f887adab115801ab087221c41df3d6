@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eeb4b8f5_fc9623aa",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-12-04T13:51:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 62
+      },
+      "revId": "9132941a20f887adab115801ab087221c41df3d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "975aa60b_93c1dcf0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-12-04T13:51:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 766,
+        "startChar": 4,
+        "endLine": 766,
+        "endChar": 35
+      },
+      "revId": "9132941a20f887adab115801ab087221c41df3d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
