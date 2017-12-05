@@ -398,6 +398,7 @@ public class PackageManagerService extends IPackageManager.Stub
     private static final boolean DEBUG_EPHEMERAL = Build.IS_DEBUGGABLE;
     private static final boolean DEBUG_TRIAGED_MISSING = false;
     private static final boolean DEBUG_APP_DATA = false;
+    private static final boolean DEBUG_PROTECTED = false;
 
     /** REMOVE. According to Svet, this was only used to reset permissions during development. */
     static final boolean CLEAR_RUNTIME_PERMISSIONS_ON_UPGRADE = false;
@@ -602,6 +603,9 @@ public class PackageManagerService extends IPackageManager.Stub
      * Whether the package parser cache is enabled.
      */
     private static final boolean DEFAULT_PACKAGE_PARSER_CACHE_ENABLED = true;
+
+    private static final String PROTECTED_APPS_TARGET_VALIDATION_COMPONENT =
+            "com.android.settings/com.android.settings.applications.ProtectedAppsActivity";
 
     final ServiceThread mHandlerThread;
 
@@ -12926,9 +12930,27 @@ public class PackageManagerService extends IPackageManager.Stub
                 int userId) {
             if (!sUserManager.exists(userId)) return null;
             mFlags = flags;
-            return super.queryIntent(intent, resolvedType,
+            List<ResolveInfo> list = super.queryIntent(intent, resolvedType,
                     (flags & PackageManager.MATCH_DEFAULT_ONLY) != 0,
                     userId);
+            // Remove protected Application components if they're explicitly queried for.
+            // Implicit intent queries will be gated when the returned component is acted upon.
+            int callingUid = Binder.getCallingUid();
+            List<String> packages = Arrays.asList(getPackagesForUid(callingUid));
+            final boolean isNotSystem = callingUid != Process.SYSTEM_UID &&
+                    (getFlagsForUid(callingUid) & ApplicationInfo.FLAG_SYSTEM) == 0;
+
+            if (isNotSystem && intent.getComponent() != null) {
+               Iterator<ResolveInfo> itr = list.iterator();
+                while (itr.hasNext()) {
+                    ActivityInfo activityInfo = itr.next().activityInfo;
+                    if (activityInfo.applicationInfo.protect && (packages == null
+                            || !packages.contains(activityInfo.packageName))) {
+                        itr.remove();
+                    }
+                }
+            }
+            return list;
         }
 
         public List<ResolveInfo> queryIntentForPackage(Intent intent, String resolvedType,
@@ -19637,7 +19659,7 @@ public class PackageManagerService extends IPackageManager.Stub
                     null /*enabledComponents*/,
                     null /*disabledComponents*/,
                     ps.readUserState(nextUserId).domainVerificationStatus,
-                    0, PackageManager.INSTALL_REASON_UNKNOWN);
+                    0, PackageManager.INSTALL_REASON_UNKNOWN, null, null);
         }
         mSettings.writeKernelMappingLPr(ps);
     }
@@ -24088,6 +24110,140 @@ Slog.v(TAG, ":: stepped forward, applying functor at tag " + parser.getName());
     public boolean isPermissionEnforced(String permission) {
         // allow instant applications
         return true;
+    }
+
+    @Override
+    public void setComponentProtectedSetting(ComponentName componentName, boolean newState,
+            int userId) {
+        enforceCrossUserPermission(Binder.getCallingUid(), userId, false, false, "set protected");
+
+        String packageName = componentName.getPackageName();
+        String className = componentName.getClassName();
+
+        PackageSetting pkgSetting;
+        ArrayList<String> components;
+
+        synchronized (mPackages) {
+            pkgSetting = mSettings.mPackages.get(packageName);
+
+            if (pkgSetting == null) {
+                if (className == null) {
+                    throw new IllegalArgumentException(
+                            "Unknown package: " + packageName);
+                }
+                throw new IllegalArgumentException(
+                        "Unknown component: " + packageName
+                                + "/" + className);
+            }
+
+            //Protection levels must be applied at the Component Level!
+            if (className == null) {
+                throw new IllegalArgumentException(
+                        "Must specify Component Class name."
+                );
+            } else {
+                PackageParser.Package pkg = pkgSetting.pkg;
+                if (pkg == null || !pkg.hasComponentClassName(className)) {
+                    if (pkg.applicationInfo.targetSdkVersion >= Build.VERSION_CODES.JELLY_BEAN) {
+                        throw new IllegalArgumentException("Component class " + className
+                                + " does not exist in " + packageName);
+                    } else {
+                        Slog.w(TAG, "Failed setComponentProtectedSetting: component class "
+                                + className + " does not exist in " + packageName);
+                    }
+                }
+
+                pkgSetting.protectComponentLPw(className, newState, userId);
+                mSettings.writePackageRestrictionsLPr(userId);
+
+                components = mPendingBroadcasts.get(userId, packageName);
+                final boolean newPackage = components == null;
+                if (newPackage) {
+                    components = new ArrayList<String>();
+                }
+                if (!components.contains(className)) {
+                    components.add(className);
+                }
+            }
+        }
+
+        long callingId = Binder.clearCallingIdentity();
+        try {
+            int packageUid = UserHandle.getUid(userId, pkgSetting.appId);
+        } finally {
+            Binder.restoreCallingIdentity(callingId);
+        }
+    }
+
+    @Override
+    public boolean isComponentProtected(String callingPackage, int callingUid,
+            ComponentName componentName, int userId) {
+        if (DEBUG_PROTECTED) Log.d(TAG, "Checking if component is protected "
+                + componentName.flattenToShortString() + " from calling package " + callingPackage
+                + " and callinguid " + callingUid);
+
+        enforceCrossUserPermission(Binder.getCallingUid(), userId, false, false, "set protected");
+
+        //Allow managers full access
+        List<String> protectedComponentManagers =
+                LineageSettings.Secure.getDelimitedStringAsList(mContext.getContentResolver(),
+                        LineageSettings.Secure.PROTECTED_COMPONENT_MANAGERS, "|");
+        if (protectedComponentManagers.contains(callingPackage)) {
+            if (DEBUG_PROTECTED) Log.d(TAG, "Calling package is a protected manager, allow");
+            return false;
+        }
+
+        String packageName = componentName.getPackageName();
+        String className = componentName.getClassName();
+
+        //If this component is launched from the same package, allow it.
+        if (TextUtils.equals(packageName, callingPackage)) {
+            if (DEBUG_PROTECTED) Log.d(TAG, "Calling package is same as target, allow");
+            return false;
+        }
+
+        //If this component is launched from a validation component, allow it.
+        if (TextUtils.equals(PROTECTED_APPS_TARGET_VALIDATION_COMPONENT,
+                componentName.flattenToString()) && callingUid == Process.SYSTEM_UID) {
+            return false;
+        }
+
+        //If this component is launched from the system or a uid of a protected component, allow it.
+        boolean fromProtectedComponentUid = false;
+        for (String protectedComponentManager : protectedComponentManagers) {
+            int packageUid = getPackageUid(protectedComponentManager,
+                    MATCH_DEBUG_TRIAGED_MISSING, userId);
+            if (packageUid != -1 && callingUid == packageUid) {
+                fromProtectedComponentUid = true;
+            }
+        }
+
+        if (TextUtils.equals(callingPackage, "android") && callingUid == Process.SYSTEM_UID
+                || callingPackage == null && fromProtectedComponentUid) {
+            if (DEBUG_PROTECTED) Log.d(TAG, "Calling package is android or manager, allow");
+            return false;
+        }
+
+        PackageSetting pkgSetting;
+        ArraySet<String> components;
+
+        synchronized (mPackages) {
+            pkgSetting = mSettings.mPackages.get(packageName);
+
+            if (pkgSetting == null) {
+                if (className == null) {
+                    throw new IllegalArgumentException(
+                            "Unknown package: " + packageName);
+                }
+                throw new IllegalArgumentException(
+                        "Unknown component: " + packageName
+                                + "/" + className);
+            }
+            // Get all the protected components
+            components = pkgSetting.getProtectedComponents(userId);
+            if (DEBUG_PROTECTED) Log.d(TAG, "Got " + components.size() + " protected components");
+            return components.size() > 0;
+        }
     }
 
     @Override

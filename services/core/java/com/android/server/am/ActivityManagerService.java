@@ -1709,6 +1709,8 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     static final int POST_PRIVACY_NOTIFICATION_MSG = 90;
     static final int CANCEL_PRIVACY_NOTIFICATION_MSG = 91;
+    static final int POST_COMPONENT_PROTECTED_MSG = 92;
+    static final int CANCEL_PROTECTED_APP_NOTIFICATION = 93;
 
     static final int FIRST_ACTIVITY_STACK_MSG = 100;
     static final int FIRST_BROADCAST_QUEUE_MSG = 200;
@@ -2518,6 +2520,87 @@ public class ActivityManagerService extends IActivityManager.Stub
                             }
                         }
                     }
+                }
+            } break;
+            case POST_COMPONENT_PROTECTED_MSG: {
+                INotificationManager inm = NotificationManager.getService();
+                if (inm == null) {
+                    return;
+                }
+
+                Intent targetIntent = (Intent) msg.obj;
+                if (targetIntent == null) {
+                    return;
+                }
+
+                int currentUserId = mUserController.getCurrentUserIdLocked();
+                int targetUserId = targetIntent.getIntExtra(
+                        "com.android.settings.PROTECTED_APPS_USER_ID", currentUserId);
+                // Resolve for labels and whatnot
+                ActivityInfo root = resolveActivityInfo(targetIntent, targetIntent.getFlags(),
+                        targetUserId);
+
+                try {
+                    Intent protectedAppIntent = new Intent();
+                    protectedAppIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    protectedAppIntent.setComponent(
+                            new ComponentName("com.android.settings",
+                                    "com.android.settings.applications.ProtectedAppsActivity"));
+                    protectedAppIntent.putExtra(
+                            "com.android.settings.PROTECTED_APP_TARGET_INTENT",
+                            targetIntent);
+                    Context context = mContext.createPackageContext("com.android.settings", 0);
+                    String title = mContext.getString(
+                            com.android.internal.R.string
+                                    .notify_package_component_protected_title);
+                    String text = mContext.getString(
+                            com.android.internal.R.string
+                                    .notify_package_component_protected_text,
+                            root.applicationInfo.loadLabel(mContext.getPackageManager()));
+                    Notification notification = new Notification.Builder(context)
+                            .setSmallIcon(com.android.internal.R.drawable.stat_notify_protected)
+                            .setWhen(0)
+                            .setTicker(title)
+                            .setColor(mContext.getColor(
+                                    com.android.internal.R.color
+                                            .system_notification_accent_color))
+                            .setContentTitle(title)
+                            .setContentText(text)
+                            .setDefaults(Notification.DEFAULT_VIBRATE)
+                            .setPriority(Notification.PRIORITY_MAX)
+                            .setStyle(new Notification.BigTextStyle().bigText(text))
+                            .setContentIntent(PendingIntent.getActivityAsUser(mContext, 0,
+                                    protectedAppIntent, PendingIntent.FLAG_CANCEL_CURRENT, null,
+                                    new UserHandle(currentUserId)))
+                            .build();
+                    try {
+                        int[] outId = new int[1];
+                        inm.cancelNotificationWithTag("android", null,
+                                R.string.notify_package_component_protected_title, msg.arg1);
+                        inm.enqueueNotificationWithTag("android", "android", null,
+                                R.string.notify_package_component_protected_title,
+                                notification, currentUserId);
+                    } catch (RuntimeException e) {
+                        Slog.w(ActivityManagerService.TAG,
+                                "Error showing notification for protected app component", e);
+                    } catch (RemoteException e) {
+                    }
+                } catch (NameNotFoundException e) {
+                    Slog.w(TAG, "Unable to create context for protected app notification", e);
+                }
+            } break;
+            case CANCEL_PROTECTED_APP_NOTIFICATION: {
+                INotificationManager inm = NotificationManager.getService();
+                if (inm == null) {
+                    return;
+                }
+                try {
+                    inm.cancelNotificationWithTag("android", null,
+                            R.string.notify_package_component_protected_title, msg.arg1);
+                } catch (RuntimeException e) {
+                    Slog.w(ActivityManagerService.TAG,
+                            "Error canceling notification for service", e);
+                } catch (RemoteException e) {
                 }
             } break;
             }
@@ -19397,6 +19480,15 @@ public class ActivityManagerService extends IActivityManager.Stub
                     Log.w(TAG, "Broadcast " + action
                             + " no longer supported. It will not be delivered.");
                     return ActivityManager.BROADCAST_SUCCESS;
+                case lineageos.content.Intent.ACTION_PROTECTED_CHANGED:
+                    final boolean state =
+                            intent.getBooleanExtra(
+                                    lineageos.content.Intent.EXTRA_PROTECTED_STATE, false);
+                    if (state == PackageManager.COMPONENT_PROTECTED_STATUS) {
+                        mRecentTasks.cleanupProtectedComponentTasksLocked(
+                                mUserController.getCurrentUserIdLocked());
+                    }
+                    break;
             }
 
             if (Intent.ACTION_PACKAGE_ADDED.equals(action) ||

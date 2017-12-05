@@ -201,6 +201,9 @@ final class Settings {
     private static final String TAG_DEFAULT_DIALER = "default-dialer";
     private static final String TAG_VERSION = "version";
 
+    private static final String TAG_PROTECTED_COMPONENTS = "protected-components";
+    private static final String TAG_VISIBLE_COMPONENTS = "visible-components";
+
     private static final String ATTR_NAME = "name";
     private static final String ATTR_USER = "user";
     private static final String ATTR_CODE = "code";
@@ -764,7 +767,7 @@ final class Settings {
                                 null /*enabledComponents*/,
                                 null /*disabledComponents*/,
                                 INTENT_FILTER_DOMAIN_VERIFICATION_STATUS_UNDEFINED,
-                                0, PackageManager.INSTALL_REASON_UNKNOWN);
+                                0, PackageManager.INSTALL_REASON_UNKNOWN, null, null);
                     }
                 }
             }
@@ -1697,7 +1700,7 @@ final class Settings {
                                 null /*enabledComponents*/,
                                 null /*disabledComponents*/,
                                 INTENT_FILTER_DOMAIN_VERIFICATION_STATUS_UNDEFINED,
-                                0, PackageManager.INSTALL_REASON_UNKNOWN);
+                                0, PackageManager.INSTALL_REASON_UNKNOWN, null, null);
                     }
                     return;
                 }
@@ -1784,6 +1787,8 @@ final class Settings {
 
                     ArraySet<String> enabledComponents = null;
                     ArraySet<String> disabledComponents = null;
+                    ArraySet<String> protectedComponents = null;
+                    ArraySet<String> visibleComponents = null;
 
                     int packageDepth = parser.getDepth();
                     while ((type=parser.next()) != XmlPullParser.END_DOCUMENT
@@ -1798,6 +1803,10 @@ final class Settings {
                             enabledComponents = readComponentsLPr(parser);
                         } else if (tagName.equals(TAG_DISABLED_COMPONENTS)) {
                             disabledComponents = readComponentsLPr(parser);
+                        } else if (tagName.equals(TAG_PROTECTED_COMPONENTS)) {
+                            protectedComponents = readComponentsLPr(parser);
+                        } else if (tagName.equals(TAG_VISIBLE_COMPONENTS)) {
+                            visibleComponents = readComponentsLPr(parser);
                         }
                     }
 
@@ -1807,7 +1816,7 @@ final class Settings {
                     ps.setUserState(userId, ceDataInode, enabled, installed, stopped, notLaunched,
                             hidden, suspended, instantApp, enabledCaller, enabledComponents,
                             disabledComponents, verifState, linkGeneration,
-                            installReason);
+                            installReason, protectedComponents, visibleComponents);
                 } else if (tagName.equals("preferred-activities")) {
                     readPreferredActivitiesLPw(parser, userId);
                 } else if (tagName.equals(TAG_PERSISTENT_PREFERRED_ACTIVITIES)) {
@@ -2155,6 +2164,25 @@ final class Settings {
                         serializer.endTag(null, TAG_ITEM);
                     }
                     serializer.endTag(null, TAG_DISABLED_COMPONENTS);
+                }
+
+                if (!ArrayUtils.isEmpty(ustate.protectedComponents)) {
+                    serializer.startTag(null, TAG_PROTECTED_COMPONENTS);
+                    for (final String name : ustate.protectedComponents) {
+                        serializer.startTag(null, TAG_ITEM);
+                        serializer.attribute(null, ATTR_NAME, name);
+                        serializer.endTag(null, TAG_ITEM);
+                    }
+                    serializer.endTag(null, TAG_PROTECTED_COMPONENTS);
+                }
+                if (!ArrayUtils.isEmpty(ustate.visibleComponents)) {
+                    serializer.startTag(null, TAG_VISIBLE_COMPONENTS);
+                    for (final String name : ustate.visibleComponents) {
+                        serializer.startTag(null, TAG_ITEM);
+                        serializer.attribute(null, ATTR_NAME, name);
+                        serializer.endTag(null, TAG_ITEM);
+                    }
+                    serializer.endTag(null, TAG_VISIBLE_COMPONENTS);
                 }
 
                 serializer.endTag(null, TAG_PACKAGE);
