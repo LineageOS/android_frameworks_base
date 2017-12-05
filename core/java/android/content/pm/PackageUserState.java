@@ -54,6 +54,8 @@ public class PackageUserState {
 
     public ArraySet<String> disabledComponents;
     public ArraySet<String> enabledComponents;
+    public ArraySet<String> protectedComponents;
+    public ArraySet<String> visibleComponents;
 
     public String[] overlayPaths;
 
@@ -85,6 +87,10 @@ public class PackageUserState {
         enabledComponents = ArrayUtils.cloneOrNull(o.enabledComponents);
         overlayPaths =
             o.overlayPaths == null ? null : Arrays.copyOf(o.overlayPaths, o.overlayPaths.length);
+        protectedComponents = o.protectedComponents != null
+                ? new ArraySet<String>(o.protectedComponents) : null;
+        visibleComponents = o.visibleComponents != null
+                ? new ArraySet<String>(o.visibleComponents) : null;
     }
 
     /**

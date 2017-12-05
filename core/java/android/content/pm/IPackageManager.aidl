@@ -630,4 +630,12 @@ interface IPackageManager {
     ComponentName getInstantAppInstallerComponent();
 
     String getInstantAppAndroidId(String packageName, int userId);
+
+    /** Protected Apps */
+    void setComponentProtectedSetting(in ComponentName componentName,
+    in boolean newState, int userId);
+
+    /** Protected Apps */
+    boolean isComponentProtected(in String callingPackage, in int callingUid,
+    in ComponentName componentName, int userId);
 }

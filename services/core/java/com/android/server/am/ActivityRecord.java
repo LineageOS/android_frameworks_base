@@ -144,6 +144,7 @@ import android.os.SystemClock;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.service.voice.IVoiceInteractionSession;
+import android.text.TextUtils;
 import android.util.EventLog;
 import android.util.Log;
 import android.util.MergedConfiguration;
@@ -196,6 +197,9 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
 
     private static final boolean SHOW_ACTIVITY_START_TIME = true;
     private static final String RECENTS_PACKAGE_NAME = "com.android.systemui.recents";
+
+    private static final String PROTECTED_APPS_TARGET_VALIDATION_COMPONENT =
+            "com.android.settings/com.android.settings.applications.ProtectedAppsActivity";
 
     private static final String ATTR_ID = "id";
     private static final String TAG_INTENT = "intent";
@@ -1756,6 +1760,7 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
         mStackSupervisor.checkReadyForSleepLocked();
 
         updatePrivacyGuardNotificationLocked();
+        updateProtectedAppNotificationLocked();
     }
 
     private final void updatePrivacyGuardNotificationLocked() {
@@ -1780,6 +1785,16 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
                     ActivityManagerService.POST_PRIVACY_NOTIFICATION_MSG, this);
             msg.sendToTarget();
             mStackSupervisor.mPrivacyGuardPackageName = this.packageName;
+        }
+    }
+
+    private final void updateProtectedAppNotificationLocked() {
+        ComponentName componentName = ComponentName.unflattenFromString(this.shortComponentName);
+        if (TextUtils.equals(componentName.flattenToString(),
+                PROTECTED_APPS_TARGET_VALIDATION_COMPONENT)) {
+            Message msg = service.mHandler.obtainMessage(
+                    ActivityManagerService.CANCEL_PROTECTED_APP_NOTIFICATION, this);
+            msg.sendToTarget();
         }
     }
 
