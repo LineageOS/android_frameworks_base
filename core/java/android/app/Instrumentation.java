@@ -1921,7 +1921,9 @@ public class Instrumentation {
 
     /** @hide */
     public static void checkStartActivityResult(int res, Object intent) {
-        if (!ActivityManager.isStartResultFatalError(res)) {
+        // Allow START_PROTECTED_APP for protected apps
+        if (!ActivityManager.isStartResultFatalError(res) ||
+                res == ActivityManager.START_PROTECTED_APP) {
             return;
         }
 

@@ -74,6 +74,7 @@ import static com.android.server.am.ActivityManagerService.ANIMATE;
 import static com.android.server.am.ActivityRecord.APPLICATION_ACTIVITY_TYPE;
 import static com.android.server.am.ActivityRecord.ASSISTANT_ACTIVITY_TYPE;
 import static com.android.server.am.ActivityRecord.HOME_ACTIVITY_TYPE;
+import static com.android.server.am.ActivityStack.ActivityState.INITIALIZING;
 import static com.android.server.am.ActivityStack.ActivityState.RESUMED;
 import static com.android.server.am.ActivityStack.STACK_INVISIBLE;
 import static com.android.server.am.ActivityStackSupervisor.CREATE_IF_NEEDED;
@@ -110,6 +111,7 @@ import android.hardware.power.V1_0.PowerHint;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.Message;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.UserHandle;
@@ -414,6 +416,28 @@ class ActivityStarter {
             } catch (RemoteException e) {
                 Slog.w(TAG, "Failure checking voice capabilities", e);
                 err = ActivityManager.START_NOT_VOICE_COMPATIBLE;
+            }
+        }
+
+        if (err == ActivityManager.START_SUCCESS && intent.getComponent() != null) {
+            try {
+                boolean isProtected = AppGlobals.getPackageManager().isComponentProtected(
+                        callingPackage, callingUid, intent.getComponent(), userId) &&
+                        (launchFlags & Intent.FLAG_GRANT_READ_URI_PERMISSION) == 0;
+
+                if (isProtected) {
+                    Message msg = mService.mHandler.obtainMessage(
+                            ActivityManagerService.POST_COMPONENT_PROTECTED_MSG);
+                    // Store launch flags, userid
+                    intent.setFlags(launchFlags);
+                    intent.putExtra("com.android.settings.PROTECTED_APPS_USER_ID", userId);
+                    msg.obj = intent;
+                    mService.mHandler.sendMessage(msg);
+                    err = ActivityManager.START_PROTECTED_APP;
+                }
+            } catch (RemoteException e) {
+                Slog.w(TAG, "Failure checking protected apps status", e);
+                err = ActivityManager.START_PROTECTED_APP;
             }
         }
 
@@ -732,6 +756,29 @@ class ActivityStarter {
                 // Cannot start a child activity if the parent is not resumed.
                 return ActivityManager.START_CANCELED;
             }
+
+            try {
+                //TODO: This needs to be a flushed out API in the future.
+                boolean isProtected = intent.getComponent() != null
+                        && AppGlobals.getPackageManager()
+                        .isComponentProtected(callingPackage, callingUid,
+                                intent.getComponent(), userId) &&
+                        (intent.getFlags()&Intent.FLAG_GRANT_READ_URI_PERMISSION) == 0;
+
+                if (isProtected) {
+                    Message msg = mService.mHandler.obtainMessage(
+                            ActivityManagerService.POST_COMPONENT_PROTECTED_MSG);
+                    //Store start flags, userid
+                    intent.setFlags(startFlags);
+                    intent.putExtra("com.android.settings.PROTECTED_APPS_USER_ID", userId);
+                    msg.obj = intent;
+                    mService.mHandler.sendMessage(msg);
+                    return ActivityManager.START_PROTECTED_APP;
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+
             final int realCallingPid = Binder.getCallingPid();
             final int realCallingUid = Binder.getCallingUid();
             int callingPid;
@@ -1026,6 +1073,30 @@ class ActivityStarter {
 
         setInitialState(r, options, inTask, doResume, startFlags, sourceRecord, voiceSession,
                 voiceInteractor);
+
+        try {
+            final Intent intent = r.intent;
+            //TODO: This needs to be a flushed out API in the future.
+            boolean isProtected = intent.getComponent() != null
+                    && AppGlobals.getPackageManager()
+                    .isComponentProtected(sourceRecord == null ? "android" :
+                                    sourceRecord.launchedFromPackage, r.launchedFromUid,
+                            intent.getComponent(), r.userId) &&
+                    (intent.getFlags()&Intent.FLAG_GRANT_READ_URI_PERMISSION) == 0;
+
+            if (isProtected && r.state == INITIALIZING) {
+                Message msg = mService.mHandler.obtainMessage(
+                        ActivityManagerService.POST_COMPONENT_PROTECTED_MSG);
+                //Store start flags, userid
+                intent.setFlags(startFlags);
+                intent.putExtra("com.android.settings.PROTECTED_APPS_USER_ID", r.userId);
+                msg.obj = intent;
+                mService.mHandler.sendMessage(msg);
+                return ActivityManager.START_PROTECTED_APP;
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
 
         computeLaunchingTaskFlags();
 
