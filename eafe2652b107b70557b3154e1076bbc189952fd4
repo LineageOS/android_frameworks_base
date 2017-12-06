@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bc3ef18_46248404",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-12-06T03:06:52Z",
+      "side": 1,
+      "message": "What\u0027s calling this?",
+      "range": {
+        "startLine": 775,
+        "startChar": 4,
+        "endLine": 775,
+        "endChar": 28
+      },
+      "revId": "eafe2652b107b70557b3154e1076bbc189952fd4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
