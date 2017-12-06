@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90debbd7_e227700a",
+        "filename": "packages/SystemUI/src/com/android/systemui/recents/views/TaskViewHeader.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-06T08:45:43Z",
+      "side": 1,
+      "message": "This would look even better if you remove this space.",
+      "range": {
+        "startLine": 286,
+        "startChar": 17,
+        "endLine": 286,
+        "endChar": 18
+      },
+      "revId": "bf110b9f6d6f6ca7d45c094df32eae507f14c036",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
