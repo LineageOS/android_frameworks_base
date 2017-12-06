@@ -81,6 +81,7 @@ public class NotificationPlayer implements OnCompletionListener, OnErrorListener
                     (AudioManager) mCmd.context.getSystemService(Context.AUDIO_SERVICE);
                 try {
                     MediaPlayer player = new MediaPlayer();
+                    player.setWakeMode(mCmd.context, PowerManager.PARTIAL_WAKE_LOCK);
                     player.setAudioAttributes(mCmd.attributes);
                     player.setDataSource(mCmd.context, mCmd.uri);
                     player.setLooping(mCmd.looping);
