@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c05df98_a0d00521",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 2438,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-12-06T03:03:08Z",
+      "side": 1,
+      "message": "I\u0027m kind of wondering if this check is still valid, given it\u0027s possible to setVisible?",
+      "range": {
+        "startLine": 2438,
+        "startChar": 69,
+        "endLine": 2438,
+        "endChar": 78
+      },
+      "revId": "cdb0cb3a08abc312921fa11f506643d53b06edf8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
