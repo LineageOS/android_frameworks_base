@@ -9,12 +9,15 @@ import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.util.ArraySet;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -33,6 +36,8 @@ import com.android.systemui.statusbar.policy.KeyButtonView;
 import lineageos.providers.LineageSettings;
 
 public class OpaLayout extends FrameLayout implements NavBarButtonProvider.ButtonInterface{
+
+    static final String TAG = "OpaLayout";
 
     private static final int ANIMATION_STATE_NONE = 0;
     private static final int ANIMATION_STATE_DIAMOND = 1;
@@ -90,30 +95,10 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
     private final Interpolator mDotsFullSizeInterpolator;
     private final Interpolator mFastOutSlowInInterpolator;
     private final Interpolator mHomeDisappearInterpolator;
-    private SettingsObserver mSettingsObserver;
 
     private float mOldDarkIntensity = 0f;
     private int mDarkModeFillColor;
     private int mLightModeFillColor;
-
-    protected class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-           ContentResolver resolver = mContext.getContentResolver();
-           resolver.registerContentObserver(Settings.System.getUriFor(
-                  LineageSettings.System.PIXEL_NAV_ANIMATION),
-                  false, this, UserHandle.USER_CURRENT);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-           super.onChange(selfChange, uri);
-           setOpaEnabled(true);
-        }
-    }
 
     public OpaLayout(Context context) {
         super(context);
@@ -140,11 +125,7 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
         };
         mAnimationState = ANIMATION_STATE_NONE;
         mCurrentAnimators = new ArraySet<Animator>();
-        if (mSettingsObserver == null) {
-            mSettingsObserver = new SettingsObserver(new Handler());
-        }
-        mSettingsObserver.observe();
-        mDarkModeFillColor = context.getColor(R.color.dark_mode_icon_color_single_tone);
+        mDarkModeFillColor = context.getColor(R.color.dark_nav_bar);
         mLightModeFillColor = context.getColor(R.color.light_mode_icon_color_single_tone);
     }
 
@@ -173,11 +154,7 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
         };
         mAnimationState = ANIMATION_STATE_NONE;
         mCurrentAnimators = new ArraySet<Animator>();
-        if (mSettingsObserver == null) {
-            mSettingsObserver = new SettingsObserver(new Handler());
-        }
-        mSettingsObserver.observe();
-        mDarkModeFillColor = context.getColor(R.color.dark_mode_icon_color_single_tone);
+        mDarkModeFillColor = context.getColor(R.color.dark_nav_bar);
         mLightModeFillColor = context.getColor(R.color.light_mode_icon_color_single_tone);
     }
 
@@ -206,11 +183,7 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
         };
         mAnimationState = ANIMATION_STATE_NONE;
         mCurrentAnimators = new ArraySet<Animator>();
-        if (mSettingsObserver == null) {
-            mSettingsObserver = new SettingsObserver(new Handler());
-        }
-        mSettingsObserver.observe();
-        mDarkModeFillColor = context.getColor(R.color.dark_mode_icon_color_single_tone);
+        mDarkModeFillColor = context.getColor(R.color.dark_nav_bar);
         mLightModeFillColor = context.getColor(R.color.light_mode_icon_color_single_tone);
     }
 
@@ -239,11 +212,7 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
         };
         mAnimationState = ANIMATION_STATE_NONE;
         mCurrentAnimators = new ArraySet<Animator>();
-        if (mSettingsObserver == null) {
-            mSettingsObserver = new SettingsObserver(new Handler());
-        }
-        mSettingsObserver.observe();
-        mDarkModeFillColor = context.getColor(R.color.dark_mode_icon_color_single_tone);
+        mDarkModeFillColor = context.getColor(R.color.dark_nav_bar);
         mLightModeFillColor = context.getColor(R.color.light_mode_icon_color_single_tone);
     }
 
@@ -643,10 +612,8 @@ public class OpaLayout extends FrameLayout implements NavBarButtonProvider.Butto
     }
 
     public void setOpaEnabled(boolean enabled) {
-        final boolean opaToggle = LineageSettings.System.getIntForUser(getContext().getContentResolver(),
-            LineageSettings.System.PIXEL_NAV_ANIMATION, 1, UserHandle.USER_CURRENT) == 1;
-        final boolean b1 = getContext().getResources().getBoolean(com.android.internal.R.bool.config_allowOpaLayout);
-        final boolean b2 = (enabled || UserManager.isDeviceInDemoMode(getContext())) && b1 && opaToggle;
+        final boolean b1 = SystemProperties.getBoolean("ro.opa.eligible_device", false);
+        final boolean b2 = (enabled || UserManager.isDeviceInDemoMode(getContext())) && b1;
         mOpaEnabled = b2;
         int visibility;
         if (b2) {
