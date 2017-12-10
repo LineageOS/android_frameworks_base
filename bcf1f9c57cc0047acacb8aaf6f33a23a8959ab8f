@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4508f4fd_3a586b84",
+        "filename": "services/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6167,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2017-12-10T19:19:35Z",
+      "side": 1,
+      "message": "I suggest, instead of leaving the expression \u0027grantUri\u0027 out, to use uri.getAuthority() instead, this should make the log more readable and is closer to the original intention",
+      "revId": "bcf1f9c57cc0047acacb8aaf6f33a23a8959ab8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
