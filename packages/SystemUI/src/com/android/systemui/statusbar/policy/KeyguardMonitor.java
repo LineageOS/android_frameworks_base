@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +31,7 @@ import java.util.ArrayList;
 public final class KeyguardMonitor extends KeyguardUpdateMonitorCallback {
 
     private final ArrayList<Callback> mCallbacks = new ArrayList<Callback>();
+    private final Object lock = new Object();
 
     private final Context mContext;
     private final CurrentUserTracker mUserTracker;
@@ -56,21 +58,25 @@ public final class KeyguardMonitor extends KeyguardUpdateMonitorCallback {
     }
 
     public void addCallback(Callback callback) {
-        mCallbacks.add(callback);
-        if (mCallbacks.size() != 0 && !mListening) {
-            mListening = true;
-            mCurrentUser = ActivityManager.getCurrentUser();
-            updateCanSkipBouncerState();
-            mKeyguardUpdateMonitor.registerCallback(this);
-            mUserTracker.startTracking();
+        synchronized (lock) {
+            mCallbacks.add(callback);
+            if (mCallbacks.size() != 0 && !mListening) {
+                mListening = true;
+                mCurrentUser = ActivityManager.getCurrentUser();
+                updateCanSkipBouncerState();
+                mKeyguardUpdateMonitor.registerCallback(this);
+                mUserTracker.startTracking();
+            }
         }
     }
 
     public void removeCallback(Callback callback) {
-        if (mCallbacks.remove(callback) && mCallbacks.size() == 0 && mListening) {
-            mListening = false;
-            mKeyguardUpdateMonitor.removeCallback(this);
-            mUserTracker.stopTracking();
+        synchronized (lock) {
+            if (mCallbacks.remove(callback) && mCallbacks.size() == 0 && mListening) {
+                mListening = false;
+                mKeyguardUpdateMonitor.removeCallback(this);
+                mUserTracker.stopTracking();
+            }
         }
     }
 
@@ -127,8 +133,10 @@ public final class KeyguardMonitor extends KeyguardUpdateMonitorCallback {
     }
 
     private void notifyKeyguardChanged() {
-        for (Callback callback : mCallbacks) {
-            callback.onKeyguardChanged();
+        synchronized (lock) {
+            for (Callback callback : mCallbacks) {
+                callback.onKeyguardChanged();
+            }
         }
     }
 
