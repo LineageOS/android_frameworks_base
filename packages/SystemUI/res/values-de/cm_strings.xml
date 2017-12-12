@@ -41,7 +41,7 @@
   <string name="quick_settings_tile_flashlight_not_title">Taschenlampe ist eingeschaltet</string>
   <string name="quick_settings_tile_flashlight_not_summary">Zum Ausschalten tippen</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">Mit den erweiterten Benachrichtigungseinstellungen können Sie für App-Benachrichtigungen eine Wichtigkeitsstufe von 0 bis 6 festlegen. \n\n<b>Stufe 6</b> \n- Auf der Benachrichtigungsleiste ganz oben anzeigen \n- Vollbildunterbrechung zulassen \n- Immer kurz einblenden \n\n<b>Stufe 5</b> \n- Keine Vollbildunterbrechung \n- Immer kurz einblenden \n\n<b>Stufe 4</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n\n<b>Stufe 3</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n\n<b>Stufe 2</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n- Auf der Statusleiste verbergen \n- Auf der Benachrichtigungsleiste ganz unten anzeigen  \n\n<b>Stufe 1</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n- Auf Sperrbildschirm und Statusleiste verbergen \n- Auf der Benachrichtigungsleiste ganz unten anzeigen \n\n<b>Stufe 0</b> \n- Alle Benachrichtigungen der App sperren</string>
+  <string name="cm_power_notification_controls_description">Mit den erweiterten Benachrichtigungseinstellungen können Sie für App-Benachrichtigungen eine Wichtigkeitsstufe von 0 bis 6 festlegen. \n\n<b>Stufe 6</b> \n- Auf der Benachrichtigungsliste ganz oben anzeigen \n- Vollbildunterbrechung zulassen \n- Immer kurz einblenden \n\n<b>Stufe 5</b> \n- Keine Vollbildunterbrechung \n- Immer kurz einblenden \n\n<b>Stufe 4</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n\n<b>Stufe 3</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n\n<b>Stufe 2</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n- Auf der Statusleiste verbergen \n- Auf der Benachrichtigungsliste ganz unten anzeigen  \n\n<b>Stufe 1</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n- Auf Sperrbildschirm und Statusleiste verbergen \n- Auf der Benachrichtigungsliste ganz unten anzeigen \n\n<b>Stufe 0</b> \n- Alle Benachrichtigungen der App sperren</string>
   <!-- Notification importance level title-->
   <string name="importance_level_title">Wichtigkeitsstufe %1$d</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
@@ -52,7 +52,7 @@
   <string name="shortcut_hint">Zum Öffnen von %1$s vom Symbol wegwischen</string>
   <string name="lockscreen_message">Berühren Sie das linke oder rechte Symbol, um eine Sperrbildschirm-Verknüpfung festzulegen.</string>
   <string name="lockscreen_default_target">Standard</string>
-  <string name="select_application">App wählen</string>
+  <string name="select_application">App auswählen</string>
   <string name="lockscreen_choose_action_title">Aktion auswählen</string>
   <string name="lockscreen_none_target">Keine</string>
   <!-- Play queue -->
@@ -153,7 +153,7 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Pop-up ausgeschaltet.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Pop-up eingeschaltet.</string>
   <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Synchronisieren</string>
+  <string name="quick_settings_sync_label">Synchronisation</string>
   <string name="accessibility_quick_settings_sync_off">Synchronisierung aus.</string>
   <string name="accessibility_quick_settings_sync_on">Synchronisierung an.</string>
   <string name="accessibility_quick_settings_sync_changed_off">Synchronisierung ist ausgeschaltet.</string>
@@ -161,10 +161,32 @@
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">USB-Tethering</string>
   <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">Synchronisieren</string>
+  <string name="quick_settings_sync_label">Synchronisation</string>
   <string name="quick_settings_volume_panel_label">Lautstärke</string>
   <!-- Content description for Accessibility on unlocked tasks in recents -->
   <string name="accessibility_lock_task">Verhindern, dass <xliff:g id="task">%1$s </xliff:g> beendet wird</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
   <string name="accessibility_unlock_task">Zulassen, dass <xliff:g id="task">%1$s </xliff:g> beendet wird</string>
+  <!-- LiveDisplay strings -->
+  <string name="live_display_auto">Automatisch</string>
+  <string name="live_display_auto_summary">Farbtemperatur des Bildschirms nach Sonnenaufgang und Sonnenuntergang automatisch anpassen</string>
+  <string name="live_display_off">Aus</string>
+  <string name="live_display_off_summary">Alle Anpassungen deaktivieren</string>
+  <string name="live_display_day">Tag</string>
+  <string name="live_display_day_summary">Nur Tag-Modus verwenden</string>
+  <string name="live_display_night">Nacht</string>
+  <string name="live_display_night_summary">Nur Nacht-Modus verwenden</string>
+  <string name="live_display_outdoor">Outdoor (helle Sonne)</string>
+  <string name="live_display_outdoor_summary">Nur Outdoor-Einstellungen verwenden</string>
+  <string name="live_display_hint">LiveDisplay kann gegen eine Überanstrengung der Augen und beim Schlafen in der Nacht helfen. Klicken Sie hier, um es auszuprobieren!</string>
+  <string name="accessibility_quick_settings_live_display_off">LiveDisplay aus.</string>
+  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatisch.</string>
+  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tag-Modus.</string>
+  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Nacht-Modus.</string>
+  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Outdoor-Modus.</string>
+  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay ausgeschaltet.</string>
+  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auf Auto-Modus geändert.</string>
+  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
+  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>
+  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Außen-Modus geändert.</string>
 </resources>

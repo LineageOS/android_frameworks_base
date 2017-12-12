@@ -196,4 +196,26 @@
   <string name="accessibility_lock_task">Eragotzi <xliff:g id="task">%1$s</xliff:g> baztertzea</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
   <string name="accessibility_unlock_task">Baimendu <xliff:g id="task">%1$s</xliff:g> baztertzea</string>
+  <!-- LiveDisplay strings -->
+  <string name="live_display_auto">Automatikoa</string>
+  <string name="live_display_auto_summary">Doitu automatikoki pantailaren kolore tenperatura ilunabarra eta egunsentiaren ostean</string>
+  <string name="live_display_off">Ez</string>
+  <string name="live_display_off_summary">Desgaitu doitze guztiak</string>
+  <string name="live_display_day">Eguna</string>
+  <string name="live_display_day_summary">Erabili eguneko ezarpenak besterik ez</string>
+  <string name="live_display_night">Gaua</string>
+  <string name="live_display_night_summary">Erabili gaueko ezarpenak besterik ez</string>
+  <string name="live_display_outdoor">Kalean (eguzkipean)</string>
+  <string name="live_display_outdoor_summary">Erabili kaleko ezarpenak besterik ez</string>
+  <string name="live_display_hint">LiveDisplayk begi nekea gutxitu eta gauez lo egiten lagundu dezake. Probatu ezazu!</string>
+  <string name="accessibility_quick_settings_live_display_off">LiveDisplay desgaituta.</string>
+  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modu automatikoa.</string>
+  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: eguneko modua.</string>
+  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: gaueko modua.</string>
+  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: kaleko modua.</string>
+  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay desgaituta.</string>
+  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay modu automatikora aldatu da.</string>
+  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay eguneko modura aldatu da.</string>
+  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gaueko modura aldatu da.</string>
+  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay kaleko modura aldatu da.</string>
 </resources>

@@ -122,4 +122,5 @@
   <string name="quick_settings_volume_panel_label">வால்யூம் பேனல்</string>
   <!-- Content description for Accessibility on unlocked tasks in recents -->
   <!-- Content description for Accessibility on locked tasks in recents -->
+  <!-- LiveDisplay strings -->
 </resources>

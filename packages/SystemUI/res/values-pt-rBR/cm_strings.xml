@@ -196,4 +196,26 @@
   <string name="accessibility_lock_task">Impedir que <xliff:g id="task">%1$s</xliff:g> seja encerrado</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
   <string name="accessibility_unlock_task">Permitir que <xliff:g id="task">%1$s</xliff:g> seja encerrado</string>
+  <!-- LiveDisplay strings -->
+  <string name="live_display_auto">Automático</string>
+  <string name="live_display_auto_summary">Ajusta automaticamente a temperatura de cor da tela após o anoitecer e o amanhecer</string>
+  <string name="live_display_off">Desligado</string>
+  <string name="live_display_off_summary">Desativar todos os ajustes</string>
+  <string name="live_display_day">Dia</string>
+  <string name="live_display_day_summary">Usar apenas as configurações do modo diurno</string>
+  <string name="live_display_night">Noite</string>
+  <string name="live_display_night_summary">Usar apenas as configurações do modo noturno</string>
+  <string name="live_display_outdoor">Ao ar livre (sol forte)</string>
+  <string name="live_display_outdoor_summary">Usar apenas as configurações do modo ao ar livre</string>
+  <string name="live_display_hint">O LiveDisplay pode contribuir para a redução do cansaço visual e ajudá-lo a dormir à noite. Clique aqui para experimentá-lo!</string>
+  <string name="accessibility_quick_settings_live_display_off">LiveDisplay desligado.</string>
+  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automático.</string>
+  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo diurno.</string>
+  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo noturno.</string>
+  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo ao ar livre.</string>
+  <string name="accessibility_quick_settings_live_display_changed_off">O LiveDisplay foi desligado.</string>
+  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay alterado para o modo automático.</string>
+  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay alterado para o modo diurno.</string>
+  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para o modo noturno.</string>
+  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay alterado para o modo ao ar livre.</string>
 </resources>

@@ -176,11 +176,11 @@
   <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada</string>
   <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada</string>
   <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Notificações pop-up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Notificações pop-up desativadas.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Notificações pop-up ativadas.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">As notificações pop-up foram desativadas.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">As notificações pop-up foram ativadas.</string>
+  <string name="quick_settings_heads_up_label">Notificações flutuantes</string>
+  <string name="accessibility_quick_settings_heads_up_off">Notificações flutuantes desativadas.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Notificações flutuantes ativadas.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">As notificações flutuantes foram desativadas.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">As notificações flutuantes foram ativadas.</string>
   <!-- Sync QS tile -->
   <string name="quick_settings_sync_label">Sincronização</string>
   <string name="accessibility_quick_settings_sync_off">Sincronização desativada.</string>
@@ -196,4 +196,26 @@
   <string name="accessibility_lock_task">Evitar que <xliff:g id="task">%1$s</xliff:g> seja dispensada</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
   <string name="accessibility_unlock_task">Permitir que <xliff:g id="task">%1$s</xliff:g> seja dispensada</string>
+  <!-- LiveDisplay strings -->
+  <string name="live_display_auto">Automático</string>
+  <string name="live_display_auto_summary">Ajusta automaticamente a temperatura de cor do ecrã após o pôr do sol e o nascer do sol</string>
+  <string name="live_display_off">Desligado</string>
+  <string name="live_display_off_summary">Desativar todos os ajustes</string>
+  <string name="live_display_day">Dia</string>
+  <string name="live_display_day_summary">Usar apenas as definições de dia</string>
+  <string name="live_display_night">Noite</string>
+  <string name="live_display_night_summary">Usar apenas as definições de noite</string>
+  <string name="live_display_outdoor">Exterior (sol forte)</string>
+  <string name="live_display_outdoor_summary">Usar apenas as definições de exterior</string>
+  <string name="live_display_hint">O LiveDisplay pode ajudar a reduzir a fadiga ocular e a dormir melhor à noite. Toque aqui para experimentar!</string>
+  <string name="accessibility_quick_settings_live_display_off">LiveDisplay desligado.</string>
+  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automático.</string>
+  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo dia.</string>
+  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo noite.</string>
+  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo exterior.</string>
+  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay foi desligado.</string>
+  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay alterado para modo automático.</string>
+  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay alterado para modo dia.</string>
+  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para modo noite.</string>
+  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay alterado para modo exterior.</string>
 </resources>

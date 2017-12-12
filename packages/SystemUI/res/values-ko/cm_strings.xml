@@ -195,4 +195,26 @@
   <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g>이(가) 지워지지 않도록 합니다.</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
   <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g>이(가) 지워질 수 있도록 합니다.</string>
+  <!-- LiveDisplay strings -->
+  <string name="live_display_auto">자동</string>
+  <string name="live_display_auto_summary">일출 및 일몰에 따라 화면의 색 온도를 자동으로 조정</string>
+  <string name="live_display_off">꺼짐</string>
+  <string name="live_display_off_summary">모든 조정 사용 안 함</string>
+  <string name="live_display_day">주간</string>
+  <string name="live_display_day_summary">주간 모드만 사용</string>
+  <string name="live_display_night">야간</string>
+  <string name="live_display_night_summary">야간 모드만 사용</string>
+  <string name="live_display_outdoor">야외 (밝은 햇빛)</string>
+  <string name="live_display_outdoor_summary">야외 모드만 사용</string>
+  <string name="live_display_hint">LiveDisplay는 눈의 피로를 줄이고 밤에 수면을 돕습니다. 사용해 보려면 여기를 누르세요!</string>
+  <string name="accessibility_quick_settings_live_display_off">LiveDisplay를 끕니다.</string>
+  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: 자동 모드입니다.</string>
+  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: 주간 모드입니다.</string>
+  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: 야간 모드입니다.</string>
+  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: 야외 모드입니다.</string>
+  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay가 꺼졌습니다.</string>
+  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay를 자동 모드로 변경했습니다.</string>
+  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay를 주간 모드로 변경했습니다.</string>
+  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay를 야간 모드로 변경했습니다.</string>
+  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay를 야외 모드로 변경했습니다.</string>
 </resources>

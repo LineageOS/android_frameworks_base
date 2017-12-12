@@ -196,4 +196,5 @@
   <string name="accessibility_lock_task">Zabránit, aby byla úloha <xliff:g id="task">%1$s</xliff:g> zrušena</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
   <string name="accessibility_unlock_task">Povolit, aby byla úloha <xliff:g id="task">%1$s</xliff:g> zrušena</string>
+  <!-- LiveDisplay strings -->
 </resources>

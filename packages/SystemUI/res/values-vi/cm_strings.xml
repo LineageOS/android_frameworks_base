@@ -138,7 +138,7 @@
   <string name="accessibility_quick_settings_location_high_accuracy">Báo cáo vị trí: chế độ chính xác cao.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Tiết kiệm pin</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Pin\ntiết kiệm</string>
+  <string name="quick_settings_location_battery_saving_label_twoline">Tiết kiệm\npin</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">Chỉ thiết bị</string>
   <string name="quick_settings_location_gps_only_label_twoline">Chỉ\nthiết bị</string>
@@ -194,4 +194,26 @@
   <string name="accessibility_lock_task">Ngăn chặn <xliff:g id="task">%1$s</xliff:g> bị bỏ qua</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
   <string name="accessibility_unlock_task">Cho phép <xliff:g id="task">%1$s</xliff:g> được bỏ qua</string>
+  <!-- LiveDisplay strings -->
+  <string name="live_display_auto">Tự động</string>
+  <string name="live_display_auto_summary">Tự động điều chỉnh nhiệt màu của màn hình sau khi mặt trời lặn và mặt trời mọc</string>
+  <string name="live_display_off">Tắt</string>
+  <string name="live_display_off_summary">Vô hiệu hoá tất cả điều chỉnh</string>
+  <string name="live_display_day">Ngày</string>
+  <string name="live_display_day_summary">Chỉ sử dụng cài đặt ban ngày</string>
+  <string name="live_display_night">Đêm</string>
+  <string name="live_display_night_summary">Chỉ sử dụng cài đặt ban đêm</string>
+  <string name="live_display_outdoor">Ngoài trời (ánh sáng mạnh)</string>
+  <string name="live_display_outdoor_summary">Chỉ sử dụng cài đặt ngoài trời</string>
+  <string name="live_display_hint">Hiển Thị Linh Hoạt có thể giúp làm giảm mỏi mắt và giúp bạn ngủ vào ban đêm. Chạm vào đây để thử nó!</string>
+  <string name="accessibility_quick_settings_live_display_off">Hiển Thị Linh Hoạt tắt.</string>
+  <string name="accessibility_quick_settings_live_display_auto">Hiển Thị Linh Hoạt: chế độ tự động.</string>
+  <string name="accessibility_quick_settings_live_display_day">Hiển Thị Linh Hoạt: chế độ ban ngày.</string>
+  <string name="accessibility_quick_settings_live_display_night">Hiển Thị Linh Hoạt: chế độ ban đêm.</string>
+  <string name="accessibility_quick_settings_live_display_outdoor">Hiển Thị Linh Hoạt: chế độ ngoài trời.</string>
+  <string name="accessibility_quick_settings_live_display_changed_off">Hiển Thị Linh Hoạt đã tắt.</string>
+  <string name="accessibility_quick_settings_live_display_changed_auto">Hiển Thị Linh Hoạt đã đổi sang chế độ tự động.</string>
+  <string name="accessibility_quick_settings_live_display_changed_day">Hiển Thị Linh Hoạt đã đổi sang chế độ ban ngày.</string>
+  <string name="accessibility_quick_settings_live_display_changed_night">Hiển Thị Linh Hoạt đã đổi sang chế độ ban đêm.</string>
+  <string name="accessibility_quick_settings_live_display_changed_outdoor">Hiển Thị Linh Hoạt đã đổi sang chế độ ngoài trời.</string>
 </resources>

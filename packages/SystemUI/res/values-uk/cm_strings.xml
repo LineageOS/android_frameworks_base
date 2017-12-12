@@ -144,6 +144,7 @@
   <string name="quick_settings_location_battery_saving_label_twoline">Економія\nбатареї</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">По датчиках пристрою</string>
+  <string name="quick_settings_location_gps_only_label_twoline">Тільки\nпристрій</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Висока точність</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Висока\nточність</string>
@@ -193,5 +194,8 @@
   <string name="quick_settings_sync_label">Синхронізація</string>
   <string name="quick_settings_volume_panel_label">Панель гучності</string>
   <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <string name="accessibility_lock_task">Заборонити закривати додаток <xliff:g id="task">%1$s</xliff:g></string>
   <!-- Content description for Accessibility on locked tasks in recents -->
+  <string name="accessibility_unlock_task">Дозволити закривати додаток <xliff:g id="task">%1$s</xliff:g></string>
+  <!-- LiveDisplay strings -->
 </resources>

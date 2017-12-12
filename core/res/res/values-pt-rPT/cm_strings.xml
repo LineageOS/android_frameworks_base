@@ -49,7 +49,7 @@
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB através da rede ativado</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ABD através de USB e da rede ativado</string>
+  <string name="adb_both_active_notification_title">ADB através de USB e da rede ativado</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Toque para desativar a depuração.</string>
   <!-- Privacy Guard -->
@@ -95,7 +95,7 @@
   <string name="app_ops_send_mms">Enviar uma mensagem MMS</string>
   <string name="app_ops_send_sms">Enviar uma mensagem SMS</string>
   <string name="app_ops_start_at_bootup">iniciar no arranque</string>
-  <string name="app_ops_toast_window">exibir avisos no ecrã</string>
+  <string name="app_ops_toast_window">mostrar avisos no ecrã</string>
   <string name="app_ops_toggle_bluetooth">ligar/desligar o bluetooth</string>
   <string name="app_ops_toggle_mobile_data">ligar/desligar os dados móveis</string>
   <string name="app_ops_toggle_nfc">ligar/desligar o NFC</string>
@@ -107,7 +107,7 @@
   <string name="app_ops_use_media_buttons">usar os botões multimédia</string>
   <string name="app_ops_use_media_volume">controlar o volume multimédia</string>
   <string name="app_ops_use_notification_volume">controlar o volume de notificação</string>
-  <string name="app_ops_use_ring_volume">controlar o volume da campainha</string>
+  <string name="app_ops_use_ring_volume">controlar o volume de toque</string>
   <string name="app_ops_use_vibrate">usar a reação tátil</string>
   <string name="app_ops_use_voice_volume">controlar o volume das chamadas de voz</string>
   <string name="app_ops_write_mms">escrever uma mensagem MMS</string>

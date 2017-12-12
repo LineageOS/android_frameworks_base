@@ -196,4 +196,5 @@
   <string name="accessibility_lock_task">Prevenir <xliff:g id="task">%1$s</xliff:g> de ser pechado</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
   <string name="accessibility_unlock_task">Permitir <xliff:g id="task">%1$s</xliff:g> sea pechado</string>
+  <!-- LiveDisplay strings -->
 </resources>
