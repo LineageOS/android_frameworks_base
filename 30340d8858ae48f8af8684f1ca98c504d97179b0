@@ -16,6 +16,24 @@
       "revId": "30340d8858ae48f8af8684f1ca98c504d97179b0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef3ec8e6_84a8613c",
+        "filename": "services/java/com/android/server/SystemServer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-12T08:24:04Z",
+      "side": 1,
+      "message": "Not surprising, we got rid of sepolicies in vendor_lineage and none of those policies were rewritten.",
+      "parentUuid": "bcfa3f0e_caf8a442",
+      "revId": "30340d8858ae48f8af8684f1ca98c504d97179b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
