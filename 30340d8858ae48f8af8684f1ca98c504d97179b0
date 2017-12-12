@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcfa3f0e_caf8a442",
+        "filename": "services/java/com/android/server/SystemServer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-12-12T07:57:11Z",
+      "side": 1,
+      "message": "This prop set fails:\n[  145.803628] selinux: avc:  denied  { set } for property\u003dadb.network.port pid\u003d4582 uid\u003d1000 gid\u003d1000 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:default_prop:s0 tclass\u003dproperty_service permissive\u003d0\\x0a\n[  145.803695] init: sys_prop(PROP_MSG_SETPROP2): permission denied uid:1000 name:adb.network.port\n\nFurther, on a LineageSettingsProvider settings migration, it actually causes system server to crash (because it generates an exception).",
+      "revId": "30340d8858ae48f8af8684f1ca98c504d97179b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
