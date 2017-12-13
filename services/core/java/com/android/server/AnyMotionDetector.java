@@ -336,12 +336,12 @@ public class AnyMotionDetector {
                           "data within " + ACCELEROMETER_DATA_TIMEOUT_MILLIS + " ms. Stopping " +
                           "orientation measurement.");
                     status = stopOrientationMeasurementLocked();
-                    if (status != RESULT_UNKNOWN) {
-                        mHandler.removeCallbacks(mWakelockTimeout);
-                        mWakelockTimeoutIsActive = false;
-                        mCallback.onAnyMotionResult(status);
-                    }
                 }
+            }
+            if (status != RESULT_UNKNOWN) {
+                mHandler.removeCallbacks(mWakelockTimeout);
+                mWakelockTimeoutIsActive = false;
+                mCallback.onAnyMotionResult(status);
             }
         }
     };
