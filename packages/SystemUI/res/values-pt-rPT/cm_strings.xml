@@ -86,7 +86,7 @@
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_profiles">Perfis de sistema</string>
   <string name="quick_settings_profiles_off">Perfis desativados</string>
-  <string name="quick_settings_heads_up_label">Notificações pop-up</string>
+  <string name="quick_settings_heads_up_label">Notificações flutuantes</string>
   <string name="quick_settings_battery_saver_label">Economizador de bateria</string>
   <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
   <string name="quick_settings_battery_saver_label_charging">Economizador de bateria (a carregar)</string>
@@ -150,13 +150,13 @@
   <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_ambient_display_changed_on">A visualização de ambiente foi ativada.</string>
   <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_off">Notificações pop-up desativadas.</string>
+  <string name="accessibility_quick_settings_heads_up_off">Notificações flutuantes desativadas.</string>
   <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_on">Notificações pop-up ativadas.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Notificações flutuantes ativadas.</string>
   <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_changed_off">As notificações pop-up foram desativadas.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">As notificações flutuantes foram desativadas.</string>
   <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_changed_on">As notificações pop-up foram ativadas.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">As notificações flutuantes foram ativadas.</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -172,7 +172,7 @@
   <!-- Dynamic tiles -->
   <string name="quick_settings_dynamic_tile_detail_title">Mosaicos dinâmicos</string>
   <string name="dynamic_qs_tile_next_alarm_label">Próximo alarme</string>
-  <string name="dynamic_qs_tile_ime_selector_label">Seletor de método de entrada</string>
+  <string name="dynamic_qs_tile_ime_selector_label">Seletor de método de introdução</string>
   <string name="dynamic_qs_tile_su_label">Acesso root</string>
   <string name="dynamic_qs_tile_themes_label">Temas</string>
   <string name="quick_settings_title_advanced_location">Localização com 3 estados</string>

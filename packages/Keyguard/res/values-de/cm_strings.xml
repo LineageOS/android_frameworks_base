@@ -26,5 +26,5 @@
     <item quantity="other">SIM-PIN eingeben. Sie haben noch <xliff:g id="number">%d</xliff:g> Versuche, bevor Sie den Netzbetreiber zum Entsperren des Gerätes kontaktieren müssen.</item>
   </plurals>
   <!-- Shown in the KeyguardSimPinView when entry length is too short. -->
-  <string name="kg_invalid_sim_length">Fehler: Eingabe ist kürzer als die Mindestlänge.</string>
+  <string name="kg_invalid_sim_length">Fehler: Die Eingabe ist kürzer als die Mindestlänge.</string>
 </resources>
