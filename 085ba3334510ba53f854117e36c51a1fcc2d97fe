@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89f12076_c589a59d",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2415,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-12-14T01:21:07Z",
+      "side": 1,
+      "message": "Reminder of hacks here until LineageParts button settings has been brought up.",
+      "revId": "085ba3334510ba53f854117e36c51a1fcc2d97fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
