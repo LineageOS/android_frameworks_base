@@ -112,31 +112,15 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
     @Override
     protected void handleClick() {
-        if (mDataController.isMobileDataEnabled()) {
-            if (mKeyguardMonitor.isSecure() && !mKeyguardMonitor.canSkipBouncer()) {
-                mActivityStarter.postQSRunnableDismissingKeyguard(this::showDisableDialog);
-            } else {
-                mUiHandler.post(this::showDisableDialog);
-            }
+        if (mKeyguardMonitor.isSecure() && !mKeyguardMonitor.canSkipBouncer()) {
+            mActivityStarter.postQSRunnableDismissingKeyguard(this::toggleMode);
         } else {
-            mDataController.setMobileDataEnabled(true);
+            toggleMode();
         }
     }
 
-    private void showDisableDialog() {
-        mHost.collapsePanels();
-        AlertDialog dialog = new Builder(mContext)
-                .setMessage(string.data_usage_disable_mobile)
-                .setNegativeButton(android.R.string.cancel, null)
-                .setPositiveButton(
-                        com.android.internal.R.string.alert_windows_notification_turn_off_action,
-                        (d, w) -> mDataController.setMobileDataEnabled(false))
-                .create();
-        dialog.getWindow().setType(LayoutParams.TYPE_KEYGUARD_DIALOG);
-        SystemUIDialog.setShowForAllUsers(dialog, true);
-        SystemUIDialog.registerDismissListener(dialog);
-        SystemUIDialog.setWindowOnTop(dialog);
-        dialog.show();
+    private void toggleMode() {
+        mDataController.setMobileDataEnabled(!mDataController.isMobileDataEnabled());
     }
 
     @Override
