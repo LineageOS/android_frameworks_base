@@ -195,4 +195,8 @@
   <!-- Content description for Accessibility on unlocked tasks in recents -->
   <!-- Content description for Accessibility on locked tasks in recents -->
   <!-- LiveDisplay strings -->
+  <string name="live_display_auto_summary">Automatycznie dostosuj temperaturę kolorów ekranu po zachodzie i wschodzie słońca</string>
+  <string name="live_display_off_summary">Wyłącz wszystkie zmiany</string>
+  <string name="live_display_day">Dzień</string>
+  <string name="live_display_outdoor">Na zewnątrz (jasne światło)</string>
 </resources>
