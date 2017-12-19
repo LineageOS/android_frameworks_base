@@ -70,7 +70,8 @@ constructor(
                 UUID.randomUUID(),
                 screenshot.bitmap,
                 screenshot.getUserOrDefault(),
-                screenshot.displayId
+                screenshot.displayId,
+                null
             )
         future.addListener(
             {
