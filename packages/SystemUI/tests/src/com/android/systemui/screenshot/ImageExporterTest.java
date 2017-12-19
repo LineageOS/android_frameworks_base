@@ -88,7 +88,7 @@ public class ImageExporterTest extends SysuiTestCase {
     @Test
     public void testImageFilename() {
         assertEquals("image file name", "Screenshot_20201215-131500.png",
-                ImageExporter.createFilename(CAPTURE_TIME, CompressFormat.PNG));
+                ImageExporter.createFilename(CAPTURE_TIME, CompressFormat.PNG, null));
     }
 
     @Test
@@ -116,7 +116,7 @@ public class ImageExporterTest extends SysuiTestCase {
 
         ListenableFuture<ImageExporter.Result> direct =
                 exporter.export(DIRECT_EXECUTOR, requestId, original, CAPTURE_TIME,
-                        Process.myUserHandle());
+                        Process.myUserHandle(), null);
         assertTrue("future should be done", direct.isDone());
         assertFalse("future should not be canceled", direct.isCancelled());
         ImageExporter.Result result = direct.get();
@@ -169,7 +169,7 @@ public class ImageExporterTest extends SysuiTestCase {
 
     @Test
     public void testMediaStoreMetadata() {
-        String name = ImageExporter.createFilename(CAPTURE_TIME, CompressFormat.PNG);
+        String name = ImageExporter.createFilename(CAPTURE_TIME, CompressFormat.PNG, null);
         ContentValues values = ImageExporter.createMetadata(CAPTURE_TIME, CompressFormat.PNG, name);
         assertEquals("Pictures/Screenshots",
                 values.getAsString(MediaStore.MediaColumns.RELATIVE_PATH));
