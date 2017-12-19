@@ -60,6 +60,9 @@ class ImageExporter {
 
     // ex: 'Screenshot_20201215-090626.png'
     private static final String FILENAME_PATTERN = "Screenshot_%1$tY%<tm%<td-%<tH%<tM%<tS.%2$s";
+    // ex: 'Screenshot_20201215-090626_Settings.png'
+    private static final String FILENAME_WITH_APP_NAME_PATTERN =
+            "Screenshot_%1$tY%<tm%<td-%<tH%<tM%<tS_%2$s.%3$s";
     private static final String SCREENSHOTS_PATH = Environment.DIRECTORY_PICTURES
             + File.separator + Environment.DIRECTORY_SCREENSHOTS;
 
@@ -139,11 +142,13 @@ class ImageExporter {
      *
      * @param executor the thread for execution
      * @param bitmap the bitmap to export
+     * @param foregroundAppName the name of app running in foreground
      *
      * @return a listenable future result
      */
-    ListenableFuture<Result> export(Executor executor, UUID requestId, Bitmap bitmap) {
-        return export(executor, requestId, bitmap, ZonedDateTime.now());
+    ListenableFuture<Result> export(Executor executor, UUID requestId, Bitmap bitmap,
+            String foregroundAppName) {
+        return export(executor, requestId, bitmap, ZonedDateTime.now(), foregroundAppName);
     }
 
     /**
@@ -151,14 +156,15 @@ class ImageExporter {
      *
      * @param executor the thread for execution
      * @param bitmap the bitmap to export
+     * @param foregroundAppName the name of app running in foreground
      *
      * @return a listenable future result
      */
     ListenableFuture<Result> export(Executor executor, UUID requestId, Bitmap bitmap,
-            ZonedDateTime captureTime) {
+            ZonedDateTime captureTime, String foregroundAppName) {
 
-        final Task task = new Task(mResolver, requestId, bitmap, captureTime, mCompressFormat,
-                mQuality, /* publish */ true);
+        final Task task = new Task(mResolver, requestId, bitmap, captureTime, foregroundAppName,
+                mCompressFormat, mQuality, /* publish */ true);
 
         return CallbackToFutureAdapter.getFuture(
                 (completer) -> {
@@ -231,14 +237,14 @@ class ImageExporter {
         private final boolean mPublish;
 
         Task(ContentResolver resolver, UUID requestId, Bitmap bitmap, ZonedDateTime captureTime,
-                CompressFormat format, int quality, boolean publish) {
+                String foregroundAppName, CompressFormat format, int quality, boolean publish) {
             mResolver = resolver;
             mRequestId = requestId;
             mBitmap = bitmap;
             mCaptureTime = captureTime;
             mFormat = format;
             mQuality = quality;
-            mFileName = createFilename(mCaptureTime, mFormat);
+            mFileName = createFilename(mCaptureTime, mFormat, foregroundAppName);
             mPublish = publish;
         }
 
@@ -377,7 +383,12 @@ class ImageExporter {
     }
 
     @VisibleForTesting
-    static String createFilename(ZonedDateTime time, CompressFormat format) {
+    static String createFilename(ZonedDateTime time, CompressFormat format,
+            String foregroundAppName) {
+        if (foregroundAppName != null) {
+            return String.format(FILENAME_WITH_APP_NAME_PATTERN, time, foregroundAppName,
+                    fileExtension(format));
+        }
         return String.format(FILENAME_PATTERN, time, fileExtension(format));
     }
 
