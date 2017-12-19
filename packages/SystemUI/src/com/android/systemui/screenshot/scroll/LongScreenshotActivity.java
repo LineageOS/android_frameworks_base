@@ -421,7 +421,8 @@ public class LongScreenshotActivity extends Activity {
         // TODO(b/298931528): Add support for long screenshot on external displays.
         ListenableFuture<ImageExporter.Result> exportFuture = mImageExporter.export(
                 mBackgroundExecutor, UUID.randomUUID(), mOutputBitmap, ZonedDateTime.now(),
-                mScreenshotUserHandle, Display.DEFAULT_DISPLAY);
+                mScreenshotUserHandle, Display.DEFAULT_DISPLAY,
+                mLongScreenshotHolder.getForegroundAppName());
         exportFuture.addListener(() -> onExportCompleted(action, exportFuture), mUiExecutor);
     }
 
