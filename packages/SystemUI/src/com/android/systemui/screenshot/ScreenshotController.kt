@@ -22,6 +22,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.ActivityInfo
+import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Insets
@@ -79,6 +80,7 @@ internal constructor(
     private val screenshotHandler: TimeoutHandler,
     private val broadcastSender: BroadcastSender,
     private val broadcastDispatcher: BroadcastDispatcher,
+    private val packageManager: PackageManager,
     private val userManager: UserManager,
     private val assistContentRequester: AssistContentRequester,
     private val messageContainerController: MessageContainerController,
@@ -103,6 +105,7 @@ internal constructor(
     private var screenshotTakenInPortrait = false
     private var screenshotAnimation: Animator? = null
     private var packageName = ""
+    private var packageLabel = ""
 
     /** Tracks config changes that require re-creating UI */
     private val configChanges =
@@ -161,6 +164,12 @@ internal constructor(
     ) {
         Assert.isMainThread()
         screenshotHandler.resetTimeout()
+
+        packageLabel = runCatching {
+            val info = packageManager.getApplicationInfo(screenshot.packageNameString, 0)
+            info.loadLabel(packageManager).toString()
+        }.getOrDefault("")
+        scrollCaptureExecutor.longScreenshotHolder.foregroundAppName = packageLabel
 
         val currentBitmap = screenshot.bitmap
         if (currentBitmap == null) {
@@ -515,6 +524,7 @@ internal constructor(
                 screenshot.userHandle,
                 display.displayId,
                 screenshot.customSaveUri,
+                packageLabel,
             )
         future.addListener(
             {

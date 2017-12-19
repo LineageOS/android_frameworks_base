@@ -70,6 +70,9 @@ public class ImageExporter {
 
     // ex: 'Screenshot_20201215-090626.png'
     private static final String FILENAME_PATTERN = "Screenshot_%1$tY%<tm%<td-%<tH%<tM%<tS.%2$s";
+    // ex: 'Screenshot_20201215-090626_Settings.png'
+    private static final String FILENAME_WITH_APP_NAME_PATTERN =
+            "Screenshot_%1$tY%<tm%<td-%<tH%<tM%<tS_%2$s.%3$s";
     // ex: 'Screenshot_20201215-090626-display-1.png'
     private static final String CONNECTED_DISPLAY_FILENAME_PATTERN =
             "Screenshot_%1$tY%<tm%<td-%<tH%<tM%<tS-display-%2$d.%3$s";
@@ -154,14 +157,16 @@ public class ImageExporter {
      * @param executor  the thread for execution
      * @param bitmap    the bitmap to export
      * @param displayId the display id the bitmap comes from.
+     * @param foregroundAppName the name of app running in foreground
      * @return a listenable future result
      */
     public ListenableFuture<Result> export(Executor executor, UUID requestId, Bitmap bitmap,
-            UserHandle owner, int displayId) {
+            UserHandle owner, int displayId, String foregroundAppName) {
         ZonedDateTime captureTime = ZonedDateTime.now(ZoneId.systemDefault());
         return export(executor,
                 new Task(mResolver, requestId, bitmap, captureTime, mCompressFormat,
-                        mQuality, owner, createFilename(captureTime, mCompressFormat, displayId)));
+                        mQuality, owner, createFilename(captureTime, mCompressFormat, displayId,
+                        foregroundAppName)));
     }
 
     /**
@@ -194,12 +199,14 @@ public class ImageExporter {
      *
      * @param executor the thread for execution
      * @param bitmap   the bitmap to export
+     * @param foregroundAppName the name of app running in foreground
      * @return a listenable future result
      */
     public ListenableFuture<Result> export(Executor executor, UUID requestId, Bitmap bitmap,
-            ZonedDateTime captureTime, UserHandle owner, int displayId) {
+            ZonedDateTime captureTime, UserHandle owner, int displayId, String foregroundAppName) {
         return export(executor, new Task(mResolver, requestId, bitmap, captureTime, mCompressFormat,
-                mQuality, owner, createFilename(captureTime, mCompressFormat, displayId)));
+                mQuality, owner, createFilename(captureTime, mCompressFormat, displayId,
+                foregroundAppName)));
     }
 
     /**
@@ -207,6 +214,7 @@ public class ImageExporter {
      *
      * @param executor the thread for execution
      * @param bitmap   the bitmap to export
+     * @param foregroundAppName the name of app running in foreground
      * @return a listenable future result
      */
     ListenableFuture<Result> export(Executor executor, UUID requestId, Bitmap bitmap,
@@ -224,12 +232,12 @@ public class ImageExporter {
      * @return a listenable future result
      */
     public ListenableFuture<Result> export(Executor executor, UUID requestId, Bitmap bitmap,
-            UserHandle owner, int displayId, @Nullable Uri customSaveUri) {
+            UserHandle owner, int displayId, @Nullable Uri customSaveUri, String foregroundAppName) {
         ZonedDateTime captureTime = ZonedDateTime.now(ZoneId.systemDefault());
         return export(executor,
                 new Task(mResolver, requestId, bitmap, captureTime, mCompressFormat,
-                        mQuality, owner, createFilename(captureTime, mCompressFormat, displayId),
-                        false, customSaveUri));
+                        mQuality, owner, createFilename(captureTime, mCompressFormat, displayId,
+                        foregroundAppName), false, customSaveUri));
     }
 
     /**
@@ -540,8 +548,13 @@ public class ImageExporter {
     }
 
     @VisibleForTesting
-    static String createFilename(ZonedDateTime time, CompressFormat format, int displayId) {
+    static String createFilename(ZonedDateTime time, CompressFormat format, int displayId,
+            String foregroundAppName) {
         if (displayId == Display.DEFAULT_DISPLAY) {
+            if (foregroundAppName != null) {
+                return String.format(FILENAME_WITH_APP_NAME_PATTERN, time, foregroundAppName,
+                        fileExtension(format));
+            }
             return String.format(FILENAME_PATTERN, time, fileExtension(format));
         }
         return String.format(CONNECTED_DISPLAY_FILENAME_PATTERN, time, displayId,

@@ -37,7 +37,7 @@ constructor(
     activityManager: ActivityManager,
     private val scrollCaptureClient: ScrollCaptureClient,
     private val scrollCaptureController: ScrollCaptureController,
-    private val longScreenshotHolder: LongScreenshotData,
+    val longScreenshotHolder: LongScreenshotData,
     private val logger: UiEventLogger,
     @param:Main private val mainExecutor: Executor,
 ) {
