@@ -31,6 +31,7 @@ public class LongScreenshotData {
     private final AtomicReference<ScrollCaptureController.LongScreenshot> mLongScreenshot;
     private final AtomicReference<ScreenshotController.TransitionDestination>
             mTransitionDestinationCallback;
+    private String mForegroundAppName;
 
     @Inject
     public LongScreenshotData() {
@@ -72,5 +73,19 @@ public class LongScreenshotData {
      */
     public ScreenshotController.TransitionDestination takeTransitionDestinationCallback() {
         return mTransitionDestinationCallback.getAndSet(null);
+    }
+
+    /**
+     * Set the holder's foreground app name.
+     */
+    public void setForegroundAppName(String foregroundAppName) {
+        mForegroundAppName = foregroundAppName;
+    }
+
+    /**
+     * Return the current foreground app name.
+     */
+    public String getForegroundAppName() {
+        return mForegroundAppName;
     }
 }
