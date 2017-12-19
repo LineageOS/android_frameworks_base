@@ -120,7 +120,7 @@ public final class AppClipsActivityTest extends SysuiTestCase {
         ImageExporter.Result result = new ImageExporter.Result();
         result.uri = TEST_URI;
         when(mImageExporter.export(any(Executor.class), any(UUID.class), any(Bitmap.class),
-                eq(Process.myUserHandle())))
+                eq(Process.myUserHandle()), eq(null)))
                 .thenReturn(Futures.immediateFuture(result));
     }
 
