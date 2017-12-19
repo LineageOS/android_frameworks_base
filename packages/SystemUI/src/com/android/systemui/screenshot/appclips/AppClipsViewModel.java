@@ -117,7 +117,7 @@ final class AppClipsViewModel extends ViewModel {
 
             // Export and save the screenshot in background.
             ListenableFuture<ImageExporter.Result> exportFuture = mImageExporter.export(
-                    mBgExecutor, UUID.randomUUID(), screenshotBitmap, user);
+                    mBgExecutor, UUID.randomUUID(), screenshotBitmap, user, null);
 
             // Get the result and update state on main thread.
             exportFuture.addListener(() -> {
