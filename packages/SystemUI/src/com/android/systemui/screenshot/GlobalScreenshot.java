@@ -28,6 +28,7 @@ import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
+import android.app.KeyguardManager;
 import android.app.Notification;
 import android.app.Notification.BigPictureStyle;
 import android.app.NotificationManager;
@@ -39,6 +40,8 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -84,6 +87,7 @@ import java.io.OutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * POD used in the AsyncTask which saves an image in the background.
@@ -116,6 +120,7 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
 
     private static final String SCREENSHOTS_DIR_NAME = "Screenshots";
     private static final String SCREENSHOT_FILE_NAME_TEMPLATE = "Screenshot_%s.png";
+    private static final String SCREENSHOT_FILE_NAME_TEMPLATE_APPNAME = "Screenshot_%s_%s.png";
     private static final String SCREENSHOT_SHARE_SUBJECT_TEMPLATE = "Screenshot (%s)";
 
     private final SaveImageInBackgroundData mParams;
@@ -129,6 +134,23 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
     private final int mImageWidth;
     private final int mImageHeight;
 
+    private static CharSequence getRunningActivityName(Context context) {
+        final ActivityManager am =
+                (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        final PackageManager pm = context.getPackageManager();
+
+        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
+        if (tasks != null && !tasks.isEmpty()) {
+            ActivityManager.RunningTaskInfo top = tasks.get(0);
+            try {
+                ActivityInfo info = pm.getActivityInfo(top.topActivity, 0);
+                return pm.getApplicationLabel(info.applicationInfo);
+            } catch (PackageManager.NameNotFoundException e) {
+            }
+        }
+        return null;
+    }
+
     SaveImageInBackgroundTask(Context context, SaveImageInBackgroundData data,
             NotificationManager nManager) {
         Resources r = context.getResources();
@@ -137,7 +159,16 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
         mParams = data;
         mImageTime = System.currentTimeMillis();
         String imageDate = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date(mImageTime));
-        mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE, imageDate);
+        CharSequence appName = getRunningActivityName(context);
+        boolean onKeyguard = context.getSystemService(KeyguardManager.class).isKeyguardLocked();
+        if (!onKeyguard && appName != null) {
+            // Replace all spaces and special chars with an underscore
+            String appNameString = appName.toString().replaceAll("[\\\\/:*?\"<>|\\s]+", "_");
+            mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE_APPNAME,
+                    appNameString, imageDate);
+        } else {
+            mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE, imageDate);
+        }
 
         mScreenshotDir = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), SCREENSHOTS_DIR_NAME);
