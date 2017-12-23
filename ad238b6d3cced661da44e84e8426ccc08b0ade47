@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43292d46_7744a4dc",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 12804,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-12-23T09:41:29Z",
+      "side": 1,
+      "message": "I take it you found this necessary ?\n\nIf yes, it implies we could do with being more robust to possible aosp future changes.",
+      "revId": "ad238b6d3cced661da44e84e8426ccc08b0ade47",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
