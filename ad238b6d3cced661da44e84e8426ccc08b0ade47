@@ -16,6 +16,24 @@
       "revId": "ad238b6d3cced661da44e84e8426ccc08b0ade47",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "583a21e2_452be435",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 12804,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-12-23T11:18:51Z",
+      "side": 1,
+      "message": "I was actually not 100% sure here",
+      "parentUuid": "43292d46_7744a4dc",
+      "revId": "ad238b6d3cced661da44e84e8426ccc08b0ade47",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
