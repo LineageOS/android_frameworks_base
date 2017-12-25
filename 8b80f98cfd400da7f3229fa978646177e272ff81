@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dad9fb9_1ede0d94",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-25T21:54:26Z",
+      "side": 1,
+      "message": "sdk/src/java/lineageos/providers/LineageSettings.java",
+      "range": {
+        "startLine": 350,
+        "startChar": 7,
+        "endLine": 350,
+        "endChar": 47
+      },
+      "revId": "8b80f98cfd400da7f3229fa978646177e272ff81",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36ea5c8c_0e2dd05a",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-25T21:54:26Z",
+      "side": 1,
+      "message": "lineage/res/res/values/config.xml",
+      "range": {
+        "startLine": 361,
+        "startChar": 28,
+        "endLine": 361,
+        "endChar": 58
+      },
+      "revId": "8b80f98cfd400da7f3229fa978646177e272ff81",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
