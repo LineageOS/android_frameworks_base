@@ -601,6 +601,21 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     int mDeviceHardwareKeys;
 
+    // Button wake control flags
+    boolean mHomeWakeScreen;
+    boolean mBackWakeScreen;
+    boolean mMenuWakeScreen;
+    boolean mAssistWakeScreen;
+    boolean mAppSwitchWakeScreen;
+    boolean mVolumeWakeScreen;
+
+    // During wakeup by volume keys, we still need to capture subsequent events
+    // until the key is released. This is required since the beep sound is produced
+    // post keypressed.
+    boolean mVolumeDownWakeTriggered;
+    boolean mVolumeUpWakeTriggered;
+    boolean mVolumeMuteWakeTriggered;
+
     int mPointerLocationMode = 0; // guarded by mLock
 
     // The last window we were told about in focusChanged.
@@ -1063,6 +1078,24 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(LineageSettings.System.getUriFor(
                     LineageSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.HOME_WAKE_SCREEN), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.BACK_WAKE_SCREEN), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.MENU_WAKE_SCREEN), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.ASSIST_WAKE_SCREEN), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.APP_SWITCH_WAKE_SCREEN), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.VOLUME_WAKE_SCREEN), false, this,
                     UserHandle.USER_ALL);
             updateSettings();
         }
@@ -2528,6 +2561,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     public void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
         boolean updateRotation = false;
+        int mDeviceHardwareWakeKeys = mContext.getResources().getInteger(
+                org.lineageos.platform.internal.R.integer.config_deviceHardwareWakeKeys);
         synchronized (mLock) {
             mEndcallBehavior = Settings.System.getIntForUser(resolver,
                     Settings.System.END_BUTTON_BEHAVIOR,
@@ -2547,6 +2582,24 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mTorchTimeout = LineageSettings.System.getIntForUser(
                     resolver, LineageSettings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, 0,
                     UserHandle.USER_CURRENT);
+            mHomeWakeScreen = (LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.HOME_WAKE_SCREEN, 1, UserHandle.USER_CURRENT) == 1)
+                    && ((mDeviceHardwareWakeKeys & KEY_MASK_HOME) != 0);
+            mBackWakeScreen = (LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.BACK_WAKE_SCREEN, 0, UserHandle.USER_CURRENT) == 1)
+                    && ((mDeviceHardwareWakeKeys & KEY_MASK_BACK) != 0);
+            mMenuWakeScreen = (LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.MENU_WAKE_SCREEN, 0, UserHandle.USER_CURRENT) == 1)
+                    && ((mDeviceHardwareWakeKeys & KEY_MASK_MENU) != 0);
+            mAssistWakeScreen = (LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.ASSIST_WAKE_SCREEN, 0, UserHandle.USER_CURRENT) == 1)
+                    && ((mDeviceHardwareWakeKeys & KEY_MASK_ASSIST) != 0);
+            mAppSwitchWakeScreen = (LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.APP_SWITCH_WAKE_SCREEN, 0, UserHandle.USER_CURRENT) == 1)
+                    && ((mDeviceHardwareWakeKeys & KEY_MASK_APP_SWITCH) != 0);
+            mVolumeWakeScreen = (LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.VOLUME_WAKE_SCREEN, 0, UserHandle.USER_CURRENT) == 1)
+                    && ((mDeviceHardwareWakeKeys & KEY_MASK_VOLUME) != 0);
 
             // Configure wake gesture.
             boolean wakeGestureEnabledSetting = Settings.Secure.getIntForUser(resolver,
@@ -4558,7 +4611,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 awakenDreams();
             }
             hideRecentApps(false, true);
-        } else {
+        } else if (mScreenOnFully) {
             // Otherwise, just launch Home
             sendCloseSystemWindows(SYSTEM_DIALOG_REASON_HOME_KEY);
             startDockOrHome(true /*fromHomeKey*/, awakenFromDreams);
@@ -6281,6 +6334,36 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mContext.sendBroadcastAsUser(errorIntent, UserHandle.CURRENT);
     }
 
+    private void setVolumeWakeTriggered(final int keyCode, boolean triggered) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                mVolumeDownWakeTriggered = triggered;
+                break;
+            case KeyEvent.KEYCODE_VOLUME_UP:
+                mVolumeUpWakeTriggered = triggered;
+                break;
+            case KeyEvent.KEYCODE_VOLUME_MUTE:
+                mVolumeMuteWakeTriggered = triggered;
+                break;
+            default:
+                Log.w(TAG, "setVolumeWakeTriggered: unexpected keyCode=" + keyCode);
+        }
+    }
+
+    private boolean getVolumeWakeTriggered(final int keyCode) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                return mVolumeDownWakeTriggered;
+            case KeyEvent.KEYCODE_VOLUME_UP:
+                return mVolumeUpWakeTriggered;
+            case KeyEvent.KEYCODE_VOLUME_MUTE:
+                return mVolumeMuteWakeTriggered;
+            default:
+                Log.w(TAG, "getVolumeWakeTriggered: unexpected keyCode=" + keyCode);
+                return false;
+        }
+    }
+
     /** {@inheritDoc} */
     @Override
     public int interceptKeyBeforeQueueing(KeyEvent event, int policyFlags) {
@@ -6334,8 +6417,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // If we're currently dozing with the screen on and the keyguard showing, pass the key
             // to the application but preserve its wake key status to make sure we still move
             // from dozing to fully interactive if we would normally go from off to fully
-            // interactive.
+            // interactive, unless the user has explicitly disabled this wake key.
             result = ACTION_PASS_TO_USER;
+            isWakeKey = isWakeKey && isWakeKeyEnabled(keyCode);
             // Since we're dispatching the input, reset the pending key
             mPendingWakeKey = PENDING_KEY_NULL;
         } else {
@@ -6390,6 +6474,17 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case KeyEvent.KEYCODE_VOLUME_DOWN:
             case KeyEvent.KEYCODE_VOLUME_UP:
             case KeyEvent.KEYCODE_VOLUME_MUTE: {
+                // Eat all down & up keys when using volume wake.
+                // This disables volume control, music control, and "beep" on key up.
+                if (isWakeKey && mVolumeWakeScreen) {
+                    setVolumeWakeTriggered(keyCode, true);
+                    break;
+                } else if (getVolumeWakeTriggered(keyCode) && !down) {
+                    result &= ~ACTION_PASS_TO_USER;
+                    setVolumeWakeTriggered(keyCode, false);
+                    break;
+                }
+
                 if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
                     if (down) {
                         if (interactive && !mScreenshotChordVolumeDownKeyTriggered
@@ -6468,7 +6563,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     // Defer special key handlings to
                     // {@link interceptKeyBeforeDispatching()}.
                     result |= ACTION_PASS_TO_USER;
-                } else if ((result & ACTION_PASS_TO_USER) == 0) {
+                } else if ((result & ACTION_PASS_TO_USER) == 0 && !mVolumeWakeScreen) {
                     // If we aren't passing to the user and no one else
                     // handled it send it to the session manager to
                     // figure out.
@@ -6477,6 +6572,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
                 break;
             }
+
+            case KeyEvent.KEYCODE_HOME:
+                if (down && !interactive && mHomeWakeScreen) {
+                    isWakeKey = true;
+                }
+                break;
 
             case KeyEvent.KEYCODE_ENDCALL: {
                 result &= ~ACTION_PASS_TO_USER;
@@ -6721,6 +6822,29 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     /**
+     * Check if the given keyCode represents a key that is considered a wake key
+     * and is currently enabled by the user in Settings or for another reason.
+     */
+    private boolean isWakeKeyEnabled(int keyCode) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_VOLUME_UP:
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+            case KeyEvent.KEYCODE_VOLUME_MUTE:
+                // Volume keys are still wake keys if the device is docked.
+                return mVolumeWakeScreen || mDockMode != Intent.EXTRA_DOCK_STATE_UNDOCKED;
+            case KeyEvent.KEYCODE_BACK:
+                return mBackWakeScreen;
+            case KeyEvent.KEYCODE_MENU:
+                return mMenuWakeScreen;
+            case KeyEvent.KEYCODE_ASSIST:
+                return mAssistWakeScreen;
+            case KeyEvent.KEYCODE_APP_SWITCH:
+                return mAppSwitchWakeScreen;
+        }
+        return true;
+    }
+
+    /**
      * When the screen is off we ignore some keys that might otherwise typically
      * be considered wake keys.  We filter them out here.
      *
@@ -6733,7 +6857,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case KeyEvent.KEYCODE_VOLUME_UP:
             case KeyEvent.KEYCODE_VOLUME_DOWN:
             case KeyEvent.KEYCODE_VOLUME_MUTE:
-                return mDockMode != Intent.EXTRA_DOCK_STATE_UNDOCKED;
+                return mVolumeWakeScreen || mDockMode != Intent.EXTRA_DOCK_STATE_UNDOCKED;
 
             // ignore media and camera keys
             case KeyEvent.KEYCODE_MUTE:
@@ -6750,6 +6874,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case KeyEvent.KEYCODE_MEDIA_AUDIO_TRACK:
             case KeyEvent.KEYCODE_CAMERA:
                 return false;
+
+            case KeyEvent.KEYCODE_BACK:
+                return mBackWakeScreen;
+            case KeyEvent.KEYCODE_MENU:
+                return mMenuWakeScreen;
+            case KeyEvent.KEYCODE_ASSIST:
+                return mAssistWakeScreen;
+            case KeyEvent.KEYCODE_APP_SWITCH:
+                return mAppSwitchWakeScreen;
         }
         return true;
     }
