@@ -2638,8 +2638,20 @@ public class PackageManagerService extends IPackageManager.Stub
                     | PackageParser.PARSE_IS_SYSTEM
                     | PackageParser.PARSE_IS_SYSTEM_DIR, scanFlags, 0);
 
-            // Collect all vendor packages.
-            File vendorAppDir = new File("/vendor/app");
+            // Collected privileged vendor packages.
+            File privilegedVendorAppDir = new File(Environment.getVendorDirectory(), "priv-app");
+            try {
+                privilegedVendorAppDir = privilegedVendorAppDir.getCanonicalFile();
+            } catch (IOException e) {
+                // failed to look up canonical path, continue with original one
+            }
+            scanDirTracedLI(privilegedVendorAppDir, mDefParseFlags
+                    | PackageParser.PARSE_IS_SYSTEM
+                    | PackageParser.PARSE_IS_SYSTEM_DIR
+                    | PackageParser.PARSE_IS_PRIVILEGED, scanFlags, 0);
+
+            // Collect ordinary vendor packages.
+            File vendorAppDir = new File(Environment.getVendorDirectory(), "app");
             try {
                 vendorAppDir = vendorAppDir.getCanonicalFile();
             } catch (IOException e) {
@@ -2818,6 +2830,10 @@ public class PackageManagerService extends IPackageManager.Stub
                         } else if (FileUtils.contains(systemAppDir, scanFile)) {
                             reparseFlags = PackageParser.PARSE_IS_SYSTEM
                                     | PackageParser.PARSE_IS_SYSTEM_DIR;
+                        } else if (FileUtils.contains(privilegedVendorAppDir, scanFile)) {
+                            reparseFlags = PackageParser.PARSE_IS_SYSTEM
+                                    | PackageParser.PARSE_IS_SYSTEM_DIR
+                                    | PackageParser.PARSE_IS_PRIVILEGED;
                         } else if (FileUtils.contains(vendorAppDir, scanFile)) {
                             reparseFlags = PackageParser.PARSE_IS_SYSTEM
                                     | PackageParser.PARSE_IS_SYSTEM_DIR;
@@ -19804,6 +19820,13 @@ public class PackageManagerService extends IPackageManager.Stub
             final String privilegedAppDir = new File(Environment.getRootDirectory(), "priv-app")
                     .getCanonicalPath();
             return path.getCanonicalPath().startsWith(privilegedAppDir);
+        } catch (IOException e) {
+            Slog.e(TAG, "Unable to access code path " + path);
+        }
+        try {
+            final String privilegedVendorAppDir = new File(Environment.getVendorDirectory(), "priv-app")
+                    .getCanonicalPath();
+            return path.getCanonicalPath().startsWith(privilegedVendorAppDir);
         } catch (IOException e) {
             Slog.e(TAG, "Unable to access code path " + path);
         }
