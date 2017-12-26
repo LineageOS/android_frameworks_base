@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70e099de_01d78ab1",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2365,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-26T10:15:52Z",
+      "side": 1,
+      "message": "This is already handled in Action.fromIntSafe(int id)",
+      "range": {
+        "startLine": 2365,
+        "startChar": 12,
+        "endLine": 2365,
+        "endChar": 69
+      },
+      "revId": "1c01df07bed25ab3bd9a129fdc222af38da919f7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf1d72fa_cd15600e",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2372,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-26T10:15:52Z",
+      "side": 1,
+      "message": "This is already handled in Action.fromIntSafe(int id)",
+      "range": {
+        "startLine": 2372,
+        "startChar": 12,
+        "endLine": 2372,
+        "endChar": 69
+      },
+      "revId": "1c01df07bed25ab3bd9a129fdc222af38da919f7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
