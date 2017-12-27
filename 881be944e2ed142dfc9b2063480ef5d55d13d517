@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0cdd928_5c2438c1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2524,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-27T10:24:29Z",
+      "side": 1,
+      "message": "As Ethan pointed out in the lineage-15.0 change (see https://review.lineageos.org/#/c/197765/8/packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java@2438), maybe we can simply get rid of mScreenOn?",
+      "range": {
+        "startLine": 2524,
+        "startChar": 69,
+        "endLine": 2524,
+        "endChar": 78
+      },
+      "revId": "881be944e2ed142dfc9b2063480ef5d55d13d517",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "454d9c6e_1175f3eb",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 5497,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-27T10:24:29Z",
+      "side": 1,
+      "message": "This had been lost in cm-13.0 -\u003e cm-14.0.",
+      "range": {
+        "startLine": 5497,
+        "startChar": 12,
+        "endLine": 5497,
+        "endChar": 46
+      },
+      "revId": "881be944e2ed142dfc9b2063480ef5d55d13d517",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
