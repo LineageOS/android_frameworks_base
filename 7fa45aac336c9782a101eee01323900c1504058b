@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15bc0fb3_218467f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-28T09:19:39Z",
+      "side": 1,
+      "message": "Where is this coming from?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 52
+      },
+      "revId": "7fa45aac336c9782a101eee01323900c1504058b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
