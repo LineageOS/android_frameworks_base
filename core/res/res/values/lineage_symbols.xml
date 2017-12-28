@@ -32,4 +32,7 @@
 
     <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
     <java-symbol type="string" name="lineage_system_error_manufacturer" />
+
+    <!-- Screen unpinning -->
+    <java-symbol type="string" name="lock_to_app_toast_no_navbar" />
 </resources>
