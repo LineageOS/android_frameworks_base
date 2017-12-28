@@ -252,6 +252,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener,
     private static final int HW_UNAVAILABLE_TIMEOUT = 3000; // ms
     private static final int HW_UNAVAILABLE_RETRY_MAX = 3;
 
+    // For face unlock identification
+    private String lastBroadcastActionReceived;
+
     private final Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
@@ -854,11 +857,16 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener,
         }
     };
 
+    public boolean isFaceTrusted(){
+        return lastBroadcastActionReceived.equals(ACTION_FACE_UNLOCK_STOPPED);
+    }
+
     private final BroadcastReceiver mBroadcastAllReceiver = new BroadcastReceiver() {
 
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
+            lastBroadcastActionReceived = action;
             if (AlarmManager.ACTION_NEXT_ALARM_CLOCK_CHANGED.equals(action)) {
                 mHandler.sendEmptyMessage(MSG_TIME_UPDATE);
             } else if (Intent.ACTION_USER_INFO_CHANGED.equals(action)) {
