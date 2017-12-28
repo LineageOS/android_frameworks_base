@@ -399,6 +399,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             "system:" + Settings.System.SCREEN_BRIGHTNESS_MODE;
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL =
             "lineagesystem:" + LineageSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
+    private static final String DARK_THEME =
+            "lineagesystem:" + LineageSettings.System.DARK_THEME;
 
     static {
         boolean onlyCoreApps;
@@ -4820,13 +4822,21 @@ public class StatusBar extends SystemUI implements DemoMode,
      */
     protected void updateTheme() {
         final boolean inflated = mStackScroller != null;
+        boolean useDarkTheme;
 
-        // The system wallpaper defines if QS should be light or dark.
-        WallpaperColors systemColors = mColorExtractor
-                .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-        final boolean useDarkTheme = systemColors != null
-                && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
-        if (isUsingDarkTheme() != useDarkTheme) {
+        int darkThemeUserSetting = LineageSettings.System.getInt(mContext.getContentResolver(),
+                    LineageSettings.System.DARK_THEME, 2);
+        Log.e(TAG, "WUBWUBWUB: setting is " + String.valueOf(darkThemeUserSetting));
+        if (darkThemeUserSetting == 2) {
+            // The system wallpaper defines if QS should be light or dark.
+            WallpaperColors systemColors = mColorExtractor
+                    .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
+            useDarkTheme = systemColors != null
+                    && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+        } else {
+            useDarkTheme = (darkThemeUserSetting == 0);
+        }
+        if (useDarkTheme != isUsingDarkTheme()) {
             try {
                 mOverlayManager.setEnabled("com.android.systemui.theme.dark",
                         useDarkTheme, mCurrentUserId);
