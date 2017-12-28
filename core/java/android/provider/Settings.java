@@ -6073,6 +6073,13 @@ public final class Settings {
         public static final String KEYGUARD_SLICE_URI = "keyguard_slice_uri";
 
         /**
+         * Enable face auto unlock on secure lock screens
+         *
+         * @hide
+         */
+        public static final String FACE_AUTO_UNLOCK = "face_auto_unlock";
+
+        /**
          * Whether to speak passwords while in accessibility mode.
          *
          * @deprecated The speaking of passwords is controlled by individual accessibility services.
