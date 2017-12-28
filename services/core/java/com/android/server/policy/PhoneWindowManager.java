@@ -1643,6 +1643,26 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private final ScreenshotRunnable mScreenshotRunnable = new ScreenshotRunnable();
 
+<<<<<<< HEAD   (dae817 NfcTile: Don't create an error when editing tiles)
+=======
+    private final Runnable mBackLongPress = new Runnable() {
+        @Override
+        public void run() {
+            if (unpinActivity(false)) {
+                return;
+            }
+
+            if (ActionUtils.killForegroundApp(mContext, mCurrentUserId)) {
+                performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
+                        "Back - Long Press");
+                Toast.makeText(mContext,
+                        org.lineageos.platform.internal.R.string.app_killed_message,
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+>>>>>>> CHANGE (3e7e3c Allow screen unpinning on devices without navbar)
     @Override
     public void showGlobalActions() {
         mHandler.removeMessages(MSG_DISPATCH_SHOW_GLOBAL_ACTIONS);
@@ -3320,6 +3340,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 launchAssistAction(Intent.EXTRA_ASSIST_INPUT_HINT_KEYBOARD, event.getDeviceId());
             }
             return -1;
+<<<<<<< HEAD   (dae817 NfcTile: Don't create an error when editing tiles)
+=======
+        } else if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (mKillAppLongpressBack || unpinActivity(true)) {
+                if (down && repeatCount == 0) {
+                    mHandler.postDelayed(mBackLongPress, mBackKillTimeout);
+                }
+            }
+>>>>>>> CHANGE (3e7e3c Allow screen unpinning on devices without navbar)
         }
 
         // Shortcuts are invoked through Search+key, so intercept those here
@@ -3554,6 +3583,22 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
             } catch (Exception e) {
                 Slog.w(TAG, "Could not dispatch event to device key handler", e);
+            }
+        }
+        return false;
+    }
+
+    private boolean unpinActivity(boolean checkOnly) {
+        if (!hasNavigationBar()) {
+            try {
+                if (ActivityTaskManager.getService().isInLockTaskMode()) {
+                    if (!checkOnly) {
+                        ActivityTaskManager.getService().stopSystemLockTaskMode();
+                    }
+                    return true;
+                }
+            } catch (RemoteException e) {
+                // ignore
             }
         }
         return false;
