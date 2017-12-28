@@ -1670,6 +1670,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case SPLIT_SCREEN:
                 toggleSplitScreen();
                 break;
+            case KILL_APP:
+                ActionUtils.killForegroundApp(mContext, mCurrentUserId);
+                break;
             default:
                 break;
         }
