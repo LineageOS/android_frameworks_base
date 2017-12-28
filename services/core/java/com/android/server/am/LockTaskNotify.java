@@ -20,9 +20,12 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Slog;
+import android.view.IWindowManager;
 import android.view.WindowManager;
+import android.view.WindowManagerGlobal;
 import android.widget.Toast;
 
 import com.android.internal.R;
@@ -37,12 +40,14 @@ public class LockTaskNotify {
 
     private final Context mContext;
     private final H mHandler;
+    private final IWindowManager mWindowManagerService;
     private Toast mLastToast;
     private long mLastShowToastTime;
 
     public LockTaskNotify(Context context) {
         mContext = context;
         mHandler = new H();
+        mWindowManagerService = WindowManagerGlobal.getWindowManagerService();
     }
 
     public void showToast(int lockTaskModeState) {
@@ -54,7 +59,8 @@ public class LockTaskNotify {
         if (lockTaskModeState == ActivityManager.LOCK_TASK_MODE_LOCKED) {
             text = mContext.getString(R.string.lock_to_app_toast_locked);
         } else if (lockTaskModeState == ActivityManager.LOCK_TASK_MODE_PINNED) {
-            text = mContext.getString(R.string.lock_to_app_toast);
+            text = mContext.getString(hasNavigationBar()
+                      ? R.string.lock_to_app_toast : R.string.lock_to_app_toast_no_navbar);
         }
         if (text == null) {
             return;
@@ -85,6 +91,15 @@ public class LockTaskNotify {
                 WindowManager.LayoutParams.PRIVATE_FLAG_SHOW_FOR_ALL_USERS;
         toast.show();
         return toast;
+    }
+
+    private boolean hasNavigationBar() {
+        try {
+            return mWindowManagerService.hasNavigationBar();
+        } catch (RemoteException e) {
+            // ignore
+        }
+        return false;
     }
 
     private final class H extends Handler {
