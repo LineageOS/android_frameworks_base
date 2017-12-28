@@ -31,6 +31,9 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
+    <!-- DayNight mode -->
+    <uses-permission android:name="android.permission.MODIFY_DAY_NIGHT_MODE" />
+
     <!-- SystemUI Tuner -->
     <application>
         <activity-alias
