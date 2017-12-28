@@ -35,9 +35,11 @@ import android.text.SpannableStringBuilder;
 import android.text.style.BulletSpan;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
+import android.view.IWindowManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.WindowManagerGlobal;
 import android.view.accessibility.AccessibilityManager;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
@@ -270,22 +272,26 @@ public class ScreenPinningRequest implements View.OnClickListener,
                     && navigationBarView.isRecentsButtonVisible();
             boolean touchExplorationEnabled = mAccessibilityService.isTouchExplorationEnabled();
             int descriptionStringResId;
-            if (QuickStepContract.isGesturalMode(mNavBarMode)) {
+            if (hasNavigationBar() && QuickStepContract.isGesturalMode(mNavBarMode)) {
                 descriptionStringResId = R.string.screen_pinning_description_gestural;
             } else if (recentsVisible) {
                 mLayout.findViewById(R.id.screen_pinning_recents_group).setVisibility(VISIBLE);
                 mLayout.findViewById(R.id.screen_pinning_home_bg_light).setVisibility(INVISIBLE);
                 mLayout.findViewById(R.id.screen_pinning_home_bg).setVisibility(INVISIBLE);
-                descriptionStringResId = touchExplorationEnabled
-                        ? R.string.screen_pinning_description_accessible
-                        : R.string.screen_pinning_description;
+                descriptionStringResId = !hasNavigationBar()
+                        ? R.string.screen_pinning_description_no_navbar
+                        : touchExplorationEnabled
+                                ? R.string.screen_pinning_description_accessible
+                                : R.string.screen_pinning_description;
             } else {
                 mLayout.findViewById(R.id.screen_pinning_recents_group).setVisibility(INVISIBLE);
                 mLayout.findViewById(R.id.screen_pinning_home_bg_light).setVisibility(VISIBLE);
                 mLayout.findViewById(R.id.screen_pinning_home_bg).setVisibility(VISIBLE);
-                descriptionStringResId = touchExplorationEnabled
-                        ? R.string.screen_pinning_description_recents_invisible_accessible
-                        : R.string.screen_pinning_description_recents_invisible;
+                descriptionStringResId = !hasNavigationBar()
+                        ? R.string.screen_pinning_description_no_navbar
+                        : touchExplorationEnabled
+                                ? R.string.screen_pinning_description_recents_invisible_accessible
+                                : R.string.screen_pinning_description_recents_invisible;
             }
 
             if (navigationBarView != null) {
@@ -332,6 +338,15 @@ public class ScreenPinningRequest implements View.OnClickListener,
                 for (int i = childCount - 1; i >= 0; i--) {
                     linearLayout.addView(childList.get(i));
                 }
+            }
+        }
+
+        private boolean hasNavigationBar() {
+            IWindowManager windowManagerService = WindowManagerGlobal.getWindowManagerService();
+            try {
+                return windowManagerService.hasNavigationBar(mContext.getDisplayId());
+            } catch (RemoteException e) {
+                return false;
             }
         }
 
