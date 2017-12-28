@@ -1724,7 +1724,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void backLongPress() {
-        if (hasLongPressOnBackBehavior()) {
+        if (unpinActivity()) {
+            mBackKeyHandled = true;
+            performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, "Back - Long Press");
+        } else if (hasLongPressOnBackBehavior()) {
             mBackKeyHandled = true;
 
             long now = SystemClock.uptimeMillis();
@@ -4387,6 +4390,20 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
             } catch (Exception e) {
                 Slog.w(TAG, "Could not dispatch event to device key handler", e);
+            }
+        }
+        return false;
+    }
+
+    private boolean unpinActivity() {
+        if (!hasNavigationBar()) {
+            try {
+                if (ActivityTaskManager.getService().isInLockTaskMode()) {
+                    ActivityTaskManager.getService().stopSystemLockTaskMode();
+                    return true;
+                }
+            } catch (RemoteException e) {
+                // ignore
             }
         }
         return false;

@@ -17,8 +17,10 @@
 package com.android.systemui.navigationbar;
 
 import android.content.Context;
+import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Slog;
+import android.view.WindowManagerGlobal;
 import android.widget.Toast;
 
 import com.android.systemui.SysUIToast;
@@ -60,7 +62,9 @@ public class ScreenPinningNotify {
         if (mLastToast != null) {
             mLastToast.cancel();
         }
-        mLastToast = makeAllUserToastAndShow(isGestureNavEnabled
+        mLastToast = makeAllUserToastAndShow(!hasSoftNavigationBar()
+                ? R.string.screen_pinning_toast_no_navbar
+                : isGestureNavEnabled
                 ? R.string.screen_pinning_toast_gesture_nav
                 : isRecentsButtonVisible
                         ? R.string.screen_pinning_toast
@@ -72,5 +76,15 @@ public class ScreenPinningNotify {
         Toast toast = SysUIToast.makeText(mContext, resId, Toast.LENGTH_LONG);
         toast.show();
         return toast;
+    }
+
+    private boolean hasSoftNavigationBar() {
+        try {
+            return WindowManagerGlobal.getWindowManagerService()
+                    .hasNavigationBar(mContext.getDisplayId());
+        } catch (RemoteException e) {
+            Slog.e(TAG, "Failed to check soft navigation bar", e);
+            return false;
+        }
     }
 }
