@@ -265,6 +265,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.autofill.AutofillManagerInternal;
 import android.view.inputmethod.InputMethodManagerInternal;
+import android.widget.Toast;
 
 import com.android.internal.R;
 import com.android.internal.accessibility.AccessibilityShortcutController;
@@ -675,6 +676,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mVolumeMuteWakeTriggered;
 
     boolean mVolumeAnswerCall;
+
+    boolean mKillAppLongpressBack;
+    int mBackKillTimeout;
 
     int mPointerLocationMode = 0; // guarded by mLock
 
@@ -1175,6 +1179,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(LineageSettings.System.getUriFor(
                     LineageSettings.System.VOLUME_ANSWER_CALL), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.Secure.getUriFor(
+                    LineageSettings.Secure.KILL_APP_LONGPRESS_BACK), false, this,
                     UserHandle.USER_ALL);
 
             updateSettings();
@@ -2014,6 +2021,17 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private final ScreenshotRunnable mScreenshotRunnable = new ScreenshotRunnable();
 
+    Runnable mBackLongPress = new Runnable() {
+        public void run() {
+            if (ActionUtils.killForegroundApp(mContext, mCurrentUserId)) {
+                performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
+                Toast.makeText(mContext,
+                        org.lineageos.platform.internal.R.string.app_killed_message,
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
     @Override
     public void showGlobalActions() {
         mHandler.removeMessages(MSG_DISPATCH_SHOW_GLOBAL_ACTIONS);
@@ -2378,6 +2396,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         mDeviceHardwareKeys = mContext.getResources().getInteger(
                 org.lineageos.platform.internal.R.integer.config_deviceHardwareKeys);
+        mBackKillTimeout = mContext.getResources().getInteger(
+                org.lineageos.platform.internal.R.integer.config_backKillTimeout);
 
         updateKeyAssignments();
 
@@ -2837,6 +2857,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mCameraLaunch = LineageSettings.System.getIntForUser(
                     resolver, LineageSettings.System.CAMERA_LAUNCH, 0,
                     UserHandle.USER_CURRENT) == 1;
+            mKillAppLongpressBack = LineageSettings.Secure.getInt(
+                    resolver, LineageSettings.Secure.KILL_APP_LONGPRESS_BACK, 0) == 1;
 
             // Configure wake gesture.
             boolean wakeGestureEnabledSetting = Settings.Secure.getIntForUser(resolver,
@@ -4037,6 +4059,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mPendingCapsLockToggle = false;
         }
 
+        if (keyCode == KeyEvent.KEYCODE_BACK && !down) {
+            mHandler.removeCallbacks(mBackLongPress);
+        }
+
         // First we always handle the home key here, so applications
         // can never break it, although if keyguard is on, we do let
         // it handle it, because that gives us the correct 5 second
@@ -4370,6 +4396,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 launchAssistAction(Intent.EXTRA_ASSIST_INPUT_HINT_KEYBOARD, event.getDeviceId());
             }
             return -1;
+        } else if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (mKillAppLongpressBack) {
+                if (down && repeatCount == 0) {
+                    mHandler.postDelayed(mBackLongPress, mBackKillTimeout);
+                }
+            }
         }
 
         // Shortcuts are invoked through Search+key, so intercept those here
