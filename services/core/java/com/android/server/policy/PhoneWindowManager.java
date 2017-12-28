@@ -1643,6 +1643,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private final ScreenshotRunnable mScreenshotRunnable = new ScreenshotRunnable();
 
+    private final Runnable mBackLongPress = new Runnable() {
+        @Override
+        public void run() {
+            unpinActivity(false);
+        }
+    };
+
     @Override
     public void showGlobalActions() {
         mHandler.removeMessages(MSG_DISPATCH_SHOW_GLOBAL_ACTIONS);
@@ -3279,6 +3286,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 msg.sendToTarget();
             }
             return -1;
+        } else if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (unpinActivity(true)) {
+                if (down && repeatCount == 0) {
+                    mHandler.postDelayed(mBackLongPress, 2000);
+                } else {
+                    mHandler.removeCallbacks(mBackLongPress);
+                }
+            }
         }
 
         // Toggle Caps Lock on META-ALT.
@@ -3554,6 +3569,22 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
             } catch (Exception e) {
                 Slog.w(TAG, "Could not dispatch event to device key handler", e);
+            }
+        }
+        return false;
+    }
+
+    private boolean unpinActivity(boolean checkOnly) {
+        if (!hasNavigationBar()) {
+            try {
+                if (ActivityTaskManager.getService().isInLockTaskMode()) {
+                    if (!checkOnly) {
+                        ActivityTaskManager.getService().stopSystemLockTaskMode();
+                    }
+                    return true;
+                }
+            } catch (RemoteException e) {
+                // ignore
             }
         }
         return false;
