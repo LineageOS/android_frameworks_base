@@ -93,10 +93,13 @@ import static org.lineageos.internal.util.DeviceKeysConstants.*;
 
 import android.annotation.Nullable;
 import android.app.ActivityManager;
+import android.app.ActivityManager.StackInfo;
 import android.app.ActivityManagerInternal;
+import android.app.ActivityManagerNative;
 import android.app.ActivityTaskManager;
 import android.app.AlarmManager;
 import android.app.AppOpsManager;
+import android.app.IActivityManager;
 import android.app.IUiModeManager;
 import android.app.PendingIntent;
 import android.app.NotificationManager;
@@ -194,6 +197,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.autofill.AutofillManagerInternal;
+import android.widget.Toast;
 
 import com.android.internal.R;
 import com.android.internal.accessibility.AccessibilityShortcutController;
@@ -1749,16 +1753,21 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
+    private String getHomePackageName(int flags) {
+        Intent intentLauncher = new Intent(Intent.ACTION_MAIN);
+        intentLauncher.addCategory(Intent.CATEGORY_HOME);
+        ResolveInfo resolveInfo = mPackageManager.resolveActivityAsUser(intentLauncher,
+                flags,
+                mCurrentUserId);
+        return resolveInfo != null ? resolveInfo.activityInfo.packageName : null;
+    }
+
     private void launchAllAppsAction() {
         Intent intent = new Intent(Intent.ACTION_ALL_APPS);
         if (mHasFeatureLeanback) {
-            Intent intentLauncher = new Intent(Intent.ACTION_MAIN);
-            intentLauncher.addCategory(Intent.CATEGORY_HOME);
-            ResolveInfo resolveInfo = mPackageManager.resolveActivityAsUser(intentLauncher,
-                    PackageManager.MATCH_SYSTEM_ONLY,
-                    mCurrentUserId);
-            if (resolveInfo != null) {
-                intent.setPackage(resolveInfo.activityInfo.packageName);
+            String packageName = getHomePackageName(PackageManager.MATCH_SYSTEM_ONLY);
+            if (packageName != null) {
+                intent.setPackage(packageName);
             }
         }
         startActivityAsUser(intent, UserHandle.CURRENT);
@@ -1827,6 +1836,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case SPLIT_SCREEN:
                 toggleSplitScreen();
+                break;
+            case KILL_APP:
+                killForegroundApp();
                 break;
             default:
                 break;
@@ -3857,6 +3869,30 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         StatusBarManagerInternal statusbar = getStatusBarManagerInternal();
         if (statusbar != null) {
             statusbar.toggleSplitScreen();
+        }
+    }
+
+    private void killForegroundApp() {
+        try {
+            IActivityManager am = ActivityManagerNative.getDefault();
+            StackInfo focusedStack = am.getFocusedStackInfo();
+            if (focusedStack == null || focusedStack.topActivity == null) {
+                return;
+            }
+            String topPackage = focusedStack.topActivity.getPackageName();
+            if (topPackage.equals("com.android.systemui")) {
+                return;
+            }
+            String homePackageName = getHomePackageName(0);
+            if (topPackage.equals(homePackageName)) {
+                return;
+            }
+            am.forceStopPackage(topPackage, UserHandle.USER_CURRENT);
+            Toast.makeText(mContext,
+                    org.lineageos.platform.internal.R.string.app_killed_message,
+                    Toast.LENGTH_SHORT).show();
+        } catch (RemoteException e) {
+            // Do nothing.
         }
     }
 
