@@ -107,7 +107,13 @@ import static org.lineageos.internal.util.DeviceKeysConstants.*;
 import android.annotation.Nullable;
 import android.app.ActivityManager;
 import android.app.ActivityManagerInternal;
+<<<<<<< HEAD   (50468f SystemUI: Initialize proper visibility for notification icon)
 import android.app.ActivityTaskManager;
+=======
+import android.app.ActivityManagerInternal.SleepToken;
+import android.app.ActivityManagerNative;
+import android.app.ActivityThread;
+>>>>>>> CHANGE (149415 Allow screen unpinning on devices without navbar)
 import android.app.AlarmManager;
 import android.app.AppOpsManager;
 import android.app.IUiModeManager;
@@ -1661,6 +1667,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private final Runnable mBackLongPress = new Runnable() {
         @Override
         public void run() {
+            if (unpinActivity(false)) {
+                return;
+            }
+
             if (ActionUtils.killForegroundApp(mContext, mCurrentUserId)) {
                 performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
                         "Back - Long Press");
@@ -3415,7 +3425,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
             return -1;
         } else if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (mKillAppLongpressBack) {
+            if (mKillAppLongpressBack || unpinActivity(true)) {
                 if (down && repeatCount == 0) {
                     mHandler.postDelayed(mBackLongPress, mBackKillTimeout);
                 }
@@ -3658,7 +3668,26 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         return false;
     }
 
+<<<<<<< HEAD   (50468f SystemUI: Initialize proper visibility for notification icon)
     // TODO(b/117479243): handle it in InputPolicy
+=======
+    private boolean unpinActivity(boolean checkOnly) {
+        if (!hasNavigationBar()) {
+            try {
+                if (ActivityManagerNative.getDefault().isInLockTaskMode()) {
+                    if (!checkOnly) {
+                        ActivityManagerNative.getDefault().stopSystemLockTaskMode();
+                    }
+                    return true;
+                }
+            } catch (RemoteException e) {
+                // ignore
+            }
+        }
+        return false;
+    }
+
+>>>>>>> CHANGE (149415 Allow screen unpinning on devices without navbar)
     /** {@inheritDoc} */
     @Override
     public KeyEvent dispatchUnhandledKey(WindowState win, KeyEvent event, int policyFlags) {

@@ -99,6 +99,7 @@
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Volume panel</string>
 
+<<<<<<< HEAD   (50468f SystemUI: Initialize proper visibility for notification icon)
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Connect to\u2026</string>
@@ -122,4 +123,15 @@
     <string name="status_bar_camera">Camera</string>
     <string name="status_bar_location">Location</string>
     <string name="status_bar_microphone">Microphone</string>
+=======
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor left</string>
+    <string name="accessibility_dpad_right">Cursor right</string>
+
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
+
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">To unpin this screen, touch &amp; hold Back button</string>
+>>>>>>> CHANGE (149415 Allow screen unpinning on devices without navbar)
 </resources>
