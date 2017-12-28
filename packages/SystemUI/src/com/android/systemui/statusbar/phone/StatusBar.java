@@ -943,6 +943,12 @@ public class StatusBar extends SystemUI implements DemoMode,
                 mLockscreenSettingsObserver,
                 UserHandle.USER_ALL);
 
+        mContext.getContentResolver().registerContentObserver(
+                LineageSettings.System.getUriFor(LineageSettings.System.DARK_THEME),
+                true,
+                mThemeSettingsObserver,
+                UserHandle.USER_ALL);
+
         mBarService = IStatusBarService.Stub.asInterface(
                 ServiceManager.getService(Context.STATUS_BAR_SERVICE));
 
@@ -3007,7 +3013,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     public boolean isUsingDarkTheme() {
-        OverlayInfo themeInfo = null;
+        OverlayInfo systemuiThemeInfo = null;
+        OverlayInfo settingsThemeInfo = null;
         try {
             themeInfo = mOverlayManager.getOverlayInfo("com.android.systemui.theme.dark",
                     mCurrentUserId);
@@ -4906,11 +4913,14 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected void updateTheme() {
         final boolean inflated = mStackScroller != null;
 
-        // The system wallpaper defines if QS should be light or dark.
+        // 0=auto, 1=light, 2=dark
+        final int darkThemeUserSetting = LineageSettings.System.getInt(mContext.getContentResolver(),
+                LineageSettings.System.DARK_THEME, 0);
         WallpaperColors systemColors = mColorExtractor
                 .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-        final boolean useDarkTheme = systemColors != null
-                && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+        final boolean useDarkTheme = darkThemeUserSetting == 2 || (systemColors != null
+                && darkThemeUserSetting == 0
+                && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0);
         if (isUsingDarkTheme() != useDarkTheme) {
             try {
                 mOverlayManager.setEnabled("com.android.systemui.theme.dark",
@@ -6065,6 +6075,13 @@ public class StatusBar extends SystemUI implements DemoMode,
             setZenMode(mode);
 
             updateLockscreenNotificationSetting();
+        }
+    };
+
+    protected final ContentObserver mThemeSettingsObserver = new ContentObserver(mHandler) {
+        @Override
+        public void onChange(boolean selfChange) {
+            updateTheme();
         }
     };
 
