@@ -248,7 +248,9 @@ import com.android.systemui.statusbar.stack.NotificationStackScrollLayout;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 
+import lineageos.hardware.LiveDisplayManager;
 import lineageos.providers.LineageSettings;
+import lineageos.style.StyleInterface;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -285,6 +287,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             "lineagesecure:" + LineageSettings.Secure.LOCKSCREEN_MEDIA_METADATA;
     private static final String FORCE_SHOW_NAVBAR =
             "lineagesystem:" + LineageSettings.System.FORCE_SHOW_NAVBAR;
+    private static final String BERRY_GLOBAL_STYLE =
+            "lineagesystem:" + LineageSettings.System.BERRY_GLOBAL_STYLE;
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
@@ -705,6 +709,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         tunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
         tunerService.addTunable(this, LOCKSCREEN_MEDIA_METADATA);
         tunerService.addTunable(this, FORCE_SHOW_NAVBAR);
+        tunerService.addTunable(this, BERRY_GLOBAL_STYLE);
 
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
 
@@ -2148,12 +2153,30 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     public boolean isUsingDarkTheme() {
         OverlayInfo themeInfo = null;
         try {
-            themeInfo = mOverlayManager.getOverlayInfo("com.android.systemui.theme.dark",
+            themeInfo = mOverlayManager.getOverlayInfo(getDarkOverlay(),
                     mLockscreenUserManager.getCurrentUserId());
         } catch (RemoteException e) {
             e.printStackTrace();
         }
         return themeInfo != null && themeInfo.isEnabled();
+    }
+
+    private boolean isLiveDisplayNightModeOn() {
+        // SystemUI is initialized before LiveDisplay, so the service may not
+        // be ready when this is called the first time
+        LiveDisplayManager manager = LiveDisplayManager.getInstance(mContext);
+        try {
+            return manager.isNightModeEnabled();
+        } catch (NullPointerException e) {
+            Log.w(TAG, e.getMessage());
+        }
+        return false;
+    }
+
+    private String getDarkOverlay() {
+        return LineageSettings.System.getString(mContext.getContentResolver(),
+                LineageSettings.System.BERRY_DARK_OVERLAY,
+                StyleInterface.OVERLAY_DARK_DEFAULT);
     }
 
     @Nullable
@@ -4047,15 +4070,33 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     protected void updateTheme() {
         final boolean inflated = mStackScroller != null;
 
-        // The system wallpaper defines if QS should be light or dark.
+        // 0 = auto, 1 = time-based, 2 = light, 3 = dark
+        final int globalStyleSetting = LineageSettings.System.getInt(mContext.getContentResolver(),
+                LineageSettings.System.BERRY_GLOBAL_STYLE, 0);
         WallpaperColors systemColors = mColorExtractor
                 .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-        final boolean useDarkTheme = systemColors != null
-                && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+        final boolean useDarkTheme;
+
+        switch (globalStyleSetting) {
+            case 1:
+                useDarkTheme = isLiveDisplayNightModeOn();
+                break;
+            case 2:
+                useDarkTheme = false;
+                break;
+            case 3:
+                useDarkTheme = true;
+                break;
+            default:
+                useDarkTheme = systemColors != null && (systemColors.getColorHints() &
+                        WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+                break;
+        }
+
         if (isUsingDarkTheme() != useDarkTheme) {
             mUiOffloadThread.submit(() -> {
                 try {
-                    mOverlayManager.setEnabled("com.android.systemui.theme.dark",
+                    mOverlayManager.setEnabled(getDarkOverlay(),
                             useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                 } catch (RemoteException e) {
                     Log.w(TAG, "Can't change theme", e);
@@ -5803,6 +5844,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 mWindowManager.removeViewImmediate(mNavigationBarView);
                 mNavigationBarView = null;
             }
+        } else if (BERRY_GLOBAL_STYLE.equals(key)) {
+            updateTheme();
         }
     }
     // End Extra BaseStatusBarMethods.
