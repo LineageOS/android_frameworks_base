@@ -4852,12 +4852,14 @@ public class StatusBar extends SystemUI implements DemoMode,
      */
     protected void updateTheme() {
         final boolean inflated = mStackScroller != null;
+        final boolean useDarkTheme;
 
-        // The system wallpaper defines if QS should be light or dark.
-        WallpaperColors systemColors = mColorExtractor
-                .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-        final boolean useDarkTheme = systemColors != null
-                && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+        // 0=auto, 1=light, 2=dark
+        final int darkThemeUserSetting = LineageSettings.System.getInt(mContext.getContentResolver(),
+                LineageSettings.System.DARK_THEME, 0);
+        final boolean useDarkTheme = darkThemeUserSetting == 2 || (systemColors != null
+                && darkThemeUserSetting == 0
+                && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0);
         if (isUsingDarkTheme() != useDarkTheme) {
             try {
                 mOverlayManager.setEnabled("com.android.systemui.theme.dark",
