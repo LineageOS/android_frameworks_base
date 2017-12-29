@@ -73,10 +73,14 @@ public class LiveDisplayTile extends QSTile<LiveDisplayTile.LiveDisplayState> {
         updateEntries();
 
         mLiveDisplay = LiveDisplayManager.getInstance(mContext);
-        mOutdoorModeAvailable = mLiveDisplay.getConfig().hasFeature(MODE_OUTDOOR) &&
-                !mLiveDisplay.getConfig().hasFeature(FEATURE_MANAGED_OUTDOOR_MODE);
-
-        mDayTemperature = mLiveDisplay.getDayColorTemperature();
+        if (mLiveDisplay.getConfig() != null) {
+            mOutdoorModeAvailable = mLiveDisplay.getConfig().hasFeature(MODE_OUTDOOR) &&
+                    !mLiveDisplay.getConfig().hasFeature(FEATURE_MANAGED_OUTDOOR_MODE);
+            mDayTemperature = mLiveDisplay.getDayColorTemperature();
+        } else {
+            mOutdoorModeAvailable = false;
+            mDayTemperature = -1;
+        }
 
         mObserver = new LiveDisplayObserver(mHandler);
         mObserver.startObserving();
