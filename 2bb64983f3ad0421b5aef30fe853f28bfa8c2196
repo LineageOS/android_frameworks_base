@@ -22,6 +22,30 @@
       "revId": "2bb64983f3ad0421b5aef30fe853f28bfa8c2196",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c882f7f_772ce17c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-06T20:41:14Z",
+      "side": 1,
+      "message": "Not necessarily. Have we made a decision about shipping vendor.img\u0027s yet? Until then, it\u0027s perfectly fair to assume they will be prebuilt and distributed by the OEM.",
+      "parentUuid": "8d73ede4_225e5f94",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "2bb64983f3ad0421b5aef30fe853f28bfa8c2196",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
