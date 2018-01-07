@@ -68,4 +68,7 @@
 
     <!-- Screen pinning dialog description (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
+
+    <!-- Content description of the superuser tile -->
+    <string name="accessibility_su_active">Superuser session active</string>
 </resources>
