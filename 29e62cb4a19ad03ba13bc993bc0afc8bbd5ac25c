@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6fe95ac9_b7372935",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-10T04:54:29Z",
+      "side": 0,
+      "message": "Unnecessary whitespace change",
+      "revId": "29e62cb4a19ad03ba13bc993bc0afc8bbd5ac25c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
