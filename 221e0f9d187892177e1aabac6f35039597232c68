@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8ccffd0_894b33a0",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-10T04:46:58Z",
+      "side": 1,
+      "message": "Can this be final? It looks like it is meant to only be assigned from overlays once.",
+      "range": {
+        "startLine": 625,
+        "startChar": 4,
+        "endLine": 625,
+        "endChar": 25
+      },
+      "revId": "221e0f9d187892177e1aabac6f35039597232c68",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
