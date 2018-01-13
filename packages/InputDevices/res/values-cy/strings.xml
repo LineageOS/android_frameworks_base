@@ -9,6 +9,7 @@
   <!-- US English (Colemak style) keyboard layout label. [CHAR LIMIT=35] -->
   <!-- US English (Dvorak style) keyboard layout label. [CHAR LIMIT=35] -->
   <!-- US English (Workman style) keyboard layout label. [CHAR LIMIT=35] -->
+  <string name="keyboard_layout_english_us_workman_label">Saesneg (UDA), arddull Workman</string>
   <!-- German keyboard layout label. [CHAR LIMIT=35] -->
   <!-- French keyboard layout label. [CHAR LIMIT=35] -->
   <!-- Canadian French keyboard layout label. [CHAR LIMIT=35] -->

@@ -197,4 +197,25 @@
   <!-- Content description for Accessibility on locked tasks in recents -->
   <string name="accessibility_unlock_task">Povolit, aby byla úloha <xliff:g id="task">%1$s</xliff:g> zrušena</string>
   <!-- LiveDisplay strings -->
+  <string name="live_display_auto">Automaticky</string>
+  <string name="live_display_auto_summary">Automaticky upravit teplotu barev obrazovky po západu a východu slunce</string>
+  <string name="live_display_off">Vypnuto</string>
+  <string name="live_display_off_summary">Zakázat všechny úpravy</string>
+  <string name="live_display_day">Den</string>
+  <string name="live_display_day_summary">Nastavení pouze pro den</string>
+  <string name="live_display_night">Noc</string>
+  <string name="live_display_night_summary">Nastavení pouze pro noc</string>
+  <string name="live_display_outdoor">Venku (slunečno)</string>
+  <string name="live_display_outdoor_summary">Použít pouze venkovní nastavení</string>
+  <string name="live_display_hint">LiveDisplay může pomoci proti namáhání očí hlavně při používání v noci. Dotykem zde tuto funkci můžete vyzkoušet!</string>
+  <string name="accessibility_quick_settings_live_display_off">LiveDisplay vyp.</string>
+  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatický režim.</string>
+  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: režim ve dne.</string>
+  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: režim v noci.</string>
+  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: režim venku.</string>
+  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay vypnutý.</string>
+  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay změněn na automatický režim.</string>
+  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay změněn na režim ve dne.</string>
+  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay změněn na režim v noci.</string>
+  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay změněn na režim venku.</string>
 </resources>

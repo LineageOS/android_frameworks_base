@@ -28,9 +28,9 @@
     <!-- Status message of Wi-Fi when it is scanning. -->
     <item>Escaniando\u2026</item>
     <!-- Status message of Wi-Fi when it is connecting. -->
-    <item>Connecting\u2026</item>
+    <item>Coneutando\u2026</item>
     <!-- Status message of Wi-Fi when it is authenticating. -->
-    <item>Authenticating\u2026</item>
+    <item>Autenticando\u2026</item>
     <!-- Status message of Wi-Fi when it is obtaining IP address. -->
     <item>Consiguiendo direición IP\u2026</item>
     <!-- Status message of Wi-Fi when it is connected. -->
@@ -38,7 +38,7 @@
     <!-- Status message of Wi-Fi when it is suspended. -->
     <item>Suspended</item>
     <!-- Status message of Wi-Fi when it is disconnecting. -->
-    <item>Disconnecting\u2026</item>
+    <item>Desconeutando\u2026</item>
     <!-- Status message of Wi-Fi when it is disconnected. -->
     <item>Disconnected</item>
     <!-- Status message of Wi-Fi when it is a failure. -->

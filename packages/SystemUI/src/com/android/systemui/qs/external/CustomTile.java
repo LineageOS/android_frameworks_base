@@ -286,9 +286,11 @@ public class CustomTile extends QSTile<QSTile.State> implements TileChangeListen
     @Override
     protected void handleUpdateState(State state, Object arg) {
         int tileState = mTile.getState();
+        Log.d(TAG, "tileState: " + tileState);
         if (mServiceManager.hasPendingBind()) {
             tileState = Tile.STATE_UNAVAILABLE;
         }
+        Log.d(TAG, "tileState after: " + tileState);
         Drawable drawable;
         boolean mHasRes = false;
         android.graphics.drawable.Icon icon = mTile.getIcon();
@@ -301,6 +303,7 @@ public class CustomTile extends QSTile<QSTile.State> implements TileChangeListen
             drawable = mDefaultIcon.loadDrawable(mAppContext);
         }
         int color = mContext.getColor(getColor(tileState));
+        Log.d(TAG, "hasRes: " + mHasRes + " color:" + color + " tileState: " + tileState);
         drawable.setTint(color);
         state.icon = mHasRes ? new DrawableIconWithRes(
                 drawable, icon.getResId(), color) : new DrawableIcon(drawable);
