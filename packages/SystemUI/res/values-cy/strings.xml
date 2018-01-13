@@ -76,6 +76,7 @@
   <!-- Option to always allow USB debugging from the attached computer -->
   <!-- Title of notification shown when trying to enable USB debugging but a secondary user is the current foreground user. -->
   <!-- Message of notification shown when trying to enable USB debugging but a secondary user is the current foreground user. -->
+  <string name="usb_debugging_secondary_user_message">Dyw\'r defnyddiwr sydd wedi mewngofnodi i\'r ddyfais ar hyn o bryd methu troi dadfygio USB ymlaen. I ddefnyddio\'r nodwedd hon, rhaid newid i ddefnyddiwr gweinyddol.</string>
   <!-- Checkbox label for application compatibility mode ON (zooming app to look like it's running
          on a phone).  [CHAR LIMIT=25] -->
   <!-- Checkbox label for application compatibility mode OFF (normal mode on tablets).
@@ -85,10 +86,14 @@
   <!-- Notification text displayed when a screenshot is being saved to the Gallery. [CHAR LIMIT=100] -->
   <!-- Notification title displayed when a screenshot is saved to the Gallery. [CHAR LIMIT=50] -->
   <!-- Notification text displayed when a screenshot is saved to the Gallery. [CHAR LIMIT=100] -->
+  <string name="screenshot_saved_text">Tara i weld dy sgrinlun.</string>
   <!-- Notification title displayed when we fail to take a screenshot. [CHAR LIMIT=50] -->
   <!-- Notification text displayed when we fail to save a screenshot for unknown reasons. [CHAR LIMIT=100] -->
+  <string name="screenshot_failed_to_save_unknown_text">Roedd problem wrth gadw\'r sgrinlun.</string>
   <!-- Notification text displayed when we fail to save a screenshot. [CHAR LIMIT=100] -->
+  <string name="screenshot_failed_to_save_text">Methu cadw sgrinlun gan nad oes digon o le i\'w storio.</string>
   <!-- Notification text displayed when we fail to take a screenshot. [CHAR LIMIT=100] -->
+  <string name="screenshot_failed_to_capture_text">Dyw\'r ap neu dy sefydliad ddim yn caniatáu tynnu sgrinluniau.</string>
   <!-- Title for the USB function chooser in UsbPreferenceActivity. [CHAR LIMIT=30] -->
   <!-- Label for the MTP USB function in UsbPreferenceActivity. [CHAR LIMIT=50] -->
   <!-- Label for the PTP USB function in UsbPreferenceActivity. [CHAR LIMIT=50] -->
@@ -132,6 +137,7 @@
   <!-- Content description of the wifi label showing what we are connected to. [CHAR LIMIT=NONE] -->
   <!-- Content description of the bluetooth label showing what we are connected to. [CHAR LIMIT=NONE] -->
   <!-- Content description of the cast label showing what we are connected to. [CHAR LIMIT=NONE] -->
+  <string name="accessibility_cast_name">Wedi cysylltu gyda <xliff:g id="cast" example="TV">%s</xliff:g>.</string>
   <!-- Content description of the WiMAX signal when no signal for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the WiMAX signal when it is one bar for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the WiMAX signal when it is two bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -157,23 +163,30 @@
   <!-- Content description of the data connection type 3.5G for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the data connection type 4G for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the data connection type 4G for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_connection_4g_plus">4G+</string>
   <!-- Content description of the data connection type LTE for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the data connection type LTE+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_connection_lte_plus">LTE+</string>
   <!-- Content description of the data connection type CDMA for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the roaming data connection type for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the data connection type Edge for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the data connection type WiFi for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the data connection with no SIM for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the cell data. [CHAR LIMIT=NONE] -->
+  <string name="accessibility_cell_data">Data Symudol</string>
   <!-- Content description of the cell data being enabled. [CHAR LIMIT=NONE] -->
+  <string name="accessibility_cell_data_on">Data Symudol Ymlaen</string>
   <!-- Content description of the cell data being disabled. [CHAR LIMIT=NONE] -->
+  <string name="accessibility_cell_data_off">Data Symudol i Ffwrdd</string>
   <!-- Content description of the bluetooth tethering icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the airplane mode icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the no sim icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the carrier network changing icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of button to open battery details icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_battery_details">Agor manylion batri</string>
   <!-- Content description of the battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the battery level icon for accessibility while the device is charging (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_battery_level_charging">Batri\'n gwefru, <xliff:g id="battery_percentage">%d</xliff:g>%.</string>
   <!-- Content description of the button for showing a settings panel in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the button for showing a notifications panel in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the button for removing a notification in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -184,10 +197,12 @@
   <!-- Content description of the ringer silent icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the cast icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the work mode icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_work_mode">Modd gwaith</string>
   <!-- Content description to tell the user that this button will remove an application from recents -->
   <!-- Content description to tell the user an application has been removed from recents -->
   <!-- Content description to tell the user all applications has been removed from recents -->
   <!-- Content description to tell the user that this button will open application info for an application in recents -->
+  <string name="accessibility_recents_item_open_app_info">Agor manylion ap <xliff:g id="app" example="Calendar">%s</xliff:g>.</string>
   <!-- Content description to tell the user an application has been launched from recents -->
   <!-- Content description of individual recents task. -->
   <!-- Content description to tell the user a notification has been removed from the notification shade -->
@@ -211,10 +226,12 @@
   <!-- Content description of the do not disturb tile in quick settings when on in none (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the do not disturb tile in quick settings when on in alarms only (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the do not disturb tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_dnd">Dim tarfu.</string>
   <!-- Content description of the do not disturb tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Announcement made when do not disturb changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Announcement made when do not disturb changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the bluetooth tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_bluetooth">Bluetooth</string>
   <!-- Content description of the bluetooth tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the bluetooth tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the bluetooth tile in quick settings when connecting (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -231,6 +248,7 @@
   <!-- Content description of zen mode time condition minus button (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the flashlight tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the flashlight tile in quick settings when unavailable (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_flashlight_unavailable">Fflacholau dim ar gael.</string>
   <!-- Content description of the flashlight tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Announcement made when the flashlight state changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Announcement made when the flashlight state changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -240,17 +258,24 @@
   <!-- Announcement made when the hotspot state changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Announcement made when the screen stopped casting (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the work mode title in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_work_mode_off">Modd gwaith i ffwrdd.</string>
   <!-- Content description of the work mode title in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_work_mode_on">Modd gwaith ymlaen.</string>
   <!-- Announcement made when the work mode changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_work_mode_changed_off">Modd gwaith wedi\'i diffodd.</string>
   <!-- Announcement made when the work mode changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_work_mode_changed_on">Modd gwaith wedi\'i rhoi ymlaen.</string>
   <!-- Announcement made when the Data Saver changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_data_saver_changed_off">Diffoddwyd Arbedwr Data.</string>
   <!-- Announcement made when the Data Saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_data_saver_changed_on">Rhoddwyd Arbedwr Data ar waith.</string>
   <!-- Content description of the display brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Title of dialog shown when 2G-3G data usage has exceeded limit and has been disabled. [CHAR LIMIT=48] -->
   <!-- Title of dialog shown when 4G data usage has exceeded limit and has been disabled. [CHAR LIMIT=48] -->
   <!-- Title of dialog shown when mobile data usage has exceeded limit and has been disabled. [CHAR LIMIT=48] -->
   <!-- Title of dialog shown when data usage has exceeded limit and has been disabled. [CHAR LIMIT=48] -->
   <!-- Body of dialog shown when data usage has exceeded limit and has been disabled. [CHAR LIMIT=NONE] -->
+  <string name="data_usage_disabled_dialog">Mae\'r terfyn data gosodaist wedi ei gyrraedd. Dyw\'r ddyfais ddim yn defnyddio data symudol bellach.\n\nOs wyt ti\'n parhau, mae\'n bosib bydd costau ychwanegol am ddefnydd data.</string>
   <!-- Dialog button indicating that data connection should be re-enabled. [CHAR LIMIT=28] -->
   <!-- Text to display underneath the graphical signal strength meter when
          no connection is available. [CHAR LIMIT=20] -->
@@ -263,7 +288,16 @@
   <!-- Accessibility text describing the presence of active location requests by one or more apps -->
   <!-- Content description of the clear button in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- The overflow indicator shown when a group has more notification inside the group than the visible ones. An example is "+ 3" [CHAR LIMIT=5] -->
+  <string name="notification_group_overflow_indicator">+ <xliff:g id="number" example="3">%s</xliff:g></string>
   <!-- Content description describing how many more notifications are in a group [CHAR LIMIT=NONE] -->
+  <plurals name="notification_group_overflow_description">
+    <item quantity="zero"><xliff:g id="number" example="3">%s</xliff:g> rhagor o hysbysiadau tu fewn.</item>
+    <item quantity="one"><xliff:g id="number" example="3">%s</xliff:g> hysbysiad arall tu fewn.</item>
+    <item quantity="two"><xliff:g id="number" example="3">%s</xliff:g> hysbysiad arall tu fewn.</item>
+    <item quantity="few"><xliff:g id="number" example="3">%s</xliff:g> hysbysiad arall tu fewn.</item>
+    <item quantity="many"><xliff:g id="number" example="3">%s</xliff:g> hysbysiad arall tu fewn.</item>
+    <item quantity="other"><xliff:g id="number" example="3">%s</xliff:g> hysbysiad arall tu fewn.</item>
+  </plurals>
   <!-- Content description of button in notification inspector for system settings relating to
          notifications from this application [CHAR LIMIT=NONE] -->
   <!-- Content description of button in notification inspetor for application-provided settings
@@ -276,8 +310,10 @@
   <!-- Announcement made when the rotation lock state changes to portrait only (not shown on the screen).  [CHAR LIMIT=NONE] -->
   <!-- Name of the K-release easter egg: a display case for all our tastiest desserts. [CHAR LIMIT=30] -->
   <!-- Name of the launcher shortcut icon that allows dreams to be started immediately [CHAR LIMIT=20] -->
+  <string name="start_dreams">Arbedwr sgrin</string>
   <!-- Textual description of Ethernet connections -->
   <!-- QuickSettings: Do not disturb [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_dnd_label">Dim Tarfu</string>
   <!-- QuickSettings: Do not disturb - Priority only [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Do not disturb - Alarms only [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Do not disturb - Total silence [CHAR LIMIT=NONE] -->
@@ -289,6 +325,7 @@
   <!-- QuickSettings: Rotation Unlocked [CHAR LIMIT=NONE] -->
   <!-- Accessibility label for Auto-ratate QuickSettings tile [CHAR LIMIT=NONE] -->
   <!-- Accessibility label for value of Auto-ratate QuickSettings tile [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_rotation_value">Gosod i <xliff:g name="rotation" example="Portrait">%s</xliff:g></string>
   <!-- QuickSettings: Rotation Locked [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Locked to Portrait [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Locked to Landscape [CHAR LIMIT=NONE] -->
@@ -308,6 +345,7 @@
   <!-- QuickSettings: Wifi (No network) [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Wifi (Off) [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Wifi (On) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_wifi_on_label">Wi-Fi Ymlaen</string>
   <!-- QuickSettings: Wifi detail panel, text when there are no items [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Cast title [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Cast detail panel, status text when casting [CHAR LIMIT=NONE] -->
@@ -334,22 +372,34 @@
   <!-- QuickSettings: Cellular detail panel, data limit format string [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Cellular detail panel, data warning format string [CHAR LIMIT=NONE] -->
   <!-- QuickSettings: Work mode [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_work_mode_label">Modd gwaith</string>
   <!-- QuickSettings: Label for the toggle to activate Night display (renamed "Night Light" with title caps). [CHAR LIMIT=20] -->
+  <string name="quick_settings_night_display_label">Golau Nos</string>
   <!-- QuickSettings: Summary for the toggle to deactivate Night display when it's on (renamed "Night Light" with title caps). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_night_display_summary_on">Golau Nos ymlaen. Tara i\'w diffodd.</string>
   <!-- QuickSettings: Label for the toggle to activate Night display when it's off (renamed "Night Light" with title caps). [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_night_display_summary_off">Golau Nos i ffwrdd. Tara i\'w droi ymlaen.</string>
   <!-- QuickSettings: NFC tile [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_nfc_label">Cyfathrebiad Maes Cyfagos (NFC)</string>
   <!-- QuickSettings: NFC (off) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_nfc_off">NFC wedi ei analluogi</string>
   <!-- QuickSettings: NFC (on) [CHAR LIMIT=NONE] -->
+  <string name="quick_settings_nfc_on">NFC wedi ei alluogi.</string>
   <!-- Recents: The empty recents string. [CHAR LIMIT=NONE] -->
+  <string name="recents_empty_message">Dim eitemau diweddar</string>
   <!-- Recents: The empty recents string after dismissing all tasks. [CHAR LIMIT=NONE] -->
+  <string name="recents_empty_message_dismissed_all">Rwyt wedi clirio popeth</string>
   <!-- Recents: The info panel app info button string. [CHAR LIMIT=NONE] -->
   <!-- Recents: The screen pinning button. [CHAR LIMIT=NONE] -->
   <!-- Recents: Temporary string for the button in the recents search bar. [CHAR LIMIT=NONE] -->
   <!-- Recents: Launch error string. [CHAR LIMIT=NONE] -->
   <!-- Recents: Launch disabled string. [CHAR LIMIT=NONE] -->
+  <string name="recents_launch_disabled_message">Mae <xliff:g id="app" example="Calendar">%s</xliff:g> wedi ei analluogi ym modd diogel.</string>
   <!-- Recents: Stack action button string. [CHAR LIMIT=NONE] -->
   <!-- Recents: Incompatible task message. [CHAR LIMIT=NONE] -->
+  <string name="recents_incompatible_app_message">Dyw\'r ap ddim yn gydnaws a sgrin hollt.</string>
   <!-- Recents: Hint text that shows on the drop targets to start multiwindow. [CHAR LIMIT=NONE] -->
+  <string name="recents_drag_hint_message">Llusga yma i ddefnyddio sgrin hollt.</string>
   <!-- Recents: MultiStack add stack split horizontal radio button. [CHAR LIMIT=NONE] -->
   <!-- Recents: MultiStack add stack split vertical radio button. [CHAR LIMIT=NONE] -->
   <!-- Recents: MultiStack add stack split custom radio button. [CHAR LIMIT=NONE] -->
@@ -375,6 +425,7 @@
   <!-- Text for overflow card on Keyguard when there is not enough space for all notifications on Keyguard. [CHAR LIMIT=1] -->
   <!-- An explanation for the visual speed bump in the notifications, which will appear when you click on it. [CHAR LIMIT=50] -->
   <!-- Shows to explain the double tap interaction with notifications: After tapping a notification on Keyguard, this will explain users to tap again to launch a notification. [CHAR LIMIT=60] -->
+  <string name="notification_tap_again">Tara eto i agor</string>
   <!-- Shows when people have pressed the unlock icon to explain how to unlock. [CHAR LIMIT=60] -->
   <!-- Shows when people have clicked on the phone icon [CHAR LIMIT=60] -->
   <!-- Shows when people have clicked on the voice assist icon [CHAR LIMIT=60] -->
@@ -410,15 +461,21 @@
   <!-- Text of the notification shown to a new guest user [CHAR LIMIT=60] -->
   <!-- Remove action in the notification shown to a new guest user [CHAR LIMIT=30] -->
   <!-- Title of the notification shown to logout the current user [CHAR LIMIT=60] -->
+  <string name="user_logout_notification_title">Allgofnodi defnyddiwr</string>
   <!-- Text of the notification shown to logout the current user [CHAR LIMIT=60] -->
+  <string name="user_logout_notification_text">Allgofnodi\'r defnyddiwr presennol.</string>
   <!-- Logout action in the notification shown to logout the current user [CHAR LIMIT=30] -->
+  <string name="user_logout_notification_action">ALLGOFNODI DEFNYDDIWR</string>
   <!-- Title for add user confirmation dialog [CHAR LIMIT=30] -->
   <!-- Message for add user confirmation dialog - short version. [CHAR LIMIT=none] -->
   <!-- Title of the confirmation dialog for deleting a user [CHAR LIMIT=NONE] -->
+  <string name="user_remove_user_title">Tynnu defnyddiwr?</string>
   <!-- Message of the confirmation dialog for deleting a user [CHAR LIMIT=NONE] -->
+  <string name="user_remove_user_message">Caiff holl apiau a data\'r defnyddiwr hwn eu dileu.</string>
   <!-- Label for button in confirmation dialog when exiting guest session [CHAR LIMIT=35] -->
   <!-- Battery saver notification title. [CHAR LIMIT=60]-->
   <!-- Battery saver notification text. [CHAR LIMIT=60] -->
+  <string name="battery_saver_notification_text">Mae\'n lleihau perfformiad a data cefndir.</string>
   <!-- Battery saver notification action text. [CHAR LIMIT=60] -->
   <!-- Media projection permission dialog warning text. [CHAR LIMIT=NONE] -->
   <!-- Media projection permission dialog permanent grant check box. [CHAR LIMIT=NONE] -->
@@ -434,23 +491,31 @@
   <!-- Monitoring dialog title for normal devices  [CHAR LIMIT=35]-->
   <!-- Monitoring dialog subtitle for the section describing VPN [CHAR LIMIT=35]-->
   <!-- Monitoring dialog subtitle for the section describing network logging [CHAR LIMIT=35]-->
+  <string name="monitoring_subtitle_network_logging">Logio Rhwydwaith</string>
   <!-- Monitoring dialog disable vpn button [CHAR LIMIT=30] -->
   <!-- Monitoring dialog disconnect vpn button [CHAR LIMIT=30] -->
   <!-- Monitoring dialog device owner body text [CHAR LIMIT=400] -->
+  <string name="monitoring_description_device_owned">Mae dy ddyfais yn cael ei reoli gan <xliff:g id="organization">%1$s</xliff:g>.\n\nMae dy weinyddwr yn medru monitro a rheoli gosodiadau, mynediad corfforaethol, apiau, data yn gysylltiedig â dy ddyfais, a gwybodaeth lleoliad dy ddyfais. Am ragor o wybodaeth, cysyllta â dy weinyddwr.</string>
   <!-- Monitoring dialog: Part of text body explaining that a VPN is connected and what it can do, for devices managed by a Device Owner app [CHAR LIMIT=130] -->
   <!-- Monitoring dialog: Space that separates the VPN body text and the "Open VPN Settings" link that follows it. [CHAR LIMIT=5] -->
   <!-- Monitoring dialog: Link to open the VPN settings page [CHAR LIMIT=60] -->
+  <string name="monitoring_description_vpn_settings">Agor Gosodiadau VPN</string>
   <!-- Monitoring dialog: Network logging text [CHAR LIMIT=400] -->
+  <string name="monitoring_description_network_logging">Mae dy weinyddwr wedi rhoi logio rhwydwaith ar waith. Mae hyn yn monitro traffig ar dy ddyfais.\n\nAm ragor o wybodaeth, cysyllta â dy weinyddwr.</string>
   <!-- Monitoring dialog VPN text [CHAR LIMIT=400] -->
   <!-- Monitoring dialog VPN with device owner text [CHAR LIMIT=400] -->
+  <string name="monitoring_description_vpn_device_owned">Mae dy ddyfais yn cael ei reoli gan <xliff:g id="organization">%1$s</xliff:g>.\n\nMae dy weinyddwr yn medru monitro a rheoli gosodiadau, mynediad corfforaethol, apiau, data yn gysylltiedig â dy ddyfais, a gwybodaeth lleoliad dy ddyfais.\n\nRwyt wedi cysylltu i VPN, sy\'n medru monitro dy weithredoedd rhwydwaith, gan gynnwys e-bost, apiau a gwefannau.\n\nAm ragor o wybodaeth, cysyllta â dy weinyddwr.</string>
   <!-- Monitoring dialog VPN with profile owner text [CHAR LIMIT=400] -->
+  <string name="monitoring_description_vpn_profile_owned">Mae dy broffil gwaith yn cael ei reoli gan <xliff:g id="organization">%1$s</xliff:g>.\n\nMae dy weinyddwr yn medru monitro dy weithredoedd rhwydwaith, gan gynnwys e-bost, apiau a gwefannau.\n\nAm ragor o wybodaeth, cysyllta â dy weinyddwr.\n\nRwyt wedi cysylltu i VPN, sy\'n medru monitro dy weithredoedd rhwydwaith.</string>
   <!-- Name for a generic legacy VPN connection [CHAR LIMIT=20] -->
   <!-- Monitoring dialog text for single app (no profile or device owner) [CHAR LIMIT=400] -->
   <!-- Monitoring dialog text for single app (inside personal profile) [CHAR LIMIT=400] -->
   <!-- Monitoring dialog text for single app (inside personal profile) [CHAR LIMIT=400] -->
   <!-- Monitoring dialog text for single app (inside work profile) [CHAR LIMIT=400] -->
+  <string name="monitoring_description_app_work">Mae dy broffil gwaith yn cael ei reoli gan <xliff:g id="organization">%1$s</xliff:g>.\n\nMae wedi\'i gysylltu i <xliff:g id="application">%2$s</xliff:g>, sy\'n medru monitro gweithredoedd dy rwydwaith gwaith, gan gynnwys e-bost, apiau a gwefannau.\n\nAm ragor o wybodaeth, cysyllta â dy weinyddwr.</string>
   <!-- Monitoring dialog text for multiple apps (in personal and work profiles) [CHAR LIMIT=400] -->
   <!-- Monitoring dialog text for single app (with device owner) [CHAR LIMIT=400] -->
+  <string name="monitoring_description_vpn_app_device_owned">Mae dy ddyfais yn cael ei reoli gan <xliff:g id="organization">%1$s</xliff:g>.\n\nMae dy weinyddwr yn medru monitro a rheoli gosodiadau, mynediad corfforaethol, apiau, data yn gysylltiedig â dy ddyfais, a gwybodaeth lleoliad dy ddyfais.\n\nRwyt wedi cysylltu i <xliff:g id="application">%2$s</xliff:g>, sy\'n medru monitro dy weithredoedd rhwydwaith, gan gynnwys e-bost, apiau a gwefannau.\n\nAm ragor o wybodaeth, cysyllta â dy weinyddwr.</string>
   <!-- Indication on the keyguard that appears when the user disables trust agents until the next time they unlock manually. [CHAR LIMIT=NONE] -->
   <!-- Title of notification educating the user about enabling notifications on the lockscreen. [CHAR LIMIT=40] -->
   <!-- Body of notification educating the user about enabling notifications on the lockscreen. [CHAR LIMIT=60] -->
@@ -462,7 +527,9 @@
   <!-- Content description for accessibility (not shown on the screen): volume dialog collapse button. [CHAR LIMIT=NONE] -->
   <!-- Screen pinning dialog title. -->
   <!-- Screen pinning dialog description. -->
+  <string name="screen_pinning_description">Mae hyn yn ei gadw mewn golwg nes dy fod yn ei ddatbinio. Cyffyrdda a dal Nôl a Throsolwg i\'w ddatbinio.</string>
   <!-- Screen pinning dialog description. -->
+  <string name="screen_pinning_description_accessible">Mae hyn yn ei gadw mewn golwg nes dy fod yn ei ddadbinio. Cyffyrdda a dal Trosolwg i\'w ddadbinio.</string>
   <!-- Screen pinning positive response. -->
   <!-- Screen pinning negative response. -->
   <!-- Hide quick settings tile confirmation title -->
@@ -473,7 +540,35 @@
   <!-- VolumeUI activation dialog: deny button label -->
   <!-- VolumeUI restoration notification: title -->
   <!-- VolumeUI restoration notification: text -->
+  <string name="volumeui_notification_text">Tara i adfer y gwreiddiol.</string>
   <!-- Toast shown when user unlocks screen and managed profile activity is in the foreground -->
+  <string-array name="volume_stream_titles">
+    <item>Galw</item>
+    <!-- STREAM_VOICE_CALL -->
+    <item>System</item>
+    <!-- STREAM_SYSTEM -->
+    <item>Canu</item>
+    <!-- STREAM_RING -->
+    <item>Media</item>
+    <!-- STREAM_MUSIC -->
+    <item>Alarm</item>
+    <!-- STREAM_ALARM -->
+    <item></item>
+    <!-- STREAM_NOTIFICATION -->
+    <item>Bluetooth</item>
+    <!-- STREAM_BLUETOOTH_SCO -->
+    <item></item>
+    <!-- STREAM_SYSTEM_ENFORCED -->
+    <item></item>
+    <!-- STREAM_DTMF -->
+    <item></item>
+    <!-- STREAM_TTS -->
+  </string-array>
+  <string name="volume_stream_content_description_unmute">%1$s. Tara i ddad-distewi.</string>
+  <string name="volume_stream_content_description_vibrate">%1$s. Tara i\'w osod i ddirgrynu. Mae\'n bosib bydd gwasanaethau hygyrchedd yn cael eu distewi.</string>
+  <string name="volume_stream_content_description_mute">%1$s. Tara i\'w distewi. Mae\'n bosib bydd gwasanaethau hygyrchedd yn cael eu distewi.</string>
+  <string name="volume_dialog_accessibility_shown_message">Dangosir rheolaeth sain %s. Llithra i fyny i ddiddymu.</string>
+  <string name="volume_dialog_accessibility_dismissed_message">Rheolaethau sain wedi\'u cuddio</string>
   <!-- Name of special SystemUI debug settings -->
   <!-- Preference to show/hide embedded battery percentage [CHAR LIMIT=50] -->
   <!-- Summary for battery percentage preference [CHAR LIMIT=NONE] -->
@@ -481,8 +576,11 @@
   <!-- Name of status bar -->
   <!-- Name of overview -->
   <!-- Name of demo mode (mode with preset icons for screenshots) -->
+  <string name="demo_mode">Modd arddangos ar gyfer siopau</string>
   <!-- Enable demo mode -->
+  <string name="enable_demo_mode">Galluogi modd arddangos ar gyfer siopau</string>
   <!-- Show demo mode icons -->
+  <string name="show_demo_mode">Dangos modd arddangos ar gyfer siopau</string>
   <!-- Name of the ethernet status bar icon. -->
   <!-- Name of the alarm status bar icon. -->
   <!-- Name of the work status bar icon. -->
@@ -505,159 +603,301 @@
   <!-- Option to remove the tuner from settings [CHAR LIMIT=NONE] -->
   <!-- Dialog asking if the tuner should really be removed from settings [CHAR LIMIT=NONE]-->
   <!-- Displayed when user launches an app that was uninstalled  [CHAR LIMIT=NONE] -->
+  <string name="activity_not_found">Dyw\'r ap heb ei osod ar dy ddyfais.</string>
   <!-- Name of setting to show clock seconds [CHAR LIMIT=40] -->
+  <string name="clock_seconds">Dangos eiliadau ar y cloc</string>
   <!-- Description of setting to show clock seconds [CHAR LIMIT=NONE] -->
+  <string name="clock_seconds_desc">Dangos eiliadau\'r cloc yn y bar statws. Gall leihau oes batri.</string>
   <!-- Button that leads to page to rearrange quick settings tiles [CHAR LIMIT=60] -->
+  <string name="qs_rearrange">Aildrefnu\'r Gosodiadau Cyflym</string>
   <!-- Option to show brightness bar in quick settings [CHAR LIMIT=60] -->
+  <string name="show_brightness">Dangos disgleirdeb yn y Gosodiadau Cyflym</string>
   <!-- Option to use new paging layout in quick settings [CHAR LIMIT=60] -->
   <!-- Category in the System UI Tuner settings, where new/experimental
          settings are -->
+  <string name="experimental">Arbrofol</string>
   <!-- Dialog title asking if Bluetooth should be enabled [CHAR LIMIT=NONE] -->
   <!-- Dialog message explaining why Bluetooth should be enabled when a packaged keyboard is
          conncted to the device [CHAR LIMIT=NONE] -->
   <!-- Bluetooth enablement ok text [CHAR LIMIT=40] -->
   <!-- [CHAR LIMIT=100] Notification importance option -->
+  <string name="show_silently">Dangos hysbysiadau yn ddistaw</string>
   <!-- [CHAR LIMIT=100] Notification importance option -->
+  <string name="block">Rhwystro pob hysbysiad</string>
   <!-- [CHAR LIMIT=100] Notification importance option -->
+  <string name="do_not_silence">Peidio â distewi</string>
   <!-- [CHAR LIMIT=100] Notification importance option -->
+  <string name="do_not_silence_block">Peidio â distewi na rhwystro</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
+  <string name="tuner_full_importance_settings">Rheolaeth hysbysiad pŵer</string>
+  <string name="tuner_full_importance_settings_on">Ymlaen</string>
+  <string name="tuner_full_importance_settings_off">I ffwrdd</string>
   <!-- Notification importance title, user unspecified status-->
+  <string name="user_unspecified_importance">Pwysigrwydd: Awtomatig</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: blocked importance level description -->
+  <string name="notification_importance_user_unspecified">Mae\'r ap yn pennu pwysigrwydd pob hysbysiad.</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: blocked importance level description -->
+  <string name="notification_importance_blocked">Byth dangos hysbysiadau gan yr ap hwn.</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: min importance level description -->
+  <string name="notification_importance_min">Dim torri ar draws sgrin lawn, dangos cipolwg, chwarae sain, na dirgrynu. Cuddio o\'r sgrin cloi a\'r bar statws.</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: low importance level description -->
+  <string name="notification_importance_low">Dim torri ar draws sgrin lawn, dangos cipolwg, chwarae sain, na dirgrynu.</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: normal importance level description -->
+  <string name="notification_importance_default">Dim torri ar draws sgrin lawn na dangos cipolwg.</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: high importance level description -->
+  <string name="notification_importance_high">Dangos cipolwg bob tro, ond dim torri ar draws sgrin lawn.</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: max importance level description -->
+  <string name="notification_importance_max">Dangos cipolwg bob tro, gan gynnwys torri ar draws sgrin lawn.</string>
   <!-- Notification: Control panel: Label for button that launches notification settings. [CHAR LIMIT=NONE] -->
   <!-- Notification: Control panel: Label for button that dismisses control panel. [CHAR LIMIT=NONE] -->
   <!-- Notification: Gear: Content description for the gear. [CHAR LIMIT=NONE] -->
+  <string name="notification_gear_accessibility">Rheolaeth hysbysiadau <xliff:g id="app_name" example="YouTube">%1$s</xliff:g></string>
   <!-- Title of the battery settings detail panel [CHAR LIMIT=20] -->
+  <string name="battery_panel_title">Defnydd batri</string>
   <!-- Summary of battery saver not available [CHAR LIMIT=NONE] -->
+  <string name="battery_detail_charging_summary">Dyw\'r arbedwr batri ddim ar gael wrth wefru.</string>
   <!-- Title of switch for battery saver [CHAR LIMIT=NONE] -->
+  <string name="battery_detail_switch_title">Arbedwr Batri</string>
   <!-- Summary of switch for battery saver [CHAR LIMIT=NONE] -->
+  <string name="battery_detail_switch_summary">Mae\'n lleihau perfformiad a data cefndir.</string>
   <!-- Name used for certain Keyboard keys on gamepads, e.g. "Button L1". -->
+  <string name="keyboard_key_button_template">Botwm <xliff:g id="name">%1$s</xliff:g></string>
   <!-- Name used to refer to the "Home" key on the keyboard. -->
   <!-- Name used to refer to the "Back" key on the keyboard. -->
   <!-- Name used to refer to the "Up" arrow key on the keyboard. -->
+  <string name="keyboard_key_dpad_up">I fyny</string>
   <!-- Name used to refer to the "Down" arrow key on the keyboard. -->
+  <string name="keyboard_key_dpad_down">I lawr</string>
   <!-- Name used to refer to the "Left" arrow key on the keyboard. -->
+  <string name="keyboard_key_dpad_left">Chiwth</string>
   <!-- Name used to refer to the "Right" arrow key on the keyboard. -->
+  <string name="keyboard_key_dpad_right">De</string>
   <!-- Name used to refer to the "Center" arrow key on the keyboard. -->
+  <string name="keyboard_key_dpad_center">Canol</string>
   <!-- Name used to refer to the "Tab" key on the keyboard. -->
+  <string name="keyboard_key_tab">Tab</string>
   <!-- Name used to refer to the "Space" key on the keyboard. -->
+  <string name="keyboard_key_space">Bwlch</string>
   <!-- Name used to refer to the "Enter" key on the keyboard. -->
+  <string name="keyboard_key_enter">Bysell \'Enter\'</string>
   <!-- Name used to refer to the "Backspace" key on the keyboard. -->
+  <string name="keyboard_key_backspace">Bysell Backspace</string>
   <!-- Name used to refer to the "Play/Pause" media key on the keyboard. -->
+  <string name="keyboard_key_media_play_pause">Chwarae/Saib</string>
   <!-- Name used to refer to the "Stop" media key on the keyboard. -->
+  <string name="keyboard_key_media_stop">Stopio</string>
   <!-- Name used to refer to the "Next" media key on the keyboard. -->
+  <string name="keyboard_key_media_next">Nesaf</string>
   <!-- Name used to refer to the "Previous" media key on the keyboard. -->
+  <string name="keyboard_key_media_previous">Blaenorol</string>
   <!-- Name used to refer to the "Rewind" media key on the keyboard. -->
+  <string name="keyboard_key_media_rewind">Yn ôl</string>
   <!-- Name used to refer to the "Fast Forward" media key on the keyboard. -->
+  <string name="keyboard_key_media_fast_forward">Ymlaen</string>
   <!-- Name used to refer to the "Page Up" key on the keyboard. -->
+  <string name="keyboard_key_page_up">Bysell \'Page Up\'</string>
   <!-- Name used to refer to the "Page Down" key on the keyboard. -->
+  <string name="keyboard_key_page_down">Bysell \'Page Down\'</string>
   <!-- Name used to refer to the "Delete" key on the keyboard. -->
+  <string name="keyboard_key_forward_del">Bysedd \'Delete\'</string>
   <!-- Name used to refer to the "Home" move key on the keyboard. -->
   <!-- Name used to refer to the "End" move key on the keyboard. -->
+  <string name="keyboard_key_move_end">Bysell \'End\'</string>
   <!-- Name used to refer to the "Insert" key on the keyboard. -->
+  <string name="keyboard_key_insert">Bysell \'Insert\'</string>
   <!-- Name used to refer to the "Num Lock" key on the keyboard. -->
+  <string name="keyboard_key_num_lock">Bysell \'Num Lock\'</string>
   <!-- Name used to refer to keys on the numeric pad of the keyboard, e.g. "Numpad 9". -->
+  <string name="keyboard_key_numpad_template">Pad Rhifau <xliff:g id="name">%1$s</xliff:g></string>
   <!-- User visible title for the system-wide keyboard shortcuts list. -->
   <!-- User visible title for the keyboard shortcut that takes the user to the home screen. -->
   <!-- User visible title for the the keyboard shortcut that takes the user to the recents screen. -->
+  <string name="keyboard_shortcut_group_system_recents">Diweddar</string>
   <!-- User visible title for the the keyboard shortcut that triggers the back action. -->
   <!-- User visible title for the the keyboard shortcut that triggers the notification shade. -->
   <!-- User visible title for the the keyboard shortcut that triggers the keyboard shortcuts helper. -->
+  <string name="keyboard_shortcut_group_system_shortcuts_helper">Bysellau Brys</string>
   <!-- User visible title for the the keyboard shortcut that switches input methods. -->
+  <string name="keyboard_shortcut_group_system_switch_input">Newid dull mewnbwn</string>
   <!-- User visible title for the system-wide applications keyboard shortcuts list. -->
+  <string name="keyboard_shortcut_group_applications">Apiau</string>
   <!-- User visible title for the keyboard shortcut that takes the user to the assist app. -->
+  <string name="keyboard_shortcut_group_applications_assist">Cymorth</string>
   <!-- User visible title for the keyboard shortcut that takes the user to the browser app. -->
+  <string name="keyboard_shortcut_group_applications_browser">Porwr</string>
   <!-- User visible title for the keyboard shortcut that takes the user to the contacts app. -->
+  <string name="keyboard_shortcut_group_applications_contacts">Cysylltiadau</string>
   <!-- User visible title for the keyboard shortcut that takes the user to the email app. -->
+  <string name="keyboard_shortcut_group_applications_email">Ebost</string>
   <!-- User visible title for the keyboard shortcut that takes the user to the instant messaging app. -->
+  <string name="keyboard_shortcut_group_applications_im">IM</string>
   <!-- User visible title for the keyboard shortcut that takes the user to the music app. -->
+  <string name="keyboard_shortcut_group_applications_music">Cerddoriaeth</string>
   <!-- User visible title for the keyboard shortcut that takes the user to the YouTube app. -->
+  <string name="keyboard_shortcut_group_applications_youtube">YouTube</string>
   <!-- User visible title for the keyboard shortcut that takes the user to the calendar app. -->
+  <string name="keyboard_shortcut_group_applications_calendar">Calendr</string>
   <!-- SysUI Tuner: Option to show full do not disturb panel in volume [CHAR LIMIT=60] -->
+  <string name="tuner_full_zen_title">Dangos gyda rheolaethau sain</string>
   <!-- SysUI Tuner: Label for screen about do not disturb settings [CHAR LIMIT=60] -->
   <!-- SysUI Tuner: Switch to control whether volume buttons enter/exit do
          not disturb [CHAR LIMIT=60] -->
+  <string name="volume_dnd_silent">Bysellau brys sain</string>
   <!-- SysUI Tuner: Switch to control volume up behavior [CHAR LIMIT=60] -->
   <!-- Name of the battery icon in status bar [CHAR LIMIT=30] -->
+  <string name="battery">Batri</string>
   <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+  <string name="clock">Cloc</string>
   <!-- Name of the headset in status bar [CHAR LIMIT=30] -->
+  <string name="headset">Clustffonau</string>
   <!-- Accessibility description of headphones icon [CHAR LIMIT=NONE] -->
+  <string name="accessibility_status_bar_headphones">Clustffonau wedi\'u cysylltu</string>
   <!-- Accessibility description of headset icon [CHAR LIMIT=NONE] -->
+  <string name="accessibility_status_bar_headset">Clustffonau wedi\'u cysylltu</string>
   <!-- Label for quick settings tile for data saver [CHAR LIMIT=30] -->
+  <string name="data_saver">Arbedwr Data</string>
   <!-- Accessibility description for data saver being on [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_saver_on">Arbedwr Data ar waith</string>
   <!-- Accessibility description for data saver being off [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_saver_off">Arbedwr data i ffwrdd</string>
   <!-- Label for feature switch [CHAR LIMIT=30] -->
+  <string name="switch_bar_on">Ymlaen</string>
   <!-- Label for feature switch [CHAR LIMIT=30] -->
+  <string name="switch_bar_off">I Ffwrdd</string>
   <!-- SysUI Tuner: Button that leads to the navigation bar customization screen [CHAR LIMIT=60] -->
+  <string name="nav_bar">Bar llywio</string>
   <!-- SysUI Tuner: Group of buttons that show on the start of the screen [CHAR LIMIT=30] -->
+  <string name="start">Dechrau</string>
   <!-- SysUI Tuner: Group of buttons that show on the center of the screen [CHAR LIMIT=30] -->
+  <string name="center">Canol</string>
   <!-- SysUI Tuner: Group of buttons that show on the end of the screen [CHAR LIMIT=30] -->
+  <string name="end">Diwedd</string>
   <!-- SysUI Tuner: Name of space used in custom navigation bar layouts [CHAR LIMIT=30] -->
+  <string name="space">Gwahanydd</string>
   <!-- SysUI Tuner: Name of Combination Menu / Keyboard Switcher button [CHAR LIMIT=30] -->
+  <string name="menu_ime">Newidiwr Dewislen / Bysellfwrdd</string>
   <!-- SysUI Tuner: Title for dialog to add a button [CHAR LIMIT=30] -->
+  <string name="select_button">Dewisa fotwm i\'w ychwanegu</string>
   <!-- SysUI Tuner: Button to add a button [CHAR LIMIT=30] -->
+  <string name="add_button">Ychwanegu botwm</string>
   <!-- SysUI Tuner: Save the current settings [CHAR LIMIT=30] -->
+  <string name="save">Cadw</string>
   <!-- SysUI Tuner: Reset to default settings [CHAR LIMIT=30] -->
+  <string name="reset">Ailosod</string>
   <!-- SysUI Tuner: Title of no home warning dialog [CHAR LIMIT=30] -->
+  <string name="no_home_title">Ni chanfuwyd botwm cartref</string>
   <!-- SysUI Tuner: Message of no home warning dialog [CHAR LIMIT=NONE] -->
+  <string name="no_home_message">Mae angen botwm cartref er mwyn medru defnyddio\'r ddyfais hon. Ychwanega fotwm cartref cyn cadw.</string>
   <!-- SysUI Tuner: Adjust button width dialog title [CHAR LIMIT=60] -->
+  <string name="adjust_button_width">Addasu lled botwm</string>
   <!-- SysUI Tuner: Nav bar button that holds the clipboard [CHAR LIMIT=30] -->
+  <string name="clipboard">Clipfwrdd</string>
   <!-- SysUI Tuner: Description of nav bar button that holds the clipboard [CHAR LIMIT=NONE] -->
+  <string name="clipboard_description">Mae\'r clipfwrdd yn caniatáu eitemau i gael eu llusgo yn uniongyrchol i\'r clipfwrdd. Gellir hefyd llusgo eitemau allan o\'r clipfwrdd.</string>
   <!-- SysUI Tuner: Accessibility description for custom nav key [CHAR LIMIT=NONE] -->
+  <string name="accessibility_key">Botwm llywio addasedig</string>
   <!-- SysUI Tuner: Nav bar button that emulates a keycode [CHAR LIMIT=30] -->
+  <string name="keycode">Allweddgod</string>
   <!-- SysUI Tuner: Description of nav bar button that emulates a keycode [CHAR LIMIT=NONE] -->
+  <string name="keycode_description">Mae botymau allweddgod yn caniatáu ychwanegu bysellau bysellfwrdd i\'r bar llywio. Wrth eu gwasgu, maen nhw\'n efelychu\'r fysell bysellfwrdd a dewiswyd. Rhaid yn gyntaf dewis y fysell ar gyfer y botwm, ac yna delwedd i\'w dangos ar y botwm.</string>
   <!-- SysUI Tuner: Title of dialog to select which key to emulate [CHAR LIMIT=60] -->
+  <string name="select_keycode">Dewis Botwm Bysellfwrdd</string>
   <!-- SysUI Tuner: Label for preview area in navigation bar tuner [CHAR LIMIT=NONE] -->
+  <string name="preview">Rhagolwg</string>
   <!-- Label for area where tiles can be dragged out of [CHAR LIMIT=60] -->
+  <string name="drag_to_add_tiles">Llusga i ychwanegu teils</string>
   <!-- Label for area where tiles can be dragged in to [CHAR LIMIT=60] -->
+  <string name="drag_to_remove_tiles">Llusga yma i\'w tynnu</string>
   <!-- Button to edit the tile ordering of quick settings [CHAR LIMIT=60] -->
+  <string name="qs_edit">Golygu</string>
   <!-- SysUI Tuner: Options for how clock is displayed [CHAR LIMIT=NONE] -->
   <!-- SysUI Tuner: Options for how clock is displayed [CHAR LIMIT=NONE] -->
+  <string-array name="clock_options">
+    <item>Dangos oriadu, munudau ac eiliadau</item>
+    <item>Dangos oriau a munudau (rhagosodedig)</item>
+    <item>Peidio â dangos yr eicon hwn</item>
+  </string-array>
   <!-- SysUI Tuner: Options for how battery is displayed [CHAR LIMIT=NONE] -->
+  <string-array name="battery_options">
+    <item>Dangos y canran o hyd</item>
+    <item>Dangos y canran wrth wefru (rhagosodedig)</item>
+    <item>Peidio â dangos yr eicon hwn</item>
+  </string-array>
   <!-- SysUI Tuner: Other section -->
+  <string name="other">Arall</string>
   <!-- Accessibility label for the divider that separates the windows in split-screen mode [CHAR LIMIT=NONE] -->
+  <string name="accessibility_divider">Rhannwr sgrin hollt</string>
   <!-- Accessibility action for moving docked stack divider to make the left screen full screen [CHAR LIMIT=NONE] -->
+  <string name="accessibility_action_divider_left_full">Chwith yn sgrin llawn</string>
   <!-- Accessibility action for moving docked stack divider to make the left screen 70% [CHAR LIMIT=NONE] -->
+  <string name="accessibility_action_divider_left_70">Chwith 70%</string>
   <!-- Accessibility action for moving docked stack divider to make the left screen 50% [CHAR LIMIT=NONE] -->
+  <string name="accessibility_action_divider_left_50">Chwith 50%</string>
   <!-- Accessibility action for moving docked stack divider to make the left screen 30% [CHAR LIMIT=NONE] -->
+  <string name="accessibility_action_divider_left_30">Chwith 30%</string>
   <!-- Accessibility action for moving docked stack divider to make the right screen full screen [CHAR LIMIT=NONE] -->
+  <string name="accessibility_action_divider_right_full">De yn sgrin llawn</string>
   <!-- Accessibility action for moving docked stack divider to make the top screen full screen [CHAR LIMIT=NONE] -->
+  <string name="accessibility_action_divider_top_full">Uchaf yn sgrin llawn</string>
   <!-- Accessibility action for moving docked stack divider to make the top screen 70% [CHAR LIMIT=NONE] -->
+  <string name="accessibility_action_divider_top_70">Uchaf 70%</string>
   <!-- Accessibility action for moving docked stack divider to make the top screen 50% [CHAR LIMIT=NONE] -->
+  <string name="accessibility_action_divider_top_50">Uchaf 50%</string>
   <!-- Accessibility action for moving docked stack divider to make the top screen 30% [CHAR LIMIT=NONE] -->
+  <string name="accessibility_action_divider_top_30">Uchaf 30%</string>
   <!-- Accessibility action for moving docked stack divider to make the bottom screen full screen [CHAR LIMIT=NONE] -->
+  <string name="accessibility_action_divider_bottom_full">Isaf yn sgrin llawn</string>
   <!-- Accessibility description of a QS tile while editing positions [CHAR LIMIT=NONE] -->
+  <string name="accessibility_qs_edit_tile_label">Lleoli <xliff:g id="position" example="2">%1$d</xliff:g>, <xliff:g id="tile_name" example="Wi-Fi">%2$s</xliff:g>. Tariad dwbl i\'w olygu.</string>
   <!-- Accessibility description of a QS tile while editing positions [CHAR LIMIT=NONE] -->
+  <string name="accessibility_qs_edit_add_tile_label"><xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g>. Rho dariad dwbl i\'w ychwanegu.</string>
   <!-- Accessibility description of a place to drop a tile while editing positions [CHAR LIMIT=NONE] -->
+  <string name="accessibility_qs_edit_position_label">Lleoli <xliff:g id="position" example="2">%1$d</xliff:g>. Tariad dwbl i ddewis.</string>
   <!-- Accessibility description of option to move QS tile [CHAR LIMIT=NONE] -->
+  <string name="accessibility_qs_edit_move_tile">Symud <xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g></string>
   <!-- Accessibility description of option to remove QS tile [CHAR LIMIT=NONE] -->
+  <string name="accessibility_qs_edit_remove_tile">Tynnu <xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g></string>
   <!-- Accessibility action when QS tile is added [CHAR LIMIT=NONE] -->
+  <string name="accessibility_qs_edit_tile_added">Ychwanegwyd <xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g> i leoliad <xliff:g id="position" example="5">%2$d</xliff:g></string>
   <!-- Accessibility action when QS tile is removed [CHAR LIMIT=NONE] -->
+  <string name="accessibility_qs_edit_tile_removed">Tynnwyd <xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g></string>
   <!-- Accessibility action when QS tile is moved [CHAR LIMIT=NONE] -->
+  <string name="accessibility_qs_edit_tile_moved">Symudwyd <xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g> i leoliad <xliff:g id="position" example="5">%2$d</xliff:g></string>
   <!-- Accessibility label for window when QS editing is happening [CHAR LIMIT=NONE] -->
+  <string name="accessibility_desc_quick_settings_edit">Golygydd gosodiadau cyflym</string>
   <!-- Accessibility label for the notification icons in the collapsed status bar. Not shown on screen [CHAR LIMIT=NONE] -->
+  <string name="accessibility_desc_notification_icon">Hysbysiad <xliff:g name="app_name" example="Gmail">%1$s</xliff:g>: <xliff:g name="notification_text" example="5 new messages">%2$s</xliff:g></string>
   <!-- Label for button that reports a touch that was wrongly rejected by the lockscreen. For debugging only. [CHAR LIMIT=NONE] -->
   <!-- Multi-Window strings -->
   <!-- Text that gets shown on top of current activity to inform the user that the system force-resized the current activity and that things might crash/not work properly [CHAR LIMIT=NONE] -->
+  <string name="dock_forced_resizable">Mae\'n bosib nad fydd yr ap yn gweithio gyda sgrin hollt.</string>
   <!-- Warning message when we try to dock a non-resizeble tasks and launch it in fullscreen instead. -->
+  <string name="dock_non_resizeble_failed_to_dock_text">Dyw\'r ap ddim yn gydnaws a sgrin hollt.</string>
   <!-- accessibility label for button to open settings [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_settings">Agor gosodiadau</string>
   <!-- accessibility label for button to expand quick settings [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_expand">Agor gosodiadau cyflym</string>
   <!-- accessibility label for button to collapse quick settings [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_collapse">Cau\'r gosodiadau cyflym.</string>
   <!-- accessibility label for alarm icon [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_alarm_set">Larwm wedi\'i osod.</string>
   <!-- accessibility label for button to select user [CHAR LIMIT=NONE] -->
   <!-- accessibility label for no internet [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_no_internet">Dim rhyngrwyd.</string>
   <!-- accessibility label for quick settings items that open a details page [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_open_details">Agor manylion</string>
   <!-- accessibility label for quick settings items that open a details page [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_open_settings">Agor gosodiadau <xliff:g name="page" example="Bluetooth">%s</xliff:g>.</string>
   <!-- accessibility label for button to edit quick settings [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_edit">Golygu trefn y gosodiadau</string>
   <!-- accessibility label for paging indicator in quick settings [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_page">Tudalen <xliff:g name="current_page" example="1">%1$d</xliff:g> o <xliff:g name="num_pages" example="2">%2$d</xliff:g></string>
   <!-- Label that replaces other notification controls when the notification is from the system
          and cannot be silenced (see @string/show_silently) or blocked (see @string/block) -->
+  <string name="cant_silence_or_block">Nid yw\'n bosib distewi na rhwystro hysbysiadau</string>
   <!-- Title for notification (and dialog) that user's phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=30] -->
+  <string name="high_temp_title">Mae\'r ffôn yn poethi.</string>
   <!-- Message body for notification that user's phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=100] -->
+  <string name="high_temp_notif_message">Bydd rhai nodweddion yn cael eu cyfyngu tra bod y ffôn yn oeri.</string>
   <!-- Text body for dialog alerting user that their phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=300] -->
 </resources>

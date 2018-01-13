@@ -18,8 +18,8 @@
   <!-- Title of the activity when a full backup has been requested and must be confirmed -->
   <string name="backup_confirm_title">Respaldu completu</string>
   <!-- Title of the activity when a full restore has been requested and must be confirmed -->
+  <string name="restore_confirm_title">Restauración completa</string>
   <!-- Text for message to user that a full backup has been requested, and must be confirmed. -->
-  <string name="backup_confirm_text">Solicitóse un respaldu completu de tolos datos a un ordenador coneutáu. ¿Quies permitilo?\n\nSi nun solicitesti respaldu dalu, nun permitas la operación.</string>
   <!-- Button to allow a requested full backup to occur -->
   <string name="allow_backup_button_label">Respaldar los mios datos</string>
   <!-- Button to refuse to allow the requested full backup -->
