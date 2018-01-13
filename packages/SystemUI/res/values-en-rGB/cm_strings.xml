@@ -143,6 +143,7 @@
   <string name="quick_settings_location_battery_saving_label_twoline">Battery\nsaving</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">Device only</string>
+  <string name="quick_settings_location_gps_only_label_twoline">Device\nonly</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">High\naccuracy</string>
@@ -192,6 +193,29 @@
   <string name="quick_settings_sync_label">Sync</string>
   <string name="quick_settings_volume_panel_label">Volume panel</string>
   <!-- Content description for Accessibility on unlocked tasks in recents -->
+  <string name="accessibility_lock_task">Prevent <xliff:g id="task">%1$s</xliff:g> from being dismissed</string>
   <!-- Content description for Accessibility on locked tasks in recents -->
+  <string name="accessibility_unlock_task">Allow <xliff:g id="task">%1$s</xliff:g> to be dismissed</string>
   <!-- LiveDisplay strings -->
+  <string name="live_display_auto">Automatic</string>
+  <string name="live_display_auto_summary">Automatically adjust colour temperature of screen after sunset and sunrise</string>
+  <string name="live_display_off">Off</string>
+  <string name="live_display_off_summary">Disable all adjustments</string>
+  <string name="live_display_day">Day</string>
+  <string name="live_display_day_summary">Use day settings only</string>
+  <string name="live_display_night">Night</string>
+  <string name="live_display_night_summary">Use night settings only</string>
+  <string name="live_display_outdoor">Outdoor (bright sun)</string>
+  <string name="live_display_outdoor_summary">Use outdoor settings only</string>
+  <string name="live_display_hint">LiveDisplay can help reduce eyestrain and help you sleep at night. Click here to try it out!</string>
+  <string name="accessibility_quick_settings_live_display_off">LiveDisplay off.</string>
+  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: auto mode.</string>
+  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: day mode.</string>
+  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: night mode.</string>
+  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: outdoor mode.</string>
+  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay turned off.</string>
+  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay changed to auto mode.</string>
+  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay changed to day mode.</string>
+  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay changed to night mode.</string>
+  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changed to outdoor mode.</string>
 </resources>

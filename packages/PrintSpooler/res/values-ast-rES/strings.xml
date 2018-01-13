@@ -18,15 +18,23 @@
   <!-- Title of the PrintSpooler application. [CHAR LIMIT=50] -->
   <string name="app_label">Cola d\'imprentación</string>
   <!-- Label of the print dialog's button for more print options. [CHAR LIMIT=25] -->
+  <string name="more_options_button">Más opciones</string>
   <!-- Label of the destination widget. [CHAR LIMIT=20] -->
+  <string name="label_destination">Destín</string>
   <!-- Label of the copies count widget. [CHAR LIMIT=20] -->
+  <string name="label_copies">Copies</string>
   <!-- Label of the copies count for the print options summary. [CHAR LIMIT=20] -->
+  <string name="label_copies_summary">Copies:</string>
   <!-- Label of the paper size widget. [CHAR LIMIT=20] -->
   <!-- Label of the paper size for the print options summary. [CHAR LIMIT=20] -->
   <!-- Label of the color mode widget. [CHAR LIMIT=20] -->
+  <string name="label_color">Color</string>
   <!-- Label of the printer mode to print on both sides of paper. [CHAR LIMIT=20] -->
+  <string name="label_duplex">Dambes cares</string>
   <!-- Label of the orientation widget. [CHAR LIMIT=20] -->
+  <string name="label_orientation">Orientación</string>
   <!-- Label of the page selection widget. [CHAR LIMIT=20] -->
+  <string name="label_pages">Páxines</string>
   <!-- Label of the destination widget. [CHAR LIMIT=20] -->
   <string name="destination_default_text">Esbillar una imprentadora</string>
   <!-- Template for the all pages option in the page selection widget. [CHAR LIMIT=20] -->
@@ -56,7 +64,9 @@
   <!-- Select printer activity -->
   <!-- Title for the share action bar menu item. [CHAR LIMIT=20] -->
   <!-- Title for the select printer activity. [CHAR LIMIT=30] -->
+  <string name="all_printers_label">Toles imprentadores</string>
   <!-- Title of the button to install a print service. [CHAR LIMIT=25] -->
+  <string name="add_print_service_label">Amestar serviciu</string>
   <!-- Utterance to announce that the search box is shown. This is spoken to a blind user. [CHAR LIMIT=none] -->
   <!-- Utterance to announce that the search box is hidden. This is spoken to a blind user. [CHAR LIMIT=none] -->
   <!-- Label of add printers button when no printers are found. [CHAR LIMIT=25] -->
@@ -73,6 +83,7 @@
   <!-- Notification that print services as disabled. [CHAR LIMIT=50] -->
   <string name="print_services_disabled_toast">Deshabilitáronse dellos servicios d\'imprentación</string>
   <!-- Title for the prompt shown as a placeholder if no printers are found while not searching. [CHAR LIMIT=50] -->
+  <string name="print_searching_for_printers">Guetando imprentadores</string>
   <!-- Title for the prompt shown as a placeholder if there are no print services. [CHAR LIMIT=50] -->
   <string name="print_no_print_services">Nun s\'activaron servicios d\'imprentación</string>
   <!-- Title for the prompt shown as a placeholder if there are no printers while searching. [CHAR LIMIT=50] -->
@@ -99,12 +110,18 @@
   </plurals>
   <!-- Notifications -->
   <!-- Template for the notification label for a printing print job. [CHAR LIMIT=25] -->
+  <string name="printing_notification_title_template">Imprentando <xliff:g id="print_job_name" example="foo.jpg">%1$s</xliff:g></string>
   <!-- Template for the notification label for a cancelling print job. [CHAR LIMIT=25] -->
+  <string name="cancelling_notification_title_template">Encaboxando <xliff:g id="print_job_name" example="foo.jpg">%1$s</xliff:g></string>
   <!-- Template for the notification label for a failed print job. [CHAR LIMIT=25] -->
+  <string name="failed_notification_title_template">Fallu d\'imprentadora <xliff:g id="print_job_name" example="foo.jpg">%1$s</xliff:g></string>
   <!-- Template for the notification label for a blocked print job. [CHAR LIMIT=25] -->
   <!-- Label for the notification button for cancelling a print job. [CHAR LIMIT=25] -->
+  <string name="cancel">Encaboxar</string>
   <!-- Label for the notification button for restarting a filed print job. [CHAR LIMIT=25] -->
+  <string name="restart">Reaniciar</string>
   <!-- Message that there is no connection to a printer. [CHAR LIMIT=40] -->
+  <string name="no_connection_to_printer">Nun hai conexón cola imprentadora</string>
   <!-- Label for an unknown reason for failed or blocked print job. [CHAR LIMIT=25] -->
   <string name="reason_unknown">desconozse</string>
   <!-- Title for a warning message about security implications of using a print service,
@@ -119,13 +136,21 @@
          o más servicios enantes d\'imprentase.</string>
   <!-- Arrays -->
   <!-- Color mode labels. -->
+  <string-array name="color_mode_labels">
+    <!-- Color mode label: Monochrome color scheme, e.g. one color is used. [CHAR LIMIT=20] -->
+    <item>Blancu y prietu</item>
+    <!-- Color mode label: Color color scheme, e.g. many colors are used. [CHAR LIMIT=20] -->
+    <item>Color</item>
+  </string-array>
   <!-- Duplex mode labels. -->
   <!-- Orientation labels. -->
   <!-- Error messages -->
   <!-- Message for an error when trying to print to a PDF file. [CHAR LIMIT=50] -->
+  <string name="print_write_error_message">Nun pudo escribise nel ficheru</string>
   <!-- Default message for an error while generating a print job. [CHAR LIMIT=50] -->
   <string name="print_error_default_message">Perdón, eso nun funcionó. Volvi tentalo.</string>
   <!-- Label for the retry button in the error message. [CHAR LIMIT=50] -->
+  <string name="print_error_retry">Retentar</string>
   <!-- Message for the currently selected printer being unavailable. [CHAR LIMIT=100] -->
   <string name="print_error_printer_unavailable">Nesti momentu la imprentadora nun ta disponible.</string>
   <!-- Message for the case when a preview of a page cannot be loaded because the printing app
@@ -133,4 +158,5 @@
   <string name="print_cannot_load_page">Nun pue amosase la previsualización</string>
   <!-- Long running operations -->
   <!-- Message long running operation when preparing print preview. [CHAR LIMIT=50] -->
+  <string name="print_preparing_preview">Tresnando previsualización\u2026</string>
 </resources>

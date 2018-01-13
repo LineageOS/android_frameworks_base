@@ -43,6 +43,7 @@
   <!-- Summary for the remembered network but currently not in range. -->
   <!-- Summary for the network but no internet connection was detected. -->
   <!-- Summary for the remembered network but no internet connection was detected. -->
+  <string name="wifi_no_internet">Dim mynediad i\'r rhyngrwyd.</string>
   <!-- Summary for saved networks -->
   <!-- Status message of Wi-Fi when it is connected by a Wi-Fi assistant application. [CHAR LIMIT=NONE] -->
   <!-- Status message of Wi-Fi when it is connected by Passpoint configuration. [CHAR LIMIT=NONE] -->
@@ -51,6 +52,7 @@
   <!-- Package name for Certinstaller app-->
   <!-- Summary for Connected wifi network without internet -->
   <!-- Text when wrong password entered for psk networks -->
+  <string name="wifi_auth_password_wrong">Gall fod y cyfrinair yn anghywir</string>
   <!-- Bluetooth settings.  Message when a device is disconnected -->
   <!-- Bluetooth settings.  Message when disconnecting from a device -->
   <!-- Bluetooth settings.  Message when connecting to a device -->
@@ -118,28 +120,46 @@
   <!-- Tethering controls, item title to go into the tethering settings when USB and Bluetooth tethering are available [CHAR LIMIT=25]-->
   <!-- Tethering controls, item title to go into the tethering settings when USB, Bluetooth and Wifi tethering are available [CHAR LIMIT=25]-->
   <!-- Title for a work profile. [CHAR LIMIT=25] -->
+  <string name="managed_user_title">Pob ap gwaith</string>
   <!-- Title for Guest user [CHAR LIMIT=35] -->
   <!-- Manage apps, individual app screen, substituted for the application's label when the app's label CAN NOT be determined.-->
   <!-- [CHAR LIMIT=NONE] Label of a running process that represents another user -->
   <!-- Launch defaults preference summary with some set [CHAR LIMIT=40] -->
+  <string name="launch_defaults_some">Rhai rhagosodidadau wedi\'u gosod</string>
   <!-- Launch defaults preference summary with none set [CHAR LIMIT=40] -->
+  <string name="launch_defaults_none">Dim rhagosodiadau wedi\'u gosod</string>
   <!-- Text-To-Speech (TTS) settings -->
   <!-- Name of the TTS package as listed by the package manager. -->
+  <string name="tts_settings">Gosodiadau testun-i-lafar</string>
   <!-- TTS option item name in the main settings screen -->
+  <string name="tts_settings_title">Allbwn testun-i-lafar</string>
   <!-- On main TTS Settings screen, in default settings section, setting default speech rate for synthesized voice -->
+  <string name="tts_default_rate_title">Cyflymder llefaru</string>
   <!-- On main TTS Settings screen, summary for default speech rate for synthesized voice -->
+  <string name="tts_default_rate_summary">Y cyflymder mae\'r testun yn cael ei lefaru.</string>
   <!-- On main TTS Settings screen, in default settings section, setting default pitch for synthesized voice -->
+  <string name="tts_default_pitch_title">Traw</string>
   <!-- On main TTS Settings screen, summary for default pitch for synthesized voice -->
+  <string name="tts_default_pitch_summary">Mae\'n effeithio traw llais y syntheseiddydd llefaru.</string>
   <!-- On main TTS Settings screen, in default settings section, setting default language for synthesized voice -->
+  <string name="tts_default_lang_title">Iaith</string>
   <!-- Entry in the TTS engine language/locale picker, when selected will try to default to the system language [CHAR LIMIT=50] -->
+  <string name="tts_lang_use_system">Defnydido iaith y system</string>
   <!-- On main TTS Settings screen, language summary if it can't default to system language [CHAR LIMIT=50] -->
+  <string name="tts_lang_not_selected">Dim iaith wedi\'i dewis</string>
   <!-- On main TTS Settings screen, summary for default language for synthesized voice -->
+  <string name="tts_default_lang_summary">Mae\'n gosod llais iaith benodol ar gyfer y testun llafar.</string>
   <!-- On main TTS Settings screen, triggers playback of an example of speech synthesis -->
+  <string name="tts_play_example_title">Gwrando ar enghraifft</string>
   <!-- On main TTS Settings screen, summary for triggering playback of an example of speech synthesis -->
+  <string name="tts_play_example_summary">Chwarae sain enghreifftiol o syntheseiddydd llefaru testun</string>
   <!-- On main TTS Settings screen, click to install required speech synthesis data -->
+  <string name="tts_install_data_title">Gosod data llais</string>
   <!-- On main TTS Settings screen, summary for click to install required speech synthesis data -->
+  <string name="tts_install_data_summary">Gosod data\'r llais sydd ei angen ar gyfer syntheseiddydd llefaru testun</string>
   <!-- Warning message about security implications of enabling a TTS engine, displayed as a dialog
          message when the user selects to enable an engine. -->
+  <string name="tts_engine_security_warning">Mae\'n bosib gall y peiriant syntheseiddydd llefaru hwn gasglu\'r holl destun a chaiff ei lefaru, gan gynnwys data personol megis cyfrineiriau a rhifau cardiau credyd. Mae\'n dod o\'r peiriant <xliff:g id="tts_plugin_engine_name">%s</xliff:g>. Galluogi defnydd o\'r peiriant syntheseiddydd llefaru testun hwn?</string>
   <!-- Warning message about required internet conectivity for TTS synthesis, displayed as a dialog
          message when the user selects to play an example for network only locale and there's no internet connectivity. -->
   <!-- Text spoken by the TTS engine as an example if the engine doesn't provide sample text [CHAR LIMIT=100] -->
@@ -147,10 +167,13 @@
          current default language [CHAR LIMIT=50] -->
   <!-- On main TTS Settings screen, current TTS engine status for the current default language,
          selected language is fully supported by the engine [CHAR LIMIT=150]-->
+  <string name="tts_status_ok">Mae cefnogaeth lawn ar gyfer <xliff:g id="locale" example="English (United States)">%1$s</xliff:g></string>
   <!-- On main TTS Settings screen, current TTS engine status for the current default language,
          selected language is supported by the engine only if there's a working network connection [CHAR LIMIT=150] -->
+  <string name="tts_status_requires_network">Mae ar <xliff:g id="locale" example="English (United States)">%1$s</xliff:g> angen cysylltiad rhwydwaith</string>
   <!-- On main TTS Settings screen, current TTS engine status for the current default language,
          selected language is not supported by the engine [CHAR LIMIT=150] -->
+  <string name="tts_status_not_supported">Nid oes cefnogaeth ar gyfer <xliff:g id="locale" example="English (United States)">%1$s</xliff:g></string>
   <!-- On main TTS Settings screen, current TTS engine status for the current default language,
          tts engine is queried for status [CHAR LIMIT=150] -->
   <!-- Title for a preference in the main TTS settings screen, which
@@ -160,18 +183,44 @@
          the image that launches the TTS engine settings when clicked. -->
   <!-- [CHAR LIMIT=50] The text for the settings section that users to set a
          preferred text to speech engine -->
+  <string name="tts_engine_preference_section_title">Peiriant i\'w ffafrio</string>
   <!-- [CHAR LIMIT=50] Title of the settings section that displays general preferences
          that are applicable to all engines, such as the speech rate -->
+  <string name="tts_general_section_title">Cyffredinol</string>
   <!-- On main TTS Settings screen, in default settings section,
          reset speech pitch of synthesized voice to 1x speech pitch. [CHAR LIMIT=50] -->
   <!--On main TTS Settings screen, summary for reset speech pitch of synthesized voice [CHAR LIMIT=150] -->
   <!-- Default speech rate choices -->
+  <string-array name="tts_rate_entries">
+    <item>Very slow</item>
+    <item>Araf</item>
+    <item>Arferol</item>
+    <item>Gweddol gyflym</item>
+    <item>Cyflym</item>
+    <item>Very fast</item>
+    <item>Cyflym iawn</item>
+    <item>Hynod o gyflym</item>
+    <item>Cyflymaf</item>
+  </string-array>
   <!-- Do not translate. -->
+  <string-array name="tts_rate_values">
+    <item>60</item>
+    <item>80</item>
+    <item>100</item>
+    <item>150</item>
+    <item>200</item>
+    <item>250</item>
+    <item>300</item>
+    <item>350</item>
+    <item>400</item>
+  </string-array>
   <!-- Do not translate. -->
   <!-- Do not translate. -->
   <!-- Title for profile selection dialog [CHAR LIMIT=30] -->
   <!-- Header for items under the personal user [CHAR LIMIT=30] -->
+  <string name="category_personal">Personol</string>
   <!-- Header for items under the work user [CHAR LIMIT=30] -->
+  <string name="category_work">Gwaith</string>
   <!-- Full package name of OEM preferred device feedback reporter. Leave this blank, overlaid in Settings/TvSettings [DO NOT TRANSLATE] -->
   <!-- Development settings -->
   <!-- Development Settings.  the title for the item to take the user to Development settings.  Development settings are settings meant for application developers.  -->
@@ -187,27 +236,33 @@
   <!-- [CHAR LIMIT=NONE] Setting checkbox title for Whether to include bug report item in power menu. -->
   <!-- [CHAR LIMIT=NONE] Setting checkbox summary for Whether to include bug report item in power -->
   <!-- Setting Checkbox title whether to keep the screen on when plugged in to a power source -->
+  <string name="keep_screen_on">Aros yn effro</string>
   <!-- setting Checkbox summary whether to keep the screen on when plugged in  -->
   <!-- Setting Checkbox title whether to enable bluetooth HCI snoop log -->
   <!-- setting Checkbox summary whether to capture all bluetooth HCI packets in a file -->
   <!-- setting Checkbox title whether to enable OEM unlock [CHAR_LIMIT=35] -->
   <!-- setting Checkbox summary whether to enable OEM unlock [CHAR_LIMIT=50] -->
+  <string name="oem_unlock_enable_summary">Caniatáu medru datgloi\'r cychwynnydd</string>
   <!-- Confirmation dialog title to ensure user wishes to enable OEM unlock and disable theft protection features -->
+  <string name="confirm_enable_oem_unlock_title">Caniatáu datgloi OEM?</string>
   <!-- Warning dialog message to confirm user wishes to enable OEM unlock and disable theft protection features -->
   <!-- UI debug setting: select current app to mock location [CHAR LIMIT=50] -->
   <!-- UI debug setting: no mock location app has been set [CHAR LIMIT=50] -->
   <!-- UI debug setting: mock location app has been set [CHAR LIMIT=50] -->
   <!-- Preference category for networking debugging development settings. [CHAR LIMIT=50] -->
+  <string name="debug_networking_category">Rhwydweithio</string>
   <!-- Setting Checkbox title whether to show options for wireless display certification -->
   <!-- Setting Checkbox title whether to enable WiFi Verbose Logging. [CHAR LIMIT=40] -->
   <!-- Setting Checkbox title whether to enable WiFi Aggressive Handover. [CHAR LIMIT=40] -->
   <!-- Setting Checkbox title whether to enable WiFi Scanning in the presence of traffic. [CHAR LIMIT=80] -->
+  <string name="wifi_allow_scan_with_traffic">Caniatáu Sganiau Crwydro Wi\u2011Fi o hyd</string>
   <!-- Setting Checkbox title whether to always keep cellular data active. [CHAR LIMIT=80] -->
   <!-- Setting Checkbox title for disabling Bluetooth absolute volume -->
   <!-- setting Checkbox summary whether to show options for wireless display certification  -->
   <!-- Setting Checkbox summary whether to enable Wifi verbose Logging [CHAR LIMIT=80] -->
   <!-- Setting Checkbox summary whether to enable Wifi aggressive handover [CHAR LIMIT=130] -->
   <!-- Setting Checkbox summary whether to always allow WiFi Roam Scans [CHAR LIMIT=130] -->
+  <string name="wifi_allow_scan_with_traffic_summary">Caniatáu/Gwrthod Sganiau Crwydro Wi\u2011Fi yn dibynnu faint o draffig data sy\'n bresennol.</string>
   <!-- UI debug setting: limit size of Android logger buffers -->
   <!-- UI debug setting: limit size of Android logger buffers [CHAR LIMIT=59] -->
   <!-- UI debug setting: store logs persistently -->
@@ -217,42 +272,74 @@
   <!-- UI debug setting: select USB configuration -->
   <!-- UI debug setting: limit size of Android logger buffers [CHAR LIMIT=59] -->
   <!-- Setting Checkbox title whether to allow mock locations -->
+  <string name="allow_mock_location">Caniatáu ffugio lleoliadau</string>
   <!-- setting Checkbox summary whether to allow mock locations  -->
+  <string name="allow_mock_location_summary">Caniatáu ffugio lleoliadau</string>
   <!-- Setting Checkbox title whether to enable view attribute inspection -->
+  <string name="mobile_data_always_on_summary">Cadw data symudol yn weithredol o hyd, hyd yn oed pan mae\'r Wi\u2011Fi yn weithredol (er mwyn medru newid yn gyflym rhwng rhwydweithiau).</string>
   <!-- Title of warning dialog about the implications of enabling USB debugging -->
+  <string name="adb_warning_title">Caniatáu dadfygio USB?</string>
   <!-- Warning text to user about the implications of enabling USB debugging -->
   <!-- Message of dialog confirming that user wants to revoke access to adb from all computers they have authorized -->
   <!-- Title of warning dialog about the implications of enabling developer settings -->
+  <string name="dev_settings_warning_title">Caniatáu gosodiadau datblygu?</string>
   <!-- Warning text to user about the implications of enabling USB debugging -->
   <!-- Title of checkbox setting to perform package verification on apps installed over USB/ADT/ADB [CHAR LIMIT=32] -->
   <!-- Summary of checkbox setting to perform package verification on apps installed over USB/ADT/ADB [CHAR LIMIT=NONE] -->
   <!-- Summary of checkbox for disabling Bluetooth absolute volume -->
+  <string name="bluetooth_disable_absolute_volume_summary">Mae\'n analluogi nodwedd uchelder sain absoliwt y Bluetooth rhag ofn bod problemau lefel sain gyda dyfeisiau pell, megis sain yn rhy uchel neu ddiffyg rheolaeth.</string>
   <!-- Title of checkbox setting that enables the terminal app. [CHAR LIMIT=32] -->
+  <string name="enable_terminal_title">Terfynell leol</string>
   <!-- Summary of checkbox setting that enables the terminal app. [CHAR LIMIT=64] -->
+  <string name="enable_terminal_summary">Galluogi ap terfynell sy\'n cynnig mynediad cragen leol</string>
   <!-- HDCP checking title, used for debug purposes only. [CHAR LIMIT=25] -->
+  <string name="hdcp_checking_title">Gwirio HDCP</string>
   <!-- HDCP checking dialog title, used for debug purposes only. [CHAR LIMIT=25] -->
+  <string name="hdcp_checking_dialog_title">Gosod ymddygiad gwirio HDCP</string>
   <!-- Preference category for app debugging development settings. [CHAR LIMIT=50] -->
+  <string name="debug_debugging_category">Dadfygio</string>
   <!-- UI debug setting: select current app to debug [CHAR LIMIT=50] -->
+  <string name="debug_app">Dewis ap dadfygio</string>
   <!-- UI debug setting: no debug app has been set [CHAR LIMIT=50] -->
+  <string name="debug_app_not_set">Does dim ap dadfygio wedi ei osod.</string>
   <!-- UI debug setting: debug app has been set [CHAR LIMIT=50] -->
+  <string name="debug_app_set">Ap dadfygio: <xliff:g id="app_name">%1$s</xliff:g></string>
   <!-- UI debug setting: title for app picker dialog [CHAR LIMIT=50] -->
+  <string name="select_application">Dewis ap</string>
   <!-- UI debug setting: label for app picker to select no applicatiojn [CHAR LIMIT=50] -->
+  <string name="no_application">Dim byd</string>
   <!-- UI debug setting: wait for debugger to attach to debugging process? [CHAR LIMIT=50] -->
+  <string name="wait_for_debugger">Aros am ddadfygiwr</string>
   <!-- UI debug setting: wait for debugger to attach to debugging process summary [CHAR LIMIT=500] -->
+  <string name="wait_for_debugger_summary">Mae apiau wedi eu dadfygio yn aros i\'r dadfygiwr atodi cyn gweithredu.</string>
   <!-- Preference category for input debugging development settings. [CHAR LIMIT=25] -->
+  <string name="debug_input_category">Mewnbwn</string>
   <!-- Preference category for drawing debugging development settings. [CHAR LIMIT=25] -->
+  <string name="debug_drawing_category">Llunio</string>
   <!-- Preference category for hardware accelerated drawing debugging development settings. [CHAR LIMIT=50] -->
+  <string name="debug_hw_drawing_category">Rendro caledwedd mwy cyflym</string>
   <!-- Preference category for media development settings. [CHAR LIMIT=50] -->
+  <string name="media_category">Cyfryngau</string>
   <!-- Preference category for monitoring debugging development settings. [CHAR LIMIT=25] -->
+  <string name="debug_monitoring_category">Montiro</string>
   <!-- UI debug setting: always enable strict mode? [CHAR LIMIT=25] -->
+  <string name="strict_mode">Modd llym wedi ei alluogi</string>
   <!-- UI debug setting: show strict mode summary [CHAR LIMIT=50] -->
+  <string name="strict_mode_summary">Fflachio’r sgrin pan mae apiau yn gwneud gweithrediadau hir ar brif ffrwd.</string>
   <!-- UI debug setting: show pointer location? [CHAR LIMIT=25] -->
+  <string name="pointer_location">Lleoliad pwyntydd</string>
   <!-- UI debug setting: show pointer location summary [CHAR LIMIT=50] -->
+  <string name="pointer_location_summary">Troshaen sgrin yn dangos data cyffwrdd presennol</string>
   <!-- UI debug setting: show touches? [CHAR LIMIT=25] -->
+  <string name="show_touches">Dangos tariadau</string>
   <!-- UI debug setting: show touches location summary [CHAR LIMIT=50] -->
+  <string name="show_touches_summary">Dangos adborth gweledol ar gyfer tariadau</string>
   <!-- UI debug setting: show where surface updates happen? [CHAR LIMIT=25] -->
+  <string name="show_screen_updates">Dangos diweddariadau arwyneb</string>
   <!-- UI debug setting: show surface updates summary [CHAR LIMIT=50] -->
+  <string name="show_screen_updates_summary">Fflachio arwyneb ffenestr gyfan pan maen nhw\'n diweddaru</string>
   <!-- UI debug setting: show where window updates happen with GPU rendering? [CHAR LIMIT=25] -->
+  <string name="show_hw_screen_updates">Dangos diweddariadau gwedd GPU</string>
   <!-- UI debug setting: show GPU rendering screen updates summary [CHAR LIMIT=50] -->
   <!-- UI debug setting: show when hardware layers get updated [CHAR LIMIT=25] -->
   <!-- UI debug setting: show hardware layers updates summary [CHAR LIMIT=50] -->
@@ -278,9 +365,11 @@
   <!-- UI debug setting: scaling factor for all Animator-based animations [CHAR LIMIT=25] -->
   <!-- UI debug setting: simulate secondary display devices using overlays [CHAR LIMIT=25] -->
   <!-- Preference category for application debugging development settings. [CHAR LIMIT=25] -->
+  <string name="debug_applications_category">Apiau</string>
   <!-- UI debug setting: immediately destroy activities? [CHAR LIMIT=25] -->
   <!-- UI debug setting: immediately destroy activities summary [CHAR LIMIT=50] -->
   <!-- UI debug setting: limit number of running background processes [CHAR LIMIT=25] -->
+  <string name="app_process_limit_title">Cyfyngiad prosesau cefndir</string>
   <!-- UI debug setting: show all ANRs? [CHAR LIMIT=25] -->
   <!-- UI debug setting: show all ANRs summary [CHAR LIMIT=50] -->
   <!-- UI debug setting: force allow apps on external storage [CHAR LIMIT=50] -->
@@ -296,6 +385,11 @@
   <!-- Toast message shown when setting a new local backup password fails due to the user not correctly typing the password again for confirmation [CHAR LIMIT=80] -->
   <!-- Toast message shown when setting a new local backup password fails due to the user not supplying the correct existing password. The phrasing here is deliberately quite general. [CHAR LIMIT=80] -->
   <!-- Name of each color mode for the display. [CHAR LIMIT=40] -->
+  <string-array name="color_mode_names">
+    <item>Vibrant (default)</item>
+    <item>Natural</item>
+    <item>Safonol</item>
+  </string-array>
   <!-- Description of each color mode for the display. [CHAR LIMIT=NONE] -->
   <!-- Settings item title for inactive apps [CHAR LIMIT=35] -->
   <!-- Settings item summary for inactive app [CHAR LIMIT=100] -->
@@ -310,11 +404,19 @@
   <!-- Developer settings screen, convert userdata to file encryption option name -->
   <!-- Developer settings screen, convert userdata to file encryption summary when option is available -->
   <!-- Developer settings screen, convert userdata to file encryption summary when option is already done -->
+  <string name="convert_to_file_encryption_done">Ffeil eisoes wedi\'i hamgryptio</string>
   <!-- Title used on dialog with final prompt for converting to file encryption -->
   <!-- Warning displayed on dialog with final prompt for converting to file encryption -->
+  <string name="convert_to_fbe_warning">
+Trosi rhaniad data i amgryptiad yn seiliedig ar ffeil.\n
+!!Rhybudd!! Bydd hyn yn dileu dy holl ddata.\n
+Mae\'r nodwedd hon dal yn fersiwn alffa, ac felly mae\'n bosib na fydd yn gweithio\'n gywir.\n
+Gwasga \'Clirio a Throsi\' i barhau.</string>
   <!-- Button on dialog that triggers convertion to file encryption -->
+  <string name="button_convert_fbe">Clirio a throsi\u2026</string>
   <!-- Name of feature to change color setting for the display [CHAR LIMIT=60] -->
   <!-- Description of feature to change color setting for the display [CHAR LIMIT=NONE] -->
+  <string name="picture_color_mode_desc">Defnyddio sRGB</string>
   <!-- Label for disabling color space adjustment [CHAR LIMIT=45] -->
   <!-- Label for converting display colors to grayscale, which simulates monochromacy (complete color blindness). [CHAR LIMIT=45] -->
   <!-- Label for deuteranomaly (red-green color blindness) [CHAR LIMIT=45] -->
@@ -325,35 +427,70 @@
   <!-- Summary shown for color space correction preference when its value is overridden by another preference [CHAR LIMIT=35] -->
   <!-- [CHAR_LIMIT=40] Label for estimated remaining duration of battery charging/discharging -->
   <!-- [CHAR_LIMIT=40] Short label for estimated remaining duration of battery charging/discharging -->
+  <string name="power_remaining_duration_only_short"><xliff:g id="time">%1$s</xliff:g> yn weddill</string>
   <!-- [CHAR_LIMIT=40] Label for battery level chart when discharging with duration -->
+  <string name="power_discharging_duration"><xliff:g id="level">%1$s</xliff:g> - 
+tua <xliff:g id="time">%2$s</xliff:g> yn weddill</string>
   <!-- [CHAR_LIMIT=40] Label for battery level chart when discharging with duration -->
+  <string name="power_discharging_duration_short"><xliff:g id="level">%1$s</xliff:g> - 
+<xliff:g id="time">%2$s</xliff:g> yn weddill</string>
   <!-- [CHAR_LIMIT=40] Label for battery level chart when charging -->
+  <string name="power_charging"><xliff:g id="level">%1$s</xliff:g> -
+<xliff:g id="state">%2$s</xliff:g></string>
   <!-- [CHAR_LIMIT=40] Label for battery level chart when charging with duration -->
+  <string name="power_charging_duration"><xliff:g id="level">%1$s</xliff:g> -
+<xliff:g id="time">%2$s</xliff:g> nes yn llawn</string>
   <!-- [CHAR_LIMIT=40] Short label for battery level chart when charging with duration -->
+  <string name="power_charging_duration_short"><xliff:g id="level">%1$s</xliff:g> -
+<xliff:g id="time">%2$s</xliff:g></string>
   <!-- [CHAR_LIMIT=40] Label for battery level chart when charging with duration -->
+  <string name="power_charging_duration_ac"><xliff:g id="level">%1$s</xliff:g> -
+<xliff:g id="time">%2$s</xliff:g> nes yn llawn trwy wefru trydan</string>
   <!-- [CHAR_LIMIT=40] Short label for battery level chart when charging with duration -->
+  <string name="power_charging_duration_ac_short"><xliff:g id="level">%1$s</xliff:g> -
+<xliff:g id="time">%2$s</xliff:g></string>
   <!-- [CHAR_LIMIT=40] Label for battery level chart when charging with duration -->
+  <string name="power_charging_duration_usb"><xliff:g id="level">%1$s</xliff:g> -
+<xliff:g id="time">%2$s</xliff:g> nes yn llawn trwy wefru USB</string>
   <!-- [CHAR_LIMIT=40] Short label for battery level chart when charging with duration -->
+  <string name="power_charging_duration_usb_short"><xliff:g id="level">%1$s</xliff:g> -
+<xliff:g id="time">%2$s</xliff:g></string>
   <!-- [CHAR_LIMIT=40] Label for battery level chart when charging with duration -->
+  <string name="power_charging_duration_wireless"><xliff:g id="level">%1$s</xliff:g> -
+<xliff:g id="time">%2$s</xliff:g> nes yn llawn trwy wefru diwifr</string>
   <!-- [CHAR_LIMIT=40] Label for battery level chart when charging with duration -->
+  <string name="power_charging_duration_wireless_short"><xliff:g id="level">%1$s</xliff:g> -
+<xliff:g id="time">%2$s</xliff:g></string>
   <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
   <!-- [CHAR_LIMIT=20] Battery use screen.  Battery status shown in chart label when charging from an unknown source.  -->
+  <string name="battery_info_status_charging">Yn gwefru</string>
   <!-- [CHAR_LIMIT=20] Battery use screen.  Battery status shown in chart label when charging on AC.  -->
   <!-- [CHAR_LIMIT=20] Battery short status label when charing on AC -->
+  <string name="battery_info_status_charging_ac_short">Yn gwefru</string>
   <!-- [CHAR_LIMIT=20] Battery use screen.  Battery status shown in chart label when charging over USB.  -->
   <!-- [CHAR_LIMIT=20] Battery short status label when charging over USB. -->
+  <string name="battery_info_status_charging_usb_short">Yn gwefru</string>
   <!-- [CHAR_LIMIT=20] Battery use screen.  Battery status shown in chart label when charging over a wireless connection.  -->
   <!-- [CHAR_LIMIT=20] Battery short status label when charging wirelessly. -->
+  <string name="battery_info_status_charging_wireless_short">Yn gwefru</string>
   <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
   <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
   <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+  <string name="battery_info_status_full">Llawn</string>
   <!-- Summary for settings preference disabled by administrator [CHAR LIMIT=50] -->
   <!-- Summary for switch preference to denote it is switched on [CHAR LIMIT=50] -->
   <!-- Summary for switch preference to denote it is switched off [CHAR LIMIT=50] -->
   <!-- Option in navigation drawer that leads to Settings main screen [CHAR LIMIT=30] -->
   <!-- Labels on the side of batter graph in Quick Settings and Settings [CHAR LIMIT=8] -->
+  <string-array name="battery_labels">
+    <item>0%</item>
+    <item>50%</item>
+    <item>100%</item>
+  </string-array>
   <!-- Label for length of time since the battery graph started [CHAR LIMIT=20] -->
+  <string name="charge_length_format"><xliff:g name="time" example="3 hours">%1$s</xliff:g> yn ôl</string>
   <!-- Label for length of time until battery is charged [CHAR LIMIT=20] -->
+  <string name="remaining_length_format"><xliff:g name="time" example="3 hours">%1$s</xliff:g> yn weddill</string>
   <!-- Hint text for the IP address -->
   <!-- Hint text for DNS -->
   <!-- Hint text for DNS -->
@@ -364,15 +501,21 @@
   <!-- HTTP proxy settings. The hint text for proxy exclusion list. -->
   <!-- HTTP proxy settings. The hint text field for the hostname. -->
   <!-- Description for the screen zoom level that makes interface elements small. [CHAR LIMIT=24] -->
+  <string name="screen_zoom_summary_small">Bach</string>
   <!-- Description for the device's default screen zoom level. [CHAR LIMIT=24] -->
   <!-- Description for the screen zoom level that makes interface elements large. [CHAR LIMIT=24] -->
+  <string name="screen_zoom_summary_large">Mawr</string>
   <!-- Description for the screen zoom level that makes interface elements larger. [CHAR LIMIT=24] -->
+  <string name="screen_zoom_summary_very_large">Mwy</string>
   <!-- Description for the screen zoom level that makes interface elements largest. [CHAR LIMIT=24] -->
   <!-- Description for a custom screen zoom level. This shows the requested display
          density in raw pixels per inch rather than using a relative description. [CHAR LIMIT=24] -->
   <!-- Label for Help and feedback menu item -->
   <!-- Content description for drawer menu button [CHAR_LIMIT=30]-->
+  <string name="content_description_menu_button">Dewislen</string>
   <!-- Label for carrier demo mode factory reset confirmation dialog. [CHAR LIMIT=40] -->
+  <string name="retail_demo_reset_message">Rho\'r cyfrinair i ailosod y ddyfais i fel yr oedd yn gadael y ffatri mewn modd arddangos ar gyfer siopau.</string>
   <!-- Label for positive button on carrier demo  mode factory reset confirmation dialog [CHAR LIMIT=40] -->
+  <string name="retail_demo_reset_next">Nesaf</string>
   <!-- Title for carrier demo mode factory reset confirmation dialog. [CHAR LIMIT=40] -->
 </resources>

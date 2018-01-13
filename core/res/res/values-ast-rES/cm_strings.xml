@@ -47,11 +47,11 @@
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
   <string name="reboot_progress">Reaniciando\u2026</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB sobre rede habilitáu</string>
+  <string name="adb_net_active_notification_title">ADB per rede activáu</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB sobre USB y rede habilitáu</string>
+  <string name="adb_both_active_notification_title">ADB per USB y rede activáu</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Toca pa deshabilitar la depuración.</string>
+  <string name="adb_active_generic_notification_message">Toca pa desactivar la depuración.</string>
   <!-- Privacy Guard -->
   <string name="permlab_changePrivacyGuardState">habilitar o deshabilitar la privacidá</string>
   <string name="permdesc_changePrivacyGuardState">Permite que l\'aplicación cambie l\'estáu de privacidá d\'otra. Cuando una aplicación s\'executa cola privacidá habilitada, nun va poder acceder a los datos personales, talos como contautos, mensaxes o rexistros de llamaes.</string>
