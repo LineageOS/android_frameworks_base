@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3678f51_f81fe17d",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-01-13T18:53:43Z",
+      "side": 1,
+      "message": "hey you, space",
+      "range": {
+        "startLine": 310,
+        "startChar": 45,
+        "endLine": 310,
+        "endChar": 46
+      },
+      "revId": "001b604bec5ef4cea6d93de4b1e8dc87a54f7b4b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
