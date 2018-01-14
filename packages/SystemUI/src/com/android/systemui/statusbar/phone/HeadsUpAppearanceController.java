@@ -107,7 +107,6 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
             HeadsUpStatusBarView headsUpStatusBarView,
             Clock clockView,
             @Named(OPERATOR_NAME_FRAME_VIEW) Optional<View> operatorNameViewOptional) {
-        super(headsUpStatusBarView);
         mNotificationIconAreaController = notificationIconAreaController;
         mHeadsUpManager = headsUpManager;
 
@@ -213,11 +212,13 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                 updateParentClipping(false /* shouldClip */);
                 mView.setVisibility(View.VISIBLE);
                 show(mView);
-                hide(mClockView, View.INVISIBLE);
-                mOperatorNameViewOptional.ifPresent(view -> hide(view, View.INVISIBLE));
+                if (mOperatorNameViewOptional.isPresent()) {
+                    hide(mOperatorNameViewOptional.get(), View.INVISIBLE);
+                }
             } else {
-                show(mClockView);
-                mOperatorNameViewOptional.ifPresent(this::show);
+                if (mOperatorNameViewOptional.isPresent()) {
+                    show(mOperatorNameViewOptional.get());
+                }
                 hide(mView, View.GONE, () -> {
                     updateParentClipping(true /* shouldClip */);
                 });
