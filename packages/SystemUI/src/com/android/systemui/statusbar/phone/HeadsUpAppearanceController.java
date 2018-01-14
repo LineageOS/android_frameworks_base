@@ -52,6 +52,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
     private final HeadsUpManagerPhone mHeadsUpManager;
     private final NotificationStackScrollLayoutController mStackScrollerController;
     private final HeadsUpStatusBarView mHeadsUpStatusBarView;
+    private final View mCenteredView;
     private final View mCenteredIconView;
     private final View mClockView;
     private final View mOperatorNameView;
@@ -100,6 +101,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
                 statusBarView.findViewById(R.id.heads_up_status_bar_view),
                 statusBarView.findViewById(R.id.clock),
                 statusBarView.findViewById(R.id.operator_name_frame),
+                statusBarView.findViewById(R.id.centered_area),
                 statusBarView.findViewById(R.id.centered_icon_area));
     }
 
@@ -117,11 +119,13 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
             HeadsUpStatusBarView headsUpStatusBarView,
             View clockView,
             View operatorNameView,
+            View centeredView,
             View centeredIconView) {
         mNotificationIconAreaController = notificationIconAreaController;
         mHeadsUpManager = headsUpManager;
         mHeadsUpManager.addListener(this);
         mHeadsUpStatusBarView = headsUpStatusBarView;
+        mCenteredView = centeredView;
         mCenteredIconView = centeredIconView;
         headsUpStatusBarView.setOnDrawingRectChangedListener(
                 () -> updateIsolatedIconLocation(true /* requireUpdate */));
@@ -214,6 +218,9 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
                 mHeadsUpStatusBarView.setVisibility(View.VISIBLE);
                 show(mHeadsUpStatusBarView);
                 hide(mClockView, View.INVISIBLE);
+                if (mCenteredView.getVisibility() != View.GONE) {
+                    hide(mCenteredView, View.INVISIBLE);
+                }
                 if (mCenteredIconView.getVisibility() != View.GONE) {
                     hide(mCenteredIconView, View.INVISIBLE);
                 }
@@ -222,6 +229,9 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
                 }
             } else {
                 show(mClockView);
+                if (mCenteredView.getVisibility() != View.GONE) {
+                    show(mCenteredView);
+                }
                 if (mCenteredIconView.getVisibility() != View.GONE) {
                     show(mCenteredIconView);
                 }
