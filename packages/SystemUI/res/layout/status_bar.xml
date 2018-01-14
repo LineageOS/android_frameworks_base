@@ -139,6 +139,23 @@
             android:gravity="center"
             android:visibility="gone"
         />
+
+        <com.android.systemui.statusbar.LineageStatusBarItemHolder
+            android:id="@+id/network_traffic_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layoutDirection="ltr"
+            android:gravity="center"
+            >
+
+            <org.lineageos.internal.statusbar.NetworkTraffic
+                android:id="@+id/network_traffic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:maxLines="2"
+                android:gravity="center" />
+
+        </com.android.systemui.statusbar.LineageStatusBarItemHolder>
     </com.android.keyguard.AlphaOptimizedLinearLayout>
 
     <ViewStub
