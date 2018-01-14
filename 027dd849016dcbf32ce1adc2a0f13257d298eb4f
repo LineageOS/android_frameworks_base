@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "166e9fc1_9b98dade",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-14T22:13:11Z",
+      "side": 1,
+      "message": "Could be a final var, no?",
+      "revId": "027dd849016dcbf32ce1adc2a0f13257d298eb4f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "002d3b93_414785b8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-14T22:13:11Z",
+      "side": 1,
+      "message": "Looks like these can be final?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "027dd849016dcbf32ce1adc2a0f13257d298eb4f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22136af0_6c9d526e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-14T22:13:11Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "027dd849016dcbf32ce1adc2a0f13257d298eb4f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
