@@ -101,6 +101,8 @@ public class HeadsUpAppearanceControllerTest extends SysuiTestCase {
                 mPanelView,
                 mHeadsUpStatusBarView,
                 new Clock(mContext, null),
+                new View(mContext),
+                new View(mContext),;
                 Optional.of(mOperatorNameView));
         mHeadsUpAppearanceController.setAppearFraction(0.0f, 0.0f);
     }
@@ -183,7 +185,10 @@ public class HeadsUpAppearanceControllerTest extends SysuiTestCase {
                 mPanelView,
                 mHeadsUpStatusBarView,
                 new Clock(mContext, null),
-                Optional.empty());
+                Optional.empty(),
+                new View(mContext),
+                new View(mContext),
+                new View(mContext));
 
         Assert.assertEquals(expandedHeight, newController.mExpandedHeight, 0.0f);
         Assert.assertEquals(appearFraction, newController.mAppearFraction, 0.0f);
