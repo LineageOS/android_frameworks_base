@@ -62,6 +62,7 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
     private final HeadsUpManagerPhone mHeadsUpManager;
     private final NotificationStackScrollLayoutController mStackScrollerController;
 
+    private final View mCenteredView;
     private final View mCenteredIconView;
     private final ClockController mClockController;
     private final View mOperatorNameView;
@@ -117,6 +118,7 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                 statusBarView.findViewById(R.id.clock),
                 new ClockController(statusBarView.getContext(), statusBarView),
                 statusBarView.findViewById(R.id.operator_name_frame),
+                statusBarView.findViewById(R.id.centered_area),
                 statusBarView.findViewById(R.id.centered_icon_area));
     }
 
@@ -138,10 +140,13 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
             @Named(OPERATOR_NAME_FRAME_VIEW) Optional<View> operatorNameViewOptional,
             ClockController clockController,
             View operatorNameView,
+            View centeredView,
             View centeredIconView) {
         super(headsUpStatusBarView);
         mNotificationIconAreaController = notificationIconAreaController;
         mHeadsUpManager = headsUpManager;
+        mCenteredView = centeredView;
+        mCenteredIconView = centeredIconView;
 
         // We may be mid-HUN-expansion when this controller is re-created (for example, if the user
         // has started pulling down the notification shade from the HUN and then the font size
@@ -253,6 +258,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                 if (!isRightClock) {
                     hide(clockView, View.INVISIBLE);
                 }
+                if (mCenteredView.getVisibility() != View.GONE) {
+                    hide(mCenteredView, View.INVISIBLE);
+                }
                 if (mCenteredIconView.getVisibility() != View.GONE) {
                     hide(mCenteredIconView, View.INVISIBLE);
                 }
@@ -262,6 +270,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
             } else {
                 if (!isRightClock) {
                     show(clockView);
+                }
+                if (mCenteredView.getVisibility() != View.GONE) {
+                    show(mCenteredView);
                 }
                 if (mCenteredIconView.getVisibility() != View.GONE) {
                     show(mCenteredIconView);
