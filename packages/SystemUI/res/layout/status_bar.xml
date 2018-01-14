@@ -81,6 +81,21 @@
                     android:gravity="center_vertical|start"
                 />
 
+                <com.android.systemui.statusbar.LineageStatusBarItemHolder
+                    android:id="@+id/network_traffic_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <org.lineageos.internal.statusbar.NetworkTraffic
+                        android:id="@+id/network_traffic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:maxLines="2"
+                        android:gravity="end|center_vertical"/>
+
+                </com.android.systemui.statusbar.LineageStatusBarItemHolder>
+
                 <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
                     android:id="@+id/notification_icon_area"
                     android:layout_width="0dp"
