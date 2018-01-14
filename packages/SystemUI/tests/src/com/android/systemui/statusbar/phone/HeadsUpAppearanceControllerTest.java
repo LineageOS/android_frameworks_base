@@ -105,6 +105,7 @@ public class HeadsUpAppearanceControllerTest extends SysuiTestCase {
                 mock(ClockController.class),
                 mOperatorNameView,
                 new View(mContext),
+                new View(mContext),
                 Optional.of(mOperatorNameView));
         mHeadsUpAppearanceController.setAppearFraction(0.0f, 0.0f);
     }
@@ -188,6 +189,7 @@ public class HeadsUpAppearanceControllerTest extends SysuiTestCase {
                 mHeadsUpStatusBarView,
                 new View(mContext),
                 mock(ClockController.class),
+                new View(mContext),
                 new View(mContext),
                 new View(mContext),
                 Optional.empty());
