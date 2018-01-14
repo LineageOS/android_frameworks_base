@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
- * Copyright (c) 2017 The LineageOS Project
+ * Copyright (c) 2017-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,9 @@
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
     <uses-permission android:name="lineageos.permission.WRITE_SETTINGS"/>
+
+    <!-- Network traffic monitor -->
+    <uses-permission android:name="android.permission.MAINLINE_NETWORK_STACK" />
 
     <!-- SystemUI Tuner -->
     <application>

@@ -62,6 +62,7 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
     private final HeadsUpManagerPhone mHeadsUpManager;
     private final NotificationStackScrollLayoutController mStackScrollerController;
 
+    private final View mCenteredView;
     private final View mCenteredIconView;
     private final ClockController mClockController;
     private final DarkIconDispatcher mDarkIconDispatcher;
@@ -91,7 +92,38 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                 }
             };
     private boolean mAnimationsEnabled = true;
+<<<<<<< HEAD
     private final KeyguardStateController mKeyguardStateController;
+=======
+    private KeyguardStateController mKeyguardStateController;
+    Point mPoint;
+
+    @Inject
+    public HeadsUpAppearanceController(
+            NotificationIconAreaController notificationIconAreaController,
+            HeadsUpManagerPhone headsUpManager,
+            NotificationStackScrollLayoutController notificationStackScrollLayoutController,
+            SysuiStatusBarStateController statusBarStateController,
+            KeyguardBypassController keyguardBypassController,
+            KeyguardStateController keyguardStateController,
+            NotificationWakeUpCoordinator wakeUpCoordinator, CommandQueue commandQueue,
+            NotificationPanelViewController notificationPanelViewController,
+            @RootView PhoneStatusBarView statusBarView) {
+        this(notificationIconAreaController, headsUpManager, statusBarStateController,
+                keyguardBypassController, wakeUpCoordinator, keyguardStateController,
+                commandQueue, notificationStackScrollLayoutController,
+                notificationPanelViewController,
+                // TODO(b/205609837): We should have the StatusBarFragmentComponent provide these
+                //  four views, and then we can delete this constructor and just use the one below
+                //  (which also removes the undesirable @VisibleForTesting).
+                statusBarView.findViewById(R.id.heads_up_status_bar_view),
+                statusBarView.findViewById(R.id.clock),
+                new ClockController(statusBarView.getContext(), statusBarView),
+                statusBarView.findViewById(R.id.operator_name_frame),
+                statusBarView.findViewById(R.id.centered_area),
+                statusBarView.findViewById(R.id.centered_icon_area));
+    }
+>>>>>>> 7454b932647a (SystemUI: Network Traffic [1/3])
 
     @VisibleForTesting
     @Inject
@@ -110,10 +142,13 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
             Clock clockView,
             @Named(OPERATOR_NAME_FRAME_VIEW) Optional<View> operatorNameViewOptional,
             ClockController clockController,
+            View centeredView,
             View centeredIconView) {
         super(headsUpStatusBarView);
         mNotificationIconAreaController = notificationIconAreaController;
         mHeadsUpManager = headsUpManager;
+        mCenteredView = centeredView;
+        mCenteredIconView = centeredIconView;
 
         // We may be mid-HUN-expansion when this controller is re-created (for example, if the user
         // has started pulling down the notification shade from the HUN and then the font size
@@ -222,6 +257,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                 if (!isRightClock) {
                     hide(clockView, View.INVISIBLE);
                 }
+                if (mCenteredView.getVisibility() != View.GONE) {
+                    hide(mCenteredView, View.INVISIBLE);
+                }
                 if (mCenteredIconView.getVisibility() != View.GONE) {
                     hide(mCenteredIconView, View.INVISIBLE);
                 }
@@ -231,6 +269,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
             } else {
                 if (!isRightClock) {
                     show(clockView);
+                }
+                if (mCenteredView.getVisibility() != View.GONE) {
+                    show(mCenteredView);
                 }
                 if (mCenteredIconView.getVisibility() != View.GONE) {
                     show(mCenteredIconView);
