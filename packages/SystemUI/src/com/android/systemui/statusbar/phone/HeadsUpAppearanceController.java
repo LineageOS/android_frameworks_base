@@ -222,6 +222,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                 if (!isRightClock) {
                     hide(clockView, View.INVISIBLE);
                 }
+                if (mCenteredView.getVisibility() != View.GONE) {
+                    hide(mCenteredView, View.INVISIBLE);
+                }
                 if (mCenteredIconView.getVisibility() != View.GONE) {
                     hide(mCenteredIconView, View.INVISIBLE);
                 }
@@ -231,6 +234,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
             } else {
                 if (!isRightClock) {
                     show(clockView);
+                }
+                if (mCenteredView.getVisibility() != View.GONE) {
+                    show(mCenteredView);
                 }
                 if (mCenteredIconView.getVisibility() != View.GONE) {
                     show(mCenteredIconView);
