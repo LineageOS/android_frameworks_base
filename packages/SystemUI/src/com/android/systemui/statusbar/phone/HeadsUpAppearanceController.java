@@ -62,6 +62,10 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
     private final HeadsUpManagerPhone mHeadsUpManager;
     private final NotificationStackScrollLayoutController mStackScrollerController;
 
+    private final View mCenteredView;
+    private final View mCenteredIconView;
+    private final ClockController mClockController;
+    private final View mOperatorNameView;
     private final DarkIconDispatcher mDarkIconDispatcher;
     private final NotificationPanelViewController mNotificationPanelViewController;
     private final Consumer<ExpandableNotificationRow>
@@ -106,10 +110,15 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
             NotificationPanelViewController notificationPanelViewController,
             HeadsUpStatusBarView headsUpStatusBarView,
             Clock clockView,
+            ClockController clockController,
+            View operatorNameView,
+            View centeredView,
+            View centeredIconView,
             @Named(OPERATOR_NAME_FRAME_VIEW) Optional<View> operatorNameViewOptional) {
-        super(headsUpStatusBarView);
         mNotificationIconAreaController = notificationIconAreaController;
         mHeadsUpManager = headsUpManager;
+        mCenteredView = centeredView;
+        mCenteredIconView = centeredIconView;
 
         // We may be mid-HUN-expansion when this controller is re-created (for example, if the user
         // has started pulling down the notification shade from the HUN and then the font size
@@ -213,11 +222,31 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                 updateParentClipping(false /* shouldClip */);
                 mView.setVisibility(View.VISIBLE);
                 show(mView);
-                hide(mClockView, View.INVISIBLE);
-                mOperatorNameViewOptional.ifPresent(view -> hide(view, View.INVISIBLE));
+                if (!isRightClock) {
+                    hide(clockView, View.INVISIBLE);
+                }
+                if (mCenteredView.getVisibility() != View.GONE) {
+                    hide(mCenteredView, View.INVISIBLE);
+                }
+                if (mCenteredIconView.getVisibility() != View.GONE) {
+                    hide(mCenteredIconView, View.INVISIBLE);
+                }
+                if (mOperatorNameView != null) {
+                    hide(mOperatorNameView, View.INVISIBLE);
+                }
             } else {
-                show(mClockView);
-                mOperatorNameViewOptional.ifPresent(this::show);
+                if (!isRightClock) {
+                    show(clockView);
+                }
+                if (mCenteredView.getVisibility() != View.GONE) {
+                    show(mCenteredView);
+                }
+                if (mCenteredIconView.getVisibility() != View.GONE) {
+                    show(mCenteredIconView);
+                }
+                if (mOperatorNameView != null) {
+                    show(mOperatorNameView);
+                }
                 hide(mView, View.GONE, () -> {
                     updateParentClipping(true /* shouldClip */);
                 });
