@@ -75,6 +75,7 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
     private final NotificationWakeUpCoordinator mWakeUpCoordinator;
 
     private final View mClockView;
+    //private final View mCenteredView;
     private final Optional<View> mOperatorNameViewOptional;
 
     @VisibleForTesting
@@ -108,6 +109,7 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
             NotificationPanelViewController notificationPanelViewController,
             HeadsUpStatusBarView headsUpStatusBarView,
             Clock clockView,
+            //View centeredView,
             @Named(OPERATOR_NAME_FRAME_VIEW) Optional<View> operatorNameViewOptional,
             @RootView PhoneStatusBarView statusBarView) {
         super(headsUpStatusBarView);
@@ -126,6 +128,7 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
         mNotificationPanelViewController = notificationPanelViewController;
         mStackScrollerController.setHeadsUpAppearanceController(this);
         mClockView = clockView;
+        //mCenteredView = centeredView;
         mOperatorNameViewOptional = operatorNameViewOptional;
         mDarkIconDispatcher = darkIconDispatcher;
         mClockController = new ClockController(statusBarView.getContext(), statusBarView);
@@ -222,11 +225,17 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                 if (!isRightClock) {
                     hide(mClockView, View.INVISIBLE);
                 }
+                //if (mCenteredView.getVisibility() != View.GONE) {
+                //    hide(mCenteredView, View.INVISIBLE);
+                //}
                 mOperatorNameViewOptional.ifPresent(view -> hide(view, View.INVISIBLE));
             } else {
                 if (!isRightClock) {
                     show(mClockView);
                 }
+                //if (mCenteredView.getVisibility() != View.GONE) {
+                //    show(mCenteredView);
+                //}
                 mOperatorNameViewOptional.ifPresent(this::show);
                 hide(mView, View.GONE, () -> {
                     updateParentClipping(true /* shouldClip */);
