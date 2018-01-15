@@ -2821,9 +2821,10 @@
   <java-symbol type="integer" name="config_backKillTimeout" />
 
   <!-- Power menu -->
+  <java-symbol type="drawable" name="ic_lock_airplane_mode_disabled" />
+  <java-symbol type="drawable" name="ic_lock_airplane_mode_enabled" />
   <java-symbol type="drawable" name="ic_lock_screenshot" />
   <java-symbol type="string" name="global_action_screenshot" />
-  <java-symbol type="drawable" name="ic_lock_settings" />
   <java-symbol type="drawable" name="ic_lock_user" />
 
   <!-- ADB notification -->
