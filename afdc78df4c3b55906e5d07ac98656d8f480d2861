@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f99d2185_b35a296a",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T03:00:17Z",
+      "side": 1,
+      "message": "Seems like this bit could be pushed into getRunningActivityInfo, and getRunningActivityInfo renamed to getRunningActivityName ?",
+      "range": {
+        "startLine": 168,
+        "startChar": 12,
+        "endLine": 168,
+        "endChar": 80
+      },
+      "revId": "afdc78df4c3b55906e5d07ac98656d8f480d2861",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91522f21_36f52115",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T03:00:17Z",
+      "side": 1,
+      "message": "The string sanitization could be in it\u0027s own helper function.",
+      "range": {
+        "startLine": 170,
+        "startChar": 16,
+        "endLine": 172,
+        "endChar": 112
+      },
+      "revId": "afdc78df4c3b55906e5d07ac98656d8f480d2861",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9093377_9b234051",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T03:00:17Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "afdc78df4c3b55906e5d07ac98656d8f480d2861",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
