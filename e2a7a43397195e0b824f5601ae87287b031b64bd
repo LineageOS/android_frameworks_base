@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "959bec58_aaedd6e9",
+        "filename": "core/java/android/preference/SeekBarVolumizer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T02:53:50Z",
+      "side": 1,
+      "message": "nit: probably better to name this \u0027seekBarEnabled\u0027, since this is checking state, rather than enabling the thing.",
+      "range": {
+        "startLine": 165,
+        "startChar": 20,
+        "endLine": 165,
+        "endChar": 33
+      },
+      "revId": "e2a7a43397195e0b824f5601ae87287b031b64bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
