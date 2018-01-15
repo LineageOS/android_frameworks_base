@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91d5225d_dd7bf4bf",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T03:18:15Z",
+      "side": 1,
+      "message": "private, to be explicit?",
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d152b9cf_5770fea6",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T03:18:15Z",
+      "side": 1,
+      "message": "Are some of these available as constants?",
+      "range": {
+        "startLine": 807,
+        "startChar": 49,
+        "endLine": 808,
+        "endChar": 75
+      },
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b7fdaf_3c3727e0",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T03:18:15Z",
+      "side": 1,
+      "message": "can\u0027t use the handler for this?",
+      "range": {
+        "startLine": 840,
+        "startChar": 28,
+        "endLine": 840,
+        "endChar": 47
+      },
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c96f55a_72b8636b",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T03:18:15Z",
+      "side": 1,
+      "message": "Is this supposed to be part of this patch?",
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "277fc80e_b351a0d8",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T03:18:15Z",
+      "side": 1,
+      "message": "It\u0027d be nice if we had some common utils classes for parsing things that are | separated.",
+      "range": {
+        "startLine": 196,
+        "startChar": 12,
+        "endLine": 196,
+        "endChar": 48
+      },
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89cb9fa7_a1b358bc",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T03:18:15Z",
+      "side": 1,
+      "message": "Should some of these things be constants?",
+      "range": {
+        "startLine": 200,
+        "startChar": 40,
+        "endLine": 200,
+        "endChar": 47
+      },
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a84d66f_87061326",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-15T03:18:15Z",
+      "side": 1,
+      "message": "Instead of using a flag to signal state, you could save the reboot string resource IDs to a variable, use them below, and update them here.",
+      "range": {
+        "startLine": 262,
+        "startChar": 32,
+        "endLine": 262,
+        "endChar": 47
+      },
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
