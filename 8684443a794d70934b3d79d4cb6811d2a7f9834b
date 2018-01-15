@@ -82,6 +82,24 @@
     },
     {
       "key": {
+        "uuid": "cb720664_d9730260",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-01-15T11:27:01Z",
+      "side": 1,
+      "message": "Isn\u0027t this related to the patch that allows to \"Show advanced reboot if using an insecure lock screen\"?",
+      "parentUuid": "7c96f55a_72b8636b",
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "277fc80e_b351a0d8",
         "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
         "patchSetId": 10
