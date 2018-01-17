@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0585c1fd_d5e52be1",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-17T02:38:53Z",
+      "side": 1,
+      "message": "So you\u0027ve made this a 3 state, but I\u0027m not sure I quite get the impact of the -1 state? It seems like there isn\u0027t a behavioral difference in the part that was changed here.",
+      "revId": "9678ef8e29beab4637d1f1e579331059ce1c1404",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
