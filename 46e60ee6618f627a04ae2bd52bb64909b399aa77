@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b46c9fdc_f53aa86b",
+        "filename": "core/java/com/android/internal/widget/LockPatternUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-17T02:31:43Z",
+      "side": 0,
+      "message": "?",
+      "revId": "46e60ee6618f627a04ae2bd52bb64909b399aa77",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

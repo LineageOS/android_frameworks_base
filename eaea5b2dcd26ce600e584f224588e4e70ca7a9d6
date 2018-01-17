@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ef5504a_e54453f6",
+        "filename": "core/java/com/android/internal/widget/LockPatternView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-17T02:31:43Z",
+      "side": 1,
+      "message": "surprised this throws an exception, what\u0027s catching it?",
+      "revId": "eaea5b2dcd26ce600e584f224588e4e70ca7a9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df76de7c_bb584e1e",
+        "filename": "services/core/java/com/android/server/locksettings/LockSettingsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-17T02:31:43Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "eaea5b2dcd26ce600e584f224588e4e70ca7a9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83a883db_ec326ffd",
+        "filename": "services/core/java/com/android/server/locksettings/LockSettingsShellCommand.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-17T02:31:43Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "eaea5b2dcd26ce600e584f224588e4e70ca7a9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4395067_47e8a55f",
+        "filename": "services/core/java/com/android/server/locksettings/LockSettingsShellCommand.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-17T02:31:43Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "eaea5b2dcd26ce600e584f224588e4e70ca7a9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
