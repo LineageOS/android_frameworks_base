@@ -16,6 +16,24 @@
       "revId": "9678ef8e29beab4637d1f1e579331059ce1c1404",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8cf05382_d6155da4",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-17T02:53:16Z",
+      "side": 1,
+      "message": "Since this was false, the \"if (devForceNavbar !\u003d mDevForceNavbar) {\" check fails down below if the device was booted with the nav bar setting off, meaning KeyDisabler is not ever told to enable what it needs to on boot. This is relevant because some devices (kuntao) use this boolean to enable home button gestures. Regardless of kuntao\u0027s usecase, however, I think it\u0027s right for the signal to be sent on boot consistently.",
+      "parentUuid": "0585c1fd_d5e52be1",
+      "revId": "9678ef8e29beab4637d1f1e579331059ce1c1404",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
