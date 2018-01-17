@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93443872_fb35721a",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-01-17T19:49:06Z",
+      "side": 1,
+      "message": "It was nicer to statically import:  https://review.lineageos.org/#/c/200970/9/sdk/src/java/org/lineageos/internal/util/PowerMenuConstants.java. But that reminds me that we never had GLOBAL_ACTION_KEY_SOFT_REBOOT.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 78
+      },
+      "revId": "921d4bae7cb9da41727ee07c5799d86d483fb933",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
