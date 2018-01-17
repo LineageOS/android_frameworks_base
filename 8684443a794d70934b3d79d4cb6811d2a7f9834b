@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a3eb8144_c224223e",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-17T18:39:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91d5225d_dd7bf4bf",
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d152b9cf_5770fea6",
         "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
         "patchSetId": 10
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "101510f7_ee144117",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-17T18:39:06Z",
+      "side": 1,
+      "message": "Not anywhere that would make sense to import or are public already. Made them constants above",
+      "parentUuid": "d152b9cf_5770fea6",
+      "range": {
+        "startLine": 807,
+        "startChar": 49,
+        "endLine": 808,
+        "endChar": 75
+      },
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11b7fdaf_3c3727e0",
         "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
         "patchSetId": 10
@@ -53,6 +95,30 @@
       "writtenOn": "2018-01-15T03:18:15Z",
       "side": 1,
       "message": "can\u0027t use the handler for this?",
+      "range": {
+        "startLine": 840,
+        "startChar": 28,
+        "endLine": 840,
+        "endChar": 47
+      },
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36843710_0d779154",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-17T18:39:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11b7fdaf_3c3727e0",
       "range": {
         "startLine": 840,
         "startChar": 28,
@@ -123,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "c0a9d2db_94b0db66",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-17T18:39:06Z",
+      "side": 1,
+      "message": "Wouldn\u0027t call that a blocker, fwiw.",
+      "parentUuid": "277fc80e_b351a0d8",
+      "range": {
+        "startLine": 196,
+        "startChar": 12,
+        "endLine": 196,
+        "endChar": 48
+      },
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89cb9fa7_a1b358bc",
         "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
         "patchSetId": 10
@@ -134,6 +224,30 @@
       "writtenOn": "2018-01-15T03:18:15Z",
       "side": 1,
       "message": "Should some of these things be constants?",
+      "range": {
+        "startLine": 200,
+        "startChar": 40,
+        "endLine": 200,
+        "endChar": 47
+      },
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b884de40_03ec28a8",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-17T18:39:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89cb9fa7_a1b358bc",
       "range": {
         "startLine": 200,
         "startChar": 40,
@@ -169,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "b357a5f0_ed58b225",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-17T18:39:06Z",
+      "side": 1,
+      "message": "That doesn\u0027t make sense to me, because mReboot is an AOSP flag, we\u0027re just hooking onto it additionally.",
+      "parentUuid": "0a84d66f_87061326",
+      "range": {
+        "startLine": 262,
+        "startChar": 32,
+        "endLine": 262,
+        "endChar": 47
+      },
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6068e71_75184019",
         "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
         "patchSetId": 10
@@ -180,6 +318,24 @@
       "writtenOn": "2018-01-17T18:12:58Z",
       "side": 1,
       "message": "mReboot is a flag solely used to determine which set of resources are loaded. It might be better to have an int mRebootTitleResource \u003d com.android.internal.R.string.reboot_title; and re-assign mRebootTitleResource \u003d com.android.internal.R.string.power_off instead of using a flag to do it.",
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3f53ef_06fe99b1",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-17T18:39:06Z",
+      "side": 1,
+      "message": "See above",
+      "parentUuid": "b6068e71_75184019",
       "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
