@@ -166,6 +166,23 @@
       "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6068e71_75184019",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-17T18:12:58Z",
+      "side": 1,
+      "message": "mReboot is a flag solely used to determine which set of resources are loaded. It might be better to have an int mRebootTitleResource \u003d com.android.internal.R.string.reboot_title; and re-assign mRebootTitleResource \u003d com.android.internal.R.string.power_off instead of using a flag to do it.",
+      "revId": "8684443a794d70934b3d79d4cb6811d2a7f9834b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
