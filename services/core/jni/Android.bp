@@ -130,6 +130,7 @@ cc_defaults {
         "android.hardware.vr@1.0",
         "android.frameworks.schedulerservice@1.0",
         "android.frameworks.sensorservice@1.0",
+        "vendor.lineage.power@1.0",
     ],
 
     static_libs: [
