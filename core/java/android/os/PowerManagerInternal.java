@@ -323,4 +323,10 @@ public abstract class PowerManagerInternal {
 
     /** Allows power button to intercept a power key button press. */
     public abstract boolean interceptPowerKeyDown(KeyEvent event);
+
+    public abstract boolean setPowerSaveMode(boolean mode);
+
+    public abstract void setFeature(int featureId, int data);
+
+    public abstract int getFeature(int featureId);
 }
