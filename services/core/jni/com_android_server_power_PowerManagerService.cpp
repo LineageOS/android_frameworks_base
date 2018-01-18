@@ -20,6 +20,7 @@
 
 #include <android/hardware/power/1.1/IPower.h>
 #include <nativehelper/JNIHelp.h>
+#include <vendor/lineage/power/1.0/ILineagePower.h>
 #include "jni.h"
 
 #include <nativehelper/ScopedUtfChars.h>
@@ -46,6 +47,8 @@ using android::hardware::power::V1_0::Feature;
 using android::String8;
 using IPowerV1_1 = android::hardware::power::V1_1::IPower;
 using IPowerV1_0 = android::hardware::power::V1_0::IPower;
+using ILineagePowerV1_0 = vendor::lineage::power::V1_0::ILineagePower;
+using vendor::lineage::power::V1_0::LineageFeature;
 
 namespace android {
 
@@ -61,7 +64,9 @@ static jobject gPowerManagerServiceObj;
 // Use getPowerHal* to retrieve a copy
 static sp<IPowerV1_0> gPowerHalV1_0_ = nullptr;
 static sp<IPowerV1_1> gPowerHalV1_1_ = nullptr;
+static sp<ILineagePowerV1_0> gLineagePowerHalV1_0 = nullptr;
 static bool gPowerHalExists = true;
+static bool gLineagePowerHalExists = true;
 static std::mutex gPowerHalMutex;
 static nsecs_t gLastEventTime[USER_ACTIVITY_EVENT_LAST + 1];
 
@@ -112,6 +117,21 @@ sp<IPowerV1_1> getPowerHalV1_1() {
     std::lock_guard<std::mutex> lock(gPowerHalMutex);
     connectPowerHalLocked();
     return gPowerHalV1_1_;
+}
+
+// Check validity of current handle to the Lineage power HAL service, and call getService() if necessary.
+// The caller must be holding gPowerHalMutex.
+bool getLineagePowerHal() {
+    if (gLineagePowerHalExists && gLineagePowerHalV1_0 == nullptr) {
+        gLineagePowerHalV1_0 = ILineagePowerV1_0::getService();
+        if (gLineagePowerHalV1_0 != nullptr) {
+            ALOGI("Loaded power HAL service");
+        } else {
+            ALOGI("Couldn't load power HAL service");
+            gLineagePowerHalExists = false;
+        }
+    }
+    return gLineagePowerHalV1_0 != nullptr;
 }
 
 // Check if a call to a power HAL function failed; if so, log the failure and invalidate the
@@ -235,8 +255,9 @@ static void nativeSetFeature(JNIEnv* /* env */, jclass /* clazz */, jint feature
 static jint nativeGetFeature(JNIEnv *env, jclass clazz, jint featureId) {
     int value = -1;
 
-    if (gPowerModule && gPowerModule->getFeature) {
-        value = gPowerModule->getFeature(gPowerModule, (feature_t)featureId);
+    std::lock_guard<std::mutex> lock(gPowerHalMutex);
+    if (getLineagePowerHal()) {
+        value = gLineagePowerHalV1_0->getFeature((LineageFeature)featureId);
     }
 
     return (jint)value;
