@@ -109,6 +109,9 @@ LOCAL_SHARED_LIBRARIES += \
     android.frameworks.schedulerservice@1.0 \
     android.frameworks.sensorservice@1.0 \
 
+LOCAL_SHARED_LIBRARIES += \
+    vendor.lineage.power@1.0
+
 LOCAL_STATIC_LIBRARIES += \
     android.hardware.broadcastradio@1.1-utils-lib \
     libscrypt_static \
