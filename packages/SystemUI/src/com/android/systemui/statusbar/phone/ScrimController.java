@@ -389,7 +389,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
                 setScrimInFrontAlpha(1f);
                 setScrimBehindAlpha(0f);
             }
-        } else if (!mKeyguardShowing && !mBouncerShowing && !mWakingUpFromAodStarting) {
+        } else if (!mKeyguardShowing && !mBouncerShowing) {
             updateScrimNormal();
             setScrimInFrontAlpha(0);
         } else {
@@ -425,11 +425,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
             setScrimBehindAlpha(mScrimBehindAlpha);
         } else {
             float fraction = Math.max(0, Math.min(mFraction, 1));
-            if (mWakingUpFromAodStarting) {
-                setScrimInFrontAlpha(1f);
-            } else {
-                setScrimInFrontAlpha(0f);
-            }
+            setScrimInFrontAlpha(0f);
             setScrimBehindAlpha(fraction
                     * (mScrimBehindAlphaKeyguard - mScrimBehindAlphaUnlocking)
                     + mScrimBehindAlphaUnlocking);
