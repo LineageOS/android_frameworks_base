@@ -183,6 +183,7 @@ cc_defaults {
         "android.system.suspend.control.internal-cpp",
         "android.system.suspend@1.0",
         "service.incremental",
+        "vendor.lineage.power-V1-cpp",
     ],
 
     static_libs: [

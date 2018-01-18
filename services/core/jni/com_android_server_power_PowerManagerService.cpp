@@ -26,6 +26,7 @@
 #include <android/system/suspend/ISuspendControlService.h>
 #include <android/system/suspend/internal/ISuspendControlServiceInternal.h>
 #include <nativehelper/JNIHelp.h>
+#include <vendor/lineage/power/IPower.h>
 #include "jni.h"
 
 #include <nativehelper/ScopedUtfChars.h>
@@ -58,6 +59,7 @@ using android::system::suspend::V1_0::WakeLockType;
 using IPowerV1_1 = android::hardware::power::V1_1::IPower;
 using IPowerV1_0 = android::hardware::power::V1_0::IPower;
 using IPowerAidl = android::hardware::power::IPower;
+using LineageFeatureAidl = vendor::lineage::power::Feature;
 
 namespace android {
 
@@ -198,6 +200,14 @@ void disableAutoSuspend() {
     }
 }
 
+static jint nativeGetFeature(JNIEnv* /* env */, jclass /* clazz */, jint featureId) {
+    auto result = gPowerHalController.getFeature(static_cast<LineageFeatureAidl>(featureId));
+    if (result.isOk()) {
+        return static_cast<jint>(result.value());
+    }
+    return -1;
+}
+
 // ----------------------------------------------------------------------------
 
 static void nativeInit(JNIEnv* env, jobject obj) {
@@ -260,6 +270,7 @@ static const JNINativeMethod gPowerManagerServiceMethods[] = {
         {"nativeSetAutoSuspend", "(Z)V", (void*)nativeSetAutoSuspend},
         {"nativeSetPowerBoost", "(II)V", (void*)nativeSetPowerBoost},
         {"nativeSetPowerMode", "(IZ)Z", (void*)nativeSetPowerMode},
+        {"nativeGetFeature", "(I)I", (void*)nativeGetFeature},
 };
 
 #define FIND_CLASS(var, className) \
