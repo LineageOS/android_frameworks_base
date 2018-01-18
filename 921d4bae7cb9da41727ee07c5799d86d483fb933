@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "fd1eb929_2e3fa4fb",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-01-18T10:51:47Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 1168,
+        "startChar": 38,
+        "endLine": 1168,
+        "endChar": 59
+      },
+      "revId": "921d4bae7cb9da41727ee07c5799d86d483fb933",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b4f2c9a_3ff781e7",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-01-18T10:51:47Z",
+      "side": 1,
+      "message": "No longer used import.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 33
+      },
+      "revId": "921d4bae7cb9da41727ee07c5799d86d483fb933",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93443872_fb35721a",
         "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
         "patchSetId": 14
@@ -18,6 +64,29 @@
         "startChar": 0,
         "endLine": 106,
         "endChar": 78
+      },
+      "revId": "921d4bae7cb9da41727ee07c5799d86d483fb933",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a1d5374_cfd0a4ee",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-01-18T10:51:47Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 18
       },
       "revId": "921d4bae7cb9da41727ee07c5799d86d483fb933",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
