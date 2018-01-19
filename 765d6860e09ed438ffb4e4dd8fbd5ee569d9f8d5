@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0a64b7a_3bdd2863",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-19T21:16:10Z",
+      "side": 1,
+      "message": "Unused import?",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 22
+      },
+      "revId": "765d6860e09ed438ffb4e4dd8fbd5ee569d9f8d5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c911f0cf_b0e65989",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-19T21:16:10Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be needed, we are not confirming on reboot",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 9
+      },
+      "revId": "765d6860e09ed438ffb4e4dd8fbd5ee569d9f8d5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
