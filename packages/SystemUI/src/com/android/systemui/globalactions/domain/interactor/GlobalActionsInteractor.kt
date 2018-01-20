@@ -120,7 +120,7 @@ constructor(
                 return@withContext false
             }
 
-            globalActionsManager.reboot(safeMode)
+            globalActionsManager.reboot(safeMode, null)
             true
         }
 

@@ -148,7 +148,7 @@ public interface StatusBarManagerInternal {
      */
     void setTopAppHidesStatusBar(int displayId, boolean hidesStatusBar);
 
-    boolean showShutdownUi(boolean isReboot, String requestString);
+    boolean showShutdownUi(boolean isReboot, String requestString, boolean rebootCustom);
 
     /**
      * Notify system UI the immersive prompt should be dismissed as confirmed, and the confirmed
