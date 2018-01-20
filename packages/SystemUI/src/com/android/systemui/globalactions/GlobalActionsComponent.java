@@ -46,8 +46,8 @@ public class GlobalActionsComponent extends SystemUI implements Callbacks, Globa
     }
 
     @Override
-    public void handleShowShutdownUi(boolean isReboot, String reason) {
-        mExtension.get().showShutdownUi(isReboot, reason);
+    public void handleShowShutdownUi(boolean isReboot, String reason, boolean rebootCustom) {
+        mExtension.get().showShutdownUi(isReboot, reason, rebootCustom);
     }
 
     @Override
@@ -80,9 +80,9 @@ public class GlobalActionsComponent extends SystemUI implements Callbacks, Globa
     }
 
     @Override
-    public void reboot(boolean safeMode) {
+    public void reboot(boolean safeMode, String reason) {
         try {
-            mBarService.reboot(safeMode);
+            mBarService.reboot(safeMode, reason);
         } catch (RemoteException e) {
         }
     }
