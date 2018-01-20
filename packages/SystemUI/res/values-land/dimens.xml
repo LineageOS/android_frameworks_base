@@ -44,9 +44,6 @@
     <dimen name="biometric_auth_pattern_view_size">248dp</dimen>
     <dimen name="biometric_auth_pattern_view_max_size">348dp</dimen>
 
-    <dimen name="global_actions_power_dialog_item_height">130dp</dimen>
-    <dimen name="global_actions_power_dialog_item_bottom_margin">35dp</dimen>
-
     <dimen name="controls_management_top_padding">12dp</dimen>
     <dimen name="controls_management_titles_margin">8dp</dimen>
     <dimen name="controls_management_indicator_top_margin">8dp</dimen>
