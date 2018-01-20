@@ -37,7 +37,7 @@
         android:ellipsize="marquee"
         android:layout_marginBottom="16dp"
         android:maxLines="1"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:gravity="center"
         android:textColor="@color/control_primary_text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
