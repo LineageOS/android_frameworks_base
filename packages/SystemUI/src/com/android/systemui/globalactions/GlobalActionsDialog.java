@@ -1,5 +1,7 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2010-2015 CyanogenMod Project
+ * Copyright (C) 2017-2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
  * except in compliance with the License. You may obtain a copy of the License at
@@ -26,6 +28,8 @@ import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STR
 import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_REQUIRED_AFTER_USER_LOCKDOWN;
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_GLOBAL_ACTIONS_SHOWING;
 
+import static org.lineageos.internal.util.PowerMenuConstants.*;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
@@ -51,7 +55,15 @@ import android.content.pm.UserInfo;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
@@ -59,6 +71,7 @@ import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -112,6 +125,7 @@ import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.EmergencyAffordanceManager;
 import com.android.internal.util.ScreenRecordHelper;
 import com.android.internal.util.ScreenshotHelper;
+import com.android.internal.util.UserIcons;
 import com.android.internal.view.RotationPolicy;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.systemui.Interpolators;
@@ -139,6 +153,10 @@ import com.android.systemui.util.EmergencyDialerConstants;
 import com.android.systemui.util.RingerModeTracker;
 import com.android.systemui.util.leak.RotationUtils;
 
+import lineageos.providers.LineageSettings;
+import org.lineageos.internal.util.PowerMenuUtils;
+
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -165,28 +183,11 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     private static final String TAG = "GlobalActionsDialog";
 
-    private static final boolean SHOW_SILENT_TOGGLE = true;
-
-    /* Valid settings for global actions keys.
-     * see config.xml config_globalActionList */
-    @VisibleForTesting
-    static final String GLOBAL_ACTION_KEY_POWER = "power";
-    private static final String GLOBAL_ACTION_KEY_AIRPLANE = "airplane";
-    static final String GLOBAL_ACTION_KEY_BUGREPORT = "bugreport";
-    private static final String GLOBAL_ACTION_KEY_SILENT = "silent";
-    private static final String GLOBAL_ACTION_KEY_USERS = "users";
-    private static final String GLOBAL_ACTION_KEY_SETTINGS = "settings";
-    static final String GLOBAL_ACTION_KEY_LOCKDOWN = "lockdown";
-    private static final String GLOBAL_ACTION_KEY_VOICEASSIST = "voiceassist";
-    private static final String GLOBAL_ACTION_KEY_ASSIST = "assist";
-    static final String GLOBAL_ACTION_KEY_RESTART = "restart";
-    private static final String GLOBAL_ACTION_KEY_LOGOUT = "logout";
-    static final String GLOBAL_ACTION_KEY_EMERGENCY = "emergency";
-    static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
-
     public static final String PREFS_CONTROLS_SEEDING_COMPLETED = "SeedingCompleted";
     public static final String PREFS_CONTROLS_FILE = "controls_prefs";
     private static final int SEEDING_MAX = 2;
+
+    private static final boolean SHOW_SILENT_TOGGLE = false;
 
     private final Context mContext;
     private final GlobalActionsManager mWindowManagerFuncs;
@@ -290,6 +291,13 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         }
     }
 
+    // Power menu customizations
+    private String[] mDefaultMenuActions;
+    private String[] mRootMenuActions;
+    private String[] mRestartMenuActions;
+    private String[] mCurrentMenuActions;
+    private boolean mIsRestartMenu;
+
     /**
      * @param context everything needs a context :(
      */
@@ -347,6 +355,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
+        filter.addAction(lineageos.content.Intent.ACTION_UPDATE_POWER_MENU);
         filter.addAction(TelephonyManager.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
         mBroadcastDispatcher.registerReceiver(mBroadcastReceiver, filter);
 
@@ -419,6 +428,13 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                         onPowerMenuLockScreenSettingsChanged();
                     }
                 });
+
+        mDefaultMenuActions = mContext.getResources().getStringArray(
+                com.android.internal.R.array.config_globalActionsList);
+        mRestartMenuActions = mContext.getResources().getStringArray(
+                org.lineageos.platform.internal.R.array.config_restartActionsList);
+
+        updatePowerMenuActions();
     }
 
     /**
@@ -490,6 +506,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         mKeyguardShowing = keyguardShowing;
         mDeviceProvisioned = isDeviceProvisioned;
         mWalletPlugin = walletPlugin;
+        mIsRestartMenu = false;
+        mCurrentMenuActions = mRootMenuActions;
         if (mDialog != null && mDialog.isShowing()) {
             // In order to force global actions to hide on the same affordance press, we must
             // register a call to onGlobalActionsShown() first to prevent the default actions
@@ -550,6 +568,10 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         return true;
     }
 
+    private boolean shouldShowRestartSubmenu() {
+        return PowerMenuUtils.isAdvancedRestartPossible(mContext);
+    }
+
     /**
      * Returns the maximum number of power menu items to show based on which GlobalActions
      * layout is being used.
@@ -596,10 +618,14 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         mItems.clear();
         mOverflowItems.clear();
         mPowerItems.clear();
-        String[] defaultActions = getDefaultActions();
 
         ShutDownAction shutdownAction = new ShutDownAction();
         RestartAction restartAction = new RestartAction();
+        RestartRecoveryAction recAction = new RestartRecoveryAction();
+        RestartBootloaderAction blAction = new RestartBootloaderAction();
+        RestartDownloadAction dlAction = new RestartDownloadAction();
+        RestartFastbootAction fbAction = new RestartFastbootAction();
+
         ArraySet<String> addedKeys = new ArraySet<String>();
         List<Action> tempActions = new ArrayList<>();
         CurrentUserProvider currentUser = new CurrentUserProvider();
@@ -610,8 +636,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             addedKeys.add(GLOBAL_ACTION_KEY_EMERGENCY);
         }
 
-        for (int i = 0; i < defaultActions.length; i++) {
-            String actionKey = defaultActions[i];
+        for (int i = 0; i < mCurrentMenuActions.length; i++) {
+            String actionKey = mCurrentMenuActions[i];
             if (addedKeys.contains(actionKey)) {
                 // If we already have added this, don't add it again.
                 continue;
@@ -629,7 +655,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     addIfShouldShowAction(tempActions, mSilentModeAction);
                 }
             } else if (GLOBAL_ACTION_KEY_USERS.equals(actionKey)) {
-                if (SystemProperties.getBoolean("fw.power_user_switcher", false)) {
+                List<UserInfo> users = mContext.getSystemService(UserManager.class).getUsers();
+                if (users.size() > 1) {
                     addUserActions(tempActions, currentUser.get());
                 }
             } else if (GLOBAL_ACTION_KEY_SETTINGS.equals(actionKey)) {
@@ -644,6 +671,18 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 addIfShouldShowAction(tempActions, getAssistAction());
             } else if (GLOBAL_ACTION_KEY_RESTART.equals(actionKey)) {
                 addIfShouldShowAction(tempActions, restartAction);
+            } else if (GLOBAL_ACTION_KEY_RESTART_RECOVERY.equals(actionKey) &&
+                    PowerMenuUtils.isAdvancedRestartPossible(mContext)) {
+                addIfShouldShowAction(tempActions, recAction);
+            } else if (GLOBAL_ACTION_KEY_RESTART_BOOTLOADER.equals(actionKey) &&
+                    PowerMenuUtils.isAdvancedRestartPossible(mContext)) {
+                addIfShouldShowAction(tempActions, blAction);
+            } else if (GLOBAL_ACTION_KEY_RESTART_DOWNLOAD.equals(actionKey) &&
+                    PowerMenuUtils.isAdvancedRestartPossible(mContext)) {
+                addIfShouldShowAction(tempActions, dlAction);
+            } else if (GLOBAL_ACTION_KEY_RESTART_FASTBOOT.equals(actionKey) &&
+                    PowerMenuUtils.isAdvancedRestartPossible(mContext)) {
+                addIfShouldShowAction(tempActions, fbAction);
             } else if (GLOBAL_ACTION_KEY_SCREENSHOT.equals(actionKey)) {
                 addIfShouldShowAction(tempActions, new ScreenshotAction());
             } else if (GLOBAL_ACTION_KEY_LOGOUT.equals(actionKey)) {
@@ -661,19 +700,44 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             addedKeys.add(actionKey);
         }
 
-        // replace power and restart with a single power options action, if needed
-        if (tempActions.contains(shutdownAction) && tempActions.contains(restartAction)
-                && tempActions.size() > getMaxShownPowerItems()) {
-            // transfer shutdown and restart to their own list of power actions
-            int powerOptionsIndex = Math.min(tempActions.indexOf(restartAction),
-                    tempActions.indexOf(shutdownAction));
-            tempActions.remove(shutdownAction);
+        if (tempActions.contains(restartAction) && (shouldShowRestartSubmenu()
+                || (tempActions.contains(shutdownAction) && tempActions.size() >
+                        getMaxShownPowerItems()))) {
+            // transfer restart and advanced restart to their own list of power actions
+            // and position it where Reset button was supposed to be
+            int powerOptionsIndex = tempActions.indexOf(restartAction);
             tempActions.remove(restartAction);
-            mPowerItems.add(shutdownAction);
+            if (tempActions.contains(shutdownAction)) {
+                mPowerItems.add(shutdownAction); // will be removed later if needed
+            }
             mPowerItems.add(restartAction);
+            if (tempActions.contains(recAction)) {
+                tempActions.remove(recAction);
+                mPowerItems.add(recAction);
+            }
+            if (tempActions.contains(blAction)) {
+                tempActions.remove(blAction);
+                mPowerItems.add(blAction);
+            }
+            if (tempActions.contains(dlAction)) {
+                tempActions.remove(dlAction);
+                mPowerItems.add(dlAction);
+            }
+            if (tempActions.contains(fbAction)) {
+                tempActions.remove(fbAction);
+                mPowerItems.add(fbAction);
+            }
 
             // add the PowerOptionsAction after Emergency, if present
             tempActions.add(powerOptionsIndex, new PowerOptionsAction());
+        }
+        // Add also Power to power actions list, if needed
+        if (tempActions.contains(shutdownAction) && mPowerItems.size() > 1
+                /* tempActions.size gets in count already PowerOptionsAction if added */
+                && tempActions.size() > getMaxShownPowerItems()) {
+            tempActions.remove(shutdownAction);
+        } else {
+            mPowerItems.remove(shutdownAction);
         }
         for (Action action : tempActions) {
             addActionItem(action);
@@ -794,8 +858,11 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     @VisibleForTesting
     protected final class PowerOptionsAction extends SinglePressAction {
         private PowerOptionsAction() {
-            super(com.android.systemui.R.drawable.ic_settings_power,
-                    R.string.global_action_power_options);
+            super(shouldShowRestartSubmenu() ? R.drawable.ic_restart :
+                    com.android.systemui.R.drawable.ic_settings_power,
+                    shouldShowRestartSubmenu() ?
+                            com.android.systemui.R.string.global_action_restart_more :
+                            R.string.global_action_power_options);
         }
 
         @Override
@@ -826,7 +893,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         @Override
         public boolean onLongPress() {
             if (!mUserManager.hasUserRestriction(UserManager.DISALLOW_SAFE_BOOT)) {
-                mWindowManagerFuncs.reboot(true);
+                mWindowManagerFuncs.reboot(true, null);
                 return true;
             }
             return false;
@@ -933,12 +1000,17 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     final class RestartAction extends SinglePressAction implements LongPressAction {
         private RestartAction() {
             super(R.drawable.ic_restart, R.string.global_action_restart);
+            if (mIsRestartMenu) {
+                mMessageResId = com.android.systemui.R.string.global_action_restart_system;
+            } else if (shouldShowRestartSubmenu()) {
+                mMessageResId = R.string.global_action_restart;
+            }
         }
 
         @Override
         public boolean onLongPress() {
             if (!mUserManager.hasUserRestriction(UserManager.DISALLOW_SAFE_BOOT)) {
-                mWindowManagerFuncs.reboot(true);
+                mWindowManagerFuncs.reboot(true, null);
                 return true;
             }
             return false;
@@ -956,7 +1028,95 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public void onPress() {
-            mWindowManagerFuncs.reboot(false);
+            mWindowManagerFuncs.reboot(false, null);
+        }
+    }
+
+    private final class RestartRecoveryAction extends SinglePressAction {
+        private RestartRecoveryAction() {
+            super(com.android.systemui.R.drawable.ic_lock_restart_recovery,
+                    com.android.systemui.R.string.global_action_restart_recovery);
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return true;
+        }
+
+        @Override
+        public void onPress() {
+            mWindowManagerFuncs.reboot(false, PowerManager.REBOOT_RECOVERY);
+        }
+    }
+
+    private final class RestartBootloaderAction extends SinglePressAction {
+        private RestartBootloaderAction() {
+            super(com.android.systemui.R.drawable.ic_lock_restart_bootloader,
+                    com.android.systemui.R.string.global_action_restart_bootloader);
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return true;
+        }
+
+        @Override
+        public void onPress() {
+            mWindowManagerFuncs.reboot(false, PowerManager.REBOOT_BOOTLOADER);
+        }
+    }
+
+    private final class RestartFastbootAction extends SinglePressAction {
+        private RestartFastbootAction() {
+            super(com.android.systemui.R.drawable.ic_lock_restart_fastboot,
+                    com.android.systemui.R.string.global_action_restart_fastboot);
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return true;
+        }
+
+        @Override
+        public void onPress() {
+            mWindowManagerFuncs.reboot(false, PowerManager.REBOOT_FASTBOOT);
+        }
+    }
+
+    private final class RestartDownloadAction extends SinglePressAction {
+        private RestartDownloadAction() {
+            super(com.android.systemui.R.drawable.ic_lock_restart_bootloader,
+                    com.android.systemui.R.string.global_action_restart_download);
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return true;
+        }
+
+        @Override
+        public void onPress() {
+            mWindowManagerFuncs.reboot(false, PowerManager.REBOOT_DOWNLOAD);
         }
     }
 
@@ -999,7 +1159,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 mUiEventLogger.log(GlobalActionsEvent.GA_SCREENSHOT_LONG_PRESS);
                 mScreenRecordHelper.launchRecordPrompt();
             } else {
-                onPress();
+                mScreenshotHelper.takeScreenshot(2, true, true, mHandler, null);
             }
             return true;
         }
@@ -1244,16 +1404,25 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private void addUserActions(List<Action> actions, UserInfo currentUser) {
         if (mUserManager.isUserSwitcherEnabled()) {
             List<UserInfo> users = mUserManager.getUsers();
+            final int avatarSize = mContext.getResources().getDimensionPixelSize(
+                    com.android.systemui.R.dimen.global_actions_avatar_size);
             for (final UserInfo user : users) {
                 if (user.supportsSwitchToByUser()) {
                     boolean isCurrentUser = currentUser == null
                             ? user.id == 0 : (currentUser.id == user.id);
-                    Drawable icon = user.iconPath != null ? Drawable.createFromPath(user.iconPath)
-                            : null;
+                    Drawable avatar = null;
+                    Bitmap rawAvatar = mUserManager.getUserIcon(user.id);
+                    if (rawAvatar == null) {
+                        rawAvatar = UserIcons.convertToBitmap(UserIcons.getDefaultUserIcon(
+                                mContext.getResources(),
+                                user.isGuest() ? UserHandle.USER_NULL : user.id, /*light=*/ false));
+                    }
+                    avatar = new BitmapDrawable(mContext.getResources(),
+                            createCircularClip(rawAvatar, avatarSize, avatarSize));
+
                     SinglePressAction switchToUser = new SinglePressAction(
-                            R.drawable.ic_menu_cc, icon,
-                            (user.name != null ? user.name : "Primary")
-                                    + (isCurrentUser ? " \u2714" : "")) {
+                            com.android.systemui.R.drawable.ic_lock_user, avatar,
+                            (user.name != null ? user.name : "Primary")) {
                         public void onPress() {
                             try {
                                 mIActivityManager.switchUser(user.id);
@@ -1632,8 +1801,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private abstract class SinglePressAction implements Action {
         private final int mIconResId;
         private final Drawable mIcon;
-        private final int mMessageResId;
+        protected int mMessageResId;
         private final CharSequence mMessage;
+        private CharSequence mStatusMessage;
 
         protected SinglePressAction(int iconResId, int messageResId) {
             mIconResId = iconResId;
@@ -1653,8 +1823,12 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             return true;
         }
 
-        public String getStatus() {
-            return null;
+        public CharSequence getStatus() {
+            return mStatusMessage;
+        }
+
+        public void setStatus(CharSequence status) {
+            mStatusMessage = status;
         }
 
         abstract public void onPress();
@@ -2022,6 +2196,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     mIsWaitingForEcmExit = false;
                     changeAirplaneModeSystemSetting(true);
                 }
+            } else if (lineageos.content.Intent.ACTION_UPDATE_POWER_MENU.equals(action)) {
+                updatePowerMenuActions();
             }
         }
     };
@@ -2038,6 +2214,25 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             mPowerAdapter.notifyDataSetChanged();
         }
     };
+
+    protected void updatePowerMenuActions() {
+        ContentResolver resolver = mContext.getContentResolver();
+        final String powerMenuActions = LineageSettings.Secure.getStringForUser(resolver,
+                LineageSettings.Secure.POWER_MENU_ACTIONS, UserHandle.USER_CURRENT);
+
+        if (powerMenuActions != null) {
+            mRootMenuActions = powerMenuActions.split("\\|");
+        } else {
+            if (shouldShowRestartSubmenu()) {
+                ArrayList<String> actions = new ArrayList<String>(
+                        Arrays.asList(mDefaultMenuActions));
+                actions.addAll(new ArrayList<String>(Arrays.asList(mRestartMenuActions)));
+                mRootMenuActions = actions.toArray(new String[actions.size()]);
+            } else {
+                mRootMenuActions = mDefaultMenuActions;
+            }
+        }
+    }
 
     private ContentObserver mAirplaneModeObserver = new ContentObserver(mMainHandler) {
         @Override
@@ -2109,6 +2304,33 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     @Override
     public Lifecycle getLifecycle() {
         return mLifecycle;
+    }
+
+    /**
+     * Generate a new bitmap (width x height pixels, ARGB_8888) with the input bitmap scaled
+     * to fit and clipped to an inscribed circle.
+     * @param input Bitmap to resize and clip
+     * @param width Width of output bitmap (and diameter of circle)
+     * @param height Height of output bitmap
+     * @return A shiny new bitmap for you to use
+     */
+    private static Bitmap createCircularClip(Bitmap input, int width, int height) {
+        if (input == null) return null;
+
+        final int inWidth = input.getWidth();
+        final int inHeight = input.getHeight();
+        final Bitmap output = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(output);
+        final Paint paint = new Paint();
+        paint.setShader(new BitmapShader(input, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
+        paint.setAntiAlias(true);
+        final RectF srcRect = new RectF(0, 0, inWidth, inHeight);
+        final RectF dstRect = new RectF(0, 0, width, height);
+        final Matrix m = new Matrix();
+        m.setRectToRect(srcRect, dstRect, Matrix.ScaleToFit.CENTER);
+        canvas.setMatrix(m);
+        canvas.drawCircle(inWidth / 2, inHeight / 2, inWidth / 2, paint);
+        return output;
     }
 
     @VisibleForTesting
