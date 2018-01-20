@@ -135,5 +135,6 @@ interface IPowerManager
     const int GO_TO_SLEEP_FLAG_NO_DOZE = 1 << 0;
 
     // Lineage custom API
+    void rebootCustom(boolean confirm, String reason, boolean wait);
     void wakeUpWithProximityCheck(long time, int reason, String details, String opPackageName);
 }
