@@ -601,13 +601,13 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
         }
 
         @Override
-        public boolean showShutdownUi(boolean isReboot, String reason) {
+        public boolean showShutdownUi(boolean isReboot, String reason, boolean rebootCustom) {
             if (!mContext.getResources().getBoolean(R.bool.config_showSysuiShutdown)) {
                 return false;
             }
             if (mBar != null) {
                 try {
-                    mBar.showShutdownUi(isReboot, reason);
+                    mBar.showShutdownUi(isReboot, reason, rebootCustom);
                     return true;
                 } catch (RemoteException ex) {}
             }
@@ -1520,11 +1520,8 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
      * Allows the status bar to reboot the device.
      */
     @Override
-    public void reboot(boolean safeMode) {
+    public void reboot(boolean safeMode, String reason) {
         enforceStatusBarService();
-        String reason = safeMode
-                ? PowerManager.REBOOT_SAFE_MODE
-                : PowerManager.SHUTDOWN_USER_REQUESTED;
         ShutdownCheckPoints.recordCheckPoint(Binder.getCallingPid(), reason);
         final long identity = Binder.clearCallingIdentity();
         try {
@@ -1534,7 +1531,7 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
                 if (safeMode) {
                     ShutdownThread.rebootSafeMode(getUiContext(), true);
                 } else {
-                    ShutdownThread.reboot(getUiContext(), reason, false);
+                    ShutdownThread.rebootCustom(getUiContext(), reason, false);
                 }
             });
         } finally {
