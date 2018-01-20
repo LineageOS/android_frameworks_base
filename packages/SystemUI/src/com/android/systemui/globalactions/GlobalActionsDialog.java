@@ -268,8 +268,8 @@ public class GlobalActionsDialog extends GlobalActionsDialogLite
         ActionsDialog dialog = new ActionsDialog(getContext(), mAdapter, mOverflowAdapter,
                 this::getWalletViewController, mSysuiColorExtractor,
                 mStatusBarService, mNotificationShadeWindowController,
-                mSysUiState, this::onRotate, isKeyguardShowing(), mPowerAdapter, getEventLogger(),
-                getStatusBar(), getKeyguardUpdateMonitor(), mLockPatternUtils);
+                mSysUiState, this::onRotate, isKeyguardShowing(), mPowerAdapter, mRestartAdapter,
+                getEventLogger(), getStatusBar(), getKeyguardUpdateMonitor(), mLockPatternUtils);
 
         if (shouldShowLockMessage(dialog)) {
             dialog.showLockMessage();
@@ -336,13 +336,13 @@ public class GlobalActionsDialog extends GlobalActionsDialogLite
                 SysuiColorExtractor sysuiColorExtractor, IStatusBarService statusBarService,
                 NotificationShadeWindowController notificationShadeWindowController,
                 SysUiState sysuiState, Runnable onRotateCallback, boolean keyguardShowing,
-                MyPowerOptionsAdapter powerAdapter, UiEventLogger uiEventLogger,
-                StatusBar statusBar, KeyguardUpdateMonitor keyguardUpdateMonitor,
-                LockPatternUtils lockPatternUtils) {
+                MyPowerOptionsAdapter powerAdapter, MyRestartOptionsAdapter restartAdapter,
+                UiEventLogger uiEventLogger, StatusBar statusBar,
+                KeyguardUpdateMonitor keyguardUpdateMonitor, LockPatternUtils lockPatternUtils) {
             super(context, com.android.systemui.R.style.Theme_SystemUI_Dialog_GlobalActions,
                     adapter, overflowAdapter, sysuiColorExtractor, statusBarService,
                     notificationShadeWindowController, sysuiState, onRotateCallback,
-                    keyguardShowing, powerAdapter, uiEventLogger, null,
+                    keyguardShowing, powerAdapter, restartAdapter, uiEventLogger, null,
                     statusBar, keyguardUpdateMonitor, lockPatternUtils);
             mWalletFactory = walletFactory;
 
