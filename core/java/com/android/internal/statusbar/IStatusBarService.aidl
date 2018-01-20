@@ -102,7 +102,7 @@ interface IStatusBarService
      * These methods are needed for global actions control which the UI is shown in sysui.
      */
     void shutdown();
-    void reboot(boolean safeMode);
+    void reboot(boolean safeMode, String reason);
 
     /** just restarts android without rebooting device. Used for some feature flags. */
     void restart();

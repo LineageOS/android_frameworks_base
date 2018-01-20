@@ -58,37 +58,38 @@ public class ShutdownUiTest extends SysuiTestCase {
 
     @Test
     public void getRebootMessage_update() {
-        int messageId = mShutdownUi.getRebootMessage(true, PowerManager.REBOOT_RECOVERY_UPDATE);
+        int messageId = mShutdownUi.getRebootMessage(true, PowerManager.REBOOT_RECOVERY_UPDATE,
+                false);
         assertEquals(messageId, R.string.reboot_to_update_reboot);
     }
 
     @Test
     public void getRebootMessage_rebootDefault() {
-        int messageId = mShutdownUi.getRebootMessage(true, "anything-else");
+        int messageId = mShutdownUi.getRebootMessage(true, "anything-else", false);
         assertEquals(messageId, R.string.reboot_to_reset_message);
     }
 
     @Test
     public void getRebootMessage_shutdown() {
-        int messageId = mShutdownUi.getRebootMessage(false, "anything-else");
+        int messageId = mShutdownUi.getRebootMessage(false, "anything-else", false);
         assertEquals(messageId, R.string.shutdown_progress);
     }
 
     @Test
     public void getReasonMessage_update() {
-        String message = mShutdownUi.getReasonMessage(PowerManager.REBOOT_RECOVERY_UPDATE);
+        String message = mShutdownUi.getReasonMessage(PowerManager.REBOOT_RECOVERY_UPDATE, false);
         assertEquals(message, mContext.getString(R.string.reboot_to_update_title));
     }
 
     @Test
     public void getReasonMessage_rebootDefault() {
-        String message = mShutdownUi.getReasonMessage(PowerManager.REBOOT_RECOVERY);
+        String message = mShutdownUi.getReasonMessage(PowerManager.REBOOT_RECOVERY, false);
         assertEquals(message, mContext.getString(R.string.reboot_to_reset_title));
     }
 
     @Test
     public void getRebootMessage_defaultToNone() {
-        String message = mShutdownUi.getReasonMessage("anything-else");
+        String message = mShutdownUi.getReasonMessage("anything-else", false);
         assertNull(message);
     }
 
