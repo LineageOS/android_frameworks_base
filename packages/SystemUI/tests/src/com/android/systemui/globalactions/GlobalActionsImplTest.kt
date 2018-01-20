@@ -53,14 +53,14 @@ class GlobalActionsImplTest : SysuiTestCase() {
 
     @Test
     fun testShutdown_collapsesShade() {
-        underTest.showShutdownUi(false, "test")
+        underTest.showShutdownUi(false, "test", false)
 
         verify(shadeController).instantCollapseShade()
     }
 
     @Test
     fun testReboot_collapsesShade() {
-        underTest.showShutdownUi(true, "test")
+        underTest.showShutdownUi(true, "test", false)
 
         verify(shadeController).instantCollapseShade()
     }
