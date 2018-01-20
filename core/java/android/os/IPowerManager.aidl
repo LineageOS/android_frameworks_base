@@ -53,6 +53,7 @@ interface IPowerManager
     boolean isLightDeviceIdleMode();
 
     void reboot(boolean confirm, String reason, boolean wait);
+    void rebootCustom(boolean confirm, String reason, boolean wait);
     void rebootSafeMode(boolean confirm, boolean wait);
     void shutdown(boolean confirm, String reason, boolean wait);
     void crash(String message);
