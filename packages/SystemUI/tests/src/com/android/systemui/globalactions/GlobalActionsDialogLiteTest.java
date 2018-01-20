@@ -20,6 +20,8 @@ import static android.content.pm.UserInfo.FLAG_ADMIN;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import static org.lineageos.internal.util.PowerMenuConstants.*;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
@@ -228,10 +230,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayLockdown(any());
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         GlobalActionsDialogLite.ActionsDialogLite dialog = mGlobalActionsDialogLite.createDialog();
@@ -247,10 +249,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayLockdown(any());
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
 
@@ -277,10 +279,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayLockdown(any());
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
 
@@ -304,10 +306,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayLockdown(any());
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         GlobalActionsDialogLite.ActionsDialogLite dialog = mGlobalActionsDialogLite.createDialog();
@@ -325,10 +327,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         doReturn(true).when(mKeyguardStateController).isShowing();
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         GlobalActionsDialogLite.ActionsDialogLite dialog = mGlobalActionsDialogLite.createDialog();
@@ -349,10 +351,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         doReturn(false).when(mKeyguardStateController).isShowing();
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         GlobalActionsDialogLite.ActionsDialogLite dialog = mGlobalActionsDialogLite.createDialog();
@@ -373,10 +375,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         doReturn(false).when(mKeyguardStateController).isShowing();
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         GlobalActionsDialogLite.ActionsDialogLite dialog = mGlobalActionsDialogLite.createDialog();
@@ -481,10 +483,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayLockdown(any());
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         mGlobalActionsDialogLite.createActionItems();
@@ -507,11 +509,11 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(false).when(mGlobalActionsDialogLite).shouldDisplayLockdown(any());
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_EMERGENCY,
                 // lockdown action not allowed
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         mGlobalActionsDialogLite.createActionItems();
@@ -534,10 +536,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         String[] actions = {
                 // emergency action not allowed
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         mGlobalActionsDialogLite.createActionItems();
@@ -600,10 +602,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         doReturn(false).when(mKeyguardStateController).isShowing();
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
 
@@ -672,11 +674,11 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayLockdown(any());
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_SYSTEM_UPDATE
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_SYSTEM_UPDATE
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         mGlobalActionsDialogLite.createActionItems();
@@ -699,10 +701,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayLockdown(any());
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         mGlobalActionsDialogLite.createActionItems();
@@ -720,11 +722,11 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayEmergency();
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayLockdown(any());
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_SYSTEM_UPDATE
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_SYSTEM_UPDATE
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
 
@@ -745,11 +747,11 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayEmergency();
         doReturn(true).when(mGlobalActionsDialogLite).shouldDisplayLockdown(any());
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_SYSTEM_UPDATE
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_SYSTEM_UPDATE
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
 
