@@ -87,7 +87,7 @@ public interface StatusBarManagerInternal {
      */
     void setTopAppHidesStatusBar(boolean hidesStatusBar);
 
-    boolean showShutdownUi(boolean isReboot, String requestString);
+    boolean showShutdownUi(boolean isReboot, String requestString, boolean rebootCustom);
 
     public interface GlobalActionsListener {
         /**
