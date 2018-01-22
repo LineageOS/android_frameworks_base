@@ -1320,6 +1320,13 @@ class StorageManagerService extends IStorageManager.Stub
                 vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE;
             }
 
+            // Set sdcards to visible to apps. If they are visible media is scanned
+            // and they can be used for other stuff.
+            if (SystemProperties.getBoolean(StorageManager.PROP_SDCARD_VISIBLE, false) &&
+                    vol.disk.isSd()) {
+                vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE;
+            }
+
             vol.mountUserId = mCurrentUserId;
             mHandler.obtainMessage(H_VOLUME_MOUNT, vol).sendToTarget();
 
