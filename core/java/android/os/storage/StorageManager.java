@@ -120,6 +120,8 @@ public class StorageManager {
     public static final String PROP_VIRTUAL_DISK = "persist.sys.virtual_disk";
     /** {@hide} */
     public static final String PROP_ADOPTABLE_FBE = "persist.sys.adoptable_fbe";
+    /** {@hide} */
+    public static final String PROP_SDCARD_VISIBLE = "persist.sys.sdcard_visible";
 
     /** {@hide} */
     public static final String UUID_PRIVATE_INTERNAL = null;
