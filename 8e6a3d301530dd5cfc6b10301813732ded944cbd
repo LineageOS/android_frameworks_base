@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcbf7ed1_65b6a2b0",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-01-22T18:17:47Z",
+      "side": 1,
+      "message": "This looks wrong",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 53
+      },
+      "revId": "8e6a3d301530dd5cfc6b10301813732ded944cbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "819c5b8f_dc547f9d",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-01-22T18:17:47Z",
+      "side": 1,
+      "message": "else if (gPowerModule \u0026\u0026 gPowerModule-\u003egetFeature) {\n        value \u003d gPowerModule-\u003egetFeature(gPowerModule, (feature_t)featureId);\n    }",
+      "revId": "8e6a3d301530dd5cfc6b10301813732ded944cbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
