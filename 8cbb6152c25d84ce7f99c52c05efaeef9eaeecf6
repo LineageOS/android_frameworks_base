@@ -16,6 +16,24 @@
       "revId": "8cbb6152c25d84ce7f99c52c05efaeef9eaeecf6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf79d48a_b6425796",
+        "filename": "services/core/java/com/android/server/StorageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 2320
+      },
+      "writtenOn": "2018-01-23T15:33:44Z",
+      "side": 1,
+      "message": "My device is a FBE device. The sdcard is voldmanaged and has encryptable\u003duserdata. vold detects the sdcard as an adoptable  sdcard and sends the info to Storagemanager.\n\nStoragemanager sees that the sdcard is adoptable, but as it detects that my device uses FBE it removes the adoptable flag, because adoptable devices are not supported with FBE.\n\nSo I end up with my sdcard just as a data storage I can copy data from or to. However I have Music on my sdcard and vector maps. I don\u0027t care if they are encrypted or not.\n\nThat the music is scanned the sdcard needs to be visible, but as StorageManager removed the adoptable flag it isn\u0027t set to visible so no app nor the media scanner will see it.\n\nSo be able to use my sdcard uncrypted I introduced this flag so that I can force the sdcard to be visible (but unencryted).\n\nSo do you suggest we should set it to visible if it is an sdcard no matter what? Then we would just need the:\n\nif (vold.disk.isSd())",
+      "parentUuid": "73ee8166_9341a701",
+      "revId": "8cbb6152c25d84ce7f99c52c05efaeef9eaeecf6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
