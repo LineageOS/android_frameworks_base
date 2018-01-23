@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73ee8166_9341a701",
+        "filename": "services/core/java/com/android/server/StorageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-23T03:12:05Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be detected based off existing has SD card type properties/options, and not a new persist property?",
+      "revId": "8cbb6152c25d84ce7f99c52c05efaeef9eaeecf6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
