@@ -34,6 +34,24 @@
       "revId": "8cbb6152c25d84ce7f99c52c05efaeef9eaeecf6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99c2315c_11f2efca",
+        "filename": "services/core/java/com/android/server/StorageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-24T04:33:13Z",
+      "side": 1,
+      "message": "Your sdcard is external, in this case? I\u0027ve never seen that in conjunction with FBE, I suppose this is probably the reason. It sounds like FBE shouldn\u0027t be active for your device\u0027s external SD, in this case?",
+      "parentUuid": "cf79d48a_b6425796",
+      "revId": "8cbb6152c25d84ce7f99c52c05efaeef9eaeecf6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
