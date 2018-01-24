@@ -75,6 +75,24 @@
       "revId": "8e6a3d301530dd5cfc6b10301813732ded944cbd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4ae3fe0_5f3d2dc8",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2018-01-24T01:41:37Z",
+      "side": 1,
+      "message": "Try https://review.lineageos.org/#/c/203824/ for legacy power.xxx.so hal",
+      "parentUuid": "0557b047_a6cde77a",
+      "revId": "8e6a3d301530dd5cfc6b10301813732ded944cbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
