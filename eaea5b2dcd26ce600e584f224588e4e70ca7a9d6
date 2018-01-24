@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bc4a9b16_21f94cef",
+        "filename": "core/java/com/android/internal/widget/LockPatternView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2018-01-24T12:33:06Z",
+      "side": 1,
+      "message": "No idea, its been doing this since at least 2009 though \u003d/",
+      "parentUuid": "4ef5504a_e54453f6",
+      "revId": "eaea5b2dcd26ce600e584f224588e4e70ca7a9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df76de7c_bb584e1e",
         "filename": "services/core/java/com/android/server/locksettings/LockSettingsService.java",
         "patchSetId": 1
