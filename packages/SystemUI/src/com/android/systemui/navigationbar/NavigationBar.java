@@ -1453,10 +1453,15 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
                         // should stop lock task.
                         stopLockTaskMode = true;
                         return true;
-                    } else if (v.getId() == btnId2) {
-                        return btnId2 == R.id.recent_apps
-                                ? false
-                                : onHomeLongClick(mView.getHomeButton().getCurrentView());
+                    } else if (v.getId() == R.id.recent_apps) {
+                        // Send long press key event so that Lineage button handling can intercept
+                        KeyButtonView keyButtonView = (KeyButtonView) v;
+                        keyButtonView.sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.FLAG_LONG_PRESS);
+                        keyButtonView.sendAccessibilityEvent(
+                                AccessibilityEvent.TYPE_VIEW_LONG_CLICKED);
+                        return true;
+                    } else {
+                        onHomeLongClick(mView.getHomeButton().getCurrentView());
                     }
                 }
             } finally {
