@@ -2,6 +2,142 @@
   "comments": [
     {
       "key": {
+        "uuid": "ab801070_2d0de5c6",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-27T20:02:42Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "38c3f71b4ad6858a5475690581250431faad7619",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e328aff_49ccfdd5",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-27T20:02:42Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "38c3f71b4ad6858a5475690581250431faad7619",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43276eb4_e11b1817",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-27T20:02:42Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "38c3f71b4ad6858a5475690581250431faad7619",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84f6cdab_65d49829",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-27T20:02:42Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "38c3f71b4ad6858a5475690581250431faad7619",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "866f6028_fda404d6",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1352,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-27T20:02:42Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "38c3f71b4ad6858a5475690581250431faad7619",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8157ec05_6c809ca9",
+        "filename": "services/core/java/com/android/server/PermissionDialog.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-27T20:02:42Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "38c3f71b4ad6858a5475690581250431faad7619",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "034528f7_25ee608a",
+        "filename": "services/core/java/com/android/server/PermissionDialog.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-27T20:02:42Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "38c3f71b4ad6858a5475690581250431faad7619",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b76f7a3_3d689259",
+        "filename": "services/core/java/com/android/server/am/UserController.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-27T20:02:42Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "38c3f71b4ad6858a5475690581250431faad7619",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "635b6195_c58da7e5",
         "filename": "telephony/java/android/telephony/TelephonyManager.java",
         "patchSetId": 14
@@ -19,6 +155,40 @@
         "endLine": 36,
         "endChar": 33
       },
+      "revId": "38c3f71b4ad6858a5475690581250431faad7619",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1a5e42e_11174a2f",
+        "filename": "telephony/java/android/telephony/TelephonyManager.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 5605,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-27T20:02:42Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "38c3f71b4ad6858a5475690581250431faad7619",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8a4a43a_3c320f3d",
+        "filename": "telephony/java/android/telephony/TelephonyManager.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 5607,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-01-27T20:02:42Z",
+      "side": 1,
+      "message": "100 chars",
       "revId": "38c3f71b4ad6858a5475690581250431faad7619",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
