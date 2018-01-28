@@ -43,7 +43,7 @@ WeakResourceFilter::parse(const String8& str)
 
         // Ignore any densities. Those are best handled in --preferred-density
         if ((entry.second & ResTable_config::CONFIG_DENSITY) != 0) {
-            fprintf(stderr, "warning: ignoring flag -c %s. Use --preferred-density instead.\n", entry.first.toString().string());
+            //fprintf(stderr, "warning: ignoring flag -c %s. Use --preferred-density instead.\n", entry.first.toString().string());
             entry.first.density = 0;
             entry.second &= ~ResTable_config::CONFIG_DENSITY;
         }
