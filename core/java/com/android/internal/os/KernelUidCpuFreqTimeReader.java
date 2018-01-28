@@ -75,7 +75,7 @@ public class KernelUidCpuFreqTimeReader {
             mProcFileAvailable = true;
         } catch (IOException e) {
             mReadErrorCounter++;
-            Slog.e(TAG, "Failed to read " + UID_TIMES_PROC_FILE + ": " + e);
+            //Slog.e(TAG, "Failed to read " + UID_TIMES_PROC_FILE + ": " + e);
         }
     }
 
