@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31054874_af01f0b9",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-28T03:04:09Z",
+      "side": 1,
+      "message": "I feel like this is probably better done with a countdown latch, that way you don\u0027t have to do this horrible manual synchronization.",
+      "range": {
+        "startLine": 1670,
+        "startChar": 24,
+        "endLine": 1670,
+        "endChar": 36
+      },
+      "revId": "9938ad1dbf9b31de95914d5a44a2ade491995e84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b91750f7_bca32414",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-28T03:04:09Z",
+      "side": 1,
+      "message": "if (",
+      "range": {
+        "startLine": 1671,
+        "startChar": 24,
+        "endLine": 1671,
+        "endChar": 27
+      },
+      "revId": "9938ad1dbf9b31de95914d5a44a2ade491995e84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b442bad7_8b00d8e8",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1675,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-28T03:04:09Z",
+      "side": 1,
+      "message": "(r, t)",
+      "range": {
+        "startLine": 1675,
+        "startChar": 39,
+        "endLine": 1675,
+        "endChar": 42
+      },
+      "revId": "9938ad1dbf9b31de95914d5a44a2ade491995e84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec956fd5_fd0432b2",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1678,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-28T03:04:09Z",
+      "side": 1,
+      "message": "(t, r)",
+      "range": {
+        "startLine": 1678,
+        "startChar": 40,
+        "endLine": 1678,
+        "endChar": 43
+      },
+      "revId": "9938ad1dbf9b31de95914d5a44a2ade491995e84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bc07caf_e7858f57",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1682,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-28T03:04:09Z",
+      "side": 1,
+      "message": "Runnable() {",
+      "range": {
+        "startLine": 1682,
+        "startChar": 42,
+        "endLine": 1682,
+        "endChar": 53
+      },
+      "revId": "9938ad1dbf9b31de95914d5a44a2ade491995e84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdbd9971_8505eb25",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1728,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-28T03:04:09Z",
+      "side": 1,
+      "message": "if (sTaskCount",
+      "range": {
+        "startLine": 1728,
+        "startChar": 16,
+        "endLine": 1728,
+        "endChar": 29
+      },
+      "revId": "9938ad1dbf9b31de95914d5a44a2ade491995e84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac4af5e4_82bb9637",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-28T03:04:09Z",
+      "side": 1,
+      "message": "!\u003d 0)",
+      "range": {
+        "startLine": 1737,
+        "startChar": 55,
+        "endLine": 1737,
+        "endChar": 61
+      },
+      "revId": "9938ad1dbf9b31de95914d5a44a2ade491995e84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b556735_10584981",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-01-28T03:04:09Z",
+      "side": 1,
+      "message": "// We",
+      "range": {
+        "startLine": 1744,
+        "startChar": 8,
+        "endLine": 1744,
+        "endChar": 12
+      },
+      "revId": "9938ad1dbf9b31de95914d5a44a2ade491995e84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
