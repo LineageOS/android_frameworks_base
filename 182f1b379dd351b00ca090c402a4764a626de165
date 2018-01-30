@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "628a38df_7a61cd65",
+        "filename": "packages/SystemUI/res/layout/recent_apps.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-01-30T06:35:59Z",
+      "side": 1,
+      "message": "Apparently this is just how it\u0027s done in systemui:\nhttps://github.com/LineageOS/android_frameworks_base/blob/70605f98c350a12d4a6ed8f6ebeea4c6744d362d/packages/SystemUI/res/layout/home.xml#L23\n(yuck)",
+      "revId": "182f1b379dd351b00ca090c402a4764a626de165",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
