@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3e9e513_9a12f583",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-01-31T17:46:53Z",
+      "side": 1,
+      "message": "how about:\n} else if (mNavigationBarView !\u003d null) {\n    mWindowManager.removeViewImmediate(mNavigationBarView);\n    mNavigationBarView \u003d null;\n}",
+      "revId": "371b4f114e78e1b4e568dd88dd90ab5a936ce1a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
