@@ -18,6 +18,7 @@
 package com.android.systemui.qs.tiles;
 
 import static lineageos.hardware.LiveDisplayManager.FEATURE_MANAGED_OUTDOOR_MODE;
+import static lineageos.hardware.LiveDisplayManager.MODE_AUTO;
 import static lineageos.hardware.LiveDisplayManager.MODE_DAY;
 import static lineageos.hardware.LiveDisplayManager.MODE_OUTDOOR;
 
@@ -152,7 +153,14 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
     }
 
     private int getCurrentModeIndex() {
-        return ArrayUtils.indexOf(mValues, String.valueOf(mLiveDisplay.getMode()));
+        String currentLiveDisplayMode = null;
+        try {
+            currentLiveDisplayMode = String.valueOf(mLiveDisplay.getMode());
+        } catch (NullPointerException e) {
+            currentLiveDisplayMode = String.valueOf(MODE_AUTO);
+        } finally {
+            return ArrayUtils.indexOf(mValues, currentLiveDisplayMode);
+        }
     }
 
     private void changeToNextMode() {
