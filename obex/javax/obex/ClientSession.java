@@ -47,7 +47,7 @@ import android.util.Log;
  */
 public final class ClientSession extends ObexSession {
 
-    private static final String TAG = "ClientSession";
+    private static final String TAG = "ObexClientSession";
 
     private boolean mOpen;
 
