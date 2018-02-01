@@ -63,6 +63,12 @@ public final class ServerSession extends ObexSession implements Runnable {
 
     private boolean mClosed;
 
+    private boolean setMTU = false;
+
+    private boolean updateMtu = false;
+
+    private int updatedMtuSize = 0;
+
     /**
      * Creates new ServerSession.
      * @param trans the connection to the client
@@ -84,6 +90,25 @@ public final class ServerSession extends ObexSession implements Runnable {
         mProcessThread = new Thread(this);
         mProcessThread.start();
     }
+
+    public void setMaxPacketSize(int size) {
+        if (V)  Log.v(TAG, "setMaxPacketSize" + size);
+        mMaxPacketLength = size;
+    }
+
+    public int getMaxPacketSize() {
+       return mMaxPacketLength;
+    }
+
+    public void reduceMTU(boolean enable) {
+        setMTU = enable;
+   }
+
+   public void updateMTU(int mtuSize) {
+        updateMtu = true;
+        updatedMtuSize = mtuSize;
+        Log.i(TAG,"updateMTU: " + mtuSize);
+   }
 
     /**
      * Processes requests made to the server and forwards them to the
@@ -124,6 +149,7 @@ public final class ServerSession extends ObexSession implements Runnable {
                         break;
 
                     case -1:
+                        Log.d(TAG, "Read request returned -1, exiting from loop");
                         done = true;
                         break;
 
@@ -194,6 +220,7 @@ public final class ServerSession extends ObexSession implements Runnable {
      * @throws IOException if an error occurred at the transport layer
      */
     private void handlePutRequest(int type) throws IOException {
+        if (V)  Log.v(TAG, "handlePutRequest");
         ServerOperation op = new ServerOperation(this, mInput, type, mMaxPacketLength, mListener);
         try {
             int response = -1;
@@ -205,10 +232,12 @@ public final class ServerSession extends ObexSession implements Runnable {
                 response = validateResponseCode(mListener.onPut(op));
             }
             if (response != ResponseCodes.OBEX_HTTP_OK && !op.isAborted) {
+                if (V) Log.v(TAG, "handlePutRequest pre != HTTP_OK sendReply");
                 op.sendReply(response);
             } else if (!op.isAborted) {
                 // wait for the final bit
                 while (!op.finalBitSet) {
+                    if (V) Log.v(TAG, "handlePutRequest pre looped sendReply");
                     op.sendReply(ResponseCodes.OBEX_HTTP_CONTINUE);
                 }
                 op.sendReply(response);
@@ -240,6 +269,7 @@ public final class ServerSession extends ObexSession implements Runnable {
      * @throws IOException if an error occurred at the transport layer
      */
     private void handleGetRequest(int type) throws IOException {
+        if (V)  Log.v(TAG, "handleGetRequest");
         ServerOperation op = new ServerOperation(this, mInput, type, mMaxPacketLength, mListener);
         try {
             int response = validateResponseCode(mListener.onGet(op));
@@ -262,6 +292,7 @@ public final class ServerSession extends ObexSession implements Runnable {
     public void sendResponse(int code, byte[] header) throws IOException {
         int totalLength = 3;
         byte[] data = null;
+        if (V) Log.v(TAG,"sendResponse code " + code + " header : " + header);
         OutputStream op = mOutput;
         if (op == null) {
             return;
@@ -269,6 +300,7 @@ public final class ServerSession extends ObexSession implements Runnable {
 
         if (header != null) {
             totalLength += header.length;
+            if (V) Log.v(TAG, "header != null totalLength = " + totalLength);
             data = new byte[totalLength];
             data[0] = (byte)code;
             data[1] = (byte)(totalLength >> 8);
@@ -558,9 +590,19 @@ public final class ServerSession extends ObexSession implements Runnable {
                 + " MaxLength: " + mMaxPacketLength + " flags: " + flags);
 
         // should we check it?
-        if (mMaxPacketLength > ObexHelper.MAX_PACKET_SIZE_INT) {
+        if (setMTU) {
+            mMaxPacketLength = ObexHelper.A2DP_SCO_OBEX_MAX_CLIENT_PACKET_SIZE;
+            setMTU = false;
+        } else if (updateMtu) {
+            Log.d(TAG, "mMaxPacketLength: " + mMaxPacketLength +
+                    ", updatedMtuSize: " + updatedMtuSize);
+            if (mMaxPacketLength > updatedMtuSize)
+                mMaxPacketLength = updatedMtuSize;
+            updateMtu = false;
+        } else if (mMaxPacketLength > ObexHelper.MAX_PACKET_SIZE_INT) {
             mMaxPacketLength = ObexHelper.MAX_PACKET_SIZE_INT;
         }
+        Log.d(TAG,"handleConnectRequest() - Updated MaxPacketLengh: " + mMaxPacketLength);
 
         if(mMaxPacketLength > ObexHelper.getMaxTxPacketSize(mTransport)) {
             Log.w(TAG, "Requested MaxObexPacketSize " + mMaxPacketLength
