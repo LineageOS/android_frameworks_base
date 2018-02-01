@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a9ace1_7aa03ea4",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-01T04:02:07Z",
+      "side": 0,
+      "message": "unrelated removal?",
+      "revId": "87f09c0418006af8a4fca4770b8d03de85ed366b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
