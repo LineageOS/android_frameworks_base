@@ -50,7 +50,7 @@ import android.util.Log;
  */
 public final class ClientOperation implements Operation, BaseStream {
 
-    private static final String TAG = "ClientOperation";
+    private static final String TAG = "ObexClientOperation";
 
     private static final boolean V = ObexHelper.VDBG;
 
