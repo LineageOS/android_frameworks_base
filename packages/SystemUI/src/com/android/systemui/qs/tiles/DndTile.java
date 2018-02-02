@@ -286,6 +286,7 @@ public class DndTile extends QSTileImpl<BooleanState> {
     public void handleSetListening(boolean listening) {
         if (mListening == listening) return;
         mListening = listening;
+        if (mController == null) return;
         if (mListening) {
             Prefs.registerListener(mContext, mPrefListener);
         } else {
