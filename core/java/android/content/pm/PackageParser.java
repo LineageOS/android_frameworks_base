@@ -96,8 +96,8 @@ import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.XmlUtils;
 
 import libcore.io.IoUtils;
-
 import libcore.util.EmptyArray;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -107,7 +107,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
-import java.security.GeneralSecurityException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
@@ -124,9 +123,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.zip.ZipEntry;
+
 
 /**
  * Parser for package files (APKs) on disk. This supports apps packaged either
@@ -210,6 +215,8 @@ public class PackageParser {
 
     private static final String METADATA_MAX_ASPECT_RATIO = "android.max_aspect";
 
+    private static final int NUMBER_OF_CORES = Runtime.getRuntime().availableProcessors();
+
     /**
      * Bit mask of all the valid bits that can be set in recreateOnConfigChanges.
      * @hide
@@ -272,6 +279,19 @@ public class PackageParser {
             this.rootPerm = rootPerm;
             this.newPerms = newPerms;
             this.targetSdk = targetSdk;
+        }
+    }
+
+    /** @hide */
+    public static class ZipEntryInfo {
+        public final String name;
+        public final Certificate[][] certs;
+        public final Signature[] sigs;
+
+        public ZipEntryInfo(String name, Certificate[][] certs, Signature[] sigs) {
+            this.name = name;
+            this.certs = certs;
+            this.sigs = sigs;
         }
     }
 
@@ -1646,33 +1666,51 @@ public class PackageParser {
             // Verify that entries are signed consistently with the first entry
             // we encountered. Note that for splits, certificates may have
             // already been populated during an earlier parse of a base APK.
-            for (ZipEntry entry : toVerify) {
-                final Certificate[][] entryCerts = loadCertificates(jarFile, entry);
-                if (ArrayUtils.isEmpty(entryCerts)) {
-                    throw new PackageParserException(INSTALL_PARSE_FAILED_NO_CERTIFICATES,
-                            "Package " + apkPath + " has no certificates at entry "
-                            + entry.getName());
-                }
-                final Signature[] entrySignatures = convertToSignatures(entryCerts);
+            final ExecutorService executor = Executors.newFixedThreadPool(NUMBER_OF_CORES);
+            final StrictJarFile curJarFile = jarFile;
 
+            List<Callable<ZipEntryInfo>> verifyTasks = new ArrayList<Callable<ZipEntryInfo>>(
+                    toVerify.size());
+            for (ZipEntry entry : toVerify) {
+                Callable<ZipEntryInfo> verifyTask = new Callable<ZipEntryInfo>() {
+                    @Override
+                    public ZipEntryInfo call() throws
+                            PackageParserException, CertificateEncodingException {
+                        final Certificate[][] entryCerts =
+                            loadCertificates(curJarFile, entry);
+                        if (ArrayUtils.isEmpty(entryCerts)) {
+                            throw new PackageParserException(INSTALL_PARSE_FAILED_NO_CERTIFICATES,
+                                    "Package " + apkPath + " has no certificates at entry "
+                                    + entry.getName());
+                        }
+                        final Signature[] entrySignatures = convertToSignatures(entryCerts);
+                        return new ZipEntryInfo(entry.getName(), entryCerts, entrySignatures);
+                    }
+                };
+                verifyTasks.add(verifyTask);
+            }
+            List<Future<ZipEntryInfo>> infoFutures = executor.invokeAll(verifyTasks);
+            for (Future<ZipEntryInfo> infoFuture : infoFutures) {
+                ZipEntryInfo info = infoFuture.get();
                 if (pkg.mCertificates == null) {
-                    pkg.mCertificates = entryCerts;
-                    pkg.mSignatures = entrySignatures;
+                    pkg.mCertificates = info.certs;
+                    pkg.mSignatures = info.sigs;
                     pkg.mSigningKeys = new ArraySet<PublicKey>();
-                    for (int i=0; i < entryCerts.length; i++) {
-                        pkg.mSigningKeys.add(entryCerts[i][0].getPublicKey());
+                    for (int i = 0; i < info.certs.length; i++) {
+                        pkg.mSigningKeys.add(info.certs[i][0].getPublicKey());
                     }
                 } else {
-                    if (!Signature.areExactMatch(pkg.mSignatures, entrySignatures)) {
+                    if (!Signature.areExactMatch(pkg.mSignatures, info.sigs)) {
                         throw new PackageParserException(
                                 INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES, "Package " + apkPath
-                                        + " has mismatched certificates at entry "
-                                        + entry.getName());
+                                + " has mismatched certificates at entry "
+                                        + info.name);
                     }
                 }
             }
             Trace.traceEnd(TRACE_TAG_PACKAGE_MANAGER);
-        } catch (GeneralSecurityException e) {
+        } catch (ExecutionException | InterruptedException e) {
+            // ExecutionException will wrap PackageParserException, CertificateEncodingException
             throw new PackageParserException(INSTALL_PARSE_FAILED_CERTIFICATE_ENCODING,
                     "Failed to collect certificates from " + apkPath, e);
         } catch (IOException | RuntimeException e) {
