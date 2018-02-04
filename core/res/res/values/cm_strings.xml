@@ -140,6 +140,8 @@
     <string name="app_ops_run_in_background">run in background</string>
     <string name="app_ops_wifi_change">change Wi-Fi state</string>
     <string name="app_ops_su">get root access</string>
+    <string name="app_ops_motion_sensors">use the motion sensors</string>
+    <string name="app_ops_other_sensors">use other sensors</string>
 
     <!-- Protected Apps Notification -->
     <string name="notify_package_component_protected_title">Activity launch blocked</string>

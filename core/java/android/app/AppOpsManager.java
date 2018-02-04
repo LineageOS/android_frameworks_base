@@ -267,7 +267,11 @@ public class AppOpsManager {
     /** @hide */
     public static final int OP_SU = 69;
     /** @hide */
-    public static final int _NUM_OP = 70;
+    public static final int OP_MOTION_SENSORS = 70;
+    /** @hide */
+    public static final int OP_OTHER_SENSORS = 71;
+    /** @hide */
+    public static final int _NUM_OP = 72;
 
     /** Access to coarse location information. */
     public static final String OPSTR_COARSE_LOCATION = "android:coarse_location";
@@ -378,6 +382,10 @@ public class AppOpsManager {
             "android:data_connect_change";
     private static final String OPSTR_SU =
             "android:su";
+    private static final String OPSTR_MOTION_SENSORS =
+            "android:motion_sensors";
+    private static final String OPSTR_OTHER_SENSORS =
+            "android:other_sensors";
 
     private static final int[] RUNTIME_PERMISSIONS_OPS = {
             // Contacts
@@ -494,7 +502,9 @@ public class AppOpsManager {
             OP_BOOT_COMPLETED,
             OP_NFC_CHANGE,
             OP_DATA_CONNECT_CHANGE,
-            OP_SU
+            OP_SU,
+            OP_MOTION_SENSORS,
+            OP_OTHER_SENSORS
     };
 
     /**
@@ -572,6 +582,8 @@ public class AppOpsManager {
             OPSTR_NFC_CHANGE,
             OPSTR_DATA_CONNECT_CHANGE,
             OPSTR_SU,
+            OPSTR_MOTION_SENSORS,
+            OPSTR_OTHER_SENSORS,
     };
 
     /**
@@ -649,6 +661,8 @@ public class AppOpsManager {
             "NFC_CHANGE",
             "DATA_CONNECT_CHANGE",
             "SU",
+            "MOTION_SENSORS",
+            "OTHER_SENSORS",
     };
 
     /**
@@ -725,6 +739,8 @@ public class AppOpsManager {
             Manifest.permission.RECEIVE_BOOT_COMPLETED,
             Manifest.permission.NFC,
             Manifest.permission.MODIFY_PHONE_STATE,
+            null,
+            null,
             null,
     };
 
@@ -804,6 +820,8 @@ public class AppOpsManager {
             null, //NFC_CHANGE
             null, //DATA_CONNECT_CHANGE
             UserManager.DISALLOW_SU, //SU TODO: this should really be investigated.
+            null, //MOTION_SENSORS
+            null, //OTHER_SENSORS
     };
 
     /**
@@ -881,6 +899,8 @@ public class AppOpsManager {
             true, // NFC_CHANGE
             true, //DATA_CONNECT_CHANGE
             false, //SU
+            false, //MOTION_SENSORS
+            false, //OTHER_SENSORS
     };
 
     /**
@@ -956,7 +976,9 @@ public class AppOpsManager {
             AppOpsManager.MODE_ALLOWED, // OP_BOOT_COMPLETED
             AppOpsManager.MODE_ALLOWED, // OP_NFC_CHANGE
             AppOpsManager.MODE_ALLOWED,
-            AppOpsManager.MODE_ASK, // OP_SU
+            AppOpsManager.MODE_ASK,     // OP_SU
+            AppOpsManager.MODE_ALLOWED, // OP_MOTION_SENSORS
+            AppOpsManager.MODE_ALLOWED, // OP_OTHER_SENSORS
     };
 
     /**
@@ -1034,6 +1056,8 @@ public class AppOpsManager {
             AppOpsManager.MODE_ASK,     // OP_NFC_CHANGE
             AppOpsManager.MODE_ASK,     // OP_DATA_CONNECT_CHANGE
             AppOpsManager.MODE_ASK,     // OP_SU
+            AppOpsManager.MODE_ALLOWED, // OP_MOTION_SENSORS
+            AppOpsManager.MODE_ALLOWED, // OP_OTHER_SENSORS
     };
 
     /**
@@ -1110,6 +1134,8 @@ public class AppOpsManager {
         true,     // OP_NFC_CHANGE
         true,     // OP_DATA_CONNECT_CHANGE
         true,     // OP_SU
+        true,     // OP_MOTION_SENSORS
+        false,    // OP_OTHER_SENSORS
     };
 
     /**
@@ -1190,6 +1216,8 @@ public class AppOpsManager {
             false,     // OP_NFC_CHANGE
             false,     // OP_DATA_CONNECT_CHANGE
             false,     // OP_SU
+            false,     // OP_MOTION_SENSORS
+            false,     // OP_OTHER_SENSORS
     };
 
     /**

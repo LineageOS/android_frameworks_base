@@ -182,6 +182,10 @@
         <item>@string/app_ops_toggle_mobile_data</item>
         <!-- OP_SU -->
         <item>@string/app_ops_su</item>
+        <!-- OP_MOTION_SENSORS -->
+        <item>@string/app_ops_motion_sensors</item>
+        <!-- OP_OTHER_SENSORS -->
+        <item>@string/app_ops_other_sensors</item>
     </string-array>
 
     <!-- A list of pre-installed applications that will be treated as carrier apps,

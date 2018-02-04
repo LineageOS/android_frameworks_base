@@ -108,6 +108,8 @@
     <string name="app_ops_run_in_background">im Hintergrund ausgeführt zu werden</string>
     <string name="app_ops_wifi_change">WLAN-Status zu ändern</string>
     <string name="app_ops_su">Root-Zugriff zu erhalten</string>
+    <string name="app_ops_motion_sensors">Bewegungssensoren zu nutzen</string>
+    <string name="app_ops_other_sensors">sonstige Sensoren zu nutzen</string>
     <string name="notify_package_component_protected_title">Start der Aktivität blockiert</string>
     <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> ist vom Starten abgehalten worden. Tippen Sie, um sich zu authentifizieren und die App zu starten.</string>
     <string name="lock_to_app_toast_no_navbar">Zum Lösen dieser Ansicht drücken und halten Sie die Zurück-Taste.</string>
