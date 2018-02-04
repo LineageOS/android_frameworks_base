@@ -143,4 +143,7 @@
   <string name="tethered_notification_no_device_message">Nobene naprave ni povezane</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> povezana naprava</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> povezanih naprav</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Prednost</string>
+  <string name="silent_mode_none">Brez</string>
 </resources>

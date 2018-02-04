@@ -101,4 +101,7 @@
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_no_device_message">沒有已連接的裝置</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">優先級</string>
+  <string name="silent_mode_none">無</string>
 </resources>

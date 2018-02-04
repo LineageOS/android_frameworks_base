@@ -143,4 +143,7 @@
   <string name="tethered_notification_no_device_message">沒有已連接的裝置</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> 個已連接裝置</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> 個已連接裝置</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">優先權</string>
+  <string name="silent_mode_none">無</string>
 </resources>

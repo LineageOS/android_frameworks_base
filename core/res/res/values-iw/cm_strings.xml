@@ -143,4 +143,7 @@
   <string name="tethered_notification_no_device_message">אין מכשירים מחוברים</string>
   <string name="tethered_notification_one_device_message">מכשיר <xliff:g id="count">%1$s</xliff:g> מחובר</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> מכשירים מחוברים</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">עדיפות</string>
+  <string name="silent_mode_none">ללא</string>
 </resources>

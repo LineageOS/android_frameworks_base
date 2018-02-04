@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_label">Shell</string>
   <!-- Title of notification indicating a bugreport is being generated. [CHAR LIMIT=50] -->
   <string name="bugreport_in_progress_title">Ta xenerándose l\'informe de fallu <xliff:g id="id">%d</xliff:g></string>
   <!-- Title of notification indicating a bugreport has been successfully captured. [CHAR LIMIT=50] -->
@@ -36,6 +37,7 @@
   <!-- Checkbox that indicates this dialog should not be shown again when the next bugreport is taken. [CHAR LIMIT=50] -->
   <string name="bugreport_confirm_dont_repeat">Nun amosar de nueves</string>
   <!-- Title for documents backend that offers bugreports. -->
+  <string name="bugreport_storage_title">Informes de fallu</string>
   <!-- Toast message sent when the bugreport file could be read. -->
   <string name="bugreport_unreadable_text">Nun pudo lleese\'l ficheru del informe de fallu</string>
   <!-- Toast message sent when the bugreport details could not be added to the zip file. -->

@@ -143,4 +143,7 @@
   <string name="tethered_notification_no_device_message">Niciun dispozitiv conectat</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitiv conectat</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitive conectate</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Prioritate</string>
+  <string name="silent_mode_none">Nimic</string>
 </resources>

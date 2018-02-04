@@ -132,4 +132,7 @@
   <string name="tethered_notification_no_device_message">لا يوجد جهاز متصل</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> جهاز متصل</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> أجهزة متصلة</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">الأولوية</string>
+  <string name="silent_mode_none">بلا</string>
 </resources>

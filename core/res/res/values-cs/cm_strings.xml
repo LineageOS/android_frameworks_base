@@ -143,4 +143,7 @@
   <string name="tethered_notification_no_device_message">Žádné připojené zařízení</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> připojené zařízení</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> připojená zařízení</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Priorita</string>
+  <string name="silent_mode_none">Žádný</string>
 </resources>

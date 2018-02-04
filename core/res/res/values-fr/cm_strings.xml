@@ -126,7 +126,7 @@
   <string name="app_ops_write_external_storage">écrire sur le stockage externe</string>
   <string name="app_ops_turn_on_screen">allumer l\'écran</string>
   <string name="app_ops_get_accounts">obtenir les comptes de l\'appareil</string>
-  <string name="app_ops_run_in_background">ouvrir en arrière-plan</string>
+  <string name="app_ops_run_in_background">exécuter en arrière-plan</string>
   <string name="app_ops_wifi_change">changer l\'état du Wi-Fi</string>
   <string name="app_ops_su">obtenir l\'accès root</string>
   <!-- Protected Apps Notification -->
@@ -143,4 +143,7 @@
   <string name="tethered_notification_no_device_message">Aucun appareil connecté</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> appareil connecté</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> appareils connectés</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Priorité</string>
+  <string name="silent_mode_none">Aucun</string>
 </resources>

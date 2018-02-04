@@ -132,4 +132,7 @@
   <string name="tethered_notification_no_device_message">Pole ühtegi ühendatud seadet</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> ühendatud seade</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> ühendatud seadet</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Prioriteet</string>
+  <string name="silent_mode_none">Puudub</string>
 </resources>

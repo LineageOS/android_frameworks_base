@@ -17,6 +17,12 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Dialog title to identify the request from a VPN application. [CHAR LIMIT=60] -->
   <!-- Dialog message to warn about the risk of using a VPN application. [CHAR LIMIT=NONE] -->
+  <string name="warning">Mae <xliff:g id="app">%s</xliff:g> eisiau gosod cysylltiad VPN sy\'n ei alluogi i fonitro traffig rhwydwaith. Paid â derbyn oni bai dy fod yn ymddiried ynddo. Mae\'r eicon isod yn ymddangos ar frig y sgrin tra bod VPN ar waith.
+        <![CDATA[
+        <br />
+        <br />
+        <img src="vpn_icon" />
+        ]]>;    </string>
   <!-- Dialog title for built-in VPN. [CHAR LIMIT=40]  -->
   <!-- Button label to configure the current VPN session. [CHAR LIMIT=20] -->
   <!-- Button label to disconnect the current VPN session. [CHAR LIMIT=20] -->

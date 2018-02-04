@@ -22,8 +22,60 @@
   <!-- Wi-Fi settings -->
   <!-- Match this with the order of NetworkInfo.DetailedState. -->
   <!-- Wi-Fi settings. The status messages when the network is unknown. -->
+  <string-array name="wifi_status">
+    <!-- Status message of Wi-Fi when it is idle. -->
+    <item></item>
+    <!-- Status message of Wi-Fi when it is scanning. -->
+    <item>Yn sganio\u2026</item>
+    <!-- Status message of Wi-Fi when it is connecting. -->
+    <item>Yn cysylltu\u2026</item>
+    <!-- Status message of Wi-Fi when it is authenticating. -->
+    <item>Yn dilysu\u2026</item>
+    <!-- Status message of Wi-Fi when it is obtaining IP address. -->
+    <item>Yn cael cyfeiriad IP\u2026</item>
+    <!-- Status message of Wi-Fi when it is connected. -->
+    <item>Wedi cysyllltu</item>
+    <!-- Status message of Wi-Fi when it is suspended. -->
+    <item>Wedi\'i atal</item>
+    <!-- Status message of Wi-Fi when it is disconnecting. -->
+    <item>Yn datgysylltu\u2026</item>
+    <!-- Status message of Wi-Fi when it is disconnected. -->
+    <item>Heb gysylltu</item>
+    <!-- Status message of Wi-Fi when it is a failure. -->
+    <item>Aflwyddiannus</item>
+    <!-- Status message of Wi-Fi when it is blocked. -->
+    <item>Wedi\'i rhwystro</item>
+    <!-- Status message of Wi-Fi when connectiong is being verified. -->
+    <item>Yn osgoi cysylltiad gwael am y tro</item>
+  </string-array>
   <!-- Match this with the order of NetworkInfo.DetailedState. -->
   <!-- Wi-Fi settings. The status messages when the network is known. -->
+  <string-array name="wifi_status_with_ssid">
+    <!-- Status message of Wi-Fi when it is idle. -->
+    <item></item>
+    <!-- Status message of Wi-Fi when it is scanning. -->
+    <item>Yn sganio\u2026</item>
+    <!-- Status message of Wi-Fi when it is connecting to a network. -->
+    <item>Yn cysylltu â <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+    <!-- Status message of Wi-Fi when it is authenticating with a network. -->
+    <item>Yn dilysu gyda <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+    <!-- Status message of Wi-Fi when it is obtaining IP address from a network. -->
+    <item>Yn cael cyfeiriad IP oddi wrth <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+    <!-- Status message of Wi-Fi when it is connected to a network. -->
+    <item>Wedi cysylltu â <xliff:g id="network_name">%1$s </xliff:g></item>
+    <!-- Status message of Wi-Fi when it is suspended. -->
+    <item>Wedi\'i atal</item>
+    <!-- Status message of Wi-Fi when it is disconnecting from a network. -->
+    <item>Yn datgysylltu â <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+    <!-- Status message of Wi-Fi when it is disconnected. -->
+    <item>Heb gysylltu</item>
+    <!-- Status message of Wi-Fi when it is a failure. -->
+    <item>Aflwyddiannus</item>
+    <!-- Status message of Wi-Fi when it is blocked. -->
+    <item>Wedi\'i rhwystro</item>
+    <!-- Status message of Wi-Fi when connectiong is being verified. -->
+    <item>Yn osgoi cysylltiad gwael am y tro</item>
+  </string-array>
   <!-- Titles for HDCP checking preference. [CHAR LIMIT=35] -->
   <string-array name="hdcp_checking_titles">
     <item>Gwirio byth</item>

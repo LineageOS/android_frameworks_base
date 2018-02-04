@@ -143,4 +143,7 @@
   <string name="tethered_notification_no_device_message">Nincs csatlakoztatott készülék</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> csatlakoztatott eszköz</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> csatlakoztatott eszköz</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Prioritás</string>
+  <string name="silent_mode_none">Nincs</string>
 </resources>

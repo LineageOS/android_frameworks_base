@@ -143,4 +143,7 @@
   <string name="tethered_notification_no_device_message">Няма свързано устройство</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> устройството е свързано</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> устройствата са свързани</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Приоритет</string>
+  <string name="silent_mode_none">Без</string>
 </resources>

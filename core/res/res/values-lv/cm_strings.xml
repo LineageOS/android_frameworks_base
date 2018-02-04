@@ -110,4 +110,5 @@
   <string name="tethered_notification_no_device_message">Nav pievienota ierīce</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> pievienota ierīce</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> pievienotas ierīces</string>
+  <!-- Zen mode buttons -->
 </resources>

@@ -132,4 +132,7 @@
   <string name="tethered_notification_no_device_message">ఎటువంటి పరికరం అనుసంధానించబడలేదు</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> అనుసంధానించబడిన పరికరం</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> అనుసంధానించబడిన పరికరాలు</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">ప్రాధాన్యత</string>
+  <string name="silent_mode_none">ఏదీ లేదు</string>
 </resources>

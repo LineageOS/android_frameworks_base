@@ -27,6 +27,7 @@
   <!-- Prompt to enter SIM PUK in Edit Text Box in unlock screen -->
   <!-- Prompt to enter New SIM PIN in Edit Text Box in unlock screen -->
   <!-- Displayed as hint in passwordEntry EditText on PasswordUnlockScreen [CHAR LIMIT=30]-->
+  <string name="keyguard_password_entry_touch_hint"><font size="17">Toca pa teclexar la contraseña</font></string>
   <!-- Instructions telling the user to enter their text password to unlock the keyguard.
          Displayed in one line in a large font.  -->
   <!-- Instructions telling the user to enter their PIN password to unlock the keyguard.
@@ -71,13 +72,18 @@
   <!-- Accessibility description for the text view that indicates when the next alarm is set (not shown on screen). [CHAR_LIMIT=none] -->
   <!-- KeyguardPinView - accessibility support -->
   <!-- Description of the Delete button in a KeyboardView. [CHAR LIMIT=NONE] -->
+  <string name="keyboardview_keycode_delete">Desaniciar</string>
   <!-- Description of the Enter button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <!-- Message shown in pattern unlock after some number of unsuccessful attempts -->
   <string name="kg_forgot_pattern_button_text">Patrón escaecíu</string>
   <!-- Message shown when user enters wrong pattern -->
+  <string name="kg_wrong_pattern">Patrón incorreutu</string>
   <!-- Message shown when user enters wrong password -->
+  <string name="kg_wrong_password">Contraseña incorreuta</string>
   <!-- Message shown when user enters wrong PIN -->
+  <string name="kg_wrong_pin">PIN incorreutu</string>
   <!-- Countdown message shown after too many failed unlock attempts -->
+  <string name="kg_too_many_failed_attempts_countdown">Volvi tentalo en <xliff:g id="number">%d</xliff:g> segundos.</string>
   <!-- Instructions for using the pattern unlock screen -->
   <!-- Instructions for using the SIM PIN unlock screen -->
   <!-- Instructions for using the SIM PIN unlock screen when there's more than one SIM -->
@@ -121,6 +127,7 @@
          to unlock the keyguard.  Displayed in a dialog box.  -->
   <!-- Instructions telling the user that they have exhausted SIM PUK retries and the SIM is now unusable.
          Displayed in a dialog box.  -->
+  <string name="kg_password_wrong_puk_code_dead">La SIM ta inutilizada. Contauta cola operadora.</string>
   <!-- Instructions telling the user that they entered the wrong puk while trying
          to unlock the keyguard.  Displayed in a dialog box.  -->
   <!-- Instructions telling the user that the operation to unlock the keyguard
@@ -131,10 +138,10 @@
   <string name="kg_pin_accepted">¡Códigu aceutáu!</string>
   <!-- On the keyguard screen, it shows the carrier the phone is connected to.
         This is displayed if the phone is not connected to a carrier.-->
-  <string name="keyguard_carrier_default">Ensin serviciu.</string>
   <!-- Content description of the switch input method button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_ime_switch_button" msgid="5032926134740456424">Camudar métodu d\'entrada</string>
   <!-- Description of airplane mode -->
+  <string name="airplane_mode">Mou avión</string>
   <!-- An explanation text that the pattern needs to be solved since the device has just been restarted. [CHAR LIMIT=80] -->
   <string name="kg_prompt_reason_restart_pattern">Ríquese\'l patrón dempués de reaniciar el preséu</string>
   <!-- An explanation text that the pin needs to be entered since the device has just been restarted. [CHAR LIMIT=80] -->
@@ -163,5 +170,5 @@
   <!-- An explanation text that the pin needs to be entered since it hasn't been entered in a while. [CHAR LIMIT=80]-->
   <!-- An explanation text that the password needs to be entered since it hasn't been entered in a while. [CHAR LIMIT=80]-->
   <!-- Fingerprint hint message when finger was not recognized.-->
-  <string name="fingerprint_not_recognized">Nun se reconocío</string>
+  <string name="fingerprint_not_recognized">Nun se reconoz</string>
 </resources>

@@ -132,4 +132,7 @@
   <string name="tethered_notification_no_device_message">કોઇ ડિવાઇસ કનેક્ટ થયેલ નથી</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> ડિવાઇસ કનેક્ટ થયેલ છે</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> ડિવાઇસેસ કનેક્ટ થયેલ છે</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">પ્રાધાન્યતા</string>
+  <string name="silent_mode_none">કોઈ નહીં</string>
 </resources>

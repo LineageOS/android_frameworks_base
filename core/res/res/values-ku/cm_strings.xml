@@ -112,4 +112,5 @@
   <string name="tethered_notification_no_device_message">ئامێر پەیوەست نەکراوە</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> ئامێر پەیوەستکراوە</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> ئامێری پەیوەستکراو</string>
+  <!-- Zen mode buttons -->
 </resources>

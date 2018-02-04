@@ -143,4 +143,7 @@
   <string name="tethered_notification_no_device_message">Dispositivo non conectado</string>
   <string name="tethered_notification_one_device_message">Dispositivo <xliff:g id="count">%1$s</xliff:g> conectado</string>
   <string name="tethered_notification_multi_device_message">Dispositivos <xliff:g id="count">%1$s</xliff:g> conectados</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Prioridade</string>
+  <string name="silent_mode_none">Ningún</string>
 </resources>

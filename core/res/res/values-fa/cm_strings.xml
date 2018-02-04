@@ -113,4 +113,7 @@
   <string name="tethered_notification_no_device_message">هیچ دستگاه متصلی وجود ندارد</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> دستگاه متصل</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> دستگاه متصل</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">اولویت‌دار</string>
+  <string name="silent_mode_none">هیچ‌کدام</string>
 </resources>

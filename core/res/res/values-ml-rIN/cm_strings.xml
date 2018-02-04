@@ -132,4 +132,7 @@
   <string name="tethered_notification_no_device_message">ബന്ധിപ്പിച്ച ഉപകരണം ഇല്ല</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> ബന്ധിപ്പിച്ച ഉപകരണം</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> ബന്ധിപ്പിച്ച ഉപകരണങ്ങൾ</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">മുന്‍‌ഗണന</string>
+  <string name="silent_mode_none">ആരിൽ നിന്നും വേണ്ട</string>
 </resources>

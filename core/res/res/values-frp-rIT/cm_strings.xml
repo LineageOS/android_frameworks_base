@@ -19,14 +19,17 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Long-press back kill application -->
   <!-- label for item that screenshots in phone options dialog -->
+  <string name="global_action_screenshot">Captura d’ècran</string>
   <!-- label for item that restarts the phone in phone options dialog -->
   <!-- label for current user in phone options dialog -->
+  <string name="global_action_current_user">Actuèl</string>
   <!-- status message in phone options dialog for screenshot action -->
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
+  <string name="reboot_download">Chargiér bâs</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
   <!-- Title of dialog to confirm restarting. -->
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
@@ -44,4 +47,5 @@
   <!-- Single hand mode -->
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
+  <!-- Zen mode buttons -->
 </resources>

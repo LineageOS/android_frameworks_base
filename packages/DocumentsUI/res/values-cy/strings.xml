@@ -20,68 +20,112 @@
   <!-- Title of the standalone downloads activity. [CHAR LIMIT=32] -->
   <string name="downloads_label">Llwythi</string>
   <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
+  <string name="title_open">Agor o</string>
   <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
+  <string name="title_save">Cadw i</string>
   <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
   <string name="menu_create_dir">Ffolder newydd</string>
   <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
+  <string name="menu_grid">Golwg grid</string>
   <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
+  <string name="menu_list">Golwg rhestr</string>
   <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
+  <string name="menu_sort">Trefnu yn ôl</string>
   <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
+  <string name="menu_search">Chwilio</string>
   <!-- Menu item that enters activity to change settings for current root [CHAR LIMIT=24] -->
   <string name="menu_settings">Gosodiadau storfa</string>
   <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
+  <string name="menu_open">Agor</string>
   <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
+  <string name="menu_save">Cadw</string>
   <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
+  <string name="menu_share">Rhannu</string>
   <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
+  <string name="menu_delete">Dileu</string>
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
+  <string name="menu_select_all">Dewis y cwbl</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
+  <string name="menu_copy">Copïo i\u2026</string>
   <!-- Menu item title that moves the selected documents [CHAR LIMIT=24] -->
   <string name="menu_move">Symud i\u2026</string>
   <!-- Menu item title that creates a new window in the activity [CHAR LIMIT=24] -->
   <string name="menu_new_window">Ffenestr newydd</string>
   <!-- Menu item title that copies the selected documents to clipboard [CHAR LIMIT=24] -->
+  <string name="menu_copy_to_clipboard">Copïo</string>
   <!-- Menu item title that pastes files from the clipboard [CHAR LIMIT=24] -->
   <string name="menu_paste_from_clipboard">Gludo</string>
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
+  <string name="menu_advanced_show">Dangos y storfa mewnol</string>
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
+  <string name="menu_advanced_hide">Cuddio\'r storfa mewnol</string>
   <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
+  <string name="menu_file_size_show">Dangos maint ffeiliau</string>
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
+  <string name="menu_file_size_hide">Cuddio maint ffeiliau</string>
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
+  <string name="button_select">Dewis</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
+  <string name="button_copy">Copïo</string>
   <!-- Button label that moves files to the current directory [CHAR LIMIT=24] -->
   <string name="button_move">Symud</string>
   <!-- Button label that hides the error bar [CHAR LIMIT=24] -->
   <string name="button_dismiss">Gwrthod</string>
   <string name="button_retry">Ceisio Eto</string>
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
+  <string name="sort_name">Yn ôl Enw</string>
   <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
+  <string name="sort_date">Yn ôl dyddiad addasu</string>
   <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
+  <string name="sort_size">Yn ôl maint</string>
   <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
+  <string name="drawer_open">Dangos gwreiddiau</string>
   <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
+  <string name="drawer_close">Cuddio gwreiddiau</string>
   <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
+  <string name="save_error">Methwyd cadw\'r ddogfen</string>
   <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
+  <string name="create_error">Methwyd creu ffolder</string>
   <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
   <string name="query_error">Methu llwytho\'r cynnwys ar hyn o bryd</string>
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
+  <string name="root_recent">Diweddar</string>
   <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
+  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s </xliff:g> am ddim</string>
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
+  <string name="root_type_service">Gwasanaethau storio</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
   <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
+  <string name="root_type_device">Dyfeisiau</string>
   <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
+  <string name="root_type_apps">Rhagor o apiau</string>
   <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
+  <string name="empty">Dim eitemau</string>
   <!-- Text shown when a file search returns no items [CHAR LIMIT=32] -->
   <string name="no_results">Dim cydweddiadau yn %1$s</string>
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
   <string name="toast_no_application">Methu agor y ffeil</string>
   <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
+  <string name="toast_failed_delete">Methu dileu rhai dogfennau</string>
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
+  <string name="share_via">Rhannu drwy</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
+  <string name="copy_notification_title">Wrthi\'n copïo ffeiliau</string>
   <!-- Title of the move notification [CHAR LIMIT=24] -->
   <string name="move_notification_title">Yn symud ffeiliau</string>
   <!-- Title of the move notification [CHAR LIMIT=24] -->
   <string name="delete_notification_title">Yn dileu ffeiliau</string>
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
+  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s </xliff:g> yn weddill</string>
   <!-- Toast shown when a file copy is kicked off -->
+  <plurals name="copy_begin">
+    <item quantity="zero">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeiliau.</item>
+    <item quantity="one">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeil.</item>
+    <item quantity="two">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeil.</item>
+    <item quantity="few">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeil.</item>
+    <item quantity="many">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeil.</item>
+    <item quantity="other">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeil.</item>
+  </plurals>
   <plurals name="move_begin">
     <item quantity="zero">Yn symud<xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau.</item>
     <item quantity="one">Yn symud<xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
@@ -102,6 +146,7 @@
   <!-- Text shown for the undo button -->
   <string name="undo">Dadwneud</string>
   <!-- Text shown on the notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
+  <string name="copy_preparing">Yn paratoi i gopïo\u2026</string>
   <!-- Text shown on the notification while DocumentsUI performs setup in preparation for moving files [CHAR LIMIT=32] -->
   <string name="move_preparing">Yn paratoi i symud\u2026</string>
   <!-- Text shown on the notification while DocumentsUI performs setup in preparation for deleting files [CHAR LIMIT=32] -->

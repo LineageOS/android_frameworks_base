@@ -143,4 +143,7 @@
   <string name="tethered_notification_no_device_message">接続しているデバイスはありません</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g>台のデバイスが接続しています</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g>台のデバイスが接続しています</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">優先順位</string>
+  <string name="silent_mode_none">なし</string>
 </resources>

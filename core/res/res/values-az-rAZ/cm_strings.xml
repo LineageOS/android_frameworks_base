@@ -113,4 +113,7 @@
   <string name="tethered_notification_no_device_message">Bağlı cihaz yoxdur</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> cihaz bağlıdır</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> cihaz bağlıdır</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">Üstünlük</string>
+  <string name="silent_mode_none">Yoxdur</string>
 </resources>

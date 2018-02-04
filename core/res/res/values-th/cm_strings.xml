@@ -132,4 +132,7 @@
   <string name="tethered_notification_no_device_message">ไม่มีอุปกรณ์เชื่อมต่อ</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> อุปกรณ์เชื่อมต่ออยู่</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> อุปกรณ์เชื่อมต่ออยู่</string>
+  <!-- Zen mode buttons -->
+  <string name="silent_mode_priority">ระดับความสำคัญ</string>
+  <string name="silent_mode_none">ไม่มี</string>
 </resources>

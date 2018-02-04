@@ -1066,4 +1066,7 @@
   <string name="high_temp_notif_message">Delles carauterístiques tán llimitaes mentando esfrez el teléfonu</string>
   <!-- Text body for dialog alerting user that their phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=300] -->
   <string name="high_temp_dialog_message">El preséu va tentar d\'esfrecer automáticamente. Entá pues usar el preséu pero podría volvese lentu.\n\nNamái que\'l preséu esfreza, va funcionar de mou normal.</string>
+  <!-- Warning shown when user input has been blocked due to another app overlaying screen
+         content. Since we don't know what the app is showing on top of the input target, we
+         can't verify user consent. [CHAR LIMIT=NONE] -->
 </resources>
