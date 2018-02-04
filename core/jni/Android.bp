@@ -295,6 +295,11 @@ cc_library_shared {
         debuggable: {
             cflags: ["-D__ANDROID_DEBUGGABLE__"]
         },
+        lineage: {
+            zygote_whitelist_path_extra: {
+                cflags: ["-DPATH_WHITELIST_EXTRA=%s"],
+            },
+        },
         treble: {
             cflags: ["-D__ANDROID_TREBLE__"]
         },
