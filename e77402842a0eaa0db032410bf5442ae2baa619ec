@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81fdf43c_c2f46789",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3019,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-02-05T00:17:47Z",
+      "side": 1,
+      "message": "settingsThemeInfo is not currently used.",
+      "revId": "e77402842a0eaa0db032410bf5442ae2baa619ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
