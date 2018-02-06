@@ -41,6 +41,8 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeParseException;
 
+import lineageos.app.LineageContextConstants;
+
 /**
  * Controller for managing Night display settings.
  * <p/>
@@ -454,7 +456,9 @@ public final class NightDisplayController {
      * Returns {@code true} if Night display is supported by the device.
      */
     public static boolean isAvailable(Context context) {
-        return context.getResources().getBoolean(R.bool.config_nightDisplayAvailable);
+        return context.getResources().getBoolean(R.bool.config_nightDisplayAvailable) &&
+               !context.getPackageManager().hasSystemFeature(
+                       LineageContextConstants.Features.LIVEDISPLAY);
     }
 
     /**
