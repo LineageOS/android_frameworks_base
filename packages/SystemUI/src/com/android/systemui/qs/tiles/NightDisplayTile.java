@@ -30,6 +30,8 @@ import com.android.systemui.qs.QSHost;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 
+import lineageos.app.LineageContextConstants;
+
 public class NightDisplayTile extends QSTileImpl<BooleanState>
         implements NightDisplayController.Callback {
 
@@ -43,7 +45,9 @@ public class NightDisplayTile extends QSTileImpl<BooleanState>
 
     @Override
     public boolean isAvailable() {
-        return NightDisplayController.isAvailable(mContext);
+        return NightDisplayController.isAvailable(mContext) &&
+               !mContext.getPackageManager().hasSystemFeature(
+                       LineageContextConstants.Features.LIVEDISPLAY);
     }
 
     @Override
