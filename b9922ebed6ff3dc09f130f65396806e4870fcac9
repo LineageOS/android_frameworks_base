@@ -46,6 +46,24 @@
       "revId": "b9922ebed6ff3dc09f130f65396806e4870fcac9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb8e0cd_6eaa3bb0",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-02-07T14:51:48Z",
+      "side": 1,
+      "message": "Not really, we don\u0027t, just the return into the try block, you can get rid of the of check aswell",
+      "parentUuid": "a2049a19_80b1e436",
+      "revId": "b9922ebed6ff3dc09f130f65396806e4870fcac9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
