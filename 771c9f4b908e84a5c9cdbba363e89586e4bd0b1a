@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0b5a867_c9e40681",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-02-07T10:23:50Z",
+      "side": 1,
+      "message": "Repeating what intervigil already said on a previous ps: \"Seems like this bit could be pushed into getRunningActivityInfo, and getRunningActivityInfo renamed to getRunningActivityName ?\"",
+      "range": {
+        "startLine": 168,
+        "startChar": 8,
+        "endLine": 170,
+        "endChar": 34
+      },
+      "revId": "771c9f4b908e84a5c9cdbba363e89586e4bd0b1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
