@@ -22,6 +22,30 @@
       "revId": "b9922ebed6ff3dc09f130f65396806e4870fcac9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2049a19_80b1e436",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-02-07T14:03:16Z",
+      "side": 1,
+      "message": "Yea, I know what \"finally\" does in a try...catch block. Seemed more logical to me writing it like this. If we change as per your suggestion, then we may have to catch other exceptions.",
+      "parentUuid": "0b0db580_41e7d0e5",
+      "range": {
+        "startLine": 154,
+        "startChar": 16,
+        "endLine": 156,
+        "endChar": 17
+      },
+      "revId": "b9922ebed6ff3dc09f130f65396806e4870fcac9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
