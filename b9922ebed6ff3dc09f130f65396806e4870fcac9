@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b0db580_41e7d0e5",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-02-07T13:57:32Z",
+      "side": 1,
+      "message": "if you move this into the \"try\" part you can get rid of a few lines. This is anyway only getting executed if the exception isnt hit",
+      "range": {
+        "startLine": 154,
+        "startChar": 16,
+        "endLine": 156,
+        "endChar": 17
+      },
+      "revId": "b9922ebed6ff3dc09f130f65396806e4870fcac9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
