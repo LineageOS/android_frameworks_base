@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +42,7 @@ public class NtpTrustedTime implements TrustedTime {
     private static NtpTrustedTime sSingleton;
     private static Context sContext;
 
-    private final String mServer;
+    private String mServer;
     private final long mTimeout;
 
     private ConnectivityManager mCM;
@@ -63,17 +64,14 @@ public class NtpTrustedTime implements TrustedTime {
             final Resources res = context.getResources();
             final ContentResolver resolver = context.getContentResolver();
 
-            final String defaultServer = res.getString(
-                    com.android.internal.R.string.config_ntpServer);
             final long defaultTimeout = res.getInteger(
                     com.android.internal.R.integer.config_ntpTimeout);
 
-            final String secureServer = Settings.Global.getString(
+            final String server = Settings.Global.getString(
                     resolver, Settings.Global.NTP_SERVER);
             final long timeout = Settings.Global.getLong(
                     resolver, Settings.Global.NTP_TIMEOUT, defaultTimeout);
 
-            final String server = secureServer != null ? secureServer : defaultServer;
             sSingleton = new NtpTrustedTime(server, timeout);
             sContext = context;
         }
@@ -97,8 +95,9 @@ public class NtpTrustedTime implements TrustedTime {
 
     public boolean forceRefresh(Network network) {
         if (TextUtils.isEmpty(mServer)) {
-            // missing server, so no trusted time available
-            return false;
+            mServer = sContext.getResources().getString(
+                    com.android.internal.R.string.config_ntpServer);
+            if (LOGD) Log.d(TAG, "NTP server changed to " + mServer);
         }
 
         // We can't do this at initialization time: ConnectivityService might not be running yet.
