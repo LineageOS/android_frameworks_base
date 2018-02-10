@@ -221,9 +221,19 @@ public class SuggestionParser {
                 if (TextUtils.isEmpty(feature)) {
                     Log.w(TAG, "Found empty substring when parsing required features: "
                             + featuresRequired);
-                } else if (!mContext.getPackageManager().hasSystemFeature(feature)) {
-                    Log.i(TAG, suggestion.title + " requires unavailable feature " + feature);
-                    return false;
+                } else {
+                    if (feature.charAt(0) == '!') {
+                        feature = feature.substring(1);
+                        if (mContext.getPackageManager().hasSystemFeature(feature)) {
+                            Log.i(TAG, suggestion.title + " requires feature " + feature + " to be missing");
+                            return false;
+                        }
+                    } else {
+                        if (!mContext.getPackageManager().hasSystemFeature(feature)) {
+                            Log.i(TAG, suggestion.title + " requires unavailable feature " + feature);
+                            return false;
+                        }
+                    }
                 }
             }
         }
