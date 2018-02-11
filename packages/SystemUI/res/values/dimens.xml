@@ -476,7 +476,7 @@
     <dimen name="multi_user_switch_width_expanded">48dp</dimen>
 
     <!-- The width of user avatar when on Keyguard -->
-    <dimen name="multi_user_switch_width_keyguard">34dp</dimen>
+    <dimen name="multi_user_switch_width_keyguard">28dp</dimen>
 
     <!-- The width of user avatar when collapsed -->
     <dimen name="multi_user_avatar_collapsed_size">22dp</dimen>

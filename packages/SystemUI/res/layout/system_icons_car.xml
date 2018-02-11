@@ -28,13 +28,11 @@
 
     <include layout="@layout/signal_cluster_view"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/signal_cluster_margin_start"
-        android:gravity="center_vertical" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/signal_cluster_margin_start"/>
 
-    <LinearLayout
-        android:id="@+id/battery_container"
-        android:layout_width="wrap_content"
+    <com.android.systemui.BatteryMeterView android:id="@+id/battery"
         android:layout_height="match_parent"
-        android:gravity="center_vertical" />
+        android:layout_width="wrap_content" />
+
 </LinearLayout>

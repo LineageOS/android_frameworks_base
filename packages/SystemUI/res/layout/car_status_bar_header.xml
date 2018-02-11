@@ -24,7 +24,7 @@
     android:paddingEnd="8dp" >
 
     <include
-        layout="@layout/system_icons"
+        layout="@layout/system_icons_car"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
