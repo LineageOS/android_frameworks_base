@@ -46,6 +46,30 @@
       "revId": "f0d0374823340de6b4661d74d714ec2b6f2ec256",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb64cce3_4851eae1",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2018-02-12T02:14:22Z",
+      "side": 1,
+      "message": "This is a singleton class, static or not makes no difference.",
+      "parentUuid": "16cc5dae_0ddbe153",
+      "range": {
+        "startLine": 43,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "f0d0374823340de6b4661d74d714ec2b6f2ec256",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
