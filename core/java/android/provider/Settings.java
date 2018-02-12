@@ -4213,13 +4213,14 @@ public final class Settings {
          * Style of clock
          * 0 - Right Clock  (default)
          * 1 - Center Clock
+         * 2 - Left Clock
          * @hide
          */
         public static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
 
         /** @hide */
         public static final Validator STATUSBAR_CLOCK_STYLE_VALIDATOR =
-                new InclusiveIntegerRangeValidator(0, 1);
+                new InclusiveIntegerRangeValidator(0, 2);
 
         /**
          * Whether to show seconds next to clock in status bar

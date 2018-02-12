@@ -90,6 +90,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
 
     public static final int STYLE_CLOCK_RIGHT   = 0;
     public static final int STYLE_CLOCK_CENTER  = 1;
+    public static final int STYLE_CLOCK_LEFT  = 2;
 
     protected int mClockDateDisplay = CLOCK_DATE_DISPLAY_GONE;
     protected int mClockDateStyle = CLOCK_DATE_STYLE_REGULAR;

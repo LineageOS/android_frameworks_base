@@ -103,6 +103,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUSBAR_CLOCK_DATE_FORMAT),
                     false, this, UserHandle.USER_ALL);
+            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUSBAR_CLOCK_STYLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -217,9 +220,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if ((diff1 & DISABLE_NOTIFICATION_ICONS) != 0) {
             if ((state1 & DISABLE_NOTIFICATION_ICONS) != 0) {
                 hideNotificationIconArea(animate);
+                hideLeftClock(animate);
             } else {
                 showNotificationIconArea(animate);
-                showCarrierName(animate);
+                showLeftClock(animate);
             }
         }
     }
@@ -276,6 +280,16 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (((Clock)mLeftClock).isEnabled()) {
             animateShow(mLeftClock, animate);
         }
+    }
+
+    public void hideLeftClock(boolean animate) {
+        if (mLeftClock != null) {
+            animateHide(mLeftClock, animate, false);
+        }
+    }
+
+    public void showLeftClock(boolean animate) {
+        updateClockStyle(animate);
     }
 
     /**
