@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16cc5dae_0ddbe153",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-12T01:50:44Z",
+      "side": 1,
+      "message": "Err, why did this change to static?",
+      "range": {
+        "startLine": 43,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "f0d0374823340de6b4661d74d714ec2b6f2ec256",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
