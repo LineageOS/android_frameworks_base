@@ -22,6 +22,30 @@
       "revId": "f0d0374823340de6b4661d74d714ec2b6f2ec256",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2c8bfc3_8bad6dc3",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-02-12T01:52:19Z",
+      "side": 1,
+      "message": "So that if the server is updated by refreshing the resources in one instance of NtpTrustedTime, the server is updated in all instances of NtpTrustedTime. It prevents stale servers.",
+      "parentUuid": "16cc5dae_0ddbe153",
+      "range": {
+        "startLine": 43,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "f0d0374823340de6b4661d74d714ec2b6f2ec256",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
