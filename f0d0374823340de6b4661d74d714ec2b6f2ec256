@@ -70,6 +70,30 @@
       "revId": "f0d0374823340de6b4661d74d714ec2b6f2ec256",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62c6a1f8_3d29edde",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-02-12T02:15:48Z",
+      "side": 1,
+      "message": "Ah, missed that. Thanks.",
+      "parentUuid": "eb64cce3_4851eae1",
+      "range": {
+        "startLine": 43,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "f0d0374823340de6b4661d74d714ec2b6f2ec256",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
