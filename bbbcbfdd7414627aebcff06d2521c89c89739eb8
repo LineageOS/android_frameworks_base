@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "537ab970_48ff8223",
+        "filename": "proto/src/metrics_constants.proto",
+        "patchSetId": 1
+      },
+      "lineNbr": 4576,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-02-13T13:01:29Z",
+      "side": 1,
+      "message": "Use the constants from lineage sdk",
+      "revId": "bbbcbfdd7414627aebcff06d2521c89c89739eb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
