@@ -103,8 +103,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUSBAR_CLOCK_DATE_FORMAT),
                     false, this, UserHandle.USER_ALL);
-            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUSBAR_CLOCK_STYLE),
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUSBAR_CLOCK_DATE_POSITION),
                     false, this, UserHandle.USER_ALL);
         }
 
@@ -220,10 +220,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if ((diff1 & DISABLE_NOTIFICATION_ICONS) != 0) {
             if ((state1 & DISABLE_NOTIFICATION_ICONS) != 0) {
                 hideNotificationIconArea(animate);
-                hideLeftClock(animate);
             } else {
                 showNotificationIconArea(animate);
-                showLeftClock(animate);
             }
         }
     }
@@ -257,7 +255,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     }
 
     public void hideSystemIconArea(boolean animate) {
-        animateHide(mSystemIconArea, animate);
+        animateHide(mSystemIconArea, animate, true);
         animateHide(mCenterClockLayout, animate, true);
     }
 
@@ -267,7 +265,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     }
 
     public void hideNotificationIconArea(boolean animate) {
-        animateHide(mNotificationIconAreaInner, animate);
+        animateHide(mNotificationIconAreaInner, animate, true);
         animateHide(mCenterClockLayout, animate, true);
         if (((Clock)mLeftClock).isEnabled()) {
             animateHide(mLeftClock, animate, true);
@@ -282,24 +280,14 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
     }
 
-    public void hideLeftClock(boolean animate) {
-        if (mLeftClock != null) {
-            animateHide(mLeftClock, animate, false);
-        }
-    }
-
-    public void showLeftClock(boolean animate) {
-        updateClockStyle(animate);
-    }
-
     /**
      * Hides a view.
      */
-    private void animateHide(final View v, boolean animate) {
+    private void animateHide(final View v, boolean animate, final boolean invisible)  {
         v.animate().cancel();
         if (!animate) {
             v.setAlpha(0f);
-            v.setVisibility(View.INVISIBLE);
+            v.setVisibility(invisible ? View.INVISIBLE : View.GONE);;
             return;
         }
         v.animate()
@@ -307,8 +295,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 .setDuration(160)
                 .setStartDelay(0)
                 .setInterpolator(Interpolators.ALPHA_OUT)
-                .withEndAction(() -> v.setVisibility(View.INVISIBLE));
-    }
+                .withEndAction(() -> v.setVisibility(invisible ? View.INVISIBLE : View.GONE));
+}
 
     /**
      * Shows a view, and synchronizes the animation with Keyguard exit animations, if applicable.
