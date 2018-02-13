@@ -100,45 +100,6 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     private boolean mShowSeconds;
     private Handler mSecondsHandler;
 
-    private SettingsObserver mSettingsObserver;
-
-    protected class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_CLOCK),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUSBAR_CLOCK_STYLE),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_CLOCK_SECONDS),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUSBAR_CLOCK_DATE_STYLE),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUSBAR_CLOCK_DATE_FORMAT),
-                    false, this, UserHandle.USER_ALL);
-            updateSettings();
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            updateSettings();
-        }
-    }
-
     public Clock(Context context) {
         this(context, null);
     }
@@ -189,12 +150,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         // The time zone may have changed while the receiver wasn't registered, so update the Time
         mCalendar = Calendar.getInstance(TimeZone.getDefault());
 
-        if (mSettingsObserver == null) {
-            mSettingsObserver = new SettingsObserver(new Handler());
-        }
-        mSettingsObserver.observe();
-        updateSettings();
-        updateShowSeconds();
+        updateStatus();
     }
 
     @Override
@@ -202,7 +158,6 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         super.onDetachedFromWindow();
         if (mAttached) {
             getContext().unregisterReceiver(mIntentReceiver);
-            getContext().getContentResolver().unregisterContentObserver(mSettingsObserver);
             mAttached = false;
             SysUiServiceProvider.getComponent(getContext(), CommandQueue.class)
                     .removeCallbacks(this);
@@ -248,12 +203,16 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         updateClockVisibility();
     }
 
+    public boolean isEnabled() {
+        return mClockStyle == STYLE_CLOCK_RIGHT && mShowClock
+                && mClockVisibleByPolicy && mClockVisibleByUser;
+    }
+
     protected void updateClockVisibility() {
         boolean visible = mClockStyle == STYLE_CLOCK_RIGHT && mShowClock
                 && mClockVisibleByPolicy && mClockVisibleByUser;
         Dependency.get(IconLogger.class).onIconVisibility("clock", visible);
-        int visibility = visible ? View.VISIBLE : View.GONE;
-        setVisibility(visibility);
+        setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     final void updateClock() {
@@ -423,7 +382,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         return formatted;
     }
 
-    protected void updateSettings() {
+    public void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
 
         mShowClock = Settings.System.getIntForUser(resolver,
@@ -454,8 +413,12 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                 Settings.System.STATUSBAR_CLOCK_DATE_STYLE, CLOCK_DATE_STYLE_REGULAR,
                 UserHandle.USER_CURRENT);
 
+        updateClockVisibility();
+        updateStatus();
+    }
+
+    private void updateStatus(){
         if (mAttached) {
-            updateClockVisibility();
             updateClock();
             updateShowSeconds();
         }
