@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "72b1ae5b_5e46d51c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/LocationTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-02-13T15:37:01Z",
+      "side": 1,
+      "message": "import android.content.Context;\nimport android.content.Intent;\nimport android.os.UserManager;\nimport android.provider.Settings;\nimport android.service.quicksettings.Tile;\nimport android.view.LayoutInflater;\nimport android.view.View;\nimport android.view.ViewGroup;\nimport android.widget.LinearLayout;\nimport android.widget.Switch;\nimport android.widget.TextView;",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "bbbcbfdd7414627aebcff06d2521c89c89739eb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4da2550_5a5d31e0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/LocationControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-02-13T15:37:01Z",
+      "side": 1,
+      "message": "not needed",
+      "revId": "bbbcbfdd7414627aebcff06d2521c89c89739eb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "537ab970_48ff8223",
         "filename": "proto/src/metrics_constants.proto",
         "patchSetId": 1
