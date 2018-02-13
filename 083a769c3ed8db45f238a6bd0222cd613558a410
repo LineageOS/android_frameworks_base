@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c0ba75b_94b2b8d8",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-13T04:22:30Z",
+      "side": 1,
+      "message": "Can be final",
+      "range": {
+        "startLine": 49,
+        "startChar": 20,
+        "endLine": 49,
+        "endChar": 36
+      },
+      "revId": "083a769c3ed8db45f238a6bd0222cd613558a410",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
