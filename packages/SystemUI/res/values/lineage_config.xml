@@ -28,4 +28,7 @@
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
+
+    <!-- Whether or not doze always on is enabled by default -->
+    <bool name="tuner_doze_always_on_def">true</bool>
 </resources>
