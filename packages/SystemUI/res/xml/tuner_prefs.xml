@@ -51,7 +51,7 @@
         <com.android.systemui.tuner.TunerSwitch
           android:key="doze_always_on"
           android:title="@string/tuner_doze_always_on"
-          sysui:defValue="true" />
+          sysui:defValue="@bool/tuner_doze_always_on_def" />
 
     </PreferenceScreen>
 
