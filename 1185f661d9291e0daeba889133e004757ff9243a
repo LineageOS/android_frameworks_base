@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1c4faf0_1b2d2cf4",
+        "filename": "core/java/android/os/BatteryProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-15T00:23:44Z",
+      "side": 1,
+      "message": "I think I\u0027d actually consider a separate type of parcelable, instead of putting these into BatteryProperties. BatteryManager can broadcast it\u0027s intent just as easily reading from a different parcelable type.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "1185f661d9291e0daeba889133e004757ff9243a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3044dc7_cd4f1d2d",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-15T00:23:44Z",
+      "side": 1,
+      "message": "So if there is no mod support, what is being put into these values?",
+      "range": {
+        "startLine": 574,
+        "startChar": 8,
+        "endLine": 577,
+        "endChar": 78
+      },
+      "revId": "1185f661d9291e0daeba889133e004757ff9243a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa5b2ea_b46b4b82",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-15T00:23:44Z",
+      "side": 1,
+      "message": "Don\u0027t put these at the top",
+      "range": {
+        "startLine": 582,
+        "startChar": 1,
+        "endLine": 585,
+        "endChar": 63
+      },
+      "revId": "1185f661d9291e0daeba889133e004757ff9243a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
