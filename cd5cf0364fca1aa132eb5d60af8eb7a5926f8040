@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "738a4c11_a0285bba",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4206,
+      "author": {
+        "id": 1358
+      },
+      "writtenOn": "2018-02-15T17:32:25Z",
+      "side": 1,
+      "message": "this part may not be necessary, did not try without it.\n\nbut it definitely doesn\u0027t hurt",
+      "revId": "cd5cf0364fca1aa132eb5d60af8eb7a5926f8040",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
