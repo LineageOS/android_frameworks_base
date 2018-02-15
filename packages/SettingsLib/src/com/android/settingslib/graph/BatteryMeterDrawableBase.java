@@ -620,7 +620,7 @@ public class BatteryMeterDrawableBase extends Drawable {
         if (!mCharging) {
             mTextPaint.setColor(getColorForLevel(level));
             final float full = 0.30f;
-            final float nofull =  0.48f;
+            final float nofull =  0.52f;
             final float single =  0.86f;
             mTextPaint.setTextSize(height *
                     (SINGLE_DIGIT_PERCENT ? single
