@@ -113,7 +113,6 @@ public class SignalClusterView extends LinearLayout implements NetworkController
     private final int mSecondaryTelephonyPadding;
     private final int mEndPadding;
     private final int mEndPaddingNothingVisible;
-    private final int mEndPaddingNoBattery;
     private final float mIconScaleFactor;
 
     private boolean mBlockAirplane;
@@ -148,7 +147,6 @@ public class SignalClusterView extends LinearLayout implements NetworkController
         mEndPadding = res.getDimensionPixelSize(R.dimen.signal_cluster_battery_padding);
         mEndPaddingNothingVisible = res.getDimensionPixelSize(
                 R.dimen.no_signal_cluster_battery_padding);
-        mEndPaddingNoBattery = res.getDimensionPixelSize(R.dimen.signal_cluster_no_battery_padding);
 
         TypedValue typedValue = new TypedValue();
         res.getValue(R.dimen.status_bar_icon_scale_factor, typedValue, true);
@@ -583,7 +581,7 @@ public class SignalClusterView extends LinearLayout implements NetworkController
 
         boolean anythingVisible = mNoSimsVisible || mWifiVisible || mIsAirplaneMode
                 || anyMobileVisible || mVpnVisible || mEthernetVisible;
-        setPaddingRelative(0, 0, mNoBattery ? mEndPaddingNoBattery : (anythingVisible ? mEndPadding : mEndPaddingNothingVisible), 0);
+        setPaddingRelative(0, 0, mNoBattery ? 0 : (anythingVisible ? mEndPadding : mEndPaddingNothingVisible), 0);
     }
 
     /**
