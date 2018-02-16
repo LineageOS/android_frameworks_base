@@ -78,6 +78,7 @@ public class WifiTile extends QSTileImpl<SignalState> {
 
     @Override
     public void handleSetListening(boolean listening) {
+        if (mController == null) return;
         if (listening) {
             mController.addCallback(mSignalCallback);
         } else {
