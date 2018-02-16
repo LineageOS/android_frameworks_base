@@ -22,6 +22,30 @@
       "revId": "2d6da34e493bc017d99dabc4a4d582282f36f55e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba76365a_39acb212",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-02-16T03:19:47Z",
+      "side": 1,
+      "message": "Baumann rewrote this part in which originally Danesh M. used Map and did not have the annotation. I think it is more a rule than a quota. We are manually setting switches to determine what apps can/cannot hava network access. Data saver however is somewhat automated when active and is related to the data quota whereas these are rules which block access altogether. Anyways, not sure what the annotation changes in the first place",
+      "parentUuid": "1b1001fe_92d2dadd",
+      "range": {
+        "startLine": 287,
+        "startChar": 4,
+        "endLine": 287,
+        "endChar": 28
+      },
+      "revId": "2d6da34e493bc017d99dabc4a4d582282f36f55e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
