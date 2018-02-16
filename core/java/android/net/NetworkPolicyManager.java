@@ -29,7 +29,6 @@ import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.os.RemoteException;
 import android.os.UserHandle;
-import android.telephony.SubscriptionPlan;
 import android.util.DebugUtils;
 import android.util.Pair;
 
@@ -54,6 +53,10 @@ public class NetworkPolicyManager {
     public static final int POLICY_REJECT_METERED_BACKGROUND = 0x1;
     /** Allow metered network use in the background even when in data usage save mode. */
     public static final int POLICY_ALLOW_METERED_BACKGROUND = 0x4;
+    /** Reject application network traffic on wifi network **/
+    public static final int POLICY_REJECT_ON_WIFI = 0x8000;
+    /** Reject application network traffic on cellular network **/
+    public static final int POLICY_REJECT_ON_DATA = 0x10000;
 
     /*
      * Rules defining whether an uid has access to a network given its type (metered / non-metered).
