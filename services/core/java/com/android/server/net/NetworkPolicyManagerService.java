@@ -49,6 +49,8 @@ import static android.net.NetworkPolicyManager.MASK_METERED_NETWORKS;
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_DATA;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_WLAN;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_ALL;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_METERED;
 import static android.net.NetworkPolicyManager.RULE_NONE;
@@ -3588,6 +3590,13 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         final boolean isWhitelisted = (uidPolicy & POLICY_ALLOW_METERED_BACKGROUND) != 0;
         final int oldRule = oldUidRules & MASK_METERED_NETWORKS;
         int newRule = RULE_NONE;
+
+        try {
+            mNetworkManager.restrictAppOnData(uid, (uidPolicy & POLICY_REJECT_ON_DATA) != 0);
+            mNetworkManager.restrictAppOnWlan(uid, (uidPolicy & POLICY_REJECT_ON_WLAN) != 0);
+        } catch (RemoteException e) {
+            // ignored; service lives in system_server
+        }
 
         // First step: define the new rule based on user restrictions and foreground state.
         if (isForeground) {
