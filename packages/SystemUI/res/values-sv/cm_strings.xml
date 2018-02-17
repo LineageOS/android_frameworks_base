@@ -107,10 +107,12 @@
   <string name="accessibility_quick_settings_location_high_accuracy">Platsrapportering: högt precisionsläge.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_battery_saving_label">Batterisparläge</string>
+  <string name="quick_settings_location_battery_saving_label_twoline">Batteri-\nsparläge</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">Endast enhet</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Hög noggrannhet</string>
+  <string name="quick_settings_location_high_accuracy_label_twoline">Hög\nnoggrannhet</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_detail_title">Plats</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
@@ -154,4 +156,12 @@
   <!-- Content description for Accessibility on unlocked tasks in recents -->
   <!-- Content description for Accessibility on locked tasks in recents -->
   <!-- LiveDisplay strings -->
+  <string name="live_display_off">Av</string>
+  <string name="live_display_day">Dag</string>
+  <string name="live_display_day_summary">Använd enbart dagläge</string>
+  <string name="live_display_night">Natt</string>
+  <string name="live_display_night_summary">Använd enbart nattläge</string>
+  <string name="live_display_outdoor">Utomhus (stark sol)</string>
+  <string name="live_display_outdoor_summary">Använd endast utomhusläge</string>
+  <string name="accessibility_quick_settings_live_display_off">LiveDisplay av.</string>
 </resources>

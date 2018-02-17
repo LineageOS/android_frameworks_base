@@ -198,4 +198,25 @@
   <!-- Content description for Accessibility on locked tasks in recents -->
   <string name="accessibility_unlock_task">Дозволити закривати додаток <xliff:g id="task">%1$s</xliff:g></string>
   <!-- LiveDisplay strings -->
+  <string name="live_display_auto">Автоматично</string>
+  <string name="live_display_auto_summary">Автоматична корекція температури кольору екрана після сходу та заходу сонця</string>
+  <string name="live_display_off">Вимкнуто</string>
+  <string name="live_display_off_summary">Вимкнути всі налаштування</string>
+  <string name="live_display_day">День</string>
+  <string name="live_display_day_summary">Використовувати лише налаштування режиму \"день\"</string>
+  <string name="live_display_night">Ніч</string>
+  <string name="live_display_night_summary">Використовувати лише налаштування режиму \"ніч\"</string>
+  <string name="live_display_outdoor">Надворі (яскраво)</string>
+  <string name="live_display_outdoor_summary">Використовувати лише налаштування \"надворі\"</string>
+  <string name="live_display_hint">LiveDisplay може допомогти зменшити навантаження на очі та допомогти вам спати по ночах. Натисніть тут, щоб спробувати його!</string>
+  <string name="accessibility_quick_settings_live_display_off">LiveDisplay вимкнений.</string>
+  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматичний режим.</string>
+  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: денний режим.</string>
+  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: нічний режим.</string>
+  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим на вулиці.</string>
+  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay вимкнено.</string>
+  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay змінено на \"автоматичний\" режим.</string>
+  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay змінено на \"денний\" режим.</string>
+  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay змінено на \"нічний\" режим.</string>
+  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay змінено на режим \"на вулиці\".</string>
 </resources>

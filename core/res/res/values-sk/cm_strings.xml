@@ -64,7 +64,7 @@
   <!-- App ops requests -->
   <string name="app_ops_access_camera">prístup k fotoparátu</string>
   <string name="app_ops_access_location">prístup k polohe</string>
-  <string name="app_ops_access_notifications">čítať oznámenia</string>
+  <string name="app_ops_access_notifications">čítať upozornenia</string>
   <string name="app_ops_activate_vpn">aktivovať VPN</string>
   <string name="app_ops_auto_start">spustiť pri štarte</string>
   <string name="app_ops_delete_call_log">vymazať denník hovorov</string>
