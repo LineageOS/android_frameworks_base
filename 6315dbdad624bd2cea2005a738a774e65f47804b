@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab5413f9_26eb7320",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/drawer/SettingsDrawerActivity.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-02-17T22:02:27Z",
+      "side": 1,
+      "message": "This should probably be indented as well",
+      "revId": "6315dbdad624bd2cea2005a738a774e65f47804b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
