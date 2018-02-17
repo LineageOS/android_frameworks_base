@@ -16,6 +16,24 @@
       "revId": "cd5cf0364fca1aa132eb5d60af8eb7a5926f8040",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de9ee589_7ba5a8cf",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4206,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-17T21:42:28Z",
+      "side": 1,
+      "message": "It\u0027s necessary. The new values don\u0027t get updated otherwise.",
+      "parentUuid": "738a4c11_a0285bba",
+      "revId": "cd5cf0364fca1aa132eb5d60af8eb7a5926f8040",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
