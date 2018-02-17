@@ -75,11 +75,13 @@ public class SettingsDrawerActivity extends Activity {
         mContentHeaderContainer = (FrameLayout) findViewById(R.id.content_header_container);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.action_bar);
-        if (theme.getBoolean(android.R.styleable.Theme_windowNoTitle, false)) {
-            toolbar.setVisibility(View.GONE);
-            return;
+        if (toolbar != null) {
+            if (theme.getBoolean(android.R.styleable.Theme_windowNoTitle, false)) {
+                toolbar.setVisibility(View.GONE);
+                return;
+            }
+            setActionBar(toolbar);
         }
-        setActionBar(toolbar);
 
         if (DEBUG_TIMING) {
             Log.d(TAG, "onCreate took " + (System.currentTimeMillis() - startTime)
