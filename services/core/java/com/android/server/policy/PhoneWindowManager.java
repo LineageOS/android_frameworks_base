@@ -1141,7 +1141,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(LineageSettings.Secure.getUriFor(
                     LineageSettings.Secure.KILL_APP_LONGPRESS_BACK), false, this,
-	    resolver.registerContentObserver(Settings.System.getUriFor(
+                    UserHandle.USER_ALL);
+	        resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.THREE_FINGER_GESTURE), false, this,
                     UserHandle.USER_ALL);
             updateSettings();
