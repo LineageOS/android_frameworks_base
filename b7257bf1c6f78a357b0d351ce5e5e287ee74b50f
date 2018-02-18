@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57236e21_15d972d6",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-02-18T00:20:55Z",
+      "side": 1,
+      "message": "not sure whether this should be mQuotaLock or mRulesLock",
+      "range": {
+        "startLine": 264,
+        "startChar": 16,
+        "endLine": 264,
+        "endChar": 26
+      },
+      "revId": "b7257bf1c6f78a357b0d351ce5e5e287ee74b50f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "086cbfd0_de0493e3",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-02-18T00:20:55Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 267,
+        "startChar": 16,
+        "endLine": 267,
+        "endChar": 26
+      },
+      "revId": "b7257bf1c6f78a357b0d351ce5e5e287ee74b50f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
