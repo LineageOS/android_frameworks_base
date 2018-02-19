@@ -4572,7 +4572,7 @@ message MetricsEvent {
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
 
-    // Project NucleaRom custom constants
+    // Nuclear settings custom constants
     NR_SETTINGS = 1500;
   }
 }
