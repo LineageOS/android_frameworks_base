@@ -67,7 +67,6 @@ class ScreenRotationAnimation {
     BlackFrame mExitingBlackFrame;
     BlackFrame mEnteringBlackFrame;
     int mWidth, mHeight;
-    int mSnapshotRotation;
 
     int mOriginalRotation;
     int mOriginalWidth, mOriginalHeight;
@@ -241,26 +240,13 @@ class ScreenRotationAnimation {
             originalWidth = displayInfo.logicalWidth;
             originalHeight = displayInfo.logicalHeight;
         }
-        // Allow for abnormal hardware orientation
-        mSnapshotRotation = (4 - android.os.SystemProperties.getInt("ro.sf.hwrotation", 0) / 90) % 4;
-        if (mSnapshotRotation == Surface.ROTATION_0 || mSnapshotRotation == Surface.ROTATION_180) {
-            if (originalRotation == Surface.ROTATION_90
-                 || originalRotation == Surface.ROTATION_270) {
-                mWidth = originalHeight;
-                mHeight = originalWidth;
-            } else {
-                mWidth = originalWidth;
-                mHeight = originalHeight;
-            }
-        } else {
-            if (originalRotation == Surface.ROTATION_90
+        if (originalRotation == Surface.ROTATION_90
                 || originalRotation == Surface.ROTATION_270) {
-                mWidth = originalWidth;
-                mHeight = originalHeight;
-            } else {
-                mWidth = originalHeight;
-                mHeight = originalWidth;
-            }
+            mWidth = originalHeight;
+            mHeight = originalWidth;
+        } else {
+            mWidth = originalWidth;
+            mHeight = originalHeight;
         }
 
         mOriginalRotation = originalRotation;
@@ -378,7 +364,7 @@ class ScreenRotationAnimation {
         // Compute the transformation matrix that must be applied
         // to the snapshot to make it stay in the same original position
         // with the current screen rotation.
-        int delta = DisplayContent.deltaRotation(rotation, mSnapshotRotation);
+        int delta = DisplayContent.deltaRotation(rotation, Surface.ROTATION_0);
         createRotationMatrix(delta, mWidth, mHeight, mSnapshotInitialMatrix);
 
         if (DEBUG_STATE) Slog.v(TAG, "**** ROTATION: " + delta);
