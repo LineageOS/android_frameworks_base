@@ -558,10 +558,12 @@ public final class ColorDisplayController {
     }
 
     /**
-     * Returns {@code true} if Night display is supported by the device.
+     * Returns {@code true} if Night display is supported by the device,
+     * unless LiveDisplay feature is available.
      */
     public static boolean isAvailable(Context context) {
-        return context.getResources().getBoolean(R.bool.config_nightDisplayAvailable);
+        return context.getResources().getBoolean(R.bool.config_nightDisplayAvailable) &&
+                !context.getPackageManager().hasSystemFeature("org.lineageos.livedisplay");
     }
 
     /**
