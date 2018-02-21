@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23d53ece_3d127f74",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-21T05:19:58Z",
+      "side": 1,
+      "message": "privileged ?",
+      "range": {
+        "startLine": 1324,
+        "startChar": 43,
+        "endLine": 1324,
+        "endChar": 53
+      },
+      "revId": "37d2c612aeab7ca6537d4f92faac5ce52e14262f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b9f3e61_57f01238",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 3532,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-21T05:19:58Z",
+      "side": 1,
+      "message": "privileged ?",
+      "range": {
+        "startLine": 3532,
+        "startChar": 43,
+        "endLine": 3532,
+        "endChar": 53
+      },
+      "revId": "37d2c612aeab7ca6537d4f92faac5ce52e14262f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
