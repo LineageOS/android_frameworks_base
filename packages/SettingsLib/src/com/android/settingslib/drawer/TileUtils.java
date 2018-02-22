@@ -186,6 +186,13 @@ public class TileUtils {
     public static final String META_DATA_PREFERENCE_CUSTOM_VIEW =
             "com.android.settings.custom_view";
 
+    /**
+     * Name of the meta-data item that should be set in the AndroidManifest.xml to specify
+     * one or more system features as dependency for the preference.
+     */
+    public static final String META_DATA_REQUIRE_FEATURE =
+            "com.android.settings.require_feature";
+
     public static final String SETTING_PKG = "com.android.settings";
 
     public static final String LINEAGE_SETTING_PKG = "org.lineageos.lineageparts";
@@ -383,6 +390,10 @@ public class TileUtils {
                 tile.metaData = activityInfo.metaData;
                 updateTileData(context, tile, activityInfo, activityInfo.applicationInfo,
                         pm, providerMap, forceTintExternalIcon);
+                if (!tile.metsDependencies) {
+                    if (DEBUG) Log.d(LOG_TAG, "Skipping tile " + tile.title);
+                    continue;
+                }
                 if (DEBUG) Log.d(LOG_TAG, "Adding tile " + tile.title);
                 addedCache.put(key, tile);
             } else if (shouldUpdateTiles) {
@@ -409,6 +420,7 @@ public class TileUtils {
             String summary = null;
             String keyHint = null;
             boolean isIconTintable = false;
+            boolean metsDependencies = true;
 
             // Get the activity's meta-data
             try {
@@ -496,6 +508,21 @@ public class TileUtils {
             // Suggest a key for this tile
             tile.key = keyHint;
             tile.isIconTintable = isIconTintable;
+
+            // Check if all dependencies are met for the preference
+            String featuresRequired = activityInfo.metaData.getString(META_DATA_REQUIRE_FEATURE);
+            if (featuresRequired != null) {
+                for (String feature : featuresRequired.split(",")) {
+                    if (TextUtils.isEmpty(feature)) {
+                        Log.w(LOG_TAG, "Found empty substring when parsing required features: "
+                            + featuresRequired);
+                    } else if (!context.getPackageManager().hasSystemFeature(feature)) {
+                        Log.i(LOG_TAG, tile.title + " requires unavailable feature " + feature);
+                        metsDependencies = false;
+                    }
+                }
+            }
+            tile.metsDependencies = metsDependencies;
 
             return true;
         }

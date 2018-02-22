@@ -96,6 +96,12 @@ public class Tile implements Parcelable {
      */
     public RemoteViews remoteViews;
 
+    /**
+     * Whether the tile mets all dependencies. The activity that defines a tile
+     * can have one or more system features defined as dependency.
+     */
+    public boolean metsDependencies;
+
     public Tile() {
         // Empty
     }
