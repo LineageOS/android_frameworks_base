@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fced9b81_caca1fec",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 15402
+      },
+      "writtenOn": "2018-02-23T08:18:31Z",
+      "side": 1,
+      "message": "The last hunk of the original patch is missing at this\npoint in the file.  Thus it\u0027s missing to set mButtonOn\nto false here.",
+      "revId": "180d28f54616052722570a82f56ab916c2093729",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
