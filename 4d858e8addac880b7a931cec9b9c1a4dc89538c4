@@ -22,6 +22,24 @@
       "revId": "4d858e8addac880b7a931cec9b9c1a4dc89538c4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e0d9321_1ecfad10",
+        "filename": "telephony/java/android/telephony/TelephonyManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1682,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-02-23T12:46:51Z",
+      "side": 1,
+      "message": "It\u0027s the same in the original commit submitted to aosp",
+      "parentUuid": "4072c104_b6b38ed9",
+      "revId": "4d858e8addac880b7a931cec9b9c1a4dc89538c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
