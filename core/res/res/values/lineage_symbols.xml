@@ -42,9 +42,6 @@
     <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
     <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 
-    <!-- Whether light up buttons only when pressed -->
-    <java-symbol type="bool" name="config_buttonLightOnKeypressOnly" />
-
     <!-- Privacy Guard -->
     <java-symbol type="drawable" name="stat_notify_privacy_guard" />
     <java-symbol type="string" name="privacy_guard_notification" />

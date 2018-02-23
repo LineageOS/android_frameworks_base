@@ -875,6 +875,9 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(LineageSettings.Secure.getUriFor(
                 LineageSettings.Secure.BUTTON_BACKLIGHT_TIMEOUT),
                 false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                LineageSettings.System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED),
+                false, mSettingsObserver, UserHandle.USER_ALL);
         IVrManager vrManager = (IVrManager) getBinderService(Context.VR_SERVICE);
         if (vrManager != null) {
             try {
@@ -953,8 +956,6 @@ public final class PowerManagerService extends SystemService
             mProximityWakeLock = mContext.getSystemService(PowerManager.class)
                     .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ProximityWakeLock");
         }
-        mButtonLightOnKeypressOnly = resources.getBoolean(
-                com.android.internal.R.bool.config_buttonLightOnKeypressOnly);
     }
 
     private void updateSettingsLocked() {
@@ -1048,6 +1049,9 @@ public final class PowerManagerService extends SystemService
         mButtonBrightness = LineageSettings.Secure.getIntForUser(resolver,
                 LineageSettings.Secure.BUTTON_BRIGHTNESS, mButtonBrightnessSettingDefault,
                 UserHandle.USER_CURRENT);
+        mButtonLightOnKeypressOnly = LineageSettings.System.getIntForUser(resolver,
+                LineageSettings.System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED,
+                0, UserHandle.USER_CURRENT) == 1;
 
         mDirty |= DIRTY_SETTINGS;
     }
