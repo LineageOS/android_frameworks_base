@@ -579,7 +579,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             boolean visible = LineageSettings.Global.getIntForUser(mContext.getContentResolver(),
                     LineageSettings.Global.DEV_FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) == 1;
 
-            if (visible) {
+            if (visible && mNavigationBarView == null) {
                 createNavigationBar();
             } else if (mNavigationBarView != null) {
                 mWindowManager.removeViewImmediate(mNavigationBarView);
