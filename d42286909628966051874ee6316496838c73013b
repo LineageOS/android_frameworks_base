@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96e671e5_8f4d307f",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-24T18:59:49Z",
+      "side": 1,
+      "message": "Shouldn\u0027t fast charge report a wattage that is above the fast threshold anyway?",
+      "range": {
+        "startLine": 973,
+        "startChar": 16,
+        "endLine": 973,
+        "endChar": 35
+      },
+      "revId": "d42286909628966051874ee6316496838c73013b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26a148fd_d9a19617",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-24T18:59:49Z",
+      "side": 1,
+      "message": "What about stats paths that don\u0027t return \"1\" ?",
+      "range": {
+        "startLine": 621,
+        "startChar": 21,
+        "endLine": 621,
+        "endChar": 22
+      },
+      "revId": "d42286909628966051874ee6316496838c73013b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
