@@ -46,7 +46,7 @@
   <string name="app_ops_app_start_foreground">在前台启动瞬时应用</string>
   <string name="app_ops_assist_screenshot">屏幕截图</string>
   <string name="app_ops_assist_structure">使用协助结构</string>
-  <string name="app_ops_audio_accessibility_volume">音频辅助功能类音量</string>
+  <string name="app_ops_audio_accessibility_volume">音频辅助功能音量</string>
   <string name="app_ops_auto_start">开机自启动</string>
   <string name="app_ops_change_wallpaper">更改壁纸</string>
   <string name="app_ops_delete_call_log">删除您的所有通话记录</string>

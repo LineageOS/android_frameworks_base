@@ -67,7 +67,7 @@
   <string name="app_ops_modify_settings">actualizar ajustes del sistema</string>
   <string name="app_ops_mute_unmute_microphone">activar/desactivar el micrófono</string>
   <string name="app_ops_phone_calls">contestar llamadas telefónicas</string>
-  <string name="app_ops_picture_in_picture">usar picture in picture</string>
+  <string name="app_ops_picture_in_picture">usar «Picture-in-Picture»</string>
   <string name="app_ops_play_audio">reproducir audio</string>
   <string name="app_ops_post_notification">publicar una notificación</string>
   <string name="app_ops_project_media">proyectar multimedia</string>
