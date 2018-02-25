@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "482f6bc7_60f132c5",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogControllerImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-25T23:07:12Z",
+      "side": 1,
+      "message": "Actually could be simplified to be for (ToneGenerator toneGen : mToneGenerators), if the ordering isn\u0027t required. (It looks like this goes backwards for some reason)",
+      "range": {
+        "startLine": 861,
+        "startChar": 13,
+        "endLine": 861,
+        "endChar": 60
+      },
+      "revId": "6cc6b96520e4d152dc7225eceb1b38419ac92989",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
