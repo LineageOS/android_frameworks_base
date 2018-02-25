@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98d88480_a7a9f5d4",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-25T20:40:30Z",
+      "side": 1,
+      "message": "You could probably just use mToneGenerators.length instead of fetching the number of stream types.",
+      "range": {
+        "startLine": 861,
+        "startChar": 8,
+        "endLine": 861,
+        "endChar": 61
+      },
+      "revId": "ba61d84eafdfd3a7b1f8f7dc70adb6d3668c3759",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d267d0_9ff29442",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-25T20:40:30Z",
+      "side": 1,
+      "message": "What\u0027s the synchronization for? It doesn\u0027t look like there\u0027s any other synchronization when accessing mToneGenerators.",
+      "range": {
+        "startLine": 886,
+        "startChar": 22,
+        "endLine": 886,
+        "endChar": 26
+      },
+      "revId": "ba61d84eafdfd3a7b1f8f7dc70adb6d3668c3759",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
