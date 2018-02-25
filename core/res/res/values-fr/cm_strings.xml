@@ -77,6 +77,7 @@
   <string name="app_ops_read_contacts">lire vos contacts</string>
   <string name="app_ops_read_external_storage">lire le stockage externe</string>
   <string name="app_ops_read_mms">lire vos messages MMS</string>
+  <string name="app_ops_read_phone_numbers">lire les numéros de téléphone</string>
   <string name="app_ops_read_phone_state">accéder à l\'état du téléphone</string>
   <string name="app_ops_read_sms">lire vos messages SMS</string>
   <string name="app_ops_receive_sms">recevoir un SMS</string>

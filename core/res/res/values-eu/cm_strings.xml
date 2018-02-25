@@ -43,8 +43,10 @@
   <string name="app_ops_access_notifications">zure jakinarazpenak irakurri</string>
   <string name="app_ops_activate_vpn">VPN bat aktibatu</string>
   <string name="app_ops_add_voicemail">gehitu ahots postontzia</string>
+  <string name="app_ops_app_start_foreground">abiatu berehalako aplikazioa lehen planoan</string>
   <string name="app_ops_assist_screenshot">atera pantaila-argazki bat</string>
   <string name="app_ops_assist_structure">estruktura lagungarria erabili</string>
+  <string name="app_ops_audio_accessibility_volume">audio irisgarritasun bolumena</string>
   <string name="app_ops_auto_start">abioan exekutatu</string>
   <string name="app_ops_change_wallpaper">aldatu horma-irudia</string>
   <string name="app_ops_delete_call_log">zure dei egunkaria ezabatu</string>
@@ -54,6 +56,7 @@
   <string name="app_ops_draw_on_top">leihoak besteen gainetik marraztu</string>
   <string name="app_ops_get_accounts">eskuratu gailuaren kontuak</string>
   <string name="app_ops_get_usage_stats">aplikazioen erabilera estatistikak jaso</string>
+  <string name="app_ops_install_packages">instalatu paketeak</string>
   <string name="app_ops_keep_device_awake">gailua esnatuta mantendu</string>
   <string name="app_ops_make_phone_call">telefono dei bat egin</string>
   <string name="app_ops_mock_location">kokapena faltsutu</string>
@@ -63,6 +66,8 @@
   <string name="app_ops_modify_contacts">zure kontaktuak eguneratu</string>
   <string name="app_ops_modify_settings">eguneratu sistemaren ezarpenak</string>
   <string name="app_ops_mute_unmute_microphone">mikrofonoa mututu/desmututu</string>
+  <string name="app_ops_phone_calls">erantzun telefono deiak</string>
+  <string name="app_ops_picture_in_picture">erabili irudia irudian</string>
   <string name="app_ops_play_audio">soinua erreproduzitu</string>
   <string name="app_ops_post_notification">jakinarazpen bat argitaratu</string>
   <string name="app_ops_project_media">multimedia proiektatu</string>
@@ -73,6 +78,7 @@
   <string name="app_ops_read_contacts">zure kontaktuak irakurri</string>
   <string name="app_ops_read_external_storage">kanpo biltegiratzea irakurri</string>
   <string name="app_ops_read_mms">zure MMS mezuak irakurri</string>
+  <string name="app_ops_read_phone_numbers">irakurri telefono zenbakiak</string>
   <string name="app_ops_read_phone_state">telefonoaren egoera atzitu</string>
   <string name="app_ops_read_sms">zure SMS mezuak irakurri</string>
   <string name="app_ops_receive_sms">SMS mezu bat jaso</string>
