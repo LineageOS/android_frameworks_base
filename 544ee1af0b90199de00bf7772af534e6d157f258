@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3edffd1_9889ef80",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-02-26T18:16:09Z",
+      "side": 1,
+      "message": "boolean",
+      "range": {
+        "startLine": 388,
+        "startChar": 12,
+        "endLine": 388,
+        "endChar": 15
+      },
+      "revId": "544ee1af0b90199de00bf7772af534e6d157f258",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc36c161_424b1047",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-02-26T18:16:09Z",
+      "side": 1,
+      "message": "\u003d\u003d 1",
+      "revId": "544ee1af0b90199de00bf7772af534e6d157f258",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5a9d011_ac7676fc",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1844,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-02-26T18:16:09Z",
+      "side": 1,
+      "message": "!mWakeUpWhenPluggedOrUnpluggedSetting",
+      "range": {
+        "startLine": 1844,
+        "startChar": 12,
+        "endLine": 1844,
+        "endChar": 54
+      },
+      "revId": "544ee1af0b90199de00bf7772af534e6d157f258",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
