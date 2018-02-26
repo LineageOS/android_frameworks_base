@@ -44,7 +44,7 @@
   <string name="mmiError">Problema de conexón o códigu MMI non válidu.</string>
   <!-- Displayed when the user dialed an MMI code whose function
          could not be performed because FDN is enabled. This will be displayed in a toast. -->
-  <string name="mmiFdnError">La operación ta torgada namái a númberos de marcación fíxa.</string>
+  <string name="mmiFdnError">La operación ta torgada namái a númberos de marcación fixa.</string>
   <!-- Displayed when a carrier does not support call forwarding queries when roaming. -->
   <string name="mmiErrorWhileRoaming">Nun pues camudar l\'esvíu de llamaes del teléfonu mentanto teas n\'intinerancia.</string>
   <!-- Displayed when a phone feature such as call barring was activated. -->
@@ -79,6 +79,10 @@
   <!-- Displayed when user attempts to change SIM PIN1 without enabling PIN1. -->
   <string name="enablePin">Fallu, activar bloquéu de SIM/RUIM.</string>
   <!-- Displayed when a SIM PIN/PUK is entered incorrectly. -->
+  <plurals name="pinpuk_attempts">
+    <item quantity="one">Quédate <xliff:g id="number">%d</xliff:g> intentu pa bloquiar la tarxeta SIM.</item>
+    <item quantity="other">Quédente <xliff:g id="number">%d</xliff:g> intentos pa bloquiar la tarxeta SIM.</item>
+  </plurals>
   <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
   <string name="imei">IMEI</string>
   <!-- Title for the dialog used to display the user's MEID number on CDMA network
@@ -91,6 +95,7 @@
   <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID. -->
   <string name="ColpMmi">ID de llinia coneutada</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID restriction. -->
+  <string name="ColrMmi">Restricción d\'ID de llinia coneutada</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling call forwarding. -->
   <string name="CfMmi">Esvíu de llamaes</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling call waiting. -->
@@ -116,6 +121,7 @@
   <!-- Displayed to confirm to the user that caller ID will not be restricted on the next call or in general. -->
   <string name="CLIRDefaultOffNextCallOff">ID d\'emisor predeterminada a NON TORGÁU. Llamada siguiente: NON TORGÁU</string>
   <!-- Displayed to tell the user that caller ID is not provisioned for their SIM. -->
+  <string name="serviceNotProvisioned">Nun se forne\'l serviciu.</string>
   <!-- Displayed to tell the user that they cannot change the caller ID setting. -->
   <string name="CLIRPermanent">Nun pues camudar l\'axuste d\'ID d\'emisor.</string>
   <!-- Notification title to tell the user that data service is blocked by access control. -->
@@ -162,6 +168,7 @@
   <!-- Default roaming indicator text -->
   <string name="roamingText0">Indicador d\'itinerancia activáu</string>
   <string name="roamingText1">Indicador d\'itinerancia desactiváu</string>
+  <string name="roamingText2">Indicador d\'itinerancia que parpaguia</string>
   <string name="roamingText3">Fuera del vecindariu</string>
   <string name="roamingText4">Fuera del edificiu</string>
   <string name="roamingText5">Itinerancia - Sistema preferíu</string>
@@ -170,8 +177,10 @@
   <string name="roamingText8">Itinerancia - Sociu premium</string>
   <string name="roamingText9">Itinerancia - Funcionalidá completa del serviciu</string>
   <string name="roamingText10">Itinerancia - Funcionalidá parcial del serviciu</string>
+  <string name="roamingText11">Pancarta d\'itinerancia activada</string>
+  <string name="roamingText12">Pancarta d\'itinerancia desactivada</string>
   <!-- Displayed when WFC registration fails -->
-  <string name="wfcRegErrorTitle">Llamaes Wifi</string>
+  <string name="wfcRegErrorTitle">Llamaes Wi-Fi</string>
   <!-- WFC Operator Error Messages showed as alerts -->
   <!-- WFC Operator Error Messages showed as notifications -->
   <!-- Template for showing mobile network operator name while WFC is active -->
@@ -247,10 +256,14 @@
     supply an auth token without prompting the user to re-enter the
     password.  This is the text that will scroll through the
     notification bar (will be seen by the user as he uses another application). -->
+  <string name="notification_title">Fallu d\'aniciu de sesión pa <xliff:g id="account" example="foo@gmail.com">%1$s</xliff:g></string>
   <!-- Sync notifications -->
   <!-- A notification is shown when there is a sync error.  This is the text that will scroll through the notification bar (will be seen by the user as he uses another application). -->
+  <string name="contentServiceSync">Sincronización</string>
   <!-- A notification is shown when there is a sync error.  This is the title of the notification.  It will be seen in the pull-down notification tray. -->
+  <string name="contentServiceSyncNotificationTitle">Sincronización</string>
   <!-- A notification is shown when there is a sync error.  This is the message of the notification.  It describes the error, in this case is there were too many deletes. The argument is the type of content, for example Gmail or Calendar. It will be seen in the pull-down notification tray. -->
+  <string name="contentServiceTooManyDeletesNotificationDesc">Milenta desanicios de <xliff:g id="content_type">%s</xliff:g>.</string>
   <!-- If MMS discovers there isn't much space left on the device, it will show a toast with this message. -->
   <string name="low_memory" product="tablet">L\'almacenamientu de la tableta ta enllén. Desanicia dellos ficheros pa lliberar espaciu.</string>
   <!-- If MMS discovers there isn't much space left on the device, it will show a toast with this message. -->
@@ -302,7 +315,9 @@
   <!-- Button to turn on silent mode, within the Phone Options dialog -->
   <string name="silent_mode">Mou silenciu</string>
   <!-- Button to turn on the radio, within the Phone Options dialog -->
+  <string name="turn_on_radio">Habilitar conexón inalámbrica</string>
   <!-- Button to turn off the radio, within the Phone Options dialog -->
+  <string name="turn_off_radio">Inhabilitar conexón inalámbrica</string>
   <!-- Button to lock the screen, within the Phone Options dialog -->
   <string name="screen_lock">Bloquéu de pantalla</string>
   <!-- Button to turn off the phone, within the Phone Options dialog -->
@@ -310,6 +325,7 @@
   <!-- Spoken description for ringer silent option. [CHAR LIMIT=NONE] -->
   <string name="silent_mode_silent">Timbre desactiváu</string>
   <!-- Spoken description for ringer vibrate option. [CHAR LIMIT=NONE] -->
+  <string name="silent_mode_vibrate">Timbre en vibración</string>
   <!-- Spoken description for ringer normal option. [CHAR LIMIT=NONE] -->
   <string name="silent_mode_ring">Timbre activáu</string>
   <!-- Reboot to Recovery Progress Dialog. This is shown before it reboots to recovery. -->
@@ -318,6 +334,7 @@
   <string name="reboot_to_update_package">Procesando\'l paquete d\'anovamientu\u2026</string>
   <string name="reboot_to_update_reboot">Reaniciando\u2026</string>
   <!-- Reboot to Recovery for factory reset. -->
+  <string name="reboot_to_reset_title">Reafitamientu d\'axustes</string>
   <string name="reboot_to_reset_message">Reaniciando\u2026</string>
   <!-- Shutdown Progress Dialog. This is shown if the user chooses to power off the phone. -->
   <string name="shutdown_progress">Apagando\u2026</string>
@@ -372,8 +389,13 @@
   <!-- label for item that generates a bug report in the phone options dialog -->
   <string name="global_action_bug_report">Informe de fallos</string>
   <!-- Take bug report menu title [CHAR LIMIT=NONE] -->
+  <string name="bugreport_title">Creación d\'informe de fallos</string>
   <!-- Message in bugreport dialog describing what it does [CHAR LIMIT=NONE] -->
   <!-- TODO: remove if not used anymore -->
+  <string name="bugreport_message">Esto va recoyer información tocante al
+        estáu actual del preséu pa unviala como mensaxe de corréu. Va
+        entardar daque dende que se tresna l\'informe de fallu hasta que.
+        s\'unvia. Ten paciencia, por favor.</string>
   <!-- Title in the bugreport dialog for the interactive workflow. Should fit in one line. [CHAR LIMIT=30] -->
   <string name="bugreport_option_interactive_title">Informe interautivu</string>
   <!-- Summary in the bugreport dialog for the interactive workflow. [CHAR LIMIT=NONE] -->
@@ -383,6 +405,7 @@
   <!--  Toast message informing user in how many seconds a bugreport screenshot will be taken -->
   <!-- Format for build summary info [CHAR LIMIT=NONE] -->
   <!-- label for item that enables silent mode in phone options dialog -->
+  <string name="global_action_toggle_silent_mode">Mou silenciu</string>
   <!-- status message in phone options dialog for when silent mode is enabled -->
   <string name="global_action_silent_mode_on_status">El soníu ta DESACTIVÁU</string>
   <!-- status message in phone options dialog for when silent mode is disabled -->
@@ -482,7 +505,10 @@
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_sensors">acceder a los datos del sensor tocante a los tos signos vitales</string>
   <!-- Title for the capability of an accessibility service to retrieve window content. -->
+  <string name="capability_title_canRetrieveWindowContent">Recuperar conteníu de ventanes</string>
   <!-- Description for the capability of an accessibility service to retrieve window content. -->
+  <string name="capability_desc_canRetrieveWindowContent">Inspeiciona\'l conteníu de la ventana
+        cola que teas interactuando.</string>
   <!-- Title for the capability of an accessibility service to request touch exploration. -->
   <string name="capability_title_canRequestTouchExploration">Activar esploración con toques</string>
   <!-- Description for the capability of an accessibility service to request touch exploration. -->
@@ -528,6 +554,7 @@
   <string name="permdesc_uninstall_shortcut">Permite que l\'aplicación desanicie accesos direutos
         de la pantalla d\'aniciu ensin la intervención del usuariu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_processOutgoingCalls">redirixir llamaes salientes</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_processOutgoingCalls">Permite que l\'aplicación vea\'l
         númberu que se marca nuna llamada saliente cola opción de redirixila
@@ -559,26 +586,44 @@
      Esto podría resultar en cargos inesperaos. Les aplicaciones malicioses podríen
      costate dineru unviando mensaxes ensin la to confirmación.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readSms">lleer los tos mensaxes de testu (SMS o MMS)</string>
+  <string name="permlab_readSms">lleer los mensaxes de testu (SMS o MMS)</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_receiveWapPush">recibir mensaxes de testu (WAP)</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_receiveWapPush">Permite que l\'aplicación reciba y procese
+     mensaxes WAP.  Esti permisu inclúi l\'habilidá de supervisar o desaniciar
+     mensaxes que t\'unvien ensin amosátelos.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_getTasks">recuperar aplicaciones n\'execución</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_getTasks">Permite que l\'aplicación recupere información
+       tocante a les xeres que tean n\'execución o que lo ficieren apocayá.
+       Esto podría permitir descubrir información tocante a les aplicaciones
+       que s\'usen nel preséu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_manageProfileAndDeviceOwners">xestionar perfiles y dueños del preséu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to set the profile/device owners.
      [CHAR LIMIT=NONE] -->
+  <string name="permdesc_manageProfileAndDeviceOwners">Permite que les aplicaciones afiten dueños de perfiles y el dueñu del preséu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_reorderTasks">reorganizar aplicaciones n\'execución</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_reorderTasks">Permite que l\'aplicación mueva xeres
+      al primer o segundu planu.  L\'aplicación podría facer esto autónomamente.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_enableCarMode">activar mou coche</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_enableCarMode">Permite que l\'aplicación
+        active\'l mou coche.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_killBackgroundProcesses">zarrar otres aplicaciones</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_killBackgroundProcesses">Permite que l\'aplicación
+      fine procesos en segundu planu d\'otres aplicaciones. Esto podría causar
+      qu\'otres aplicaciones dexen d\'executase.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -586,18 +631,39 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_persistentActivity">facer que l\'aplicación s\'execute siempres</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_persistentActivity" product="tablet">Permite que l\'aplicación faiga persistentes na memoria partes de sigo mesma.  Esto pue llendar la memoria disponible pa otres aplicaciones volviendo lenta la tableta.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_persistentActivity" product="tv">Permite que l\'aplicación faiga persistentes na memoria partes de sigo mesma.  Esto pue llendar la memoria disponible pa otres aplicaciones volviendo lenta la TV.</string>
+  <string name="permdesc_persistentActivity" product="default">Permite que l\'aplicación faiga persistentes na memoria partes de sigo mesma.  Esto pue llendar la memoria disponible pa otres aplicaciones volviendo lentu\'l teléfonu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_getPackageSize">midir l\'espaciu d\'almacenamientu de l\'aplicación</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_getPackageSize">Permite que l\'aplicación recupere\'l so códigu, los datos y los tamaños de la caché.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_writeSettings">modificar axustes del sistema</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeSettings">Permite que l\'aplicación modifique
+        los datos de los axustes del sistema. Les aplicaciones malicioses
+        podríen toyer la configuración del sistema.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_receiveBootCompleted">executase nel aniciu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_receiveBootCompleted" product="tablet">Permite que l\'aplicación
+        s\'anicie sola namái que\'l sistema termine d\'arrancar.
+        Esto pue facer que la tableta entarde más en prender y permita
+        que l\'aplicación vuelva lenta la tableta executándose de mou continuu.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_receiveBootCompleted" product="tv">Permite que l\'aplicación
+        s\'anicie sola namái que\'l sistema termine d\'arrancar.
+        Esto pue facer que la TV entarde más en prender y permita
+        que l\'aplicación vuelva lenta la tableta executándose de mou continuu.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_receiveBootCompleted" product="default">Permite que l\'aplicación
+        s\'anicie sola namái que\'l sistema termine d\'arrancar.
+        Esto pue facer que\'l teléfonu entarde más en prender y permita
+        que l\'aplicación vuelva lenta la tableta executándose de mou continuu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -605,22 +671,63 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readContacts">lleer los contautos</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readContacts" product="tablet">Permite que l\'aplicación llea
+      datos tocante a los contautos atroxaos na tableta, incluyendo la frecuencia
+      cola que-yos unvies correos, los llames o comuniques con ellos d\'otru mou.
+      Esti permisu tamién-y permite guardar los tos datos de contautu, y les
+      aplicaciones malicioses podríen compartir datos de contautu ensin la to
+      conocencia.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readContacts" product="tv">Permite que l\'aplicación llea
+      datos tocante a los contautos atroxaos na TV, incluyendo la frecuencia
+      cola que-yos unvies correos, los llames o comuniques con ellos d\'otru mou.
+      Esti permisu tamién-y permite guardar los tos datos de contautu, y les
+      aplicaciones malicioses podríen compartir datos de contautu ensin la to
+      conocencia.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readContacts" product="default">Permite que l\'aplicación llea
+      datos tocante a los contautos atroxaos nel teléfonu, incluyendo la frecuencia
+      cola que-yos unvies correos, los llames o comuniques con ellos d\'otru mou.
+      Esti permisu tamién-y permite guardar los tos datos de contautu, y les
+      aplicaciones malicioses podríen compartir datos de contautu ensin la to
+      conocencia.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_writeContacts">modificar los contautos</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeContacts" product="tablet">Permite que l\'aplicación
+      modifique los datos tocante a los contautos atroxaos na tableta,
+      incluyendo la frecuencia cola que llamesti o te comuniquesti d\'otra forma
+      con contautos específicos. Esti permisu permite a les aplicaciones desaniciar
+      datos de los contautos.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeContacts" product="tv">Permite que l\'aplicación
+      modifique los datos tocante a los contautos atroxaos na TV, incluyendo la
+      frecuencia cola que llamesti o te comuniquesti d\'otra forma con contautos
+      específicos. Esti permisu permite a les aplicaciones desaniciar datos de los
+      contautos.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeContacts" product="default">Permite que l\'aplicación
+      modifique los datos tocante a los contautos atroxaos nel teléfonu,
+      incluyendo la frecuencia cola que llamesti o te comuniquesti d\'otra forma
+      con contautos específicos. Esti permisu permite a les aplicaciones desaniciar
+      datos de los contautos.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readCallLog">lleer el rexistru de llamaes</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_writeCallLog">escribir nel rexistru de llamaes</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeCallLog" product="tablet">Permite que les aplicaciones modifiquen el rexistru de llamaes de la tableta, incluyendo datos tocante a llamaes entrantes y salientes.
+        Les aplicaciones malicioses podríen usar esto pa desaniciar o modificar el rexistru de de llamaes.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeCallLog" product="tv">Permite que les aplicaciones modifiquen el rexistru de llamaes de la TV, incluyendo datos tocante a llamaes entrantes y salientes.
+        Les aplicaciones malicioses podríen usar esto pa desaniciar o modificar el rexistru de de llamaes.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeCallLog" product="default">Permite que les aplicaciones modifiquen el rexistru de llamaes del teléfonu, incluyendo datos tocante a llamaes entrantes y salientes.
+        Les aplicaciones malicioses podríen usar esto pa desaniciar o modificar el rexistru de de llamaes.</string>
   <!-- Title of the body sensors permission, listed so the user can decide whether to allow the application to access body sensor data. [CHAR LIMIT=80] -->
+  <string name="permlab_bodySensors">acceder a sensores corporales
+    </string>
   <!-- Description of the body sensors permission, listed so the user can decide whether to allow the application to access data from body sensors. [CHAR LIMIT=NONE] -->
   <string name="permdesc_bodySensors" product="default">Permite que l\'aplicación acceda a datos de los sensores
     que supervisen la to condición física como los pulseos.</string>
@@ -629,39 +736,63 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_writeCalendar">amestar o modificar eventos del calendariu y unviar correos a convidaos ensin la conocencia del dueñu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the applicatfion to do this. -->
+  <string name="permlab_accessLocationExtraCommands">acceder a comandos adicionales del fornidor d\'allugamientu</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessLocationExtraCommands">Permite que l\'aplicación acceda
+        a comandos aidicionales del fornidor d\'allugamientu.  Esto podría
+        permiti-y interferir nel funcionamientu del GPS y otes fontes d\'allugamientu.</string>
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_accessFineLocation">acceder al allugamientu precisu
+      (basáu na rede y GPS)</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_accessCoarseLocation">acceder al allugamientu aproximáu
+      (basáu na rede)</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_modifyAudioSettings">camudar los axustes d\'audiu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_modifyAudioSettings">Permite que l\'aplicación modifique los axustes globales d\'audiu como\'l volume o l\'altavoz que s\'usa pa la salida.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_recordAudio">grabar audiu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_sim_communication">unviar comandos a la SIM</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_sim_communication">Permite que l\'aplicación unvie comandos a la SIM. Esti permisu ye perpeligrosu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_camera">facer semeyes y vídeos</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_vibrate">controlar la vibración</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_vibrate">Permite que l\'aplicación controle\'l vibrador.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_callPhone">llamar direutamente a númberos telefónicos</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_callPhone">Permite que l\'aplicación faiga llamaes
+      ensin la to intervención. Esto podría dar llugar a llamaes o cargos inesperaos.
+      Decátate qu\'esto nun permite a l\'aplicación facer llamaes a númberos
+      d\'emerxencia. Les aplicaciones malicioses podríen costate dineru faciendo
+      llamaes ensin la to confirmación.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_accessImsCallService">acceder al serviciu IMS de llamaes</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessImsCallService">Permite que l\'aplicación use\'l serviciu IMS pa facer llamaes ensin la to intervención.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_readPhoneState">lleer l\'estáu ya identidá del preséu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readPhoneState">Permite que l\'aplicación acceda a les
+      carauterístiques del preséu.  Esti permisu permíte-y determinar el númberu
+      telefónicu y les IDs del preséu, saber si hai llamaes en cursu y los númberos
+      que llamen.</string>
   <!-- Title of an application permission.  When granted the user is giving access to a third
          party app to route its calls through the system. -->
   <!-- Description of an application permission.  When granted the user is giving access to a
@@ -669,36 +800,68 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_wakeLock" product="tablet">evitar que la tableta se duerma</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_wakeLock" product="tv">evitar que la TV se duerma</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_wakeLock" product="default">evitar que\'l teléfonu se duerma</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_wakeLock" product="tablet">Permite que l\'aplicación evite que la tableta se duerma.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_wakeLock" product="tv">Permite que l\'aplicación evite que la TV se duerma.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_wakeLock" product="default">Permite que l\'aplicación evite que\'l teléfonu se duerma.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_transmitIr">tresmitir infrabermeyos</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_transmitIr" product="tablet">Permite que l\'aplicación use\'l deteutor d\'infrabermeyos de la tableta.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_transmitIr" product="tv">Permite que l\'aplicación use\'l deteutor d\'infrabermeyos de la TV.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_transmitIr" product="default">Permite que l\'aplicación use\'l deteutor d\'infrabermeyos del teléfonu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_setWallpaper">afitar fondu de pantalla</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setWallpaper">Permite que l\'aplicación afite\'l fondu de pantalla del sistema.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_setWallpaperHints">axustar el tamañu del fondu de pantalla</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_setTimeZone">afitar fusu horariu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setTimeZone" product="tablet">Permite que l\'aplicación camude\'l fusu horariu de la tableta.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setTimeZone" product="tv">Permite que l\'aplicación camude\'l fusu horariu de la TV.</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setTimeZone" product="default">Permite que l\'aplicación camude\'l fusu horariu del teléfonu.</string>
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_getAccounts">alcontrar cuentes nel preséu</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_getAccounts" product="tablet">Permite que l\'aplicación consiga\'l
+      llistáu de cuentes reconocíes pola tableta.  Esto podría incluyir
+      cualesquier cuenta creada por aplicaciones qu\'instalesti.
+</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_getAccounts" product="tv">Permite que l\'aplicación consiga\'l
+      llistáu de cuentes reconocíes pola TV.  Esto podría incluyir
+      cualesquier cuenta creada por aplicaciones qu\'instalesti.</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_getAccounts" product="default">Permite que l\'aplicación consiga\'l
+      llistáu de cuentes reconocíes pol teléfonu.  Esto podría incluyir
+      cualesquier cuenta creada por aplicaciones qu\'instalesti.</string>
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_accessNetworkState">ver conexones de rede</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessNetworkState">Permite que l\'aplicación vea
+      la información tocante a conexones de rede como a les redes esistentes y a
+      les que tas coneutaes.</string>
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_createNetworkSockets">tener accesu completu a la rede</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_changeNetworkState">cambiar la coneutividá de rede</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_changeNetworkState">Permite que l\'aplicacióm camude l\'estáu de la coneutividá de rede.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the applicaiton to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -716,6 +879,7 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_changeWimaxState">camudar l\'estáu de WiMAX</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_bluetooth">empareyar con preseos Bluetooth</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -726,20 +890,25 @@
   <string name="permlab_disableKeyguard">desactivar el bloquéu de pantalla</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_manageFingerprint">xestionar hardware de buelgues</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_useFingerprint">usar hardware de buelgues</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Message shown during fingerprint acquisision when the fingerprint cannot be recognized -->
   <!-- Message shown during fingerprint acquisision when the fingerprint cannot be recognized -->
   <string name="fingerprint_acquired_insufficient">Nun pudo procesase la buelga. Volvi tentalo, por favor.</string>
   <!-- Message shown during fingerprint acquisision when the fingerprint sensor needs cleaning -->
-  <string name="fingerprint_acquired_imager_dirty">El sensor de buelgues ta suciu. Llímpualu y volvi tentalo.</string>
+  <string name="fingerprint_acquired_imager_dirty">El sensor de buelgues ta suciu. Llímpialu y volvi tentalo.</string>
   <!-- Message shown during fingerprint acquisision when the user removes their finger from the sensor too quickly -->
+  <string name="fingerprint_acquired_too_fast">Movisti\'l deu perrápido. Vuelvi intentalo.</string>
   <!-- Message shown during fingerprint acquisision when the user moves their finger too slowly -->
+  <string name="fingerprint_acquired_too_slow">Movisti\'l deu perlento. Vuelvi intentalo.</string>
   <!-- Array containing custom messages shown during fingerprint acquisision from vendor.  Vendor is expected to add and translate these strings -->
   <string-array name="fingerprint_acquired_vendor">
     </string-array>
   <!-- Error message shown when the fingerprint hardware can't be accessed -->
+  <string name="fingerprint_error_hw_not_available">Hardware pa buelgues non disponible.</string>
   <!-- Error message shown when the fingerprint hardware has run out of room for storing fingerprints -->
   <!-- Error message shown when the fingerprint hardware timer has expired and the user needs to restart the operation. -->
   <!-- Generic error message shown when the fingerprint operation (e.g. enrollment or authentication) is canceled. Generally not shown to the user-->
@@ -759,12 +928,15 @@
   <string name="permlab_readSyncSettings">lleer los axustes de sincronización</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_writeSyncSettings">des/activar la sincronización</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readSyncStats">lleer estadístiques de sincronización</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. [CHAR LIMIT=30] -->
+  <string name="permlab_sdcardRead" product="nosdcard">Lleer el conteníu del almacenamientu USB</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_sdcardRead" product="default">Lleer el conteníu de la tarxeta SD</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. [CHAR LIMIT=30] -->
   <string name="permdesc_sdcardRead" product="nosdcard">Permite que l\'aplicación llea\'l conteníu del almacenamientu USB.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -774,7 +946,9 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. [CHAR LIMIT=30] -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_use_sip">facer/recibir llamaes SIP</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_use_sip">Permite que l\'aplicación faiga y reciba llamaes SIP.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -782,14 +956,18 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_bind_incall_service">interactuar cola pantalla de llamada</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_bind_connection_service">interactuar colos servicios telefónicos</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_readNetworkUsageHistory">lleer l\'usu de rede históricu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_manageNetworkPolicy">xestionar la política de rede</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -819,37 +997,73 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, for applications that wish to access notification policy. -->
+  <string name="permlab_access_notification_policy">Acceder al Nun molestar</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_access_notification_policy">Permite que l\'aplicación llea y escriba na configuración del Nun molestar.</string>
   <!-- Policy administration -->
   <!-- Title of policy access to limiting the user's password choices -->
+  <string name="policylab_limitPassword">Afitar regles pa contraseñes</string>
   <!-- Description of policy access to limiting the user's password choices -->
+  <string name="policydesc_limitPassword">Controla\'l llargor y caráuteres permitíos nos códigos PIN y contraseñes de la pantalla de bloquéu.</string>
   <!-- Title of policy access to watch user login attempts -->
   <!-- Description of policy access to watch user login attempts -->
+  <string name="policydesc_watchLogin" product="tablet">Supervisa\'l númberu de contraseñes teclexaes
+    incorreutamente al desbloquiar la pantalla, y bloquia la tableta o desanicia
+    tolos sos datos si se teclexen mal munches contraseñes.</string>
   <!-- Description of policy access to watch user login attempts -->
+  <string name="policydesc_watchLogin" product="TV">Supervisa\'l númberu de contraseñes teclexaes
+    incorreutamente al desbloquiar la pantalla, y bloquia la TV o desanicia
+    tolos sos datos si se teclexen mal munches contraseñes.</string>
   <!-- Description of policy access to watch user login attempts -->
+  <string name="policydesc_watchLogin" product="default">Supervisa\'l númberu de contraseñes teclexaes
+    incorreutamente al desbloquiar la pantalla, y bloquia\'l teléfonu o desanicia
+    tolos sos datos si se teclexen mal munches contraseñes.</string>
+  <string name="policydesc_watchLogin_secondaryUser" product="tablet">Supervisa\'l númberu de contraseñes teclexaes
+    incorreutamente al desbloquiar la pantalla, y bloquia la tableta o desanicia
+    tolos datos d\'usuariu si se teclexen mal munches contraseñes.</string>
+  <string name="policydesc_watchLogin_secondaryUser" product="TV">Supervisa\'l númberu de contraseñes teclexaes
+    incorreutamente al desbloquiar la pantalla, y bloquia la TV o desanicia
+    tolos datos d\'usuariu si se teclexen mal munches contraseñes.</string>
+  <string name="policydesc_watchLogin_secondaryUser" product="default">Supervisa\'l númberu de contraseñes teclexaes
+    incorreutamente al desbloquiar la pantalla, y bloquia\'l teléfonu o desanicia
+    tolos datos d\'usuariu si se teclexen mal munches contraseñes.</string>
   <!-- Title of policy access to reset user's password -->
+  <string name="policylab_resetPassword">Camudar el bloquéu de pantalla</string>
   <!-- Description of policy access to reset user's password -->
+  <string name="policydesc_resetPassword">Camuda\'l bloquéu de pantalla.</string>
   <!-- Title of policy access to force lock the device -->
   <!-- Description of policy access to limiting the user's password choices -->
   <string name="policydesc_forceLock">Controla cómo y cuándo se bloquia la pantalla.</string>
   <!-- Title of policy access to wipe primary user's data -->
   <!-- Description of policy access to wipe the user's data -->
+  <string name="policydesc_wipeData" product="tablet">Desanicia los datos de la tableta ensin avisar faciendo un reafitamientu del preséu.</string>
   <!-- Description of policy access to wipe the user's data -->
+  <string name="policydesc_wipeData" product="tv">Desanicia los datos de la TV ensin avisar faciendo un reafitamientu del preséu.</string>
   <!-- Description of policy access to wipe the user's data -->
+  <string name="policydesc_wipeData" product="default">Desanicia los datos del teléfonu ensin avisar faciendo un reafitamientu del preséu.</string>
   <!-- Title of policy access to wipe secondary user's data -->
+  <string name="policylab_wipeData_secondaryUser">Desaniciar datos d\'usuariu</string>
   <!-- Description of policy access to wipe the user's data -->
   <!-- Description of policy access to wipe the user's data -->
   <!-- Description of policy access to wipe the user's data -->
   <!-- Title of policy access to set global proxy -->
+  <string name="policylab_setGlobalProxy">Afitar proxy global del preséu</string>
   <!-- Description of policy access to set global proxy -->
   <!-- Title of policy access to enforce password expiration [CHAR LIMIT=50]-->
+  <string name="policylab_expirePassword">Afitar caducidá de contraseñes de pantalla bloquéu</string>
   <!-- Description of policy access to enforce password expiration [CHAR LIMIT=110]-->
+  <string name="policydesc_expirePassword">Camuda la frecuencia cola que\'l patrón, PIN o contraseña del bloquéu de pantalla han camudase.</string>
   <!-- Title of policy access to require encrypted storage [CHAR LIMIT=30]-->
+  <string name="policylab_encryptedStorage">Afitar cifráu d\'almacenamientu</string>
   <!-- Description of policy access to require encrypted storage [CHAR LIMIT=110]-->
+  <string name="policydesc_encryptedStorage">Rique que se cifren los datos atroxaos de les aplicaciones.</string>
   <!-- Title of policy access to disable all device cameras [CHAR LIMIT=30]-->
+  <string name="policylab_disableCamera">Desactivar cámares</string>
   <!-- Description of policy access to disable all device cameras [CHAR LIMIT=110]-->
+  <string name="policydesc_disableCamera">Evita l\'usu de toles cámares del preséu.</string>
   <!-- Title of policy access to disable keyguard features [CHAR LIMIT=30]-->
   <!-- Description of policy access to disable keyguard features. [CHAR LIMIT=110]-->
+  <string name="policydesc_disableKeyguardFeatures">Evita l\'usu de delles carauterístiques del bloquéu de pantalla.</string>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Phone number types from android.provider.Contacts. This could be used when adding a new phone number for a contact, for example. -->
   <string-array name="phoneTypes">
@@ -860,38 +1074,38 @@
     <item>Fax de casa</item>
     <item>Busca</item>
     <item>Otru</item>
-    <item>Custom</item>
+    <item>Personalizar</item>
   </string-array>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Email address types from android.provider.Contacts. This could be used when adding a new e-mail address for a contact, for example. -->
   <string-array name="emailAddressTypes">
     <item>Casa</item>
     <item>Trabayu</item>
-    <item>Other</item>
-    <item>Custom</item>
+    <item>Otra</item>
+    <item>Personalizar</item>
   </string-array>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Postal address types from android.provider.Contacts. This could be used when adding a new address for a contact, for example. -->
   <string-array name="postalAddressTypes">
     <item>Casa</item>
     <item>Trabayu</item>
-    <item>Other</item>
-    <item>Custom</item>
+    <item>Otra</item>
+    <item>Personalizar</item>
   </string-array>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Instant Messenger ID types from android.provider.Contacts. This could be used when adding a new IM for a contact, for example. -->
   <string-array name="imAddressTypes">
     <item>Casa</item>
     <item>Trabayu</item>
-    <item>Other</item>
-    <item>Custom</item>
+    <item>Otra</item>
+    <item>Personalizar</item>
   </string-array>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Organization types from android.provider.Contacts. This could be used when adding a new organization for a contact, for example. -->
   <string-array name="organizationTypes">
     <item>Trabayu</item>
     <item>Otra</item>
-    <item>Custom</item>
+    <item>Personalizar</item>
   </string-array>
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Instant Message protocols/providers from android.provider.Contacts -->
@@ -906,6 +1120,7 @@
     <item>Jabber</item>
   </string-array>
   <!-- Custom phone number type -->
+  <string name="phoneTypeCustom">Personalizáu</string>
   <!-- Home phone number type -->
   <string name="phoneTypeHome">Casa</string>
   <!-- Mobile phone number type -->
@@ -921,6 +1136,7 @@
   <!-- Other phone number type -->
   <string name="phoneTypeOther">Otru</string>
   <!-- Callback phone number type -->
+  <string name="phoneTypeCallback">Devolución de llamaes</string>
   <!-- Car phone number type -->
   <string name="phoneTypeCar">Coche</string>
   <!-- Company main phone number type -->
@@ -934,6 +1150,7 @@
   <!-- Radio phone number type -->
   <string name="phoneTypeRadio">Señal móvil</string>
   <!-- Telex phone number type -->
+  <string name="phoneTypeTelex">Telex</string>
   <!-- TTY TDD phone number type -->
   <string name="phoneTypeTtyTdd">TTY TDD</string>
   <!-- Work mobile phone number type -->
@@ -945,32 +1162,41 @@
   <!-- MMS phone number type -->
   <string name="phoneTypeMms">MMS</string>
   <!-- Label for custom events  [CHAR LIMIT=20] -->
+  <string name="eventTypeCustom">Personalizáu</string>
   <!-- Label for a birthday event  [CHAR LIMIT=20] -->
   <string name="eventTypeBirthday">Cumpleaños</string>
   <!-- Label for an anniversary event  [CHAR LIMIT=20] -->
   <string name="eventTypeAnniversary">Aniversariu</string>
   <!-- Label for other events  [CHAR LIMIT=20] -->
+  <string name="eventTypeOther">Otru</string>
   <!-- Custom email type -->
+  <string name="emailTypeCustom">Personalizáu</string>
   <!-- Home email type -->
   <string name="emailTypeHome">Casa</string>
   <!-- Work email type -->
   <string name="emailTypeWork">Trabayu</string>
   <!-- Other email type -->
+  <string name="emailTypeOther">Otru</string>
   <!-- Mobile email type -->
   <string name="emailTypeMobile">Móvil</string>
   <!-- Custom postal address type -->
+  <string name="postalTypeCustom">Personalizada</string>
   <!-- Home postal address type -->
   <string name="postalTypeHome">Casa</string>
   <!-- Work postal address type -->
   <string name="postalTypeWork">Trabayu</string>
   <!-- Other postal address type -->
+  <string name="postalTypeOther">Otra</string>
   <!-- Custom IM address type -->
+  <string name="imTypeCustom">Personalizada</string>
   <!-- Home IM address type -->
   <string name="imTypeHome">Casa</string>
   <!-- Work IM address type -->
   <string name="imTypeWork">Trabayu</string>
   <!-- Other IM address type -->
+  <string name="imTypeOther">Otra</string>
   <!-- Custom IM protocol type -->
+  <string name="imProtocolCustom">Personalizáu</string>
   <!-- AIM IM protocol type -->
   <string name="imProtocolAim">AIM</string>
   <!-- MSN IM protocol type -->
@@ -992,9 +1218,13 @@
   <!-- Work organization type -->
   <string name="orgTypeWork">Trabayu</string>
   <!-- Other organization type -->
+  <string name="orgTypeOther">Otra</string>
   <!-- Custom organization type -->
+  <string name="orgTypeCustom">Personalizada</string>
   <!-- Custom relationship custom [CHAR LIMIT=20] -->
+  <string name="relationTypeCustom">Personalizada</string>
   <!-- Assistant relationship type [CHAR LIMIT=20] -->
+  <string name="relationTypeAssistant">Asistente</string>
   <!-- Brother relationship type [CHAR LIMIT=20] -->
   <string name="relationTypeBrother">Hermanu</string>
   <!-- Child relationship type [CHAR LIMIT=20] -->
@@ -1014,6 +1244,7 @@
   <!-- Partner relationship type [CHAR LIMIT=20] -->
   <string name="relationTypePartner">Pareya</string>
   <!-- Referred by relationship type [CHAR LIMIT=20] -->
+  <string name="relationTypeReferredBy">Recomendáu por</string>
   <!-- Relative relationship type [CHAR LIMIT=20] -->
   <string name="relationTypeRelative">Pariente</string>
   <!-- Sister relationship type [CHAR LIMIT=20] -->
@@ -1021,10 +1252,13 @@
   <!-- Spouse relationship type [CHAR LIMIT=20] -->
   <string name="relationTypeSpouse">Cónyugue</string>
   <!-- Custom SIP address type. Same context as Custom phone type.  -->
+  <string name="sipAddressTypeCustom">Personalizada</string>
   <!-- Home SIP address type. Same context as Home phone type. -->
+  <string name="sipAddressTypeHome">Casa</string>
   <!-- Work SIP address type. Same context as Work phone type. -->
   <string name="sipAddressTypeWork">Trabayu</string>
   <!-- Other SIP address type. Same context as Other phone type. -->
+  <string name="sipAddressTypeOther">Otra</string>
   <!-- Error message that is displayed when the user clicks on a quick contacts badge, but
          there is no contacts application installed that can display the quick contact -->
   <string name="quick_contacts_not_available">Nun s\'alcontraron aplicaciones pa ver esti contautu.</string>
@@ -1050,6 +1284,7 @@
          to unlock the keyguard.  Displayed in one line in a large font.  -->
   <string name="keyguard_password_wrong_pin_code">Códigu PIN incorreutu.</string>
   <!-- Instructions telling the user how to unlock the phone. -->
+  <string name="keyguard_label_text">Pa desbloquiar, primi la tecla Menú y darréu la tecla 0.</string>
   <!-- This can be used in any application wanting to disable the text "Emergency number" -->
   <string name="emergency_call_dialog_number_for_display">Númberu d\'emerxencia</string>
   <!--
@@ -1060,7 +1295,9 @@
   <!-- Shown in the lock screen to tell the user that the screen is locked. -->
   <string name="lockscreen_screen_locked">Pantalla bloquiada.</string>
   <!-- when pattern lock is enabled, tell them about the emergency dial -->
+  <string name="lockscreen_instructions_when_pattern_enabled">Primi la tecla Menú pa desbloquiar o facer una llamada d\'emerxencia.</string>
   <!-- On the keyguard screen, when pattern lock is disabled, only tell them to press menu to unlock.  This is shown in small font at the bottom. -->
+  <string name="lockscreen_instructions_when_pattern_disabled">Primi la tecla Menú pa desbloquiar.</string>
   <!-- On the unlock pattern screen, shown at the top of the unlock screen to tell the user what to do. Below this text is the place for theu ser to draw the pattern. -->
   <string name="lockscreen_pattern_instructions">Dibuxa\'l patrón pa desbloquiar</string>
   <!-- Button at the bottom of the unlock screen to make an emergency call or access other emergency assistance functions. -->
@@ -1091,7 +1328,10 @@
   <!-- Shown in the lock screen when SIM card is permanently disabled. -->
   <string name="lockscreen_permanent_disabled_sim_message_short">Tarxeta SIM inutilizable.</string>
   <!-- Shown in the lock screen to inform the user to SIM card is permanently disabled. -->
+  <string name="lockscreen_permanent_disabled_sim_instructions">Inhabilitóse dafechu la tarxeta SIM.\n
+    Contauta col fornidor de servicios inalámbricos pa consiguir otra.</string>
   <!-- Shown on transport control of lockscreen. Pressing button goes to previous track. -->
+  <string name="lockscreen_transport_prev_description">Pista previa</string>
   <!-- Shown on transport control of lockscreen. Pressing button goes to next track. -->
   <string name="lockscreen_transport_next_description">Pista siguiente</string>
   <!-- Shown on transport control of lockscreen. Pressing button pauses playback -->
@@ -1110,7 +1350,9 @@
          locked -->
   <!-- When the user enters a wrong sim pin too many times, it becomes
          PUK locked (Pin Unlock Kode) -->
+  <string name="lockscreen_sim_puk_locked_message">La tarxeta SIM ta bloquiada col PUK.</string>
   <!-- Shown in the lock screen when the SIM has become PUK locked and the user must call customer care to unlock it. -->
+  <string name="lockscreen_sim_puk_locked_instructions">Mira\'l Manual d\'usuariu o contauta con atención al veceru.</string>
   <!-- Shown in the lock screen to tell the user that their SIM is locked and they must unlock it. -->
   <string name="lockscreen_sim_locked_message">La tarxeta SIM ta bloquiada.</string>
   <!-- For the unlock screen, When the user enters a sim unlock code, it takes a little while to check
@@ -1156,6 +1398,7 @@
   <!-- In the unlock screen, message telling the user that they need to use their Google login and password to unlock the phone -->
   <string name="lockscreen_glogin_instructions">Pa desbloquiar, anicia sesión cola to cuenta de Google.</string>
   <!-- Hint caption for the username field when unlocking the phone using login and password -->
+  <string name="lockscreen_glogin_username_hint">Nome d\'usuariu (corréu)</string>
   <!-- Hint caption for the password field when unlocking the phone using login and password -->
   <string name="lockscreen_glogin_password_hint">Contraseña</string>
   <!-- Button to try to unlock the phone using username and password -->
@@ -1170,11 +1413,15 @@
   <!-- Displayed on lock screen's right tab - turn sound on -->
   <!-- Displayed on lock screen's right tab - turn sound off -->
   <!-- Accessibility description sent when user starts drawing a lock pattern. [CHAR LIMIT=NONE] -->
+  <string name="lockscreen_access_pattern_start">Patrón aniciáu</string>
   <!-- Accessibility description sent when the pattern times out and is cleared. [CHAR LIMIT=NONE] -->
+  <string name="lockscreen_access_pattern_cleared">Patrón desaniciáu</string>
   <!-- Accessibility description sent when user adds a dot to the pattern. [CHAR LIMIT=NONE]  -->
+  <string name="lockscreen_access_pattern_cell_added">Caxella amestada</string>
   <!-- Accessibility description sent when user adds a dot to the pattern. Announces the
     actual cell when headphones are connected [CHAR LIMIT=NONE]  -->
   <!-- Accessibility description sent when user completes drawing a pattern. [CHAR LIMIT=NONE] -->
+  <string name="lockscreen_access_pattern_detected">Patrón completáu</string>
   <!-- Accessibility description of the unlock pattern area. [CHAR_LIMIT=none] -->
   <string name="lockscreen_access_pattern_area" msgid="">Área del patrón.</string>
   <!-- Accessibility description sent when user changes the current lock screen widget. [CHAR_LIMIT=none] -->
@@ -1222,7 +1469,7 @@
   <!-- Title of the alert when something went wrong in the factory test. -->
   <!-- Error message displayed when a non-system application tries to start a factory test. -->
   <string name="factorytest_not_system">L\'aición FACTORY_TEST
-        namái ta sofitáu nos paquetes instalaos en /system/app.</string>
+        namái ta sofitada nos paquetes instalaos en /system/app.</string>
   <!-- Error message displayed when the factory test could not be started. -->
   <!-- Button to restart the device after the factory test. -->
   <string name="factorytest_reboot">Reaniciar</string>
@@ -2276,6 +2523,7 @@
   <!-- Notification title when mobile data usage has exceeded limit threshold, and has been disabled. [CHAR LIMIT=50] -->
   <!-- Notification title when Wi-Fi data usage has exceeded limit threshold, and has been disabled. [CHAR LIMIT=32] -->
   <!-- Notification body when data usage has exceeded limit threshold, and has been disabled. -->
+  <string name="data_usage_limit_body">Datos posaos pal restu del ciclu</string>
   <!-- Notification title when 2G-3G data usage has exceeded limit threshold. [CHAR LIMIT=32] -->
   <!-- Notification title when 4G data usage has exceeded limit threshold. [CHAR LIMIT=32] -->
   <!-- Notification title when mobile data usage has exceeded limit threshold. [CHAR LIMIT=32] -->
