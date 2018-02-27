@@ -22,6 +22,30 @@
       "revId": "e4a9dae349eea118ad7cfd345f5e3bf495919e36",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dc8f04f_40142d34",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-27T15:07:56Z",
+      "side": 1,
+      "message": "Yeah, the find replace stuff here doesn\u0027t work. Will undo this section.",
+      "parentUuid": "44e8e59e_c041ca03",
+      "range": {
+        "startLine": 888,
+        "startChar": 12,
+        "endLine": 888,
+        "endChar": 27
+      },
+      "revId": "e4a9dae349eea118ad7cfd345f5e3bf495919e36",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
