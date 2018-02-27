@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44e8e59e_c041ca03",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 8328
+      },
+      "writtenOn": "2018-02-27T06:41:01Z",
+      "side": 1,
+      "message": "this won\u0027t work, because in a for each loop, toneGen is a iteration variable, so you just set the iteration variable to null but not the content in the array itself.",
+      "range": {
+        "startLine": 888,
+        "startChar": 12,
+        "endLine": 888,
+        "endChar": 27
+      },
+      "revId": "e4a9dae349eea118ad7cfd345f5e3bf495919e36",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
