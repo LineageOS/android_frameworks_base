@@ -858,8 +858,7 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
     }
 
     protected void onStopSoundsW() {
-        for (int i = mToneGenerators.length - 1; i >= 0; i--) {
-            ToneGenerator toneGen = mToneGenerators[i];
+        for (ToneGenerator toneGen : mToneGenerators) {
             if (toneGen != null) {
                 toneGen.stopTone();
             }
@@ -882,11 +881,11 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
     }
 
     protected void onFreeResourcesW() {
-        for (int i = mToneGenerators.length - 1; i >= 0; i--) {
-            if (mToneGenerators[i] != null) {
-                mToneGenerators[i].release();
+        for (ToneGenerator toneGen : mToneGenerators) {
+            if (toneGen != null) {
+                toneGen.release();
             }
-            mToneGenerators[i] = null;
+            toneGen = null;
         }
     }
 
