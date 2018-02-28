@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18abde1f_90cbd001",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-02-28T05:22:24Z",
+      "side": 1,
+      "message": "looks like you could just define iprovider here, and make it a final",
+      "range": {
+        "startLine": 296,
+        "startChar": 16,
+        "endLine": 296,
+        "endChar": 25
+      },
+      "revId": "2b94d5473a59e61439dfd1a58cd53706bd725a8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
