@@ -22,6 +22,53 @@
       "revId": "ffb704cb946b15befcb3c5c6a2abdbeb5cbbaeb8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13d9f4f8_ca6d3d1b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-03-02T19:59:17Z",
+      "side": 1,
+      "message": "mAudioManager",
+      "range": {
+        "startLine": 151,
+        "startChar": 8,
+        "endLine": 151,
+        "endChar": 20
+      },
+      "revId": "ffb704cb946b15befcb3c5c6a2abdbeb5cbbaeb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cb67b54_970e42d3",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-03-02T19:59:17Z",
+      "side": 1,
+      "message": "I prefer it the existing way: it\u0027s the canonical way to do it.",
+      "parentUuid": "e782ef91_c75b15ce",
+      "range": {
+        "startLine": 151,
+        "startChar": 23,
+        "endLine": 151,
+        "endChar": 85
+      },
+      "revId": "ffb704cb946b15befcb3c5c6a2abdbeb5cbbaeb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
