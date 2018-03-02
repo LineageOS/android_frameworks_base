@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9ec857eb_a54c178d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-03-02T20:00:56Z",
+      "side": 1,
+      "message": "import android.media.AudioManager;\nimport android.media.audiofx.Visualizer;",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "ffb704cb946b15befcb3c5c6a2abdbeb5cbbaeb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e782ef91_c75b15ce",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
         "patchSetId": 1
