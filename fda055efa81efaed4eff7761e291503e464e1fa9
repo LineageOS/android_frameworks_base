@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39ab2b43_838eecf1",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-02T04:23:36Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "fda055efa81efaed4eff7761e291503e464e1fa9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe0923d8_49339b87",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-02T04:23:36Z",
+      "side": 1,
+      "message": "formatting",
+      "range": {
+        "startLine": 234,
+        "startChar": 40,
+        "endLine": 234,
+        "endChar": 94
+      },
+      "revId": "fda055efa81efaed4eff7761e291503e464e1fa9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c81ecf88_67707394",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-02T04:23:36Z",
+      "side": 1,
+      "message": "Why the newline, I wonder? It looks like enough space left until the char limit.",
+      "revId": "fda055efa81efaed4eff7761e291503e464e1fa9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
