@@ -24,6 +24,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.audiofx.Visualizer;
+import android.media.AudioManager;
 import android.os.AsyncTask;
 import android.os.UserHandle;
 import android.support.v7.graphics.Palette;
@@ -45,6 +46,7 @@ public class VisualizerView extends View
     private static final String LOCKSCREEN_VISUALIZER_ENABLED =
             "lineagesecure:" + LineageSettings.Secure.LOCKSCREEN_VISUALIZER_ENABLED;
 
+    private AudioManager audioManager;
     private Paint mPaint;
     private Visualizer mVisualizer;
     private ObjectAnimator mVisualizerColorAnimator;
@@ -80,7 +82,10 @@ public class VisualizerView extends View
                 mValueAnimators[i].cancel();
                 rfk = fft[i * 2 + 2];
                 ifk = fft[i * 2 + 3];
-                magnitude = rfk * rfk + ifk * ifk;
+                int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+                int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+                int volumeFactor = (currentVolume != 0 ? (maxVolume / currentVolume) : 1);
+                magnitude = (rfk * rfk + ifk * ifk) * volumeFactor * volumeFactor;
                 dbValue = magnitude > 0 ? (int) (10 * Math.log10(magnitude)) : 0;
 
                 mValueAnimators[i].setFloatValues(mFFTPoints[i * 4 + 1],
@@ -142,6 +147,8 @@ public class VisualizerView extends View
 
     public VisualizerView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+
+        audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 
         mColor = Color.TRANSPARENT;
 
