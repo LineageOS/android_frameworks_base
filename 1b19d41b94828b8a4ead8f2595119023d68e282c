@@ -22,6 +22,30 @@
       "revId": "1b19d41b94828b8a4ead8f2595119023d68e282c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f872144_9abd0d9f",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1478,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-03-02T09:04:54Z",
+      "side": 1,
+      "message": "The current code matches other AOSP stuff in FWB.",
+      "parentUuid": "b32957d9_38a1af4b",
+      "range": {
+        "startLine": 1477,
+        "startChar": 0,
+        "endLine": 1478,
+        "endChar": 52
+      },
+      "revId": "1b19d41b94828b8a4ead8f2595119023d68e282c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
