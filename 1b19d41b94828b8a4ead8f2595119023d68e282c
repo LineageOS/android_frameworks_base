@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b32957d9_38a1af4b",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1478,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-03-02T09:01:41Z",
+      "side": 1,
+      "message": "!(flags \u0026 PowerManager.USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS) {",
+      "range": {
+        "startLine": 1477,
+        "startChar": 0,
+        "endLine": 1478,
+        "endChar": 52
+      },
+      "revId": "1b19d41b94828b8a4ead8f2595119023d68e282c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
