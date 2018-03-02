@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec1c2e04_fee93aa1",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 13026
+      },
+      "writtenOn": "2018-03-02T07:47:09Z",
+      "side": 1,
+      "message": "Do we need a verb here, maybe use?",
+      "revId": "c0f33379d860b97baea832c157692619bd044f58",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
