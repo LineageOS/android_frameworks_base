@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0a88d15_7ac3661c",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-03-02T09:00:48Z",
+      "side": 1,
+      "message": "not needed",
+      "range": {
+        "startLine": 262,
+        "startChar": 35,
+        "endLine": 262,
+        "endChar": 42
+      },
+      "revId": "3d72154f62e6cc815103e1feff8ec701e21c6a23",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
