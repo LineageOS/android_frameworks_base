@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d23a301a_b6c49cde",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2018-03-02T04:58:05Z",
+      "side": 1,
+      "message": "Is this a big deal lol",
+      "range": {
+        "startLine": 380,
+        "startChar": 100,
+        "endLine": 380,
+        "endChar": 102
+      },
+      "revId": "0bfaa0a9a01b8655ef0675ff0b85611501b3f186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
