@@ -16,7 +16,12 @@
 
 package com.android.systemui.statusbar.policy;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.annotation.Nullable;
+import android.app.ActivityManager;
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.view.Gravity;
@@ -26,6 +31,12 @@ import android.view.Gravity;
  * navigation bar mode.
  */
 public class KeyButtonDrawable extends LayerDrawable {
+
+    private float mRotation;
+    private Animator mCurrentAnimator;
+    private boolean mIsBackButton;
+
+    private static final int ANIMATION_DURATION = 200;
 
     private final boolean mHasDarkDrawable;
 
@@ -56,5 +67,64 @@ public class KeyButtonDrawable extends LayerDrawable {
         getDrawable(0).setAlpha((int) ((1 - intensity) * 255f));
         getDrawable(1).setAlpha((int) (intensity * 255f));
         invalidateSelf();
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        if (mIsBackButton) {
+            final Rect bounds = getBounds();
+            final int boundsCenterX = bounds.width() / 2;
+            final int boundsCenterY = bounds.height() / 2;
+
+            canvas.save();
+            canvas.translate(boundsCenterX, boundsCenterY);
+            canvas.rotate(mRotation);
+            canvas.translate(-boundsCenterX, -boundsCenterY);
+
+            super.draw(canvas);
+            canvas.restore();
+        } else {
+            super.draw(canvas);
+        }
+    }
+
+    @Override
+    public void setAlpha(int alpha) {
+        super.setAlpha(alpha);
+        if (mCurrentAnimator != null) {
+            mCurrentAnimator.end();
+        }
+    }
+
+    public void setRotation(float rotation) {
+        mRotation = rotation;
+        invalidateSelf();
+    }
+
+    public float getRotation() {
+        return mRotation;
+    }
+
+    public void setImeVisible(boolean ime) {
+        if (mCurrentAnimator != null) {
+            mCurrentAnimator.cancel();
+        }
+
+        final float nextRotation = ime ? -90 : 0;
+        if (mRotation == nextRotation) {
+            return;
+        }
+
+        if (isVisible() && ActivityManager.isHighEndGfx()) {
+            mCurrentAnimator = ObjectAnimator.ofFloat(this, "rotation", nextRotation)
+                    .setDuration(ANIMATION_DURATION);
+            mCurrentAnimator.start();
+        } else {
+            setRotation(nextRotation);
+        }
+    }
+
+    public void setIsBackButton(boolean isBackButton) {
+        mIsBackButton = isBackButton;
     }
 }

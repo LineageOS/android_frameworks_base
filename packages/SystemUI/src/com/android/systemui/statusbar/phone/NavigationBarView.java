@@ -87,9 +87,8 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
     int mDisabledFlags = 0;
     int mNavigationIconHints = 0;
 
-    private KeyButtonDrawable mBackIcon, mBackLandIcon, mBackAltIcon, mBackAltLandIcon;
+    private KeyButtonDrawable mBackIcon, mBackLandIcon;
     private KeyButtonDrawable mBackCarModeIcon, mBackLandCarModeIcon;
-    private KeyButtonDrawable mBackAltCarModeIcon, mBackAltLandCarModeIcon;
     private KeyButtonDrawable mHomeDefaultIcon, mHomeCarModeIcon;
     private KeyButtonDrawable mRecentIcon;
     private KeyButtonDrawable mDockedIcon;
@@ -313,10 +312,8 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
     private void updateCarModeIcons(Context ctx) {
         mBackCarModeIcon = getDrawable(ctx,
                 R.drawable.ic_sysbar_back_carmode, R.drawable.ic_sysbar_back_carmode);
+        mBackCarModeIcon.setIsBackButton(true);
         mBackLandCarModeIcon = mBackCarModeIcon;
-        mBackAltCarModeIcon = getDrawable(ctx,
-                R.drawable.ic_sysbar_back_ime_carmode, R.drawable.ic_sysbar_back_ime_carmode);
-        mBackAltLandCarModeIcon = mBackAltCarModeIcon;
         mHomeCarModeIcon = getDrawable(ctx,
                 R.drawable.ic_sysbar_home_carmode, R.drawable.ic_sysbar_home_carmode);
     }
@@ -330,10 +327,8 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
         if (oldConfig.densityDpi != newConfig.densityDpi
                 || oldConfig.getLayoutDirection() != newConfig.getLayoutDirection()) {
             mBackIcon = getDrawable(ctx, R.drawable.ic_sysbar_back, R.drawable.ic_sysbar_back_dark);
+            mBackIcon.setIsBackButton(true);
             mBackLandIcon = mBackIcon;
-            mBackAltIcon = getDrawable(ctx,
-                    R.drawable.ic_sysbar_back_ime, R.drawable.ic_sysbar_back_ime_dark);
-            mBackAltLandIcon = mBackAltIcon;
 
             mHomeDefaultIcon = getDrawable(ctx,
                     R.drawable.ic_sysbar_home, R.drawable.ic_sysbar_home_dark);
@@ -383,12 +378,6 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
         setNavigationIconHints(hints, false);
     }
 
-    private KeyButtonDrawable getBackIconWithAlt(boolean carMode, boolean landscape) {
-        return landscape
-                ? carMode ? mBackAltLandCarModeIcon : mBackAltLandIcon
-                : carMode ? mBackAltCarModeIcon : mBackAltIcon;
-    }
-
     private KeyButtonDrawable getBackIcon(boolean carMode, boolean landscape) {
         return landscape
                 ? carMode ? mBackLandCarModeIcon : mBackLandIcon
@@ -412,9 +401,9 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
         // We have to replace or restore the back and home button icons when exiting or entering
         // carmode, respectively. Recents are not available in CarMode in nav bar so change
         // to recent icon is not required.
-        KeyButtonDrawable backIcon = (backAlt)
-                ? getBackIconWithAlt(mUseCarModeUi, mVertical)
-                : getBackIcon(mUseCarModeUi, mVertical);
+        KeyButtonDrawable backIcon = getBackIcon(mUseCarModeUi, mVertical);
+        backIcon.setImeVisible(backAlt);
+        backIcon.setIsBackButton(true);
 
         getBackButton().setImageDrawable(backIcon);
 
