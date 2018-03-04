@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c6fabcf_aefcf4fd",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2018-03-04T05:32:11Z",
+      "side": 1,
+      "message": "This is AOSP function and it\u0027s public",
+      "range": {
+        "startLine": 424,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 5
+      },
+      "revId": "2e314fff0434de4d808eb8ce613278bb3444e0d4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
