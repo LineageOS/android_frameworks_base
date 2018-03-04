@@ -22,6 +22,30 @@
       "revId": "4dcc7e8016322b3461a0203db8a1557ed50c6c92",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0133ef9_b95f7a4b",
+        "filename": "services/core/java/com/android/server/StorageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-03-04T18:31:25Z",
+      "side": 1,
+      "message": "Well, we could just check for `vol.disk.isSd()` if for whatever reason someone doesn\u0027t want adopted storage on FDE device.",
+      "parentUuid": "486dd969_1ad605a5",
+      "range": {
+        "startLine": 1319,
+        "startChar": 16,
+        "endLine": 1319,
+        "endChar": 38
+      },
+      "revId": "4dcc7e8016322b3461a0203db8a1557ed50c6c92",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
