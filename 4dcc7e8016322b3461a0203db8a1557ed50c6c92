@@ -46,6 +46,30 @@
       "revId": "4dcc7e8016322b3461a0203db8a1557ed50c6c92",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b912c007_fbf37c3f",
+        "filename": "services/core/java/com/android/server/StorageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T18:49:05Z",
+      "side": 1,
+      "message": "Oh, you mean to replace this isAdoptable() check with isSd()? I think that might be workable too (and simpler).",
+      "parentUuid": "e0133ef9_b95f7a4b",
+      "range": {
+        "startLine": 1319,
+        "startChar": 16,
+        "endLine": 1319,
+        "endChar": 38
+      },
+      "revId": "4dcc7e8016322b3461a0203db8a1557ed50c6c92",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
