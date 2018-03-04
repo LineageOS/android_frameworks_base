@@ -2,6 +2,184 @@
   "comments": [
     {
       "key": {
+        "uuid": "a5f282c3_e3a1cc47",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T05:21:33Z",
+      "side": 1,
+      "message": "space after \u0027,\u0027",
+      "range": {
+        "startLine": 73,
+        "startChar": 73,
+        "endLine": 73,
+        "endChar": 75
+      },
+      "revId": "0bfaa0a9a01b8655ef0675ff0b85611501b3f186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64e116c_b76d3cc2",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T05:21:33Z",
+      "side": 1,
+      "message": "space after \u0027,\u0027",
+      "range": {
+        "startLine": 226,
+        "startChar": 81,
+        "endLine": 226,
+        "endChar": 85
+      },
+      "revId": "0bfaa0a9a01b8655ef0675ff0b85611501b3f186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a115ae0_a948eee5",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T05:21:33Z",
+      "side": 1,
+      "message": "space after \u0027,\u0027",
+      "range": {
+        "startLine": 228,
+        "startChar": 77,
+        "endLine": 228,
+        "endChar": 79
+      },
+      "revId": "0bfaa0a9a01b8655ef0675ff0b85611501b3f186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f01f962_afc16a07",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T05:21:33Z",
+      "side": 1,
+      "message": "space after \u0027,\u0027",
+      "range": {
+        "startLine": 230,
+        "startChar": 78,
+        "endLine": 230,
+        "endChar": 81
+      },
+      "revId": "0bfaa0a9a01b8655ef0675ff0b85611501b3f186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37860955_dd934405",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T05:21:33Z",
+      "side": 1,
+      "message": "space after \u0027,\u0027",
+      "range": {
+        "startLine": 232,
+        "startChar": 78,
+        "endLine": 232,
+        "endChar": 81
+      },
+      "revId": "0bfaa0a9a01b8655ef0675ff0b85611501b3f186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "027e2648_4e6b3f86",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T05:21:33Z",
+      "side": 1,
+      "message": "space after \u0027,\u0027",
+      "range": {
+        "startLine": 234,
+        "startChar": 79,
+        "endLine": 234,
+        "endChar": 89
+      },
+      "revId": "0bfaa0a9a01b8655ef0675ff0b85611501b3f186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b1730bf_0035b4eb",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T05:21:33Z",
+      "side": 1,
+      "message": "newline before this function",
+      "revId": "0bfaa0a9a01b8655ef0675ff0b85611501b3f186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf2abaf1_6f169538",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T05:21:33Z",
+      "side": 1,
+      "message": "spaces between math ops",
+      "range": {
+        "startLine": 274,
+        "startChar": 36,
+        "endLine": 274,
+        "endChar": 37
+      },
+      "revId": "0bfaa0a9a01b8655ef0675ff0b85611501b3f186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d23a301a_b6c49cde",
         "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
         "patchSetId": 2
@@ -13,6 +191,30 @@
       "writtenOn": "2018-03-02T04:58:05Z",
       "side": 1,
       "message": "Is this a big deal lol",
+      "range": {
+        "startLine": 380,
+        "startChar": 100,
+        "endLine": 380,
+        "endChar": 102
+      },
+      "revId": "0bfaa0a9a01b8655ef0675ff0b85611501b3f186",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f782a4de_1d4e2186",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T05:21:33Z",
+      "side": 1,
+      "message": "eh, I think if we\u0027re going to do something, we should do it right.",
+      "parentUuid": "d23a301a_b6c49cde",
       "range": {
         "startLine": 380,
         "startChar": 100,
