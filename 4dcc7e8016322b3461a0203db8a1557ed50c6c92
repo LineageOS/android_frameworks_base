@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "486dd969_1ad605a5",
+        "filename": "services/core/java/com/android/server/StorageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-04T18:27:52Z",
+      "side": 1,
+      "message": "Should this check be vol.disk.isAdoptable() || (StorageManager.isFileEncryptedNativeOnly() \u0026\u0026 vol.disk.isSd()) instead?\n\nIt sounded like the logic is (deviceIsFBE \u0026\u0026 dis.isSD) || (!deviceIsFBE \u0026\u0026 disk.isAdoptable) to me.\n\nI couldn\u0027t easily find where FLAG_SD is being set, but if that is a flag that denotes SD storage that should be sufficient?",
+      "range": {
+        "startLine": 1319,
+        "startChar": 16,
+        "endLine": 1319,
+        "endChar": 38
+      },
+      "revId": "4dcc7e8016322b3461a0203db8a1557ed50c6c92",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
