@@ -78,13 +78,14 @@ public class VisualizerView extends View
 
         @Override
         public void onFftDataCapture(Visualizer visualizer, byte[] fft, int samplingRate) {
+            int currentVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+            int maxVolume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+            int volumeFactor = (currentVolume != 0 ? (maxVolume / currentVolume) : 1);
+
             for (int i = 0; i < 32; i++) {
                 mValueAnimators[i].cancel();
                 rfk = fft[i * 2 + 2];
                 ifk = fft[i * 2 + 3];
-                int currentVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-                int maxVolume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-                int volumeFactor = (currentVolume != 0 ? (maxVolume / currentVolume) : 1);
                 magnitude = (rfk * rfk + ifk * ifk) * volumeFactor * volumeFactor;
                 dbValue = magnitude > 0 ? (int) (10 * Math.log10(magnitude)) : 0;
 
