@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2012-2017 The Dirty Unicorns Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<resources>
+
+    <!-- The min animation duration for animating the fab in -->
+    <integer name="recents_animate_fab_enter_duration">225</integer>
+
+    <!-- The animation delay for animating the fab in. Should
+         roughly be the duration of the transition in to recents -->
+    <integer name="recents_animate_fab_enter_delay">275</integer>
+
+    <!-- The min animation duration for animating the fab out -->
+    <integer name="recents_animate_fab_exit_duration">125</integer>
+
+</resources>

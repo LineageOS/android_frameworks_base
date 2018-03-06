@@ -182,7 +182,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
     public static final String SHORT_ARG = "--short";
     public static final String TETHERING_ARG = "tethering";
 
-    private static final boolean DBG = true;
+    private static final boolean DBG = false;
     private static final boolean VDBG = false;
 
     private static final boolean LOGD_RULES = false;

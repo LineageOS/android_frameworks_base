@@ -57,6 +57,8 @@
         <item><xliff:g id="id">@string/status_bar_alarm_clock</xliff:g></item>
         <item><xliff:g id="id">@string/status_bar_secure</xliff:g></item>
         <item><xliff:g id="id">@string/status_bar_clock</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_center_clock</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_left_clock</xliff:g></item>
         <item><xliff:g id="id">@string/status_bar_su</xliff:g></item>
     </string-array>
 
@@ -86,6 +88,8 @@
     <string translatable="false" name="status_bar_alarm_clock">alarm_clock</string>
     <string translatable="false" name="status_bar_secure">secure</string>
     <string translatable="false" name="status_bar_clock">clock</string>
+    <string translatable="false" name="status_bar_center_clock">center_clock</string>
+    <string translatable="false" name="status_bar_left_clock">left_clock</string>
     <string translatable="false" name="status_bar_mobile">mobile</string>
     <string translatable="false" name="status_bar_vpn">vpn</string>
     <string translatable="false" name="status_bar_ethernet">ethernet</string>
@@ -126,17 +130,17 @@
     <bool name="config_sendAudioBecomingNoisy">true</bool>
 
     <!-- The duration (in milliseconds) of a short animation. -->
-    <integer name="config_shortAnimTime">200</integer>
+    <integer name="config_shortAnimTime">100</integer>
 
     <!-- The duration (in milliseconds) of a medium-length animation. -->
-    <integer name="config_mediumAnimTime">400</integer>
+    <integer name="config_mediumAnimTime">200</integer>
 
     <!-- The duration (in milliseconds) of a long animation. -->
-    <integer name="config_longAnimTime">500</integer>
+    <integer name="config_longAnimTime">250</integer>
 
     <!-- The duration (in milliseconds) of the activity open/close and fragment open/close animations. -->
-    <integer name="config_activityShortDur">150</integer>
-    <integer name="config_activityDefaultDur">220</integer>
+    <integer name="config_activityShortDur">75</integer>
+    <integer name="config_activityDefaultDur">110</integer>
 
     <!-- The duration (in milliseconds) of the tooltip show/hide animations. -->
     <integer name="config_tooltipAnimTime">150</integer>
@@ -883,11 +887,11 @@
     <integer name="config_defaultNightDisplayCustomEndTime">21600000</integer>
 
     <!-- Minimum color temperature, in Kelvin, supported by Night display. -->
-    <integer name="config_nightDisplayColorTemperatureMin">2596</integer>
+    <integer name="config_nightDisplayColorTemperatureMin">1600</integer>
 
     <!-- Default color temperature, in Kelvin, to tint the screen when Night display is
          activated. -->
-    <integer name="config_nightDisplayColorTemperatureDefault">2850</integer>
+    <integer name="config_nightDisplayColorTemperatureDefault">2650</integer>
 
     <!-- Maximum color temperature, in Kelvin, supported by Night display. -->
     <integer name="config_nightDisplayColorTemperatureMax">4082</integer>
@@ -2107,7 +2111,7 @@
     <!-- Safe headphone volume index. When music stream volume is below this index
     the SPL on headphone output is compliant to EN 60950 requirements for portable music
     players. -->
-    <integer name="config_safe_media_volume_index">10</integer>
+    <integer name="config_safe_media_volume_index">20</integer>
 
     <!-- Configure mobile network MTU. The standard default is set here but each carrier
          may have a specific value set in an overlay config.xml file. -->

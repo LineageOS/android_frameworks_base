@@ -5417,7 +5417,7 @@ public final class ViewRootImpl implements ViewParent,
         // probably not be set to anything less than about 4.
         // If fling accuracy is a problem then consider tuning the tick distance instead.
         private static final float MIN_FLING_VELOCITY_TICKS_PER_SECOND = 6f;
-        private static final float MAX_FLING_VELOCITY_TICKS_PER_SECOND = 20f;
+        private static final float MAX_FLING_VELOCITY_TICKS_PER_SECOND = 24f;
 
         // Fling velocity decay factor applied after each new key is emitted.
         // This parameter controls the deceleration and overall duration of the fling.

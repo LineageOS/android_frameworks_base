@@ -444,6 +444,14 @@ public class RecentsTaskLoader {
         }
     }
 
+    public void evictAllCaches() {
+        mIconCache.evictAll();
+        mActivityInfoCache.evictAll();
+        mActivityLabelCache.evictAll();
+        mContentDescriptionCache.evictAll();
+        mThumbnailCache.evictAll();
+    }
+
     /**
      * Returns the cached task label if the task key is not expired, updating the cache if it is.
      */

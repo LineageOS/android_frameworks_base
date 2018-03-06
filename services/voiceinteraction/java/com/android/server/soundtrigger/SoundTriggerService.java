@@ -57,7 +57,7 @@ import java.util.UUID;
  */
 public class SoundTriggerService extends SystemService {
     private static final String TAG = "SoundTriggerService";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     final Context mContext;
     private Object mLock;

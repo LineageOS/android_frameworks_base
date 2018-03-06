@@ -195,7 +195,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class BackupManagerService implements BackupManagerServiceInterface {
 
     private static final String TAG = "BackupManagerService";
-    static final boolean DEBUG = true;
+    static final boolean DEBUG = false;
     static final boolean MORE_DEBUG = false;
     static final boolean DEBUG_SCHEDULING = MORE_DEBUG || true;
 

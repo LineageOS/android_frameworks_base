@@ -16,6 +16,7 @@ cc_defaults {
         "-Wno-unused-parameter",
         "-Wunreachable-code",
         "-Werror",
+        "-Wno-error=strict-aliasing",
         "-fvisibility=hidden",
 
         // GCC false-positives on this warning, and since we -Werror that's

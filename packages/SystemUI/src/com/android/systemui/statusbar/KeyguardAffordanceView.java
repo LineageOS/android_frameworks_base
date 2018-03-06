@@ -48,9 +48,9 @@ import com.android.systemui.statusbar.phone.KeyguardAffordanceHelper;
  */
 public class KeyguardAffordanceView extends ImageView {
 
-    private static final long CIRCLE_APPEAR_DURATION = 80;
-    private static final long CIRCLE_DISAPPEAR_MAX_DURATION = 200;
-    private static final long NORMAL_ANIMATION_DURATION = 200;
+    private static final long CIRCLE_APPEAR_DURATION = 70;
+    private static final long CIRCLE_DISAPPEAR_MAX_DURATION = 180;
+    private static final long NORMAL_ANIMATION_DURATION = 180;
     public static final float MAX_ICON_SCALE_AMOUNT = 1.5f;
     public static final float MIN_ICON_SCALE_AMOUNT = 0.8f;
 
@@ -272,7 +272,7 @@ public class KeyguardAffordanceView extends ImageView {
                     RenderNodeAnimator.PAINT_ALPHA, 255);
             animator.setTarget(this);
             animator.setInterpolator(Interpolators.ALPHA_IN);
-            animator.setDuration(250);
+            animator.setDuration(240);
             animator.start();
         }
     }
@@ -365,7 +365,7 @@ public class KeyguardAffordanceView extends ImageView {
                     ? Interpolators.FAST_OUT_LINEAR_IN
                     : Interpolators.LINEAR_OUT_SLOW_IN;
             animator.setInterpolator(interpolator);
-            long duration = 250;
+            long duration = 240;
             if (!slowAnimation) {
                 float durationFactor = Math.abs(mCircleRadius - circleRadius)
                         / (float) mMinBackgroundRadius;

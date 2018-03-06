@@ -140,4 +140,7 @@ interface IBatteryStats {
     oneway void noteBluetoothControllerActivity(in BluetoothActivityEnergyInfo info);
     oneway void noteModemControllerActivity(in ModemActivityInfo info);
     oneway void noteWifiControllerActivity(in WifiActivityEnergyInfo info);
+
+    /** @hide **/
+    void resetStatistics();
 }

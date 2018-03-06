@@ -58,6 +58,7 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Slog;
 import android.view.Display;
@@ -305,12 +306,12 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
             Uri uri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
             // Create a share intent
-            String subjectDate = DateFormat.getDateTimeInstance().format(new Date(mImageTime));
-            String subject = String.format(SCREENSHOT_SHARE_SUBJECT_TEMPLATE, subjectDate);
+            /*String subjectDate = DateFormat.getDateTimeInstance().format(new Date(mImageTime));
+            String subject = String.format(SCREENSHOT_SHARE_SUBJECT_TEMPLATE, subjectDate);*/
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("image/png");
             sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
-            sharingIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+            //sharingIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
 
             // Create a share action for the notification. Note, we proxy the call to ShareReceiver
             // because RemoteViews currently forces an activity options on the PendingIntent being
@@ -767,6 +768,7 @@ class GlobalScreenshot {
             @Override
             public void run() {
                 // Play the shutter sound to notify that we've taken a screenshot
+                if (Settings.System.getInt(mContext.getContentResolver(), Settings.System.SCREENSHOT_SOUND, 1) == 1)
                 mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
 
                 mScreenshotView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
@@ -994,6 +996,7 @@ class GlobalScreenshot {
                     (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             final Uri uri = Uri.parse(intent.getStringExtra(SCREENSHOT_URI_ID));
             nm.cancel(SystemMessage.NOTE_GLOBAL_SCREENSHOT);
+            Toast.makeText(context, R.string.delete_screenshot_toast, Toast.LENGTH_SHORT).show();
 
             // And delete the image from the media store
             new DeleteImageInBackgroundTask(context).execute(uri);

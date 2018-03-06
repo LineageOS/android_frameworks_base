@@ -26,9 +26,11 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
@@ -178,6 +180,7 @@ public class Recents extends SystemUI
         }
     };
 
+
     /**
      * Returns the callbacks interface that non-system users can call.
      */
@@ -200,6 +203,10 @@ public class Recents extends SystemUI
 
     public static RecentsDebugFlags getDebugFlags() {
         return sDebugFlags;
+    }
+
+    public void evictAllCaches() {
+        getTaskLoader().evictAllCaches();
     }
 
     @Override
@@ -231,7 +238,6 @@ public class Recents extends SystemUI
         if (sSystemServicesProxy.isSystemUser(processUser)) {
             // For the system user, initialize an instance of the interface that we can pass to the
             // secondary user
-            getComponent(CommandQueue.class).addCallbacks(this);
             mSystemToUserCallbacks = new RecentsSystemUser(mContext, mImpl);
         } else {
             // For the secondary user, bind to the primary user's service to get a persistent
@@ -836,5 +842,18 @@ public class Recents extends SystemUI
     public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
         pw.println("Recents");
         pw.println("  currentUserId=" + SystemServicesProxy.getInstance(mContext).getCurrentUser());
+    }
+
+    public void removeSbCallbacks() {
+        getComponent(CommandQueue.class).removeCallbacks(this);
+        // there are other callbacks registered (like with RecentsImplProxy binder for
+        // non sys users) to be removed but for now let's use the easiest way and just
+        // block main calls in RecentsImpl
+        mImpl.mUseSlimRecents = true;
+    }
+
+    public void addSbCallbacks() {
+        getComponent(CommandQueue.class).addCallbacks(this);
+        mImpl.mUseSlimRecents = false;
     }
 }

@@ -19,7 +19,7 @@ public class PageIndicator extends ViewGroup {
     private static final String TAG = "PageIndicator";
     private static final boolean DEBUG = false;
 
-    private static final long ANIMATION_DURATION = 250;
+    private static final long ANIMATION_DURATION = 240;
 
     // The size of a single dot in relation to the whole animation.
     private static final float SINGLE_SCALE = .4f;

@@ -52,7 +52,7 @@ import static android.Manifest.permission.USE_FINGERPRINT;
 @SystemService(Context.FINGERPRINT_SERVICE)
 public class FingerprintManager {
     private static final String TAG = "FingerprintManager";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final int MSG_ENROLL_RESULT = 100;
     private static final int MSG_ACQUIRED = 101;
     private static final int MSG_AUTHENTICATION_SUCCEEDED = 102;

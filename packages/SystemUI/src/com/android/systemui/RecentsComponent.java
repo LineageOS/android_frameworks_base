@@ -45,4 +45,8 @@ public interface RecentsComponent {
      * @param velocity the velocity of the finger when releasing it in pixels per second
      */
     void onDraggingInRecentsEnded(float velocity);
+
+    void evictAllCaches();
+    void removeSbCallbacks();
+    void addSbCallbacks();
 }

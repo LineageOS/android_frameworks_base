@@ -35,7 +35,7 @@ import com.android.systemui.recents.model.TaskStack;
 /** Manages the scrims for the various system bars. */
 public class SystemBarScrimViews {
 
-    private static final int DEFAULT_ANIMATION_DURATION = 150;
+    private static final int DEFAULT_ANIMATION_DURATION = 140;
 
     private Context mContext;
 

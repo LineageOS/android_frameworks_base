@@ -16,6 +16,8 @@
 
 package com.android.systemui.statusbar;
 
+import static android.provider.Settings.Secure.STATUS_BAR_BATTERY_STYLE;
+
 import android.annotation.DrawableRes;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -35,6 +37,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.android.settingslib.graph.BatteryMeterDrawableBase;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.SignalDrawable;
@@ -119,6 +122,8 @@ public class SignalClusterView extends LinearLayout implements NetworkController
     private boolean mActivityEnabled;
     private boolean mForceBlockWifi;
 
+    private boolean mNoBattery;
+
     private final IconLogger mIconLogger = Dependency.get(IconLogger.class);
 
     public SignalClusterView(Context context) {
@@ -163,24 +168,27 @@ public class SignalClusterView extends LinearLayout implements NetworkController
 
     @Override
     public void onTuningChanged(String key, String newValue) {
-        if (!StatusBarIconController.ICON_BLACKLIST.equals(key)) {
-            return;
-        }
-        ArraySet<String> blockList = StatusBarIconController.getIconBlacklist(newValue);
-        boolean blockAirplane = blockList.contains(SLOT_AIRPLANE);
-        boolean blockMobile = blockList.contains(SLOT_MOBILE);
-        boolean blockWifi = blockList.contains(SLOT_WIFI);
-        boolean blockEthernet = blockList.contains(SLOT_ETHERNET);
+        if (StatusBarIconController.ICON_BLACKLIST.equals(key)) {
+            ArraySet<String> blockList = StatusBarIconController.getIconBlacklist(newValue);
+            boolean blockAirplane = blockList.contains(SLOT_AIRPLANE);
+            boolean blockMobile = blockList.contains(SLOT_MOBILE);
+            boolean blockWifi = blockList.contains(SLOT_WIFI);
+            boolean blockEthernet = blockList.contains(SLOT_ETHERNET);
 
-        if (blockAirplane != mBlockAirplane || blockMobile != mBlockMobile
-                || blockEthernet != mBlockEthernet || blockWifi != mBlockWifi) {
-            mBlockAirplane = blockAirplane;
-            mBlockMobile = blockMobile;
-            mBlockEthernet = blockEthernet;
-            mBlockWifi = blockWifi || mForceBlockWifi;
-            // Re-register to get new callbacks.
-            mNetworkController.removeCallback(this);
-            mNetworkController.addCallback(this);
+            if (blockAirplane != mBlockAirplane || blockMobile != mBlockMobile
+                    || blockEthernet != mBlockEthernet || blockWifi != mBlockWifi) {
+                mBlockAirplane = blockAirplane;
+                mBlockMobile = blockMobile;
+                mBlockEthernet = blockEthernet;
+                mBlockWifi = blockWifi || mForceBlockWifi;
+                // Re-register to get new callbacks.
+                mNetworkController.removeCallback(this);
+                mNetworkController.addCallback(this);
+            }
+        } else if (STATUS_BAR_BATTERY_STYLE.equals(key)) {
+            final int style = newValue == null ?
+                BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT : Integer.parseInt(newValue);
+            mNoBattery = style == BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN;
         }
     }
 
@@ -241,7 +249,7 @@ public class SignalClusterView extends LinearLayout implements NetworkController
         int endPadding = mMobileSignalGroup.getChildCount() > 0 ? mMobileSignalGroupEndPadding : 0;
         mMobileSignalGroup.setPaddingRelative(0, 0, endPadding, 0);
 
-        Dependency.get(TunerService.class).addTunable(this, StatusBarIconController.ICON_BLACKLIST);
+        Dependency.get(TunerService.class).addTunable(this, StatusBarIconController.ICON_BLACKLIST, STATUS_BAR_BATTERY_STYLE);
 
         apply();
         applyIconTint();
@@ -573,7 +581,7 @@ public class SignalClusterView extends LinearLayout implements NetworkController
 
         boolean anythingVisible = mNoSimsVisible || mWifiVisible || mIsAirplaneMode
                 || anyMobileVisible || mVpnVisible || mEthernetVisible;
-        setPaddingRelative(0, 0, anythingVisible ? mEndPadding : mEndPaddingNothingVisible, 0);
+        setPaddingRelative(0, 0, mNoBattery ? 0 : (anythingVisible ? mEndPadding : mEndPaddingNothingVisible), 0);
     }
 
     /**

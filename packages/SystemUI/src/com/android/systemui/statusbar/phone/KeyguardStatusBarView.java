@@ -91,10 +91,17 @@ public class KeyguardStatusBarView extends RelativeLayout
         mMultiUserAvatar = (ImageView) findViewById(R.id.multi_user_avatar);
         mCarrierLabel = (TextView) findViewById(R.id.keyguard_carrier_text);
         mBatteryView = (BatteryMeterView) mSystemIconsContainer.findViewById(R.id.battery);
+        mBatteryView.setIsQuickSbHeaderOrKeyguard(true);
 
         loadDimens();
         updateUserSwitcher();
         mBatteryController = Dependency.get(BatteryController.class);
+    }
+
+    public void updateBatterySettings() {
+        if (mBatteryView != null) {
+            mBatteryView.updateSettings(true);
+        }
     }
 
     @Override
