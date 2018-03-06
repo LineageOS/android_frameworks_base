@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9203aac8_8ee3dc24",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2018-03-06T13:15:30Z",
+      "side": 1,
+      "message": "I don\u0027t think this changes for the given media type either. May be worth not querying it constantly too...",
+      "range": {
+        "startLine": 82,
+        "startChar": 12,
+        "endLine": 82,
+        "endChar": 88
+      },
+      "revId": "c2ac9301d117e5cd1189f7d978f7e1889e93c0f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
