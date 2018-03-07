@@ -21010,13 +21010,14 @@ Slog.v(TAG, ":: stepped forward, applying functor at tag " + parser.getName());
 
             if (pkgSetting == null) {
                 if (className == null) {
-                    throw new IllegalArgumentException(
-                            "Unknown package: " + packageName);
+                    Log.e(TAG, "Unknown package " + packageName + ", assuming false");
+                    return false;
                 }
-                throw new IllegalArgumentException(
-                        "Unknown component: " + packageName
-                                + "/" + className);
+                Log.e(TAG, "Unknown component " + packageName + "/" + componentName
+                        + ", assuming false");
+                return false;
             }
+
             // Get all the protected components
             components = pkgSetting.getProtectedComponents(userId);
             if (DEBUG_PROTECTED) Log.d(TAG, "Got " + components.size() + " protected components");
