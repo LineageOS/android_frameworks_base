@@ -16,38 +16,43 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Title of the activity when a full backup has been requested and must be confirmed -->
-  <string name="backup_confirm_title">Respaldu completu</string>
+  <string name="backup_confirm_title">Copia de seguranza completa</string>
   <!-- Title of the activity when a full restore has been requested and must be confirmed -->
   <string name="restore_confirm_title">Restauración completa</string>
   <!-- Text for message to user that a full backup has been requested, and must be confirmed. -->
-  <string name="backup_confirm_text">Solicitóse un respaldu completu de tolos datos a un ordenador coneutáu. ¿Quies permitilo?\n\nSi nun solicitesti respaldu dalu, nun permitas la operación.</string>
+  <string name="backup_confirm_text">Solicitóse una copia de seguranza completa de tolos datos a un ordenador coneutáu. ¿Quies permitilo?\n\nSi nun solicitesti denguna copia de seguranza, nun permitas la operación.</string>
   <!-- Button to allow a requested full backup to occur -->
-  <string name="allow_backup_button_label">Respaldar los mios datos</string>
+  <string name="allow_backup_button_label">Copia de seguranza de datos</string>
   <!-- Button to refuse to allow the requested full backup -->
-  <string name="deny_backup_button_label">Nun respaldar</string>
+  <string name="deny_backup_button_label">Nun facer copia de seguranza</string>
   <!-- Text for message to user that a full restore has been requested, and must be confirmed. -->
+  <string name="restore_confirm_text">Solicitóse una restauración completa de tolos datos dende un ordenador coneutáu. ¿Quies permitilo?\n\nSi nun solicitesti la restauración, nun permitas la operación.  ¡Esto va trocar tolos datos qu\'heba nel preséu!</string>
   <!-- Button to allow a requested full restore to occur -->
   <string name="allow_restore_button_label">Restaurar los mios datos</string>
   <!-- Button to refuse to allow the requested full restore -->
   <string name="deny_restore_button_label">Nun restaurar</string>
   <!-- Text for message to user that they must enter their predefined backup password in order to perform this operation. -->
+  <string name="current_password_text">Introduz embaxo la contraseña de la copia de seguranza:</string>
   <!-- Text for message to user that they must enter their device encryption password in order to perform this restore operation. -->
+  <string name="device_encryption_restore_text">Introduz embaxo la contraseña de cifráu del preséu.</string>
   <!-- Text for message to user that they must enter their device encryption password in order to perform this backup operation. -->
+  <string name="device_encryption_backup_text">Introduz embaxo la contraseña de cifráu del preséu. Esto también va usase pa cifrar l\'archivu de la copia de seguranza.</string>
   <!-- Text for message to user that they must enter an encryption password to use for the full backup operation. -->
-  <string name="backup_enc_password_text">Introduz una contraseña pa usar nel cifráu del respaldu completu. Si se dexa balero, usaráse la contraseña del to respaldu actual:</string>
+  <string name="backup_enc_password_text">Introduz una contraseña pa cifrar tolos datos de la copia de seguranza. Si esto se dexa balero, va usase la contraseña:</string>
   <!-- Text for message to user that they may optionally supply an encryption password to use for a full backup operation. -->
-  <string name="backup_enc_password_optional">Si desees cifrar los datos del respaldu completu, introduz embaxo la contraseña:</string>
+  <string name="backup_enc_password_optional">Si deseyes cifrar tolos datos de la copia de seguranza, introduz embaxo una contraseña:</string>
   <!-- Text for message to user that they must supply an encryption password to use for a full backup operation because their phone is locked. -->
-  <string name="backup_enc_password_required">Darréu que\'l preséu ta cifráu, ríquese que cifres el to respaldu. Introduz embaxo una contraseña:</string>
+  <string name="backup_enc_password_required">Darréu que\'l preséu ta cifráu, ríquese que cifres la copia de seguranza. Introduz embaxo una contraseña:</string>
   <!-- Text for message to user when performing a full restore operation, explaining that they must enter the password originally used to encrypt the full backup data. -->
   <string name="restore_enc_password_text">Si los datos de restauración tán cifraos, introduz embaxo la contraseña:</string>
   <!-- Text of a toast telling the user that a full backup operation has begun -->
-  <string name="toast_backup_started">Aniciando respaldu...</string>
+  <string name="toast_backup_started">Aniciando copia de seguranza...</string>
   <!-- Text of a toast telling the user that a full backup operation has ended -->
-  <string name="toast_backup_ended">Finó\'l respaldu</string>
+  <string name="toast_backup_ended">Finó la copia de seguranza</string>
   <!-- Text of a toast telling the user that a full restore operation has begun -->
   <string name="toast_restore_started">Aniciando restauración...</string>
   <!-- Text of a toast telling the user that a full restore operation has ended -->
+  <string name="toast_restore_ended">Finó la restauración</string>
   <!-- Text of a toast telling the user that the operation has timed out -->
-  <string name="toast_timeout">Escosó\'l tiempu d\'operación</string>
+  <string name="toast_timeout">Escosó\'l tiempu d\'espera de la operación</string>
 </resources>

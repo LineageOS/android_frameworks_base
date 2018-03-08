@@ -77,6 +77,7 @@
   <string name="app_ops_read_contacts">주소록 읽기</string>
   <string name="app_ops_read_external_storage">외부 저장소 읽기</string>
   <string name="app_ops_read_mms">MMS 메시지 읽기</string>
+  <string name="app_ops_read_phone_numbers">전화번호 읽기</string>
   <string name="app_ops_read_phone_state">전화 상태에 접근</string>
   <string name="app_ops_read_sms">SMS 메시지 읽기</string>
   <string name="app_ops_receive_sms">SMS 메시지 받기</string>

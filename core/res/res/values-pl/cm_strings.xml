@@ -55,6 +55,7 @@
   <string name="app_ops_draw_on_top">rysowanie okien na wierzchu</string>
   <string name="app_ops_get_accounts">dostęp do kont urządzenia</string>
   <string name="app_ops_get_usage_stats">uzyskanie statystyk użytkowania aplikacji</string>
+  <string name="app_ops_install_packages">instaluj pakiety</string>
   <string name="app_ops_keep_device_awake">zapobieganie przejściu telefonu w stan uśpienia</string>
   <string name="app_ops_make_phone_call">wykonywanie połączeń telefonicznych</string>
   <string name="app_ops_mock_location">pozorowanie twojej lokalizacji</string>
@@ -64,6 +65,8 @@
   <string name="app_ops_modify_contacts">aktualizowanie kontaktów</string>
   <string name="app_ops_modify_settings">aktualizowanie ustawień systemowych</string>
   <string name="app_ops_mute_unmute_microphone">włączanie/wyłączanie mikrofonu</string>
+  <string name="app_ops_phone_calls">odbieranie połączeń telefonicznych</string>
+  <string name="app_ops_picture_in_picture">użyj obrazu w obrazie</string>
   <string name="app_ops_play_audio">odtwarzanie dźwięków</string>
   <string name="app_ops_post_notification">wysyłanie powiadomienia</string>
   <string name="app_ops_project_media">wyświetlanie multimediów</string>
@@ -74,6 +77,7 @@
   <string name="app_ops_read_contacts">czytanie kontaktów</string>
   <string name="app_ops_read_external_storage">odczyt pamięci zewnętrznej</string>
   <string name="app_ops_read_mms">czytanie MMS-ów</string>
+  <string name="app_ops_read_phone_numbers">odczytywanie numerów telefonów</string>
   <string name="app_ops_read_phone_state">dostęp do stanu telefonu</string>
   <string name="app_ops_read_sms">czytanie SMS-ów</string>
   <string name="app_ops_receive_sms">odbieranie SMS-ów</string>

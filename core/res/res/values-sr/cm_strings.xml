@@ -43,8 +43,10 @@
   <string name="app_ops_access_notifications">читање обавештења</string>
   <string name="app_ops_activate_vpn">активирање VPN-а</string>
   <string name="app_ops_add_voicemail">додавање говорне поште</string>
+  <string name="app_ops_app_start_foreground">покрените инстант апликацију у предњем плану</string>
   <string name="app_ops_assist_screenshot">прављење снимка екрана</string>
   <string name="app_ops_assist_structure">коришћење структуре помоћи</string>
+  <string name="app_ops_audio_accessibility_volume">јачина звука за приступачност</string>
   <string name="app_ops_auto_start">покретање са системом</string>
   <string name="app_ops_change_wallpaper">мењање позадине</string>
   <string name="app_ops_delete_call_log">брисање евиденције позива</string>
@@ -54,6 +56,7 @@
   <string name="app_ops_draw_on_top">повлачење прозора на врх</string>
   <string name="app_ops_get_accounts">приступ налозима на уређају</string>
   <string name="app_ops_get_usage_stats">преузимање статистике о коришћењу апликација</string>
+  <string name="app_ops_install_packages">инсталирај пакете</string>
   <string name="app_ops_keep_device_awake">задржавање ван стања спавања</string>
   <string name="app_ops_make_phone_call">позивање телефона</string>
   <string name="app_ops_mock_location">лажирање локације</string>
@@ -63,6 +66,8 @@
   <string name="app_ops_modify_contacts">мењање контаката</string>
   <string name="app_ops_modify_settings">мењање подешавања система</string>
   <string name="app_ops_mute_unmute_microphone">искључивање/укључивање звука микрофона</string>
+  <string name="app_ops_phone_calls">одговори на телефонске позиве</string>
+  <string name="app_ops_picture_in_picture">користи слику у слици</string>
   <string name="app_ops_play_audio">пуштање аудио-записа</string>
   <string name="app_ops_post_notification">постављање обавештења</string>
   <string name="app_ops_project_media">медије за пројекат</string>
@@ -73,6 +78,7 @@
   <string name="app_ops_read_contacts">читање контаката</string>
   <string name="app_ops_read_external_storage">читање екстерног меморијског простора</string>
   <string name="app_ops_read_mms">читање MMS порука</string>
+  <string name="app_ops_read_phone_numbers">читај бројеве телефона</string>
   <string name="app_ops_read_phone_state">приступ стању телефона</string>
   <string name="app_ops_read_sms">читање SMS порука</string>
   <string name="app_ops_receive_sms">пријем SMS порука</string>

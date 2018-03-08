@@ -26,7 +26,9 @@
   <!-- Label of the copies count for the print options summary. [CHAR LIMIT=20] -->
   <string name="label_copies_summary">Copies:</string>
   <!-- Label of the paper size widget. [CHAR LIMIT=20] -->
+  <string name="label_paper_size">Tamañu del papel</string>
   <!-- Label of the paper size for the print options summary. [CHAR LIMIT=20] -->
+  <string name="label_paper_size_summary">Tamañu del papel:</string>
   <!-- Label of the color mode widget. [CHAR LIMIT=20] -->
   <string name="label_color">Color</string>
   <!-- Label of the printer mode to print on both sides of paper. [CHAR LIMIT=20] -->
@@ -38,42 +40,64 @@
   <!-- Label of the destination widget. [CHAR LIMIT=20] -->
   <string name="destination_default_text">Esbillar una imprentadora</string>
   <!-- Template for the all pages option in the page selection widget. [CHAR LIMIT=20] -->
+  <string name="template_all_pages">Toes (<xliff:g id="page_count" example="100">%1$s</xliff:g>)</string>
   <!-- Template for the page range option in the page selection widget. [CHAR LIMIT=20] -->
+  <string name="template_page_range">Rangu de <xliff:g id="page_count" example="100">%1$s</xliff:g></string>
   <!-- Page range exmple used as a hint of how to specify such. [CHAR LIMIT=20] -->
   <!-- Title for the pring preview button .[CHAR LIMIT=30] -->
-  <string name="print_preview">Previsualizar imprentación</string>
+  <string name="print_preview">Previsualización d\'imprentación</string>
   <!-- Title for the pring preview button if there is no PDF viewer isntalled. [CHAR LIMIT=50] -->
+  <string name="install_for_print_preview">Instalar visor PDF pa previsualizar</string>
   <!-- Title of the message that the printing application crashed. [CHAR LIMIT=50] -->
   <string name="printing_app_crashed">Cascó l\'aplicación d\'imprentación</string>
   <!-- Title for the temporary dialog show while an app is generating a print job. [CHAR LIMIT=30] -->
   <string name="generating_print_job">Xenerando trabayu d\'imprentación</string>
   <!-- Title for the save as PDF option in the printer list. [CHAR LIMIT=30] -->
+  <string name="save_as_pdf">Guardar como PDF</string>
   <!-- Title for the open all printers UI option in the printer list. [CHAR LIMIT=30] -->
   <!-- Title for the print dialog announced to the user for accessibility. Not shown in the UI. [CHAR LIMIT=none] -->
   <string name="print_dialog">Diálogu d\'imprentación</string>
   <!-- Template for the message that shows the current page out of the total number of pages [CHAR LIMIT=none] -->
   <!-- Description of the current page - spoken to the user [CHAR LIMIT=none] -->
+  <string name="page_description_template">Páxina <xliff:g id="current_page" example="1">%1$d</xliff:g>
+        de <xliff:g id="page_count" example="100">%2$d</xliff:g></string>
   <!-- Template for the message to announce the print options summary - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="summary_template">Resume, copies <xliff:g id="copies" example="1">%1$s</xliff:g>,
+        tamañu del papel <xliff:g id="paper_size" example="A4">%2$s</xliff:g></string>
   <!-- Description for the handle to expand all print options - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="expand_handle">Remanador pa espander</string>
   <!-- Description for the handle to collapse all print options - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="collapse_handle">Remanador pa contrayer</string>
   <!-- Description for the print button - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="print_button">Imprentar</string>
   <!-- Description for the save to PDF button - spoken to the user. [CHAR LIMIT=none] -->
   <string name="savetopdf_button">Guardar en PDF</string>
   <!-- Message to announce print options are expanded - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="print_options_expanded">Opciones d\'imprentación espandíes</string>
   <!-- Message to announce print options are collapsed - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="print_options_collapsed">Opciones d\'imprentación contrayíes</string>
   <!-- Select printer activity -->
   <!-- Title for the share action bar menu item. [CHAR LIMIT=20] -->
+  <string name="search">Guetar</string>
   <!-- Title for the select printer activity. [CHAR LIMIT=30] -->
   <string name="all_printers_label">Toles imprentadores</string>
   <!-- Title of the button to install a print service. [CHAR LIMIT=25] -->
   <string name="add_print_service_label">Amestar serviciu</string>
   <!-- Utterance to announce that the search box is shown. This is spoken to a blind user. [CHAR LIMIT=none] -->
+  <string name="print_search_box_shown_utterance">Caxa de gueta amosada</string>
   <!-- Utterance to announce that the search box is hidden. This is spoken to a blind user. [CHAR LIMIT=none] -->
+  <string name="print_search_box_hidden_utterance">Caxa de gueta anubrida</string>
   <!-- Label of add printers button when no printers are found. [CHAR LIMIT=25] -->
+  <string name="print_add_printer">Amestar imprentadora</string>
   <!-- Title of the menu item to select a printer. [CHAR LIMIT=25] -->
+  <string name="print_select_printer">Esbillar imprentadora</string>
   <!-- Title of the menu item to forget a printer. [CHAR LIMIT=25] -->
   <string name="print_forget_printer">Escacer imprentadora</string>
   <!-- Utterance to announce a change in the number of matches during a search. This is spoken to a blind user. [CHAR LIMIT=none] -->
+  <plurals name="print_search_result_count_utterance">
+    <item quantity="one"><xliff:g id="count" example="1">%1$s</xliff:g> imprentadora alcontrada</item>
+    <item quantity="other"><xliff:g id="count" example="1">%1$s</xliff:g> imprentadores alcontraes</item>
+  </plurals>
   <!-- Template for an extended description of a printer. [CHAR LIMIT=50] -->
   <string name="printer_extended_description_template"><xliff:g id="print_service_label" example="Canon Print Service">%1$s</xliff:g> - <xliff:g id="printer_description" example="Printer under the stairs">%2$s</xliff:g></string>
   <!-- Description of printer info icon. [CHAR LIMIT=50] -->
@@ -145,7 +169,21 @@
     <item>Color</item>
   </string-array>
   <!-- Duplex mode labels. -->
+  <string-array name="duplex_mode_labels">
+    <!-- Duplex mode label: No duplex supported. [CHAR LIMIT=20] -->
+    <item>Denguna</item>
+    <!-- Duplex mode label: Turn page sideways along the long edge like a book. [CHAR LIMIT=20] -->
+    <item>Berbesu llargu</item>
+    <!-- Duplex mode label: Turn page upwards along the short edge like a notepad. [CHAR LIMIT=20] -->
+    <item>Berbesu curtiu</item>
+  </string-array>
   <!-- Orientation labels. -->
+  <string-array name="orientation_labels">
+    <!-- Orientation label: Portrait page orientation. [CHAR LIMIT=30] -->
+    <item>Vertical</item>
+    <!-- Orientation label: Landscape page orientation [CHAR LIMIT=30] -->
+    <item>Horizontal</item>
+  </string-array>
   <!-- Error messages -->
   <!-- Message for an error when trying to print to a PDF file. [CHAR LIMIT=50] -->
   <string name="print_write_error_message">Nun pudo escribise nel ficheru</string>

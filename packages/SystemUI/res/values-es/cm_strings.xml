@@ -58,7 +58,7 @@
   <string name="accessibility_dpad_left">Cursor izquierdo</string>
   <string name="accessibility_dpad_right">Cursor derecho</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Esto lo mantiene a la vista hasta que lo libere. Pulse &amp; y mantenga pulsado «Atrás» para liberar.</string>
+  <string name="screen_pinning_description_no_navbar">Esto lo mantiene a la vista hasta que lo libere. Mantenga pulsado «Atrás» para liberar.</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.

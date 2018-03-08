@@ -58,19 +58,26 @@
   <string name="accessibility_dpad_left">Kursor w lewo</string>
   <string name="accessibility_dpad_right">Kursor w prawo</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
+  <string name="screen_pinning_description_no_navbar">Ekran będzie widoczny, dopóki go nie odepniesz. Aby to zrobić, kliknij i przytrzymaj Wstecz.</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Label for current user in power menu options dialog -->
+  <string name="global_action_current_user">Bieżący</string>
   <!-- Label for item that screenshots in power menu options dialog -->
+  <string name="global_action_screenshot">Zrzut ekranu</string>
   <!-- Advanced restart menu -->
   <!-- Button to restart the device, within the Restart Options dialog -->
   <string name="global_action_restart_system">System</string>
   <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+  <string name="global_action_restart_recovery">Recovery</string>
   <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+  <string name="global_action_restart_bootloader">Bootloader</string>
   <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+  <string name="global_action_restart_download">Download</string>
   <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+  <string name="global_action_restart_progress">Ponowne uruchamianie\u2026</string>
   <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
   <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
   <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
