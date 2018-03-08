@@ -23,4 +23,12 @@
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
+
+    <!-- Hardware ui (power menu) alignement:
+         Use one of the following values basing on the power button position:
+         * Top | Back -> 49 (Gravity.TOP | Gravity.CENTER_HORIZONTAL)
+         * Left -> 51 (Gravity.TOP | Gravity.LEFT)
+         * Right -> 53 (Gravity.TOP | Gravity.RIGHT)
+    -->
+    <integer name="hardware_ui_align">53</integer>
 </resources>
