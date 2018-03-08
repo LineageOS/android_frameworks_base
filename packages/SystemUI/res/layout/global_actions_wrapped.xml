@@ -14,7 +14,7 @@
         android:id="@android:id/list"
         android:layout_width="@dimen/global_actions_panel_width"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|right"
+        android:layout_gravity="@integer/hardware_ui_align"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="12dp"
