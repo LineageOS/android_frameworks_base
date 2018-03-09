@@ -32,6 +32,9 @@
     <!-- LiveDisplay tile -->
     <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
 
+    <!-- DayNight mode -->
+    <uses-permission android:name="android.permission.MODIFY_DAY_NIGHT_MODE" />
+
     <!-- SystemUI Tuner -->
     <application>
         <activity-alias
