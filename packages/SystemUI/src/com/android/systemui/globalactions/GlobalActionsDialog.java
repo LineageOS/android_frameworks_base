@@ -832,12 +832,14 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
     }
 
     private Action getLockdownAction() {
-        return new SinglePressAction(R.drawable.ic_lock_lock,
+        return new SinglePressAction(com.android.systemui.R.drawable.ic_action_lockdown,
                 R.string.global_action_lockdown) {
 
             @Override
             public void onPress() {
-                new LockPatternUtils(mContext).requireCredentialEntry(UserHandle.USER_ALL);
+                new LockPatternUtils(mContext).requireStrongAuth(
+                        LockPatternUtils.StrongAuthTracker.STRONG_AUTH_REQUIRED_AFTER_LOCKOUT,
+                        UserHandle.USER_ALL);
                 try {
                     WindowManagerGlobal.getWindowManagerService().lockNow(null);
                 } catch (RemoteException e) {
