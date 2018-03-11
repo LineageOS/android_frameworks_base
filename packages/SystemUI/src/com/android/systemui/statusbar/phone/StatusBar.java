@@ -1102,7 +1102,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mScreenPinningRequest = new ScreenPinningRequest(mContext);
         mFalsingManager = FalsingManager.getInstance(mContext);
 
-        mUiModeManager = (UiModeManager) mContext.getSystemService(UiModeManager.class);
+        mUiModeManager = mContext.getSystemService(UiModeManager.class);
 
         Dependency.get(ActivityStarterDelegate.class).setActivityStarterImpl(this);
 
