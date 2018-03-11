@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af689688_215d1604",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-11T23:54:05Z",
+      "side": 1,
+      "message": "Maybe this should just be a public variable.",
+      "range": {
+        "startLine": 271,
+        "startChar": 51,
+        "endLine": 271,
+        "endChar": 81
+      },
+      "revId": "6b7f9b97f9f4b95532f4034e99be5b7f4ecf3812",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1bd2a09_a10a34fb",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-11T23:54:05Z",
+      "side": 1,
+      "message": "Seems like this block should just be a helper function \"public boolean shouldExposeAuxCamera(String packageName)\"",
+      "range": {
+        "startLine": 271,
+        "startChar": 8,
+        "endLine": 281,
+        "endChar": 9
+      },
+      "revId": "6b7f9b97f9f4b95532f4034e99be5b7f4ecf3812",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e04c063_e594264d",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-11T23:54:05Z",
+      "side": 1,
+      "message": "!exposeAuxCamera",
+      "range": {
+        "startLine": 283,
+        "startChar": 12,
+        "endLine": 283,
+        "endChar": 36
+      },
+      "revId": "6b7f9b97f9f4b95532f4034e99be5b7f4ecf3812",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3bcd894_800162a1",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-11T23:54:05Z",
+      "side": 1,
+      "message": "native_getNumberOfCameras ?",
+      "range": {
+        "startLine": 293,
+        "startChar": 29,
+        "endLine": 293,
+        "endChar": 48
+      },
+      "revId": "6b7f9b97f9f4b95532f4034e99be5b7f4ecf3812",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709d3d65_94be545a",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-11T23:54:05Z",
+      "side": 1,
+      "message": "Need a space between closing ) and {\n\nAlso, why is this check needed now vs before?",
+      "range": {
+        "startLine": 304,
+        "startChar": 44,
+        "endLine": 304,
+        "endChar": 46
+      },
+      "revId": "6b7f9b97f9f4b95532f4034e99be5b7f4ecf3812",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e29e7f34_43cd0162",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-11T23:54:05Z",
+      "side": 1,
+      "message": "Need a space between closing ) and {",
+      "range": {
+        "startLine": 578,
+        "startChar": 44,
+        "endLine": 578,
+        "endChar": 46
+      },
+      "revId": "6b7f9b97f9f4b95532f4034e99be5b7f4ecf3812",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebba9875_e0d76ea0",
+        "filename": "core/jni/android_hardware_Camera.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-11T23:54:05Z",
+      "side": 1,
+      "message": "native_getNumberOfCameras ?",
+      "range": {
+        "startLine": 1104,
+        "startChar": 5,
+        "endLine": 1104,
+        "endChar": 24
+      },
+      "revId": "6b7f9b97f9f4b95532f4034e99be5b7f4ecf3812",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
