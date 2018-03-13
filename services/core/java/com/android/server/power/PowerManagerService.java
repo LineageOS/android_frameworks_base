@@ -670,6 +670,9 @@ public final class PowerManagerService extends SystemService
     private static native void nativeSetFeature(int featureId, int data);
     private static native int nativeGetFeature(int featureId);
 
+    // Whether button lights only when pressed is enabled by default
+    private boolean mButtonLightOnKeypressOnlyEnabledByDefaultConfig;
+
     // Whether proximity check on wake is enabled by default
     private boolean mProximityWakeEnabledByDefaultConfig;
 
@@ -952,6 +955,8 @@ public final class PowerManagerService extends SystemService
                 com.android.internal.R.fraction.config_maximumScreenDimRatio, 1, 1);
         mSupportsDoubleTapWakeConfig = resources.getBoolean(
                 com.android.internal.R.bool.config_supportDoubleTapWake);
+        mButtonLightOnKeypressOnlyEnabledByDefaultConfig = resources.getBoolean(
+                org.lineageos.platform.internal.R.bool.config_buttonLightOnKeypressOnlyByDefault);
         mProximityWakeSupported = resources.getBoolean(
                 org.lineageos.platform.internal.R.bool.config_proximityCheckOnWake);
         mProximityWakeEnabledByDefaultConfig = resources.getBoolean(
@@ -1060,7 +1065,8 @@ public final class PowerManagerService extends SystemService
                 UserHandle.USER_CURRENT);
         mButtonLightOnKeypressOnly = LineageSettings.System.getIntForUser(resolver,
                 LineageSettings.System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED,
-                0, UserHandle.USER_CURRENT) == 1;
+                mButtonLightOnKeypressOnlyEnabledByDefaultConfig ? 1 : 0,
+                UserHandle.USER_CURRENT) == 1;
 
         mDirty |= DIRTY_SETTINGS;
     }
