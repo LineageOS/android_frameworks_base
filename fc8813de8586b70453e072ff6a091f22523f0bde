@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d986e51_519cf886",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-13T04:10:36Z",
+      "side": 1,
+      "message": "I failed to realize this was static too. This can probably be moved into shouldExposeAuxCamera, and shouldExposeAuxCamera can take 0 parameters.",
+      "range": {
+        "startLine": 844,
+        "startChar": 37,
+        "endLine": 844,
+        "endChar": 75
+      },
+      "revId": "fc8813de8586b70453e072ff6a091f22523f0bde",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
