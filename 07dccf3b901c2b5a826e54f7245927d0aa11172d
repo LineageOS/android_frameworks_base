@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af0c8d2b_b40b9f82",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-16T04:34:57Z",
+      "side": 1,
+      "message": "Read this as a final in the constructor instead of per-function call?",
+      "range": {
+        "startLine": 1213,
+        "startChar": 12,
+        "endLine": 1214,
+        "endChar": 75
+      },
+      "revId": "07dccf3b901c2b5a826e54f7245927d0aa11172d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
