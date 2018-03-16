@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a4a799_59632f5d",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-16T04:33:13Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be pulled out of the runnable and moved up to the constructor or something?",
+      "range": {
+        "startLine": 1138,
+        "startChar": 28,
+        "endLine": 1139,
+        "endChar": 111
+      },
+      "revId": "3cb712d83c07ad20a921ccd9c729e57c6bc705f1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
