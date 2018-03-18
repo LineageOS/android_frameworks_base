@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cb3c48a_9cfdb01e",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 18945
+      },
+      "writtenOn": "2018-03-18T15:41:29Z",
+      "side": 1,
+      "message": "This is not really (necessarily) a numeric id though, is it? It\u0027s the key of mDeviceStatus, which should be searched for the index.\n\nAlso, shouldExposeAuxCamera seems more expensive than the id check, but that might be micro optimisation.",
+      "revId": "d0b8038550893c9f5f9278724799be2726358eb5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
