@@ -1006,6 +1006,34 @@ public final class CameraManager {
                 // Try to make sure we have an up-to-date list of camera devices.
                 connectCameraServiceLocked();
 
+<<<<<<< HEAD   (6a7381 [DO NOT MERGE] Check CellInfoCallback Detail for Null)
+=======
+                boolean exposeAuxCamera = true;
+                String packageName = ActivityThread.currentOpPackageName();
+                String packageList = SystemProperties.get("vendor.camera.aux.packagelist");
+                String packageBlacklist = SystemProperties.get("vendor.camera.aux.packageblacklist");
+                if (packageList.length() > 0) {
+                    TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
+                    splitter.setString(packageList);
+                    exposeAuxCamera = false;
+                    for (String str : splitter) {
+                        if (packageName.equals(str)) {
+                            exposeAuxCamera = true;
+                            break;
+                        }
+                    }
+                } else if (packageBlacklist.length() > 0) {
+                    TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
+                    splitter.setString(packageBlacklist);
+                    exposeAuxCamera = true;
+                    for (String str : splitter) {
+                        if (packageName.equals(str)) {
+                            exposeAuxCamera = false;
+                            break;
+                        }
+                    }
+                }
+>>>>>>> CHANGE (74dcf9 camera: Check if aux camera whitelist is set before restrict)
                 int idCount = 0;
                 for (int i = 0; i < mDeviceStatus.size(); i++) {
                     int status = mDeviceStatus.valueAt(i);
@@ -1213,6 +1241,45 @@ public final class CameraManager {
         }
 
         private void onStatusChangedLocked(int status, String id) {
+<<<<<<< HEAD   (6a7381 [DO NOT MERGE] Check CellInfoCallback Detail for Null)
+=======
+            /* Force to ignore the last mono/aux camera status update
+             * if the package name does not falls in this bucket
+             */
+            boolean exposeMonoCamera = true;
+            String packageName = ActivityThread.currentOpPackageName();
+            String packageList = SystemProperties.get("vendor.camera.aux.packagelist");
+            String packageBlacklist = SystemProperties.get("vendor.camera.aux.packageblacklist");
+            if (packageList.length() > 0) {
+                TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
+                splitter.setString(packageList);
+                exposeMonoCamera = false;
+                for (String str : splitter) {
+                    if (packageName.equals(str)) {
+                        exposeMonoCamera = true;
+                        break;
+                    }
+                }
+            } else if (packageBlacklist.length() > 0) {
+                TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
+                splitter.setString(packageBlacklist);
+                exposeMonoCamera = true;
+                for (String str : splitter) {
+                    if (packageName.equals(str)) {
+                        exposeMonoCamera = false;
+                        break;
+                    }
+                }
+            }
+
+            if (exposeMonoCamera == false) {
+                if (Integer.parseInt(id) >= 2) {
+                    Log.w(TAG, "[soar.cts] ignore the status update of camera: " + id);
+                    return;
+                }
+            }
+
+>>>>>>> CHANGE (74dcf9 camera: Check if aux camera whitelist is set before restrict)
             if (DEBUG) {
                 Log.v(TAG,
                         String.format("Camera id %s has status changed to 0x%x", id, status));
