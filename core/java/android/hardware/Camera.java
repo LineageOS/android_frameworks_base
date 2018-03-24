@@ -281,11 +281,19 @@ public class Camera {
         String packageName = ActivityThread.currentOpPackageName();
         String packageList = SystemProperties.get("vendor.camera.aux.packagelist");
         if (packageList.length() > 0) {
-            TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
-            splitter.setString(packageList);
-            for (String str : splitter) {
-                if (packageName.equals(str)) {
-                    return true;
+            String[] packages = packageList.split(",");
+            if (packages[0].equals("all")) {
+                for (String str : packages) {
+                    if (packageName.equals(str)) {
+                        return false;
+                    }
+                }
+                return true;
+            } else {
+                for (String str : packages) {
+                    if (packageName.equals(str)) {
+                        return true;
+                    }
                 }
             }
         }
