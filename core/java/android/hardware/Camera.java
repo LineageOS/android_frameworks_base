@@ -291,7 +291,9 @@ public class Camera {
     /** @hide */
     public static boolean shouldExposeAuxCamera() {
         String packageName = ActivityThread.currentOpPackageName();
+        // This should be .packagewhitelist but we shouldn't change qualcomm's default
         String packageList = SystemProperties.get("vendor.camera.aux.packagelist");
+        String packageBlacklist = SystemProperties.get("vendor.camera.aux.packageblacklist");
         if (packageList.length() > 0) {
             TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
             splitter.setString(packageList);
@@ -300,8 +302,17 @@ public class Camera {
                     return true;
                 }
             }
+            return false;
+        } else if (packageBlacklist.length() > 0) {
+            TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
+            splitter.setString(packageBlacklist);
+            for (String str : splitter) {
+                if (packageName.equals(str)) {
+                    return false;
+                }
+            }
         }
-        return false;
+        return true;
     }
 
     /**
