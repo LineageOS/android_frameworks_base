@@ -284,12 +284,12 @@ public class Camera {
             TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
             splitter.setString(packageList);
             for (String str : splitter) {
-                if (packageName.equals(str)) {
-                    return true;
+                if (!packageName.equals(str)) {
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
     /**
