@@ -280,7 +280,9 @@ public class Camera {
     public static boolean shouldExposeAuxCamera() {
         String packageName = ActivityThread.currentOpPackageName();
         String packageList = SystemProperties.get("vendor.camera.aux.packagelist");
-        if (packageList.length() > 0) {
+        if (packageList.equals("all")) {
+            return true;
+        } else if (packageList.length() > 0) {
             TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(',');
             splitter.setString(packageList);
             for (String str : splitter) {
