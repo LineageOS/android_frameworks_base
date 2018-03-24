@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f726977d_87390725",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-24T18:02:07Z",
+      "side": 1,
+      "message": "Some of this stuff looks like unnecessary changes.",
+      "range": {
+        "startLine": 284,
+        "startChar": 12,
+        "endLine": 284,
+        "endChar": 55
+      },
+      "revId": "757ddd3f52625844cce6eb7994594cf028f27284",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
