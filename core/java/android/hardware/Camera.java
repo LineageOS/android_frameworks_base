@@ -288,6 +288,8 @@ public class Camera {
                     return true;
                 }
             }
+        } else {
+            return true;
         }
         return false;
     }
