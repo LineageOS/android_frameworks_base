@@ -22,6 +22,30 @@
       "revId": "757ddd3f52625844cce6eb7994594cf028f27284",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef1a2fc_fe9e9c5d",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-03-25T01:18:57Z",
+      "side": 1,
+      "message": "There\u0027s no neat way to get the first element and then move back in the list with SimpleStringSplitter afaict (which I think would be needed if the first thing is not \"all\", unless we wanted to manually compare packageName and then proceed to iterate through the list)",
+      "parentUuid": "f726977d_87390725",
+      "range": {
+        "startLine": 284,
+        "startChar": 12,
+        "endLine": 284,
+        "endChar": 55
+      },
+      "revId": "757ddd3f52625844cce6eb7994594cf028f27284",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
