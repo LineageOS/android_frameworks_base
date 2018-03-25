@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cf555ca_70579ba3",
+        "filename": "services/core/java/com/android/server/wm/DisplayContent.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3112,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-25T20:48:35Z",
+      "side": 0,
+      "message": "It might actually just be this that needs removal, because the underlying surfaceflinger stuff already takes care of this compensation.",
+      "range": {
+        "startLine": 3110,
+        "startChar": 12,
+        "endLine": 3112,
+        "endChar": 13
+      },
+      "revId": "9c1d747d51802afea88d04902748de7be365c929",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
