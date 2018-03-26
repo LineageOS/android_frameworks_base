@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e638349_4f55e9cb",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-03-26T09:18:11Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 1143,
+        "startChar": 100,
+        "endLine": 1143,
+        "endChar": 108
+      },
+      "revId": "d2e475b4ae2c6a7ffeb94c3d98893c8405a394cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
