@@ -1,7 +1,7 @@
 <!--
      Copyright (C) 2012-2015 The CyanogenMod Project
      Copyright (c) 2013, The Linux Foundation. All rights reserved.
-     Copyright (C) 2017 The LineageOS Project
+     Copyright (C) 2017-2018 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -60,4 +60,7 @@
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
+
+    <!-- Settings icon tint color -->
+    <java-symbol type="color" name="settings_icon_tint_color" />
 </resources>
