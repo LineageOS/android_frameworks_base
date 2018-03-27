@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2aa73e69_1c90f9ea",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-03-27T04:14:40Z",
+      "side": 1,
+      "message": "This would be easier to puzzle out if it was somewhat similarly ordered compared the the if statement below.",
+      "range": {
+        "startLine": 1217,
+        "startChar": 20,
+        "endLine": 1220,
+        "endChar": 83
+      },
+      "revId": "a657855dfc59fde3bbab458608b8359f98c3f46a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
