@@ -7,7 +7,8 @@ LOCAL_SRC_FILES := $(call all-subdir-java-files) \
     src/com/android/providers/settings/EventLogTags.logtags
 
 LOCAL_JAVA_LIBRARIES := telephony-common ims-common
-LOCAL_STATIC_JAVA_LIBRARIES := org.cyanogenmod.platform.sdk
+LOCAL_STATIC_JAVA_LIBRARIES := org.cyanogenmod.platform.sdk \
+    org.cyanogenmod.hardware
 
 LOCAL_PACKAGE_NAME := SettingsProvider
 LOCAL_CERTIFICATE := platform

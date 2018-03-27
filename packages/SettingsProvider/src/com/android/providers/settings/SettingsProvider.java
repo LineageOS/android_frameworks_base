@@ -73,11 +73,14 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.nio.charset.Charset;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+
+import org.cyanogenmod.hardware.PersistentStorage;
 
 /**
  * <p>
@@ -1966,12 +1969,31 @@ public class SettingsProvider extends ContentProvider {
                 return;
             }
 
-            String androidId = Long.toHexString(new SecureRandom().nextLong());
-            secureSettings.insertSettingLocked(Settings.Secure.ANDROID_ID, androidId,
-                    SettingsState.SYSTEM_PACKAGE_NAME);
+            // Try to recover the Android ID from persistent storage
+            String androidId = new String(PersistentStorage.get(user.name),
+                Charset.forName("US-ASCII"));
 
-            Slog.d(LOG_TAG, "Generated and saved new ANDROID_ID [" + androidId
-                    + "] for user " + userId);
+            if (androidId != null && !androidId.isEmpty()) {
+                Slog.d(LOG_TAG, "Recovered old ANDROID_ID [" + androidId
+                        + "] for user " + userId);
+            } else {
+                // Generate new Android ID
+                androidId = Long.toHexString(new SecureRandom().nextLong());
+                Slog.d(LOG_TAG, "Generated new ANDROID_ID [" + androidId
+                        + "] for user " + userId);
+            }
+
+            if (secureSettings.insertSettingLocked(Settings.Secure.ANDROID_ID,
+                        androidId, SettingsState.SYSTEM_PACKAGE_NAME) &&
+                    PersistentStorage.set(user.name,
+                        androidId.getBytes(Charset.forName("US-ASCII")))) {
+
+                Slog.d(LOG_TAG, "Saved ANDROID_ID [" + androidId
+                        + "] for user " + userId);
+            } else {
+                Slog.d(LOG_TAG, "Failed to save ANDROID_ID [" + androidId
+                        + "] for user " + userId);
+            }
 
             // Write a drop box entry if it's a restricted profile
             if (user.isRestricted()) {
