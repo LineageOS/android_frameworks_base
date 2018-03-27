@@ -30,9 +30,11 @@ import com.android.server.lights.Light;
 import com.android.server.lights.LightsManager;
 
 import android.app.ActivityManager;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.BatteryManager;
 import android.os.BatteryManagerInternal;
@@ -51,6 +53,7 @@ import android.os.UEventObserver;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.service.battery.BatteryServiceDumpProto;
+import android.telephony.TelephonyManager;
 import android.util.EventLog;
 import android.util.Slog;
 import android.util.proto.ProtoOutputStream;
@@ -151,6 +154,9 @@ public final class BatteryService extends SystemService {
     private long mDischargeStartTime;
     private int mDischargeStartLevel;
 
+    private boolean mScreenOn = true;
+    protected boolean mInCall = false;
+
     private boolean mUpdatesStopped;
 
     private Led mLed;
@@ -207,6 +213,13 @@ public final class BatteryService extends SystemService {
         } catch (RemoteException e) {
             // Should never happen.
         }
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_SCREEN_ON);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        filter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
+        filter.addAction(Intent.ACTION_USER_PRESENT);
+        getContext().registerReceiver(mIntentReceiver, filter);
 
         mBinderService = new BinderService();
         publishBinderService("battery", mBinderService);
@@ -864,6 +877,27 @@ public final class BatteryService extends SystemService {
         }
     }
 
+    private final BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action.equals(Intent.ACTION_SCREEN_ON)) {
+                // Keep track of screen on/off state, but do not turn off the notification light
+                // until user passes through the lock screen or views the notification.
+                mScreenOn = true;
+                updateLedPulse();
+            } else if (action.equals(Intent.ACTION_SCREEN_OFF)) {
+                mScreenOn = false;
+                updateLedPulse();
+            } else if (action.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
+                mInCall = TelephonyManager.EXTRA_STATE_OFFHOOK
+                        .equals(intent.getStringExtra(TelephonyManager.EXTRA_STATE));
+                updateLedPulse();
+            }
+        }
+    };
+
     private void dumpProto(FileDescriptor fd) {
         final ProtoOutputStream proto = new ProtoOutputStream(fd);
 
@@ -946,7 +980,7 @@ public final class BatteryService extends SystemService {
             LedValues ledValues = new LedValues(0 /* color */, mBatteryLedOn, mBatteryLedOff);
             mLineageBatteryLights.calcLights(ledValues,
                     mBatteryProps.batteryLevel, mBatteryProps.batteryStatus,
-                    mBatteryProps.batteryLevel <= mLowBatteryWarningLevel);
+                    mBatteryProps.batteryLevel <= mLowBatteryWarningLevel, mScreenOn || mInCall);
 
             if (!ledValues.isEnabled()) {
                 mBatteryLight.turnOff();
