@@ -1561,7 +1561,6 @@ Kontaktéier däi Provider fir eng aner SIM-Kaart ze kréien.</string>
         they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
-  <string name="permdesc_writeHistoryBookmarks" product="tv">Erlaabt der App, den Historique oder d\'Lieszeechen déi vun dengem Browser op der Tëlee gespäichert sinn z\'änneren. Dat kéint der App erméiglechen, d\'Browserdaten z\'änneren oder ze läschen. Wichteg: Dës Berechtegung kéint vu Browseren oder aneren Appe vun Drëtthiersteller net berücksichtegt ginn.</string>
   <!-- Description of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether

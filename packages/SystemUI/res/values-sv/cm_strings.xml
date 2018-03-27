@@ -156,6 +156,7 @@
   <!-- Content description for Accessibility on unlocked tasks in recents -->
   <!-- Content description for Accessibility on locked tasks in recents -->
   <!-- LiveDisplay strings -->
+  <string name="live_display_auto">Automatisk</string>
   <string name="live_display_off">Av</string>
   <string name="live_display_day">Dag</string>
   <string name="live_display_day_summary">Använd enbart dagläge</string>

@@ -1565,17 +1565,8 @@
   <!-- Appened to express the value is this unit of time. -->
   <string name="years">يىل</string>
   <!-- Phrase describing a time duration using seconds [CHAR LIMIT=16] -->
-  <plurals name="duration_seconds">
-    <item quantity="other">1 سېكۇنت</item>
-  </plurals>
   <!-- Phrase describing a time duration using minutes [CHAR LIMIT=16] -->
-  <plurals name="duration_minutes">
-    <item quantity="other">1 مىنۇت</item>
-  </plurals>
   <!-- Phrase describing a time duration using hours [CHAR LIMIT=16] -->
-  <plurals name="duration_hours">
-    <item quantity="other">1 سائەت</item>
-  </plurals>
   <!-- A string denoting the current point in time that should be as short as possible. Abbreviations are preferred to full strings as this might be shown repetitively. It is used in the header of notifications. [CHAR LIMIT=8]-->
   <!-- Phrase describing a time duration using minutes that is as short as possible, preferrably one character. If the language needs a space in between the integer and the unit, please also integrate it in the string, but preferably it should not have a space in between.[CHAR LIMIT=6] -->
   <!-- Phrase describing a time duration using hours that is as short as possible, preferrably one character. If the language needs a space in between the integer and the unit, please also integrate it in the string, but preferably it should not have a space in between.[CHAR LIMIT=6] -->
@@ -1838,13 +1829,7 @@
   <!-- If there is ever a ringtone set for some setting, but that ringtone can no longer be resolved, t his is shown instead.  For example, if the ringtone was on a SD card and it had been removed, this woudl be shown for ringtones on that SD card. -->
   <string name="ringtone_unknown">نامەلۇم قوڭغۇراق ئاۋازى</string>
   <!-- A notification is shown when there are open wireless networks nearby.  This is the notification's title. -->
-  <plurals name="wifi_available">
-    <item quantity="other">ئىشلىتىلىشچان Wi-Fi تورى بار</item>
-  </plurals>
   <!-- A notification is shown when there are open wireless networks nearby.  This is the notification's message. -->
-  <plurals name="wifi_available_detailed">
-    <item quantity="other">ئىشلىتىلىشچان Wi-Fi تورىنى ئاچ</item>
-  </plurals>
   <!-- A notification is shown when a wifi captive portal network is detected.  This is the notification's title. -->
   <!-- A notification is shown when a captive portal network is detected.  This is the notification's title. -->
   <!-- A notification is shown when a captive portal network is detected.  This is the notification's message. -->
@@ -2122,11 +2107,6 @@
   <string name="find_on_page">بەتتىن ئىزدە</string>
   <!-- Displayed on the Find dialog to display the index of the highlighted
          match and total number of matches found in the current page. [CHAR LIMIT=NONE] -->
-  <plurals name="matches_found">
-    <!-- Case of one match -->
-    <!-- Case of multiple total matches -->
-    <item quantity="other">ماس كەلگىنى 1</item>
-  </plurals>
   <!-- Label for the "Done" button on the far left of action mode toolbars. -->
   <string name="action_mode_done">تامام</string>
   <!-- Strings for MasterClearReceiver. -->
@@ -2686,9 +2666,6 @@
   <string name="restr_pin_error_too_short">PIN بەك قىسقا. ئاز دېگەندە 4 خانە سان بولۇشى كېرەك.</string>
   <!-- PIN entry dialog countdown message for next chance to enter the PIN [CHAR LIMIT=none] -->
   <!-- Phrase describing a time duration using seconds [CHAR LIMIT=none] -->
-  <plurals name="restr_pin_countdown">
-    <item quantity="other">1 سېكۇنتتىن كېيىن قايتا سىناڭ</item>
-  </plurals>
   <!-- PIN entry dialog tells the user to not enter a PIN for a while. [CHAR LIMIT=none] -->
   <string name="restr_pin_try_later">سەل تۇرۇپ قايتا سىناڭ</string>
   <!-- Cling help message title when hiding the navigation bar entering immersive mode [CHAR LIMIT=none] -->

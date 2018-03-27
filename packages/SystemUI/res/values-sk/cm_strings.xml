@@ -99,6 +99,7 @@
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d klient</item>
     <item quantity="few">%1$d klienti</item>
+    <item quantity="many">%1$d klientov</item>
     <item quantity="other">%1$d klientov</item>
   </plurals>
   <!-- Weather string format in expanded statusbar header -->

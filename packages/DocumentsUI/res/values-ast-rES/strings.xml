@@ -20,7 +20,9 @@
   <!-- Title of the standalone downloads activity. [CHAR LIMIT=32] -->
   <string name="downloads_label">Descargues</string>
   <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
+  <string name="title_open">Abrir dende</string>
   <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
+  <string name="title_save">Guardar en</string>
   <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
   <string name="menu_create_dir">Carpeta nueva</string>
   <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
@@ -30,12 +32,17 @@
   <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
   <string name="menu_sort">Ordenar per</string>
   <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
+  <string name="menu_search">Guetar</string>
   <!-- Menu item that enters activity to change settings for current root [CHAR LIMIT=24] -->
   <string name="menu_settings">Axustes d\'almacenamientu</string>
   <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
+  <string name="menu_open">Abrir</string>
   <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
+  <string name="menu_save">Guardar</string>
   <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
+  <string name="menu_share">Compartir</string>
   <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
+  <string name="menu_delete">Desaniciar</string>
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
   <string name="menu_select_all">Esbillar too</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
@@ -44,15 +51,21 @@
   <!-- Menu item title that creates a new window in the activity [CHAR LIMIT=24] -->
   <string name="menu_new_window">Ventana nueva</string>
   <!-- Menu item title that copies the selected documents to clipboard [CHAR LIMIT=24] -->
+  <string name="menu_copy_to_clipboard">Copiar</string>
   <!-- Menu item title that pastes files from the clipboard [CHAR LIMIT=24] -->
   <string name="menu_paste_from_clipboard">Apegar</string>
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
+  <string name="menu_advanced_show">Amosar almac. internu</string>
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
+  <string name="menu_advanced_hide">Anubrir almac. internu</string>
   <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
+  <string name="menu_file_size_show">Amosar tamañu de ficheru</string>
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
+  <string name="menu_file_size_hide">Anubrir tamañu de ficheru</string>
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
   <string name="button_select">Esbillar</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
+  <string name="button_copy">Copiar</string>
   <!-- Button label that moves files to the current directory [CHAR LIMIT=24] -->
   <string name="button_move">Mover</string>
   <!-- Button label that hides the error bar [CHAR LIMIT=24] -->
@@ -65,7 +78,9 @@
   <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
   <string name="sort_size">Pel tamañu</string>
   <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
+  <string name="drawer_open">Amosar raigaños</string>
   <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
+  <string name="drawer_close">Anubrir raigaños</string>
   <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
   <string name="save_error">Fallu al guardar el documentu</string>
   <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
@@ -73,14 +88,19 @@
   <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
   <string name="query_error">Nesti momentu nun pue cargase\u2019l conteníu</string>
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
+  <string name="root_recent">Recién</string>
   <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
   <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> llibres</string>
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
+  <string name="root_type_service">Servicios d\'almacenamientu</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
+  <string name="root_type_shortcut">Atayos</string>
   <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
+  <string name="root_type_device">Preseos</string>
   <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
   <string name="root_type_apps">Más aplicaciones</string>
   <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
+  <string name="empty">Nun hai elementos</string>
   <!-- Text shown when a file search returns no items [CHAR LIMIT=32] -->
   <string name="no_results">Nun hai coincidendies en %1$s</string>
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
@@ -90,12 +110,18 @@
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
   <string name="share_via">Compartir per</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
+  <string name="copy_notification_title">Copiando ficheros</string>
   <!-- Title of the move notification [CHAR LIMIT=24] -->
   <string name="move_notification_title">Moviendo ficheros</string>
   <!-- Title of the move notification [CHAR LIMIT=24] -->
   <string name="delete_notification_title">Desaniciando ficheros</string>
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
+  <string name="copy_remaining">Queden <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
   <!-- Toast shown when a file copy is kicked off -->
+  <plurals name="copy_begin">
+    <item quantity="one">Copiando <xliff:g id="count" example="1">%1$d</xliff:g> ficheru.</item>
+    <item quantity="other">Copiando <xliff:g id="count" example="1">%1$d</xliff:g> ficheros.</item>
+  </plurals>
   <plurals name="move_begin">
     <item quantity="one">Moviendo <xliff:g id="count" example="1">%1$d</xliff:g> ficheru.</item>
     <item quantity="other">Moviendo <xliff:g id="count" example="3">%1$d</xliff:g> ficheros.</item>
@@ -108,6 +134,7 @@
   <!-- Text shown for the undo button -->
   <string name="undo">Desfacer</string>
   <!-- Text shown on the notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
+  <string name="copy_preparing">Tresnando pa copiar\u2026</string>
   <!-- Text shown on the notification while DocumentsUI performs setup in preparation for moving files [CHAR LIMIT=32] -->
   <string name="move_preparing">Tresnando pa mover\u2026</string>
   <!-- Text shown on the notification while DocumentsUI performs setup in preparation for deleting files [CHAR LIMIT=32] -->

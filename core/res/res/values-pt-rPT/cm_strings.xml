@@ -35,7 +35,7 @@
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
   <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
-  <string name="reboot_download">Download</string>
+  <string name="reboot_download">Transferência</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
   <string name="reboot_soft">Reinicialização suave</string>
   <!-- Title of dialog to confirm restarting. -->
@@ -108,7 +108,7 @@
   <string name="app_ops_use_media_volume">controlar o volume multimédia</string>
   <string name="app_ops_use_notification_volume">controlar o volume de notificação</string>
   <string name="app_ops_use_ring_volume">controlar o volume de toque</string>
-  <string name="app_ops_use_vibrate">usar a reação tátil</string>
+  <string name="app_ops_use_vibrate">usar a vibração ao tocar</string>
   <string name="app_ops_use_voice_volume">controlar o volume das chamadas de voz</string>
   <string name="app_ops_write_mms">escrever uma mensagem MMS</string>
   <string name="app_ops_write_sms">escrever uma mensagem SMS</string>
