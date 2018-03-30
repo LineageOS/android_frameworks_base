@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9da1703e_46a49d35",
+        "filename": "core/java/android/os/BatteryManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-03-30T18:05:47Z",
+      "side": 1,
+      "message": "These all need @hide\u0027s on them to not cause quail stars",
+      "revId": "1185f661d9291e0daeba889133e004757ff9243a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1c4faf0_1b2d2cf4",
         "filename": "core/java/android/os/BatteryProperties.java",
         "patchSetId": 1
