@@ -43,8 +43,10 @@
   <string name="app_ops_access_notifications">Ler as súas notificacións</string>
   <string name="app_ops_activate_vpn">Activar unha VPN</string>
   <string name="app_ops_add_voicemail">engadir ó correo de voz</string>
+  <string name="app_ops_app_start_foreground">iniciar unha aplicación instantaneamente en primeiro plano</string>
   <string name="app_ops_assist_screenshot">realizar captura de pantalla</string>
   <string name="app_ops_assist_structure">usar a estrutura de asistencia</string>
+  <string name="app_ops_audio_accessibility_volume">volume do son de accesibilidade</string>
   <string name="app_ops_auto_start">Iniciar ao arrancar</string>
   <string name="app_ops_change_wallpaper">mudar o fondo de pantalla</string>
   <string name="app_ops_delete_call_log">Borrar o seu rexistro de chamadas</string>
@@ -54,6 +56,7 @@
   <string name="app_ops_draw_on_top">amosar enriba</string>
   <string name="app_ops_get_accounts">obter as contas do dispositivo</string>
   <string name="app_ops_get_usage_stats">obter estatísticas sobre o uso da aplicación</string>
+  <string name="app_ops_install_packages">instalar paquetes</string>
   <string name="app_ops_keep_device_awake">manter o seu dispositivo esperto</string>
   <string name="app_ops_make_phone_call">realizar unha chamada de teléfono</string>
   <string name="app_ops_mock_location">simular a miña localización</string>
@@ -63,6 +66,8 @@
   <string name="app_ops_modify_contacts">actualizar os seus contactos</string>
   <string name="app_ops_modify_settings">actualizar a configuración do sistema</string>
   <string name="app_ops_mute_unmute_microphone">activar/desactivar o micrófono</string>
+  <string name="app_ops_phone_calls">responder chamadas de teléfono</string>
+  <string name="app_ops_picture_in_picture">empregar imaxe sobre imaxe</string>
   <string name="app_ops_play_audio">reproducir son</string>
   <string name="app_ops_post_notification">enviar unha notificación</string>
   <string name="app_ops_project_media">visualizar recursos multimedia</string>
@@ -73,6 +78,7 @@
   <string name="app_ops_read_contacts">ler os seus contactos</string>
   <string name="app_ops_read_external_storage">ler do almacenamento externo</string>
   <string name="app_ops_read_mms">ler as súas mensaxes MMS</string>
+  <string name="app_ops_read_phone_numbers">ler números de teléfono</string>
   <string name="app_ops_read_phone_state">acceder ao estado do móbil</string>
   <string name="app_ops_read_sms">ler as súas mensaxes SMS</string>
   <string name="app_ops_receive_sms">recibir unha mensaxe SMS</string>

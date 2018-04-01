@@ -64,6 +64,7 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Label for current user in power menu options dialog -->
+  <string name="global_action_current_user">Utilisateur actuel</string>
   <!-- Label for item that screenshots in power menu options dialog -->
   <string name="global_action_screenshot">Capture d\'écran</string>
   <!-- Advanced restart menu -->
