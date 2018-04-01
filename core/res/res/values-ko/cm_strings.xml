@@ -66,6 +66,7 @@
   <string name="app_ops_modify_contacts">주소록 업데이트</string>
   <string name="app_ops_modify_settings">시스템 설정 업데이트</string>
   <string name="app_ops_mute_unmute_microphone">마이크 켜기/끄기</string>
+  <string name="app_ops_phone_calls">전화 받기</string>
   <string name="app_ops_picture_in_picture">PIP 모드 사용</string>
   <string name="app_ops_play_audio">오디오 재생</string>
   <string name="app_ops_post_notification">알림 게시</string>

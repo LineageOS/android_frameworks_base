@@ -58,22 +58,32 @@
   <string name="accessibility_dpad_left">Cursor á esquerda</string>
   <string name="accessibility_dpad_right">Cursor á dereita</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
+  <string name="screen_pinning_description_no_navbar">Amosarase mentres esté fixado. Para deixar de fixalo, mantén tocado o botón Atrás.</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Label for current user in power menu options dialog -->
+  <string name="global_action_current_user">Actual</string>
   <!-- Label for item that screenshots in power menu options dialog -->
+  <string name="global_action_screenshot">Captura de pantalla</string>
   <!-- Advanced restart menu -->
   <!-- Button to restart the device, within the Restart Options dialog -->
   <string name="global_action_restart_system">Sistema</string>
   <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+  <string name="global_action_restart_recovery">Recuperación</string>
   <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+  <string name="global_action_restart_bootloader">Cargador de arranque</string>
   <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+  <string name="global_action_restart_download">Descarga</string>
   <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+  <string name="global_action_restart_progress">Reiniciando\u2026</string>
   <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+  <string name="global_action_restart_recovery_progress">Reiniciando en modo recuperación\u2026</string>
   <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+  <string name="global_action_restart_bootloader_progress">Reiniciando en modo bootloader\u2026</string>
   <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+  <string name="global_action_restart_download_progress">Reiniciando en modo descarga\u2026</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Informe de localización: en modo aforro de batería.</string>
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
