@@ -117,10 +117,10 @@ public class NavigationBarInflaterView extends FrameLayout implements TunerServi
 
     private void inflateChildren() {
         removeAllViews();
-        mRot0 = (FrameLayout) mLayoutInflater.inflate(R.layout.navigation_layout, this, false);
+        mRot0 = (FrameLayout) mLayoutInflater.inflate(R.layout.navigation_layout_rot90, this, false);
         mRot0.setId(R.id.rot0);
         addView(mRot0);
-        mRot90 = (FrameLayout) mLayoutInflater.inflate(R.layout.navigation_layout_rot90, this,
+        mRot90 = (FrameLayout) mLayoutInflater.inflate(R.layout.navigation_layout, this,
                 false);
         mRot90.setId(R.id.rot90);
         addView(mRot90);
