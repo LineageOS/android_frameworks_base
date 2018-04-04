@@ -22,6 +22,52 @@
       "revId": "0f6828473eceb18791f19d5328dd77010f55260e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "713c549c_81da1aa8",
+        "filename": "core/java/android/nfc/tech/NfcA.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-04-04T11:44:45Z",
+      "side": 1,
+      "message": "This is going to be overwritten bellow.",
+      "range": {
+        "startLine": 75,
+        "startChar": 12,
+        "endLine": 75,
+        "endChar": 69
+      },
+      "revId": "0f6828473eceb18791f19d5328dd77010f55260e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e60bbb3_73e4f14e",
+        "filename": "core/java/android/nfc/tech/NfcA.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-04-04T11:44:45Z",
+      "side": 1,
+      "message": "This is overriding the value.",
+      "range": {
+        "startLine": 78,
+        "startChar": 15,
+        "endLine": 78,
+        "endChar": 16
+      },
+      "revId": "0f6828473eceb18791f19d5328dd77010f55260e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
