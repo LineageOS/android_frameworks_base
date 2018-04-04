@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25e33746_fd1d0e76",
+        "filename": "core/java/android/nfc/tech/NfcA.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-04-04T08:26:17Z",
+      "side": 1,
+      "message": "do we care enough to fix the code style here?",
+      "range": {
+        "startLine": 73,
+        "startChar": 8,
+        "endLine": 74,
+        "endChar": 9
+      },
+      "revId": "0f6828473eceb18791f19d5328dd77010f55260e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
