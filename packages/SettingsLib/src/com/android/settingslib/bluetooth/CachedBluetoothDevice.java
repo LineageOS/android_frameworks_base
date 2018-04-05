@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.ParcelUuid;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.EventLog;
 import android.util.Log;
@@ -101,6 +102,22 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         mDevice = device;
         fillData();
         mHiSyncId = BluetoothHearingAid.HI_SYNC_ID_INVALID;
+    }
+
+    /* Gets Device for seondary TWS device
+     * @param mDevice Primary TWS device  to get secondary
+     * @return Description of the device
+     */
+
+    private BluetoothDevice getTwsPeerDevice() {
+      BluetoothAdapter bluetoothAdapter;
+      BluetoothDevice peerDevice = null;
+      if (mDevice.isTwsPlusDevice()) {
+        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        String peerAddress = mDevice.getTwsPlusPeerAddress();
+        peerDevice = bluetoothAdapter.getRemoteDevice(peerAddress);
+      }
+      return peerDevice;
     }
 
     /**
@@ -320,6 +337,17 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
 
         if (state != BluetoothDevice.BOND_NONE) {
             final BluetoothDevice dev = mDevice;
+            if (mDevice.isTwsPlusDevice()) {
+               BluetoothDevice peerDevice = getTwsPeerDevice();
+               if (peerDevice != null) {
+                   final boolean peersuccessful = peerDevice.removeBond();
+                   if (peersuccessful) {
+                       if (Utils.D) {
+                           Log.d(TAG, "Command sent successfully:REMOVE_BOND " + peerDevice.getName());
+                       }
+                   }
+                }
+            }
             if (dev != null) {
                 final boolean successful = dev.removeBond();
                 if (successful) {
@@ -648,6 +676,11 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         if (bondState == BluetoothDevice.BOND_BONDED) {
             if (mDevice.isBluetoothDock()) {
                 onBondingDockConnect();
+            } else if (SystemProperties.getBoolean("persist.vendor.bt.connect.peer_earbud", true)) {
+                Log.d(TAG, "Initiating connection to" + mDevice);
+                if (mDevice.isBondingInitiatedLocally() || mDevice.isTwsPlusDevice()) {
+                    connect(false);
+                }
             } else if (mDevice.isBondingInitiatedLocally()) {
                 connect(false);
             }
