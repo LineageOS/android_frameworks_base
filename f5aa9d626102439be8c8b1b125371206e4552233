@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad806251_573aaddb",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2018-04-07T01:29:03Z",
+      "side": 0,
+      "message": "boolean  passed\u003d false;",
+      "revId": "f5aa9d626102439be8c8b1b125371206e4552233",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "699b6d9b_bed2c9db",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2018-04-07T01:29:03Z",
+      "side": 0,
+      "message": "if( str\u003d\u003d\"all\"\u0026\u0026  !passed ){\nreturn false;\n} \npassed \u003d true;",
+      "revId": "f5aa9d626102439be8c8b1b125371206e4552233",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
