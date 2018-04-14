@@ -1682,6 +1682,9 @@
     <!-- SysUI Tuner: Button that controls layout of navigation bar [CHAR LIMIT=60] -->
     <string name="nav_bar_layout">Layout</string>
 
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">Inverse button layout</string>
+
     <!-- SysUI Tuner: Setting for button type in nav bar [CHAR LIMIT=60] -->
     <string name="left_nav_bar_button_type">Extra left button type</string>
 
