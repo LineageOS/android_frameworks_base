@@ -58,6 +58,7 @@ public class NavigationBarInflaterView extends FrameLayout
     public static final String NAV_BAR_VIEWS = "sysui_nav_bar";
     public static final String NAV_BAR_LEFT = "sysui_nav_bar_left";
     public static final String NAV_BAR_RIGHT = "sysui_nav_bar_right";
+    public static final String NAV_BAR_INVERSE = "sysui_nav_bar_inverse";
 
     public static final String MENU_IME_ROTATE = "menu_ime";
     public static final String BACK = "back";
@@ -102,6 +103,8 @@ public class NavigationBarInflaterView extends FrameLayout
     private boolean mUsingCustomLayout;
 
     private OverviewProxyService mOverviewProxyService;
+
+    private boolean mInverseLayout;
 
     public NavigationBarInflaterView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -152,7 +155,7 @@ public class NavigationBarInflaterView extends FrameLayout
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         Dependency.get(TunerService.class).addTunable(this, NAV_BAR_VIEWS, NAV_BAR_LEFT,
-                NAV_BAR_RIGHT);
+                NAV_BAR_RIGHT, NAV_BAR_INVERSE);
         Dependency.get(PluginManager.class).addPluginListener(this,
                 NavBarButtonProvider.class, true /* Allow multiple */);
     }
@@ -173,6 +176,10 @@ public class NavigationBarInflaterView extends FrameLayout
                 inflateLayout(newValue);
             }
         } else if (NAV_BAR_LEFT.equals(key) || NAV_BAR_RIGHT.equals(key)) {
+            clearViews();
+            inflateLayout(mCurrentLayout);
+        } else if (NAV_BAR_INVERSE.equals(key)) {
+            mInverseLayout = newValue != null && Integer.parseInt(newValue) != 0;
             clearViews();
             inflateLayout(mCurrentLayout);
         }
@@ -255,6 +262,9 @@ public class NavigationBarInflaterView extends FrameLayout
         mCurrentLayout = newLayout;
         if (newLayout == null) {
             newLayout = getDefaultLayout();
+        }
+        if (mInverseLayout) {
+            newLayout = newLayout.replace("recent", "back").replaceFirst("back", "recent");
         }
         String[] sets = newLayout.split(GRAVITY_SEPARATOR, 3);
         if (sets.length != 3) {
