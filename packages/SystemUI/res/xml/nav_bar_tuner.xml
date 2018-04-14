@@ -26,6 +26,10 @@
         android:entries="@array/nav_bar_layouts"
         android:entryValues="@array/nav_bar_layouts_values" />
 
+    <com.android.systemui.tuner.TunerSwitch
+        android:key="sysui_nav_bar_inverse"
+        android:title="@string/nav_bar_layout_inverse" />
+
     <com.android.systemui.tuner.RadioListPreference
         android:key="type_left"
         android:title="@string/left_nav_bar_button_type"
