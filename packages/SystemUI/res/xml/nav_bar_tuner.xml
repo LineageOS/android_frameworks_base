@@ -64,4 +64,8 @@
         android:summary="%s"
         android:title="@string/right_icon" />
 
+    <com.android.systemui.tuner.TunerSwitch
+        android:key="sysui_nav_bar_inverse"
+        android:title="@string/nav_bar_layout_inverse" />
+
 </PreferenceScreen>
