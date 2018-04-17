@@ -23,4 +23,5 @@
 <resources>
     <!-- Time format,default value is 24 : 24 format,other value is 12 format -->
     <string name="def_time_format" translatable="false"></string>
+    <string name="def_tv_user_setup_complete" translatable="false"></string>
 </resources>
