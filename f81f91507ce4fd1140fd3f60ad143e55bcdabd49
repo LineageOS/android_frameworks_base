@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "173e9ede_01fed446",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3402,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2018-04-17T18:08:46Z",
+      "side": 1,
+      "message": "String",
+      "range": {
+        "startLine": 3402,
+        "startChar": 20,
+        "endLine": 3402,
+        "endChar": 27
+      },
+      "revId": "f81f91507ce4fd1140fd3f60ad143e55bcdabd49",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67f9d9cd_c9d2d470",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3403,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2018-04-17T18:08:46Z",
+      "side": 1,
+      "message": ".getValue()",
+      "revId": "f81f91507ce4fd1140fd3f60ad143e55bcdabd49",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
