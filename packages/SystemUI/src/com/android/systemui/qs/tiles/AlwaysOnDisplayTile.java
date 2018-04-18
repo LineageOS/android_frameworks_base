@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- * Copyright (C) 2017 The LineageOS Project
+ * Copyright (C) 2017-2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,19 +33,19 @@ import com.android.systemui.R;
 
 import org.lineageos.internal.logging.LineageMetricsLogger;
 
-/** Quick settings tile: Ambient Display **/
-public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
+/** Quick settings tile: Always On Display **/
+public class AlwaysOnDisplayTile extends QSTileImpl<BooleanState> {
 
-    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_ambient_display);
+    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_always_on_display);
 
     private static final Intent DISPLAY_SETTINGS = new Intent("android.settings.DISPLAY_SETTINGS");
 
     private final SecureSetting mSetting;
 
-    public AmbientDisplayTile(QSHost host) {
+    public AlwaysOnDisplayTile(QSHost host) {
         super(host);
 
-        mSetting = new SecureSetting(mContext, mHandler, Secure.DOZE_ENABLED) {
+        mSetting = new SecureSetting(mContext, mHandler, Secure.DOZE_ALWAYS_ON) {
             @Override
             protected void handleValueChanged(int value, boolean observedChange) {
                 handleRefreshState(value);
@@ -80,7 +80,7 @@ public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
 
     private void setEnabled(boolean enabled) {
         Settings.Secure.putInt(mContext.getContentResolver(),
-                Settings.Secure.DOZE_ENABLED,
+                Settings.Secure.DOZE_ALWAYS_ON,
                 enabled ? 1 : 0);
     }
 
@@ -89,37 +89,37 @@ public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
         final int value = arg instanceof Integer ? (Integer) arg : mSetting.getValue();
         final boolean enable = value != 0;
         state.value = enable;
-        state.label = mContext.getString(R.string.quick_settings_ambient_display_label);
+        state.label = mContext.getString(R.string.quick_settings_always_on_display_label);
         state.icon = mIcon;
         if (enable) {
             state.contentDescription =  mContext.getString(
-                    R.string.accessibility_quick_settings_ambient_display_on);
+                    R.string.accessibility_quick_settings_always_on_display_on);
             state.state = Tile.STATE_ACTIVE;
         } else {
             state.contentDescription =  mContext.getString(
-                    R.string.accessibility_quick_settings_ambient_display_off);
+                    R.string.accessibility_quick_settings_always_on_display_off);
             state.state = Tile.STATE_INACTIVE;
         }
     }
 
     @Override
     public CharSequence getTileLabel() {
-        return mContext.getString(R.string.quick_settings_ambient_display_label);
+        return mContext.getString(R.string.quick_settings_always_on_display_label);
     }
 
     @Override
     public int getMetricsCategory() {
-        return LineageMetricsLogger.TILE_AMBIENT_DISPLAY;
+        return LineageMetricsLogger.TILE_ALWAYS_ON_DISPLAY;
     }
 
     @Override
     protected String composeChangeAnnouncement() {
         if (mState.value) {
             return mContext.getString(
-                    R.string.accessibility_quick_settings_ambient_display_changed_on);
+                    R.string.accessibility_quick_settings_always_on_display_changed_on);
         } else {
             return mContext.getString(
-                    R.string.accessibility_quick_settings_ambient_display_changed_off);
+                    R.string.accessibility_quick_settings_always_on_display_changed_off);
         }
     }
 

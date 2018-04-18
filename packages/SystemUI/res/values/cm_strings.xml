@@ -44,12 +44,12 @@
     <!-- ADB over network QS tile -->
     <string name="quick_settings_network_adb_label">ADB over network</string>
 
-    <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Ambient display</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
+    <!-- Always on display QS tile -->
+    <string name="quick_settings_always_on_display_label">Always on display</string>
+    <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
+    <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
 
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
