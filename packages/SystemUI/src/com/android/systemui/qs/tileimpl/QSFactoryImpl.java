@@ -27,6 +27,7 @@ import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tiles.AdbOverNetworkTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
+import com.android.systemui.qs.tiles.AlwaysOnDisplayTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CaffeineTile;
@@ -113,6 +114,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new AdbOverNetworkTile(mHost);
             case "ambient_display":
                 return new AmbientDisplayTile(mHost);
+            case "always_on_display":
+                return new AlwaysOnDisplayTile(mHost);
             case "caffeine":
                 return new CaffeineTile(mHost);
             case "heads_up":
