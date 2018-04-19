@@ -97,6 +97,8 @@ public class PermissionDialog extends BasePermissionDialog {
                 name, mOpLabels[mCode]));
         setView(mView);
 
+        setIcon(com.android.internal.R.drawable.permission_dialog_trust);
+
         // After the timeout, pretend the user clicked the quit button
         mHandler.sendMessageDelayed(
                 mHandler.obtainMessage(ACTION_IGNORED_TIMEOUT), DISMISS_TIMEOUT);
