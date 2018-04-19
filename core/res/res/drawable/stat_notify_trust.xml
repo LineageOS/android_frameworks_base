@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2018 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M5,3L19,3C20.105,3 21,3.895 21,5L21,12C21,16.971 16.971,21 12,21C7.029,21 3,16.971 3,12L3,5C3,3.895 3.895,3 5,3ZM18.902,13.168C18.994,12.624 18.627,12.108 18.082,12.016C17.538,11.925 17.022,12.292 16.93,12.837C16.528,15.225 14.45,17 12,17C9.55,17 7.472,15.226 7.069,12.838C6.978,12.294 6.462,11.927 5.917,12.018C5.373,12.11 5.005,12.626 5.097,13.171C5.661,16.517 8.57,19 12,19C15.43,19 18.339,16.516 18.902,13.168ZM11.046,5.698L9.127,11.297C9.045,11.516 9,11.753 9,12C9,13.104 9.895,14 11,14C11.01,14 11.019,14 11.029,14L13,14C13.55,14 14.05,13.78 14.41,13.41C14.78,13.05 15,12.55 15,12L12.6,12L11,11.999L11.438,10.724L11.646,10.116L12.938,6.346C12.978,6.238 13,6.121 13,6C13,5.448 12.552,5 12,5C11.553,5 11.174,5.293 11.046,5.698Z" />
+</vector>
