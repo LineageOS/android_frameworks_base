@@ -54,6 +54,7 @@
   <string name="app_ops_draw_on_top">bovenop tekenen</string>
   <string name="app_ops_get_accounts">apparaataccounts opvragen</string>
   <string name="app_ops_get_usage_stats">app-gebruiksstatistieken opvragen</string>
+  <string name="app_ops_install_packages">pakketten installeren</string>
   <string name="app_ops_keep_device_awake">apparaat wakker houden</string>
   <string name="app_ops_make_phone_call">telefoongesprek starten</string>
   <string name="app_ops_mock_location">neplocatie gebruiken</string>
@@ -63,6 +64,8 @@
   <string name="app_ops_modify_contacts">contacten vernieuwen</string>
   <string name="app_ops_modify_settings">systeeminstellingen vernieuwen</string>
   <string name="app_ops_mute_unmute_microphone">microfoon in-/uitschakelen</string>
+  <string name="app_ops_phone_calls">telefoonoproepen beantwoorden</string>
+  <string name="app_ops_picture_in_picture">picture-in-picture gebruiken</string>
   <string name="app_ops_play_audio">audio afspelen</string>
   <string name="app_ops_post_notification">melding tonen</string>
   <string name="app_ops_project_media">media projecteren</string>
@@ -73,6 +76,7 @@
   <string name="app_ops_read_contacts">contacten lezen</string>
   <string name="app_ops_read_external_storage">externe opslag lezen</string>
   <string name="app_ops_read_mms">mms-berichten lezen</string>
+  <string name="app_ops_read_phone_numbers">telefoonnummers lezen</string>
   <string name="app_ops_read_phone_state">toegang tot telefoonstatus</string>
   <string name="app_ops_read_sms">sms-berichten lezen</string>
   <string name="app_ops_receive_sms">sms-bericht ontvangen</string>
