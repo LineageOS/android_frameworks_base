@@ -2418,7 +2418,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
                     Notification.Builder builder = new Notification.Builder(mContext,
                             SystemNotificationChannels.SECURITY);
-                    builder.setSmallIcon(com.android.internal.R.drawable.stat_notify_privacy_guard)
+                    builder.setSmallIcon(com.android.internal.R.drawable.stat_notify_trust)
                             .setOngoing(true)
                             .setPriority(Notification.PRIORITY_LOW)
                             .setContentTitle(title)

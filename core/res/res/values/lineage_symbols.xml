@@ -43,7 +43,8 @@
     <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 
     <!-- Privacy Guard -->
-    <java-symbol type="drawable" name="stat_notify_privacy_guard" />
+    <java-symbol type="drawable" name="permission_dialog_trust" />
+    <java-symbol type="drawable" name="stat_notify_trust" />
     <java-symbol type="string" name="privacy_guard_notification" />
     <java-symbol type="string" name="privacy_guard_notification_detail" />
     <java-symbol type="string" name="privacy_guard_dialog_title" />
