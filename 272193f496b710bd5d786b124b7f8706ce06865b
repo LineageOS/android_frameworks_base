@@ -22,6 +22,30 @@
       "revId": "272193f496b710bd5d786b124b7f8706ce06865b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04b0107e_067df551",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-04-20T09:40:14Z",
+      "side": 1,
+      "message": "As previously changing parent view\u0027s visibility (Yes, I tried View.GONE there too) didn\u0027t make any difference. Also other navigation bar buttons have their visibility set separately like here.",
+      "parentUuid": "fca6953b_513a93b1",
+      "range": {
+        "startLine": 860,
+        "startChar": 8,
+        "endLine": 861,
+        "endChar": 78
+      },
+      "revId": "272193f496b710bd5d786b124b7f8706ce06865b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
