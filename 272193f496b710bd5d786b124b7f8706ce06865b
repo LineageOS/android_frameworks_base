@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fca6953b_513a93b1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-04-20T02:16:42Z",
+      "side": 1,
+      "message": "Why did this change from whole view to L/R subviews?",
+      "range": {
+        "startLine": 860,
+        "startChar": 8,
+        "endLine": 861,
+        "endChar": 78
+      },
+      "revId": "272193f496b710bd5d786b124b7f8706ce06865b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
