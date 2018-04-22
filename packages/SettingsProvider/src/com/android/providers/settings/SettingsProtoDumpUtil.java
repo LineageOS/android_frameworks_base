@@ -1446,6 +1446,9 @@ class SettingsProtoDumpUtil {
         dumpSetting(s, p,
                 Settings.Secure.NOTIFICATION_BADGING,
                 SecureSettingsProto.NOTIFICATION_BADGING);
+        dumpSetting(s, p,
+                Settings.Secure.FULL_SCREEN_ASPECT_RATIO,
+                SecureSettingsProto.FULL_SCREEN_ASPECT_RATIO);
     }
 
     private static void dumpProtoSystemSettingsLocked(

@@ -507,6 +507,7 @@ message SecureSettingsProto {
     SettingProto instant_apps_enabled = 166;
     SettingProto device_paired = 167;
     SettingProto notification_badging = 168;
+    SettingProto full_screen_aspect_ratio = 169;
 }
 
 message SystemSettingsProto {
