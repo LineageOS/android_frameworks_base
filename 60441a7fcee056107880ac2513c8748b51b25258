@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "d5435103_3c9fffaa",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3461,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2018-04-22T15:51:46Z",
+      "side": 1,
+      "message": "These SettingsProvider modifications have been avoided on purpose to breaking the update paths against AOSP monthly releases.\n\nUsing the same default value boolean logic in all places can ensure this is valid without forcing a database upgrade this implies.",
+      "revId": "60441a7fcee056107880ac2513c8748b51b25258",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05fa28d1_a410ac0a",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3469,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2018-04-22T15:51:46Z",
+      "side": 1,
+      "message": "Indentation typo.",
+      "revId": "60441a7fcee056107880ac2513c8748b51b25258",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25292068_2a292ce8",
         "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
         "patchSetId": 2
@@ -37,6 +71,30 @@
       "side": 1,
       "message": "line length",
       "parentUuid": "25292068_2a292ce8",
+      "range": {
+        "startLine": 2319,
+        "startChar": 65,
+        "endLine": 2319,
+        "endChar": 88
+      },
+      "revId": "60441a7fcee056107880ac2513c8748b51b25258",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd0e2567_00502251",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2018-04-22T15:51:46Z",
+      "side": 1,
+      "message": "Agreed on both facts. This should go to an overlay and be handled once.\n\nTo improve the readibility \u0026 line breaks, a simple final float ...; if () { } else { } would be better here including the overlay acquisition.",
+      "parentUuid": "4b3b319b_20fbd0e6",
       "range": {
         "startLine": 2319,
         "startChar": 65,
