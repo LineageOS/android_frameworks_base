@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25292068_2a292ce8",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-04-22T13:26:29Z",
+      "side": 1,
+      "message": "I feel like this should be an overlay of some sort. If it\u0027s not, then we should just use 2.1f directly rather than parsing a float from a string.",
+      "range": {
+        "startLine": 2319,
+        "startChar": 65,
+        "endLine": 2319,
+        "endChar": 88
+      },
+      "revId": "60441a7fcee056107880ac2513c8748b51b25258",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
