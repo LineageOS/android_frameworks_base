@@ -2334,7 +2334,9 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
         int maxActivityWidth = containingAppWidth;
         int maxActivityHeight = containingAppHeight;
 
-        if (containingAppWidth < containingAppHeight) {
+        if (service.shouldForceLongScreen(packageName)) {
+            // Use containingAppWidth/Height for maxActivityWidth/Height when force long screen
+        } else if (containingAppWidth < containingAppHeight) {
             // Width is the shorter side, so we use that to figure-out what the max. height
             // should be given the aspect ratio.
             maxActivityHeight = (int) ((maxActivityWidth * maxAspectRatio) + 0.5f);
