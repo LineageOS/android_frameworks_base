@@ -412,6 +412,8 @@ import com.android.server.vr.VrManagerInternal;
 import com.android.server.wm.PinnedStackWindowController;
 import com.android.server.wm.WindowManagerService;
 
+import org.lineageos.internal.applications.LongScreen;
+
 import java.text.SimpleDateFormat;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -1736,6 +1738,9 @@ public class ActivityManagerService extends IActivityManager.Stub
     final boolean mPermissionReviewRequired;
 
     private static String sTheRealBuildSerial = Build.UNKNOWN;
+
+    // Lineage sdk LongScreen helper
+    private LongScreen mLongScreen;
 
     /**
      * Current global configuration information. Contains general settings for the entire system,
@@ -12221,6 +12226,10 @@ public class ActivityManagerService extends IActivityManager.Stub
         RescueParty.onSettingsProviderPublished(mContext);
 
         //mUsageStatsService.monitorPackages();
+
+        // LongScreen depends on settings so we can initialize only
+        // after providers are available.
+        mLongScreen = new LongScreen(mContext);
     }
 
     private void startPersistentApps(int matchFlags) {
@@ -24727,5 +24736,9 @@ public class ActivityManagerService extends IActivityManager.Stub
                 Binder.restoreCallingIdentity(origId);
             }
         }
+    }
+
+    public boolean shouldForceLongScreen(String packageName) {
+        return mLongScreen.shouldForceLongScreen(packageName);
     }
 }
