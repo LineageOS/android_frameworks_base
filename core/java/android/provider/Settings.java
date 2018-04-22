@@ -7165,6 +7165,12 @@ public final class Settings {
         public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
 
         /**
+         * Controls whether full screen aspect ratio is enabled.
+         * @hide
+         */
+        public static final String FULL_SCREEN_ASPECT_RATIO = "full_screen_aspect_ratio";
+
+        /**
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
@@ -7266,6 +7272,7 @@ public final class Settings {
             SCREENSAVER_COMPONENTS,
             SCREENSAVER_ACTIVATE_ON_DOCK,
             SCREENSAVER_ACTIVATE_ON_SLEEP,
+            FULL_SCREEN_ASPECT_RATIO,
         };
 
         /** @hide */

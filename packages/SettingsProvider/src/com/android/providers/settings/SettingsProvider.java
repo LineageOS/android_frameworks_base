@@ -3458,6 +3458,17 @@ public class SettingsProvider extends ContentProvider {
                     currentVersion = 148;
                 }
 
+                if (currentVersion == 148) {
+                    // Version 149: Set the default value for FULL_SCREEN_ASPECT_RATIO.
+                    SettingsState secureSettings = getSecureSettingsLocked(userId);
+                    secureSettings.insertSettingLocked(Settings.Secure.FULL_SCREEN_ASPECT_RATIO,
+                            getContext().getResources().getBoolean(
+                                    R.bool.def_full_screen_aspect_ratio) ? "1" : "0", null, true,
+                            SettingsState.SYSTEM_PACKAGE_NAME);
+
+		    currentVersion = 149;
+                }
+
                 // vXXX: Add new settings above this point.
 
                 if (currentVersion != newVersion) {

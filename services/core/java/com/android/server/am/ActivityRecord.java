@@ -146,6 +146,7 @@ import android.os.SystemClock;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.os.storage.StorageManager;
+import android.provider.Settings;
 import android.service.voice.IVoiceInteractionSession;
 import android.util.EventLog;
 import android.util.Log;
@@ -2314,7 +2315,8 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
     // TODO(b/36505427): Consider moving this method and similar ones to ConfigurationContainer.
     private void computeBounds(Rect outBounds) {
         outBounds.setEmpty();
-        final float maxAspectRatio = info.maxAspectRatio;
+        final float maxAspectRatio = (Settings.Secure.getInt(service.mContext.getContentResolver(),
+            Settings.Secure.FULL_SCREEN_ASPECT_RATIO, 0) != 0) ? Float.parseFloat("2.1") : info.maxAspectRatio;
         final ActivityStack stack = getStack();
         if (task == null || stack == null || !task.mFullscreen || maxAspectRatio == 0
                 || isInVrUiMode(getConfiguration())) {
