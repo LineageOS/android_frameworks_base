@@ -478,6 +478,8 @@ import libcore.util.EmptyArray;
 import com.google.android.collect.Lists;
 import com.google.android.collect.Maps;
 
+import org.lineageos.internal.applications.LineageActivityManager;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
@@ -1987,6 +1989,9 @@ public class ActivityManagerService extends IActivityManager.Stub
     boolean mForceBackgroundCheck;
 
     private static String sTheRealBuildSerial = Build.UNKNOWN;
+
+    // Lineage sdk activity related helper
+    private LineageActivityManager mLineageActivityManager;
 
     /**
      * Current global configuration information. Contains general settings for the entire system,
@@ -12892,6 +12897,10 @@ public class ActivityManagerService extends IActivityManager.Stub
         RescueParty.onSettingsProviderPublished(mContext);
 
         //mUsageStatsService.monitorPackages();
+
+        // LineageActivityManager depends on settings so we can initialize only
+        // after providers are available.
+        mLineageActivityManager = new LineageActivityManager(mContext);
     }
 
     void startPersistentApps(int matchFlags) {
@@ -27187,5 +27196,9 @@ public class ActivityManagerService extends IActivityManager.Stub
                 Binder.restoreCallingIdentity(origId);
             }
         }
+    }
+
+    public boolean shouldForceLongScreen(String packageName) {
+        return mLineageActivityManager.shouldForceLongScreen(packageName);
     }
 }
