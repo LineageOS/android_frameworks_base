@@ -412,6 +412,8 @@ import com.android.server.vr.VrManagerInternal;
 import com.android.server.wm.PinnedStackWindowController;
 import com.android.server.wm.WindowManagerService;
 
+import org.lineageos.internal.am.LineageActivityManager;
+
 import java.text.SimpleDateFormat;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -12221,6 +12223,8 @@ public class ActivityManagerService extends IActivityManager.Stub
         RescueParty.onSettingsProviderPublished(mContext);
 
         //mUsageStatsService.monitorPackages();
+
+        mLineageActivityManager = new LineageActivityManager(mContext);
     }
 
     private void startPersistentApps(int matchFlags) {
@@ -24727,5 +24731,11 @@ public class ActivityManagerService extends IActivityManager.Stub
                 Binder.restoreCallingIdentity(origId);
             }
         }
+    }
+
+    private LineageActivityManager mLineageActivityManager;
+
+    public float getForcedPackageAspectRatio(String packageName) {
+        return mLineageActivityManager.getForcedPackageAspectRatio(packageName);
     }
 }

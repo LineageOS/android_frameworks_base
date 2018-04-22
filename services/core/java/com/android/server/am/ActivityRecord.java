@@ -2314,7 +2314,8 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
     // TODO(b/36505427): Consider moving this method and similar ones to ConfigurationContainer.
     private void computeBounds(Rect outBounds) {
         outBounds.setEmpty();
-        final float maxAspectRatio = info.maxAspectRatio;
+        final float forcedAspectRatio = service.getForcedPackageAspectRatio(packageName);
+        final float maxAspectRatio = forcedAspectRatio != 0 ? forcedAspectRatio : info.maxAspectRatio;
         final ActivityStack stack = getStack();
         if (task == null || stack == null || !task.mFullscreen || maxAspectRatio == 0
                 || isInVrUiMode(getConfiguration())) {
