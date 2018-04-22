@@ -160,6 +160,7 @@ import android.view.WindowManager.LayoutParams;
 import com.android.internal.annotations.VisibleForTesting;
 
 import lineageos.providers.LineageSettings;
+import org.lineageos.internal.applications.LongScreen;
 
 import com.android.internal.app.ResolverActivity;
 import com.android.internal.content.ReferrerIntent;
@@ -350,6 +351,8 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
 
     private boolean mShowWhenLocked;
     private boolean mTurnScreenOn;
+
+    private LongScreen mLongScreen;
 
     /**
      * Temp configs used in {@link #ensureActivityConfigurationLocked(int, boolean)}
@@ -920,6 +923,8 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
 
         mShowWhenLocked = (aInfo.flags & FLAG_SHOW_WHEN_LOCKED) != 0;
         mTurnScreenOn = (aInfo.flags & FLAG_TURN_SCREEN_ON) != 0;
+
+        mLongScreen = new LongScreen(service.mContext);
     }
 
     AppWindowContainerController getWindowContainerController() {
@@ -2314,7 +2319,13 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
     // TODO(b/36505427): Consider moving this method and similar ones to ConfigurationContainer.
     private void computeBounds(Rect outBounds) {
         outBounds.setEmpty();
-        final float maxAspectRatio = info.maxAspectRatio;
+        float maxAspectRatio = info.maxAspectRatio;
+
+        if (aInfo.applicationInfo.targetSdkVersion < O && mLongScreen.isSupported() &&
+                mLongScreen.getApps().contains(packageName)) {
+            maxAspectRatio = 0.0f;
+        }
+
         final ActivityStack stack = getStack();
         if (task == null || stack == null || !task.mFullscreen || maxAspectRatio == 0
                 || isInVrUiMode(getConfiguration())) {
