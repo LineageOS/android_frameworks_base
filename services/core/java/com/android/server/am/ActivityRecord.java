@@ -2315,6 +2315,15 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
     private void computeBounds(Rect outBounds) {
         outBounds.setEmpty();
         final float maxAspectRatio = info.maxAspectRatio;
+
+        // Allow lineage-sdk to force long screen for this app.
+        if (appInfo.targetSdkVersion < O) {
+            final float lineageMaxAspectRatio = service.maxAspectRatioForPackage(packageName);
+            if (lineageMaxAspectRatio != 0.0f) {
+                maxAspectRatio = lineageMaxAspectRatio;
+            }
+        }
+
         final ActivityStack stack = getStack();
         if (task == null || stack == null || !task.mFullscreen || maxAspectRatio == 0
                 || isInVrUiMode(getConfiguration())) {
@@ -2334,7 +2343,9 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
         int maxActivityWidth = containingAppWidth;
         int maxActivityHeight = containingAppHeight;
 
-        if (containingAppWidth < containingAppHeight) {
+        if (service.shouldForceLongScreen(packageName)) {
+            // Use containingAppWidth/Height for maxActivityWidth/Height when force long screen
+        } else if (containingAppWidth < containingAppHeight) {
             // Width is the shorter side, so we use that to figure-out what the max. height
             // should be given the aspect ratio.
             maxActivityHeight = (int) ((maxActivityWidth * maxAspectRatio) + 0.5f);
