@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4d5222d7_c919cef2",
+        "filename": "core/java/android/os/BatteryManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2018-04-24T07:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9da1703e_46a49d35",
+      "revId": "1185f661d9291e0daeba889133e004757ff9243a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1c4faf0_1b2d2cf4",
         "filename": "core/java/android/os/BatteryProperties.java",
         "patchSetId": 1
@@ -76,6 +94,30 @@
       "writtenOn": "2018-02-15T00:23:44Z",
       "side": 1,
       "message": "Don\u0027t put these at the top",
+      "range": {
+        "startLine": 582,
+        "startChar": 1,
+        "endLine": 585,
+        "endChar": 63
+      },
+      "revId": "1185f661d9291e0daeba889133e004757ff9243a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e8e628c_07d18ebf",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2018-04-24T07:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aa5b2ea_b46b4b82",
       "range": {
         "startLine": 582,
         "startChar": 1,
