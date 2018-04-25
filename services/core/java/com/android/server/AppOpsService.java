@@ -2576,6 +2576,26 @@ public class AppOpsService extends IAppOpsService.Stub {
     }
 
     private int getDefaultMode(int code, int uid, String packageName) {
+        // To allow setting 'MODE_ASK' for own Ops, some precautions to
+        // avoid privileged apps to trigger the toggle are needed:
+
+        // 1st check: Skip uid 1000 and systemui
+        if (uid == android.os.Process.SYSTEM_UID || "com.android.systemui".equals(packageName)) {
+            return AppOpsManager.MODE_ALLOWED;
+        }
+        // 2nd check: Skip apps signed with platform key, except for the 'root' Op
+        if (code != AppOpsManager.OP_SU) {
+            try {
+                int match = AppGlobals.getPackageManager().checkSignatures("android", packageName);
+                if (match >= PackageManager.SIGNATURE_MATCH) {
+                    return AppOpsManager.MODE_ALLOWED;
+                }
+            } catch (RemoteException re) {
+                Log.e(TAG, "AppOps getDefaultMode: Can't talk to PM f. Sig.Check", re);
+            }
+        }
+        // end
+
         int mode = AppOpsManager.opToDefaultMode(code,
                 isStrict(code, uid, packageName));
         if (AppOpsManager.isStrictOp(code) && mPolicy != null) {
