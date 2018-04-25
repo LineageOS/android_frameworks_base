@@ -1628,6 +1628,8 @@ class StorageManagerService extends IStorageManager.Stub
             // public API requirement of being in a stable location.
             if (vol.disk.isAdoptable()) {
                 vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE_FOR_WRITE;
+            } else if (vol.disk.isSd()) {
+                vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE_FOR_WRITE;
             }
 
             vol.mountUserId = mCurrentUserId;
