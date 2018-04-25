@@ -537,8 +537,8 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
 
                 while (true) {
                     String devPath = String.format(Locale.US,
-                            "/sys/class/switch/extcon%d/name",
-                            index);
+                            "/sys/devices/platform/soc/%s/extcon/extcon%d/name",
+                            mDevName, index);
 
                     try {
                         FileReader file = new FileReader(devPath);
@@ -567,8 +567,8 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
 
                 while (true) {
                     String cablePath = String.format(Locale.US,
-                            "/sys/class/switch/extcon%d/cable.%d/name",
-                            mDevIndex, index);
+                            "/sys/devices/platform/soc/%s/extcon/extcon%d/cable.%d/name",
+                            mDevName, mDevIndex, index);
 
                     try {
                         FileReader file = new FileReader(cablePath);
@@ -607,8 +607,8 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
             public String getSwitchStatePath() {
                 if (mDevName.equals(NAME_DP_AUDIO)) {
                     return String.format(Locale.US,
-                            "/sys/class/switch/extcon%d/cable.%d/state",
-                            mDevIndex, mCableIndex);
+                            "/sys/devices/platform/soc/%s/extcon/extcon%d/cable.%d/state",
+                            mDevName, mDevIndex, mCableIndex);
                 } else {
                     return String.format(Locale.US, "/sys/class/switch/%s/state", mDevName);
                 }
