@@ -977,7 +977,7 @@ public class AppOpsManager {
             AppOpsManager.MODE_ALLOWED, // OP_NFC_CHANGE
             AppOpsManager.MODE_ALLOWED,
             AppOpsManager.MODE_ASK,     // OP_SU
-            AppOpsManager.MODE_ALLOWED, // OP_MOTION_SENSORS
+            AppOpsManager.MODE_ASK,     // OP_MOTION_SENSORS
             AppOpsManager.MODE_ALLOWED, // OP_OTHER_SENSORS
     };
 
@@ -1056,7 +1056,7 @@ public class AppOpsManager {
             AppOpsManager.MODE_ASK,     // OP_NFC_CHANGE
             AppOpsManager.MODE_ASK,     // OP_DATA_CONNECT_CHANGE
             AppOpsManager.MODE_ASK,     // OP_SU
-            AppOpsManager.MODE_ALLOWED, // OP_MOTION_SENSORS
+            AppOpsManager.MODE_ASK,     // OP_MOTION_SENSORS
             AppOpsManager.MODE_ALLOWED, // OP_OTHER_SENSORS
     };
 
