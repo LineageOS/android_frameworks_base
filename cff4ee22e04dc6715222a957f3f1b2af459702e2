@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e878a6b2_904e8195",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 3405,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-04-26T12:47:10Z",
+      "side": 1,
+      "message": "nit: 4 spaces more.",
+      "range": {
+        "startLine": 3405,
+        "startChar": 20,
+        "endLine": 3405,
+        "endChar": 24
+      },
+      "revId": "cff4ee22e04dc6715222a957f3f1b2af459702e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
