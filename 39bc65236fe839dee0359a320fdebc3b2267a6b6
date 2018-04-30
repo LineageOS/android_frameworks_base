@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "922b7a11_415e0878",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-04-30T18:48:35Z",
+      "side": 1,
+      "message": "unsure if this is correct",
+      "range": {
+        "startLine": 265,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 28
+      },
+      "revId": "39bc65236fe839dee0359a320fdebc3b2267a6b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dac7345d_8babc014",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-04-30T18:48:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 268,
+        "startChar": 4,
+        "endLine": 268,
+        "endChar": 28
+      },
+      "revId": "39bc65236fe839dee0359a320fdebc3b2267a6b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
