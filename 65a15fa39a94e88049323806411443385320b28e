@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d686498d_dc10885c",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1810,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-04-30T16:52:54Z",
+      "side": 1,
+      "message": "these comments were from the original uploader in cm-13.0. I can remove them but I\u0027m not sure if we should try to do what it says. I haven\u0027t studied his code enough to know what he wanted by having the control always enabled (nor the repercussions it would have especially since the we\u0027re now two versions of Android later)",
+      "parentUuid": "992c62fc_17a183ed",
+      "range": {
+        "startLine": 1810,
+        "startChar": 0,
+        "endLine": 1810,
+        "endChar": 56
+      },
+      "revId": "65a15fa39a94e88049323806411443385320b28e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f239048_26cacc80",
         "filename": "services/core/java/com/android/server/NetworkManagementService.java",
         "patchSetId": 4

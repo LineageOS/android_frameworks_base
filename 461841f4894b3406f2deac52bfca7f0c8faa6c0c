@@ -39,6 +39,24 @@
       "revId": "461841f4894b3406f2deac52bfca7f0c8faa6c0c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4950e18b_138534c1",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-04-30T16:52:54Z",
+      "side": 0,
+      "message": "It is indeed unrelated. I removed it because repo upload said it was an unused import and could not upload unless I removed it. I can add it back",
+      "parentUuid": "1ad205a1_f41c41e7",
+      "revId": "461841f4894b3406f2deac52bfca7f0c8faa6c0c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
