@@ -22,6 +22,23 @@
       "revId": "461841f4894b3406f2deac52bfca7f0c8faa6c0c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ad205a1_f41c41e7",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-04-30T15:48:20Z",
+      "side": 0,
+      "message": "Not related to this change?",
+      "revId": "461841f4894b3406f2deac52bfca7f0c8faa6c0c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
