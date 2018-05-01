@@ -171,6 +171,7 @@ public class UsbDeviceManager {
     private Intent mBroadcastedIntent;
     private boolean mPendingBootBroadcast;
     private static Set<Integer> sBlackListedInterfaces;
+    private static String[] sAdditionalNormalModes;
 
     static {
         sBlackListedInterfaces = new HashSet<>();
@@ -227,6 +228,8 @@ public class UsbDeviceManager {
         mContentResolver = context.getContentResolver();
         PackageManager pm = mContext.getPackageManager();
         mHasUsbAccessory = pm.hasSystemFeature(PackageManager.FEATURE_USB_ACCESSORY);
+        sAdditionalNormalModes = mContext.getResources().getStringArray(
+                com.android.internal.R.array.config_additionalNormalBootModes);
         initRndisAddress();
 
         readOemUsbOverrideConfig();
@@ -411,6 +414,16 @@ public class UsbDeviceManager {
 
     private static boolean isNormalBoot() {
         String bootMode = SystemProperties.get(BOOT_MODE_PROPERTY, "unknown");
+
+        if (sAdditionalNormalModes != null) {
+            for (String mode : sAdditionalNormalModes) {
+                if (mode.equals(bootMode)) {
+                    Slog.d(TAG, "Current boot mode " + bootMode + " treated as normal mode.");
+                    return true;
+                }
+            }
+        }
+
         return bootMode.equals(NORMAL_BOOT) || bootMode.equals("unknown");
     }
 

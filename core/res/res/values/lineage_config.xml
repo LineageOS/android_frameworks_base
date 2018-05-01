@@ -40,4 +40,8 @@
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <bool name="config_notifyClientOnFingerprintCancelSuccess">false</bool>
+
+    <!-- The list of boot modes which should be treated as normal mode. -->
+    <string-array name="config_additionalNormalBootModes" translatable="false">
+    </string-array>
 </resources>
