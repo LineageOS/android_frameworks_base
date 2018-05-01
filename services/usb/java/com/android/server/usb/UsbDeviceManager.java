@@ -409,6 +409,11 @@ public class UsbDeviceManager {
         return mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_LEANBACK);
     }
 
+    private static boolean isNormalBoot() {
+        String bootMode = SystemProperties.get(BOOT_MODE_PROPERTY, "unknown");
+        return bootMode.equals(NORMAL_BOOT) || bootMode.equals("unknown");
+    }
+
     private final class UsbHandler extends Handler {
 
         // current USB state
@@ -657,11 +662,6 @@ public class UsbDeviceManager {
 
             // Ouch.
             Slog.e(TAG, "Unable to set any USB functions!");
-        }
-
-        private boolean isNormalBoot() {
-            String bootMode = SystemProperties.get(BOOT_MODE_PROPERTY, "unknown");
-            return bootMode.equals(NORMAL_BOOT) || bootMode.equals("unknown");
         }
 
         private boolean trySetEnabledFunctions(String functions, boolean forceRestart) {
@@ -1380,8 +1380,7 @@ public class UsbDeviceManager {
                 mOemModeMap.get(bootMode);
         // Check to ensure that the oem is not overriding in the normal
         // boot mode
-        if (overridesMap != null && !(bootMode.equals(NORMAL_BOOT) ||
-                bootMode.equals("unknown"))) {
+        if (overridesMap != null && !isNormalBoot()) {
             Pair<String, String> overrideFunctions =
                     overridesMap.get(usbFunctions);
             if (overrideFunctions != null) {
@@ -1418,9 +1417,9 @@ public class UsbDeviceManager {
     }
 
     public static String getPersistProp(boolean functions) {
-        String bootMode = SystemProperties.get(BOOT_MODE_PROPERTY, "unknown");
         String persistProp = USB_PERSISTENT_CONFIG_PROPERTY;
-        if (!(bootMode.equals(NORMAL_BOOT) || bootMode.equals("unknown"))) {
+        if (!isNormalBoot()) {
+            String bootMode = SystemProperties.get(BOOT_MODE_PROPERTY, "unknown");
             if (functions) {
                 persistProp = "persist.sys.usb." + bootMode + ".func";
             } else {
