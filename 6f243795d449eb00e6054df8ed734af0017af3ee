@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da622c69_f066dce0",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-05-02T19:58:50Z",
+      "side": 1,
+      "message": "changing this value caused boot to hang. unsure as to why",
+      "range": {
+        "startLine": 58,
+        "startChar": 52,
+        "endLine": 58,
+        "endChar": 59
+      },
+      "revId": "6f243795d449eb00e6054df8ed734af0017af3ee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "969a0578_cc257f93",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-05-02T19:58:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 60,
+        "startChar": 52,
+        "endLine": 60,
+        "endChar": 58
+      },
+      "revId": "6f243795d449eb00e6054df8ed734af0017af3ee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
