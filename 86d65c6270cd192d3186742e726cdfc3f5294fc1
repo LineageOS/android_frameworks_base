@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f293e37e_4ca20fbd",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2977,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-05-05T20:05:50Z",
+      "side": 1,
+      "message": "Yeah, this patch duplicates this line.",
+      "range": {
+        "startLine": 2977,
+        "startChar": 8,
+        "endLine": 2977,
+        "endChar": 66
+      },
+      "revId": "86d65c6270cd192d3186742e726cdfc3f5294fc1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
