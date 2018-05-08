@@ -72,4 +72,5 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Користете Wi\u2011Fi, Bluetooth или мобилни мрежи за да ја одредите локацијата</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Користете GPS за да ја одредите локацијата</string>
+  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
 </resources>

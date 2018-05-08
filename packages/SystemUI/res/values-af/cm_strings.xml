@@ -103,4 +103,5 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Gebruik Wi-Fi, Bluetooth of sellulêre netwerke om ligging te bepaal</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Gebruik GPS om ligging te bepaal</string>
+  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
 </resources>

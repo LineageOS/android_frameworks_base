@@ -115,4 +115,5 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Utilizar Wi\u2011Fi, bluetooth ou redes móveis para determinar a localização</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Utilizar o GPS para determinar a sua localização</string>
+  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
 </resources>

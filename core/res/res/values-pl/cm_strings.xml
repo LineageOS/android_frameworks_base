@@ -43,6 +43,7 @@
   <string name="app_ops_access_notifications">czytanie powiadomień</string>
   <string name="app_ops_activate_vpn">aktywowanie VPN</string>
   <string name="app_ops_add_voicemail">dodawanie wiadomości głosowej</string>
+  <string name="app_ops_app_start_foreground">uruchamianie aplikacji błyskawicznych na pierwszym planie</string>
   <string name="app_ops_assist_screenshot">tworzenie zrzutów ekranu</string>
   <string name="app_ops_assist_structure">wykorzystanie asystenta</string>
   <string name="app_ops_audio_accessibility_volume">głośność dźwięku ułatwień dostępu</string>

@@ -43,8 +43,10 @@
   <string name="app_ops_access_notifications">通知の読み取り</string>
   <string name="app_ops_activate_vpn">VPNの有効化</string>
   <string name="app_ops_add_voicemail">ボイスメールの追加</string>
+  <string name="app_ops_app_start_foreground">フォアグラウンドでのインスタントアプリの起動</string>
   <string name="app_ops_assist_screenshot">スクリーンショットの撮影</string>
   <string name="app_ops_assist_structure">ストラクチャのアシストの使用</string>
+  <string name="app_ops_audio_accessibility_volume">補助音声ボリューム</string>
   <string name="app_ops_auto_start">電源投入時の実行</string>
   <string name="app_ops_change_wallpaper">壁紙の変更</string>
   <string name="app_ops_delete_call_log">通話履歴の削除</string>
@@ -54,6 +56,7 @@
   <string name="app_ops_draw_on_top">上部への描画</string>
   <string name="app_ops_get_accounts">端末のアカウントの取得</string>
   <string name="app_ops_get_usage_stats">アプリの使用統計の取得</string>
+  <string name="app_ops_install_packages">パッケージのインストール</string>
   <string name="app_ops_keep_device_awake">端末のスリープの無効化</string>
   <string name="app_ops_make_phone_call">通話の発信</string>
   <string name="app_ops_mock_location">位置情報の仮想</string>
@@ -63,6 +66,8 @@
   <string name="app_ops_modify_contacts">連絡先の更新</string>
   <string name="app_ops_modify_settings">システムの設定の更新</string>
   <string name="app_ops_mute_unmute_microphone">マイクのミュート/ミュート解除</string>
+  <string name="app_ops_phone_calls">電話に応答</string>
+  <string name="app_ops_picture_in_picture">ピクチャー イン ピクチャーの使用</string>
   <string name="app_ops_play_audio">音声の再生</string>
   <string name="app_ops_post_notification">通知の配信</string>
   <string name="app_ops_project_media">メディアの投影</string>
@@ -73,6 +78,7 @@
   <string name="app_ops_read_contacts">連絡先の読み取り</string>
   <string name="app_ops_read_external_storage">外部ストレージの読み取り</string>
   <string name="app_ops_read_mms">MMSメッセージの読み取り</string>
+  <string name="app_ops_read_phone_numbers">電話番号の読み取り</string>
   <string name="app_ops_read_phone_state">端末の状態へのアクセス</string>
   <string name="app_ops_read_sms">SMSメッセージの読み取り</string>
   <string name="app_ops_receive_sms">SMSメッセージの受信</string>

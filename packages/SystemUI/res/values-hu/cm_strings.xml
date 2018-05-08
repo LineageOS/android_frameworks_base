@@ -103,4 +103,5 @@
   <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, Bluetooth vagy mobilhálózatok használata a tartózkodási hely megállapításához</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">GPS használata a tartózkodási hely meghatározásához</string>
+  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
 </resources>
