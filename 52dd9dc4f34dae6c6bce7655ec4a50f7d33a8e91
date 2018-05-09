@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08ebe0bf_7da6d9d8",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-05-09T04:56:00Z",
+      "side": 1,
+      "message": "I thought setting this was a qualcomm thing, are non-qualcomms setting this too?",
+      "range": {
+        "startLine": 352,
+        "startChar": 51,
+        "endLine": 352,
+        "endChar": 65
+      },
+      "revId": "52dd9dc4f34dae6c6bce7655ec4a50f7d33a8e91",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
