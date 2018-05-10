@@ -33,6 +33,7 @@ import android.os.RemoteException;
 import android.os.WorkSource;
 import android.util.Log;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -228,6 +229,13 @@ public final class BluetoothLeScanner {
             if (gatt == null) {
                 return postCallbackErrorOrReturn(callback, ScanCallback.SCAN_FAILED_INTERNAL_ERROR);
             }
+
+            if ((settings.getCallbackType() == ScanSettings.CALLBACK_TYPE_SENSOR_ROUTING)
+                    && (filters == null || filters.isEmpty())) {
+                ScanFilter filter = (new ScanFilter.Builder()).build();
+                filters = Arrays.asList(filter);
+            }
+
             if (!isSettingsConfigAllowedForScan(settings)) {
                 return postCallbackErrorOrReturn(callback,
                         ScanCallback.SCAN_FAILED_FEATURE_UNSUPPORTED);
@@ -237,6 +245,10 @@ public final class BluetoothLeScanner {
                         ScanCallback.SCAN_FAILED_OUT_OF_HARDWARE_RESOURCES);
             }
             if (!isSettingsAndFilterComboAllowed(settings, filters)) {
+                return postCallbackErrorOrReturn(callback,
+                        ScanCallback.SCAN_FAILED_FEATURE_UNSUPPORTED);
+            }
+            if (!isRoutingAllowedForScan(settings)) {
                 return postCallbackErrorOrReturn(callback,
                         ScanCallback.SCAN_FAILED_FEATURE_UNSUPPORTED);
             }
@@ -596,6 +608,16 @@ public final class BluetoothLeScanner {
             // For onlost/onfound, we required hw support be available
             return (mBluetoothAdapter.isOffloadedFilteringSupported()
                     && mBluetoothAdapter.isHardwareTrackingFiltersAvailable());
+        }
+        return true;
+    }
+
+    private boolean isRoutingAllowedForScan(ScanSettings settings) {
+        final int callbackType = settings.getCallbackType();
+
+        if (callbackType == ScanSettings.CALLBACK_TYPE_SENSOR_ROUTING
+                && settings.getScanMode() == ScanSettings.SCAN_MODE_OPPORTUNISTIC) {
+            return false;
         }
         return true;
     }
