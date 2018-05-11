@@ -20,9 +20,15 @@ import android.annotation.ColorInt;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.provider.Settings;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.android.settingslib.Utils;
@@ -32,6 +38,7 @@ import com.android.systemui.R;
 import com.android.systemui.qs.DataUsageGraph;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 /**
  * Layout for the data usage detail in quick settings.
@@ -41,6 +48,8 @@ public class DataUsageDetailView extends LinearLayout {
     private static final double KB = 1000;
     private static final double MB = 1000 * KB;
     private static final double GB = 1000 * MB;
+
+    private static final String SETTING_USER_PREF_DATA_SUB = "user_preferred_data_sub";
 
     private final DecimalFormat FORMAT = new DecimalFormat("#.##");
 
@@ -121,6 +130,56 @@ public class DataUsageDetailView extends LinearLayout {
             infoTop.setVisibility(View.GONE);
         }
 
+        addDataSubSwitcher();
+    }
+
+    private void addDataSubSwitcher() {
+        final SubscriptionManager sm = mContext.getSystemService(SubscriptionManager.class);
+        final List<SubscriptionInfo> subs = sm.getActiveSubscriptionInfoList();
+        final RadioGroup simCardsGroup = (RadioGroup) findViewById(R.id.sim_cards);
+
+        simCardsGroup.removeAllViews();
+        if (subs.size() <= 1) {
+            simCardsGroup.setVisibility(View.GONE);
+            return;
+        }
+
+        // Prepare view
+        simCardsGroup.setVisibility(View.VISIBLE);
+
+        final TelephonyManager tm = mContext.getSystemService(TelephonyManager.class);
+        for (SubscriptionInfo subInfo : subs) {
+            String displayName = subInfo.getDisplayName().toString();
+            RadioButton radioButton = new RadioButton(mContext);
+            radioButton.setText(mContext.getString(R.string.use_data, displayName));
+
+            if (tm.getSimState(subInfo.getSimSlotIndex()) != TelephonyManager.SIM_STATE_READY) {
+                radioButton.setEnabled(false);
+            }
+
+            simCardsGroup.addView(radioButton, LayoutParams.MATCH_PARENT,
+                    LayoutParams.WRAP_CONTENT);
+        }
+
+        // Check default data slot
+        final int defaultDataSubId = SubscriptionManager.getDefaultDataSubscriptionId();
+        final int defaultDataSlotIndex = SubscriptionManager.getSlotIndex(defaultDataSubId);
+        if (defaultDataSlotIndex >= 0) {
+            RadioButton radioButton = (RadioButton) simCardsGroup.getChildAt(defaultDataSlotIndex);
+            radioButton.setChecked(true);
+        }
+
+        // Set checkListener
+        simCardsGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            for (int slotId = 0; slotId < subs.size(); slotId++) {
+                if ((simCardsGroup.getChildAt(slotId).getId() == checkedId)) {
+                    final int subId = subs.get(slotId).getSubscriptionId();
+                    sm.setDefaultDataSubId(subId);
+                    Settings.Global.putInt(mContext.getContentResolver(),
+                            SETTING_USER_PREF_DATA_SUB, subId);
+                }
+            }
+        });
     }
 
     private String formatBytes(long bytes) {
