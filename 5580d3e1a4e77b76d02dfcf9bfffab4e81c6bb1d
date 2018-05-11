@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdb4644b_43b8cc11",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2018-05-11T15:01:29Z",
+      "side": 1,
+      "message": "If you\u0027re going to inline this assert context as well\n\n         context !\u003d null ? context.getSystemService(KeyguardManager.class).isKeyguardLocked() : false;",
+      "revId": "5580d3e1a4e77b76d02dfcf9bfffab4e81c6bb1d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
