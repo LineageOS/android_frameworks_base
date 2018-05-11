@@ -167,6 +167,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
         state.activityOut = cb.enabled && cb.activityOut;
         state.isOverlayIconWide = cb.isDataTypeIconWide;
         state.overlayIconId = cb.dataTypeIconId;
+        state.dualTarget = true;
 
         state.label = r.getString(R.string.mobile_data);
 
