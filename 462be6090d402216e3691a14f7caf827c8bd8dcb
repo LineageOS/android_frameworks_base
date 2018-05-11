@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40748d58_55e40ed4",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-05-11T11:13:26Z",
+      "side": 1,
+      "message": "Maybe isKeyguardLocked makes more sense.",
+      "range": {
+        "startLine": 167,
+        "startChar": 16,
+        "endLine": 167,
+        "endChar": 26
+      },
+      "revId": "462be6090d402216e3691a14f7caf827c8bd8dcb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
