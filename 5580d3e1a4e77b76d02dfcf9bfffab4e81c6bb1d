@@ -16,6 +16,24 @@
       "revId": "5580d3e1a4e77b76d02dfcf9bfffab4e81c6bb1d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fa44557_96e89e83",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2018-05-11T15:11:35Z",
+      "side": 1,
+      "message": "Is there any need to do null check here? Line 160 does not do it either, also the context here could not be null IMO.",
+      "parentUuid": "fdb4644b_43b8cc11",
+      "revId": "5580d3e1a4e77b76d02dfcf9bfffab4e81c6bb1d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
