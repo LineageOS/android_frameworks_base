@@ -27,6 +27,7 @@ import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
 import android.app.admin.DevicePolicyManager;
+import android.app.KeyguardManager;
 import android.app.Notification;
 import android.app.Notification.BigPictureStyle;
 import android.app.NotificationManager;
@@ -163,7 +164,8 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
         mImageTime = System.currentTimeMillis();
         String imageDate = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date(mImageTime));
         CharSequence appName = getRunningActivityName(context);
-        if (appName != null) {
+        boolean onKeyguard = context.getSystemService(KeyguardManager.class).isKeyguardLocked();
+        if (!onKeyguard && appName != null) {
             // Replace all spaces and special chars with an underscore
             String appNameString = appName.toString().replaceAll("[\\\\/:*?\"<>|\\s]+", "_");
             mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE_APPNAME,
