@@ -663,17 +663,25 @@ public class AudioService extends IAudioService.Stub {
         mHasVibrator = vibrator == null ? false : vibrator.hasVibrator();
 
         // Initialize volume
-        int maxVolume = SystemProperties.getInt("ro.config.vc_call_vol_steps",
-                MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL]);
-        if (maxVolume != MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL]) {
-            MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL] = maxVolume;
-            AudioSystem.DEFAULT_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL] = (maxVolume * 3) / 4;
-        }
-        maxVolume = SystemProperties.getInt("ro.config.media_vol_steps",
-                MAX_STREAM_VOLUME[AudioSystem.STREAM_MUSIC]);
-        if (maxVolume != MAX_STREAM_VOLUME[AudioSystem.STREAM_MUSIC]) {
-            MAX_STREAM_VOLUME[AudioSystem.STREAM_MUSIC] = maxVolume;
-            AudioSystem.DEFAULT_STREAM_VOLUME[AudioSystem.STREAM_MUSIC] = (maxVolume * 3) / 4;
+        String volumeStepsProperties[] = {
+            "ro.config.vc_call_vol_steps",
+            "ro.config.media_vol_steps",
+            "ro.config.alarm_vol_steps",
+            "ro.config.ring_vol_steps",
+        };
+        int streams[] = {
+            AudioSystem.STREAM_VOICE_CALL,
+            AudioSystem.STREAM_MUSIC,
+            AudioSystem.STREAM_ALARM,
+            AudioSystem.STREAM_RING,
+        };
+        for (int i = 0; i < volumeStepsProperties.length; i++) {
+            int maxVolume = SystemProperties.getInt(volumeStepsProperties[i],
+                                                    MAX_STREAM_VOLUME[streams[i]]);
+            if (maxVolume != MAX_STREAM_VOLUME[streams[i]]) {
+                MAX_STREAM_VOLUME[streams[i]] = maxVolume;
+                AudioSystem.DEFAULT_STREAM_VOLUME[streams[i]] = (maxVolume * 3) / 4;
+            }
         }
 
         sSoundEffectVolumeDb = context.getResources().getInteger(
