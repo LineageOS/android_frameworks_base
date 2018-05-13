@@ -87,6 +87,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Watches for updates that may be interesting to the keyguard, and provides
@@ -180,7 +181,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private static KeyguardUpdateMonitor sInstance;
 
     private final Context mContext;
-    HashMap<Integer, SimData> mSimDatas = new HashMap<Integer, SimData>();
+    ConcurrentHashMap<Integer, SimData> mSimDatas = new ConcurrentHashMap<Integer, SimData>();
     HashMap<Integer, ServiceState> mServiceStates = new HashMap<Integer, ServiceState>();
 
     private int mRingMode;
