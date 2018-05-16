@@ -168,6 +168,7 @@ import static android.view.WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
 import static android.view.WindowManager.LayoutParams.LAST_APPLICATION_WINDOW;
 import static android.view.WindowManager.LayoutParams.LAST_SUB_WINDOW;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_COMPATIBLE_WINDOW;
+import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_KEYGUARD;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_NO_MOVE_ANIMATION;
 import static android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE;
@@ -2453,6 +2454,11 @@ public class WindowManagerService extends IWindowManager.Stub
                     Slog.w(TAG, "Attempted to add window with token that is a sub-window: "
                             + attrs.token + ".  Aborting.");
                     return WindowManagerGlobal.ADD_BAD_SUBWINDOW_TOKEN;
+                }
+
+                if ((flagChanges & PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS) != 0) {
+                    updateNonSystemOverlayWindowsVisibilityIfNeeded(
+                            win, win.mWinAnimator.getShown());
                 }
             }
 
@@ -12160,7 +12166,8 @@ public class WindowManagerService extends IWindowManager.Stub
     }
 
     void updateNonSystemOverlayWindowsVisibilityIfNeeded(WindowState win, boolean surfaceShown) {
-        if (!win.hideNonSystemOverlayWindowsWhenVisible()) {
+        if (!win.hideNonSystemOverlayWindowsWhenVisible()
+                && !mHidingNonSystemOverlayWindows.contains(win)) {
             return;
         }
         final boolean systemAlertWindowsHidden = !mHidingNonSystemOverlayWindows.isEmpty();
