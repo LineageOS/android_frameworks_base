@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
- * Copyright (C) 2017 The LineageOS Project
+ * Copyright (C) 2017-2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use mHost file
  * except in compliance with the License. You may obtain a copy of the License at
@@ -44,6 +44,7 @@ import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
+import com.android.systemui.qs.tiles.ReadingModeTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.SyncTile;
@@ -90,6 +91,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
+    private final Provider<ReadingModeTile> mReadingModeTileProvider;
     private final Provider<SyncTile> mSyncTileProvider;
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
     private final Provider<VolumeTile> mVolumeTileProvider;
@@ -122,6 +124,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
+            Provider<ReadingModeTile> readingModeTileProvider,
             Provider<SyncTile> syncTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<VolumeTile> volumeTileProvider) {
@@ -150,6 +153,7 @@ public class QSFactoryImpl implements QSFactory {
         mCaffeineTileProvider = caffeineTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
+        mReadingModeTileProvider = readingModeTileProvider;
         mSyncTileProvider = syncTileProvider;
         mUsbTetherTileProvider = usbTetherTileProvider;
         mVolumeTileProvider = volumeTileProvider;
@@ -213,6 +217,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mHeadsUpTileProvider.get();
             case "livedisplay":
                 return mLiveDisplayTileProvider.get();
+            case "reading_mode":
+                return mReadingModeTileProvider.get();
             case "sync":
                 return mSyncTileProvider.get();
             case "usb_tether":
