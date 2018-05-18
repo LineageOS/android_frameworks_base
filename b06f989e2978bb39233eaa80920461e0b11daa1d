@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfc45ff5_fe532f14",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2071,
+      "author": {
+        "id": 16219
+      },
+      "writtenOn": "2018-05-18T07:22:00Z",
+      "side": 1,
+      "message": "This won\u0027t compile for now as this permission was introduced in Oreo. We need to figure out how to properly handle it.",
+      "revId": "b06f989e2978bb39233eaa80920461e0b11daa1d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
