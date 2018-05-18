@@ -48,6 +48,7 @@ import android.view.accessibility.AccessibilityNodeInfo.CollectionInfo;
 import android.view.accessibility.AccessibilityNodeInfo.CollectionItemInfo;
 import android.view.accessibility.AccessibilityNodeProvider;
 import android.widget.RemoteViews.RemoteView;
+import android.os.Handler;
 
 import com.android.internal.R;
 
@@ -203,6 +204,9 @@ public class ListView extends AbsListView {
     // used for temporary calculations.
     private final Rect mTempRect = new Rect();
     private Paint mDividerPaint;
+
+    private Handler mHandler = null;
+    private FillNextGap mFillNextGap = null;
 
     // the single allocated result per list view; kinda cheesey but avoids
     // allocating these thingies too often.
@@ -739,6 +743,10 @@ public class ListView extends AbsListView {
      */
     @Override
     void fillGap(boolean down) {
+        fillGap(down, false);
+    }
+
+    private void fillGap(boolean down, boolean isPreObtain) {
         final int count = getChildCount();
         if (down) {
             int paddingTop = 0;
@@ -747,7 +755,7 @@ public class ListView extends AbsListView {
             }
             final int startOffset = count > 0 ? getChildAt(count - 1).getBottom() + mDividerHeight :
                     paddingTop;
-            fillDown(mFirstPosition + count, startOffset);
+            fillDown(mFirstPosition + count, startOffset, isPreObtain);
             correctTooHigh(getChildCount());
         } else {
             int paddingBottom = 0;
@@ -756,8 +764,57 @@ public class ListView extends AbsListView {
             }
             final int startOffset = count > 0 ? getChildAt(0).getTop() - mDividerHeight :
                     getHeight() - paddingBottom;
-            fillUp(mFirstPosition - 1, startOffset);
+            fillUp(mFirstPosition - 1, startOffset, isPreObtain);
             correctTooLow(getChildCount());
+        }
+    }
+
+    @Override
+    void findNextGap(boolean down) {
+        final int count = getChildCount();
+        if(mHandler == null) {
+            mHandler = new Handler();
+        }
+        if(mFillNextGap == null) {
+            mFillNextGap = new FillNextGap();
+        }
+        if(down) {
+            int paddingTop = 0;
+            if ((mGroupFlags & CLIP_TO_PADDING_MASK) == CLIP_TO_PADDING_MASK) {
+                paddingTop = getListPaddingTop();
+            }
+            final int nextTop = count > 0 ? getChildAt(count - 1).getBottom() + mDividerHeight :
+                    paddingTop;
+
+            int end = (mBottom - mTop);
+            if ((mGroupFlags & CLIP_TO_PADDING_MASK) == CLIP_TO_PADDING_MASK) {
+                end -= mListPadding.bottom;
+            }
+
+            if((nextTop - mOldIncrementalDeltaY) < end) {
+                if(mFillNextGap != null && mHandler != null) {
+                    mFillNextGap.down = down;
+                    mHandler.post(mFillNextGap);
+                }
+            }
+        }
+        else {
+            int paddingBottom = 0;
+            if ((mGroupFlags & CLIP_TO_PADDING_MASK) == CLIP_TO_PADDING_MASK) {
+                paddingBottom = getListPaddingBottom();
+            }
+            final int nextBottom = count > 0 ? getChildAt(0).getTop() - mDividerHeight :
+                    getHeight() - paddingBottom;
+            int end = 0;
+            if ((mGroupFlags & CLIP_TO_PADDING_MASK) == CLIP_TO_PADDING_MASK) {
+                end = mListPadding.top;
+            }
+            if((nextBottom + mOldIncrementalDeltaY) > end) {
+                if(mFillNextGap != null && mHandler != null) {
+                    mFillNextGap.down = down;
+                    mHandler.post(mFillNextGap);
+                }
+            }
         }
     }
 
@@ -773,14 +830,22 @@ public class ListView extends AbsListView {
      *         range that we draw.
      */
     private View fillDown(int pos, int nextTop) {
+        return fillDown(pos, nextTop, false);
+    }
+
+    private View fillDown(int pos, int nextTop, boolean isPreObtain) {
         View selectedView = null;
 
+        int correction = 0;
         int end = (mBottom - mTop);
         if ((mGroupFlags & CLIP_TO_PADDING_MASK) == CLIP_TO_PADDING_MASK) {
             end -= mListPadding.bottom;
         }
 
-        while (nextTop < end && pos < mItemCount) {
+        if(isPreObtain) {
+            correction = mOldIncrementalDeltaY;
+        }
+        while ((nextTop - correction) < end && pos < mItemCount) {
             // is this the selected item?
             boolean selected = pos == mSelectedPosition;
             View child = makeAndAddView(pos, nextTop, true, mListPadding.left, selected);
@@ -807,17 +872,26 @@ public class ListView extends AbsListView {
      * @return The view that is currently selected
      */
     private View fillUp(int pos, int nextBottom) {
+        return fillUp(pos, nextBottom, false);
+    }
+
+    private View fillUp(int pos, int nextBottom, boolean isPreObtain) {
         View selectedView = null;
 
+        int correction = 0;
         int end = 0;
         if ((mGroupFlags & CLIP_TO_PADDING_MASK) == CLIP_TO_PADDING_MASK) {
             end = mListPadding.top;
         }
 
-        while (nextBottom > end && pos >= 0) {
+        if(isPreObtain) {
+            correction = mOldIncrementalDeltaY;
+        }
+        while ((nextBottom + correction) > end && pos >= 0) {
             // is this the selected item?
             boolean selected = pos == mSelectedPosition;
             View child = makeAndAddView(pos, nextBottom, false, mListPadding.left, selected);
+
             nextBottom = child.getTop() - mDividerHeight;
             if (selected) {
                 selectedView = child;
@@ -4150,6 +4224,18 @@ public class ListView extends AbsListView {
     protected void dispatchDataSetObserverOnChangedInternal() {
         if (mDataSetObserver != null) {
             mDataSetObserver.onChanged();
+        }
+    }
+
+    /**
+     * Runnable object created from this class will be pushed into the UI thread's
+     * message queue to start filling a gap in the list view, if any, as soon as
+     * the UI thread finishes current choreographer work.
+     */
+    private class FillNextGap implements Runnable {
+        public boolean down;
+        public void run() {
+            fillGap(down, true);
         }
     }
 }
