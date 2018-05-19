@@ -2068,7 +2068,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     @Override
     public void setAllowOnlyVpnForUids(boolean add, UidRange[] uidRanges)
             throws ServiceSpecificException {
-        mContext.enforceCallingOrSelfPermission(NETWORK_STACK, TAG);
+        mContext.enforceCallingOrSelfPermission(android.Manifest.permission.NETWORK_STACK, TAG);
 
         try {
             mNetdService.networkRejectNonSecureVpn(add, uidRanges);
