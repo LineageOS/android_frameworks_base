@@ -53,8 +53,8 @@ public class SignalStrength implements Parcelable {
     public static final int INVALID = 0x7FFFFFFF;
 
     private static final int RSRP_THRESH_TYPE_STRICT = 0;
-    private static final int[] RSRP_THRESH_STRICT = new int[] {-140, -115, -105, -95, -85, -44};
-    private static final int[] RSRP_THRESH_LENIENT = new int[] {-140, -128, -118, -108, -98, -44};
+    private static final int[] RSRP_THRESH_STRICT = new int[] {-140, -123, -119, -115, -106, -44};
+    private static final int[] RSRP_THRESH_LENIENT = new int[] {-140, -120, -113, -105, -97, -44};
 
 
     private int mGsmSignalStrength; // Valid values are (0-31, 99) as defined in TS 27.007 8.5
