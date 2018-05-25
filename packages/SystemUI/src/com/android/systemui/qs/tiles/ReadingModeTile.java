@@ -90,6 +90,17 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    protected String composeChangeAnnouncement() {
+        if (mState.value) {
+            return mContext.getString(
+                    R.string.accessibility_quick_settings_reading_mode_changed_on);
+        } else {
+            return mContext.getString(
+                    R.string.accessibility_quick_settings_reading_mode_changed_off);
+        }
+    }
+
+    @Override
     public int getMetricsCategory() {
         return LineageMetricsLogger.TILE_READING_MODE;
     }
