@@ -17,13 +17,18 @@
 package com.android.systemui.statusbar;
 
 import android.annotation.DrawableRes;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.ServiceManager;
 import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.util.ArraySet;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -35,6 +40,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.android.internal.telephony.PhoneConstants;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.SignalDrawable;
@@ -48,6 +54,8 @@ import com.android.systemui.statusbar.policy.NetworkControllerImpl;
 import com.android.systemui.statusbar.policy.SecurityController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
+
+import org.codeaurora.internal.IExtTelephony;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +74,15 @@ public class SignalClusterView extends LinearLayout implements NetworkController
     private static final String SLOT_WIFI = "wifi";
     private static final String SLOT_ETHERNET = "ethernet";
     private static final String SLOT_VPN = "vpn";
+
+    private static final String ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED =
+            "org.codeaurora.intent.action.ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED";
+    private static final String EXTRA_NEW_PROVISION_STATE = "newProvisionState";
+
+    private static final int PROVISIONED = 1;
+    private static final int NOT_PROVISIONED = 0;
+
+    private final BroadcastReceiver mReceiver;
 
     private final NetworkController mNetworkController;
     private final SecurityController mSecurityController;
@@ -149,6 +166,26 @@ public class SignalClusterView extends LinearLayout implements NetworkController
         mNetworkController = Dependency.get(NetworkController.class);
         mSecurityController = Dependency.get(SecurityController.class);
         updateActivityEnabled();
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String action = intent.getAction();
+                if (ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED.equals(action)) {
+                    int phoneId = intent.getIntExtra(PhoneConstants.PHONE_KEY,
+                            SubscriptionManager.INVALID_SUBSCRIPTION_ID);
+                    int newProvisionedState = intent.getIntExtra(EXTRA_NEW_PROVISION_STATE,
+                            NOT_PROVISIONED);
+                    int[] subId = SubscriptionManager.getSubId(phoneId);
+                    if (subId != null) {
+                        setProvisioned(subId[0], newProvisionedState == PROVISIONED);
+                    }
+                }
+            }
+        };
+
+        IntentFilter intentFilter = new IntentFilter(ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED);
+        context.registerReceiver(mReceiver, intentFilter);
     }
 
     public void setForceBlockWifi() {
@@ -304,7 +341,7 @@ public class SignalClusterView extends LinearLayout implements NetworkController
         if (state == null) {
             return;
         }
-        state.mMobileVisible = statusIcon.visible && !mBlockMobile;
+        state.mMobileVisible = statusIcon.visible && !mBlockMobile && getProvisioned(subId);
         state.mMobileStrengthId = statusIcon.icon;
         state.mMobileTypeId = statusType;
         state.mMobileDescription = statusIcon.contentDescription;
@@ -381,6 +418,25 @@ public class SignalClusterView extends LinearLayout implements NetworkController
         }
         mPhoneStates.add(state);
         return state;
+    }
+
+    private boolean getProvisioned(int subId) {
+        for (PhoneState state : mPhoneStates) {
+            if (state.mSubId == subId) {
+                return state.mProvisioned;
+            }
+        }
+
+        return true;
+    }
+
+    private void setProvisioned(int subId, boolean provisioned) {
+        for (PhoneState state : mPhoneStates) {
+            if (state.mSubId == subId) {
+                state.mProvisioned = provisioned;
+                break;
+            }
+        }
     }
 
     @Override
@@ -640,6 +696,7 @@ public class SignalClusterView extends LinearLayout implements NetworkController
 
     private class PhoneState {
         private final int mSubId;
+        private boolean mProvisioned = true;
         private boolean mMobileVisible = false;
         private int mMobileStrengthId = 0, mMobileTypeId = 0;
         private int mLastMobileStrengthId = -1;
@@ -660,6 +717,15 @@ public class SignalClusterView extends LinearLayout implements NetworkController
                     .inflate(R.layout.mobile_signal_group, null);
             setViews(root);
             mSubId = subId;
+            IExtTelephony extTelephony = IExtTelephony.Stub.asInterface(
+                    ServiceManager.getService("extphone"));
+            if (extTelephony != null) {
+                int slotId = SubscriptionManager.getSlotIndex(subId);
+                if (slotId != SubscriptionManager.INVALID_SIM_SLOT_INDEX) {
+                    mProvisioned = extTelephony.getCurrentUiccCardProvisioningStatus(
+                            slotId) == PROVISIONED;
+                }
+            }
         }
 
         public void setViews(ViewGroup root) {
