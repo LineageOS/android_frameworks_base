@@ -17,7 +17,10 @@
 package com.android.systemui.statusbar;
 
 import android.annotation.DrawableRes;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -25,7 +28,10 @@ import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.util.ArraySet;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -37,6 +43,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.android.internal.telephony.PhoneConstants;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
@@ -45,6 +52,9 @@ import com.android.systemui.statusbar.policy.SecurityController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 
+import org.codeaurora.internal.IExtTelephony;
+
+import java.lang.NoClassDefFoundError;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,6 +71,15 @@ public class SignalClusterView
     private static final String SLOT_MOBILE = "mobile";
     private static final String SLOT_WIFI = "wifi";
     private static final String SLOT_ETHERNET = "ethernet";
+
+    private static final String ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED =
+            "org.codeaurora.intent.action.ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED";
+    private static final String EXTRA_NEW_PROVISION_STATE = "newProvisionState";
+
+    private static final int PROVISIONED = 1;
+    private static final int NOT_PROVISIONED = 0;
+
+    private final BroadcastReceiver mReceiver;
 
     NetworkControllerImpl mNC;
     SecurityController mSC;
@@ -131,6 +150,30 @@ public class SignalClusterView
         TypedValue typedValue = new TypedValue();
         res.getValue(R.dimen.status_bar_icon_scale_factor, typedValue, true);
         mIconScaleFactor = typedValue.getFloat();
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String action = intent.getAction();
+                if (ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED.equals(action)) {
+                    int phoneId = intent.getIntExtra(PhoneConstants.PHONE_KEY,
+                            SubscriptionManager.INVALID_SUBSCRIPTION_ID);
+                    int newProvisionedState = intent.getIntExtra(EXTRA_NEW_PROVISION_STATE,
+                            NOT_PROVISIONED);
+                    int[] subId = SubscriptionManager.getSubId(phoneId);
+                    if (subId != null) {
+                        PhoneState state = getState(subId[0]);
+                        if (state != null) {
+                            state.mProvisioned = newProvisionedState == PROVISIONED;
+                        }
+                        apply();
+                    }
+                }
+            }
+        };
+
+        IntentFilter intentFilter = new IntentFilter(ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED);
+        context.registerReceiver(mReceiver, intentFilter);
     }
 
     @Override
@@ -276,7 +319,7 @@ public class SignalClusterView
         if (state == null) {
             return;
         }
-        state.mMobileVisible = statusIcon.visible && !mBlockMobile;
+        state.mMobileVisible = statusIcon.visible && !mBlockMobile && state.mProvisioned;
         state.mMobileStrengthId = statusIcon.icon;
         state.mMobileTypeId = statusType;
         state.mMobileDescription = statusIcon.contentDescription;
@@ -580,6 +623,7 @@ public class SignalClusterView
 
     private class PhoneState {
         private final int mSubId;
+        private boolean mProvisioned = true;
         private boolean mMobileVisible = false;
         private int mMobileStrengthId = 0, mMobileTypeId = 0;
         private int mLastMobileStrengthId = -1;
@@ -596,6 +640,23 @@ public class SignalClusterView
                     .inflate(R.layout.mobile_signal_group, null);
             setViews(root);
             mSubId = subId;
+            try {
+                IExtTelephony extTelephony = IExtTelephony.Stub.asInterface(
+                        ServiceManager.getService("extphone"));
+                if (extTelephony != null) {
+                    int slotId = SubscriptionManager.getSlotIndex(subId);
+                    if (slotId != SubscriptionManager.INVALID_SIM_SLOT_INDEX) {
+                        try {
+                            mProvisioned = extTelephony.getCurrentUiccCardProvisioningStatus(
+                                    slotId) == PROVISIONED;
+                        } catch (RemoteException ex) {
+                            // ignore, fall back to default.
+                        }
+                    }
+                }
+            } catch (NoClassDefFoundError ex) {
+                // ignore, device does not compile telephony-ext.
+            }
         }
 
         public void setViews(ViewGroup root) {
