@@ -34,7 +34,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     org.cyanogenmod.platform.internal \
     uicommon
 
-LOCAL_JAVA_LIBRARIES := telephony-common
+LOCAL_JAVA_LIBRARIES := telephony-common telephony-ext
 LOCAL_FULL_LIBS_MANIFEST_FILES := $(LOCAL_PATH)/AndroidManifest_cm.xml
 
 LOCAL_PACKAGE_NAME := SystemUI
