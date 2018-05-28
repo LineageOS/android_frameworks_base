@@ -26,6 +26,7 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.util.ArraySet;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -45,6 +46,9 @@ import com.android.systemui.statusbar.policy.SecurityController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 
+import org.cyanogenmod.internal.util.TelephonyExtUtils;
+import org.cyanogenmod.internal.util.TelephonyExtUtils.ProvisioningChangedListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +56,7 @@ import java.util.List;
 public class SignalClusterView
         extends LinearLayout
         implements NetworkControllerImpl.SignalCallback,
-        SecurityController.SecurityControllerCallback, Tunable {
+        SecurityController.SecurityControllerCallback, Tunable, ProvisioningChangedListener {
 
     static final String TAG = "SignalClusterView";
     static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
@@ -131,6 +135,23 @@ public class SignalClusterView
         TypedValue typedValue = new TypedValue();
         res.getValue(R.dimen.status_bar_icon_scale_factor, typedValue, true);
         mIconScaleFactor = typedValue.getFloat();
+
+        TelephonyExtUtils.getInstance(context).addListener(this);
+    }
+
+    @Override
+    public void onProvisioningChanged(int slotId, boolean isProvisioned) {
+        int[] subId = SubscriptionManager.getSubId(slotId);
+        if (subId != null) {
+            PhoneState state = getState(subId[0]);
+            if (state != null) {
+                state.mProvisioned = isProvisioned;
+                if (!isProvisioned) {
+                    state.mMobileVisible = false;
+                }
+            }
+            apply();
+        }
     }
 
     @Override
@@ -276,7 +297,7 @@ public class SignalClusterView
         if (state == null) {
             return;
         }
-        state.mMobileVisible = statusIcon.visible && !mBlockMobile;
+        state.mMobileVisible = statusIcon.visible && !mBlockMobile && state.mProvisioned;
         state.mMobileStrengthId = statusIcon.icon;
         state.mMobileTypeId = statusType;
         state.mMobileDescription = statusIcon.contentDescription;
@@ -581,6 +602,7 @@ public class SignalClusterView
     private class PhoneState {
         private final int mSubId;
         private boolean mMobileVisible = false;
+        private boolean mProvisioned = true;
         private int mMobileStrengthId = 0, mMobileTypeId = 0;
         private int mLastMobileStrengthId = -1;
         private int mLastMobileTypeId = -1;
@@ -596,6 +618,11 @@ public class SignalClusterView
                     .inflate(R.layout.mobile_signal_group, null);
             setViews(root);
             mSubId = subId;
+
+            TelephonyExtUtils extTelephony = TelephonyExtUtils.getInstance(context);
+            if (extTelephony.hasService()) {
+                mProvisioned = extTelephony.isSubProvisioned(subId);
+            }
         }
 
         public void setViews(ViewGroup root) {
