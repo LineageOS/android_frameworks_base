@@ -17,13 +17,17 @@
 package com.android.systemui.statusbar;
 
 import android.annotation.DrawableRes;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.util.ArraySet;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -66,6 +70,15 @@ public class SignalClusterView extends LinearLayout implements NetworkController
     private static final String SLOT_WIFI = "wifi";
     private static final String SLOT_ETHERNET = "ethernet";
     private static final String SLOT_VPN = "vpn";
+
+    private static final String ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED =
+            "org.codeaurora.intent.action.ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED";
+    private static final String EXTRA_NEW_PROVISION_STATE = "newProvisionState";
+
+    private static final int PROVISIONED = 1;
+    private static final int NOT_PROVISIONED = 0;
+
+    private final BroadcastReceiver mReceiver;
 
     private final NetworkController mNetworkController;
     private final SecurityController mSecurityController;
@@ -149,6 +162,23 @@ public class SignalClusterView extends LinearLayout implements NetworkController
         mNetworkController = Dependency.get(NetworkController.class);
         mSecurityController = Dependency.get(SecurityController.class);
         updateActivityEnabled();
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String action = intent.getAction();
+                if (ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED.equals(action)) {
+                    int phoneId = intent.getIntExtra(PhoneConstants.PHONE_KEY,
+                            SubscriptionManager.INVALID_SUBSCRIPTION_ID);
+                    int newProvisionedState = intent.getIntExtra(EXTRA_NEW_PROVISION_STATE,
+                            NOT_PROVISIONED);
+                    setProvisioned(phoneId, newProvisionedState == PROVISIONED);
+                }
+            }
+        };
+
+        IntentFilter intentFilter = new IntentFilter(ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED);
+        context.registerReceiver(mReceiver, intentFilter);
     }
 
     public void setForceBlockWifi() {
@@ -304,7 +334,7 @@ public class SignalClusterView extends LinearLayout implements NetworkController
         if (state == null) {
             return;
         }
-        state.mMobileVisible = statusIcon.visible && !mBlockMobile;
+        state.mMobileVisible = statusIcon.visible && !mBlockMobile && getProvisioned(subId);
         state.mMobileStrengthId = statusIcon.icon;
         state.mMobileTypeId = statusType;
         state.mMobileDescription = statusIcon.contentDescription;
@@ -381,6 +411,25 @@ public class SignalClusterView extends LinearLayout implements NetworkController
         }
         mPhoneStates.add(state);
         return state;
+    }
+
+    private void getProvisioned(int subId) {
+        for (PhoneState state : mPhoneStates) {
+            if (state.mSubId == subId) {
+                return state.mProvisioned;
+            }
+        }
+
+        return true;
+    }
+
+    private void setProvisioned(int slotId, boolean provisioned) {
+        for (PhoneState state : mPhoneStates) {
+            if (state.mSlotId == slotId) {
+                state.mProvisioned = provisioned;
+                break;
+            }
+        }
     }
 
     @Override
@@ -640,6 +689,8 @@ public class SignalClusterView extends LinearLayout implements NetworkController
 
     private class PhoneState {
         private final int mSubId;
+        private final int mSlotId;
+        private boolean mProvisioned = true;
         private boolean mMobileVisible = false;
         private int mMobileStrengthId = 0, mMobileTypeId = 0;
         private int mLastMobileStrengthId = -1;
@@ -660,6 +711,7 @@ public class SignalClusterView extends LinearLayout implements NetworkController
                     .inflate(R.layout.mobile_signal_group, null);
             setViews(root);
             mSubId = subId;
+            mSlotId = SubscriptionManager.getSlotId(mSubId);
         }
 
         public void setViews(ViewGroup root) {
