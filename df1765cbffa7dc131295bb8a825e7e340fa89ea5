@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f858a1f1_434a3a29",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-05-28T13:18:30Z",
+      "side": 1,
+      "message": "Needs to be a boolean",
+      "range": {
+        "startLine": 416,
+        "startChar": 12,
+        "endLine": 416,
+        "endChar": 16
+      },
+      "revId": "df1765cbffa7dc131295bb8a825e7e340fa89ea5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c839f4a_f7e7321d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-05-28T13:18:30Z",
+      "side": 1,
+      "message": "need to find the proper API for this, this doesn\u0027t compile",
+      "range": {
+        "startLine": 714,
+        "startChar": 22,
+        "endLine": 714,
+        "endChar": 60
+      },
+      "revId": "df1765cbffa7dc131295bb8a825e7e340fa89ea5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
