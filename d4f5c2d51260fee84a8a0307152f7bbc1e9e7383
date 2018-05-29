@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "013accf7_21e1f7a7",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-05-29T17:26:18Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be simply state.mProvisioned ?",
+      "range": {
+        "startLine": 346,
+        "startChar": 70,
+        "endLine": 346,
+        "endChar": 91
+      },
+      "revId": "d4f5c2d51260fee84a8a0307152f7bbc1e9e7383",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1990d9ba_175e77ae",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-05-29T17:26:18Z",
+      "side": 1,
+      "message": "Then get rid of this.",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 433,
+        "endChar": 5
+      },
+      "revId": "d4f5c2d51260fee84a8a0307152f7bbc1e9e7383",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f2b4b4_e39b1b8d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-05-29T17:26:18Z",
+      "side": 1,
+      "message": "PhoneState state \u003d getState(subId);\nif (state \u003d\u003d null) {\n    return;\n}\nstate.mProvisioned \u003d provisioned;",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 9
+      },
+      "revId": "d4f5c2d51260fee84a8a0307152f7bbc1e9e7383",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
