@@ -52,6 +52,24 @@
       "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d594474a_d2f3674a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2018-05-30T01:47:09Z",
+      "side": 1,
+      "message": "i am envisioning a false positive provisioned status potentially here is all by blindly setting provisioned to true. Is there a query-able default?",
+      "parentUuid": "d765b68c_b3882db2",
+      "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
