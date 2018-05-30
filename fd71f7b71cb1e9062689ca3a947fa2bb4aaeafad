@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d8b2243_8cd5408b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2018-05-30T01:34:30Z",
+      "side": 1,
+      "message": "i think this should default to false, otherwise we could allow false positives in the event that the receiver never recevies a msg.",
+      "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
