@@ -88,6 +88,24 @@
       "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9c319e8_49c7342e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2018-05-30T02:00:20Z",
+      "side": 1,
+      "message": "Yep makes since then. Carry on :)\n\nOnly critique would be that non-ext devices don\u0027t need the receiver, and should be conditionally initialized and registered.",
+      "parentUuid": "615c5195_c5c586f6",
+      "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
