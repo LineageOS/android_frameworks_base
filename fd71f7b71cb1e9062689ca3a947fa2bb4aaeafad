@@ -34,6 +34,24 @@
       "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d765b68c_b3882db2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-05-30T01:39:49Z",
+      "side": 1,
+      "message": "Grr I should think through everything before posting.....Also we query the proper status from devices that have the extension anyway",
+      "parentUuid": "34b2d27c_0762f5da",
+      "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
