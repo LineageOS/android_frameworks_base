@@ -16,6 +16,24 @@
       "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34b2d27c_0762f5da",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-05-30T01:38:33Z",
+      "side": 1,
+      "message": "I\u0027m going to assume you mean mProvisioned (as mMobileVisible is already false, and not relevant to this patch), and if that\u0027s the case, then both signal icons would be hidden on devices without the manual provisioning code",
+      "parentUuid": "0d8b2243_8cd5408b",
+      "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
