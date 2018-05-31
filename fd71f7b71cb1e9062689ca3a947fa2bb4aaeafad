@@ -106,6 +106,29 @@
       "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d15473a_94629559",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-05-31T03:56:59Z",
+      "side": 1,
+      "message": "I\u0027m not sure I follow here, isn\u0027t this usually catching the exception thrown if you cannot find a class by reflection? This looks like it\u0027s not using reflection and just directly calling into the binder service.",
+      "range": {
+        "startLine": 721,
+        "startChar": 21,
+        "endLine": 721,
+        "endChar": 41
+      },
+      "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "864d8728_e15dc389",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-05-31T03:56:59Z",
+      "side": 1,
+      "message": "Why return true as a default?",
+      "range": {
+        "startLine": 429,
+        "startChar": 15,
+        "endLine": 429,
+        "endChar": 19
+      },
+      "revId": "250cd1d828762508559089fdeb8264920f38eca0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
