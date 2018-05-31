@@ -165,6 +165,7 @@ public class SignalClusterView
                         PhoneState state = getState(subId[0]);
                         if (state != null) {
                             state.mProvisioned = newProvisionedState == PROVISIONED;
+                            state.mMobileVisible &= state.mProvisioned;
                         }
                         apply();
                     }
