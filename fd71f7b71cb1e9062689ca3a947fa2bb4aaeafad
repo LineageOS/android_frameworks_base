@@ -129,6 +129,30 @@
       "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5445d7d4_49fdc113",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-05-31T12:43:16Z",
+      "side": 1,
+      "message": "This class is provided by telephony-ext, but telephony-ext doesn\u0027t exist on all devices. https://review.lineageos.org/#/c/LineageOS/android_packages_apps_Settings/+/204218/",
+      "parentUuid": "1d15473a_94629559",
+      "range": {
+        "startLine": 721,
+        "startChar": 21,
+        "endLine": 721,
+        "endChar": 41
+      },
+      "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }

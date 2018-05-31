@@ -22,6 +22,30 @@
       "revId": "250cd1d828762508559089fdeb8264920f38eca0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169679ab_3954ab25",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-05-31T12:43:16Z",
+      "side": 1,
+      "message": "All subscriptions are provisioned by default unless manually deactivated.",
+      "parentUuid": "864d8728_e15dc389",
+      "range": {
+        "startLine": 429,
+        "startChar": 15,
+        "endLine": 429,
+        "endChar": 19
+      },
+      "revId": "250cd1d828762508559089fdeb8264920f38eca0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
