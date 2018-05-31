@@ -644,7 +644,7 @@ public class SignalClusterView
                 IExtTelephony extTelephony = IExtTelephony.Stub.asInterface(
                         ServiceManager.getService("extphone"));
                 if (extTelephony != null) {
-                    int slotId = SubscriptionManager.getSlotIndex(subId);
+                    int slotId = getSimSlotIndexForSubId(subId, context);
                     if (slotId != SubscriptionManager.INVALID_SIM_SLOT_INDEX) {
                         try {
                             mProvisioned = extTelephony.getCurrentUiccCardProvisioningStatus(
@@ -703,6 +703,19 @@ public class SignalClusterView
             mMobileRoaming.setVisibility(mRoaming ? View.VISIBLE : View.GONE);
 
             return mMobileVisible;
+        }
+
+        private int getSimSlotIndexForSubId(int subId, Context context) {
+            SubscriptionManager subManager = SubscriptionManager.from(context);
+            List<SubscriptionInfo> subInfoLists = subManager.getActiveSubscriptionInfoList();
+            if (subInfoLists != null) {
+                for (SubscriptionInfo subInfo : subInfoLists) {
+                    if (subInfo.getSubscriptionId() == subId) {
+                        return subInfo.getSimSlotIndex();
+                    }
+                }
+            }
+            return SubscriptionManager.INVALID_SIM_SLOT_INDEX;
         }
 
         private void updateAnimatableIcon(ImageView view, int resId) {
