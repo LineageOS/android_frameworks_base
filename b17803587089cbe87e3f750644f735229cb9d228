@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1872b64e_071ae941",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-06-01T12:07:15Z",
+      "side": 1,
+      "message": "Fwiw, \u0026\u003d is the bitwise and operator. It works on booleans as expected because booleans only have one bit. Not sure if that changes your mind on how you want to write this.",
+      "revId": "b17803587089cbe87e3f750644f735229cb9d228",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
