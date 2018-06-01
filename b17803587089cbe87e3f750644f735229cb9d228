@@ -16,6 +16,24 @@
       "revId": "b17803587089cbe87e3f750644f735229cb9d228",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08b03a88_abf39b33",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-06-01T12:09:14Z",
+      "side": 1,
+      "message": "Compare to PS1, I had the other solution previously but found this one easier to read.\nI am aware that this is for bits, but what else is a boolean here :)",
+      "parentUuid": "1872b64e_071ae941",
+      "revId": "b17803587089cbe87e3f750644f735229cb9d228",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
