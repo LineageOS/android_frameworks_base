@@ -24,7 +24,7 @@ LOCAL_MODULE := Keyguard
 
 LOCAL_CERTIFICATE := platform
 
-LOCAL_JAVA_LIBRARIES := SettingsLib
+LOCAL_JAVA_LIBRARIES := SettingsLib telephony-ext
 
 LOCAL_PRIVILEGED_MODULE := true
 
