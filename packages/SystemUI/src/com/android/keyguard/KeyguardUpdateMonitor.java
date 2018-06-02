@@ -80,8 +80,11 @@ import com.android.systemui.recents.misc.SystemServicesProxy.TaskStackListener;
 
 import com.google.android.collect.Lists;
 
+import org.codeaurora.internal.IExtTelephony;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.lang.NoClassDefFoundError;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -109,6 +112,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
             = "com.android.facelock.FACE_UNLOCK_STARTED";
     private static final String ACTION_FACE_UNLOCK_STOPPED
             = "com.android.facelock.FACE_UNLOCK_STOPPED";
+
+    private static final int PROVISIONED = 1;
+    private static final int NOT_PROVISIONED = 0;
 
     // Callback messages
     private static final int MSG_TIME_UPDATE = 301;
@@ -162,6 +168,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private static final ComponentName FALLBACK_HOME_COMPONENT = new ComponentName(
             "com.android.settings", "com.android.settings.FallbackHome");
 
+    private static final String ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED =
+            "org.codeaurora.intent.action.ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED";
 
     /**
      * If true, the system is in the half-boot-to-decryption-screen state.
@@ -182,6 +190,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private final Context mContext;
     HashMap<Integer, SimData> mSimDatas = new HashMap<Integer, SimData>();
     HashMap<Integer, ServiceState> mServiceStates = new HashMap<Integer, ServiceState>();
+
+    private IExtTelephony mExtTelephony;
 
     private int mRingMode;
     private int mPhoneState;
@@ -777,6 +787,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                 }
                 mHandler.sendMessage(
                         mHandler.obtainMessage(MSG_SERVICE_STATE_CHANGE, subId, 0, serviceState));
+            } else if (ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED.equals(action)) {
+                handleSimSubscriptionInfoChanged();
             }
         }
     };
@@ -1134,6 +1146,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         filter.addAction(TelephonyIntents.ACTION_SERVICE_STATE_CHANGED);
         filter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
         filter.addAction(AudioManager.RINGER_MODE_CHANGED_ACTION);
+        filter.addAction(ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED);
         context.registerReceiver(mBroadcastReceiver, filter);
 
         final IntentFilter bootCompleteFilter = new IntentFilter();
@@ -1188,6 +1201,13 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
 
         SystemServicesProxy.getInstance(mContext).registerTaskStackListener(mTaskStackListener);
         mUserManager = context.getSystemService(UserManager.class);
+
+        try {
+            mExtTelephony = IExtTelephony.Stub.asInterface(
+                    ServiceManager.getService("extphone"));
+        } catch (NoClassDefFoundError ex) {
+            // ignore, device does not compile telephony-ext.
+        }
     }
 
     private void updateFingerprintListeningState() {
@@ -1813,6 +1833,13 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
             Log.w(TAG, "Unknown sim state: " + simState);
             state = State.UNKNOWN;
         }
+
+        // Try to get provision-status from telephony extensions and override the state if absent
+        State extState = getSimStateFromTelephonyExt(slotId);
+        if (extState != State.UNKNOWN) {
+            state = extState;
+        }
+
         SimData data = mSimDatas.get(subId);
         final boolean changed;
         if (data == null) {
@@ -1824,6 +1851,25 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
             data.simState = state;
         }
         return changed;
+    }
+
+    private State getSimStateFromTelephonyExt(int slotId) {
+        State state = State.UNKNOWN;
+
+        if (mExtTelephony != null) {
+            if (slotId != SubscriptionManager.INVALID_SIM_SLOT_INDEX) {
+                try {
+                    boolean provisioned = mExtTelephony.getCurrentUiccCardProvisioningStatus(
+                            slotId) == PROVISIONED;
+                    if (!provisioned) {
+                        state = State.ABSENT;
+                    }
+                } catch (RemoteException ex) {
+                    // ignore, fall back to default.
+                }
+            }
+        }
+        return state;
     }
 
     public static boolean isSimPinSecure(IccCardConstants.State state) {
