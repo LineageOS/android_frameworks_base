@@ -4,7 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017, The LineageOS Project
+ * Copyright (c) 2017-2018, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -80,4 +80,9 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Imprea su GPS pro agatare sa positzione tua</string>
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+  <!-- Reader mode QS tile -->
+  <!-- Content description of the reader mode tile when on -->
+  <!-- Content description of the reader mode tile when off -->
+  <!-- Content description of the reader mode tile when turned on -->
+  <!-- Content description of the reader mode tile when turned off -->
 </resources>

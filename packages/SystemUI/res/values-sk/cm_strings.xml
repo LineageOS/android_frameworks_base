@@ -4,7 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017, The LineageOS Project
+ * Copyright (c) 2017-2018, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -117,4 +117,14 @@
   <string name="quick_settings_location_detail_mode_sensors_only_description">Pre určovanie polohy používať GPS</string>
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
   <string name="nav_bar_layout_inverse">Invertovať rozloženie tlačidiel</string>
+  <!-- Reader mode QS tile -->
+  <string name="quick_settings_reading_mode">Režim čítania</string>
+  <!-- Content description of the reader mode tile when on -->
+  <string name="accessibility_quick_settings_reading_mode_on">Režim čítania zap.</string>
+  <!-- Content description of the reader mode tile when off -->
+  <string name="accessibility_quick_settings_reading_mode_off">Režim čítania vyp.</string>
+  <!-- Content description of the reader mode tile when turned on -->
+  <string name="accessibility_quick_settings_reading_mode_changed_on">Režim čítania je zapnutý.</string>
+  <!-- Content description of the reader mode tile when turned off -->
+  <string name="accessibility_quick_settings_reading_mode_changed_off">Režim čítania je vypnutý.</string>
 </resources>
