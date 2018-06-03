@@ -81,6 +81,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
     private Record mDetailRecord;
 
     private BrightnessMirrorController mBrightnessMirrorController;
+    private ImageView mMirrorAutoBrightnessView;
 
     public QSPanel(Context context) {
         this(context, null);
@@ -158,6 +159,10 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
         } else if (QS_SHOW_AUTO_BRIGHTNESS.equals(key) && mIsAutomaticBrightnessAvailable) {
             mAutoBrightnessView.setVisibility(newValue == null || Integer.parseInt(newValue) != 0
                     ? VISIBLE : GONE);
+            if (mMirrorAutoBrightnessView != null) {
+                mMirrorAutoBrightnessView.setVisibility(newValue == null ||
+                        Integer.parseInt(newValue) != 0 ? INVISIBLE : GONE);
+            }
         }
     }
 
@@ -179,6 +184,8 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
         mBrightnessMirrorController = c;
         ToggleSlider brightnessSlider = (ToggleSlider) findViewById(R.id.brightness_slider);
         ToggleSlider mirror = (ToggleSlider) c.getMirror().findViewById(R.id.brightness_slider);
+        mMirrorAutoBrightnessView = (ImageView) c.getMirror().findViewById(R.id.brightness_icon);
+        mMirrorAutoBrightnessView.setVisibility(View.INVISIBLE);
         brightnessSlider.setMirror(mirror);
         brightnessSlider.setMirrorController(c);
     }
