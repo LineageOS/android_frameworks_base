@@ -38,6 +38,6 @@
         android:layout_gravity="center_vertical"
         android:src="@drawable/ic_qs_brightness_auto_off"
         android:contentDescription="@null"
-        android:visibility="gone" />
+        android:visibility="invisible" />
 
 </LinearLayout>
