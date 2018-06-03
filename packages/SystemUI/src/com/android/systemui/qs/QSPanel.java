@@ -144,8 +144,13 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     private Record mDetailRecord;
 
     private BrightnessMirrorController mBrightnessMirrorController;
+<<<<<<< HEAD   (718193 SystemUI: Only add GarbageMonitor tile to default tiles on E)
     private LinearLayout mHorizontalLinearLayout;
     private LinearLayout mHorizontalContentContainer;
+=======
+    private ImageView mMirrorAutoBrightnessView;
+    private View mDivider;
+>>>>>>> CHANGE (5a3899 SystemUI: Fix alignment glitch with brightness mirror)
 
     // Only used with media
     private QSTileLayout mHorizontalTileLayout;
@@ -395,11 +400,24 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             updateViewVisibilityForTuningValue(mAutoBrightnessView, newValue);
         } else if (QS_SHOW_BRIGHTNESS_SLIDER.equals(key) && mBrightnessView != null) {
             updateViewVisibilityForTuningValue(mBrightnessView, newValue);
+            updateViewVisibilityForBrightnessMirrorIcon(newValue);
         }
     }
 
     private void updateViewVisibilityForTuningValue(View view, @Nullable String newValue) {
         view.setVisibility(TunerService.parseIntegerSwitch(newValue, true) ? VISIBLE : GONE);
+    }
+
+    private void updateViewVisibilityForBrightnessMirrorIcon(@Nullable String newValue) {
+        if (mMirrorAutoBrightnessView != null) {
+            mMirrorAutoBrightnessView.setVisibility(
+                    TunerService.parseIntegerSwitch(newValue, true) ? INVISIBLE : GONE);
+        } else if (mBrightnessMirrorController != null) {
+            mMirrorAutoBrightnessView = mBrightnessMirrorController.getMirror()
+                    .findViewById(R.id.brightness_icon);
+            mMirrorAutoBrightnessView.setVisibility(mAutoBrightnessView.getVisibility()
+                    == VISIBLE ? INVISIBLE : GONE);
+        }
     }
 
     public void openDetails(String subPanel) {
@@ -429,6 +447,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             mBrightnessMirrorController.addCallback(this);
         }
         updateBrightnessMirror();
+        updateViewVisibilityForBrightnessMirrorIcon(null);
     }
 
     @Override
