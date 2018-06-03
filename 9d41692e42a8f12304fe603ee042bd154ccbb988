@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c151204_14577b68",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-06-03T17:30:00Z",
+      "side": 1,
+      "message": "This is needlessly long, perhaps getSimStateExt? Still not happy about querying this every time, when the intent tells us the new status and the slotId it\u0027s associated with.",
+      "range": {
+        "startLine": 1856,
+        "startChar": 18,
+        "endLine": 1856,
+        "endChar": 45
+      },
+      "revId": "9d41692e42a8f12304fe603ee042bd154ccbb988",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98c12ba_b7cbcbe8",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1864,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-06-03T17:30:00Z",
+      "side": 1,
+      "message": "We could store this as an int, and then do if (status !\u003d PROVISIONED) to conserve lines.",
+      "range": {
+        "startLine": 1862,
+        "startChar": 0,
+        "endLine": 1864,
+        "endChar": 37
+      },
+      "revId": "9d41692e42a8f12304fe603ee042bd154ccbb988",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e082619_4859135f",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1865,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-06-03T17:30:00Z",
+      "side": 1,
+      "message": "Not ready might be a more appropriate state",
+      "range": {
+        "startLine": 1865,
+        "startChar": 38,
+        "endLine": 1865,
+        "endChar": 44
+      },
+      "revId": "9d41692e42a8f12304fe603ee042bd154ccbb988",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
