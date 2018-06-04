@@ -18,7 +18,9 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src) $(call all-subdir-Iaidl-files)
 
-LOCAL_STATIC_JAVA_LIBRARIES := org.cyanogenmod.platform.sdk
+LOCAL_STATIC_JAVA_LIBRARIES := \
+    org.cyanogenmod.platform.sdk \
+    org.cyanogenmod.platform.internal
 
 LOCAL_MODULE := Keyguard
 
