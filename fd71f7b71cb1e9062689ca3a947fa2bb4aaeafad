@@ -109,6 +109,29 @@
     },
     {
       "key": {
+        "uuid": "29933592_9b7ae377",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-04T04:03:09Z",
+      "side": 1,
+      "message": "You\u0027re in a try/catch block already where you do nothing, you can just move this to the outer try/catch.",
+      "range": {
+        "startLine": 713,
+        "startChar": 24,
+        "endLine": 718,
+        "endChar": 25
+      },
+      "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d15473a_94629559",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
         "patchSetId": 9
@@ -144,6 +167,30 @@
       "side": 1,
       "message": "This class is provided by telephony-ext, but telephony-ext doesn\u0027t exist on all devices. https://review.lineageos.org/#/c/LineageOS/android_packages_apps_Settings/+/204218/",
       "parentUuid": "1d15473a_94629559",
+      "range": {
+        "startLine": 721,
+        "startChar": 21,
+        "endLine": 721,
+        "endChar": 41
+      },
+      "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a03d41cd_3df9370f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-04T04:03:09Z",
+      "side": 1,
+      "message": "This is a weird way of doing this. NoClassDefFoundError is actually the exception thrown if you attempt to instantiate a class not on the classpath? Do we actually compile ExtTelephony even though it does not end up on all devices?",
+      "parentUuid": "5445d7d4_49fdc113",
       "range": {
         "startLine": 721,
         "startChar": 21,
