@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aa2cd0a_301e3aac",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1812,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-04T18:17:12Z",
+      "side": 1,
+      "message": "In my opinion, I would put a condition here:\n\nif (mExtTelephony !\u003d null)",
+      "range": {
+        "startLine": 1811,
+        "startChar": 0,
+        "endLine": 1812,
+        "endChar": 63
+      },
+      "revId": "a18d21d359a9b51315f1625bcd9c33876514966c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48763189_07845746",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1827,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-04T18:17:12Z",
+      "side": 1,
+      "message": "getProvisionState would be nicer now that you\u0027ve created mProvisionStates HashMap. That \"Ext\" parti is killing me. :p",
+      "range": {
+        "startLine": 1827,
+        "startChar": 18,
+        "endLine": 1827,
+        "endChar": 32
+      },
+      "revId": "a18d21d359a9b51315f1625bcd9c33876514966c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "032c6475_49f8a15e",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1833,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-04T18:17:12Z",
+      "side": 1,
+      "message": "...and remove it from here.",
+      "range": {
+        "startLine": 1833,
+        "startChar": 15,
+        "endLine": 1833,
+        "endChar": 41
+      },
+      "revId": "a18d21d359a9b51315f1625bcd9c33876514966c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
