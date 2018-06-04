@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d20c612f_5dae1dda",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-04T16:50:03Z",
+      "side": 1,
+      "message": "This is kind of confusing, using phoneId here and slotId bellow.",
+      "range": {
+        "startLine": 757,
+        "startChar": 37,
+        "endLine": 757,
+        "endChar": 44
+      },
+      "revId": "4a2a951d6ed78c1c115f69c230febd9215827fc5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f1c4396_6262d008",
+        "filename": "packages/Keyguard/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1812,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-04T16:50:03Z",
+      "side": 1,
+      "message": "Why don\u0027t you inline the code? The method is not being used elsewhere and can even be simplified.",
+      "range": {
+        "startLine": 1812,
+        "startChar": 25,
+        "endLine": 1812,
+        "endChar": 39
+      },
+      "revId": "4a2a951d6ed78c1c115f69c230febd9215827fc5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
