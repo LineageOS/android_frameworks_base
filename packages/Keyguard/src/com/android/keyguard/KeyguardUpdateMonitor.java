@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -84,6 +85,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.cyanogenmod.internal.util.TelephonyExtUtils;
+import org.cyanogenmod.internal.util.TelephonyExtUtils.ProvisioningChangedListener;
+
 /**
  * Watches for updates that may be interesting to the keyguard, and provides
  * the up to date information as well as a registration for callbacks that care
@@ -94,7 +98,8 @@ import java.util.Map.Entry;
  * the device, and {@link #getFailedUnlockAttempts()}, {@link #reportFailedAttempt()}
  * and {@link #clearFailedUnlockAttempts()}.  Maybe we should rename this 'KeyguardContext'...
  */
-public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
+public class KeyguardUpdateMonitor implements TrustManager.TrustListener,
+        ProvisioningChangedListener {
 
     private static final String TAG = "KeyguardUpdateMonitor";
     private static final boolean DEBUG = KeyguardConstants.DEBUG;
@@ -167,6 +172,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private final Context mContext;
     HashMap<Integer, SimData> mSimDatas = new HashMap<Integer, SimData>();
     HashMap<Integer, ServiceState> mServiceStates = new HashMap<Integer, ServiceState>();
+    HashMap<Integer, State> mProvisionStates = new HashMap<Integer, State>();
 
     private int mRingMode;
     private int mPhoneState;
@@ -737,6 +743,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         }
     };
 
+    @Override
+    public void onProvisioningChanged(int slotId, boolean isProvisioned) {
+        mProvisionStates.put(slotId, isProvisioned ? State.UNKNOWN : State.NOT_READY);
+    }
+
     private final BroadcastReceiver mBroadcastAllReceiver = new BroadcastReceiver() {
 
         @Override
@@ -1102,6 +1113,10 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         filter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
         filter.addAction(AudioManager.RINGER_MODE_CHANGED_ACTION);
         context.registerReceiver(mBroadcastReceiver, filter);
+
+        if (TelephonyExtUtils.hasService(context)) {
+            TelephonyExtUtils.addListener(this);
+        }
 
         final IntentFilter bootCompleteFilter = new IntentFilter();
         bootCompleteFilter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
@@ -1778,6 +1793,20 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
             Log.w(TAG, "Unknown sim state: " + simState);
             state = State.UNKNOWN;
         }
+
+        // Try to get provision-status from telephony extensions and override the state if valid
+        if (TelephonyExtUtils.hasService(mContext)) {
+            State extState = mProvisionStates.get(slotId);
+            if (extState == null) {
+                extState = TelephonyExtUtils.isSlotProvisioned(slotId)
+                        ? State.UNKNOWN : State.NOT_READY;
+                mProvisionStates.put(slotId, extState);
+            }
+            if (extState != null && extState != State.UNKNOWN) {
+                state = extState;
+            }
+        }
+
         SimData data = mSimDatas.get(subId);
         final boolean changed;
         if (data == null) {
