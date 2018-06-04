@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,6 +54,7 @@ import android.os.Handler;
 import android.os.IRemoteCallback;
 import android.os.Message;
 import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.Trace;
 import android.os.UserHandle;
@@ -78,11 +80,14 @@ import com.android.internal.widget.LockPatternUtils;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.lang.NoClassDefFoundError;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
+
+import org.codeaurora.internal.IExtTelephony;
 
 /**
  * Watches for updates that may be interesting to the keyguard, and provides
@@ -111,6 +116,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private static final String USER_ID = "com.android.systemui.USER_ID";
 
     private static final String PERMISSION_SELF = "com.android.systemui.permission.SELF";
+
+    private static final int PROVISIONED = 1;
+    private static final int NOT_PROVISIONED = 0;
 
     // Callback messages
     private static final int MSG_TIME_UPDATE = 301;
@@ -162,11 +170,16 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private static final ComponentName FALLBACK_HOME_COMPONENT = new ComponentName(
             "com.android.settings", "com.android.settings.FallbackHome");
 
+    private static final String ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED =
+            "org.codeaurora.intent.action.ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED";
+    private static final String EXTRA_NEW_PROVISION_STATE = "newProvisionState";
+
     private static KeyguardUpdateMonitor sInstance;
 
     private final Context mContext;
     HashMap<Integer, SimData> mSimDatas = new HashMap<Integer, SimData>();
     HashMap<Integer, ServiceState> mServiceStates = new HashMap<Integer, ServiceState>();
+    HashMap<Integer, State> mProvisionStates = new HashMap<Integer, State>();
 
     private int mRingMode;
     private int mPhoneState;
@@ -210,6 +223,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private TrustManager mTrustManager;
     private UserManager mUserManager;
     private int mFingerprintRunningState = FINGERPRINT_STATE_STOPPED;
+
+    private IExtTelephony mExtTelephony;
 
     private final Handler mHandler = new Handler() {
         @Override
@@ -733,6 +748,12 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                 }
                 mHandler.sendMessage(
                         mHandler.obtainMessage(MSG_SERVICE_STATE_CHANGE, subId, 0, serviceState));
+            } else if (ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED.equals(action)) {
+                int slotId = intent.getIntExtra(PhoneConstants.PHONE_KEY,
+                        SubscriptionManager.INVALID_SIM_SLOT_INDEX);
+                boolean provisioned = intent.getIntExtra(EXTRA_NEW_PROVISION_STATE,
+                        NOT_PROVISIONED) == PROVISIONED;
+                mProvisionStates.put(slotId, provisioned ? State.UNKNOWN : State.NOT_READY);
             }
         }
     };
@@ -1101,6 +1122,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         filter.addAction(TelephonyIntents.ACTION_SERVICE_STATE_CHANGED);
         filter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
         filter.addAction(AudioManager.RINGER_MODE_CHANGED_ACTION);
+        filter.addAction(ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED);
         context.registerReceiver(mBroadcastReceiver, filter);
 
         final IntentFilter bootCompleteFilter = new IntentFilter();
@@ -1156,6 +1178,12 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         }
 
         mUserManager = context.getSystemService(UserManager.class);
+
+        try {
+            mExtTelephony = IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
+        } catch (NoClassDefFoundError ex) {
+            // ignore, device does not compile telephony-ext.
+        }
     }
 
     private void updateFingerprintListeningState() {
@@ -1778,6 +1806,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
             Log.w(TAG, "Unknown sim state: " + simState);
             state = State.UNKNOWN;
         }
+
+        // Try to get provision-status from telephony extensions and override the state if valid
+        State extState = getSimStateExt(slotId);
+        state = (extState != State.UNKNOWN) ? extState : state;
+
         SimData data = mSimDatas.get(subId);
         final boolean changed;
         if (data == null) {
@@ -1789,6 +1822,27 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
             data.simState = state;
         }
         return changed;
+    }
+
+    private State getSimStateExt(int slotId) {
+        State state = mProvisionStates.get(slotId);
+        // When the state is already known (via broadcast listener), use that one,
+        // otherwise query the telephony extensions
+        if (state != null) {
+            return state;
+        } else if (mExtTelephony != null) {
+            state = State.UNKNOWN;
+            if (slotId != SubscriptionManager.INVALID_SIM_SLOT_INDEX) {
+                try {
+                    int provisioned = mExtTelephony.getCurrentUiccCardProvisioningStatus(slotId);
+                    state = (provisioned == PROVISIONED) ? state : State.NOT_READY;
+                } catch (RemoteException ex) {
+                    // ignore, fall back to default.
+                }
+                mProvisionStates.put(slotId, state);
+            }
+        }
+        return state;
     }
 
     public static boolean isSimPinSecure(IccCardConstants.State state) {
