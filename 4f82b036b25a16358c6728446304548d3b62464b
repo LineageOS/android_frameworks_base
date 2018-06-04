@@ -22,6 +22,30 @@
       "revId": "4f82b036b25a16358c6728446304548d3b62464b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf150a_68b81797",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-04T18:23:02Z",
+      "side": 1,
+      "message": "They should know better: https://github.com/LineageOS/android_packages_apps_Settings/commit/5afcac32e5d9a27ea4f66fc108de886baa55c165#diff-e51794177b90ed694e682d5dc467f497R881",
+      "parentUuid": "9a1ff773_0c1c8331",
+      "range": {
+        "startLine": 188,
+        "startChar": 48,
+        "endLine": 188,
+        "endChar": 71
+      },
+      "revId": "4f82b036b25a16358c6728446304548d3b62464b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
