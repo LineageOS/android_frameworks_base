@@ -200,6 +200,30 @@
       "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f36a2451_22a40dec",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-04T10:53:59Z",
+      "side": 1,
+      "message": "According to https://stackoverflow.com/a/5756989, ClassNotFoundException is what you\u0027re thinking of. As for the second question, we do compile telephony-ext but it only ends up on devices that explicitly build it.",
+      "parentUuid": "a03d41cd_3df9370f",
+      "range": {
+        "startLine": 721,
+        "startChar": 21,
+        "endLine": 721,
+        "endChar": 41
+      },
+      "revId": "fd71f7b71cb1e9062689ca3a947fa2bb4aaeafad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
