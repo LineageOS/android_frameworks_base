@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0004f4b5_adfc59ac",
+        "filename": "core/java/android/preference/SeekBarVolumizer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-06-04T17:43:16Z",
+      "side": 1,
+      "message": "final boolean muted \u003d (Boolean)msg.obj;\nshould be enough?",
+      "range": {
+        "startLine": 366,
+        "startChar": 42,
+        "endLine": 366,
+        "endChar": 76
+      },
+      "revId": "ba00a299a43066a8d4b61a2a84074b2e4b21a428",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f611ebf7_2872f6bd",
+        "filename": "core/java/android/preference/SeekBarVolumizer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-06-04T17:43:16Z",
+      "side": 1,
+      "message": "why is this creating a new boolean from the already boolean variable? also: line length",
+      "range": {
+        "startLine": 379,
+        "startChar": 68,
+        "endLine": 379,
+        "endChar": 85
+      },
+      "revId": "ba00a299a43066a8d4b61a2a84074b2e4b21a428",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
