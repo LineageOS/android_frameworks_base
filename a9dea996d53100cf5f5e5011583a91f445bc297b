@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fe9e869_aac0e6e5",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-04T12:40:18Z",
+      "side": 1,
+      "message": "Now we can simply add a return here. By doing so, the broadcast is then only registered if the device has telephony-ext. What do you think?\n\nIn that case, mReceiver can\u0027t be final.",
+      "range": {
+        "startLine": 177,
+        "startChar": 12,
+        "endLine": 177,
+        "endChar": 61
+      },
+      "revId": "a9dea996d53100cf5f5e5011583a91f445bc297b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
