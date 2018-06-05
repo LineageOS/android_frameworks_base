@@ -745,6 +745,7 @@ easier.
         <item name="colorSecondary">@color/secondary_device_default_settings_light</item>
         <item name="colorAccent">@color/accent_device_default_light</item>
         <item name="colorEdgeEffect">@android:color/black</item>
+        <item name="colorControlNormal">@color/accent_device_default_light</item>
 
         <!-- Add white nav bar with divider that matches material -->
         <item name="navigationBarDividerColor">#1f000000</item>
