@@ -46,6 +46,30 @@
       "revId": "4f82b036b25a16358c6728446304548d3b62464b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b44af1e1_1d0ca46d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-06-05T02:35:50Z",
+      "side": 1,
+      "message": "This code was a copy-paste from settings. I only use INVALID_SUBSCRIPTION_ID when it really is a subId (i.e. setting default subscriptions for data/sms/voice) in the fauxti jar.",
+      "parentUuid": "7daf150a_68b81797",
+      "range": {
+        "startLine": 188,
+        "startChar": 48,
+        "endLine": 188,
+        "endChar": 71
+      },
+      "revId": "4f82b036b25a16358c6728446304548d3b62464b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
