@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "bd84f841_7c8c3c1d",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-05T04:08:07Z",
+      "side": 1,
+      "message": "Assuming this triggers all the logic below?",
+      "range": {
+        "startLine": 791,
+        "startChar": 16,
+        "endLine": 791,
+        "endChar": 48
+      },
+      "revId": "9d41692e42a8f12304fe603ee042bd154ccbb988",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "724282e1_a74add22",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-05T04:08:07Z",
+      "side": 1,
+      "message": "If you\u0027re planning to put this kind of boilerplate (I see the same logic in 216417) everywhere, maybe it makes sense to abstract the binder call/existence check away with a client class in the SDK or something?",
+      "range": {
+        "startLine": 1205,
+        "startChar": 8,
+        "endLine": 1210,
+        "endChar": 9
+      },
+      "revId": "9d41692e42a8f12304fe603ee042bd154ccbb988",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c151204_14577b68",
         "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
         "patchSetId": 1
@@ -36,6 +82,30 @@
       "writtenOn": "2018-06-03T17:30:00Z",
       "side": 1,
       "message": "We could store this as an int, and then do if (status !\u003d PROVISIONED) to conserve lines.",
+      "range": {
+        "startLine": 1862,
+        "startChar": 0,
+        "endLine": 1864,
+        "endChar": 37
+      },
+      "revId": "9d41692e42a8f12304fe603ee042bd154ccbb988",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c84b1106_82fd46e9",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1864,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-05T04:08:07Z",
+      "side": 1,
+      "message": "You should probably just have the if check be:  if (getCurrentUiccCardProvisioninStatus() !\u003d PROVISIONED)",
+      "parentUuid": "f98c12ba_b7cbcbe8",
       "range": {
         "startLine": 1862,
         "startChar": 0,
