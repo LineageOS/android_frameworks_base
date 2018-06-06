@@ -45,6 +45,30 @@
       "revId": "5049f9da6bc80402df3787cac056b3cac4452708",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be783786_eedd74dd",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-06-06T02:19:21Z",
+      "side": 1,
+      "message": "Yea -- I pointed it out to him and he noted his derp on the 14.1 patch: https://review.lineageos.org/#/c/LineageOS/android_frameworks_base/+/216697/",
+      "parentUuid": "3c421356_837c7488",
+      "range": {
+        "startLine": 157,
+        "startChar": 12,
+        "endLine": 157,
+        "endChar": 41
+      },
+      "revId": "5049f9da6bc80402df3787cac056b3cac4452708",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
