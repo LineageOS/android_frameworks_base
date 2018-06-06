@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6284efef_9bd40c7d",
+        "filename": "packages/SystemUI/Android.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-06T08:31:03Z",
+      "side": 1,
+      "message": "Not anymore. Will remove it.",
+      "parentUuid": "26329e39_ed3bc574",
+      "range": {
+        "startLine": 48,
+        "startChar": 41,
+        "endLine": 48,
+        "endChar": 54
+      },
+      "revId": "5049f9da6bc80402df3787cac056b3cac4452708",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c421356_837c7488",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
         "patchSetId": 16
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Yea -- I pointed it out to him and he noted his derp on the 14.1 patch: https://review.lineageos.org/#/c/LineageOS/android_frameworks_base/+/216697/",
       "parentUuid": "3c421356_837c7488",
+      "range": {
+        "startLine": 157,
+        "startChar": 12,
+        "endLine": 157,
+        "endChar": 41
+      },
+      "revId": "5049f9da6bc80402df3787cac056b3cac4452708",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c91b9bf0_6b487150",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/SignalClusterView.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-06T08:31:03Z",
+      "side": 1,
+      "message": "Correct. However, this still needs rework because its getting called too soon, the instance fails and we end up with \"hasService()\" being false.",
+      "parentUuid": "be783786_eedd74dd",
       "range": {
         "startLine": 157,
         "startChar": 12,
