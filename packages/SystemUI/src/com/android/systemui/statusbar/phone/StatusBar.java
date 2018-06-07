@@ -407,6 +407,13 @@ public class StatusBar extends SystemUI implements DemoMode,
     private static final String LOCKSCREEN_MEDIA_METADATA =
             "lineagesecure:" + LineageSettings.Secure.LOCKSCREEN_MEDIA_METADATA;
 
+    private static final int DYNAMIC_STYLE = 1;
+    private static final int LIGHT_STYLE = 2;
+    private static final int DARK_STYLE = 3;
+    private static final String[] DARK_OVERLAYS = {
+            "org.lineageos.overlay.dark",
+    };
+
     static {
         boolean onlyCoreApps;
         boolean freeformWindowManagement;
@@ -3024,15 +3031,19 @@ public class StatusBar extends SystemUI implements DemoMode,
         updateTheme();
     }
 
-    public boolean isUsingDarkTheme() {
+    private boolean isUsingTheme(String overlay) {
         OverlayInfo systemuiThemeInfo = null;
         try {
-            systemuiThemeInfo = mOverlayManager.getOverlayInfo("org.lineageos.overlay.dark",
+            systemuiThemeInfo = mOverlayManager.getOverlayInfo(overlay,
                     mCurrentUserId);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
         return systemuiThemeInfo != null && systemuiThemeInfo.isEnabled();
+    }
+
+    private boolean isUsingDarkTheme() {
+        return isUsingTheme(DARK_OVERLAYS[0]);
     }
 
     private boolean isLiveDisplayNightModeOn() {
@@ -4943,6 +4954,51 @@ public class StatusBar extends SystemUI implements DemoMode,
         Trace.endSection();
     }
 
+    private int getActiveStyleSetting() {
+        int activeStyleSetting = LIGHT_STYLE;
+        if (isUsingDarkTheme()) {
+            activeStyleSetting = DARK_STYLE;
+        }
+        return activeStyleSetting;
+    }
+
+    private void setOverlaysState(String[] overlays, boolean state) {
+        if (overlays == null) {
+            return;
+        }
+
+        for (String overlay: overlays) {
+            try {
+                mOverlayManager.setEnabled(overlay, state, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme for " + overlay, e);
+            }
+        }
+    }
+
+    private String[] getOverlays(int styleSetting) {
+        switch (styleSetting) {
+            case DARK_STYLE:
+                return DARK_OVERLAYS;
+            default:
+                return null;
+        }
+    }
+
+    private void updateStyleSetting(int styleSetting) {
+        int oldStyleSetting = getActiveStyleSetting();
+
+        if (oldStyleSetting != styleSetting) {
+            setOverlaysState(getOverlays(oldStyleSetting), false);
+            setOverlaysState(getOverlays(styleSetting), true);
+
+            if (mUiModeManager != null) {
+                mUiModeManager.setNightMode(styleSetting == DARK_STYLE ?
+                        UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
+            }
+        }
+    }
+
     /**
      * Switches theme from light to dark and vice-versa.
      */
@@ -4954,37 +5010,27 @@ public class StatusBar extends SystemUI implements DemoMode,
                 LineageSettings.System.BERRY_GLOBAL_STYLE, 0);
         WallpaperColors systemColors = mColorExtractor
                 .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-        final boolean useDarkTheme;
+        int actualStyleSetting = LIGHT_STYLE;
 
         switch (globalStyleSetting) {
-            case 1:
-                useDarkTheme = isLiveDisplayNightModeOn();
+            case DYNAMIC_STYLE:
+                if (isLiveDisplayNightModeOn()) {
+                    actualStyleSetting = DARK_STYLE;
+                }
                 break;
-            case 2:
-                useDarkTheme = false;
-                break;
-            case 3:
-                useDarkTheme = true;
+            case LIGHT_STYLE:
+            case DARK_STYLE:
+                actualStyleSetting = globalStyleSetting;
                 break;
             default:
-                useDarkTheme = systemColors != null && (systemColors.getColorHints() &
-                        WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+                if (systemColors != null && (systemColors.getColorHints() &
+                        WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0) {
+                    actualStyleSetting = DARK_STYLE;
+                }
                 break;
         }
 
-        if (isUsingDarkTheme() != useDarkTheme) {
-            try {
-                mOverlayManager.setEnabled("org.lineageos.overlay.dark",
-                        useDarkTheme, mCurrentUserId);
-            } catch (RemoteException e) {
-                Log.w(TAG, "Can't change theme", e);
-            }
-
-            if (mUiModeManager != null) {
-                mUiModeManager.setNightMode(useDarkTheme ?
-                        UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
-            }
-        }
+        updateStyleSetting(actualStyleSetting);
 
         // Lock wallpaper defines the color of the majority of the views, hence we'll use it
         // to set our default theme.
