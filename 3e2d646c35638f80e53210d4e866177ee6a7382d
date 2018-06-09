@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a12da241_aeab449b",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-06-09T15:39:19Z",
+      "side": 1,
+      "message": "Batman The Enemy Within breaks with this (black screen and app hangs on startup).  The same app works fine with maxAspectRatio \u003d 2.1f.",
+      "revId": "3e2d646c35638f80e53210d4e866177ee6a7382d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
