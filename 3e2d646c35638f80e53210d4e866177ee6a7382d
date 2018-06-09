@@ -16,6 +16,24 @@
       "revId": "3e2d646c35638f80e53210d4e866177ee6a7382d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26db45e8_e356bca8",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-06-09T15:42:22Z",
+      "side": 1,
+      "message": "That\u0027s weird. Android uses 0 whenever target SDK is \u003e\u003d O, see https://github.com/LineageOS/android_frameworks_base/blob/3e2d646c35638f80e53210d4e866177ee6a7382d/core/java/android/content/pm/PackageParser.java#L4684-L4687",
+      "parentUuid": "a12da241_aeab449b",
+      "revId": "3e2d646c35638f80e53210d4e866177ee6a7382d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
