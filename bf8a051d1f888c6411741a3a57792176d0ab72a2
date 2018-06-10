@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "2bcf8496_ddcba344",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2018-06-10T10:36:00Z",
+      "side": 1,
+      "message": "I don\u0027t have an exact example app in mind but \u003e\u003dO apps can still manually limit maxAspectRatio to lower values like 1.86 or 2.1 (which could be obsolete for future long long screens). (It is not you are \u003e\u003d O so you are good with long screens)",
+      "parentUuid": "21df0b1f_d4c7ca12",
+      "revId": "bf8a051d1f888c6411741a3a57792176d0ab72a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce790bba_453efc25",
         "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
         "patchSetId": 7
