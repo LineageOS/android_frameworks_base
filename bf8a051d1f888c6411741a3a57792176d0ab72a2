@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "28b5767a_09706f15",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2018-06-10T10:28:26Z",
+      "side": 1,
+      "message": "We should just simply remove this SDK check or users may complain that the setting is not effective for \u003e O apps. It is a \"Force Apps to blah\" feature after all. I think we should be fine without this check.",
+      "parentUuid": "56ae5da4_2b9fb1a7",
+      "revId": "bf8a051d1f888c6411741a3a57792176d0ab72a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce790bba_453efc25",
         "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
         "patchSetId": 7
