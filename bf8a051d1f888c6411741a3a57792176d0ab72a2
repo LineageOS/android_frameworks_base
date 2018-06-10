@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e152d51_cd6a80f1",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2018-06-10T10:22:37Z",
+      "side": 1,
+      "message": "appInfo.targetSdkVersion \u003c O check is unnecessary IMO. Even if there is a point for this check, it shouldn\u0027t happen at here (it should be moved to Settings panel so \u003e O apps won\u0027t be available for users to set at all)",
+      "revId": "bf8a051d1f888c6411741a3a57792176d0ab72a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce790bba_453efc25",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2321,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2018-06-10T10:22:37Z",
+      "side": 1,
+      "message": "We probably should directly return here.",
+      "revId": "bf8a051d1f888c6411741a3a57792176d0ab72a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "083ee88f_bbd3e97f",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2324,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2018-06-10T10:22:37Z",
+      "side": 1,
+      "message": "Or integrate shouldForce with this if.",
+      "revId": "bf8a051d1f888c6411741a3a57792176d0ab72a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
