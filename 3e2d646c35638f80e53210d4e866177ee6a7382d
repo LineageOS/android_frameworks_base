@@ -34,6 +34,24 @@
       "revId": "3e2d646c35638f80e53210d4e866177ee6a7382d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f136bf25_5ac52f32",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-06-10T03:55:59Z",
+      "side": 1,
+      "message": "I agree it is weird.  I was unable to find any public \u003e\u003d O API docs that would explain the difference.  But I doubled-checked:\ni) app toggle off - always 1.86\nii) app toggle on with maxAspectRatio here set to 0.0f - always breaks batman.\niii) app toggle on with maxAspectRatio here set to 2.1f - batman works at 2.0 (on dumpling).",
+      "parentUuid": "26db45e8_e356bca8",
+      "revId": "3e2d646c35638f80e53210d4e866177ee6a7382d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
