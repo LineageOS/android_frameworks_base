@@ -31,7 +31,7 @@
   <!-- Button to restart the phone, within the Restart Options dialog -->
   <string name="reboot_reboot">Yeniden Başlat</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
-  <string name="reboot_recovery">Kurtarma modu</string>
+  <string name="reboot_recovery">Kurtarma</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
   <string name="reboot_bootloader">Ön yükleyici</string>
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
