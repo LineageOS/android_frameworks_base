@@ -20,7 +20,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="7164937344850004466">"系統 UI"</string>
-    <string name="status_bar_clear_all_button" msgid="7774721344716731603">"清除"</string>
     <string name="status_bar_recent_remove_item_title" msgid="6026395868129852968">"從清單中移除"</string>
     <string name="status_bar_recent_inspect_item_title" msgid="7793624864528818569">"應用程式資訊"</string>
     <string name="status_bar_no_recent_apps" msgid="7374907845131203189">"您最近的螢幕會顯示在這裡"</string>
