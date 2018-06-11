@@ -20,7 +20,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="7164937344850004466">"IU del sistema"</string>
-    <string name="status_bar_clear_all_button" msgid="7774721344716731603">"Esborra"</string>
     <string name="status_bar_recent_remove_item_title" msgid="6026395868129852968">"Elimina de la llista"</string>
     <string name="status_bar_recent_inspect_item_title" msgid="7793624864528818569">"Informació de l\'aplicació"</string>
     <string name="status_bar_no_recent_apps" msgid="7374907845131203189">"Aquí es mostren les teves pantalles recents."</string>
