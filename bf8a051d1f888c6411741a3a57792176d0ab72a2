@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "58d574bc_b4977cae",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2018-06-11T01:21:17Z",
+      "side": 1,
+      "message": "I agree but it could be just carelessness/laziness :P. There is no point for this check as it will \"break\" the functionality for \u003e\u003dO apps. Either remove this check or implement a check elsewhere so users won\u0027t be able to configure \u003e\u003dO apps at all. I personally prefer that we just remove this check as it is a \"force apps to blah\" feature after all.",
+      "parentUuid": "67426e42_4eba0821",
+      "revId": "bf8a051d1f888c6411741a3a57792176d0ab72a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce790bba_453efc25",
         "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
         "patchSetId": 7
