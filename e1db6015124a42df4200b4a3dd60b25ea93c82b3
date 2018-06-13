@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13ebdfbc_e1b82d61",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ScrimController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-13T02:59:02Z",
+      "side": 0,
+      "message": "This looks like you\u0027re just hacking some functionality out...",
+      "range": {
+        "startLine": 392,
+        "startChar": 61,
+        "endLine": 392,
+        "endChar": 85
+      },
+      "revId": "e1db6015124a42df4200b4a3dd60b25ea93c82b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
