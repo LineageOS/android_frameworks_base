@@ -105,6 +105,9 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
     private static final int TAG_END_ALPHA = R.id.scrim_alpha_end;
     private static final float NOT_INITIALIZED = -1;
 
+    private static final int SCRIM_DEFAULT_COLOR = Color.BLACK;     // Default scrim color
+    private static final int SCRIM_TRANSPARENT_COLOR = 0x00FFFFFF;  // Transparent scrim
+
     private ScrimState mState = ScrimState.UNINITIALIZED;
     private final Context mContext;
     protected final ScrimView mScrimBehind;
@@ -182,10 +185,10 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
 
         mColorExtractor = Dependency.get(SysuiColorExtractor.class);
         mColorExtractor.addOnColorsChangedListener(this);
-        mLockColors = mColorExtractor.getColors(WallpaperManager.FLAG_LOCK,
-                ColorExtractor.TYPE_DARK, true /* ignoreVisibility */);
-        mSystemColors = mColorExtractor.getColors(WallpaperManager.FLAG_SYSTEM,
-                ColorExtractor.TYPE_DARK, true /* ignoreVisibility */);
+        mLockColors = getDarkGradientColor(mColorExtractor.getColors(WallpaperManager.FLAG_LOCK,
+                ColorExtractor.TYPE_DARK, true));
+        mSystemColors = getDarkGradientColor(mColorExtractor.getColors(WallpaperManager.FLAG_SYSTEM,
+                ColorExtractor.TYPE_DARK, true));
         mNeedsDrawableColorUpdate = true;
 
         final ScrimState[] states = ScrimState.values();
@@ -818,17 +821,27 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
     @Override
     public void onColorsChanged(ColorExtractor colorExtractor, int which) {
         if ((which & WallpaperManager.FLAG_LOCK) != 0) {
-            mLockColors = mColorExtractor.getColors(WallpaperManager.FLAG_LOCK,
-                    ColorExtractor.TYPE_DARK, true /* ignoreVisibility */);
+            mLockColors = getDarkGradientColor(mColorExtractor.getColors(WallpaperManager.FLAG_LOCK,
+                    ColorExtractor.TYPE_DARK, true));
             mNeedsDrawableColorUpdate = true;
             scheduleUpdate();
         }
         if ((which & WallpaperManager.FLAG_SYSTEM) != 0) {
-            mSystemColors = mColorExtractor.getColors(WallpaperManager.FLAG_SYSTEM,
-                    ColorExtractor.TYPE_DARK, mState != ScrimState.UNLOCKED);
+            mSystemColors = getDarkGradientColor(mColorExtractor.getColors(
+                    WallpaperManager.FLAG_SYSTEM, ColorExtractor.TYPE_DARK,
+                    mState != ScrimState.UNLOCKED));
             mNeedsDrawableColorUpdate = true;
             scheduleUpdate();
         }
+    }
+
+    private GradientColors getDarkGradientColor(GradientColors fromWallpaper) {
+        boolean textIsDark = fromWallpaper.supportsDarkText();
+        GradientColors colors = new GradientColors();
+        colors.setMainColor(textIsDark ? SCRIM_TRANSPARENT_COLOR : SCRIM_DEFAULT_COLOR);
+        colors.setSecondaryColor(textIsDark ? SCRIM_TRANSPARENT_COLOR : SCRIM_DEFAULT_COLOR);
+        colors.setSupportsDarkText(textIsDark);
+        return colors;
     }
 
     @VisibleForTesting
