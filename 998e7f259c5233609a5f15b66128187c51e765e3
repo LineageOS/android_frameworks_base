@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08d0d82e_76d4439f",
+        "filename": "services/core/java/com/android/server/StorageManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-14T13:27:19Z",
+      "side": 1,
+      "message": "Move above?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 49
+      },
+      "revId": "998e7f259c5233609a5f15b66128187c51e765e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d783c6af_845f4fd7",
+        "filename": "services/core/java/com/android/server/locksettings/LockSettingsService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-06-14T13:27:19Z",
+      "side": 1,
+      "message": "sSavePassword",
+      "range": {
+        "startLine": 174,
+        "startChar": 26,
+        "endLine": 174,
+        "endChar": 39
+      },
+      "revId": "998e7f259c5233609a5f15b66128187c51e765e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
