@@ -42,6 +42,7 @@ import android.database.ContentObserver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Point;
@@ -128,6 +129,9 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private static final String TAG = "GlobalActionsDialog";
 
     private static final boolean SHOW_SILENT_TOGGLE = false;
+
+    // Default scrim color
+    private static final int SCRIM_DEFAULT_COLOR = Color.BLACK;
 
     private final Context mContext;
     private final GlobalActionsManager mWindowManagerFuncs;
@@ -1709,7 +1713,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
          * @param animate Interpolates gradient if true, just sets otherwise.
          */
         private void updateColors(GradientColors colors, boolean animate) {
-            mGradientDrawable.setColors(colors, animate);
+            mGradientDrawable.setColors(getDarkGradientColor(colors), animate);
             View decorView = getWindow().getDecorView();
             if (colors.supportsDarkText()) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR |
@@ -1717,6 +1721,14 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             } else {
                 decorView.setSystemUiVisibility(0);
             }
+        }
+
+        private GradientColors getDarkGradientColor(GradientColors fromWallpaper) {
+            GradientColors colors = new GradientColors();
+            colors.setMainColor(SCRIM_DEFAULT_COLOR);
+            colors.setSecondaryColor(SCRIM_DEFAULT_COLOR);
+            colors.setSupportsDarkText(fromWallpaper.supportsDarkText());
+            return colors;
         }
 
         @Override
