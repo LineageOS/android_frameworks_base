@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78632ea1_aaf02562",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 7167,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2018-06-15T04:29:01Z",
+      "side": 1,
+      "message": "Actually, could probably use isDozeMode() here instead.",
+      "range": {
+        "startLine": 7157,
+        "startChar": 0,
+        "endLine": 7167,
+        "endChar": 9
+      },
+      "revId": "79326b993c7e1b49185daf55e8b1c1e8b057dd43",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
