@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73bf0270_e03f3c23",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 7159,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-06-15T07:34:54Z",
+      "side": 1,
+      "message": "inline the check, no need to have an extra Boolean",
+      "revId": "3bd19503cfaddebce808f74de8d966c585c908d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
