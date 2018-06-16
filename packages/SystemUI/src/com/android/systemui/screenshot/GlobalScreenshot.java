@@ -81,6 +81,7 @@ import com.android.systemui.util.NotificationChannels;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -166,8 +167,18 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
         CharSequence appName = getRunningActivityName(context);
         boolean onKeyguard = context.getSystemService(KeyguardManager.class).isKeyguardLocked();
         if (!onKeyguard && appName != null) {
-            // Replace all spaces and special chars with an underscore
-            String appNameString = appName.toString().replaceAll("[\\\\/:*?\"<>|\\s]+", "_");
+            String appNameString = appName.toString();
+            try {
+                // With some languages like Virgin Islands English, the Settings app gets a weird
+                // long name and some special voodoo chars, so we convert the string to utf-8 to get
+                // a  char instead, easy to remove it then
+                final String temp = new String(appNameString.getBytes("ISO-8859-15"), "UTF-8");
+                appNameString = temp.replaceAll("[]+", "");
+            } catch (UnsupportedEncodingException e) {
+                // Do nothing
+            }
+            // Now replace all spaces and special chars with an underscore
+            appNameString = appNameString.replaceAll("[\\\\/:*?\"<>|\\s]+", "_");
             mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE_APPNAME,
                     imageDate, appNameString);
         } else {
