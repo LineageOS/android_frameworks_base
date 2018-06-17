@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63a82cb3_849ac796",
+        "filename": "packages/PrintSpooler/res/values/arrays.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2018-06-17T19:40:42Z",
+      "side": 0,
+      "message": "I guess this should be kept. \"Translations\" of non-translatable things are often meant for a locale with different standards (e.g. the USA with paper sizes of letter, etc.)",
+      "range": {
+        "startLine": 124,
+        "startChar": 49,
+        "endLine": 124,
+        "endChar": 70
+      },
+      "revId": "954696cd36cbe369730e9f15b80177653c603ba7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb5b505c_64df8d44",
+        "filename": "packages/SystemUI/res/values/strings.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2018-06-17T19:40:42Z",
+      "side": 0,
+      "message": "If it is really unused, you should probably remove the comments as well.",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 61
+      },
+      "revId": "954696cd36cbe369730e9f15b80177653c603ba7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
