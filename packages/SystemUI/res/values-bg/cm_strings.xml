@@ -118,8 +118,13 @@
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
   <string name="nav_bar_layout_inverse">Размени положението на бутоните</string>
   <!-- Reader mode QS tile -->
+  <string name="quick_settings_reading_mode">Режим на четене</string>
   <!-- Content description of the reader mode tile when on -->
+  <string name="accessibility_quick_settings_reading_mode_on">Режим на четене включен.</string>
   <!-- Content description of the reader mode tile when off -->
+  <string name="accessibility_quick_settings_reading_mode_off">Режим на четене изключен.</string>
   <!-- Content description of the reader mode tile when turned on -->
+  <string name="accessibility_quick_settings_reading_mode_changed_on">Режимът на четене е активиран.</string>
   <!-- Content description of the reader mode tile when turned off -->
+  <string name="accessibility_quick_settings_reading_mode_changed_off">Режимът на четене е диактивиран.</string>
 </resources>

@@ -29,14 +29,14 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Чтобы открепить экран, нажмите и удерживайте кнопку «Назад».</string>
   <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">Включение или выключение защищённого режима</string>
-  <string name="permdesc_changePrivacyGuardState">Приложение сможет изменять состояние защищённого режима для других приложений. Когда приложение запущено в защищённом режиме, оно не получает доступ к персональным данным, таким как контакты, сообщения или журнал звонков.</string>
-  <string name="privacy_guard_notification">Защищённый режим включён</string>
+  <string name="permlab_changePrivacyGuardState">включение или отключение защищенного режима</string>
+  <string name="permdesc_changePrivacyGuardState">Приложение сможет изменять состояние защищенного режима для других приложений. Если приложение запущено в защищенном режиме, оно не будет иметь доступ к персональным данным, таким как контакты, журнал звонков или сообщения.</string>
+  <string name="privacy_guard_notification">Защищенный режим активен</string>
   <string name="privacy_guard_notification_detail">У «<xliff:g id="app">%1$s</xliff:g>» нет доступа к персональным данным</string>
-  <string name="privacy_guard_dialog_title">Защищённый режим</string>
+  <string name="privacy_guard_dialog_title">Защищенный режим</string>
   <string name="privacy_guard_dialog_summary">Приложение «<xliff:g id="app">%1$s</xliff:g>» пытается <xliff:g id="op">%2$s</xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">Запомнить разрешение</string>
+  <string name="permission_remember_choice">Запомнить мой выбор</string>
   <!-- App ops requests -->
   <string name="app_ops_access_camera">получить доступ к камере</string>
   <string name="app_ops_access_location">получить доступ к местоположению устройства</string>
@@ -63,9 +63,9 @@
   <string name="app_ops_modify_calendar">изменить данные календаря</string>
   <string name="app_ops_modify_call_log">изменить данные журнала звонков</string>
   <string name="app_ops_modify_clipboard">изменить содержимое буфера обмена</string>
-  <string name="app_ops_modify_contacts">изменить данные контактов</string>
-  <string name="app_ops_modify_settings">изменить системные параметры</string>
-  <string name="app_ops_mute_unmute_microphone">выключить или включить микрофон</string>
+  <string name="app_ops_modify_contacts">обновить ваши контакты</string>
+  <string name="app_ops_modify_settings">обновить системные настройки</string>
+  <string name="app_ops_mute_unmute_microphone">выключить/включить микрофон</string>
   <string name="app_ops_phone_calls">ответ на телефонные звонки</string>
   <string name="app_ops_picture_in_picture">использовать картинку в картинке</string>
   <string name="app_ops_play_audio">воспроизведение аудио</string>
@@ -84,10 +84,10 @@
   <string name="app_ops_receive_sms">получить SMS-сообщение</string>
   <string name="app_ops_record_audio">записать аудио</string>
   <string name="app_ops_run_in_background">работать в фоновом режиме</string>
-  <string name="app_ops_scan_wifi">выполнить сканирование сетей Wi-Fi</string>
+  <string name="app_ops_scan_wifi">сканировать сети Wi-Fi</string>
   <string name="app_ops_send_mms">отправить MMS-сообщение</string>
   <string name="app_ops_send_sms">отправить SMS-сообщение</string>
-  <string name="app_ops_start_at_bootup">назначить запуск при включении устройства</string>
+  <string name="app_ops_start_at_bootup">запустить при включении устройства</string>
   <string name="app_ops_su">получить права суперпользователя</string>
   <string name="app_ops_toast_window">отображать всплывающие уведомления</string>
   <string name="app_ops_toggle_bluetooth">переключить состояние Bluetooth</string>

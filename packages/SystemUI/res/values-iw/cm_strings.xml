@@ -118,8 +118,13 @@
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
   <string name="nav_bar_layout_inverse">הפוך פריסת מקשים</string>
   <!-- Reader mode QS tile -->
+  <string name="quick_settings_reading_mode">מצב קריאה</string>
   <!-- Content description of the reader mode tile when on -->
+  <string name="accessibility_quick_settings_reading_mode_on">מצב קריאה דולק.</string>
   <!-- Content description of the reader mode tile when off -->
+  <string name="accessibility_quick_settings_reading_mode_off">מצב קריאה כבוי.</string>
   <!-- Content description of the reader mode tile when turned on -->
+  <string name="accessibility_quick_settings_reading_mode_changed_on">מצב קריאה הודלק.</string>
   <!-- Content description of the reader mode tile when turned off -->
+  <string name="accessibility_quick_settings_reading_mode_changed_off">מצב קריאה כובה.</string>
 </resources>

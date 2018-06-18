@@ -120,7 +120,11 @@
   <!-- Reader mode QS tile -->
   <string name="quick_settings_reading_mode">Tryb czytania</string>
   <!-- Content description of the reader mode tile when on -->
+  <string name="accessibility_quick_settings_reading_mode_on">Włącz tryb czytania.</string>
   <!-- Content description of the reader mode tile when off -->
+  <string name="accessibility_quick_settings_reading_mode_off">Wyłącz tryb czytania.</string>
   <!-- Content description of the reader mode tile when turned on -->
+  <string name="accessibility_quick_settings_reading_mode_changed_on">Tryb czytania włączony.</string>
   <!-- Content description of the reader mode tile when turned off -->
+  <string name="accessibility_quick_settings_reading_mode_changed_off">Tryb czytania wyłączony.</string>
 </resources>

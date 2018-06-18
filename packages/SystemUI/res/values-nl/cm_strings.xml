@@ -116,8 +116,13 @@
   <string name="quick_settings_location_detail_mode_sensors_only_description">GPS gebruiken om locatie te bepalen</string>
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
   <!-- Reader mode QS tile -->
+  <string name="quick_settings_reading_mode">Leesmodus</string>
   <!-- Content description of the reader mode tile when on -->
+  <string name="accessibility_quick_settings_reading_mode_on">Leesmodus aan.</string>
   <!-- Content description of the reader mode tile when off -->
+  <string name="accessibility_quick_settings_reading_mode_off">Leesmodus uit.</string>
   <!-- Content description of the reader mode tile when turned on -->
+  <string name="accessibility_quick_settings_reading_mode_changed_on">Leesmodus ingeschakeld.</string>
   <!-- Content description of the reader mode tile when turned off -->
+  <string name="accessibility_quick_settings_reading_mode_changed_off">Leesmodus uitgeschakeld.</string>
 </resources>

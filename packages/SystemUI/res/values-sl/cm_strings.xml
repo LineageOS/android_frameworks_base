@@ -79,7 +79,7 @@
   <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
   <string name="global_action_restart_progress">Ponovno zaganjanje \u2026</string>
   <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_recovery_progress">Ponovno zaganjanje v način obnovitve \u2026</string>
+  <string name="global_action_restart_recovery_progress">Ponovno zaganjanje v obnovitveni način \u2026</string>
   <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
   <string name="global_action_restart_bootloader_progress">Ponovno zaganjanje v način zagonskega nalagalnika \u2026</string>
   <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->

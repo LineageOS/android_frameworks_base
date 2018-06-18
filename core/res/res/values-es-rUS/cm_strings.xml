@@ -30,7 +30,7 @@
   <string name="lock_to_app_toast_no_navbar">Para desanclar esta pantalla, mantén pulsado el botón Atrás.</string>
   <!-- Privacy Guard -->
   <string name="permlab_changePrivacyGuardState">activar o desactivar «Guardián de privacidad»</string>
-  <string name="permdesc_changePrivacyGuardState">Permite que la aplicación modifique si otra aplicación se ejecuta con «Guardián de privacidad». Cuando una aplicación se ejecuta con «Guardián de privacidad», no tendrá acceso a datos personales como contactos, registros de llamadas o mensajes.</string>
+  <string name="permdesc_changePrivacyGuardState">Permite que la aplicación modifique si otra aplicación se ejecuta con «Guardián de privacidad». Al ejecutar una aplicación con «Guardián de privacidad», no tendrá acceso a datos personales como contactos, registros de llamadas o mensajes.</string>
   <string name="privacy_guard_notification">Guardián de privacidad activado</string>
   <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> no podrá acceder a los datos personales</string>
   <string name="privacy_guard_dialog_title">Guardián de privacidad</string>
