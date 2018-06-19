@@ -420,13 +420,13 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
             bluetoothEnabled = mBluetooth.isBluetoothEnabled();
             if (mBluetooth.isBluetoothConnected()) {
                 int batteryLevel = mBluetooth.getLastDevice().getBatteryLevel();
-                if (batteryLevel == 100) {
+                if (batteryLevel >= 88) {
                     iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_5;
-                } else if (batteryLevel > 75) {
+                } else if (batteryLevel >= 63) {
                     iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_4;
-                } else if (batteryLevel > 50) {
+                } else if (batteryLevel >= 38) {
                     iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_3;
-                } else if (batteryLevel > 25) {
+                } else if (batteryLevel >= 13) {
                     iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_2;
                 } else if (batteryLevel > 0) {
                     iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_1;
