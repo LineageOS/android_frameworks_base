@@ -22,6 +22,24 @@
       "revId": "958e20e818a28d015458cfd692c2290dc575a377",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc8eb9be_15666304",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-06-21T08:54:01Z",
+      "side": 1,
+      "message": "It used to be here before Oreo so I didn\u0027t bother trying to find it \"new home\".",
+      "parentUuid": "a63c16ef_e8bde034",
+      "revId": "958e20e818a28d015458cfd692c2290dc575a377",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
