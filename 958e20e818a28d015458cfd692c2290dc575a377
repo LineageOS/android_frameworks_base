@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a63c16ef_e8bde034",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-21T04:06:26Z",
+      "side": 1,
+      "message": "Feels like you could do this logic literally anywhere. Why put it in ConnectivityService?",
+      "range": {
+        "startLine": 863,
+        "startChar": 0,
+        "endLine": 865,
+        "endChar": 55
+      },
+      "revId": "958e20e818a28d015458cfd692c2290dc575a377",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
