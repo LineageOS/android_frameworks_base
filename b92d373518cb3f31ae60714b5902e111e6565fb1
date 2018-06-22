@@ -22,6 +22,30 @@
       "revId": "b92d373518cb3f31ae60714b5902e111e6565fb1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89a29b70_5f11814a",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1795,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-06-22T23:00:06Z",
+      "side": 1,
+      "message": "We could but since this block is currently still a straight copy from shouldDispatchInputWhenNonInteractive(), I\u0027m incline that we keep it this way to make picking easier in the future (it will be more obvious that we didn\u0027t change anything if the code is identical).",
+      "parentUuid": "3e7b26a5_ab012d26",
+      "range": {
+        "startLine": 1795,
+        "startChar": 23,
+        "endLine": 1795,
+        "endChar": 27
+      },
+      "revId": "b92d373518cb3f31ae60714b5902e111e6565fb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
