@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60390a0a_7efdd346",
+        "filename": "packages/SystemUI/AndroidManifest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-22T06:33:11Z",
+      "side": 1,
+      "message": "For reviewers: dupe value is here.",
+      "range": {
+        "startLine": 130,
+        "startChar": 54,
+        "endLine": 130,
+        "endChar": 76
+      },
+      "revId": "a2e40bfd6f089b9d114dc0821aa34ead36fff44a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
