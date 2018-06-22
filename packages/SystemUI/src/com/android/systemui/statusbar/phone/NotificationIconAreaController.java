@@ -125,13 +125,7 @@ public class NotificationIconAreaController implements DarkReceiver {
         } else {
             mTintArea.set(tintArea);
         }
-        if (mNotificationIconArea != null) {
-            if (DarkIconDispatcher.isInArea(tintArea, mNotificationIconArea)) {
-                mIconTint = iconTint;
-            }
-        } else {
-            mIconTint = iconTint;
-        }
+        mIconTint = iconTint;
 
         applyNotificationIconsTint();
     }
@@ -317,7 +311,7 @@ public class NotificationIconAreaController implements DarkReceiver {
             color = DarkIconDispatcher.getTint(mTintArea, v, mIconTint);
         }
         v.setStaticDrawableColor(color);
-        v.setDecorColor(mIconTint);
+        v.setDecorColor(color);
     }
 
     public void setDark(boolean dark) {

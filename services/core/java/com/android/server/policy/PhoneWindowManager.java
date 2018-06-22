@@ -22,6 +22,7 @@ import static android.app.AppOpsManager.OP_SYSTEM_ALERT_WINDOW;
 import static android.app.AppOpsManager.OP_TOAST_WINDOW;
 import static android.app.WindowConfiguration.ACTIVITY_TYPE_HOME;
 import static android.app.WindowConfiguration.ACTIVITY_TYPE_STANDARD;
+import static android.app.WindowConfiguration.ACTIVITY_TYPE_UNDEFINED;
 import static android.app.WindowConfiguration.WINDOWING_MODE_FREEFORM;
 import static android.app.WindowConfiguration.WINDOWING_MODE_FULLSCREEN;
 import static android.app.WindowConfiguration.WINDOWING_MODE_SPLIT_SCREEN_PRIMARY;
@@ -8923,9 +8924,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final int dockedVisibility = updateLightStatusBarLw(0 /* vis */,
                 mTopDockedOpaqueWindowState, mTopDockedOpaqueOrDimmingWindowState);
         mWindowManagerFuncs.getStackBounds(
-                WINDOWING_MODE_UNDEFINED, ACTIVITY_TYPE_HOME, mNonDockedStackBounds);
-        mWindowManagerFuncs.getStackBounds(
                 WINDOWING_MODE_SPLIT_SCREEN_PRIMARY, ACTIVITY_TYPE_STANDARD, mDockedStackBounds);
+        if (mDockedStackBounds.isEmpty()) {
+            mWindowManagerFuncs.getStackBounds(WINDOWING_MODE_UNDEFINED,
+                    ACTIVITY_TYPE_HOME, mNonDockedStackBounds);
+        }
+        else {
+            mWindowManagerFuncs.getStackBounds(WINDOWING_MODE_SPLIT_SCREEN_SECONDARY,
+                    ACTIVITY_TYPE_UNDEFINED, mNonDockedStackBounds);
+        }
         final int visibility = updateSystemBarsLw(win, mLastSystemUiFlags, tmpVisibility);
         final int diff = visibility ^ mLastSystemUiFlags;
         final int fullscreenDiff = fullscreenVisibility ^ mLastFullscreenStackSysUiFlags;

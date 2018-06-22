@@ -20,7 +20,7 @@ import static com.android.systemui.statusbar.StatusBarIconView.STATE_DOT;
 import static com.android.systemui.statusbar.StatusBarIconView.STATE_HIDDEN;
 import static com.android.systemui.statusbar.StatusBarIconView.STATE_ICON;
 import static com.android.systemui.statusbar.policy.DarkIconDispatcher.getTint;
-import static com.android.systemui.statusbar.policy.DarkIconDispatcher.isInArea;
+import static com.android.systemui.statusbar.policy.DarkIconDispatcher.getDarkIntensity;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -197,17 +197,15 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
 
     @Override
     public void onDarkChanged(Rect area, float darkIntensity, int tint) {
-        if (!isInArea(area, this)) {
-            return;
-        }
-        mMobileDrawable.setDarkIntensity(darkIntensity);
-        ColorStateList color = ColorStateList.valueOf(getTint(area, this, tint));
+        mMobileDrawable.setDarkIntensity(getDarkIntensity(area, this, darkIntensity));
+        int areaTint = getTint(area, this, tint);
+        ColorStateList color = ColorStateList.valueOf(areaTint);
         mIn.setImageTintList(color);
         mOut.setImageTintList(color);
         mMobileType.setImageTintList(color);
         mMobileRoaming.setImageTintList(color);
-        mDotView.setDecorColor(tint);
-        mDotView.setIconColor(tint, false);
+        mDotView.setDecorColor(areaTint);
+        mDotView.setIconColor(areaTint, false);
     }
 
     @Override

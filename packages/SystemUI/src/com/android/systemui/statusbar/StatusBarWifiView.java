@@ -20,7 +20,7 @@ import static com.android.systemui.statusbar.StatusBarIconView.STATE_DOT;
 import static com.android.systemui.statusbar.StatusBarIconView.STATE_HIDDEN;
 import static com.android.systemui.statusbar.StatusBarIconView.STATE_ICON;
 import static com.android.systemui.statusbar.policy.DarkIconDispatcher.getTint;
-import static com.android.systemui.statusbar.policy.DarkIconDispatcher.isInArea;
+import static com.android.systemui.statusbar.policy.DarkIconDispatcher.getDarkIntensity;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -249,18 +249,16 @@ public class StatusBarWifiView extends FrameLayout implements DarkReceiver,
 
     @Override
     public void onDarkChanged(Rect area, float darkIntensity, int tint) {
-        if (!isInArea(area, this)) {
-            return;
-        }
-        mDarkIntensity = darkIntensity;
+        mDarkIntensity = getDarkIntensity(area, this, darkIntensity);
         Drawable d = mWifiIcon.getDrawable();
         if (d instanceof NeutralGoodDrawable) {
-            ((NeutralGoodDrawable)d).setDarkIntensity(darkIntensity);
+            ((NeutralGoodDrawable)d).setDarkIntensity(mDarkIntensity);
         }
-        mIn.setImageTintList(ColorStateList.valueOf(getTint(area, this, tint)));
-        mOut.setImageTintList(ColorStateList.valueOf(getTint(area, this, tint)));
-        mDotView.setDecorColor(tint);
-        mDotView.setIconColor(tint, false);
+        int areaTint = getTint(area, this, tint);
+        mIn.setImageTintList(ColorStateList.valueOf(areaTint));
+        mOut.setImageTintList(ColorStateList.valueOf(areaTint));
+        mDotView.setDecorColor(areaTint);
+        mDotView.setIconColor(areaTint, false);
     }
 
 
