@@ -55,6 +55,20 @@
         </activity-alias>
 
         <activity-alias
+            android:name=".tuner.LockscreenTuner"
+            android:targetActivity=".tuner.TunerActivity"
+            android:icon="@drawable/tuner"
+            android:theme="@style/TunerSettings"
+            android:label="@string/tuner_lock_screen"
+            android:process=":tuner"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.LOCKSCREEN_TUNER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
             android:name=".tuner.NavBarTuner"
             android:targetActivity=".tuner.TunerActivity"
             android:icon="@drawable/tuner"
