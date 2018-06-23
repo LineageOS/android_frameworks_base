@@ -28,17 +28,22 @@ import android.widget.Switch;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.GlobalSetting;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
 /** Quick settings tile: Airplane mode **/
 public class AirplaneModeTile extends QSTileImpl<BooleanState> {
     private final Icon mIcon =
             ResourceIcon.get(R.drawable.ic_signal_airplane);
     private final GlobalSetting mSetting;
+    private final KeyguardMonitor mKeyguardMonitor;
+    private final KeyguardMonitorCallback mCallback = new KeyguardMonitorCallback();
 
     private boolean mListening;
 
@@ -51,6 +56,7 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
                 handleRefreshState(value);
             }
         };
+        mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
     }
 
     @Override
@@ -60,6 +66,13 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleClick() {
+        if (mKeyguardMonitor.isSecure() && !mKeyguardMonitor.canSkipBouncer()) {
+            Dependency.get(ActivityStarter.class).postQSRunnableDismissingKeyguard(() -> {
+                MetricsLogger.action(mContext, getMetricsCategory(), !mState.value);
+                setEnabled(!mState.value);
+            });
+            return;
+        }
         MetricsLogger.action(mContext, getMetricsCategory(), !mState.value);
         setEnabled(!mState.value);
     }
@@ -117,8 +130,10 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
             final IntentFilter filter = new IntentFilter();
             filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
             mContext.registerReceiver(mReceiver, filter);
+            mKeyguardMonitor.addCallback(mCallback);
         } else {
             mContext.unregisterReceiver(mReceiver);
+            mKeyguardMonitor.removeCallback(mCallback);
         }
         mSetting.setListening(listening);
     }
@@ -129,6 +144,13 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
             if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())) {
                 refreshState();
             }
+        }
+    };
+
+    private final class KeyguardMonitorCallback implements KeyguardMonitor.Callback {
+        @Override
+        public void onKeyguardShowingChanged() {
+            refreshState();
         }
     };
 }
