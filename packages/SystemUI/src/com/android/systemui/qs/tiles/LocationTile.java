@@ -59,6 +59,7 @@ public class LocationTile extends QSTileImpl<BooleanState> {
     private final LocationDetailAdapter mDetailAdapter;
     private final KeyguardMonitor mKeyguard;
     private final Callback mCallback = new Callback();
+    private final ActivityStarter mActivityStarter;
     private int mLastState;
 
     public LocationTile(QSHost host) {
@@ -66,6 +67,7 @@ public class LocationTile extends QSTileImpl<BooleanState> {
         mController = Dependency.get(LocationController.class);
         mKeyguard = Dependency.get(KeyguardMonitor.class);
         mDetailAdapter = (LocationDetailAdapter) createDetailAdapter();
+        mActivityStarter = Dependency.get(ActivityStarter.class);
     }
 
     @Override
@@ -103,21 +105,27 @@ public class LocationTile extends QSTileImpl<BooleanState> {
     @Override
     protected void handleClick() {
         final boolean wasEnabled = mState.value;
+        if (mKeyguard.isSecure() && !mKeyguard.canSkipBouncer()) {
+            mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
+                MetricsLogger.action(mContext, getMetricsCategory(), !wasEnabled);
+                mController.setLocationEnabled(!wasEnabled);
+            });
+            return;
+        }
         MetricsLogger.action(mContext, getMetricsCategory(), !wasEnabled);
         mController.setLocationEnabled(!wasEnabled);
     }
 
     @Override
     protected void handleSecondaryClick() {
-        if (mKeyguard.isSecure() && mKeyguard.isShowing()) {
-            Dependency.get(ActivityStarter.class).postQSRunnableDismissingKeyguard(() -> {
-                final boolean wasEnabled = mState.value;
+        final boolean wasEnabled = mState.value;
+        if (mKeyguard.isSecure() && !mKeyguard.canSkipBouncer()) {
+            mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
                 mHost.openPanels();
                 mController.setLocationEnabled(!wasEnabled);
             });
             return;
         }
-        final boolean wasEnabled = mState.value;
         if (!wasEnabled) {
             mController.setLocationEnabled(!wasEnabled);
         }
