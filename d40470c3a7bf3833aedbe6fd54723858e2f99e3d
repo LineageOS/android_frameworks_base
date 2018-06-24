@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a72bb362_d44c76a3",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarView.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-24T09:27:19Z",
+      "side": 1,
+      "message": "I\u0027m not quite sure I understand this inversion, it seems like this has other side effects?",
+      "range": {
+        "startLine": 501,
+        "startChar": 8,
+        "endLine": 501,
+        "endChar": 30
+      },
+      "revId": "d40470c3a7bf3833aedbe6fd54723858e2f99e3d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
