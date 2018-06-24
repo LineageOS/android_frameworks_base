@@ -22,6 +22,30 @@
       "revId": "d40470c3a7bf3833aedbe6fd54723858e2f99e3d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "252a41d1_bed2e8fa",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarView.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2018-06-24T09:32:01Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not quite sure I understand this inversion, it seems like this\n \u003e has other side effects?\n\nThis actually fixes the logic. When waking and unlocking, fading animations should not be used.",
+      "parentUuid": "a72bb362_d44c76a3",
+      "range": {
+        "startLine": 501,
+        "startChar": 8,
+        "endLine": 501,
+        "endChar": 30
+      },
+      "revId": "d40470c3a7bf3833aedbe6fd54723858e2f99e3d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
