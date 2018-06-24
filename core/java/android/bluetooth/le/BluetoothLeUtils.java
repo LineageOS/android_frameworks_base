@@ -77,6 +77,28 @@ public class BluetoothLeUtils {
     }
 
     /**
+     * Returns a string composed from a byte array.
+     */
+    static <T> String toString(byte[] data) {
+        if (data == null) {
+            return "null";
+        }
+        if (data.length == 0) {
+            return "{}";
+        }
+        StringBuilder buffer = new StringBuilder();
+        buffer.append('{');
+        for(int i=0; i < data.length; i++) {
+            buffer.append(data[i]);
+            if ((i+1) < data.length) {
+                buffer.append(", ");
+            }
+        }
+        buffer.append('}');
+        return buffer.toString();
+    }
+
+    /**
      * Check whether two {@link SparseArray} equal.
      */
     static boolean equals(SparseArray<byte[]> array, SparseArray<byte[]> otherArray) {
@@ -121,6 +143,25 @@ public class BluetoothLeUtils {
             if (!Objects.deepEquals(map.get(key), otherMap.get(key))) {
                 return false;
             }
+        }
+        return true;
+    }
+
+    /**
+     * Check whether two byte arrays are equal.
+     */
+    static <T> boolean equals(byte[] data, byte[] otherData) {
+        if (data == otherData) {
+            return true;
+        }
+        if (data == null || otherData == null) {
+            return false;
+        }
+        if (data.length != otherData.length) {
+            return false;
+        }
+        if (!Objects.deepEquals(data, otherData)) {
+            return false;
         }
         return true;
     }
