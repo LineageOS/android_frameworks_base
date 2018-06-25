@@ -28,10 +28,13 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
 
+import com.android.systemui.Dependency;
+import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.R;
+import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
 import java.net.InetAddress;
 
@@ -42,12 +45,15 @@ import org.lineageos.internal.logging.LineageMetricsLogger;
 public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
 
     private boolean mListening;
+    private final KeyguardMonitor mKeyguardMonitor;
+    private final KeyguardMonitorCallback mCallback = new KeyguardMonitorCallback();
 
     private static final Intent SETTINGS_DEVELOPMENT =
             new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);
 
     public AdbOverNetworkTile(QSHost host) {
         super(host);
+        mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
     }
 
     @Override
@@ -57,9 +63,12 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleClick() {
-        LineageSettings.Secure.putIntForUser(mContext.getContentResolver(),
-                LineageSettings.Secure.ADB_PORT, getState().value ? -1 : 5555,
-                UserHandle.USER_CURRENT);
+        if (mKeyguardMonitor.isSecure() && !mKeyguardMonitor.canSkipBouncer()) {
+            Dependency.get(ActivityStarter.class)
+                    .postQSRunnableDismissingKeyguard(this::toggleAction);
+        } else {
+            toggleAction();
+        }
     }
 
     @Override
@@ -102,6 +111,12 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
         return LineageMetricsLogger.TILE_ADB_OVER_NETWORK;
     }
 
+    private void toggleAction() {
+        LineageSettings.Secure.putIntForUser(mContext.getContentResolver(),
+                LineageSettings.Secure.ADB_PORT, getState().value ? -1 : 5555,
+                UserHandle.USER_CURRENT);
+    }
+
     private boolean isAdbEnabled() {
         return Settings.Global.getInt(mContext.getContentResolver(),
                 Settings.Global.ADB_ENABLED, 0) > 0;
@@ -130,9 +145,18 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
                 mContext.getContentResolver().registerContentObserver(
                         Settings.Global.getUriFor(Settings.Global.ADB_ENABLED),
                         false, mObserver);
+                mKeyguardMonitor.addCallback(mCallback);
             } else {
                 mContext.getContentResolver().unregisterContentObserver(mObserver);
+                mKeyguardMonitor.removeCallback(mCallback);
             }
+        }
+    }
+
+    private class KeyguardMonitorCallback implements KeyguardMonitor.Callback {
+        @Override
+        public void onKeyguardShowingChanged() {
+            refreshState();
         }
     }
 }
