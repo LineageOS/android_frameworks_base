@@ -22,6 +22,30 @@
       "revId": "d26e1ba6e4189ea44bcec0e5cb186b8e6d01b09e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9d5e216_8f718cc7",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2018-06-25T06:01:52Z",
+      "side": 1,
+      "message": "Crap, yeah you\u0027re right, missed that",
+      "parentUuid": "f8b24c8c_30396f02",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 17
+      },
+      "revId": "d26e1ba6e4189ea44bcec0e5cb186b8e6d01b09e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
