@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "178536de_bd70d955",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-25T05:39:53Z",
+      "side": 1,
+      "message": "Let\u0027s clean up the language",
+      "range": {
+        "startLine": 9,
+        "startChar": 50,
+        "endLine": 11,
+        "endChar": 45
+      },
+      "revId": "3428ddfd55e1578717534b45d73396d025b03c5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c80379ee_0b4133a1",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-25T05:39:53Z",
+      "side": 1,
+      "message": "So if the property is not set, expose? This logic is a little weird, because if the property is not set, the default behavior is to expose the aux camera. If it is set, check against the whitelist.\n\nI would probably propose rewriting the logic to make it more obvious.",
+      "range": {
+        "startLine": 291,
+        "startChar": 8,
+        "endLine": 292,
+        "endChar": 24
+      },
+      "revId": "3428ddfd55e1578717534b45d73396d025b03c5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
