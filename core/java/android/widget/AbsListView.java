@@ -111,8 +111,8 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
 
     @SuppressWarnings("UnusedDeclaration")
     private static final String TAG = "AbsListView";
-    private static final boolean OPTS_INPUT = SystemProperties.getBoolean("persist.vendor.qti.inputopts.enable",false);
-    private static final String MOVE_TOUCH_SLOP = SystemProperties.get("persist.vendor.qti.inputopts.movetouchslop","0.6");
+    private static final boolean OPTS_INPUT = true;
+    private static final double MOVE_TOUCH_SLOP = 0.6;
     private static final double TOUCH_SLOP_MIN = 0.6;
     private static final double TOUCH_SLOP_MAX = 1.0;
 
@@ -899,7 +899,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         mTouchSlop = configuration.getScaledTouchSlop();
         mVerticalScrollFactor = configuration.getScaledVerticalScrollFactor();
         if (OPTS_INPUT) {
-            double touchslopprop = Double.parseDouble(MOVE_TOUCH_SLOP);
+            double touchslopprop = MOVE_TOUCH_SLOP;
             if (touchslopprop > 0) {
                 if (touchslopprop < TOUCH_SLOP_MIN) {
                     mMoveAcceleration = (int)(mTouchSlop * TOUCH_SLOP_MIN);

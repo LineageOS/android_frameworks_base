@@ -80,7 +80,7 @@ public final class Choreographer {
 
     // Prints debug messages about jank which was detected (low volume).
     private static final boolean DEBUG_JANK = false;
-    private static final boolean OPTS_INPUT = SystemProperties.getBoolean("persist.vendor.qti.inputopts.enable",false);
+    private static final boolean OPTS_INPUT = true;
 
     // Prints debug messages about every frame and callback registered (high volume).
     private static final boolean DEBUG_FRAMES = false;
