@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4f50f6b_f7517f86",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CellularTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-06-27T06:31:31Z",
+      "side": 1,
+      "message": "do you really need this::",
+      "range": {
+        "startLine": 116,
+        "startChar": 62,
+        "endLine": 116,
+        "endChar": 68
+      },
+      "revId": "ca74b72499ce3ca975793df856a9e0cb3c7c3113",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
