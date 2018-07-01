@@ -22,6 +22,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.os.Trace;
 import android.provider.Settings;
 import android.util.Slog;
@@ -50,6 +51,11 @@ public class LightsService extends SystemService {
                 if (brightnessMode == BRIGHTNESS_MODE_LOW_PERSISTENCE) {
                     Slog.w(TAG, "setBrightness with LOW_PERSISTENCE unexpected #" + mId +
                             ": brightness=0x" + Integer.toHexString(brightness));
+                    return;
+                }
+
+                if (mId == 0 && SystemProperties.get("ro.lineage.device") == "enchilada") {
+                    setLightLocked(brightness * 1023 / 255, LIGHT_FLASH_NONE, 0, 0, brightnessMode);
                     return;
                 }
 
