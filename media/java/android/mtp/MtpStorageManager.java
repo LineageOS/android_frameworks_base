@@ -57,7 +57,8 @@ public class MtpStorageManager {
 
         MtpObjectObserver(MtpObject object) {
             super(object.getPath().toString(),
-                    MOVED_FROM | MOVED_TO | DELETE | CREATE | IN_ONLYDIR);
+                    MOVED_FROM | MOVED_TO | DELETE | CREATE | IN_ONLYDIR
+                  | CLOSE_WRITE);
             mObject = object;
         }
 
@@ -87,6 +88,10 @@ public class MtpStorageManager {
                     if (mObject.mObserver != null)
                         mObject.mObserver.stopWatching();
                     mObject.mObserver = null;
+                } else if ((event & CLOSE_WRITE) != 0) {
+                    if (sDebug)
+                        Log.i(TAG, "inotify for " + mObject.getPath() + " CLOSE_WRITE: " + path);
+                    handleChangedObject(mObject, path);
                 } else {
                     Log.w(TAG, "Got unrecognized event " + path + " " + event);
                 }
@@ -304,6 +309,11 @@ public class MtpStorageManager {
          * Called when an object is deleted.
          */
         public abstract void sendObjectRemoved(int id);
+
+        /**
+         * Called when an object info is changed.
+         */
+        public abstract void sendObjectInfoChanged(int id);
     }
 
     private MtpNotifier mMtpNotifier;
@@ -734,6 +744,25 @@ public class MtpStorageManager {
         }
         if (sDebug)
             Log.i(TAG, state + " transitioned to " + obj.getState() + " in op " + op);
+    }
+
+    private synchronized void handleChangedObject(MtpObject parent, String path) {
+        MtpOperation op = MtpOperation.NONE;
+        MtpObject obj = parent.getChild(path);
+        if (obj != null) {
+            // Only handle files for size change notification event
+            if ((!obj.isDir()) && (obj.getSize() > 0))
+            {
+                MtpObjectState state = obj.getState();
+                op = obj.getOperation();
+                MtpStorageManager.this.mMtpNotifier.sendObjectInfoChanged(obj.getId());
+                if (sDebug)
+                    Log.d(TAG, "sendObjectInfoChanged: id=" + obj.getId() + ",size=" + obj.getSize());
+            }
+        } else {
+            if (sDebug)
+                Log.w(TAG, "object " + path + " null");
+        }
     }
 
     /**
