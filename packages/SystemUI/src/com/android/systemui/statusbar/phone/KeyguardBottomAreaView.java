@@ -362,8 +362,10 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         if (visible) {
             if (isTargetCustom(Shortcuts.LEFT_SHORTCUT)) {
                 visible = !mShortcutHelper.isTargetEmpty(Shortcuts.LEFT_SHORTCUT);
-            } else {
+            } else if (canLaunchVoiceAssist()) {
                 // Display left shortcut
+            } else {
+                visible = isPhoneVisible();
             }
         }
         mLeftAffordanceView.setVisibility(visible ? View.VISIBLE : View.GONE);
