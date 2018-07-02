@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f315ce74_acf7b9ce",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ScrimController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2018-07-02T17:12:55Z",
+      "side": 1,
+      "message": "This causes issues when the user is using a wallpaper that would\u0027ve resulted in a light-colored scrim and black text on the lockscreen. The scrim ends up turning completely opaque whenever the user pulls the notification shade down, and when the user double-taps a notification on the lockscreen.\n\nStill don\u0027t know how to stop the lockscreen UI elements from turning dark.",
+      "range": {
+        "startLine": 780,
+        "startChar": 35,
+        "endLine": 780,
+        "endChar": 67
+      },
+      "revId": "759d6831f0207f8b59445b33fd57d770c16d3750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
