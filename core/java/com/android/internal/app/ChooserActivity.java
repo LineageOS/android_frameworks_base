@@ -101,7 +101,7 @@ public class ChooserActivity extends ResolverActivity {
 
     private static final boolean DEBUG = false;
 
-    private static final int QUERY_TARGET_SERVICE_LIMIT = 5;
+    private static final int QUERY_TARGET_SERVICE_LIMIT = 3;
     private static final int WATCHDOG_TIMEOUT_MILLIS = 2000;
 
     private Bundle mReplacementExtras;
