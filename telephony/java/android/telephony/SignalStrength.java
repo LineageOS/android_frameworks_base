@@ -867,6 +867,9 @@ public class SignalStrength implements Parcelable {
         if (DBG) log("getLTELevel - rsrp:" + mLteRsrp + " snr:" + mLteRssnr + " rsrpIconLevel:"
                 + rsrpIconLevel + " snrIconLevel:" + snrIconLevel
                 + " lteRsrpBoost:" + mLteRsrpBoost);
+	
+	/* Ignore RSSNR for now */
+	if(rsrpIconLevel != -1) return rsrpIconLevel;
 
         /* Choose a measurement type to use for notification */
         if (snrIconLevel != -1 && rsrpIconLevel != -1) {
