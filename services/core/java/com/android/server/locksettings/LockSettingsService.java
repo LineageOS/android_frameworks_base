@@ -1558,6 +1558,18 @@ public class LockSettingsService extends ILockSettings.Stub {
         addUserKeyAuth(userId, null, null);
     }
 
+    private void clearUserKeyAuth(int userId, byte[] token, byte[] secret) throws RemoteException {
+        if (DEBUG) Slog.d(TAG, "clearUserKeyProtection user=" + userId);
+        final UserInfo userInfo = mUserManager.getUserInfo(userId);
+        final IStorageManager storageManager = mInjector.getStorageManager();
+        final long callingId = Binder.clearCallingIdentity();
+        try {
+            storageManager.clearUserKeyAuth(userId, userInfo.serialNumber, token, secret);
+        } finally {
+            Binder.restoreCallingIdentity(callingId);
+        }
+    }
+
     private static byte[] secretFromCredential(String credential) throws RemoteException {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-512");
@@ -2501,7 +2513,7 @@ public class LockSettingsService extends ILockSettings.Stub {
             getGateKeeperService().clearSecureUserId(userId);
             // Clear key from vold so ActivityManager can just unlock the user with empty secret
             // during boot.
-            clearUserKeyProtection(userId);
+            clearUserKeyAuth(userId, null, auth.deriveDiskEncryptionKey());
             fixateNewestUserKeyAuth(userId);
             setKeystorePassword(null, userId);
         }
