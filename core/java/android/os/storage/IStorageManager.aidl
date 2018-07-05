@@ -194,5 +194,8 @@ interface IStorageManager {
     boolean needsCheckpoint() = 86;
     void abortChanges(in String message, boolean retry) = 87;
     void clearUserKeyAuth(int userId, int serialNumber, in byte[] token, in byte[] secret) = 88;
+<<<<<<< HEAD   (34a1b9 Merge cherrypicks of [12265987, 12265921] into rvc-release)
     void fixupAppDir(in String path) = 89;
+=======
+>>>>>>> CHANGE (ae3441 LockSettingsService: Support for separate clear key api)
 }
