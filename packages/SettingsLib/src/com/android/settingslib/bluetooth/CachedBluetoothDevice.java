@@ -676,7 +676,7 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         if (bondState == BluetoothDevice.BOND_BONDED) {
             if (mDevice.isBluetoothDock()) {
                 onBondingDockConnect();
-            } else if (SystemProperties.getBoolean("persist.vendor.bt.connect.peer_earbud", true)) {
+            } else if (SystemProperties.getBoolean("persist.vendor.btstack.connect.peer_earbud", true)) {
                 Log.d(TAG, "Initiating connection to" + mDevice);
                 if (mDevice.isBondingInitiatedLocally() || mDevice.isTwsPlusDevice()) {
                     connect(false);
