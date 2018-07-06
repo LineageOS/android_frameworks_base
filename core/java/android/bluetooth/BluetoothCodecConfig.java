@@ -59,9 +59,11 @@ public final class BluetoothCodecConfig implements Parcelable {
 
     public static final int SOURCE_CODEC_TYPE_APTX_HD = 3;
 
-    public static final int SOURCE_CODEC_TYPE_LDAC = 4;
+    public static final int SOURCE_CODEC_TYPE_APTX_ADAPTIVE = 4;
 
-    public static final int SOURCE_CODEC_TYPE_MAX = 5;
+    public static final int SOURCE_CODEC_TYPE_LDAC = 5;
+
+    public static final int SOURCE_CODEC_TYPE_MAX = 6;
 
 
     public static final int SOURCE_CODEC_TYPE_INVALID = 1000 * 1000;
@@ -377,6 +379,8 @@ public final class BluetoothCodecConfig implements Parcelable {
                 return "aptX HD";
             case SOURCE_CODEC_TYPE_LDAC:
                 return "LDAC";
+            case SOURCE_CODEC_TYPE_APTX_ADAPTIVE:
+                return "aptX Adaptive";
             case SOURCE_CODEC_TYPE_INVALID:
                 return "INVALID CODEC";
             default:
