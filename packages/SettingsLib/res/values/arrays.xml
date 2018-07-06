@@ -140,6 +140,7 @@
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g> audio</item>
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ HD</xliff:g> audio</item>
         <item>LDAC</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptX™ Adaptive</xliff:g> audio</item>
         <item>Enable Optional Codecs</item>
         <item>Disable Optional Codecs</item>
     </string-array>
@@ -164,6 +165,7 @@
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g> audio</item>
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ HD</xliff:g> audio</item>
         <item>LDAC</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptX™ Adaptive</xliff:g> audio</item>
         <item>Enable Optional Codecs</item>
         <item>Disable Optional Codecs</item>
     </string-array>
