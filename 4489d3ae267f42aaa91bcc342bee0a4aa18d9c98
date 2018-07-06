@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "058a65d0_2902ce1b",
+        "filename": "packages/Osu/src/com/android/hotspot2/flow/OSUInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-07-06T11:30:28Z",
+      "side": 1,
+      "message": "sure this should happen after writing the parcels?",
+      "range": {
+        "startLine": 325,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 34
+      },
+      "revId": "4489d3ae267f42aaa91bcc342bee0a4aa18d9c98",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
