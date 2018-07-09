@@ -25,7 +25,7 @@
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Нажмите, чтобы отключить отладку.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="lineage_system_error_manufacturer">Несовместимый образ ПО производителя устройства. Как правило, это означает, что необходимо установить обновлённую прошивку раздела vendor. Убедитесь, что её версия будет соответствовать <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+  <string name="lineage_system_error_manufacturer">Несовместимый образ ПО производителя устройства. Как правило, это означает, что необходимо установить обновленную прошивку раздела vendor. Убедитесь, что ее версия будет соответствовать <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Чтобы открепить экран, нажмите и удерживайте кнопку «Назад».</string>
   <!-- Privacy Guard -->

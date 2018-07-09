@@ -36,8 +36,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Индикация событий экраном включена.</string>
   <!-- Caffeine QS tile -->
   <string name="quick_settings_caffeine_label">Кофеин</string>
-  <string name="accessibility_quick_settings_caffeine_off">Переход в спящий режим разрешён.</string>
-  <string name="accessibility_quick_settings_caffeine_on">Переход в спящий режим запрещён.</string>
+  <string name="accessibility_quick_settings_caffeine_off">Переход в спящий режим разрешен.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Переход в спящий режим запрещен.</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Всплывающие уведомления</string>
   <string name="accessibility_quick_settings_heads_up_off">Всплывающие уведомления отключены.</string>
