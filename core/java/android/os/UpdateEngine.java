@@ -254,6 +254,17 @@ public class UpdateEngine {
     }
 
     /**
+     * @hide
+     */
+    public void setPerformanceMode(boolean enable) {
+        try {
+            mUpdateEngine.setPerformanceMode(enable);
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
      * Unbinds the last bound callback function.
      */
     @SystemApi
