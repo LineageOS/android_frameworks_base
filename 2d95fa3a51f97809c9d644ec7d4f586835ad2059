@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7108f146_6a5b756a",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-07-13T07:18:40Z",
+      "side": 1,
+      "message": "This logic is still super weird to me.\n\nIf there is a package list, it acts like a whitelist.\nIf there is no package list, always allow.\n\nIf you are going to default to always allow, maybe you want a blacklist instead...?",
+      "range": {
+        "startLine": 291,
+        "startChar": 12,
+        "endLine": 291,
+        "endChar": 25
+      },
+      "revId": "2d95fa3a51f97809c9d644ec7d4f586835ad2059",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
