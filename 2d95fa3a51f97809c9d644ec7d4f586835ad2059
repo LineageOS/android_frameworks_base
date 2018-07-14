@@ -22,6 +22,30 @@
       "revId": "2d95fa3a51f97809c9d644ec7d4f586835ad2059",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34bf249c_fa9a33ff",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2018-07-14T16:16:46Z",
+      "side": 1,
+      "message": "Sure I don\u0027t mind having a blacklist. But we shouldn\u0027t have changed the default behaviour to begin with IMO.",
+      "parentUuid": "7108f146_6a5b756a",
+      "range": {
+        "startLine": 291,
+        "startChar": 12,
+        "endLine": 291,
+        "endChar": 25
+      },
+      "revId": "2d95fa3a51f97809c9d644ec7d4f586835ad2059",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
