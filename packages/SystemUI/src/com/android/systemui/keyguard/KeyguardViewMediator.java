@@ -1027,6 +1027,11 @@ public class KeyguardViewMediator extends SystemUI {
             if (DEBUG) Log.d(TAG, "isKeyguardDisabled: keyguard is disabled by profile");
             return true;
         }
+        if (!mContext.getResources().getBoolean(
+                com.android.keyguard.R.bool.config_enableKeyguardService)) {
+            if (DEBUG) Log.d(TAG, "isKeyguardDisabled: keyguard is disabled by overlay");
+            return true;
+        }
         return false;
     }
 
