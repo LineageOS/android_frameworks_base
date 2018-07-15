@@ -71,6 +71,7 @@ public class QuickStatusBarHeader extends RelativeLayout {
 
         applyDarkness(R.id.battery, tintArea, intensity, colorForeground);
         applyDarkness(R.id.clock, tintArea, intensity, colorForeground);
+        applyDarkness(R.id.clock_left, tintArea, intensity, colorForeground);
 
         BatteryMeterView battery = findViewById(R.id.battery);
         battery.setForceShowPercent(true);

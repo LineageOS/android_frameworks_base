@@ -180,6 +180,9 @@ public class KeyguardDisplayManager {
 
             setContentView(R.layout.keyguard_presentation);
             mClock = findViewById(R.id.clock);
+            if (mClock.getVisibility() == View.GONE) {
+                mClock = findViewById(R.id.clock_left);
+            }
 
             // Avoid screen burn in
             mClock.post(mMoveTextRunnable);
