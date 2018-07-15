@@ -51,7 +51,6 @@ import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.settings.CurrentUserTracker;
 import com.android.systemui.statusbar.CommandQueue;
-import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
@@ -88,7 +87,7 @@ public class Clock extends TextView implements
     private int mCurrentUserId;
 
     private boolean mClockVisibleByPolicy = true;
-    private boolean mClockVisibleByUser = true;
+    private boolean mClockVisibleByUser = getVisibility() == View.VISIBLE;
 
     private boolean mAttached;
     private boolean mScreenReceiverRegistered;
@@ -287,7 +286,7 @@ public class Clock extends TextView implements
         updateClockVisibility();
     }
 
-    private boolean shouldBeVisible() {
+    public boolean shouldBeVisible() {
         return mClockVisibleByPolicy && mClockVisibleByUser;
     }
 
