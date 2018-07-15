@@ -46,7 +46,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
     private final HeadsUpManagerPhone mHeadsUpManager;
     private final NotificationStackScrollLayout mStackScroller;
     private final HeadsUpStatusBarView mHeadsUpStatusBarView;
-    private final View mClockView;
+    private final ClockController mClockController;
     private final DarkIconDispatcher mDarkIconDispatcher;
     private final NotificationPanelView mPanelView;
     private final Consumer<ExpandableNotificationRow>
@@ -71,7 +71,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
                 statusbarView.findViewById(R.id.heads_up_status_bar_view),
                 statusbarView.findViewById(R.id.notification_stack_scroller),
                 statusbarView.findViewById(R.id.notification_panel),
-                statusbarView.findViewById(R.id.clock));
+                new ClockController(statusbarView));
     }
 
     @VisibleForTesting
@@ -81,7 +81,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
             HeadsUpStatusBarView headsUpStatusBarView,
             NotificationStackScrollLayout stackScroller,
             NotificationPanelView panelView,
-            View clockView) {
+            ClockController clockController) {
         mNotificationIconAreaController = notificationIconAreaController;
         mHeadsUpManager = headsUpManager;
         mHeadsUpManager.addListener(this);
@@ -96,7 +96,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
         mStackScroller.addOnExpandedHeightListener(mSetExpandedHeight);
         mStackScroller.addOnLayoutChangeListener(mStackScrollLayoutChangeListener);
         mStackScroller.setHeadsUpAppearanceController(this);
-        mClockView = clockView;
+        mClockController = clockController;
         mDarkIconDispatcher = Dependency.get(DarkIconDispatcher.class);
         mDarkIconDispatcher.addDarkReceiver(this);
     }
@@ -202,16 +202,22 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
 
     private void setShown(boolean isShown) {
         if (mShown != isShown) {
+            View clockView = mClockController.getClock();
+            boolean isRightClock = clockView.getId() == R.id.clock_right;
             mShown = isShown;
             if (isShown) {
                 mHeadsUpStatusBarView.setVisibility(View.VISIBLE);
                 CrossFadeHelper.fadeIn(mHeadsUpStatusBarView, CONTENT_FADE_DURATION /* duration */,
                         CONTENT_FADE_DELAY /* delay */);
-                CrossFadeHelper.fadeOut(mClockView, CONTENT_FADE_DURATION/* duration */,
-                        0 /* delay */, () -> mClockView.setVisibility(View.INVISIBLE));
+                if (!isRightClock) {
+                    CrossFadeHelper.fadeOut(clockView, CONTENT_FADE_DURATION/* duration */,
+                            0 /* delay */, () -> clockView.setVisibility(View.INVISIBLE));
+                }
             } else {
-                CrossFadeHelper.fadeIn(mClockView, CONTENT_FADE_DURATION /* duration */,
-                        CONTENT_FADE_DELAY /* delay */);
+                if (!isRightClock) {
+                    CrossFadeHelper.fadeIn(clockView, CONTENT_FADE_DURATION /* duration */,
+                            CONTENT_FADE_DELAY /* delay */);
+                }
                 CrossFadeHelper.fadeOut(mHeadsUpStatusBarView, CONTENT_FADE_DURATION/* duration */,
                         0 /* delay */, () -> mHeadsUpStatusBarView.setVisibility(View.GONE));
 
