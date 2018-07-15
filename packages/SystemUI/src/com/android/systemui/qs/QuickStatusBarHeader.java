@@ -36,12 +36,15 @@ import androidx.annotation.NonNull;
 
 import com.android.settingslib.Utils;
 import com.android.systemui.BatteryMeterView;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.qs.QSDetail.Callback;
+import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBarIconController.TintedIconManager;
 import com.android.systemui.statusbar.phone.StatusBarWindowView;
 import com.android.systemui.statusbar.phone.StatusIconContainer;
 import com.android.systemui.statusbar.policy.Clock;
+import com.android.systemui.tuner.TunerService;
 
 import java.util.List;
 
@@ -49,7 +52,7 @@ import java.util.List;
  * View that contains the top-most bits of the QS panel (primarily the status bar with date, time,
  * battery, carrier info and privacy icons) and also contains the {@link QuickQSPanel}.
  */
-public class QuickStatusBarHeader extends FrameLayout {
+public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tunable {
 
     private boolean mExpanded;
     private boolean mQsDisabled;
@@ -146,6 +149,9 @@ public class QuickStatusBarHeader extends FrameLayout {
                 .addFloat(mIconContainer, "alpha", 0, 1)
                 .addFloat(mBatteryRemainingIcon, "alpha", 0, 1)
                 .build();
+
+        Dependency.get(TunerService.class).addTunable(this,
+                StatusBarIconController.ICON_HIDE_LIST);
     }
 
     void onAttach(TintedIconManager iconManager,
@@ -502,5 +508,11 @@ public class QuickStatusBarHeader extends FrameLayout {
     public void setExpandedScrollAmount(int scrollY) {
         mClockIconsView.setScrollY(scrollY);
         mDatePrivacyView.setScrollY(scrollY);
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        mClockView.setClockVisibleByUser(!StatusBarIconController.getIconHideList(
+                mContext, newValue).contains("clock"));
     }
 }
