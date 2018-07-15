@@ -62,6 +62,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
     private final HeadsUpManagerPhone mHeadsUpManager;
     private final NotificationStackScrollLayoutController mStackScrollerController;
 
+    private final View mCenteredIconView;
+    private final ClockController mClockController;
+    private final View mOperatorNameView;
     private final DarkIconDispatcher mDarkIconDispatcher;
     private final NotificationPanelViewController mNotificationPanelViewController;
     private final Consumer<ExpandableNotificationRow>
@@ -89,7 +92,33 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                 }
             };
     private boolean mAnimationsEnabled = true;
-    private final KeyguardStateController mKeyguardStateController;
+    private KeyguardStateController mKeyguardStateController;
+    Point mPoint;
+
+    @Inject
+    public HeadsUpAppearanceController(
+            NotificationIconAreaController notificationIconAreaController,
+            HeadsUpManagerPhone headsUpManager,
+            NotificationStackScrollLayoutController notificationStackScrollLayoutController,
+            SysuiStatusBarStateController statusBarStateController,
+            KeyguardBypassController keyguardBypassController,
+            KeyguardStateController keyguardStateController,
+            NotificationWakeUpCoordinator wakeUpCoordinator, CommandQueue commandQueue,
+            NotificationPanelViewController notificationPanelViewController,
+            @RootView PhoneStatusBarView statusBarView) {
+        this(notificationIconAreaController, headsUpManager, statusBarStateController,
+                keyguardBypassController, wakeUpCoordinator, keyguardStateController,
+                commandQueue, notificationStackScrollLayoutController,
+                notificationPanelViewController,
+                // TODO(b/205609837): We should have the StatusBarFragmentComponent provide these
+                //  four views, and then we can delete this constructor and just use the one below
+                //  (which also removes the undesirable @VisibleForTesting).
+                statusBarView.findViewById(R.id.heads_up_status_bar_view),
+                statusBarView.findViewById(R.id.clock),
+                new ClockController(statusBarView.getContext(), statusBarView),
+                statusBarView.findViewById(R.id.operator_name_frame),
+                statusBarView.findViewById(R.id.centered_icon_area));
+    }
 
     @VisibleForTesting
     @Inject
@@ -106,7 +135,10 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
             NotificationPanelViewController notificationPanelViewController,
             HeadsUpStatusBarView headsUpStatusBarView,
             Clock clockView,
-            @Named(OPERATOR_NAME_FRAME_VIEW) Optional<View> operatorNameViewOptional) {
+            @Named(OPERATOR_NAME_FRAME_VIEW) Optional<View> operatorNameViewOptional,
+            ClockController clockController,
+            View operatorNameView,
+            View centeredIconView) {
         super(headsUpStatusBarView);
         mNotificationIconAreaController = notificationIconAreaController;
         mHeadsUpManager = headsUpManager;
@@ -125,6 +157,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
         mClockView = clockView;
         mOperatorNameViewOptional = operatorNameViewOptional;
         mDarkIconDispatcher = darkIconDispatcher;
+        mClockController = clockController;
+        mOperatorNameView = operatorNameView;
+        mDarkIconDispatcher = Dependency.get(DarkIconDispatcher.class);
 
         mView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
@@ -208,16 +243,32 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
 
     private void setShown(boolean isShown) {
         if (mShown != isShown) {
+            View clockView = mClockController.getClock();
+            boolean isRightClock = clockView.getId() == R.id.clock_right;
             mShown = isShown;
             if (isShown) {
                 updateParentClipping(false /* shouldClip */);
                 mView.setVisibility(View.VISIBLE);
                 show(mView);
-                hide(mClockView, View.INVISIBLE);
-                mOperatorNameViewOptional.ifPresent(view -> hide(view, View.INVISIBLE));
+                if (!isRightClock) {
+                    hide(clockView, View.INVISIBLE);
+                }
+                if (mCenteredIconView.getVisibility() != View.GONE) {
+                    hide(mCenteredIconView, View.INVISIBLE);
+                }
+                if (mOperatorNameView != null) {
+                    hide(mOperatorNameView, View.INVISIBLE);
+                }
             } else {
-                show(mClockView);
-                mOperatorNameViewOptional.ifPresent(this::show);
+                if (!isRightClock) {
+                    show(clockView);
+                }
+                if (mCenteredIconView.getVisibility() != View.GONE) {
+                    show(mCenteredIconView);
+                }
+                if (mOperatorNameView != null) {
+                    show(mOperatorNameView);
+                }
                 hide(mView, View.GONE, () -> {
                     updateParentClipping(true /* shouldClip */);
                 });
