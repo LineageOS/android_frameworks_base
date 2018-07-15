@@ -62,6 +62,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
     private final HeadsUpManagerPhone mHeadsUpManager;
     private final NotificationStackScrollLayoutController mStackScrollerController;
 
+    private final View mCenteredIconView;
+    private final ClockController mClockController;
+    private final View mOperatorNameView;
     private final DarkIconDispatcher mDarkIconDispatcher;
     private final NotificationPanelViewController mNotificationPanelViewController;
     private final Consumer<ExpandableNotificationRow>
@@ -105,7 +108,10 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
             NotificationStackScrollLayoutController stackScrollerController,
             NotificationPanelViewController notificationPanelViewController,
             HeadsUpStatusBarView headsUpStatusBarView,
-            Clock clockView,
+            View clockView,
+            ClockController clockController,
+            View operatorNameView,
+            View centeredIconView,
             @Named(OPERATOR_NAME_FRAME_VIEW) Optional<View> operatorNameViewOptional) {
         super(headsUpStatusBarView);
         mNotificationIconAreaController = notificationIconAreaController;
@@ -125,6 +131,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
         mClockView = clockView;
         mOperatorNameViewOptional = operatorNameViewOptional;
         mDarkIconDispatcher = darkIconDispatcher;
+        mClockController = clockController;
+        mOperatorNameView = operatorNameView;
+        mDarkIconDispatcher = Dependency.get(DarkIconDispatcher.class);
 
         mView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
@@ -208,16 +217,32 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
 
     private void setShown(boolean isShown) {
         if (mShown != isShown) {
+            View clockView = mClockController.getClock();
+            boolean isRightClock = clockView.getId() == R.id.clock_right;
             mShown = isShown;
             if (isShown) {
                 updateParentClipping(false /* shouldClip */);
                 mView.setVisibility(View.VISIBLE);
                 show(mView);
-                hide(mClockView, View.INVISIBLE);
-                mOperatorNameViewOptional.ifPresent(view -> hide(view, View.INVISIBLE));
+                if (!isRightClock) {
+                    hide(clockView, View.INVISIBLE);
+                }
+                if (mCenteredIconView.getVisibility() != View.GONE) {
+                    hide(mCenteredIconView, View.INVISIBLE);
+                }
+                if (mOperatorNameView != null) {
+                    hide(mOperatorNameView, View.INVISIBLE);
+                }
             } else {
-                show(mClockView);
-                mOperatorNameViewOptional.ifPresent(this::show);
+                if (!isRightClock) {
+                    show(clockView);
+                }
+                if (mCenteredIconView.getVisibility() != View.GONE) {
+                    show(mCenteredIconView);
+                }
+                if (mOperatorNameView != null) {
+                    show(mOperatorNameView);
+                }
                 hide(mView, View.GONE, () -> {
                     updateParentClipping(true /* shouldClip */);
                 });
