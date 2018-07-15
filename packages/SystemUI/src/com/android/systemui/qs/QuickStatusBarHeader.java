@@ -57,6 +57,7 @@ import androidx.lifecycle.LifecycleRegistry;
 
 import com.android.settingslib.Utils;
 import com.android.systemui.BatteryMeterView;
+import com.android.systemui.Dependency;
 import com.android.systemui.DualToneHandler;
 import com.android.systemui.Interpolators;
 import com.android.systemui.R;
@@ -75,6 +76,7 @@ import com.android.systemui.statusbar.policy.DateView;
 import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.util.RingerModeTracker;
+import com.android.systemui.tuner.TunerService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +93,7 @@ import javax.inject.Named;
  */
 public class QuickStatusBarHeader extends RelativeLayout implements
         View.OnClickListener, NextAlarmController.NextAlarmChangeCallback,
-        ZenModeController.Callback, LifecycleOwner {
+        ZenModeController.Callback, LifecycleOwner, TunerService.Tunable {
     private static final String TAG = "QuickStatusBarHeader";
     private static final boolean DEBUG = false;
 
@@ -229,6 +231,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_ESTIMATE);
         mRingerModeTextView.setSelected(true);
         mNextAlarmTextView.setSelected(true);
+
+        Dependency.get(TunerService.class).addTunable(this,
+                StatusBarIconController.ICON_BLACKLIST);
     }
 
     public QuickQSPanel getHeaderQsPanel() {
@@ -639,5 +644,11 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                     mKeyguardExpansionFraction));
             updateHeaderTextContainerAlphaAnimator();
         }
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        mClockView.setClockVisibleByUser(!StatusBarIconController.getIconBlacklist(
+                mContext, newValue).contains("clock"));
     }
 }
