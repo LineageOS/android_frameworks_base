@@ -76,7 +76,8 @@ public class SettingsDrawerActivity extends Activity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.action_bar);
         if (theme.getBoolean(android.R.styleable.Theme_windowNoTitle, false)) {
-            toolbar.setVisibility(View.GONE);
+            if (toolbar != null)
++                toolbar.setVisibility(View.GONE);
             return;
         }
         setActionBar(toolbar);
