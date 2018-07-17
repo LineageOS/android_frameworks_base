@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aafb76fa_85ad1cd7",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-07-17T21:32:52Z",
+      "side": 1,
+      "message": "I don\u0027t think it can happen, it\u0027s initialized on onAttachedToWindow right with the tuner\nIf it NPEs just move it before the tuner is initialized",
+      "range": {
+        "startLine": 201,
+        "startChar": 25,
+        "endLine": 201,
+        "endChar": 42
+      },
+      "revId": "c5d44b95f6630ac854d0ffa601ed372528c8e845",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
