@@ -107,26 +107,27 @@ public final class BluetoothGattServer implements BluetoothProfile {
                 if (DBG) Log.d(TAG, "onServiceAdded() - handle=" + service.getInstanceId()
                     + " uuid=" + service.getUuid() + " status=" + status);
 
-                if (mPendingService == null)
-                    return;
-
-                BluetoothGattService tmp = mPendingService;
-                mPendingService = null;
+                BluetoothGattService tmp = service;
 
                 // Rewrite newly assigned handles to existing service.
                 tmp.setInstanceId(service.getInstanceId());
                 List<BluetoothGattCharacteristic> temp_chars = tmp.getCharacteristics();
                 List<BluetoothGattCharacteristic> svc_chars = service.getCharacteristics();
-                for (int i=0; i<svc_chars.size(); i++) {
-                    BluetoothGattCharacteristic temp_char = temp_chars.get(i);
-                    BluetoothGattCharacteristic svc_char = svc_chars.get(i);
 
-                    temp_char.setInstanceId(svc_char.getInstanceId());
+                if (DBG) Log.d(TAG, "onServiceAdded() - temp_chars.size()=" + temp_chars.size() + " svc_chars.size()=" + svc_chars.size());
 
-                    List<BluetoothGattDescriptor> temp_descs = temp_char.getDescriptors();
-                    List<BluetoothGattDescriptor> svc_descs = svc_char.getDescriptors();
-                    for (int j=0; j<svc_descs.size(); j++) {
-                        temp_descs.get(j).setInstanceId(svc_descs.get(j).getInstanceId());
+                if (temp_chars.size() > 0) {
+                    for (int i=0; i<svc_chars.size(); i++) {
+                        BluetoothGattCharacteristic temp_char = temp_chars.get(i);
+                        BluetoothGattCharacteristic svc_char = svc_chars.get(i);
+
+                        temp_char.setInstanceId(svc_char.getInstanceId());
+
+                        List<BluetoothGattDescriptor> temp_descs = temp_char.getDescriptors();
+                        List<BluetoothGattDescriptor> svc_descs = svc_char.getDescriptors();
+                        for (int j=0; j<svc_descs.size(); j++) {
+                            temp_descs.get(j).setInstanceId(svc_descs.get(j).getInstanceId());
+                        }
                     }
                 }
 
