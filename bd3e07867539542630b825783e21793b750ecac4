@@ -16,6 +16,24 @@
       "revId": "bd3e07867539542630b825783e21793b750ecac4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d365840_7acdb17b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarTransitions.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-07-19T08:06:17Z",
+      "side": 1,
+      "message": "original code, will fix it anyways",
+      "parentUuid": "62c60fb6_b059e1ce",
+      "revId": "bd3e07867539542630b825783e21793b750ecac4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
