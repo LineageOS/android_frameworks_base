@@ -548,6 +548,10 @@ final class WifiDisplayController implements DumpUtils.Dump {
             return;
         }
 
+        if (handlePreExistingConnection(device)) {
+            Slog.i(TAG, "already handle the preexisting p2p connection status");
+            return;
+        }
         mDesiredDevice = device;
         mConnectionRetriesLeft = CONNECT_MAX_RETRIES;
         updateConnection();
@@ -922,6 +926,12 @@ final class WifiDisplayController implements DumpUtils.Dump {
                 disconnect();
             }
 
+            if (mDesiredDevice != null) {
+                Slog.i(TAG, "reconnect new device: " + mDesiredDevice.deviceName);
+                updateConnection();
+                return;
+            }
+
             // After disconnection for a group, for some reason we have a tendency
             // to get a peer change notification with an empty list of peers.
             // Perform a fresh scan.
@@ -1037,6 +1047,41 @@ final class WifiDisplayController implements DumpUtils.Dump {
         advertiseDisplay(display, mAdvertisedDisplaySurface,
                 mAdvertisedDisplayWidth, mAdvertisedDisplayHeight,
                 mAdvertisedDisplayFlags);
+    }
+
+    private boolean handlePreExistingConnection(final WifiP2pDevice device) {
+        if (mNetworkInfo == null || !mNetworkInfo.isConnected() || mWifiDisplayCertMode) {
+            return false;
+        }
+        Slog.i(TAG, "handle the preexisting p2p connection status");
+        mWifiP2pManager.requestGroupInfo(getWifiP2pChannel(), new GroupInfoListener() {
+            @Override
+            public void onGroupInfoAvailable(WifiP2pGroup info) {
+                if (info == null) {
+                    return;
+                }
+                if (info.contains(device)) {
+                    Slog.i(TAG, "already connected to the desired device: " + device.deviceName);
+                    updateConnection();
+                    handleConnectionChanged(mNetworkInfo);
+                } else {
+                    mWifiP2pManager.removeGroup(getWifiP2pChannel(), new ActionListener() {
+                        @Override
+                        public void onSuccess() {
+                            Slog.i(TAG, "disconnect the old device");
+                        }
+
+                        @Override
+                        public void onFailure(int reason) {
+                            Slog.i(TAG, "Failed to disconnect the old device: reason=" + reason);
+                        }
+                    });
+                }
+            }
+        });
+        mDesiredDevice = device;
+        mConnectionRetriesLeft = CONNECT_MAX_RETRIES;
+        return true;
     }
 
     private static Inet4Address getInterfaceAddress(WifiP2pGroup info) {
