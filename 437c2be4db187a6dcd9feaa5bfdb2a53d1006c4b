@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "419bfefa_b7bc52a4",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-07-21T18:46:50Z",
+      "side": 1,
+      "message": "In my opinion, all clock tunables handling would make sense to be placed into one single place, but okay... Besides, that exactly what we had in cm-14.1.",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 5
+      },
+      "revId": "437c2be4db187a6dcd9feaa5bfdb2a53d1006c4b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
