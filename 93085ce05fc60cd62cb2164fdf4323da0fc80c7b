@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "34cfd0d3_fbfaeb05",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 9392
+      },
+      "writtenOn": "2018-07-24T16:42:51Z",
+      "side": 1,
+      "message": "unnecessary dots",
+      "range": {
+        "startLine": 29,
+        "startChar": 18,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "93085ce05fc60cd62cb2164fdf4323da0fc80c7b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2989e703_adab3041",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
         "patchSetId": 13
