@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2989e703_adab3041",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-07-24T15:45:17Z",
+      "side": 1,
+      "message": "There\u0027s no point (and it\u0027s not even advisable) to call this method every time a tuning is changed.",
+      "range": {
+        "startLine": 96,
+        "startChar": 8,
+        "endLine": 96,
+        "endChar": 28
+      },
+      "revId": "93085ce05fc60cd62cb2164fdf4323da0fc80c7b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
