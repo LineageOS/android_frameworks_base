@@ -3089,4 +3089,7 @@
          booted.  -->
     <integer name="config_stableDeviceDisplayWidth">-1</integer>
     <integer name="config_stableDeviceDisplayHeight">-1</integer>
+
+    <!-- Deny batching on accelerometer -->
+    <bool name="config_denyAccelBatch">false</bool>
 </resources>

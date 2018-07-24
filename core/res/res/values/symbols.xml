@@ -3078,4 +3078,6 @@
 
   <java-symbol type="integer" name="config_stableDeviceDisplayWidth" />
   <java-symbol type="integer" name="config_stableDeviceDisplayHeight" />
+
+  <java-symbol type="bool" name="config_denyAccelBatch" />
 </resources>
