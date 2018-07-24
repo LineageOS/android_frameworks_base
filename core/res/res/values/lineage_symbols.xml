@@ -26,6 +26,7 @@
     <java-symbol type="bool" name="config_persistUsbDriveNotification" />
 
     <java-symbol type="bool" name="config_useDefaultBatchingForAccel" />
+    <java-symbol type="bool" name="config_capAccelBatch" />
 
     <!-- ADB notification -->
     <java-symbol type="string" name="adb_net_active_notification_title" />

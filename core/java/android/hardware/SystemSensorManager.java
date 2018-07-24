@@ -99,6 +99,9 @@ public class SystemSensorManager extends SensorManager {
     private final Context mContext;
     private final long mNativeInstance;
 
+    // Config
+    private final boolean mCapAccelBatch;
+
     /** {@hide} */
     public SystemSensorManager(Context context, Looper mainLooper) {
         synchronized(sLock) {
@@ -112,6 +115,9 @@ public class SystemSensorManager extends SensorManager {
         mTargetSdkLevel = context.getApplicationInfo().targetSdkVersion;
         mContext = context;
         mNativeInstance = nativeCreate(context.getOpPackageName());
+
+        mCapAccelBatch = context.getResources().getBoolean(
+            com.android.internal.R.bool.config_capAccelBatch);
 
         // initialize the sensor list
         for (int index = 0;;++index) {
@@ -160,6 +166,12 @@ public class SystemSensorManager extends SensorManager {
             throw new IllegalStateException("register failed, " +
                 "the sensor listeners size has exceeded the maximum limit " +
                 MAX_LISTENER_COUNT);
+        }
+
+        if (mCapAccelBatch && (sensor.getType() == Sensor.TYPE_ACCELEROMETER) &&
+            (maxBatchReportLatencyUs > delayUs)) {
+            Log.i(TAG, "capping batch value for accelerometer");
+            maxBatchReportLatencyUs = delayUs;
         }
 
         // Invariants to preserve:
