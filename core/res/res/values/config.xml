@@ -3089,4 +3089,7 @@
          booted.  -->
     <integer name="config_stableDeviceDisplayWidth">-1</integer>
     <integer name="config_stableDeviceDisplayHeight">-1</integer>
+
+    <!-- Deny specific batch setting to fix accelerometer freezing -->
+    <bool name="config_denySpecificBatch">false</bool>
 </resources>
