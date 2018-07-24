@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10574173_1900a2f8",
+        "filename": "data/keyboards/Vendor_1532_Product_0900.kl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-07-24T20:29:06Z",
+      "side": 1,
+      "message": "It would be nicer if you put them along with the other 3xx keycodes.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "71148787374fd26b4cfd8c969dd0c1dde24dc313",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
