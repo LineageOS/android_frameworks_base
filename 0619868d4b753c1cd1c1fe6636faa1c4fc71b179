@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "c0798667_d55afdbc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 17216
+      },
+      "writtenOn": "2018-07-26T06:46:31Z",
+      "side": 1,
+      "message": "It\u0027s com.google.android.gms.persistent, one of the classes calls registerListener with the report latency at Integer.MAX_INT, and sampling period of 20000. I ran some tests with registerListener and the accel stops reporting if the report latency is larger than the sampling period.",
+      "parentUuid": "880beb52_eb626037",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 9
+      },
+      "revId": "0619868d4b753c1cd1c1fe6636faa1c4fc71b179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbf35875_ce6da54c",
         "filename": "core/java/android/hardware/SystemSensorManager.java",
         "patchSetId": 3
