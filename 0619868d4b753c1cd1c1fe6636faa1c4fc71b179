@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c90286d7_da9c449f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-07-26T02:57:31Z",
+      "side": 1,
+      "message": "weird comma",
+      "range": {
+        "startLine": 12,
+        "startChar": 48,
+        "endLine": 12,
+        "endChar": 49
+      },
+      "revId": "0619868d4b753c1cd1c1fe6636faa1c4fc71b179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "880beb52_eb626037",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-07-26T02:57:31Z",
+      "side": 1,
+      "message": "presumably this is something in GApps itself then? Do you know what it is?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 9
+      },
+      "revId": "0619868d4b753c1cd1c1fe6636faa1c4fc71b179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbf35875_ce6da54c",
+        "filename": "core/java/android/hardware/SystemSensorManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-07-26T02:57:31Z",
+      "side": 1,
+      "message": "final?",
+      "range": {
+        "startLine": 103,
+        "startChar": 20,
+        "endLine": 103,
+        "endChar": 35
+      },
+      "revId": "0619868d4b753c1cd1c1fe6636faa1c4fc71b179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "635dab72_d0f91fdb",
+        "filename": "core/java/android/hardware/SystemSensorManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-07-26T02:57:31Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 171,
+        "startChar": 82,
+        "endLine": 171,
+        "endChar": 112
+      },
+      "revId": "0619868d4b753c1cd1c1fe6636faa1c4fc71b179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "157e0b5f_4571d544",
+        "filename": "core/java/android/hardware/SystemSensorManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-07-26T02:57:31Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be a Log.e, maybe Log.i with the sensor name?",
+      "range": {
+        "startLine": 172,
+        "startChar": 12,
+        "endLine": 172,
+        "endChar": 17
+      },
+      "revId": "0619868d4b753c1cd1c1fe6636faa1c4fc71b179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05dea1ee_3bc21632",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 3094,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-07-26T02:57:31Z",
+      "side": 1,
+      "message": "move to lineage overlays?",
+      "range": {
+        "startLine": 3094,
+        "startChar": 16,
+        "endLine": 3094,
+        "endChar": 37
+      },
+      "revId": "0619868d4b753c1cd1c1fe6636faa1c4fc71b179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
