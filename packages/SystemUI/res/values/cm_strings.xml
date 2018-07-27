@@ -98,4 +98,7 @@
 
     <!-- Hint for custom lockscreen shortcuts -->
     <string name="custom_swipe_hint">Swipe from icon for <xliff:g name="target">%s</xliff:g></string>
+
+    <!-- Name of the battery status bar icon. -->
+    <string name="status_bar_battery">Battery</string>
 </resources>
