@@ -53,16 +53,26 @@ import com.android.systemui.statusbar.policy.IconLogger;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 
+import lineageos.providers.LineageSettings;
+
 import java.text.NumberFormat;
 
 public class BatteryMeterView extends LinearLayout implements
         BatteryStateChangeCallback, Tunable, DarkReceiver, ConfigurationListener {
 
-    private final BatteryMeterDrawableBase mDrawable;
+    private static final String STATUS_BAR_BATTERY_STYLE =
+            "lineagesystem:" + LineageSettings.System.STATUS_BAR_BATTERY_STYLE;
+
+    private BatteryMeterDrawableBase mDrawable;
+    private final Context mContext;
+    private final int mFrameColor;
     private final String mSlotBattery;
     private final ImageView mBatteryIconView;
     private final CurrentUserTracker mUserTracker;
     private TextView mBatteryPercentView;
+
+    private boolean mIsBlacklisted = false;
+    private int mBatteryStyle = BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT;
 
     private BatteryController mBatteryController;
     private SettingObserver mSettingObserver;
@@ -123,6 +133,9 @@ public class BatteryMeterView extends LinearLayout implements
         mLightModeBackgroundColor = Utils.getColorAttr(dualToneLightTheme, R.attr.backgroundColor);
         mLightModeFillColor = Utils.getColorAttr(dualToneLightTheme, R.attr.fillColor);
 
+        mContext = context;
+        mFrameColor = frameColor;
+
         // Init to not dark at all.
         onDarkChanged(new Rect(), 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
         mUserTracker = new CurrentUserTracker(mContext) {
@@ -151,10 +164,13 @@ public class BatteryMeterView extends LinearLayout implements
     public void onTuningChanged(String key, String newValue) {
         if (StatusBarIconController.ICON_BLACKLIST.equals(key)) {
             ArraySet<String> icons = StatusBarIconController.getIconBlacklist(newValue);
-            boolean hidden = icons.contains(mSlotBattery);
-            Dependency.get(IconLogger.class).onIconVisibility(mSlotBattery, !hidden);
-            setVisibility(hidden ? View.GONE : View.VISIBLE);
+            mIsBlacklisted = icons.contains(mSlotBattery);
+            Dependency.get(IconLogger.class).onIconVisibility(mSlotBattery, !mIsBlacklisted);
+        } else if (STATUS_BAR_BATTERY_STYLE.equals(key) && newValue != null) {
+            mBatteryStyle = Integer.parseInt(newValue);
         }
+
+        updateBatteryStyle();
     }
 
     @Override
@@ -166,7 +182,8 @@ public class BatteryMeterView extends LinearLayout implements
         getContext().getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(SHOW_BATTERY_PERCENT), false, mSettingObserver, mUser);
         updateShowPercent();
-        Dependency.get(TunerService.class).addTunable(this, StatusBarIconController.ICON_BLACKLIST);
+        Dependency.get(TunerService.class).addTunable(this,
+                StatusBarIconController.ICON_BLACKLIST, STATUS_BAR_BATTERY_STYLE);
         Dependency.get(ConfigurationController.class).addCallback(this);
         mUserTracker.startTracking();
     }
@@ -283,6 +300,17 @@ public class BatteryMeterView extends LinearLayout implements
         }
         mLightModeFillColor = color;
         onDarkChanged(new Rect(), mDarkIntensity, DarkIconDispatcher.DEFAULT_ICON_TINT);
+    }
+
+    private void updateBatteryStyle() {
+        if (mBatteryStyle == BatteryMeterDrawableBase.BATTERY_STYLE_TEXT || mIsBlacklisted) {
+            setVisibility(View.GONE);
+            mBatteryIconView.setImageDrawable(null);
+        } else {
+            mDrawable = new BatteryMeterDrawableBase(mContext, mFrameColor, mBatteryStyle);
+            mBatteryIconView.setImageDrawable(mDrawable);
+            setVisibility(View.VISIBLE);
+        }
     }
 
     private int getColorForDarkIntensity(float darkIntensity, int lightColor, int darkColor) {
