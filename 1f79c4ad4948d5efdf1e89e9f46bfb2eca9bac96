@@ -22,6 +22,30 @@
       "revId": "1f79c4ad4948d5efdf1e89e9f46bfb2eca9bac96",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d209c2f5_13340be2",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-07-27T17:42:51Z",
+      "side": 1,
+      "message": "that is indeed stock behavior. Percentage is always shown on QS.",
+      "parentUuid": "2d5957b7_7cf6cca0",
+      "range": {
+        "startLine": 321,
+        "startChar": 12,
+        "endLine": 321,
+        "endChar": 39
+      },
+      "revId": "1f79c4ad4948d5efdf1e89e9f46bfb2eca9bac96",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
