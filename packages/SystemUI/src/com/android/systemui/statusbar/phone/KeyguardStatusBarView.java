@@ -67,7 +67,6 @@ public class KeyguardStatusBarView extends RelativeLayout
     private static final int LAYOUT_CUTOUT = 1;
     private static final int LAYOUT_NO_CUTOUT = 2;
 
-    private boolean mShowPercentAvailable;
     private boolean mBatteryCharging;
     private boolean mKeyguardUserSwitcherShowing;
     private boolean mBatteryListening;
@@ -166,8 +165,6 @@ public class KeyguardStatusBarView extends RelativeLayout
                 R.dimen.system_icons_super_container_avatarless_margin_end);
         mCutoutSideNudge = getResources().getDimensionPixelSize(
                 R.dimen.display_cutout_margin_consumption);
-        mShowPercentAvailable = getContext().getResources().getBoolean(
-                com.android.internal.R.bool.config_battery_percentage_setting_available);
     }
 
     private void updateVisibilities() {
@@ -189,7 +186,7 @@ public class KeyguardStatusBarView extends RelativeLayout
                 mMultiUserSwitch.setVisibility(View.GONE);
             }
         }
-        mBatteryView.setForceShowPercent(mBatteryCharging && mShowPercentAvailable);
+        mBatteryView.setForceShowPercent(mBatteryCharging);
     }
 
     private void updateSystemIconsLayoutParams() {
