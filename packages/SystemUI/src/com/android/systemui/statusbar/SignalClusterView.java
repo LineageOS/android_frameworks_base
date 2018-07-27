@@ -591,10 +591,6 @@ public class SignalClusterView extends LinearLayout implements NetworkController
             mIconLogger.onIconHidden(SLOT_MOBILE);
             mNoSimsCombo.setVisibility(View.GONE);
         }
-
-        boolean anythingVisible = mNoSimsVisible || mWifiVisible || mIsAirplaneMode
-                || anyMobileVisible || mVpnVisible || mEthernetVisible;
-        setPaddingRelative(0, 0, anythingVisible ? mEndPadding : mEndPaddingNothingVisible, 0);
     }
 
     /**
