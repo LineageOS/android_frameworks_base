@@ -13,7 +13,9 @@ LOCAL_SHARED_ANDROID_LIBRARIES := \
     android-support-v7-appcompat \
     android-support-v14-preference
 
-LOCAL_STATIC_JAVA_LIBRARY := legacy-android-test
+LOCAL_STATIC_JAVA_LIBRARIES := \
+    legacy-android-test \
+    org.lineageos.platform.internal
 
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 
