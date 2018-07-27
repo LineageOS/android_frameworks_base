@@ -95,4 +95,7 @@
 
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Invert layout</string>
+
+    <!-- Name of the battery status bar icon. -->
+    <string name="status_bar_battery">Battery</string>
 </resources>
