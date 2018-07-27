@@ -113,8 +113,6 @@ public class BluetoothDeviceLayerDrawable extends LayerDrawable {
         public BatteryMeterDrawable(Context context, int frameColor, int batteryLevel) {
             super(context, frameColor);
             final Resources resources = context.getResources();
-            mButtonHeightFraction = resources.getFraction(
-                    R.fraction.bt_battery_button_height_fraction, 1, 1);
             mAspectRatio = resources.getFraction(R.fraction.bt_battery_ratio_fraction, 1, 1);
 
             final int tintColor = Utils.getColorAttr(context, android.R.attr.colorControlNormal);
