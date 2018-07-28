@@ -16,6 +16,24 @@
       "revId": "9a5d277ae3c3a42726b163acc04d66b8a0be8360",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49f3d98a_3d6552ec",
+        "filename": "core/java/android/hardware/SystemSensorManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 17216
+      },
+      "writtenOn": "2018-07-28T16:44:09Z",
+      "side": 1,
+      "message": "Yea but there is no max value we can put, it breaks when sampling period is less:\n\nFor example:\nRL 4000, SP 3000 \u003d accel breaks\nRL 3001, SP 3000 \u003d accel breaks\nRL 3000, SP 3000 \u003d ok\nRL 2500, SP 3000 \u003d ok\n\nThe other solution is making both values equal if RL is higher, but that functions the same as just setting it to 0, they\u0027ll be reporting at the same rate. And when RL is lower than SP (only thing that works), from what I understand real batching isn\u0027t even occurring since it\u0027s reporting faster than the sampling period, so might as well just keep it disabled for the accelerometer.",
+      "parentUuid": "3812ade4_ca23428b",
+      "revId": "9a5d277ae3c3a42726b163acc04d66b8a0be8360",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
