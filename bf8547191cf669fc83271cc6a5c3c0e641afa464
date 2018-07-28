@@ -16,6 +16,24 @@
       "revId": "bf8547191cf669fc83271cc6a5c3c0e641afa464",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3c8abf2_1547fc3e",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-07-28T11:22:18Z",
+      "side": 1,
+      "message": "This is not new, ours is extended: hidden (default), inside the icon or next to the icon.",
+      "parentUuid": "edb709b0_ff55e6ca",
+      "revId": "bf8547191cf669fc83271cc6a5c3c0e641afa464",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
