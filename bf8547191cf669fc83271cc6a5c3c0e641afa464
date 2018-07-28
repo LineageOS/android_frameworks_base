@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edb709b0_ff55e6ca",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-07-28T07:29:37Z",
+      "side": 1,
+      "message": "Why are we not using AOSP SHOW_BATTERY_PERCENT?",
+      "revId": "bf8547191cf669fc83271cc6a5c3c0e641afa464",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
