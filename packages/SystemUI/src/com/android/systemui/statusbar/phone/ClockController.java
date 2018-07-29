@@ -78,7 +78,7 @@ public class ClockController implements TunerService.Tunable {
         mActiveClock.setClockVisibleByUser(true);
 
         // Override any previous setting
-        mActiveClock.setClockVisibleByUser(mBlackListed);
+        mActiveClock.setClockVisibleByUser(!mBlackListed);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class ClockController implements TunerService.Tunable {
         if (CLOCK_POSITION.equals(key)) {
             mClockPosition = newValue == null ? CLOCK_POSITION_RIGHT : Integer.valueOf(newValue);
         } else {
-            mBlackListed = !StatusBarIconController.getIconBlacklist(newValue).contains("clock");
+            mBlackListed = StatusBarIconController.getIconBlacklist(newValue).contains("clock");
         }
         updateActiveClock();
     }
