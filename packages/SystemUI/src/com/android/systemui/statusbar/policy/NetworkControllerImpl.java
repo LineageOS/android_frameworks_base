@@ -572,7 +572,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
             public int compare(SubscriptionInfo lhs, SubscriptionInfo rhs) {
                 return lhs.getSimSlotIndex() == rhs.getSimSlotIndex()
                         ? lhs.getSubscriptionId() - rhs.getSubscriptionId()
-                        : lhs.getSimSlotIndex() - rhs.getSimSlotIndex();
+                        : rhs.getSimSlotIndex() - lhs.getSimSlotIndex();
             }
         });
         mCurrentSubscriptions = subscriptions;
