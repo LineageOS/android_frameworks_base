@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9c5f66d_c51d4137",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-07-30T05:44:40Z",
+      "side": 1,
+      "message": "Is there a reason we use system properties and not something like shared/global prefs for this?",
+      "range": {
+        "startLine": 702,
+        "startChar": 28,
+        "endLine": 702,
+        "endChar": 49
+      },
+      "revId": "170576f41682819abb6867a202ad40fef493a874",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
