@@ -80,6 +80,10 @@ public class CustomDialogPreference extends DialogPreference {
         return mOnShowListener;
     }
 
+    protected boolean onDismissDialog(DialogInterface dialog, int which) {
+        return true;
+    }
+
     public static class CustomPreferenceDialogFragment extends PreferenceDialogFragment {
 
         public static CustomPreferenceDialogFragment newInstance(String key) {
@@ -92,6 +96,47 @@ public class CustomDialogPreference extends DialogPreference {
 
         private CustomDialogPreference getCustomizablePreference() {
             return (CustomDialogPreference) getPreference();
+        }
+
+        private class OnDismissListener implements View.OnClickListener {
+            private final DialogInterface mDialog;
+            private final int mWhich;
+
+            public OnDismissListener(DialogInterface dialog, int which) {
+                mDialog = dialog;
+                mWhich = which;
+            }
+
+            @Override
+            public void onClick(View view) {
+                CustomPreferenceDialogFragment.this.onClick(mDialog, mWhich);
+                if (getCustomizablePreference().onDismissDialog(mDialog, mWhich)) {
+                    mDialog.dismiss();
+                }
+            }
+        }
+
+        @Override
+        public void onStart() {
+            super.onStart();
+
+            if (!(getDialog() instanceof AlertDialog)) {
+                return;
+            }
+
+            AlertDialog dialog = (AlertDialog) getDialog();
+            if (dialog.getButton(Dialog.BUTTON_NEUTRAL) != null) {
+                dialog.getButton(Dialog.BUTTON_NEUTRAL).setOnClickListener(
+                        new OnDismissListener(dialog, Dialog.BUTTON_NEUTRAL));
+            }
+            if (dialog.getButton(Dialog.BUTTON_POSITIVE) != null) {
+                dialog.getButton(Dialog.BUTTON_POSITIVE).setOnClickListener(
+                        new OnDismissListener(dialog, Dialog.BUTTON_POSITIVE));
+            }
+            if (dialog.getButton(Dialog.BUTTON_NEGATIVE) != null) {
+                dialog.getButton(Dialog.BUTTON_NEGATIVE).setOnClickListener(
+                        new OnDismissListener(dialog, Dialog.BUTTON_NEGATIVE));
+            }
         }
 
         @Override
