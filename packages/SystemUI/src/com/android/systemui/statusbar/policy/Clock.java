@@ -66,7 +66,7 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
     public static final String CLOCK_STYLE = "lineagesystem:status_bar_am_pm";
 
     private boolean mClockVisibleByPolicy = true;
-    private boolean mClockVisibleByUser = true;
+    private boolean mClockVisibleByUser = getVisibility() == View.VISIBLE;
 
     private boolean mAttached;
     private Calendar mCalendar;
