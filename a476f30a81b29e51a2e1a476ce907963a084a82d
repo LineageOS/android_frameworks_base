@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ac2c0362_40b8c6d8",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2018-08-02T05:44:33Z",
+      "side": 1,
+      "message": "Bah, forgot to amend.",
+      "parentUuid": "0fc1fc83_523750e5",
+      "range": {
+        "startLine": 298,
+        "startChar": 20,
+        "endLine": 298,
+        "endChar": 36
+      },
+      "revId": "a476f30a81b29e51a2e1a476ce907963a084a82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "960fe3f3_05a2fc03",
         "filename": "core/java/android/hardware/Camera.java",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2018-08-02T05:25:10Z",
       "side": 1,
       "message": "false ?",
+      "range": {
+        "startLine": 303,
+        "startChar": 15,
+        "endLine": 303,
+        "endChar": 19
+      },
+      "revId": "a476f30a81b29e51a2e1a476ce907963a084a82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6118c6dd_00bebf0b",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 3962
+      },
+      "writtenOn": "2018-08-02T05:44:33Z",
+      "side": 1,
+      "message": "The objective of the patch is to restore the original functionality and not limit the cameras if no props are set, so should be true.",
+      "parentUuid": "960fe3f3_05a2fc03",
       "range": {
         "startLine": 303,
         "startChar": 15,
