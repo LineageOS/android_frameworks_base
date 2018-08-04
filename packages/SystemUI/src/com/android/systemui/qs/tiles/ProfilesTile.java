@@ -83,7 +83,7 @@ public class ProfilesTile extends QSTileImpl<State> {
 
     @Override
     public CharSequence getTileLabel() {
-        return mContext.getString(R.string.quick_settings_profiles);
+        return mContext.getString(R.string.quick_settings_profiles_label);
     }
 
     @Override
@@ -93,11 +93,19 @@ public class ProfilesTile extends QSTileImpl<State> {
 
     @Override
     protected void handleClick() {
+        setProfilesEnabled(!profilesEnabled());
+    }
+
+    @Override
+    protected void handleSecondaryClick() {
         if (mKeyguardMonitor.isSecure() && mKeyguardMonitor.isShowing()) {
-            mActivityStarter.postQSRunnableDismissingKeyguard(() ->
-                showDetail(true));
+            mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
+                setProfilesEnabled(true);
+                showDetail(true);
+            });
             return;
         }
+        setProfilesEnabled(true);
         showDetail(true);
     }
 
@@ -115,10 +123,11 @@ public class ProfilesTile extends QSTileImpl<State> {
                     R.string.accessibility_quick_settings_profiles, state.label);
         } else {
             state.icon = ResourceIcon.get(R.drawable.ic_qs_profiles_off);
-            state.label = mContext.getString(R.string.quick_settings_profiles_off);
+            state.label = mContext.getString(R.string.quick_settings_profiles_label);
             state.contentDescription = mContext.getString(
                     R.string.accessibility_quick_settings_profiles_off);
         }
+        state.dualTarget = true;
     }
 
     @Override
@@ -129,6 +138,11 @@ public class ProfilesTile extends QSTileImpl<State> {
         } else {
             return mContext.getString(R.string.accessibility_quick_settings_profiles_changed_off);
         }
+    }
+
+    private void setProfilesEnabled(Boolean enabled) {
+        LineageSettings.System.putInt(mContext.getContentResolver(),
+                LineageSettings.System.SYSTEM_PROFILES_ENABLED, enabled ? 1 : 0);
     }
 
     private boolean profilesEnabled() {
@@ -184,9 +198,10 @@ public class ProfilesTile extends QSTileImpl<State> {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = LayoutInflater.from(mContext);
-            CheckedTextView label = (CheckedTextView) inflater.inflate(
-                    android.R.layout.simple_list_item_single_choice, parent, false);
+            CheckedTextView label = convertView != null
+                    ? (CheckedTextView) convertView
+                    : (CheckedTextView) LayoutInflater.from(mContext).inflate(
+                            android.R.layout.simple_list_item_single_choice, parent, false);
 
             Profile p = getItem(position);
             label.setText(p.getName());
@@ -211,13 +226,12 @@ public class ProfilesTile extends QSTileImpl<State> {
 
         @Override
         public CharSequence getTitle() {
-            return mContext.getString(R.string.quick_settings_profiles);
+            return mContext.getString(R.string.quick_settings_profiles_label);
         }
 
         @Override
         public Boolean getToggleState() {
-            boolean enabled = profilesEnabled();
-            return enabled;
+            return profilesEnabled();
         }
 
         @Override
@@ -235,31 +249,26 @@ public class ProfilesTile extends QSTileImpl<State> {
             list.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
             list.setOnItemClickListener(this);
 
-            mDetails.setEmptyState(R.drawable.ic_qs_profiles_off,
-                    R.string.quick_settings_profiles_off);
-
-            rebuildProfilesList(profilesEnabled());
+            buildProfilesList();
 
             return mDetails;
         }
 
-        private void rebuildProfilesList(boolean populate) {
+        private void buildProfilesList() {
             mProfilesList.clear();
-            if (populate) {
-                int selected = -1;
+            int selected = -1;
 
-                final Profile[] profiles = mProfileManager.getProfiles();
-                final Profile activeProfile = mProfileManager.getActiveProfile();
-                final UUID activeUuid = activeProfile != null ? activeProfile.getUuid() : null;
+            final Profile[] profiles = mProfileManager.getProfiles();
+            final Profile activeProfile = mProfileManager.getActiveProfile();
+            final UUID activeUuid = activeProfile != null ? activeProfile.getUuid() : null;
 
-                for (int i = 0; i < profiles.length; i++) {
-                    mProfilesList.add(profiles[i]);
-                    if (activeUuid != null && activeUuid.equals(profiles[i].getUuid())) {
-                        selected = i;
-                    }
+            for (int i = 0; i < profiles.length; i++) {
+                mProfilesList.add(profiles[i]);
+                if (activeUuid != null && activeUuid.equals(profiles[i].getUuid())) {
+                    selected = i;
                 }
-                mDetails.getListView().setItemChecked(selected, true);
             }
+            mDetails.getListView().setItemChecked(selected, true);
             mAdapter.notifyDataSetChanged();
         }
 
@@ -270,11 +279,8 @@ public class ProfilesTile extends QSTileImpl<State> {
 
         @Override
         public void setToggleState(boolean state) {
-            LineageSettings.System.putInt(mContext.getContentResolver(),
-                    LineageSettings.System.SYSTEM_PROFILES_ENABLED, state ? 1 : 0);
-
-            fireToggleStateChanged(state);
-            rebuildProfilesList(state);
+            setProfilesEnabled(state);
+            showDetail(false);
         }
 
         @Override
