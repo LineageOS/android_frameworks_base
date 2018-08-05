@@ -40,7 +40,9 @@
   <!-- Label of the destination widget. [CHAR LIMIT=20] -->
   <string name="destination_default_text">Dewis argraffydd</string>
   <!-- Template for the all pages option in the page selection widget. [CHAR LIMIT=20] -->
+  <string name="template_all_pages">Pob un o\'r <xliff:g id="page_count" example="100">%1$s </xliff:g></string>
   <!-- Template for the page range option in the page selection widget. [CHAR LIMIT=20] -->
+  <string name="template_page_range">Amrediad o <xliff:g id="page_count" example="100">%1$s </xliff:g></string>
   <!-- Page range exmple used as a hint of how to specify such. [CHAR LIMIT=20] -->
   <!-- Title for the pring preview button .[CHAR LIMIT=30] -->
   <string name="print_preview">Rhagolwg argraffu</string>
@@ -49,6 +51,7 @@
   <!-- Title of the message that the printing application crashed. [CHAR LIMIT=50] -->
   <string name="printing_app_crashed">Chwalodd yr ap argraffu</string>
   <!-- Title for the temporary dialog show while an app is generating a print job. [CHAR LIMIT=30] -->
+  <string name="generating_print_job">Yn creu\'r dasg argraffu</string>
   <!-- Title for the save as PDF option in the printer list. [CHAR LIMIT=30] -->
   <string name="save_as_pdf">Cadw fel PDF</string>
   <!-- Title for the open all printers UI option in the printer list. [CHAR LIMIT=30] -->
@@ -60,13 +63,17 @@
   <!-- Template for the message to announce the print options summary - spoken to the user. [CHAR LIMIT=none] -->
   <string name="summary_template">Crynodeb, copïau <xliff:g id="copies" example="1">%1$s </xliff:g>, maint papur <xliff:g id="paper_size" example="A4">%2$s </xliff:g></string>
   <!-- Description for the handle to expand all print options - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="expand_handle">Dolen ehangu</string>
   <!-- Description for the handle to collapse all print options - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="collapse_handle">Dolen lleihau</string>
   <!-- Description for the print button - spoken to the user. [CHAR LIMIT=none] -->
   <string name="print_button">Argraffu</string>
   <!-- Description for the save to PDF button - spoken to the user. [CHAR LIMIT=none] -->
   <string name="savetopdf_button">Cadw i PDF</string>
   <!-- Message to announce print options are expanded - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="print_options_expanded">Ehangwyd y dewisiadau argraffu</string>
   <!-- Message to announce print options are collapsed - spoken to the user. [CHAR LIMIT=none] -->
+  <string name="print_options_collapsed">Lleihawyd y dewisiadau argraffu</string>
   <!-- Select printer activity -->
   <!-- Title for the share action bar menu item. [CHAR LIMIT=20] -->
   <string name="search">Chwilio</string>
@@ -75,7 +82,9 @@
   <!-- Title of the button to install a print service. [CHAR LIMIT=25] -->
   <string name="add_print_service_label">Ychwanegu gwasanaeth</string>
   <!-- Utterance to announce that the search box is shown. This is spoken to a blind user. [CHAR LIMIT=none] -->
+  <string name="print_search_box_shown_utterance">Dangosir y blwch chwilio</string>
   <!-- Utterance to announce that the search box is hidden. This is spoken to a blind user. [CHAR LIMIT=none] -->
+  <string name="print_search_box_hidden_utterance">Cuddiwyd y blwch chwilio</string>
   <!-- Label of add printers button when no printers are found. [CHAR LIMIT=25] -->
   <string name="print_add_printer">Ychwanegu argraffydd</string>
   <!-- Title of the menu item to select a printer. [CHAR LIMIT=25] -->
@@ -83,6 +92,14 @@
   <!-- Title of the menu item to forget a printer. [CHAR LIMIT=25] -->
   <string name="print_forget_printer">Anghofio argraffydd</string>
   <!-- Utterance to announce a change in the number of matches during a search. This is spoken to a blind user. [CHAR LIMIT=none] -->
+  <plurals name="print_search_result_count_utterance">
+    <item quantity="zero">Daethpwyd o hyd i <xliff:g id="count" example="2">%1$s</xliff:g> argraffwyr</item>
+    <item quantity="one">Daethpwyd o hyd i <xliff:g id="count" example="2">%1$s</xliff:g> argraffydd</item>
+    <item quantity="two">Daethpwyd o hyd i <xliff:g id="count" example="2">%1$s</xliff:g> argraffydd</item>
+    <item quantity="few">Daethpwyd o hyd i <xliff:g id="count" example="2">%1$s</xliff:g> argraffydd</item>
+    <item quantity="many">Daethpwyd o hyd i <xliff:g id="count" example="2">%1$s</xliff:g> argraffydd</item>
+    <item quantity="other">Daethpwyd o hyd i <xliff:g id="count" example="2">%1$s</xliff:g> argraffydd</item>
+  </plurals>
   <!-- Template for an extended description of a printer. [CHAR LIMIT=50] -->
   <string name="printer_extended_description_template"><xliff:g id="print_service_label" example="Canon Print Service">%1$s</xliff:g> - <xliff:g id="printer_description" example="Printer under the stairs">%2$s</xliff:g></string>
   <!-- Description of printer info icon. [CHAR LIMIT=50] -->
@@ -90,7 +107,7 @@
   <!-- Label for the notification channel that contains print jobs without problems. [CHAR LIMIT=40] -->
   <!-- Label for the notification channel that contains print jobs with problems. [CHAR LIMIT=40] -->
   <!-- Notification that we could not create a file name for the printed PDF. [CHAR LIMIT=50] -->
-  <string name="could_not_create_file">Methwyd creu ffeil</string>
+  <string name="could_not_create_file">Methwyd â chreu ffeil</string>
   <!-- Notification that print services as disabled. [CHAR LIMIT=50] -->
   <string name="print_services_disabled_toast">Mae rhai gwasanaethau argraffu wedi eu hanalluogi.</string>
   <!-- Title for the prompt shown as a placeholder if no printers are found while not searching. [CHAR LIMIT=50] -->
@@ -98,9 +115,10 @@
   <!-- Title for the prompt shown as a placeholder if there are no print services. [CHAR LIMIT=50] -->
   <string name="print_no_print_services">Dim gwasanaethau argraffu wedi eu galluogi</string>
   <!-- Title for the prompt shown as a placeholder if there are no printers while searching. [CHAR LIMIT=50] -->
+  <string name="print_no_printers">Ni ddaethpwyd o hyd i argraffydd</string>
   <!-- Add printer activity -->
   <!-- Subtitle for services that cannot add printers. [CHAR LIMIT=50] -->
-  <string name="cannot_add_printer">Methu ychwanegu argraffydd</string>
+  <string name="cannot_add_printer">Methu ag ychwanegu argraffydd</string>
   <!-- Subtitle for services that can add printers. [CHAR LIMIT=50] -->
   <string name="select_to_add_printers">Dewisa i ychwanegu argraffydd</string>
   <!-- Subtitle for disabled services. [CHAR LIMIT=50] -->
@@ -173,7 +191,7 @@
   </string-array>
   <!-- Error messages -->
   <!-- Message for an error when trying to print to a PDF file. [CHAR LIMIT=50] -->
-  <string name="print_write_error_message">Methwyd ysgrifennu i\'r ffeil</string>
+  <string name="print_write_error_message">Methwyd ag ysgrifennu i\'r ffeil</string>
   <!-- Default message for an error while generating a print job. [CHAR LIMIT=50] -->
   <string name="print_error_default_message">Ni weithiodd hynny. Rho gynnig arall arni.</string>
   <!-- Label for the retry button in the error message. [CHAR LIMIT=50] -->
@@ -182,7 +200,7 @@
   <string name="print_error_printer_unavailable">Nid yw\'r argraffydd hwn ar gael ar hyn o bryd.</string>
   <!-- Message for the case when a preview of a page cannot be loaded because the printing app
          provided a broken print preview rendering for this page. [CHAR LIMIT=50] -->
-  <string name="print_cannot_load_page">Methu dangos rhagolwg</string>
+  <string name="print_cannot_load_page">Methu â dangos rhagolwg</string>
   <!-- Long running operations -->
   <!-- Message long running operation when preparing print preview. [CHAR LIMIT=50] -->
   <string name="print_preparing_preview">Yn paratoi rhagolwg\u2026</string>

@@ -59,6 +59,8 @@
   <string name="accessibility_dpad_right">Курсор вправо</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Приложение останется активным, пока вы не отмените блокировку долгим нажатием кнопки «Назад».</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">Часы</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
@@ -91,8 +93,8 @@
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_high_accuracy">Отправка местоположения: режим высокой точности.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Энергосебережение</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">По коорди-\nнатам сети</string>
+  <string name="quick_settings_location_battery_saving_label">Экономия батареи</string>
+  <string name="quick_settings_location_battery_saving_label_twoline">Экономия\nбатареи</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">По спутникам GPS</string>
   <string name="quick_settings_location_gps_only_label_twoline">Только\nGPS</string>
@@ -106,7 +108,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_title">Высокая точность</string>
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Энергосебережение</string>
+  <string name="quick_settings_location_detail_mode_battery_saving_title">Экономия батареи</string>
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">По спутникам GPS</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->

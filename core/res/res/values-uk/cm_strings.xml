@@ -54,6 +54,7 @@
   <string name="app_ops_draw_on_top">показувати вікна поверх</string>
   <string name="app_ops_get_accounts">Отримати інформацію про акаунти</string>
   <string name="app_ops_get_usage_stats">отримувати статистику використання програм</string>
+  <string name="app_ops_install_packages">установка пакетів</string>
   <string name="app_ops_keep_device_awake">заборонити пристрою переходити в сплячий режим</string>
   <string name="app_ops_make_phone_call">робити телефонні дзвінки</string>
   <string name="app_ops_mock_location">Фіктивне місцезнаходження</string>
@@ -63,6 +64,7 @@
   <string name="app_ops_modify_contacts">змінювати дані контактів</string>
   <string name="app_ops_modify_settings">змінювати системні налаштування</string>
   <string name="app_ops_mute_unmute_microphone">вимк./увімк. мікрофон</string>
+  <string name="app_ops_picture_in_picture">використовувати картинку в картинці</string>
   <string name="app_ops_play_audio">відтворювати аудіо</string>
   <string name="app_ops_post_notification">виводити сповіщення</string>
   <string name="app_ops_project_media">project media</string>
@@ -73,6 +75,7 @@
   <string name="app_ops_read_contacts">читати дані ваших контактів</string>
   <string name="app_ops_read_external_storage">Зчитати дані з карти пам\'яті</string>
   <string name="app_ops_read_mms">читати ваші MMS-повідомлення</string>
+  <string name="app_ops_read_phone_numbers">переглядати номери телефону</string>
   <string name="app_ops_read_phone_state">Доступ до стану телефону</string>
   <string name="app_ops_read_sms">читати ваші SMS-повідомлення</string>
   <string name="app_ops_receive_sms">отримувати SMS-повідомлення</string>

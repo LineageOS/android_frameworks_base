@@ -59,6 +59,8 @@
   <string name="accessibility_dpad_right">Cursor dreta</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">Rellotge</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.

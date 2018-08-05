@@ -59,6 +59,7 @@
   <string name="accessibility_dpad_right">Курсор десно</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Ово се стално приказује док га не уклониш. Додирни &amp; и задржи Назад да би га уклонио.</string>
+  <!-- Name of the clock status bar icon -->
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.

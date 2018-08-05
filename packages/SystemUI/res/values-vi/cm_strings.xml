@@ -59,6 +59,8 @@
   <string name="accessibility_dpad_right">Trỏ phải</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Thao tác này sẽ duy trì hiển thị màn hình cho đến khi bạn bỏ ghim. Chạm &amp; giữ Quay lại để bỏ ghim.</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">Đồng hồ</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
@@ -118,8 +120,13 @@
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
   <string name="nav_bar_layout_inverse">Hoán đổi bố cục nút</string>
   <!-- Reader mode QS tile -->
+  <string name="quick_settings_reading_mode">Chế độ đọc</string>
   <!-- Content description of the reader mode tile when on -->
+  <string name="accessibility_quick_settings_reading_mode_on">Chế độ đọc đang bật.</string>
   <!-- Content description of the reader mode tile when off -->
+  <string name="accessibility_quick_settings_reading_mode_off">Chế độ đọc đang tắt.</string>
   <!-- Content description of the reader mode tile when turned on -->
+  <string name="accessibility_quick_settings_reading_mode_changed_on">Chế độ đọc đã được bật.</string>
   <!-- Content description of the reader mode tile when turned off -->
+  <string name="accessibility_quick_settings_reading_mode_changed_off">Chế độ đọc đã được tắt.</string>
 </resources>

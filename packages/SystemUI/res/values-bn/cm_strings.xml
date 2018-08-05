@@ -34,6 +34,7 @@
   <string name="accessibility_dpad_left">কার্সর বামে</string>
   <string name="accessibility_dpad_right">কার্সর ডানে</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
+  <!-- Name of the clock status bar icon -->
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.

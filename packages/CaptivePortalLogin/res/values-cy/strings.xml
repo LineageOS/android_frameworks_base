@@ -5,4 +5,6 @@
   <string name="action_use_network">Defnyddio\'r rhwydwaith hon fel y mae</string>
   <string name="action_do_not_use_network">Peidio â defnyddio\'r rhwydwaith hwn</string>
   <string name="action_bar_label">Mewngofnodi i\'r rhwydwaith</string>
+  <string name="ssl_error_example">Er enghraifft, efallai nad yw\'r tudalen mewngofnodi yn berchen i\'r mudiad a ddangosir.</string>
+  <string name="ssl_error_continue">Parhau trwy\'r porwr beth bynnag</string>
 </resources>

@@ -15,9 +15,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="crop_wallpaper">Tocio\'r papur wal</string>
   <!-- Button label on Wallpaper picker screen; user selects this button to set a specific wallpaper -->
+  <string name="wallpaper_instructions">Gosod y papur wal</string>
   <!-- Error message when an image is selected as a wallpaper,
          but the wallpaper cropper cannot load it. The user will
          usually see this when using another app and trying to set
          an image as the wallpaper -->
+  <string name="wallpaper_load_fail">Methwyd â llwytho\'r ddelwedd fel papur wal</string>
 </resources>
