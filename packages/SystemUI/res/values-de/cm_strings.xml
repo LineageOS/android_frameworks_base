@@ -59,6 +59,7 @@
   <string name="accessibility_dpad_right">Pfeiltaste rechts</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Der Bildschirm wird solange angezeigt, bis Sie die Fixierung aufheben. Berühren und halten Sie \"Zurück\", wenn Sie die Fixierung aufheben möchten.</string>
+  <!-- Name of the clock status bar icon -->
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.

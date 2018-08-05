@@ -59,6 +59,8 @@
   <string name="accessibility_dpad_right">游標右移</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">這會讓目前的螢幕畫面保持顯示狀態，直到取消固定為止。按住「返回」鍵即可取消固定。</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">時鐘</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.

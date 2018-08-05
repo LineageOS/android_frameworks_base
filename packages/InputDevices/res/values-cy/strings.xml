@@ -50,12 +50,15 @@
   <!-- Croatian keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_croatian">Croateg</string>
   <!-- Czech keyboard layout label. [CHAR LIMIT=35] -->
+  <string name="keyboard_layout_czech">Tsieceg</string>
   <!-- Estonian keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_estonian">Estoneg</string>
   <!-- Hungarian keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_hungarian">Hwngareg</string>
   <!-- Icelandic keyboard layout label. [CHAR LIMIT=35] -->
+  <string name="keyboard_layout_icelandic">Islandeg</string>
   <!-- Brazilian keyboard layout label. [CHAR LIMIT=35] -->
+  <string name="keyboard_layout_brazilian">Brasileg</string>
   <!-- Portuguese keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_portuguese">Portiwgaleg</string>
   <!-- Slovak keyboard layout label. [CHAR LIMIT=35] -->
@@ -63,6 +66,7 @@
   <!-- Slovenian keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_slovenian">Slofeneg</string>
   <!-- Turkish keyboard layout label. [CHAR LIMIT=35] -->
+  <string name="keyboard_layout_turkish">Twrceg</string>
   <!-- Ukrainian keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_ukrainian">Wcraneg</string>
   <!-- Arabic keyboard layout label. [CHAR LIMIT=35] -->

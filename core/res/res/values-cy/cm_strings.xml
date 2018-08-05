@@ -40,10 +40,20 @@
   <string name="app_ops_access_notifications">darllen dy hysbysiadau</string>
   <string name="app_ops_activate_vpn">rhoi VPN ar waith</string>
   <string name="app_ops_add_voicemail">ychwanegu neges llaisbost</string>
+  <string name="app_ops_assist_screenshot">tynnu sgrinlun</string>
   <string name="app_ops_auto_start">dechrau wrth i\'r ddyfais gychwyn</string>
   <string name="app_ops_delete_call_log">dileu dy gofnodion galwadau</string>
   <string name="app_ops_delete_contacts">dileu dy gysylltiadau</string>
   <string name="app_ops_delete_mms">dileu dy negeseuon MMS</string>
+  <string name="app_ops_delete_sms">dileu dy negeseuon SMS</string>
+  <string name="app_ops_get_usage_stats">cael ystadegau defnydd apiau</string>
+  <string name="app_ops_keep_device_awake">cadw dy ddyfais yn effro</string>
+  <string name="app_ops_make_phone_call">gwneud galwad ffôn</string>
+  <string name="app_ops_modify_calendar">diweddaru dy galendr</string>
+  <string name="app_ops_modify_call_log">diweddaru\'r cofnod galwadau</string>
+  <string name="app_ops_modify_clipboard">newid y clipfwrdd</string>
+  <string name="app_ops_modify_contacts">diweddaru dy gysylltiadau</string>
+  <string name="app_ops_modify_settings">diweddaru gosodiadau\'r system</string>
   <string name="app_ops_play_audio">chwarae sain</string>
   <string name="app_ops_post_notification">gosod hysbysiad</string>
   <string name="app_ops_project_media">taflunio cyfrwng</string>
@@ -56,6 +66,7 @@
   <string name="app_ops_receive_sms">derbyn negeseuon SMS</string>
   <string name="app_ops_record_audio">recordio sain</string>
   <string name="app_ops_run_in_background">rhedeg yn y cefndir</string>
+  <string name="app_ops_scan_wifi">sganio rhwydweithiau Wi-Fi</string>
   <string name="app_ops_send_mms">anfon negeseuon MMS</string>
   <string name="app_ops_send_sms">anfon negeseuon SMS</string>
   <string name="app_ops_start_at_bootup">dechrau wrth i\'r ddyfais gychwyn</string>
@@ -66,9 +77,14 @@
   <string name="app_ops_use_alarm_volume">rheoli uchder sain larwm</string>
   <string name="app_ops_use_audio_focus">rheoli ffocws sain</string>
   <string name="app_ops_use_bluetooth_volume">rheoli uchder sain Bluetooth</string>
+  <string name="app_ops_use_fingerprint">defnyddio ôl bys</string>
   <string name="app_ops_use_master_volume">rheoli uchder y prif sain</string>
   <string name="app_ops_use_media_buttons">defnyddio botymau cyfryngau</string>
   <string name="app_ops_use_media_volume">rheoli uchder sain cyfryngau</string>
+  <string name="app_ops_use_notification_volume">rheoli uchder sain hysbysiadau</string>
+  <string name="app_ops_use_ring_volume">rheoli uchder sain y tôn canu</string>
+  <string name="app_ops_use_vibrate">defnyddio adborth habtig</string>
+  <string name="app_ops_use_voice_volume">rheoli uchder sain galwad llais</string>
   <string name="app_ops_write_mms">ysgrifennu negeseuon MMS</string>
   <string name="app_ops_write_sms">ysgrifennu negeseuon SMS</string>
 </resources>

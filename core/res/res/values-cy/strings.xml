@@ -35,6 +35,7 @@
   <!-- How to display the lack of a name -->
   <string name="unknownName">Anhysbys</string>
   <!-- What the UI should display for "voice mail" unless overridden by the SIM-->
+  <string name="defaultVoiceMailAlphaTag">Lleisbost</string>
   <!-- What the UI should display for "Msisdn" unless overridden by the SIM-->
   <string name="defaultMsisdnAlphaTag">MSISDN1</string>
   <!-- For GsmMmiCode.java -->
@@ -43,25 +44,40 @@
   <string name="mmiError">Problem cysylltiad neu god MMI annilys.</string>
   <!-- Displayed when the user dialed an MMI code whose function
          could not be performed because FDN is enabled. This will be displayed in a toast. -->
+  <string name="mmiFdnError">Gweithrediad yn gyfyngiedig i ddeialu rhifau sefydlog yn unig.</string>
   <!-- Displayed when a carrier does not support call forwarding queries when roaming. -->
   <string name="mmiErrorWhileRoaming">Nid yw\'n bosib newid gosodiadau dargyfeirio galwadau o dy ffôn tra dy fod yn crwydro tramor.</string>
   <!-- Displayed when a phone feature such as call barring was activated. -->
+  <string name="serviceEnabled">Galluogwyd y gwasanaeth.</string>
   <!-- Displayed in front of the list of a set of service classes
          (voice, data, fax, etc.) that were enabled. -->
+  <string name="serviceEnabledFor">Galluogwyd y gwasanaeth ar gyfer:</string>
   <!-- Displayed when a phone feature such as call forwarding was deactivated. -->
+  <string name="serviceDisabled">Analluogwyd y gwasanaeth.</string>
   <!-- Displayed when a phone property such as a SIM password was registered. -->
+  <string name="serviceRegistered">Cofrestrwyd yn llwyddiannus.</string>
   <!-- Displayed when a phone property such as a SIM password was erased. -->
+  <string name="serviceErased">Dileuwyd yn llwyddiannus.</string>
   <!-- Displayed when a SIM password was entered incorrectly. -->
   <string name="passwordIncorrect">Cyfrinair anghywir.</string>
   <!-- Displayed when a phone feature triggered by an MMI code is complete. -->
+  <string name="mmiComplete">MMI cyflawn.</string>
   <!-- Displayed when a SIM PIN password is entered incorrectly. -->
+  <string name="badPin">Nid yw\'r hen PIN yn gywir.</string>
   <!-- Displayed when a SIM PUK password is entered incorrectly. -->
+  <string name="badPuk">Nid yw\'r PUK yn gywir.</string>
   <!-- Displayed when SIM PIN passwords are entered inconsistently. -->
+  <string name="mismatchPin">Dyw\'r PINau ddim yr un fath.</string>
   <!-- Displayed when a SIM PIN password is too long or too short. -->
+  <string name="invalidPin">Rho rif PIN rhwng 4 ac 8 digid.</string>
   <!-- Displayed when a SIM PUK password is too short. -->
+  <string name="invalidPuk">Rho PUK sy\'n 8 digid neu hirach.</string>
   <!-- Displayed to prompt the user to type the PUK password to unlock
          the SIM card. -->
+  <string name="needPuk">Mae dy gerdyn SIM wedi\'i gloi gyda PUK. Rho\'r cod PUK i\'w ddatgloi.</string>
+  <string name="needPuk2">Rho PUK2 i ddad-rwystro dy gerdyn SIM.</string>
   <!-- Displayed when user attempts to change SIM PIN1 without enabling PIN1. -->
+  <string name="enablePin">Anlwyddiannus. Galluoga Clo SIM/RUIM.</string>
   <!-- Displayed when a SIM PIN/PUK is entered incorrectly. -->
   <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
   <string name="imei">IMEI</string>
@@ -87,13 +103,14 @@
   <!-- Displayed to confirm to the user that caller ID will not be restricted on the next call or in general. -->
   <!-- Displayed to tell the user that caller ID is not provisioned for their SIM. -->
   <!-- Displayed to tell the user that they cannot change the caller ID setting. -->
+  <string name="CLIRPermanent">Nid oes modd newid gosodiadau ID y galwr.</string>
   <!-- Notification title to tell the user that data service is blocked by access control. -->
   <!-- Notification title to tell the user that emergency calling is blocked by access control. -->
   <!-- Notification title to tell the user that normal service is blocked by access control. -->
   <!-- Notification title to tell the user that all emergency and normal voice services are blocked by access control. -->
   <!-- Notification content to tell the user that voice/data/emergency service is blocked by access control. -->
   <!-- Displayed to tell the user that they should switch their network preference. -->
-  <string name="NetworkPreferenceSwitchTitle">Methu cysylltu â\'r rhwydwaith</string>
+  <string name="NetworkPreferenceSwitchTitle">Methu â chysylltu â\'r rhwydwaith</string>
   <!-- Displayed to tell the user that they should switch their network preference. -->
   <!-- Displayed to tell the user that emergency calls might not be available. -->
   <!-- Displayed to tell the user that emergency calls might not be available. -->
@@ -166,18 +183,26 @@
   <string name="httpErrorOk">Iawn</string>
   <!-- Displayed when a web request failed with a generic network error. -->
   <!-- Displayed when a web request failed because the URL could not be found. -->
+  <string name="httpErrorLookup">Methu â dod o hyd i\'r URL.</string>
   <!-- Displayed when a web request failed because the site's authentication scheme is not supported by us. -->
   <!-- Displayed when a web request failed because the authentication failed. -->
+  <string name="httpErrorAuth">Methu â dilysu.</string>
   <!-- Displayed when a web request failed because the authentication with the proxy failed. -->
   <!-- Displayed when a web request failed because there was a connection error. -->
+  <string name="httpErrorConnect">Methwyd â chysylltu â\'r gweinydd.</string>
   <!-- Displayed when a web request failed because there was an input or output error. -->
+  <string name="httpErrorIO">Methu â chyfathrebu â\'r gweinydd. Ceisiwch eto yn hwyrach.</string>
   <!-- Displayed when a web request failed because the request timed out -->
   <!-- Displayed when a web request failed because the site tried to redirect us one too many times -->
   <!-- Displayed when a web request failed because the protocol of the server is not supported. -->
   <!-- Displayed when a web request failed because the a secure connection couldn't be made to the server.-->
+  <string name="httpErrorFailedSslHandshake">Methu â sefydlu cysylltiad diogel.</string>
   <!-- Displayed when a web request failed because the URL isn't in a valid form. -->
+  <string name="httpErrorBadUrl">Methu ag agor y dudalen oherwydd mae\'r URL yn annilys.</string>
   <!-- Displayed when a request failed because we failed to open the file. -->
+  <string name="httpErrorFile">Methwyd â chael at y ffeil.</string>
   <!-- Displayed when a request failed because the file wasn't found. -->
+  <string name="httpErrorFileNotFound">Methwyd â chanfod y ffeil gofynnwyd amdani.</string>
   <!-- Displayed when a request failed because there are too many requests right now. -->
   <!-- Account notifications -->
   <!-- A notification is shown when the AccountManager is unable to
@@ -227,6 +252,7 @@
          logging. [CHAR LIMIT=NONE]-->
   <!-- Factory reset warning dialog strings-->
   <!-- Shows up in the dialog's title to warn about an impeding factory reset. [CHAR LIMIT=NONE] -->
+  <string name="factory_reset_warning">Bydd yr holl ddata ar dy ddyfais yn cael ei dileu</string>
   <!-- Text message in the factory reset warning dialog. This says that the the device admin app
          is missing or corrupted. As a result the device will be erased. [CHAR LIMIT=NONE]-->
   <!-- Display name for any time a piece of data refers to the owner of the phone. For example, this could be used in place of the phone's phone number. -->
@@ -243,26 +269,37 @@
   <!-- Button to turn on the radio, within the Phone Options dialog -->
   <!-- Button to turn off the radio, within the Phone Options dialog -->
   <!-- Button to lock the screen, within the Phone Options dialog -->
+  <string name="screen_lock">Cloi sgrin</string>
   <!-- Button to turn off the phone, within the Phone Options dialog -->
+  <string name="power_off">Diffodd</string>
   <!-- Spoken description for ringer silent option. [CHAR LIMIT=NONE] -->
   <!-- Spoken description for ringer vibrate option. [CHAR LIMIT=NONE] -->
   <!-- Spoken description for ringer normal option. [CHAR LIMIT=NONE] -->
   <!-- Reboot to Recovery Progress Dialog. This is shown before it reboots to recovery. -->
+  <string name="reboot_to_update_prepare">Yn paratoi i ddiweddaru\u2026</string>
   <!-- Reboot to Recovery for factory reset. -->
+  <string name="reboot_to_reset_message">Yn ail-gychwyn\u2026</string>
   <!-- Shutdown Progress Dialog. This is shown if the user chooses to power off the phone. -->
+  <string name="shutdown_progress">Yn cau\u2026</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="shutdown_confirm" product="tablet">Bydd dy lechen yn cau.</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the TV, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="shutdown_confirm" product="tv">Bydd dy deledu yn cau.</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the watch, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="shutdown_confirm" product="watch">Bydd dy oriawr yn cau.</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, there will
          be a confirmation dialog.  This is the message. -->
+  <string name="shutdown_confirm" product="default">Bydd dy ffôn yn cau.</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, it asks
          the user if they'd like to shut down.  This is the message.  This is used instead of
          shutdown_confirm when the system is configured to use long press to go directly to the
          power off dialog instead of the global actions menu. -->
+  <string name="shutdown_confirm_question">Wyt ti eisiau cau\'r ddyfais?</string>
   <!-- Title of dialog to confirm rebooting into safe mode. [CHAR LIMIT=50] -->
+  <string name="reboot_safemode_title">Ailgychwyn ym modd diogel</string>
   <!-- Shutdown Confirmation Dialog.  Message in the confirmation dialog
          when the user asks to reboot into safe mode. [CHAR LIMIT=NONE] -->
   <string name="reboot_safemode_confirm">Wyt ti am ailgychwyn yn y modd diogel?
@@ -272,21 +309,29 @@
      TODO: this should move to SystemUI.apk, but the code for the old
             recent dialog is still in the framework
      -->
+  <string name="recent_tasks_title">Diweddar</string>
   <!-- Recent Tasks dialog: message when there are no recent applications
      TODO: this should move to SystemUI.apk, but the code for the old
             recent dialog is still in the framework
      -->
   <string name="no_recent_tasks">Dim apiau diweddar.</string>
   <!-- Title of the Global Actions Dialog -->
+  <string name="global_actions" product="tablet">Dewisiadau llechen</string>
   <!-- Title of the Global Actions Dialog -->
+  <string name="global_actions" product="tv">Dewisiadau teledu</string>
   <!-- Title of the Global Actions Dialog -->
+  <string name="global_actions" product="default">Dewisiadau ffôn</string>
   <!-- label for item that locks the phone in the phone options dialog -->
+  <string name="global_action_lock">Cloi sgrin</string>
   <!-- label for item that turns off power in phone options dialog -->
+  <string name="global_action_power_off">Cau</string>
   <!-- label for item that restarts phone in phone options dialog -->
   <!-- TODO: promote to separate string-->
   <!-- label for item that starts emergency call -->
   <!-- label for item that generates a bug report in the phone options dialog -->
+  <string name="global_action_bug_report">Adroddiad Gwall</string>
   <!-- Take bug report menu title [CHAR LIMIT=NONE] -->
+  <string name="bugreport_title">Cymryd adroddiad gwall</string>
   <!-- Message in bugreport dialog describing what it does [CHAR LIMIT=NONE] -->
   <!-- TODO: remove if not used anymore -->
   <!-- Title in the bugreport dialog for the interactive workflow. Should fit in one line. [CHAR LIMIT=30] -->
@@ -310,11 +355,15 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   </plurals>
   <!-- Format for build summary info [CHAR LIMIT=NONE] -->
   <!-- label for item that enables silent mode in phone options dialog -->
+  <string name="global_action_toggle_silent_mode">Modd tawel</string>
   <!-- status message in phone options dialog for when silent mode is enabled -->
+  <string name="global_action_silent_mode_on_status">Mae\'r sain I FFWRDD</string>
   <!-- status message in phone options dialog for when silent mode is disabled -->
+  <string name="global_action_silent_mode_off_status">Mae\'r sain YMLAEN</string>
   <!-- label for item that toggles airplane mode -->
   <string name="global_actions_toggle_airplane_mode">Modd awyren</string>
   <!-- status message in phone options dialog for when airplane mode is on -->
+  <string name="global_actions_airplane_mode_on_status">Mae\'r modd awyren YMLAEN</string>
   <!-- status message in phone options dialog for when airplane mode is off -->
   <!-- label for item that launches settings in phone options dialog [CHAR LIMIT=15]-->
   <!-- label for item that launches assist in phone options dialog [CHAR LIMIT=15]-->
@@ -329,6 +378,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- The divider symbol between different parts of the notification header. not translatable [CHAR LIMIT=1] -->
   <!-- The divider symbol between different parts of the notification header including spaces. not translatable [CHAR LIMIT=3] -->
   <!-- Text shown in place of notification contents when the notification is hidden on a secure lockscreen -->
+  <string name="notification_hidden_text">Hysbysiad newydd</string>
   <!-- Text shown when viewing channel settings for notifications related to the virtual keyboard -->
   <!-- Text shown when viewing channel settings for notifications related to the hardware keyboard -->
   <!-- Text shown when viewing channel settings for notifications related to security -->
@@ -381,7 +431,9 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgrouplab_phone">Ffôn</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgroupdesc_phone">gwneud a rheoli galwadau ffôn</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title for the capability of an accessibility service to retrieve window content. -->
@@ -420,11 +472,13 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     in their Launcher -->
   <!-- Description of an application permission, listed so the user can install application shortcuts
     in their Launcher -->
+  <string name="permdesc_uninstall_shortcut">Mae\'n caniatáu i\'r ap dynnu llwybrau byr o\'r Sgrin Gartref heb ganiatâd y defnyddiwr.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_processOutgoingCalls">Mae\'n caniatáu i\'r ap weld y rhif a chaiff ei ddeialu yn ystod galwad allan gyda\'r opsiwn i ailgyfeirio\'r galwad i rif gwahanol neu i ddiddymu\'r galwad yn gyfan gwbl.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_answerPhoneCalls">Mae\'n caniatáu i\'r ap ateb galwad ffôn.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_receiveSms">Mae\'n caniatáu i\'r ap dderbyn a phrosesu negeseuon SMS. Mae hyn yn golygu ei fod yn bosib i\'r ap medru clustfeinio ar neu ddileu negeseuon a chaiff eu hanfon at dy ddyfais heb i ti eu gweld nhw.</string>
@@ -433,7 +487,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <string name="permdesc_receiveMms">Mae\'n caniatáu i\'r ap dderbyn a phrosesu negeseuon MMS. Mae hyn yn golygu ei fod yn bosib i\'r ap medru clustfeinio ar neu ddileu negeseuon a chaiff eu hanfon at dy ddyfais heb i ti eu gweld nhw.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readCellBroadcasts">Mae\'n caniatáu i ap ddarllen darllediadau trwy negeseuon symudol mae dy ddyfais yn eu derbyn. Mewn rhai gwledydd mae rhybuddion am sefyllfaoedd argyfyngus yn cael eu darlledu trwy negeseuon destun. Gall apiau maleisus ymyrryd â pherfformiad neu weithrediad dy ddyfais pan fydd darllediad argyfwng yn cael ei dderbyn.</string>
+  <string name="permdesc_readCellBroadcasts">Mae\'n caniatáu i\'r ap ddarllen darllediadau trwy negeseuon symudol mae dy ddyfais yn eu derbyn. Mewn rhai gwledydd mae rhybuddion am sefyllfaoedd argyfyngus yn cael eu darlledu trwy negeseuon destun. Gall apiau maleisus ymyrryd â pherfformiad neu weithrediad dy ddyfais pan fydd darllediad argyfwng yn cael ei dderbyn.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_subscribedFeedsRead">Mae\'n caniatáu i\'r ap gael manylion am y ffrydiau sydd wedi eu cysoni.</string>
@@ -451,6 +505,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_getTasks">adfer apiau sy\'n rhedeg</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_getTasks">Mae\'n caniatáu i\'r ap adfer gwybodaeth am dasgau yn rhedeg ar y pryd neu yn ddiweddar. Gall hyn galluogi\'r ap i ddarganfod gwybodaeth am ba apiau sy\'n cael eu defnyddio ar y ddyfais.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to set the profile/device owners.
      [CHAR LIMIT=NONE] -->
@@ -460,6 +515,10 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <string name="permdesc_reorderTasks">Mae\'n caniatáu i\'r ap symud tasgau i\'r blaendir a chefndir. Mi fydd yn bosib i\'r ap wneud hyn heb ofyn am gadarnhad.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_enableCarMode">Mae\'n caniatáu i\'r ap alluogi\'r modd car.</string>
+  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_killBackgroundProcesses">Mae\'n caniatáu i\'r ap ddiweddu prosesau cefndir apiau eraill. Gallu hyn achosi rhai apiau i stopio rhedeg.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -468,21 +527,30 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_persistentActivity" product="tablet">Mae\'n caniatáu i\'r ap wneud rhannau o\'i hun yn barhaus yn y cof. Gall hyn gyfyngu ar y cof sydd ar gael i apiau eraill, gan arafu\'r llechen.</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_persistentActivity" product="tv">Mae\'n caniatáu i\'r ap wneud rhannau o\'i hun yn barhaus yn y cof. Gall hyn gyfyngu ar y cof sydd ar gael i apiau eraill, gan arafu\'r teledu.</string>
+  <string name="permdesc_persistentActivity" product="default">Mae\'n caniatáu i\'r ap wneud rhannau o\'i hun yn barhaus yn y cof. Gall hyn gyfyngu ar y cof sydd ar gael i apiau eraill, gan arafu\'r ffôn.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_getPackageSize">Mae\'n caniatáu i\'r ap adfer ei god, data a meintiau cof dros dro.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeSettings">Mae\'n caniatáu i\'r ap addasu gosodiadau data\'r system. Gall apiau maleisus llygru ffurfweddiad y system.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_receiveBootCompleted" product="tablet">Mae\'n caniatáu i\'r ap fedru dechrau ei hun cyn gynted â bod y system wedi cychwyn. Gall hyn olygu ei fod yn cymryd hirach i\'r llechen dechrau ac wrth redeg o hyd gallai\'r ap arafu\'r llechen yn gyffredinol.</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_receiveBootCompleted" product="tv">Mae\'n caniatáu i\'r ap fedru dechrau ei hun cyn gynted â bod y system wedi cychwyn. Gall hyn olygu ei fod yn cymryd hirach i\'r teledu dechrau ac wrth redeg o hyd gallai\'r ap arafu\'r teledu yn gyffredinol.</string>
+  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_receiveBootCompleted" product="default">Mae\'n caniatáu i\'r ap fedru dechrau ei hun cyn gynted â bod y system wedi cychwyn. Gall hyn olygu ei fod yn cymryd hirach i\'r ffôn dechrau ac wrth redeg o hyd gallai\'r ap arafu\'r ffôn yn gyffredinol.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_broadcastSticky" product="tablet">Mae\'n caniatáu i\'r ap anfon darllediadau gludiog, sy\'n parhau ar ôl i\'r darllediad gorffen. Gall defnydd gormodol defnyddio llawer o gof ac achosi\'r llechen fod yn araf neu\'n ansefydlog.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_broadcastSticky" product="tv">Mae\'n caniatáu i\'r ap anfon darllediadau gludiog, sy\'n parhau ar ôl i\'r darllediad gorffen. Gall defnydd gormodol defnyddio llawer o gof ac achosi\'r teledu fod yn araf neu\'n ansefydlog.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_broadcastSticky" product="default">Mae\'n caniatáu i\'r ap anfon darllediadau gludiog, sy\'n parhau ar ôl i\'r darllediad gorffen. Gall defnydd gormodol defnyddio llawer o gof ac achosi\'r ffôn fod yn araf neu\'n ansefydlog.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_readContacts" product="tablet">Mae\'n caniatáu i\'r ap ddarllen data am dy gysylltiadau sydd wedi cadw ar dy lechen, gan gynnwys pa mor aml rwyt wedi eu galw, e-bostio, neu gyfathrebu mewn ffyrdd eraill gydag unigolion penodol. Mae hyn yn caniatáu\'r apiau i gadw dy ddata cysylltiadau, a gall apiau maleisus rannu data cysylltiadau heb iti wybod.</string>
@@ -492,17 +560,24 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <string name="permdesc_readContacts" product="default">Mae\'n caniatáu i\'r ap ddarllen data am dy gysylltiadau sydd wedi cadw ar dy ffôn, gan gynnwys pa mor aml rwyt wedi eu galw, e-bostio, neu gyfathrebu mewn ffyrdd eraill gydag unigolion penodol. Mae hyn yn caniatáu\'r apiau i gadw dy ddata cysylltiadau, a gall apiau maleisus rannu data cysylltiadau heb iti wybod.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeContacts" product="tablet">Mae\'n caniatáu i\'r ap addasu\'r data am dy gysylltiadau ar dy lechen, gan gynnwys pa mor aml wyt wedi cyfathrebu â nhw trwy wahanol ddulliau, gan gynnwys galwadau a negeseuon e-bost. Mae hefyd yn caniatáu i\'r ap dileu data cysylltiadau.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeContacts" product="tv">Mae\'n caniatáu i\'r ap addasu\'r data am dy gysylltiadau ar dy deledu, gan gynnwys pa mor aml wyt wedi cyfathrebu â nhw trwy wahanol ddulliau, gan gynnwys galwadau a negeseuon e-bost. Mae hefyd yn caniatáu i\'r ap dileu data cysylltiadau.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeContacts" product="default">Mae\'n caniatáu i\'r ap addasu\'r data am dy gysylltiadau ar dy ffôn, gan gynnwys pa mor aml wyt wedi cyfathrebu â nhw trwy wahanol ddulliau, gan gynnwys galwadau a negeseuon e-bost. Mae hefyd yn caniatáu i\'r ap dileu data cysylltiadau.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeCallLog" product="tablet">Mae\'n caniatáu i\'r ap addasu log galwadau dy lechen, gan gynnwys data am alwadau i mewn ac allan. Gallai apiau maleisus defnyddio hyn i ddileu neu addasu dy log galwadau.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeCallLog" product="tv">Mae\'n caniatáu i\'r ap addasu log galwadau dy deledu, gan gynnwys data am alwadau i mewn ac allan. Gallai apiau maleisus defnyddio hyn i ddileu neu addasu dy log galwadau.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeCallLog" product="default">Mae\'n caniatáu i\'r ap addasu log galwadau dy ffôn, gan gynnwys data am alwadau i mewn ac allan. Gallai apiau maleisus defnyddio hyn i ddileu neu addasu dy log galwadau.</string>
   <!-- Title of the body sensors permission, listed so the user can decide whether to allow the application to access body sensor data. [CHAR LIMIT=80] -->
   <string name="permlab_bodySensors">cyrchu synwyryddion corfforol (E.e. monitorau curiad calon)    </string>
   <!-- Description of the body sensors permission, listed so the user can decide whether to allow the application to access data from body sensors. [CHAR LIMIT=NONE] -->
+  <string name="permdesc_bodySensors" product="default">Mae\'n caniatáu i\'r ap gael at ddata o synwyryddion sy\'n monitro dy gyflwr corfforol, fel dy guriad calon.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -514,6 +589,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the applicatfion to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessLocationExtraCommands">Mae\'n caniatáu i\'r ap gael at orchmynion y darparwr lleoliad. Gallai hyn caniatáu i\'r ap ymyrryd gyda GPS neu ffynonellau lleoliad eraill.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -523,10 +599,12 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_modifyAudioSettings">Mae\'n caniatáu i’r ap addasu gosodiadau sain megis uchder a pha seinydd sy\'n cael ei ddefnyddio i allbynnu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_sim_communication">Mae\'n caniatáu i\'r ap anfon gorchmynion i\'r SIM. Mae hyn yn hynod beryglus.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -534,35 +612,51 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <string name="permdesc_vibrate">Mae\'n caniatáu i\'r ap reoli\'r dirgrynydd.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_callPhone">Mae\'n caniatáu i\'r ap alw rhifau ffôn heb dy ymyrraeth. Gall hyn arwain at gostau galwadau annisgwyl. Noder nad yw hyn yn caniatáu i\'r ap wneud galwadau brys. Gall apiau maleisus gostio arian i ti gan wneud galwadau heb dy gadarnhad.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessImsCallService">Mae\'n caniatáu i\'r ap ddefnyddio\'r gwasanaeth IMS i wneud galwadau heb dy ymyrraeth.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readPhoneState">Mae\'n caniatáu i\'r ap gael at nodweddion ffôn y ddyfais hon. Mae caniatáu hyn yn galluogi\'r ap i wybod rhif ffôn ac ID y ddyfais ac i weld y rhif sy\'n cael ei gysylltu trwy alwad.</string>
   <!-- Title of an application permission.  When granted the user is giving access to a third
          party app to route its calls through the system. -->
   <!-- Description of an application permission.  When granted the user is giving access to a
          third party app to route its calls through the system. -->
+  <string name="permdesc_manageOwnCalls">Mae\'n caniatáu i\'r ap dargyfeirio ei alwadau trwy\'r system er mwyn gwella\'r profiad galw.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readPhoneNumbers">Mae\'n caniatáu i\'r ap gael mynediad at rifau ffôn ar y ddyfais.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_wakeLock" product="tablet">Mae\'n caniatáu i\'r ap rwystro\'r llechen rhag mynd i gysgu.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_wakeLock" product="tv">Mae\'n caniatáu i\'r ap rwystro\'r teledu rhag mynd i gysgu.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_wakeLock" product="default">Mae\'n caniatáu i\'r ap rwystro\'r ffôn rhag mynd i gysgu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_transmitIr" product="tablet">Mae\'n caniatáu i\'r ap ddefnyddio trawsyrrydd isgoch y llechen.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_transmitIr" product="tv">Mae\'n caniatáu i\'r ap ddefnyddio trawsyrrydd isgoch y teledu.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_transmitIr" product="default">Mae\'n caniatáu i\'r ap ddefnyddio trawsyrrydd isgoch y ffôn.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setWallpaper">Mae\'n caniatáu i\'r ap osod papur wal y system.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_setWallpaperHints">addasu maint dy bapur wal</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setWallpaperHints">Mae\'n caniatáu i\'r ap osod awgrymiadau maint papur wal y system.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setTimeZone" product="tablet">Mae\'n caniatáu i\'r ap newid cylchfa amser y llechen.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setTimeZone" product="tv">Mae\'n caniatáu i\'r ap newid cylchfa amser y teledu.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setTimeZone" product="default">Mae\'n caniatáu i\'r ap newid cylchfa amser y ffôn.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_getAccounts" product="tablet">Mae\'n caniatáu i\'r ap gael rhestr o gyfrifon ar y llechen. Gall hyn gynnwys unrhyw gyfrifon sydd wedi eu creu gan apiau sydd wedi eu gosod.</string>
@@ -606,6 +700,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Message shown during fingerprint acquisision when the fingerprint cannot be recognized -->
   <!-- Message shown during fingerprint acquisision when the fingerprint cannot be recognized -->
+  <string name="fingerprint_acquired_insufficient">Methwyd â phrosesu\'r ôl bys. Rho gynnig arall arni.</string>
   <!-- Message shown during fingerprint acquisision when the fingerprint sensor needs cleaning -->
   <!-- Message shown during fingerprint acquisision when the user removes their finger from the sensor too quickly -->
   <!-- Message shown during fingerprint acquisision when the user moves their finger too slowly -->
@@ -678,7 +773,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_accessDrmCertificates">cyrchu tystysgrifau DRM</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessDrmCertificates">Mae\'n caniatáu i ap darparu a defnyddio tystysgrifau DRM. Ni ddylai fod byth ei angen ar apiau arferol.</string>
+  <string name="permdesc_accessDrmCertificates">Mae\'n caniatáu i ap ddarparu a defnyddio tystysgrifau DRM. Ni ddylai fod byth ei angen ar apiau arferol.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_removeDrmCertificates">Mae\'n caniatáu i ap dynnu tystysgrifau DRM. Ni ddylai fod byth ei angen ar apiau arferol.</string>
@@ -858,6 +953,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Shown in the lock screen to inform the user to SIM card is permanently disabled. -->
   <!-- Shown on transport control of lockscreen. Pressing button goes to previous track. -->
   <!-- Shown on transport control of lockscreen. Pressing button goes to next track. -->
+  <string name="lockscreen_transport_next_description">Trac nesaf</string>
   <!-- Shown on transport control of lockscreen. Pressing button pauses playback -->
   <!-- Shown on transport control of lockscreen. Pressing button pauses playback -->
   <!-- Shown on transport control of lockscreen. Pressing button pauses playback -->
@@ -912,32 +1008,32 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
   <!-- For the unlock screen, informational message shown in dialog when user is almost at the limit
          where the device will be wiped. -->
   <string name="lockscreen_failed_attempts_almost_at_wipe" product="tablet">
-Rwyt wedi ceisio a methu datgloi\'r llechen <xliff:g id="number">%1$d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%1$d</xliff:g> tro.
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y llechen ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei defnyddwyr yn cael ei ddileu.    </string>
   <!-- For the unlock screen, informational message shown in dialog when user is almost at the limit
          where the device will be wiped. -->
   <string name="lockscreen_failed_attempts_almost_at_wipe" product="tv">
-Rwyt wedi ceisio a methu datgloi\'r teledu <xliff:g id="number">%1$d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r teledu <xliff:g id="number">%1$d</xliff:g> tro.
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y teledu ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei ddefnyddwyr yn cael ei ddileu.    </string>
   <!-- For the unlock screen, informational message shown in dialog when user is almost at the limit
          where the device will be wiped. -->
   <string name="lockscreen_failed_attempts_almost_at_wipe" product="default">
-Rwyt wedi ceisio a methu datgloi\'r ffôn <xliff:g id="number">%1$d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r ffôn <xliff:g id="number">%1$d</xliff:g> tro.
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y ffôn ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei ddefnyddwyr yn cael ei ddileu.    </string>
   <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
   <string name="lockscreen_failed_attempts_now_wiping" product="tablet">
-Rwyt wedi ceisio a methu datgloi\'r llechen <xliff:g id="number">%d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%d</xliff:g> tro.
 Bydd y llechen nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
   <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
   <string name="lockscreen_failed_attempts_now_wiping" product="tv">
-Rwyt wedi ceisio a methu datgloi\'r teledu <xliff:g id="number">%d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r teledu <xliff:g id="number">%d</xliff:g> tro.
 Bydd y teledu nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
   <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
   <string name="lockscreen_failed_attempts_now_wiping" product="default">
-Rwyt wedi ceisio a methu datgloi\'r ffôn <xliff:g id="number">%d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r ffôn <xliff:g id="number">%d</xliff:g> tro.
 Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
   <!-- On the unlock screen, countdown message shown while user is waiting to try again after too many
          failed attempts -->
@@ -985,6 +1081,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Accessibility description of the face unlock. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the pin lock. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the password lock. [CHAR_LIMIT=none] -->
+  <string name="keyguard_accessibility_password_unlock">Datgloi â chyfrinair.</string>
   <!-- Accessibility description of the unlock pattern area. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the unlock slide area. [CHAR_LIMIT=none] -->
   <!-- Password keyboard strings. Used by LockScreen and Settings -->
@@ -1019,13 +1116,10 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
          e.g. John<separator>Smith [CHAR-LIMIT=NONE]-->
   <!-- Format string for displaying a name. $1 is First Name, $2 is autofill_address_name_separator, $3 is Last Name.
          e.g. (John)( )(Smith) -->
-  <string name="autofill_address_summary_name_format">$1$2$3</string>
   <!-- String used to separate Name and Address Line 1
          e.g. John Smith<separator>123 Main Street [CHAR-LIMIT=NONE]-->
-  <string name="autofill_address_summary_separator">,\u0020</string>
   <!-- Format string for displaying a name and address summary. $1 is the Full Name, $2 is autofill_address_summary_separator, $3 is the Address
          e.g. (John Smith)(, )(123 Main Street) -->
-  <string name="autofill_address_summary_format">$1$2$3</string>
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
@@ -1100,15 +1194,17 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
         they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether
         they want to allow the application to do this. [CHAR LIMIT=NONE] -->
-  <string name="permlab_addVoicemail">ychwanegu llaisbost</string>
+  <string name="permlab_addVoicemail">ychwanegu lleisbost</string>
   <!-- Description of an application permission, listed so the user can choose whether
         they want to allow the application to do this. [CHAR LIMIT=NONE] -->
+  <string name="permdesc_addVoicemail">Mae\'n caniatáu i\'r ap ychwanegu negeseuon i dy flwch lleisbost.</string>
   <!-- Title of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
   <!-- If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. Text in the save password dialog, asking if the browser should remember a password. -->
   <!-- If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. Button in the save password dialog, saying not to remember this password. -->
+  <string name="save_password_notnow">Dim nawr</string>
   <!-- If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. Button in the save password dialog, saying to remember this password. -->
   <!-- Button in the save password dialog, saying never to remember this password. This should be short. Should be "Never for this site". But it is too long, use "Never" instead -->
   <!-- Displayed to the user when they do not have permission to open a particular web page. -->
@@ -1342,6 +1438,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Title for EditText context menu [CHAR LIMIT=20] -->
   <!-- Label for item in the text selection menu to trigger an Email app [CHAR LIMIT=20] -->
   <!-- Label for item in the text selection menu to trigger a Dialer app [CHAR LIMIT=20] -->
+  <string name="dial">Ffôn</string>
   <!-- Label for item in the text selection menu to trigger a Map app [CHAR LIMIT=20] -->
   <!-- Label for item in the text selection menu to trigger a Browser app [CHAR LIMIT=20] -->
   <!-- If the device is getting low on internal storage, a notification is shown to the user.  This is the title of that notification. -->
@@ -1514,6 +1611,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- The title of the ringtone picker dialog. -->
   <!-- The title of the alarm sound picker dialog [CHAR LIMIT=100] -->
   <!-- The title of the notification sound picker dialog [CHAR LIMIT=100] -->
+  <string name="ringtone_picker_title_notification">Seiniau hysbysiadau</string>
   <!-- If there is ever a ringtone set for some setting, but that ringtone can no longer be resolved, t his is shown instead.  For example, if the ringtone was on a SD card and it had been removed, this woudl be shown for ringtones on that SD card. -->
   <string name="ringtone_unknown">Anhysbys</string>
   <!-- A notification is shown when there are open wireless networks nearby.  This is the notification's title. -->
@@ -1549,6 +1647,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Network type name displayed if one of the types is not found in network_switch_type_name. -->
   <string name="network_switch_type_name_unknown">math rhwydwaith anhysbys</string>
   <!-- A notification is shown when a user's selected SSID is later disabled due to connectivity problems.  This is the notification's title / ticker. -->
+  <string name="wifi_watchdog_network_disabled">Methwyd â chysylltu i\'r Wi-Fi</string>
   <!-- A notification is shown when a user's selected SSID is later disabled due to connectivity problems.  The complete alert msg is: <hotspot name> + this string, i.e. "Linksys has a poor internet connection" -->
   <!-- Do not translate. Default access point SSID used for tethering -->
   <!-- Do not translate. Default access point SSID used for local only hotspot -->
@@ -1557,6 +1656,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <string name="wifi_connect_alert_title">Caniatáu cysylltiad?</string>
   <!-- message explaining who is connecting to what -->
   <!-- default application in case name can not be found -->
+  <string name="wifi_p2p_failed_message">Methwyd â dechrau Wi-Fi Uniongyrchol.</string>
   <string name="wifi_p2p_enabled_notification_message">Tara am osodiadau</string>
   <string name="accept">Derbyn</string>
   <!-- Name of the dialog that lets the user choose an accented character to insert -->
@@ -1577,6 +1677,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Text of the cancel button for the SMS short code confirmation dialog. [CHAR LIMIT=30] -->
   <!-- Text of the checkbox for the SMS short code confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <!-- Text shown when remember checkbox is checked to inform the user how they may undo the setting. [CHAR LIMIT=40] -->
+  <string name="sms_short_code_remember_undo_instruction">Mae\'n bosib newid hyn hwyrach yn Gosodiadau\u00A0&gt;\u00A0Apiau\"</string>
   <!-- Text of the approval button for the SMS short code confirmation dialog when checkbox is checked. [CHAR LIMIT=30] -->
   <!-- Text of the cancel button for the SMS short code confirmation dialog when checkbox is checked. [CHAR LIMIT=30] -->
   <!-- SIM swap and device reboot Dialog -->
@@ -1703,10 +1804,11 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Short summary of storage media status when ejecting [CHAR LIMIT=32] -->
   <!-- Short summary of storage media status when formatting [CHAR LIMIT=32] -->
   <!-- Short summary of storage media status when missing [CHAR LIMIT=32] -->
+  <string name="ext_media_status_missing">Heb ei gosod</string>
   <!-- Shown in LauncherActivity when the requested target Intent didn't return any matching Activities, leaving the list empty. -->
   <!-- Title of an application permission that lets an application route media output. -->
   <!-- Description of an application permission that lets an application route media output. -->
-  <string name="permdesc_route_media_output">Mae\'n caniatáu ap i ddargyfeirio allbwn cyfryngau i ddyfeisiau eraill.</string>
+  <string name="permdesc_route_media_output">Mae\'n caniatáu i ap ddargyfeirio allbwn cyfryngau i ddyfeisiau eraill.</string>
   <!-- Title of an application permission that lets it read install sessions. -->
   <!-- Description of an application permission that lets it read install sessions. -->
   <string name="permdesc_readInstallSessions">Mae\'n caniatáu i ap ddarllen sesiynau gosod. Mae hyn yn ei alluogi i weld manylion am becynnau sydd wedi eu gosod.</string>
@@ -1715,6 +1817,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <string name="permdesc_requestInstallPackages">Mae\'n caniatáu i ap wneud ceisiadau i osod pecynnau.</string>
   <!-- Title of an application permission that lets it read install sessions. -->
   <!-- Description of an application permission that lets it read install sessions. -->
+  <string name="permdesc_requestDeletePackages">Mae\'n caniatáu i ap wneud ceisiadau i ddileu pecynnau.</string>
   <!-- Title of an application permission that lets it ask user to ignore battery optimizations for that app. -->
   <string name="permlab_requestIgnoreBatteryOptimizations">gofyn i anwybyddu dewisiadau arbed batri</string>
   <!-- Description of an application permission that lets it ask user to ignore battery optimizations for that app-->
@@ -1727,6 +1830,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Long label for a button on a full-screen input method for the "Search" action. -->
   <!-- Long label for a button on a full-screen input method for the "Send" action. -->
   <!-- Long label for a button on a full-screen input method for the "Next" action. -->
+  <string name="ime_action_next">Nesaf</string>
   <!-- Long label for a button on a full-screen input method for the "Done" action. -->
   <!-- [CHAR LIMIT=6] Long label for a button on a full-screen input method for the "Previous" action. -->
   <!-- Long label for a button on a full-screen input method for an unknown action. -->
@@ -1781,6 +1885,8 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_message">Tara i osod.</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
+  <string name="back_button_label">Nôl</string>
+  <string name="next_button_label">Nesaf</string>
   <!-- Optional button to Skip a PreferenceActivity [CHAR LIMIT=20] -->
   <!-- Displayed on the Find dialog when there are no matches [CHAR LIMIT=NONE]-->
   <!-- Find dialog hint text.  Also used in the menu item to open find on page [CHAR LIMIT=NONE] -->
@@ -1805,6 +1911,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- ActionBar action to use the current selection to open the Find on page functionality [CHAR LIMIT=10]-->
   <!-- ActionBar action to use the current selection to perform a web search [CHAR-LIMIT=16] -->
   <!-- ActionBar action to find the next match in the page [CHAR LIMIT=24] -->
+  <string name="find_next">Canfod y nesaf</string>
   <!-- ActionBar action to find the previous match in the page [CHAR LIMIT=24] -->
   <!-- Network positioning notification ticker. The name of the user (e.g. John Doe) who sent
          the request is shown as a dynamic string. -->
@@ -1847,6 +1954,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Description of the button to decrease the DatePicker's year value. [CHAR LIMIT=NONE] -->
   <!-- Description of the button to move to the previous month. [CHAR LIMIT=NONE] -->
   <!-- Description of the button to move to the next month. [CHAR LIMIT=NONE] -->
+  <string name="date_picker_next_month_button">Y mis nesaf</string>
   <!-- KeyboardView - accessibility support -->
   <!-- Description of the Alt button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <!-- Description of the Cancel button in a KeyboardView. [CHAR LIMIT=NONE] -->
@@ -1960,6 +2068,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Status message for a remote route attempting to connect -->
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <!-- Status message for remote routes that are not available for connection right now -->
+  <string name="media_route_status_not_available">Dim ar gael</string>
   <!-- Status message for a remote route that is in use (and thus unavailabe) right now -->
   <!-- Display manager service -->
   <!-- Name of the built-in display.  [CHAR LIMIT=50] -->
@@ -2012,27 +2121,27 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     </string>
   <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
   <string name="kg_failed_attempts_almost_at_wipe" product="tablet">
-Rwyt wedi ceisio a methu datgloi\'r llechen <xliff:g id="number">%1$d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%1$d</xliff:g> tro.
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y llechen ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei defnyddwyr yn cael ei ddileu.    </string>
   <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
   <string name="kg_failed_attempts_almost_at_wipe" product="tv">
-Rwyt wedi ceisio a methu datgloi\'r teledu <xliff:g id="number">%1$d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r teledu <xliff:g id="number">%1$d</xliff:g> tro.
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y teledu ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei dddefnyddwyr yn cael ei ddileu.    </string>
   <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
   <string name="kg_failed_attempts_almost_at_wipe" product="default">
-Rwyt wedi ceisio a methu datgloi\'r ffôn <xliff:g id="number">%1$d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r ffôn <xliff:g id="number">%1$d</xliff:g> tro.
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y ffôn ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei ddefnyddwyr yn cael ei ddileu.    </string>
   <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
   <string name="kg_failed_attempts_now_wiping" product="tablet">
-Rwyt wedi ceisio a methu datgloi\'r llechen <xliff:g id="number">%d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%d</xliff:g> tro.
 Bydd y llechen nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
   <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
   <string name="kg_failed_attempts_now_wiping" product="tv">
-Rwyt wedi ceisio a methu datgloi\'r teledu <xliff:g id="number">%d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r teledu <xliff:g id="number">%d</xliff:g> tro.
 Bydd y teledu nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
   <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
   <string name="kg_failed_attempts_now_wiping" product="default">
-Rwyt wedi ceisio a methu datgloi\'r ffôn <xliff:g id="number">%d</xliff:g> tro.
+Rwyt wedi ceisio a methu â datgloi\'r ffôn <xliff:g id="number">%d</xliff:g> tro.
 Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
   <!-- Message shown in dialog when user is almost at the limit where they will be
     locked out and may have to enter an alternate username/password to unlock the phone -->
@@ -2054,7 +2163,6 @@ Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, mi fydd g
 Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </string>
   <!-- Sequence of characters used to separate message strings in keyguard. Typically just em-dash
          with spaces on either side. [CHAR LIMIT=3] -->
-  <string name="kg_text_message_separator" product="default">" \u2014 "</string>
   <!-- The delete-widget drop target button text -->
   <!-- Message shown in dialog when user is attempting to set the music volume above the
     recommended maximum level for headphones -->
@@ -2399,5 +2507,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
   <!-- Content description for the reply button in the notification area [CHAR LIMIT=NONE]-->
   <!-- Primary ETWS (Earthquake and Tsunami Warning System) default message for others -->
   <!-- Title of notification when UE fails to register network with MM reject cause code. -->
+  <string name="mmcc_authentication_reject">Ni chaniateir SIM</string>
+  <string name="mmcc_illegal_ms">Ni chaniateir SIM</string>
   <!-- Popup window default title to be read by a screen reader-->
 </resources>

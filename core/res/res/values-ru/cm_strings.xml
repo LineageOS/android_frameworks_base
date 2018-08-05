@@ -29,12 +29,12 @@
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">Чтобы открепить экран, нажмите и удерживайте кнопку «Назад».</string>
   <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">включение или отключение защищенного режима</string>
-  <string name="permdesc_changePrivacyGuardState">Приложение сможет изменять состояние защищенного режима для других приложений. Если приложение запущено в защищенном режиме, оно не будет иметь доступ к персональным данным, таким как контакты, журнал звонков или сообщения.</string>
-  <string name="privacy_guard_notification">Защищенный режим активен</string>
-  <string name="privacy_guard_notification_detail">У «<xliff:g id="app">%1$s</xliff:g>» нет доступа к персональным данным</string>
-  <string name="privacy_guard_dialog_title">Защищенный режим</string>
-  <string name="privacy_guard_dialog_summary">Приложение «<xliff:g id="app">%1$s</xliff:g>» пытается <xliff:g id="op">%2$s</xliff:g>.</string>
+  <string name="permlab_changePrivacyGuardState">включение или отключение Защиты конфиденциальности</string>
+  <string name="permdesc_changePrivacyGuardState">Разрешает приложению изменять состояние Защиты конфиденциальности для других приложений. Если приложение запущено в режиме Защиты конфиденциальности, оно не будет иметь доступ к персональным данным, таким как контакты, журнал звонков или сообщения.</string>
+  <string name="privacy_guard_notification">Защита конфиденциальности активна</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> не имеет доступа к персональным данным</string>
+  <string name="privacy_guard_dialog_title">Защита конфиденциальности</string>
+  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> пытается <xliff:g id="op">%2$s</xliff:g>.</string>
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <string name="permission_remember_choice">Запомнить мой выбор</string>
   <!-- App ops requests -->

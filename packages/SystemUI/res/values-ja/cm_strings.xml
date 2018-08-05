@@ -59,6 +59,8 @@
   <string name="accessibility_dpad_right">カーソルを右へ</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">固定を解除するまで画面が常に表示されるようになります。固定を解除するには戻るボタンを押し続けます。</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">時計</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
