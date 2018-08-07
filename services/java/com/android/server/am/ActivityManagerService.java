@@ -6190,13 +6190,26 @@ public final class ActivityManagerService extends ActivityManagerNative
             }
         }
 
+        // Figure out the value returned when access is allowed
+        final int allowedResult;
+        if ((modeFlags & Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION) != 0) {
+            // If we're extending a persistable grant, then we need to return
+            // "targetUid" so that we always create a grant data structure to
+            // support take/release APIs
+            allowedResult = targetUid;
+        } else {
+            // Otherwise, we can return "-1" to indicate that no grant data
+            // structures need to be created
+            allowedResult = -1;
+        }
+
         if (targetUid >= 0) {
             // First...  does the target actually need this permission?
             if (checkHoldingPermissionsLocked(pm, pi, uri, targetUid, modeFlags)) {
                 // No need to grant the target this permission.
                 if (DEBUG_URI_PERMISSION) Slog.v(TAG,
                         "Target " + targetPkg + " already has full permission to " + uri);
-                return -1;
+                return allowedResult;
             }
         } else {
             // First...  there is no target package, so can anyone access it?
@@ -6212,7 +6225,7 @@ public final class ActivityManagerService extends ActivityManagerNative
                 }
             }
             if (allowed) {
-                return -1;
+                return allowedResult;
             }
         }
 
