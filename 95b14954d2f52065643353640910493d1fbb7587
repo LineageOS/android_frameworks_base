@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4972cf75_f574744c",
+        "filename": "core/java/android/app/NotificationGroup.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-08-08T10:03:31Z",
+      "side": 1,
+      "message": "Line length",
+      "revId": "95b14954d2f52065643353640910493d1fbb7587",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
