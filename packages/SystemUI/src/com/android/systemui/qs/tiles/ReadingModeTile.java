@@ -52,7 +52,7 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
     @Override
     protected void handleClick() {
         boolean newStatus = !isReadingModeEnabled();
-        mHardware.setGrayscale(newStatus);
+        mHardware.set(LineageHardwareManager.FEATURE_READING_ENHANCEMENT, newStatus);
         LineageSettings.System.putInt(mContext.getContentResolver(),
                 LineageSettings.System.DISPLAY_READING_MODE, newStatus ? 1 : 0);
     }
@@ -127,7 +127,6 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
     }
 
     private boolean isReadingModeEnabled() {
-        return LineageSettings.System.getInt(mContext.getContentResolver(),
-                LineageSettings.System.DISPLAY_READING_MODE, 0) == 1;
+        return mHardware.get(LineageHardwareManager.FEATURE_READING_ENHANCEMENT);
     }
 }
