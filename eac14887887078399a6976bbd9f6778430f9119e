@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "272e7525_2675975d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/ReadingModeTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-08-08T18:43:22Z",
+      "side": 0,
+      "message": "I think I need to keep this in order to update the toggle if the QS tile is changed while in the LiveDisplay settings menu.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 80
+      },
+      "revId": "eac14887887078399a6976bbd9f6778430f9119e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
