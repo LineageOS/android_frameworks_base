@@ -22,6 +22,30 @@
       "revId": "eac14887887078399a6976bbd9f6778430f9119e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "433a5334_049c1439",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/ReadingModeTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-08-08T18:53:17Z",
+      "side": 0,
+      "message": "Nope. Doesn\u0027t fix it. I could probably drop the content observer for this thing.",
+      "parentUuid": "272e7525_2675975d",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 80
+      },
+      "revId": "eac14887887078399a6976bbd9f6778430f9119e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
