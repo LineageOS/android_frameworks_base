@@ -17,9 +17,6 @@
 package com.android.systemui.qs.tiles;
 
 import android.content.Intent;
-import android.database.ContentObserver;
-import android.net.Uri;
-import android.os.Handler;
 import android.service.quicksettings.Tile;
 
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
@@ -37,7 +34,6 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
             new Intent("org.lineageos.lineageparts.LIVEDISPLAY_SETTINGS");
 
     private LineageHardwareManager mHardware;
-    private boolean mListening;
 
     public ReadingModeTile(QSHost host) {
         super(host);
@@ -52,9 +48,8 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
     @Override
     protected void handleClick() {
         boolean newStatus = !isReadingModeEnabled();
-        mHardware.setGrayscale(newStatus);
-        LineageSettings.System.putInt(mContext.getContentResolver(),
-                LineageSettings.System.DISPLAY_READING_MODE, newStatus ? 1 : 0);
+        mHardware.set(LineageHardwareManager.FEATURE_READING_ENHANCEMENT, newStatus);
+        refreshState();
     }
 
     @Override
@@ -105,29 +100,11 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
         return LineageMetricsLogger.TILE_READING_MODE;
     }
 
-    private ContentObserver mObserver = new ContentObserver(mHandler) {
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            refreshState();
-        }
-    };
-
     @Override
     public void handleSetListening(boolean listening) {
-        if (mListening != listening) {
-            mListening = listening;
-            if (listening) {
-                mContext.getContentResolver().registerContentObserver(
-                        LineageSettings.System.getUriFor(
-                            LineageSettings.System.DISPLAY_READING_MODE), false, mObserver);
-            } else {
-                mContext.getContentResolver().unregisterContentObserver(mObserver);
-            }
-        }
     }
 
     private boolean isReadingModeEnabled() {
-        return LineageSettings.System.getInt(mContext.getContentResolver(),
-                LineageSettings.System.DISPLAY_READING_MODE, 0) == 1;
+        return mHardware.get(LineageHardwareManager.FEATURE_READING_ENHANCEMENT);
     }
 }
