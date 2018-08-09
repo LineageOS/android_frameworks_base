@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9099e4d6_750c1d55",
+        "filename": "services/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-08-09T08:45:08Z",
+      "side": 1,
+      "message": "Of course, this doesn\u0027t actually work because lineage-sdk does not use bp and bp dependencies have to be defined using bp.\n\nerror: frameworks/base/services/Android.bp:3:1: \"services\" depends on undefined module \"org.lineageos.platform.internal\"\n\nUgh",
+      "revId": "06c83776f20f69793a195a441a95f8a6399c176c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
