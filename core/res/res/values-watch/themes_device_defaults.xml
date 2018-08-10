@@ -43,7 +43,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -60,7 +60,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -78,7 +78,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -98,7 +98,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -117,7 +117,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -166,7 +166,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -194,7 +194,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -212,7 +212,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -232,7 +232,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -251,7 +251,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -271,7 +271,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -289,7 +289,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -308,7 +308,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -325,7 +325,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -344,7 +344,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -362,7 +362,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -380,7 +380,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -398,7 +398,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -416,7 +416,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -432,7 +432,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
@@ -450,7 +450,7 @@ a similar way.
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorBackgroundCacheHint">@color/background_cache_hint_selector_device_default</item>
         <item name="colorButtonNormal">@color/button_normal_device_default_dark</item>
-        <item name="colorError">@color/error_color_device_default_dark</item>
+        <item name="textColorError">@color/error_color_device_default_dark</item>
         <item name="disabledAlpha">@dimen/disabled_alpha_device_default</item>
         <item name="primaryContentAlpha">@dimen/primary_content_alpha_device_default</item>
         <item name="secondaryContentAlpha">@dimen/secondary_content_alpha_device_default</item>
