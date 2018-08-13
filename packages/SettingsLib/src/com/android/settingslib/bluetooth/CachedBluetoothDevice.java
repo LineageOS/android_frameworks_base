@@ -357,7 +357,7 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
                if (peerDevice != null) {
                    final boolean peersuccessful = peerDevice.removeBond();
                    if (peersuccessful) {
-                       if (Utils.D) {
+                       if (BluetoothUtils.D) {
                            Log.d(TAG, "Command sent successfully:REMOVE_BOND " + peerDevice.getName());
                        }
                    }
