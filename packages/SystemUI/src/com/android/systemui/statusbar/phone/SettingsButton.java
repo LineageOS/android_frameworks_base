@@ -32,7 +32,7 @@ import com.android.systemui.Interpolators;
 
 public class SettingsButton extends AlphaOptimizedImageButton {
 
-    private static final boolean TUNER_ENABLE_AVAILABLE = false;
+    private static final boolean TUNER_ENABLE_AVAILABLE = true;
 
     private static final long LONG_PRESS_LENGTH = 1000;
     private static final long ACCEL_LENGTH = 750;
