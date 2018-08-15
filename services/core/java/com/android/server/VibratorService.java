@@ -57,6 +57,7 @@ import com.android.internal.app.IAppOpsService;
 import com.android.internal.app.IBatteryStats;
 import com.android.internal.util.DumpUtils;
 import com.android.server.power.BatterySaverPolicy.ServiceType;
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -74,6 +75,7 @@ public class VibratorService extends IVibratorService.Stub
     private final boolean mAllowPriorityVibrationsInLowPowerMode;
     private final boolean mSupportsAmplitudeControl;
     private final int mDefaultVibrationAmplitude;
+    private float mVibrationIntensity;
     private final VibrationEffect[] mFallbackEffects;
     private final WorkSource mTmpWorkSource = new WorkSource();
     private final Handler mH = new Handler();
@@ -263,6 +265,9 @@ public class VibratorService extends IVibratorService.Stub
 
         mContext.getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.VIBRATE_INPUT_DEVICES),
+                true, mSettingObserver, UserHandle.USER_ALL);
+        mContext.getContentResolver().registerContentObserver(
+                LineageSettings.Secure.getUriFor(LineageSettings.Secure.VIBRATOR_INTENSITY),
                 true, mSettingObserver, UserHandle.USER_ALL);
 
         mContext.registerReceiver(new BroadcastReceiver() {
@@ -604,6 +609,11 @@ public class VibratorService extends IVibratorService.Stub
             boolean devicesUpdated = updateInputDeviceVibratorsLocked();
             boolean lowPowerModeUpdated = updateLowPowerModeLocked();
 
+            mVibrationIntensity = LineageSettings.Secure.getFloatForUser(
+                    mContext.getContentResolver(),
+                    LineageSettings.Secure.VIBRATOR_INTENSITY, 255.0f,
+                    UserHandle.USER_CURRENT) / 255.0f;
+
             if (devicesUpdated || lowPowerModeUpdated) {
                 // If the state changes out from under us then just reset.
                 doCancelVibrateLocked();
@@ -717,7 +727,12 @@ public class VibratorService extends IVibratorService.Stub
 
     private void doVibratorSetAmplitude(int amplitude) {
         if (mSupportsAmplitudeControl) {
-            vibratorSetAmplitude(amplitude);
+            int finalAmplitude = (int) ((float) amplitude * mVibrationIntensity);
+            if (DEBUG) {
+                Slog.d(TAG, "Set vibrator intensity: amplitude " + amplitude +
+                        ", after applying intensity " + finalAmplitude);
+            }
+            vibratorSetAmplitude(finalAmplitude);
         }
     }
 
@@ -746,6 +761,7 @@ public class VibratorService extends IVibratorService.Stub
             if (vibratorCount == 0) {
                 long timeout = vibratorPerformEffect(prebaked.getId(), EffectStrength.MEDIUM);
                 if (timeout > 0) {
+                    // XXX: apply amplitude for effect?
                     noteVibratorOnLocked(vib.mUid, timeout);
                     return timeout;
                 }
