@@ -3994,7 +3994,11 @@ public class NotificationStackScrollLayout extends ViewGroup
     }
 
     private void updateAntiBurnInTranslation() {
-        setTranslationX(mAntiBurnInOffsetX * mDarkAmount);
+        float x = mAntiBurnInOffsetX * mDarkAmount;
+        if (!onKeyguard()) {
+            x += getTranslationX();
+        }
+        setTranslationX(x);
     }
 
     /**
