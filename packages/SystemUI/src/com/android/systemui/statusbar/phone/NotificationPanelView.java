@@ -2489,6 +2489,9 @@ public class NotificationPanelView extends PanelView implements
     }
 
     protected void setVerticalPanelTranslation(float translation) {
+        if (mKeyguardShowing) {
+            return;
+        }
         mNotificationStackScroller.setTranslationX(translation);
         mQsFrame.setTranslationX(translation);
         int size = mVerticalTranslationListener.size();
