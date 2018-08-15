@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5e64bd3_4b2dd8d6",
+        "filename": "services/core/java/com/android/server/VibratorService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2018-08-15T10:05:09Z",
+      "side": 1,
+      "message": "Not sure whether we want to apply the intensity setting also to effects?",
+      "revId": "3203cfa5b26508159c7d17a49b582712b8a8535c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
