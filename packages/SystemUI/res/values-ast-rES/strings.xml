@@ -469,7 +469,7 @@
   <!-- Text to display underneath the graphical signal strength meter when
          no connection is available. [CHAR LIMIT=20] -->
   <string name="status_bar_settings_signal_meter_disconnected">
-        Ensin conexón a Internet
+        Nun hai conexón a internet
     </string>
   <!-- Text to display underneath the graphical signal strength meter when
          it is displaying Wi-Fi status and Wi-Fi is connected to a network
@@ -677,9 +677,9 @@
   <!-- Description of the unlock target in the Slide unlock screen. [CHAR LIMIT=NONE] -->
   <string name="description_target_search">Guetar</string>
   <!-- Description of the up direction in which one can to slide the handle in the Slide unlock screen. [CHAR LIMIT=NONE] -->
-  <string name="description_direction_up">Esliza hacia arriba pa <xliff:g id="target_description" example="Unlock">%s</xliff:g>.</string>
+  <string name="description_direction_up">Esliza p\'arriba pa <xliff:g id="target_description" example="Unlock">%s</xliff:g>.</string>
   <!-- Description of the left direction in which one can to slide the handle in the Slide unlock screen. [CHAR LIMIT=NONE] -->
-  <string name="description_direction_left">\"Esliza hacia la esquierda pa <xliff:g id="target_description" example="Unlock">%s</xliff:g>.</string>
+  <string name="description_direction_left">Esliza pa la esquierda pa <xliff:g id="target_description" example="Unlock">%s</xliff:g>.</string>
   <!-- Zen mode: Priority only introduction message on first use -->
   <!-- Zen mode: Alarms only introduction message on first use -->
   <!-- Zen mode: Priority only customization button label -->
@@ -745,7 +745,7 @@
   <!-- Title of the confirmation dialog when exiting guest session [CHAR LIMIT=NONE] -->
   <string name="guest_exit_guest_dialog_title">¿Desaniciar convidáu?</string>
   <!-- Message of the confirmation dialog when exiting guest session [CHAR LIMIT=NONE] -->
-  <string name="guest_exit_guest_dialog_message">Van desaniciases toles aplicaciones y datos d\'esta sesión.</string>
+  <string name="guest_exit_guest_dialog_message">Van desaniciase toles aplicaciones y datos d\'esta sesión.</string>
   <!-- Label for button in confirmation dialog when exiting guest session [CHAR LIMIT=35] -->
   <string name="guest_exit_guest_dialog_remove">Desaniciar</string>
   <!-- Title of the notification when resuming an existing guest session [CHAR LIMIT=NONE] -->

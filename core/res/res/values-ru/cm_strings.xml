@@ -99,7 +99,7 @@
   <string name="app_ops_use_audio_focus">получить управление аудиофокусом</string>
   <string name="app_ops_use_bluetooth_volume">получить управление громкостью Bluetooth-устройств</string>
   <string name="app_ops_use_body_sensors">использовать нательные датчики</string>
-  <string name="app_ops_use_fingerprint">использовать сканер отпечатков пальцев</string>
+  <string name="app_ops_use_fingerprint">использовать отпечаток пальца</string>
   <string name="app_ops_use_master_volume">получить управление общей громкостью</string>
   <string name="app_ops_use_media_buttons">использовать кнопки мультимедиа</string>
   <string name="app_ops_use_media_volume">получить управление громкостью мультимедиа</string>

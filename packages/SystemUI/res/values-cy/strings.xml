@@ -32,6 +32,7 @@
   <string name="status_bar_no_recent_apps">Mae dy sgriniau diweddar yn ymddangos yma</string>
   <!-- Content description for the button to dismiss Recent Apps (only present on large
          devices) -->
+  <string name="status_bar_accessibility_dismiss_recents">Wfftio apiau diweddar</string>
   <!-- Message that is read when you enter recent apps in TalkBack -->
   <!-- The label in the bar at the top of the status bar when there are no notifications
          showing.  [CHAR LIMIT=40]-->
@@ -174,6 +175,7 @@
   <!-- Click action label for accessibility for the phone button. [CHAR LIMIT=NONE] -->
   <string name="camera_label">agor y camera</string>
   <!-- Caption for "Recents resize" developer debug feature. [CHAR LIMIT=NONE] -->
+  <string name="recents_caption_resize">Dewisa osodiad tasg newydd</string>
   <!-- Button name for "Cancel". [CHAR LIMIT=NONE] -->
   <string name="cancel">Diddymu</string>
   <!-- Content description of the compatibility zoom button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -307,7 +309,9 @@
   <!-- Content description of the button for removing a notification in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_remove_notification">Clirio\'r hysbysiad.</string>
   <!-- Content description of the enabled GPS icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_gps_enabled">Galluogwyd GPS.</string>
   <!-- Content description of the acquiring GPS icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_gps_acquiring">Yn cael GPS.</string>
   <!-- Content description of the TeleTypewriter(TTY) enabled icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the ringer vibrate icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the ringer silent icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -316,9 +320,11 @@
   <!-- Content description of the work mode icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_work_mode">Modd gwaith</string>
   <!-- Content description to tell the user that this button will remove an application from recents -->
+  <string name="accessibility_recents_item_will_be_dismissed">Wfftio <xliff:g id="app" example="Calendar">%s</xliff:g>.</string>
   <!-- Content description to tell the user an application has been removed from recents -->
   <string name="accessibility_recents_item_dismissed">Diddymwyd <xliff:g id="app" example="Calendar">%s</xliff:g></string>
   <!-- Content description to tell the user all applications has been removed from recents -->
+  <string name="accessibility_recents_all_items_dismissed">Cafodd pob ap diweddar ei wfftio.</string>
   <!-- Content description to tell the user that this button will open application info for an application in recents -->
   <string name="accessibility_recents_item_open_app_info">Agor manylion ap <xliff:g id="app" example="Calendar">%s</xliff:g>.</string>
   <!-- Content description to tell the user an application has been launched from recents -->
@@ -901,7 +907,7 @@ Dim cysylltiad i\'r rhyngrwyd
   <string name="volume_stream_content_description_unmute">%1$s. Tara i ddad-distewi.</string>
   <string name="volume_stream_content_description_vibrate">%1$s. Tara i\'w osod i ddirgrynu. Mae\'n bosib bydd gwasanaethau hygyrchedd yn cael eu distewi.</string>
   <string name="volume_stream_content_description_mute">%1$s. Tara i\'w distewi. Mae\'n bosib bydd gwasanaethau hygyrchedd yn cael eu distewi.</string>
-  <string name="volume_dialog_accessibility_shown_message">Dangosir rheolaeth sain %s. Llithra i fyny i ddiddymu.</string>
+  <string name="volume_dialog_accessibility_shown_message">Dangosir rheolaeth sain %s. Llithra i fyny i wfftio.</string>
   <string name="volume_dialog_accessibility_dismissed_message">Rheolaethau sain wedi\'u cuddio</string>
   <!-- Name of special SystemUI debug settings -->
   <string name="system_ui_tuner">Tiwniwr Rhyngwyneb y System</string>
@@ -1153,6 +1159,7 @@ Dim cysylltiad i\'r rhyngrwyd
   <!-- SysUI Tuner: Button that leads to the navigation bar customization screen [CHAR LIMIT=60] -->
   <string name="nav_bar">Bar llywio</string>
   <!-- SysUI Tuner: Button that controls layout of navigation bar [CHAR LIMIT=60] -->
+  <string name="nav_bar_layout">Gosodiad</string>
   <!-- SysUI Tuner: Setting for button type in nav bar [CHAR LIMIT=60] -->
   <!-- SysUI Tuner: Setting for button type in nav bar [CHAR LIMIT=60] -->
   <!-- SysUI Tuner: Added to nav bar option to indicate it is the default [CHAR LIMIT=60] -->
@@ -1284,6 +1291,7 @@ Dim cysylltiad i\'r rhyngrwyd
   <!-- Label for PIP close button [CHAR LIMIT=NONE]-->
   <string name="pip_phone_close">Cau</string>
   <!-- Label for PIP the drag to dismiss hint [CHAR LIMIT=NONE]-->
+  <string name="pip_phone_dismiss_hint">Llusga i lawr i\'w wfftio</string>
   <!-- Title of menu shown over picture-in-picture. Used for accessibility. -->
   <string name="pip_menu_title">Dewislen</string>
   <!-- PiP BTW notification title. [CHAR LIMIT=50] -->

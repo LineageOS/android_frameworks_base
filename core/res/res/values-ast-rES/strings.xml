@@ -32,7 +32,7 @@
          for a note with no name. -->
   <string name="untitled">&lt;Ensin títulu&gt;</string>
   <!-- How to display the lack of a phone number -->
-  <string name="emptyPhoneNumber">(Ensin númberu telefónicu)</string>
+  <string name="emptyPhoneNumber">(Nun hai númberu telefónicu)</string>
   <!-- How to display the lack of a name -->
   <string name="unknownName">Desconozse</string>
   <!-- What the UI should display for "voice mail" unless overridden by the SIM-->
@@ -1849,14 +1849,14 @@
          the user selects to enables the service. (tablet). [CHAR LIMIT=NONE] -->
   <string name="enable_explore_by_touch_warning_message" product="tablet">
         <xliff:g id="accessibility_service_name">%1$s</xliff:g> quier activar la esploración con
-        toques. Cuando s\'activa, vas poder oyer o ver descripciones de lo que ta sol to deu, o
+        toques. Cuando s\'activa, vas poder oyer o ver descripciones de lo que ta sol deu, o
         facer xestos pa interactuar cola tableta.</string>
   <!-- Summary for a warning message about the interaction model changes after allowing an accessibility
          service to put the device into explore by touch mode, displayed as a dialog message when
          the user selects to enables the service. (default). [CHAR LIMIT=NONE] -->
   <string name="enable_explore_by_touch_warning_message" product="default">
         <xliff:g id="accessibility_service_name">%1$s</xliff:g> quier activar la esploración con
-       toques. Cuando s\'activa, vas poder oyer o ver descripciones de lo que ta sol to deu, o
+       toques. Cuando s\'activa, vas poder oyer o ver descripciones de lo que ta sol deu, o
        facer xestos pa interactuar col teléfonu.</string>
   <!-- String used to display the date. This is the string to say something happened 1 month ago. -->
   <string name="oneMonthDurationPast">Hai un mes</string>
@@ -2345,7 +2345,7 @@
   <!-- SMS_DIALOG: An SMS dialog is shown if an application tries to send too many SMSes.  This is the title of that dialog. -->
   <string name="sms_control_title">Unviando mensaxes SMS</string>
   <!-- See SMS_DIALOG.  This is the message shown in that dialog. [CHAR LIMIT=NONE] -->
-  <string name="sms_control_message">&lt;b&gt;<xliff:g id="app_name">%1$s</xliff:g>&lt;/b&gt; ta unviando un númberu grande de mensaxes SMS. ¿Quies permitir qu\'esta aplicación siga unviando mensaxes?</string>
+  <string name="sms_control_message">&lt;b&gt;<xliff:g id="app_name">%1$s</xliff:g>&lt;/b&gt; ta unviando un númberu grande de mensaxes SMS. ¿Quies permitir qu\'esta aplicación siga unviándolos?</string>
   <!-- See SMS_DIALOG.  This is a button choice to allow sending the SMSes. [CHAR LIMIT=30] -->
   <string name="sms_control_yes">Permitir</string>
   <!-- See SMS_DIALOG.  This is a button choice to disallow sending the SMSes. [CHAR LIMIT=30] -->
@@ -2714,7 +2714,7 @@
   <string name="number_picker_decrement_button">Amenorgar</string>
   <!-- Description of the tap and hold action to get into scroll mode in NumberPicker. [CHAR LIMIT=NONE] -->
   <!-- Description of the scrolling action in NumberPicker. [CHAR LIMIT=NONE] -->
-  <string name="number_picker_increment_scroll_action">Esliza\'l deu hacia arriba p\'aumentar y hacia abaxo p\'amenorgar.</string>
+  <string name="number_picker_increment_scroll_action">Esliza p\'arriba p\'aumentar y p\'abaxo p\'amenorgar.</string>
   <!-- TimePicker - accessibility support -->
   <!-- Description of the button to increase the TimePicker's minute value. [CHAR LIMIT=NONE] -->
   <string name="time_picker_increment_minute_button">Aumentar minutos</string>
@@ -2777,7 +2777,7 @@
   <!-- Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] -->
   <string name="action_bar_home_description">Dir al escritoriu</string>
   <!-- Content description for the action bar "up" affordance. [CHAR LIMIT=NONE] -->
-  <string name="action_bar_up_description">Desplazase hacia arriba</string>
+  <string name="action_bar_up_description">Desplazase p\'arriba</string>
   <!-- Content description for the action menu overflow button. [CHAR LIMIT=NONE] -->
   <string name="action_menu_overflow_description">Más opciones</string>
   <!-- Formatting string for describing the action bar's title/home/up affordance.
@@ -2870,7 +2870,7 @@
   <string name="activity_resolver_use_once">Namái una vegada</string>
   <!-- Text for the toast that is shown when the user clicks on a launcher that
          doesn't support the work profile. [CHAR LIMIT=100] -->
-  <string name="activity_resolver_work_profiles_support">%1$s nun sofita perfiles de trabayu</string>
+  <string name="activity_resolver_work_profiles_support">%1$s nun sofita\'l perfil de trabayu</string>
   <!-- Name of the default audio route for tablets when nothing
          is connected to a headphone or other wired audio output jack. [CHAR LIMIT=50] -->
   <string name="default_audio_route_name" product="tablet">Tableta</string>
@@ -3010,7 +3010,7 @@
   <!-- Message shown in dialog when user is attempting to set the music volume above the
     recommended maximum level for headphones -->
   <string name="safe_media_volume_warning" product="default">
-       «¿Xubir el volume penriba\'l nivel aconseyáu?\n\nSentir soníos con volume altu demientres periodos de tiempu llargos podría dañar los tos oyíos.»
+       «¿Xubir el volume penriba\'l nivel aconseyáu?\n\nSentir soníos con volume altu demientres periodos de tiempu llargos podría mancate los oyíos.»
     </string>
   <!-- Dialog title for dialog shown when the accessibility shortcut is activated, and we want
      to confirm that the user understands what's going to happen-->
@@ -3237,7 +3237,7 @@
   <!-- Cling help message title when hiding the navigation bar entering immersive mode [CHAR LIMIT=none] -->
   <string name="immersive_cling_title">Visualización a pantalla completa</string>
   <!-- Cling help message description when hiding the navigation bar entering immersive mode [CHAR LIMIT=none] -->
-  <string name="immersive_cling_description">Pa colar, esliza\'l deu d\'arriba hacia abaxo.</string>
+  <string name="immersive_cling_description">Pa colar, esliza p\'abaxo dende lo cimero.</string>
   <!-- Cling help message confirmation button when hiding the navigation bar entering immersive mode [CHAR LIMIT=30] -->
   <string name="immersive_cling_positive">Coyío</string>
   <!-- Label for button to confirm chosen date or time [CHAR LIMIT=30] -->
