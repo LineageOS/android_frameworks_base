@@ -933,6 +933,7 @@ class StorageManagerService extends IStorageManager.Stub
 
     @Override
     public void onKeyguardStateChanged(boolean isShowing) {
+        if (mContext.getSystemService(KeyguardManager.class) == null) return;
         // Push down current secure keyguard status so that we ignore malicious
         // USB devices while locked.
         mSecureKeyguardShowing = isShowing

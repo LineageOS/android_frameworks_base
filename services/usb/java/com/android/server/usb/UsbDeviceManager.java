@@ -233,6 +233,7 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
 
     @Override
     public void onKeyguardStateChanged(boolean isShowing) {
+        if (mContext.getSystemService(KeyguardManager.class) == null) return;
         int userHandle = ActivityManager.getCurrentUser();
         boolean secure = mContext.getSystemService(KeyguardManager.class)
                 .isDeviceSecure(userHandle);
