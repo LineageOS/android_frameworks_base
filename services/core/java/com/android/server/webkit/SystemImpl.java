@@ -80,6 +80,9 @@ public class SystemImpl implements SystemInterface {
         int numAvByDefaultAndNotFallback = 0;
         XmlResourceParser parser = null;
         List<WebViewProviderInfo> webViewProviders = new ArrayList<WebViewProviderInfo>();
+        WebViewProviderInfo aospProvider = new WebViewProviderInfo("com.android.webview",
+                "AOSP WebView", true, false, new String[0]);
+        webViewProviders.add(aospProvider);
         try {
             parser = AppGlobals.getInitialApplication().getResources().getXml(
                     com.android.internal.R.xml.config_webview_packages);
@@ -95,6 +98,9 @@ public class SystemImpl implements SystemInterface {
                     if (packageName == null) {
                         throw new AndroidRuntimeException(
                                 "WebView provider in framework resources missing package name");
+                    } else if (packageName.equals(aospProvider.packageName)) {
+                        // Ignore default AOSP provider, we already have it
+                        continue;
                     }
                     String description = parser.getAttributeValue(null, TAG_DESCRIPTION);
                     if (description == null) {
