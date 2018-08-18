@@ -16,6 +16,24 @@
       "revId": "06c83776f20f69793a195a441a95f8a6399c176c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24c6b555_4e1eea4b",
+        "filename": "services/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-18T23:50:02Z",
+      "side": 1,
+      "message": "You can remove",
+      "parentUuid": "9099e4d6_750c1d55",
+      "revId": "06c83776f20f69793a195a441a95f8a6399c176c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
