@@ -8530,6 +8530,7 @@ public class PackageManagerService extends IPackageManager.Stub
                 // Overwrite package signature with our platform signature
                 // if the signature is the vendor's platform signature
                 if (mPlatformPackage != null) {
+                    Slog.i(TAG, "  overwriting vendor signature for " + pkg.packageName);
                     pkg.mSigningDetails = mPlatformPackage.mSigningDetails;
                     pkg.applicationInfo.seInfo = SELinuxMMAC.getSeInfo(
                         pkg,
@@ -10927,6 +10928,7 @@ public class PackageManagerService extends IPackageManager.Stub
                  compareSignatures(
                         vendorPlatformSignatures,
                         pkg.mSigningDetails.signatures) == PackageManager.SIGNATURE_MATCH)) {
+            Slog.i(TAG, "  " + pkg.packageName + " is signed with platform key");
             pkg.applicationInfo.privateFlags |=
                 ApplicationInfo.PRIVATE_FLAG_SIGNED_WITH_PLATFORM_KEY;
         }
