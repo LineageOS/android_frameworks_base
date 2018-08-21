@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc6e9119_225e4087",
+        "filename": "core/java/android/content/res/AssetManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-08-21T01:24:42Z",
+      "side": 1,
+      "message": "I\u0027ve been wondering what difference setting system true/false  makes here.\n\nTracing it through, it\u0027s used by GetResourceConfigurations() and GetResourceLocales() here:\nhttps://github.com/LineageOS/android_frameworks_base/blob/8a47a2fe906b56d1b49041d12faeba0a48c0f3d5/libs/androidfw/AssetManager2.cpp#L207\n\nIn turn, they are used by:\nhttps://github.com/LineageOS/android_frameworks_base/blob/8a47a2fe906b56d1b49041d12faeba0a48c0f3d5/core/java/android/content/res/Resources.java#L1880\nand\nhttps://github.com/LineageOS/android_frameworks_base/blob/8a47a2fe906b56d1b49041d12faeba0a48c0f3d5/core/java/android/content/res/AssetManager.java#L1192\n\nWhilst the getLocales() and getNonSystemLocales() are public, getSizeConfigurations() is private and only called here:\nhttps://github.com/LineageOS/android_frameworks_base/blob/8a47a2fe906b56d1b49041d12faeba0a48c0f3d5/core/java/android/app/ActivityThread.java#L3073",
+      "revId": "3d7f32c508d0cbd571c471dfbc5041fb0bc0b884",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
