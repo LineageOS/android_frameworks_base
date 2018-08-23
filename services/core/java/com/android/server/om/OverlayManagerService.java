@@ -675,7 +675,7 @@ public final class OverlayManagerService extends SystemService {
          * @throws SecurityException if the permission check fails
          */
         private void enforceChangeOverlayPackagesPermission(@NonNull final String message) {
-            getContext().enforceCallingPermission(
+            getContext().enforceCallingOrSelfPermission(
                     android.Manifest.permission.CHANGE_OVERLAY_PACKAGES, message);
         }
 
@@ -686,7 +686,8 @@ public final class OverlayManagerService extends SystemService {
          * @throws SecurityException if the permission check fails
          */
         private void enforceDumpPermission(@NonNull final String message) {
-            getContext().enforceCallingPermission(android.Manifest.permission.DUMP, message);
+            getContext().enforceCallingOrSelfPermission(android.Manifest.permission.DUMP,
+                    message);
         }
     };
 
