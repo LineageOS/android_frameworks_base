@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e838cebb_615a4897",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-23T00:56:50Z",
+      "side": 1,
+      "message": "This changed (originally status bar height) due to https://github.com/LineageOS/android_frameworks_base/commit/d55e3e7574863ec85dedc6d9a248ec23a3b22e49",
+      "range": {
+        "startLine": 382,
+        "startChar": 8,
+        "endLine": 383,
+        "endChar": 68
+      },
+      "revId": "dad416b4efa8433dbbb4bbbdcc9f61f872aeccbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
