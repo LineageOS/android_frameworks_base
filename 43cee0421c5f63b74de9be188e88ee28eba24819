@@ -16,6 +16,24 @@
       "revId": "43cee0421c5f63b74de9be188e88ee28eba24819",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14f2bebf_d041fcbf",
+        "filename": "services/java/com/android/server/SystemServer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1648,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-08-23T09:52:55Z",
+      "side": 1,
+      "message": "I suppose it was done deliberately to separate them onto  different lines in the logfile.  Seems okay to me as is, TBH.\n\nWould you like it changed ?",
+      "parentUuid": "e474769a_1930649b",
+      "revId": "43cee0421c5f63b74de9be188e88ee28eba24819",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
