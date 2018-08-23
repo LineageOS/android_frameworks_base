@@ -22,6 +22,30 @@
       "revId": "dda1c15dd10e62a7b46e85dd733e166c6802c29a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d12f2f2_8382b700",
+        "filename": "packages/SettingsProvider/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-23T10:43:13Z",
+      "side": 1,
+      "message": "No, check my earlier comments.",
+      "parentUuid": "83ae14c5_5227eb46",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "dda1c15dd10e62a7b46e85dd733e166c6802c29a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
