@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "119550ff_dfe89af5",
+        "filename": "packages/SystemUI/LineageManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-24T02:08:05Z",
+      "side": 1,
+      "message": "08-23 15:01:18.767   947  1246 W Tile.SyncTile: java.lang.SecurityException: no permission to write the sync settings: Neither user 10028 nor current process has android.permission.WRITE_SYNC_SETTINGS.\n08-23 15:01:18.767   947  1246 W Tile.SyncTile: \tat android.os.Parcel.createException(Parcel.java:1942)\n08-23 15:01:18.767   947  1246 W Tile.SyncTile: \tat android.os.Parcel.readException(Parcel.java:1910)\n08-23 15:01:18.767   947  1246 W Tile.SyncTile: \tat android.os.Parcel.readException(Parcel.java:1860)\n08-23 15:01:18.767   947  1246 W Tile.SyncTile: \tat android.content.IContentService$Stub$Proxy.setMasterSyncAutomaticallyAsUser(IContentService.java:1298)\n08-23 15:01:18.767   947  1246 W Tile.SyncTile: \tat android.content.ContentResolver.setMasterSyncAutomaticallyAsUser(ContentResolver.java:2690)\n08-23 15:01:18.767   947  1246 W Tile.SyncTile: \tat android.content.ContentResolver.setMasterSyncAutomatically(ContentResolver.java:2681)\n08-23 15:01:18.767   947  1246 W Tile.SyncTile: \tat com.android.systemui.qs.tiles.SyncTile.handleClick(SyncTile.java:49)\n08-23 15:01:18.767   947  1246 W Tile.SyncTile: \tat com.android.systemui.qs.tileimpl.QSTileImpl$H.handleMessage(QSTileImpl.java:444)",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 77
+      },
+      "revId": "5dd26bae6f1bdceb468b8b7b588e2e2109d588fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
