@@ -135,8 +135,15 @@ public class NotificationIconContainer extends AlphaOptimizedFrameLayout {
         }
     }.setDuration(CONTENT_FADE_DURATION);
 
+<<<<<<< HEAD   (1ba831 Download: Add support to manually pause/resume download)
     private static final int MAX_VISIBLE_ICONS_ON_LOCK = 5;
     public static final int MAX_STATIC_ICONS = 4;
+=======
+    private final int MAX_VISIBLE_ICONS_WHEN_DARK =
+            getResources().getInteger(R.integer.config_maxVisibleNotificationIconsWhenDark);
+    public final int MAX_STATIC_ICONS =
+            getResources().getInteger(R.integer.config_maxVisibleNotificationIcons);
+>>>>>>> CHANGE (448c7a SystemUI: Allow overlaying max notification icons)
     private static final int MAX_DOTS = 1;
 
     private boolean mIsStaticLayout = true;
