@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8227a837_beb0616e",
+        "filename": "packages/SystemUI/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-24T02:06:06Z",
+      "side": 1,
+      "message": "Luk, apparently this is no longer working. I have noticed while testing QS tiles because some require special permissions.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 67
+      },
+      "revId": "e93300220c4600d6f1e0742965a0911cd257904e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
