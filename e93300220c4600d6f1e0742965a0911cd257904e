@@ -22,6 +22,30 @@
       "revId": "e93300220c4600d6f1e0742965a0911cd257904e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "403aaaac_a0d0e965",
+        "filename": "packages/SystemUI/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-24T02:10:42Z",
+      "side": 1,
+      "message": "Hmmm... I decompiled SystemUI.apk and all seems to be there.",
+      "parentUuid": "8227a837_beb0616e",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 67
+      },
+      "revId": "e93300220c4600d6f1e0742965a0911cd257904e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
