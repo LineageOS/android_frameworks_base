@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8eab410_3383ea3a",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4104,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-24T10:15:36Z",
+      "side": 1,
+      "message": "move to sdk?",
+      "range": {
+        "startLine": 4104,
+        "startChar": 0,
+        "endLine": 4104,
+        "endChar": 92
+      },
+      "revId": "dcd9ba681afc9c0062e0c39b74282c00373d4407",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
