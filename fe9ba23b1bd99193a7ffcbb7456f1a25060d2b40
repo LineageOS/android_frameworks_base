@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b07d7208_6d743873",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-24T09:52:06Z",
+      "side": 1,
+      "message": "I know that\u0027s unrelated\nBut can we map them already in overlay?\n/system/priv-app/LineageParts/LineageParts.apk:org.lineageos.lineageparts.gestures.KeyHandler",
+      "range": {
+        "startLine": 2323,
+        "startChar": 0,
+        "endLine": 2326,
+        "endChar": 88
+      },
+      "revId": "fe9ba23b1bd99193a7ffcbb7456f1a25060d2b40",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
