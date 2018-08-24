@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7bdffb7_6abcfb9a",
+        "filename": "packages/SystemUI/tests/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-24T09:55:27Z",
+      "side": 1,
+      "message": "here too?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 35
+      },
+      "revId": "623a24d55d3c4721c9dee1d621dc457b6e46c77e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
