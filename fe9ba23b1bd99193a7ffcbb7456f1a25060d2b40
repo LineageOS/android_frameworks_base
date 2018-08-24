@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5675eabd_bedb8ccf",
+        "filename": "core/java/com/android/internal/os/DeviceKeyHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-24T09:52:39Z",
+      "side": 1,
+      "message": "Do we really need the DeviceKeyHandler interface here?\nIt can be moved to lineage-sdk",
+      "revId": "fe9ba23b1bd99193a7ffcbb7456f1a25060d2b40",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b07d7208_6d743873",
         "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
         "patchSetId": 3
