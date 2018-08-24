@@ -46,6 +46,30 @@
       "revId": "dcd9ba681afc9c0062e0c39b74282c00373d4407",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6b5e9fe_f84519f6",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4104,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-24T10:47:52Z",
+      "side": 1,
+      "message": "Forgot we\u0027re in core ...",
+      "parentUuid": "14b0d04e_96e649af",
+      "range": {
+        "startLine": 4104,
+        "startChar": 0,
+        "endLine": 4104,
+        "endChar": 92
+      },
+      "revId": "dcd9ba681afc9c0062e0c39b74282c00373d4407",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
