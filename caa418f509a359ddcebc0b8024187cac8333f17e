@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "178dd2c2_e19b74b0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2591,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-25T17:17:37Z",
+      "side": 1,
+      "message": "This was reworked due to https://github.com/LineageOS/android_frameworks_base/commit/d846023804ddadcd692666152db420c54594ddb9#diff-62c89e51a446de3da3d8b62efac2b749L66",
+      "range": {
+        "startLine": 2552,
+        "startChar": 0,
+        "endLine": 2591,
+        "endChar": 5
+      },
+      "revId": "caa418f509a359ddcebc0b8024187cac8333f17e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
