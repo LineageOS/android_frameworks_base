@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "757b558e_6f5a63d5",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-27T10:42:00Z",
+      "side": 1,
+      "message": "if (mIsRestartMenu) {\n                super(R.drawable.ic_restart, com.android.systemui.R.string.global_action_restart_system);\n            } else if (shouldShowRestartSubmenu()) {\n                super(R.drawable.ic_restart, R.string.global_action_restart);\n            }",
+      "range": {
+        "startLine": 512,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 13
+      },
+      "revId": "909a87b7f3a3e959cbe017fc9520dab6ffaec126",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "258a9b1f_72680ae5",
         "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
         "patchSetId": 11
@@ -45,6 +68,46 @@
       "revId": "909a87b7f3a3e959cbe017fc9520dab6ffaec126",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb2705db_37b2fba5",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-27T10:42:00Z",
+      "side": 1,
+      "message": "private final",
+      "range": {
+        "startLine": 1124,
+        "startChar": 8,
+        "endLine": 1124,
+        "endChar": 17
+      },
+      "revId": "909a87b7f3a3e959cbe017fc9520dab6ffaec126",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d805965_8c363cc5",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-27T10:42:00Z",
+      "side": 1,
+      "message": "wanted?",
+      "revId": "909a87b7f3a3e959cbe017fc9520dab6ffaec126",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
