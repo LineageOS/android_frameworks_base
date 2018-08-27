@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ca0b068b_f1004193",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-27T10:31:07Z",
+      "side": 1,
+      "message": "I should remove this too, since it doesn\u0027t belong here anymore.",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 56
+      },
+      "revId": "909a87b7f3a3e959cbe017fc9520dab6ffaec126",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "258a9b1f_72680ae5",
         "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
         "patchSetId": 11
