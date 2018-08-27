@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "258a9b1f_72680ae5",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-27T10:17:22Z",
+      "side": 1,
+      "message": "FIY, https://github.com/LineageOS/android_frameworks_base/commit/ec2ce5b645eb5f581b12136419fb14592f94b505 doesn\u0027t seem to be required anymore. Google implemented their own ScreenshotAction which replaced most of the code we used to add in the past. I adapted this to the new impl.",
+      "range": {
+        "startLine": 650,
+        "startChar": 8,
+        "endLine": 655,
+        "endChar": 9
+      },
+      "revId": "909a87b7f3a3e959cbe017fc9520dab6ffaec126",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
