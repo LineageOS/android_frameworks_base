@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40207724_7b6ea1c2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 5900,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-27T09:30:25Z",
+      "side": 1,
+      "message": "Should it be \u0026\u0026?",
+      "range": {
+        "startLine": 5900,
+        "startChar": 50,
+        "endLine": 5900,
+        "endChar": 52
+      },
+      "revId": "e4f150a5c606d364d04e25eff1e683f19e2cf959",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
