@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e62b801_1f00bf37",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/ProfilesTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 16219
+      },
+      "writtenOn": "2018-08-27T17:50:58Z",
+      "side": 1,
+      "message": "@Michael W,\nBtw, you can remove double space from here when submitting.",
+      "range": {
+        "startLine": 72,
+        "startChar": 26,
+        "endLine": 72,
+        "endChar": 28
+      },
+      "revId": "6f4d2effc6e1739a2442fb53467b59d4b03330c8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
