@@ -46,6 +46,30 @@
       "revId": "623a24d55d3c4721c9dee1d621dc457b6e46c77e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98d48ce0_852bdd76",
+        "filename": "packages/SystemUI/tests/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-08-28T05:30:28Z",
+      "side": 1,
+      "message": "I get fails without:\nhttps://pastebin.com/GbH8ema3\n\nWith, tests build.\n\n(I\u0027m running mma within packages/SystemUI)",
+      "parentUuid": "d82a25e6_a3a22045",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 35
+      },
+      "revId": "623a24d55d3c4721c9dee1d621dc457b6e46c77e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
