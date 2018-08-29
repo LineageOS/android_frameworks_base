@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68e332df_c80b742b",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerFragment.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2018-08-29T21:17:07Z",
+      "side": 1,
+      "message": "Could we improve _or_ remove these ?",
+      "revId": "266432da02054a3a16a2561577fc39192a44b191",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
