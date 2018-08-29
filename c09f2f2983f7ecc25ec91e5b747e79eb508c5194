@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c9166e6_552d4550",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-29T07:52:11Z",
+      "side": 1,
+      "message": "gLineagePowerHalV1_0_",
+      "range": {
+        "startLine": 67,
+        "startChar": 29,
+        "endLine": 67,
+        "endChar": 49
+      },
+      "revId": "c09f2f2983f7ecc25ec91e5b747e79eb508c5194",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6dbb205_008aac82",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-29T07:52:11Z",
+      "side": 1,
+      "message": "// Check validity of current handle to the Lineage power HAL service, and call getService() if necessary.\n// The caller must be holding gPowerHalMutex.\nvoid connectLineagePowerHalLocked() {\n    if (gLineagePowerHalExists \u0026\u0026 gLineagePowerHalV1_0_ \u003d\u003d nullptr) {\n        gLineagePowerHalV1_0_ \u003d ILineagePowerV1_0::getService();\n        if (gLineagePowerHalV1_0_ !\u003d nullptr) {\n            ALOGI(\"Loaded power HAL service\");\n        } else {\n            ALOGI(\"Couldn\u0027t load power HAL service\");\n            gLineagePowerHalExists \u003d false;\n        }\n    }\n}\n\n// Retrieve a copy of LineagePowerHAL V1_0\nsp\u003cILineagePower\u003e getLineagePowerHalV1_0() {\n    std::lock_guard\u003cstd::mutex\u003e lock(gPowerHalMutex);\n    connectPowerHalLocked();\n    return gLineagePowerHalV1_0_;\n}",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 0
+      },
+      "revId": "c09f2f2983f7ecc25ec91e5b747e79eb508c5194",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efc01b7c_2ce655db",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-29T07:52:11Z",
+      "side": 1,
+      "message": "/* clazz */",
+      "revId": "c09f2f2983f7ecc25ec91e5b747e79eb508c5194",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d67c190a_1e600c10",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-29T07:52:11Z",
+      "side": 1,
+      "message": "/* env */",
+      "range": {
+        "startLine": 255,
+        "startChar": 36,
+        "endLine": 255,
+        "endChar": 40
+      },
+      "revId": "c09f2f2983f7ecc25ec91e5b747e79eb508c5194",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c41adb7_d5dc72ca",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-29T07:52:11Z",
+      "side": 1,
+      "message": "sp\u003cILineagePowerV1_0\u003e lineagePowerHalV1_0 \u003d getLineagePowerHalV1_0();\n    if (lineagePowerHalV1_0 !\u003d nullptr) {\n        value \u003d lineagePowerHalV1_0-\u003egetFeature((LineageFeature)featureId);\n    }",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 5
+      },
+      "revId": "c09f2f2983f7ecc25ec91e5b747e79eb508c5194",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
