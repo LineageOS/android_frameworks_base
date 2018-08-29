@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ba48f45c_719ee555",
+        "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-29T08:20:03Z",
+      "side": 1,
+      "message": "To make it match the aosp power hal impl",
+      "parentUuid": "36c971cb_75118936",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 0
+      },
+      "revId": "c09f2f2983f7ecc25ec91e5b747e79eb508c5194",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "efc01b7c_2ce655db",
         "filename": "services/core/jni/com_android_server_power_PowerManagerService.cpp",
         "patchSetId": 8
