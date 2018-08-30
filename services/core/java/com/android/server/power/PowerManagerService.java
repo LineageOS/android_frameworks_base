@@ -2144,7 +2144,13 @@ public final class PowerManagerService extends SystemService
                 if (mBootCompleted) {
                     if (mIsPowered && !BatteryManager.isPlugWired(oldPlugType)
                             && BatteryManager.isPlugWired(mPlugType)) {
+<<<<<<< HEAD   (222676 SystemUI: Bring back good ol' circle battery style)
                         mNotifier.onWiredChargingStarted(mUserId);
+=======
+                        mNotifier.onWiredChargingStarted(mForegroundProfile);
+                    } else if (wasPowered && !mIsPowered && !dockedOnWirelessCharger) {
+                        mNotifier.onWiredChargingDisconnected(mForegroundProfile);
+>>>>>>> CHANGE (2f01d7 power: Re-introduce custom charging sounds)
                     } else if (dockedOnWirelessCharger) {
                         mNotifier.onWirelessChargingStarted(mBatteryLevel, mUserId);
                     }
