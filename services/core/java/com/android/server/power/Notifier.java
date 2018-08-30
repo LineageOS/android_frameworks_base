@@ -57,6 +57,8 @@ import com.android.server.LocalServices;
 import com.android.server.policy.WindowManagerPolicy;
 import com.android.server.statusbar.StatusBarManagerInternal;
 
+import lineageos.providers.LineageSettings;
+
 /**
  * Sends broadcasts about important power state changes.
  * <p>
@@ -89,6 +91,7 @@ final class Notifier {
     private static final int MSG_SCREEN_BRIGHTNESS_BOOST_CHANGED = 4;
     private static final int MSG_PROFILE_TIMED_OUT = 5;
     private static final int MSG_WIRED_CHARGING_STARTED = 6;
+    private static final int MSG_WIRED_CHARGING_DISCONNECTED = 7;
 
     private static final long[] WIRELESS_VIBRATION_TIME = {
             40, 40, 40, 40, 40, 40, 40, 40, 40, // ramp-up sampling rate = 40ms
@@ -589,6 +592,20 @@ final class Notifier {
     }
 
     /**
+     * Called when wired charging has been disconnected so as to provide user feedback
+     */
+    public void onWiredChargingDisconnected() {
+        if (DEBUG) {
+            Slog.d(TAG, "onWiredChargingDisconnected");
+        }
+
+        mSuspendBlocker.acquire();
+        Message msg = mHandler.obtainMessage(MSG_WIRED_CHARGING_DISCONNECTED);
+        msg.setAsynchronous(true);
+        mHandler.sendMessage(msg);
+    }
+
+    /**
      * Called when wired charging has started so as to provide user feedback
      */
     public void onWiredChargingStarted() {
@@ -738,10 +755,10 @@ final class Notifier {
      * Plays the wireless charging sound for both wireless and non-wireless charging
      */
     private void playChargingStartedSound() {
-        final String soundPath = Settings.Global.getString(mContext.getContentResolver(),
-                Settings.Global.CHARGING_STARTED_SOUND);
-        if (isChargingFeedbackEnabled() && soundPath != null) {
-            final Uri soundUri = Uri.parse("file://" + soundPath);
+        final String soundPath = LineageSettings.Global.getString(mContext.getContentResolver(),
+                LineageSettings.Global.POWER_NOTIFICATIONS_RINGTONE);
+        if (isChargingFeedbackEnabled() && soundPath != null && !soundPath.equals("silent")) {
+            final Uri soundUri = Uri.parse(soundPath);
             if (soundUri != null) {
                 final Ringtone sfx = RingtoneManager.getRingtone(mContext, soundUri);
                 if (sfx != null) {
@@ -753,7 +770,7 @@ final class Notifier {
     }
 
     private void showWirelessChargingStarted(int batteryLevel) {
-        playWirelessChargingVibration();
+        playChargingVibration(true);
         playChargingStartedSound();
         if (mStatusBarManagerInternal != null) {
             mStatusBarManagerInternal.showChargingAnimation(batteryLevel);
@@ -761,7 +778,8 @@ final class Notifier {
         mSuspendBlocker.release();
     }
 
-    private void showWiredChargingStarted() {
+    private void showWiredCharging() {
+        playChargingVibration(false);
         playChargingStartedSound();
         mSuspendBlocker.release();
     }
@@ -770,11 +788,15 @@ final class Notifier {
         mTrustManager.setDeviceLockedForUser(userId, true /*locked*/);
     }
 
-    private void playWirelessChargingVibration() {
-        final boolean vibrateEnabled = Settings.Global.getInt(mContext.getContentResolver(),
-                Settings.Global.CHARGING_VIBRATION_ENABLED, 0) != 0;
+    private void playChargingVibration(boolean dockedOnWirelessCharger) {
+        final boolean vibrateEnabled = LineageSettings.Global.getInt(mContext.getContentResolver(),
+                LineageSettings.Global.POWER_NOTIFICATIONS_VIBRATE, 0) == 1;
         if (vibrateEnabled && isChargingFeedbackEnabled()) {
-            mVibrator.vibrate(WIRELESS_CHARGING_VIBRATION_EFFECT, VIBRATION_ATTRIBUTES);
+            if (dockedOnWirelessCharger) {
+                mVibrator.vibrate(WIRELESS_CHARGING_VIBRATION_EFFECT, VIBRATION_ATTRIBUTES);
+            } else {
+                mVibrator.vibrate(250);
+            }
         }
     }
 
@@ -811,7 +833,8 @@ final class Notifier {
                     lockProfile(msg.arg1);
                     break;
                 case MSG_WIRED_CHARGING_STARTED:
-                    showWiredChargingStarted();
+                case MSG_WIRED_CHARGING_DISCONNECTED:
+                    showWiredCharging();
                     break;
             }
         }
