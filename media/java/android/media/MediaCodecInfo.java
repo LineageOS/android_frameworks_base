@@ -2098,6 +2098,12 @@ public final class MediaCodecInfo {
                             MBPS =  983040; FS = 36864; BR = 240000; DPB = 184320; break;
                         case CodecProfileLevel.AVCLevel52:
                             MBPS = 2073600; FS = 36864; BR = 240000; DPB = 184320; break;
+                        case CodecProfileLevel.AVCLevel6:
+                            MBPS = 4177920; FS = 139264; BR = 240000; DPB = 696320; break;
+                        case CodecProfileLevel.AVCLevel61:
+                            MBPS = 8355840; FS = 139264; BR = 480000; DPB = 696320; break;
+                        case CodecProfileLevel.AVCLevel62:
+                            MBPS = 16711680; FS = 139264; BR = 800000; DPB = 696320; break;
                         default:
                             Log.w(TAG, "Unrecognized level "
                                     + profileLevel.level + " for " + mime);
@@ -2893,6 +2899,12 @@ public final class MediaCodecInfo {
         public static final int AVCLevel5       = 0x4000;
         public static final int AVCLevel51      = 0x8000;
         public static final int AVCLevel52      = 0x10000;
+        /** @hide */
+        public static final int AVCLevel6       = 0x20000;
+        /** @hide */
+        public static final int AVCLevel61      = 0x40000;
+        /** @hide */
+        public static final int AVCLevel62      = 0x80000;
 
         // from OMX_VIDEO_H263PROFILETYPE
         public static final int H263ProfileBaseline             = 0x01;
