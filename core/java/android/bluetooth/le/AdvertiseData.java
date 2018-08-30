@@ -170,8 +170,8 @@ public final class AdvertiseData implements Parcelable {
         }
         dest.writeByte((byte) (getIncludeTxPowerLevel() ? 1 : 0));
         dest.writeByte((byte) (getIncludeDeviceName() ? 1 : 0));
-        if(mTransportDiscoveryData != null) {
-            dest.writeInt(mTransportDiscoveryData.length);
+        dest.writeInt(mTransportDiscoveryData != null ? mTransportDiscoveryData.length : 0);
+        if (mTransportDiscoveryData != null) {
             dest.writeByteArray(mTransportDiscoveryData);
         }
     }
