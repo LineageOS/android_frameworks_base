@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1344b77c_13107ad4",
+        "filename": "services/core/java/com/android/server/power/Notifier.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-30T14:58:25Z",
+      "side": 0,
+      "message": "I wonder if we can even reuse this...",
+      "range": {
+        "startLine": 742,
+        "startChar": 32,
+        "endLine": 742,
+        "endChar": 54
+      },
+      "revId": "a3bfbfc8484e5014f6c5cdff03bb6d9c6cba1bae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cae43a4_a83e8753",
+        "filename": "services/core/java/com/android/server/power/Notifier.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-08-30T14:58:25Z",
+      "side": 0,
+      "message": "...and this.",
+      "range": {
+        "startLine": 775,
+        "startChar": 32,
+        "endLine": 775,
+        "endChar": 58
+      },
+      "revId": "a3bfbfc8484e5014f6c5cdff03bb6d9c6cba1bae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
