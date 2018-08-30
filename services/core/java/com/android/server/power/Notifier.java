@@ -62,7 +62,11 @@ import com.android.server.inputmethod.InputMethodManagerInternal;
 import com.android.server.policy.WindowManagerPolicy;
 import com.android.server.statusbar.StatusBarManagerInternal;
 
+<<<<<<< HEAD   (222676 SystemUI: Bring back good ol' circle battery style)
 import java.io.PrintWriter;
+=======
+import lineageos.providers.LineageSettings;
+>>>>>>> CHANGE (2f01d7 power: Re-introduce custom charging sounds)
 
 /**
  * Sends broadcasts about important power state changes.
@@ -96,6 +100,7 @@ public class Notifier {
     private static final int MSG_WIRELESS_CHARGING_STARTED = 3;
     private static final int MSG_PROFILE_TIMED_OUT = 5;
     private static final int MSG_WIRED_CHARGING_STARTED = 6;
+    private static final int MSG_WIRED_CHARGING_DISCONNECTED = 7;
 
     private static final long[] CHARGING_VIBRATION_TIME = {
             40, 40, 40, 40, 40, 40, 40, 40, 40, // ramp-up sampling rate = 40ms
@@ -125,7 +130,11 @@ public class Notifier {
     @Nullable private final StatusBarManagerInternal mStatusBarManagerInternal;
     private final TrustManager mTrustManager;
     private final Vibrator mVibrator;
+<<<<<<< HEAD   (222676 SystemUI: Bring back good ol' circle battery style)
     private final WakeLockLog mWakeLockLog;
+=======
+    private final AudioManager mAudioManager;
+>>>>>>> CHANGE (2f01d7 power: Re-introduce custom charging sounds)
 
     private final NotifierHandler mHandler;
     private final Intent mScreenOnIntent;
@@ -177,6 +186,7 @@ public class Notifier {
         mStatusBarManagerInternal = LocalServices.getService(StatusBarManagerInternal.class);
         mTrustManager = mContext.getSystemService(TrustManager.class);
         mVibrator = mContext.getSystemService(Vibrator.class);
+        mAudioManager = mContext.getSystemService(AudioManager.class);
 
         mHandler = new NotifierHandler(looper);
         mScreenOnIntent = new Intent(Intent.ACTION_SCREEN_ON);
@@ -661,6 +671,7 @@ public class Notifier {
     }
 
     /**
+<<<<<<< HEAD   (222676 SystemUI: Bring back good ol' circle battery style)
      * Dumps data for bugreports.
      *
      * @param pw The stream to print to.
@@ -669,6 +680,20 @@ public class Notifier {
         if (mWakeLockLog != null) {
             mWakeLockLog.dump(pw);
         }
+=======
+     * Called when wired charging has been disconnected so as to provide user feedback
+     */
+    public void onWiredChargingDisconnected(@UserIdInt int userId) {
+        if (DEBUG) {
+            Slog.d(TAG, "onWiredChargingDisconnected");
+        }
+
+        mSuspendBlocker.acquire();
+        Message msg = mHandler.obtainMessage(MSG_WIRED_CHARGING_DISCONNECTED);
+        msg.setAsynchronous(true);
+        msg.arg1 = userId;
+        mHandler.sendMessage(msg);
+>>>>>>> CHANGE (2f01d7 power: Re-introduce custom charging sounds)
     }
 
     private void updatePendingBroadcastLocked() {
@@ -800,6 +825,7 @@ public class Notifier {
         }
     };
 
+<<<<<<< HEAD   (222676 SystemUI: Bring back good ol' circle battery style)
     private void playChargingStartedFeedback(@UserIdInt int userId, boolean wireless) {
         if (!isChargingFeedbackEnabled(userId)) {
             return;
@@ -822,6 +848,23 @@ public class Notifier {
             if (sfx != null) {
                 sfx.setStreamType(AudioManager.STREAM_SYSTEM);
                 sfx.play();
+=======
+    /**
+     * If enabled, plays a sound and/or vibration when wireless or non-wireless charging has started
+     */
+    private void playChargingStartedFeedback(@UserIdInt int userId) {
+        playChargingStartedVibration(userId);
+        final String soundPath = LineageSettings.Global.getString(mContext.getContentResolver(),
+                LineageSettings.Global.POWER_NOTIFICATIONS_RINGTONE);
+        if (isChargingFeedbackEnabled(userId) && soundPath != null && !soundPath.equals("silent")) {
+            final Uri soundUri = Uri.parse(soundPath);
+            if (soundUri != null) {
+                final Ringtone sfx = RingtoneManager.getRingtone(mContext, soundUri);
+                if (sfx != null) {
+                    sfx.setStreamType(AudioManager.STREAM_SYSTEM);
+                    sfx.play();
+                }
+>>>>>>> CHANGE (2f01d7 power: Re-introduce custom charging sounds)
             }
         }
     }
@@ -846,13 +889,26 @@ public class Notifier {
         mTrustManager.setDeviceLockedForUser(userId, true /*locked*/);
     }
 
+<<<<<<< HEAD   (222676 SystemUI: Bring back good ol' circle battery style)
+=======
+    private void playChargingStartedVibration(@UserIdInt int userId) {
+        final boolean vibrateEnabled = LineageSettings.Global.getInt(mContext.getContentResolver(),
+                LineageSettings.Global.POWER_NOTIFICATIONS_VIBRATE, 0) == 1;
+        if (vibrateEnabled && isChargingFeedbackEnabled(userId)) {
+            mVibrator.vibrate(WIRELESS_CHARGING_VIBRATION_EFFECT, VIBRATION_ATTRIBUTES);
+        }
+    }
+
+>>>>>>> CHANGE (2f01d7 power: Re-introduce custom charging sounds)
     private boolean isChargingFeedbackEnabled(@UserIdInt int userId) {
         final boolean enabled = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.CHARGING_SOUNDS_ENABLED, 1, userId) != 0;
         final boolean dndOff = Settings.Global.getInt(mContext.getContentResolver(),
                 Settings.Global.ZEN_MODE, Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS)
                 == Settings.Global.ZEN_MODE_OFF;
-        return enabled && dndOff;
+        final boolean silentMode = mAudioManager.getRingerModeInternal()
+                == AudioManager.RINGER_MODE_SILENT;
+        return enabled && dndOff && !silentMode;
     }
 
     private final class NotifierHandler extends Handler {
@@ -876,6 +932,7 @@ public class Notifier {
                     lockProfile(msg.arg1);
                     break;
                 case MSG_WIRED_CHARGING_STARTED:
+                case MSG_WIRED_CHARGING_DISCONNECTED:
                     showWiredChargingStarted(msg.arg1);
                     break;
             }
