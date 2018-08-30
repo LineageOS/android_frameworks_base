@@ -3447,4 +3447,7 @@
     <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
     <bool name="config_swipe_up_gesture_setting_available">false</bool>
 
+    <!-- Minimal height of bottom stack when IME is displayed -->
+    <dimen name="config_bottom_stack_minimal_height">0dp</dimen>
+
 </resources>

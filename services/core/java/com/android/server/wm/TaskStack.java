@@ -127,6 +127,7 @@ public class TaskStack extends WindowContainer<Task> implements
     private float mAdjustImeAmount;
     private float mAdjustDividerAmount;
     private final int mDockedStackMinimizeThickness;
+    private final int mBottomStackMinimalHeight;
 
     // If this is true, we are in the bounds animating mode. The task will be down or upscaled to
     // perfectly fit the region it would have been cropped to. We may also avoid certain logic we
@@ -163,6 +164,8 @@ public class TaskStack extends WindowContainer<Task> implements
         setController(controller);
         mDockedStackMinimizeThickness = service.mContext.getResources().getDimensionPixelSize(
                 com.android.internal.R.dimen.docked_stack_minimize_thickness);
+        mBottomStackMinimalHeight = service.mContext.getResources().getDimensionPixelSize(
+                com.android.internal.R.dimen.config_bottom_stack_minimal_height);
         EventLog.writeEvent(EventLogTags.WM_STACK_CREATED, stackId);
     }
 
@@ -1223,14 +1226,19 @@ public class TaskStack extends WindowContainer<Task> implements
                 getDisplayContent().mDividerControllerLocked.getContentWidthInactive();
 
         if (dockedSide == DOCKED_TOP) {
-            // If this stack is docked on top, we make it smaller so the bottom stack is not
+            // If this stack is docked on top,
+            // when the height of the bottom stack is enough, we do not change stack size.
+            // Otherwise we make it smaller so the bottom stack is not
             // occluded by IME. We shift its bottom up by the height of the IME, but
             // leaves at least 30% of the top stack visible.
+            final boolean moveDivider = mBottomStackMinimalHeight == 0 ? true
+                    : imeTop - getRawBounds().bottom - dividerWidth < mBottomStackMinimalHeight;
             final int minTopStackBottom =
                     getMinTopStackBottom(displayStableRect, getRawBounds().bottom);
-            final int bottom = Math.max(
+            final int bottom = moveDivider ? Math.max(
                     getRawBounds().bottom - yOffset + dividerWidth - dividerWidthInactive,
-                    minTopStackBottom);
+                    minTopStackBottom)
+                    : getRawBounds().bottom;
             mTmpAdjustedBounds.set(getRawBounds());
             mTmpAdjustedBounds.bottom = (int) (mAdjustImeAmount * bottom + (1 - mAdjustImeAmount)
                     * getRawBounds().bottom);
@@ -1239,18 +1247,23 @@ public class TaskStack extends WindowContainer<Task> implements
             // When the stack is on bottom and has no focus, it's only adjusted for divider width.
             final int dividerWidthDelta = dividerWidthInactive - dividerWidth;
 
-            // When the stack is on bottom and has focus, it needs to be moved up so as to
+            // When the stack is on bottom and has focus,
+            // if the height of the bottom stack is enough, we do not change stack size.
+            // Otherwise it needs to be moved up so as to
             // not occluded by IME, and at the same time adjusted for divider width.
             // We try to move it up by the height of the IME window, but only to the extent
             // that leaves at least 30% of the top stack visible.
             // 'top' is where the top of bottom stack will move to in this case.
+            final boolean moveDivider = mBottomStackMinimalHeight == 0 ? true
+                    : imeTop - getRawBounds().top < mBottomStackMinimalHeight;
             final int topBeforeImeAdjust =
                     getRawBounds().top - dividerWidth + dividerWidthInactive;
             final int minTopStackBottom =
                     getMinTopStackBottom(displayStableRect,
                             getRawBounds().top - dividerWidth);
-            final int top = Math.max(
-                    getRawBounds().top - yOffset, minTopStackBottom + dividerWidthInactive);
+            final int top = moveDivider ? Math.max(
+                    getRawBounds().top - yOffset, minTopStackBottom + dividerWidthInactive)
+                    : topBeforeImeAdjust;
 
             mTmpAdjustedBounds.set(getRawBounds());
             // Account for the adjustment for IME and divider width separately.

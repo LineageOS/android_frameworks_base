@@ -3390,4 +3390,7 @@
 
   <java-symbol type="integer" name="config_defaultHapticFeedbackIntensity" />
   <java-symbol type="integer" name="config_defaultNotificationVibrationIntensity" />
+
+  <!-- Minimal height of bottom stack when IME is displayed -->
+  <java-symbol type="dimen" name="config_bottom_stack_minimal_height" />
 </resources>
