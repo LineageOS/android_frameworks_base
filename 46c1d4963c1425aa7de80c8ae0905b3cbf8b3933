@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "824cc0d4_f225027b",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-31T16:58:48Z",
+      "side": 1,
+      "message": "not needed",
+      "range": {
+        "startLine": 136,
+        "startChar": 30,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "46c1d4963c1425aa7de80c8ae0905b3cbf8b3933",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
