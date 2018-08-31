@@ -53,6 +53,8 @@ import com.android.internal.util.FastXmlSerializer;
 import com.android.internal.util.Preconditions;
 import com.android.server.pm.Installer;
 
+import libcore.io.IoUtils;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
@@ -309,6 +311,8 @@ public class CacheQuotaStrategy implements RemoteCallback.OnResultListener {
             cachedValues = readFromXml(stream);
         } catch (XmlPullParserException e) {
             throw new IllegalStateException(e.getMessage());
+        } finally {
+            IoUtils.closeQuietly(stream);
         }
 
         if (cachedValues == null) {
