@@ -296,7 +296,7 @@ public class CacheQuotaStrategy implements RemoteCallback.OnResultListener {
      * @return the number of bytes that were free on the device when the quotas were last calced.
      */
     public long setupQuotasFromFile() throws IOException {
-        FileInputStream stream;
+        FileInputStream stream = null;
         try {
             stream = mPreviousValuesFile.openRead();
         } catch (FileNotFoundException e) {
@@ -309,6 +309,14 @@ public class CacheQuotaStrategy implements RemoteCallback.OnResultListener {
             cachedValues = readFromXml(stream);
         } catch (XmlPullParserException e) {
             throw new IllegalStateException(e.getMessage());
+        } finally {
+            if (stream != null) {
+                try {
+                    stream.close();
+                } catch (IOException e) {
+                    //Ignore exception.
+                }
+            }
         }
 
         if (cachedValues == null) {
