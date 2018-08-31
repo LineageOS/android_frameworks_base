@@ -36,4 +36,7 @@
 
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <bool name="config_cleanupUnusedFingerprints">true</bool>
+
+    <!-- Whether to allow process with media UID to access CameraProxy -->
+    <bool name="config_mLoosenUidCheck">false</bool>
 </resources>
