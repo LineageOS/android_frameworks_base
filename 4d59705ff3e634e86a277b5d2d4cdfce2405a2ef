@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a029d0a2_6394fd51",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerFragment.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-08-31T16:56:35Z",
+      "side": 1,
+      "message": "I like ohai\nBut maybe something like \"Don\u0027t warn user\" is more suitable",
+      "range": {
+        "startLine": 86,
+        "startChar": 11,
+        "endLine": 86,
+        "endChar": 15
+      },
+      "revId": "4d59705ff3e634e86a277b5d2d4cdfce2405a2ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
