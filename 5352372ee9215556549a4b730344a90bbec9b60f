@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "caa9ef69_7adae9cd",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-09-01T10:03:38Z",
+      "side": 1,
+      "message": "TODO: Figure out what pref to keep, AOSP or our own",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 96
+      },
+      "revId": "5352372ee9215556549a4b730344a90bbec9b60f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
