@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed70f908_738f6a59",
+        "filename": "services/core/java/com/android/server/wm/RootWindowContainer.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-09-02T21:16:25Z",
+      "side": 1,
+      "message": "Can\u0027t this be 0 and placed at the top so that we don\u0027t change the value of SET_USER_ACTIVITY_TIMEOUT?",
+      "range": {
+        "startLine": 96,
+        "startChar": 62,
+        "endLine": 96,
+        "endChar": 63
+      },
+      "revId": "df5e12366bfbdfc0f94c7f837d1f4fb234efbc1b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
