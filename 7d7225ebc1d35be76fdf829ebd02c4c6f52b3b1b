@@ -1,0 +1,28 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6b72c4a_15ebe447",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 9080,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-09-02T13:29:43Z",
+      "side": 1,
+      "message": "CameraCharacteristics c \u003d mCameraManager.getCameraCharacteristics(id);\n            Boolean flashAvailable \u003d c.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);\n            Integer lensFacing \u003d c.get(CameraCharacteristics.LENS_FACING);\n            if (flashAvailable !\u003d null \u0026\u0026 flashAvailable\n                    \u0026\u0026 lensFacing !\u003d null \u0026\u0026 lensFacing \u003d\u003d CameraCharacteristics.LENS_FACING_BACK) {\n                mRearFlashCameraId \u003d id;\n            }\n\nTrying to understand why it crashes here",
+      "parentUuid": "",
+      "range": {
+        "startLine": 9075,
+        "startChar": 0,
+        "endLine": 9080,
+        "endChar": 13
+      },
+      "revId": "7d7225ebc1d35be76fdf829ebd02c4c6f52b3b1b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
