@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49b82c31_2f90dd76",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 9081,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-09-02T16:19:37Z",
+      "side": 1,
+      "message": "The code in FlashLightController returns the id here instead, I break the loop.",
+      "range": {
+        "startLine": 9081,
+        "startChar": 0,
+        "endLine": 9081,
+        "endChar": 22
+      },
+      "revId": "4b92ea2001165fd981b7235c4b2b628ca27f2f79",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
