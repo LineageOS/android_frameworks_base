@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- * Copyright (C) 2017 The LineageOS Project
+ * Copyright (C) 2017-2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,8 @@ package com.android.systemui.qs.tiles;
 import android.content.Context;
 import android.content.Intent;
 import android.database.ContentObserver;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.NetworkUtils;
 import android.net.Uri;
 import android.net.wifi.WifiInfo;
@@ -35,6 +37,9 @@ import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
+import com.android.systemui.statusbar.policy.NetworkController;
+import com.android.systemui.statusbar.policy.NetworkController.IconState;
+import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 
 import lineageos.providers.LineageSettings;
 import org.lineageos.internal.logging.LineageMetricsLogger;
@@ -46,14 +51,20 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
 
     private boolean mListening;
     private final KeyguardMonitor mKeyguardMonitor;
-    private final KeyguardMonitorCallback mCallback = new KeyguardMonitorCallback();
+    private final KeyguardMonitorCallback mKeyguardCallback = new KeyguardMonitorCallback();
+
+    private final NetworkController mController;
+    private final WifiSignalCallback mSignalCallback = new WifiSignalCallback();
+    private final WifiManager mWifiManager;
 
     private static final Intent SETTINGS_DEVELOPMENT =
             new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);
 
     public AdbOverNetworkTile(QSHost host) {
         super(host);
+        mController = Dependency.get(NetworkController.class);
         mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
+        mWifiManager = mContext.getSystemService(WifiManager.class);
     }
 
     @Override
@@ -78,26 +89,19 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        state.value = isAdbNetworkEnabled();
+        state.value = isAdbEnabled() && isAdbNetworkEnabled();
         state.icon = ResourceIcon.get(R.drawable.ic_qs_network_adb);
         state.label = mContext.getString(R.string.quick_settings_network_adb_label);
         if (state.value) {
-            WifiManager wifiManager = mContext.getSystemService(WifiManager.class);
-            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-
+            WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
             if (wifiInfo != null) {
-                // If wifiInfo is not null, set secondary label to "hostAddress"
                 InetAddress address = NetworkUtils.intToInetAddress(wifiInfo.getIpAddress());
                 state.secondaryLabel = address.getHostAddress();
-            } else {
-                // If wifiInfo is null, disable secondary label
-                state.secondaryLabel = null;
+                state.state = Tile.STATE_ACTIVE;
             }
-            state.state = Tile.STATE_ACTIVE;
         } else {
-            // Otherwise set the disabled label and icon
             state.secondaryLabel = null;
-            state.state = Tile.STATE_INACTIVE;
+            state.state = canEnableAdbNetwork() ? Tile.STATE_INACTIVE : Tile.STATE_UNAVAILABLE;
         }
     }
 
@@ -121,10 +125,22 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
                 LineageSettings.Secure.ADB_PORT, 0) > 0;
     }
 
+    private boolean isWifiConnected() {
+        ConnectivityManager connMgr = mContext.getSystemService(ConnectivityManager.class);
+        NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        return networkInfo != null && networkInfo.isConnected();
+    }
+
+    private boolean canEnableAdbNetwork() {
+        return isAdbEnabled() && isWifiConnected();
+    }
+
     private void toggleAction() {
-        LineageSettings.Secure.putIntForUser(mContext.getContentResolver(),
-                LineageSettings.Secure.ADB_PORT, getState().value ? -1 : 5555,
-                UserHandle.USER_CURRENT);
+        if (canEnableAdbNetwork()) {
+            LineageSettings.Secure.putIntForUser(mContext.getContentResolver(),
+                    LineageSettings.Secure.ADB_PORT, getState().value ? -1 : 5555,
+                    UserHandle.USER_CURRENT);
+        }
     }
 
     private ContentObserver mObserver = new ContentObserver(mHandler) {
@@ -145,10 +161,12 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
                 mContext.getContentResolver().registerContentObserver(
                         Settings.Global.getUriFor(Settings.Global.ADB_ENABLED),
                         false, mObserver);
-                mKeyguardMonitor.addCallback(mCallback);
+                mKeyguardMonitor.addCallback(mKeyguardCallback);
+                mController.addCallback(mSignalCallback);
             } else {
                 mContext.getContentResolver().unregisterContentObserver(mObserver);
-                mKeyguardMonitor.removeCallback(mCallback);
+                mKeyguardMonitor.removeCallback(mKeyguardCallback);
+                mController.removeCallback(mSignalCallback);
             }
         }
     }
@@ -156,6 +174,15 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
     private class KeyguardMonitorCallback implements KeyguardMonitor.Callback {
         @Override
         public void onKeyguardShowingChanged() {
+            refreshState();
+        }
+    }
+
+    private class WifiSignalCallback implements SignalCallback {
+        @Override
+        public void setWifiIndicators(boolean enabled, IconState statusIcon, IconState qsIcon,
+                boolean activityIn, boolean activityOut, String description, boolean isTransient,
+                String statusLabel) {
             refreshState();
         }
     }
