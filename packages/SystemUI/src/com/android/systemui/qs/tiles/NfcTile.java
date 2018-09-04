@@ -25,6 +25,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.nfc.NfcAdapter;
 import android.provider.Settings;
+import android.service.quicksettings.Tile;
 import android.widget.Switch;
 
 import com.android.internal.logging.MetricsLogger;
@@ -36,6 +37,8 @@ import com.android.systemui.qs.tileimpl.QSTileImpl;
 
 /** Quick settings tile: Enable/Disable NFC **/
 public class NfcTile extends QSTileImpl<BooleanState> {
+
+    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_nfc);
 
     private NfcAdapter mAdapter;
 
@@ -96,15 +99,14 @@ public class NfcTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        final Drawable mEnable = mContext.getDrawable(R.drawable.ic_qs_nfc_enabled);
-        final Drawable mDisable = mContext.getDrawable(R.drawable.ic_qs_nfc_disabled);
-
         if (getAdapter() == null) return;
+
         state.value = getAdapter().isEnabled();
         state.label = mContext.getString(R.string.quick_settings_nfc_label);
-        state.icon = new DrawableIcon(state.value ? mEnable : mDisable);
-        state.expandedAccessibilityClassName = Switch.class.getName();
+        state.icon = mIcon;
         state.contentDescription = state.label;
+        state.expandedAccessibilityClassName = Switch.class.getName();
+        state.state = state.value ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
     }
 
     @Override
