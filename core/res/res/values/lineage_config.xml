@@ -35,7 +35,7 @@
     <bool name="config_useDefaultBatchingForAccel">true</bool>
 
     <!-- Button backlight -->
-    <integer name="config_buttonBrightnessSettingDefault">255</integer>
+    <integer name="config_buttonBrightnessSettingDefault">0</integer>
     <bool name="config_deviceHasVariableButtonBrightness">false</bool>
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
