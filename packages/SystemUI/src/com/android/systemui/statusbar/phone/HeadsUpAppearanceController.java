@@ -48,6 +48,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
     private final NotificationStackScrollLayout mStackScroller;
     private final HeadsUpStatusBarView mHeadsUpStatusBarView;
     private final ClockController mClockController;
+    private final View mOperatorNameView;
     private final DarkIconDispatcher mDarkIconDispatcher;
     private final NotificationPanelView mPanelView;
     private final Consumer<ExpandableNotificationRow>
@@ -65,6 +66,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
     private final View.OnLayoutChangeListener mStackScrollLayoutChangeListener =
             (v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom)
                     -> updatePanelTranslation();
+    private boolean mAnimationsEnabled = true;
     Point mPoint;
 
     public HeadsUpAppearanceController(
@@ -75,6 +77,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
                 statusbarView.findViewById(R.id.heads_up_status_bar_view),
                 statusbarView.findViewById(R.id.notification_stack_scroller),
                 statusbarView.findViewById(R.id.notification_panel),
+                statusbarView.findViewById(R.id.operator_name_frame),
                 new ClockController(statusbarView));
     }
 
@@ -85,6 +88,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
             HeadsUpStatusBarView headsUpStatusBarView,
             NotificationStackScrollLayout stackScroller,
             NotificationPanelView panelView,
+            View operatorNameView,
             ClockController clockController) {
         mNotificationIconAreaController = notificationIconAreaController;
         mHeadsUpManager = headsUpManager;
@@ -101,6 +105,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
         mStackScroller.addOnLayoutChangeListener(mStackScrollLayoutChangeListener);
         mStackScroller.setHeadsUpAppearanceController(this);
         mClockController = clockController;
+        mOperatorNameView = operatorNameView;
         mDarkIconDispatcher = Dependency.get(DarkIconDispatcher.class);
         mDarkIconDispatcher.addDarkReceiver(this);
 
@@ -232,22 +237,54 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
             mShown = isShown;
             if (isShown) {
                 mHeadsUpStatusBarView.setVisibility(View.VISIBLE);
-                CrossFadeHelper.fadeIn(mHeadsUpStatusBarView, CONTENT_FADE_DURATION /* duration */,
-                        CONTENT_FADE_DELAY /* delay */);
+                show(mHeadsUpStatusBarView);
                 if (!isRightClock) {
-                    CrossFadeHelper.fadeOut(clockView, CONTENT_FADE_DURATION/* duration */,
-                            0 /* delay */, () -> clockView.setVisibility(View.INVISIBLE));
+                    hide(clockView, View.INVISIBLE);
+                }
+                if (mOperatorNameView != null) {
+                    hide(mOperatorNameView, View.INVISIBLE);
                 }
             } else {
                 if (!isRightClock) {
-                    CrossFadeHelper.fadeIn(clockView, CONTENT_FADE_DURATION /* duration */,
-                            CONTENT_FADE_DELAY /* delay */);
+                    show(clockView);
                 }
-                CrossFadeHelper.fadeOut(mHeadsUpStatusBarView, CONTENT_FADE_DURATION/* duration */,
-                        0 /* delay */, () -> mHeadsUpStatusBarView.setVisibility(View.GONE));
-
+                if (mOperatorNameView != null) {
+                    show(mOperatorNameView);
+                }
+                hide(mHeadsUpStatusBarView, View.GONE);
             }
         }
+    }
+
+    /**
+     * Hides the view and sets the state to endState when finished.
+     *
+     * @param view The view to hide.
+     * @param endState One of {@link View#INVISIBLE} or {@link View#GONE}.
+     * @see View#setVisibility(int)
+     *
+     */
+    private void hide(View view, int endState) {
+        if (mAnimationsEnabled) {
+            CrossFadeHelper.fadeOut(view, CONTENT_FADE_DURATION /* duration */,
+                    0 /* delay */, () -> view.setVisibility(endState));
+        } else {
+            view.setVisibility(endState);
+        }
+    }
+
+    private void show(View view) {
+        if (mAnimationsEnabled) {
+            CrossFadeHelper.fadeIn(view, CONTENT_FADE_DURATION /* duration */,
+                    CONTENT_FADE_DELAY /* delay */);
+        } else {
+            view.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @VisibleForTesting
+    void setAnimationsEnabled(boolean enabled) {
+        mAnimationsEnabled = enabled;
     }
 
     @VisibleForTesting
