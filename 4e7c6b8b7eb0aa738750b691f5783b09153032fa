@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86c1f4fe_f5504668",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-09-05T08:23:27Z",
+      "side": 1,
+      "message": "shouldn\u0027t be needed, tile is UNAVAILABLE when this condition is false so it can\u0027t be toggled",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 36
+      },
+      "revId": "4e7c6b8b7eb0aa738750b691f5783b09153032fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
