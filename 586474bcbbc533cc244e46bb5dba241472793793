@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4cc38ca3_e5e0b1d3",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-09-09T19:27:37Z",
+      "side": 1,
+      "message": "is it guaranteed to convert to this character? also, I guess you could add this to the replaceAll call below?",
+      "range": {
+        "startLine": 173,
+        "startChar": 50,
+        "endLine": 173,
+        "endChar": 51
+      },
+      "revId": "586474bcbbc533cc244e46bb5dba241472793793",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
