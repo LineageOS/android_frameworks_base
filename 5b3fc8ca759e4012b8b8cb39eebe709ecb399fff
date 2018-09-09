@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e2346ea_18d14aff",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 13497,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-09-09T12:13:14Z",
+      "side": 1,
+      "message": "(mPlatformPackage !\u003d null \u0026\u0026 compareSignatures(mPlatformPackage.mSignatures,\n                        pkg.mSignatures) \u003d\u003d PackageManager.SIGNATURE_MATCH)",
+      "range": {
+        "startLine": 13496,
+        "startChar": 19,
+        "endLine": 13497,
+        "endChar": 83
+      },
+      "revId": "5b3fc8ca759e4012b8b8cb39eebe709ecb399fff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
