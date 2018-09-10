@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "668b188f_46f87b80",
+        "filename": "core/java/android/os/storage/DiskInfo.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-09-10T00:09:39Z",
+      "side": 1,
+      "message": "if this isn\u0027t related, FLAG_NON_REMOVABLE should be 1 \u003c\u003c 4;",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 47
+      },
+      "revId": "695a490e3d8f786287bfbad4ec58972b4c7f7950",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
