@@ -210,6 +210,7 @@
         <item>Use System Selection (Default)</item>
         <item>Mono</item>
         <item>Stereo</item>
+        <item>Dual Channel</item>
     </string-array>
 
     <!-- Values for Bluetooth Audio Codec Channel Mode selection preference. -->
@@ -217,6 +218,7 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <!-- Summaries for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50]-->
@@ -224,6 +226,7 @@
         <item>Use System Selection (Default)</item>
         <item>Mono</item>
         <item>Stereo</item>
+        <item>Dual Channel</item>
     </string-array>
 
     <!-- Titles for Bluetooth Audio Codec LDAC Playback Quality selection preference. [CHAR LIMIT=70] -->
