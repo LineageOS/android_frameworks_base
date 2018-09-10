@@ -41,4 +41,28 @@
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptX™ Adaptive</xliff:g> audio</item>
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptX™ TWS+</xliff:g> audio</item>
     </string-array>
+
+    <!-- Titles for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50] -->
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles_cm">
+        <item>Use System Selection (Default)</item>
+        <item>Mono</item>
+        <item>Stereo</item>
+        <item>Dual Channel</item>
+    </string-array>
+
+    <!-- Values for Bluetooth Audio Codec Channel Mode selection preference. -->
+    <string-array name="bluetooth_a2dp_codec_channel_mode_values_cm" translatable="false" >
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- Summaries for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50]-->
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries_cm" >
+        <item>Use System Selection (Default)</item>
+        <item>Mono</item>
+        <item>Stereo</item>
+        <item>Dual Channel</item>
+    </string-array>
 </resources>
