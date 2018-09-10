@@ -192,6 +192,7 @@ public final class BluetoothCodecConfig implements Parcelable {
 
     @UnsupportedAppUsage
     public static final int CHANNEL_MODE_STEREO = 0x1 << 1;
+    public static final int CHANNEL_MODE_DUAL_CHANNEL = 0x1 << 2;
 
     @UnsupportedAppUsage
     public static final int CHANNEL_MODE_JOINT_STEREO = 0x1 << 2;
