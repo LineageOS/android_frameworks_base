@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff8fdec2_a838b25f",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tileimpl/QSFactoryImpl.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-09-10T09:58:19Z",
+      "side": 1,
+      "message": "Should have been placed bellow, under \"Custom tiles\".",
+      "range": {
+        "startLine": 76,
+        "startChar": 8,
+        "endLine": 76,
+        "endChar": 77
+      },
+      "revId": "cc0c2d39907d98d7ef921efda78a2fd25070095f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
