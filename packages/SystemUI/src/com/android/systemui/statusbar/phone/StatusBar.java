@@ -241,6 +241,7 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.OnHeadsUpChangedListener;
 import com.android.systemui.statusbar.policy.PreviewInflater;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
+import com.android.systemui.statusbar.policy.TelephonyIcons;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
@@ -268,6 +269,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     public static final boolean ENABLE_CHILD_NOTIFICATIONS
             = SystemProperties.getBoolean("debug.child_notifs", true);
+
+    public static final boolean USE_OLD_MOBILETYPE = true;
 
     protected static final int MSG_HIDE_RECENT_APPS = 1020;
     protected static final int MSG_PRELOAD_RECENT_APPS = 1022;
@@ -866,6 +869,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         updateDisplaySize(); // populates mDisplayMetrics
         updateResources();
         updateTheme();
+
+        TelephonyIcons.updateIcons(USE_OLD_MOBILETYPE);
 
         inflateStatusBarWindow(context);
         mStatusBarWindow.setService(this);
