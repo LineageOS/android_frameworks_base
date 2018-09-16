@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52c7a8d8_cb5d76e1",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 49
+      },
+      "lineNbr": 6296,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-09-16T21:43:40Z",
+      "side": 1,
+      "message": "This has been placed differently from 15.1:\nhttps://github.com/LineageOS/android_frameworks_base/blob/293dde194bafb2a7d4ab3b41104ec1ab13c03193/services/core/java/com/android/server/policy/PhoneWindowManager.java#L6751\n\nWas there a reason ?",
+      "revId": "46b97c2063b846d29f2db14641abe9ff090b2ff7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
