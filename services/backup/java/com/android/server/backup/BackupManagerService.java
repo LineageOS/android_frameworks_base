@@ -706,6 +706,7 @@ public class BackupManagerService implements BackupManagerServiceInterface {
     // Where we keep our journal files and other bookkeeping
     File mBaseStateDir;
     File mDataDir;
+    File mRestoreDir;
     File mJournalDir;
     File mJournal;
 
@@ -1249,6 +1250,7 @@ public class BackupManagerService implements BackupManagerServiceInterface {
 
         // This dir on /cache is managed directly in init.rc
         mDataDir = new File(Environment.getDownloadCacheDirectory(), "backup_stage");
+        mRestoreDir = new File(Environment.getDownloadCacheDirectory(), "restore_stage");
 
         mPasswordVersion = 1;       // unless we hear otherwise
         mPasswordVersionFile = new File(mBaseStateDir, "pwversion");
@@ -7810,7 +7812,7 @@ if (MORE_DEBUG) Slog.v(TAG, "   + got " + nRead + "; now wanting " + (size - soF
 
             // The file content is an .apk file.  Copy it out to a staging location and
             // attempt to install it.
-            File apkFile = new File(mDataDir, info.packageName);
+            File apkFile = new File(mRestoreDir, info.packageName);
             try {
                 FileOutputStream apkStream = new FileOutputStream(apkFile);
                 byte[] buffer = new byte[32 * 1024];
