@@ -1014,4 +1014,10 @@ interface IWindowManager
      * @return List of ComponentNames corresponding to the activities that were notified.
     */
     List<ComponentName> notifyScreenshotListeners(int displayId);
+
+
+    /**
+     * Notifies DisplayPolicy that overlays changed.
+     */
+    void onOverlayChanged();
 }
