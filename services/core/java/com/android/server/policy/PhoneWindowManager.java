@@ -299,6 +299,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dalvik.system.PathClassLoader;
+import lineageos.providers.LineageSettings;
 
 /**
  * WindowManagerPolicy implementation for the Android phone UI.  This
