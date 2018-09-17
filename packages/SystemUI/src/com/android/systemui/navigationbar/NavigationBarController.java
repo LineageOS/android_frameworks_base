@@ -66,6 +66,8 @@ import com.android.systemui.util.settings.SecureSettings;
 import com.android.wm.shell.back.BackAnimation;
 import com.android.wm.shell.pip.Pip;
 
+import lineageos.providers.LineageSettings;
+
 import java.io.PrintWriter;
 import java.util.Optional;
 
@@ -235,9 +237,15 @@ public class NavigationBarController implements
         }
     }
 
-    private boolean shouldCreateNavBarAndTaskBar(int displayId) {
+    private boolean shouldCreateNavBarAndTaskBar(Context context, int displayId) {
         final IWindowManager wms = WindowManagerGlobal.getWindowManagerService();
 
+        if (displayId == mDisplayTracker.getDefaultDisplayId() &&
+                LineageSettings.System.getIntForUser(context.getContentResolver(),
+                        LineageSettings.System.FORCE_SHOW_NAVBAR, 0,
+                        UserHandle.USER_CURRENT) == 1) {
+            return true;
+        }
         try {
             return wms.hasNavigationBar(displayId);
         } catch (RemoteException e) {
@@ -260,7 +268,8 @@ public class NavigationBarController implements
     private boolean initializeTaskbarIfNecessary() {
         // Enable for large screens or (phone AND flag is set); assuming phone = !mIsLargeScreen
         boolean taskbarEnabled = (shouldShowTaskbar() || mFeatureFlags.isEnabled(
-                Flags.HIDE_NAVBAR_WINDOW)) && shouldCreateNavBarAndTaskBar(mContext.getDisplayId());
+                Flags.HIDE_NAVBAR_WINDOW)) &&
+                shouldCreateNavBarAndTaskBar(mContext, mContext.getDisplayId());
 
         if (taskbarEnabled) {
             Trace.beginSection("NavigationBarController#initializeTaskbarIfNecessary");
@@ -350,8 +359,11 @@ public class NavigationBarController implements
 
         final int displayId = display.getDisplayId();
         final boolean isOnDefaultDisplay = displayId == mDisplayTracker.getDefaultDisplayId();
+        final Context context = isOnDefaultDisplay
+                ? mContext
+                : mContext.createDisplayContext(display);
 
-        if (!shouldCreateNavBarAndTaskBar(displayId)) {
+        if (!shouldCreateNavBarAndTaskBar(context, displayId)) {
             return;
         }
 
@@ -361,9 +373,6 @@ public class NavigationBarController implements
             return;
         }
 
-        final Context context = isOnDefaultDisplay
-                ? mContext
-                : mContext.createDisplayContext(display);
         NavigationBarComponent component = mNavigationBarComponentFactory.create(
                 context, savedState);
         NavigationBar navBar = component.getNavigationBar();
@@ -385,6 +394,12 @@ public class NavigationBarController implements
                 v.removeOnAttachStateChangeListener(this);
             }
         });
+
+        try {
+            WindowManagerGlobal.getWindowManagerService().onOverlayChanged();
+        } catch (RemoteException e) {
+            // Do nothing.
+        }
     }
 
     void removeNavigationBar(int displayId) {
