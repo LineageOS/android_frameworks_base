@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f5facf3_00339111",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-09-17T16:20:37Z",
+      "side": 1,
+      "message": "We should really think about renaming this. What was really the last version that had this setting in Developer options?",
+      "range": {
+        "startLine": 288,
+        "startChar": 54,
+        "endLine": 288,
+        "endChar": 75
+      },
+      "revId": "8111f753da062ba767e3e351b58eb0c43cdf6528",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
