@@ -290,6 +290,7 @@ import com.android.server.wm.DisplayFrames;
 import com.android.server.wm.WindowManagerInternal;
 import com.android.server.wm.WindowManagerInternal.AppTransitionListener;
 
+import lineageos.hardware.LineageHardwareManager;
 import lineageos.providers.LineageSettings;
 
 import java.io.File;
@@ -723,6 +724,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     int mInitialMetaState;
     boolean mForceShowSystemBars;
 
+    int mDevForceNavbar = -1;
+
     // support for activating the lock screen while the screen is on
     boolean mAllowLockscreenWhenOn;
     int mLockScreenTimeout;
@@ -860,6 +863,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_STATUS = 0;
     private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_NAVIGATION = 1;
+
+    private LineageHardwareManager mLineageHardware;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -1029,6 +1034,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     Settings.Secure.SYSTEM_NAVIGATION_KEYS_ENABLED), false, this,
                     UserHandle.USER_ALL);
 
+            resolver.registerContentObserver(LineageSettings.Global.getUriFor(
+                    LineageSettings.Global.DEV_FORCE_SHOW_NAVBAR), false, this,
+                    UserHandle.USER_ALL);
             resolver.registerContentObserver(LineageSettings.System.getUriFor(
                     LineageSettings.System.ACCELEROMETER_ROTATION_ANGLES), false, this,
                     UserHandle.USER_ALL);
@@ -2066,7 +2074,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mOrientationListener.setCurrentRotation(windowManager.getDefaultDisplayRotation());
         } catch (RemoteException ex) { }
         mSettingsObserver = new SettingsObserver(mHandler);
-        mSettingsObserver.observe();
         mShortcutManager = new ShortcutManager(context);
         mUiMode = context.getResources().getInteger(
                 com.android.internal.R.integer.config_defaultUiModeType);
@@ -2468,7 +2475,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
      *         navigation bar and touch exploration is not enabled
      */
     private boolean canHideNavigationBar() {
-        return mHasNavigationBar;
+        return hasNavigationBar();
     }
 
     @Override
@@ -2519,6 +2526,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             if (mWakeGestureEnabledSetting != wakeGestureEnabledSetting) {
                 mWakeGestureEnabledSetting = wakeGestureEnabledSetting;
                 updateWakeGestureListenerLp();
+            }
+
+            int devForceNavbar = LineageSettings.Global.getIntForUser(resolver,
+                    LineageSettings.Global.DEV_FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT);
+            if (devForceNavbar != mDevForceNavbar) {
+                mDevForceNavbar = devForceNavbar;
+                if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
+                    mLineageHardware.set(LineageHardwareManager.FEATURE_KEY_DISABLE,
+                            mDevForceNavbar == 1);
+                }
             }
 
             // Configure rotation lock.
@@ -2988,7 +3005,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             int displayId, DisplayCutout displayCutout) {
         int width = fullWidth;
         // TODO(multi-display): Support navigation bar on secondary displays.
-        if (displayId == DEFAULT_DISPLAY && mHasNavigationBar) {
+        if (displayId == DEFAULT_DISPLAY && hasNavigationBar()) {
             // For a basic navigation bar, when we are in landscape mode we place
             // the navigation bar to the side.
             if (mNavigationBarCanMove && fullWidth > fullHeight) {
@@ -3014,7 +3031,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             int displayId, DisplayCutout displayCutout) {
         int height = fullHeight;
         // TODO(multi-display): Support navigation bar on secondary displays.
-        if (displayId == DEFAULT_DISPLAY && mHasNavigationBar) {
+        if (displayId == DEFAULT_DISPLAY && hasNavigationBar()) {
             // For a basic navigation bar, when we are in portrait mode we place
             // the navigation bar to the bottom.
             if (!mNavigationBarCanMove || fullWidth < fullHeight) {
@@ -7691,6 +7708,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mVrManagerInternal.addPersistentVrModeStateListener(mPersistentVrModeListener);
         }
 
+        mLineageHardware = LineageHardwareManager.getInstance(mContext);
+        // Ensure observe happens in systemReady() since we need
+        // LineageHardwareService to be up and running
+        mSettingsObserver.observe();
+
         readCameraLensCoverState();
         updateUiMode();
         synchronized (mLock) {
@@ -8599,7 +8621,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     // overridden by qemu.hw.mainkeys in the emulator.
     @Override
     public boolean hasNavigationBar() {
-        return mHasNavigationBar;
+        return mHasNavigationBar || mDevForceNavbar == 1;
     }
 
     @Override
