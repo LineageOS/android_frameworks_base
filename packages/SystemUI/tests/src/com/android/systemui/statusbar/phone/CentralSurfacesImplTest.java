@@ -180,6 +180,7 @@ import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.window.StatusBarWindowController;
 import com.android.systemui.statusbar.window.StatusBarWindowStateController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.WallpaperController;
 import com.android.systemui.util.concurrency.FakeExecutor;
 import com.android.systemui.util.concurrency.MessageRouterImpl;
@@ -325,6 +326,7 @@ public class CentralSurfacesImplTest extends SysuiTestCase {
     @Mock private FingerprintManager mFingerprintManager;
     @Captor private ArgumentCaptor<OnBackInvokedCallback> mOnBackInvokedCallback;
     @Mock IPowerManager mPowerManagerService;
+    @Mock TunerService mTunerService;
     @Mock ActivityStarter mActivityStarter;
 
     private ShadeController mShadeController;
@@ -551,6 +553,7 @@ public class CentralSurfacesImplTest extends SysuiTestCase {
                 mAlternateBouncerInteractor,
                 mUserTracker,
                 () -> mFingerprintManager,
+                mTunerService,
                 mActivityStarter
         ) {
             @Override
