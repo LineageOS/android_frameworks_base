@@ -126,6 +126,7 @@ android_library {
         "protolog-lib",
         "WindowManager-Shell-proto",
         "jsr330",
+        "org.lineageos.platform.internal",
     ],
     kotlincflags: ["-Xjvm-default=enable"],
     manifest: "AndroidManifest.xml",
