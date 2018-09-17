@@ -689,6 +689,8 @@ public final class PowerManagerService extends SystemService
     private SensorEventListener mProximityListener;
     private android.os.PowerManager.WakeLock mProximityWakeLock;
 
+    private boolean mForceNavbar;
+
     public PowerManagerService(Context context) {
         super(context);
         mContext = context;
@@ -896,6 +898,9 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(LineageSettings.Global.getUriFor(
                 LineageSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED),
                 false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                LineageSettings.System.FORCE_SHOW_NAVBAR),
+                false, mSettingsObserver, UserHandle.USER_ALL);
 
         IVrManager vrManager = (IVrManager) getBinderService(Context.VR_SERVICE);
         if (vrManager != null) {
@@ -1021,6 +1026,9 @@ public final class PowerManagerService extends SystemService
         if (!retailDemoValue.equals(SystemProperties.get(SYSTEM_PROPERTY_RETAIL_DEMO_ENABLED))) {
             SystemProperties.set(SYSTEM_PROPERTY_RETAIL_DEMO_ENABLED, retailDemoValue);
         }
+
+        mForceNavbar = LineageSettings.System.getIntForUser(resolver,
+                LineageSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) == 1;
 
         mScreenBrightnessModeSetting = Settings.System.getIntForUser(resolver,
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
@@ -2066,7 +2074,7 @@ public final class PowerManagerService extends SystemService
                             if (mButtonBrightnessOverrideFromWindowManager >= 0) {
                                 buttonBrightness = mButtonBrightnessOverrideFromWindowManager;
                             } else {
-                                buttonBrightness = mButtonBrightness;
+                                buttonBrightness = !mForceNavbar ? mButtonBrightness : 0;
                             }
 
                             mLastButtonActivityTime = mButtonLightOnKeypressOnly ?
