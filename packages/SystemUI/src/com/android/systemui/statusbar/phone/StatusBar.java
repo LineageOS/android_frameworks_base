@@ -277,6 +277,9 @@ public class StatusBar extends SystemUI implements DemoMode,
     public static final String STATUS_BAR_BRIGHTNESS_CONTROL =
             "lineagesystem:" + LineageSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
 
+    private static final String FORCE_SHOW_NAVBAR =
+            "lineagesystem:" + LineageSettings.System.FORCE_SHOW_NAVBAR;
+
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
     private static final String BANNER_ACTION_SETUP =
@@ -634,6 +637,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     private ActivityIntentHelper mActivityIntentHelper;
     private ShadeController mShadeController;
 
+    private RegisterStatusBarResult mResult;
+
     @Override
     public void onActiveStateChanged(int code, int uid, String packageName, boolean active) {
         Dependency.get(MAIN_HANDLER).post(() -> {
@@ -697,6 +702,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, SCREEN_BRIGHTNESS_MODE);
         tunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
+        tunerService.addTunable(this, FORCE_SHOW_NAVBAR);
 
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
 
@@ -742,6 +748,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         } catch (RemoteException ex) {
             ex.rethrowFromSystemServer();
         }
+        mResult = result;
 
         createAndAddWindows(result);
 
@@ -4643,6 +4650,13 @@ public class StatusBar extends SystemUI implements DemoMode,
                     == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
         } else if (STATUS_BAR_BRIGHTNESS_CONTROL.equals(key)) {
             mBrightnessControl = newValue != null && Integer.parseInt(newValue) == 1;
+        } else if (mWindowManagerService != null && FORCE_SHOW_NAVBAR.equals(key)) {
+            boolean forcedVisibility = newValue != null && Integer.parseInt(newValue) == 1;
+            if (forcedVisibility && getNavigationBarView() == null) {
+                createNavigationBar(mResult);
+            } else if (getNavigationBarView() != null) {
+                mNavigationBarController.onDisplayRemoved(mDisplayId);
+            }
         }
     }
     // End Extra BaseStatusBarMethods.
