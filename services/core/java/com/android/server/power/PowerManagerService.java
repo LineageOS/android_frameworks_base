@@ -689,6 +689,8 @@ public final class PowerManagerService extends SystemService
     private SensorEventListener mProximityListener;
     private android.os.PowerManager.WakeLock mProximityWakeLock;
 
+    private boolean mForceNavbar;
+
     public PowerManagerService(Context context) {
         super(context);
         mContext = context;
@@ -896,6 +898,9 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(LineageSettings.Global.getUriFor(
                 LineageSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED),
                 false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                LineageSettings.System.FORCE_SHOW_NAVBAR),
+                false, mSettingsObserver, UserHandle.USER_ALL);
 
         IVrManager vrManager = (IVrManager) getBinderService(Context.VR_SERVICE);
         if (vrManager != null) {
@@ -1039,6 +1044,8 @@ public final class PowerManagerService extends SystemService
         mProximityWakeEnabled = LineageSettings.System.getInt(resolver,
                 LineageSettings.System.PROXIMITY_ON_WAKE,
                 mProximityWakeEnabledByDefaultConfig ? 1 : 0) == 1;
+        mForceNavbar = LineageSettings.System.getInt(resolver,
+                LineageSettings.System.FORCE_SHOW_NAVBAR, 0) == 1;
 
         mDirty |= DIRTY_SETTINGS;
     }
@@ -2066,7 +2073,7 @@ public final class PowerManagerService extends SystemService
                             if (mButtonBrightnessOverrideFromWindowManager >= 0) {
                                 buttonBrightness = mButtonBrightnessOverrideFromWindowManager;
                             } else {
-                                buttonBrightness = mButtonBrightness;
+                                buttonBrightness = !mForceNavbar ? mButtonBrightness : 0;
                             }
 
                             mLastButtonActivityTime = mButtonLightOnKeypressOnly ?
