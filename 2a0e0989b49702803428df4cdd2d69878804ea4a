@@ -22,6 +22,30 @@
       "revId": "2a0e0989b49702803428df4cdd2d69878804ea4a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6abbf552_f3006a06",
+        "filename": "services/core/java/com/android/server/power/Notifier.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-09-17T09:08:17Z",
+      "side": 1,
+      "message": "From the old commit: https://github.com/LineageOS/android_frameworks_base/commit/72fe3994a4890d2dc81ca871d7fb8b3e203ee6a9#diff-d8034eea75763a5d982f1a7560673940R410",
+      "parentUuid": "32f1410a_f9626714",
+      "range": {
+        "startLine": 798,
+        "startChar": 16,
+        "endLine": 798,
+        "endChar": 38
+      },
+      "revId": "2a0e0989b49702803428df4cdd2d69878804ea4a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
