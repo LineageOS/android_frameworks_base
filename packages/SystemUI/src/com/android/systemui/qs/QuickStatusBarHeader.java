@@ -214,8 +214,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 ringerVisible = true;
             }
         }
-        mRingerModeIcon.setVisibility(ringerVisible ? View.VISIBLE : View.GONE);
-        mRingerModeTextView.setVisibility(ringerVisible ? View.VISIBLE : View.GONE);
+        mRingerModeIcon.setVisibility(View.GONE);
+        mRingerModeTextView.setVisibility(View.GONE);
 
         return isOriginalVisible != ringerVisible ||
                 !Objects.equals(originalRingerText, mRingerModeTextView.getText());
