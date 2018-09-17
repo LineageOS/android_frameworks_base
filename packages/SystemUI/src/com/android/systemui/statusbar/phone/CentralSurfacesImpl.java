@@ -40,6 +40,8 @@ import static com.android.systemui.statusbar.phone.BarTransitions.MODE_SEMI_TRAN
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_TRANSPARENT;
 import static com.android.systemui.statusbar.phone.BarTransitions.TransitionMode;
 
+import static lineageos.providers.LineageSettings.System.FORCE_SHOW_NAVBAR;
+
 import android.annotation.Nullable;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
@@ -61,6 +63,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.graphics.Point;
 import android.hardware.devicestate.DeviceStateManager;
 import android.hardware.fingerprint.FingerprintManager;
@@ -245,6 +248,7 @@ import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.window.StatusBarWindowController;
 import com.android.systemui.statusbar.window.StatusBarWindowStateController;
 import com.android.systemui.surfaceeffects.ripple.RippleShader.RippleShape;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.DumpUtilsKt;
 import com.android.systemui.util.WallpaperController;
 import com.android.systemui.util.concurrency.DelayableExecutor;
@@ -255,6 +259,8 @@ import com.android.wm.shell.startingsurface.SplashscreenContentDrawer;
 import com.android.wm.shell.startingsurface.StartingSurface;
 
 import dagger.Lazy;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -951,6 +957,41 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
         mKeyguardIndicationController.init();
 
         mColorExtractor.addOnColorsChangedListener(mOnColorsChangedListener);
+
+        mNeedsNavigationBar = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+        // Allow a system property to override this. Used by the emulator.
+        // See also hasNavigationBar().
+        String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
+        if ("1".equals(navBarOverride)) {
+            mNeedsNavigationBar = false;
+        } else if ("0".equals(navBarOverride)) {
+            mNeedsNavigationBar = true;
+        }
+
+        ContentObserver contentObserver = new ContentObserver(null) {
+            @Override
+            public void onChange(boolean selfChange) {
+                if (mDisplayId == Display.DEFAULT_DISPLAY
+                        && mWindowManagerService != null) {
+                    boolean forcedVisibility = mNeedsNavigationBar || LineageSettings.System.getInt(
+                            mContext.getContentResolver(), FORCE_SHOW_NAVBAR, 0) != 0;
+                    boolean hasNavbar = getNavigationBarView() != null;
+                    if (forcedVisibility) {
+                        if (!hasNavbar) {
+                            mNavigationBarController.onDisplayReady(mDisplayId);
+                        }
+                    } else {
+                        if (hasNavbar) {
+                            mNavigationBarController.onDisplayRemoved(mDisplayId);
+                        }
+                    }
+                }
+            }
+        };
+        mContext.getContentResolver().registerContentObserver(
+                LineageSettings.System.getUriFor(FORCE_SHOW_NAVBAR), false, contentObserver);
+        contentObserver.onChange(true);
 
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
 
@@ -3255,6 +3296,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
     protected KeyguardManager mKeyguardManager;
     private final DeviceProvisionedController mDeviceProvisionedController;
 
+    private boolean mNeedsNavigationBar;
     private final NavigationBarController mNavigationBarController;
     private final AccessibilityFloatingMenuController mAccessibilityFloatingMenuController;
 
