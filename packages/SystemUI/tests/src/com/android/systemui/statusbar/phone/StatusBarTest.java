@@ -136,6 +136,7 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.concurrency.FakeExecutor;
 import com.android.systemui.util.time.FakeSystemClock;
 import com.android.systemui.volume.VolumeComponent;
@@ -238,6 +239,7 @@ public class StatusBarTest extends SysuiTestCase {
     @Mock private ViewMediatorCallback mViewMediatorCallback;
     @Mock private DismissCallbackRegistry mDismissCallbackRegistry;
     @Mock private StatusBarTouchableRegionManager mStatusBarTouchableRegionManager;
+    @Mock private TunerService mTunerService;
     @Mock private ScreenPinningRequest mScreenPinningRequest;
     @Mock private LockscreenLockIconController mLockscreenLockIconController;
     @Mock private StatusBarNotificationActivityStarter.Builder
@@ -404,7 +406,8 @@ public class StatusBarTest extends SysuiTestCase {
                 mKeyguardIndicationController,
                 mDismissCallbackRegistry,
                 mNotificationShadeDepthControllerLazy,
-                mStatusBarTouchableRegionManager);
+                mStatusBarTouchableRegionManager,
+                mTunerService);
 
         when(mNotificationShadeWindowView.findViewById(R.id.lock_icon_container)).thenReturn(
                 mLockIconContainer);

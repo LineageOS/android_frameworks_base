@@ -94,6 +94,7 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 
 import java.util.Optional;
@@ -182,7 +183,8 @@ public class UnusedStatusBar extends StatusBar {
             KeyguardIndicationController keyguardIndicationController,
             DismissCallbackRegistry dismissCallbackRegistry,
             Lazy<NotificationShadeDepthController> notificationShadeDepthControllerLazy,
-            StatusBarTouchableRegionManager statusBarTouchableRegionManager) {
+            StatusBarTouchableRegionManager statusBarTouchableRegionManager,
+            TunerService tunerService) {
         super(context, notificationsController, lightBarController, autoHideController,
                 keyguardUpdateMonitor, statusBarIconController, pulseExpansionHandler,
                 notificationWakeUpCoordinator, keyguardBypassController, keyguardStateController,
@@ -208,7 +210,8 @@ public class UnusedStatusBar extends StatusBar {
                 timeTickHandler, pluginDependencyProvider, keyguardDismissUtil, extensionController,
                 userInfoControllerImpl, phoneStatusBarPolicy, keyguardIndicationController,
                 dismissCallbackRegistry, notificationShadeDepthControllerLazy,
-                statusBarTouchableRegionManager);
+                statusBarTouchableRegionManager,
+                tunerService);
     }
 
     @Override

@@ -38,6 +38,7 @@ import com.android.systemui.assist.AssistHandleViewController;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.fragments.FragmentHostManager;
 import com.android.systemui.plugins.DarkIconDispatcher;
+import com.android.systemui.shared.system.WindowManagerWrapper;
 import com.android.systemui.statusbar.CommandQueue.Callbacks;
 import com.android.systemui.statusbar.phone.AutoHideController;
 import com.android.systemui.statusbar.phone.BarTransitions.TransitionMode;
@@ -116,20 +117,14 @@ public class NavigationBarController implements Callbacks {
 
         final int displayId = display.getDisplayId();
         final boolean isOnDefaultDisplay = displayId == DEFAULT_DISPLAY;
+        final WindowManagerWrapper wm = WindowManagerWrapper.getInstance();
         final IWindowManager wms = WindowManagerGlobal.getWindowManagerService();
-
-        try {
-            if (!wms.hasNavigationBar(displayId)) {
-                return;
-            }
-        } catch (RemoteException e) {
-            // Cannot get wms, just return with warning message.
-            Log.w(TAG, "Cannot get WindowManager.");
-            return;
-        }
         final Context context = isOnDefaultDisplay
                 ? mContext
                 : mContext.createDisplayContext(display);
+        if (!wm.hasSoftNavigationBar(context, displayId)) {
+            return;
+        }
         NavigationBarFragment.create(context, (tag, fragment) -> {
             NavigationBarFragment navBar = (NavigationBarFragment) fragment;
 
@@ -162,6 +157,12 @@ public class NavigationBarController implements Callbacks {
                         result.mShowImeSwitcher);
             }
         });
+
+        try {
+            wms.onOverlayChanged();
+        } catch (RemoteException e) {
+            // Do nothing.
+        }
     }
 
     private void removeNavigationBar(int displayId) {

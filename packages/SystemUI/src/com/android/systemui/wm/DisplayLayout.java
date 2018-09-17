@@ -46,6 +46,7 @@ import android.view.Gravity;
 import android.view.Surface;
 
 import com.android.internal.R;
+import com.android.systemui.shared.system.WindowManagerWrapper;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -438,14 +439,8 @@ public class DisplayLayout {
 
     static boolean hasNavigationBar(DisplayInfo info, Context context, int displayId) {
         if (displayId == Display.DEFAULT_DISPLAY) {
-            // Allow a system property to override this. Used by the emulator.
-            final String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
-            if ("1".equals(navBarOverride)) {
-                return false;
-            } else if ("0".equals(navBarOverride)) {
-                return true;
-            }
-            return context.getResources().getBoolean(R.bool.config_showNavigationBar);
+            final WindowManagerWrapper wm = WindowManagerWrapper.getInstance();
+            return wm.hasSoftNavigationBar(context, displayId);
         } else {
             boolean isUntrustedVirtualDisplay = info.type == Display.TYPE_VIRTUAL
                     && info.ownerUid != SYSTEM_UID;
