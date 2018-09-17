@@ -290,6 +290,8 @@ import com.android.server.wm.DisplayFrames;
 import com.android.server.wm.WindowManagerInternal;
 import com.android.server.wm.WindowManagerInternal.AppTransitionListener;
 
+import lineageos.providers.LineageSettings;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
