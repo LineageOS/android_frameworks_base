@@ -137,6 +137,7 @@ android_library {
         "WindowManager-Shell-proto",
         "dagger2",
         "jsr330",
+        "org.lineageos.platform.internal",
     ],
     kotlincflags: ["-Xjvm-default=enable"],
     manifest: "AndroidManifest.xml",

@@ -915,4 +915,9 @@ interface IWindowManager
      * reverts to using the default task transition with no spec changes.
      */
     void clearTaskTransitionSpec();
+
+    /**
+     * Notifies DisplayPolicy that overlays changed.
+     */
+    void onOverlayChanged();
 }
