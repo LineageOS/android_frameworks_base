@@ -163,6 +163,7 @@ android_library {
         "WindowManager-Shell-proto",
         "dagger2",
         "jsr330",
+        "org.lineageos.platform.internal",
     ],
     libs: [
         // Soong fails to automatically add this dependency because all the
