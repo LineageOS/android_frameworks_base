@@ -126,6 +126,10 @@ public class TunerServiceImpl extends TunerService {
         setValue(TUNER_VERSION, newVersion);
     }
 
+    private boolean isLineageGlobal(String key) {
+        return key.startsWith("lineageglobal:");
+    }
+
     private boolean isLineageSystem(String key) {
         return key.startsWith("lineagesystem:");
     }
@@ -139,12 +143,15 @@ public class TunerServiceImpl extends TunerService {
     }
 
     private String chomp(String key) {
-        return key.replaceFirst("^(lineagesecure|lineagesystem|system):", "");
+        return key.replaceFirst("^(lineageglobal|lineagesecure|lineagesystem|system):", "");
     }
 
     @Override
     public String getValue(String setting) {
-        if (isLineageSecure(setting)) {
+        if (isLineageGlobal(setting)) {
+            return LineageSettings.Global.getStringForUser(
+                    mContentResolver, chomp(setting), mCurrentUser);
+        } else if (isLineageSecure(setting)) {
             return LineageSettings.Secure.getStringForUser(
                     mContentResolver, chomp(setting), mCurrentUser);
         } else if (isLineageSystem(setting)) {
@@ -160,7 +167,10 @@ public class TunerServiceImpl extends TunerService {
 
     @Override
     public void setValue(String setting, String value) {
-        if (isLineageSecure(setting)) {
+        if (isLineageGlobal(setting)) {
+            LineageSettings.Global.putStringForUser(
+                    mContentResolver, chomp(setting), value, mCurrentUser);
+        } else if (isLineageSecure(setting)) {
             LineageSettings.Secure.putStringForUser(
                     mContentResolver, chomp(setting), value, mCurrentUser);
         } else if (isLineageSystem(setting)) {
@@ -176,7 +186,10 @@ public class TunerServiceImpl extends TunerService {
 
     @Override
     public int getValue(String setting, int def) {
-        if (isLineageSecure(setting)) {
+        if (isLineageGlobal(setting)) {
+            return LineageSettings.Global.getIntForUser(
+                    mContentResolver, chomp(setting), def, mCurrentUser);
+        } else if (isLineageSecure(setting)) {
             return LineageSettings.Secure.getIntForUser(
                     mContentResolver, chomp(setting), def, mCurrentUser);
         } else if (isLineageSystem(setting)) {
@@ -193,7 +206,10 @@ public class TunerServiceImpl extends TunerService {
     @Override
     public String getValue(String setting, String def) {
         String ret;
-        if (isLineageSecure(setting)) {
+        if (isLineageGlobal(setting)) {
+            ret = LineageSettings.Global.getStringForUser(
+                    mContentResolver, chomp(setting), mCurrentUser);
+        } else if (isLineageSecure(setting)) {
             ret = LineageSettings.Secure.getStringForUser(
                     mContentResolver, chomp(setting), mCurrentUser);
         } else if (isLineageSystem(setting)) {
@@ -211,7 +227,10 @@ public class TunerServiceImpl extends TunerService {
 
     @Override
     public void setValue(String setting, int value) {
-        if (isLineageSecure(setting)) {
+        if (isLineageGlobal(setting)) {
+            LineageSettings.Global.putIntForUser(
+                    mContentResolver, chomp(setting), value, mCurrentUser);
+        } else if (isLineageSecure(setting)) {
             LineageSettings.Secure.putIntForUser(
                     mContentResolver, chomp(setting), value, mCurrentUser);
         } else if (isLineageSystem(setting)) {
@@ -241,7 +260,9 @@ public class TunerServiceImpl extends TunerService {
             Dependency.get(LeakDetector.class).trackCollection(mTunables, "TunerService.mTunables");
         }
         final Uri uri;
-        if (isLineageSecure(key)) {
+        if (isLineageGlobal(key)) {
+            uri = LineageSettings.Global.getUriFor(chomp(key));
+        } else if (isLineageSecure(key)) {
             uri = LineageSettings.Secure.getUriFor(chomp(key));
         } else if (isLineageSystem(key)) {
             uri = LineageSettings.System.getUriFor(chomp(key));
