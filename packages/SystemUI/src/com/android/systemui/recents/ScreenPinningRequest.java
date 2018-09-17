@@ -16,6 +16,8 @@
 
 package com.android.systemui.recents;
 
+import static android.view.Display.DEFAULT_DISPLAY;
+
 import static com.android.systemui.shared.recents.utilities.Utilities.isLargeScreen;
 import static com.android.systemui.util.leak.RotationUtils.ROTATION_LANDSCAPE;
 import static com.android.systemui.util.leak.RotationUtils.ROTATION_NONE;
@@ -34,6 +36,7 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Binder;
 import android.os.RemoteException;
+import android.os.UserHandle;
 import android.text.SpannableStringBuilder;
 import android.text.style.BulletSpan;
 import android.util.DisplayMetrics;
@@ -64,6 +67,8 @@ import com.android.systemui.settings.UserTracker;
 import com.android.systemui.shared.system.QuickStepContract;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.util.leak.RotationUtils;
+
+import lineageos.providers.LineageSettings;
 
 import dagger.Lazy;
 
@@ -274,7 +279,8 @@ public class ScreenPinningRequest implements
                     .setLayoutDirection(View.LAYOUT_DIRECTION_LOCALE);
             View buttons = mLayout.findViewById(R.id.screen_pinning_buttons);
             if (!QuickStepContract.isGesturalMode(mNavBarMode)
-            	    && hasSoftNavigationBar(mContext.getDisplayId()) && !isLargeScreen(mContext)) {
+                    && hasSoftNavigationBar(mContext, mContext.getDisplayId())
+                    && !isLargeScreen(mContext)) {
                 buttons.setLayoutDirection(View.LAYOUT_DIRECTION_LOCALE);
                 swapChildrenIfRtlAndVertical(buttons);
             } else {
@@ -349,7 +355,13 @@ public class ScreenPinningRequest implements
          *
          * @return whether there is a soft nav bar on specific display.
          */
-        private boolean hasSoftNavigationBar(int displayId) {
+        private boolean hasSoftNavigationBar(Context context, int displayId) {
+            if (displayId == DEFAULT_DISPLAY &&
+                    LineageSettings.System.getIntForUser(context.getContentResolver(),
+                            LineageSettings.System.FORCE_SHOW_NAVBAR, 0,
+                            UserHandle.USER_CURRENT) == 1) {
+                return true;
+            }
             try {
                 return WindowManagerGlobal.getWindowManagerService().hasNavigationBar(displayId);
             } catch (RemoteException e) {
