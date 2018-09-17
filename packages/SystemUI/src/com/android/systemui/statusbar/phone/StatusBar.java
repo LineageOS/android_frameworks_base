@@ -280,6 +280,9 @@ public class StatusBar extends SystemUI implements DemoMode,
     public static final String STATUS_BAR_BRIGHTNESS_CONTROL =
             "lineagesystem:" + LineageSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
 
+    public static final String FORCE_SHOW_NAVBAR =
+            "lineagesystem:" + LineageSettings.System.FORCE_SHOW_NAVBAR;
+
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
     private static final String BANNER_ACTION_SETUP =
@@ -698,6 +701,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mColorExtractor = Dependency.get(SysuiColorExtractor.class);
         mDeviceProvisionedController = Dependency.get(DeviceProvisionedController.class);
         mNavigationBarController = Dependency.get(NavigationBarController.class);
+        mNavigationBarSystemUiVisibility = mNavigationBarController.createSystemUiVisibility();
         mBubbleController = Dependency.get(BubbleController.class);
         mBubbleController.setExpandListener(mBubbleExpandListener);
         mActivityIntentHelper = new ActivityIntentHelper(mContext);
@@ -713,9 +717,22 @@ public class StatusBar extends SystemUI implements DemoMode,
         mStatusBarStateController.addCallback(this,
                 SysuiStatusBarStateController.RANK_STATUS_BAR);
 
+        mNeedsNavigationBar = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+
+        // Allow a system property to override this. Used by the emulator.
+        // See also hasNavigationBar().
+        String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
+        if ("1".equals(navBarOverride)) {
+            mNeedsNavigationBar = false;
+        } else if ("0".equals(navBarOverride)) {
+            mNeedsNavigationBar = true;
+        }
+
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, SCREEN_BRIGHTNESS_MODE);
         tunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
+        tunerService.addTunable(this, FORCE_SHOW_NAVBAR);
 
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
 
@@ -1202,7 +1219,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     // TODO(b/117478341): This was left such that CarStatusBar can override this method.
     // Try to remove this.
     protected void createNavigationBar(@Nullable RegisterStatusBarResult result) {
-        mNavigationBarController.createNavigationBars(true /* includeDefaultDisplay */, result);
+        mNavigationBarController.createNavigationBars(true /* includeDefaultDisplay */, result,
+                mNavigationBarSystemUiVisibility);
     }
 
     /**
@@ -2267,6 +2285,16 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (displayId != mDisplayId) {
             return;
         }
+
+        mNavigationBarSystemUiVisibility.displayId = displayId;
+        mNavigationBarSystemUiVisibility.vis = vis;
+        mNavigationBarSystemUiVisibility.fullscreenStackVis = fullscreenStackVis;
+        mNavigationBarSystemUiVisibility.dockedStackVis = dockedStackVis;
+        mNavigationBarSystemUiVisibility.mask = mask;
+        mNavigationBarSystemUiVisibility.fullscreenStackBounds = fullscreenStackBounds;
+        mNavigationBarSystemUiVisibility.dockedStackBounds = dockedStackBounds;
+        mNavigationBarSystemUiVisibility.navbarColorManagedByIme = navbarColorManagedByIme;
+
         final int oldVal = mSystemUiVisibility;
         final int newVal = (oldVal&~mask) | (vis&mask);
         final int diff = newVal ^ oldVal;
@@ -4371,6 +4399,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             = Dependency.get(DeviceProvisionedController.class);
 
     protected NavigationBarController mNavigationBarController;
+    private NavigationBarController.SystemUiVisibility mNavigationBarSystemUiVisibility;
+    private boolean mNeedsNavigationBar;
 
     // UI-specific methods
 
@@ -4724,6 +4754,21 @@ public class StatusBar extends SystemUI implements DemoMode,
                     == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
         } else if (STATUS_BAR_BRIGHTNESS_CONTROL.equals(key)) {
             mBrightnessControl = newValue != null && Integer.parseInt(newValue) == 1;
+        } else if (FORCE_SHOW_NAVBAR.equals(key) && mDisplayId == Display.DEFAULT_DISPLAY &&
+                mWindowManagerService != null) {
+            boolean forcedVisibility = mNeedsNavigationBar ||
+                    (newValue != null && Integer.parseInt(newValue) == 1);
+            boolean hasNavbar = getNavigationBarView() != null;
+            if (forcedVisibility) {
+                if (!hasNavbar) {
+                    mNavigationBarController.onDisplayReady(mDisplayId,
+                            mNavigationBarSystemUiVisibility);
+                }
+            } else {
+                if (hasNavbar) {
+                    mNavigationBarController.onDisplayRemoved(mDisplayId);
+                }
+            }
         }
     }
     // End Extra BaseStatusBarMethods.
