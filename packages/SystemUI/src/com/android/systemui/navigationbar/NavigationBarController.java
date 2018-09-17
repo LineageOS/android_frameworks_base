@@ -52,6 +52,7 @@ import com.android.systemui.dump.DumpManager;
 import com.android.systemui.model.SysUiState;
 import com.android.systemui.recents.OverviewProxyService;
 import com.android.systemui.shared.system.QuickStepContract;
+import com.android.systemui.shared.system.WindowManagerWrapper;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.CommandQueue.Callbacks;
 import com.android.systemui.statusbar.phone.AutoHideController;
@@ -315,23 +316,18 @@ public class NavigationBarController implements
             return;
         }
 
+        final WindowManagerWrapper wm = WindowManagerWrapper.getInstance();
         final IWindowManager wms = WindowManagerGlobal.getWindowManagerService();
 
-        try {
-            if (!wms.hasNavigationBar(displayId)) {
-                return;
-            }
-        } catch (RemoteException e) {
-            // Cannot get wms, just return with warning message.
-            Log.w(TAG, "Cannot get WindowManager.");
-            return;
-        }
         final Context context = isOnDefaultDisplay
                 ? mContext
                 : mContext.createDisplayContext(display);
         NavigationBarComponent component = mNavigationBarComponentFactory.create(
                 context, savedState);
         NavigationBar navBar = component.getNavigationBar();
+        if (!wm.hasSoftNavigationBar(context, displayId)) {
+            return;
+        }
         navBar.init();
         mNavigationBars.put(displayId, navBar);
 
@@ -350,6 +346,12 @@ public class NavigationBarController implements
                 v.removeOnAttachStateChangeListener(this);
             }
         });
+
+        try {
+            wms.onOverlayChanged();
+        } catch (RemoteException e) {
+            // Do nothing.
+        }
     }
 
     void removeNavigationBar(int displayId) {

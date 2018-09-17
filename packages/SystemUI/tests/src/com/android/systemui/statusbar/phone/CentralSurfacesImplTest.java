@@ -154,6 +154,7 @@ import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.window.StatusBarWindowController;
 import com.android.systemui.statusbar.window.StatusBarWindowStateController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.WallpaperController;
 import com.android.systemui.util.concurrency.FakeExecutor;
 import com.android.systemui.util.concurrency.MessageRouterImpl;
@@ -287,6 +288,7 @@ public class CentralSurfacesImplTest extends SysuiTestCase {
     @Mock private InteractionJankMonitor mJankMonitor;
     @Mock private DeviceStateManager mDeviceStateManager;
     @Mock private DreamOverlayStateController mDreamOverlayStateController;
+    @Mock private TunerService mTunerService;
     @Mock private WiredChargingRippleController mWiredChargingRippleController;
     private ShadeController mShadeController;
     private final FakeSystemClock mFakeSystemClock = new FakeSystemClock();
@@ -478,6 +480,7 @@ public class CentralSurfacesImplTest extends SysuiTestCase {
                 mJankMonitor,
                 mDeviceStateManager,
                 mDreamOverlayStateController,
+                mTunerService,
                 mWiredChargingRippleController, mDreamManager);
         when(mKeyguardViewMediator.registerCentralSurfaces(
                 any(CentralSurfacesImpl.class),
