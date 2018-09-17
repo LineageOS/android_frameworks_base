@@ -955,4 +955,9 @@ interface IWindowManager
      * means the recents app can control the SystemUI flags, and vice-versa.
      */
     void setRecentsAppBehindSystemBars(boolean behindSystemBars);
+
+    /**
+     * Notifies DisplayPolicy that overlays changed.
+     */
+    void onOverlayChanged();
 }
