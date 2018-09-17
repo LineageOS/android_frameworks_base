@@ -22,6 +22,7 @@ import static com.android.systemui.Dependency.MAIN_HANDLER_NAME;
 import static com.android.systemui.SysUiServiceProvider.getComponent;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
 import android.os.Handler;
 import android.os.RemoteException;
@@ -61,6 +62,17 @@ public class NavigationBarController implements Callbacks {
     private final Handler mHandler;
     private final DisplayManager mDisplayManager;
 
+    public class SystemUiVisibility {
+        public int displayId;
+        public int vis;
+        public int fullscreenStackVis;
+        public int dockedStackVis;
+        public int mask;
+        public Rect fullscreenStackBounds;
+        public Rect dockedStackBounds;
+        public boolean navbarColorManagedByIme;
+    }
+
     /** A displayId - nav bar maps. */
     @VisibleForTesting
     SparseArray<NavigationBarFragment> mNavigationBars = new SparseArray<>();
@@ -83,8 +95,16 @@ public class NavigationBarController implements Callbacks {
 
     @Override
     public void onDisplayReady(int displayId) {
+        onDisplayReady(displayId, null);
+    }
+
+    public void onDisplayReady(int displayId, SystemUiVisibility systemUiVisibility) {
         Display display = mDisplayManager.getDisplay(displayId);
-        createNavigationBar(display, null);
+        createNavigationBar(display, null, systemUiVisibility);
+    }
+
+    public SystemUiVisibility createSystemUiVisibility() {
+        return new SystemUiVisibility();
     }
 
     // TODO(b/117478341): I use {@code includeDefaultDisplay} to make this method compatible to
@@ -112,6 +132,11 @@ public class NavigationBarController implements Callbacks {
      */
     @VisibleForTesting
     void createNavigationBar(Display display, RegisterStatusBarResult result) {
+        createNavigationBar(display, result, null);
+    }
+
+    void createNavigationBar(Display display, RegisterStatusBarResult result,
+            SystemUiVisibility systemUiVisibility) {
         if (display == null) {
             return;
         }
@@ -153,7 +178,18 @@ public class NavigationBarController implements Callbacks {
                     ? Dependency.get(AutoHideController.class)
                     : new AutoHideController(context, mHandler);
             navBar.setAutoHideController(autoHideController);
-            navBar.restoreSystemUiVisibilityState();
+
+            if (systemUiVisibility != null) {
+                navBar.setSystemUiVisibility(systemUiVisibility.displayId,
+                        systemUiVisibility.vis,
+                        systemUiVisibility.fullscreenStackVis,
+                        systemUiVisibility.dockedStackVis,
+                        systemUiVisibility.mask,
+                        systemUiVisibility.fullscreenStackBounds,
+                        systemUiVisibility.dockedStackBounds,
+                        systemUiVisibility.navbarColorManagedByIme);
+            }
+
             mNavigationBars.append(displayId, navBar);
 
             if (result != null) {
