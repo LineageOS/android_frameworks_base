@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e4ed77b_60f6fb6a",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-09-23T12:59:20Z",
+      "side": 1,
+      "message": "if (!canEnableAdbNetwork())",
+      "range": {
+        "startLine": 104,
+        "startChar": 12,
+        "endLine": 104,
+        "endChar": 56
+      },
+      "revId": "b66e33564df15f82da1cde5dc76c726537a8b9f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
