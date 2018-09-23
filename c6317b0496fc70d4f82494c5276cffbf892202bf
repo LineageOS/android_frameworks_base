@@ -22,6 +22,30 @@
       "revId": "c6317b0496fc70d4f82494c5276cffbf892202bf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11b4e13c_e1506ec2",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/bluetooth/A2dpProfile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 20234
+      },
+      "writtenOn": "2018-09-23T19:55:25Z",
+      "side": 0,
+      "message": "Yes. Without the modification, SBC is not considered as a High Quality Audio codec and SOURCE_CODEC_TYPE_INVALID is returned.",
+      "parentUuid": "7b61e347_03cb74ba",
+      "range": {
+        "startLine": 272,
+        "startChar": 66,
+        "endLine": 272,
+        "endChar": 82
+      },
+      "revId": "c6317b0496fc70d4f82494c5276cffbf892202bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
