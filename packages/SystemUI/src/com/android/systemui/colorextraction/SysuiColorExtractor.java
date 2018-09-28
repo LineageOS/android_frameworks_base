@@ -19,6 +19,7 @@ package com.android.systemui.colorextraction;
 import android.app.WallpaperColors;
 import android.app.WallpaperManager;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.os.Trace;
@@ -48,6 +49,8 @@ public class SysuiColorExtractor extends ColorExtractor implements Dumpable {
     private boolean mWallpaperVisible;
     // Colors to return when the wallpaper isn't visible
     private final GradientColors mWpHiddenColors;
+    private final GradientColors mWpAlwaysBlackColors;
+    private static final int SCRIM_DEFAULT_COLOR = Color.BLACK;
 
     public SysuiColorExtractor(Context context) {
         this(context, new Tonal(context), true);
@@ -57,6 +60,10 @@ public class SysuiColorExtractor extends ColorExtractor implements Dumpable {
     public SysuiColorExtractor(Context context, ExtractionType type, boolean registerVisibility) {
         super(context, type);
         mWpHiddenColors = new GradientColors();
+        mWpAlwaysBlackColors = new GradientColors();
+        mWpAlwaysBlackColors.setMainColor(SCRIM_DEFAULT_COLOR);
+        mWpAlwaysBlackColors.setSecondaryColor(SCRIM_DEFAULT_COLOR);
+        mWpAlwaysBlackColors.setSupportsDarkText(false);
 
         WallpaperColors systemColors = getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
         updateDefaultGradients(systemColors);
@@ -147,6 +154,8 @@ public class SysuiColorExtractor extends ColorExtractor implements Dumpable {
     }
 
     /**
+     * Get Wallpaper colors where the wallpaper is always assumed to be a completely
+     * black image.
      *
      * @param which FLAG_LOCK or FLAG_SYSTEM
      * @param type TYPE_NORMAL, TYPE_DARK or TYPE_EXTRA_DARK
@@ -155,16 +164,7 @@ public class SysuiColorExtractor extends ColorExtractor implements Dumpable {
      * @return colors
      */
     public GradientColors getColors(int which, int type, boolean ignoreWallpaperVisibility) {
-        // mWallpaperVisible only handles the "system wallpaper" and will be always set to false
-        // if we have different lock and system wallpapers.
-        if (which == WallpaperManager.FLAG_LOCK) {
-            ignoreWallpaperVisibility = true;
-        }
-        if (mWallpaperVisible || ignoreWallpaperVisibility) {
-            return super.getColors(which, type);
-        } else {
-            return mWpHiddenColors;
-        }
+        return mWpAlwaysBlackColors;
     }
 
     @VisibleForTesting
