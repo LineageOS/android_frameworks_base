@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f977973c_28ea18b6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 5785,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-09-28T10:38:03Z",
+      "side": 1,
+      "message": "This is exactly as we have in 15.1: https://github.com/LineageOS/android_frameworks_base/commit/da51b9f1e87fc5f2c458df29d4b7313bf9359e5b#diff-1b944401593236dcbffdb45ab608b893R581\n\nI guess it doesn\u0027t hurt to include your suggestion tho.",
+      "range": {
+        "startLine": 5785,
+        "startChar": 12,
+        "endLine": 5785,
+        "endChar": 35
+      },
+      "revId": "1014e49debe55485ec2581603fc6df9ca3e89abe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
