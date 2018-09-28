@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e26a19ed_b7bde2a3",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-09-28T15:07:47Z",
+      "side": 1,
+      "message": "while we are touching the code anyway, can we start to not use a magic number here? I\u0027d declare\nprivate static final int ADB_NETWORK_PORT \u003d 5555; \nand use that here",
+      "range": {
+        "startLine": 145,
+        "startChar": 77,
+        "endLine": 145,
+        "endChar": 81
+      },
+      "revId": "5e7d0442ab432e0ab4253d2499927e0eae848f08",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
