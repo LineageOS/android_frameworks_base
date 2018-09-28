@@ -1357,7 +1357,6 @@ public final class ViewRootImpl implements ViewParent,
                 if (mSurfaceHolder != null) {
                     notifySurfaceDestroyed();
                 }
-                mSurface.release();
             }
         }
     }
