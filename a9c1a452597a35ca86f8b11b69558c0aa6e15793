@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f3d7bda_a877d76a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-09-29T15:07:42Z",
+      "side": 1,
+      "message": "I don\u0027t really like the numbers here, can we use constants? or calculate them instead?\nThe code needs documentation why these numbers are chosen, anyway",
+      "range": {
+        "startLine": 441,
+        "startChar": 36,
+        "endLine": 449,
+        "endChar": 46
+      },
+      "revId": "a9c1a452597a35ca86f8b11b69558c0aa6e15793",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
