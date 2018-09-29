@@ -2711,6 +2711,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         mNeedsNavigationBar = mHasNavigationBar;
+        mHasNavigationBar |= mForceNavbar == 1;
 
         // For demo purposes, allow the rotation of the HDMI display to be controlled.
         // By default, HDMI locks rotation to landscape.
@@ -2843,8 +2844,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 updateWakeGestureListenerLp();
             }
 
-            int forceNavbar = LineageSettings.System.getInt(resolver,
-                    LineageSettings.System.FORCE_SHOW_NAVBAR, 0);
+            int forceNavbar = LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.FORCE_SHOW_NAVBAR, 0,
+                    UserHandle.USER_CURRENT);
             if (forceNavbar != mForceNavbar) {
                 mForceNavbar = forceNavbar;
                 if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
