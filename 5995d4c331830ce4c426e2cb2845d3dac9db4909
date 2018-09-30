@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef1e1948_5e86ebb2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-09-30T07:15:19Z",
+      "side": 1,
+      "message": "you can just return the clock directly in the switch case to avoid stack usage",
+      "revId": "5995d4c331830ce4c426e2cb2845d3dac9db4909",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6844b53_a82f45c9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-09-30T07:15:19Z",
+      "side": 1,
+      "message": "can you please rename it to getClockLayout?",
+      "revId": "5995d4c331830ce4c426e2cb2845d3dac9db4909",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ca7da5f_23c61cdf",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-09-30T07:15:19Z",
+      "side": 1,
+      "message": "I think we can default all the time to center here now\nit may semplify some code",
+      "revId": "5995d4c331830ce4c426e2cb2845d3dac9db4909",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8cec1ab_6165b9f9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-09-30T07:15:19Z",
+      "side": 1,
+      "message": "can be final",
+      "revId": "5995d4c331830ce4c426e2cb2845d3dac9db4909",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
