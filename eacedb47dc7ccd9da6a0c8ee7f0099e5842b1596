@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d15e2d38_9a31814d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 69
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-09-30T07:39:12Z",
+      "side": 1,
+      "message": "we can probably use tuner service there?",
+      "revId": "eacedb47dc7ccd9da6a0c8ee7f0099e5842b1596",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
