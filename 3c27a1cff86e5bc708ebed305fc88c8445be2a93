@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf418746_7848e964",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-09-30T12:03:30Z",
+      "side": 1,
+      "message": "Can\u0027t you re-use this one?",
+      "revId": "3c27a1cff86e5bc708ebed305fc88c8445be2a93",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
