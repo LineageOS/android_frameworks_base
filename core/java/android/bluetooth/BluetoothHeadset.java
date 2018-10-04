@@ -488,7 +488,7 @@ public final class BluetoothHeadset implements BluetoothProfile {
         close();
     }
 
-    public void finalize() {
+    protected void finalize() {
         close();
     }
 
