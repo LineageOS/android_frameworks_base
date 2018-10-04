@@ -315,6 +315,9 @@ public class A2dpProfile implements LocalBluetoothProfile {
            case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE:
                index = 6;
                break;
+           case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_TWSP:
+               index = 7;
+               break;
            }
 
         if (index < 0) {
