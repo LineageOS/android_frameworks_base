@@ -22,6 +22,30 @@
       "revId": "a9c1a452597a35ca86f8b11b69558c0aa6e15793",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c9c5a13_c2671e01",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-10-08T18:22:29Z",
+      "side": 1,
+      "message": "Read commit message?",
+      "parentUuid": "3f3d7bda_a877d76a",
+      "range": {
+        "startLine": 441,
+        "startChar": 36,
+        "endLine": 449,
+        "endChar": 46
+      },
+      "revId": "a9c1a452597a35ca86f8b11b69558c0aa6e15793",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
