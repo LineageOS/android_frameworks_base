@@ -22,6 +22,30 @@
       "revId": "586474bcbbc533cc244e46bb5dba241472793793",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad345c89_f0aa2d78",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-10-10T09:56:17Z",
+      "side": 1,
+      "message": "In this case he wants to simply remove that special char and bellow we replace with an underscore.",
+      "parentUuid": "4cc38ca3_e5e0b1d3",
+      "range": {
+        "startLine": 173,
+        "startChar": 50,
+        "endLine": 173,
+        "endChar": 51
+      },
+      "revId": "586474bcbbc533cc244e46bb5dba241472793793",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
