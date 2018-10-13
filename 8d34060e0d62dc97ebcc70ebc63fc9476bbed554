@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "571f2890_f3ead45b",
+        "filename": "packages/SystemUI/res/values/lineage_config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-13T17:37:11Z",
+      "side": 1,
+      "message": "volume_dialog_align\nsowy\nWill be fixed",
+      "range": {
+        "startLine": 40,
+        "startChar": 19,
+        "endLine": 40,
+        "endChar": 36
+      },
+      "revId": "8d34060e0d62dc97ebcc70ebc63fc9476bbed554",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
