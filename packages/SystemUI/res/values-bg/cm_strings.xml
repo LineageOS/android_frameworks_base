@@ -50,6 +50,12 @@
   <string name="accessibility_quick_settings_sync_on">Включена синхронизация.</string>
   <string name="accessibility_quick_settings_sync_changed_off">Синхронизацията е изключена.</string>
   <string name="accessibility_quick_settings_sync_changed_on">Синхронизацията е включена.</string>
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">Системни профили</string>
+  <string name="accessibility_quick_settings_profiles_off">Изключени профили.</string>
+  <string name="accessibility_quick_settings_profiles">Профил: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+  <string name="accessibility_quick_settings_profiles_changed_off">Профилите са изключени.</string>
+  <string name="accessibility_quick_settings_profiles_changed">Профила е сменен с <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">Тетъринг през USB</string>
   <!-- Volume panel QS tile -->

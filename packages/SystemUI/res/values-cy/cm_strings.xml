@@ -21,6 +21,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- Content description for Accessibility on unlocked tasks in recents -->
   <!-- Content description for Accessibility on locked tasks in recents -->
   <!-- ADB over network QS tile -->
@@ -28,6 +29,7 @@
   <!-- Caffeine QS tile -->
   <!-- Heads up QS tile -->
   <!-- Sync QS tile -->
+  <!-- System Profiles QS tile -->
   <!-- USB tethering QS tile -->
   <!-- Volume panel QS tile -->
   <!-- Navigation bar dpad -->
@@ -46,9 +48,13 @@
   <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
   <!-- Button to restart the device into download mode, within the Restart Options dialog -->
   <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+  <string name="global_action_restart_progress">Yn ailgychwyn\u2026</string>
   <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+  <string name="global_action_restart_recovery_progress">Yn ailgychwyn ym modd adfer\u2026</string>
   <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+  <string name="global_action_restart_bootloader_progress">Yn ailgychwyn ym modd dechrau\'r system\u2026</string>
   <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+  <string name="global_action_restart_download_progress">Yn ailgychwyn ym modd llwytho\u2026</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->

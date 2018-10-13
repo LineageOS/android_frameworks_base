@@ -90,9 +90,9 @@
   <!-- Label of a toggle switch to disable use of the physical keyboard in favor of the IME. [CHAR LIMIT=25] -->
   <string name="status_bar_use_physical_keyboard">Bysellfwrdd corfforol</string>
   <!-- Prompt for the USB device permission dialog [CHAR LIMIT=80] -->
-  <string name="usb_device_permission_prompt">Caniatáu i\'r ap <xliff:g id="application">%1$s</xliff:g> cael mynediad at y ddyfais USB?</string>
+  <string name="usb_device_permission_prompt">Caniatáu i\'r ap <xliff:g id="application">%1$s</xliff:g> gael mynediad at y ddyfais USB?</string>
   <!-- Prompt for the USB accessory permission dialog [CHAR LIMIT=80] -->
-  <string name="usb_accessory_permission_prompt">Caniatáu\'r ap <xliff:g id="application">%1$s</xliff:g> i gael mynediad at yr ategolyn USB?</string>
+  <string name="usb_accessory_permission_prompt">Caniatáu i\'r ap <xliff:g id="application">%1$s</xliff:g> gael mynediad at yr ategolyn USB?</string>
   <!-- Prompt for the USB device confirm dialog [CHAR LIMIT=80] -->
   <string name="usb_device_confirm_prompt">Agor <xliff:g id="activity">%1$s</xliff:g> pan fydd y ddyfais USB hon wedi\'i chysylltu?</string>
   <!-- Prompt for the USB accessory confirm dialog [CHAR LIMIT=80] -->
@@ -152,6 +152,7 @@
   <!-- Content description of the menu button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_menu">Dewislen</string>
   <!-- Content description of the accessibility button in the navigation bar (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_accessibility_button">Hygyrchedd</string>
   <!-- Content description of the recents button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_recent">Trosolwg</string>
   <!-- Content description of the search button for accessibility. [CHAR LIMIT=NONE] -->
@@ -315,6 +316,7 @@
   <!-- Content description of the TeleTypewriter(TTY) enabled icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the ringer vibrate icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- Content description of the ringer silent icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_ringer_silent">Tonau canu yn ddistaw.</string>
   <!-- Content description of the cast icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_casting">@string/quick_settings_casting</string>
   <!-- Content description of the work mode icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -903,6 +905,7 @@ Dim cysylltiad i\'r rhyngrwyd
   <!-- STREAM_SYSTEM_ENFORCED -->
   <!-- STREAM_DTMF -->
   <!-- STREAM_TTS -->
+  <string name="stream_accessibility">Hygyrchedd</string>
   <!-- STREAM_ACCESSIBILITY -->
   <string name="volume_stream_content_description_unmute">%1$s. Tara i ddad-distewi.</string>
   <string name="volume_stream_content_description_vibrate">%1$s. Tara i\'w osod i ddirgrynu. Mae\'n bosib bydd gwasanaethau hygyrchedd yn cael eu distewi.</string>
@@ -997,9 +1000,32 @@ Dim cysylltiad i\'r rhyngrwyd
   <!-- [CHAR LIMIT=100] Notification importance option -->
   <string name="do_not_silence_block">Peidio â distewi na rhwystro</string>
   <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="tuner_full_importance_settings">Rheolaeth hysbysiad pŵer</string>
+  <string name="tuner_full_importance_settings">Rheolaeth pwysigrwydd hysbysiadau</string>
   <string name="tuner_full_importance_settings_on">Ymlaen</string>
   <string name="tuner_full_importance_settings_off">I ffwrdd</string>
+  <string name="power_notification_controls_description">Gyda rheolaeth pwysigrwydd hysbysiadau, gellir gosod apiau ar lefel o 0 i 5 yn ôl pwysigrwydd eu hysbysiadau.
+\n\n<b>Lefel 5</b>
+\n\n- Dangos ar frig y rhestr hysbysiadau
+\n\n- Caniatáu i dorri ar draws sgrin lawn
+\n\n- Dangos cipolowg bob tro
+\n\n<b>Lefel 4</b>
+\n\n- Dim torri ar draws sgrin lawn
+\n\n- Dangos cipolowg bob tro
+\n\n<b>Lefel 3</b>
+\n\n- Dim torri ar draws sgrin lawn
+\n\n- Dim dangos cipolwg
+\n\n<b>Lefel 2</b>
+\n\n- Dim torri ar draws sgrin lawn
+\n\n- Dim dangos cipolwg
+\n\n- Dim sain na dirgrynu
+\n\n<b>Lefel 1</b>
+\n\n- Dim torri ar draws sgrin lawn
+\n\n- Dim dangos cipolwg
+\n\n- Dim sain na dirgrynu
+\n\n- Cuddio o\'r sgrin cloi a\'r bar statws
+\n\n- Dangos ar waelod y rhestr hysbysiadau
+\n\n<b>Lefel 0</b>
+\n\n- Rhwystro holl hysbysiadau\'r ap    </string>
   <!-- Notification Inline Controls: Header for apps that are not yet using notification channels. -->
   <string name="notification_header_default_channel">Hysbysiadau</string>
   <!-- Notification Inline Controls: Shown when a channel's notifications are currently blocked -->
@@ -1043,6 +1069,7 @@ Dim cysylltiad i\'r rhyngrwyd
   <string name="battery_panel_title">Defnydd batri</string>
   <!-- Summary of battery saver not available [CHAR LIMIT=NONE] -->
   <!-- Title of switch for battery saver [CHAR LIMIT=NONE] -->
+  <string name="battery_detail_switch_title">Arbedwr batri</string>
   <!-- Summary of switch for battery saver [CHAR LIMIT=NONE] -->
   <string name="battery_detail_switch_summary">Mae\'n lleihau perfformiad a data cefndir.</string>
   <!-- Name used for certain Keyboard keys on gamepads, e.g. "Button L1". -->
@@ -1155,7 +1182,7 @@ Dim cysylltiad i\'r rhyngrwyd
   <!-- Label for feature switch [CHAR LIMIT=30] -->
   <string name="switch_bar_on">Ymlaen</string>
   <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_off">I Ffwrdd</string>
+  <string name="switch_bar_off">I ffwrdd</string>
   <!-- SysUI Tuner: Button that leads to the navigation bar customization screen [CHAR LIMIT=60] -->
   <string name="nav_bar">Bar llywio</string>
   <!-- SysUI Tuner: Button that controls layout of navigation bar [CHAR LIMIT=60] -->
@@ -1168,7 +1195,7 @@ Dim cysylltiad i\'r rhyngrwyd
     <item>Clipfwrdd</item>
     <item>Allweddgod</item>
     <item>Keyboard switcher</item>
-    <item>None</item>
+    <item>Dim</item>
   </string-array>
   <!-- SysUI Tuner: Labels for different types of navigation bar layouts [CHAR LIMIT=60] -->
   <!-- SysUI Tuner: Name of Combination Menu / Keyboard Switcher button [CHAR LIMIT=30] -->
@@ -1285,6 +1312,7 @@ Dim cysylltiad i\'r rhyngrwyd
   <!-- Ambient display always-on of the tuner. Non-translatable since it should
         not appear on production builds ever. -->
   <!-- SysUI Tuner: Section to customize lockscreen shortcuts [CHAR LIMIT=60] -->
+  <string name="tuner_lock_screen">Sgrin cloi</string>
   <!-- Making the PIP fullscreen [CHAR LIMIT=25] -->
   <string name="pip_phone_expand">Ehangu</string>
   <!-- Label for PIP action to Minimize the PIP [CHAR LIMIT=25] -->
@@ -1319,6 +1347,7 @@ Dim cysylltiad i\'r rhyngrwyd
   <!-- SysUI Tuner: Switch to control if device gets unlocked by left shortcut [CHAR LIMIT=60] -->
   <!-- SysUI Tuner: Switch to control if device gets unlocked by right shortcut [CHAR LIMIT=60] -->
   <!-- SysUI Tuner: Summary of no shortcut being selected [CHAR LIMIT=60] -->
+  <string name="lockscreen_none">Dim</string>
   <!-- SysUI Tuner: Format string for describing launching an app [CHAR LIMIT=60] -->
   <!-- SysUI Tuner: Label for section of other apps that can be launched [CHAR LIMIT=60] -->
   <!-- SysUI Tuner: Label for icon shaped like a circle [CHAR LIMIT=60] -->
@@ -1332,6 +1361,7 @@ Dim cysylltiad i\'r rhyngrwyd
   <string name="tuner_menu">Dewislen</string>
   <!-- SysUI Tuner: App subheading for shortcut selection [CHAR LIMIT=60] -->
   <!-- Title for the notification channel containing important alerts. [CHAR LIMIT=NONE] -->
+  <string name="notification_channel_alerts">Rhybuddion</string>
   <!-- Title for the notification channel for battery warnings (i.e. < 15%). [CHAR LIMIT=NONE] -->
   <string name="notification_channel_battery">Batri</string>
   <!-- Title for the notification channel dedicated to screenshot progress. [CHAR LIMIT=NONE] -->

@@ -34,6 +34,11 @@
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
   <!-- Sync QS tile -->
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">Profilos de sistema</string>
+  <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_profiles_changed_off">Profilos istudados.</string>
+  <string name="accessibility_quick_settings_profiles_changed">Profilu cambiadu in <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <!-- USB tethering QS tile -->
   <!-- Volume panel QS tile -->
   <!-- Navigation bar dpad -->

@@ -48,6 +48,12 @@
   <string name="accessibility_quick_settings_sync_on">تشغيل المزامنة.</string>
   <string name="accessibility_quick_settings_sync_changed_off">تم تعطيل المزامنة.</string>
   <string name="accessibility_quick_settings_sync_changed_on">تم تشغيل المزامنة.</string>
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">ملفات تعريف النظام</string>
+  <string name="accessibility_quick_settings_profiles_off">إيقاف ملفات التعريف.</string>
+  <string name="accessibility_quick_settings_profiles">ملف التعريف: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_profiles_changed_off">تعطيل ملفات التعريف. </string>
+  <string name="accessibility_quick_settings_profiles_changed">تم تغيير ملف التعريف إلى <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">الربط عبر USB
 </string>

@@ -50,6 +50,12 @@
   <string name="accessibility_quick_settings_sync_on">Synchronisierung an.</string>
   <string name="accessibility_quick_settings_sync_changed_off">Synchronisierung ist ausgeschaltet.</string>
   <string name="accessibility_quick_settings_sync_changed_on">Synchronisierung ist eingeschaltet.</string>
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">Systemprofile</string>
+  <string name="accessibility_quick_settings_profiles_off">Profile aus.</string>
+  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_profiles_changed_off">Profile ausgeschaltet.</string>
+  <string name="accessibility_quick_settings_profiles_changed">Profil auf <xliff:g id="profile" example="Default">%s</xliff:g> geändert.</string>
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">USB-Tethering</string>
   <!-- Volume panel QS tile -->

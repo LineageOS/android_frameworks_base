@@ -50,6 +50,12 @@
   <string name="accessibility_quick_settings_sync_on">Sincronizare pornită.</string>
   <string name="accessibility_quick_settings_sync_changed_off">Sincronizare oprită.</string>
   <string name="accessibility_quick_settings_sync_changed_on">Sincronizare pornită.</string>
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">Profiluri de sistem</string>
+  <string name="accessibility_quick_settings_profiles_off">Profiluri oprit.</string>
+  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_profiles_changed_off">Profiluri este activat.</string>
+  <string name="accessibility_quick_settings_profiles_changed">Profil schimbat în <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">Tethering USB</string>
   <!-- Volume panel QS tile -->

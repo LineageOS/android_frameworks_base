@@ -37,7 +37,7 @@
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <!-- Do not translate.  Concise terminology for Passpoint network -->
   <!-- Summary for the remembered network. -->
-  <string name="wifi_remembered">Wedi\'i cadw</string>
+  <string name="wifi_remembered">Wedi ei gofio</string>
   <!-- Status for networks disabled for unknown reason -->
   <string name="wifi_disabled_generic">Wedi\'i analluogi</string>
   <!-- Status for networked disabled from a DNS or DHCP failure -->
@@ -424,9 +424,11 @@
   <!-- Summary of checkbox setting to perform package verification on apps installed over USB/ADT/ADB [CHAR LIMIT=NONE] -->
   <string name="verify_apps_over_usb_summary">Gwirio apiau wedi\'u gosod trwy ADB/ADT am ymddygiad niweidiol.</string>
   <!-- Summary of checkbox for showing Bluetooth devices without names -->
+  <string name="bluetooth_show_devices_without_names_summary">Caif dyfeisiau Bluetooth heb enwau (cyfeiriadau MAC yn unig) eu dangos</string>
   <!-- Summary of checkbox for disabling Bluetooth absolute volume -->
   <string name="bluetooth_disable_absolute_volume_summary">Mae\'n analluogi nodwedd uchelder sain absoliwt y Bluetooth rhag ofn bod problemau lefel sain gyda dyfeisiau pell, megis sain yn rhy uchel neu ddiffyg rheolaeth.</string>
   <!-- Summary of checkbox for enabling Bluetooth inband ringing -->
+  <string name="bluetooth_enable_inband_ringing_summary">Caniatáu i donau caniad y ffôn cael eu chwarae ar ddyfeisiau Bluetooth</string>
   <!-- Title of checkbox setting that enables the terminal app. [CHAR LIMIT=32] -->
   <string name="enable_terminal_title">Terfynell leol</string>
   <!-- Summary of checkbox setting that enables the terminal app. [CHAR LIMIT=64] -->
@@ -631,9 +633,12 @@ Gwasga \'Clirio a Throsi\' i barhau.</string>
   <!-- Summary shown for color space correction preference when its value is overridden by another preference [CHAR LIMIT=35] -->
   <string name="daltonizer_type_overridden">Mae\'n cael ei or-reoli gan <xliff:g id="title" example="Simulate color space">%1$s</xliff:g></string>
   <!-- [CHAR_LIMIT=40] Label for estimated remaining duration of battery discharging -->
+  <string name="power_remaining_duration_only">Tua <xliff:g id="time">^1</xliff:g> yn weddill</string>
   <!-- [CHAR_LIMIT=60] Label for estimated remaining duration of battery discharging -->
+  <string name="power_remaining_duration_only_enhanced">Tua <xliff:g id="time">^1</xliff:g> yn weddill yn seiliedig ar dy ddefnydd</string>
   <!-- [CHAR_LIMIT=40] Label for estimated remaining duration of battery charging -->
   <!-- [CHAR_LIMIT=40] Short label for estimated remaining duration of battery charging/discharging -->
+  <string name="power_remaining_duration_only_short"><xliff:g id="time">^1</xliff:g> yn weddill</string>
   <!-- [CHAR_LIMIT=60] Short label for estimated remaining duration of battery charging/discharging -->
   <!-- [CHAR_LIMIT=40] Label for battery level chart when discharging with duration -->
   <!-- [CHAR_LIMIT=60] Label for battery level chart when discharging with duration and using enhanced estimate -->

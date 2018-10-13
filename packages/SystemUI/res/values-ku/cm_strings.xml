@@ -31,6 +31,8 @@
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">فه‌رمووه‌کان</string>
   <!-- Sync QS tile -->
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">زانیاری تایبەتیەکانی سیستەم</string>
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">گرتنەدەستی USB</string>
   <!-- Volume panel QS tile -->

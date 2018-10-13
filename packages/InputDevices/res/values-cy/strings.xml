@@ -82,4 +82,5 @@
   <!-- Latvian keyboard layout label. [CHAR LIMIT=35] -->
   <string name="keyboard_layout_latvian">Latfieg</string>
   <!-- Persian keyboard layout label. [CHAR LIMIT=35] -->
+  <string name="keyboard_layout_persian">Persaidd</string>
 </resources>

@@ -50,6 +50,12 @@
   <string name="accessibility_quick_settings_sync_on">Синхрон. укључено.</string>
   <string name="accessibility_quick_settings_sync_changed_off">Синхронизација је искључена.</string>
   <string name="accessibility_quick_settings_sync_changed_on">Синхронизација је укључена.</string>
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">Профили система</string>
+  <string name="accessibility_quick_settings_profiles_off">Профили искључени.</string>
+  <string name="accessibility_quick_settings_profiles">Профил: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_profiles_changed_off">Профили су искључени.</string>
+  <string name="accessibility_quick_settings_profiles_changed">Профил је промењен у <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">USB повезивање</string>
   <!-- Volume panel QS tile -->

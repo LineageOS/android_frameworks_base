@@ -105,9 +105,13 @@
   <!-- Displayed to tell the user that they cannot change the caller ID setting. -->
   <string name="CLIRPermanent">Nid oes modd newid gosodiadau ID y galwr.</string>
   <!-- Notification title to tell the user that data service is blocked by access control. -->
+  <string name="RestrictedOnDataTitle">Dim gwasanaeth data</string>
   <!-- Notification title to tell the user that emergency calling is blocked by access control. -->
+  <string name="RestrictedOnEmergencyTitle">Dim galwadau brys</string>
   <!-- Notification title to tell the user that normal service is blocked by access control. -->
+  <string name="RestrictedOnNormalTitle">Dim gwasanaeth llais</string>
   <!-- Notification title to tell the user that all emergency and normal voice services are blocked by access control. -->
+  <string name="RestrictedOnAllVoiceTitle">Dim gwasanaeth galwadau llais/brys</string>
   <!-- Notification content to tell the user that voice/data/emergency service is blocked by access control. -->
   <!-- Displayed to tell the user that they should switch their network preference. -->
   <string name="NetworkPreferenceSwitchTitle">Methu â chysylltu â\'r rhwydwaith</string>
@@ -115,6 +119,7 @@
   <!-- Displayed to tell the user that emergency calls might not be available. -->
   <!-- Displayed to tell the user that emergency calls might not be available. -->
   <!-- Telephony notification channel name for a channel containing network alert notifications. -->
+  <string name="notification_channel_network_alert">Rhybuddion</string>
   <!-- Telephony notification channel name for a channel containing call forwarding notifications. -->
   <string name="notification_channel_call_forward">Dargyfeirio galwadau</string>
   <!-- Telephony notification channel name for a channel containing emergency callback mode notifications. -->
@@ -142,6 +147,7 @@
   <string name="serviceClassPAD">PAD</string>
   <!-- CDMA Roaming Indicator Strings (non ERI)-->
   <!-- Default roaming indicator text -->
+  <string name="roamingTextSearching">Yn chwilio am wasanaeth</string>
   <!-- Displayed when WFC registration fails -->
   <!-- WFC Operator Error Messages showed as alerts -->
   <!-- WFC Operator Error Messages showed as notifications -->
@@ -151,7 +157,7 @@
     <item>Galwadau Wi-Fi %s</item>
   </string-array>
   <!-- WFC, summary for Disabled -->
-  <string name="wifi_calling_off_summary">I Ffwrdd</string>
+  <string name="wifi_calling_off_summary">I ffwrdd</string>
   <!-- WFC, summary for Wi-Fi Preferred -->
   <!-- WFC, summary for Mobile data Preferred -->
   <!-- WFC, summary for Wi-Fi Only -->
@@ -333,7 +339,7 @@
   <!-- label for item that locks the phone in the phone options dialog -->
   <string name="global_action_lock">Cloi sgrin</string>
   <!-- label for item that turns off power in phone options dialog -->
-  <string name="global_action_power_off">Cau</string>
+  <string name="global_action_power_off">Diffodd</string>
   <!-- label for item that restarts phone in phone options dialog -->
   <!-- TODO: promote to separate string-->
   <!-- label for item that starts emergency call -->
@@ -343,6 +349,7 @@
   <string name="bugreport_title">Cymryd adroddiad gwall</string>
   <!-- Message in bugreport dialog describing what it does [CHAR LIMIT=NONE] -->
   <!-- TODO: remove if not used anymore -->
+  <string name="bugreport_message">Bydd hyn yn casglu gwybodaeth am gyflwr presennol dy ddyfais i\'w hanfon fel neges e-bost.  Mi gymerith ychydig o amser o ddechrau\'r adroddiad gwall nes bod ei fod yn barod i\'w anfon, felly bu\'n bwyllog.</string>
   <!-- Title in the bugreport dialog for the interactive workflow. Should fit in one line. [CHAR LIMIT=30] -->
   <string name="bugreport_option_interactive_title">Adroddiad rhyngweithiol</string>
   <!-- Summary in the bugreport dialog for the interactive workflow. [CHAR LIMIT=NONE] -->
@@ -393,8 +400,10 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Text shown when viewing channel settings for notifications related to the virtual keyboard -->
   <!-- Text shown when viewing channel settings for notifications related to the hardware keyboard -->
   <!-- Text shown when viewing channel settings for notifications related to security -->
+  <string name="notification_channel_security">Diogelwch</string>
   <!-- Text shown when viewing channel settings for notifications related to car mode -->
   <!-- Text shown when viewing channel settings for notifications related to account status -->
+  <string name="notification_channel_account">Statws cyfrif</string>
   <!-- Text shown when viewing channel settings for notifications related to developers -->
   <!-- Text shown when viewing channel settings for notifications related to system updates -->
   <!-- Text shown when viewing channel settings for notifications related to network status -->
@@ -403,6 +412,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Text shown when viewing channel settings for notifications related to vpn status -->
   <!-- Text shown when viewing channel settings for notifications related to remote device administration -->
   <!-- Text shown when viewing channel settings for notifications related to important alerts -->
+  <string name="notification_channel_alerts">Rhybuddion</string>
   <!-- Text shown when viewing channel settings for notifications related to being in retail mode -->
   <!-- Text shown when viewing channel settings for notifications related to a usb connection -->
   <!-- This is the label for the notification channel settings that controls the behavior
@@ -444,6 +454,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_storage">Storfa</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permgroupdesc_storage">cyrchu lluniau, ffeiliau, a chyfryngau ar y ddyfais</string>
   <!-- Title of a category of application permissioncds, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_microphone">Meicroffon</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -609,23 +620,33 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <string name="permdesc_bodySensors" product="default">Mae\'n caniatáu i\'r ap gael at ddata o synwyryddion sy\'n monitro dy gyflwr corfforol, fel dy guriad calon.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readCalendar" product="tablet">Gall yr ap hwn darllen yr holl ddigwyddiadau calendr wedi eu cadw ar dy lechen a rhannu neu gadw data dy galendr.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readCalendar" product="tv">Gall yr ap hwn darllen yr holl ddigwyddiadau calendr wedi eu cadw ar dy deledu a rhannu neu gadw data dy galendr.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readCalendar" product="default">Gall yr ap hwn darllen yr holl ddigwyddiadau calendr wedi eu cadw ar dy ffôn a rhannu neu gadw data dy galendr.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_writeCalendar">ychwanegu neu addasu digwyddiadau calendr ac anfon negeseuon e-bost at westeion heb roi gwybod i\'r perchennog</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeCalendar" product="tablet">Gall yr ap hwn ychwanegu, tynnu neu newid digwyddiadau calendr ar dy lechen. Gall yr ap anfon negeseuon gall ymddangos i ddod o berchnogion calendrau neu newid digwyddiadau heb wybod eu perchnogion.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeCalendar" product="tv">Gall yr ap hwn ychwanegu, tynnu neu newid digwyddiadau calendr ar dy deledu. Gall yr ap anfon negeseuon gall ymddangos i ddod o berchnogion calendrau neu newid digwyddiadau heb wybod eu perchnogion.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_writeCalendar" product="default">Gall yr ap hwn ychwanegu, tynnu neu newid digwyddiadau calendr ar dy ffôn. Gall yr ap anfon negeseuon gall ymddangos i ddod o berchnogion calendrau neu newid digwyddiadau heb wybod eu perchnogion.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the applicatfion to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_accessLocationExtraCommands">Mae\'n caniatáu i\'r ap gael at orchmynion y darparwr lleoliad. Gallai hyn caniatáu i\'r ap ymyrryd gyda GPS neu ffynonellau lleoliad eraill.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessFineLocation">Gall yr ap hwn gael dy leoliad o wybodaeth GPS, mastiau signal ffonau symudol neu rwydweithiau Wi-Fi. Rhaid i\'r gwasanaethau lleoliad hyn bod ar gael ar dy ffôn ac wedi eu troi ymlaen er mwyn i\'r ap eu defnyddio nhw. Gall hyn ddefnyddio mwy o bŵer y batri.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_accessCoarseLocation">cyrchu lleoliad (yn seiliedig ar rwydwaith)</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessCoarseLocation" product="tablet">Gall yr ap hwn gael dy leoliad o wybodaeth megis mastiau signal ffonau symudol neu rwydweithiau Wi-Fi. Rhaid i\'r gwasanaethau lleoliad hyn bod ar gael ar dy lechen ac wedi eu troi ymlaen er mwyn i\'r ap eu defnyddio nhw. </string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessCoarseLocation" product="tv">Gall yr ap hwn gael dy leoliad o wybodaeth megis mastiau signal ffonau symudol neu rwydweithiau Wi-Fi. Rhaid i\'r gwasanaethau lleoliad hyn bod ar gael ar dy deledu ac wedi eu troi ymlaen er mwyn i\'r ap eu defnyddio nhw. </string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessCoarseLocation" product="default">Gall yr ap hwn gael dy leoliad o wybodaeth megis mastiau signal ffonau symudol neu rwydweithiau Wi-Fi. Rhaid i\'r gwasanaethau lleoliad hyn bod ar gael ar dy ffôn ac wedi eu troi ymlaen er mwyn i\'r ap eu defnyddio nhw. </string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_modifyAudioSettings">Mae\'n caniatáu i’r ap addasu gosodiadau sain megis uchder a pha seinydd sy\'n cael ei ddefnyddio i allbynnu.</string>
@@ -718,11 +739,15 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <string name="permdesc_changeNetworkState">Mae\'n caniatáu i\'r ap newid statws cysylltedd rhwydwaith.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the applicaiton to do this. -->
+  <string name="permdesc_changeTetherState">Mae\'n caniatáu i\'r ap newid statws cysylltedd rhwydwaith wedi\'i denynnu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessWifiState">Mae\'n caniatáu i\'r ap weld gwybodaeth am rwydweithio Wi-Fi, megis a yw Wi-Fi wedi ei alluogi ac enw dyfeisiau Wi-Fi.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_changeWifiState">Mae\'n caniatáu i’r ap gysylltu ag i ddatgysylltu o bwyntiau mynediad Wi-Fi ac i wneud newidiadau i ffurfweddiad rhwydweithiau Wi-Fi\'r ddyfais.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_changeWifiMulticastState">caniatáu derbyniad Wi-Fi Multicast</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_changeWifiMulticastState" product="tablet">Mae\'n caniatáu i\'r ap dderbyn pecynnau wedi eu hanfon at holl ddyfeisiau ar rwydwaith Wi-Fi gan ddefnyddio cyfeiriadau aml-lediad, nid dy lechen yn unig. Mae\'n defnyddio mwy o bŵer na\'r modd na sy\'n aml-lediad.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -754,6 +779,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_disableKeyguard">Mae\'n caniatáu i\'r ap analluogi\'r bysellglo ac unrhyw ddiogelwch cyfrinair cysylltiedig. Er enghraifft, mae\'r ffôn yn analluogi\'r bysellglo wrth dderbyn galwad i mewn, yna yn ail-alluogi\'r bysellglo pan fydd y galwad ar ben.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_manageFingerprint">rheoli caledwedd ôl bys</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -809,30 +835,42 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. [CHAR LIMIT=30] -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. [CHAR LIMIT=30] -->
+  <string name="permdesc_sdcardWrite" product="nosdcard">Mae\'n caniatáu i\'r ap ysgrifennu i\'r storfa USB.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_sdcardWrite" product="default">Mae\'n caniatáu i\'r ap ysgrifennu i\'r cerdyn SD.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_use_sip">Mae\'n caniatáu i\'r ap gwneud a derbyn galwadau SIP.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_register_sim_subscription">Mae\'n caniatáu i\'r ap gofrestru cysylltiadau telathrebu SIM newydd.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_register_call_provider">Mae\'n caniatáu i\'r ap gofrestru cysylltiadau telathrebu newydd.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_connection_manager">Mae\'n caniatáu i\'r ap reoli cysylltiadau telathrebu.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_bind_incall_service">Mae\'n caniatáu i\'r ap reoli pa bryd a sut mae\'r defnyddiwr yn gweld y sgrin mewn-galwad.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_bind_connection_service">Mae\'n caniatáu i\'r ap ryngweithio gyda gwasanaethau telathrebu i wneud a derbyn galwadau.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_control_incall_experience">Mae\'n caniatáu i\'r ap ddarparu profiad defnyddiwr yn ystod galwadau.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_readNetworkUsageHistory">Mae\'n caniatáu i\'r ap ddarllen defnydd rhwydwaith hanesyddol ar gyfer rhwydweithiau ac apiau penodol.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_manageNetworkPolicy">Mae\'n caniatáu i\'r ap reoli polisïau rhwydweithiau a diffinio rheolau apiau penodol.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_modifyNetworkAccounting">Mae\'n caniatáu i\'r ap addasu sut mae defnydd rhwydwaith yn cael ei gyfrif yn erbyn apiau. Nid ar gyfer defnydd apiau arferol.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_accessNotifications">Mae\'n caniatáu i\'r ap nôl, archwilio, a chlirio hysbysiadau, gan gynnwys rhai gan apiau eraill.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -845,10 +883,12 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_accessNetworkConditions">Mae\'n caniatáu i ap wrando am arsylwadau ar gyflwr rhwydwaith. Ni ddylai fod byth ei angen ar apiau arferol.</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_setInputCalibration">Mae\'n caniatáu i\'r ap addasu paramedrau graddnodiad y sgrin cyffwrdd. Ni ddylai apiau arferol byth fod ei angen.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_accessDrmCertificates">cyrchu tystysgrifau DRM</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_accessDrmCertificates">Mae\'n caniatáu i ap ddarparu a defnyddio tystysgrifau DRM. Ni ddylai fod byth ei angen ar apiau arferol.</string>
+  <string name="permdesc_handoverStatus">Mae\'n caniatáu i\'r ap hwn dderbyn gwybodaeth am drosglwyddiadau cyfredol Android Beam.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_removeDrmCertificates">Mae\'n caniatáu i ap dynnu tystysgrifau DRM. Ni ddylai fod byth ei angen ar apiau arferol.</string>
@@ -859,6 +899,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Title of an application permission, for applications that wish to access notification policy. -->
   <string name="permlab_access_notification_policy">cyrchu Dim Tarfu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_access_notification_policy">Mae\'n caniatáu i\'r ap ddarllen ac ysgrifennu ffurfweddiad Dim Tarfu.</string>
   <!-- Policy administration -->
   <!-- Title of policy access to limiting the user's password choices -->
   <!-- Description of policy access to limiting the user's password choices -->
@@ -869,8 +910,10 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Title of policy access to reset user's password -->
   <!-- Description of policy access to reset user's password -->
   <!-- Title of policy access to force lock the device -->
+  <string name="policylab_forceLock">Cloi\'r sgrin</string>
   <!-- Description of policy access to limiting the user's password choices -->
   <!-- Title of policy access to wipe primary user's data -->
+  <string name="policylab_wipeData">Dileu\'r holl ddata</string>
   <!-- Description of policy access to wipe the user's data -->
   <string name="policydesc_wipeData" product="tablet">Dileu holl ddata\'r llechen heb rybudd gan ei ail-osod i fel yr oedd yn gadael y ffatri.</string>
   <!-- Description of policy access to wipe the user's data -->
@@ -878,6 +921,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Description of policy access to wipe the user's data -->
   <string name="policydesc_wipeData" product="default">Dileu holl ddata\'r ffôn heb rybudd gan ei ail-osod i fel yr oedd yn gadael y ffatri.</string>
   <!-- Title of policy access to wipe secondary user's data -->
+  <string name="policylab_wipeData_secondaryUser">Dileu data defnyddiwr</string>
   <!-- Description of policy access to wipe the user's data -->
   <!-- Description of policy access to wipe the user's data -->
   <!-- Description of policy access to wipe the user's data -->
@@ -1019,6 +1063,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- On the keyguard screen, it shows the carrier the phone is connected to.  This is displayed if the phone is not connected to a carrier.-->
   <string name="lockscreen_carrier_default">Dim gwasanaeth</string>
   <!-- Shown in the lock screen to tell the user that the screen is locked. -->
+  <string name="lockscreen_screen_locked">Sgrin ar glo.</string>
   <!-- when pattern lock is enabled, tell them about the emergency dial -->
   <!-- On the keyguard screen, when pattern lock is disabled, only tell them to press menu to unlock.  This is shown in small font at the bottom. -->
   <!-- On the unlock pattern screen, shown at the top of the unlock screen to tell the user what to do. Below this text is the place for theu ser to draw the pattern. -->
@@ -1039,6 +1084,8 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Shown in the lock screen to ask the user to insert a SIM card when sim is missing or not readable. -->
   <!-- Shown in the lock screen when SIM card is permanently disabled. -->
   <!-- Shown in the lock screen to inform the user to SIM card is permanently disabled. -->
+  <string name="lockscreen_permanent_disabled_sim_instructions">Mae dy gerdyn SIM wedi ei analluogi yn barhaol.\n
+Cysyllta â dy ddarparwr gwasanaeth ffôn i gael cerdyn SIM arall.</string>
   <!-- Shown on transport control of lockscreen. Pressing button goes to previous track. -->
   <!-- Shown on transport control of lockscreen. Pressing button goes to next track. -->
   <string name="lockscreen_transport_next_description">Trac nesaf</string>
@@ -1048,6 +1095,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
   <!-- Shown on transport control screens. Pressing button rewinds playback [CHAR LIMIT=NONE]-->
   <!-- Shown on transport control screens. Pressing button fast forwards playback [CHAR LIMIT=NONE]-->
   <!-- Shown in the lock screen when there is emergency calls only mode. -->
+  <string name="emergency_calls_only" msgid="2485604591272668370">Galwadau brys yn unig</string>
   <!-- When the user inserts a sim card from an unsupported network, it becomes network
          locked -->
   <!-- When the user enters a wrong sim pin too many times, it becomes
@@ -1164,6 +1212,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Accessibility description of a lock screen widget. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the lock screen user selector widget. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the lock screen status widget. [CHAR_LIMIT=none] -->
+  <string name="keyguard_accessibility_status">Statws</string>
   <!-- Accessibility description of the camera widget. [CHAR_LIMIT=none] -->
   <!-- Accessibility description of the lock media control widget. [CHAR_LIMIT=none] -->
   <string name="keygaurd_accessibility_media_controls">Rheolaethau cyfryngau</string>
@@ -1275,6 +1324,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
         they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
+  <string name="permdesc_readHistoryBookmarks">Mae\'n caniatáu i\'r ap ddarllen hanes pob URL mae\'r Porwr wedi ymweld â nhw a holl lyfrnodau\'r Porwr. Nodyn: Ni all y caniatâd hwn cael ei orfodi gan borwyr trydydd parti na chwaith gan apiau gyda\'r gallu i bori\'r we.</string>
   <!-- Title of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether
@@ -1301,6 +1351,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
         they want to allow the application to do this. -->
   <!-- Description of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
+  <string name="permdesc_writeGeolocationPermissions">Mae\'n caniatáu i\'r ap addasu caniatâd daearleoliad y Porwr. Mae\'n bosib i apiau maleisus defnyddio hyn i anfon gwybodaeth lleoliad at wefannau amheus.</string>
   <!-- If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. Text in the save password dialog, asking if the browser should remember a password. -->
   <!-- If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. Button in the save password dialog, saying not to remember this password. -->
   <string name="save_password_notnow">Dim nawr</string>
@@ -1317,6 +1368,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- This is the default button label in the system-wide search UI.
          It is also used by the home screen's search "widget". It should be short -->
   <!-- Default hint text for the system-wide search UI's text field. [CHAR LIMIT=30] -->
+  <string name="search_hint">Chwilio\u2026</string>
   <!-- SearchView accessibility description for search button [CHAR LIMIT=NONE] -->
   <!-- SearchView accessibility description for search text field [CHAR LIMIT=NONE] -->
   <!-- SearchView accessibility description for clear button [CHAR LIMIT=NONE] -->
@@ -1539,10 +1591,13 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- EditText context menu -->
   <!-- Title for EditText context menu [CHAR LIMIT=20] -->
   <!-- Label for item in the text selection menu to trigger an Email app [CHAR LIMIT=20] -->
+  <string name="email">Ebost</string>
   <!-- Label for item in the text selection menu to trigger a Dialer app [CHAR LIMIT=20] -->
   <string name="dial">Ffôn</string>
   <!-- Label for item in the text selection menu to trigger a Map app [CHAR LIMIT=20] -->
+  <string name="map">Mapiau</string>
   <!-- Label for item in the text selection menu to trigger a Browser app [CHAR LIMIT=20] -->
+  <string name="browse">Porwr</string>
   <!-- If the device is getting low on internal storage, a notification is shown to the user.  This is the title of that notification. -->
   <!-- If the device is getting low on internal storage, a notification is shown to the user.  This is the message of that notification. -->
   <!-- If the device does not have storage for the main system classes, a notification is shown to the user.  This is the message of that notification. -->
@@ -1555,9 +1610,11 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Preference framework strings. -->
   <string name="ok">Iawn</string>
   <!-- Preference framework strings. -->
+  <string name="cancel">Diddymu</string>
   <!-- Preference framework strings. -->
   <string name="yes">Iawn</string>
   <!-- Preference framework strings. -->
+  <string name="no">Diddymu</string>
   <!-- This is the generic "attention" string to be used in attention dialogs.  Typically
          combined with setIconAttribute(android.R.attr.alertDialogIcon)
          (or setIcon(android.R.drawable.ic_dialog_alert) on legacy versions of the platform) -->
@@ -1565,6 +1622,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Default text for a button that can be toggled on and off. -->
   <string name="capital_on">YMLAEN</string>
   <!-- Default text for a button that can be toggled on and off. -->
+  <string name="capital_off">I FFWRDD</string>
   <!-- Title of intent resolver dialog when selecting an application to run. -->
   <!-- Title of intent resolver dialog when selecting an application to run
          and a previously used application is known. -->
@@ -1660,6 +1718,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Text of the alert that is displayed when an application has violated StrictMode. -->
   <!-- [CHAR LIMIT=40] Title of dialog that is shown when performing a system upgrade. -->
   <!-- [CHAR LIMIT=40] Title of dialog that is shown when system is starting. -->
+  <string name="android_start_title">Mae Android yn cychwyn\u2026</string>
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog when doing an fstrim. -->
   <!-- [CHAR LIMIT=40] Title of notification that is shown when finishing a system upgrade. -->
   <string name="android_upgrading_notification_title">Yn cwblhau diweddariad Android\u2026</string>
@@ -1668,6 +1727,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- [CHAR LIMIT=40] Toast that is shown when an app is still upgrading. -->
   <string name="app_upgrading_toast">Mae <xliff:g id="application">%1$s </xliff:g>yn uwchraddio\u2026</string>
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog for each .apk that is optimized. -->
+  <string name="android_upgrading_apk">Yn optimeiddio ap <xliff:g id="number" example="123">%1$d</xliff:g> o <xliff:g id="number" example="123">%2$d</xliff:g>.</string>
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog for each .apk pre boot broadcast -->
   <!-- [CHAR LIMIT=NONE] Message to show in upgrading dialog when reached the point of starting apps. -->
   <!-- [CHAR LIMIT=NONE] Message to show in upgrading dialog when the bulk of the upgrade work is done. -->
@@ -1689,30 +1749,40 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
          text through SMS or IM.  A dialog with those choices would be shown,
          and this would be the title. -->
   <!-- Title of the dialog where the user is adjusting the phone ringer volume -->
+  <string name="volume_ringtone">Uchder sain caniad ffôn</string>
   <!-- Title of the dialog where the user is adjusting the music volume -->
   <!-- Hint shown in the volume toast to inform the user that the media audio is playing through Bluetooth. -->
   <!-- Hint shown in the volume toast to inform the user that the current ringtone is the silent ringtone. -->
+  <string name="volume_music_hint_silent_ringtone_selected">Tôn caniad distaw wedi\'i gosod</string>
   <!-- Title of the dialog where the user is adjusting the phone call volume -->
   <!-- Title of the dialog where the user is adjusting the phone call volume when connected on bluetooth-->
   <!-- Title of the dialog where the user is adjusting the audio volume for alarms -->
-  <string name="volume_alarm">Lefel sain larymau</string>
+  <string name="volume_alarm">Uchder sain larymau</string>
   <!-- Title of the dialog where the user is adjusting the audio volume for notifications -->
   <string name="volume_notification">Uchder sain hysbysiadau</string>
   <!-- Title of the dialog where the user is adjusting the general audio volume -->
   <string name="volume_unknown">Uchder sain</string>
   <!-- Content description for bluetooth volume icon [CHAR LIMIT=100] -->
+  <string name="volume_icon_description_bluetooth">Uchder sain Bluetooth</string>
   <!-- Content description for ringer volume icon [CHAR LIMIT=100] -->
+  <string name="volume_icon_description_ringer">Uchder sain caniad ffôn</string>
   <!-- Content description for in-call volume icon [CHAR LIMIT=100] -->
+  <string name="volume_icon_description_incall">Uchder sain galwadau</string>
   <!-- Content description for media volume icon [CHAR LIMIT=100] -->
+  <string name="volume_icon_description_media">Uchder sain cyfryngau</string>
   <!-- Content description for notification volume icon [CHAR LIMIT=100] -->
   <string name="volume_icon_description_notification">Uchder sain hysbysiadau</string>
   <!-- Ringtone picker strings -->
   <!-- Choice in the ringtone picker.  If chosen, the default ringtone will be used. -->
+  <string name="ringtone_default">Tôn caniad arferol</string>
   <!-- Choice in the ringtone picker.  If chosen, the default ringtone will be used. This fills in the actual ringtone's title into the message. -->
+  <string name="ringtone_default_with_actual">Arferol (<xliff:g id="actual_ringtone">%1$s</xliff:g>)</string>
   <!-- Choice in the ringtone picker.  If chosen, there will be silence instead of a ringtone played. -->
   <string name="ringtone_silent">Dim</string>
   <!-- The title of the ringtone picker dialog. -->
+  <string name="ringtone_picker_title">Tonau caniad</string>
   <!-- The title of the alarm sound picker dialog [CHAR LIMIT=100] -->
+  <string name="ringtone_picker_title_alarm">Seiniau larymau</string>
   <!-- The title of the notification sound picker dialog [CHAR LIMIT=100] -->
   <string name="ringtone_picker_title_notification">Seiniau hysbysiadau</string>
   <!-- If there is ever a ringtone set for some setting, but that ringtone can no longer be resolved, t his is shown instead.  For example, if the ringtone was on a SD card and it had been removed, this woudl be shown for ringtones on that SD card. -->
@@ -1725,7 +1795,9 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Notification title when the system failed to connect to the specified open network. -->
   <!-- Notification content when the system failed to connect to the specified open network. This informs the user that tapping on this notification will open the wifi picker. -->
   <!-- Notification action name for connecting to the network specified in the notification body. -->
+  <string name="wifi_available_action_connect">Cysylltu</string>
   <!-- Notification action name for opening the wifi picker, showing the user all the nearby networks. -->
+  <string name="wifi_available_action_all_networks">Pob Rhwydwaith</string>
   <!-- A notification is shown when a wifi captive portal network is detected.  This is the notification's title. -->
   <!-- A notification is shown when a captive portal network is detected.  This is the notification's title. -->
   <!-- A notification is shown when a captive portal network is detected.  This is the notification's message. -->
@@ -1741,7 +1813,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <string name="network_switch_metered_toast">Newidiwyd o <xliff:g id="previous_network">%1$s</xliff:g> i <xliff:g id="new_network">%2$s</xliff:g></string>
   <!-- Network type names used in the network_switch_metered and network_switch_metered_detail strings. These must be kept in the sync with the values NetworkCapabilities.TRANSPORT_xxx values, and in the same order. -->
   <string-array name="network_switch_type_name">
-    <item>mobile data</item>
+    <item>data symudol</item>
     <item>Wi-Fi</item>
     <item>Bluetooth</item>
     <item>Ether-rwyd</item>
@@ -1762,6 +1834,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <string name="wifi_p2p_failed_message">Methwyd â dechrau Wi-Fi Uniongyrchol.</string>
   <string name="wifi_p2p_enabled_notification_message">Tara am osodiadau</string>
   <string name="accept">Derbyn</string>
+  <string name="wifi_p2p_to_message">At: </string>
   <string name="wifi_p2p_frequency_conflict_message" product="tablet">Bydd y llechen yn datgysylltu dros dro o\'r Wi-Fi tra wedi\'i chysylltu gyda <xliff:g id="device_name">%1$s</xliff:g></string>
   <string name="wifi_p2p_frequency_conflict_message" product="tv">Bydd y teledu yn datgysylltu dros dro o\'r Wi-Fi tra wedi\'i chysylltu gyda <xliff:g id="device_name">%1$s</xliff:g></string>
   <string name="wifi_p2p_frequency_conflict_message" product="default">Bydd y ffôn yn datgysylltu dros dro o\'r Wi-Fi tra wedi\'i gysylltu gyda <xliff:g id="device_name">%1$s</xliff:g></string>
@@ -1781,18 +1854,23 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <string name="sms_premium_short_code_details"><b>Bydd hyn yn arwain at gostau ar dy gyfrif ffôn symudol.</b></string>
   <!-- Text of the approval button for the SMS short code confirmation dialog. [CHAR LIMIT=30] -->
   <!-- Text of the cancel button for the SMS short code confirmation dialog. [CHAR LIMIT=30] -->
+  <string name="sms_short_code_confirm_deny">Diddymu</string>
   <!-- Text of the checkbox for the SMS short code confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <!-- Text shown when remember checkbox is checked to inform the user how they may undo the setting. [CHAR LIMIT=40] -->
   <string name="sms_short_code_remember_undo_instruction">Mae\'n bosib newid hyn hwyrach yn Gosodiadau\u00A0&gt;\u00A0Apiau\"</string>
   <!-- Text of the approval button for the SMS short code confirmation dialog when checkbox is checked. [CHAR LIMIT=30] -->
+  <string name="sms_short_code_confirm_always_allow">Caniatáu Bob Tro</string>
   <!-- Text of the cancel button for the SMS short code confirmation dialog when checkbox is checked. [CHAR LIMIT=30] -->
+  <string name="sms_short_code_confirm_never_allow">Caniatáu Byth</string>
   <!-- SIM swap and device reboot Dialog -->
   <!-- See SIM_REMOVED_DIALOG.  This is the title of that dialog. -->
   <!-- See SIM_REMOVED_DIALOG.  This is the message of that dialog. -->
   <!-- See SIM_REMOVED_DIALOG.  This is the button of that dialog. -->
   <!-- See SIM_ADDED_DIALOG.  This is the title of that dialog. -->
   <!-- See SIM_ADDED_DIALOG.  This is the message of that dialog. -->
+  <string name="sim_added_message">Ailgychwyna dy ddyfais i gael mynediad i\'r rhwydwaith symudol.</string>
   <!-- See SIM_ADDED_DIALOG.  This is the button of that dialog. -->
+  <string name="sim_restart_button">Ailgychwyn</string>
   <!-- See Carrier_App_Dialog. This is the message of that dialog. -->
   <string name="carrier_app_dialog_message">I gael dy SIM newydd i weithio\'n gywir, rhaid gosod ac agor ap gan dy gwmni gwasanaeth ffôn symudol.</string>
   <!-- See Carrier_App_Dialog. This is the button of that dialog. -->
@@ -1846,6 +1924,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- at all and later replace it with a locale string based on the users chosen locale          -->
   <!-- DO NOT TRANSLATE -->
   <!-- Title of the pop-up dialog in which the user switches keyboard, also known as input method. -->
+  <string name="select_input_method">Newid bysellfwrdd</string>
   <!-- Summary text of a toggle switch to enable/disable use of the IME while a physical
          keyboard is connected -->
   <string name="show_ime">Ei gadw ar y sgrin tra bod y bysellfwrdd corfforol yn weithredol</string>
@@ -1909,6 +1988,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Short summary of storage media status when unsupported [CHAR LIMIT=32] -->
   <!-- Short summary of storage media status when ejecting [CHAR LIMIT=32] -->
   <!-- Short summary of storage media status when formatting [CHAR LIMIT=32] -->
+  <string name="ext_media_status_formatting">Yn fformatio\u2026</string>
   <!-- Short summary of storage media status when missing [CHAR LIMIT=32] -->
   <string name="ext_media_status_missing">Heb ei gosod</string>
   <!-- Shown in LauncherActivity when the requested target Intent didn't return any matching Activities, leaving the list empty. -->
@@ -1955,8 +2035,11 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Label to show for a service that is running because it is an input method. -->
   <!-- Label to show for a service that is running because it is a sync adapter. -->
   <!-- Label to show for a service that is running because it is an accessibility module. -->
+  <string name="accessibility_binding_label">Hygyrchedd</string>
   <!-- Label to show for a service that is running because it is a wallpaper. -->
+  <string name="wallpaper_binding_label">Papur wal</string>
   <!-- Dialog title for user to select a different wallpaper from service list -->
+  <string name="chooser_wallpaper">Newid y papur wal</string>
   <!-- Label to show for a service that is running because it is observing
          the user's notifications. -->
   <!-- Label to show for a service that is running because the system is in VR mode. -->
@@ -2030,6 +2113,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Network positioning notification message. The name of the user (e.g. John Doe) and
          service (SUPL-service) who sent the request is shown as dynamic strings.
          Translation should not be longer than master text. -->
+  <string name="gpsNotifMessage">Gwnaed cais gan <xliff:g id="name">%1$s</xliff:g> (<xliff:g id="service" example="SUPL-service">%2$s</xliff:g>)</string>
   <!-- Network positioning verification Yes. Button to push to share location information. -->
   <!-- Network positioning verification No. Button to push to deny sharing of location
          information. -->
@@ -2068,6 +2152,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- KeyboardView - accessibility support -->
   <!-- Description of the Alt button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <!-- Description of the Cancel button in a KeyboardView. [CHAR LIMIT=NONE] -->
+  <string name="keyboardview_keycode_cancel">Diddymu</string>
   <!-- Description of the Delete button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <!-- Description of the Done button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <!-- Description of the Mode change button in a KeyboardView. [CHAR LIMIT=NONE] -->
@@ -2116,6 +2201,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Notification title when mobile data usage has exceeded limit threshold, and has been disabled. [CHAR LIMIT=50] -->
   <!-- Notification title when Wi-Fi data usage has exceeded limit threshold, and has been disabled. [CHAR LIMIT=32] -->
   <!-- Notification body when data usage has exceeded limit threshold, and has been disabled. -->
+  <string name="data_usage_limit_body">Defnydd data wedi\'i oedi am weddill y cyfnod</string>
   <!-- Notification title when 2G-3G data usage has exceeded limit threshold. [CHAR LIMIT=32] -->
   <string name="data_usage_3g_limit_snoozed_title">Wedi pasio terfyn data 2G-3G</string>
   <!-- Notification title when 4G data usage has exceeded limit threshold. [CHAR LIMIT=32] -->
@@ -2128,6 +2214,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <string name="data_usage_restricted_body">Tara i dynnu\'r cyfyngiad.</string>
   <!-- SSL Certificate dialogs -->
   <!-- Title for an SSL Certificate dialog -->
+  <string name="ssl_certificate">Tystysgrif diogelwch</string>
   <!-- Message on an SSL Certificate dialog -->
   <!-- Label for an information field on an SSL Certificate Dialog -->
   <!-- Label for an information field on an SSL Certificate Dialog -->
@@ -2138,6 +2225,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Label for an information field on an SSL Certificate Dialog -->
   <!-- Label for an information field on an SSL Certificate Dialog -->
   <!-- Label for an information field on an SSL Certificate Dialog -->
+  <string name="serial_number">Rhif cyfres:</string>
   <!-- Label for an information field on an SSL Certificate Dialog -->
   <!-- Label for an information field on an SSL Certificate Dialog -->
   <!-- Label for an information field on an SSL Certificate Dialog -->
@@ -2146,6 +2234,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Title for a dialog showing possible activities for sharing in ShareActionProvider [CHAR LIMIT=25] -->
   <!-- STK sending DTMF, SMS, USSD, SS -->
   <!-- STK launch Browser -->
+  <string name="launchBrowserDefault">Lansio Porwr?</string>
   <!-- STK setup Call -->
   <string name="SetupCallDefault">Derbyn y galwad?</string>
   <!-- Title for a button to choose the currently selected activity
@@ -2160,18 +2249,22 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
          is connected to a headphone or other wired audio output jack. [CHAR LIMIT=50] -->
   <!-- Name of the default audio route when nothing is connected to
          a headphone or other wired audio output jack. [CHAR LIMIT=50] -->
+  <string name="default_audio_route_name" product="default">Ffôn</string>
   <!-- Name of the default audio route when wired headphones are
          connected. [CHAR LIMIT=50] -->
   <!-- Name of the default audio route when an audio dock is connected. [CHAR LIMIT=50] -->
   <!-- Name of the default media route when HDMI is connected. [CHAR LIMIT=50] -->
   <!-- Name of the default audio route category. [CHAR LIMIT=50] -->
   <!-- Description of the bluetooth a2dp audio route. [CHAR LIMIT=50] -->
+  <string name="bluetooth_a2dp_audio_route_name">Sain Bluetooth</string>
   <!-- Description of a wireless display route. [CHAR LIMIT=50] -->
   <!-- Content description of a MediaRouteButton for accessibility support.
         Cast is the standard android verb for sending content to a remote device. [CHAR LIMIT=50] -->
   <!-- Title of the media route chooser dialog. [CHAR LIMIT=40] -->
+  <string name="media_route_chooser_title">Cysylltu i ddyfais</string>
   <!-- Title of the media route chooser dialog for selecting remote display routes. [CHAR LIMIT=40] -->
   <!-- Placeholder text to show when no devices have been found. [CHAR LIMIT=50] -->
+  <string name="media_route_chooser_searching">Yn chwilio am ddyfeisiau\u2026</string>
   <!-- Button to access extended settings.  [CHAR LIMIT=30] -->
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <!-- Status message for remote routes attempting to scan/determine availability -->
@@ -2183,6 +2276,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
   <!-- Display manager service -->
   <!-- Name of the built-in display.  [CHAR LIMIT=50] -->
   <!-- Name of the HDMI display.  [CHAR LIMIT=50] -->
+  <string name="display_manager_hdmi_display_name">Sgrin HDMI</string>
   <!-- Name of the N'th overlay display for testing.  [CHAR LIMIT=50] -->
   <!-- Title text to show within the overlay.  [CHAR LIMIT=50] -->
   <string name="display_manager_overlay_display_title"><xliff:g id="name">%1$s</xliff:g>: <xliff:g id="width">%2$d</xliff:g>x<xliff:g id="height">%3$d</xliff:g>, <xliff:g id="dpi">%4$d</xliff:g> dpi</string>
@@ -2449,7 +2543,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
   <!-- [CHAR_LIMIT=NONE] Battery saver: Feature description -->
   <string name="battery_saver_description">I helpu ymestyn oes batri, mae\'r arbedwr batri yn lleihau perfformiad dy ddyfais ac yn gosod cyfyngiadau ar ddirgrynu, gwasanaethau lleoliad, a\'r mwyafrif o ddata cefndir. Mae\'n bosib na fydd apiau sy\'n dibynnu ar ddiweddaru neu gysoni, megis Ebost a Negeseu, ddim yn diweddaru nes eu bod yn cael eu hagor.\n\nMae\'r arbedwr batri yn troi i ffwrdd yn awtomatig pan mae\'r ddyfais yn gwefru.</string>
   <!-- [CHAR_LIMIT=NONE] Data saver: Feature description -->
-  <string name="data_saver_description">I helpu lleihau defnydd data, mae Arbedwr Data yn rhwystro rhai apiau rhag anfon neu dderbyn data yn y cefndir. Gall ap gael mynediad at ddata tra ei bod yn cael ei ddefnyddio, ond yn llai aml. Mae hyn yn golygu, er enghraifft, na fydd delweddau efallai yn dangos nes dy fod yn eu taro nhw.</string>
+  <string name="data_saver_description">I helpu lleihau defnydd data, mae Arbedwr Data yn rhwystro rhai apiau rhag anfon neu dderbyn data yn y cefndir. Gall ap gael mynediad at ddata tra ei fod yn cael ei ddefnyddio, ond yn llai aml. Mae hyn yn golygu, er enghraifft, na fydd delweddau efallai yn dangos nes dy fod yn eu taro nhw.</string>
   <!-- [CHAR_LIMIT=35] Data saver: Title on first-time dialog -->
   <string name="data_saver_enable_title">Rhoi Arbedwr Data ar waith?</string>
   <!-- [CHAR_LIMIT=16] Data saver: Button to turn it on on first-time dialog -->
@@ -2512,9 +2606,9 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
   <string name="importance_from_user">Rwyt yn gosod pwysigrwydd yr hysbysiadau hyn.</string>
   <string name="importance_from_person">Mae hyn yn bwysig oherwydd y bobol sy\'n cymryd rhan.</string>
   <!-- Message to user that app trying to create user for an account that already exists. [CHAR LIMIT=none] -->
-  <string name="user_creation_account_exists">Caniatáu <xliff:g id="app" example="Gmail">%1$s</xliff:g> i greu defnyddiwr newydd gyda <xliff:g id="account" example="foobar@gmail.com">%2$s</xliff:g> ?</string>
+  <string name="user_creation_account_exists">Caniatáu i <xliff:g id="app" example="Gmail">%1$s</xliff:g> greu defnyddiwr newydd gyda <xliff:g id="account" example="foobar@gmail.com">%2$s</xliff:g> ?</string>
   <!-- Message to user that app is trying to create user for a specified account. [CHAR LIMIT=none] -->
-  <string name="user_creation_adding">Caniatáu <xliff:g id="app" example="Gmail">%1$s</xliff:g> i greu defnyddiwr newydd gyda <xliff:g id="account" example="foobar">%2$s</xliff:g>? (Mae defnyddiwr gyda\'r cyfrif hwn eisoes yn bodoli.)</string>
+  <string name="user_creation_adding">Caniatáu i <xliff:g id="app" example="Gmail">%1$s</xliff:g> greu defnyddiwr newydd gyda <xliff:g id="account" example="foobar">%2$s</xliff:g>? (Mae defnyddiwr gyda\'r cyfrif hwn eisoes yn bodoli.)</string>
   <!-- Locale picker strings -->
   <!-- Title for the language selection screen [CHAR LIMIT=25] -->
   <string name="language_selection_title">Ychwanegu iaith</string>
@@ -2573,21 +2667,32 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
   <!-- Window title for a tooltip [CHAR LIMIT=NONE] -->
   <!-- Category title for apps which are primarily games. [CHAR LIMIT=32] -->
   <!-- Category title for apps which primarily work with audio or music, such as music players. [CHAR LIMIT=32] -->
+  <string name="app_category_audio">Cerddoriaeth a Sain</string>
   <!-- Category title for apps which primarily work with video or movies, such as streaming video apps. [CHAR LIMIT=32] -->
+  <string name="app_category_video">Ffilmiau a Fideo</string>
   <!-- Category title for apps which primarily work with images or photos, such as camera or gallery apps. [CHAR LIMIT=32] -->
+  <string name="app_category_image">Lluniau a Delweddau</string>
   <!-- Category title for apps which are primarily social apps, such as messaging, communication, email, or social network apps. [CHAR LIMIT=32] -->
+  <string name="app_category_social">Cymdeithasol a Chyfathrebu</string>
   <!-- Category title for apps which are primarily news apps, such as newspapers, magazines, or sports apps. [CHAR LIMIT=32] -->
+  <string name="app_category_news">Newyddion a Chylchgronau</string>
   <!-- Category title for apps which are primarily maps apps, such as navigation apps. [CHAR LIMIT=32] -->
+  <string name="app_category_maps">Mapiau a Llywio</string>
   <!-- Category title for apps which are primarily productivity apps, such as cloud storage or workplace apps. [CHAR LIMIT=32] -->
   <!-- Channel name for DeviceStorageMonitor notifications -->
+  <string name="device_storage_monitor_notification_channel">Storfa\'r ddyfais</string>
   <!-- Channel name for UsbDeviceManager adb debugging notifications -->
+  <string name="adb_debugging_notification_channel_tv">Dadfygio USB</string>
   <!-- Label for the time picker hour input field. [CHAR LIMIT=20] -->
   <!-- Label for the time picker minute input field. [CHAR LIMIT=20] -->
+  <string name="time_picker_minute_label">munud</string>
   <!-- The title for the time picker dialog. [CHAR LIMIT=NONE] -->
   <!-- Error shown to the user if they type in invalid hour or minute in the time picker. [CHAR LIMIT=NONE] -->
+  <string name="time_picker_input_error">Rho amser dilys</string>
   <!-- Label shown to the user in time picker to let them know that should type in time. [CHAR LIMIT=NONE] -->
   <!-- Accessibility string used for describing the button in time picker that changes the dialog to text input mode. [CHAR LIMIT=NONE] -->
   <!-- Accessibility string used for describing the button in time picker that changes the dialog to circular clock mode. [CHAR LIMIT=NONE] -->
+  <string name="time_picker_radial_mode_description">Newid i fodd cloc ar gyfer allbwn amser.</string>
   <!-- Accessibility title for the autofill dialog used to select a list of options to autofill an activity. [CHAR LIMIT=NONE] -->
   <!-- Accessibility title for the autofill dialog used to ask user to save the information on the screen by sending it to an Autofill Service. [CHAR LIMIT=NONE] -->
   <!-- Toast message shown when user manually request autofill but service could not figure out the data that would autofill the screen contents. [CHAR LIMIT=NONE] -->
@@ -2595,21 +2700,32 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
   <!-- Accessibility string to announce there are some autofill suggestions in the autofill picker. [CHAR LIMIT=NONE] -->
   <!-- Title for the autofill save dialog shown when the the contents of the activity can be saved
          by an autofill service, but the service does not know what the activity represents [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_title">Cadw i &lt;b&gt;<xliff:g id="label" example="MyPass">%1$s</xliff:g>&lt;/b&gt;?</string>
   <!-- Title for the autofill save dialog shown when the the contents of the activity can be saved
          by an autofill service, and the service does knows what the activity represents (for example, credit card info) [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_title_with_type">Cadw <xliff:g id="type" example="Credit Card">%1$s</xliff:g> i &lt;b&gt;<xliff:g id="label" example="MyPass">%2$s</xliff:g>&lt;/b&gt;?</string>
   <!-- Title for the autofill save dialog shown when the the contents of the activity can be saved
          by an autofill service, and the service does knows what the activity represents, and it represents 2 types of
          data (for example, password and credit card info) [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_title_with_2types">Cadw <xliff:g id="type" example="Password">%1$s</xliff:g> a <xliff:g id="type" example="Credit Card">%2$s</xliff:g> i &lt;b&gt;<xliff:g id="label" example="MyPass">%3$s</xliff:g>&lt;/b&gt;?</string>
   <!-- Title for the autofill save dialog shown when the the contents of the activity can be saved
          by an autofill service, and the service does knows what the activity represents, and it represents 3 types of
          data (for example, username, password and credit card info) [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_title_with_3types">Cadw <xliff:g id="type" example="Username">%1$s</xliff:g>, <xliff:g id="type" example="Password">%2$s</xliff:g>, a <xliff:g id="type" example="Credit Card">%3$s</xliff:g> i &lt;b&gt;<xliff:g id="label" example="MyPass">%4$s</xliff:g>&lt;/b&gt;?</string>
   <!-- Label for the autofill save button [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_yes">Cadw</string>
   <!-- Label for the autofill cancel button [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_no">Dim diolch</string>
   <!-- Label for the type of data being saved for autofill when it represent user credentials with a password [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_type_password">cyfrinair</string>
   <!-- Label for the type of data being saved for autofill when it represent an address (street, city, etc.) [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_type_address">cyfeiriad</string>
   <!-- Label for the type of data being saved for autofill when it represents a credit card [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_type_credit_card">cerdyn credyd</string>
   <!-- Label for the type of data being saved for autofill when it represents an username [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_type_username">enw defnyddiwr</string>
   <!-- Label for the type of data being saved for autofill when it represents an email address [CHAR LIMIT=NONE] -->
+  <string name="autofill_save_type_email_address">cyfeiriad ebost</string>
   <!-- Primary ETWS (Earthquake and Tsunami Warning System) default message for earthquake -->
   <!-- Primary ETWS (Earthquake and Tsunami Warning System) default message for Tsunami -->
   <!-- Primary ETWS (Earthquake and Tsunami Warning System) default message for earthquake and Tsunami -->

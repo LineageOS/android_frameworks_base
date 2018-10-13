@@ -48,6 +48,12 @@
   <string name="accessibility_quick_settings_sync_on">Synk på.</string>
   <string name="accessibility_quick_settings_sync_changed_off">Synk inaktiverad.</string>
   <string name="accessibility_quick_settings_sync_changed_on">Synk aktiverad.</string>
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">Systemprofiler</string>
+  <string name="accessibility_quick_settings_profiles_off">Profiler av.</string>
+  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_profiles_changed_off">Profiler har stängts av.</string>
+  <string name="accessibility_quick_settings_profiles_changed">Profil ändrades till <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">USB-tethering</string>
   <!-- Volume panel QS tile -->
@@ -91,7 +97,7 @@
   <string name="quick_settings_location_high_accuracy_label">Hög noggrannhet</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Hög\nnoggrannhet</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Plats</string>
+  <string name="quick_settings_location_detail_title">Position</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_detail_menu_title">Välj läge:</string>
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->

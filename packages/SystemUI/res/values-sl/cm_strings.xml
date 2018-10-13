@@ -50,6 +50,12 @@
   <string name="accessibility_quick_settings_sync_on">Sinhronizacija vklopljena.</string>
   <string name="accessibility_quick_settings_sync_changed_off">Sinhronizacija izklopljena.</string>
   <string name="accessibility_quick_settings_sync_changed_on">Sinhronizacija vklopljena.</string>
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">Sistemski profili</string>
+  <string name="accessibility_quick_settings_profiles_off">Profili izklopljeni.</string>
+  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_profiles_changed_off">Profili izklopljeni.</string>
+  <string name="accessibility_quick_settings_profiles_changed">Profil spremenjen v <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">Delj. mob. int. USB</string>
   <!-- Volume panel QS tile -->
@@ -79,22 +85,22 @@
   <!-- Button to restart the device into download mode, within the Restart Options dialog -->
   <string name="global_action_restart_download">Prenos</string>
   <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_progress">Ponovno zaganjanje \u2026</string>
+  <string name="global_action_restart_progress">Vnovično zaganjanje \u2026</string>
   <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_recovery_progress">Ponovno zaganjanje v obnovitveni način \u2026</string>
+  <string name="global_action_restart_recovery_progress">Vnovično zaganjanje v obnovitveni način \u2026</string>
   <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_bootloader_progress">Ponovno zaganjanje v način zagonskega nalagalnika \u2026</string>
+  <string name="global_action_restart_bootloader_progress">Vnovično zaganjanje v način zagonskega nalagalnika \u2026</string>
   <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_download_progress">Ponovno zaganjanje v način prenosa \u2026</string>
+  <string name="global_action_restart_download_progress">Vnovično zaganjanje v način prenosa \u2026</string>
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Poročanje o lokaciji: način varčevanja energije.</string>
+  <string name="accessibility_quick_settings_location_battery_saving">Poročanje o lokaciji: način varčevanja z energijo akumulatorja.</string>
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_gps_only">Poročanje o lokaciji: način \'samo tipala\'.</string>
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_high_accuracy">Poročanje o lokaciji: način visoke natančnosti.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Varčevanje z energijo</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Varčevanje\nz energijo</string>
+  <string name="quick_settings_location_battery_saving_label">Varčevanje z energijo akumulatorja</string>
+  <string name="quick_settings_location_battery_saving_label_twoline">Varčevanje\nz energijo akumulatorja</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">Samo v napravi</string>
   <string name="quick_settings_location_gps_only_label_twoline">Samo v\nnapravi</string>
@@ -108,7 +114,7 @@
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
   <string name="quick_settings_location_detail_mode_high_accuracy_title">Visoka natančnost</string>
   <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Varčevanje z energijo</string>
+  <string name="quick_settings_location_detail_mode_battery_saving_title">Varčevanje z energijo akumulatorja</string>
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Samo v napravi</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->

@@ -29,9 +29,11 @@
   <!-- Text of notification indicating that bugreport will appear on the phone. [CHAR LIMIT=100] -->
   <string name="bugreport_finished_text" product="watch">Bydd yr adroddiad am wall yn ymddangos ar y ffôn cyn bo hir.</string>
   <!-- Text of notification indicating that tapping will share the captured bugreport. [CHAR LIMIT=100] -->
+  <string name="bugreport_finished_text" product="tv">Tara i rannu dy adroddiad am wall</string>
   <!-- Text of notification indicating that tapping will share the captured bugreport. [CHAR LIMIT=100] -->
   <string name="bugreport_finished_text" product="default">Tara i rannu dy adroddiad am wall.</string>
   <!-- Text of notification indicating that swipe left will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
+  <string name="bugreport_finished_pending_screenshot_text" product="tv">Tara i rannu dy adroddiad am wall heb sgrinlun neu aros i gwblhau\'r sgrinlun</string>
   <!-- Text of notification indicating that swipe left will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
   <string name="bugreport_finished_pending_screenshot_text" product="watch">Tara i rannu dy adroddiad am wall heb sgrinlun nawr neu arhosa i gwblhau\'r sgrinlun.</string>
   <!-- Text of notification indicating that tapping will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
@@ -70,4 +72,5 @@
   <!-- Label of button that save bugreport details.  -->
   <string name="save">Cadw</string>
   <!-- Title displayed in the activity chooser used to share the bug report [CHAR LIMIT=35]-->
+  <string name="bugreport_intent_chooser_title">Rhannu adroddiad am wall</string>
 </resources>

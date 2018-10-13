@@ -48,6 +48,12 @@
   <string name="accessibility_quick_settings_sync_on">Sinkronizimi aktiv.</string>
   <string name="accessibility_quick_settings_sync_changed_off">Sinkronizimi u çaktivizua.</string>
   <string name="accessibility_quick_settings_sync_changed_on">Sinkronizimi u aktivizua.</string>
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">Profilet e sistemit</string>
+  <string name="accessibility_quick_settings_profiles_off">Profilet inaktive.</string>
+  <string name="accessibility_quick_settings_profiles">Profili: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_profiles_changed_off">Profilet u çaktivizuan.</string>
+  <string name="accessibility_quick_settings_profiles_changed">Profili u ndërrua në <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">USB tethering</string>
   <!-- Volume panel QS tile -->

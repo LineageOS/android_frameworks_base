@@ -50,6 +50,12 @@
   <string name="accessibility_quick_settings_sync_on">Синхронизация включена.</string>
   <string name="accessibility_quick_settings_sync_changed_off">Синхронизация отключена.</string>
   <string name="accessibility_quick_settings_sync_changed_on">Синхронизация включена.</string>
+  <!-- System Profiles QS tile -->
+  <string name="quick_settings_profiles_label">Системные профили</string>
+  <string name="accessibility_quick_settings_profiles_off">Профили выключены.</string>
+  <string name="accessibility_quick_settings_profiles">Профиль: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+  <string name="accessibility_quick_settings_profiles_changed_off">Профили выключены.</string>
+  <string name="accessibility_quick_settings_profiles_changed">Профиль изменен на <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
   <!-- USB tethering QS tile -->
   <string name="quick_settings_usb_tether_label">USB-модем</string>
   <!-- Volume panel QS tile -->
@@ -89,7 +95,7 @@
   <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_battery_saving">Отправка местоположения: режим экономии батареи.</string>
   <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Отправка местоположения: только по GPS.</string>
+  <string name="accessibility_quick_settings_location_gps_only">Отправка местоположения: только датчики.</string>
   <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_location_high_accuracy">Отправка местоположения: режим высокой точности.</string>
   <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
@@ -97,7 +103,7 @@
   <string name="quick_settings_location_battery_saving_label_twoline">Экономия\nбатареи</string>
   <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_gps_only_label">По спутникам GPS</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Только\nGPS</string>
+  <string name="quick_settings_location_gps_only_label_twoline">Только\nустройство</string>
   <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_high_accuracy_label">Высокая точность</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">По всем\nисточникам</string>
