@@ -31,4 +31,11 @@
          * Right -> 53 (Gravity.TOP | Gravity.RIGHT)
     -->
     <integer name="hardware_ui_align">53</integer>
+
+    <!-- Volume dialog alignement:
+         Use one of the following values basing on the volume slider position:
+         * Left -> 3 (Gravity.LEFT)
+         * Right -> 5 (Gravity.RIGHT)
+    -->
+    <integer name="hardware_ui_align">5</integer>
 </resources>

@@ -40,7 +40,7 @@
             android:layout_height="@dimen/volume_dialog_ringer_size"
             android:layout_marginBottom="@dimen/volume_dialog_spacer"
             android:translationZ="@dimen/volume_dialog_elevation"
-            android:layout_gravity="right"
+            android:layout_gravity="@integer/volume_dialog_align"
             android:clipToPadding="false"
             android:background="@drawable/rounded_bg_full">
             <com.android.keyguard.AlphaOptimizedImageButton
