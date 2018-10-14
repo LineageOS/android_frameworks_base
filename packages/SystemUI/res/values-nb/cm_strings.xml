@@ -93,6 +93,7 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Meny / Tastaturbryter (vis alltid)</string>
   <string name="search">Søk</string>
+  <!-- Name of the clock status bar icon -->
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

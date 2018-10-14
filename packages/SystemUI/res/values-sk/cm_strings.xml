@@ -92,6 +92,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Menu / Prepínač klávesnice (vždy zobrazovať)</string>
   <string name="search">Vyhľadať</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">Hodiny</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

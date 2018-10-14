@@ -90,6 +90,7 @@
   <string name="accessibility_dpad_right">Курсор направа</string>
   <!-- NavBar Tuner -->
   <string name="search">Пошук</string>
+  <!-- Name of the clock status bar icon -->
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

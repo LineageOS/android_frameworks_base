@@ -92,6 +92,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Trình đơn / Trình chuyển đổi bàn phím (luôn hiển thị)</string>
   <string name="search">Tìm kiếm</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">Đồng hồ</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

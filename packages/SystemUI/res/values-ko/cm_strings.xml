@@ -93,6 +93,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">메뉴 / 키보드 선택기 (항상 표시)</string>
   <string name="search">검색</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">시계</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

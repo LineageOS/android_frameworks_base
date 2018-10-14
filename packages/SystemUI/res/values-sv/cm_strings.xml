@@ -60,6 +60,7 @@
   <string name="accessibility_dpad_right">Markör till höger</string>
   <!-- NavBar Tuner -->
   <string name="search">Sök</string>
+  <!-- Name of the clock status bar icon -->
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
@@ -114,7 +115,7 @@
   <string name="quick_settings_location_high_accuracy_label">Hög noggrannhet</string>
   <string name="quick_settings_location_high_accuracy_label_twoline">Hög\nnoggrannhet</string>
   <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Plats</string>
+  <string name="quick_settings_location_detail_title">Position</string>
   <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
   <string name="quick_settings_location_detail_menu_title">Välj läge:</string>
   <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
@@ -136,6 +137,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display påslagen.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Koffein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Koffein av</string>
+  <string name="accessibility_quick_settings_caffeine_on">Koffein på</string>
   <!-- Heads up QS tile -->
   <string name="quick_settings_heads_up_label">Heads up</string>
   <string name="accessibility_quick_settings_heads_up_off">Heads up av.</string>

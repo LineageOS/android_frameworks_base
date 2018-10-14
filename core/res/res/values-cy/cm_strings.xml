@@ -34,7 +34,7 @@
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
   <string name="reboot_bootloader">Cychwynnydd</string>
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
-  <string name="reboot_download">Lawrlwytho</string>
+  <string name="reboot_download">Modd llwytho</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
   <string name="reboot_soft">Ailgychwyn meddal</string>
   <!-- Title of dialog to confirm restarting. -->
@@ -50,6 +50,7 @@
   <!-- ADB over USB and network notification -->
   <string name="adb_both_active_notification_title">Galluogwyd ADB dros USB a rhwydwaith</string>
   <!-- ADB notification message-->
+  <string name="adb_active_generic_notification_message">Cyffyrdda i analluogi dadfygio.</string>
   <!-- Privacy Guard -->
   <string name="permlab_changePrivacyGuardState">galluogi neu analluogi Gwarchodydd Preifatrwydd</string>
   <string name="permdesc_changePrivacyGuardState">Mae\'n caniatáu i\'r ap newid a yw ap arall yn rhedeg gyda Gwarchodydd Preifatrwydd. Pan fydd ap yn rhedeg gyda Gwarchodydd Preifatrwydd, ni fydd ganddo fynediad at ddata personol megis cysylltiadau, cofnodion galwadau, na negeseuon.</string>
@@ -68,6 +69,16 @@
   <string name="app_ops_delete_call_log">dileu dy gofnodion galwadau</string>
   <string name="app_ops_delete_contacts">dileu dy gysylltiadau</string>
   <string name="app_ops_delete_mms">dileu dy negeseuon MMS</string>
+  <string name="app_ops_delete_sms">dileu dy negeseuon SMS</string>
+  <string name="app_ops_get_usage_stats">cael ystadegau defnydd apiau</string>
+  <string name="app_ops_keep_device_awake">cadw dy ddyfais yn effro</string>
+  <string name="app_ops_make_phone_call">gwneud galwad ffôn</string>
+  <string name="app_ops_modify_calendar">diweddaru dy galendr</string>
+  <string name="app_ops_modify_call_log">diweddaru\'r cofnod galwadau</string>
+  <string name="app_ops_modify_clipboard">newid y clipfwrdd</string>
+  <string name="app_ops_modify_contacts">diweddaru dy gysylltiadau</string>
+  <string name="app_ops_modify_settings">diweddaru gosodiadau\'r system</string>
+  <string name="app_ops_mute_unmute_microphone">distewi/dad-ddistewi\'r meicroffôn</string>
   <string name="app_ops_play_audio">chwarae sain</string>
   <string name="app_ops_post_notification">gosod hysbysiad</string>
   <string name="app_ops_project_media">taflunio cyfrwng</string>
@@ -82,6 +93,7 @@
   <string name="app_ops_send_mms">anfon negeseuon MMS</string>
   <string name="app_ops_send_sms">anfon negeseuon SMS</string>
   <string name="app_ops_start_at_bootup">dechrau wrth i\'r ddyfais gychwyn</string>
+  <string name="app_ops_toast_window">dangos negeseuon cyfarch</string>
   <string name="app_ops_toggle_bluetooth">toglo Bluetooth</string>
   <string name="app_ops_toggle_mobile_data">toglo data symudol</string>
   <string name="app_ops_toggle_nfc">toglo NFC</string>
@@ -92,17 +104,39 @@
   <string name="app_ops_use_master_volume">rheoli uchder y prif sain</string>
   <string name="app_ops_use_media_buttons">defnyddio botymau cyfryngau</string>
   <string name="app_ops_use_media_volume">rheoli uchder sain cyfryngau</string>
+  <string name="app_ops_use_notification_volume">rheoli uchder sain hysbysiadau</string>
+  <string name="app_ops_use_ring_volume">rheoli uchder sain y tôn canu</string>
+  <string name="app_ops_use_vibrate">defnyddio adborth habtig</string>
+  <string name="app_ops_use_voice_volume">rheoli uchder sain galwad llais</string>
   <string name="app_ops_write_mms">ysgrifennu negeseuon MMS</string>
   <string name="app_ops_write_sms">ysgrifennu negeseuon SMS</string>
+  <string name="app_ops_use_fingerprint">defnyddio ôl bys</string>
   <string name="app_ops_add_voicemail">ychwanegu neges llaisbost</string>
+  <string name="app_ops_scan_wifi">sganio rhwydweithiau Wi-Fi</string>
+  <string name="app_ops_change_wallpaper">newid y papur wal</string>
+  <string name="app_ops_assist_structure">defnyddio strwythur cynorthwyo</string>
+  <string name="app_ops_assist_screenshot">tynnu sgrinlun</string>
+  <string name="app_ops_use_body_sensors">defnyddio synwyryddion corff</string>
+  <string name="app_ops_read_cell_broadcasts">darllen darllediadau neges destun</string>
+  <string name="app_ops_mock_location">ffugio dy leoliad</string>
+  <string name="app_ops_read_external_storage">darllen storfa allanol</string>
+  <string name="app_ops_write_external_storage">ysgrifennu at storfa allanol</string>
+  <string name="app_ops_turn_on_screen">troi\'r sgrin ymlaen</string>
+  <string name="app_ops_get_accounts">cael cyfrifon y ddyfais</string>
   <string name="app_ops_run_in_background">rhedeg yn y cefndir</string>
+  <string name="app_ops_wifi_change">newid cyflwr Wi-Fi</string>
   <!-- Protected Apps Notification -->
+  <string name="notify_package_component_protected_title">Rhwystrwyd lansio gweithgaredd</string>
   <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+  <string name="lock_to_app_toast_no_navbar">I ddadbinio\'r sgrin, cyffyrdda a dal y botwm Nôl.</string>
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Single hand mode -->
   <string name="singlehandmode_click_hint_message">Cyffyrdda tu allan i\'r sgrin i adael modd defnydd un llaw</string>
   <!-- Strings for tethered notification -->
   <!-- Shown when the device is tethered -->
+  <string name="tethered_notification_no_device_message">Dim dyfais wedi\'i chysylltu</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> dyfais wedi\'i chysylltu</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> dyfais wedi\'u cysylltu</string>
   <!-- Zen mode buttons -->
   <string name="silent_mode_priority">Blaenoriaeth</string>
   <string name="silent_mode_none">Dim</string>

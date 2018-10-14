@@ -30,7 +30,7 @@
   <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
   <string name="menu_list">Golwg rhestr</string>
   <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
-  <string name="menu_sort">Trefnu yn ôl</string>
+  <string name="menu_sort">Trefn</string>
   <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
   <string name="menu_search">Chwilio</string>
   <!-- Menu item that enters activity to change settings for current root [CHAR LIMIT=24] -->
@@ -60,9 +60,9 @@
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
   <string name="menu_advanced_hide">Cuddio\'r storfa mewnol</string>
   <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_show">Dangos maint ffeiliau</string>
+  <string name="menu_file_size_show">Dangos meintiau ffeiliau</string>
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_hide">Cuddio maint ffeiliau</string>
+  <string name="menu_file_size_hide">Cuddio meintiau ffeiliau</string>
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
   <string name="button_select">Dewis</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
@@ -70,10 +70,10 @@
   <!-- Button label that moves files to the current directory [CHAR LIMIT=24] -->
   <string name="button_move">Symud</string>
   <!-- Button label that hides the error bar [CHAR LIMIT=24] -->
-  <string name="button_dismiss">Gwrthod</string>
+  <string name="button_dismiss">Wfftio</string>
   <string name="button_retry">Ceisio Eto</string>
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
-  <string name="sort_name">Yn ôl Enw</string>
+  <string name="sort_name">Yn ôl enw</string>
   <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
   <string name="sort_date">Yn ôl dyddiad addasu</string>
   <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
@@ -83,18 +83,19 @@
   <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
   <string name="drawer_close">Cuddio gwreiddiau</string>
   <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
-  <string name="save_error">Methwyd cadw\'r ddogfen</string>
+  <string name="save_error">Methwyd â chadw\'r ddogfen</string>
   <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
-  <string name="create_error">Methwyd creu ffolder</string>
+  <string name="create_error">Methwyd â chreu ffolder</string>
   <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
-  <string name="query_error">Methu llwytho\'r cynnwys ar hyn o bryd</string>
+  <string name="query_error">Methu â llwytho\'r cynnwys ar hyn o bryd</string>
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
   <string name="root_recent">Diweddar</string>
   <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
-  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s </xliff:g> am ddim</string>
+  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s </xliff:g> ar gael</string>
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
   <string name="root_type_service">Gwasanaethau storio</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
+  <string name="root_type_shortcut">Llwybrau Byr</string>
   <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
   <string name="root_type_device">Dyfeisiau</string>
   <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
@@ -104,9 +105,9 @@
   <!-- Text shown when a file search returns no items [CHAR LIMIT=32] -->
   <string name="no_results">Dim cydweddiadau yn %1$s</string>
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
-  <string name="toast_no_application">Methu agor y ffeil</string>
+  <string name="toast_no_application">Methu ag agor y ffeil</string>
   <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
-  <string name="toast_failed_delete">Methu dileu rhai dogfennau</string>
+  <string name="toast_failed_delete">Methu â dileu rhai dogfennau</string>
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
   <string name="share_via">Rhannu drwy</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
@@ -153,30 +154,30 @@
   <string name="delete_preparing">Yn paratoi i ddileu\u2026</string>
   <!-- Title of the copy error notification [CHAR LIMIT=48] -->
   <plurals name="copy_error_notification_title">
-    <item quantity="zero">Methwyd copïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeiliau.</item>
-    <item quantity="one">Methwyd copïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="two">Methwyd copïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="few">Methwyd copïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="many">Methwyd copïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="other">Methwyd copïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="zero">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeiliau</item>
+    <item quantity="one">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="two">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="few">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="many">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="other">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
   </plurals>
   <!-- Title of the move error notification [CHAR LIMIT=48] -->
   <plurals name="move_error_notification_title">
-    <item quantity="zero">Methwyd symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeiliau.</item>
-    <item quantity="one">Methwyd symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil.</item>
-    <item quantity="two">Methwyd symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil.</item>
-    <item quantity="few">Methwyd symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil.</item>
-    <item quantity="many">Methwyd symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil.</item>
-    <item quantity="other">Methwyd symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil.</item>
+    <item quantity="zero">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeilau</item>
+    <item quantity="one">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="two">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="few">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="many">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="other">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
   </plurals>
   <!-- Title of the delete error notification [CHAR LIMIT=48] -->
   <plurals name="delete_error_notification_title">
-    <item quantity="zero">Methwyd dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeiliau.</item>
-    <item quantity="one">Methwyd dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil.</item>
-    <item quantity="two">Methwyd dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil.</item>
-    <item quantity="few">Methwyd dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil.</item>
-    <item quantity="many">Methwyd dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil.</item>
-    <item quantity="other">Methwyd dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil.</item>
+    <item quantity="zero">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeiliau</item>
+    <item quantity="one">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="two">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="few">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="many">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    <item quantity="other">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
   </plurals>
   <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
   <string name="notification_touch_for_details">Tara i weld manylion</string>
@@ -200,20 +201,20 @@
     <item quantity="other">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
   </plurals>
   <!-- Toast shown when a user tries to paste files into an unsupported location. -->
-  <string name="clipboard_files_cannot_paste">Methu pastio\'r ffeiliau hynny yn y lleoliad yma</string>
+  <string name="clipboard_files_cannot_paste">Methu â phastio\'r ffeiliau hynny yn y lleoliad yma.</string>
   <!-- Menu item that renames the selected document [CHAR LIMIT=24] -->
   <string name="menu_rename">Ailenwi</string>
   <!-- Toast shown when renaming document failed with an error [CHAR LIMIT=48] -->
-  <string name="rename_error">Methwyd ailenwi\'r ddogfen</string>
+  <string name="rename_error">Methwyd ag ailenwi\'r ddogfen</string>
   <!-- First line for notifications saying that some files were converted to a different format
          during a copy. [CHAR LIMIT=48] -->
   <string name="notification_copy_files_converted_title">Cafodd rhai ffeiliau eu trosi</string>
   <!-- Text in an alert dialog asking user to grant app access to a given directory in an external storage volume -->
-  <string name="open_external_dialog_request">Caniatáu <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> i gael mynediad at y cyfeiriadur <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g> ar <xliff:g id="storage" example="SD Card"><i>^3</i></xliff:g>?</string>
+  <string name="open_external_dialog_request">Caniatáu i <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> gael mynediad at y cyfeiriadur <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g> ar <xliff:g id="storage" example="SD Card"><i>^3</i></xliff:g>?</string>
   <!-- Text in an alert dialog asking user to grant app access to a given directory in the internal storage -->
-  <string name="open_external_dialog_request_primary_volume">Caniatáu <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> i gael mynediad at y cyfeiriadur <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g>?</string>
+  <string name="open_external_dialog_request_primary_volume">Caniatáu i <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> gael mynediad at y cyfeiriadur <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g>?</string>
   <!-- Text in an alert dialog asking user to grant app access to all data in an external storage volume -->
-  <string name="open_external_dialog_root_request">Caniatáu <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> i gael mynediad at dy ddata, gan gynnwys lluniau a fideos, ar <xliff:g id="storage" example="SD Card"><i>^2</i></xliff:g>?</string>
+  <string name="open_external_dialog_root_request">Caniatáu i <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> gael mynediad at dy ddata, gan gynnwys lluniau a fideos, ar <xliff:g id="storage" example="SD Card"><i>^2</i></xliff:g>?</string>
   <!-- Checkbox that allows user to not be questioned about the directory access request again -->
   <string name="never_ask_again">Peidio â gofyn eto</string>
   <!-- Text in the button asking user to allow access to a given directory. -->

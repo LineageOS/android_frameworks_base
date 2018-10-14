@@ -22,14 +22,14 @@
   <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">Zaslonska slika</string>
   <!-- label for item that restarts the phone in phone options dialog -->
-  <string name="global_action_reboot">Ponovno zaženi</string>
+  <string name="global_action_reboot">Vnovično zaženi</string>
   <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">Trenutni</string>
   <!-- status message in phone options dialog for screenshot action -->
   <string name="global_actions_screenshot_status">Dolg pritisk za delno zaslonsko sliko</string>
   <!-- Restart menu -->
   <!-- Button to restart the phone, within the Restart Options dialog -->
-  <string name="reboot_reboot">Ponovno zaženi</string>
+  <string name="reboot_reboot">Vnovičen zagon</string>
   <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <string name="reboot_recovery">Obnovitev</string>
   <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
@@ -37,15 +37,15 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">Prenos</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
-  <string name="reboot_soft">Mehki ponovni zagon</string>
+  <string name="reboot_soft">Mehki vnovičen zagon</string>
   <!-- Title of dialog to confirm restarting. -->
-  <string name="reboot_title">Ponovno zaženi</string>
+  <string name="reboot_title">Vnovičen zagon</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
          be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm" product="tablet">Tablica se bo ponovno zagnala.</string>
-  <string name="reboot_confirm" product="default">Telefon se bo ponovno zagnal.</string>
+  <string name="reboot_confirm" product="tablet">Vaš tablični računalnik se bo vnovično zagnal.</string>
+  <string name="reboot_confirm" product="default">Vaš telefon se bo vnovično zagnal.</string>
   <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
-  <string name="reboot_progress">Ponovno zaganjanje \u2026</string>
+  <string name="reboot_progress">Vnovično zaganjanje \u2026</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB prek omrežja omogočen</string>
   <!-- ADB over USB and network notification -->

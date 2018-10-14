@@ -108,7 +108,7 @@
   <!-- Values for logd limit size selection preference. -->
   <!-- Summaries for logd limit size selection preference. [CHAR LIMIT=50]-->
   <string-array name="select_logd_size_summaries">
-    <item>I Ffwrdd</item>
+    <item>I ffwrdd</item>
     <item>byffer 64K i bob log</item>
     <item>byffer 256K i bob log</item>
     <item>byffer 1M i bob log</item>

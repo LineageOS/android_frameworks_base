@@ -93,6 +93,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">菜单 / 键盘切换器 (始终显示)</string>
   <string name="search">搜索</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">时钟</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

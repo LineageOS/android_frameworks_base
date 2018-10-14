@@ -64,6 +64,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Menü / Tastatur-Umschalter (immer anzeigen)</string>
   <string name="search">Suche</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">Uhr</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

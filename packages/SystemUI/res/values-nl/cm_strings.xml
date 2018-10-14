@@ -93,6 +93,7 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Kiezer invoermethode (altijd weergeven)</string>
   <string name="search">Zoeken</string>
+  <!-- Name of the clock status bar icon -->
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

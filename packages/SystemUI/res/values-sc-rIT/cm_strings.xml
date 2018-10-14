@@ -82,6 +82,7 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Menù / Càmbiu tastiera (ammustra semper)</string>
   <string name="search">Chirca</string>
+  <!-- Name of the clock status bar icon -->
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

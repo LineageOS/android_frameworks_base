@@ -92,6 +92,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Przełącznik Menu / Klawiatura (zawsze pokazuj)</string>
   <string name="search">Szukaj</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">Zegar</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

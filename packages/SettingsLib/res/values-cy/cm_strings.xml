@@ -23,4 +23,7 @@
   <string name="screen_zoom_summary_smaller">Llai</string>
   <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
   <string name="screen_zoom_summary_smallest">Lleiaf</string>
+  <string name="profile_applist_title">Apiau</string>
+  <string name="picker_activities">Gweithgareddau</string>
+  <string name="lockscreen_targets_message">Llwybrau byr y sgrin cloi</string>
 </resources>

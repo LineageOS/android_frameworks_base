@@ -36,6 +36,7 @@
   <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">Download</string>
   <!-- Button to soft restart the device, within the Restart Options dialog -->
+  <string name="reboot_soft">Mjuk omstart</string>
   <!-- Title of dialog to confirm restarting. -->
   <string name="reboot_title">Starta om</string>
   <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will

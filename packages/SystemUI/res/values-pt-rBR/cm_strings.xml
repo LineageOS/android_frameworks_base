@@ -93,6 +93,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Menu / Alternador de Teclado (sempre mostrar)</string>
   <string name="search">Procurar</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">Relógio</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

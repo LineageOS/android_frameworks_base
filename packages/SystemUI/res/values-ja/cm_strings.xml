@@ -93,6 +93,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">メニュー/キーボード切り替え（常時表示）</string>
   <string name="search">検索</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">時計</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

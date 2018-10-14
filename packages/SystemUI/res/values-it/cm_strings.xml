@@ -92,6 +92,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Menu / Cambio Tastiera (mostra sempre)</string>
   <string name="search">Cerca</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">Orologio</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

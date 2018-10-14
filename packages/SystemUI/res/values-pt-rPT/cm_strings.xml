@@ -93,6 +93,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">Alternador de Menu / Teclado (mostrar sempre)</string>
   <string name="search">Pesquisar</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">Relógio</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
@@ -166,11 +168,11 @@
   <!-- Adb over network QS tile -->
   <string name="quick_settings_network_adb_label">ADB através da rede</string>
   <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Visualização de ambiente</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Visualização de ambiente desativada.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Visualização de ambiente ativada.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">A visualização de ambiente foi desativada.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">A visualização de ambiente foi ativada.</string>
+  <string name="quick_settings_ambient_display_label">Visualização ambiente</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Visualização ambiente desativada.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Visualização ambiente ativada.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">A visualização ambiente foi desativada.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">A visualização ambiente foi ativada.</string>
   <!-- Caffeine -->
   <string name="quick_settings_caffeine_label">Cafeína</string>
   <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada</string>

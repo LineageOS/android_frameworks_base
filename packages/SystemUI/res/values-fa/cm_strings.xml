@@ -50,6 +50,7 @@
   <string name="accessibility_dpad_left">نشانگر چپ</string>
   <string name="accessibility_dpad_right">نشانگر راست</string>
   <!-- NavBar Tuner -->
+  <!-- Name of the clock status bar icon -->
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->

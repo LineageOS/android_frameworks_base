@@ -92,6 +92,8 @@
   <!-- NavBar Tuner -->
   <string name="menu_ime_always_show">תפריט / בוחר מקלדת (הצג תמיד)</string>
   <string name="search">חיפוש</string>
+  <!-- Name of the clock status bar icon -->
+  <string name="status_bar_clock">שעון</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
