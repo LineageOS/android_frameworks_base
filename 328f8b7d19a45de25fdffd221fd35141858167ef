@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "381975a3_85bf0aa8",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2018-10-14T12:43:23Z",
+      "side": 1,
+      "message": "exposeMonoCamera",
+      "range": {
+        "startLine": 1144,
+        "startChar": 16,
+        "endLine": 1144,
+        "endChar": 31
+      },
+      "revId": "328f8b7d19a45de25fdffd221fd35141858167ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbbeec15_9b803719",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2018-10-14T12:43:23Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1154,
+        "startChar": 16,
+        "endLine": 1154,
+        "endChar": 31
+      },
+      "revId": "328f8b7d19a45de25fdffd221fd35141858167ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea8f330_52ffe343",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2018-10-14T12:43:23Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1157,
+        "startChar": 24,
+        "endLine": 1157,
+        "endChar": 39
+      },
+      "revId": "328f8b7d19a45de25fdffd221fd35141858167ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
