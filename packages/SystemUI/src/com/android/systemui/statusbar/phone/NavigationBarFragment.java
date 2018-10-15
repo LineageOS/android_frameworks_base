@@ -273,8 +273,8 @@ public class NavigationBarFragment extends Fragment implements Callbacks {
         super.onViewCreated(view, savedInstanceState);
         mNavigationBarView = (NavigationBarView) view;
 
-        mNavigationBarView.setDisabledFlags(mDisabledFlags1);
         mNavigationBarView.setComponents(mRecents, mDivider, mStatusBar.getPanel());
+        mNavigationBarView.setDisabledFlags(mDisabledFlags1);
         mNavigationBarView.setOnVerticalChangedListener(this::onVerticalChanged);
         mNavigationBarView.setOnTouchListener(this::onNavigationTouch);
         if (savedInstanceState != null) {
