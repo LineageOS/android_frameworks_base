@@ -64,6 +64,7 @@ import com.android.systemui.OverviewProxyService;
 import com.android.systemui.R;
 import com.android.systemui.RecentsComponent;
 import com.android.systemui.SysUiServiceProvider;
+import com.android.systemui.onehand.SlideTouchEvent;
 import com.android.systemui.plugins.PluginListener;
 import com.android.systemui.plugins.PluginManager;
 import com.android.systemui.plugins.statusbar.phone.NavGesture;
@@ -159,6 +160,7 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
 
     private final SparseArray<ButtonDispatcher> mButtonDispatchers = new SparseArray<>();
     private Configuration mConfiguration;
+    private SlideTouchEvent mSlideTouchEvent;
 
     private NavigationBarInflaterView mNavigationInflaterView;
     private RecentsComponent mRecentsComponent;
@@ -291,6 +293,8 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
         mOverviewProxyService = Dependency.get(OverviewProxyService.class);
         mRecentsOnboarding = new RecentsOnboarding(context, mOverviewProxyService);
 
+        mSlideTouchEvent = new SlideTouchEvent(context);
+
         mConfiguration = new Configuration();
         mConfiguration.updateFrom(context.getResources().getConfiguration());
         reloadNavIcons();
@@ -337,6 +341,7 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
+        mSlideTouchEvent.handleTouchEvent(event);
         if (shouldDeadZoneConsumeTouchEvents(event)) {
             return true;
         }
@@ -362,6 +367,7 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        mSlideTouchEvent.handleTouchEvent(event);
         if (shouldDeadZoneConsumeTouchEvents(event)) {
             return true;
         }
