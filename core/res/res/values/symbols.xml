@@ -3377,7 +3377,6 @@
 
   <!-- Informative text for OneHandOperation Display Shrink -->
   <java-symbol type="string" name="onehand_guide" />
-  <java-symbol type="string" name="onehand_link" />
 
   <!-- One Handed Operation related -->
   <java-symbol type="drawable" name="onehand_button_pressed" />
@@ -3388,7 +3387,7 @@
   <java-symbol type="drawable" name="onehand_screen_resize_right" />
   <java-symbol type="drawable" name="onehand_buttons_background" />
   <java-symbol type="layout" name="onehand_guide_panel" />
-  <java-symbol type="id" name="onehand_link" />
+  <java-symbol type="id" name="onehand_guide" />
   <java-symbol type="dimen" name="config_onehandProtectZonePadding" />
   <java-symbol type="dimen" name="config_onehandTriggerMinSwipeDistance" />
 
