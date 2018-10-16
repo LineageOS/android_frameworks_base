@@ -1030,4 +1030,7 @@
     <!-- Padding for overheat alarm dialog message of content -->
     <dimen name="alarm_dialog_message_space">28dp</dimen>
 
+    <dimen name="navbar_single_hand_mode_horizontal_threshhold">90dp</dimen>
+    <dimen name="navbar_single_hand_mode_vertical_threshhold">48dp</dimen>
+
 </resources>
