@@ -64,13 +64,13 @@ class OneHandedControlPanel {
     private ImageView mMoveIndicator = null;
 
     private View mGuidePanelRoot = null;
-    private View mLink = null;
+    private View mGuide = null;
 
     private final Transformation mTmpControlPanelTrans = new Transformation();
     private final Transformation mTmpGuidePanelTrans = new Transformation();
     private float mLastTargetScale = 1;
     private volatile int mControlPanelLength = 0;
-    private volatile int mLinkBottom = 0;
+    private volatile int mGuideBottom = 0;
 
     private final float[] mTmpMatrixValues = new float[9];
 
@@ -250,17 +250,17 @@ class OneHandedControlPanel {
             return 1f;
         }
 
-        int linkBottom = mLinkBottom;
+        int guideBottom = mGuideBottom;
         float controlPanelTop = applyTransformationY(oneHandedTrans, -mControlPanelLength);
 
-        if (linkBottom <= 0 || controlPanelTop > linkBottom) {
+        if (guideBottom <= 0 || controlPanelTop > guideBottom) {
             return 1f;
         }
 
         // Alpha gradually decreases as the control panel approaches the top edge of device screen.
         // The decrease is quickly in early stage. And the decrease is slowly in late stage.
-        float earlyStage = 2f * (controlPanelTop / linkBottom) - 1f;
-        float lateStage = (controlPanelTop / linkBottom) / 2f;
+        float earlyStage = 2f * (controlPanelTop / guideBottom) - 1f;
+        float lateStage = (controlPanelTop / guideBottom) / 2f;
         float alpha = Math.max(earlyStage, lateStage);
         return Math.max(alpha, 0f);
     }
@@ -279,10 +279,10 @@ class OneHandedControlPanel {
         if (curMode.isOffMode())
             return;
 
-        Rect linkBounds = getBoundsOnScreen(mLink);
+        Rect guideBounds = getBoundsOnScreen(mGuide);
         Point touchPositon = getInverseTransformedPosition(x, y);
 
-        if(linkBounds.contains(touchPositon.x, touchPositon.y)) {
+        if(guideBounds.contains(touchPositon.x, touchPositon.y)) {
             launchOneHandedModeSetupActivity();
             return;
         }
@@ -348,12 +348,12 @@ class OneHandedControlPanel {
 
     private void createGuidePanel() {
         View root = View.inflate(mContext, com.android.internal.R.layout.onehand_guide_panel, null);
-        mLink = root.findViewById(com.android.internal.R.id.onehand_link);
-        mLink.addOnLayoutChangeListener(new OnLayoutChangeListener() {
+        mGuide = root.findViewById(com.android.internal.R.id.onehand_guide);
+        mGuide.addOnLayoutChangeListener(new OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom,
                     int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                mLinkBottom = getBoundsOnScreen(mLink).bottom;
+                mGuideBottom = getBoundsOnScreen(mGuide).bottom;
             }
         });
         mGuidePanelRoot = root;
