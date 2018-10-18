@@ -155,6 +155,7 @@ public class SettingsHelper {
             } else if (isAlreadyConfiguredCriticalAccessibilitySetting(name)) {
                 return;
             } else if (Settings.System.RINGTONE.equals(name)
+                    || Settings.System.RINGTONE2.equals(name)
                     || Settings.System.NOTIFICATION_SOUND.equals(name)) {
                 setRingtone(name, value);
                 return;
@@ -186,10 +187,11 @@ public class SettingsHelper {
 
     public String onBackupValue(String name, String value) {
         // Special processing for backing up ringtones & notification sounds
-        if (Settings.System.RINGTONE.equals(name)
+        if (Settings.System.RINGTONE.equals(name) || Settings.System.RINGTONE2.equals(name)
                 || Settings.System.NOTIFICATION_SOUND.equals(name)) {
             if (value == null) {
-                if (Settings.System.RINGTONE.equals(name)) {
+                if (Settings.System.RINGTONE.equals(name)
+                        || Settings.System.RINGTONE2.equals(name)) {
                     // For ringtones, we need to distinguish between non-telephony vs telephony
                     if (mTelephonyManager != null && mTelephonyManager.isVoiceCapable()) {
                         // Backup a null ringtone as silent on voice-capable devices
@@ -213,7 +215,8 @@ public class SettingsHelper {
     /**
      * Sets the ringtone of type specified by the name.
      *
-     * @param name should be Settings.System.RINGTONE or Settings.System.NOTIFICATION_SOUND.
+     * @param name should be Settings.System.RINGTONE or Settings.System.RINGTONE2
+     *        or Settings.System.NOTIFICATION_SOUND.
      * @param value can be a canonicalized uri or "_silent" to indicate a silent (null) ringtone.
      */
     private void setRingtone(String name, String value) {
@@ -230,8 +233,10 @@ public class SettingsHelper {
                 return;
             }
         }
-        final int ringtoneType = Settings.System.RINGTONE.equals(name)
-                ? RingtoneManager.TYPE_RINGTONE : RingtoneManager.TYPE_NOTIFICATION;
+        boolean isRingtone = Settings.System.RINGTONE.equals(name)
+                || Settings.System.RINGTONE2.equals(name);
+        final int ringtoneType = isRingtone ? RingtoneManager.TYPE_RINGTONE
+                : RingtoneManager.TYPE_NOTIFICATION;
         RingtoneManager.setActualDefaultRingtoneUri(mContext, ringtoneType, ringtoneUri);
     }
 
