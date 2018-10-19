@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d231489_918b6e56",
+        "filename": "packages/SettingsProvider/Android.mk",
+        "patchSetId": 63
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-10-19T20:27:25Z",
+      "side": 1,
+      "message": "Unless something cool changed between August (patchset 2) and now, this is needed.",
+      "parentUuid": "db05dcd3_fa8bbc4a",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 33
+      },
+      "revId": "b1f34f883ee5c9b078fc52618f1aefb03ed4a537",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69f6a50e_143f5961",
         "filename": "packages/SettingsProvider/Android.mk",
         "patchSetId": 63
