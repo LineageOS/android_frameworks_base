@@ -300,6 +300,8 @@ public class NetworkMonitor extends StateMachine {
 
     private int mNextFallbackUrlIndex = 0;
 
+    protected boolean mIsWifiAlwaysValid;
+
     public NetworkMonitor(Context context, Handler handler, NetworkAgentInfo networkAgentInfo,
             NetworkRequest defaultRequest) {
         this(context, handler, networkAgentInfo, defaultRequest, new IpConnectivityLog(),
@@ -344,6 +346,7 @@ public class NetworkMonitor extends StateMachine {
         mCaptivePortalFallbackUrls = makeCaptivePortalFallbackUrls();
         mCaptivePortalFallbackSpecs = makeCaptivePortalFallbackProbeSpecs();
 
+        mIsWifiAlwaysValid = getWifiValidationSettings();
         start();
     }
 
@@ -386,6 +389,10 @@ public class NetworkMonitor extends StateMachine {
                 mDefaultRequest.networkCapabilities, mNetworkAgentInfo.networkCapabilities);
     }
 
+    private void notifyNetworkTestResultValid(Object obj) {
+        mConnectivityServiceHandler.sendMessage(obtainMessage(
+                EVENT_NETWORK_TESTED, NETWORK_TEST_RESULT_VALID, mNetId, obj));
+    }
 
     private void notifyNetworkTestResultInvalid(Object obj) {
         mConnectivityServiceHandler.sendMessage(obtainMessage(
@@ -400,6 +407,10 @@ public class NetworkMonitor extends StateMachine {
             switch (message.what) {
                 case CMD_NETWORK_CONNECTED:
                     logNetworkEvent(NetworkEvent.NETWORK_CONNECTED);
+                    mIsWifiAlwaysValid = getWifiValidationSettings();
+                    if (mIsWifiAlwaysValid) {
+                        notifyNetworkTestResultValid(null);
+                    }
                     transitionTo(mEvaluatingState);
                     return HANDLED;
                 case CMD_NETWORK_DISCONNECTED:
@@ -446,7 +457,9 @@ public class NetworkMonitor extends StateMachine {
                         case APP_RETURN_UNWANTED:
                             mDontDisplaySigninNotification = true;
                             mUserDoesNotWant = true;
-                            notifyNetworkTestResultInvalid(null);
+                            if (!mIsWifiAlwaysValid) {
+                                notifyNetworkTestResultInvalid(null);
+                            }
                             // TODO: Should teardown network.
                             mUidResponsibleForReeval = 0;
                             transitionTo(mEvaluatingState);
@@ -596,6 +609,8 @@ public class NetworkMonitor extends StateMachine {
             }
             mReevaluateDelayMs = INITIAL_REEVALUATE_DELAY_MS;
             mAttempts = 0;
+
+            mIsWifiAlwaysValid = getWifiValidationSettings();
         }
 
         @Override
@@ -639,14 +654,18 @@ public class NetworkMonitor extends StateMachine {
                         // state (even if no Private DNS validation required).
                         transitionTo(mEvaluatingPrivateDnsState);
                     } else if (probeResult.isPortal()) {
-                        notifyNetworkTestResultInvalid(probeResult.redirectUrl);
+                        if (!mIsWifiAlwaysValid) {
+                            notifyNetworkTestResultInvalid(probeResult.redirectUrl);
+                        }
                         mLastPortalProbeResult = probeResult;
                         transitionTo(mCaptivePortalState);
                     } else {
                         final Message msg = obtainMessage(CMD_REEVALUATE, ++mReevaluateToken, 0);
                         sendMessageDelayed(msg, mReevaluateDelayMs);
                         logNetworkEvent(NetworkEvent.NETWORK_VALIDATION_FAILED);
-                        notifyNetworkTestResultInvalid(probeResult.redirectUrl);
+                        if (!mIsWifiAlwaysValid) {
+                            notifyNetworkTestResultInvalid(probeResult.redirectUrl);
+                        }
                         if (mAttempts >= BLAME_FOR_EVALUATION_ATTEMPTS) {
                             // Don't continue to blame UID forever.
                             TrafficStats.clearThreadStatsUid();
@@ -893,6 +912,11 @@ public class NetworkMonitor extends StateMachine {
             NetworkMonitorSettings settings, Context context) {
         return settings.getSetting(
                 context, Settings.Global.CAPTIVE_PORTAL_HTTP_URL, DEFAULT_HTTP_URL);
+    }
+
+    private boolean getWifiValidationSettings() {
+        return Settings.System.getInt(
+                mContext.getContentResolver(), Settings.System.WIFI_VALID_ENABLE, 1) == 1;
     }
 
     private URL[] makeCaptivePortalFallbackUrls() {

@@ -2260,6 +2260,12 @@ public final class Settings {
         private static final ContentProviderHolder sProviderHolder =
                 new ContentProviderHolder(CONTENT_URI);
 
+        /**
+         * Determine Wi-Fi valid state (If Cellular data and Wi-Fi both have internet, 1: always use Wi-Fi)
+         * @hide
+         */
+        public static final String WIFI_VALID_ENABLE = "wifi_valid_enable";
+
         private static final NameValueCache sNameValueCache = new NameValueCache(
                 CONTENT_URI,
                 CALL_METHOD_GET_SYSTEM,
