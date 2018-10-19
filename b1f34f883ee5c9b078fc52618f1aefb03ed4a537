@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db05dcd3_fa8bbc4a",
+        "filename": "packages/SettingsProvider/Android.mk",
+        "patchSetId": 63
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-19T20:07:43Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 33
+      },
+      "revId": "b1f34f883ee5c9b078fc52618f1aefb03ed4a537",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69f6a50e_143f5961",
+        "filename": "packages/SettingsProvider/Android.mk",
+        "patchSetId": 63
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-19T20:07:43Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "b1f34f883ee5c9b078fc52618f1aefb03ed4a537",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dd04006_99d66960",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 63
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-19T20:07:43Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "b1f34f883ee5c9b078fc52618f1aefb03ed4a537",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd583bc3_01bd62ec",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 63
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-19T20:07:43Z",
+      "side": 1,
+      "message": "\"lock_screen_pass_to_security_view\"",
+      "range": {
+        "startLine": 723,
+        "startChar": 19,
+        "endLine": 723,
+        "endChar": 68
+      },
+      "revId": "b1f34f883ee5c9b078fc52618f1aefb03ed4a537",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
