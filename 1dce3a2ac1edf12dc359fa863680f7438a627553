@@ -1,0 +1,22 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d3c4555_2d3b07cd",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 64
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-19T21:18:58Z",
+      "side": 1,
+      "message": "Also how is this working at all? Move from default settings provider when it\u0027s stored in lineage settings? Or we have also a settings to lineage settings migration in place?",
+      "parentUuid": "",
+      "revId": "1dce3a2ac1edf12dc359fa863680f7438a627553",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
