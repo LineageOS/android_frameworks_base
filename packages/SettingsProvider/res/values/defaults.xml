@@ -217,4 +217,7 @@
 
     <!-- Default for Settings.System.VIBRATE_WHEN_RINGING -->
     <bool name="def_vibrate_when_ringing">false</bool>
+
+    <!-- Default for Settings.System.WIFI_VALID_ENABLE  -->
+    <integer name="def_wifi_valid_enable">1</integer>
 </resources>
