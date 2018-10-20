@@ -1,0 +1,663 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f631df5_3be603e8",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "Don\u0027t think this should be here",
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee945d55_706f1ea2",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "derp",
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d08aaf94_53029cf3",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1908,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 1908,
+        "startChar": 109,
+        "endLine": 1908,
+        "endChar": 110
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3fff622_36f85448",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1908,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 1908,
+        "startChar": 96,
+        "endLine": 1908,
+        "endChar": 97
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eaa1d7d_36d6574a",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2925,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2922,
+        "startChar": 0,
+        "endLine": 2925,
+        "endChar": 5
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c89e2a_07f87312",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2933,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2927,
+        "startChar": 0,
+        "endLine": 2933,
+        "endChar": 5
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d008b33a_bc54e246",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2949,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 2949,
+        "startChar": 34,
+        "endLine": 2949,
+        "endChar": 35
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77d01a43_f62a39e0",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2965,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 2957,
+        "startChar": 0,
+        "endLine": 2965,
+        "endChar": 5
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e1023bf_255384bc",
+        "filename": "core/java/com/android/internal/app/IAppOpsService.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d03b5c63_fdda9b70",
+        "filename": "services/core/java/com/android/server/AppOpsPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "whole file is unused",
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e00856f7_41732971",
+        "filename": "services/core/java/com/android/server/AppOpsPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "Move these somewhere else",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 61
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfae773a_1ee4b01f",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove, always false",
+      "range": {
+        "startLine": 191,
+        "startChar": 4,
+        "endLine": 191,
+        "endChar": 32
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8573124_3f8f0f4f",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 25
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75808a70_18b4878a",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "new line",
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d363c7d_b53ed207",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 636,
+        "startChar": 0,
+        "endLine": 636,
+        "endChar": 55
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "826985ab_de6be3bd",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d62124a_a46230ef",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1086,
+        "startChar": 66,
+        "endLine": 1087,
+        "endChar": 50
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34d9ca77_f745623c",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2498,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "no need to change the position",
+      "range": {
+        "startLine": 2494,
+        "startChar": 0,
+        "endLine": 2498,
+        "endChar": 0
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84b1a1e9_e5889305",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2540,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "this is wrong, it should go in the case loop underneath\nSee for proper changes below",
+      "range": {
+        "startLine": 2500,
+        "startChar": 0,
+        "endLine": 2540,
+        "endChar": 17
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42606a00_e09ea83a",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2546,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "case \"ac\":\n    op.allowedCount \u003d Integer.parseInt(value);\n    break;",
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24a18814_03262055",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2549,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "case \"dm\":\n    if (value !\u003d null) {\n        op.mode \u003d Integer.parseInt(sDefualtMode);\n    } else {\n        op.mode \u003d AppOpsManager.opToDefaultMode(op.op);\n    }",
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4468350_da8fc1c5",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2552,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "case \"ic\":\n    op.ignoredCount \u003d Integer.parseInt(value);\n    break;",
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cefebfbb_d6d6a572",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2610,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "order them alphabetically",
+      "range": {
+        "startLine": 2608,
+        "startChar": 0,
+        "endLine": 2610,
+        "endChar": 34
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8c3f500_68f74838",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3897,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove, this is always false",
+      "range": {
+        "startLine": 3892,
+        "startChar": 0,
+        "endLine": 3897,
+        "endChar": 5
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d4f0420_91d8d8cd",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4236,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 4228,
+        "startChar": 0,
+        "endLine": 4236,
+        "endChar": 5
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d14be0fd_3abd8405",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4244,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove, always true",
+      "range": {
+        "startLine": 4238,
+        "startChar": 0,
+        "endLine": 4244,
+        "endChar": 5
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06f97b5a_5a93b5ce",
+        "filename": "services/core/java/com/android/server/BluetoothManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 890,
+        "startChar": 31,
+        "endLine": 890,
+        "endChar": 47
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "118c1ad0_e7f125f9",
+        "filename": "services/core/java/com/android/server/BluetoothManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "AppOpsManager.class and inline the method",
+      "range": {
+        "startLine": 891,
+        "startChar": 34,
+        "endLine": 891,
+        "endChar": 57
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ecfdcef_a40a90e2",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 58
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac7acf92_6a7b3519",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2483,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "context.getSystemService(AppOpsManager.class);",
+      "range": {
+        "startLine": 2483,
+        "startChar": 18,
+        "endLine": 2483,
+        "endChar": 84
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43197003_a5c05af5",
+        "filename": "telephony/java/android/telephony/TelephonyManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6445,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T17:30:05Z",
+      "side": 1,
+      "message": "mContext.getSystemService(AppOpsManager.class);",
+      "range": {
+        "startLine": 6445,
+        "startChar": 35,
+        "endLine": 6445,
+        "endChar": 101
+      },
+      "revId": "0492441b68c5314cc5ab4bbed5830de80b800edc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
