@@ -35,6 +35,24 @@
       "revId": "1dce3a2ac1edf12dc359fa863680f7438a627553",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "088ef275_68bbadaf",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 64
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-20T16:38:53Z",
+      "side": 1,
+      "message": "This was added to support migration from Settings.System -\u003e Settings.Secure -\u003e LineageSettings.Secure\nIt\u0027s proper",
+      "parentUuid": "d58e1cab_00aa2f54",
+      "revId": "1dce3a2ac1edf12dc359fa863680f7438a627553",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
