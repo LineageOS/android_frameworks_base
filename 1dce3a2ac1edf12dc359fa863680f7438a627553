@@ -17,6 +17,24 @@
       "revId": "1dce3a2ac1edf12dc359fa863680f7438a627553",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d58e1cab_00aa2f54",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 64
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-10-20T14:04:02Z",
+      "side": 1,
+      "message": "I also don\u0027t under stand this. Neither the fact that LineageSettings.Secure.LOCK_PASS_TO_SECURITY_VIEW appears in LEGACY_SECURE_SETTINGS array, in the SDK.",
+      "parentUuid": "1d3c4555_2d3b07cd",
+      "revId": "1dce3a2ac1edf12dc359fa863680f7438a627553",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
