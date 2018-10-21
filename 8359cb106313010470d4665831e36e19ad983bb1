@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c0cce3b_4f9e73f8",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-10-21T22:28:56Z",
+      "side": 1,
+      "message": "If this is an else if, that implies the whitelist always wins? Intentional?",
+      "range": {
+        "startLine": 310,
+        "startChar": 10,
+        "endLine": 310,
+        "endChar": 17
+      },
+      "revId": "8359cb106313010470d4665831e36e19ad983bb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
