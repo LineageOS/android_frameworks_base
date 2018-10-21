@@ -22,6 +22,24 @@
       "revId": "8359cb106313010470d4665831e36e19ad983bb1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5161c3b0_6fa74f10",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-21T22:30:44Z",
+      "side": 1,
+      "message": "yes, if you have a whitelist we imply everything else isn\u0027t supported",
+      "parentUuid": "3c0cce3b_4f9e73f8",
+      "revId": "8359cb106313010470d4665831e36e19ad983bb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
