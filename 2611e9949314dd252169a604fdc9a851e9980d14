@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8762145_438778fc",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-10-21T22:56:58Z",
+      "side": 1,
+      "message": "I\u0027m not really super knowledgeable about unicode, but why is the -\u003e character showing up?",
+      "range": {
+        "startLine": 172,
+        "startChar": 50,
+        "endLine": 172,
+        "endChar": 51
+      },
+      "revId": "2611e9949314dd252169a604fdc9a851e9980d14",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
