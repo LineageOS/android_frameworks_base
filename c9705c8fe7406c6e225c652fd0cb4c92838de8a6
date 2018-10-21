@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e94dc26f_e351160a",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-10-21T22:32:29Z",
+      "side": 1,
+      "message": "Maybe just initialize this to SystemProperties.getBoolean(\"...\", true) ?",
+      "range": {
+        "startLine": 105,
+        "startChar": 53,
+        "endLine": 105,
+        "endChar": 57
+      },
+      "revId": "c9705c8fe7406c6e225c652fd0cb4c92838de8a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05a2e1e6_9250bdd6",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-10-21T22:32:29Z",
+      "side": 1,
+      "message": "It\u0027s kind of weird to set a property to false as the non-default value. Maybe re-word this to be something like ro.fingerprint.skip.cleanup.unused so the false/unset value is the same as the default behavior?",
+      "range": {
+        "startLine": 340,
+        "startChar": 41,
+        "endLine": 340,
+        "endChar": 70
+      },
+      "revId": "c9705c8fe7406c6e225c652fd0cb4c92838de8a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
