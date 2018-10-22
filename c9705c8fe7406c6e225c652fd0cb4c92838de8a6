@@ -45,6 +45,30 @@
       "revId": "c9705c8fe7406c6e225c652fd0cb4c92838de8a6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5782473_845bd4c0",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-10-22T03:24:40Z",
+      "side": 1,
+      "message": "Or maybe something that\u0027s simpler to read like:\nro.fingerprint.preserve.unused",
+      "parentUuid": "05a2e1e6_9250bdd6",
+      "range": {
+        "startLine": 340,
+        "startChar": 41,
+        "endLine": 340,
+        "endChar": 70
+      },
+      "revId": "c9705c8fe7406c6e225c652fd0cb4c92838de8a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
