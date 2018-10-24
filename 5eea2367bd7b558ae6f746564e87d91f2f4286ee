@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7adde063_cf2c48f9",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-24T13:39:03Z",
+      "side": 1,
+      "message": "now unused",
+      "revId": "5eea2367bd7b558ae6f746564e87d91f2f4286ee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2225148d_261735c0",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-24T13:39:03Z",
+      "side": 1,
+      "message": "I would really love to know what this implies and how it differs from default one, can you diff it?",
+      "revId": "5eea2367bd7b558ae6f746564e87d91f2f4286ee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3df16fd1_f3a3a02e",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-24T13:39:03Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "5eea2367bd7b558ae6f746564e87d91f2f4286ee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
