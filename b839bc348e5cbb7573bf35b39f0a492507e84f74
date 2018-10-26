@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf472794_b61bd598",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 3507,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-10-26T23:07:22Z",
+      "side": 1,
+      "message": "Note to myself.",
+      "revId": "b839bc348e5cbb7573bf35b39f0a492507e84f74",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
