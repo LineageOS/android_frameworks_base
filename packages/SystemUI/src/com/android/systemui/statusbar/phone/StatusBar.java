@@ -5793,7 +5793,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         } else if (STATUS_BAR_BRIGHTNESS_CONTROL.equals(key)) {
             mBrightnessControl = newValue != null && Integer.parseInt(newValue) == 1;
         } else if (LOCKSCREEN_MEDIA_METADATA.equals(key)) {
-            mShowMediaMetadata = newValue != null && Integer.parseInt(newValue) == 1;
+            mShowMediaMetadata = newValue == null || Integer.parseInt(newValue) != 0;
         } else if (mWindowManagerService != null && FORCE_SHOW_NAVBAR.equals(key)) {
             boolean forcedVisibility = newValue != null && Integer.parseInt(newValue) == 1;
 
