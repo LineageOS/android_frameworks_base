@@ -115,6 +115,14 @@ public class DataUsageController {
     }
 
     public DataUsageInfo getDataUsageInfo() {
+        if (isMobileDataSupported() && isMobileDataEnabled()) {
+            return getCellularDataUsageInfo();
+        } else {
+            return getWifiDataUsageInfo();
+        }
+    }
+
+    public DataUsageInfo getCellularDataUsageInfo() {
         final String subscriberId = getActiveSubscriberId(mContext);
         if (subscriberId == null) {
             return warn("no subscriber id");
