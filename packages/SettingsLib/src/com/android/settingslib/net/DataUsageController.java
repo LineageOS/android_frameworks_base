@@ -38,6 +38,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import static android.net.ConnectivityManager.TYPE_MOBILE;
+import static android.net.ConnectivityManager.TYPE_WIFI;
 import static android.net.NetworkStatsHistory.FIELD_RX_BYTES;
 import static android.net.NetworkStatsHistory.FIELD_TX_BYTES;
 import static android.telephony.TelephonyManager.SIM_STATE_READY;
@@ -114,7 +115,24 @@ public class DataUsageController {
         return rt;
     }
 
+    /**
+     * Test if device has a Wi-Fi data radio.
+     */
+    private boolean isWiFiSupported() {
+        return mConnectivityManager.isNetworkSupported(TYPE_WIFI);
+    }
+
     public DataUsageInfo getDataUsageInfo() {
+        if (isMobileDataSupported()) {
+            return getMobileDataUsageInfo();
+        } else if (isWiFiSupported()) {
+            return getWifiDataUsageInfo();
+        }
+
+        return warn("neither mobile data nor wifi data supported");
+    }
+
+    public DataUsageInfo getMobileDataUsageInfo() {
         final String subscriberId = getActiveSubscriberId(mContext);
         if (subscriberId == null) {
             return warn("no subscriber id");
