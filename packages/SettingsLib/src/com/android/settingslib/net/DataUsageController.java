@@ -45,6 +45,9 @@ import static android.text.format.DateUtils.FORMAT_ABBREV_MONTH;
 import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.net.TrafficStats.MB_IN_BYTES;
 
+import static android.net.ConnectivityManager.TYPE_ETHERNET;
+import static android.net.ConnectivityManager.TYPE_WIFI;
+
 public class DataUsageController {
 
     private static final String TAG = "DataUsageController";
@@ -114,7 +117,31 @@ public class DataUsageController {
         return rt;
     }
 
+    /**
+     * Test if device has an ethernet network connection.
+     */
+    public boolean hasEthernet() {
+        return mConnectivityManager.isNetworkSupported(TYPE_ETHERNET);
+    }
+
+    /**
+     * Test if device has a Wi-Fi data radio.
+     */
+    public boolean hasWifiRadio() {
+        return mConnectivityManager.isNetworkSupported(TYPE_WIFI);
+    }
+
     public DataUsageInfo getDataUsageInfo() {
+        if (isMobileDataSupported() && isMobileDataEnabled()) {
+            return getMobileDataUsageInfo();
+        } else if (hasWifiRadio()) {
+            return getWifiDataUsageInfo();
+        }
+
+        return null;
+    }
+
+    public DataUsageInfo getMobileDataUsageInfo() {
         final String subscriberId = getActiveSubscriberId(mContext);
         if (subscriberId == null) {
             return warn("no subscriber id");
@@ -181,8 +208,24 @@ public class DataUsageController {
             } else {
                 usage.warningLevel = getDefaultWarningLevel();
             }
-            if (usage != null && mNetworkController != null) {
-                usage.carrier = mNetworkController.getMobileDataNetworkName();
+            if (usage != null) {
+                if (mNetworkController != null) {
+                    // get carrier name if it is available
+                    usage.carrier = mNetworkController.getMobileDataNetworkName();
+                } else if (isMobileDataSupported() && isMobileDataEnabled()) {
+                    // carrier name not available, but telephony is enabled
+                    usage.carrier = "SIM";
+                } else if (hasWifiRadio()) {
+                    // telephony is not enabled or supported,
+                    // check if device WiFi-capable
+                    usage.carrier = "WiFi";
+                } else if (hasEthernet()) {
+                    // check if Ethernet is supported
+                    usage.carrier = "Ethernet";
+                } else {
+                    // last resort - should never reach here
+                    usage.carrier = "";
+                }
             }
             return usage;
         } catch (RemoteException e) {
