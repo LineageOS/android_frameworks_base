@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a5bd2c8_4bda943d",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/net/DataUsageController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2018-10-28T23:53:40Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we want this here. Displaying the WiFi Data usage by default is a thing we should only do if Mobile Data isn\u0027t supported at all. Everything else will probably result in more heart attacks than necessary.",
+      "range": {
+        "startLine": 118,
+        "startChar": 39,
+        "endLine": 118,
+        "endChar": 60
+      },
+      "revId": "130dc6bbda23e8c89809ebf0de272434415244fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68c1b559_f7779af4",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/net/DataUsageController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2018-10-28T23:53:40Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be in line with all the other variables/functions?\ni.e. getMobileDataUsageInfo()",
+      "range": {
+        "startLine": 125,
+        "startChar": 25,
+        "endLine": 125,
+        "endChar": 51
+      },
+      "revId": "130dc6bbda23e8c89809ebf0de272434415244fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
