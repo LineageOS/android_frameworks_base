@@ -2053,6 +2053,11 @@ public class GnssLocationProvider implements LocationProviderInterface {
         int type = AGPS_SETID_TYPE_NONE;
         String data = "";
 
+        /*
+         * We don't want to tell Google our IMSI or phone number to spy on us!
+         * As devices w/o SIM card also have working GPS, providing this data does
+         * not seem to add a lot of value, at least not for the device holder
+         *
         if ((flags & AGPS_RIL_REQUEST_SETID_IMSI) == AGPS_RIL_REQUEST_SETID_IMSI) {
             String data_temp = phone.getSubscriberId();
             if (data_temp == null) {
@@ -2072,7 +2077,7 @@ public class GnssLocationProvider implements LocationProviderInterface {
                 data = data_temp;
                 type = AGPS_SETID_TYPE_MSISDN;
             }
-        }
+        } */
         native_agps_set_id(type, data);
     }
 
