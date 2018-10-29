@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "415c7f96_9ebf964a",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/net/DataUsageController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 12604
+      },
+      "writtenOn": "2018-10-29T00:19:16Z",
+      "side": 1,
+      "message": "We could add the data type at the end of this string, ie; SIM/WiFi to specify.",
+      "parentUuid": "8a5bd2c8_4bda943d",
+      "range": {
+        "startLine": 118,
+        "startChar": 39,
+        "endLine": 118,
+        "endChar": 60
+      },
+      "revId": "130dc6bbda23e8c89809ebf0de272434415244fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68c1b559_f7779af4",
         "filename": "packages/SettingsLib/src/com/android/settingslib/net/DataUsageController.java",
         "patchSetId": 1
