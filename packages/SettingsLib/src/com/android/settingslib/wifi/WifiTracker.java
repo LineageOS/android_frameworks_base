@@ -207,7 +207,7 @@ public class WifiTracker implements LifecycleObserver, OnStart, OnStop, OnDestro
         mConnectivityManager = connectivityManager;
 
         // check if verbose logging developer option has been turned on or off
-        sVerboseLogging = (mWifiManager.getVerboseLoggingLevel() > 0);
+        sVerboseLogging = mWifiManager != null && mWifiManager.getVerboseLoggingLevel() > 0;
 
         mFilter = filter;
 
@@ -278,7 +278,7 @@ public class WifiTracker implements LifecycleObserver, OnStart, OnStop, OnDestro
             mScanner = new Scanner();
         }
 
-        if (mWifiManager.isWifiEnabled()) {
+        if (isWifiEnabled()) {
             mScanner.resume();
         }
     }
@@ -407,7 +407,7 @@ public class WifiTracker implements LifecycleObserver, OnStart, OnStop, OnDestro
     }
 
     public boolean isWifiEnabled() {
-        return mWifiManager.isWifiEnabled();
+        return mWifiManager != null && mWifiManager.isWifiEnabled();
     }
 
     /**
