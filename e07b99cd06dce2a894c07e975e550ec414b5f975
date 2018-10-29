@@ -22,6 +22,30 @@
       "revId": "e07b99cd06dce2a894c07e975e550ec414b5f975",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de7984b8_2c6eed6b",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/net/DataUsageController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 12604
+      },
+      "writtenOn": "2018-10-29T22:34:14Z",
+      "side": 1,
+      "message": "Actually, my issue was with strings.xml, but we still might need to also check isMobileDataEnabled() here.",
+      "parentUuid": "e4c2ec63_3ae0ae22",
+      "range": {
+        "startLine": 212,
+        "startChar": 20,
+        "endLine": 212,
+        "endChar": 46
+      },
+      "revId": "e07b99cd06dce2a894c07e975e550ec414b5f975",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
