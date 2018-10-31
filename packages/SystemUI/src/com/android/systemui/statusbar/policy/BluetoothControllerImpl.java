@@ -79,6 +79,7 @@ public class BluetoothControllerImpl implements BluetoothController, BluetoothCa
     private int mConnectionState = BluetoothAdapter.STATE_DISCONNECTED;
     private boolean mAudioProfileOnly;
     private boolean mIsActive;
+    private int mBatteryLevel;
 
     private final H mHandler;
     private int mState;
@@ -132,6 +133,7 @@ public class BluetoothControllerImpl implements BluetoothController, BluetoothCa
         pw.print("  mEnabled="); pw.println(mEnabled);
         pw.print("  mConnectionState="); pw.println(connectionStateToString(mConnectionState));
         pw.print("  mAudioProfileOnly="); pw.println(mAudioProfileOnly);
+        pw.print("  mBatteryLevel="); pw.println(mBatteryLevel);
         pw.print("  mIsActive="); pw.println(mIsActive);
         pw.print("  mConnectedDevices="); pw.println(getConnectedDevices());
         pw.print("  mCallbacks.size="); pw.println(mHandler.mCallbacks.size());
@@ -297,6 +299,7 @@ public class BluetoothControllerImpl implements BluetoothController, BluetoothCa
             mHandler.sendEmptyMessage(H.MSG_STATE_CHANGED);
         }
         updateAudioProfile();
+        updateBattery();
     }
 
     private void updateActive() {
@@ -340,6 +343,22 @@ public class BluetoothControllerImpl implements BluetoothController, BluetoothCa
             mHandler.sendEmptyMessage(H.MSG_STATE_CHANGED);
         }
 
+    }
+
+    @Override
+    public int getBatteryLevel() {
+        if (!mConnectedDevices.isEmpty()) {
+            return mConnectedDevices.get(0).getBatteryLevel();
+        }
+        return -1;
+    }
+
+    private void updateBattery() {
+        int batteryLevel = getBatteryLevel();
+        if (batteryLevel != mBatteryLevel) {
+            mBatteryLevel = batteryLevel;
+            mHandler.sendEmptyMessage(H.MSG_STATE_CHANGED);
+        }
     }
 
     @Override
