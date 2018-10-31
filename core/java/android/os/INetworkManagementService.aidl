@@ -1,6 +1,7 @@
 /* //device/java/android/android/os/INetworkManagementService.aidl
 **
 ** Copyright 2007, The Android Open Source Project
+** Copyright (C) 2019 The LineageOS Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -452,8 +453,9 @@ interface INetworkManagementService
     boolean isNetworkRestricted(int uid);
 
     /**
-     * Restrict UID from accessing data/wifi
+     * Restrict UID from accessing mobile data/vpn/wifi
      */
     void restrictAppOnData(int uid, boolean restrict);
+    void restrictAppOnVpn(int uid, boolean restrict);
     void restrictAppOnWlan(int uid, boolean restrict);
 }
