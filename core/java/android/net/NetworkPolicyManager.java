@@ -56,6 +56,8 @@ public class NetworkPolicyManager {
     public static final int POLICY_ALLOW_METERED_BACKGROUND = 0x4;
     /** Reject application network traffic on cellular network */
     public static final int POLICY_REJECT_ON_DATA = 0x10000;
+    /** Reject application network traffic on virtual private network */
+    public static final int POLICY_REJECT_ON_VPN = 0x20000;
     /** Reject application network traffic on wifi network */
     public static final int POLICY_REJECT_ON_WLAN = 0x8000;
 
