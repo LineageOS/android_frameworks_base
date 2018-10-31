@@ -67,6 +67,7 @@ import android.net.IpPrefix;
 import android.net.LinkAddress;
 import android.net.LinkProperties;
 import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkPolicyManager;
 import android.net.NetworkStats;
 import android.net.NetworkUtils;
@@ -241,8 +242,10 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     private INetd mNetdService;
 
     private String mDataInterfaceName;
+    private String mVpnInterfaceName;
     private String mWlanInterfaceName;
     private BroadcastReceiver mPendingDataRestrictReceiver;
+    private BroadcastReceiver mPendingVpnRestrictReceiver;
 
     private IBatteryStats mBatteryStats;
 
@@ -280,6 +283,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     /** Set of UIDs blacklisted on cellular networks. */
     @GuardedBy("mQuotaLock")
     final SparseBooleanArray mDataBlacklist = new SparseBooleanArray();
+    /** Set of UIDs blacklisted on virtual private networks. */
+    @GuardedBy("mQuotaLock")
+    final SparseBooleanArray mVpnBlacklist = new SparseBooleanArray();
     /** Set of UIDs blacklisted on WiFi networks. */
     @GuardedBy("mQuotaLock")
     final SparseBooleanArray mWlanBlacklist = new SparseBooleanArray();
@@ -341,6 +347,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
             new RemoteCallbackList<>();
     private boolean mNetworkActive;
     private SparseBooleanArray mPendingRestrictOnData = new SparseBooleanArray();
+    private SparseBooleanArray mPendingRestrictOnVpn = new SparseBooleanArray();
 
     /**
      * Constructs a new NetworkManagementService instance
@@ -430,9 +437,19 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                 processPendingDataRestrictRequests();
            }
         };
+        // Note: processPendingVpnRestrictRequests() will unregister
+        // mPendingVpnRestrictReceiver once it has been able to determine
+        // the vpn network interface name.
+        mPendingVpnRestrictReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                processPendingVpnRestrictRequests();
+           }
+        };
         final IntentFilter filter = new IntentFilter();
         filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         mContext.registerReceiver(mPendingDataRestrictReceiver, filter);
+        mContext.registerReceiver(mPendingVpnRestrictReceiver, filter);
     }
 
     private IBatteryStats getBatteryStats() {
@@ -1847,6 +1864,37 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     }
 
     @Override
+    public void restrictAppOnVpn(int uid, boolean restrict) {
+        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
+        // silently discard when control disabled
+        if (!mBandwidthControlEnabled) return;
+
+        initVpnInterface();
+        if (TextUtils.isEmpty(mVpnInterfaceName)) {
+            // We don't have an interface name since vpn is not active
+            // yet, so queue up the request for when it comes up alive
+            mPendingRestrictOnVpn.put(uid, restrict);
+            return;
+        }
+
+        synchronized (mQuotaLock) {
+            boolean oldValue = mVpnBlacklist.get(uid, false);
+            if (oldValue == restrict) {
+                return;
+            }
+            mVpnBlacklist.put(uid, restrict);
+        }
+
+        try {
+            final String action = restrict ? "add" : "remove";
+            mConnector.execute("bandwidth", action + "restrictappsonvpn",
+                    mVpnInterfaceName, uid);
+        } catch (NativeDaemonConnectorException e) {
+            throw e.rethrowAsParcelableException();
+        }
+    }
+
+    @Override
     public void restrictAppOnWlan(int uid, boolean restrict) {
         mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
         // silently discard when control disabled
@@ -1884,6 +1932,23 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                     mPendingRestrictOnData.valueAt(i));
         }
         mPendingRestrictOnData.clear();
+    }
+
+    private void processPendingVpnRestrictRequests() {
+        initVpnInterface();
+        if (TextUtils.isEmpty(mVpnInterfaceName)) {
+            return;
+        }
+        if (mPendingVpnRestrictReceiver != null) {
+            mContext.unregisterReceiver(mPendingVpnRestrictReceiver);
+            mPendingVpnRestrictReceiver = null;
+        }
+        int count = mPendingRestrictOnVpn.size();
+        for (int i = 0; i < count; i++) {
+            restrictAppOnVpn(mPendingRestrictOnVpn.keyAt(i),
+                    mPendingRestrictOnVpn.valueAt(i));
+        }
+        mPendingRestrictOnVpn.clear();
     }
 
     @Override
@@ -2846,6 +2911,18 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         LinkProperties linkProperties = cm.getLinkProperties(ConnectivityManager.TYPE_MOBILE);
         if (linkProperties != null) {
             mDataInterfaceName = linkProperties.getInterfaceName();
+        }
+    }
+
+    private void initVpnInterface() {
+        if (!TextUtils.isEmpty(mVpnInterfaceName)) {
+            return;
+        }
+        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(
+                Context.CONNECTIVITY_SERVICE);
+        LinkProperties linkProperties = cm.getLinkProperties(NetworkCapabilities.TRANSPORT_VPN);
+        if (linkProperties != null) {
+            mVpnInterfaceName = linkProperties.getInterfaceName();
         }
     }
 
