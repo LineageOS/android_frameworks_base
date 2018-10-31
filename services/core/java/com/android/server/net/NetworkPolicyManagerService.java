@@ -50,6 +50,7 @@ import static android.net.NetworkPolicyManager.POLICY_NONE;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_DATA;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_WIFI;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_VPN;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_ALL;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_METERED;
 import static android.net.NetworkPolicyManager.MASK_METERED_NETWORKS;
@@ -3006,6 +3007,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         try {
             mNetworkManager.restrictAppOnWifi(uid, (uidPolicy & POLICY_REJECT_ON_WIFI) != 0);
             mNetworkManager.restrictAppOnData(uid, (uidPolicy & POLICY_REJECT_ON_DATA) != 0);
+            mNetworkManager.restrictAppOnVpn(uid, (uidPolicy & POLICY_REJECT_ON_VPN) != 0);
         } catch (RemoteException e) {
             // ignored; service lives in system_server
         }

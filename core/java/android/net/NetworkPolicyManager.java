@@ -52,6 +52,8 @@ public class NetworkPolicyManager {
     public static final int POLICY_REJECT_ON_WIFI = 0x8000;
     /** Reject application network traffic on cellular network **/
     public static final int POLICY_REJECT_ON_DATA = 0x10000;
+    /** Reject application network traffic on virtual private network */
+    public static final int POLICY_REJECT_ON_VPN = 0x02000;
 
     /*
      * Rules defining whether an uid has access to a network given its type (metered / non-metered).

@@ -470,4 +470,5 @@ interface INetworkManagementService
      */
     void restrictAppOnData(int uid, boolean restrict);
     void restrictAppOnWifi(int uid, boolean restrict);
+    void restrictAppOnVpn(int uid, boolean restrict);
 }
