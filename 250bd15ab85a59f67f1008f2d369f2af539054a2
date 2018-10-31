@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "94eb63fc_d8267133",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1869,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-10-31T07:09:50Z",
+      "side": 1,
+      "message": "https://developer.android.com/reference/android/net/NetworkCapabilities#TRANSPORT_VPN\nThis is the way to get interface name",
+      "parentUuid": "f9ab61d4_6f65911a",
+      "revId": "250bd15ab85a59f67f1008f2d369f2af539054a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2173800f_e62b90a7",
         "filename": "services/core/java/com/android/server/NetworkManagementService.java",
         "patchSetId": 1
