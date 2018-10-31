@@ -276,6 +276,8 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     final SparseBooleanArray mWifiBlacklist = new SparseBooleanArray();
     @GuardedBy("mQuotaLock")
     final SparseBooleanArray mDataBlacklist = new SparseBooleanArray();
+    @GuardedBy("mQuotaLock")
+    final SparseBooleanArray mVpnBlacklist = new SparseBooleanArray();
 
     @GuardedBy("mQuotaLock")
     private boolean mDataSaverMode;
@@ -2001,6 +2003,29 @@ public class NetworkManagementService extends INetworkManagementService.Stub
             final String action = restrict ? "add" : "remove";
             mConnector.execute("bandwidth", action + "restrictappsondata",
                     mDataInterfaceName, uid);
+        } catch (NativeDaemonConnectorException e) {
+            throw e.rethrowAsParcelableException();
+        }
+    }
+
+    @Override
+    public void restrictAppOnVpn(int uid, boolean restrict) {
+        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
+        // silently discard when control disabled
+        if (!mBandwidthControlEnabled) return;
+
+        synchronized (mQuotaLock) {
+            boolean oldValue = mVpnBlacklist.get(uid, false);
+            if (oldValue == restrict) {
+                return;
+            }
+            mVpnBlacklist.put(uid, restrict);
+        }
+
+        try {
+            final String action = restrict ? "add" : "remove";
+            mConnector.execute("bandwidth", action + "restrictappsonvpn",
+                    "tun0", uid);
         } catch (NativeDaemonConnectorException e) {
             throw e.rethrowAsParcelableException();
         }
