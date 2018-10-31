@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9ab61d4_6f65911a",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1869,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-10-31T02:44:12Z",
+      "side": 1,
+      "message": "there probably is a better way of capturing the vpn interface being used",
+      "range": {
+        "startLine": 1869,
+        "startChar": 20,
+        "endLine": 1869,
+        "endChar": 26
+      },
+      "revId": "250bd15ab85a59f67f1008f2d369f2af539054a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2173800f_e62b90a7",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1870,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-10-31T02:44:12Z",
+      "side": 1,
+      "message": "put in a separate try/catch block since if the first execute throws an error we may not reach this one?",
+      "range": {
+        "startLine": 1870,
+        "startChar": 11,
+        "endLine": 1870,
+        "endChar": 30
+      },
+      "revId": "250bd15ab85a59f67f1008f2d369f2af539054a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
