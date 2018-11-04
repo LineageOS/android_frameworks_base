@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64dc3a74_2b8da5bb",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/net/DataUsageController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-11-04T11:08:00Z",
+      "side": 1,
+      "message": "I don\u0027t like the hardcoding of these strings here. Even if it\u0027s the same among the languages you checked, I am sure chinese or cyrillic users won\u0027t be happy with these",
+      "range": {
+        "startLine": 223,
+        "startChar": 36,
+        "endLine": 223,
+        "endChar": 42
+      },
+      "revId": "cdf552ae0fd28273fe2108185147658b4470de0a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
