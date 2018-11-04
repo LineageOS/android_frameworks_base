@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "2ce10e65_89f9a489",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/net/DataUsageController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-11-04T11:21:29Z",
+      "side": 1,
+      "message": "these belong above and below line 40",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 56
+      },
+      "revId": "cdf552ae0fd28273fe2108185147658b4470de0a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12e48090_8d85302e",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/net/DataUsageController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-11-04T11:21:29Z",
+      "side": 1,
+      "message": "+is",
+      "revId": "cdf552ae0fd28273fe2108185147658b4470de0a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52e82cd2_44a6f724",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/net/DataUsageController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-11-04T11:21:29Z",
+      "side": 1,
+      "message": "device +is+ WiFi-capable",
+      "range": {
+        "startLine": 222,
+        "startChar": 32,
+        "endLine": 222,
+        "endChar": 51
+      },
+      "revId": "cdf552ae0fd28273fe2108185147658b4470de0a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64dc3a74_2b8da5bb",
         "filename": "packages/SettingsLib/src/com/android/settingslib/net/DataUsageController.java",
         "patchSetId": 3
