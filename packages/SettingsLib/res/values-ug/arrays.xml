@@ -19,94 +19,94 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Wi-Fi settings -->
-  <!-- Match this with the order of NetworkInfo.DetailedState. -->
-  <!-- Wi-Fi settings. The status messages when the network is unknown. -->
-  <string-array name="wifi_status">
-    <!-- Status message of Wi-Fi when it is idle. -->
-    <item></item>
-    <!-- Status message of Wi-Fi when it is scanning. -->
-    <item>تەكشۈرۈۋاتىدۇ\u2026</item>
-    <!-- Status message of Wi-Fi when it is connecting. -->
-    <item>باغلىنىۋاتىدۇ\u2026</item>
-    <!-- Status message of Wi-Fi when it is authenticating. -->
-    <item>دەلىللەۋاتىدۇ\u2026</item>
-    <!-- Status message of Wi-Fi when it is obtaining IP address. -->
-    <item>IP ئادرېسقا ئېرىشىۋاتىدۇ\u2026</item>
-    <!-- Status message of Wi-Fi when it is connected. -->
-    <item>باغلاندى</item>
-    <!-- Status message of Wi-Fi when it is suspended. -->
-    <item>ۋاقىتلىق توختىتىلدى</item>
-    <!-- Status message of Wi-Fi when it is disconnecting. -->
-    <item>ئۈزۈۋاتىدۇ\u2026</item>
-    <!-- Status message of Wi-Fi when it is disconnected. -->
-    <item>Disconnected</item>
-    <!-- Status message of Wi-Fi when it is a failure. -->
-    <item>Unsuccessful</item>
-    <!-- Status message of Wi-Fi when it is blocked. -->
-    <item>Blocked</item>
-    <!-- Status message of Wi-Fi when connectiong is being verified. -->
-    <item>Temporarily avoiding poor connection</item>
-  </string-array>
-  <!-- Match this with the order of NetworkInfo.DetailedState. -->
-  <!-- Wi-Fi settings. The status messages when the network is known. -->
-  <!-- Titles for HDCP checking preference. [CHAR LIMIT=35] -->
-  <!-- Values for HDCP checking preference. -->
-  <!-- Summaries for HDCP checking preference. [CHAR LIMIT=100]-->
-  <!-- Bluetooth settings -->
-  <!-- Titles for Bluetooth AVRCP Versions -->
-  <!-- Values for Bluetooth AVRCP Versions -->
-  <!-- Titles for Bluetooth Audio Codec selection preference. [CHAR LIMIT=50] -->
-  <!-- Values for Bluetooth Audio Codec selection preference. -->
-  <!-- Summaries for Bluetooth Audio Codec selection preference. [CHAR LIMIT=50]-->
-  <!-- Titles for Bluetooth Audio Codec Sample Rate selection preference. [CHAR LIMIT=50] -->
-  <!-- Values for Bluetooth Audio Codec Sample Rate selection preference. -->
-  <!-- Summaries for Bluetooth Audio Codec Sample Rate selection preference. [CHAR LIMIT=50]-->
-  <!-- Titles for Bluetooth Audio Codec Bits Per Sample selection preference. [CHAR LIMIT=50] -->
-  <!-- Values for Bluetooth Audio Codec Bits Per Sample selection preference. -->
-  <!-- Summaries for Bluetooth Audio Codec Bits Per Sample selection preference. [CHAR LIMIT=50]-->
-  <!-- Titles for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50] -->
-  <!-- Values for Bluetooth Audio Codec Channel Mode selection preference. -->
-  <!-- Summaries for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50]-->
-  <!-- Titles for Bluetooth Audio Codec LDAC Playback Quality selection preference. [CHAR LIMIT=70] -->
-  <!-- Values for Bluetooth Audio Codec LDAC Playback Quaility selection preference. -->
-  <!-- Summaries for Bluetooth Audio Codec LDAC Playback Quality selection preference. [CHAR LIMIT=70]-->
-  <!-- Titles for logd limit size selection preference. [CHAR LIMIT=14] -->
-  <!-- Titles for logd limit size lowram selection preference. [CHAR LIMIT=14] -->
-  <!-- Values for logd limit size selection preference. -->
-  <!-- Summaries for logd limit size selection preference. [CHAR LIMIT=50]-->
-  <!-- Values for logpersist state selection preference. -->
-  <!-- Titles for logpersist state selection preference. [CHAR LIMIT=26] -->
-  <!-- Summaries for logpersist state selection preference. [CHAR LIMIT=50]-->
-  <!-- Titles for window animation scale preference. [CHAR LIMIT=35] -->
-  <!-- Values for window animation scale preference. -->
-  <!-- Titles for transition animation scale preference. [CHAR LIMIT=35] -->
-  <!-- Values for transition animation scale preference. -->
-  <!-- Titles for animator duration scale preference. [CHAR LIMIT=35] -->
-  <!-- Values for animator duration scale preference. -->
-  <!-- Titles for overlay display devices preference. [CHAR LIMIT=35] -->
-  <!-- Values for overlay display devices preference. -->
-  <!-- Titles for OpenGL traces preference. [CHAR LIMIT=35] -->
-  <!-- Values for OpenGL traces preference. -->
-  <!-- Titles for non-rectangular clipping preference. [CHAR LIMIT=35] -->
-  <!-- Values for non-rectangular clipping preference. -->
-  <!-- Titles for frame time tracking preference. [CHAR LIMIT=50] -->
-  <!-- Values for frame time tracking preference. -->
-  <!-- Titles for debug overdraw preference. [CHAR LIMIT=50] -->
-  <!-- Values for debug overdraw preference. -->
-  <!-- Titles for debug renderer preference. [CHAR LIMIT=50] -->
-  <!-- Values for debug renderer preference. -->
-  <!-- Titles for app process limit preference. [CHAR LIMIT=35] -->
-  <!-- Values for app process limit preference. -->
-  <!-- USB configuration names for Developer Settings.
+    <!-- Wi-Fi settings -->
+    <!-- Match this with the order of NetworkInfo.DetailedState. -->
+    <!-- Wi-Fi settings. The status messages when the network is unknown. -->
+    <string-array name="wifi_status">
+        <!-- Status message of Wi-Fi when it is idle. -->
+        <item></item>
+        <!-- Status message of Wi-Fi when it is scanning. -->
+        <item>تەكشۈرۈۋاتىدۇ\u2026</item>
+        <!-- Status message of Wi-Fi when it is connecting. -->
+        <item>باغلىنىۋاتىدۇ\u2026</item>
+        <!-- Status message of Wi-Fi when it is authenticating. -->
+        <item>دەلىللەۋاتىدۇ\u2026</item>
+        <!-- Status message of Wi-Fi when it is obtaining IP address. -->
+        <item>IP ئادرېسقا ئېرىشىۋاتىدۇ\u2026</item>
+        <!-- Status message of Wi-Fi when it is connected. -->
+        <item>باغلاندى</item>
+        <!-- Status message of Wi-Fi when it is suspended. -->
+        <item>ۋاقىتلىق توختىتىلدى</item>
+        <!-- Status message of Wi-Fi when it is disconnecting. -->
+        <item>ئۈزۈۋاتىدۇ\u2026</item>
+        <!-- Status message of Wi-Fi when it is disconnected. -->
+        <item>Disconnected</item>
+        <!-- Status message of Wi-Fi when it is a failure. -->
+        <item>Unsuccessful</item>
+        <!-- Status message of Wi-Fi when it is blocked. -->
+        <item>Blocked</item>
+        <!-- Status message of Wi-Fi when connectiong is being verified. -->
+        <item>Temporarily avoiding poor connection</item>
+    </string-array>
+    <!-- Match this with the order of NetworkInfo.DetailedState. -->
+    <!-- Wi-Fi settings. The status messages when the network is known. -->
+    <!-- Titles for HDCP checking preference. [CHAR LIMIT=35] -->
+    <!-- Values for HDCP checking preference. -->
+    <!-- Summaries for HDCP checking preference. [CHAR LIMIT=100]-->
+    <!-- Bluetooth settings -->
+    <!-- Titles for Bluetooth AVRCP Versions -->
+    <!-- Values for Bluetooth AVRCP Versions -->
+    <!-- Titles for Bluetooth Audio Codec selection preference. [CHAR LIMIT=50] -->
+    <!-- Values for Bluetooth Audio Codec selection preference. -->
+    <!-- Summaries for Bluetooth Audio Codec selection preference. [CHAR LIMIT=50]-->
+    <!-- Titles for Bluetooth Audio Codec Sample Rate selection preference. [CHAR LIMIT=50] -->
+    <!-- Values for Bluetooth Audio Codec Sample Rate selection preference. -->
+    <!-- Summaries for Bluetooth Audio Codec Sample Rate selection preference. [CHAR LIMIT=50]-->
+    <!-- Titles for Bluetooth Audio Codec Bits Per Sample selection preference. [CHAR LIMIT=50] -->
+    <!-- Values for Bluetooth Audio Codec Bits Per Sample selection preference. -->
+    <!-- Summaries for Bluetooth Audio Codec Bits Per Sample selection preference. [CHAR LIMIT=50]-->
+    <!-- Titles for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50] -->
+    <!-- Values for Bluetooth Audio Codec Channel Mode selection preference. -->
+    <!-- Summaries for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50]-->
+    <!-- Titles for Bluetooth Audio Codec LDAC Playback Quality selection preference. [CHAR LIMIT=70] -->
+    <!-- Values for Bluetooth Audio Codec LDAC Playback Quaility selection preference. -->
+    <!-- Summaries for Bluetooth Audio Codec LDAC Playback Quality selection preference. [CHAR LIMIT=70]-->
+    <!-- Titles for logd limit size selection preference. [CHAR LIMIT=14] -->
+    <!-- Titles for logd limit size lowram selection preference. [CHAR LIMIT=14] -->
+    <!-- Values for logd limit size selection preference. -->
+    <!-- Summaries for logd limit size selection preference. [CHAR LIMIT=50]-->
+    <!-- Values for logpersist state selection preference. -->
+    <!-- Titles for logpersist state selection preference. [CHAR LIMIT=26] -->
+    <!-- Summaries for logpersist state selection preference. [CHAR LIMIT=50]-->
+    <!-- Titles for window animation scale preference. [CHAR LIMIT=35] -->
+    <!-- Values for window animation scale preference. -->
+    <!-- Titles for transition animation scale preference. [CHAR LIMIT=35] -->
+    <!-- Values for transition animation scale preference. -->
+    <!-- Titles for animator duration scale preference. [CHAR LIMIT=35] -->
+    <!-- Values for animator duration scale preference. -->
+    <!-- Titles for overlay display devices preference. [CHAR LIMIT=35] -->
+    <!-- Values for overlay display devices preference. -->
+    <!-- Titles for OpenGL traces preference. [CHAR LIMIT=35] -->
+    <!-- Values for OpenGL traces preference. -->
+    <!-- Titles for non-rectangular clipping preference. [CHAR LIMIT=35] -->
+    <!-- Values for non-rectangular clipping preference. -->
+    <!-- Titles for frame time tracking preference. [CHAR LIMIT=50] -->
+    <!-- Values for frame time tracking preference. -->
+    <!-- Titles for debug overdraw preference. [CHAR LIMIT=50] -->
+    <!-- Values for debug overdraw preference. -->
+    <!-- Titles for debug renderer preference. [CHAR LIMIT=50] -->
+    <!-- Values for debug renderer preference. -->
+    <!-- Titles for app process limit preference. [CHAR LIMIT=35] -->
+    <!-- Values for app process limit preference. -->
+    <!-- USB configuration names for Developer Settings.
          This can be overridden by devices with additional USB configurations. -->
-  <!-- USB configuration values for Developer Settings.
+    <!-- USB configuration values for Developer Settings.
          These are lists of USB functions passed to the USB Manager to change USB configuraton.
          This can be overridden by devices with additional USB configurations.
          Do not translate. -->
-  <!-- Display color space adjustment modes for developers -->
-  <!-- Values for display color space adjustment modes for developers -->
-  <!-- IDs for each color mode. The values must match the corresponding constants in
+    <!-- Display color space adjustment modes for developers -->
+    <!-- Values for display color space adjustment modes for developers -->
+    <!-- IDs for each color mode. The values must match the corresponding constants in
          android.view.Display -->
-  <!-- BatteryMeterView parameters -->
+    <!-- BatteryMeterView parameters -->
 </resources>

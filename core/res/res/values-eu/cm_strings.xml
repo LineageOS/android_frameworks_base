@@ -18,97 +18,97 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">Sare gaineko ADB gaitua</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">USB eta sare gaineko ADB gaitua</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Sakatu arazketa ezgaitzeko.</string>
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="lineage_system_error_manufacturer">Ekoizlearen irudia bat ez datorrela antzeman da. Normalean irudia zaharkituta dagoela esan nahi du. Ziurtatu ekoizlearen irudia <xliff:g id="fingerprint">%1$s</xliff:g> honekin bat datorrela.</string>
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Pantaila hau desiltzatzeko sakatu eta mantendu atzera botoia.</string>
-  <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">gaitu edo ezgaitu Privacy Guard</string>
-  <string name="permdesc_changePrivacyGuardState">Beste aplikazio bat Privacy Guard menpean dagoen aldatzea ahalbidetzen dio aplikazioari. Aplikazio bat Privacy Guard menpean dagoenean ezin izango du datu pertsonalik ikusi, ez kontakturik, ez dei erregistrorik, ezta mezurik ere.</string>
-  <string name="privacy_guard_notification">Privacy Guard aktibo</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> aplikazioak ezingo du datu pertsonalik irakurri</string>
-  <string name="privacy_guard_dialog_title">Privacy Guard</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> aplikazioak <xliff:g id="op">%2$s</xliff:g> ahal izatea nahi du.</string>
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">Gogoratu nire aukera</string>
-  <!-- App ops requests -->
-  <string name="app_ops_access_camera">kamera atzitu</string>
-  <string name="app_ops_access_location">zure kokalekua atzitu</string>
-  <string name="app_ops_access_notifications">zure jakinarazpenak irakurri</string>
-  <string name="app_ops_activate_vpn">VPN bat aktibatu</string>
-  <string name="app_ops_add_voicemail">gehitu ahots postontzia</string>
-  <string name="app_ops_app_start_foreground">abiatu berehalako aplikazioa lehen planoan</string>
-  <string name="app_ops_assist_screenshot">atera pantaila-argazki bat</string>
-  <string name="app_ops_assist_structure">estruktura lagungarria erabili</string>
-  <string name="app_ops_audio_accessibility_volume">audio irisgarritasun bolumena</string>
-  <string name="app_ops_auto_start">abioan exekutatu</string>
-  <string name="app_ops_change_wallpaper">aldatu horma-irudia</string>
-  <string name="app_ops_delete_call_log">zure dei egunkaria ezabatu</string>
-  <string name="app_ops_delete_contacts">zure kontaktuak ezabatu</string>
-  <string name="app_ops_delete_mms">zure MMS mezuak ezabatu</string>
-  <string name="app_ops_delete_sms">zure SMS mezuak ezabatu</string>
-  <string name="app_ops_draw_on_top">leihoak besteen gainetik marraztu</string>
-  <string name="app_ops_get_accounts">eskuratu gailuaren kontuak</string>
-  <string name="app_ops_get_usage_stats">aplikazioen erabilera estatistikak jaso</string>
-  <string name="app_ops_install_packages">instalatu paketeak</string>
-  <string name="app_ops_keep_device_awake">gailua esnatuta mantendu</string>
-  <string name="app_ops_make_phone_call">telefono dei bat egin</string>
-  <string name="app_ops_mock_location">kokapena faltsutu</string>
-  <string name="app_ops_modify_calendar">egutegia eguneratu</string>
-  <string name="app_ops_modify_call_log">dei erregistroa eguneratu</string>
-  <string name="app_ops_modify_clipboard">arbela aldatu</string>
-  <string name="app_ops_modify_contacts">zure kontaktuak eguneratu</string>
-  <string name="app_ops_modify_settings">eguneratu sistemaren ezarpenak</string>
-  <string name="app_ops_mute_unmute_microphone">mikrofonoa mututu/desmututu</string>
-  <string name="app_ops_phone_calls">erantzun telefono deiak</string>
-  <string name="app_ops_picture_in_picture">erabili irudia irudian</string>
-  <string name="app_ops_play_audio">soinua erreproduzitu</string>
-  <string name="app_ops_post_notification">jakinarazpen bat argitaratu</string>
-  <string name="app_ops_project_media">multimedia proiektatu</string>
-  <string name="app_ops_read_calendar">zure egutegia irakurri</string>
-  <string name="app_ops_read_call_log">dei erregistroa irakurri</string>
-  <string name="app_ops_read_cell_broadcasts">irakurri difusio zelularrak</string>
-  <string name="app_ops_read_clipboard">arbela irakurri</string>
-  <string name="app_ops_read_contacts">zure kontaktuak irakurri</string>
-  <string name="app_ops_read_external_storage">kanpo biltegiratzea irakurri</string>
-  <string name="app_ops_read_mms">zure MMS mezuak irakurri</string>
-  <string name="app_ops_read_phone_numbers">irakurri telefono zenbakiak</string>
-  <string name="app_ops_read_phone_state">telefonoaren egoera atzitu</string>
-  <string name="app_ops_read_sms">zure SMS mezuak irakurri</string>
-  <string name="app_ops_receive_sms">SMS mezu bat jaso</string>
-  <string name="app_ops_record_audio">soinua grabatu</string>
-  <string name="app_ops_run_in_background">exekutatu bigarren planoan</string>
-  <string name="app_ops_scan_wifi">eskaneatu Wi-Fi sareak</string>
-  <string name="app_ops_send_mms">MMS mezu bat bidali</string>
-  <string name="app_ops_send_sms">SMS mezu bat bidali</string>
-  <string name="app_ops_start_at_bootup">exekutatu abioan</string>
-  <string name="app_ops_su">root sarbidea eskuratu</string>
-  <string name="app_ops_toast_window">laster-leihoa mezuak bistaratu</string>
-  <string name="app_ops_toggle_bluetooth">Bluetooth txandakatu</string>
-  <string name="app_ops_toggle_mobile_data">txandakatu datu mugikorrak</string>
-  <string name="app_ops_toggle_nfc">NFC txandakatu</string>
-  <string name="app_ops_toggle_wifi">Wi-Fia txandakatu</string>
-  <string name="app_ops_turn_on_screen">pantaila piztu</string>
-  <string name="app_ops_use_alarm_volume">alarmen bolumena kontrolatu</string>
-  <string name="app_ops_use_audio_focus">audio fokua kontrolatu</string>
-  <string name="app_ops_use_bluetooth_volume">Bluetooth bolumena kontrolatu</string>
-  <string name="app_ops_use_body_sensors">erabili gorputz sentsoreak</string>
-  <string name="app_ops_use_fingerprint">hatz-marka erabili</string>
-  <string name="app_ops_use_master_volume">bolumen orokorra kontrolatu</string>
-  <string name="app_ops_use_media_buttons">multimedia botoiak erabili</string>
-  <string name="app_ops_use_media_volume">multimedia bolumena kontrolatu</string>
-  <string name="app_ops_use_notification_volume">jakinarazpen bolumena kontrolatu</string>
-  <string name="app_ops_use_ring_volume">dei doinuaren bolumena kontrolatu</string>
-  <string name="app_ops_use_vibrate">erantzun haptikoa erabili</string>
-  <string name="app_ops_use_voice_volume">ahots deiaren bolumena kontrolatu</string>
-  <string name="app_ops_wifi_change">Wi-Fiaren egoera aldatu</string>
-  <string name="app_ops_write_external_storage">kanpo biltegiratzean idatzi</string>
-  <string name="app_ops_write_mms">MMS mezu bat idatzi</string>
-  <string name="app_ops_write_sms">SMS mezu bat idatzi</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">Sare gaineko ADB gaitua</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">USB eta sare gaineko ADB gaitua</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Sakatu arazketa ezgaitzeko.</string>
+    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+    <string name="lineage_system_error_manufacturer">Ekoizlearen irudia bat ez datorrela antzeman da. Normalean irudia zaharkituta dagoela esan nahi du. Ziurtatu ekoizlearen irudia <xliff:g id="fingerprint">%1$s</xliff:g> honekin bat datorrela.</string>
+    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+    <string name="lock_to_app_toast_no_navbar">Pantaila hau desiltzatzeko sakatu eta mantendu atzera botoia.</string>
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">gaitu edo ezgaitu Privacy Guard</string>
+    <string name="permdesc_changePrivacyGuardState">Beste aplikazio bat Privacy Guard menpean dagoen aldatzea ahalbidetzen dio aplikazioari. Aplikazio bat Privacy Guard menpean dagoenean ezin izango du datu pertsonalik ikusi, ez kontakturik, ez dei erregistrorik, ezta mezurik ere.</string>
+    <string name="privacy_guard_notification">Privacy Guard aktibo</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> aplikazioak ezingo du datu pertsonalik irakurri</string>
+    <string name="privacy_guard_dialog_title">Privacy Guard</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> aplikazioak <xliff:g id="op">%2$s</xliff:g> ahal izatea nahi du.</string>
+    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+    <string name="permission_remember_choice">Gogoratu nire aukera</string>
+    <!-- App ops requests -->
+    <string name="app_ops_access_camera">kamera atzitu</string>
+    <string name="app_ops_access_location">zure kokalekua atzitu</string>
+    <string name="app_ops_access_notifications">zure jakinarazpenak irakurri</string>
+    <string name="app_ops_activate_vpn">VPN bat aktibatu</string>
+    <string name="app_ops_add_voicemail">gehitu ahots postontzia</string>
+    <string name="app_ops_app_start_foreground">abiatu berehalako aplikazioa lehen planoan</string>
+    <string name="app_ops_assist_screenshot">atera pantaila-argazki bat</string>
+    <string name="app_ops_assist_structure">estruktura lagungarria erabili</string>
+    <string name="app_ops_audio_accessibility_volume">audio irisgarritasun bolumena</string>
+    <string name="app_ops_auto_start">abioan exekutatu</string>
+    <string name="app_ops_change_wallpaper">aldatu horma-irudia</string>
+    <string name="app_ops_delete_call_log">zure dei egunkaria ezabatu</string>
+    <string name="app_ops_delete_contacts">zure kontaktuak ezabatu</string>
+    <string name="app_ops_delete_mms">zure MMS mezuak ezabatu</string>
+    <string name="app_ops_delete_sms">zure SMS mezuak ezabatu</string>
+    <string name="app_ops_draw_on_top">leihoak besteen gainetik marraztu</string>
+    <string name="app_ops_get_accounts">eskuratu gailuaren kontuak</string>
+    <string name="app_ops_get_usage_stats">aplikazioen erabilera estatistikak jaso</string>
+    <string name="app_ops_install_packages">instalatu paketeak</string>
+    <string name="app_ops_keep_device_awake">gailua esnatuta mantendu</string>
+    <string name="app_ops_make_phone_call">telefono dei bat egin</string>
+    <string name="app_ops_mock_location">kokapena faltsutu</string>
+    <string name="app_ops_modify_calendar">egutegia eguneratu</string>
+    <string name="app_ops_modify_call_log">dei erregistroa eguneratu</string>
+    <string name="app_ops_modify_clipboard">arbela aldatu</string>
+    <string name="app_ops_modify_contacts">zure kontaktuak eguneratu</string>
+    <string name="app_ops_modify_settings">eguneratu sistemaren ezarpenak</string>
+    <string name="app_ops_mute_unmute_microphone">mikrofonoa mututu/desmututu</string>
+    <string name="app_ops_phone_calls">erantzun telefono deiak</string>
+    <string name="app_ops_picture_in_picture">erabili irudia irudian</string>
+    <string name="app_ops_play_audio">soinua erreproduzitu</string>
+    <string name="app_ops_post_notification">jakinarazpen bat argitaratu</string>
+    <string name="app_ops_project_media">multimedia proiektatu</string>
+    <string name="app_ops_read_calendar">zure egutegia irakurri</string>
+    <string name="app_ops_read_call_log">dei erregistroa irakurri</string>
+    <string name="app_ops_read_cell_broadcasts">irakurri difusio zelularrak</string>
+    <string name="app_ops_read_clipboard">arbela irakurri</string>
+    <string name="app_ops_read_contacts">zure kontaktuak irakurri</string>
+    <string name="app_ops_read_external_storage">kanpo biltegiratzea irakurri</string>
+    <string name="app_ops_read_mms">zure MMS mezuak irakurri</string>
+    <string name="app_ops_read_phone_numbers">irakurri telefono zenbakiak</string>
+    <string name="app_ops_read_phone_state">telefonoaren egoera atzitu</string>
+    <string name="app_ops_read_sms">zure SMS mezuak irakurri</string>
+    <string name="app_ops_receive_sms">SMS mezu bat jaso</string>
+    <string name="app_ops_record_audio">soinua grabatu</string>
+    <string name="app_ops_run_in_background">exekutatu bigarren planoan</string>
+    <string name="app_ops_scan_wifi">eskaneatu Wi-Fi sareak</string>
+    <string name="app_ops_send_mms">MMS mezu bat bidali</string>
+    <string name="app_ops_send_sms">SMS mezu bat bidali</string>
+    <string name="app_ops_start_at_bootup">exekutatu abioan</string>
+    <string name="app_ops_su">root sarbidea eskuratu</string>
+    <string name="app_ops_toast_window">laster-leihoa mezuak bistaratu</string>
+    <string name="app_ops_toggle_bluetooth">Bluetooth txandakatu</string>
+    <string name="app_ops_toggle_mobile_data">txandakatu datu mugikorrak</string>
+    <string name="app_ops_toggle_nfc">NFC txandakatu</string>
+    <string name="app_ops_toggle_wifi">Wi-Fia txandakatu</string>
+    <string name="app_ops_turn_on_screen">pantaila piztu</string>
+    <string name="app_ops_use_alarm_volume">alarmen bolumena kontrolatu</string>
+    <string name="app_ops_use_audio_focus">audio fokua kontrolatu</string>
+    <string name="app_ops_use_bluetooth_volume">Bluetooth bolumena kontrolatu</string>
+    <string name="app_ops_use_body_sensors">erabili gorputz sentsoreak</string>
+    <string name="app_ops_use_fingerprint">hatz-marka erabili</string>
+    <string name="app_ops_use_master_volume">bolumen orokorra kontrolatu</string>
+    <string name="app_ops_use_media_buttons">multimedia botoiak erabili</string>
+    <string name="app_ops_use_media_volume">multimedia bolumena kontrolatu</string>
+    <string name="app_ops_use_notification_volume">jakinarazpen bolumena kontrolatu</string>
+    <string name="app_ops_use_ring_volume">dei doinuaren bolumena kontrolatu</string>
+    <string name="app_ops_use_vibrate">erantzun haptikoa erabili</string>
+    <string name="app_ops_use_voice_volume">ahots deiaren bolumena kontrolatu</string>
+    <string name="app_ops_wifi_change">Wi-Fiaren egoera aldatu</string>
+    <string name="app_ops_write_external_storage">kanpo biltegiratzean idatzi</string>
+    <string name="app_ops_write_mms">MMS mezu bat idatzi</string>
+    <string name="app_ops_write_sms">SMS mezu bat idatzi</string>
 </resources>

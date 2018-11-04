@@ -18,97 +18,97 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">Отладка по сети разрешена</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">Отладка по сети и USB разрешена</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Нажмите, чтобы отключить отладку.</string>
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="lineage_system_error_manufacturer">Несовместимый образ ПО производителя устройства. Как правило, это означает, что необходимо установить обновленную прошивку раздела vendor. Убедитесь, что ее версия будет соответствовать <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Чтобы открепить экран, нажмите и удерживайте кнопку «Назад».</string>
-  <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">включение или отключение Защиты конфиденциальности</string>
-  <string name="permdesc_changePrivacyGuardState">Разрешает приложению изменять состояние Защиты конфиденциальности для других приложений. Если приложение запущено в режиме Защиты конфиденциальности, оно не будет иметь доступ к персональным данным, таким как контакты, журнал звонков или сообщения.</string>
-  <string name="privacy_guard_notification">Защита конфиденциальности активна</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> не имеет доступа к персональным данным</string>
-  <string name="privacy_guard_dialog_title">Защита конфиденциальности</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> пытается <xliff:g id="op">%2$s</xliff:g>.</string>
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">Запомнить мой выбор</string>
-  <!-- App ops requests -->
-  <string name="app_ops_access_camera">получить доступ к камере</string>
-  <string name="app_ops_access_location">получить доступ к местоположению устройства</string>
-  <string name="app_ops_access_notifications">получить доступ к уведомлениям</string>
-  <string name="app_ops_activate_vpn">активировать VPN</string>
-  <string name="app_ops_add_voicemail">добавить сообщение голосовой почты</string>
-  <string name="app_ops_app_start_foreground">запуск приложений с мгновенным запуском</string>
-  <string name="app_ops_assist_screenshot">сделать скриншот</string>
-  <string name="app_ops_assist_structure">использовать структуру ассистента</string>
-  <string name="app_ops_audio_accessibility_volume">доступ к громкости звука</string>
-  <string name="app_ops_auto_start">назначить запуск при включении устройства</string>
-  <string name="app_ops_change_wallpaper">изменить обои</string>
-  <string name="app_ops_delete_call_log">удалить журнал звонков</string>
-  <string name="app_ops_delete_contacts">удалить контакты</string>
-  <string name="app_ops_delete_mms">удалить MMS-сообщения</string>
-  <string name="app_ops_delete_sms">удалить SMS-сообщения</string>
-  <string name="app_ops_draw_on_top">отображать элементы интерфейса поверх других окон</string>
-  <string name="app_ops_get_accounts">получить информацию об аккаунтах</string>
-  <string name="app_ops_get_usage_stats">получать статистику использования приложений</string>
-  <string name="app_ops_install_packages">установка пакетов</string>
-  <string name="app_ops_keep_device_awake">запретить устройству переход в спящий режим</string>
-  <string name="app_ops_make_phone_call">выполнить телефонный звонок</string>
-  <string name="app_ops_mock_location">предоставить фиктивные сведения о местоположении</string>
-  <string name="app_ops_modify_calendar">изменить данные календаря</string>
-  <string name="app_ops_modify_call_log">изменить данные журнала звонков</string>
-  <string name="app_ops_modify_clipboard">изменить содержимое буфера обмена</string>
-  <string name="app_ops_modify_contacts">обновить ваши контакты</string>
-  <string name="app_ops_modify_settings">обновить системные настройки</string>
-  <string name="app_ops_mute_unmute_microphone">выключить/включить микрофон</string>
-  <string name="app_ops_phone_calls">ответ на телефонные звонки</string>
-  <string name="app_ops_picture_in_picture">использовать картинку в картинке</string>
-  <string name="app_ops_play_audio">воспроизведение аудио</string>
-  <string name="app_ops_post_notification">вывести уведомление</string>
-  <string name="app_ops_project_media">выполнить трансляцию контента</string>
-  <string name="app_ops_read_calendar">считать данные календаря</string>
-  <string name="app_ops_read_call_log">считать данные списка вызовов</string>
-  <string name="app_ops_read_cell_broadcasts">прочитать сообщения оповещения населения</string>
-  <string name="app_ops_read_clipboard">считать содержимое буфера обмена</string>
-  <string name="app_ops_read_contacts">считать данные контактов</string>
-  <string name="app_ops_read_external_storage">прочитать данные с внешнего накопителя</string>
-  <string name="app_ops_read_mms">считать MMS-сообщения</string>
-  <string name="app_ops_read_phone_numbers">чтение телефонных номеров</string>
-  <string name="app_ops_read_phone_state">получить данные о состоянии телефона</string>
-  <string name="app_ops_read_sms">считать SMS-сообщения</string>
-  <string name="app_ops_receive_sms">получить SMS-сообщение</string>
-  <string name="app_ops_record_audio">записать аудио</string>
-  <string name="app_ops_run_in_background">работать в фоновом режиме</string>
-  <string name="app_ops_scan_wifi">сканировать сети Wi-Fi</string>
-  <string name="app_ops_send_mms">отправить MMS-сообщение</string>
-  <string name="app_ops_send_sms">отправить SMS-сообщение</string>
-  <string name="app_ops_start_at_bootup">запустить при включении устройства</string>
-  <string name="app_ops_su">получить права суперпользователя</string>
-  <string name="app_ops_toast_window">отображать всплывающие уведомления</string>
-  <string name="app_ops_toggle_bluetooth">переключить состояние Bluetooth</string>
-  <string name="app_ops_toggle_mobile_data">переключить состояние мобильного интернета</string>
-  <string name="app_ops_toggle_nfc">переключить состояние модуля NFC</string>
-  <string name="app_ops_toggle_wifi">переключить состояние Wi-Fi</string>
-  <string name="app_ops_turn_on_screen">включить экран</string>
-  <string name="app_ops_use_alarm_volume">получить управление громкостью будильника</string>
-  <string name="app_ops_use_audio_focus">получить управление аудиофокусом</string>
-  <string name="app_ops_use_bluetooth_volume">получить управление громкостью Bluetooth-устройств</string>
-  <string name="app_ops_use_body_sensors">использовать нательные датчики</string>
-  <string name="app_ops_use_fingerprint">использовать отпечаток пальца</string>
-  <string name="app_ops_use_master_volume">получить управление общей громкостью</string>
-  <string name="app_ops_use_media_buttons">использовать кнопки мультимедиа</string>
-  <string name="app_ops_use_media_volume">получить управление громкостью мультимедиа</string>
-  <string name="app_ops_use_notification_volume">получить управление громкостью уведомлений</string>
-  <string name="app_ops_use_ring_volume">получить управление громкостью звонка</string>
-  <string name="app_ops_use_vibrate">использовать виброотклик</string>
-  <string name="app_ops_use_voice_volume">получить управление громкостью при разговоре</string>
-  <string name="app_ops_wifi_change">изменить состояние Wi-Fi</string>
-  <string name="app_ops_write_external_storage">записать данные на внешнее запоминающее устройство</string>
-  <string name="app_ops_write_mms">создать MMS-сообщение</string>
-  <string name="app_ops_write_sms">создать SMS-сообщение</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">ADB по сети разрешен</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ADB через USB &amp; сеть включена</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Нажмите, чтобы отключить отладку.</string>
+    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+    <string name="lineage_system_error_manufacturer">Несовместимый образ ПО производителя устройства. Как правило, это означает, что необходимо установить обновленную прошивку раздела vendor. Убедитесь, что ее версия будет соответствовать <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+    <string name="lock_to_app_toast_no_navbar">Чтобы открепить экран, нажмите и удерживайте кнопку «Назад».</string>
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">включение или отключение Защиты конфиденциальности</string>
+    <string name="permdesc_changePrivacyGuardState">Разрешает приложению изменять состояние Защиты конфиденциальности для других приложений. Если приложение запущено в режиме Защиты конфиденциальности, оно не будет иметь доступ к персональным данным, таким как контакты, журнал звонков или сообщения.</string>
+    <string name="privacy_guard_notification">Защита конфиденциальности активна</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> не имеет доступа к персональным данным</string>
+    <string name="privacy_guard_dialog_title">Защита конфиденциальности</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> пытается <xliff:g id="op">%2$s</xliff:g>.</string>
+    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+    <string name="permission_remember_choice">Запомнить мой выбор</string>
+    <!-- App ops requests -->
+    <string name="app_ops_access_camera">получить доступ к камере</string>
+    <string name="app_ops_access_location">получить доступ к местоположению устройства</string>
+    <string name="app_ops_access_notifications">получить доступ к уведомлениям</string>
+    <string name="app_ops_activate_vpn">активировать VPN</string>
+    <string name="app_ops_add_voicemail">добавить сообщение голосовой почты</string>
+    <string name="app_ops_app_start_foreground">запуск приложений с мгновенным запуском</string>
+    <string name="app_ops_assist_screenshot">сделать скриншот</string>
+    <string name="app_ops_assist_structure">использовать структуру ассистента</string>
+    <string name="app_ops_audio_accessibility_volume">доступ к громкости звука</string>
+    <string name="app_ops_auto_start">назначить запуск при включении устройства</string>
+    <string name="app_ops_change_wallpaper">изменить обои</string>
+    <string name="app_ops_delete_call_log">удалить журнал звонков</string>
+    <string name="app_ops_delete_contacts">удалить контакты</string>
+    <string name="app_ops_delete_mms">удалить MMS-сообщения</string>
+    <string name="app_ops_delete_sms">удалить SMS-сообщения</string>
+    <string name="app_ops_draw_on_top">отображать элементы интерфейса поверх других окон</string>
+    <string name="app_ops_get_accounts">получить информацию об аккаунтах</string>
+    <string name="app_ops_get_usage_stats">получать статистику использования приложений</string>
+    <string name="app_ops_install_packages">установка пакетов</string>
+    <string name="app_ops_keep_device_awake">запретить устройству переход в спящий режим</string>
+    <string name="app_ops_make_phone_call">выполнить телефонный звонок</string>
+    <string name="app_ops_mock_location">предоставить фиктивные сведения о местоположении</string>
+    <string name="app_ops_modify_calendar">изменить данные календаря</string>
+    <string name="app_ops_modify_call_log">изменить данные журнала звонков</string>
+    <string name="app_ops_modify_clipboard">изменить содержимое буфера обмена</string>
+    <string name="app_ops_modify_contacts">обновить ваши контакты</string>
+    <string name="app_ops_modify_settings">обновить системные настройки</string>
+    <string name="app_ops_mute_unmute_microphone">выключить/включить микрофон</string>
+    <string name="app_ops_phone_calls">ответ на телефонные звонки</string>
+    <string name="app_ops_picture_in_picture">использовать картинку в картинке</string>
+    <string name="app_ops_play_audio">воспроизведение аудио</string>
+    <string name="app_ops_post_notification">вывести уведомление</string>
+    <string name="app_ops_project_media">выполнить трансляцию контента</string>
+    <string name="app_ops_read_calendar">считать данные календаря</string>
+    <string name="app_ops_read_call_log">считать данные списка вызовов</string>
+    <string name="app_ops_read_cell_broadcasts">прочитать сообщения оповещения населения</string>
+    <string name="app_ops_read_clipboard">считать содержимое буфера обмена</string>
+    <string name="app_ops_read_contacts">считать данные контактов</string>
+    <string name="app_ops_read_external_storage">прочитать данные с внешнего накопителя</string>
+    <string name="app_ops_read_mms">считать MMS-сообщения</string>
+    <string name="app_ops_read_phone_numbers">чтение телефонных номеров</string>
+    <string name="app_ops_read_phone_state">получить данные о состоянии телефона</string>
+    <string name="app_ops_read_sms">считать SMS-сообщения</string>
+    <string name="app_ops_receive_sms">получить SMS-сообщение</string>
+    <string name="app_ops_record_audio">записать аудио</string>
+    <string name="app_ops_run_in_background">работать в фоновом режиме</string>
+    <string name="app_ops_scan_wifi">сканировать сети Wi-Fi</string>
+    <string name="app_ops_send_mms">отправить MMS-сообщение</string>
+    <string name="app_ops_send_sms">отправить SMS-сообщение</string>
+    <string name="app_ops_start_at_bootup">запустить при включении устройства</string>
+    <string name="app_ops_su">получить права суперпользователя</string>
+    <string name="app_ops_toast_window">отображать всплывающие уведомления</string>
+    <string name="app_ops_toggle_bluetooth">переключить состояние Bluetooth</string>
+    <string name="app_ops_toggle_mobile_data">переключить состояние мобильного интернета</string>
+    <string name="app_ops_toggle_nfc">переключить состояние модуля NFC</string>
+    <string name="app_ops_toggle_wifi">переключить состояние Wi-Fi</string>
+    <string name="app_ops_turn_on_screen">включить экран</string>
+    <string name="app_ops_use_alarm_volume">получить управление громкостью будильника</string>
+    <string name="app_ops_use_audio_focus">получить управление аудиофокусом</string>
+    <string name="app_ops_use_bluetooth_volume">получить управление громкостью Bluetooth-устройств</string>
+    <string name="app_ops_use_body_sensors">использовать нательные датчики</string>
+    <string name="app_ops_use_fingerprint">использовать отпечаток пальца</string>
+    <string name="app_ops_use_master_volume">получить управление общей громкостью</string>
+    <string name="app_ops_use_media_buttons">использовать кнопки мультимедиа</string>
+    <string name="app_ops_use_media_volume">получить управление громкостью мультимедиа</string>
+    <string name="app_ops_use_notification_volume">получить управление громкостью уведомлений</string>
+    <string name="app_ops_use_ring_volume">получить управление громкостью звонка</string>
+    <string name="app_ops_use_vibrate">использовать виброотклик</string>
+    <string name="app_ops_use_voice_volume">получить управление громкостью при разговоре</string>
+    <string name="app_ops_wifi_change">изменить состояние Wi-Fi</string>
+    <string name="app_ops_write_external_storage">записать данные на внешнее запоминающее устройство</string>
+    <string name="app_ops_write_mms">создать MMS-сообщение</string>
+    <string name="app_ops_write_sms">создать SMS-сообщение</string>
 </resources>

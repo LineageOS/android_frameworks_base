@@ -18,85 +18,85 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB mbi rrjet u aktivizua</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB mbi rrjet USB &amp; u aktivizua</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Prek për të çaktivizuar debugimin.</string>
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="lineage_system_error_manufacturer">Është vënë re një mospërputhje imazhi të furnizuesit. Zakonisht kjo nënkupton që imazhi juaj i furnizuesit është i vjetër. Ju lutem verifikoni që imazhi juaj i furnizuesit të përputhet me <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Për ta shqitur këtë ekran, prek dhe mbaj shtypur butonin Prapa.</string>
-  <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">aktivizo/çaktivizo Mbrojtësin e të Dhënave</string>
-  <string name="privacy_guard_notification">Mrojtësi i të Dhënave është i aktivizuar</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nuk do të jetë në gjendje të aksesojë të dhëna personale</string>
-  <string name="privacy_guard_dialog_title">Mbrojtësi i të Dhënave</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> kërkon të <xliff:g id="op">%2$s</xliff:g>.</string>
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">Kujtoje zgjedhjen</string>
-  <!-- App ops requests -->
-  <string name="app_ops_access_camera">aksesojë kamerën</string>
-  <string name="app_ops_access_location">aksesojë vendndodhjen</string>
-  <string name="app_ops_access_notifications">lexojë njoftimet</string>
-  <string name="app_ops_activate_vpn">aktivizojë një VPN</string>
-  <string name="app_ops_add_voicemail">shtojë një mesazh zanor</string>
-  <string name="app_ops_assist_screenshot">kapë një foto të ekranit</string>
-  <string name="app_ops_auto_start">niset kur ndizet telefoni</string>
-  <string name="app_ops_change_wallpaper">ndërrojë sfondin</string>
-  <string name="app_ops_delete_call_log">fshijë listën e thirrjeve</string>
-  <string name="app_ops_delete_contacts">fshijë kontaktet</string>
-  <string name="app_ops_delete_mms">fshijë mesazhet MMS</string>
-  <string name="app_ops_delete_sms">fshijë mesazhet SMS</string>
-  <string name="app_ops_get_accounts">marrë llogaritë e pajisjes</string>
-  <string name="app_ops_get_usage_stats">marrë të dhënat statistikore të përdorimit të aplikacionit</string>
-  <string name="app_ops_keep_device_awake">mbajë pajisjen zgjuar</string>
-  <string name="app_ops_make_phone_call">kryejë një telefonatë</string>
-  <string name="app_ops_mock_location">simulojë vendndodhjen tënde</string>
-  <string name="app_ops_modify_calendar">përditësojë kalendarin</string>
-  <string name="app_ops_modify_call_log">përditësojë listën e thirrjeve</string>
-  <string name="app_ops_modify_contacts">përditësojë kontaktet</string>
-  <string name="app_ops_modify_settings">përditësojë parametrat e sistemit</string>
-  <string name="app_ops_mute_unmute_microphone">heqi/vëri zërin mikrofonit</string>
-  <string name="app_ops_play_audio">luajë audio</string>
-  <string name="app_ops_post_notification">postojë një njoftim</string>
-  <string name="app_ops_project_media">projektojë media</string>
-  <string name="app_ops_read_calendar">lexojë kalendarin</string>
-  <string name="app_ops_read_call_log">lexojë listën e thirrjeve</string>
-  <string name="app_ops_read_cell_broadcasts">lexojë transmetimet celulare</string>
-  <string name="app_ops_read_contacts">lexojë kontaktet e tua</string>
-  <string name="app_ops_read_external_storage">lexojë memorien e jashtme</string>
-  <string name="app_ops_read_mms">lexojë mesazhet e tua MMS</string>
-  <string name="app_ops_read_phone_state">aksesojë statusin e telefonit</string>
-  <string name="app_ops_read_sms">lexojë mesazhet e tua SMS</string>
-  <string name="app_ops_receive_sms">marrë një mesazh SMS</string>
-  <string name="app_ops_record_audio">regjistrojë audio</string>
-  <string name="app_ops_run_in_background">puno në sfond</string>
-  <string name="app_ops_scan_wifi">kërkojë për rrjete Wi-Fi</string>
-  <string name="app_ops_send_mms">dërgojë një mesazh MMS</string>
-  <string name="app_ops_send_sms">dërgojë një mesazh SMS</string>
-  <string name="app_ops_start_at_bootup">niset kur ndizet telefoni</string>
-  <string name="app_ops_su">marrë akses Root</string>
-  <string name="app_ops_toggle_bluetooth">aktivizojë/çaktivizojë Bluetoothin</string>
-  <string name="app_ops_toggle_mobile_data">aktivizojë/çaktivizojë internetin e celularit</string>
-  <string name="app_ops_toggle_nfc">aktivizojë/çaktivizojë NFC</string>
-  <string name="app_ops_toggle_wifi">aktivizojë/çaktivizojë Wi-Fi</string>
-  <string name="app_ops_turn_on_screen">ndezi ekranin</string>
-  <string name="app_ops_use_alarm_volume">kontrollojë volumin e alarmit</string>
-  <string name="app_ops_use_audio_focus">kontrollojë fokusin e audios</string>
-  <string name="app_ops_use_bluetooth_volume">kontrollojë volumin e Bluetooth</string>
-  <string name="app_ops_use_body_sensors">përdorë sensorët për trupin</string>
-  <string name="app_ops_use_fingerprint">përdorë shenjën e gishtit</string>
-  <string name="app_ops_use_master_volume">kontrollojë volumin kryesor</string>
-  <string name="app_ops_use_media_buttons">përdorë butonat e medias</string>
-  <string name="app_ops_use_media_volume">kontrollojë volumin e medias</string>
-  <string name="app_ops_use_notification_volume">kontrollojë volumin e njoftimeve</string>
-  <string name="app_ops_use_ring_volume">kontrollojë volumin e zileve</string>
-  <string name="app_ops_use_vibrate">përdorë reagimin haptik</string>
-  <string name="app_ops_use_voice_volume">kontrollojë volumin e thirrjeve</string>
-  <string name="app_ops_wifi_change">ndërrojë statusin e Wi-Fi</string>
-  <string name="app_ops_write_external_storage">shkruajë në memorien e jashtme</string>
-  <string name="app_ops_write_mms">shkruajë një mesazh MMS</string>
-  <string name="app_ops_write_sms">shkruajë një mesazh SMS</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">ADB mbi rrjet u aktivizua</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ADB mbi rrjet USB &amp; u aktivizua</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Prek për të çaktivizuar debugimin.</string>
+    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+    <string name="lineage_system_error_manufacturer">Është vënë re një mospërputhje imazhi të furnizuesit. Zakonisht kjo nënkupton që imazhi juaj i furnizuesit është i vjetër. Ju lutem verifikoni që imazhi juaj i furnizuesit të përputhet me <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+    <string name="lock_to_app_toast_no_navbar">Për ta shqitur këtë ekran, prek dhe mbaj shtypur butonin Prapa.</string>
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">aktivizo/çaktivizo Mbrojtësin e të Dhënave</string>
+    <string name="privacy_guard_notification">Mrojtësi i të Dhënave është i aktivizuar</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nuk do të jetë në gjendje të aksesojë të dhëna personale</string>
+    <string name="privacy_guard_dialog_title">Mbrojtësi i të Dhënave</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> kërkon të <xliff:g id="op">%2$s</xliff:g>.</string>
+    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+    <string name="permission_remember_choice">Kujtoje zgjedhjen</string>
+    <!-- App ops requests -->
+    <string name="app_ops_access_camera">aksesojë kamerën</string>
+    <string name="app_ops_access_location">aksesojë vendndodhjen</string>
+    <string name="app_ops_access_notifications">lexojë njoftimet</string>
+    <string name="app_ops_activate_vpn">aktivizojë një VPN</string>
+    <string name="app_ops_add_voicemail">shtojë një mesazh zanor</string>
+    <string name="app_ops_assist_screenshot">kapë një foto të ekranit</string>
+    <string name="app_ops_auto_start">niset kur ndizet telefoni</string>
+    <string name="app_ops_change_wallpaper">ndërrojë sfondin</string>
+    <string name="app_ops_delete_call_log">fshijë listën e thirrjeve</string>
+    <string name="app_ops_delete_contacts">fshijë kontaktet</string>
+    <string name="app_ops_delete_mms">fshijë mesazhet MMS</string>
+    <string name="app_ops_delete_sms">fshijë mesazhet SMS</string>
+    <string name="app_ops_get_accounts">marrë llogaritë e pajisjes</string>
+    <string name="app_ops_get_usage_stats">marrë të dhënat statistikore të përdorimit të aplikacionit</string>
+    <string name="app_ops_keep_device_awake">mbajë pajisjen zgjuar</string>
+    <string name="app_ops_make_phone_call">kryejë një telefonatë</string>
+    <string name="app_ops_mock_location">simulojë vendndodhjen tënde</string>
+    <string name="app_ops_modify_calendar">përditësojë kalendarin</string>
+    <string name="app_ops_modify_call_log">përditësojë listën e thirrjeve</string>
+    <string name="app_ops_modify_contacts">përditësojë kontaktet</string>
+    <string name="app_ops_modify_settings">përditësojë parametrat e sistemit</string>
+    <string name="app_ops_mute_unmute_microphone">heqi/vëri zërin mikrofonit</string>
+    <string name="app_ops_play_audio">luajë audio</string>
+    <string name="app_ops_post_notification">postojë një njoftim</string>
+    <string name="app_ops_project_media">projektojë media</string>
+    <string name="app_ops_read_calendar">lexojë kalendarin</string>
+    <string name="app_ops_read_call_log">lexojë listën e thirrjeve</string>
+    <string name="app_ops_read_cell_broadcasts">lexojë transmetimet celulare</string>
+    <string name="app_ops_read_contacts">lexojë kontaktet e tua</string>
+    <string name="app_ops_read_external_storage">lexojë memorien e jashtme</string>
+    <string name="app_ops_read_mms">lexojë mesazhet e tua MMS</string>
+    <string name="app_ops_read_phone_state">aksesojë statusin e telefonit</string>
+    <string name="app_ops_read_sms">lexojë mesazhet e tua SMS</string>
+    <string name="app_ops_receive_sms">marrë një mesazh SMS</string>
+    <string name="app_ops_record_audio">regjistrojë audio</string>
+    <string name="app_ops_run_in_background">puno në sfond</string>
+    <string name="app_ops_scan_wifi">kërkojë për rrjete Wi-Fi</string>
+    <string name="app_ops_send_mms">dërgojë një mesazh MMS</string>
+    <string name="app_ops_send_sms">dërgojë një mesazh SMS</string>
+    <string name="app_ops_start_at_bootup">niset kur ndizet telefoni</string>
+    <string name="app_ops_su">marrë akses Root</string>
+    <string name="app_ops_toggle_bluetooth">aktivizojë/çaktivizojë Bluetoothin</string>
+    <string name="app_ops_toggle_mobile_data">aktivizojë/çaktivizojë internetin e celularit</string>
+    <string name="app_ops_toggle_nfc">aktivizojë/çaktivizojë NFC</string>
+    <string name="app_ops_toggle_wifi">aktivizojë/çaktivizojë Wi-Fi</string>
+    <string name="app_ops_turn_on_screen">ndezi ekranin</string>
+    <string name="app_ops_use_alarm_volume">kontrollojë volumin e alarmit</string>
+    <string name="app_ops_use_audio_focus">kontrollojë fokusin e audios</string>
+    <string name="app_ops_use_bluetooth_volume">kontrollojë volumin e Bluetooth</string>
+    <string name="app_ops_use_body_sensors">përdorë sensorët për trupin</string>
+    <string name="app_ops_use_fingerprint">përdorë shenjën e gishtit</string>
+    <string name="app_ops_use_master_volume">kontrollojë volumin kryesor</string>
+    <string name="app_ops_use_media_buttons">përdorë butonat e medias</string>
+    <string name="app_ops_use_media_volume">kontrollojë volumin e medias</string>
+    <string name="app_ops_use_notification_volume">kontrollojë volumin e njoftimeve</string>
+    <string name="app_ops_use_ring_volume">kontrollojë volumin e zileve</string>
+    <string name="app_ops_use_vibrate">përdorë reagimin haptik</string>
+    <string name="app_ops_use_voice_volume">kontrollojë volumin e thirrjeve</string>
+    <string name="app_ops_wifi_change">ndërrojë statusin e Wi-Fi</string>
+    <string name="app_ops_write_external_storage">shkruajë në memorien e jashtme</string>
+    <string name="app_ops_write_mms">shkruajë një mesazh MMS</string>
+    <string name="app_ops_write_sms">shkruajë një mesazh SMS</string>
 </resources>

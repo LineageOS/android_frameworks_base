@@ -18,12 +18,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- ADB over network notification -->
-  <!-- ADB over USB and network notification -->
-  <!-- ADB notification message-->
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <!-- Privacy Guard -->
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <!-- App ops requests -->
+    <!-- ADB over network notification -->
+    <!-- ADB over USB and network notification -->
+    <!-- ADB notification message-->
+    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+    <!-- Privacy Guard -->
+    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+    <!-- App ops requests -->
 </resources>

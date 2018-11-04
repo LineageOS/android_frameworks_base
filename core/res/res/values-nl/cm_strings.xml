@@ -18,95 +18,95 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB over netwerk ingeschakeld</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB over USB &amp; netwerk ingeschakeld</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Tik om foutopsporing uit te schakelen.</string>
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="lineage_system_error_manufacturer">Er is een discrepantie geconstateerd in de vendor-image. Over het algemeen betekent dit dat de vendor-image verouderd is. Zorg ervoor dat de vendor-image overeenkomt met <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Blijf de Terug-knop aanraken om dit scherm los te maken.</string>
-  <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">Privacybescherming in- of uitschakelen</string>
-  <string name="permdesc_changePrivacyGuardState">Hiermee kan de app bepalen of een andere app start met Privacybescherming. Als een app start met Privacybescherming, zal het geen toegang hebben tot persoonsgegevens zoals contacten, berichten of oproepgeschiedenis.</string>
-  <string name="privacy_guard_notification">Privacybescherming actief</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> zal geen toegang hebben tot persoonsgegevens</string>
-  <string name="privacy_guard_dialog_title">Privacybescherming</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> wil <xliff:g id="op">%2$s</xliff:g>.</string>
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">Keuze onthouden</string>
-  <!-- App ops requests -->
-  <string name="app_ops_access_camera">toegang tot camera</string>
-  <string name="app_ops_access_location">toegang tot uw locatie</string>
-  <string name="app_ops_access_notifications">meldingen lezen</string>
-  <string name="app_ops_activate_vpn">VPN activeren</string>
-  <string name="app_ops_add_voicemail">voicemail toevoegen</string>
-  <string name="app_ops_assist_screenshot">screenshot maken</string>
-  <string name="app_ops_assist_structure">structuur voor ondersteuning gebruiken</string>
-  <string name="app_ops_auto_start">starten tijdens opstarten</string>
-  <string name="app_ops_change_wallpaper">achtergrond aanpassen</string>
-  <string name="app_ops_delete_call_log">oproepgeschiedenis verwijderen</string>
-  <string name="app_ops_delete_contacts">contacten verwijderen</string>
-  <string name="app_ops_delete_mms">mms-berichten verwijderen</string>
-  <string name="app_ops_delete_sms">sms-berichten verwijderen</string>
-  <string name="app_ops_draw_on_top">bovenop tekenen</string>
-  <string name="app_ops_get_accounts">apparaataccounts opvragen</string>
-  <string name="app_ops_get_usage_stats">app-gebruiksstatistieken opvragen</string>
-  <string name="app_ops_install_packages">pakketten installeren</string>
-  <string name="app_ops_keep_device_awake">apparaat wakker houden</string>
-  <string name="app_ops_make_phone_call">telefoongesprek starten</string>
-  <string name="app_ops_mock_location">neplocatie gebruiken</string>
-  <string name="app_ops_modify_calendar">agenda vernieuwen</string>
-  <string name="app_ops_modify_call_log">oproepgeschiedenis vernieuwen</string>
-  <string name="app_ops_modify_clipboard">klembord aanpassen</string>
-  <string name="app_ops_modify_contacts">contacten vernieuwen</string>
-  <string name="app_ops_modify_settings">systeeminstellingen vernieuwen</string>
-  <string name="app_ops_mute_unmute_microphone">microfoon in-/uitschakelen</string>
-  <string name="app_ops_phone_calls">telefoonoproepen beantwoorden</string>
-  <string name="app_ops_picture_in_picture">picture-in-picture gebruiken</string>
-  <string name="app_ops_play_audio">audio afspelen</string>
-  <string name="app_ops_post_notification">melding tonen</string>
-  <string name="app_ops_project_media">media projecteren</string>
-  <string name="app_ops_read_calendar">agenda lezen</string>
-  <string name="app_ops_read_call_log">oproepgeschiedenis lezen</string>
-  <string name="app_ops_read_cell_broadcasts">noodwaarschuwingen lezen</string>
-  <string name="app_ops_read_clipboard">klembord lezen</string>
-  <string name="app_ops_read_contacts">contacten lezen</string>
-  <string name="app_ops_read_external_storage">externe opslag lezen</string>
-  <string name="app_ops_read_mms">mms-berichten lezen</string>
-  <string name="app_ops_read_phone_numbers">telefoonnummers lezen</string>
-  <string name="app_ops_read_phone_state">toegang tot telefoonstatus</string>
-  <string name="app_ops_read_sms">sms-berichten lezen</string>
-  <string name="app_ops_receive_sms">sms-bericht ontvangen</string>
-  <string name="app_ops_record_audio">audio opnemen</string>
-  <string name="app_ops_run_in_background">op de achtergrond uitvoeren</string>
-  <string name="app_ops_scan_wifi">wifi-netwerken scannen</string>
-  <string name="app_ops_send_mms">mms-bericht versturen</string>
-  <string name="app_ops_send_sms">sms-bericht versturen</string>
-  <string name="app_ops_start_at_bootup">starten tijdens opstarten</string>
-  <string name="app_ops_su">root-toegang krijgen</string>
-  <string name="app_ops_toast_window">meldingen weergeven</string>
-  <string name="app_ops_toggle_bluetooth">Bluetooth aan-/uitzetten</string>
-  <string name="app_ops_toggle_mobile_data">mobiele gegevens aan-/uitzetten</string>
-  <string name="app_ops_toggle_nfc">NFC aan-/uitzetten</string>
-  <string name="app_ops_toggle_wifi">wifi aan-/uitzetten</string>
-  <string name="app_ops_turn_on_screen">scherm aanzetten</string>
-  <string name="app_ops_use_alarm_volume">alarmvolume beheren</string>
-  <string name="app_ops_use_audio_focus">audiofocus beheren</string>
-  <string name="app_ops_use_bluetooth_volume">Bluetooth-volume beheren</string>
-  <string name="app_ops_use_body_sensors">lichaamssensoren gebruiken</string>
-  <string name="app_ops_use_fingerprint">vingerafdruk gebruiken</string>
-  <string name="app_ops_use_master_volume">hoofdvolume beheren</string>
-  <string name="app_ops_use_media_buttons">mediaknoppen gebruiken</string>
-  <string name="app_ops_use_media_volume">mediavolume beheren</string>
-  <string name="app_ops_use_notification_volume">meldingsvolume beheren</string>
-  <string name="app_ops_use_ring_volume">beltoonvolume beheren</string>
-  <string name="app_ops_use_vibrate">trillen gebruiken</string>
-  <string name="app_ops_use_voice_volume">stemvolume beheren</string>
-  <string name="app_ops_wifi_change">wifi-status aanpassen</string>
-  <string name="app_ops_write_external_storage">naar externe opslag schrijven</string>
-  <string name="app_ops_write_mms">mms-bericht schrijven</string>
-  <string name="app_ops_write_sms">sms-bericht schrijven</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">ADB over netwerk ingeschakeld</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ADB over USB &amp; netwerk ingeschakeld</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Tik om foutopsporing uit te schakelen.</string>
+    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+    <string name="lineage_system_error_manufacturer">Er is een discrepantie geconstateerd in de vendor-image. Over het algemeen betekent dit dat de vendor-image verouderd is. Zorg ervoor dat de vendor-image overeenkomt met <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+    <string name="lock_to_app_toast_no_navbar">Blijf de Terug-knop aanraken om dit scherm los te maken.</string>
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">Privacybescherming in- of uitschakelen</string>
+    <string name="permdesc_changePrivacyGuardState">Hiermee kan de app bepalen of een andere app start met Privacybescherming. Als een app start met Privacybescherming, zal het geen toegang hebben tot persoonsgegevens zoals contacten, berichten of oproepgeschiedenis.</string>
+    <string name="privacy_guard_notification">Privacybescherming actief</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> zal geen toegang hebben tot persoonsgegevens</string>
+    <string name="privacy_guard_dialog_title">Privacybescherming</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> wil <xliff:g id="op">%2$s</xliff:g>.</string>
+    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+    <string name="permission_remember_choice">Keuze onthouden</string>
+    <!-- App ops requests -->
+    <string name="app_ops_access_camera">toegang tot camera</string>
+    <string name="app_ops_access_location">toegang tot uw locatie</string>
+    <string name="app_ops_access_notifications">meldingen lezen</string>
+    <string name="app_ops_activate_vpn">VPN activeren</string>
+    <string name="app_ops_add_voicemail">voicemail toevoegen</string>
+    <string name="app_ops_assist_screenshot">screenshot maken</string>
+    <string name="app_ops_assist_structure">structuur voor ondersteuning gebruiken</string>
+    <string name="app_ops_auto_start">starten tijdens opstarten</string>
+    <string name="app_ops_change_wallpaper">achtergrond aanpassen</string>
+    <string name="app_ops_delete_call_log">oproepgeschiedenis verwijderen</string>
+    <string name="app_ops_delete_contacts">contacten verwijderen</string>
+    <string name="app_ops_delete_mms">mms-berichten verwijderen</string>
+    <string name="app_ops_delete_sms">sms-berichten verwijderen</string>
+    <string name="app_ops_draw_on_top">bovenop tekenen</string>
+    <string name="app_ops_get_accounts">apparaataccounts opvragen</string>
+    <string name="app_ops_get_usage_stats">app-gebruiksstatistieken opvragen</string>
+    <string name="app_ops_install_packages">pakketten installeren</string>
+    <string name="app_ops_keep_device_awake">apparaat wakker houden</string>
+    <string name="app_ops_make_phone_call">telefoongesprek starten</string>
+    <string name="app_ops_mock_location">neplocatie gebruiken</string>
+    <string name="app_ops_modify_calendar">agenda vernieuwen</string>
+    <string name="app_ops_modify_call_log">oproepgeschiedenis vernieuwen</string>
+    <string name="app_ops_modify_clipboard">klembord aanpassen</string>
+    <string name="app_ops_modify_contacts">contacten vernieuwen</string>
+    <string name="app_ops_modify_settings">systeeminstellingen vernieuwen</string>
+    <string name="app_ops_mute_unmute_microphone">microfoon in-/uitschakelen</string>
+    <string name="app_ops_phone_calls">telefoonoproepen beantwoorden</string>
+    <string name="app_ops_picture_in_picture">picture-in-picture gebruiken</string>
+    <string name="app_ops_play_audio">audio afspelen</string>
+    <string name="app_ops_post_notification">melding tonen</string>
+    <string name="app_ops_project_media">media projecteren</string>
+    <string name="app_ops_read_calendar">agenda lezen</string>
+    <string name="app_ops_read_call_log">oproepgeschiedenis lezen</string>
+    <string name="app_ops_read_cell_broadcasts">noodwaarschuwingen lezen</string>
+    <string name="app_ops_read_clipboard">klembord lezen</string>
+    <string name="app_ops_read_contacts">contacten lezen</string>
+    <string name="app_ops_read_external_storage">externe opslag lezen</string>
+    <string name="app_ops_read_mms">mms-berichten lezen</string>
+    <string name="app_ops_read_phone_numbers">telefoonnummers lezen</string>
+    <string name="app_ops_read_phone_state">toegang tot telefoonstatus</string>
+    <string name="app_ops_read_sms">sms-berichten lezen</string>
+    <string name="app_ops_receive_sms">sms-bericht ontvangen</string>
+    <string name="app_ops_record_audio">audio opnemen</string>
+    <string name="app_ops_run_in_background">op de achtergrond uitvoeren</string>
+    <string name="app_ops_scan_wifi">wifi-netwerken scannen</string>
+    <string name="app_ops_send_mms">mms-bericht versturen</string>
+    <string name="app_ops_send_sms">sms-bericht versturen</string>
+    <string name="app_ops_start_at_bootup">starten tijdens opstarten</string>
+    <string name="app_ops_su">root-toegang krijgen</string>
+    <string name="app_ops_toast_window">meldingen weergeven</string>
+    <string name="app_ops_toggle_bluetooth">Bluetooth aan-/uitzetten</string>
+    <string name="app_ops_toggle_mobile_data">mobiele gegevens aan-/uitzetten</string>
+    <string name="app_ops_toggle_nfc">NFC aan-/uitzetten</string>
+    <string name="app_ops_toggle_wifi">wifi aan-/uitzetten</string>
+    <string name="app_ops_turn_on_screen">scherm aanzetten</string>
+    <string name="app_ops_use_alarm_volume">alarmvolume beheren</string>
+    <string name="app_ops_use_audio_focus">audiofocus beheren</string>
+    <string name="app_ops_use_bluetooth_volume">Bluetooth-volume beheren</string>
+    <string name="app_ops_use_body_sensors">lichaamssensoren gebruiken</string>
+    <string name="app_ops_use_fingerprint">vingerafdruk gebruiken</string>
+    <string name="app_ops_use_master_volume">hoofdvolume beheren</string>
+    <string name="app_ops_use_media_buttons">mediaknoppen gebruiken</string>
+    <string name="app_ops_use_media_volume">mediavolume beheren</string>
+    <string name="app_ops_use_notification_volume">meldingsvolume beheren</string>
+    <string name="app_ops_use_ring_volume">beltoonvolume beheren</string>
+    <string name="app_ops_use_vibrate">trillen gebruiken</string>
+    <string name="app_ops_use_voice_volume">stemvolume beheren</string>
+    <string name="app_ops_wifi_change">wifi-status aanpassen</string>
+    <string name="app_ops_write_external_storage">naar externe opslag schrijven</string>
+    <string name="app_ops_write_mms">mms-bericht schrijven</string>
+    <string name="app_ops_write_sms">sms-bericht schrijven</string>
 </resources>

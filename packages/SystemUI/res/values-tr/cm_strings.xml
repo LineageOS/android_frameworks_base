@@ -20,119 +20,119 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> kapatılmasını önle</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> kapatılmasına izin ver</string>
-  <!-- ADB over network QS tile -->
-  <string name="quick_settings_network_adb_label">Ağ üzerinden ADB</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Bildirim ekranı</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Bildirim ekranı kapalı.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Bildirim ekranı açık.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Bildirim ekranı kapatıldı.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Bildirim ekranı açıldı.</string>
-  <!-- Caffeine QS tile -->
-  <string name="quick_settings_caffeine_label">Kafein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı.</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kafein açık.</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
-  <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Eşitleme</string>
-  <string name="accessibility_quick_settings_sync_off">Eşitleme kapalı.</string>
-  <string name="accessibility_quick_settings_sync_on">Eşitleme açık.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Eşitleme kapatıldı.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı.</string>
-  <!-- System Profiles QS tile -->
-  <string name="quick_settings_profiles_label">Sistem profilleri</string>
-  <string name="accessibility_quick_settings_profiles_off">Profiller kapalı.</string>
-  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <string name="accessibility_quick_settings_profiles_changed_off">Profiller kapatıldı.</string>
-  <string name="accessibility_quick_settings_profiles_changed"><xliff:g id="profile" example="Default">%s</xliff:g> profiline geçildi.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USB İnternet Paylaşımı</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_volume_panel_label">Ses paneli</string>
-  <!-- Navigation bar dpad -->
-  <string name="accessibility_dpad_left">Sol imleç</string>
-  <string name="accessibility_dpad_right">Sağ imleç</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Bu işlem, siz sabitlemeyi kaldırana kadar ekranı görünür durumda tutar. Sabitlemeyi kaldırmak için Geri\'ye dokunun ve basılı tutun.</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">Saat</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> kapatılmasını önle</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> kapatılmasına izin ver</string>
+    <!-- ADB over network QS tile -->
+    <string name="quick_settings_network_adb_label">Ağ üzerinden ADB</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Bildirim ekranı</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Bildirim ekranı kapalı.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Bildirim ekranı açık.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Bildirim ekranı kapatıldı.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildirim ekranı açıldı.</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein açık.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
+    <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Eşitleme</string>
+    <string name="accessibility_quick_settings_sync_off">Eşitleme kapalı.</string>
+    <string name="accessibility_quick_settings_sync_on">Eşitleme açık.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Eşitleme kapatıldı.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı.</string>
+    <!-- System Profiles QS tile -->
+    <string name="quick_settings_profiles_label">Sistem profilleri</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiller kapalı.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiller kapatıldı.</string>
+    <string name="accessibility_quick_settings_profiles_changed"><xliff:g id="profile" example="Default">%s</xliff:g> profiline geçildi.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB İnternet Paylaşımı</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Ses paneli</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Sol imleç</string>
+    <string name="accessibility_dpad_right">Sağ imleç</string>
+    <!-- Screen pinning dialog description (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Bu işlem, siz sabitlemeyi kaldırana kadar ekranı görünür durumda tutar. Sabitlemeyi kaldırmak için Geri\'ye dokunun ve basılı tutun.</string>
+    <!-- Name of the clock status bar icon -->
+    <string name="status_bar_clock">Saat</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Label for current user in power menu options dialog -->
-  <string name="global_action_current_user">Mevcut</string>
-  <!-- Label for item that screenshots in power menu options dialog -->
-  <string name="global_action_screenshot">Ekran görüntüsü</string>
-  <!-- Advanced restart menu -->
-  <!-- Button to restart the device, within the Restart Options dialog -->
-  <string name="global_action_restart_system">Sistem</string>
-  <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-  <string name="global_action_restart_recovery">Kurtarma</string>
-  <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-  <string name="global_action_restart_bootloader">Ön yükleyici</string>
-  <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-  <string name="global_action_restart_download">İndirme</string>
-  <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_progress">Yeniden başlatılıyor\u2026</string>
-  <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_recovery_progress">Kurtarma modunda başlatılıyor\u2026</string>
-  <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_bootloader_progress">Ön yükleyici modunda başlatılıyor\u2026</string>
-  <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_download_progress">İndirme modunda başlatılıyor\u2026</string>
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Konum bildirimi: pil tasarruf modu.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Konum bildirimi: sadece sensörler modu.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Konum bildirimi: yüksek hassasiyet modu.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Pil tasarrufu</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Pil\ntasarrufu</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Sadece cihaz</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Yalnızca\ncihaz</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Yüksek doğruluk</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Yüksek\ndoğruluk</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Konum</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Modu seç:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Yüksek doğruluk</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Pil tasarrufu</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Sadece cihaz</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Konumu belirlemek için GPS, Wi\u2011Fi, Bluetooth veya hücresel ağlar kullanır</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Konumu belirlemek için Wifi, Bluetooth veya hücresel ağlar kullanılır</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Konumu belirlemek için GPS kullanılır</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Tuş düzenini ters çevir</string>
-  <!-- Reader mode QS tile -->
-  <string name="quick_settings_reading_mode">Okuma modu</string>
-  <!-- Content description of the reader mode tile when on -->
-  <string name="accessibility_quick_settings_reading_mode_on">Okuma modu açık.</string>
-  <!-- Content description of the reader mode tile when off -->
-  <string name="accessibility_quick_settings_reading_mode_off">Okuma modu kapalı.</string>
-  <!-- Content description of the reader mode tile when turned on -->
-  <string name="accessibility_quick_settings_reading_mode_changed_on">Okuma modu açıldı.</string>
-  <!-- Content description of the reader mode tile when turned off -->
-  <string name="accessibility_quick_settings_reading_mode_changed_off">Okuma modu kapatıldı.</string>
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Mevcut</string>
+    <!-- Label for item that screenshots in power menu options dialog -->
+    <string name="global_action_screenshot">Ekran görüntüsü</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">Sistem</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Kurtarma</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Ön yükleyici</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">İndirme</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_progress">Yeniden başlatılıyor\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_recovery_progress">Kurtarma modunda başlatılıyor\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_bootloader_progress">Ön yükleyici modunda başlatılıyor\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_download_progress">İndirme modunda başlatılıyor\u2026</string>
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">Konum bildirimi: pil tasarruf modu.</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">Konum bildirimi: sadece sensörler modu.</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">Konum bildirimi: yüksek hassasiyet modu.</string>
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_battery_saving_label">Pil tasarrufu</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Pil\ntasarrufu</string>
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label">Sadece cihaz</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Yalnızca\ncihaz</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label">Yüksek doğruluk</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Yüksek\ndoğruluk</string>
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_title">Konum</string>
+    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_menu_title">Modu seç:</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Yüksek doğruluk</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Pil tasarrufu</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Sadece cihaz</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Konumu belirlemek için GPS, Wi\u2011Fi, Bluetooth veya hücresel ağlar kullanır</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Konumu belirlemek için Wifi, Bluetooth veya hücresel ağlar kullanılır</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Konumu belirlemek için GPS kullanılır</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">Tuş düzenini ters çevir</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Okuma modu</string>
+    <!-- Content description of the reader mode tile when on -->
+    <string name="accessibility_quick_settings_reading_mode_on">Okuma modu açık.</string>
+    <!-- Content description of the reader mode tile when off -->
+    <string name="accessibility_quick_settings_reading_mode_off">Okuma modu kapalı.</string>
+    <!-- Content description of the reader mode tile when turned on -->
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Okuma modu açıldı.</string>
+    <!-- Content description of the reader mode tile when turned off -->
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Okuma modu kapatıldı.</string>
 </resources>

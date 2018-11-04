@@ -20,75 +20,75 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Non permìtere chi <xliff:g id="task">%1$s</xliff:g> bèngiat iscantzelladu</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Permìti a <xliff:g id="task">%1$s</xliff:g> de èssere iscantzelladu</string>
-  <!-- ADB over network QS tile -->
-  <!-- Ambient display QS tile -->
-  <!-- Caffeine QS tile -->
-  <string name="quick_settings_caffeine_label">Cafeina</string>
-  <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
-  <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
-  <!-- Sync QS tile -->
-  <!-- System Profiles QS tile -->
-  <string name="quick_settings_profiles_label">Profilos de sistema</string>
-  <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <string name="accessibility_quick_settings_profiles_changed_off">Profilos istudados.</string>
-  <string name="accessibility_quick_settings_profiles_changed">Profilu cambiadu in <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- USB tethering QS tile -->
-  <!-- Volume panel QS tile -->
-  <!-- Navigation bar dpad -->
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <!-- Name of the clock status bar icon -->
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task">Non permìtere chi <xliff:g id="task">%1$s</xliff:g> bèngiat iscantzelladu</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task">Permìti a <xliff:g id="task">%1$s</xliff:g> de èssere iscantzelladu</string>
+    <!-- ADB over network QS tile -->
+    <!-- Ambient display QS tile -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Cafeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
+    <!-- Sync QS tile -->
+    <!-- System Profiles QS tile -->
+    <string name="quick_settings_profiles_label">Profilos de sistema</string>
+    <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profilos istudados.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profilu cambiadu in <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
+    <!-- Volume panel QS tile -->
+    <!-- Navigation bar dpad -->
+    <!-- Screen pinning dialog description (for devices without navbar) -->
+    <!-- Name of the clock status bar icon -->
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Label for current user in power menu options dialog -->
-  <string name="global_action_current_user">Atuale</string>
-  <!-- Label for item that screenshots in power menu options dialog -->
-  <string name="global_action_screenshot">Ischermada</string>
-  <!-- Advanced restart menu -->
-  <!-- Button to restart the device, within the Restart Options dialog -->
-  <string name="global_action_restart_system">Sistema</string>
-  <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-  <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-  <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-  <string name="global_action_restart_download">Iscàrriga</string>
-  <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_progress">Torrende a allùghere\u2026</string>
-  <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label_twoline">Petzi\ndispositivu</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label_twoline">Pretzisione\nmanna</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Positzione</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Issèbera sa modalidade:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Imprea su GPS, su Wi\u2011Fi, su Bluetooth, o sas retzas de sos datos mòbiles pro agatare sa positzione</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Imprea su Wi\u2011Fi, su Bluetooth, o sas retzas de sos datos mòbiles pro agatare sa positzione</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Imprea su GPS pro agatare sa positzione tua</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <!-- Reader mode QS tile -->
-  <!-- Content description of the reader mode tile when on -->
-  <!-- Content description of the reader mode tile when off -->
-  <!-- Content description of the reader mode tile when turned on -->
-  <!-- Content description of the reader mode tile when turned off -->
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Atuale</string>
+    <!-- Label for item that screenshots in power menu options dialog -->
+    <string name="global_action_screenshot">Ischermada</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">Sistema</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Iscàrriga</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_progress">Torrende a allùghere\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label_twoline">Petzi\ndispositivu</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label_twoline">Pretzisione\nmanna</string>
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_title">Positzione</string>
+    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_menu_title">Issèbera sa modalidade:</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
+    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
+    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
+    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Imprea su GPS, su Wi\u2011Fi, su Bluetooth, o sas retzas de sos datos mòbiles pro agatare sa positzione</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Imprea su Wi\u2011Fi, su Bluetooth, o sas retzas de sos datos mòbiles pro agatare sa positzione</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Imprea su GPS pro agatare sa positzione tua</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <!-- Reader mode QS tile -->
+    <!-- Content description of the reader mode tile when on -->
+    <!-- Content description of the reader mode tile when off -->
+    <!-- Content description of the reader mode tile when turned on -->
+    <!-- Content description of the reader mode tile when turned off -->
 </resources>

@@ -20,112 +20,112 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Spriječite <xliff:g id="task">%1$s</xliff:g> od odbacivanja</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Neka se <xliff:g id="task">%1$s</xliff:g> odbaci</string>
-  <!-- ADB over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB preko mreže</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Ambijentalni zaslon</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambijentalni zaslon isključen.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambijentalni zaslon uključen.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambijentalni je zaslon isključen.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambijentalni je zaslon uključen.</string>
-  <!-- Caffeine QS tile -->
-  <string name="quick_settings_caffeine_label">Kofein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kofein isključen.</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kofein uključen.</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Plutajuće obavijesti</string>
-  <string name="accessibility_quick_settings_heads_up_off">Plutajuće obavijesti isključene.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Plutajuće su obavijesti isključene.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Plutajuće su obavijesti uključene.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sinkronizacija</string>
-  <string name="accessibility_quick_settings_sync_off">Sinkronizacija isključena.</string>
-  <string name="accessibility_quick_settings_sync_on">Sinkronizacija uključena.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sinkronizacija je isključena.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sinkronizacija je uključena.</string>
-  <!-- System Profiles QS tile -->
-  <string name="quick_settings_profiles_label">Profili sustava</string>
-  <string name="accessibility_quick_settings_profiles_off">Profili isklučeni.</string>
-  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
-  <string name="accessibility_quick_settings_profiles_changed_off">Profili su isključeni.</string>
-  <string name="accessibility_quick_settings_profiles_changed">Profil je promijenjen u <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">Dijeljenje veze preko USB-a</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_volume_panel_label">Zvučna ploča</string>
-  <!-- Navigation bar dpad -->
-  <string name="accessibility_dpad_left">Kursor lijevo</string>
-  <string name="accessibility_dpad_right">Kursor desno</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Ovo drži zaslon u pogledu dok ga ne otkvačite. Dodirnite &amp; držite gumb za povratak natrag da biste ga otkvačili.</string>
-  <!-- Name of the clock status bar icon -->
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task">Spriječite <xliff:g id="task">%1$s</xliff:g> od odbacivanja</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task">Neka se <xliff:g id="task">%1$s</xliff:g> odbaci</string>
+    <!-- ADB over network QS tile -->
+    <string name="quick_settings_network_adb_label">ADB preko mreže</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambijentalni zaslon</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambijentalni zaslon isključen.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambijentalni zaslon uključen.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambijentalni je zaslon isključen.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambijentalni je zaslon uključen.</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein isključen.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein uključen.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Plutajuće obavijesti</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plutajuće obavijesti isključene.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Plutajuće su obavijesti isključene.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Plutajuće su obavijesti uključene.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Sinkronizacija</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronizacija isključena.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronizacija uključena.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinkronizacija je isključena.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinkronizacija je uključena.</string>
+    <!-- System Profiles QS tile -->
+    <string name="quick_settings_profiles_label">Profili sustava</string>
+    <string name="accessibility_quick_settings_profiles_off">Profili isklučeni.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profili su isključeni.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil je promijenjen u <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Dijeljenje veze preko USB-a</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Zvučna ploča</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kursor lijevo</string>
+    <string name="accessibility_dpad_right">Kursor desno</string>
+    <!-- Screen pinning dialog description (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Ovo drži zaslon u pogledu dok ga ne otkvačite. Dodirnite &amp; držite gumb za povratak natrag da biste ga otkvačili.</string>
+    <!-- Name of the clock status bar icon -->
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Label for current user in power menu options dialog -->
-  <string name="global_action_current_user">Trenutni</string>
-  <!-- Label for item that screenshots in power menu options dialog -->
-  <string name="global_action_screenshot">Snimka zaslona</string>
-  <!-- Advanced restart menu -->
-  <!-- Button to restart the device, within the Restart Options dialog -->
-  <string name="global_action_restart_system">Sustav</string>
-  <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-  <string name="global_action_restart_recovery">Recovery</string>
-  <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-  <string name="global_action_restart_bootloader">Bootloader</string>
-  <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-  <string name="global_action_restart_download">Preuzmi</string>
-  <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_progress">Ponovno pokretanje\u2026</string>
-  <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_recovery_progress">Ponovno pokretanje u Recovery\u2026</string>
-  <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_bootloader_progress">Ponovno pokretanje u bootloader\u2026</string>
-  <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_download_progress">Ponovno pokretanje u način preuzimanja\u2026</string>
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Izvještavanje o lokaciji: način štednje baterije.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Izvještavanje o lokaciji: način samo sa senzorima.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Izvještavanje o lokaciji: način visoke preciznosti.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Štednja baterije</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Štednja\nbaterije</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Samo uređaj</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Samo\nuređaj</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Visoka preciznost</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Visoka\n preciznost</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Lokacija</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Odaberi način rada:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Visoka preciznost</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Štednja baterije</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Samo uređaj</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Koristite GPS, Wi\u2011Fi, Bluetooth ili mobilne mreže za određivanje lokacije</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Koristite Wi\u2011Fi, Bluetooth ili mobilne mreže za određivanje lokacije</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Koristi GPS za određivanje lokacije</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <!-- Reader mode QS tile -->
-  <!-- Content description of the reader mode tile when on -->
-  <!-- Content description of the reader mode tile when off -->
-  <!-- Content description of the reader mode tile when turned on -->
-  <!-- Content description of the reader mode tile when turned off -->
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Trenutni</string>
+    <!-- Label for item that screenshots in power menu options dialog -->
+    <string name="global_action_screenshot">Snimka zaslona</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">Sustav</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Recovery</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Preuzmi</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_progress">Ponovno pokretanje\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_recovery_progress">Ponovno pokretanje u Recovery\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_bootloader_progress">Ponovno pokretanje u bootloader\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_download_progress">Ponovno pokretanje u način preuzimanja\u2026</string>
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">Izvještavanje o lokaciji: način štednje baterije.</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">Izvještavanje o lokaciji: način samo sa senzorima.</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">Izvještavanje o lokaciji: način visoke preciznosti.</string>
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_battery_saving_label">Štednja baterije</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Štednja\nbaterije</string>
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label">Samo uređaj</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Samo\nuređaj</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label">Visoka preciznost</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Visoka\n preciznost</string>
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_title">Lokacija</string>
+    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_menu_title">Odaberi način rada:</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Visoka preciznost</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Štednja baterije</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Samo uređaj</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Koristite GPS, Wi\u2011Fi, Bluetooth ili mobilne mreže za određivanje lokacije</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Koristite Wi\u2011Fi, Bluetooth ili mobilne mreže za određivanje lokacije</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Koristi GPS za određivanje lokacije</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <!-- Reader mode QS tile -->
+    <!-- Content description of the reader mode tile when on -->
+    <!-- Content description of the reader mode tile when off -->
+    <!-- Content description of the reader mode tile when turned on -->
+    <!-- Content description of the reader mode tile when turned off -->
 </resources>

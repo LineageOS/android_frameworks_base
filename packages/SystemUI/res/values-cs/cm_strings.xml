@@ -20,119 +20,119 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Zabránit, aby byla úloha <xliff:g id="task">%1$s</xliff:g> zrušena</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Povolit, aby byla úloha <xliff:g id="task">%1$s</xliff:g> zrušena</string>
-  <!-- ADB over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB přes síť</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Ambientní zobrazení</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambientní zobrazení vypnuto.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambientní zobrazení zapnuto.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientní zobrazení vypnuto.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientní zobrazení zapnuto.</string>
-  <!-- Caffeine QS tile -->
-  <string name="quick_settings_caffeine_label">Kofein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kofein vyp.</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kofein zap.</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Plovoucí upozornění</string>
-  <string name="accessibility_quick_settings_heads_up_off">Plovoucí upozorněn vyp.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Plovoucí upozornění zap.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Plovoucí upozorněn vyp.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Plovoucí upozornění zap.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Synchronizace</string>
-  <string name="accessibility_quick_settings_sync_off">Synch. vyp.</string>
-  <string name="accessibility_quick_settings_sync_on">Synch. zap.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Synchronizace vypnuta.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Synchronizace zapnuta.</string>
-  <!-- System Profiles QS tile -->
-  <string name="quick_settings_profiles_label">Systémové profily</string>
-  <string name="accessibility_quick_settings_profiles_off">Profily vyp.</string>
-  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <string name="accessibility_quick_settings_profiles_changed_off">Profily vypnuty.</string>
-  <string name="accessibility_quick_settings_profiles_changed">Profil změněn na <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
-  <!-- Navigation bar dpad -->
-  <string name="accessibility_dpad_left">Kurzor doleva</string>
-  <string name="accessibility_dpad_right">Kurzor doprava</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím a podržením tlačítka Zpět.</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">Hodiny</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task">Zabránit, aby byla úloha <xliff:g id="task">%1$s</xliff:g> zrušena</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task">Povolit, aby byla úloha <xliff:g id="task">%1$s</xliff:g> zrušena</string>
+    <!-- ADB over network QS tile -->
+    <string name="quick_settings_network_adb_label">ADB přes síť</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambientní zobrazení</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambientní zobrazení vypnuto.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambientní zobrazení zapnuto.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientní zobrazení vypnuto.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientní zobrazení zapnuto.</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein vyp.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein zap.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Plovoucí upozornění</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plovoucí upozorněn vyp.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plovoucí upozornění zap.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Plovoucí upozorněn vyp.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Plovoucí upozornění zap.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Synchronizace</string>
+    <string name="accessibility_quick_settings_sync_off">Synch. vyp.</string>
+    <string name="accessibility_quick_settings_sync_on">Synch. zap.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronizace vypnuta.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronizace zapnuta.</string>
+    <!-- System Profiles QS tile -->
+    <string name="quick_settings_profiles_label">Systémové profily</string>
+    <string name="accessibility_quick_settings_profiles_off">Profily vyp.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profily vypnuty.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil změněn na <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kurzor doleva</string>
+    <string name="accessibility_dpad_right">Kurzor doprava</string>
+    <!-- Screen pinning dialog description (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím a podržením tlačítka Zpět.</string>
+    <!-- Name of the clock status bar icon -->
+    <string name="status_bar_clock">Hodiny</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Label for current user in power menu options dialog -->
-  <string name="global_action_current_user">Aktuální</string>
-  <!-- Label for item that screenshots in power menu options dialog -->
-  <string name="global_action_screenshot">Snímek obrazovky</string>
-  <!-- Advanced restart menu -->
-  <!-- Button to restart the device, within the Restart Options dialog -->
-  <string name="global_action_restart_system">Systém</string>
-  <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-  <string name="global_action_restart_recovery">Recovery</string>
-  <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-  <string name="global_action_restart_bootloader">Bootloader</string>
-  <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-  <string name="global_action_restart_download">Stahování</string>
-  <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_progress">Restartování\u2026</string>
-  <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_recovery_progress">Restartování do režimu recovery\u2026</string>
-  <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_bootloader_progress">Restartování do režimu bootloader\u2026</string>
-  <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_download_progress">Restartování do režimu stahování\u2026</string>
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Zjištění polohy: úsporný režim.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Zjištění polohy: pouze GPS.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Zjištění polohy: vysoká přesnost.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Úspora baterie</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Úspora\nbaterie</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Pouze zařízení</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Pouze\nGPS</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Vysoká přesnost</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Vysoká\npřesnost</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Poloha</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Zvolte režim:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Vysoká přesnost</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Úspora baterie</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Pouze zařízení</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">K určování polohy používat GPS, Wi\u2011Fi, Bluetooth nebo mobilní sítě</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">K určování polohy používat Wi\u2011Fi, Bluetooth nebo mobilní sítě</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">K určování polohy používat GPS</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Invertovat rozložení tlačítek</string>
-  <!-- Reader mode QS tile -->
-  <string name="quick_settings_reading_mode">Režim čtení</string>
-  <!-- Content description of the reader mode tile when on -->
-  <string name="accessibility_quick_settings_reading_mode_on">Režim čtení zap.</string>
-  <!-- Content description of the reader mode tile when off -->
-  <string name="accessibility_quick_settings_reading_mode_off">Režim čtení vyp.</string>
-  <!-- Content description of the reader mode tile when turned on -->
-  <string name="accessibility_quick_settings_reading_mode_changed_on">Režim čtení je zapnutý.</string>
-  <!-- Content description of the reader mode tile when turned off -->
-  <string name="accessibility_quick_settings_reading_mode_changed_off">Režim čtení je vypnutý.</string>
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Aktuální</string>
+    <!-- Label for item that screenshots in power menu options dialog -->
+    <string name="global_action_screenshot">Snímek obrazovky</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">Systém</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Recovery</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Stahování</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_progress">Restartování\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_recovery_progress">Restartování do režimu recovery\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_bootloader_progress">Restartování do režimu bootloader\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_download_progress">Restartování do režimu stahování\u2026</string>
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">Zjištění polohy: úsporný režim.</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">Zjištění polohy: pouze GPS.</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">Zjištění polohy: vysoká přesnost.</string>
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_battery_saving_label">Úspora baterie</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Úspora\nbaterie</string>
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label">Pouze zařízení</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Pouze\nGPS</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label">Vysoká přesnost</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Vysoká\npřesnost</string>
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_title">Poloha</string>
+    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_menu_title">Zvolte režim:</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Vysoká přesnost</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Úspora baterie</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Pouze zařízení</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">K určování polohy používat GPS, Wi\u2011Fi, Bluetooth nebo mobilní sítě</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_description">K určování polohy používat Wi\u2011Fi, Bluetooth nebo mobilní sítě</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_description">K určování polohy používat GPS</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">Invertovat rozložení tlačítek</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Režim čtení</string>
+    <!-- Content description of the reader mode tile when on -->
+    <string name="accessibility_quick_settings_reading_mode_on">Režim čtení zap.</string>
+    <!-- Content description of the reader mode tile when off -->
+    <string name="accessibility_quick_settings_reading_mode_off">Režim čtení vyp.</string>
+    <!-- Content description of the reader mode tile when turned on -->
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Režim čtení je zapnutý.</string>
+    <!-- Content description of the reader mode tile when turned off -->
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Režim čtení je vypnutý.</string>
 </resources>

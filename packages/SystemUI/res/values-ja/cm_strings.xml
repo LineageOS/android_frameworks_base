@@ -20,119 +20,119 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> が削除されないようにする</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> を削除することを許可する</string>
-  <!-- ADB over network QS tile -->
-  <string name="quick_settings_network_adb_label">ネットワーク経由のADB</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">アンビエント表示</string>
-  <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示は OFF です。</string>
-  <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示は ON です。</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示が OFF になりました。</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示が ON になりました。</string>
-  <!-- Caffeine QS tile -->
-  <string name="quick_settings_caffeine_label">カフェイン</string>
-  <string name="accessibility_quick_settings_caffeine_off">カフェインはOFFです。</string>
-  <string name="accessibility_quick_settings_caffeine_on">カフェインはONです。</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">ヘッドアップ</string>
-  <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>
-  <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップがOFFになりました。</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップがONになりました。</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">同期</string>
-  <string name="accessibility_quick_settings_sync_off">同期はOFFです。</string>
-  <string name="accessibility_quick_settings_sync_on">同期はONです。</string>
-  <string name="accessibility_quick_settings_sync_changed_off">同期がOFFになりました。</string>
-  <string name="accessibility_quick_settings_sync_changed_on">同期がONになりました。</string>
-  <!-- System Profiles QS tile -->
-  <string name="quick_settings_profiles_label">システムプロファイル</string>
-  <string name="accessibility_quick_settings_profiles_off">プロファイルはOFFです。</string>
-  <string name="accessibility_quick_settings_profiles">プロファイル: <xliff:g id="profile" example="Default">%s</xliff:g>です。</string>
-  <string name="accessibility_quick_settings_profiles_changed_off">プロファイルがOFFになりました。</string>
-  <string name="accessibility_quick_settings_profiles_changed">プロファイルが<xliff:g id="profile" example="Default">%s</xliff:g>に変更されました。</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USBテザリング</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_volume_panel_label">音量パネル</string>
-  <!-- Navigation bar dpad -->
-  <string name="accessibility_dpad_left">カーソルを左へ</string>
-  <string name="accessibility_dpad_right">カーソルを右へ</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">固定を解除するまで画面が常に表示されるようになります。固定を解除するには戻るボタンを押し続けます。</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">時計</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> が削除されないようにする</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> を削除することを許可する</string>
+    <!-- ADB over network QS tile -->
+    <string name="quick_settings_network_adb_label">ネットワーク経由のADB</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">アンビエント表示</string>
+    <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示は OFF です。</string>
+    <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示は ON です。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示が OFF になりました。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示が ON になりました。</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">カフェイン</string>
+    <string name="accessibility_quick_settings_caffeine_off">カフェインはOFFです。</string>
+    <string name="accessibility_quick_settings_caffeine_on">カフェインはONです。</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">ヘッドアップ</string>
+    <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>
+    <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップがOFFになりました。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップがONになりました。</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">同期</string>
+    <string name="accessibility_quick_settings_sync_off">同期はOFFです。</string>
+    <string name="accessibility_quick_settings_sync_on">同期はONです。</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同期がOFFになりました。</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同期がONになりました。</string>
+    <!-- System Profiles QS tile -->
+    <string name="quick_settings_profiles_label">システムプロファイル</string>
+    <string name="accessibility_quick_settings_profiles_off">プロファイルはOFFです。</string>
+    <string name="accessibility_quick_settings_profiles">プロファイル: <xliff:g id="profile" example="Default">%s</xliff:g>です。</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">プロファイルがOFFになりました。</string>
+    <string name="accessibility_quick_settings_profiles_changed">プロファイルが<xliff:g id="profile" example="Default">%s</xliff:g>に変更されました。</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USBテザリング</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">音量パネル</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">カーソルを左へ</string>
+    <string name="accessibility_dpad_right">カーソルを右へ</string>
+    <!-- Screen pinning dialog description (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">固定を解除するまで画面が常に表示されるようになります。固定を解除するには戻るボタンを押し続けます。</string>
+    <!-- Name of the clock status bar icon -->
+    <string name="status_bar_clock">時計</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Label for current user in power menu options dialog -->
-  <string name="global_action_current_user">現在</string>
-  <!-- Label for item that screenshots in power menu options dialog -->
-  <string name="global_action_screenshot">スクリーンショット</string>
-  <!-- Advanced restart menu -->
-  <!-- Button to restart the device, within the Restart Options dialog -->
-  <string name="global_action_restart_system">システム</string>
-  <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-  <string name="global_action_restart_recovery">リカバリー</string>
-  <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-  <string name="global_action_restart_bootloader">ブートローダー</string>
-  <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-  <string name="global_action_restart_download">ダウンロード</string>
-  <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_progress">再起動中\u2026</string>
-  <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_recovery_progress">リカバリーモードで再起動中\u2026</string>
-  <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_bootloader_progress">ブートローダーモードで再起動中\u2026</string>
-  <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_download_progress">ダウンロードモードで再起動中\u2026</string>
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モードです。</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモードです。</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モードです。</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">バッテリー\n節約</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">端末のみ</string>
-  <string name="quick_settings_location_gps_only_label_twoline">GPS のみ</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">高精度</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">高精度</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">位置情報</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">選択モード:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">高精度</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">バッテリー節約</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">端末のみ</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS、Wi-Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Wi-Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">GPS で現在地を特定します</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">ボタンのレイアウトを反転</string>
-  <!-- Reader mode QS tile -->
-  <string name="quick_settings_reading_mode">読書モード</string>
-  <!-- Content description of the reader mode tile when on -->
-  <string name="accessibility_quick_settings_reading_mode_on">読書モードは ON です。</string>
-  <!-- Content description of the reader mode tile when off -->
-  <string name="accessibility_quick_settings_reading_mode_off">読書モードは OFF です。</string>
-  <!-- Content description of the reader mode tile when turned on -->
-  <string name="accessibility_quick_settings_reading_mode_changed_on">読書モードが ON になりました。</string>
-  <!-- Content description of the reader mode tile when turned off -->
-  <string name="accessibility_quick_settings_reading_mode_changed_off">読書モードが OFF になりました。</string>
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">現在</string>
+    <!-- Label for item that screenshots in power menu options dialog -->
+    <string name="global_action_screenshot">スクリーンショット</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">システム</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">リカバリー</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">ブートローダー</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">ダウンロード</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_progress">再起動中\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_recovery_progress">リカバリーモードで再起動中\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_bootloader_progress">ブートローダーモードで再起動中\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_download_progress">ダウンロードモードで再起動中\u2026</string>
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モードです。</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモードです。</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モードです。</string>
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">バッテリー\n節約</string>
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label">端末のみ</string>
+    <string name="quick_settings_location_gps_only_label_twoline">GPS のみ</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label">高精度</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">高精度</string>
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_title">位置情報</string>
+    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_menu_title">選択モード:</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">高精度</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_title">バッテリー節約</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_title">端末のみ</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS、Wi-Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Wi-Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS で現在地を特定します</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">ボタンのレイアウトを反転</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">読書モード</string>
+    <!-- Content description of the reader mode tile when on -->
+    <string name="accessibility_quick_settings_reading_mode_on">読書モードは ON です。</string>
+    <!-- Content description of the reader mode tile when off -->
+    <string name="accessibility_quick_settings_reading_mode_off">読書モードは OFF です。</string>
+    <!-- Content description of the reader mode tile when turned on -->
+    <string name="accessibility_quick_settings_reading_mode_changed_on">読書モードが ON になりました。</string>
+    <!-- Content description of the reader mode tile when turned off -->
+    <string name="accessibility_quick_settings_reading_mode_changed_off">読書モードが OFF になりました。</string>
 </resources>

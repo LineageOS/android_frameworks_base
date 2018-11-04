@@ -20,119 +20,119 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Impedeix que <xliff:g id="task">%1$s</xliff:g> sigui descartat</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Permet que <xliff:g id="task">%1$s</xliff:g> sigui descartat</string>
-  <!-- ADB over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB sobre xarxa</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Pantalla ambient</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambient desactivada.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambient activada.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">S\'ha desactivat la pantalla ambient.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">S\'ha activat la pantalla ambient.</string>
-  <!-- Caffeine QS tile -->
-  <string name="quick_settings_caffeine_label">Cafeïna</string>
-  <string name="accessibility_quick_settings_caffeine_off">Cafeïna desactivada.</string>
-  <string name="accessibility_quick_settings_caffeine_on">Cafeïna activada.</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Notificacions emergents</string>
-  <string name="accessibility_quick_settings_heads_up_off">Notificacions emergents apagades.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Notificacions emergents activades.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">S\'han apagat les notificacions emergents.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">S\'han encès les notificacions emergents.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sinc</string>
-  <string name="accessibility_quick_settings_sync_off">Sinc desactivada.</string>
-  <string name="accessibility_quick_settings_sync_on">Sinc activada.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">S\'ha desactivat la sincronització.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">S\'ha activat la sincronització.</string>
-  <!-- System Profiles QS tile -->
-  <string name="quick_settings_profiles_label">Perfils de sistema</string>
-  <string name="accessibility_quick_settings_profiles_off">Perfils desactivats.</string>
-  <string name="accessibility_quick_settings_profiles">Perfils: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <string name="accessibility_quick_settings_profiles_changed_off">S\'han desactivat els perfils.</string>
-  <string name="accessibility_quick_settings_profiles_changed">Perfil canviat a <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">Ancoratge USB</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_volume_panel_label">Panell de volum</string>
-  <!-- Navigation bar dpad -->
-  <string name="accessibility_dpad_left">Cursor esquerra</string>
-  <string name="accessibility_dpad_right">Cursor dreta</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">Rellotge</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task">Impedeix que <xliff:g id="task">%1$s</xliff:g> sigui descartat</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task">Permet que <xliff:g id="task">%1$s</xliff:g> sigui descartat</string>
+    <!-- ADB over network QS tile -->
+    <string name="quick_settings_network_adb_label">ADB sobre xarxa</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Pantalla ambient</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambient desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambient activada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">S\'ha desactivat la pantalla ambient.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">S\'ha activat la pantalla ambient.</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Cafeïna</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeïna desactivada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeïna activada.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Notificacions emergents</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificacions emergents apagades.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificacions emergents activades.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">S\'han apagat les notificacions emergents.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">S\'han encès les notificacions emergents.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Sinc</string>
+    <string name="accessibility_quick_settings_sync_off">Sinc desactivada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinc activada.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">S\'ha desactivat la sincronització.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">S\'ha activat la sincronització.</string>
+    <!-- System Profiles QS tile -->
+    <string name="quick_settings_profiles_label">Perfils de sistema</string>
+    <string name="accessibility_quick_settings_profiles_off">Perfils desactivats.</string>
+    <string name="accessibility_quick_settings_profiles">Perfils: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">S\'han desactivat els perfils.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Perfil canviat a <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Ancoratge USB</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panell de volum</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor esquerra</string>
+    <string name="accessibility_dpad_right">Cursor dreta</string>
+    <!-- Screen pinning dialog description (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
+    <!-- Name of the clock status bar icon -->
+    <string name="status_bar_clock">Rellotge</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Label for current user in power menu options dialog -->
-  <string name="global_action_current_user">Actual</string>
-  <!-- Label for item that screenshots in power menu options dialog -->
-  <string name="global_action_screenshot">Captura de pantalla</string>
-  <!-- Advanced restart menu -->
-  <!-- Button to restart the device, within the Restart Options dialog -->
-  <string name="global_action_restart_system">Sistema</string>
-  <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-  <string name="global_action_restart_recovery">Recuperació</string>
-  <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-  <string name="global_action_restart_bootloader">Bootloader</string>
-  <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-  <string name="global_action_restart_download">Descàrrega</string>
-  <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_progress">S\'està reiniciant\u2026</string>
-  <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_recovery_progress">S\'està reiniciant al mode de recuperació\u2026</string>
-  <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_bootloader_progress">S\'està reiniciant al mode bootloader\u2026</string>
-  <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_download_progress">S\'està reiniciant al mode de descàrrega\u2026</string>
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Informes d\'ubicació: Mode d\'estalvi de bateria.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Informes d\'ubicació: Mode només sensors.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Informes d\'ubicació: Mode d\'alta precisió.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Estalvi de bateria</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Estalvi\nde bateria</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Només dispositiu</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Només\ndispositiu</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Alta precisió</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisió</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Ubicació</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Selecciona un mode:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisió</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Estalvi de bateria</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Només dispositiu</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilitza el GPS, la Wi\u2011Fi, el Bluetooth, o les xarxes mòbils per determinar la ubicació</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Utilitza la Wi\u2011Fi, el Bluetooth o les xarxes mòbils per determinar la ubicació</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Utilitza el GPS per determinar la ubicació</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Inverteix el disseny dels botons</string>
-  <!-- Reader mode QS tile -->
-  <string name="quick_settings_reading_mode">Mode lectura</string>
-  <!-- Content description of the reader mode tile when on -->
-  <string name="accessibility_quick_settings_reading_mode_on">Mode lectura activat.</string>
-  <!-- Content description of the reader mode tile when off -->
-  <string name="accessibility_quick_settings_reading_mode_off">Mode lectura desactivat.</string>
-  <!-- Content description of the reader mode tile when turned on -->
-  <string name="accessibility_quick_settings_reading_mode_changed_on">S\'ha activat el mode lectura.</string>
-  <!-- Content description of the reader mode tile when turned off -->
-  <string name="accessibility_quick_settings_reading_mode_changed_off">S\'ha desactivat el mode lectura.</string>
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Actual</string>
+    <!-- Label for item that screenshots in power menu options dialog -->
+    <string name="global_action_screenshot">Captura de pantalla</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">Sistema</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Recuperació</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Descàrrega</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_progress">S\'està reiniciant\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_recovery_progress">S\'està reiniciant al mode de recuperació\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_bootloader_progress">S\'està reiniciant al mode bootloader\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_download_progress">S\'està reiniciant al mode de descàrrega\u2026</string>
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">Informes d\'ubicació: Mode d\'estalvi de bateria.</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">Informes d\'ubicació: Mode només sensors.</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">Informes d\'ubicació: Mode d\'alta precisió.</string>
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_battery_saving_label">Estalvi de bateria</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Estalvi\nde bateria</string>
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label">Només dispositiu</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Només\ndispositiu</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label">Alta precisió</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisió</string>
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_title">Ubicació</string>
+    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_menu_title">Selecciona un mode:</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisió</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Estalvi de bateria</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Només dispositiu</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilitza el GPS, la Wi\u2011Fi, el Bluetooth, o les xarxes mòbils per determinar la ubicació</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Utilitza la Wi\u2011Fi, el Bluetooth o les xarxes mòbils per determinar la ubicació</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Utilitza el GPS per determinar la ubicació</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">Inverteix el disseny dels botons</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Mode lectura</string>
+    <!-- Content description of the reader mode tile when on -->
+    <string name="accessibility_quick_settings_reading_mode_on">Mode lectura activat.</string>
+    <!-- Content description of the reader mode tile when off -->
+    <string name="accessibility_quick_settings_reading_mode_off">Mode lectura desactivat.</string>
+    <!-- Content description of the reader mode tile when turned on -->
+    <string name="accessibility_quick_settings_reading_mode_changed_on">S\'ha activat el mode lectura.</string>
+    <!-- Content description of the reader mode tile when turned off -->
+    <string name="accessibility_quick_settings_reading_mode_changed_off">S\'ha desactivat el mode lectura.</string>
 </resources>

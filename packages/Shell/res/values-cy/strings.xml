@@ -15,62 +15,62 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_label">Cragen</string>
-  <!-- Title of notification channel for bug report related notifications. [CHAR LIMIT=50] -->
-  <string name="bugreport_notification_channel">Adroddiadau am wallau</string>
-  <!-- Title of notification indicating a bugreport is being generated. [CHAR LIMIT=50] -->
-  <string name="bugreport_in_progress_title">Mae adroddiad <xliff:g id="id">#%d</xliff:g> yn cael ei greu.</string>
-  <!-- Title of notification indicating a bugreport has been successfully captured. [CHAR LIMIT=50] -->
-  <string name="bugreport_finished_title">Cafodd adroddiad <xliff:g id="id">#%d</xliff:g> ei gymryd.</string>
-  <!-- Title of notification indicating a bugreport is being updated before it can be shared. [CHAR LIMIT=50] -->
-  <string name="bugreport_updating_title">Yn ychwanegu manylion i\'r adroddiad gwall</string>
-  <!-- Content notification indicating a bugreport is being updated before it can be shared, asking the user to wait [CHAR LIMIT=50] -->
-  <string name="bugreport_updating_wait">Arhosa\u2026</string>
-  <!-- Text of notification indicating that bugreport will appear on the phone. [CHAR LIMIT=100] -->
-  <string name="bugreport_finished_text" product="watch">Bydd yr adroddiad am wall yn ymddangos ar y ffôn cyn bo hir.</string>
-  <!-- Text of notification indicating that tapping will share the captured bugreport. [CHAR LIMIT=100] -->
-  <string name="bugreport_finished_text" product="tv">Tara i rannu dy adroddiad am wall</string>
-  <!-- Text of notification indicating that tapping will share the captured bugreport. [CHAR LIMIT=100] -->
-  <string name="bugreport_finished_text" product="default">Tara i rannu dy adroddiad am wall.</string>
-  <!-- Text of notification indicating that swipe left will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
-  <string name="bugreport_finished_pending_screenshot_text" product="tv">Tara i rannu dy adroddiad am wall heb sgrinlun neu aros i gwblhau\'r sgrinlun</string>
-  <!-- Text of notification indicating that swipe left will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
-  <string name="bugreport_finished_pending_screenshot_text" product="watch">Tara i rannu dy adroddiad am wall heb sgrinlun nawr neu arhosa i gwblhau\'r sgrinlun.</string>
-  <!-- Text of notification indicating that tapping will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
-  <string name="bugreport_finished_pending_screenshot_text" product="default">Tara i rannu dy adroddiad am wall heb sgrinlun neu aros i gwblhau\'r sgrinlun.</string>
-  <!-- Body of dialog informing user about contents of a bugreport. [CHAR LIMIT=NONE] -->
-  <string name="bugreport_confirm">Mae adroddiadau am wallau yn cynnwys data o wahanol ffeiliau log y system a gall y rhain cynnwys data rwyt yn ei ystyried yn sensitif, e.e. defnydd apiau a data lleoliad. Rhanna adroddiadau am wallau dim ond gyda phobol ac apiau wyt ti\'n ymddiried ynddyn nhw.</string>
-  <!-- Checkbox that indicates this dialog should not be shown again when the next bugreport is taken. [CHAR LIMIT=50] -->
-  <string name="bugreport_confirm_dont_repeat">Peidio â dangos eto</string>
-  <!-- Title for documents backend that offers bugreports. -->
-  <string name="bugreport_storage_title">Adroddiadau am wallau</string>
-  <!-- Toast message sent when the bugreport file could be read. -->
-  <string name="bugreport_unreadable_text">Methwyd darllen y ffeil adroddiad am wall</string>
-  <!-- Toast message sent when the bugreport details could not be added to the zip file. -->
-  <string name="bugreport_add_details_to_zip_failed">Methwyd ychwanegu manylion adroddiad am wall i\'r ffeil sip.</string>
-  <!-- Title for bug reports received from dumpstate without a name. [CHAR LIMIT=30]-->
-  <string name="bugreport_unnamed">heb enw</string>
-  <!-- Title of the notification action that opens the dialog for the user-defined bug report details. -->
-  <string name="bugreport_info_action">Manylion</string>
-  <!-- Title of the notification action that takes aditional screenshots. -->
-  <string name="bugreport_screenshot_action">Sgrinlun</string>
-  <!-- Toast message sent when the a screenshot for the bug report was taken successfully. -->
-  <string name="bugreport_screenshot_taken">Tynnwyd sgrinlun yn llwyddiannus.</string>
-  <!-- Toast message sent when the a screenshot for the bug report was not taken due to an error. -->
-  <string name="bugreport_screenshot_failed">Methwyd â chipio sgrinlun.</string>
-  <!--  Title of the dialog asking for user-defined bug report details like name, title, and description. -->
-  <string name="bugreport_info_dialog_title">Manylion adroddiad gwall <xliff:g id="id">#%d</xliff:g></string>
-  <!-- Text of the label identifying the bug report name, which when set will define a suffix in the
+    <string name="app_label">Cragen</string>
+    <!-- Title of notification channel for bug report related notifications. [CHAR LIMIT=50] -->
+    <string name="bugreport_notification_channel">Adroddiadau am wallau</string>
+    <!-- Title of notification indicating a bugreport is being generated. [CHAR LIMIT=50] -->
+    <string name="bugreport_in_progress_title">Mae adroddiad <xliff:g id="id">#%d</xliff:g> yn cael ei greu.</string>
+    <!-- Title of notification indicating a bugreport has been successfully captured. [CHAR LIMIT=50] -->
+    <string name="bugreport_finished_title">Cafodd adroddiad <xliff:g id="id">#%d</xliff:g> ei gymryd.</string>
+    <!-- Title of notification indicating a bugreport is being updated before it can be shared. [CHAR LIMIT=50] -->
+    <string name="bugreport_updating_title">Yn ychwanegu manylion i\'r adroddiad gwall</string>
+    <!-- Content notification indicating a bugreport is being updated before it can be shared, asking the user to wait [CHAR LIMIT=50] -->
+    <string name="bugreport_updating_wait">Arhosa\u2026</string>
+    <!-- Text of notification indicating that bugreport will appear on the phone. [CHAR LIMIT=100] -->
+    <string name="bugreport_finished_text" product="watch">Bydd yr adroddiad am wall yn ymddangos ar y ffôn cyn bo hir.</string>
+    <!-- Text of notification indicating that tapping will share the captured bugreport. [CHAR LIMIT=100] -->
+    <string name="bugreport_finished_text" product="tv">Tara i rannu dy adroddiad am wall</string>
+    <!-- Text of notification indicating that tapping will share the captured bugreport. [CHAR LIMIT=100] -->
+    <string name="bugreport_finished_text" product="default">Tara i rannu dy adroddiad am wall.</string>
+    <!-- Text of notification indicating that swipe left will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
+    <string name="bugreport_finished_pending_screenshot_text" product="tv">Tara i rannu dy adroddiad am wall heb sgrinlun neu aros i gwblhau\'r sgrinlun</string>
+    <!-- Text of notification indicating that swipe left will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
+    <string name="bugreport_finished_pending_screenshot_text" product="watch">Tara i rannu dy adroddiad am wall heb sgrinlun nawr neu arhosa i gwblhau\'r sgrinlun.</string>
+    <!-- Text of notification indicating that tapping will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
+    <string name="bugreport_finished_pending_screenshot_text" product="default">Tara i rannu dy adroddiad am wall heb sgrinlun neu aros i gwblhau\'r sgrinlun.</string>
+    <!-- Body of dialog informing user about contents of a bugreport. [CHAR LIMIT=NONE] -->
+    <string name="bugreport_confirm">Mae adroddiadau am wallau yn cynnwys data o wahanol ffeiliau log y system a gall y rhain cynnwys data rwyt yn ei ystyried yn sensitif, e.e. defnydd apiau a data lleoliad. Rhanna adroddiadau am wallau dim ond gyda phobol ac apiau wyt ti\'n ymddiried ynddyn nhw.</string>
+    <!-- Checkbox that indicates this dialog should not be shown again when the next bugreport is taken. [CHAR LIMIT=50] -->
+    <string name="bugreport_confirm_dont_repeat">Peidio â dangos eto</string>
+    <!-- Title for documents backend that offers bugreports. -->
+    <string name="bugreport_storage_title">Adroddiadau am wallau</string>
+    <!-- Toast message sent when the bugreport file could be read. -->
+    <string name="bugreport_unreadable_text">Methwyd darllen y ffeil adroddiad am wall</string>
+    <!-- Toast message sent when the bugreport details could not be added to the zip file. -->
+    <string name="bugreport_add_details_to_zip_failed">Methwyd ychwanegu manylion adroddiad am wall i\'r ffeil sip.</string>
+    <!-- Title for bug reports received from dumpstate without a name. [CHAR LIMIT=30]-->
+    <string name="bugreport_unnamed">heb enw</string>
+    <!-- Title of the notification action that opens the dialog for the user-defined bug report details. -->
+    <string name="bugreport_info_action">Manylion</string>
+    <!-- Title of the notification action that takes aditional screenshots. -->
+    <string name="bugreport_screenshot_action">Sgrinlun</string>
+    <!-- Toast message sent when the a screenshot for the bug report was taken successfully. -->
+    <string name="bugreport_screenshot_taken">Tynnwyd sgrinlun yn llwyddiannus.</string>
+    <!-- Toast message sent when the a screenshot for the bug report was not taken due to an error. -->
+    <string name="bugreport_screenshot_failed">Methwyd â chipio sgrinlun.</string>
+    <!--  Title of the dialog asking for user-defined bug report details like name, title, and description. -->
+    <string name="bugreport_info_dialog_title">Manylion adroddiad gwall <xliff:g id="id">#%d</xliff:g></string>
+    <!-- Text of the label identifying the bug report name, which when set will define a suffix in the
          bug report file names. [CHAR LIMIT=30] -->
-  <string name="bugreport_info_name">Enw ffeil</string>
-  <!-- Text of the label identifying the bug report title, which when set will define the
+    <string name="bugreport_info_name">Enw ffeil</string>
+    <!-- Text of the label identifying the bug report title, which when set will define the
          Subject of the email message. [CHAR LIMIT=60] -->
-  <string name="bugreport_info_title">Teitl y gwall</string>
-  <!-- Text of the label identifying the bug report description, which when set will describe
+    <string name="bugreport_info_title">Teitl y gwall</string>
+    <!-- Text of the label identifying the bug report description, which when set will describe
          what the bug report is about. [CHAR LIMIT=NONE] -->
-  <string name="bugreport_info_description">Crynodeb o\'r gwall</string>
-  <!-- Label of button that save bugreport details.  -->
-  <string name="save">Cadw</string>
-  <!-- Title displayed in the activity chooser used to share the bug report [CHAR LIMIT=35]-->
-  <string name="bugreport_intent_chooser_title">Rhannu adroddiad am wall</string>
+    <string name="bugreport_info_description">Crynodeb o\'r gwall</string>
+    <!-- Label of button that save bugreport details.  -->
+    <string name="save">Cadw</string>
+    <!-- Title displayed in the activity chooser used to share the bug report [CHAR LIMIT=35]-->
+    <string name="bugreport_intent_chooser_title">Rhannu adroddiad am wall</string>
 </resources>

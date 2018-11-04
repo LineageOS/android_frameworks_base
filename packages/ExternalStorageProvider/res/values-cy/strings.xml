@@ -15,12 +15,12 @@
      limitations under the License.
 -->
 <resources>
-  <!-- Title of the external storage application [CHAR LIMIT=32] -->
-  <string name="app_label">Storfa Allanol</string>
-  <!-- Meaningful storage location description shown to client applications [CHAR LIMIT=32] -->
-  <string name="storage_description">Storfa leol</string>
-  <!-- Title for documents backend that offers internal storage. [CHAR LIMIT=24] -->
-  <string name="root_internal_storage">Storfa Mewnol</string>
-  <!-- Title for directory in which a user may store their own documents and files. [CHAR LIMIT=24] -->
-  <string name="root_documents">Dogfennau</string>
+    <!-- Title of the external storage application [CHAR LIMIT=32] -->
+    <string name="app_label">Storfa Allanol</string>
+    <!-- Meaningful storage location description shown to client applications [CHAR LIMIT=32] -->
+    <string name="storage_description">Storfa leol</string>
+    <!-- Title for documents backend that offers internal storage. [CHAR LIMIT=24] -->
+    <string name="root_internal_storage">Storfa Mewnol</string>
+    <!-- Title for directory in which a user may store their own documents and files. [CHAR LIMIT=24] -->
+    <string name="root_documents">Dogfennau</string>
 </resources>

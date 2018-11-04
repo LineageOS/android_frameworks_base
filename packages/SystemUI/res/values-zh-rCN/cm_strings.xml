@@ -20,119 +20,119 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">阻止 <xliff:g id="task">%1$s</xliff:g> 可被解除</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">允许 <xliff:g id="task">%1$s</xliff:g> 可被解除</string>
-  <!-- ADB over network QS tile -->
-  <string name="quick_settings_network_adb_label">网络 ADB 调试</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">环境显示</string>
-  <string name="accessibility_quick_settings_ambient_display_off">关闭环境显示。</string>
-  <string name="accessibility_quick_settings_ambient_display_on">开启环境显示。</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">环境显示已关闭。</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">环境显示已开启。</string>
-  <!-- Caffeine QS tile -->
-  <string name="quick_settings_caffeine_label">保持亮屏</string>
-  <string name="accessibility_quick_settings_caffeine_off">保持亮屏关闭。</string>
-  <string name="accessibility_quick_settings_caffeine_on">保持亮屏开启。</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">浮动通知</string>
-  <string name="accessibility_quick_settings_heads_up_off">浮动通知关。</string>
-  <string name="accessibility_quick_settings_heads_up_on">浮动通知开。</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭。</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启。</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">同步</string>
-  <string name="accessibility_quick_settings_sync_off">同步关闭。</string>
-  <string name="accessibility_quick_settings_sync_on">同步开启。</string>
-  <string name="accessibility_quick_settings_sync_changed_off">同步已关闭。</string>
-  <string name="accessibility_quick_settings_sync_changed_on">同步已开启。</string>
-  <!-- System Profiles QS tile -->
-  <string name="quick_settings_profiles_label">情景模式</string>
-  <string name="accessibility_quick_settings_profiles_off">情景模式关闭。</string>
-  <string name="accessibility_quick_settings_profiles">情景模式：<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
-  <string name="accessibility_quick_settings_profiles_changed_off">情景模式已关闭。</string>
-  <string name="accessibility_quick_settings_profiles_changed">情景模式已更改为<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USB 共享网络</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_volume_panel_label">音量面板</string>
-  <!-- Navigation bar dpad -->
-  <string name="accessibility_dpad_left">光标左移</string>
-  <string name="accessibility_dpad_right">光标右移</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">时钟</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task">阻止 <xliff:g id="task">%1$s</xliff:g> 可被解除</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task">允许 <xliff:g id="task">%1$s</xliff:g> 可被解除</string>
+    <!-- ADB over network QS tile -->
+    <string name="quick_settings_network_adb_label">网络 ADB 调试</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">环境显示</string>
+    <string name="accessibility_quick_settings_ambient_display_off">关闭环境显示。</string>
+    <string name="accessibility_quick_settings_ambient_display_on">开启环境显示。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">环境显示已关闭。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">环境显示已开启。</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">保持亮屏</string>
+    <string name="accessibility_quick_settings_caffeine_off">保持亮屏关闭。</string>
+    <string name="accessibility_quick_settings_caffeine_on">保持亮屏开启。</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">浮动通知</string>
+    <string name="accessibility_quick_settings_heads_up_off">浮动通知关。</string>
+    <string name="accessibility_quick_settings_heads_up_on">浮动通知开。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启。</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">同步</string>
+    <string name="accessibility_quick_settings_sync_off">同步关闭。</string>
+    <string name="accessibility_quick_settings_sync_on">同步开启。</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同步已关闭。</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同步已开启。</string>
+    <!-- System Profiles QS tile -->
+    <string name="quick_settings_profiles_label">情景模式</string>
+    <string name="accessibility_quick_settings_profiles_off">情景模式关闭。</string>
+    <string name="accessibility_quick_settings_profiles">情景模式：<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">情景模式已关闭。</string>
+    <string name="accessibility_quick_settings_profiles_changed">情景模式已更改为<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB 共享网络</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">音量面板</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">光标左移</string>
+    <string name="accessibility_dpad_right">光标右移</string>
+    <!-- Screen pinning dialog description (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。</string>
+    <!-- Name of the clock status bar icon -->
+    <string name="status_bar_clock">时钟</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Label for current user in power menu options dialog -->
-  <string name="global_action_current_user">当前</string>
-  <!-- Label for item that screenshots in power menu options dialog -->
-  <string name="global_action_screenshot">屏幕截图</string>
-  <!-- Advanced restart menu -->
-  <!-- Button to restart the device, within the Restart Options dialog -->
-  <string name="global_action_restart_system">系统</string>
-  <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-  <string name="global_action_restart_recovery">恢复模式</string>
-  <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-  <string name="global_action_restart_bootloader">引导程序</string>
-  <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-  <string name="global_action_restart_download">下载</string>
-  <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_progress">正在重启\u2026</string>
-  <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_recovery_progress">重新启动到恢复模式\u2026</string>
-  <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_bootloader_progress">重新启动到引导模式\u2026</string>
-  <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <string name="global_action_restart_download_progress">重新启动到下载模式\u2026</string>
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">位置报告：节电模式。</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">位置报告：仅传感器模式。</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高准确度模式。</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">耗电量低</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">节省\n电量</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">仅限设备</string>
-  <string name="quick_settings_location_gps_only_label_twoline">仅限\n设备</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">准确度高</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">高\n精确度</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">位置</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">选择模式：</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">准确度高</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">耗电量低</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">仅限设备</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">使用 GPS、Wi\u2011Fi、蓝牙或移动网络确定位置</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">使用 Wi\u2011Fi、蓝牙或移动网络确定位置</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">使用 GPS 确定位置</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">反转按钮布局</string>
-  <!-- Reader mode QS tile -->
-  <string name="quick_settings_reading_mode">阅读模式</string>
-  <!-- Content description of the reader mode tile when on -->
-  <string name="accessibility_quick_settings_reading_mode_on">开启阅读模式。</string>
-  <!-- Content description of the reader mode tile when off -->
-  <string name="accessibility_quick_settings_reading_mode_off">关闭阅读模式。</string>
-  <!-- Content description of the reader mode tile when turned on -->
-  <string name="accessibility_quick_settings_reading_mode_changed_on">阅读模式已开启。</string>
-  <!-- Content description of the reader mode tile when turned off -->
-  <string name="accessibility_quick_settings_reading_mode_changed_off">阅读模式已关闭。</string>
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">当前</string>
+    <!-- Label for item that screenshots in power menu options dialog -->
+    <string name="global_action_screenshot">屏幕截图</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">系统</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">恢复模式</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">引导程序</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">下载</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_progress">正在重启\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_recovery_progress">重新启动到恢复模式\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_bootloader_progress">重新启动到引导模式\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_download_progress">重新启动到下载模式\u2026</string>
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">位置报告：节电模式。</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">位置报告：仅传感器模式。</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高准确度模式。</string>
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_battery_saving_label">耗电量低</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">节省\n电量</string>
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label">仅限设备</string>
+    <string name="quick_settings_location_gps_only_label_twoline">仅限\n设备</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label">准确度高</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">高\n精确度</string>
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_title">位置</string>
+    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_menu_title">选择模式：</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">准确度高</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_title">耗电量低</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_title">仅限设备</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">使用 GPS、Wi\u2011Fi、蓝牙或移动网络确定位置</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_description">使用 Wi\u2011Fi、蓝牙或移动网络确定位置</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_description">使用 GPS 确定位置</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">反转按钮布局</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">阅读模式</string>
+    <!-- Content description of the reader mode tile when on -->
+    <string name="accessibility_quick_settings_reading_mode_on">开启阅读模式。</string>
+    <!-- Content description of the reader mode tile when off -->
+    <string name="accessibility_quick_settings_reading_mode_off">关闭阅读模式。</string>
+    <!-- Content description of the reader mode tile when turned on -->
+    <string name="accessibility_quick_settings_reading_mode_changed_on">阅读模式已开启。</string>
+    <!-- Content description of the reader mode tile when turned off -->
+    <string name="accessibility_quick_settings_reading_mode_changed_off">阅读模式已关闭。</string>
 </resources>

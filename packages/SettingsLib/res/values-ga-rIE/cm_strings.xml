@@ -19,6 +19,6 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-  <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
+    <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
+    <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
 </resources>

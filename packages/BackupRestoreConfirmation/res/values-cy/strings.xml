@@ -15,44 +15,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Title of the activity when a full backup has been requested and must be confirmed -->
-  <string name="backup_confirm_title">Copi wrth gefn o bopeth</string>
-  <!-- Title of the activity when a full restore has been requested and must be confirmed -->
-  <string name="restore_confirm_title">Adfer popeth</string>
-  <!-- Text for message to user that a full backup has been requested, and must be confirmed. -->
-  <string name="backup_confirm_text">Mae cais wedi ei wneud am gadw copi wrth gefn o\'r holl ddata ar gyfrifiadur sydd wedi\'i gysylltu. Wyt ti am ganiatáu hyn?\n\nOs nad wyt ti wedi gofyn am gadw copi wrth gefn dy hun, paid â chaniatáu i\'r weithred parhau.</string>
-  <!-- Button to allow a requested full backup to occur -->
-  <string name="allow_backup_button_label">Creu copi wrth gefn o fy nata</string>
-  <!-- Button to refuse to allow the requested full backup -->
-  <string name="deny_backup_button_label">Peidio â chreu copi wrth gefn</string>
-  <!-- Text for message to user that a full restore has been requested, and must be confirmed. -->
-  <string name="restore_confirm_text">Mae cais wedi ei wneud am adfer yr holl ddata o gyfrifiadur sydd wedi\'i gysylltu. Wyt ti am ganiatáu hyn?\n\nOs nad wyt ti wedi gofyn am adfer y data dy hun, paid â chaniatáu i\'r weithred parhau. Bydd parhau yn golygu bod y data o\'r cyfrifiadur yn cymryd lle\'r data sydd ar y ddyfais!</string>
-  <!-- Button to allow a requested full restore to occur -->
-  <string name="allow_restore_button_label">Adfer fy nata</string>
-  <!-- Button to refuse to allow the requested full restore -->
-  <string name="deny_restore_button_label">Peidio ag adfer</string>
-  <!-- Text for message to user that they must enter their predefined backup password in order to perform this operation. -->
-  <string name="current_password_text">Rho dy gyfrinair cadw copi wrth gefn yma:</string>
-  <!-- Text for message to user that they must enter their device encryption password in order to perform this restore operation. -->
-  <string name="device_encryption_restore_text">Rho gyfrinair amgryptiad dy ddyfais yma.</string>
-  <!-- Text for message to user that they must enter their device encryption password in order to perform this backup operation. -->
-  <string name="device_encryption_backup_text">Rho gyfrinair amgryptiad dy ddyfais yma. Bydd hyn hefyd yn cael ei ddefnyddio i amgryptio\'r copi archif wrth gefn.</string>
-  <!-- Text for message to user that they must enter an encryption password to use for the full backup operation. -->
-  <string name="backup_enc_password_text">Rho gyfrinair i\'w ddefnyddio ar gyfer amgryptio\'r data wrth gefn. Os yw hyn yn cael ei adael yn wag, caiff dy gyfrinair cyfredol ei ddefnyddio:</string>
-  <!-- Text for message to user that they may optionally supply an encryption password to use for a full backup operation. -->
-  <string name="backup_enc_password_optional">Os wyt eisiau amgryptio holl ddata\'r copi wrth gefn, rho gyfrinair isod:</string>
-  <!-- Text for message to user that they must supply an encryption password to use for a full backup operation because their phone is locked. -->
-  <string name="backup_enc_password_required">Gan fod dy ddyfais wedi ei amgryptio, mae\'n rhaid felly hefyd amgryptio dy gopi wrth gefn. Rho gyfrinair isod:</string>
-  <!-- Text for message to user when performing a full restore operation, explaining that they must enter the password originally used to encrypt the full backup data. -->
-  <string name="restore_enc_password_text">Os yw\'r data i\'w adfer wedi ei amgryptio, rho\'r cyfrinair isod:</string>
-  <!-- Text of a toast telling the user that a full backup operation has begun -->
-  <string name="toast_backup_started">Yn dechrau cadw copi wrth gefn...</string>
-  <!-- Text of a toast telling the user that a full backup operation has ended -->
-  <string name="toast_backup_ended">Wedi cwblhau cadw copi wrth gefn</string>
-  <!-- Text of a toast telling the user that a full restore operation has begun -->
-  <string name="toast_restore_started">Yn dechrau adfer data...</string>
-  <!-- Text of a toast telling the user that a full restore operation has ended -->
-  <string name="toast_restore_ended">Wedi cwblhau adfer data</string>
-  <!-- Text of a toast telling the user that the operation has timed out -->
-  <string name="toast_timeout">Daeth amser y weithred i ben</string>
+    <!-- Title of the activity when a full backup has been requested and must be confirmed -->
+    <string name="backup_confirm_title">Copi wrth gefn o bopeth</string>
+    <!-- Title of the activity when a full restore has been requested and must be confirmed -->
+    <string name="restore_confirm_title">Adfer popeth</string>
+    <!-- Text for message to user that a full backup has been requested, and must be confirmed. -->
+    <string name="backup_confirm_text">Mae cais wedi ei wneud am gadw copi wrth gefn o\'r holl ddata ar gyfrifiadur sydd wedi\'i gysylltu. Wyt ti am ganiatáu hyn?\n\nOs nad wyt ti wedi gofyn am gadw copi wrth gefn dy hun, paid â chaniatáu i\'r weithred parhau.</string>
+    <!-- Button to allow a requested full backup to occur -->
+    <string name="allow_backup_button_label">Creu copi wrth gefn o fy nata</string>
+    <!-- Button to refuse to allow the requested full backup -->
+    <string name="deny_backup_button_label">Peidio â chreu copi wrth gefn</string>
+    <!-- Text for message to user that a full restore has been requested, and must be confirmed. -->
+    <string name="restore_confirm_text">Mae cais wedi ei wneud am adfer yr holl ddata o gyfrifiadur sydd wedi\'i gysylltu. Wyt ti am ganiatáu hyn?\n\nOs nad wyt ti wedi gofyn am adfer y data dy hun, paid â chaniatáu i\'r weithred parhau. Bydd parhau yn golygu bod y data o\'r cyfrifiadur yn cymryd lle\'r data sydd ar y ddyfais!</string>
+    <!-- Button to allow a requested full restore to occur -->
+    <string name="allow_restore_button_label">Adfer fy nata</string>
+    <!-- Button to refuse to allow the requested full restore -->
+    <string name="deny_restore_button_label">Peidio ag adfer</string>
+    <!-- Text for message to user that they must enter their predefined backup password in order to perform this operation. -->
+    <string name="current_password_text">Rho dy gyfrinair cadw copi wrth gefn yma:</string>
+    <!-- Text for message to user that they must enter their device encryption password in order to perform this restore operation. -->
+    <string name="device_encryption_restore_text">Rho gyfrinair amgryptiad dy ddyfais yma.</string>
+    <!-- Text for message to user that they must enter their device encryption password in order to perform this backup operation. -->
+    <string name="device_encryption_backup_text">Rho gyfrinair amgryptiad dy ddyfais yma. Bydd hyn hefyd yn cael ei ddefnyddio i amgryptio\'r copi archif wrth gefn.</string>
+    <!-- Text for message to user that they must enter an encryption password to use for the full backup operation. -->
+    <string name="backup_enc_password_text">Rho gyfrinair i\'w ddefnyddio ar gyfer amgryptio\'r data wrth gefn. Os yw hyn yn cael ei adael yn wag, caiff dy gyfrinair cyfredol ei ddefnyddio:</string>
+    <!-- Text for message to user that they may optionally supply an encryption password to use for a full backup operation. -->
+    <string name="backup_enc_password_optional">Os wyt eisiau amgryptio holl ddata\'r copi wrth gefn, rho gyfrinair isod:</string>
+    <!-- Text for message to user that they must supply an encryption password to use for a full backup operation because their phone is locked. -->
+    <string name="backup_enc_password_required">Gan fod dy ddyfais wedi ei amgryptio, mae\'n rhaid felly hefyd amgryptio dy gopi wrth gefn. Rho gyfrinair isod:</string>
+    <!-- Text for message to user when performing a full restore operation, explaining that they must enter the password originally used to encrypt the full backup data. -->
+    <string name="restore_enc_password_text">Os yw\'r data i\'w adfer wedi ei amgryptio, rho\'r cyfrinair isod:</string>
+    <!-- Text of a toast telling the user that a full backup operation has begun -->
+    <string name="toast_backup_started">Yn dechrau cadw copi wrth gefn...</string>
+    <!-- Text of a toast telling the user that a full backup operation has ended -->
+    <string name="toast_backup_ended">Wedi cwblhau cadw copi wrth gefn</string>
+    <!-- Text of a toast telling the user that a full restore operation has begun -->
+    <string name="toast_restore_started">Yn dechrau adfer data...</string>
+    <!-- Text of a toast telling the user that a full restore operation has ended -->
+    <string name="toast_restore_ended">Wedi cwblhau adfer data</string>
+    <!-- Text of a toast telling the user that the operation has timed out -->
+    <string name="toast_timeout">Daeth amser y weithred i ben</string>
 </resources>

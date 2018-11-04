@@ -18,97 +18,97 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">网络 ADB 调试已启用</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">USB 和网络 ADB 调试已启用</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">触摸以禁用调试。</string>
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="lineage_system_error_manufacturer">检测到供应商映像不匹配。这通常意味着您的供应商映像是过时的。请确保您的供应商映像匹配 <xliff:g id="fingerprint">%1$s</xliff:g>。</string>
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">要取消固定此屏幕，触摸并按住返回键。</string>
-  <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">启用或禁用隐私防护</string>
-  <string name="permdesc_changePrivacyGuardState">允许应用更改其他应用是否启用隐私防护。当一个应用以启用隐私防护运行时，它将不能访问如联系人、通话记录、短信等个人数据。</string>
-  <string name="privacy_guard_notification">隐私防护激活</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> 将不能访问个人数据</string>
-  <string name="privacy_guard_dialog_title">隐私防护</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> 希望 <xliff:g id="op">%2$s</xliff:g>。</string>
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">记住我的选择</string>
-  <!-- App ops requests -->
-  <string name="app_ops_access_camera">存取相机</string>
-  <string name="app_ops_access_location">访问您的位置信息</string>
-  <string name="app_ops_access_notifications">读取通知</string>
-  <string name="app_ops_activate_vpn">激活一个 VPN</string>
-  <string name="app_ops_add_voicemail">添加语音邮件</string>
-  <string name="app_ops_app_start_foreground">在前台启动瞬时应用</string>
-  <string name="app_ops_assist_screenshot">屏幕截图</string>
-  <string name="app_ops_assist_structure">使用协助结构</string>
-  <string name="app_ops_audio_accessibility_volume">音频辅助功能音量</string>
-  <string name="app_ops_auto_start">开机自启动</string>
-  <string name="app_ops_change_wallpaper">更改壁纸</string>
-  <string name="app_ops_delete_call_log">删除您的所有通话记录</string>
-  <string name="app_ops_delete_contacts">删除您的联系人</string>
-  <string name="app_ops_delete_mms">删除您的彩信</string>
-  <string name="app_ops_delete_sms">删除您的短信</string>
-  <string name="app_ops_draw_on_top">在顶部绘制窗口</string>
-  <string name="app_ops_get_accounts">获取设备帐户</string>
-  <string name="app_ops_get_usage_stats">获取应用使用情况统计</string>
-  <string name="app_ops_install_packages">安装软件包</string>
-  <string name="app_ops_keep_device_awake">保持设备唤醒</string>
-  <string name="app_ops_make_phone_call">拨打电话</string>
-  <string name="app_ops_mock_location">模拟位置</string>
-  <string name="app_ops_modify_calendar">更新您的日历</string>
-  <string name="app_ops_modify_call_log">更新通话记录</string>
-  <string name="app_ops_modify_clipboard">修改剪贴板</string>
-  <string name="app_ops_modify_contacts">更新您的联系人</string>
-  <string name="app_ops_modify_settings">更新系统设置</string>
-  <string name="app_ops_mute_unmute_microphone">麦克风静音 / 解除静音</string>
-  <string name="app_ops_phone_calls">应答电话呼叫</string>
-  <string name="app_ops_picture_in_picture">使用画中画</string>
-  <string name="app_ops_play_audio">播放音频</string>
-  <string name="app_ops_post_notification">发出通知</string>
-  <string name="app_ops_project_media">放映媒体</string>
-  <string name="app_ops_read_calendar">读取您的日历</string>
-  <string name="app_ops_read_call_log">读取您的通话记录</string>
-  <string name="app_ops_read_cell_broadcasts">读取蜂窝广播</string>
-  <string name="app_ops_read_clipboard">读取您的剪贴板</string>
-  <string name="app_ops_read_contacts">读取您的联系人</string>
-  <string name="app_ops_read_external_storage">读取外部存储</string>
-  <string name="app_ops_read_mms">读取您的彩信</string>
-  <string name="app_ops_read_phone_numbers">读取电话号码</string>
-  <string name="app_ops_read_phone_state">访问电话状态</string>
-  <string name="app_ops_read_sms">读取您的短信</string>
-  <string name="app_ops_receive_sms">接收短信</string>
-  <string name="app_ops_record_audio">录音</string>
-  <string name="app_ops_run_in_background">在后台运行</string>
-  <string name="app_ops_scan_wifi">扫描 Wi-Fi 网络</string>
-  <string name="app_ops_send_mms">发送彩信</string>
-  <string name="app_ops_send_sms">发送短信</string>
-  <string name="app_ops_start_at_bootup">开机自启动</string>
-  <string name="app_ops_su">获取 Root 权限</string>
-  <string name="app_ops_toast_window">显示提示信息</string>
-  <string name="app_ops_toggle_bluetooth">开启蓝牙</string>
-  <string name="app_ops_toggle_mobile_data">切换移动数据</string>
-  <string name="app_ops_toggle_nfc">切换 NFC</string>
-  <string name="app_ops_toggle_wifi">开关 Wi-Fi</string>
-  <string name="app_ops_turn_on_screen">打开屏幕</string>
-  <string name="app_ops_use_alarm_volume">控制闹铃音量</string>
-  <string name="app_ops_use_audio_focus">控制音频焦点</string>
-  <string name="app_ops_use_bluetooth_volume">控制蓝牙音量</string>
-  <string name="app_ops_use_body_sensors">使用身体传感器</string>
-  <string name="app_ops_use_fingerprint">使用指纹</string>
-  <string name="app_ops_use_master_volume">控制主音量</string>
-  <string name="app_ops_use_media_buttons">使用媒体按钮</string>
-  <string name="app_ops_use_media_volume">控制媒体音量</string>
-  <string name="app_ops_use_notification_volume">控制通知音量</string>
-  <string name="app_ops_use_ring_volume">控制铃声音量</string>
-  <string name="app_ops_use_vibrate">使用触觉反馈</string>
-  <string name="app_ops_use_voice_volume">控制语音通话音量</string>
-  <string name="app_ops_wifi_change">更改 Wi-Fi 状态</string>
-  <string name="app_ops_write_external_storage">写入外部存储</string>
-  <string name="app_ops_write_mms">编写彩信</string>
-  <string name="app_ops_write_sms">编写短信</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">网络 ADB 调试已启用</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">USB 和网络 ADB 调试已启用</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">触摸以禁用调试。</string>
+    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+    <string name="lineage_system_error_manufacturer">检测到供应商映像不匹配。这通常意味着您的供应商映像是过时的。请确保您的供应商映像匹配 <xliff:g id="fingerprint">%1$s</xliff:g>。</string>
+    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+    <string name="lock_to_app_toast_no_navbar">要取消固定此屏幕，触摸并按住返回键。</string>
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">启用或禁用隐私防护</string>
+    <string name="permdesc_changePrivacyGuardState">允许应用更改其他应用是否启用隐私防护。当一个应用以启用隐私防护运行时，它将不能访问如联系人、通话记录、短信等个人数据。</string>
+    <string name="privacy_guard_notification">隐私防护激活</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> 将不能访问个人数据</string>
+    <string name="privacy_guard_dialog_title">隐私防护</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> 希望 <xliff:g id="op">%2$s</xliff:g>。</string>
+    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+    <string name="permission_remember_choice">记住我的选择</string>
+    <!-- App ops requests -->
+    <string name="app_ops_access_camera">存取相机</string>
+    <string name="app_ops_access_location">访问您的位置信息</string>
+    <string name="app_ops_access_notifications">读取通知</string>
+    <string name="app_ops_activate_vpn">激活一个 VPN</string>
+    <string name="app_ops_add_voicemail">添加语音邮件</string>
+    <string name="app_ops_app_start_foreground">在前台启动瞬时应用</string>
+    <string name="app_ops_assist_screenshot">屏幕截图</string>
+    <string name="app_ops_assist_structure">使用协助结构</string>
+    <string name="app_ops_audio_accessibility_volume">音频辅助功能音量</string>
+    <string name="app_ops_auto_start">开机自启动</string>
+    <string name="app_ops_change_wallpaper">更改壁纸</string>
+    <string name="app_ops_delete_call_log">删除您的所有通话记录</string>
+    <string name="app_ops_delete_contacts">删除您的联系人</string>
+    <string name="app_ops_delete_mms">删除您的彩信</string>
+    <string name="app_ops_delete_sms">删除您的短信</string>
+    <string name="app_ops_draw_on_top">在顶部绘制窗口</string>
+    <string name="app_ops_get_accounts">获取设备帐户</string>
+    <string name="app_ops_get_usage_stats">获取应用使用情况统计</string>
+    <string name="app_ops_install_packages">安装软件包</string>
+    <string name="app_ops_keep_device_awake">保持设备唤醒</string>
+    <string name="app_ops_make_phone_call">拨打电话</string>
+    <string name="app_ops_mock_location">模拟位置</string>
+    <string name="app_ops_modify_calendar">更新您的日历</string>
+    <string name="app_ops_modify_call_log">更新通话记录</string>
+    <string name="app_ops_modify_clipboard">修改剪贴板</string>
+    <string name="app_ops_modify_contacts">更新您的联系人</string>
+    <string name="app_ops_modify_settings">更新系统设置</string>
+    <string name="app_ops_mute_unmute_microphone">麦克风静音 / 解除静音</string>
+    <string name="app_ops_phone_calls">应答电话呼叫</string>
+    <string name="app_ops_picture_in_picture">使用画中画</string>
+    <string name="app_ops_play_audio">播放音频</string>
+    <string name="app_ops_post_notification">发出通知</string>
+    <string name="app_ops_project_media">放映媒体</string>
+    <string name="app_ops_read_calendar">读取您的日历</string>
+    <string name="app_ops_read_call_log">读取您的通话记录</string>
+    <string name="app_ops_read_cell_broadcasts">读取蜂窝广播</string>
+    <string name="app_ops_read_clipboard">读取您的剪贴板</string>
+    <string name="app_ops_read_contacts">读取您的联系人</string>
+    <string name="app_ops_read_external_storage">读取外部存储</string>
+    <string name="app_ops_read_mms">读取您的彩信</string>
+    <string name="app_ops_read_phone_numbers">读取电话号码</string>
+    <string name="app_ops_read_phone_state">访问电话状态</string>
+    <string name="app_ops_read_sms">读取您的短信</string>
+    <string name="app_ops_receive_sms">接收短信</string>
+    <string name="app_ops_record_audio">录音</string>
+    <string name="app_ops_run_in_background">在后台运行</string>
+    <string name="app_ops_scan_wifi">扫描 Wi-Fi 网络</string>
+    <string name="app_ops_send_mms">发送彩信</string>
+    <string name="app_ops_send_sms">发送短信</string>
+    <string name="app_ops_start_at_bootup">开机自启动</string>
+    <string name="app_ops_su">获取 Root 权限</string>
+    <string name="app_ops_toast_window">显示提示信息</string>
+    <string name="app_ops_toggle_bluetooth">开启蓝牙</string>
+    <string name="app_ops_toggle_mobile_data">切换移动数据</string>
+    <string name="app_ops_toggle_nfc">切换 NFC</string>
+    <string name="app_ops_toggle_wifi">开关 Wi-Fi</string>
+    <string name="app_ops_turn_on_screen">打开屏幕</string>
+    <string name="app_ops_use_alarm_volume">控制闹铃音量</string>
+    <string name="app_ops_use_audio_focus">控制音频焦点</string>
+    <string name="app_ops_use_bluetooth_volume">控制蓝牙音量</string>
+    <string name="app_ops_use_body_sensors">使用身体传感器</string>
+    <string name="app_ops_use_fingerprint">使用指纹</string>
+    <string name="app_ops_use_master_volume">控制主音量</string>
+    <string name="app_ops_use_media_buttons">使用媒体按钮</string>
+    <string name="app_ops_use_media_volume">控制媒体音量</string>
+    <string name="app_ops_use_notification_volume">控制通知音量</string>
+    <string name="app_ops_use_ring_volume">控制铃声音量</string>
+    <string name="app_ops_use_vibrate">使用触觉反馈</string>
+    <string name="app_ops_use_voice_volume">控制语音通话音量</string>
+    <string name="app_ops_wifi_change">更改 Wi-Fi 状态</string>
+    <string name="app_ops_write_external_storage">写入外部存储</string>
+    <string name="app_ops_write_mms">编写彩信</string>
+    <string name="app_ops_write_sms">编写短信</string>
 </resources>

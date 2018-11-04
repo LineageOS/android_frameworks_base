@@ -15,8 +15,8 @@
      limitations under the License.
 -->
 <resources>
-  <!-- Title of the external storage application [CHAR LIMIT=32] -->
-  <!-- Meaningful storage location description shown to client applications [CHAR LIMIT=32] -->
-  <!-- Title for documents backend that offers internal storage. [CHAR LIMIT=24] -->
-  <!-- Title for directory in which a user may store their own documents and files. [CHAR LIMIT=24] -->
+    <!-- Title of the external storage application [CHAR LIMIT=32] -->
+    <!-- Meaningful storage location description shown to client applications [CHAR LIMIT=32] -->
+    <!-- Title for documents backend that offers internal storage. [CHAR LIMIT=24] -->
+    <!-- Title for directory in which a user may store their own documents and files. [CHAR LIMIT=24] -->
 </resources>

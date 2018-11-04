@@ -20,86 +20,86 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <!-- ADB over network QS tile -->
-  <string name="quick_settings_network_adb_label">नेटवर्क पर एडीबी</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">परिवेशी प्रदर्शन</string>
-  <string name="accessibility_quick_settings_ambient_display_off">परिवेशी प्रदर्शन बंद है।</string>
-  <string name="accessibility_quick_settings_ambient_display_on">परिवेशी प्रदर्शन चालू है।</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">परिवेशी प्रदर्शन को बंद किया गया है।</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">परिवेशी प्रदर्शन को चालू किया गया।</string>
-  <!-- Caffeine QS tile -->
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">हेड्स अप।</string>
-  <string name="accessibility_quick_settings_heads_up_off">हेड्स अप बंद है।</string>
-  <string name="accessibility_quick_settings_heads_up_on">हेड्स अप चालू है।</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">हेड्स अप को बंद किया गया है।</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">हेड्स अप को चालू किया गया।</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">संकालन</string>
-  <string name="accessibility_quick_settings_sync_off">संकालन बंद है।</string>
-  <string name="accessibility_quick_settings_sync_on">संकालन चालू है।</string>
-  <string name="accessibility_quick_settings_sync_changed_off">संकालन को बंद किया गया है।</string>
-  <string name="accessibility_quick_settings_sync_changed_on">संकालन को चालू किया गया है।</string>
-  <!-- System Profiles QS tile -->
-  <string name="quick_settings_profiles_label">सिस्टम प्रोफ़ाइलें</string>
-  <string name="accessibility_quick_settings_profiles_off">प्रोफ़ाइलें बंद है।</string>
-  <string name="accessibility_quick_settings_profiles">प्रोफ़ाइल: <xliff:g id="profile" example="Default">%s</xliff:g>।</string>
-  <string name="accessibility_quick_settings_profiles_changed_off">प्रोफाइलों को बंद किया गया है।</string>
-  <string name="accessibility_quick_settings_profiles_changed">प्रोफ़ाइल को <xliff:g id="profile" example="Default">%s</xliff:g> में बदला गया।</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">यूएसबी टेदरिंग</string>
-  <!-- Volume panel QS tile -->
-  <!-- Navigation bar dpad -->
-  <string name="accessibility_dpad_left">कर्सर बायाँ</string>
-  <string name="accessibility_dpad_right">कर्सर दायाँ</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <!-- Name of the clock status bar icon -->
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <!-- ADB over network QS tile -->
+    <string name="quick_settings_network_adb_label">नेटवर्क पर एडीबी</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">परिवेशी प्रदर्शन</string>
+    <string name="accessibility_quick_settings_ambient_display_off">परिवेशी प्रदर्शन बंद है।</string>
+    <string name="accessibility_quick_settings_ambient_display_on">परिवेशी प्रदर्शन चालू है।</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">परिवेशी प्रदर्शन को बंद किया गया है।</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">परिवेशी प्रदर्शन को चालू किया गया।</string>
+    <!-- Caffeine QS tile -->
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">हेड्स अप।</string>
+    <string name="accessibility_quick_settings_heads_up_off">हेड्स अप बंद है।</string>
+    <string name="accessibility_quick_settings_heads_up_on">हेड्स अप चालू है।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">हेड्स अप को बंद किया गया है।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">हेड्स अप को चालू किया गया।</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">संकालन</string>
+    <string name="accessibility_quick_settings_sync_off">संकालन बंद है।</string>
+    <string name="accessibility_quick_settings_sync_on">संकालन चालू है।</string>
+    <string name="accessibility_quick_settings_sync_changed_off">संकालन को बंद किया गया है।</string>
+    <string name="accessibility_quick_settings_sync_changed_on">संकालन को चालू किया गया है।</string>
+    <!-- System Profiles QS tile -->
+    <string name="quick_settings_profiles_label">सिस्टम प्रोफ़ाइलें</string>
+    <string name="accessibility_quick_settings_profiles_off">प्रोफ़ाइलें बंद है।</string>
+    <string name="accessibility_quick_settings_profiles">प्रोफ़ाइल: <xliff:g id="profile" example="Default">%s</xliff:g>।</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">प्रोफाइलों को बंद किया गया है।</string>
+    <string name="accessibility_quick_settings_profiles_changed">प्रोफ़ाइल को <xliff:g id="profile" example="Default">%s</xliff:g> में बदला गया।</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">यूएसबी टेदरिंग</string>
+    <!-- Volume panel QS tile -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">कर्सर बायाँ</string>
+    <string name="accessibility_dpad_right">कर्सर दायाँ</string>
+    <!-- Screen pinning dialog description (for devices without navbar) -->
+    <!-- Name of the clock status bar icon -->
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Label for current user in power menu options dialog -->
-  <!-- Label for item that screenshots in power menu options dialog -->
-  <!-- Advanced restart menu -->
-  <!-- Button to restart the device, within the Restart Options dialog -->
-  <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-  <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-  <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-  <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-  <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">स्थान रिपोर्टिंग: बैटरी बचानेवाला मोड।</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">स्थान रिपोर्टिंग: केवल सेंसर मोड।</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">स्थान रिपोर्टिंग: उच्च सटीकता मोड।</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">बैटरी बचानेवाला</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">केवल उपकरण</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">उच्च सटीकता</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">उच्च सटीकता</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">बैटरी बचानेवाला</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">केवल उपकरण</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <!-- Reader mode QS tile -->
-  <!-- Content description of the reader mode tile when on -->
-  <!-- Content description of the reader mode tile when off -->
-  <!-- Content description of the reader mode tile when turned on -->
-  <!-- Content description of the reader mode tile when turned off -->
+    <!-- Label for current user in power menu options dialog -->
+    <!-- Label for item that screenshots in power menu options dialog -->
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">स्थान रिपोर्टिंग: बैटरी बचानेवाला मोड।</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">स्थान रिपोर्टिंग: केवल सेंसर मोड।</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">स्थान रिपोर्टिंग: उच्च सटीकता मोड।</string>
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_battery_saving_label">बैटरी बचानेवाला</string>
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label">केवल उपकरण</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label">उच्च सटीकता</string>
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
+    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">उच्च सटीकता</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
+    <string name="quick_settings_location_detail_mode_battery_saving_title">बैटरी बचानेवाला</string>
+    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_title">केवल उपकरण</string>
+    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
+    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
+    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <!-- Reader mode QS tile -->
+    <!-- Content description of the reader mode tile when on -->
+    <!-- Content description of the reader mode tile when off -->
+    <!-- Content description of the reader mode tile when turned on -->
+    <!-- Content description of the reader mode tile when turned off -->
 </resources>

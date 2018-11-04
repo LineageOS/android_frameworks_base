@@ -18,29 +18,29 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- ADB over network notification -->
-  <!-- ADB over USB and network notification -->
-  <!-- ADB notification message-->
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <!-- Privacy Guard -->
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <!-- App ops requests -->
-  <string name="app_ops_add_voicemail">añadir un mensaje de voz</string>
-  <string name="app_ops_assist_screenshot">tomar captura de pantalla</string>
-  <string name="app_ops_assist_structure">usar estructura de asistencia</string>
-  <string name="app_ops_change_wallpaper">cambiar fondo de pantalla</string>
-  <string name="app_ops_get_accounts">obtener cuentas del dispositivo</string>
-  <string name="app_ops_mock_location">simular ubicación</string>
-  <string name="app_ops_read_cell_broadcasts">leer transmisiones celulares</string>
-  <string name="app_ops_read_external_storage">leer almacenamiento externo</string>
-  <string name="app_ops_read_phone_state">acceder al estado del teléfono</string>
-  <string name="app_ops_scan_wifi">buscar redes Wi-Fi</string>
-  <string name="app_ops_toggle_mobile_data">conmutar datos móviles</string>
-  <string name="app_ops_toggle_wifi">conmutar Wi-Fi</string>
-  <string name="app_ops_turn_on_screen">encender la pantalla</string>
-  <string name="app_ops_use_body_sensors">usar sensores corporales</string>
-  <string name="app_ops_use_fingerprint">usar huella digital</string>
-  <string name="app_ops_wifi_change">cambiar el estado de Wi-Fi</string>
-  <string name="app_ops_write_external_storage">escribir en almacenamiento externo</string>
+    <!-- ADB over network notification -->
+    <!-- ADB over USB and network notification -->
+    <!-- ADB notification message-->
+    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
+    <!-- Privacy Guard -->
+    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+    <!-- App ops requests -->
+    <string name="app_ops_add_voicemail">añadir un mensaje de voz</string>
+    <string name="app_ops_assist_screenshot">tomar captura de pantalla</string>
+    <string name="app_ops_assist_structure">usar estructura de asistencia</string>
+    <string name="app_ops_change_wallpaper">cambiar fondo de pantalla</string>
+    <string name="app_ops_get_accounts">obtener cuentas del dispositivo</string>
+    <string name="app_ops_mock_location">simular ubicación</string>
+    <string name="app_ops_read_cell_broadcasts">leer transmisiones celulares</string>
+    <string name="app_ops_read_external_storage">leer almacenamiento externo</string>
+    <string name="app_ops_read_phone_state">acceder al estado del teléfono</string>
+    <string name="app_ops_scan_wifi">buscar redes Wi-Fi</string>
+    <string name="app_ops_toggle_mobile_data">conmutar datos móviles</string>
+    <string name="app_ops_toggle_wifi">conmutar Wi-Fi</string>
+    <string name="app_ops_turn_on_screen">encender la pantalla</string>
+    <string name="app_ops_use_body_sensors">usar sensores corporales</string>
+    <string name="app_ops_use_fingerprint">usar huella digital</string>
+    <string name="app_ops_wifi_change">cambiar el estado de Wi-Fi</string>
+    <string name="app_ops_write_external_storage">escribir en almacenamiento externo</string>
 </resources>

@@ -15,11 +15,11 @@
      limitations under the License.
 -->
 <resources>
-  <!-- Title of the external storage application [CHAR LIMIT=32] -->
-  <string name="app_label">سىرتقى ساقلىغۇچ</string>
-  <!-- Meaningful storage location description shown to client applications [CHAR LIMIT=32] -->
-  <!-- Title for documents backend that offers internal storage. [CHAR LIMIT=24] -->
-  <string name="root_internal_storage">ئىچىدىكى ساقلىغۇچ</string>
-  <!-- Title for directory in which a user may store their own documents and files. [CHAR LIMIT=24] -->
-  <string name="root_documents">پۈتۈكلەر</string>
+    <!-- Title of the external storage application [CHAR LIMIT=32] -->
+    <string name="app_label">سىرتقى ساقلىغۇچ</string>
+    <!-- Meaningful storage location description shown to client applications [CHAR LIMIT=32] -->
+    <!-- Title for documents backend that offers internal storage. [CHAR LIMIT=24] -->
+    <string name="root_internal_storage">ئىچىدىكى ساقلىغۇچ</string>
+    <!-- Title for directory in which a user may store their own documents and files. [CHAR LIMIT=24] -->
+    <string name="root_documents">پۈتۈكلەر</string>
 </resources>
