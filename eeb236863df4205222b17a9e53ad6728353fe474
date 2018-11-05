@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6dcbe13_f65d33a8",
+        "filename": "api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 24681,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-11-05T17:11:02Z",
+      "side": 1,
+      "message": "remove those",
+      "revId": "eeb236863df4205222b17a9e53ad6728353fe474",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9748b220_f01c5b6b",
+        "filename": "media/java/android/media/RingtoneManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-11-05T17:11:02Z",
+      "side": 1,
+      "message": "hide",
+      "revId": "eeb236863df4205222b17a9e53ad6728353fe474",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c707a0c0_f44c136d",
+        "filename": "media/java/android/media/RingtoneManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-11-05T17:11:02Z",
+      "side": 1,
+      "message": "hide",
+      "revId": "eeb236863df4205222b17a9e53ad6728353fe474",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
