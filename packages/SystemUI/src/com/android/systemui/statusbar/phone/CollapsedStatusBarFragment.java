@@ -21,7 +21,12 @@ import static android.app.StatusBarManager.DISABLE_SYSTEM_INFO;
 import android.annotation.Nullable;
 import android.app.Fragment;
 import android.app.StatusBarManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +45,10 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 import com.android.systemui.tuner.TunerService;
+
+import lineageos.providers.LineageSettings;
+
+import java.lang.Runnable;
 
 /**
  * Contains the collapsed status bar and handles hiding/showing based on disable flags
@@ -66,6 +75,12 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private ClockController mClockController;
     private boolean mIsClockBlacklisted;
 
+    private static final String SMART_CLOCK_ENABLE =
+            "lineagesystem:" + LineageSettings.System.SMART_CLOCK_ENABLE;
+    private Handler smartClockHandler = new Handler();
+    private static final int SHOW_DURATION = 5*1000; // 5 seconds
+    private boolean enableSmartClock = false;
+
     private SignalCallback mSignalCallback = new SignalCallback() {
         @Override
         public void setIsAirplaneMode(NetworkController.IconState icon) {
@@ -81,7 +96,14 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mStatusBarComponent = SysUiServiceProvider.getComponent(getContext(), StatusBar.class);
 
         Dependency.get(TunerService.class).addTunable(this,
-                StatusBarIconController.ICON_BLACKLIST);
+                StatusBarIconController.ICON_BLACKLIST, SMART_CLOCK_ENABLE);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_TIME_TICK);
+        filter.addAction(Intent.ACTION_TIME_CHANGED);
+        filter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
+        filter.addAction(Intent.ACTION_LOCALE_CHANGED);
+        getContext().registerReceiver(mIntentReceiver, filter, null, null);
+
     }
 
     @Override
@@ -106,6 +128,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         showClock(false);
         initEmergencyCryptkeeperText();
         initOperatorName();
+        displaySmartClock(true);
     }
 
     @Override
@@ -116,12 +139,14 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     @Override
     public void onResume() {
+        displaySmartClock(true);
         super.onResume();
         SysUiServiceProvider.getComponent(getContext(), CommandQueue.class).addCallbacks(this);
     }
 
     @Override
     public void onPause() {
+        disableSmartClock();
         super.onPause();
         SysUiServiceProvider.getComponent(getContext(), CommandQueue.class).removeCallbacks(this);
     }
@@ -137,10 +162,23 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     @Override
     public void onTuningChanged(String key, String newValue) {
-        boolean wasClockBlacklisted = mIsClockBlacklisted;
-        mIsClockBlacklisted = StatusBarIconController.getIconBlacklist(newValue).contains("clock");
-        if (wasClockBlacklisted && !mIsClockBlacklisted) {
-            showClock(false);
+        if (SMART_CLOCK_ENABLE.equals(key)) {
+            enableSmartClock = newValue != null && Integer.parseInt(newValue) == 1;
+            if (mClockController == null) return;
+
+            if (enableSmartClock) {
+                displaySmartClock(true);
+            } else {
+                disableSmartClock();
+                showClock(true);
+            }
+        } else {
+            boolean wasClockBlacklisted = mIsClockBlacklisted;
+            mIsClockBlacklisted = StatusBarIconController.getIconBlacklist(newValue).contains("clock");
+            if (wasClockBlacklisted && !mIsClockBlacklisted) {
+                showClock(false);
+                disableSmartClock();
+            }
         }
     }
 
@@ -187,7 +225,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             if ((state1 & DISABLE_CLOCK) != 0 || mIsClockBlacklisted) {
                 hideClock(animate);
             } else {
-                showClock(animate);
+                displaySmartClock(animate);
             }
         }
     }
@@ -348,4 +386,34 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             mOperatorNameFrame = stub.inflate();
         }
     }
+
+    private void displaySmartClock(boolean animate) {
+        if (mIsClockBlacklisted) return;
+        showClock(animate);
+        if (enableSmartClock) {
+            smartClockHandler.postDelayed(()->hideClock(true), SHOW_DURATION);
+        }
+    }
+
+    private void disableSmartClock() {
+        try {
+            enableSmartClock = false;
+            smartClockHandler.removeCallbacksAndMessages(null);
+        } catch (NullPointerException e) {
+            // Do nothing
+        }
+    }
+
+    private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (Intent.ACTION_TIME_TICK.equals(action)
+                    || Intent.ACTION_TIME_CHANGED.equals(action)
+                    || Intent.ACTION_TIMEZONE_CHANGED.equals(action)
+                    || Intent.ACTION_LOCALE_CHANGED.equals(action)) {
+                displaySmartClock(true);
+            }
+        }
+    };
 }
