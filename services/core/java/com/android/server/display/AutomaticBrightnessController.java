@@ -191,6 +191,9 @@ class AutomaticBrightnessController {
     private float mShortTermModelAnchor;
     private float SHORT_TERM_MODEL_THRESHOLD_RATIO = 0.6f;
 
+    // Whether to persist the user model indefinitely.
+    private boolean mPersistUserModel = true;
+
     public AutomaticBrightnessController(Callbacks callbacks, Looper looper,
             SensorManager sensorManager, BrightnessMappingStrategy mapper,
             int lightSensorWarmUpTime, int brightnessMin, int brightnessMax, float dozeScaleFactor,
@@ -321,12 +324,18 @@ class AutomaticBrightnessController {
     }
 
     public void resetShortTermModel() {
+        if (mPersistUserModel) {
+            return;
+        }
         mBrightnessMapper.clearUserDataPoints();
         mShortTermModelValid = true;
         mShortTermModelAnchor = -1;
     }
 
     private void invalidateShortTermModel() {
+        if (mPersistUserModel) {
+            return;
+        }
         if (DEBUG) {
             Slog.d(TAG, "ShortTermModel: invalidate user data");
         }
@@ -355,6 +364,7 @@ class AutomaticBrightnessController {
         pw.println("  mResetAmbientLuxAfterWarmUpConfig=" + mResetAmbientLuxAfterWarmUpConfig);
         pw.println("  mAmbientLightHorizon=" + mAmbientLightHorizon);
         pw.println("  mWeightingIntercept=" + mWeightingIntercept);
+        pw.println("  mPersistUserModel=" + mPersistUserModel);
 
         pw.println();
         pw.println("Automatic Brightness Controller State:");
