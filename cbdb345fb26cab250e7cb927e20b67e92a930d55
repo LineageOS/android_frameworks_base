@@ -22,6 +22,30 @@
       "revId": "cbdb345fb26cab250e7cb927e20b67e92a930d55",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c47429f_9e28db01",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-06T16:16:50Z",
+      "side": 1,
+      "message": "\"ro.sf.hwrotation\" should be the correct prop unless I\u0027m missing something",
+      "parentUuid": "fe5d2ed4_a47535be",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 46,
+        "endChar": 63
+      },
+      "revId": "cbdb345fb26cab250e7cb927e20b67e92a930d55",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
