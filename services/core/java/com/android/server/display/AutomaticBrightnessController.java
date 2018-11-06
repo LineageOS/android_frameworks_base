@@ -321,16 +321,16 @@ class AutomaticBrightnessController {
     }
 
     public void resetShortTermModel() {
-        mBrightnessMapper.clearUserDataPoints();
+        //mBrightnessMapper.clearUserDataPoints();
         mShortTermModelValid = true;
-        mShortTermModelAnchor = -1;
+        //mShortTermModelAnchor = -1;
     }
 
     private void invalidateShortTermModel() {
-        if (DEBUG) {
-            Slog.d(TAG, "ShortTermModel: invalidate user data");
-        }
-        mShortTermModelValid = false;
+        //if (DEBUG) {
+        //    Slog.d(TAG, "ShortTermModel: invalidate user data");
+        //}
+        //mShortTermModelValid = false;
     }
 
     public boolean setBrightnessConfiguration(BrightnessConfiguration configuration) {
