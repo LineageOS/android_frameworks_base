@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4683ecf7_8b7a1129",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4926,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2018-11-08T08:15:39Z",
+      "side": 1,
+      "message": "we need to delete this if {} block so that lineage lights can handle it instead.\n\nie like https://review.lineageos.org/#/c/LineageOS/android_frameworks_base/+/232007/2..3/services/core/java/com/android/server/notification/NotificationManagerService.java",
+      "revId": "2b4a95064c931f8ab7ee0426705ef2424a485b49",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
