@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5d1ed11_d2bc93c2",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 2919,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-11-09T10:47:16Z",
+      "side": 1,
+      "message": "Todo: remove",
+      "revId": "4356bd90e799d4ae2f951082c257afdec2da95fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
