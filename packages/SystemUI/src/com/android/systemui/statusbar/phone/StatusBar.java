@@ -251,7 +251,7 @@ import com.android.systemui.volume.VolumeComponent;
 
 import lineageos.hardware.LiveDisplayManager;
 import lineageos.providers.LineageSettings;
-import lineageos.style.StyleInterface;
+import org.lineageos.internal.style.StyleInterface;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
