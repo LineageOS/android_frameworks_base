@@ -31,6 +31,7 @@ import android.app.backup.BackupManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentProvider;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -768,6 +769,16 @@ public class SettingsProvider extends ContentProvider {
         if (Settings.System.RINGTONE_CACHE_URI.equals(uri)) {
             cacheRingtoneSetting = Settings.System.RINGTONE;
             cacheName = Settings.System.RINGTONE_CACHE;
+        } else if (uri != null && ContentResolver.SCHEME_CONTENT.equals(uri.getScheme())
+                && Settings.AUTHORITY.equals(
+                        ContentProvider.getAuthorityWithoutUserId(uri.getAuthority()))
+                && uri.getPathSegments().size() == 2
+                && uri.getPathSegments().get(1).startsWith(Settings.System.RINGTONE_CACHE)) {
+            // Check whether the uri is ringtone cache uri for a specific PhoneAccountHandle,
+            // which should be in the form of "content://settings/system/ringtone_cache_xxxx".
+            cacheRingtoneSetting = uri.getPathSegments().get(1)
+                    .replace(Settings.System.RINGTONE_CACHE, Settings.System.RINGTONE);
+            cacheName = uri.getPathSegments().get(1);
         } else if (Settings.System.NOTIFICATION_SOUND_CACHE_URI.equals(uri)) {
             cacheRingtoneSetting = Settings.System.NOTIFICATION_SOUND;
             cacheName = Settings.System.NOTIFICATION_SOUND_CACHE;
@@ -1725,6 +1736,8 @@ public class SettingsProvider extends ContentProvider {
         String cacheName = null;
         if (Settings.System.RINGTONE.equals(name)) {
             cacheName = Settings.System.RINGTONE_CACHE;
+        } else if (name.startsWith(Settings.System.RINGTONE)) {
+            cacheName = name.replace(Settings.System.RINGTONE, Settings.System.RINGTONE_CACHE);
         } else if (Settings.System.NOTIFICATION_SOUND.equals(name)) {
             cacheName = Settings.System.NOTIFICATION_SOUND_CACHE;
         } else if (Settings.System.ALARM_ALERT.equals(name)) {
@@ -1871,7 +1884,8 @@ public class SettingsProvider extends ContentProvider {
             case MUTATION_OPERATION_INSERT:
                 // Insert updates.
             case MUTATION_OPERATION_UPDATE: {
-                if (Settings.System.PUBLIC_SETTINGS.contains(name)) {
+                if (Settings.System.PUBLIC_SETTINGS.contains(name)
+                        || name.startsWith(Settings.System.RINGTONE)) {
                     return;
                 }
 
@@ -1890,7 +1904,8 @@ public class SettingsProvider extends ContentProvider {
 
             case MUTATION_OPERATION_DELETE: {
                 if (Settings.System.PUBLIC_SETTINGS.contains(name)
-                        || Settings.System.PRIVATE_SETTINGS.contains(name)) {
+                        || Settings.System.PRIVATE_SETTINGS.contains(name)
+                        || name.startsWith(Settings.System.RINGTONE)) {
                     throw new IllegalArgumentException("You cannot delete system defined"
                             + " secure settings.");
                 }
