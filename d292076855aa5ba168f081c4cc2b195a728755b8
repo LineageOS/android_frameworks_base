@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ea137b6_9abaa698",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 2846,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-11-13T01:32:21Z",
+      "side": 1,
+      "message": "nitpick (deprecated)\nhttps://developer.android.com/reference/android/net/ConnectivityManager#TYPE_MOBILE\n\nshould use https://developer.android.com/reference/android/net/NetworkCapabilities.html#TRANSPORT_CELLULAR\ninstead",
+      "range": {
+        "startLine": 2846,
+        "startChar": 61,
+        "endLine": 2846,
+        "endChar": 92
+      },
+      "revId": "d292076855aa5ba168f081c4cc2b195a728755b8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
