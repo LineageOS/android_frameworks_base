@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fc9e7a5_3d2f59af",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2923,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2018-11-13T22:19:22Z",
+      "side": 1,
+      "message": "This didn\u0027t work for me (in cm-14.1), I had to use ConnectivityManager.TYPE_VPN.",
+      "range": {
+        "startLine": 2923,
+        "startChar": 61,
+        "endLine": 2923,
+        "endChar": 94
+      },
+      "revId": "39aebf446f294ecf4ef3af5c0281058fe93dc5da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
