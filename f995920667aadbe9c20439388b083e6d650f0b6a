@@ -22,6 +22,30 @@
       "revId": "f995920667aadbe9c20439388b083e6d650f0b6a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c33f82ad_5b83bc3f",
+        "filename": "services/core/java/com/android/server/GestureLauncherService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 20681
+      },
+      "writtenOn": "2018-11-14T21:33:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2988bc48_996e28e1",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 22
+      },
+      "revId": "f995920667aadbe9c20439388b083e6d650f0b6a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
