@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bdc48c20_7aa09559",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/wifi/WifiTracker.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-14T14:28:06Z",
+      "side": 1,
+      "message": "This should be moved as well",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 78
+      },
+      "revId": "556401c7343fe6d75926d6c2ba6d4b0af49baa65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a0974f0_64b507ce",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/HotspotControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-14T14:28:06Z",
+      "side": 1,
+      "message": "Space after if",
+      "range": {
+        "startLine": 117,
+        "startChar": 12,
+        "endLine": 117,
+        "endChar": 14
+      },
+      "revId": "556401c7343fe6d75926d6c2ba6d4b0af49baa65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba2e8db7_e8a913ab",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/HotspotControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-14T14:28:06Z",
+      "side": 1,
+      "message": "Missing extra indentation",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 61
+      },
+      "revId": "556401c7343fe6d75926d6c2ba6d4b0af49baa65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa5ad163_6e5b4c08",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/HotspotControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-14T14:28:06Z",
+      "side": 1,
+      "message": "No need to change this indentation",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 60
+      },
+      "revId": "556401c7343fe6d75926d6c2ba6d4b0af49baa65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd3e5fe_590282bd",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/WifiSignalController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-14T14:28:06Z",
+      "side": 1,
+      "message": "Missing spaces after if and before bracket",
+      "revId": "556401c7343fe6d75926d6c2ba6d4b0af49baa65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
