@@ -58,6 +58,7 @@ public class TunerServiceImpl extends TunerService {
     // shouldn't be reset with tuner settings.
     private static final String[] RESET_BLACKLIST = new String[] {
             StatusBar.SCREEN_BRIGHTNESS_MODE,
+            StatusBar.STATUS_BAR_BRIGHTNESS_CONTROL,
             QSTileHost.TILES_SETTING,
             Settings.Secure.DOZE_ALWAYS_ON
     };
