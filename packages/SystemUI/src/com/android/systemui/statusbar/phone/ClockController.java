@@ -33,7 +33,7 @@ public class ClockController implements TunerService.Tunable {
     private static final int CLOCK_POSITION_CENTER = 1;
     private static final int CLOCK_POSITION_LEFT = 2;
 
-    private static final String CLOCK_POSITION = "lineagesystem:status_bar_clock";
+    public static final String CLOCK_POSITION = "lineagesystem:status_bar_clock";
 
     private Clock mActiveClock, mCenterClock, mLeftClock, mRightClock;
     private View mCenterClockLayout, mRightClockLayout;
