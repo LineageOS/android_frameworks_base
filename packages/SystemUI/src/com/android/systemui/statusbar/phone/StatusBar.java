@@ -280,15 +280,15 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     public static final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
     static public final String SYSTEM_DIALOG_REASON_SCREENSHOT = "screenshot";
 
-    private static final String SCREEN_BRIGHTNESS_MODE =
+    public static final String SCREEN_BRIGHTNESS_MODE =
             "system:" + Settings.System.SCREEN_BRIGHTNESS_MODE;
-    private static final String STATUS_BAR_BRIGHTNESS_CONTROL =
+    public static final String STATUS_BAR_BRIGHTNESS_CONTROL =
             "lineagesystem:" + LineageSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
     private static final String LOCKSCREEN_MEDIA_METADATA =
             "lineagesecure:" + LineageSettings.Secure.LOCKSCREEN_MEDIA_METADATA;
-    private static final String FORCE_SHOW_NAVBAR =
+    public static final String FORCE_SHOW_NAVBAR =
             "lineagesystem:" + LineageSettings.System.FORCE_SHOW_NAVBAR;
-    private static final String BERRY_GLOBAL_STYLE =
+    public static final String BERRY_GLOBAL_STYLE =
             "lineagesystem:" + LineageSettings.System.BERRY_GLOBAL_STYLE;
 
     private static final String BANNER_ACTION_CANCEL =
