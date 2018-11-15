@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4de9f2ff_de10d60d",
+        "filename": "core/java/android/view/WindowManager.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 1727,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-11-15T21:49:51Z",
+      "side": 1,
+      "message": "mismerge.",
+      "range": {
+        "startLine": 1726,
+        "startChar": 8,
+        "endLine": 1727,
+        "endChar": 60
+      },
+      "revId": "7edb67f2adb9322c9813ca52dc0412b83450f4d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
