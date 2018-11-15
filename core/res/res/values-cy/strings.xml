@@ -285,7 +285,9 @@
     <!-- Button to turn off the phone, within the Phone Options dialog -->
     <string name="power_off">Diffodd</string>
     <!-- Spoken description for ringer silent option. [CHAR LIMIT=NONE] -->
+    <string name="silent_mode_silent">Caniad ffôn i fwrdd</string>
     <!-- Spoken description for ringer vibrate option. [CHAR LIMIT=NONE] -->
+    <string name="silent_mode_vibrate">Caniad ffôn yn dirgrynu</string>
     <!-- Spoken description for ringer normal option. [CHAR LIMIT=NONE] -->
     <!-- Reboot to Recovery Progress Dialog. This is shown before it reboots to recovery. -->
     <string name="reboot_to_update_title">Diweddariad system Android</string>
@@ -616,7 +618,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_writeCallLog" product="default">Mae\'n caniatáu i\'r ap addasu log galwadau dy ffôn, gan gynnwys data am alwadau i mewn ac allan. Gallai apiau maleisus defnyddio hyn i ddileu neu addasu dy log galwadau.</string>
     <!-- Title of the body sensors permission, listed so the user can decide whether to allow the application to access body sensor data. [CHAR LIMIT=80] -->
-    <string name="permlab_bodySensors">cyrchu synwyryddion corfforol (E.e. monitorau curiad calon)</string>
+    <string name="permlab_bodySensors">cyrchu synwyryddion corfforol (E.e. monitorau curiad calon)    </string>
     <!-- Description of the body sensors permission, listed so the user can decide whether to allow the application to access data from body sensors. [CHAR LIMIT=NONE] -->
     <string name="permdesc_bodySensors" product="default">Mae\'n caniatáu i\'r ap gael at ddata o synwyryddion sy\'n monitro dy gyflwr corfforol, fel dy guriad calon.</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -643,11 +645,11 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessCoarseLocation">cyrchu lleoliad (yn seiliedig ar rwydwaith)</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessCoarseLocation" product="tablet">Gall yr ap hwn gael dy leoliad o wybodaeth megis mastiau signal ffonau symudol neu rwydweithiau Wi-Fi. Rhaid i\'r gwasanaethau lleoliad hyn bod ar gael ar dy lechen ac wedi eu troi ymlaen er mwyn i\'r ap eu defnyddio nhw.</string>
+    <string name="permdesc_accessCoarseLocation" product="tablet">Gall yr ap hwn gael dy leoliad o wybodaeth megis mastiau signal ffonau symudol neu rwydweithiau Wi-Fi. Rhaid i\'r gwasanaethau lleoliad hyn bod ar gael ar dy lechen ac wedi eu troi ymlaen er mwyn i\'r ap eu defnyddio nhw. </string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessCoarseLocation" product="tv">Gall yr ap hwn gael dy leoliad o wybodaeth megis mastiau signal ffonau symudol neu rwydweithiau Wi-Fi. Rhaid i\'r gwasanaethau lleoliad hyn bod ar gael ar dy deledu ac wedi eu troi ymlaen er mwyn i\'r ap eu defnyddio nhw.</string>
+    <string name="permdesc_accessCoarseLocation" product="tv">Gall yr ap hwn gael dy leoliad o wybodaeth megis mastiau signal ffonau symudol neu rwydweithiau Wi-Fi. Rhaid i\'r gwasanaethau lleoliad hyn bod ar gael ar dy deledu ac wedi eu troi ymlaen er mwyn i\'r ap eu defnyddio nhw. </string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessCoarseLocation" product="default">Gall yr ap hwn gael dy leoliad o wybodaeth megis mastiau signal ffonau symudol neu rwydweithiau Wi-Fi. Rhaid i\'r gwasanaethau lleoliad hyn bod ar gael ar dy ffôn ac wedi eu troi ymlaen er mwyn i\'r ap eu defnyddio nhw.</string>
+    <string name="permdesc_accessCoarseLocation" product="default">Gall yr ap hwn gael dy leoliad o wybodaeth megis mastiau signal ffonau symudol neu rwydweithiau Wi-Fi. Rhaid i\'r gwasanaethau lleoliad hyn bod ar gael ar dy ffôn ac wedi eu troi ymlaen er mwyn i\'r ap eu defnyddio nhw. </string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_modifyAudioSettings">Mae\'n caniatáu i’r ap addasu gosodiadau sain megis uchder a pha seinydd sy\'n cael ei ddefnyddio i allbynnu.</string>
@@ -1106,55 +1108,58 @@ Cysyllta â dy ddarparwr gwasanaeth ffôn i gael cerdyn SIM arall.</string>
          progress dialog in the meantime.  this is the emssage. -->
     <!-- For the unlock screen, Information message shown in dialog when user has too many failed attempts at
          drawing the unlock pattern -->
-    <string name="lockscreen_too_many_failed_attempts_dialog_message">Rwyt wedi cael y patrwm yn anghywir <xliff:g id="number">%1$d</xliff:g> tro.
-        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.</string>
+    <string name="lockscreen_too_many_failed_attempts_dialog_message">        Rwyt wedi cael y patrwm yn anghywir <xliff:g id="number">%1$d</xliff:g> tro.
+        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.
+    </string>
     <!-- For the unlock screen, Information message shown in dialog when user has too many failed attempts at
          entering the password -->
-    <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Rwyt wedi rhoi cyfrinair anghywir <xliff:g id="number">%1$d</xliff:g> tro.
-        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.</string>
+    <string name="lockscreen_too_many_failed_password_attempts_dialog_message">        Rwyt wedi rhoi cyfrinair anghywir <xliff:g id="number">%1$d</xliff:g> tro.
+        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.
+    </string>
     <!-- For the unlock screen, Information message shown in dialog when user has too many failed attempts at
          entering the PIN -->
-    <string name="lockscreen_too_many_failed_pin_attempts_dialog_message">Rwyt wedi rhoi PIN anghywir <xliff:g id="number">%1$d</xliff:g> tro.
-        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.</string>
+    <string name="lockscreen_too_many_failed_pin_attempts_dialog_message">        Rwyt wedi rhoi PIN anghywir <xliff:g id="number">%1$d</xliff:g> tro.
+        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.
+    </string>
     <!-- For the unlock screen, informational message shown in dialog when user is almost at the limit
          where they will be locked out and may have to enter an alternate username/password to unlock the phone -->
     <string name="lockscreen_failed_attempts_almost_glogin" product="tablet">Rwyt wedi cael y patrwm yn anghywir <xliff:g id="number">%1$d</xliff:g> tro.\n
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, mi fydd gofyn iti ddatgloi\'r llechen gan ddefnyddio dy gyfrif Google.\n\n
-Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.</string>
+Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </string>
     <!-- For the unlock screen, informational message shown in dialog when user is almost at the limit
          where they will be locked out and may have to enter an alternate username/password to unlock the phone -->
     <string name="lockscreen_failed_attempts_almost_glogin" product="tv">Rwyt wedi cael y patrwm yn anghywir <xliff:g id="number">%1$d</xliff:g> tro.\n
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, mi fydd gofyn iti ddatgloi\'r teledu gan ddefnyddio dy gyfrif Google.\n\n
-Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.</string>
+Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </string>
     <!-- For the unlock screen, informational message shown in dialog when user is almost at the limit
          where they will be locked out and may have to enter an alternate username/password to unlock the phone -->
     <string name="lockscreen_failed_attempts_almost_glogin" product="default">Rwyt wedi cael y patrwm yn anghywir <xliff:g id="number">%1$d</xliff:g> tro.\n
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, mi fydd gofyn iti ddatgloi\'r ffôn gan ddefnyddio dy gyfrif Google.\n\n
-Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.</string>
+Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </string>
     <!-- For the unlock screen, informational message shown in dialog when user is almost at the limit
          where the device will be wiped. -->
     <string name="lockscreen_failed_attempts_almost_at_wipe" product="tablet">Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%1$d</xliff:g> tro.
-Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y llechen ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei defnyddwyr yn cael ei ddileu.</string>
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y llechen ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei defnyddwyr yn cael ei ddileu.    </string>
     <!-- For the unlock screen, informational message shown in dialog when user is almost at the limit
          where the device will be wiped. -->
     <string name="lockscreen_failed_attempts_almost_at_wipe" product="tv">Rwyt wedi ceisio a methu â datgloi\'r teledu <xliff:g id="number">%1$d</xliff:g> tro.
-Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y teledu ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei ddefnyddwyr yn cael ei ddileu.</string>
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y teledu ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei ddefnyddwyr yn cael ei ddileu.    </string>
     <!-- For the unlock screen, informational message shown in dialog when user is almost at the limit
          where the device will be wiped. -->
     <string name="lockscreen_failed_attempts_almost_at_wipe" product="default">Rwyt wedi ceisio a methu â datgloi\'r ffôn <xliff:g id="number">%1$d</xliff:g> tro.
-Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y ffôn ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei ddefnyddwyr yn cael ei ddileu.</string>
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y ffôn ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei ddefnyddwyr yn cael ei ddileu.    </string>
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
     <string name="lockscreen_failed_attempts_now_wiping" product="tablet">Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%d</xliff:g> tro.
-Bydd y llechen nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.</string>
+Bydd y llechen nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
     <string name="lockscreen_failed_attempts_now_wiping" product="tv">Rwyt wedi ceisio a methu â datgloi\'r teledu <xliff:g id="number">%d</xliff:g> tro.
-Bydd y teledu nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.</string>
+Bydd y teledu nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
     <string name="lockscreen_failed_attempts_now_wiping" product="default">Rwyt wedi ceisio a methu â datgloi\'r ffôn <xliff:g id="number">%d</xliff:g> tro.
-Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.</string>
+Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
     <!-- On the unlock screen, countdown message shown while user is waiting to try again after too many
          failed attempts -->
     <string name="lockscreen_too_many_failed_attempts_countdown">Rho gynnig arall arni ymhen <xliff:g id="number">%d</xliff:g> eiliad.</string>
@@ -1818,7 +1823,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.</str
     <string name="wifi_p2p_failed_message">Methwyd â dechrau Wi-Fi Uniongyrchol.</string>
     <string name="wifi_p2p_enabled_notification_message">Tara am osodiadau</string>
     <string name="accept">Derbyn</string>
-    <string name="wifi_p2p_to_message">At:</string>
+    <string name="wifi_p2p_to_message">At: </string>
     <string name="wifi_p2p_frequency_conflict_message" product="tablet">Bydd y llechen yn datgysylltu dros dro o\'r Wi-Fi tra wedi\'i chysylltu gyda <xliff:g id="device_name">%1$s</xliff:g></string>
     <string name="wifi_p2p_frequency_conflict_message" product="tv">Bydd y teledu yn datgysylltu dros dro o\'r Wi-Fi tra wedi\'i chysylltu gyda <xliff:g id="device_name">%1$s</xliff:g></string>
     <string name="wifi_p2p_frequency_conflict_message" product="default">Bydd y ffôn yn datgysylltu dros dro o\'r Wi-Fi tra wedi\'i gysylltu gyda <xliff:g id="device_name">%1$s</xliff:g></string>
@@ -2294,46 +2299,49 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.</str
     <!-- Hint text shown when user has too many failed password attempts in account unlock screen of keyguard -->
     <!-- Message shown while device checks username/password in account unlock screen of keyguard -->
     <!-- Message shown in dialog when max number of attempts are reached for PIN screen of keyguard -->
-    <string name="kg_too_many_failed_pin_attempts_dialog_message">Rwyt wedi rhoi PIN anghywir <xliff:g id="number">%1$d</xliff:g> tro.
-        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.</string>
+    <string name="kg_too_many_failed_pin_attempts_dialog_message">        Rwyt wedi rhoi PIN anghywir <xliff:g id="number">%1$d</xliff:g> tro.
+        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.
+    </string>
     <!-- Message shown in dialog when max number of attempts are reached for password screen of keyguard -->
-    <string name="kg_too_many_failed_password_attempts_dialog_message">Rwyt wedi rhoi cyfrinair anghywir <xliff:g id="number">%1$d</xliff:g> tro.
-        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.</string>
-    <string name="kg_too_many_failed_pattern_attempts_dialog_message">Rwyt wedi rhoi patrwm anghywir <xliff:g id="number">%1$d</xliff:g> tro.
-        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.</string>
+    <string name="kg_too_many_failed_password_attempts_dialog_message">        Rwyt wedi rhoi cyfrinair anghywir <xliff:g id="number">%1$d</xliff:g> tro.
+        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.
+    </string>
+    <string name="kg_too_many_failed_pattern_attempts_dialog_message">        Rwyt wedi rhoi patrwm anghywir <xliff:g id="number">%1$d</xliff:g> tro.
+        \n\nRho gynnig arall arni ymhen <xliff:g id="number">%2$d</xliff:g> eiliad.
+    </string>
     <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
     <string name="kg_failed_attempts_almost_at_wipe" product="tablet">Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%1$d</xliff:g> tro.
-Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y llechen ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei defnyddwyr yn cael ei ddileu.</string>
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y llechen ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei defnyddwyr yn cael ei ddileu.    </string>
     <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
     <string name="kg_failed_attempts_almost_at_wipe" product="tv">Rwyt wedi ceisio a methu â datgloi\'r teledu <xliff:g id="number">%1$d</xliff:g> tro.
-Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y teledu ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei dddefnyddwyr yn cael ei ddileu.</string>
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y teledu ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei dddefnyddwyr yn cael ei ddileu.    </string>
     <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
     <string name="kg_failed_attempts_almost_at_wipe" product="default">Rwyt wedi ceisio a methu â datgloi\'r ffôn <xliff:g id="number">%1$d</xliff:g> tro.
-Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y ffôn ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei ddefnyddwyr yn cael ei ddileu.</string>
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y ffôn ei ail-osod fel yr oedd yn gadael y ffatri a bydd holl ddata ei ddefnyddwyr yn cael ei ddileu.    </string>
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
     <string name="kg_failed_attempts_now_wiping" product="tablet">Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%d</xliff:g> tro.
-Bydd y llechen nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.</string>
+Bydd y llechen nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
     <string name="kg_failed_attempts_now_wiping" product="tv">Rwyt wedi ceisio a methu â datgloi\'r teledu <xliff:g id="number">%d</xliff:g> tro.
-Bydd y teledu nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.</string>
+Bydd y teledu nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
     <string name="kg_failed_attempts_now_wiping" product="default">Rwyt wedi ceisio a methu â datgloi\'r ffôn <xliff:g id="number">%d</xliff:g> tro.
-Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.</string>
+Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    </string>
     <!-- Message shown in dialog when user is almost at the limit where they will be
     locked out and may have to enter an alternate username/password to unlock the phone -->
     <string name="kg_failed_attempts_almost_at_login" product="tablet">Rwyt wedi cael y patrwm yn anghywir <xliff:g id="number">%1$d</xliff:g> tro.\n
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, mi fydd gofyn iti ddatgloi\'r llechen gan ddefnyddio cyfrif e-bost.\n\n
-Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.</string>
+Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </string>
     <!-- Message shown in dialog when user is almost at the limit where they will be
     locked out and may have to enter an alternate username/password to unlock the phone -->
     <string name="kg_failed_attempts_almost_at_login" product="tv">Rwyt wedi cael y patrwm yn anghywir <xliff:g id="number">%1$d</xliff:g> tro.\n
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, mi fydd gofyn iti ddatgloi\'r teledu gan ddefnyddio cyfrif e-bost.\n\n
-Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.</string>
+Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </string>
     <!-- Message shown in dialog when user is almost at the limit where they will be
     locked out and may have to enter an alternate username/password to unlock the phone -->
     <string name="kg_failed_attempts_almost_at_login" product="default">Rwyt wedi cael y patrwm yn anghywir <xliff:g id="number">%1$d</xliff:g> tro.\n
 Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, mi fydd gofyn iti ddatgloi\'r ffôn gan ddefnyddio cyfrif e-bost.\n\n
-Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.</string>
+Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </string>
     <!-- Sequence of characters used to separate message strings in keyguard. Typically just em-dash
          with spaces on either side. [CHAR LIMIT=3] -->
     <!-- The delete-widget drop target button text -->
@@ -2619,7 +2627,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.</string>
          target to the front of the list. -->
     <string name="pin_target">Pinio</string>
     <!-- Unpin a resolver target such that it sorts normally. -->
-    <string name="unpin_target">Datbinio</string>
+    <string name="unpin_target">Dadbinio</string>
     <!-- View application info for a target. -->
     <string name="app_info">Gwybodaeth ap</string>
     <!-- The representation of a time duration when negative. An example is -1:14. This can be used with a countdown timer for example.-->

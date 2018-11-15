@@ -42,8 +42,10 @@
     <string name="app_ops_access_notifications">na brathan agad a leughadh</string>
     <string name="app_ops_activate_vpn">VPN a ghnìomhachadh</string>
     <string name="app_ops_add_voicemail">post-gutha a chur ris</string>
+    <string name="app_ops_app_start_foreground">aplacaid a tòiseachadh air a’ bheulaibh sa bhad</string>
     <string name="app_ops_assist_screenshot">glacadh-sgrìn a dhèanamh</string>
     <string name="app_ops_assist_structure">structar taice a chleachdadh</string>
+    <string name="app_ops_audio_accessibility_volume">àirde fuaime na so-inntrigeachd</string>
     <string name="app_ops_auto_start">tòiseachaidh nuair a thòisicheas an t-uidheam</string>
     <string name="app_ops_change_wallpaper">am pàipear-balla atharrachadh</string>
     <string name="app_ops_delete_call_log">loga nan gairmean agad a sguabadh às</string>
@@ -53,6 +55,7 @@
     <string name="app_ops_draw_on_top">uinneagan a tharraing an uachdar</string>
     <string name="app_ops_get_accounts">cunntasan an uidheim fhaighinn</string>
     <string name="app_ops_get_usage_stats">stats air caitheamh aplacaidean fhaighinn</string>
+    <string name="app_ops_install_packages">pacaidean a stàladh</string>
     <string name="app_ops_keep_device_awake">an t-uidheam agad a chumail ’na dhùisg</string>
     <string name="app_ops_make_phone_call">gairm fòn a dhèanamh</string>
     <string name="app_ops_mock_location">d’ ionad a chur air mas fhìor</string>
@@ -62,6 +65,8 @@
     <string name="app_ops_modify_contacts">an luchd-aithne agad ùrachadh</string>
     <string name="app_ops_modify_settings">roghainnean an t-siostaim ùrachadh</string>
     <string name="app_ops_mute_unmute_microphone">am micreofon a mhùchadh no a thilleadh</string>
+    <string name="app_ops_phone_calls">gairm fòn a fhreagairt</string>
+    <string name="app_ops_picture_in_picture">dealbh am broinn deilbh a chleachdadh</string>
     <string name="app_ops_play_audio">fuaim a chluich</string>
     <string name="app_ops_post_notification">brath a phostadh</string>
     <string name="app_ops_project_media">meadhan a thilgeil</string>
@@ -72,6 +77,7 @@
     <string name="app_ops_read_contacts">an luchd-aithne agad a leughadh</string>
     <string name="app_ops_read_external_storage">stòras air an taobh a-muigh a leughadh</string>
     <string name="app_ops_read_mms">na teachdaireachdan MMS agad a leughadh</string>
+    <string name="app_ops_read_phone_numbers">àireamhan fòn a leughadh</string>
     <string name="app_ops_read_phone_state">cothrom fhaighinn air staid an fhòn</string>
     <string name="app_ops_read_sms">na teachdaireachdan SMS agad a leughadh</string>
     <string name="app_ops_receive_sms">teachdaireachd SMS fhaighinn</string>

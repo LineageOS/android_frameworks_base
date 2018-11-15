@@ -74,7 +74,7 @@
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Aktuell</string>
     <!-- Label for item that screenshots in power menu options dialog -->
-    <string name="global_action_screenshot">Bildschirmfoto</string>
+    <string name="global_action_screenshot">Screenshot</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">System</string>

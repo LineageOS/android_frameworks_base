@@ -44,7 +44,7 @@
     <string name="app_ops_activate_vpn">ein VPN zu aktivieren</string>
     <string name="app_ops_add_voicemail">eine Sprachnachricht hinzuzufügen</string>
     <string name="app_ops_app_start_foreground">eine Instant-App im Vordergrund zu starten</string>
-    <string name="app_ops_assist_screenshot">Bildschirmfoto aufzunehmen</string>
+    <string name="app_ops_assist_screenshot">Screenshot aufzunehmen</string>
     <string name="app_ops_assist_structure">Unterstützungsstruktur zu verwenden</string>
     <string name="app_ops_audio_accessibility_volume">Bedienungshilfen-Lautstärke</string>
     <string name="app_ops_auto_start">automatisch zu starten</string>

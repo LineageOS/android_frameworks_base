@@ -301,7 +301,6 @@
     <!-- Content description of the battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_battery_level">Batri <xliff:g id="number">%d</xliff:g> y cant.</string>
     <!-- Content description of the battery level icon for accessibility while the device is charging (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_battery_level_charging">Batri\'n gwefru, <xliff:g id="battery_percentage">%d</xliff:g>%.</string>
     <!-- Content description of the button for showing a settings panel in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_settings_button">Gosodiadau system.</string>
     <!-- Content description of the button for showing a notifications panel in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -452,7 +451,8 @@
     <string name="data_usage_disabled_dialog_enable">Parhau</string>
     <!-- Text to display underneath the graphical signal strength meter when
          no connection is available. [CHAR LIMIT=20] -->
-    <string name="status_bar_settings_signal_meter_disconnected">Dim cysylltiad i\'r rhyngrwyd</string>
+    <string name="status_bar_settings_signal_meter_disconnected">Dim cysylltiad i\'r rhyngrwyd
+    </string>
     <!-- Text to display underneath the graphical signal strength meter when
          it is displaying Wi-Fi status and Wi-Fi is connected to a network
          whose SSID is not available.
@@ -590,7 +590,7 @@
     <!-- QuickSettings: Tethering. [CHAR LIMIT=NONE] -->
     <string name="quick_settings_tethering_label">Tenynnu</string>
     <!-- QuickSettings: Hotspot. [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_hotspot_label">Man Cysylltiad Wi-Fi</string>
+    <string name="quick_settings_hotspot_label">Llecyn Wi-Fi</string>
     <!-- QuickSettings: Notifications [CHAR LIMIT=NONE] -->
     <string name="quick_settings_notifications_label">Hysbysiadau</string>
     <!-- QuickSettings: Flashlight [CHAR LIMIT=NONE] -->
@@ -753,7 +753,7 @@
     <!-- Title for add user confirmation dialog [CHAR LIMIT=30] -->
     <string name="user_add_user_title" msgid="2108112641783146007">Ychwanegu defnyddiwr newydd?</string>
     <!-- Message for add user confirmation dialog - short version. [CHAR LIMIT=none] -->
-    <string name="user_add_user_message_short" msgid="1511354412249044381">Pan fydd defnyddiwr newydd yn cael ei ychwanegu, bydd angen i\'r person hwnnw osod eu gofod.\n\nGall unrhyw ddefnyddiwr diweddaru apiau ar gyfer pob defnyddiwr arall.</string>
+    <string name="user_add_user_message_short" msgid="1511354412249044381">Pan fydd defnyddiwr newydd yn cael ei ychwanegu, bydd angen i\'r person hwnnw osod eu gofod.\n\nGall unrhyw ddefnyddiwr diweddaru apiau ar gyfer pob defnyddiwr arall. </string>
     <!-- Title of the confirmation dialog for deleting a user [CHAR LIMIT=NONE] -->
     <string name="user_remove_user_title">Tynnu defnyddiwr?</string>
     <!-- Message of the confirmation dialog for deleting a user [CHAR LIMIT=NONE] -->
@@ -871,7 +871,7 @@
     <!-- Screen pinning dialog title. -->
     <string name="screen_pinning_title">Pinwyd y sgrin</string>
     <!-- Screen pinning dialog description. -->
-    <string name="screen_pinning_description">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei datbinio. Cyffyrdda a dal Nôl a Throsolwg i\'w datbinio.</string>
+    <string name="screen_pinning_description">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei dadbinio. Cyffyrdda a dal Nôl a Throsolwg i\'w dadbinio.</string>
     <!-- Screen pinning dialog description. -->
     <string name="screen_pinning_description_accessible">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei dadbinio. Cyffyrdda a dal Trosolwg i\'w dadbinio.</string>
     <!-- Screen pinning positive response. -->
@@ -950,7 +950,7 @@
     <!-- Accessibility label for Quick Settings detail screens [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_detail">Gosodiadau cyflym, <xliff:g id="title" example="Wi-Fi">%s </xliff:g>.</string>
     <!-- Accessibility label for hotspot icon [CHAR LIMIT=NONE] -->
-    <string name="accessibility_status_bar_hotspot">Man Cysylltiad Wi-Fi</string>
+    <string name="accessibility_status_bar_hotspot">Llecyn Wi-Fi</string>
     <!-- Accessibility label for managed profile icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_managed_profile">Proffil gwaith</string>
     <!-- Title of warning when entering System UI tuner for first time [CHAR LIMIT=NONE] -->
@@ -1022,7 +1022,7 @@
 \n\n- Cuddio o\'r sgrin cloi a\'r bar statws
 \n\n- Dangos ar waelod y rhestr hysbysiadau
 \n\n<b>Lefel 0</b>
-\n\n- Rhwystro holl hysbysiadau\'r ap</string>
+\n\n- Rhwystro holl hysbysiadau\'r ap    </string>
     <!-- Notification Inline Controls: Header for apps that are not yet using notification channels. -->
     <string name="notification_header_default_channel">Hysbysiadau</string>
     <!-- Notification Inline Controls: Shown when a channel's notifications are currently blocked -->

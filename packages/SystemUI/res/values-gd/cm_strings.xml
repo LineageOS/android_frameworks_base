@@ -62,22 +62,33 @@
     <string name="accessibility_dpad_left">Cùrsair clì</string>
     <string name="accessibility_dpad_right">Cùrsair deas</string>
     <!-- Screen pinning dialog description (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Cumaidh seo san t-sealladh e gus an dì-phrìnich thu e. Bean ri “Air ais” ⁊ cum e gus a dhì-phrìneachadh.</string>
     <!-- Name of the clock status bar icon -->
+    <string name="status_bar_clock">Cleoc</string>
     <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
     <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Làithreach</string>
     <!-- Label for item that screenshots in power menu options dialog -->
+    <string name="global_action_screenshot">Glacadh-sgrìn</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Aiseag</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Luchdadh a-nuas</string>
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_progress">’Ga ath-thòiseachadh\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_recovery_progress">’Ga ath-thòiseachadh gun mhodh aisig\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_bootloader_progress">’Ga ath-thòiseachadh gun mhodh bootloader\u2026</string>
     <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_download_progress">’Ga ath-thòiseachadh gun mhodh luchdaidh a-nuas\u2026</string>
     <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_location_battery_saving">Aithriseadh an ionaid: modh chaomhnadh a’ bhataraidh.</string>
     <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -102,9 +113,15 @@
     <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
     <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
     <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">Ais-thionndaidh co-dhealbhachd nam putan</string>
     <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Modh leughaidh</string>
     <!-- Content description of the reader mode tile when on -->
+    <string name="accessibility_quick_settings_reading_mode_on">Tha am modh leughaidh air.</string>
     <!-- Content description of the reader mode tile when off -->
+    <string name="accessibility_quick_settings_reading_mode_off">Tha am modh leughaidh dheth.</string>
     <!-- Content description of the reader mode tile when turned on -->
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Tha am modh leughaidh air.</string>
     <!-- Content description of the reader mode tile when turned off -->
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Tha am modh leughaidh dheth.</string>
 </resources>
