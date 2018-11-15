@@ -37,6 +37,7 @@ import com.android.systemui.DemoMode;
 import com.android.systemui.Dependency;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.settings.CurrentUserTracker;
+import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.util.leak.LeakDetector;
 
@@ -56,6 +57,8 @@ public class TunerServiceImpl extends TunerService {
     // Things that use the tunable infrastructure but are now real user settings and
     // shouldn't be reset with tuner settings.
     private static final String[] RESET_BLACKLIST = new String[] {
+            StatusBar.SCREEN_BRIGHTNESS_MODE,
+            StatusBar.STATUS_BAR_BRIGHTNESS_CONTROL,
             QSTileHost.TILES_SETTING,
             Settings.Secure.DOZE_ALWAYS_ON
     };
