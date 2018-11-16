@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9fffa4b_9c02ec0d",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 1865,
+      "author": {
+        "id": 17945
+      },
+      "writtenOn": "2018-11-16T02:37:04Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be Slog? or import android.util.Log ?",
+      "range": {
+        "startLine": 1865,
+        "startChar": 27,
+        "endLine": 1865,
+        "endChar": 30
+      },
+      "revId": "cedf019331a646b8836e9c94e8fef5d9a4e1256c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
