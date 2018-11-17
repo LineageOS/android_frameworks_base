@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98f858ce_902e362c",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T15:41:47Z",
+      "side": 1,
+      "message": "private",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 159,
+        "endChar": 10
+      },
+      "revId": "4b6906b5e44a74968d32ca0c92e0669fa1bb2229",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "979ce3e8_741695a5",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T15:41:47Z",
+      "side": 1,
+      "message": "private",
+      "range": {
+        "startLine": 161,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 10
+      },
+      "revId": "4b6906b5e44a74968d32ca0c92e0669fa1bb2229",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feec0bd9_325d9ad2",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T15:41:47Z",
+      "side": 1,
+      "message": "private",
+      "range": {
+        "startLine": 163,
+        "startChar": 4,
+        "endLine": 163,
+        "endChar": 10
+      },
+      "revId": "4b6906b5e44a74968d32ca0c92e0669fa1bb2229",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d32dd7fd_d154b157",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T15:41:47Z",
+      "side": 1,
+      "message": "Why not APPOP_NOTHROW?",
+      "range": {
+        "startLine": 163,
+        "startChar": 28,
+        "endLine": 163,
+        "endChar": 39
+      },
+      "revId": "4b6906b5e44a74968d32ca0c92e0669fa1bb2229",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8affe187_3cee3989",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T15:41:47Z",
+      "side": 1,
+      "message": "Extraneous space.",
+      "range": {
+        "startLine": 575,
+        "startChar": 73,
+        "endLine": 575,
+        "endChar": 74
+      },
+      "revId": "4b6906b5e44a74968d32ca0c92e0669fa1bb2229",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15b23d10_0f6bd2ac",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T15:41:47Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 24
+      },
+      "revId": "4b6906b5e44a74968d32ca0c92e0669fa1bb2229",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
