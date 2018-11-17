@@ -126,6 +126,54 @@
       "revId": "39aebf446f294ecf4ef3af5c0281058fe93dc5da",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c1db782_564607c5",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2923,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-11-17T15:06:15Z",
+      "side": 1,
+      "message": "that\u0027s because TYPE_VPN was only deprecated under the current API. see https://developer.android.com/reference/android/net/ConnectivityManager#TYPE_VPN",
+      "parentUuid": "4fc9e7a5_3d2f59af",
+      "range": {
+        "startLine": 2923,
+        "startChar": 61,
+        "endLine": 2923,
+        "endChar": 94
+      },
+      "revId": "39aebf446f294ecf4ef3af5c0281058fe93dc5da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9f3c874_f765069f",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2923,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2018-11-17T15:06:15Z",
+      "side": 1,
+      "message": "sounds good. will do. haven\u0027t tested yet so don\u0027t know if transport is actually doing it\u0027s job",
+      "parentUuid": "b109f07c_a740a5f4",
+      "range": {
+        "startLine": 2923,
+        "startChar": 61,
+        "endLine": 2923,
+        "endChar": 94
+      },
+      "revId": "39aebf446f294ecf4ef3af5c0281058fe93dc5da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
