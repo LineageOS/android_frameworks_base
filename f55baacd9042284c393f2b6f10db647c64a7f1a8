@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13520e23_a59570cf",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2906,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T15:24:32Z",
+      "side": 1,
+      "message": "NetworkCapabilities.TRANSPORT_CELLULAR",
+      "range": {
+        "startLine": 2906,
+        "startChar": 61,
+        "endLine": 2906,
+        "endChar": 99
+      },
+      "revId": "f55baacd9042284c393f2b6f10db647c64a7f1a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
