@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3342445_f300fd1e",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T17:58:09Z",
+      "side": 1,
+      "message": "Why do you abbreviate this too?\n\nMake it \"AppOpMethod\"",
+      "range": {
+        "startLine": 576,
+        "startChar": 32,
+        "endLine": 576,
+        "endChar": 41
+      },
+      "revId": "6b5004f197d1123761a362d51df0baadc1840f7e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cc59f5e_393e5e9b",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T17:58:09Z",
+      "side": 1,
+      "message": "I wonder the same. Why is there no break here?",
+      "range": {
+        "startLine": 581,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 77
+      },
+      "revId": "6b5004f197d1123761a362d51df0baadc1840f7e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
