@@ -36,6 +36,52 @@
     },
     {
       "key": {
+        "uuid": "8e90ef37_65d796d9",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2910,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T15:01:18Z",
+      "side": 1,
+      "message": "ConnectivityManager cm \u003d mContext.getSystemService(ConnectivityManager.class);\n\nIn case you decide to go with my previous suggestion.",
+      "range": {
+        "startLine": 2909,
+        "startChar": 8,
+        "endLine": 2910,
+        "endChar": 46
+      },
+      "revId": "39aebf446f294ecf4ef3af5c0281058fe93dc5da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcc91748_80e8614b",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2922,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-17T15:01:18Z",
+      "side": 1,
+      "message": "ConnectivityManager cm \u003d mContext.getSystemService(ConnectivityManager.class);",
+      "range": {
+        "startLine": 2921,
+        "startChar": 8,
+        "endLine": 2922,
+        "endChar": 46
+      },
+      "revId": "39aebf446f294ecf4ef3af5c0281058fe93dc5da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4fc9e7a5_3d2f59af",
         "filename": "services/core/java/com/android/server/NetworkManagementService.java",
         "patchSetId": 2
