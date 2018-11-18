@@ -805,8 +805,27 @@ public class NotificationManagerService extends SystemService {
         @Override
         public void onNotificationError(int callingUid, int callingPid, String pkg, String tag, int id,
                 int uid, int initialPid, String message, int userId) {
-            cancelNotification(callingUid, callingPid, pkg, tag, id, 0, 0, false, userId,
-                    REASON_ERROR, null);
+            boolean fgService;
+            synchronized (mNotificationLock) {
+                NotificationRecord r = findNotificationLocked(pkg, tag, id, userId);
+                fgService = r != null && (r.getNotification().flags & FLAG_FOREGROUND_SERVICE) != 0;
+            }
+            String msg = "onNotification error pkg=" + pkg + " tag=" + tag + " id=" + id;
+            if (fgService) {
+                Slog.d(TAG, msg + "; will crashApplication(uid=" + uid
+                        + ", pid=" + initialPid + ")");
+            } else {
+                Slog.d(TAG, msg);
+            }
+            cancelNotification(callingUid, callingPid, pkg, tag, id, 0, 0,
+                    false, userId, REASON_ERROR, null);
+            if (fgService) {
+                // Still crash for foreground services, preventing the not-crash behaviour abused
+                // by apps to give us a garbage notification and silently start a fg service.
+                Binder.withCleanCallingIdentity(
+                    () -> mAm.crashApplication(uid, initialPid, pkg, -1,
+                        "Bad notification posted from package " + pkg + ": " + message));
+            }
         }
 
         @Override
