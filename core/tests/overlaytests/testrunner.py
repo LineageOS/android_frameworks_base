@@ -352,7 +352,7 @@ class RootTask:
         return ""
 
     def execute(self):
-        (returncode, stdout, stderr) = _adb_shell('getprop service.adb.root 0')
+        (returncode, stdout, stderr) = _adb_shell('getprop cm.service.adb.root 0')
         if returncode != 0:
             return returncode, stdout, stderr
         if stdout.strip() == '1': # already root
