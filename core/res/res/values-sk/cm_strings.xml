@@ -67,7 +67,7 @@
     <string name="app_ops_modify_settings">aktualizovať systémové nastavenia</string>
     <string name="app_ops_mute_unmute_microphone">stlmiť/zrušiť stlmenie mikrofónu</string>
     <string name="app_ops_phone_calls">prijať telefónny hovor</string>
-    <string name="app_ops_picture_in_picture">použiť obraz v obraze (PiP)</string>
+    <string name="app_ops_picture_in_picture">použiť obraz v obraze (PiP) </string>
     <string name="app_ops_play_audio">prehrať zvuk</string>
     <string name="app_ops_post_notification">odoslať oznámenie</string>
     <string name="app_ops_project_media">premietať médiá</string>

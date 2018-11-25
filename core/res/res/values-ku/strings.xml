@@ -486,7 +486,7 @@
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_statusBarService">ڕێ دەدات بە بەرنامە تا شيشەكەى دۆخ ببێت.</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_expandStatusBar">شيشى دۆخى ڕووخان فراوان بكە</string>
+    <string name="permlab_expandStatusBar"> شيشى دۆخى ڕووخان فراوان بكە</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_expandStatusBar">ڕێ دەدات بە بەرنامە تا فراوان بكات يان ڕووخان شيشەكەى دۆخ.</string>
     <!-- Title of an application permission, listed so the user can install application shortcuts
@@ -572,7 +572,7 @@
 
 كردارى زەمينەى بەرنامەى ديكە. ئەمە لەوانەيە ببێتە هۆى بەرنامەى ديكە تا ڕا بگرن
 
-ڕاكردن.</string>
+ڕاكردن. </string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -1237,16 +1237,18 @@
          where the device will be wiped. -->
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
-    <string name="lockscreen_failed_attempts_now_wiping" product="tablet">تۆ بەهەڵە هەوڵت داوە تاتە بژمێرەکە بکەیتەوە <xliff:g id="number">%d</xliff:g> times.
+    <string name="lockscreen_failed_attempts_now_wiping" product="tablet">       تۆ بەهەڵە هەوڵت داوە تاتە بژمێرەکە بکەیتەوە <xliff:g id="number">%d</xliff:g> times.
        Tزۆر هەڵە لێدانی فایلەکان ئەسڕێتەوە بۆ باری بنەڕەتی ئەچێتەوە.
-    .</string>
+    .
+    </string>
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
-    <string name="lockscreen_failed_attempts_now_wiping" product="default">بەهەڵە هەوڵت داوە بۆ چالاککردنی تەلەفۆنەکەت <xliff:g id="number">%d</xliff:g> times.
+    <string name="lockscreen_failed_attempts_now_wiping" product="default">       بەهەڵە هەوڵت داوە بۆ چالاککردنی تەلەفۆنەکەت <xliff:g id="number">%d</xliff:g> times.
       تەلەفۆنەکە ئێستا ئەجیتەوە باری بنەڕەتی.
-    .</string>
+    .
+    </string>
     <!-- On the unlock screen, countdown message shown while user is waiting to try again after too many
          failed attempts -->
     <string name="lockscreen_too_many_failed_attempts_countdown">دوبارە هەوڵبدەرەوە <xliff:g id="number">%d</xliff:g> دووەم.</string>
@@ -1584,7 +1586,7 @@
     <!-- Summary for a warning message about the interaction model changes after allowing an accessibility
          service to put the device into explore by touch mode, displayed as a dialog message when
          the user selects to enables the service. (tablet). [CHAR LIMIT=NONE] -->
-    <string name="enable_explore_by_touch_warning_message" product="tablet"><xliff:g id="accessibility_service_name">%1$s</xliff:g>بوێ تا لەلايەن دەست لێدان سەرنج بدات.
+    <string name="enable_explore_by_touch_warning_message" product="tablet">        <xliff:g id="accessibility_service_name">%1$s</xliff:g>بوێ تا لەلايەن دەست لێدان سەرنج بدات.
 
 كاتێك لەلايەن دەست لێدان بەكار دەخرێت، تۆ دەتوانن ببيستن يان باسكردنى دەبينن ئەوەى كەى لەژێر
 
@@ -1592,7 +1594,7 @@
     <!-- Summary for a warning message about the interaction model changes after allowing an accessibility
          service to put the device into explore by touch mode, displayed as a dialog message when
          the user selects to enables the service. (default). [CHAR LIMIT=NONE] -->
-    <string name="enable_explore_by_touch_warning_message" product="default"><xliff:g id="accessibility_service_name">%1$s</xliff:g>بوێ تا لەلايەن دەست لێدان سەرنج بدات.
+    <string name="enable_explore_by_touch_warning_message" product="default">        <xliff:g id="accessibility_service_name">%1$s</xliff:g>بوێ تا لەلايەن دەست لێدان سەرنج بدات.
 
 كاتێك لەلايەن دەست لێدان بەكار دەخرێت، تۆ دەتوانن ببيستن يان باسكردنى دەبينن ئەوەى كەى لەژێر
 
@@ -1917,8 +1919,8 @@
     </plurals>
     <!-- A notification is shown when there are open wireless networks nearby.  This is the notification's message. -->
     <plurals name="wifi_available_detailed">
-        <item quantity="one">Wi-Fi تۆڕی کراوە لە کارە</item>
-        <item quantity="other">Wi-Fi تۆڕەکانی کراوە لە کارە</item>
+        <item quantity="one"> Wi-Fi تۆڕی کراوە لە کارە</item>
+        <item quantity="other"> Wi-Fi تۆڕەکانی کراوە لە کارە</item>
     </plurals>
     <!-- Notification title for a nearby open wireless network.-->
     <!-- Notification title when the system is connecting to the specified open network. The network name is specified in the notification content. -->
@@ -1965,8 +1967,8 @@
     <string name="wifi_p2p_invitation_to_connect_title">بانگەشەکردن بۆ پەیوەندکردن</string>
     <string name="wifi_p2p_from_message">لە: </string>
     <string name="wifi_p2p_to_message">بۆ: </string>
-    <string name="wifi_p2p_enter_pin_message">PINی پێویست بنووسە:</string>
-    <string name="wifi_p2p_show_pin_message">PIN:</string>
+    <string name="wifi_p2p_enter_pin_message">PINی پێویست بنووسە: </string>
+    <string name="wifi_p2p_show_pin_message">PIN: </string>
     <string name="wifi_p2p_frequency_conflict_message" product="tablet">تابلێت بۆ ماوەی کاتی پەیوەندی Wi-Fi ئەپچڕێنێت کاتێک بەستراوەتەوە بە <xliff:g id="device_name">%1$s</xliff:g></string>
     <string name="wifi_p2p_frequency_conflict_message" product="default">تەلەفۆن بۆ ماوەی کاتی پەیوەندی Wi-Fi ئەپچڕێنێت کاتێک بەستراوەتەوە بە <xliff:g id="device_name">%1$s</xliff:g></string>
     <!-- Name of the dialog that lets the user choose an accented character to insert -->
@@ -2548,12 +2550,14 @@
     <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
     <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
-    <string name="kg_failed_attempts_now_wiping" product="tablet">تۆ بە ناڕاست <xliff:g id="number">%d</xliff:g> جار هەوڵی کردنەوەی تابلێتەکەت داوە.
-       تابلێتەکە ڕێکدەسرێتەوە بۆ بنەڕەتی کارگە.</string>
+    <string name="kg_failed_attempts_now_wiping" product="tablet">       تۆ بە ناڕاست <xliff:g id="number">%d</xliff:g> جار هەوڵی کردنەوەی تابلێتەکەت داوە.
+       تابلێتەکە ڕێکدەسرێتەوە بۆ بنەڕەتی کارگە.
+    </string>
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
-    <string name="kg_failed_attempts_now_wiping" product="default">تۆ بە ناڕاست <xliff:g id="number">%d</xliff:g> جار هەوڵی کردنەوەی مۆبایلەکەت داوە.
-       مۆبایلەکە ڕێکدەسرێتەوە بۆ بنەڕەتی کارگە.</string>
+    <string name="kg_failed_attempts_now_wiping" product="default">       تۆ بە ناڕاست <xliff:g id="number">%d</xliff:g> جار هەوڵی کردنەوەی مۆبایلەکەت داوە.
+       مۆبایلەکە ڕێکدەسرێتەوە بۆ بنەڕەتی کارگە.
+    </string>
     <!-- Message shown in dialog when user is almost at the limit where they will be
     locked out and may have to enter an alternate username/password to unlock the phone -->
     <!-- Message shown in dialog when user is almost at the limit where they will be

@@ -99,8 +99,20 @@
     <!-- Values for Bluetooth Audio Codec Sample Rate selection preference. -->
     <!-- Summaries for Bluetooth Audio Codec Sample Rate selection preference. [CHAR LIMIT=50]-->
     <!-- Titles for Bluetooth Audio Codec Bits Per Sample selection preference. [CHAR LIMIT=50] -->
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Use System Selection (Default)</item>
+        <item>16 did/sampl</item>
+        <item>24 did/sampl</item>
+        <item>32 did/sampl</item>
+    </string-array>
     <!-- Values for Bluetooth Audio Codec Bits Per Sample selection preference. -->
     <!-- Summaries for Bluetooth Audio Codec Bits Per Sample selection preference. [CHAR LIMIT=50]-->
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Use System Selection (Default)</item>
+        <item>16 did/sampl</item>
+        <item>24 did/sampl</item>
+        <item>32 did/sampl</item>
+    </string-array>
     <!-- Titles for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50] -->
     <!-- Values for Bluetooth Audio Codec Channel Mode selection preference. -->
     <!-- Summaries for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50]-->

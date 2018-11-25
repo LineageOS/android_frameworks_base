@@ -468,7 +468,8 @@
     <string name="data_usage_disabled_dialog_enable">Siguir</string>
     <!-- Text to display underneath the graphical signal strength meter when
          no connection is available. [CHAR LIMIT=20] -->
-    <string name="status_bar_settings_signal_meter_disconnected">Nun hai conexón a internet</string>
+    <string name="status_bar_settings_signal_meter_disconnected">        Nun hai conexón a internet
+    </string>
     <!-- Text to display underneath the graphical signal strength meter when
          it is displaying Wi-Fi status and Wi-Fi is connected to a network
          whose SSID is not available.
@@ -768,7 +769,7 @@
     <!-- Title for add user confirmation dialog [CHAR LIMIT=30] -->
     <string name="user_add_user_title" msgid="2108112641783146007">¿Amestar usuariu nuevu?</string>
     <!-- Message for add user confirmation dialog - short version. [CHAR LIMIT=none] -->
-    <string name="user_add_user_message_short" msgid="1511354412249044381">Cuando amiestes un usuariu nuevu, esa persona precisa configurar el so espaciu.\n\nCualesquier usuariu pue anovar les aplicaciones de los demás.</string>
+    <string name="user_add_user_message_short" msgid="1511354412249044381">Cuando amiestes un usuariu nuevu, esa persona precisa configurar el so espaciu.\n\nCualesquier usuariu pue anovar les aplicaciones de los demás. </string>
     <!-- Title of the confirmation dialog for deleting a user [CHAR LIMIT=NONE] -->
     <string name="user_remove_user_title">¿Desaniciar usuariu?</string>
     <!-- Message of the confirmation dialog for deleting a user [CHAR LIMIT=NONE] -->
@@ -948,7 +949,8 @@
     <string name="add_tile">Amestar caxella</string>
     <!-- Name of a quick settings tile controlled by broadcast -->
     <!-- For preview release. DO NOT TRANSLATE -->
-    <string name="regrettable_lack_of_easter_egg">¯\\_(ツ)_/¯</string>
+    <string name="regrettable_lack_of_easter_egg">        ¯\\_(ツ)_/¯
+    </string>
     <!-- Warning text when an alarm might be silenced by Do Not Disturb [CHAR LIMIT=NONE] -->
     <string name="zen_alarm_warning_indef">Nun vas oyer l\'alarma próxima a les <xliff:g id="when" example="at 7:00 AM">%1$s</xliff:g> a nun ser que desactives esta enantes</string>
     <!-- Warning text when an alarm might be silenced by Do Not Disturb due to a time-based condition [CHAR LIMIT=NONE] -->

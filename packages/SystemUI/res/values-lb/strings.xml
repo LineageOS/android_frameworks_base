@@ -427,7 +427,7 @@
     <!-- Dialog button indicating that data connection should be re-enabled. [CHAR LIMIT=28] -->
     <!-- Text to display underneath the graphical signal strength meter when
          no connection is available. [CHAR LIMIT=20] -->
-    <string name="status_bar_settings_signal_meter_disconnected">Keng Internetconnectioun
+    <string name="status_bar_settings_signal_meter_disconnected">        Keng Internetconnectioun
     </string>
     <!-- Text to display underneath the graphical signal strength meter when
          it is displaying Wi-Fi status and Wi-Fi is connected to a network

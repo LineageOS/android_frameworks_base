@@ -23,7 +23,7 @@
     <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_data_connection_hspap">HSPA+</string>
     <!-- Content description for Accessibility on unlocked tasks in recents -->
-    <string name="accessibility_lock_task">Estä hylkäämästä toimintoa <xliff:g id="task">%1$s</xliff:g></string>
+    <string name="accessibility_lock_task">Estä hylkäämästä toimintoa <xliff:g id="task">%1$s</xliff:g> </string>
     <!-- Content description for Accessibility on locked tasks in recents -->
     <string name="accessibility_unlock_task">Salli toiminnon <xliff:g id="task">%1$s</xliff:g> hylkääminen</string>
     <!-- ADB over network QS tile -->

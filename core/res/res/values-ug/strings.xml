@@ -212,7 +212,7 @@
     <!-- Displayed when a web request failed because the authentication with the proxy failed. -->
     <string name="httpErrorProxyAuth">ۋاكالەتچى مۇلازىمېتىر ئارقىلىق سالاھىيەت دەلىللەش مەغلۇپ بولدى.</string>
     <!-- Displayed when a web request failed because there was a connection error. -->
-    <string name="httpErrorConnect">مۇلازىمېتىرغا باغلىنالمىدى .</string>
+    <string name="httpErrorConnect">مۇلازىمېتىرغا باغلىنالمىدى . </string>
     <!-- Displayed when a web request failed because there was an input or output error. -->
     <string name="httpErrorIO">مۇلازىمىتىر بىلەن ئالاقە قىلالمىدى. سەل تۇرۇپ قايتا سىناڭ.</string>
     <!-- Displayed when a web request failed because the request timed out -->
@@ -644,7 +644,7 @@
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_readPhoneState">تېلېفوننىڭ ھالىتى ۋە سالاھىيىتىنى ئوقۇيدۇ</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_readPhoneState">ئەپنىڭ ئۈسكۈنىنىڭ تېلېفون ئىقتىدارىنى زىيارەت قىلىشىغا يول قويىدۇ. ئەپ تېلېفوننىڭ نۇمۇرىنى، رەت نۇمۇرىنى، تېلېفوننىڭ سۆزلىشىشۋاتقانلىقىنى، قارشى تەرەپنىڭ نۇمۇرىنى جەزملەش ھوقۇقى بولىدۇ.</string>
+    <string name="permdesc_readPhoneState">ئەپنىڭ ئۈسكۈنىنىڭ تېلېفون ئىقتىدارىنى زىيارەت قىلىشىغا يول قويىدۇ. ئەپ تېلېفوننىڭ نۇمۇرىنى، رەت نۇمۇرىنى، تېلېفوننىڭ سۆزلىشىشۋاتقانلىقىنى، قارشى تەرەپنىڭ نۇمۇرىنى جەزملەش ھوقۇقى بولىدۇ. </string>
     <!-- Title of an application permission.  When granted the user is giving access to a third
          party app to route its calls through the system. -->
     <!-- Description of an application permission.  When granted the user is giving access to a
@@ -693,7 +693,7 @@
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessNetworkState">تور باغلىنىشىنى كۆرسىتىدۇ</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessNetworkState">ئەپنىڭ مەۋجۇت ۋە باغلانغان تورغا ئوخشاش تورغا ئائىت ئۇچۇرلىرىنى كۆرۈشىگە يول قويىدۇ.</string>
+    <string name="permdesc_accessNetworkState">ئەپنىڭ مەۋجۇت ۋە باغلانغان تورغا ئوخشاش تورغا ئائىت ئۇچۇرلىرىنى كۆرۈشىگە يول قويىدۇ. </string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_createNetworkSockets">ئەپنىڭ تور socket قۇرۇپ،  ئۆزلەشتۈرگەن تور كېلىشىمى ئىشلىتىشىگە يول قويىدۇ. توركۆرگۈ ۋە باشقا بەزى ئەپلەرگە ئىنتېرنېتقا سانلىق مەلۇمات يوللاش يولى بىلەن تەمىنلەيدۇ شۇڭلاشقا ئەپ بۇ ھوقۇققا ئېرىشمەي تۇتۇپمۇ ئىنتېرنېتقا سانلىق مەلۇمات يوللىيالايدۇ.</string>
@@ -708,7 +708,7 @@
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessWifiState">بۇ Wi-Fi باغلىنىشلىرىنى كۆرسىتىدۇ</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessWifiState">ئەپنىڭ Wi-FI ئۈسكۈنە ئاتى ۋە Wi-FI قوزغالغان ياكى قوزغالمىغانلىقىغا ئوخشاش Wi-FI تورىغا ئائىت ئۇچۇرلىرىنى كۆرۈشىگە يول قويىدۇ.</string>
+    <string name="permdesc_accessWifiState">ئەپنىڭ Wi-FI ئۈسكۈنە ئاتى ۋە Wi-FI قوزغالغان ياكى قوزغالمىغانلىقىغا ئوخشاش Wi-FI تورىغا ئائىت ئۇچۇرلىرىنى كۆرۈشىگە يول قويىدۇ. </string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_changeWifiState">بۇ WiFi غا باغلاپ ۋە ئۈزىدۇ</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -1044,7 +1044,7 @@
     <!-- Jabber IM protocol type -->
     <string name="imProtocolJabber">Jabber</string>
     <!-- NetMeeting IM protocol type -->
-    <string name="imProtocolNetMeeting">تور يېغىنى</string>
+    <string name="imProtocolNetMeeting">تور يېغىنى </string>
     <!-- Work organization type -->
     <string name="orgTypeWork">ئىش</string>
     <!-- Other organization type -->
@@ -1197,12 +1197,12 @@
          where the device will be wiped. -->
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
-    <string name="lockscreen_failed_attempts_now_wiping" product="tablet">سىز تاختا كومپيۇتېر قۇلۇپىنى ئېچىشنى <xliff:g id="NUMBER">%d</xliff:g> قېتىم خاتا سىنىدىڭىز. تاختا كومپيۇتېر زاۋۇتتىن چىققان ھالەتكە ئەسلىگە قايتىدۇ،</string>
+    <string name="lockscreen_failed_attempts_now_wiping" product="tablet">سىز تاختا كومپيۇتېر قۇلۇپىنى ئېچىشنى <xliff:g id="NUMBER">%d</xliff:g> قېتىم خاتا سىنىدىڭىز. تاختا كومپيۇتېر زاۋۇتتىن چىققان ھالەتكە ئەسلىگە قايتىدۇ، </string>
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
-    <string name="lockscreen_failed_attempts_now_wiping" product="default">سىز تېلېفون قۇلۇپىنى ئېچىشنى <xliff:g id="NUMBER">%d</xliff:g> قېتىم خاتا سىنىدىڭىز. تېلېفون زاۋۇتتىن چىققان ھالەتكە ئەسلىگە قايتىدۇ،</string>
+    <string name="lockscreen_failed_attempts_now_wiping" product="default">سىز تېلېفون قۇلۇپىنى ئېچىشنى <xliff:g id="NUMBER">%d</xliff:g> قېتىم خاتا سىنىدىڭىز. تېلېفون زاۋۇتتىن چىققان ھالەتكە ئەسلىگە قايتىدۇ، </string>
     <!-- On the unlock screen, countdown message shown while user is waiting to try again after too many
          failed attempts -->
     <string name="lockscreen_too_many_failed_attempts_countdown"><xliff:g id="NUMBER">%d</xliff:g> سېكۇنتتىن كېيىن قايتا سىناڭ.</string>
@@ -1258,7 +1258,7 @@
     <!-- Accessibility description of the event of collapsing an unlock area. [CHAR_LIMIT=none] -->
     <string name="keyguard_accessibility_unlock_area_collapsed">قۇلۇپ ئېچىش رايونى قاتلاندى.</string>
     <!-- Accessibility description of a lock screen widget. [CHAR_LIMIT=none] -->
-    <string name="keyguard_accessibility_widget"><xliff:g id="WIDGET_INDEX">%1$s</xliff:g> ئەپچە.</string>
+    <string name="keyguard_accessibility_widget"><xliff:g id="WIDGET_INDEX">%1$s</xliff:g> ئەپچە. </string>
     <!-- Accessibility description of the lock screen user selector widget. [CHAR_LIMIT=none] -->
     <string name="keyguard_accessibility_user_selector">ئىشلەتكۈچى تاللىغۇچ</string>
     <!-- Accessibility description of the lock screen status widget. [CHAR_LIMIT=none] -->
@@ -1871,7 +1871,7 @@
     <!-- A notification is shown when a user's selected SSID is later disabled due to connectivity problems.  This is the notification's title / ticker. -->
     <string name="wifi_watchdog_network_disabled">Wi-Fi تورىغا باغلىنالمايدۇ</string>
     <!-- A notification is shown when a user's selected SSID is later disabled due to connectivity problems.  The complete alert msg is: <hotspot name> + this string, i.e. "Linksys has a poor internet connection" -->
-    <string name="wifi_watchdog_network_disabled_detailed">ئىنتېرنېت باغلىنىشى ناچار</string>
+    <string name="wifi_watchdog_network_disabled_detailed"> ئىنتېرنېت باغلىنىشى ناچار</string>
     <!-- Do not translate. Default access point SSID used for tethering -->
     <!-- Do not translate. Default access point SSID used for local only hotspot -->
     <!-- A notification is shown the first time a connection is attempted on an app owned AP -->
@@ -1985,8 +1985,8 @@
     <!-- Title of the notification to prompt the user to configure physical keyboard settings. -->
     <!-- Message of the notification to prompt the user to configure physical keyboard settings
          where the user can associate language with physical keyboard layout. -->
-    <string name="fast_scroll_alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
-    <string name="fast_scroll_numeric_alphabet">0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="fast_scroll_alphabet"> ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="fast_scroll_numeric_alphabet"> 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <!-- Alert windows notification strings -->
     <!-- Name of notification channel group the system post notification to inform the use about apps
          that are drawing ui on-top of other apps (alert-windows) [CHAR LIMIT=NONE] -->
@@ -2465,10 +2465,10 @@
     <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
     <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
-    <string name="kg_failed_attempts_now_wiping" product="tablet">سىز تاختا كومپيۇتېر قۇلۇپىنى ئېچىشنى <xliff:g id="NUMBER">%d</xliff:g> قېتىم خاتا سىنىدىڭىز. تاختا كومپيۇتېر زاۋۇتتىن چىققان ھالەتكە ئەسلىگە قايتىدۇ،</string>
+    <string name="kg_failed_attempts_now_wiping" product="tablet">سىز تاختا كومپيۇتېر قۇلۇپىنى ئېچىشنى <xliff:g id="NUMBER">%d</xliff:g> قېتىم خاتا سىنىدىڭىز. تاختا كومپيۇتېر زاۋۇتتىن چىققان ھالەتكە ئەسلىگە قايتىدۇ، </string>
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
-    <string name="kg_failed_attempts_now_wiping" product="default">سىز تېلېفون قۇلۇپىنى ئېچىشنى <xliff:g id="NUMBER">%d</xliff:g> قېتىم خاتا سىنىدىڭىز. تېلېفون زاۋۇتتىن چىققان ھالەتكە ئەسلىگە قايتىدۇ،</string>
+    <string name="kg_failed_attempts_now_wiping" product="default">سىز تېلېفون قۇلۇپىنى ئېچىشنى <xliff:g id="NUMBER">%d</xliff:g> قېتىم خاتا سىنىدىڭىز. تېلېفون زاۋۇتتىن چىققان ھالەتكە ئەسلىگە قايتىدۇ، </string>
     <!-- Message shown in dialog when user is almost at the limit where they will be
     locked out and may have to enter an alternate username/password to unlock the phone -->
     <!-- Message shown in dialog when user is almost at the limit where they will be

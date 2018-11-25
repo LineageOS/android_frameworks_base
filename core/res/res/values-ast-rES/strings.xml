@@ -729,7 +729,8 @@
     <string name="permdesc_writeCallLog" product="default">Permite que les aplicaciones modifiquen el rexistru de llamaes del teléfonu, incluyendo datos tocante a llamaes entrantes y salientes.
         Les aplicaciones malicioses podríen usar esto pa desaniciar o modificar el rexistru de de llamaes.</string>
     <!-- Title of the body sensors permission, listed so the user can decide whether to allow the application to access body sensor data. [CHAR LIMIT=80] -->
-    <string name="permlab_bodySensors">acceder a sensores corporales</string>
+    <string name="permlab_bodySensors">acceder a sensores corporales
+    </string>
     <!-- Description of the body sensors permission, listed so the user can decide whether to allow the application to access data from body sensors. [CHAR LIMIT=NONE] -->
     <string name="permdesc_bodySensors" product="default">Permite que l\'aplicación acceda a datos de los sensores
     que supervisen la to condición física como los pulseos.</string>
@@ -906,7 +907,7 @@
     <string name="permlab_accessWimaxState">coneutase a WiMAX y desconeutase</string>
     <string name="permdesc_accessWimaxState">Permite que l\'aplicación determine si
      WiMAX ta habilitáu y consiga información tocante a cualesquier redes
-     WiMAX que tán coneutaes.</string>
+     WiMAX que tán coneutaes. </string>
     <string name="permlab_changeWimaxState">camudar l\'estáu de WiMAX</string>
     <string name="permdesc_changeWimaxState" product="tablet">Permite que l\'aplicación
       coneute la tableta a redes WiMAX y la desconeute.</string>
@@ -990,7 +991,7 @@
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_readSyncStats">lleer estadístiques de sincronización</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_readSyncStats">Permite que l\'aplicación llea les estadístiques de sincronización d\'una cuenta, incluyendo l\'historial de los eventos de sincronización y cuántos datos se sincronicen.</string>
+    <string name="permdesc_readSyncStats">Permite que l\'aplicación llea les estadístiques de sincronización d\'una cuenta, incluyendo l\'historial de los eventos de sincronización y cuántos datos se sincronicen. </string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. [CHAR LIMIT=30] -->
     <string name="permlab_sdcardRead" product="nosdcard">lleer el conteníu del almacenamientu USB</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -1472,16 +1473,19 @@
          where the device will be wiped. -->
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
-    <string name="lockscreen_failed_attempts_now_wiping" product="tablet">Tentesti de desbloquiar incorreutamente la tableta <xliff:g id="number">%d</xliff:g> vegaes.
-       Agora va reafitase\'l preséu.</string>
+    <string name="lockscreen_failed_attempts_now_wiping" product="tablet">       Tentesti de desbloquiar incorreutamente la tableta <xliff:g id="number">%d</xliff:g> vegaes.
+       Agora va reafitase\'l preséu.
+    </string>
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
-    <string name="lockscreen_failed_attempts_now_wiping" product="tv">Tentesti de desbloquiar incorreutamente la TV <xliff:g id="number">%d</xliff:g> vegaes.
-       Agora va reafitase\'l preséu.</string>
+    <string name="lockscreen_failed_attempts_now_wiping" product="tv">       Tentesti de desbloquiar incorreutamente la TV <xliff:g id="number">%d</xliff:g> vegaes.
+       Agora va reafitase\'l preséu.
+    </string>
     <!-- For the unlock screen, informational message shown in dialog when user has exceeded the
         maximum attempts and the device will now be wiped -->
-    <string name="lockscreen_failed_attempts_now_wiping" product="default">Tentesti de desbloquiar incorreutamente\'l teléfonu <xliff:g id="number">%d</xliff:g> vegaes.
-       Agora va reafitase\'l preséu.</string>
+    <string name="lockscreen_failed_attempts_now_wiping" product="default">       Tentesti de desbloquiar incorreutamente\'l teléfonu <xliff:g id="number">%d</xliff:g> vegaes.
+       Agora va reafitase\'l preséu.
+    </string>
     <!-- On the unlock screen, countdown message shown while user is waiting to try again after too many
          failed attempts -->
     <string name="lockscreen_too_many_failed_attempts_countdown">Volvi tentalo en <xliff:g id="number">%d</xliff:g> segundos.</string>
@@ -1522,7 +1526,7 @@
     <string name="lockscreen_access_pattern_cell_added">Caxella amestada</string>
     <!-- Accessibility description sent when user adds a dot to the pattern. Announces the
     actual cell when headphones are connected [CHAR LIMIT=NONE]  -->
-    <string name="lockscreen_access_pattern_cell_added_verbose">Amestóse la caxella <xliff:g id="cell_index" example="3">%1$s</xliff:g></string>
+    <string name="lockscreen_access_pattern_cell_added_verbose">            Amestóse la caxella <xliff:g id="cell_index" example="3">%1$s</xliff:g></string>
     <!-- Accessibility description sent when user completes drawing a pattern. [CHAR LIMIT=NONE] -->
     <string name="lockscreen_access_pattern_detected">Patrón completáu</string>
     <!-- Accessibility description of the unlock pattern area. [CHAR_LIMIT=none] -->
@@ -1836,13 +1840,13 @@
     <!-- Summary for a warning message about the interaction model changes after allowing an accessibility
          service to put the device into explore by touch mode, displayed as a dialog message when
          the user selects to enables the service. (tablet). [CHAR LIMIT=NONE] -->
-    <string name="enable_explore_by_touch_warning_message" product="tablet"><xliff:g id="accessibility_service_name">%1$s</xliff:g> quier activar la esploración con
+    <string name="enable_explore_by_touch_warning_message" product="tablet">        <xliff:g id="accessibility_service_name">%1$s</xliff:g> quier activar la esploración con
         toques. Cuando s\'activa, vas poder oyer o ver descripciones de lo que ta sol deu, o
         facer xestos pa interactuar cola tableta.</string>
     <!-- Summary for a warning message about the interaction model changes after allowing an accessibility
          service to put the device into explore by touch mode, displayed as a dialog message when
          the user selects to enables the service. (default). [CHAR LIMIT=NONE] -->
-    <string name="enable_explore_by_touch_warning_message" product="default"><xliff:g id="accessibility_service_name">%1$s</xliff:g> quier activar la esploración con
+    <string name="enable_explore_by_touch_warning_message" product="default">        <xliff:g id="accessibility_service_name">%1$s</xliff:g> quier activar la esploración con
        toques. Cuando s\'activa, vas poder oyer o ver descripciones de lo que ta sol deu, o
        facer xestos pa interactuar col teléfonu.</string>
     <!-- String used to display the date. This is the string to say something happened 1 month ago. -->
@@ -2321,7 +2325,7 @@
     <string name="wifi_p2p_invitation_to_connect_title">Invitación pa coneutase</string>
     <string name="wifi_p2p_from_message">De:</string>
     <string name="wifi_p2p_to_message">Pa:</string>
-    <string name="wifi_p2p_enter_pin_message">Teclexa\'l PIN riquíu:</string>
+    <string name="wifi_p2p_enter_pin_message">Teclexa\'l PIN riquíu: </string>
     <string name="wifi_p2p_show_pin_message">PIN:</string>
     <string name="wifi_p2p_frequency_conflict_message" product="tablet">La tableta va desconeutase temporalmente de la Wi-Fi mentanto tea coneutada a <xliff:g id="device_name">%1$s</xliff:g></string>
     <string name="wifi_p2p_frequency_conflict_message" product="tv">La TV va desconeutase temporalmente de la Wi-Fi mentanto tea coneutada a <xliff:g id="device_name">%1$s</xliff:g></string>
@@ -2969,14 +2973,17 @@
     <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
     <!-- Message shown when user is almost at the limit of password attempts where the device will be wiped. -->
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
-    <string name="kg_failed_attempts_now_wiping" product="tablet">Tentesti de desbloquiar incorreutamente la tableta <xliff:g id="number">%d</xliff:g> vegaes.
-       Agora va reafitase\'l preséu.</string>
+    <string name="kg_failed_attempts_now_wiping" product="tablet">       Tentesti de desbloquiar incorreutamente la tableta <xliff:g id="number">%d</xliff:g> vegaes.
+       Agora va reafitase\'l preséu.
+    </string>
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
-    <string name="kg_failed_attempts_now_wiping" product="tv">Tentesti de desbloquiar incorreutamente la TV <xliff:g id="number">%d</xliff:g> vegaes.
-       Agora va reafitase\'l preséu.</string>
+    <string name="kg_failed_attempts_now_wiping" product="tv">       Tentesti de desbloquiar incorreutamente la TV <xliff:g id="number">%d</xliff:g> vegaes.
+       Agora va reafitase\'l preséu.
+    </string>
     <!-- Message shown in dialog when user has exceeded the maximum attempts and the device will now be wiped -->
-    <string name="kg_failed_attempts_now_wiping" product="default">Tentesti de desbloquiar incorreutamente\'l teléfonu <xliff:g id="number">%d</xliff:g> vegaes.
-       Agora va reafitase\'l preséu.</string>
+    <string name="kg_failed_attempts_now_wiping" product="default">       Tentesti de desbloquiar incorreutamente\'l teléfonu <xliff:g id="number">%d</xliff:g> vegaes.
+       Agora va reafitase\'l preséu.
+    </string>
     <!-- Message shown in dialog when user is almost at the limit where they will be
     locked out and may have to enter an alternate username/password to unlock the phone -->
     <!-- Message shown in dialog when user is almost at the limit where they will be
@@ -2990,7 +2997,8 @@
     <string name="kg_reordering_delete_drop_target_text">Desaniciar</string>
     <!-- Message shown in dialog when user is attempting to set the music volume above the
     recommended maximum level for headphones -->
-    <string name="safe_media_volume_warning" product="default">«¿Xubir el volume penriba\'l nivel aconseyáu?\n\nSentir soníos con volume altu demientres periodos de tiempu llargos podría mancate los oyíos.»</string>
+    <string name="safe_media_volume_warning" product="default">       «¿Xubir el volume penriba\'l nivel aconseyáu?\n\nSentir soníos con volume altu demientres periodos de tiempu llargos podría mancate los oyíos.»
+    </string>
     <!-- Dialog title for dialog shown when the accessibility shortcut is activated, and we want
      to confirm that the user understands what's going to happen-->
     <!-- Message shown in dialog when user is in the process of enabling the accessibility

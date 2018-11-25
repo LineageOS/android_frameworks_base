@@ -99,7 +99,7 @@
     <!-- View button label for USB dialogs.  [CHAR LIMIT=15] -->
     <string name="label_view">پیشاندان</string>
     <!-- Checkbox label for USB device dialogs.  [CHAR LIMIT=50] -->
-    <string name="always_use_device">لە بنەڕەتەوە بەکاری بهێنە بۆ USB</string>
+    <string name="always_use_device">لە بنەڕەتەوە بەکاری بهێنە بۆ USB </string>
     <!-- Checkbox label for USB accessory dialogs.  [CHAR LIMIT=50] -->
     <string name="always_use_accessory">بنەڕەتی بەکاربهێنە بۆ USB</string>
     <!-- Title of confirmation dialog for USB debugging -->
@@ -466,7 +466,7 @@
     <!-- QuickSettings: Location (Off) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_location_off_label">کوژاندنەوەی شوێندۆزەرەوە</string>
     <!-- QuickSettings: Media device [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_media_device_label">ئامێری ڕاگه‌یێنه‌کان</string>
+    <string name="quick_settings_media_device_label">ئامێری ڕاگه‌یێنه‌کان </string>
     <!-- QuickSettings: RSSI [CHAR LIMIT=NONE] -->
     <string name="quick_settings_rssi_label">RSSI</string>
     <!-- QuickSettings: RSSI (No network) [CHAR LIMIT=NONE] -->
