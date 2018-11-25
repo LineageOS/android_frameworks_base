@@ -649,7 +649,7 @@
     <!-- Expanded Status Bar Header: Charging, no known time [CHAR LIMIT=40] -->
     <string name="expanded_header_battery_charging">Yn gwefru</string>
     <!-- Expanded Status Bar Header: Charging, showing time left until charged [CHAR LIMIT=40] -->
-    <string name="expanded_header_battery_charging_with_time">Llawn ymhen <xliff:g id="charging_time" example="2 hrs 25 min">%s</xliff:g></string>
+    <string name="expanded_header_battery_charging_with_time"><xliff:g id="charging_time" example="2 hrs 25 min">%s</xliff:g> nes wedi gwefru\'n llawn</string>
     <!-- Expanded Status Bar Header: Not charging [CHAR LIMIT=40] -->
     <string name="expanded_header_battery_not_charging">Dim yn gwefru</string>
     <!-- Shows up when there is a user SSL CA Cert installed on the
@@ -700,11 +700,11 @@
     <!-- Interruption level: Alarms only.  Optimized for narrow two-line display. [CHAR LIMIT=40] -->
     <string name="interruption_level_alarms_twoline">Larymau\nyn unig</string>
     <!-- Indication on the keyguard that is shown when the device is charging. [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_charging_time">Yn gwefru (llawn ymhen <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <string name="keyguard_indication_charging_time">Yn gwefru (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> nes wedi gwefru\'n llawn)</string>
     <!-- Indication on the keyguard that is shown when the device is charging rapidly. Should match keyguard_plugged_in_charging_fast [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_charging_time_fast">Yn gwefru\'n gyflym (llawn ymhen <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <string name="keyguard_indication_charging_time_fast">Yn gwefru\'n gyflym (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> nes wedi gwefru\'n llawn)</string>
     <!-- Indication on the keyguard that is shown when the device is charging slowly. Should match keyguard_plugged_in_charging_slowly [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_charging_time_slowly">Yn gwefru\'n araf (llawn ymhen <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <string name="keyguard_indication_charging_time_slowly">Yn gwefru\'n araf (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> nes wedi gwefru\'n llawn)</string>
     <!-- Related to user switcher -->
     <!-- Accessibility label for the button that opens the user switcher. -->
     <string name="accessibility_multi_user_switch_switcher">Newid defnyddiwr</string>
@@ -1380,6 +1380,7 @@
     <!-- Do Not Disturb button to keep the current settings [CHAR LIMIT=20] -->
     <!-- Do Not Disturb button to change the current settings [CHAR LIMIT=20] -->
     <!-- Title of the "running foreground services" dialog. [CHAR LIMIT=NONE] -->
+    <string name="running_foreground_services_title">Apiau sy\'n rhedeg yn y cefndir</string>
     <!-- Descriptive text of an item in the "running foreground services" dialog, telling the
         user what will happen when they tap on that item (which is an application that has
         been identified for them as running). [CHAR LIMIT=NONE] -->

@@ -32,6 +32,7 @@
     <!-- Label for the network usage of data received over VPN. [CHAR LIMIT=20] -->
     <string name="data_received">گەیشت:</string>
     <!-- Formatted string for the network usage over VPN. [CHAR LIMIT=40] -->
-    <string name="data_value_format"><xliff:g id="number">%1$s</xliff:g> بایت /
-        <xliff:g id="number">%2$s</xliff:g> گیرفانەکان</string>
+    <string name="data_value_format">        <xliff:g id="number">%1$s</xliff:g> بایت /
+        <xliff:g id="number">%2$s</xliff:g> گیرفانەکان
+    </string>
 </resources>

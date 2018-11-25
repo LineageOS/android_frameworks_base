@@ -18,14 +18,13 @@
     <!-- Dialog title to identify the request from a VPN application. [CHAR LIMIT=60] -->
     <string name="prompt">Solicitú de conexón</string>
     <!-- Dialog message to warn about the risk of using a VPN application. [CHAR LIMIT=NONE] -->
-    <string name="warning">
-        <xliff:g id="app">%s</xliff:g> quier configurar una conexón VPN
+    <string name="warning"><xliff:g id="app">%s</xliff:g> quier configurar una conexón VPN
         que permita supervisar el tráficu de rede. Aceuta namái si tas enfotáu
         na fonte.
-        <![CDATA[<br />
+        <![CDATA[        <br />
         <br />
-        <img src="vpn_icon" />]]>
-        apaez no cimero de la pantalla al activase la VPN.
+        <img src="vpn_icon" />
+        ]]> apaez no cimero de la pantalla al activase la VPN.
     </string>
     <!-- Dialog title for built-in VPN. [CHAR LIMIT=40]  -->
     <string name="legacy_title">La VPN ta coneutada</string>
@@ -42,7 +41,7 @@
     <!-- Label for the network usage of data received over VPN. [CHAR LIMIT=20] -->
     <string name="data_received">Recibióse:</string>
     <!-- Formatted string for the network usage over VPN. [CHAR LIMIT=40] -->
-    <string name="data_value_format"><xliff:g id="number">%1$s</xliff:g> bytes /
+    <string name="data_value_format">        <xliff:g id="number">%1$s</xliff:g> bytes /
         <xliff:g id="number">%2$s</xliff:g> paquetes
     </string>
 </resources>

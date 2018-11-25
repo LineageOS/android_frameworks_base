@@ -55,7 +55,7 @@
     <string name="app_ops_get_usage_stats">ଆପ୍ଲିକେସନ୍‍ ବ୍ୟବହାରର ପରିସଂଖ୍ୟାନ ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="app_ops_keep_device_awake">ଆପଣଙ୍କ ଡିଭାଇ‌ସ୍‍କୁ ଜାଗ୍ରତ ରଖନ୍ତୁ</string>
     <string name="app_ops_make_phone_call">ଏକ ଫୋନ୍‍ କଲ୍‍ କରନ୍ତୁ</string>
-    <string name="app_ops_mock_location">ଆପଣଙ୍କ ନକଲି ଅବସ୍ଥାନ</string>
+    <string name="app_ops_mock_location"> ଆପଣଙ୍କ ନକଲି ଅବସ୍ଥାନ</string>
     <string name="app_ops_modify_calendar">ଆପଣଙ୍କ କ୍ୟାଲେନ୍ଡର ଅଦ୍ୟତନ କରନ୍ତୁ</string>
     <string name="app_ops_modify_call_log">କଲ୍‍ ସୂଚୀ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
     <string name="app_ops_modify_clipboard">କ୍ଲି‌ପ୍‍ବୋର୍ଡ୍‍ ସମ୍ପାଦନା କରନ୍ତୁ</string>

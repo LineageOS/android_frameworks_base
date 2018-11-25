@@ -2010,7 +2010,7 @@ Wann \"Drécken an Endecken\" aktivéiert ass, kanns du Beschreiwunge vun Elemen
     <string name="wifi_p2p_invitation_to_connect_title">Invitatioun fir ze verbannen</string>
     <string name="wifi_p2p_from_message">Vun: </string>
     <string name="wifi_p2p_to_message">Un: </string>
-    <string name="wifi_p2p_enter_pin_message">Gëff de benéidegte PIN an:</string>
+    <string name="wifi_p2p_enter_pin_message">Gëff de benéidegte PIN an: </string>
     <string name="wifi_p2p_show_pin_message">PIN: </string>
     <string name="wifi_p2p_frequency_conflict_message" product="tablet">Den Tablet gëtt kuerzzäiteg vum WLAN deconnectéiert während e mat <xliff:g id="device_name">%1$s</xliff:g> verbonnen ass</string>
     <string name="wifi_p2p_frequency_conflict_message" product="tv">D\'Tëlee gëtt kuerzzäiteg vum WLAN deconnectéiert während e mat <xliff:g id="device_name">%1$s</xliff:g> verbonnen ass</string>

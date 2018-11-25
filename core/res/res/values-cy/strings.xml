@@ -2252,6 +2252,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <!-- Title of the media route chooser dialog. [CHAR LIMIT=40] -->
     <string name="media_route_chooser_title">Cysylltu i ddyfais</string>
     <!-- Title of the media route chooser dialog for selecting remote display routes. [CHAR LIMIT=40] -->
+    <string name="media_route_chooser_title_for_remote_display">Bwrw\'r sgrin ar ddyfais arall</string>
     <!-- Placeholder text to show when no devices have been found. [CHAR LIMIT=50] -->
     <string name="media_route_chooser_searching">Yn chwilio am ddyfeisiau\u2026</string>
     <!-- Button to access extended settings.  [CHAR LIMIT=30] -->
@@ -2525,9 +2526,41 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- [CHAR_LIMIT=16] Data saver: Button to turn it on on first-time dialog -->
     <string name="data_saver_enable_button">Troi ymlaen</string>
     <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
+    <plurals name="zen_mode_duration_minutes_summary">
+        <item quantity="zero">Am %1$d munudau (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="one">Am un funud (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="two">Am %1$d funud (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="few">Am %1$d munud (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="many">Am %1$d munud (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="other">Am %1$d munud (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+    </plurals>
     <!-- Zen mode condition - summary: time duration in minutes (short version). [CHAR LIMIT=NONE] -->
+    <plurals name="zen_mode_duration_minutes_summary_short">
+        <item quantity="zero">Am %1$d mun (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="one">Am 1 mun (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="two">Am %1$d fun (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="few">Am %1$d mun (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="many">Am %1$d mun (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="other">Am %1$d mun (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+    </plurals>
     <!-- Zen mode condition - summary: time duration in hours. [CHAR LIMIT=NONE] -->
+    <plurals name="zen_mode_duration_hours_summary">
+        <item quantity="zero">Am %1$d oriau (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="one">Am awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="two">Am %1$d awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="few">Am %1$d awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="many">Am %1$d awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="other">Am %1$d awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+    </plurals>
     <!-- Zen mode condition - summary: time duration in hours (short version). [CHAR LIMIT=NONE] -->
+    <plurals name="zen_mode_duration_hours_summary_short">
+        <item quantity="zero">Am %1$d awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="one">Am awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="two">Am %1$d awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="few">Am %1$d awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="many">Am %1$d awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="other">Am %1$d awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+    </plurals>
     <!-- Zen mode condition - line one: time duration in minutes. [CHAR LIMIT=NONE] -->
     <!-- Zen mode condition - line one: time duration in minutes (short version). [CHAR LIMIT=NONE] -->
     <!-- Zen mode condition - line one: time duration in hours. [CHAR LIMIT=NONE] -->

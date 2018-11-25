@@ -191,8 +191,7 @@
     <string-array name="track_frame_time_entries">
         <item>Off</item>
         <item>En pantalla como barres</item>
-        <item>
-            In
+        <item>In 
             <xliff:g id="as_typed_command">adb shell dumpsys gfxinfo</xliff:g>
         </item>
     </string-array>

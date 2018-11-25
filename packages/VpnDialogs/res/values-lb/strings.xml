@@ -18,12 +18,11 @@
     <!-- Dialog title to identify the request from a VPN application. [CHAR LIMIT=60] -->
     <string name="prompt">Connectiounsufro</string>
     <!-- Dialog message to warn about the risk of using a VPN application. [CHAR LIMIT=NONE] -->
-    <string name="warning">
-        <xliff:g id="app">%s</xliff:g> wëll eng VPN-Connectioun opstellen, wouduerch den Netzwierktrafic kann iwwerwaacht ginn. Acceptéier dat just, wann s du der Quell vertraus.
-        <![CDATA[<br />
+    <string name="warning"><xliff:g id="app">%s</xliff:g> wëll eng VPN-Connectioun opstellen, wouduerch den Netzwierktrafic kann iwwerwaacht ginn. Acceptéier dat just, wann s du der Quell vertraus.
+        <![CDATA[        <br />
         <br />
-        <img src="vpn_icon" />]]>
-        erschéngt uewen um Schierm, wa VPN aktiv ass.
+        <img src="vpn_icon" />
+        ]]> erschéngt uewen um Schierm, wa VPN aktiv ass.
     </string>
     <!-- Dialog title for built-in VPN. [CHAR LIMIT=40]  -->
     <string name="legacy_title">VPN connectéiert</string>
@@ -40,7 +39,7 @@
     <!-- Label for the network usage of data received over VPN. [CHAR LIMIT=20] -->
     <string name="data_received">Empfaangen:</string>
     <!-- Formatted string for the network usage over VPN. [CHAR LIMIT=40] -->
-    <string name="data_value_format"><xliff:g id="number">%1$s</xliff:g> Bytes /
+    <string name="data_value_format">        <xliff:g id="number">%1$s</xliff:g> Bytes /
         <xliff:g id="number">%2$s</xliff:g> Päck
     </string>
 </resources>
