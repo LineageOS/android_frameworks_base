@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52d73014_ead9d26f",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-25T12:35:54Z",
+      "side": 1,
+      "message": "Remove this because it\u0027s confusing.",
+      "range": {
+        "startLine": 577,
+        "startChar": 22,
+        "endLine": 577,
+        "endChar": 51
+      },
+      "revId": "34bb48598369189a406027e48b0bf85d2735c9ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
