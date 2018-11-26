@@ -18,6 +18,13 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Mono audio QS tile -->
+    <string name="quick_settings_mono_audio_label">Mono audio</string>
+    <string name="accessibility_quick_settings_mono_audio_off">Mono audio off.</string>
+    <string name="accessibility_quick_settings_mono_audio_on">Mono audio on.</string>
+    <string name="accessibility_quick_settings_mono_audio_changed_off">Mono audio turned off.</string>
+    <string name="accessibility_quick_settings_mono_audio_changed_on">Mono audio turned on.</string>
+
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">System</string>
