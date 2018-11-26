@@ -78,6 +78,13 @@
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
 
+    <!-- Mono audio QS tile -->
+    <string name="quick_settings_mono_audio_label">Mono audio</string>
+    <string name="accessibility_quick_settings_mono_audio_off">Mono audio off.</string>
+    <string name="accessibility_quick_settings_mono_audio_on">Mono audio on.</string>
+    <string name="accessibility_quick_settings_mono_audio_changed_off">Mono audio turned off.</string>
+    <string name="accessibility_quick_settings_mono_audio_changed_on">Mono audio turned on.</string>
+
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Wireless PowerShare</string>
     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>

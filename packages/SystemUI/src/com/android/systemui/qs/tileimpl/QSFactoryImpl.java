@@ -46,6 +46,7 @@ import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.MicrophoneToggleTile;
+import com.android.systemui.qs.tiles.MonoAudioTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.PowerShareTile;
@@ -103,6 +104,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<AODTile> mAODTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
+    private final Provider<MonoAudioTile> mMonoAudioTileProvider;
     private final Provider<ReadingModeTile> mReadingModeTileProvider;
     private final Provider<SyncTile> mSyncTileProvider;
     private final Provider<PowerShareTile> mPowerShareTileProvider;
@@ -146,6 +148,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<AODTile> aodTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
+            Provider<MonoAudioTile> monoAudioTileProvider,
             Provider<PowerShareTile> powerShareTileProvider,
             Provider<ReadingModeTile> readingModeTileProvider,
             Provider<SyncTile> syncTileProvider,
@@ -184,6 +187,7 @@ public class QSFactoryImpl implements QSFactory {
         mAODTileProvider = aodTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
+        mMonoAudioTileProvider = monoAudioTileProvider;
         mReadingModeTileProvider = readingModeTileProvider;
         mSyncTileProvider = syncTileProvider;
         mPowerShareTileProvider = powerShareTileProvider;
@@ -263,6 +267,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mCaffeineTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
+            case "mono_audio":
+                return mMonoAudioTileProvider.get();
             case "reading_mode":
                 return mReadingModeTileProvider.get();
             case "sync":
