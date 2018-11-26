@@ -82,7 +82,11 @@
 
     <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
     <string name="quick_settings_tiles_stock" translatable="false">
+<<<<<<< HEAD   (3edf08 VolumeDialog: Display default row when active row is notific)
         internet,wifi,cell,bt,flashlight,dnd,alarm,airplane,nfc,controls,wallet,rotation,battery,cast,screenrecord,mictoggle,cameratoggle,location,hotspot,inversion,saver,dark,work,night,reverse,reduce_brightness,ambient_display,aod,caffeine,heads_up,reading_mode,sync,powershare,usb_tether
+=======
+        wifi,cell,battery,dnd,flashlight,rotation,bt,airplane,nfc,location,hotspot,inversion,saver,work,cast,night,adb_network,ambient_display,caffeine,heads_up,livedisplay,mono_audio,reading_mode,sync,usb_tether,volume_panel,profiles
+>>>>>>> CHANGE (f10a9c qs: add mono audio tile)
     </string>
 
     <!-- The tiles to display in QuickSettings -->

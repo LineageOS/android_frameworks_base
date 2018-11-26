@@ -18,12 +18,21 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<<<<<<< HEAD   (3edf08 VolumeDialog: Display default row when active row is notific)
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Cursor left</string>
     <string name="accessibility_dpad_right">Cursor right</string>
 
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Clock</string>
+=======
+    <!-- Mono audio QS tile -->
+    <string name="quick_settings_mono_audio_label">Mono audio</string>
+    <string name="accessibility_quick_settings_mono_audio_off">Mono audio off.</string>
+    <string name="accessibility_quick_settings_mono_audio_on">Mono audio on.</string>
+    <string name="accessibility_quick_settings_mono_audio_changed_off">Mono audio turned off.</string>
+    <string name="accessibility_quick_settings_mono_audio_changed_on">Mono audio turned on.</string>
+>>>>>>> CHANGE (f10a9c qs: add mono audio tile)
 
     <!-- Advanced restart menu -->
     <!-- Button to indicate more options -->

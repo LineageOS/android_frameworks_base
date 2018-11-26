@@ -45,7 +45,11 @@ import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
 import com.android.systemui.qs.tiles.LocationTile;
+<<<<<<< HEAD   (3edf08 VolumeDialog: Display default row when active row is notific)
 import com.android.systemui.qs.tiles.MicrophoneToggleTile;
+=======
+import com.android.systemui.qs.tiles.MonoAudioTile;
+>>>>>>> CHANGE (f10a9c qs: add mono audio tile)
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.PowerShareTile;
@@ -262,7 +266,17 @@ public class QSFactoryImpl implements QSFactory {
             case "caffeine":
                 return mCaffeineTileProvider.get();
             case "heads_up":
+<<<<<<< HEAD   (3edf08 VolumeDialog: Display default row when active row is notific)
                 return mHeadsUpTileProvider.get();
+=======
+                return new HeadsUpTile(mHost);
+            case "livedisplay":
+                return new LiveDisplayTile(mHost);
+            case "mono_audio":
+                return new MonoAudioTile(mHost);
+            case "profiles":
+                return new ProfilesTile(mHost);
+>>>>>>> CHANGE (f10a9c qs: add mono audio tile)
             case "reading_mode":
                 return mReadingModeTileProvider.get();
             case "sync":
