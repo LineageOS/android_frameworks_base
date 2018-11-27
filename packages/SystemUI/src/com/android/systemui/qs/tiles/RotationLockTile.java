@@ -79,7 +79,7 @@ public class RotationLockTile extends QSTileImpl<BooleanState> {
     @Override
     protected void handleClick() {
         if (mController == null) return;
-        final boolean newState = !mState.value;
+        final boolean newState = mController.isRotationLocked();
         mController.setRotationLocked(!newState);
         refreshState(newState);
     }
