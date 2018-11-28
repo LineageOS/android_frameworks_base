@@ -155,7 +155,7 @@ public final class RotationPolicy {
 
     private static boolean isCurrentRotationAllowed(Context context) {
         int userRotationAngles = Settings.System.getInt(context.getContentResolver(),
-                "accelerometer_rotation_angles", -1);
+                Settings.System.ACCELEROMETER_ROTATION_ANGLES, -1);
         boolean allowAllRotations = context.getResources().getBoolean(
                 com.android.internal.R.bool.config_allowAllRotations);
         final IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
