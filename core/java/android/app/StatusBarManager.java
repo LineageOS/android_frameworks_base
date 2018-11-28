@@ -21,8 +21,8 @@ import android.annotation.IntDef;
 import android.annotation.SystemService;
 import android.content.Context;
 import android.os.Binder;
-import android.os.RemoteException;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.util.Slog;
 import android.view.View;
@@ -156,6 +156,21 @@ public class StatusBarManager {
             final IStatusBarService svc = getService();
             if (svc != null) {
                 svc.expandNotificationsPanel();
+            }
+        } catch (RemoteException ex) {
+            throw ex.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * Toggles the status bar: When collapsed it gets expanded otherwise
+     * collapsed.
+     */
+    public void togglePanel() {
+        try {
+            final IStatusBarService svc = getService();
+            if (svc != null) {
+                svc.togglePanel();
             }
         } catch (RemoteException ex) {
             throw ex.rethrowFromSystemServer();
