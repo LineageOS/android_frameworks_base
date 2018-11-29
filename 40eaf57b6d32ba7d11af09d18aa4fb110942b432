@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fec1e0ec_8d6705a4",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/wifi/WifiTracker.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-11-29T16:57:05Z",
+      "side": 1,
+      "message": "sVerboseLogging \u003d mWifiManager !\u003d null \u0026\u0026 mWifiManager.getVerboseLoggingLevel() \u003e 0;",
+      "range": {
+        "startLine": 210,
+        "startChar": 8,
+        "endLine": 210,
+        "endChar": 103
+      },
+      "revId": "40eaf57b6d32ba7d11af09d18aa4fb110942b432",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7bfd2d90_b5f3dedc",
         "filename": "packages/SettingsLib/src/com/android/settingslib/wifi/WifiTracker.java",
         "patchSetId": 2
