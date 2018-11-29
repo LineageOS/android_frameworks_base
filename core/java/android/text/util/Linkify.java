@@ -23,6 +23,7 @@ import android.text.style.URLSpan;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.util.Log;
 import android.util.Patterns;
 import android.webkit.WebView;
 import android.widget.TextView;
@@ -58,6 +59,9 @@ import com.android.i18n.phonenumbers.PhoneNumberUtil.Leniency;
  */
 
 public class Linkify {
+
+    private static final String LOG_TAG = "Linkify";
+
     /**
      *  Bit field indicating that web URLs should be matched in methods that
      *  take an options mask
@@ -202,6 +206,11 @@ public class Linkify {
      *  repeatedly on the same text.
      */
     public static final boolean addLinks(Spannable text, int mask) {
+        if (text != null && containsUnsupportedCharacters(text.toString())) {
+            android.util.EventLog.writeEvent(0x534e4554, "116321860", -1, "");
+            return false;
+        }
+
         if (mask == 0) {
             return false;
         }
@@ -245,6 +254,29 @@ public class Linkify {
         }
 
         return true;
+    }
+
+    /**
+     * Returns true if the specified text contains at least one unsupported character for applying
+     * links. Also logs the error.
+     *
+     * @param text the text to apply links to
+     * @hide
+     */
+    public static boolean containsUnsupportedCharacters(String text) {
+        if (text.contains("\u202C")) {
+            Log.e(LOG_TAG, "Unsupported character for applying links: u202C");
+            return true;
+        }
+        if (text.contains("\u202D")) {
+            Log.e(LOG_TAG, "Unsupported character for applying links: u202D");
+            return true;
+        }
+        if (text.contains("\u202E")) {
+            Log.e(LOG_TAG, "Unsupported character for applying links: u202E");
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -344,6 +376,10 @@ public class Linkify {
      *                      a scheme specified in the link text
      */
     public static final boolean addLinks(Spannable text, Pattern pattern, String scheme) {
+        if (text != null && containsUnsupportedCharacters(text.toString())) {
+            android.util.EventLog.writeEvent(0x534e4554, "116321860", -1, "");
+            return false;
+        }
         return addLinks(text, pattern, scheme, null, null);
     }
 
