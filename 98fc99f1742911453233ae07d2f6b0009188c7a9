@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7da105b8_ad4c0d3a",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CellularTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-01T22:06:26Z",
+      "side": 1,
+      "message": "You could get away with just adding these two lines in this else block and leaving state.label \u003d r.getString(R.string.mobile_data) on line 173.",
+      "range": {
+        "startLine": 182,
+        "startChar": 12,
+        "endLine": 183,
+        "endChar": 55
+      },
+      "revId": "98fc99f1742911453233ae07d2f6b0009188c7a9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
