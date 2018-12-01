@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8019ad74_90756ca6",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-01T23:29:03Z",
+      "side": 1,
+      "message": "onNotificationError ?",
+      "range": {
+        "startLine": 813,
+        "startChar": 26,
+        "endLine": 813,
+        "endChar": 46
+      },
+      "revId": "07ba60d34aec760a762c02a769d1bb0f81645c72",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
