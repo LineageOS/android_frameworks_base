@@ -692,6 +692,10 @@ public final class BatteryService extends SystemService {
         intent.putExtra(BatteryManager.EXTRA_MAX_CHARGING_CURRENT, mHealthInfo.maxChargingCurrent);
         intent.putExtra(BatteryManager.EXTRA_MAX_CHARGING_VOLTAGE, mHealthInfo.maxChargingVoltage);
         intent.putExtra(BatteryManager.EXTRA_CHARGE_COUNTER, mHealthInfo.batteryChargeCounter);
+        intent.putExtra(BatteryManager.EXTRA_MOD_LEVEL, mHealthInfo.modLevel);
+        intent.putExtra(BatteryManager.EXTRA_MOD_STATUS, mHealthInfo.modStatus);
+        intent.putExtra(BatteryManager.EXTRA_MOD_TYPE, mHealthInfo.modType);
+        intent.putExtra(BatteryManager.EXTRA_MOD_FLAG, mHealthInfo.modFlag);
         if (DEBUG) {
             Slog.d(TAG, "Sending ACTION_BATTERY_CHANGED. scale:" + BATTERY_SCALE
                     + ", info:" + mHealthInfo.toString());
