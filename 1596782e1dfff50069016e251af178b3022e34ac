@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f04531f7_a1df8cfb",
+        "filename": "core/java/android/app/StatusBarManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-12-03T11:16:58Z",
+      "side": 1,
+      "message": "Toggles",
+      "range": {
+        "startLine": 166,
+        "startChar": 7,
+        "endLine": 166,
+        "endChar": 14
+      },
+      "revId": "1596782e1dfff50069016e251af178b3022e34ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fed72a6_5c8d4b34",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2105,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-12-03T11:16:58Z",
+      "side": 1,
+      "message": "space after if:\nif (...)",
+      "range": {
+        "startLine": 2105,
+        "startChar": 8,
+        "endLine": 2105,
+        "endChar": 29
+      },
+      "revId": "1596782e1dfff50069016e251af178b3022e34ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
