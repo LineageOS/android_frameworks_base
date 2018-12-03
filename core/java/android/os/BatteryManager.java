@@ -156,10 +156,23 @@ public class BatteryManager {
     @SystemApi
     public static final String EXTRA_EVENT_TIMESTAMP = "android.os.extra.EVENT_TIMESTAMP";
 
+    public static final String EXTRA_MOD_FLAG = "mod_flag";
     public static final String EXTRA_MOD_LEVEL = "mod_level";
+    public static final String EXTRA_MOD_POWER_SOURCE = "mod_psrc";
     public static final String EXTRA_MOD_STATUS = "mod_status";
     public static final String EXTRA_MOD_TYPE = "mod_type";
-    public static final String EXTRA_MOD_FLAG = "mod_flag";
+    public static final String EXTRA_PLUGGED_RAW = "plugged_raw";
+
+    public static final int BATTERY_PROPERTY_MOD_CHARGE_FULL = 100;
+
+    public static final int MOD_POWER_SOURCE_BATTERY = 1;
+    public static final int MOD_POWER_SOURCE_BATTERY_TURBO = 5;
+    public static final int MOD_POWER_SOURCE_NONE = 0;
+    public static final int MOD_POWER_SOURCE_NONE_TURBO = 4;
+    public static final int MOD_POWER_SOURCE_WIRED = 2;
+    public static final int MOD_POWER_SOURCE_WIRED_TURBO = 6;
+    public static final int MOD_POWER_SOURCE_WIRELESS = 3;
+    public static final int MOD_POWER_SOURCE_WIRELESS_TURBO = 7;
 
     // values for "status" field in the ACTION_BATTERY_CHANGED Intent
     public static final int BATTERY_STATUS_UNKNOWN = Constants.BATTERY_STATUS_UNKNOWN;
