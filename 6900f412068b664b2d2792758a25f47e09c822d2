@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43753589_f5ae0ff0",
+        "filename": "services/core/java/com/android/server/clipboard/ClipboardService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-12-03T11:13:01Z",
+      "side": 1,
+      "message": "One of these two:\nCheck the AppOp depending on the specified method\nCheck the AppOp. This depends on the specified method",
+      "range": {
+        "startLine": 577,
+        "startChar": 11,
+        "endLine": 577,
+        "endChar": 57
+      },
+      "revId": "6900f412068b664b2d2792758a25f47e09c822d2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
