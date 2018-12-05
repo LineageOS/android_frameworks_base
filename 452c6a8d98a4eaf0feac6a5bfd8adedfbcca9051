@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ae91594_a8f92bc5",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/CollapsedStatusBarFragment.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-05T16:12:38Z",
+      "side": 1,
+      "message": "mSmartClockHander",
+      "range": {
+        "startLine": 78,
+        "startChar": 20,
+        "endLine": 78,
+        "endChar": 38
+      },
+      "revId": "452c6a8d98a4eaf0feac6a5bfd8adedfbcca9051",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2146c11_dfa78b37",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/CollapsedStatusBarFragment.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-05T16:12:38Z",
+      "side": 1,
+      "message": "mEnableSmartClock",
+      "range": {
+        "startLine": 80,
+        "startChar": 20,
+        "endLine": 80,
+        "endChar": 36
+      },
+      "revId": "452c6a8d98a4eaf0feac6a5bfd8adedfbcca9051",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30b1051a_d9932504",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/CollapsedStatusBarFragment.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-05T16:12:38Z",
+      "side": 1,
+      "message": "Same deal here. Non-public, non-static field names start with m.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 32
+      },
+      "revId": "452c6a8d98a4eaf0feac6a5bfd8adedfbcca9051",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f27ae243_47bb624a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/CollapsedStatusBarFragment.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-05T16:12:38Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 14
+      },
+      "revId": "452c6a8d98a4eaf0feac6a5bfd8adedfbcca9051",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a08f8fb3_2f58754f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/CollapsedStatusBarFragment.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-05T16:12:38Z",
+      "side": 1,
+      "message": "This logic is kinda strange. Besides you forgot the space after if.",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 57
+      },
+      "revId": "452c6a8d98a4eaf0feac6a5bfd8adedfbcca9051",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd898c8a_2f3932c2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/CollapsedStatusBarFragment.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-05T16:12:38Z",
+      "side": 1,
+      "message": "Space after if.",
+      "range": {
+        "startLine": 393,
+        "startChar": 12,
+        "endLine": 393,
+        "endChar": 15
+      },
+      "revId": "452c6a8d98a4eaf0feac6a5bfd8adedfbcca9051",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
