@@ -22,6 +22,30 @@
       "revId": "76a5e3f88bcde84f9a793b89f91f67e818197076",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35820570_563431e8",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-12-11T01:21:27Z",
+      "side": 1,
+      "message": "it\u0027s unlikely to be merged anyway. Also exception handling should be dropped too as readTextFile() does that on it\u0027s own.",
+      "parentUuid": "33b8efcd_98c80793",
+      "range": {
+        "startLine": 760,
+        "startChar": 20,
+        "endLine": 760,
+        "endChar": 23
+      },
+      "revId": "76a5e3f88bcde84f9a793b89f91f67e818197076",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
