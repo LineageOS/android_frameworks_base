@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5394995f_fbcc1f0b",
+        "filename": "services/core/java/com/android/server/am/ActiveServices.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 2279,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-12T12:01:40Z",
+      "side": 1,
+      "message": "Space after if.",
+      "range": {
+        "startLine": 2279,
+        "startChar": 12,
+        "endLine": 2279,
+        "endChar": 15
+      },
+      "revId": "433c71da09560f85e560a5124dace50f0f2c339b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cf7e0b9_1528d06d",
+        "filename": "services/core/java/com/android/server/am/ActiveServices.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 2283,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-12T12:01:40Z",
+      "side": 1,
+      "message": "Space after if.",
+      "range": {
+        "startLine": 2283,
+        "startChar": 16,
+        "endLine": 2283,
+        "endChar": 19
+      },
+      "revId": "433c71da09560f85e560a5124dace50f0f2c339b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbe16135_135e12a8",
+        "filename": "services/core/java/com/android/server/am/ActiveServices.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 2289,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-12T12:01:40Z",
+      "side": 1,
+      "message": "Space after if.",
+      "range": {
+        "startLine": 2289,
+        "startChar": 16,
+        "endLine": 2289,
+        "endChar": 19
+      },
+      "revId": "433c71da09560f85e560a5124dace50f0f2c339b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8636586_a58609da",
+        "filename": "services/core/java/com/android/server/am/ActiveServices.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 2290,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-12T12:01:40Z",
+      "side": 1,
+      "message": "Space after if.",
+      "range": {
+        "startLine": 2290,
+        "startChar": 20,
+        "endLine": 2290,
+        "endChar": 23
+      },
+      "revId": "433c71da09560f85e560a5124dace50f0f2c339b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a280b498_e3f653d1",
+        "filename": "services/core/java/com/android/server/am/ActiveServices.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 2295,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-12T12:01:40Z",
+      "side": 1,
+      "message": "Space after if.",
+      "range": {
+        "startLine": 2295,
+        "startChar": 16,
+        "endLine": 2295,
+        "endChar": 19
+      },
+      "revId": "433c71da09560f85e560a5124dace50f0f2c339b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa3fe006_1a0c3a1d",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-12T12:01:40Z",
+      "side": 1,
+      "message": "Sort alphabetically.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 26
+      },
+      "revId": "433c71da09560f85e560a5124dace50f0f2c339b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c1045ef_b4b3d2c1",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 25323,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-12T12:01:40Z",
+      "side": 1,
+      "message": "Remove unnecessary parenthesis.",
+      "range": {
+        "startLine": 25322,
+        "startChar": 12,
+        "endLine": 25323,
+        "endChar": 46
+      },
+      "revId": "433c71da09560f85e560a5124dace50f0f2c339b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
