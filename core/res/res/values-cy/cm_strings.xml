@@ -61,6 +61,7 @@
     <string name="app_ops_modify_contacts">diweddaru dy gysylltiadau</string>
     <string name="app_ops_modify_settings">diweddaru gosodiadau\'r system</string>
     <string name="app_ops_mute_unmute_microphone">distewi/dad-ddistewi\'r meicroffôn</string>
+    <string name="app_ops_picture_in_picture">defnyddio llun o fewn llun</string>
     <string name="app_ops_play_audio">chwarae sain</string>
     <string name="app_ops_post_notification">gosod hysbysiad</string>
     <string name="app_ops_project_media">taflunio cyfrwng</string>

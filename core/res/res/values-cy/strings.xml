@@ -2249,6 +2249,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <!-- Description of a wireless display route. [CHAR LIMIT=50] -->
     <!-- Content description of a MediaRouteButton for accessibility support.
         Cast is the standard android verb for sending content to a remote device. [CHAR LIMIT=50] -->
+    <string name="media_route_button_content_description">Bwrw</string>
     <!-- Title of the media route chooser dialog. [CHAR LIMIT=40] -->
     <string name="media_route_chooser_title">Cysylltu i ddyfais</string>
     <!-- Title of the media route chooser dialog for selecting remote display routes. [CHAR LIMIT=40] -->
