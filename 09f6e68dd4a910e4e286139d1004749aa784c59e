@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72f6b7c5_01cfaad7",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/dream/DreamBackend.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-12-14T12:27:24Z",
+      "side": 1,
+      "message": "is this valid code style?",
+      "range": {
+        "startLine": 263,
+        "startChar": 8,
+        "endLine": 265,
+        "endChar": 64
+      },
+      "revId": "09f6e68dd4a910e4e286139d1004749aa784c59e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
