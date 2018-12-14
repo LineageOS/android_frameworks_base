@@ -260,7 +260,9 @@ public class DreamBackend {
         logd("launchSettings(%s)", dreamInfo);
         if (dreamInfo == null || dreamInfo.settingsComponentName == null)
             return;
-        mContext.startActivity(new Intent().setComponent(dreamInfo.settingsComponentName));
+        mContext.startActivity(new Intent()
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setComponent(dreamInfo.settingsComponentName));
     }
 
     public void preview(DreamInfo dreamInfo) {
