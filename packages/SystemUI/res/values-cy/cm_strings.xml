@@ -25,13 +25,20 @@
     <!-- Content description for Accessibility on unlocked tasks in recents -->
     <!-- Content description for Accessibility on locked tasks in recents -->
     <!-- ADB over network QS tile -->
+    <string name="quick_settings_network_adb_label">ADB dros rwydwaith</string>
     <!-- Ambient display QS tile -->
     <!-- Caffeine QS tile -->
     <!-- Heads up QS tile -->
     <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Cysoni</string>
+    <string name="accessibility_quick_settings_sync_off">Cysoni i ffwrdd.</string>
+    <string name="accessibility_quick_settings_sync_on">Cysoni ymlaen.</string>
     <!-- System Profiles QS tile -->
+    <string name="quick_settings_profiles_label">Proffiliau system</string>
     <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Tenynnu USB</string>
     <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panel uchder sain</string>
     <!-- Navigation bar dpad -->
     <!-- Screen pinning dialog description (for devices without navbar) -->
     <!-- Name of the clock status bar icon -->

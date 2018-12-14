@@ -71,6 +71,7 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
     <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Поточний</string>
     <!-- Label for item that screenshots in power menu options dialog -->
     <string name="global_action_screenshot">Скріншот</string>
     <!-- Advanced restart menu -->
@@ -82,6 +83,7 @@
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">Перезавантаження\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_recovery_progress">Перехід в режим відновлення\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
     <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
     <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
