@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "308d0cba_60333e77",
+        "filename": "core/java/android/content/ContentProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2018-12-16T16:47:43Z",
+      "side": 1,
+      "message": "The N approach for this would be getUriWithoutUserId(uri)",
+      "range": {
+        "startLine": 297,
+        "startChar": 22,
+        "endLine": 297,
+        "endChar": 46
+      },
+      "revId": "6dc1eaaf5fc918849413ad87f6780e49f801cc94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85c2e6b2_cf13d1ae",
+        "filename": "core/java/android/content/ContentProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2018-12-16T16:47:43Z",
+      "side": 1,
+      "message": "Unnecessary add.",
+      "range": {
+        "startLine": 1881,
+        "startChar": 0,
+        "endLine": 1886,
+        "endChar": 40
+      },
+      "revId": "6dc1eaaf5fc918849413ad87f6780e49f801cc94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
