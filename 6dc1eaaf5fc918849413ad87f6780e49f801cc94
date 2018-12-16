@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f2c23d7a_221f74bf",
+        "filename": "core/java/android/content/ContentProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 17868
+      },
+      "writtenOn": "2018-12-16T17:58:17Z",
+      "side": 1,
+      "message": "Yes, but I already backported the proposed change introducing maybeGet.. stuff to keep consistency with O branch (not to cause questions in next ASBs, potentially)",
+      "parentUuid": "308d0cba_60333e77",
+      "range": {
+        "startLine": 297,
+        "startChar": 22,
+        "endLine": 297,
+        "endChar": 46
+      },
+      "revId": "6dc1eaaf5fc918849413ad87f6780e49f801cc94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85c2e6b2_cf13d1ae",
         "filename": "core/java/android/content/ContentProvider.java",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "6dc1eaaf5fc918849413ad87f6780e49f801cc94",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd09e649_2994b146",
+        "filename": "core/java/android/content/ContentProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 17868
+      },
+      "writtenOn": "2018-12-16T17:58:17Z",
+      "side": 1,
+      "message": "Right, as the commit you mentioned brings it there before this commit is applied.",
+      "parentUuid": "85c2e6b2_cf13d1ae",
+      "range": {
+        "startLine": 1881,
+        "startChar": 0,
+        "endLine": 1886,
+        "endChar": 40
+      },
+      "revId": "6dc1eaaf5fc918849413ad87f6780e49f801cc94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
