@@ -16,6 +16,24 @@
       "revId": "2d2c888d3f17077b78a96c0e250856f4c79ebbbf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "330a0840_1b9c233b",
+        "filename": "core/res/res/layout/permission_confirmation_dialog.xml",
+        "patchSetId": 39
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2018-12-17T19:33:17Z",
+      "side": 1,
+      "message": "Not exactly, since we only have one piece of text. But good point besides that :-)\n\n(With my changes we\u0027re already pretty near already though. Just need to unify CheckBox and TextView)",
+      "parentUuid": "",
+      "revId": "2d2c888d3f17077b78a96c0e250856f4c79ebbbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
