@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d5f12dc_9cc78ad7",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 38
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-17T15:30:51Z",
+      "side": 1,
+      "message": "No longer needed.",
+      "revId": "71ac6c93463211384efc5445bec68ac7fe3c44f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63adb262_2096c537",
+        "filename": "services/core/java/com/android/server/am/ActivityRecord.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-17T15:30:51Z",
+      "side": 1,
+      "message": "Shall be moved bellow.",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 43
+      },
+      "revId": "71ac6c93463211384efc5445bec68ac7fe3c44f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80b4f3c6_28ee6e41",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-17T15:30:51Z",
+      "side": 1,
+      "message": "Shall be moved bellow.",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 43
+      },
+      "revId": "71ac6c93463211384efc5445bec68ac7fe3c44f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
