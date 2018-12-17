@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cf28536_7f161848",
+        "filename": "core/res/res/layout/permission_confirmation_dialog.xml",
+        "patchSetId": 39
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-12-17T16:41:43Z",
+      "side": 1,
+      "message": "packages/SystemUI/res/layout/slice_permission_request.xml\nWe should copy 1:1 this file",
+      "revId": "2d2c888d3f17077b78a96c0e250856f4c79ebbbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
