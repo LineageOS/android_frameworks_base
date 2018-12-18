@@ -150,6 +150,9 @@ public class AppOpsService extends IAppOpsService.Stub {
         public ArrayMap<String, Ops> pkgOps;
         public SparseIntArray opModes;
 
+        public int pendingAskOp;
+        public boolean receivedPendingAskResponse;
+
         public UidState(int uid) {
             this.uid = uid;
         }
@@ -376,15 +379,51 @@ public class AppOpsService extends IAppOpsService.Stub {
                         if (Process.isIsolated(uid)) {
                             return Zygote.MOUNT_EXTERNAL_NONE;
                         }
-                        if (noteOperation(AppOpsManager.OP_READ_EXTERNAL_STORAGE, uid,
-                                packageName) != AppOpsManager.MODE_ALLOWED) {
+                        synchronized (AppOpsService.this) {
+                            UidState uidState = getUidStateLocked(uid, false);
+                            if (uidState != null && uidState.receivedPendingAskResponse) {
+                                int op = uidState.pendingAskOp;
+                                boolean write = op == AppOpsManager.OP_WRITE_EXTERNAL_STORAGE;
+
+                                if (DEBUG) Slog.d(TAG, "getMountMode: allowing "
+                                        + (write ? "write" : "read") + " for uid "
+                                        + uid + " package " + packageName
+                                        + " due to previous response");
+
+                                uidState.pendingAskOp = 0;
+                                uidState.receivedPendingAskResponse = false;
+                                return write
+                                        ? Zygote.MOUNT_EXTERNAL_WRITE : Zygote.MOUNT_EXTERNAL_READ;
+
+                            }
+                        }
+                        int readResult = check(AppOpsManager.OP_READ_EXTERNAL_STORAGE,
+                                uid, packageName);
+                        if (readResult == AppOpsManager.MODE_IGNORED) {
                             return Zygote.MOUNT_EXTERNAL_NONE;
                         }
-                        if (noteOperation(AppOpsManager.OP_WRITE_EXTERNAL_STORAGE, uid,
-                                packageName) != AppOpsManager.MODE_ALLOWED) {
+                        int writeResult = check(AppOpsManager.OP_WRITE_EXTERNAL_STORAGE,
+                                uid, packageName);
+                        if (DEBUG) Slog.d(TAG, "getMountMode: read result " + readResult
+                                + " write result " + writeResult + " for uid " + uid
+                                + " package " + packageName);
+
+                        if (writeResult == AppOpsManager.MODE_ALLOWED) {
+                            return Zygote.MOUNT_EXTERNAL_WRITE;
+                        } else if (writeResult == AppOpsManager.MODE_ASK) {
+                            scheduleAskOperation(AppOpsManager.OP_WRITE_EXTERNAL_STORAGE,
+                                    uid, packageName);
+                            return readResult == AppOpsManager.MODE_ALLOWED
+                                    ? Zygote.MOUNT_EXTERNAL_READ
+                                    : Zygote.MOUNT_EXTERNAL_NONE;
+                        } else if (readResult == AppOpsManager.MODE_ALLOWED) {
                             return Zygote.MOUNT_EXTERNAL_READ;
+                        } else if (readResult == AppOpsManager.MODE_ASK) {
+                            scheduleAskOperation(AppOpsManager.OP_READ_EXTERNAL_STORAGE,
+                                    uid, packageName);
                         }
-                        return Zygote.MOUNT_EXTERNAL_WRITE;
+
+                        return Zygote.MOUNT_EXTERNAL_NONE;
                     }
 
                     @Override
@@ -392,6 +431,36 @@ public class AppOpsService extends IAppOpsService.Stub {
                         final int mountMode = getMountMode(uid, packageName);
                         return mountMode == Zygote.MOUNT_EXTERNAL_READ
                                 || mountMode == Zygote.MOUNT_EXTERNAL_WRITE;
+                    }
+
+                    private int check(int code, int uid, String packageName) {
+                        verifyIncomingUid(uid);
+                        verifyIncomingOp(code);
+                        String resolvedPackageName = resolvePackageName(uid, packageName);
+                        if (resolvedPackageName == null) {
+                            return AppOpsManager.MODE_IGNORED;
+                        }
+                        return noteOperationUnchecked(code, uid,
+                                resolvedPackageName, 0, null, true);
+                    }
+
+                    private void scheduleAskOperation(int code, int uid, String packageName) {
+                        synchronized (AppOpsService.this) {
+                            UidState uidState = getUidStateLocked(uid, true);
+                            uidState.pendingAskOp = code;
+                            uidState.receivedPendingAskResponse = false;
+                            // Schedule noteOperation which will trigger the dialog
+                            // NOTE: needs to happen in background thread, as otherwise main thread
+                            //       will block due to scheduling the dialog and waiting for it in
+                            //       the same thread
+                            AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
+                                @Override protected Void doInBackground(Void... params) {
+                                    noteOperation(code, uid, packageName);
+                                    return null;
+                                }
+                            };
+                            task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[])null);
+                        }
                     }
                 });
 
@@ -1147,7 +1216,7 @@ public class AppOpsService extends IAppOpsService.Stub {
             return AppOpsManager.MODE_IGNORED;
         }
         final int proxyMode = noteOperationUnchecked(code, proxyUid,
-                resolveProxyPackageName, -1, null);
+                resolveProxyPackageName, -1, null, false);
         if (proxyMode != AppOpsManager.MODE_ALLOWED || Binder.getCallingUid() == proxiedUid) {
             return proxyMode;
         }
@@ -1156,7 +1225,7 @@ public class AppOpsService extends IAppOpsService.Stub {
             return AppOpsManager.MODE_IGNORED;
         }
         return noteOperationUnchecked(code, proxiedUid, resolveProxiedPackageName,
-                proxyMode, resolveProxyPackageName);
+                proxyMode, resolveProxyPackageName, false);
     }
 
     @Override
@@ -1167,11 +1236,11 @@ public class AppOpsService extends IAppOpsService.Stub {
         if (resolvedPackageName == null) {
             return AppOpsManager.MODE_IGNORED;
         }
-        return noteOperationUnchecked(code, uid, resolvedPackageName, 0, null);
+        return noteOperationUnchecked(code, uid, resolvedPackageName, 0, null, false);
     }
 
     private int noteOperationUnchecked(int code, int uid, String packageName,
-            int proxyUid, String proxyPackageName) {
+            int proxyUid, String proxyPackageName, boolean avoidAskMode) {
         PermissionDialogReq req = null;
         synchronized (this) {
             Ops ops = getOpsRawLocked(uid, packageName, true);
@@ -1222,6 +1291,8 @@ public class AppOpsService extends IAppOpsService.Stub {
                                         + uid
                                         + " package: "
                                         + packageName + ")");
+                        return switchOp.mode;
+                    } else if (avoidAskMode) {
                         return switchOp.mode;
                     }
 
@@ -1282,6 +1353,9 @@ public class AppOpsService extends IAppOpsService.Stub {
                 return AppOpsManager.MODE_ALLOWED;
             }
         }
+
+        if (DEBUG) Slog.d(TAG, "noteOperation: waiting for result code " + code + " uid " + uid
+                + " package " + packageName);
 
         int result = req.get();
         broadcastOpIfNeeded(code);
@@ -2838,10 +2912,14 @@ public class AppOpsService extends IAppOpsService.Stub {
 
     public void notifyOperation(int code, int uid, String packageName,
             int mode, boolean remember) {
+        if (DEBUG) Slog.d(TAG, "notifyOperation("
+                + code + ", " + uid + ", " + packageName + ", " + mode + ")");
+
         verifyIncomingUid(uid);
         verifyIncomingOp(code);
         ArrayList<Callback> repCbs = null;
         int switchCode = AppOpsManager.opToSwitch(code);
+        boolean needsPolicyUpdate = false;
         synchronized (this) {
             recordOperationLocked(code, uid, packageName, mode);
             Op op = getOpLocked(switchCode, uid, packageName, true);
@@ -2875,6 +2953,16 @@ public class AppOpsService extends IAppOpsService.Stub {
                     scheduleWriteLocked();
                 }
             }
+            UidState uidState = getUidStateLocked(uid, false);
+            if (uidState != null && uidState.pendingAskOp == code) {
+                if (mode == AppOpsManager.MODE_ALLOWED) {
+                    uidState.receivedPendingAskResponse = true;
+                    needsPolicyUpdate = true;
+                } else {
+                    uidState.pendingAskOp = 0;
+                    uidState.receivedPendingAskResponse = false;
+                }
+            }
         }
         if (repCbs != null) {
             for (int i = 0; i < repCbs.size(); i++) {
@@ -2883,6 +2971,11 @@ public class AppOpsService extends IAppOpsService.Stub {
                 } catch (RemoteException e) {
                 }
             }
+        }
+        if (needsPolicyUpdate) {
+            StorageManagerInternal storageManagerInternal =
+                    LocalServices.getService(StorageManagerInternal.class);
+            storageManagerInternal.onExternalStoragePolicyChanged(uid, packageName);
         }
     }
 
