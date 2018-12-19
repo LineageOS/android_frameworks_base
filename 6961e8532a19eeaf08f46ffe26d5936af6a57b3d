@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e40355aa_21dcf72d",
+        "filename": "core/java/android/os/UserManager.java",
+        "patchSetId": 42
+      },
+      "lineNbr": 1025,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-12-19T10:59:02Z",
+      "side": 1,
+      "message": "Should be moved below the rest of the \"DISALLOW_x\" strings (L#963++)",
+      "range": {
+        "startLine": 1015,
+        "startChar": 0,
+        "endLine": 1025,
+        "endChar": 53
+      },
+      "revId": "6961e8532a19eeaf08f46ffe26d5936af6a57b3d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12ac3407_adb0cb29",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 42
+      },
+      "lineNbr": 1816,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-12-19T10:59:02Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 1816,
+        "startChar": 8,
+        "endLine": 1816,
+        "endChar": 110
+      },
+      "revId": "6961e8532a19eeaf08f46ffe26d5936af6a57b3d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
