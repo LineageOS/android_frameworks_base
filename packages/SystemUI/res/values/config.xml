@@ -496,4 +496,8 @@
 
     <!-- On debuggable builds, alert the user if SystemUI PSS goes over this number (in kb) -->
     <integer name="watch_heap_limit">256000</integer>
+
+    <!-- Whether to relocate volume dialog to the left side of the device, thus matching the
+         location of the device's hardware keys. -->
+    <bool name="config_relocateVolumeDialog">false</bool>
 </resources>
