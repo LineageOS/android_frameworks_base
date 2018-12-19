@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:background="@android:color/transparent"
-        android:padding="@dimen/volume_dialog_panel_transparent_padding"
+        android:padding="@dimen/volume_dialog_panel_transparent_padding_horizontal"
         android:clipToPadding="false">
 
         <LinearLayout
