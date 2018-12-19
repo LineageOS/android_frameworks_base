@@ -89763,7 +89763,7 @@
 
     <issue
         id="RtlHardcoded"
-        message="Consider replacing `android:paddingRight` with `android:paddingEnd=&quot;@dimen/volume_dialog_panel_transparent_padding_right&quot;` to better support right-to-left layouts"
+        message="Consider replacing `android:paddingRight` with `android:paddingEnd=&quot;@dimen/volume_dialog_panel_transparent_padding_horizontal&quot;` to better support right-to-left layouts"
         errorLine1="        android:paddingRight=&quot;@dimen/volume_dialog_panel_transparent_padding_right&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~">
         <location
