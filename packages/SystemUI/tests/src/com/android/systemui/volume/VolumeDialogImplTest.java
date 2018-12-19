@@ -85,6 +85,8 @@ public class VolumeDialogImplTest extends SysuiTestCase {
     MediaOutputDialogFactory mMediaOutputDialogFactory;
     @Mock
     ActivityStarter mActivityStarter;
+    @Mock
+    TunerService mTunerService;
 
     @Before
     public void setup() throws Exception {
@@ -99,7 +101,8 @@ public class VolumeDialogImplTest extends SysuiTestCase {
                 mDeviceProvisionedController,
                 mConfigurationController,
                 mMediaOutputDialogFactory,
-                mActivityStarter);
+                mActivityStarter,
+                mTunerService);
         mDialog.init(0, null);
         State state = createShellState();
         mDialog.onStateChangedH(state);
