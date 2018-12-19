@@ -131,8 +131,11 @@ import com.android.systemui.statusbar.policy.AccessibilityManagerWrapper;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DevicePostureController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.AlphaTintDrawableWrapper;
 import com.android.systemui.util.RoundedCornerProgressDrawable;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -150,6 +153,9 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         ConfigurationController.ConfigurationListener,
         ViewTreeObserver.OnComputeInternalInsetsListener {
     private static final String TAG = Util.logTag(VolumeDialogImpl.class);
+
+    private static final String VOLUME_PANEL_ON_LEFT =
+            "lineagesecure:" + LineageSettings.Secure.VOLUME_PANEL_ON_LEFT;
 
     private static final long USER_ATTEMPT_GRACE_PERIOD = 1000;
     private static final int UPDATE_ANIMATION_DURATION = 80;
@@ -276,6 +282,10 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     private boolean mHasSeenODICaptionsTooltip;
     private ViewStub mODICaptionsTooltipViewStub;
     private View mODICaptionsTooltipView = null;
+    private TunerService mTunerService;
+
+    // Volume panel placement left or right
+    private boolean mVolumePanelOnLeft;
 
     private final boolean mUseBackgroundBlur;
     private Consumer<Boolean> mCrossWindowBlurEnabledListener;
@@ -313,7 +323,8 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
             CsdWarningDialog.Factory csdWarningDialogFactory,
             DevicePostureController devicePostureController,
             Looper looper,
-            DumpManager dumpManager) {
+            DumpManager dumpManager,
+            TunerService tunerService) {
         mContext =
                 new ContextThemeWrapper(context, R.style.volume_dialog_theme);
         mHandler = new H(looper);
@@ -327,6 +338,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         mVolumePanelFactory = volumePanelFactory;
         mCsdWarningDialogFactory = csdWarningDialogFactory;
         mActivityStarter = activityStarter;
+        mTunerService = tunerService;
         mShowActiveStreamOnly = showActiveStreamOnly();
         mHasSeenODICaptionsTooltip =
                 Prefs.getBoolean(context, Prefs.Key.HAS_SEEN_ODI_CAPTIONS_TOOLTIP, false);
@@ -354,6 +366,10 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                         enabled ? dialogRowsViewColorAboveBlur : dialogRowsViewColorNoBlur);
                 mDialogRowsView.invalidate();
             };
+        }
+
+        if (!mShowActiveStreamOnly) {
+            mTunerService.addTunable(mTunable, VOLUME_PANEL_ON_LEFT);
         }
 
         initDimens();
@@ -524,6 +540,11 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         lp.windowAnimations = -1;
 
         mOriginalGravity = mContext.getResources().getInteger(R.integer.volume_dialog_gravity);
+        if (!mShowActiveStreamOnly) {
+            // Clear the pre-defined gravity for left or right, this is handled by mVolumePanelOnLeft
+            mOriginalGravity &= ~(Gravity.LEFT | Gravity.RIGHT);
+            mOriginalGravity |= mVolumePanelOnLeft ? Gravity.LEFT : Gravity.RIGHT;
+        }
         mWindowGravity = Gravity.getAbsoluteGravity(mOriginalGravity,
                 mContext.getResources().getConfiguration().getLayoutDirection());
         lp.gravity = mWindowGravity;
@@ -751,6 +772,21 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         // Normal, mute, and possibly vibrate.
         mRingerCount = mShowVibrate ? 3 : 2;
     }
+
+    private final TunerService.Tunable mTunable = new TunerService.Tunable() {
+        @Override
+        public void onTuningChanged(String key, String newValue) {
+            if (VOLUME_PANEL_ON_LEFT.equals(key)) {
+                final boolean volumePanelOnLeft = TunerService.parseIntegerSwitch(newValue, false);
+                if (mVolumePanelOnLeft != volumePanelOnLeft) {
+                    mVolumePanelOnLeft = volumePanelOnLeft;
+                    mHandler.post(() -> {
+                        mControllerCallbackH.onConfigurationChanged();
+                    });
+                }
+            }
+        }
+    };
 
     protected ViewGroup getDialogView() {
         return mDialogView;
