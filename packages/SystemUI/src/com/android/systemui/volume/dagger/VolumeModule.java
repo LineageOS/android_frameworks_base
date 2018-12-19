@@ -27,6 +27,7 @@ import com.android.systemui.plugins.VolumeDialogController;
 import com.android.systemui.statusbar.policy.AccessibilityManagerWrapper;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 import com.android.systemui.volume.VolumeDialogComponent;
 import com.android.systemui.volume.VolumeDialogImpl;
@@ -53,7 +54,8 @@ public interface VolumeModule {
             ConfigurationController configurationController,
             MediaOutputDialogFactory mediaOutputDialogFactory,
             ActivityStarter activityStarter,
-            InteractionJankMonitor interactionJankMonitor) {
+            InteractionJankMonitor interactionJankMonitor,
+            TunerService tunerService) {
         VolumeDialogImpl impl = new VolumeDialogImpl(
                 context,
                 volumeDialogController,
@@ -62,7 +64,8 @@ public interface VolumeModule {
                 configurationController,
                 mediaOutputDialogFactory,
                 activityStarter,
-                interactionJankMonitor);
+                interactionJankMonitor,
+                tunerService);
         impl.setStreamImportant(AudioManager.STREAM_SYSTEM, false);
         impl.setAutomute(true);
         impl.setSilentMode(false);

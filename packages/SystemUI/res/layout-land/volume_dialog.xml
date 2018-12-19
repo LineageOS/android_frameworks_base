@@ -25,14 +25,14 @@
     android:background="@android:color/transparent"
     android:theme="@style/volume_dialog_theme">
 
-    <!-- right-aligned to be physically near volume button -->
     <LinearLayout
         android:id="@+id/volume_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:layout_gravity="right"
-        android:layout_marginRight="@dimen/volume_dialog_panel_transparent_padding_right"
+        android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding_horizontal"
+        android:paddingRight="@dimen/volume_dialog_panel_transparent_padding_horizontal"
         android:orientation="vertical"
         android:clipToPadding="false"
         android:clipChildren="false">
@@ -147,6 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom | right"
-        android:layout_marginRight="@dimen/volume_tool_tip_right_margin"/>
+        android:layout_marginLeft="@dimen/volume_tool_tip_horizontal_margin"
+        android:layout_marginRight="@dimen/volume_tool_tip_horizontal_margin"/>
 
 </FrameLayout>
