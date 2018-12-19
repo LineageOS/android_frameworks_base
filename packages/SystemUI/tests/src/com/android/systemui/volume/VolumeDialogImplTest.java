@@ -87,6 +87,7 @@ public class VolumeDialogImplTest extends SysuiTestCase {
     @Mock
     ActivityStarter mActivityStarter;
     @Mock
+    TunerService mTunerService;
     InteractionJankMonitor mInteractionJankMonitor;
 
     @Before
@@ -103,6 +104,7 @@ public class VolumeDialogImplTest extends SysuiTestCase {
                 mConfigurationController,
                 mMediaOutputDialogFactory,
                 mActivityStarter,
+                mTunerService,
                 mInteractionJankMonitor);
         mDialog.init(0, null);
         State state = createShellState();
