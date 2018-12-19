@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:background="@android:color/transparent"
-        android:paddingRight="@dimen/volume_dialog_panel_transparent_padding_right"
+        android:paddingRight="@dimen/volume_dialog_panel_transparent_padding_horizontal"
         android:paddingTop="@dimen/volume_dialog_panel_transparent_padding"
         android:paddingBottom="@dimen/volume_dialog_panel_transparent_padding"
         android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding"
