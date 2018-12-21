@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09434966_35336de0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "\"to relocate volume dialog\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f66eca0_34edb530",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 101
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7dc5518_6bc711e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "Could be removed.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12764815_6abd7e81",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "While this fits well in the commit message, here I\u0027d put something like:\n\n\"Whether to relocate volume dialog to the left side of the device, thus matching the location of the device\u0027s hardware keys.\"",
+      "range": {
+        "startLine": 500,
+        "startChar": 9,
+        "endLine": 500,
+        "endChar": 69
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b363a330_cac9e391",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "config_relocateVolumeDialog",
+      "range": {
+        "startLine": 501,
+        "startChar": 16,
+        "endLine": 501,
+        "endChar": 43
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6c874f6_a6cd5883",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "shouldRelocateVolumeDialog",
+      "range": {
+        "startLine": 199,
+        "startChar": 12,
+        "endLine": 199,
+        "endChar": 34
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34d6944a_4ae71849",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "Line too long (respect 100 chars limit).\n\nMoreover, \"(mDialogView.getWidth() / 2)*(isAudioPanelOnLeftSide() ? 1 : -1)\" can be simplified to:\n\n\"(shouldRelocateVolumeDialog() ? 1 : -1) * mDialogView.getWidth() / 2\"",
+      "range": {
+        "startLine": 212,
+        "startChar": 12,
+        "endLine": 212,
+        "endChar": 126
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "657107d2_5a20e8ab",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "shouldRelocateVolumeDialog",
+      "range": {
+        "startLine": 318,
+        "startChar": 12,
+        "endLine": 318,
+        "endChar": 34
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16f43803_00117e7c",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "shouldRelocateVolumeDialog",
+      "range": {
+        "startLine": 332,
+        "startChar": 16,
+        "endLine": 332,
+        "endChar": 38
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8807d701_78307809",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "Same as the other comment (line #212).",
+      "range": {
+        "startLine": 591,
+        "startChar": 8,
+        "endLine": 591,
+        "endChar": 116
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daa690e1_3c1c981d",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "shouldRelocateVolumeDialog",
+      "range": {
+        "startLine": 1298,
+        "startChar": 20,
+        "endLine": 1298,
+        "endChar": 42
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff8aa9b0_bb4f1de8",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "Spaces instead of tabs.",
+      "range": {
+        "startLine": 1299,
+        "startChar": 0,
+        "endLine": 1299,
+        "endChar": 1
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b437213_7c5fb0e7",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T10:15:37Z",
+      "side": 1,
+      "message": "config_relocateVolumeDialog",
+      "range": {
+        "startLine": 1300,
+        "startChar": 35,
+        "endLine": 1300,
+        "endChar": 62
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
