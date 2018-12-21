@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a43f470_0b4c2d4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-21T13:13:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "09434966_35336de0",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f66eca0_34edb530",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "03c2c38b_d44f21ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-21T13:13:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9f66eca0_34edb530",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 101
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7dc5518_6bc711e3",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2018-12-21T10:15:37Z",
       "side": 1,
       "message": "Could be removed.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4f4407f_2350bb5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-21T13:13:53Z",
+      "side": 1,
+      "message": "...but SHOULD it be removed? If it doesn\u0027t comply to coding style or something it could be removed. On the other hand it\u0027s helpful for noobs like me, isn\u0027t it?",
+      "parentUuid": "f7dc5518_6bc711e3",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "6a884d14_1b32b368",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-21T13:13:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12764815_6abd7e81",
+      "range": {
+        "startLine": 500,
+        "startChar": 9,
+        "endLine": 500,
+        "endChar": 69
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b363a330_cac9e391",
         "filename": "packages/SystemUI/res/values/config.xml",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2018-12-21T10:15:37Z",
       "side": 1,
       "message": "config_relocateVolumeDialog",
+      "range": {
+        "startLine": 501,
+        "startChar": 16,
+        "endLine": 501,
+        "endChar": 43
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8a624c9_4d6e0871",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-21T13:13:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b363a330_cac9e391",
       "range": {
         "startLine": 501,
         "startChar": 16,
