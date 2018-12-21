@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed052657_9b7ef6c7",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 46
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-12-21T10:59:24Z",
+      "side": 1,
+      "message": "All of the 3 lines are too long",
+      "range": {
+        "startLine": 1785,
+        "startChar": 20,
+        "endLine": 1787,
+        "endChar": 103
+      },
+      "revId": "78f2c245e81fdaec53802de1d64fe0b59801f9fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
