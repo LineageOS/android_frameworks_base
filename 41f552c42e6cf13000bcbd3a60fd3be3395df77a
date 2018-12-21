@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b20cb522_8d312d06",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 45
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2018-12-21T07:59:53Z",
+      "side": 1,
+      "message": "What\u0027s the point of this change?",
+      "revId": "41f552c42e6cf13000bcbd3a60fd3be3395df77a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7eda8045_e6120416",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 45
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2018-12-21T07:59:53Z",
+      "side": 1,
+      "message": "Coding style: \u0027onPackageResumed\u0027 or \u0027handlePackageResumed\u0027",
+      "revId": "41f552c42e6cf13000bcbd3a60fd3be3395df77a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f067142d_08c6f904",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 45
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2018-12-21T07:59:53Z",
+      "side": 1,
+      "message": "Curly braces missing",
+      "revId": "41f552c42e6cf13000bcbd3a60fd3be3395df77a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "872bee8c_20611441",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 45
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2018-12-21T07:59:53Z",
+      "side": 1,
+      "message": "Stray newline",
+      "revId": "41f552c42e6cf13000bcbd3a60fd3be3395df77a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b58e7b23_baa4e2cf",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 45
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2018-12-21T07:59:53Z",
+      "side": 1,
+      "message": "Don\u0027t need to print op.time twice",
+      "revId": "41f552c42e6cf13000bcbd3a60fd3be3395df77a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "882ae590_84eec846",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 45
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2018-12-21T07:59:53Z",
+      "side": 1,
+      "message": "Can use Math.max() here",
+      "revId": "41f552c42e6cf13000bcbd3a60fd3be3395df77a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
