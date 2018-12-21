@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4826b25_1bad92cf",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 1788,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T15:32:11Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "range": {
+        "startLine": 1788,
+        "startChar": 0,
+        "endLine": 1788,
+        "endChar": 52
+      },
+      "revId": "77862494354448d317bcee4305ff6fc70c9c8b2c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34b9eaf4_88d05002",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 1790,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-21T15:32:11Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "range": {
+        "startLine": 1790,
+        "startChar": 0,
+        "endLine": 1790,
+        "endChar": 24
+      },
+      "revId": "77862494354448d317bcee4305ff6fc70c9c8b2c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
