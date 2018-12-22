@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81f2961c_e1fdc8bb",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-22T18:42:43Z",
+      "side": 1,
+      "message": "Extra space",
+      "range": {
+        "startLine": 500,
+        "startChar": 92,
+        "endLine": 500,
+        "endChar": 93
+      },
+      "revId": "b1aa696e18d64390f91583b985bd7c1482deaed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5cee2e_3c281aa5",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-22T18:42:43Z",
+      "side": 1,
+      "message": "Spaces, not tabs.\n\nAlso, as in my previous comments:\n\n\"(mDialogView.getWidth() / 2)*(isAudioPanelOnLeftSide() ? 1 : -1)\" can be simplified to \"(shouldRelocateVolumeDialog() ? 1 : -1) * mDialogView.getWidth() / 2\"",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 5
+      },
+      "revId": "b1aa696e18d64390f91583b985bd7c1482deaed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4469d0c_4e358650",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-22T18:42:43Z",
+      "side": 1,
+      "message": "Spaces, not tabs.",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 13
+      },
+      "revId": "b1aa696e18d64390f91583b985bd7c1482deaed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d81f25e1_a96a1391",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-22T18:42:43Z",
+      "side": 1,
+      "message": "Missing space after if.",
+      "range": {
+        "startLine": 319,
+        "startChar": 8,
+        "endLine": 319,
+        "endChar": 11
+      },
+      "revId": "b1aa696e18d64390f91583b985bd7c1482deaed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1187986c_38479407",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-22T18:42:43Z",
+      "side": 1,
+      "message": "Aren\u0027t you changing the default logic?",
+      "range": {
+        "startLine": 320,
+        "startChar": 12,
+        "endLine": 320,
+        "endChar": 49
+      },
+      "revId": "b1aa696e18d64390f91583b985bd7c1482deaed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d3d1193_727d5b67",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-22T18:42:43Z",
+      "side": 1,
+      "message": "Missing space after if.",
+      "range": {
+        "startLine": 333,
+        "startChar": 12,
+        "endLine": 333,
+        "endChar": 14
+      },
+      "revId": "b1aa696e18d64390f91583b985bd7c1482deaed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fab7b368_1375720d",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-22T18:42:43Z",
+      "side": 1,
+      "message": "Aren\u0027t you changing the default logic?",
+      "range": {
+        "startLine": 334,
+        "startChar": 16,
+        "endLine": 334,
+        "endChar": 53
+      },
+      "revId": "b1aa696e18d64390f91583b985bd7c1482deaed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab7422ad_84ca4c8e",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-22T18:42:43Z",
+      "side": 1,
+      "message": "As in my previous comments:\n\n\"(mDialogView.getWidth() / 2)*(isAudioPanelOnLeftSide() ? 1 : -1)\" can be simplified to \"(shouldRelocateVolumeDialog() ? 1 : -1) * mDialogView.getWidth() / 2\"",
+      "revId": "b1aa696e18d64390f91583b985bd7c1482deaed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bdcb2c3_5f99fd67",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-22T18:42:43Z",
+      "side": 1,
+      "message": "Spaces, not tabs.",
+      "range": {
+        "startLine": 593,
+        "startChar": 0,
+        "endLine": 593,
+        "endChar": 9
+      },
+      "revId": "b1aa696e18d64390f91583b985bd7c1482deaed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
