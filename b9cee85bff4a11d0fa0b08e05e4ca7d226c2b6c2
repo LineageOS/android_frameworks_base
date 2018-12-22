@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "59cf2186_f3715012",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-22T20:30:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6a884d14_1b32b368",
+      "range": {
+        "startLine": 500,
+        "startChar": 9,
+        "endLine": 500,
+        "endChar": 69
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b363a330_cac9e391",
         "filename": "packages/SystemUI/res/values/config.xml",
         "patchSetId": 1
@@ -237,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "3bb1e1df_24485462",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-22T20:30:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d8a624c9_4d6e0871",
+      "range": {
+        "startLine": 501,
+        "startChar": 16,
+        "endLine": 501,
+        "endChar": 43
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6c874f6_a6cd5883",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 1
@@ -257,6 +305,30 @@
       "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c781e442_b3ef98a7",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-22T20:30:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e6c874f6_a6cd5883",
+      "range": {
+        "startLine": 199,
+        "startChar": 12,
+        "endLine": 199,
+        "endChar": 34
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -283,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "dd95f578_c2b7b9c5",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-22T20:30:18Z",
+      "side": 1,
+      "message": "The simplification bails out with \"no expression\" marking the \"/\" operator.",
+      "parentUuid": "34d6944a_4ae71849",
+      "range": {
+        "startLine": 212,
+        "startChar": 12,
+        "endLine": 212,
+        "endChar": 126
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "657107d2_5a20e8ab",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 1
@@ -303,6 +399,30 @@
       "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ec722bc_067e7b2a",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-22T20:30:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "657107d2_5a20e8ab",
+      "range": {
+        "startLine": 318,
+        "startChar": 12,
+        "endLine": 318,
+        "endChar": 34
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -329,6 +449,30 @@
     },
     {
       "key": {
+        "uuid": "d34df088_cd7ce626",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-22T20:30:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16f43803_00117e7c",
+      "range": {
+        "startLine": 332,
+        "startChar": 16,
+        "endLine": 332,
+        "endChar": 38
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8807d701_78307809",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 1
@@ -349,6 +493,30 @@
       "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68efb409_07047a4d",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-22T20:30:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8807d701_78307809",
+      "range": {
+        "startLine": 591,
+        "startChar": 8,
+        "endLine": 591,
+        "endChar": 116
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -375,6 +543,30 @@
     },
     {
       "key": {
+        "uuid": "446fb605_2e1e3013",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-22T20:30:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "daa690e1_3c1c981d",
+      "range": {
+        "startLine": 1298,
+        "startChar": 20,
+        "endLine": 1298,
+        "endChar": 42
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff8aa9b0_bb4f1de8",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 1
@@ -398,6 +590,30 @@
     },
     {
       "key": {
+        "uuid": "8141eb33_aeb1fd0e",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-22T20:30:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ff8aa9b0_bb4f1de8",
+      "range": {
+        "startLine": 1299,
+        "startChar": 0,
+        "endLine": 1299,
+        "endChar": 1
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b437213_7c5fb0e7",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 1
@@ -418,6 +634,30 @@
       "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e45a682_f3647cfe",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-22T20:30:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8b437213_7c5fb0e7",
+      "range": {
+        "startLine": 1300,
+        "startChar": 35,
+        "endLine": 1300,
+        "endChar": 62
+      },
+      "revId": "b9cee85bff4a11d0fa0b08e05e4ca7d226c2b6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
