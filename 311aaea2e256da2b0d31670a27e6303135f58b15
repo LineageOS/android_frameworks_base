@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f46e95c_c91b5dfc",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 48
+      },
+      "lineNbr": 1806,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2018-12-23T08:29:31Z",
+      "side": 1,
+      "message": "Need to pull this call out of the AppOpsService lock.",
+      "revId": "311aaea2e256da2b0d31670a27e6303135f58b15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
