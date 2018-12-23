@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62366493_58b92f48",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-12-23T11:44:14Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "e59dfe951496df6f4746bb4c7f1394e84a365b8b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
