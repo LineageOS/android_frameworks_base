@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "591bfe4b_9f1fd13e",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-24T12:08:21Z",
+      "side": 1,
+      "message": "Can we kill this?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 79
+      },
+      "revId": "a7589caff468164f7d82bdc6568f34125552d736",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8dfd427_674849b8",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-24T12:08:21Z",
+      "side": 1,
+      "message": "Can we kill this?",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 5
+      },
+      "revId": "a7589caff468164f7d82bdc6568f34125552d736",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e51b921_a783c853",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-24T12:08:21Z",
+      "side": 1,
+      "message": "Can we kill this?",
+      "range": {
+        "startLine": 601,
+        "startChar": 0,
+        "endLine": 608,
+        "endChar": 9
+      },
+      "revId": "a7589caff468164f7d82bdc6568f34125552d736",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
