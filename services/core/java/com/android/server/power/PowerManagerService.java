@@ -1405,7 +1405,8 @@ public final class PowerManagerService extends SystemService
                     return true;
 
                 case PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK:
-                    return mSystemReady && mDisplayManagerInternal.isProximitySensorAvailable();
+                    return mSystemReady && mDisplayManagerInternal.isProximitySensorAvailable()
+                             && mProximityWakeEnabled;
 
                 default:
                     return false;
