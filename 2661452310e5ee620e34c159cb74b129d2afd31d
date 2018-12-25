@@ -16,6 +16,24 @@
       "revId": "2661452310e5ee620e34c159cb74b129d2afd31d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "348704b1_2f9765af",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-25T09:51:37Z",
+      "side": 1,
+      "message": "I\u0027d rather leave as is. It\u0027s enabled for devices with less than 1GB as written in the commit message.",
+      "parentUuid": "70ea73ca_44165df6",
+      "revId": "2661452310e5ee620e34c159cb74b129d2afd31d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
