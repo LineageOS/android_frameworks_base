@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70ea73ca_44165df6",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerConstants.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-12-25T09:49:30Z",
+      "side": 1,
+      "message": "default to false",
+      "revId": "2661452310e5ee620e34c159cb74b129d2afd31d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
