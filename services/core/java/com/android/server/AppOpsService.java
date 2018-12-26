@@ -41,7 +41,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.os.PowerManager;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ResultReceiver;
@@ -109,7 +108,7 @@ public class AppOpsService extends IAppOpsService.Stub {
     final Looper mLooper;
     final boolean mStrictEnable;
     AppOpsPolicy mPolicy;
-    private PowerManager mPowerManager;
+    private boolean mIsInteractive = true;
 
     boolean mWriteScheduled;
     boolean mFastWriteScheduled;
@@ -464,8 +463,8 @@ public class AppOpsService extends IAppOpsService.Stub {
                     }
                 });
 
-        mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_SCREEN_ON);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         mContext.registerReceiver(mIntentReceiver, filter);
     }
@@ -474,8 +473,12 @@ public class AppOpsService extends IAppOpsService.Stub {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (action.equals(Intent.ACTION_SCREEN_OFF)) {
-                synchronized (this) {
+            if (action.equals(Intent.ACTION_SCREEN_ON)) {
+                synchronized (AppOpsService.this) {
+                    mIsInteractive = true;
+                }
+            } else if (action.equals(Intent.ACTION_SCREEN_OFF)) {
+                synchronized (AppOpsService.this) {
                     for (int i = mUidStates.size() - 1; i >= 0; i--) {
                         UidState uidState = mUidStates.valueAt(i);
 
@@ -496,6 +499,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                             }
                         }
                     }
+                    mIsInteractive = false;
                 }
             }
         }
@@ -1318,8 +1322,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                     // we move them to the back of the line. NOTE: these values are magic, and may need
                     // tuning. Ideally we'd want a ringbuffer or token bucket here to do proper rate
                     // limiting.
-                    final boolean isInteractive = mPowerManager.isInteractive();
-                    if (isInteractive &&
+                    if (mIsInteractive &&
                             (ops.uidState.pkgOps.size() < AppOpsPolicy.RATE_LIMIT_OPS_TOTAL_PKG_COUNT
                             && op.noteOpCount < AppOpsPolicy.RATE_LIMIT_OP_COUNT
                             || op.delayedCount > AppOpsPolicy.RATE_LIMIT_OP_DELAY_CEILING)) {
@@ -1333,7 +1336,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                         op.noteOpCount++;
                         req = askOperationLocked(code, uid, packageName, switchOp);
                     } else {
-                        if (isInteractive) {
+                        if (mIsInteractive) {
                             op.delayedCount++;
                         }
                         op.ignoredCount++;
