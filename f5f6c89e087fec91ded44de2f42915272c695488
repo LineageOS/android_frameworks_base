@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d97e5841_625d110f",
+        "filename": "core/res/res/values/lineage_config.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-12-29T14:13:33Z",
+      "side": 1,
+      "message": "config_loosenUidCheckForCameraService",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 38
+      },
+      "revId": "f5f6c89e087fec91ded44de2f42915272c695488",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
