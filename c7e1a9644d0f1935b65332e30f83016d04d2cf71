@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06bfa721_2de0c98f",
+        "filename": "services/core/java/com/android/server/camera/CameraServiceProxy.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2018-12-29T10:24:18Z",
+      "side": 1,
+      "message": "The logic is wrong, it should be (mLoosenUidCheck \u0026\u0026 Binder.getCallingUid() !\u003d Process.MEDIA_UID)\n\nWe should also discuss the fact it\u0027s not a \"global\" loosen but just for MEDIA, so either explicit naming or bit masks, although it\u0027s very unlikely we\u0027d ever need to add another UID here.",
+      "revId": "c7e1a9644d0f1935b65332e30f83016d04d2cf71",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "135716b9_377b6d59",
+        "filename": "services/core/java/com/android/server/camera/CameraServiceProxy.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2018-12-29T10:24:18Z",
+      "side": 1,
+      "message": "Typo",
+      "revId": "c7e1a9644d0f1935b65332e30f83016d04d2cf71",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
