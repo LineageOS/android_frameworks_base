@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cc98054_99e97b64",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2018-12-29T08:56:45Z",
+      "side": 1,
+      "message": "Are you sure about 480 dpi? I\u0027ve always thought the \"virtual\" resolution is dp (like in dev opts). Only the hardware resolution is in dpi, because you can\u0027t change the physical amount of dots per inch without changing the physical resolution (i.e. 1080x1920 -\u003e 2160x3840). I think \"that run at 480dp\" is the correct term here.",
+      "revId": "877ea81f05125ceb40df1f1af56679092b365220",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
