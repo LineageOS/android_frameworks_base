@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91441dcb_9703ebbf",
+        "filename": "services/core/java/com/android/server/camera/CameraServiceProxy.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-12-29T14:26:40Z",
+      "side": 1,
+      "message": "I would reverse the order of the checks here",
+      "revId": "f4242e4888bc90736d108222f5f7845940549191",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d51e521a_05441f37",
+        "filename": "services/core/java/com/android/server/camera/CameraServiceProxy.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-12-29T14:26:40Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "f4242e4888bc90736d108222f5f7845940549191",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
