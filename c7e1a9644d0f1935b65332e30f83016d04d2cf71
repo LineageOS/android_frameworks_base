@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "efb514eb_34405708",
+        "filename": "services/core/java/com/android/server/camera/CameraServiceProxy.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2018-12-29T10:59:36Z",
+      "side": 1,
+      "message": "I take it back, I reversed the return\u0027s location in my mind.",
+      "parentUuid": "06bfa721_2de0c98f",
+      "revId": "c7e1a9644d0f1935b65332e30f83016d04d2cf71",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "135716b9_377b6d59",
         "filename": "services/core/java/com/android/server/camera/CameraServiceProxy.java",
         "patchSetId": 2
