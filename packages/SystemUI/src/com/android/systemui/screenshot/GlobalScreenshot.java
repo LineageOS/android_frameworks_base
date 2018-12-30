@@ -668,16 +668,18 @@ class GlobalScreenshot {
                         view.setVisibility(View.GONE);
                         mWindowManager.removeView(mScreenshotLayout);
                         final Rect rect = view.getSelectionRect();
-                        if (rect != null) {
-                            if (rect.width() != 0 && rect.height() != 0) {
-                                // Need mScreenshotLayout to handle it after the view disappears
-                                mScreenshotLayout.post(new Runnable() {
-                                    public void run() {
-                                        takeScreenshot(finisher, statusBarVisible, navBarVisible,
-                                                rect);
-                                    }
-                                });
-                            }
+                        if (rect != null && rect.width() != 0 && rect.height() != 0) {
+                            // Need mScreenshotLayout to handle it after the view disappears
+                            mScreenshotLayout.post(new Runnable() {
+                                public void run() {
+                                    takeScreenshot(finisher, statusBarVisible, navBarVisible,
+                                            rect);
+                                }
+                            });
+                        } else {
+                            // Clean up if nothing is selected
+                            // to initialize a new screenshot later
+                            finisher.run();
                         }
 
                         view.stopSelection();
