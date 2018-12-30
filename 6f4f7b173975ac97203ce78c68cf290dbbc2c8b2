@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7d3fc89_51292b53",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-12-30T16:55:31Z",
+      "side": 1,
+      "message": "This could actually be the subject of the commit message.",
+      "range": {
+        "startLine": 655,
+        "startChar": 30,
+        "endLine": 655,
+        "endChar": 77
+      },
+      "revId": "6f4f7b173975ac97203ce78c68cf290dbbc2c8b2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
