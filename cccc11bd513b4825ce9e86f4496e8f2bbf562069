@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "56cab384_7f7385cf",
+        "filename": "services/core/java/com/android/server/ConsumerIrService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-12-30T12:00:11Z",
+      "side": 1,
+      "message": "Let\u0027s fix it then",
+      "parentUuid": "50d1b7ba_e81a3dfb",
+      "revId": "cccc11bd513b4825ce9e86f4496e8f2bbf562069",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91245abc_31456ddf",
         "filename": "services/core/java/com/android/server/ConsumerIrService.java",
         "patchSetId": 1
