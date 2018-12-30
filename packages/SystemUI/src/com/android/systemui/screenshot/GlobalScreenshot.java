@@ -652,6 +652,14 @@ class GlobalScreenshot {
                                     }
                                 });
                             }
+                            //reply to screenshot request if nothing selected
+                            else {
+                                finisher.run();
+                            }
+                        }
+                        //reply to screenshot request if rect == null
+                        else {
+                            finisher.run();
                         }
 
                         view.stopSelection();
