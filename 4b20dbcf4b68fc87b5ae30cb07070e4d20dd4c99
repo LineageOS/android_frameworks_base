@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e5ce7c5_882a6425",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-12-30T19:10:34Z",
+      "side": 1,
+      "message": "shouldn\u0027t this also be run in the case that rect \u003d\u003d null?",
+      "range": {
+        "startLine": 655,
+        "startChar": 28,
+        "endLine": 658,
+        "endChar": 29
+      },
+      "revId": "4b20dbcf4b68fc87b5ae30cb07070e4d20dd4c99",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
