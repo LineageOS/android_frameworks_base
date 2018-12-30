@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "50d1b7ba_e81a3dfb",
+        "filename": "services/core/java/com/android/server/ConsumerIrService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2018-12-30T11:58:56Z",
+      "side": 1,
+      "message": "Probably. It wasn\u0027t final in Huawei\u0027s code btw.",
+      "parentUuid": "61e6081a_43feb8dd",
+      "revId": "cccc11bd513b4825ce9e86f4496e8f2bbf562069",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91245abc_31456ddf",
         "filename": "services/core/java/com/android/server/ConsumerIrService.java",
         "patchSetId": 1
