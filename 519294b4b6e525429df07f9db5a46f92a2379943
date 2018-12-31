@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99008376_425a4638",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "nit: if (...) {",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 11
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e1e127d_f22abc89",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "nit: This formatting is so weird.",
+      "range": {
+        "startLine": 72,
+        "startChar": 31,
+        "endLine": 76,
+        "endChar": 33
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a21ee0c1_b6a73063",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "nit: Consider prefixing with if (DEBUG) or something.",
+      "range": {
+        "startLine": 105,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 52
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f42141ad_9d030322",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "Why not just use the isAvailable function and bail early?",
+      "range": {
+        "startLine": 107,
+        "startChar": 8,
+        "endLine": 107,
+        "endChar": 82
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04ac2295_277b5ad1",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "Why not just throw e.getCause(); and be done with it? This instanceof business is bad practice too.",
+      "range": {
+        "startLine": 113,
+        "startChar": 16,
+        "endLine": 120,
+        "endChar": 17
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "401ad9c1_7ef5a356",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "This is kind of bad practice, Slog.i(String tag, String msg, Throwable tr) exists for this purpose. Also, this should probably be Slog.e.",
+      "range": {
+        "startLine": 122,
+        "startChar": 16,
+        "endLine": 123,
+        "endChar": 36
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14e7623f_405d3096",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 133,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 53
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "266692ca_14b571d3",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "There\u0027s no null check on this call, unlike the listen function above. Consider wrapping with isAvailable?",
+      "range": {
+        "startLine": 135,
+        "startChar": 12,
+        "endLine": 135,
+        "endChar": 62
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c202041_bfae8e3b",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "Same as above re: throw e.getCause();",
+      "range": {
+        "startLine": 138,
+        "startChar": 12,
+        "endLine": 145,
+        "endChar": 13
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeb401e8_778dfc4b",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "Same as above re: Slog.e(tag, msg, throwable);",
+      "range": {
+        "startLine": 147,
+        "startChar": 12,
+        "endLine": 148,
+        "endChar": 32
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7949df1_ad967a3f",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "return this statement directly?",
+      "range": {
+        "startLine": 156,
+        "startChar": 8,
+        "endLine": 157,
+        "endChar": 48
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "213cdeb7_052fb062",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 1,
+      "message": "In the case ExtendedRemoteDisplayHelper is not available, does this need to be mConnectedDevice?",
+      "range": {
+        "startLine": 682,
+        "startChar": 40,
+        "endLine": 682,
+        "endChar": 54
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

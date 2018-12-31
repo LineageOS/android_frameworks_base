@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c13051a8_b71ae914",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:40:13Z",
+      "side": 0,
+      "message": "Does this need to be moved to line 579 instead of being deleted?",
+      "range": {
+        "startLine": 574,
+        "startChar": 12,
+        "endLine": 574,
+        "endChar": 44
+      },
+      "revId": "ce92cdfa52bcca3a1ef804b064d109bfe82d3bfc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
