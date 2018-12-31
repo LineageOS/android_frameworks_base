@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a95a4e7_02f1c390",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:22:41Z",
+      "side": 1,
+      "message": "The fact this is wrapped in an if statement is strange, since lines 555-557 need to happen unconditionally, regardless of codepath.",
+      "range": {
+        "startLine": 551,
+        "startChar": 8,
+        "endLine": 551,
+        "endChar": 50
+      },
+      "revId": "09283ef5ec4dc2814a1acb1b3f175f1da72898cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c0d51c4_7fd5f20b",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:22:41Z",
+      "side": 1,
+      "message": "I\u0027m not really sure why this needs to return a boolean. Nothing useful is done with the return value.",
+      "range": {
+        "startLine": 1052,
+        "startChar": 4,
+        "endLine": 1052,
+        "endChar": 75
+      },
+      "revId": "09283ef5ec4dc2814a1acb1b3f175f1da72898cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f911b7cc_5b578f71",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:22:41Z",
+      "side": 1,
+      "message": "This stuff is kind of spammy, wrap in if (DEBUG) ?",
+      "range": {
+        "startLine": 1056,
+        "startChar": 8,
+        "endLine": 1056,
+        "endChar": 68
+      },
+      "revId": "09283ef5ec4dc2814a1acb1b3f175f1da72898cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c29d1b_c8ec19d5",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1064,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:22:41Z",
+      "side": 1,
+      "message": "Same, also spammy.",
+      "range": {
+        "startLine": 1064,
+        "startChar": 20,
+        "endLine": 1064,
+        "endChar": 97
+      },
+      "revId": "09283ef5ec4dc2814a1acb1b3f175f1da72898cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "369c5e85_a20f0ba9",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:22:41Z",
+      "side": 1,
+      "message": "Just a note that handleConnectionChanged calls mWifiP2pManager.requestGroupInfo again internally. I\u0027m not sure if that\u0027s the intended codepath. It seems wasteful...",
+      "range": {
+        "startLine": 1066,
+        "startChar": 20,
+        "endLine": 1066,
+        "endChar": 43
+      },
+      "revId": "09283ef5ec4dc2814a1acb1b3f175f1da72898cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c94441d_c3566201",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-12-31T23:22:41Z",
+      "side": 1,
+      "message": "warning?",
+      "range": {
+        "startLine": 1076,
+        "startChar": 33,
+        "endLine": 1076,
+        "endChar": 34
+      },
+      "revId": "09283ef5ec4dc2814a1acb1b3f175f1da72898cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
