@@ -356,7 +356,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private static final boolean DARK_THEME_IN_NIGHT_MODE = true;
 
     /** Whether to switch the device into night mode in battery saver. */
-    private static final boolean NIGHT_MODE_IN_BATTERY_SAVER = true;
+    private static final boolean NIGHT_MODE_IN_BATTERY_SAVER = false;
 
     /**
      * Never let the alpha become zero for surfaces that draw with SRC - otherwise the RenderNode
@@ -1005,6 +1005,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 if (mDozeServiceHost != null) {
                     mDozeServiceHost.firePowerSaveChanged(isPowerSave);
                 }
+                updateTheme();
                 if (NIGHT_MODE_IN_BATTERY_SAVER) {
                     mContext.getSystemService(UiModeManager.class).setNightMode(
                         isPowerSave ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
@@ -2202,6 +2203,11 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         return LineageSettings.System.getString(mContext.getContentResolver(),
                 LineageSettings.System.BERRY_DARK_OVERLAY,
                 StyleInterface.OVERLAY_DARK_DEFAULT);
+    }
+
+    private boolean wantsDarkOnLowBattery() {
+        return LineageSettings.System.getInt(mContext.getContentResolver(),
+                LineageSettings.System.BERRY_DARK_ON_LOW_BATTERY, 0) == 1;
     }
 
     @Nullable
@@ -4103,10 +4109,12 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
         final boolean wallpaperWantsDarkTheme = systemColors != null
                 && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+        /*
         final Configuration config = mContext.getResources().getConfiguration();
         final boolean nightModeWantsDarkTheme = DARK_THEME_IN_NIGHT_MODE
                 && (config.uiMode & Configuration.UI_MODE_NIGHT_MASK)
                     == Configuration.UI_MODE_NIGHT_YES;
+        */
         final boolean useDarkTheme;
 
         switch (globalStyleSetting) {
@@ -4120,21 +4128,24 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 useDarkTheme = true;
                 break;
             default:
-                useDarkTheme = wallpaperWantsDarkTheme || nightModeWantsDarkTheme;
+                useDarkTheme = wallpaperWantsDarkTheme;
                 break;
         }
 
-        if (isUsingDarkTheme() != useDarkTheme) {
+        final boolean darkThemeEnabled = useDarkTheme ||
+                (mBatteryController.isPowerSave() && wantsDarkOnLowBattery());
+
+        if (isUsingDarkTheme() != darkThemeEnabled) {
             mUiOffloadThread.submit(() -> {
                 try {
                     mOverlayManager.setEnabled(getDarkOverlay(),
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
+                            darkThemeEnabled, mLockscreenUserManager.getCurrentUserId());
                 } catch (RemoteException e) {
                     Log.w(TAG, "Can't change theme", e);
                 }
 
                 if (mUiModeManager != null) {
-                    mUiModeManager.setNightMode(useDarkTheme ?
+                    mUiModeManager.setNightMode(darkThemeEnabled ?
                             UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
                 }
             });
