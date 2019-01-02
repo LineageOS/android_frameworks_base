@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "3fbada6c_c0794e7d",
+        "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-02T13:09:44Z",
+      "side": 1,
+      "message": "I guess this is why:\n\n\u003e \n frameworks/base/services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java:110: error: unreported exception Throwable; must be caught or declared to be thrown\n\u003e                  throw e.getCause();",
+      "parentUuid": "04ac2295_277b5ad1",
+      "range": {
+        "startLine": 113,
+        "startChar": 16,
+        "endLine": 120,
+        "endChar": 17
+      },
+      "revId": "519294b4b6e525429df07f9db5a46f92a2379943",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "401ad9c1_7ef5a356",
         "filename": "services/core/java/com/android/server/display/ExtendedRemoteDisplayHelper.java",
         "patchSetId": 5
