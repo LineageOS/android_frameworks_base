@@ -27413,4 +27413,12 @@ public class ActivityManagerService extends IActivityManager.Stub
     public boolean shouldForceLongScreen(String packageName) {
         return mLineageActivityManager.shouldForceLongScreen(packageName);
     }
+
+    public void sendActivePackageChangedBroadcast(String packageName) {
+        Intent intent = new Intent(lineageos.content.Intent.ACTION_ACTIVE_PACKAGE_CHANGED);
+        intent.putExtra(lineageos.content.Intent.EXTRA_ACTIVE_PACKAGE, packageName);
+        intent.setFlags(Intent.FLAG_RECEIVER_REPLACE_PENDING);
+        mContext.sendBroadcastAsUser(intent, UserHandle.SYSTEM);
+
+    }
 }

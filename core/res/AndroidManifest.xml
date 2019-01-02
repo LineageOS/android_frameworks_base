@@ -612,6 +612,9 @@
     <!-- Used for long press power torch feature - automatic turn off on timeout -->
     <protected-broadcast android:name="com.android.server.policy.PhoneWindowManager.ACTION_TORCH_OFF" />
 
+    <!-- Used to get active package name. -->
+    <protected-broadcast android:name="lineageos.intent.action.ACTIVE_PACKAGE_CHANGED" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
