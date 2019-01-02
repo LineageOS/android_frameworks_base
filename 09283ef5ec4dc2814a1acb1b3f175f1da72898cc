@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0e17021_5eaa41fa",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-02T11:57:46Z",
+      "side": 1,
+      "message": "Why do you say it needs to happen unconditionally? Because the code in lines 1082-1082 is the same as 555-556? That\u0027s a fact, but updateConnection() is not called again at the end.",
+      "parentUuid": "8a95a4e7_02f1c390",
+      "range": {
+        "startLine": 551,
+        "startChar": 8,
+        "endLine": 551,
+        "endChar": 50
+      },
+      "revId": "09283ef5ec4dc2814a1acb1b3f175f1da72898cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c0d51c4_7fd5f20b",
         "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
         "patchSetId": 3
