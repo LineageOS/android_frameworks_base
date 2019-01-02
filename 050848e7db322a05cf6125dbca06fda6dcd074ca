@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4477a19_b0e4f85c",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-01-02T19:02:23Z",
+      "side": 1,
+      "message": "Typo: PAKAGE -\u003e PACKAGE",
+      "revId": "050848e7db322a05cf6125dbca06fda6dcd074ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d196a6b_2b6364db",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27352,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-01-02T19:02:23Z",
+      "side": 1,
+      "message": "A better name would be sendActivePackageChangedBroadcast",
+      "revId": "050848e7db322a05cf6125dbca06fda6dcd074ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0311f397_28db4a98",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27356,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-01-02T19:02:23Z",
+      "side": 1,
+      "message": "Stray newline.",
+      "revId": "050848e7db322a05cf6125dbca06fda6dcd074ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc5da890_8232cdaf",
+        "filename": "services/core/java/com/android/server/am/ActivityStack.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2418,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-01-02T19:02:23Z",
+      "side": 1,
+      "message": "m prefix should be dropped (it\u0027s not a member variable)\n\nAlso should only send this if the just paused activity is from a different package",
+      "parentUuid": "",
+      "revId": "050848e7db322a05cf6125dbca06fda6dcd074ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
