@@ -19,6 +19,7 @@ package android.inputmethodservice;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import static android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS;
+import static android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
@@ -892,6 +893,25 @@ public class InputMethodService extends AbstractInputMethodService {
         mTheme = theme;
     }
 
+    public void setImmersiveMode() {
+        String immersiveStatus = Settings.Global.getString(getContentResolver(),
+                Settings.Global.POLICY_CONTROL);
+        if (immersiveStatus == null) return;
+        boolean isNavbarHidden = immersiveStatus.contains("immersive.full");
+        if (isNavbarHidden) {
+            mRootView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+            mWindow.getWindow().setFlags(
+                    FLAG_TRANSLUCENT_NAVIGATION, FLAG_TRANSLUCENT_NAVIGATION);
+        } else {
+            mWindow.getWindow().clearFlags(FLAG_TRANSLUCENT_NAVIGATION);
+            mRootView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            mWindow.getWindow().setFlags(
+                    FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        }
+    }
+
     /**
      * You can call this to try to enable accelerated drawing for your IME. This must be set before
      * {@link #onCreate()}, so you will typically call it in your constructor.  It is not always
@@ -971,6 +991,7 @@ public class InputMethodService extends AbstractInputMethodService {
         mThemeAttrs = obtainStyledAttributes(android.R.styleable.InputMethodService);
         mRootView = mInflater.inflate(
                 com.android.internal.R.layout.input_method, null);
+        setImmersiveMode();
         mWindow.setContentView(mRootView);
         mRootView.getViewTreeObserver().removeOnComputeInternalInsetsListener(mInsetsComputer);
         mRootView.getViewTreeObserver().addOnComputeInternalInsetsListener(mInsetsComputer);
@@ -1768,6 +1789,7 @@ public class InputMethodService extends AbstractInputMethodService {
                 return false;
             }
         }
+        setImmersiveMode();
         return true;
     }
 
