@@ -2415,6 +2415,11 @@ class ActivityStack<T extends StackWindowController> extends ConfigurationContai
 
         if (DEBUG_SWITCH) Slog.v(TAG_SWITCH, "Resuming " + next);
 
+        String nextActivePackageName = next.intent.getComponent().getPackageName();
+        if (prev != next) {
+            mService.sendActivePackageChangedBroadcast(nextActivePackageName);
+        }
+
         // If we are currently pausing an activity, then don't do anything until that is done.
         if (!mStackSupervisor.allPausedActivitiesComplete()) {
             if (DEBUG_SWITCH || DEBUG_PAUSE || DEBUG_STATES) Slog.v(TAG_PAUSE,
