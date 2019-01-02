@@ -22,6 +22,30 @@
       "revId": "ce92cdfa52bcca3a1ef804b064d109bfe82d3bfc",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d86b83bc_7c4ae7ca",
+        "filename": "services/core/java/com/android/server/display/WifiDisplayController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-02T12:44:12Z",
+      "side": 0,
+      "message": "It is updated in onDisplayConnected / onDisplayDisconnected methods.",
+      "parentUuid": "c13051a8_b71ae914",
+      "range": {
+        "startLine": 574,
+        "startChar": 12,
+        "endLine": 574,
+        "endChar": 44
+      },
+      "revId": "ce92cdfa52bcca3a1ef804b064d109bfe82d3bfc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
