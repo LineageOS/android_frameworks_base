@@ -16,6 +16,24 @@
       "revId": "877ea81f05125ceb40df1f1af56679092b365220",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86d842cc_c0bb73e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-01-03T18:23:16Z",
+      "side": 1,
+      "message": "Yes, I am sure about it. The dpi values are about display density (be it virtual or physical), while dp is a length dimension (\u0027density independent pixel\u0027) - 1dp should equal 1/160 inch regardless of display density.\nScaling happens by calculating pixels \u003d device_dpi * dp / 160dpi. E.g. at 320dpi one dp equals 2 pixels, while at 480dpi it equals 3 pixels.",
+      "parentUuid": "7cc98054_99e97b64",
+      "revId": "877ea81f05125ceb40df1f1af56679092b365220",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
