@@ -1,0 +1,227 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f73b0685_54e64a59",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "why are we changing this?",
+      "range": {
+        "startLine": 939,
+        "startChar": 0,
+        "endLine": 939,
+        "endChar": 67
+      },
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0214625_7e0e61b3",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1761,
+        "startChar": 0,
+        "endLine": 1761,
+        "endChar": 82
+      },
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4717c917_d00800a3",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 1771,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1771,
+        "startChar": 0,
+        "endLine": 1771,
+        "endChar": 82
+      },
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba64fd8_92e398dc",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 1949,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e791a07_51115242",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 1956,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "op.startRealtime \u003d SystemClock.elapsedRealtime();\nis probably missing",
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74dca145_bb4e581a",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 2088,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2088,
+        "startChar": 0,
+        "endLine": 2088,
+        "endChar": 75
+      },
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad0dd831_26137151",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 3070,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c0e91a3_1827367a",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 3336,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a57e26b_8a2b0971",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 3914,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3914,
+        "startChar": 0,
+        "endLine": 3914,
+        "endChar": 78
+      },
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "228e7d27_50c2ed90",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 3917,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3917,
+        "startChar": 0,
+        "endLine": 3917,
+        "endChar": 76
+      },
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "891b0da3_6d815329",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 55
+      },
+      "lineNbr": 3922,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-03T19:44:44Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9b31d6fb7a79d029c3edbdbd9be7f749fa891735",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
