@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f0b2c45_00e9a5a2",
+        "filename": "services/core/java/com/android/server/AppOpsService.java",
+        "patchSetId": 57
+      },
+      "lineNbr": 1939,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-04T21:34:58Z",
+      "side": 1,
+      "message": "ignoredCount should\u0027ve been increased I think",
+      "revId": "0ef3e79d92943bb480515914f1f5e105f1feafb6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
