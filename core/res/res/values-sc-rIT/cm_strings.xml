@@ -34,7 +34,9 @@
     <string name="app_ops_access_location">atzèdere a sa positzione tua</string>
     <string name="app_ops_access_notifications">lèghere sas notìficas tuas</string>
     <string name="app_ops_activate_vpn">ativare unu VPN</string>
+    <string name="app_ops_app_start_foreground">allughe s\'aplicatzione istantànea in primu pianu</string>
     <string name="app_ops_assist_screenshot">fàghere un\'istantànea</string>
+    <string name="app_ops_audio_accessibility_volume">volume de atzessibilidade de s\'àudio</string>
     <string name="app_ops_auto_start">s\'aviare a s\'allughìngiu</string>
     <string name="app_ops_change_wallpaper">mudare s\'isfundu de s\'ischermada</string>
     <string name="app_ops_delete_call_log">cantzellare su registru de mutidas tuo</string>
@@ -43,6 +45,7 @@
     <string name="app_ops_delete_sms">cantzellare SMS tuos</string>
     <string name="app_ops_get_accounts">otènnere contos de su dispositivu</string>
     <string name="app_ops_get_usage_stats">otènnere istatìsticas de impreu</string>
+    <string name="app_ops_install_packages">installa pachetes</string>
     <string name="app_ops_keep_device_awake">mantènnere su dispositivu tuo ischidu</string>
     <string name="app_ops_make_phone_call">fàghere una mutida de telèfonu</string>
     <string name="app_ops_modify_calendar">agiornare su calendàriu tuo</string>
@@ -50,6 +53,8 @@
     <string name="app_ops_modify_clipboard">modificare sa punta de billete</string>
     <string name="app_ops_modify_contacts">agiornare sos cuntatos tuos</string>
     <string name="app_ops_modify_settings">agiornare sa cunfiguratzione de sistema</string>
+    <string name="app_ops_phone_calls">risponde a sas mutidas</string>
+    <string name="app_ops_picture_in_picture">imprea sa modalidade \"immàgine in immàgine\" (PIP)</string>
     <string name="app_ops_play_audio">reprodùere unu documentu àudio</string>
     <string name="app_ops_post_notification">publicare una notìfica</string>
     <string name="app_ops_read_calendar">lèghere su calendàriu tuo</string>
@@ -58,6 +63,7 @@
     <string name="app_ops_read_contacts">lèghere sos cuntatos tuos</string>
     <string name="app_ops_read_external_storage">lèghere sa memòria esterna</string>
     <string name="app_ops_read_mms">lèghere sos messàgios MMS tuos</string>
+    <string name="app_ops_read_phone_numbers">leghe nùmeros de telèfono</string>
     <string name="app_ops_read_phone_state">atzèdere a s\'istadu de su telèfonu</string>
     <string name="app_ops_read_sms">lèghere sos messàgios SMS tuos</string>
     <string name="app_ops_receive_sms">retzire unu messàgiu SMS</string>

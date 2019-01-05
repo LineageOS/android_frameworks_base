@@ -44,14 +44,17 @@
     <string name="app_ops_add_voicemail">ychwanegu neges llaisbost</string>
     <string name="app_ops_assist_screenshot">tynnu sgrinlun</string>
     <string name="app_ops_assist_structure">defnyddio strwythur cynorthwyo</string>
+    <string name="app_ops_audio_accessibility_volume">uchder sain hygyrchedd</string>
     <string name="app_ops_auto_start">dechrau wrth i\'r ddyfais gychwyn</string>
     <string name="app_ops_change_wallpaper">newid y papur wal</string>
     <string name="app_ops_delete_call_log">dileu dy gofnodion galwadau</string>
     <string name="app_ops_delete_contacts">dileu dy gysylltiadau</string>
     <string name="app_ops_delete_mms">dileu dy negeseuon MMS</string>
     <string name="app_ops_delete_sms">dileu dy negeseuon SMS</string>
+    <string name="app_ops_draw_on_top">ffenestri llunio ar y brig</string>
     <string name="app_ops_get_accounts">cael cyfrifon y ddyfais</string>
     <string name="app_ops_get_usage_stats">cael ystadegau defnydd apiau</string>
+    <string name="app_ops_install_packages">gosod pecynnau</string>
     <string name="app_ops_keep_device_awake">cadw dy ddyfais yn effro</string>
     <string name="app_ops_make_phone_call">gwneud galwad ffôn</string>
     <string name="app_ops_mock_location">ffugio dy leoliad</string>
@@ -61,6 +64,7 @@
     <string name="app_ops_modify_contacts">diweddaru dy gysylltiadau</string>
     <string name="app_ops_modify_settings">diweddaru gosodiadau\'r system</string>
     <string name="app_ops_mute_unmute_microphone">distewi/dad-ddistewi\'r meicroffôn</string>
+    <string name="app_ops_phone_calls">ateb galwadau ffôn</string>
     <string name="app_ops_picture_in_picture">defnyddio llun o fewn llun</string>
     <string name="app_ops_play_audio">chwarae sain</string>
     <string name="app_ops_post_notification">gosod hysbysiad</string>
@@ -72,6 +76,8 @@
     <string name="app_ops_read_contacts">darllen dy gysylltiadau</string>
     <string name="app_ops_read_external_storage">darllen storfa allanol</string>
     <string name="app_ops_read_mms">darllen dy negeseuon MMS</string>
+    <string name="app_ops_read_phone_numbers">darllen rhifau ffôn</string>
+    <string name="app_ops_read_phone_state">mynediad i gyflwr y ffôn</string>
     <string name="app_ops_read_sms">darllen dy negeseuon SMS</string>
     <string name="app_ops_receive_sms">derbyn negeseuon SMS</string>
     <string name="app_ops_record_audio">recordio sain</string>
@@ -80,6 +86,7 @@
     <string name="app_ops_send_mms">anfon negeseuon MMS</string>
     <string name="app_ops_send_sms">anfon negeseuon SMS</string>
     <string name="app_ops_start_at_bootup">dechrau wrth i\'r ddyfais gychwyn</string>
+    <string name="app_ops_su">cael mynediad gwraidd</string>
     <string name="app_ops_toast_window">dangos negeseuon cyfarch</string>
     <string name="app_ops_toggle_bluetooth">toglo Bluetooth</string>
     <string name="app_ops_toggle_mobile_data">toglo data symudol</string>
