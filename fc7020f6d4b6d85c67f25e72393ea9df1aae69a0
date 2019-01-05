@@ -1,0 +1,22 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d20c1e21_98a237b0",
+        "filename": "services/core/java/com/android/server/policy/WindowOrientationListener.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-01-05T15:22:58Z",
+      "side": 0,
+      "message": "Maybe should rather check here and skip assignment/return early if out of range?",
+      "parentUuid": "",
+      "revId": "fc7020f6d4b6d85c67f25e72393ea9df1aae69a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

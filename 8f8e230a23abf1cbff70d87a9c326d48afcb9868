@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "055336b5_4adf040f",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 8001,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-01-05T15:22:58Z",
+      "side": 1,
+      "message": "We should not allow the listener to return out of range values.",
+      "revId": "8f8e230a23abf1cbff70d87a9c326d48afcb9868",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
