@@ -1,0 +1,88 @@
+From 16f82b8e5949fc2e38032392bbb1b77e699161ac Mon Sep 17 00:00:00 2001
+From: Michael W <baddaemon87@gmail.com>
+Date: Sun, 23 Dec 2018 13:23:53 +0100
+Subject: [PATCH] AppOpsService: Fix another possible deadlock
+
+* A possible race condition with the isInteractive() calls
+  can result in a deadlock resulting in a soft reboot
+* Use a broadcast receiver instead and listen for screen
+  state changes
+* Idea by Danny Baumann <dannybaumann@web.de>
+
+Change-Id: I3c5a70cf67c3d0b3b9855a598d3d29e17c1aaedc
+---
+ services/core/java/com/android/server/AppOpsService.java | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/services/core/java/com/android/server/AppOpsService.java b/services/core/java/com/android/server/AppOpsService.java
+index e95c9af..4ef4664 100644
+--- a/services/core/java/com/android/server/AppOpsService.java
++++ b/services/core/java/com/android/server/AppOpsService.java
+@@ -41,7 +41,6 @@ import android.os.Bundle;
+ import android.os.Handler;
+ import android.os.IBinder;
+ import android.os.Looper;
+-import android.os.PowerManager;
+ import android.os.Process;
+ import android.os.RemoteException;
+ import android.os.ResultReceiver;
+@@ -109,7 +108,7 @@ public class AppOpsService extends IAppOpsService.Stub {
+     final Looper mLooper;
+     final boolean mStrictEnable;
+     AppOpsPolicy mPolicy;
+-    private PowerManager mPowerManager;
++    private boolean mIsInteractive = true;
+ 
+     boolean mWriteScheduled;
+     boolean mFastWriteScheduled;
+@@ -464,8 +463,8 @@ public class AppOpsService extends IAppOpsService.Stub {
+                     }
+                 });
+ 
+-        mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+         IntentFilter filter = new IntentFilter();
++        filter.addAction(Intent.ACTION_SCREEN_ON);
+         filter.addAction(Intent.ACTION_SCREEN_OFF);
+         mContext.registerReceiver(mIntentReceiver, filter);
+     }
+@@ -474,7 +473,9 @@ public class AppOpsService extends IAppOpsService.Stub {
+         @Override
+         public void onReceive(Context context, Intent intent) {
+             String action = intent.getAction();
+-            if (action.equals(Intent.ACTION_SCREEN_OFF)) {
++            if (action.equals(Intent.ACTION_SCREEN_ON)) {
++                mIsInteractive = true;
++            } else if (action.equals(Intent.ACTION_SCREEN_OFF)) {
+                 synchronized (this) {
+                     for (int i = mUidStates.size() - 1; i >= 0; i--) {
+                         UidState uidState = mUidStates.valueAt(i);
+@@ -497,6 +498,7 @@ public class AppOpsService extends IAppOpsService.Stub {
+                         }
+                     }
+                 }
++                mIsInteractive = false;
+             }
+         }
+     };
+@@ -1318,8 +1320,7 @@ public class AppOpsService extends IAppOpsService.Stub {
+                     // we move them to the back of the line. NOTE: these values are magic, and may need
+                     // tuning. Ideally we'd want a ringbuffer or token bucket here to do proper rate
+                     // limiting.
+-                    final boolean isInteractive = mPowerManager.isInteractive();
+-                    if (isInteractive &&
++                    if (mIsInteractive &&
+                             (ops.uidState.pkgOps.size() < AppOpsPolicy.RATE_LIMIT_OPS_TOTAL_PKG_COUNT
+                             && op.noteOpCount < AppOpsPolicy.RATE_LIMIT_OP_COUNT
+                             || op.delayedCount > AppOpsPolicy.RATE_LIMIT_OP_DELAY_CEILING)) {
+@@ -1333,7 +1334,7 @@ public class AppOpsService extends IAppOpsService.Stub {
+                         op.noteOpCount++;
+                         req = askOperationLocked(code, uid, packageName, switchOp);
+                     } else {
+-                        if (isInteractive) {
++                        if (mIsInteractive) {
+                             op.delayedCount++;
+                         }
+                         op.ignoredCount++;
+-- 
+2.7.4
+

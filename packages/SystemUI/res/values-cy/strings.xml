@@ -57,6 +57,7 @@
     support charging on it.  That is, a charger that fits into the USB port and goes into
     a wall socket, not into a computer. (This happens because some devices require more
     current than the USB spec allows.  [CHAR LIMIT=NONE] -->
+    <string name="invalid_charger">Ni chefnogir gwefru USB.\nRhaid defnyddio\'r gwefrydd swyddogol yn unig.</string>
     <!-- First line of invalid_charger, used in the notification form.  [CHAR LIMIT=NONE]-->
     <string name="invalid_charger_title">Ni chefnogir gwefru trwy USB.</string>
     <!-- Second line of invalid_charger, used in the notification form.  [CHAR LIMIT=NONE]-->
@@ -117,6 +118,7 @@
     <!-- Message of notification shown when trying to enable USB debugging but a secondary user is the current foreground user. -->
     <!-- Checkbox label for application compatibility mode ON (zooming app to look like it's running
          on a phone).  [CHAR LIMIT=25] -->
+    <string name="compat_mode_on">Chwyddo i lenwi\'r sgrin</string>
     <!-- Checkbox label for application compatibility mode OFF (normal mode on tablets).
          [CHAR LIMIT=25] -->
     <string name="compat_mode_off">Ymestyn i lenwi\'r sgrin</string>
@@ -181,6 +183,7 @@
     <string name="cancel">Diddymu</string>
     <!-- Content description of the compatibility zoom button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <!-- Content description of picture of the compatibility zoom example for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_compatibility_zoom_example">Chwyddo sgrin lai i fwy.</string>
     <!-- Content description of the bluetooth icon when connected for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_bluetooth_connected">Bluetooth wedi cysylltu.</string>
     <!-- Content description of the bluetooth icon when connecting for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -286,26 +289,33 @@
     <!-- Content description of the data connection with no SIM for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_no_sim">Dim SIM.</string>
     <!-- Content description of the cell data. [CHAR LIMIT=NONE] -->
+    <string name="accessibility_cell_data">Data Symudol</string>
     <!-- Content description of the cell data being enabled. [CHAR LIMIT=NONE] -->
+    <string name="accessibility_cell_data_on">Data Symudol Ymlaen</string>
     <!-- Content description of the cell data being disabled. [CHAR LIMIT=NONE] -->
+    <string name="accessibility_cell_data_off">Data Symudol i Ffwrdd</string>
     <!-- Content description of the bluetooth tethering icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_bluetooth_tether">Tenynnu Bluetooth.</string>
     <!-- Content description of the airplane mode icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_airplane_mode">Modd awyren.</string>
     <!-- Content description of the VPN icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_vpn_on">VPN ymlaen.</string>
     <!-- Content description of the no sim icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_no_sims">Dim cerdyn SIM.</string>
     <!-- Content description of the carrier network changing icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_carrier_network_change_mode">Newid rhwydwaith darparwr.</string>
     <!-- Content description of button to open battery details icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_battery_details">Agor manylion batri</string>
     <!-- Content description of the battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_battery_level">Batri <xliff:g id="number">%d</xliff:g> y cant.</string>
     <!-- Content description of the battery level icon for accessibility while the device is charging (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_battery_level_charging">Batri\'n gwefru, <xliff:g id="battery_percentage">%d</xliff:g> y cant.</string>
     <!-- Content description of the button for showing a settings panel in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_settings_button">Gosodiadau system.</string>
     <!-- Content description of the button for showing a notifications panel in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_notifications_button">Hysbysiadau.</string>
     <!-- Content description of overflow icon container of the notifications for accessibility (not shown on the screen)[CHAR LIMIT=NONE] -->
+    <string name="accessibility_overflow_action">Gweld pob hysbysiad</string>
     <!-- Content description of the button for removing a notification in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_remove_notification">Clirio\'r hysbysiad.</string>
     <!-- Content description of the enabled GPS icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -314,6 +324,7 @@
     <string name="accessibility_gps_acquiring">Yn cael GPS.</string>
     <!-- Content description of the TeleTypewriter(TTY) enabled icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <!-- Content description of the ringer vibrate icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_ringer_vibrate">Caniad ffôn yn dirgrynu.</string>
     <!-- Content description of the ringer silent icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_ringer_silent">Tonau canu yn ddistaw.</string>
     <!-- Content description of the cast icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -345,6 +356,7 @@
     <!-- Content description for the recent apps panel (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_desc_recent_apps">Trosolwg.</string>
     <!-- Content description for the work profile lock screen. This prevents work profile apps from being used, but personal apps can be used as normal (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_desc_work_lock">Sgrin cloi gwaith</string>
     <!-- Content description for the close button in the zen mode panel introduction message. [CHAR LIMIT=NONE] -->
     <string name="accessibility_desc_close">Cau</string>
     <!-- Content description of the wifi tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -420,10 +432,15 @@
     <!-- Announcement made when the flashlight state changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_flashlight_changed_on">Fflacholau wedi\'i droi ymlaen.</string>
     <!-- Announcement made when the color inversion state changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_color_inversion_changed_off">Mae gwrthdroad lliwiau i ffwrdd.</string>
     <!-- Announcement made when the color inversion state changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_color_inversion_changed_on">Mae gwrthdroad lliwiau ymlaen.</string>
     <!-- Announcement made when the hotspot state changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_hotspot_changed_off">Mae\'r llecyn symudol wedi\'i droi ffwrdd.</string>
     <!-- Announcement made when the hotspot state changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_hotspot_changed_on">Mae\'r llecyn symudol wedi\'i droi ymlaen.</string>
     <!-- Announcement made when the screen stopped casting (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_casting_turned_off">Mae bwrw\'r sgrin wedi stopio.</string>
     <!-- Content description of the work mode title in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_work_mode_off">Modd gwaith i ffwrdd.</string>
     <!-- Content description of the work mode title in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -445,8 +462,10 @@
     <!-- Title of dialog shown when 4G data usage has exceeded limit and has been disabled. [CHAR LIMIT=48] -->
     <string name="data_usage_disabled_dialog_4g_title">Mae data 4G wedi\'i atal</string>
     <!-- Title of dialog shown when mobile data usage has exceeded limit and has been disabled. [CHAR LIMIT=48] -->
+    <string name="data_usage_disabled_dialog_mobile_title">Mae data symudol wedi\'i atal</string>
     <!-- Title of dialog shown when data usage has exceeded limit and has been disabled. [CHAR LIMIT=48] -->
     <!-- Body of dialog shown when data usage has exceeded limit and has been disabled. [CHAR LIMIT=NONE] -->
+    <string name="data_usage_disabled_dialog">Mae\'r terfyn data gosodaist wedi ei gyrraedd. Dyw\'r ddyfais ddim yn defnyddio data symudol bellach.\n\nOs wyt ti\'n parhau, mae\'n bosib bydd costau ychwanegol am ddefnydd data.</string>
     <!-- Dialog button indicating that data connection should be re-enabled. [CHAR LIMIT=28] -->
     <string name="data_usage_disabled_dialog_enable">Parhau</string>
     <!-- Text to display underneath the graphical signal strength meter when
@@ -523,6 +542,7 @@
     <!-- Accessibility label for Auto-ratate QuickSettings tile [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_rotation">Troi\'r sgrin yn awtomatig</string>
     <!-- Accessibility label for value of Auto-ratate QuickSettings tile [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_rotation_value">Modd <xliff:g name="rotation" example="Portrait">%s</xliff:g></string>
     <!-- QuickSettings: Rotation Locked [CHAR LIMIT=NONE] -->
     <string name="quick_settings_rotation_locked_label">Peidio â throi</string>
     <!-- QuickSettings: Locked to Portrait [CHAR LIMIT=NONE] -->
@@ -564,10 +584,13 @@
     <!-- QuickSettings: Wifi detail panel, text when there are no items [CHAR LIMIT=NONE] -->
     <string name="quick_settings_wifi_detail_empty_text">Dim rhwydweithiau Wi-Fi ar gael</string>
     <!-- QuickSettings: Cast title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_cast_title">Bwrw</string>
     <!-- QuickSettings: Cast detail panel, status text when casting [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_casting">Yn bwrw</string>
     <!-- QuickSettings: Cast detail panel, default device name [CHAR LIMIT=NONE] -->
     <string name="quick_settings_cast_device_default_name">Dyfais dienw</string>
     <!-- QuickSettings: Cast detail panel, default device description [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_cast_device_default_description">Yn barod i fwrw</string>
     <!-- QuickSettings: Cast detail panel, text when there are no items [CHAR LIMIT=NONE] -->
     <string name="quick_settings_cast_detail_empty_text">Dim dyfeisiau ar gael</string>
     <!-- QuickSettings: Brightness dialog title [CHAR LIMIT=NONE] -->
@@ -585,6 +608,7 @@
     <!-- QuickSettings: Control panel: Label for connected device. [CHAR LIMIT=NONE] -->
     <string name="quick_settings_connected">Wedi cysyllltu</string>
     <!-- QuickSettings: Control panel: Label for connected device, showing remote device battery level. [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_connected_battery_level">Wedi cysylltu, batri <xliff:g id="battery_level_as_percentage">%1$s</xliff:g></string>
     <!-- QuickSettings: Control panel: Label for connecting device. [CHAR LIMIT=NONE] -->
     <string name="quick_settings_connecting">Yn cysylltu...</string>
     <!-- QuickSettings: Tethering. [CHAR LIMIT=NONE] -->
@@ -596,6 +620,7 @@
     <!-- QuickSettings: Flashlight [CHAR LIMIT=NONE] -->
     <string name="quick_settings_flashlight_label">Fflacholau</string>
     <!-- QuickSettings: Cellular detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_cellular_detail_title">Data symudol</string>
     <!-- QuickSettings: Cellular detail panel, data usage title [CHAR LIMIT=NONE] -->
     <string name="quick_settings_cellular_detail_data_usage">Defnydd data</string>
     <!-- QuickSettings: Cellular detail panel, remaining data title [CHAR LIMIT=NONE] -->
@@ -640,8 +665,11 @@
     <string name="recents_multistack_add_stack_dialog_split_vertical">Hollti\'n Fertigol</string>
     <!-- Recents: MultiStack add stack split custom radio button. [CHAR LIMIT=NONE] -->
     <!-- Recents: Accessibility split to the top -->
+    <string name="recents_accessibility_split_screen_top">Hollti\'r sgrin i\'r top</string>
     <!-- Recents: Accessibility split to the left -->
+    <string name="recents_accessibility_split_screen_left">Hollti\'r sgrin i\'r chwith</string>
     <!-- Recents: Accessibility split to the right -->
+    <string name="recents_accessibility_split_screen_right">Hollti\'r sgrin i\'r dde</string>
     <!-- Fully qualified activity class names to be blacklisted in Recents, add package names into overlay as needed -->
     <string-array name="recents_blacklist_array"></string-array>
     <!-- Expanded Status Bar Header: Battery Charged [CHAR LIMIT=40] -->
@@ -783,22 +811,31 @@
     <!-- Footer vpn present text [CHAR LIMIT=50] -->
     <string name="branded_vpn_footer">Mae\'n bosib caiff y rhwydwaith ei fonitro</string>
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device has a device owner that can monitor the network traffic [CHAR LIMIT=100] -->
+    <string name="quick_settings_disclosure_management_monitoring">Mae dy sefydliad yn rheoli\'r ddyfais hon ac o bosib yn monitro traffig rhwydwaith.</string>
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device has a device owner that can monitor the network traffic [CHAR LIMIT=100] -->
+    <string name="quick_settings_disclosure_named_management_monitoring">Mae <xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g> yn rheoli\'r ddyfais hon ac o bosib yn monitro traffig rhwydwaith</string>
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device has a device owner and is connected to a VPN [CHAR LIMIT=100] -->
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device has a device owner and is connected to a VPN [CHAR LIMIT=100] -->
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device has a device owner [CHAR LIMIT=100] -->
+    <string name="quick_settings_disclosure_management">Rheolir y ddyfais gan dy sefydliad</string>
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device has a device owner [CHAR LIMIT=100] -->
+    <string name="quick_settings_disclosure_named_management">Rheolir y ddyfais gan <xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g></string>
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device has a device owner and is connected to two VPNs, one in the current user, one in the managed profile [CHAR LIMIT=100] -->
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device has a device owner and is connected to two VPNs, one in the current user, one in the managed profile [CHAR LIMIT=100] -->
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device has a managed profile which can be monitored by the profile owner [CHAR LIMIT=100] -->
+    <string name="quick_settings_disclosure_managed_profile_monitoring">Gall dy sefydliad fonitro traffig rhwydwaith yn dy broffil gwaith</string>
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device has a managed profile which can be monitored by the profile owner [CHAR LIMIT=100] -->
+    <string name="quick_settings_disclosure_named_managed_profile_monitoring">Gall <xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g> fonitro traffig rhwydwaith yn dy broffil gwaith</string>
     <!-- Disclosure at the bottom of Quick Settings that indicates that a certificate authorithy is installed on this device and the traffic might be monitored [CHAR LIMIT=100] -->
     <string name="quick_settings_disclosure_monitoring">Mae\'n bosib caiff y rhwydwaith ei fonitro</string>
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device is connected to two VPNs, one in the current user, one in the managed profile [CHAR LIMIT=100] -->
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device is connected to a VPN in the work profile [CHAR LIMIT=100] -->
+    <string name="quick_settings_disclosure_managed_profile_named_vpn">Proffil gwaith wedi cysylltu â <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g></string>
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device is connected to a VPN in the personal profile (as opposed to the work profile) [CHAR LIMIT=100] -->
+    <string name="quick_settings_disclosure_personal_profile_named_vpn">Proffil personol wedi cysylltu â <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g></string>
     <!-- Disclosure at the bottom of Quick Settings that indicates that the device is connected to a VPN [CHAR LIMIT=100] -->
     <!-- Monitoring dialog title for device owned devices [CHAR LIMIT=35] -->
+    <string name="monitoring_title_device_owned">Rheolaeth dyfais</string>
     <!-- Monitoring dialog title for profile owned devices [CHAR LIMIT=35] -->
     <string name="monitoring_title_profile_owned">Monitro\'r proffil</string>
     <!-- Monitoring dialog title for normal devices  [CHAR LIMIT=35]-->
@@ -813,21 +850,32 @@
     <!-- Monitoring dialog disconnect vpn button [CHAR LIMIT=30] -->
     <string name="disconnect_vpn">Datgysylltu VPN</string>
     <!-- Monitoring dialog label for button opening a page with more information on the admin's abilities [CHAR LIMIT=30] -->
+    <string name="monitoring_button_view_policies">Gweld Polisïau</string>
     <!-- Monitoring dialog: Description of the device owner by name. [CHAR LIMIT=NONE]-->
+    <string name="monitoring_description_named_management">Mae dy ddyfais yn cael ei reoli gan <xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g>.\n\nMae dy weinyddwr yn medru monitro a rheoli gosodiadau, mynediad corfforaethol, apiau, data yn gysylltiedig â dy ddyfais, a gwybodaeth lleoliad dy ddyfais.\n\nAm ragor o wybodaeth, cysyllta â dy weinyddwr.</string>
     <!-- Monitoring dialog: Description of a device owner. [CHAR LIMIT=NONE]-->
+    <string name="monitoring_description_management">Mae dy ddyfais yn cael ei reoli gan dy sefydliad.\n\nMae dy weinyddwr yn medru monitro a rheoli gosodiadau, mynediad corfforaethol, apiau, data yn gysylltiedig â dy ddyfais, a gwybodaeth lleoliad dy ddyfais.\n\nAm ragor o wybodaeth, cysyllta â dy weinyddwr.</string>
     <!-- Monitoring dialog: Description of a CA Certificate. [CHAR LIMIT=NONE]-->
+    <string name="monitoring_description_management_ca_certificate">Gosododd dy sefydliad tystysgrif awdurdod ar y ddyfais hon. Gall fod dy draffig rhwydwaith diogel yn cael ei fonitro neu ei addasu.</string>
     <!-- Monitoring dialog: Description of a CA Certificate in the work profile. [CHAR LIMIT=NONE]-->
+    <string name="monitoring_description_managed_profile_ca_certificate">Gosododd dy sefydliad tystysgrif awdurdod yn dy broffil gwaith. Gall fod dy draffig rhwydwaith diogel yn cael ei fonitro neu ei addasu.</string>
     <!-- Monitoring dialog: Description of a CA Certificate. [CHAR LIMIT=NONE]-->
     <!-- Monitoring dialog: Description of Network Logging. [CHAR LIMIT=NONE]-->
     <!-- Monitoring dialog: Description of an active VPN. [CHAR LIMIT=NONE]-->
+    <string name="monitoring_description_named_vpn">Rwyt wedi cysylltu â <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> ac mae\'n medru monitro gweithgareddau dy rwydwaith, gan gynnwys e-bost, apiau a gwefannau.</string>
     <!-- Monitoring dialog: Description of two active VPNs. [CHAR LIMIT=NONE]-->
+    <string name="monitoring_description_two_named_vpns">Rwyt wedi cysylltu â <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> a <xliff:g id="vpn_app" example="Bar VPN App">%2$s</xliff:g>, ac maen nhw\'n medru monitro gweithgareddau dy rwydwaith, gan gynnwys e-bost, apiau a gwefannau.</string>
     <!-- Monitoring dialog: Description of an active VPN in the work profile. [CHAR LIMIT=NONE]-->
+    <string name="monitoring_description_managed_profile_named_vpn">Mae dy broffil gwaith wedi cysylltu â <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> ac mae\'n medru monitro gweithgareddau dy rwydwaith, gan gynnwys e-bost, apiau a gwefannau.</string>
     <!-- Monitoring dialog: Description of an active VPN in the personal profile (as opposed to the work profile). [CHAR LIMIT=NONE]-->
+    <string name="monitoring_description_personal_profile_named_vpn">Mae dy broffil personol wedi cysylltu â <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> ac mae\'n medru monitro gweithgareddau dy rwydwaith, gan gynnwys e-bost, apiau a gwefannau.</string>
     <!-- Monitoring dialog: Header indicating that the device is managed by a Device Owner app [CHAR LIMIT=80] -->
     <!-- Monitoring dialog: Header indicating that the device is managed by a Device Owner app [CHAR LIMIT=60] -->
+    <string name="monitoring_description_do_header_with_name">Mae <xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g> yn defnyddio <xliff:g id="device_owner_app" example="Google Mobile Management">%2$s</xliff:g> i reoli dy ddyfais.</string>
     <!-- Monitoring dialog: Part of text body explaining what a Device Owner app can do [CHAR LIMIT=130] -->
     <!-- Monitoring dialog: Space that separates the body text and the "learn more" link that follows it. [CHAR LIMIT=5] -->
     <!-- Monitoring dialog: Link to learn more about what a Device Owner app can do [CHAR LIMIT=55] -->
+    <string name="monitoring_description_do_learn_more">Dysgu mwy</string>
     <!-- Monitoring dialog: Part of text body explaining that a VPN is connected and what it can do, for devices managed by a Device Owner app [CHAR LIMIT=130] -->
     <string name="monitoring_description_do_body_vpn">Rwyt wedi cysylltu â <xliff:g id="vpn_app">%1$s</xliff:g> ac mae\'n medru monitro gweithgareddau dy rwydwaith, gan gynnwys e-bost, apiau a gwefannau.</string>
     <!-- Monitoring dialog: Space that separates the VPN body text and the "Open VPN Settings" link that follows it. [CHAR LIMIT=5] -->
@@ -843,14 +891,18 @@
     <!-- Name for a generic legacy VPN connection [CHAR LIMIT=20] -->
     <string name="legacy_vpn_name">VPN</string>
     <!-- Monitoring dialog text for single app (no profile or device owner) [CHAR LIMIT=400] -->
+    <string name="monitoring_description_app">Rwyt wedi cysylltu â <xliff:g id="application">%1$s</xliff:g> ac mae\'n medru monitro gweithgareddau dy rwydwaith, gan gynnwys e-bost, apiau a gwefannau.</string>
     <!-- Monitoring dialog text for single app (inside personal profile) [CHAR LIMIT=400] -->
     <string name="monitoring_description_app_personal">Rwyt wedi cysylltu â <xliff:g id="application">%1$s</xliff:g> ac mae\'n medru monitro dy weithgareddau rhwydwaith personol, gan gynnwys e-bost, apiau a gwefannau.</string>
     <!-- Monitoring dialog text for single app (inside personal profile) [CHAR LIMIT=400] -->
     <string name="branded_monitoring_description_app_personal">Rwyt wedi cysylltu â <xliff:g id="application">%1$s</xliff:g> ac mae\'n medru monitro dy weithgareddau rhwydwaith personol, gan gynnwys e-bost, apiau a gwefannau.</string>
     <!-- Monitoring dialog text for single app (inside work profile) [CHAR LIMIT=400] -->
+    <string name="monitoring_description_app_work">Mae dy broffil gwaith yn cael ei reoli gan <xliff:g id="organization">%1$s</xliff:g>.\n\nMae\'r proffil wedi\'i gysylltu â <xliff:g id="application">%2$s</xliff:g>, sy\'n medru monitro gweithredoedd dy rwydwaith gwaith, gan gynnwys e-bost, apiau a gwefannau.\n\nAm ragor o wybodaeth, cysyllta â dy weinyddwr.</string>
     <!-- Monitoring dialog text for multiple apps (in personal and work profiles) [CHAR LIMIT=400] -->
+    <string name="monitoring_description_app_personal_work">Mae dy broffil gwaith yn cael ei reoli gan <xliff:g id="organization">%1$s</xliff:g>. Mae\'r proffil wedi\'i gysylltu â <xliff:g id="application_work">%2$s</xliff:g>, sydd yn medru monitro gweithgaredd dy rwydwaith gwaith, gan gynnwys e-bost, apiau, a gwefannau.\n\nRwyt hefyd wedi cysylltu â <xliff:g id="application_personal">%3$s</xliff:g>, sy\'n medru monitro gweithgaredd dy rwydwaith personol.</string>
     <!-- Indication on the keyguard that appears when a trust agents unlocks the device. [CHAR LIMIT=40] -->
     <!-- Indication on the keyguard that appears when a trust agent is active and available. [CHAR LIMIT=40] -->
+    <string name="keyguard_indication_trust_managed">Mae <xliff:g id="trust_agent" example="Smart Lock">%1$s</xliff:g> yn rhedeg</string>
     <!-- Indication on the keyguard that appears when the user disables trust agents until the next time they unlock manually. [CHAR LIMIT=NONE] -->
     <string name="keyguard_indication_trust_disabled">Bydd y ddyfais yn aros dan glo nes dy fod yn ei datgloi.</string>
     <!-- Title of notification educating the user about enabling notifications on the lockscreen. [CHAR LIMIT=40] -->
@@ -907,6 +959,8 @@
     <string name="volume_stream_content_description_unmute">%1$s. Tara i ddad-distewi.</string>
     <string name="volume_stream_content_description_vibrate">%1$s. Tara i\'w osod i ddirgrynu. Mae\'n bosib bydd gwasanaethau hygyrchedd yn cael eu distewi.</string>
     <string name="volume_stream_content_description_mute">%1$s. Tara i\'w distewi. Mae\'n bosib bydd gwasanaethau hygyrchedd yn cael eu distewi.</string>
+    <string name="volume_stream_content_description_vibrate_a11y">%1$s. Tara i\'w osod i ddirgrynu.</string>
+    <string name="volume_stream_content_description_mute_a11y">%1$s. Tara i ddistewi.</string>
     <string name="volume_dialog_accessibility_shown_message">Dangosir rheolaeth sain %s. Llithra i fyny i wfftio.</string>
     <string name="volume_dialog_accessibility_dismissed_message">Rheolaethau sain wedi\'u cuddio</string>
     <!-- Name of special SystemUI debug settings -->
@@ -1028,6 +1082,7 @@
     <!-- Notification Inline Controls: Shown when a channel's notifications are currently blocked -->
     <!-- Notification: Control panel: Label that shows how many channels are included in this bundle
         of notifications.  Replaces the channel name and only appears when there is more than one channel. -->
+    <string name="notification_num_channels"> <xliff:g id="number">%d</xliff:g> categori hysbysiadau</string>
     <!-- Notification: Control panel: Label that shows when an app has not upgraded to use channels.
         Hints that the user's only option is to block all of the app's notifications. -->
     <!-- Notification: Control panel: Label that displays when the app's notifications cannot be blocked. -->
@@ -1040,6 +1095,15 @@
         Example: "Friend requests, Friend confirmations, and 1 other"
         Example: "Friend requests, Friend confirmations, and 2 others"
     -->
+    <string name="notification_channels_list_desc_2"><xliff:g id="channel_name_1">%1$s</xliff:g>, <xliff:g id="channel_name_2">%2$s</xliff:g></string>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="zero"><xliff:g id="channel_name_1">%1$s</xliff:g>, <xliff:g id="channel_name_2">%2$s</xliff:g>, a <xliff:g id="number">%3$d</xliff:g> eraill</item>
+        <item quantity="one"><xliff:g id="channel_name_1">%1$s</xliff:g>, <xliff:g id="channel_name_2">%2$s</xliff:g>, ac <xliff:g id="number">%3$d</xliff:g> arall</item>
+        <item quantity="two"><xliff:g id="channel_name_1">%1$s</xliff:g>, <xliff:g id="channel_name_2">%2$s</xliff:g>, a <xliff:g id="number">%3$d</xliff:g> arall</item>
+        <item quantity="few"><xliff:g id="channel_name_1">%1$s</xliff:g>, <xliff:g id="channel_name_2">%2$s</xliff:g>, a <xliff:g id="number">%3$d</xliff:g> arall</item>
+        <item quantity="many"><xliff:g id="channel_name_1">%1$s</xliff:g>, <xliff:g id="channel_name_2">%2$s</xliff:g>, a <xliff:g id="number">%3$d</xliff:g> arall</item>
+        <item quantity="other"><xliff:g id="channel_name_1">%1$s</xliff:g>, <xliff:g id="channel_name_2">%2$s</xliff:g>, a <xliff:g id="number">%3$d</xliff:g> arall</item>
+    </plurals>
     <!-- Notification: Control panel: Accessibility description for expanded inline controls view, used
         to control settings about notifications related to the current notification.  -->
     <!-- Notification: Control panel: Accessibility description for announcing the closing of the
@@ -1048,6 +1112,7 @@
         or disable notifications from this channel -->
     <!-- Notification: Control panel: Label for button that launches notification settings. Used
         when this app has defined more than a single channel for notifications. -->
+    <string name="notification_all_categories">Pob Categori</string>
     <!-- Notification: Control panel: Label for button that launches notification settings. Used
         when this app has only defined a single channel for notifications. -->
     <string name="notification_more_settings">Rhagor o osodiadau</string>
@@ -1056,15 +1121,34 @@
     <!-- Notification: Control panel: Label for button that dismisses control panel. [CHAR LIMIT=NONE] -->
     <string name="notification_done">Cwblhau</string>
     <!-- Notification: Menu row: Content description for menu items. [CHAR LIMIT=NONE] -->
+    <string name="notification_menu_accessibility"><xliff:g id="app_name" example="YouTube">%1$s</xliff:g> <xliff:g id="menu_description" example="notification controls">%2$s</xliff:g></string>
     <!-- Notification: Menu row: Content description for the gear menu item. [CHAR LIMIT=NONE] -->
     <!-- Notification: Menu row: Content description for the snooze icon. [CHAR LIMIT=NONE] -->
     <!-- Notification: Snooze panel: Snooze undo button label. [CHAR LIMIT=50]-->
+    <string name="snooze_undo">DADWNEUD</string>
     <!-- Notification: Snooze panel: message indicating how long the notification was snoozed for. [CHAR LIMIT=100]-->
     <!-- Notification:Snooze panel: Snooze options for hours -->
+    <plurals name="snoozeHourOptions">
+        <item quantity="zero">%d oriau</item>
+        <item quantity="one">%d awr</item>
+        <item quantity="two">%d awr</item>
+        <item quantity="few">%d awr</item>
+        <item quantity="many">%d awr</item>
+        <item quantity="other">%d awr</item>
+    </plurals>
     <!--  Notification: Snooze panel: Snooze options for minutes -->
+    <plurals name="snoozeMinuteOptions">
+        <item quantity="zero">%d munudau</item>
+        <item quantity="one">%d munud</item>
+        <item quantity="two">%d funud</item>
+        <item quantity="few">%d munud</item>
+        <item quantity="many">%d munud</item>
+        <item quantity="other">%d munud</item>
+    </plurals>
     <!-- Title of the battery settings detail panel [CHAR LIMIT=20] -->
     <string name="battery_panel_title">Defnydd batri</string>
     <!-- Summary of battery saver not available [CHAR LIMIT=NONE] -->
+    <string name="battery_detail_charging_summary">Dyw\'r arbedwr batri ddim ar gael wrth wefru</string>
     <!-- Title of switch for battery saver [CHAR LIMIT=NONE] -->
     <string name="battery_detail_switch_title">Arbedwr batri</string>
     <!-- Summary of switch for battery saver [CHAR LIMIT=NONE] -->
@@ -1080,7 +1164,7 @@
     <!-- Name used to refer to the "Down" arrow key on the keyboard. -->
     <string name="keyboard_key_dpad_down">I lawr</string>
     <!-- Name used to refer to the "Left" arrow key on the keyboard. -->
-    <string name="keyboard_key_dpad_left">Chiwth</string>
+    <string name="keyboard_key_dpad_left">Chwith</string>
     <!-- Name used to refer to the "Right" arrow key on the keyboard. -->
     <string name="keyboard_key_dpad_right">De</string>
     <!-- Name used to refer to the "Center" arrow key on the keyboard. -->
@@ -1187,6 +1271,7 @@
     <!-- SysUI Tuner: Setting for button type in nav bar [CHAR LIMIT=60] -->
     <!-- SysUI Tuner: Setting for button type in nav bar [CHAR LIMIT=60] -->
     <!-- SysUI Tuner: Added to nav bar option to indicate it is the default [CHAR LIMIT=60] -->
+    <string name="nav_bar_default"> (rhagosodiad)</string>
     <!-- SysUI Tuner: Labels for different types of navigation bar buttons [CHAR LIMIT=60] -->
     <string-array name="nav_bar_buttons">
         <item>Clipfwrdd</item>
@@ -1195,6 +1280,12 @@
         <item>Dim</item>
     </string-array>
     <!-- SysUI Tuner: Labels for different types of navigation bar layouts [CHAR LIMIT=60] -->
+    <string-array name="nav_bar_layouts">
+        <item>Arferol</item>
+        <item>Cryno</item>
+        <item>Left-leaning</item>
+        <item>Right-leaning</item>
+    </string-array>
     <!-- SysUI Tuner: Name of Combination Menu / Keyboard Switcher button [CHAR LIMIT=30] -->
     <!-- SysUI Tuner: Save the current settings [CHAR LIMIT=30] -->
     <string name="save">Cadw</string>
@@ -1209,9 +1300,11 @@
     <!-- SysUI Tuner: Nav bar button that emulates a keycode [CHAR LIMIT=30] -->
     <!-- SysUI Tuner: Nav bar button that emulates a keycode [CHAR LIMIT=30] -->
     <!-- SysUI Tuner: Settings to change nav bar icon [CHAR LIMIT=30] -->
+    <string name="left_icon">Eicon chwith</string>
     <!-- SysUI Tuner: Settings to change nav bar icon [CHAR LIMIT=30] -->
+    <string name="right_icon">Eicon dde</string>
     <!-- Label for area where tiles can be dragged out of [CHAR LIMIT=60] -->
-    <string name="drag_to_add_tiles">Llusga i ychwanegu teils</string>
+    <string name="drag_to_add_tiles">Llusga teils i\'w hychwanegu</string>
     <!-- Label for area where tiles can be dragged in to [CHAR LIMIT=60] -->
     <string name="drag_to_remove_tiles">Llusga yma i\'w tynnu</string>
     <!-- Button to edit the tile ordering of quick settings [CHAR LIMIT=60] -->
@@ -1322,7 +1415,9 @@
     <!-- PiP BTW notification title. [CHAR LIMIT=50] -->
     <!-- PiP BTW notification description. [CHAR LIMIT=NONE] -->
     <!-- Button to play the current media on picture-in-picture (PIP) [CHAR LIMIT=30] -->
+    <string name="pip_play">Chwarae</string>
     <!-- Button to pause the current media on picture-in-picture (PIP) [CHAR LIMIT=30] -->
+    <string name="pip_pause">Seibio</string>
     <!-- Button to skip to the next media on picture-in-picture (PIP) [CHAR LIMIT=30] -->
     <string name="pip_skip_to_next">Neidio i\'r nesaf</string>
     <!-- Button to skip to the prev media on picture-in-picture (PIP) [CHAR LIMIT=30] -->
@@ -1332,7 +1427,9 @@
     <!-- Tuner string -->
     <!-- Title for notification & dialog that the user's phone last shut down because it got too hot. [CHAR LIMIT=40] -->
     <!-- Message body for notification that user's phone last shut down because it got too hot. [CHAR LIMIT=100] -->
+    <string name="thermal_shutdown_message">Mae dy ffôn nawr yn rhedeg fel arfer</string>
     <!-- Text body for dialog alerting user that their phone last shut down because it got too hot. [CHAR LIMIT=450] -->
+    <string name="thermal_shutdown_dialog_message">Roedd dy ffôn yn rhy boeth, felly diffoddodd ei hun i oeri. Mae dy ffôn bellach yn rhedeg fel arfer.\n\nGall dy ffôn gorboethi os wyt yn:\n\t&#8226; Defnyddio apiau sy\'n gwneud defnydd sylweddol o gydrannau\'r ddyfais (megis gemau, fideo neu apiau llywio)\n\t&#8226; Lawrlwytho neu uwchlwytho ffeiliau mawrion\n\t&#8226; Defnyddio dy ffôn rhywle poeth</string>
     <!-- Title for notification (and dialog) that user's phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=30] -->
     <string name="high_temp_title">Mae\'r ffôn yn poethi.</string>
     <!-- Message body for notification that user's phone has reached a certain temperature and may start to slow down in order to cool down. [CHAR LIMIT=100] -->
@@ -1347,16 +1444,21 @@
     <string name="lockscreen_none">Dim</string>
     <!-- SysUI Tuner: Format string for describing launching an app [CHAR LIMIT=60] -->
     <!-- SysUI Tuner: Label for section of other apps that can be launched [CHAR LIMIT=60] -->
+    <string name="tuner_other_apps">Apiau eraill</string>
     <!-- SysUI Tuner: Label for icon shaped like a circle [CHAR LIMIT=60] -->
+    <string name="tuner_circle">Cylch</string>
     <!-- SysUI Tuner: Label for icon shaped like a plus [CHAR LIMIT=60] -->
+    <string name="tuner_plus">Plws</string>
     <!-- SysUI Tuner: Label for icon shaped like a minus [CHAR LIMIT=60] -->
+    <string name="tuner_minus">Minws</string>
     <!-- SysUI Tuner: Label for icon shaped like a left [CHAR LIMIT=60] -->
-    <string name="tuner_left">Chiwth</string>
+    <string name="tuner_left">Chwith</string>
     <!-- SysUI Tuner: Label for icon shaped like a right [CHAR LIMIT=60] -->
     <string name="tuner_right">De</string>
     <!-- SysUI Tuner: Label for icon shaped like a menu [CHAR LIMIT=60] -->
     <string name="tuner_menu">Dewislen</string>
     <!-- SysUI Tuner: App subheading for shortcut selection [CHAR LIMIT=60] -->
+    <string name="tuner_app"><xliff:g id="app">%1$s</xliff:g> ap</string>
     <!-- Title for the notification channel containing important alerts. [CHAR LIMIT=NONE] -->
     <string name="notification_channel_alerts">Rhybuddion</string>
     <!-- Title for the notification channel for battery warnings (i.e. < 15%). [CHAR LIMIT=NONE] -->
@@ -1364,27 +1466,35 @@
     <!-- Title for the notification channel dedicated to screenshot progress. [CHAR LIMIT=NONE] -->
     <!-- Title for the notification channel for miscellaneous notices. [CHAR LIMIT=NONE] -->
     <!-- Title for the notification channel for problems with storage (i.e. low disk). [CHAR LIMIT=NONE] -->
+    <string name="notification_channel_storage">Storfa</string>
     <!-- App label of the instant apps notification [CHAR LIMIT=60] -->
     <!-- Message of the instant apps notification indicating they don't need install [CHAR LIMIT=NONE] -->
     <!-- Action label for launching app info on the specified app [CHAR LIMIT=20] -->
     <string name="app_info">Gwybodaeth ap</string>
     <!-- Action label for switching to web for an instant app [CHAR LIMIT=20] -->
+    <string name="go_to_web">Mynd i\'r we</string>
     <!-- Quick settings tile for toggling mobile data [CHAR LIMIT=20] -->
+    <string name="mobile_data">Data symudol</string>
     <!-- Label for when wifi is off in QS detail panel [CHAR LIMIT=NONE] -->
     <!-- Label for when bluetooth is off in QS detail panel [CHAR LIMIT=NONE] -->
+    <string name="bt_is_off">Mae Bluetooth i ffwrdd</string>
     <!-- Label for when Do not disturb is off in QS detail panel [CHAR LIMIT=NONE] -->
     <!-- Prompt for when Do not disturb is on from automatic rule in QS [CHAR LIMIT=NONE] -->
     <!-- Prompt for when Do not disturb is on from app in QS [CHAR LIMIT=NONE] -->
     <!-- Prompt for when Do not disturb is on from automatic rule or app in QS [CHAR LIMIT=NONE] -->
     <!-- Description of Do Not Disturb option in QS that ends at the specified time[CHAR LIMIT=20] -->
     <!-- Do Not Disturb button to keep the current settings [CHAR LIMIT=20] -->
+    <string name="qs_dnd_keep">Cadw</string>
     <!-- Do Not Disturb button to change the current settings [CHAR LIMIT=20] -->
+    <string name="qs_dnd_replace">Disodli</string>
     <!-- Title of the "running foreground services" dialog. [CHAR LIMIT=NONE] -->
     <string name="running_foreground_services_title">Apiau sy\'n rhedeg yn y cefndir</string>
     <!-- Descriptive text of an item in the "running foreground services" dialog, telling the
         user what will happen when they tap on that item (which is an application that has
         been identified for them as running). [CHAR LIMIT=NONE] -->
+    <string name="running_foreground_services_msg">Tara am fanylion defnydd batri a data</string>
     <!-- Prompt to turn off data usage [CHAR LIMIT=NONE] -->
+    <string name="data_usage_disable_mobile" msgid="8656552431969276305">Troi data symudol i ffwrdd?</string>
     <!-- Warning shown when user input has been blocked due to another app overlaying screen
      content. Since we don't know what the app is showing on top of the input target, we
      can't verify user consent. [CHAR LIMIT=NONE] -->
