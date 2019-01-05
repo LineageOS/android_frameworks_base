@@ -22,8 +22,11 @@
     <!-- Toast message when Wi-Fi cannot scan for networks -->
     <string name="wifi_fail_to_scan">Methu â sganio am rwydweithau</string>
     <!-- Do not translate.  Concise terminology for wifi with WEP security -->
+    <string name="wifi_security_short_wep">WEP</string>
     <!-- Do not translate.  Concise terminology for wifi with WPA security -->
+    <string name="wifi_security_short_wpa">WPA</string>
     <!-- Do not translate.  Concise terminology for wifi with WPA2 security -->
+    <string name="wifi_security_short_wpa2">WPA2</string>
     <!-- Do not translate.  Concise terminology for wifi with both WPA/WPA2 security -->
     <!-- Do not translate.  Concise terminology for wifi with unknown PSK type -->
     <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
@@ -49,15 +52,19 @@
          or certificate). -->
     <string name="wifi_disabled_password_failure">Problem Dilysu</string>
     <!-- Status detail for a network that can't be connected to for some reason -->
+    <string name="wifi_cant_connect">Methu â chysylltu</string>
     <!-- Status for a named network that can't be connected to for some reason-->
+    <string name="wifi_cant_connect_to_ap">Methu â chysylltu â \'<xliff:g id="ap_name">%1$s</xliff:g>\'</string>
     <!-- Message shown when the user likely entered an incorrect password for a wifi network -->
     <!-- Summary for the remembered network but currently not in range. -->
     <string name="wifi_not_in_range">Dim o fewn cyrraedd</string>
     <!-- Summary for the network but no internet connection was detected. -->
     <!-- Summary for the remembered network but no internet connection was detected. -->
+    <string name="wifi_no_internet">Dim mynediad i\'r rhyngrwyd</string>
     <!-- Summary for saved networks -->
     <string name="saved_network">Cadwyd gan <xliff:g id="name">%1$s</xliff:g></string>
     <!-- Status message of Wi-Fi when it is automatically connected by a network recommendation provider. [CHAR LIMIT=NONE] -->
+    <string name="connected_via_network_scorer">Cysylltwyd yn awtomatig â %1$s</string>
     <!-- Status message of Wi-Fi when it is automatically connected by a default network recommendation provider. [CHAR LIMIT=NONE] -->
     <!-- Status message of Wi-Fi when it is connected by Passpoint configuration. [CHAR LIMIT=NONE] -->
     <string name="connected_via_passpoint">Wedi cysylltu drwy %1$s</string>
@@ -73,15 +80,19 @@
     <!-- Status message of Wi-Fi when an available network is a carrier network. [CHAR LIMIT=NONE] -->
     <string name="available_via_carrier">Ar gael drwy %1$s</string>
     <!-- Speed label for very slow network speed -->
+    <string name="speed_label_very_slow">Araf iawn</string>
     <!-- Speed label for slow network speed -->
     <string name="speed_label_slow">Araf</string>
     <!-- Speed label for okay network speed -->
     <string name="speed_label_okay">Iawn</string>
     <!-- Speed label for medium network speed -->
+    <string name="speed_label_medium">Canolig</string>
     <!-- Speed label for fast network speed -->
     <string name="speed_label_fast">Gweddol gyflym</string>
     <!-- Speed label for very fast network speed -->
+    <string name="speed_label_very_fast">Cyflym iawn</string>
     <!-- Summary text separator for preferences including a short description (eg. "Fast / Connected"). -->
+    <string name="preference_summary_default_combination"><xliff:g id="state" example="ON">%1$s</xliff:g> / <xliff:g id="description" example="High accuracy mode">%2$s</xliff:g></string>
     <!-- Bluetooth settings.  Message when a device is disconnected -->
     <string name="bluetooth_disconnected">Heb gysylltu</string>
     <!-- Bluetooth settings.  Message when disconnecting from a device -->
@@ -101,9 +112,13 @@
     <!-- Bluetooth settings.  Message when connected to a device, except for phone/media audio. [CHAR LIMIT=40] -->
     <string name="bluetooth_connected_no_headset_no_a2dp">Wedi cysylltu (dim ffôn na chyfrwng)</string>
     <!-- Bluetooth settings.  Message when connected to a device, showing remote device battery level. [CHAR LIMIT=NONE] -->
+    <string name="bluetooth_connected_battery_level">Wedi cysylltu, batri <xliff:g id="battery_level_as_percentage">%1$s</xliff:g></string>
     <!-- Bluetooth settings.  Message when connected to a device, except for phone audio, showing remote device battery level. [CHAR LIMIT=NONE] -->
+    <string name="bluetooth_connected_no_headset_battery_level">Wedi cysylltu (dim ffôn), batri <xliff:g id="battery_level_as_percentage">%1$s</xliff:g></string>
     <!-- Bluetooth settings.  Message when connected to a device, except for media audio, showing remote device battery level. [CHAR LIMIT=NONE] -->
+    <string name="bluetooth_connected_no_a2dp_battery_level">Wedi cysylltu (dim cyfrwng), batri <xliff:g id="battery_level_as_percentage">%1$s</xliff:g></string>
     <!-- Bluetooth settings.  Message when connected to a device, except for phone/media audio, showing remote device battery level. [CHAR LIMIT=NONE] -->
+    <string name="bluetooth_connected_no_headset_no_a2dp_battery_level">Wedi cysylltu (dim ffôn na chyfrwng), batri <xliff:g id="battery_level_as_percentage">%1$s</xliff:g></string>
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the A2DP profile. -->
     <string name="bluetooth_profile_a2dp">Sain cyfryngau</string>
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the headset or handsfree profile. -->
@@ -124,6 +139,7 @@
     <string name="bluetooth_profile_sap">Mynediad SIM</string>
     <!-- Bluetooth settings. The user-visible string for the setting controlling whether to use a high-quality codec if the device supports it, along with the name of the codec (eg AAC, LDAC, aptX) -->
     <!-- Bluetooth settings. Similar to bluetooth_profile_a2dp_high_quality, but used when the device supports high quality audio but we don't know which codec that will be used. -->
+    <string name="bluetooth_profile_a2dp_high_quality_unknown_codec">Sain HD</string>
     <!-- Bluetooth settings.  Connection options screen.  The summary for the A2DP checkbox preference when A2DP is connected. -->
     <string name="bluetooth_a2dp_profile_summary_connected">Wedi cysylltu â sain cyfryngau</string>
     <!-- Bluetooth settings.  Connection options screen.  The summary for the headset checkbox preference when headset is connected. -->
@@ -201,6 +217,7 @@
     <!-- Tethering controls, item title to go into the tethering settings when only USB tethering is available [CHAR LIMIT=25]-->
     <string name="tether_settings_title_usb">Tenynnu USB</string>
     <!-- Tethering controls, item title to go into the tethering settings when only Wifi tethering is available [CHAR LIMIT=25]-->
+    <string name="tether_settings_title_wifi">Llecyn Wi-Fi cludadwy</string>
     <!-- Tethering controls, item title to go into the tethering settings when only Bluetooth tethering is available [CHAR LIMIT=25]-->
     <string name="tether_settings_title_bluetooth">Tenynnu Bluetooth</string>
     <!-- Tethering controls, item title to go into the tethering settings when USB and Bluetooth tethering are available [CHAR LIMIT=25]-->
@@ -363,22 +380,27 @@
     <!-- Setting Checkbox title whether to enable WiFi Scanning in the presence of traffic. [CHAR LIMIT=80] -->
     <string name="wifi_allow_scan_with_traffic">Caniatáu Sganiau Crwydro Wi\u2011Fi o hyd</string>
     <!-- Setting Checkbox title whether to always keep mobile data active. [CHAR LIMIT=80] -->
+    <string name="mobile_data_always_on">Data symudol yn weithredol o hyd</string>
     <!-- Setting Checkbox title whether to enable hardware acceleration for tethering. [CHAR LIMIT=80] -->
     <!-- Setting Checkbox title for showing Bluetooth devices without names -->
     <!-- Setting Checkbox title for disabling Bluetooth absolute volume -->
     <string name="bluetooth_disable_absolute_volume">Analluogi lefel sain absoliwt</string>
     <!-- Setting Checkbox title for enabling Bluetooth inband ringing -->
     <!-- UI debug setting: Select Bluetooth AVRCP Version -->
+    <string name="bluetooth_select_avrcp_version_string">Fersiwn AVRCP Bluetooth</string>
     <!-- UI debug setting: Select Bluetooth AVRCP Version -->
     <!-- UI debug setting: Select Bluetooth Audio Codec -->
+    <string name="bluetooth_select_a2dp_codec_type">Codec Sain Bluetooth</string>
     <!-- UI debug setting: Select Bluetooth Audio Codec -->
     <!-- UI debug setting: Select Bluetooth Audio Sample Rate -->
     <!-- UI debug setting: Select Bluetooth Audio Codec: Sample Rate -->
     <!-- UI debug setting: Select Bluetooth Audio Bits Per Sample -->
     <!-- UI debug setting: Select Bluetooth Audio Codec: Bits Per Sample -->
     <!-- UI debug setting: Select Bluetooth Audio Channel Mode -->
+    <string name="bluetooth_select_a2dp_codec_channel_mode">Modd Sianel Sain Bluetooth</string>
     <!-- UI debug setting: Select Bluetooth Audio Codec: Channel Mode -->
     <!-- UI debug setting: Select Bluetooth Audio LDAC Playback Quality -->
+    <string name="bluetooth_select_a2dp_codec_ldac_playback_quality">Codec LDAC Sain Bluetooth: Ansawdd Chwarae</string>
     <!-- UI debug setting: Select Bluetooth Audio LDAC Codec: LDAC Playback Quality -->
     <!-- [CHAR LIMIT=NONE] Label for displaying Bluetooth Audio Codec Parameters while streaming -->
     <!-- setting Checkbox summary whether to show options for wireless display certification  -->
@@ -386,6 +408,7 @@
     <!-- Setting Checkbox summary whether to enable Wifi verbose Logging [CHAR LIMIT=80] -->
     <string name="wifi_verbose_logging_summary">Cynyddu lefel logio Wi\u2011Fi, gan ddangos fesul SSID RSSI yn Dewisydd Wi\u2011Fi</string>
     <!-- Setting Checkbox summary whether to enable Wifi aggressive handover [CHAR LIMIT=130] -->
+    <string name="wifi_aggressive_handover_summary">Pan wedi ei alluogi, bydd Wi\u2011Fi yn fwy ymosodol wrth drosglwyddo\'r cysylltiad data i symudol pan fo\'r signal Wi\u2011Fi yn wan</string>
     <!-- Setting Checkbox summary whether to always allow WiFi Roam Scans [CHAR LIMIT=130] -->
     <string name="wifi_allow_scan_with_traffic_summary">Caniatáu/Gwrthod Sganiau Crwydro Wi\u2011Fi yn dibynnu faint o draffig data sy\'n bresennol.</string>
     <!-- UI debug setting: limit size of Android logger buffers -->
@@ -464,7 +487,7 @@
     <!-- Preference category for media development settings. [CHAR LIMIT=50] -->
     <string name="media_category">Cyfryngau</string>
     <!-- Preference category for monitoring debugging development settings. [CHAR LIMIT=25] -->
-    <string name="debug_monitoring_category">Montiro</string>
+    <string name="debug_monitoring_category">Monitro</string>
     <!-- UI debug setting: always enable strict mode? [CHAR LIMIT=25] -->
     <string name="strict_mode">Modd llym wedi ei alluogi</string>
     <!-- UI debug setting: show strict mode summary [CHAR LIMIT=50] -->
@@ -636,19 +659,27 @@ Gwasga \'Clirio a Throsi\' i barhau.</string>
     <!-- [CHAR_LIMIT=60] Label for estimated remaining duration of battery discharging -->
     <string name="power_remaining_duration_only_enhanced">Tua <xliff:g id="time">^1</xliff:g> yn weddill yn seiliedig ar dy ddefnydd</string>
     <!-- [CHAR_LIMIT=40] Label for estimated remaining duration of battery charging -->
+    <string name="power_remaining_charging_duration_only"><xliff:g id="time">^1</xliff:g> yn weddill nes wedi gwefru\'n llawn</string>
     <!-- [CHAR_LIMIT=40] Short label for estimated remaining duration of battery charging/discharging -->
     <string name="power_remaining_duration_only_short"><xliff:g id="time">^1</xliff:g> yn weddill</string>
     <!-- [CHAR_LIMIT=60] Short label for estimated remaining duration of battery charging/discharging -->
+    <string name="power_remaining_duration_only_short_enhanced"><xliff:g id="time">^1</xliff:g> yn weddill yn seiliedig ar dy ddefnydd</string>
     <!-- [CHAR_LIMIT=40] Label for battery level chart when discharging with duration -->
+    <string name="power_discharging_duration"><xliff:g id="level">^1</xliff:g> - tua <xliff:g id="time">^2</xliff:g> yn weddill</string>
     <!-- [CHAR_LIMIT=60] Label for battery level chart when discharging with duration and using enhanced estimate -->
+    <string name="power_discharging_duration_enhanced"><xliff:g id="level">^1</xliff:g> - tua <xliff:g id="time">^2</xliff:g> yn weddill yn seiliedig ar dy ddefnydd</string>
     <!-- [CHAR_LIMIT=40] Label for battery level chart when discharging with duration -->
+    <string name="power_discharging_duration_short"><xliff:g id="level">^1</xliff:g> - <xliff:g id="time">^2</xliff:g> yn weddill</string>
     <!-- [CHAR_LIMIT=40] Label for battery level chart when charging -->
+    <string name="power_charging"><xliff:g id="level">%1$s</xliff:g> - <xliff:g id="state">%2$s</xliff:g></string>
     <!-- [CHAR_LIMIT=40] Label for battery level chart when charging with duration -->
+    <string name="power_charging_duration"><xliff:g id="level">^1</xliff:g> - <xliff:g id="time">^2</xliff:g> nes wedi gwefru\'n llawn</string>
     <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
     <string name="battery_info_status_unknown">Anhysybys</string>
     <!-- [CHAR_LIMIT=20] Battery use screen.  Battery status shown in chart label when charging from an unknown source.  -->
     <string name="battery_info_status_charging">Yn gwefru</string>
     <!-- [CHAR_LIMIT=20] Battery use screen with lower case.  Battery status shown in chart label when charging from an unknown source.  -->
+    <string name="battery_info_status_charging_lower">yn gwefru</string>
     <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
     <string name="battery_info_status_discharging">Dim yn gwefru</string>
     <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
@@ -710,6 +741,7 @@ Gwasga \'Clirio a Throsi\' i barhau.</string>
     <!-- Title for carrier demo mode factory reset confirmation dialog. [CHAR LIMIT=40] -->
     <string name="retail_demo_reset_title">Angen cyfrinair</string>
     <!-- Glyph to be overlaid atop the battery when the level is extremely low. Do not translate. -->
+    <string name="battery_meter_very_low_overlay_symbol">!</string>
     <!-- Title for settings of active input methods in each IME [CHAR LIMIT=35] -->
     <!-- Title for settings whether or not the framework will select input methods in an IME based
          on the current system locales. (The user can select multiple system locales)

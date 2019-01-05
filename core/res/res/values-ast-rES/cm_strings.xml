@@ -43,8 +43,10 @@
     <string name="app_ops_access_notifications">lleer los tos avisos</string>
     <string name="app_ops_activate_vpn">activar una VPN</string>
     <string name="app_ops_add_voicemail">amestar corréu de voz</string>
+    <string name="app_ops_app_start_foreground">aniciar aplicación nel intre en primer planu</string>
     <string name="app_ops_assist_screenshot">facer una captura</string>
     <string name="app_ops_assist_structure">usar cadarma d\'asistencia</string>
+    <string name="app_ops_audio_accessibility_volume">volume de volume d\'accesibilidá</string>
     <string name="app_ops_auto_start">executase nel aniciu</string>
     <string name="app_ops_change_wallpaper">camudar el fondu</string>
     <string name="app_ops_delete_call_log">desaniciar rexistru de llamaes</string>
@@ -54,6 +56,7 @@
     <string name="app_ops_draw_on_top">dibuxar ventanes na parte superior</string>
     <string name="app_ops_get_accounts">consiguir cuentes del preséu</string>
     <string name="app_ops_get_usage_stats">obtener estadístiques d\'usu de l\'app</string>
+    <string name="app_ops_install_packages">instalar paquetes</string>
     <string name="app_ops_keep_device_awake">caltener encesu\'l preséu</string>
     <string name="app_ops_make_phone_call">facer una llamada</string>
     <string name="app_ops_mock_location">falsiar el to allugamientu</string>
@@ -63,6 +66,8 @@
     <string name="app_ops_modify_contacts">anovar los tos contautos</string>
     <string name="app_ops_modify_settings">anovar axustes del sistema</string>
     <string name="app_ops_mute_unmute_microphone">activar/silenciar micrófonu</string>
+    <string name="app_ops_phone_calls">contestar llamaes de teléfonu</string>
+    <string name="app_ops_picture_in_picture">usar Picture-in-Picture</string>
     <string name="app_ops_play_audio">reproducir audiu</string>
     <string name="app_ops_post_notification">espublizar un avisu</string>
     <string name="app_ops_project_media">Proyeutu Media</string>
@@ -73,6 +78,7 @@
     <string name="app_ops_read_contacts">lleer los tos contautos</string>
     <string name="app_ops_read_external_storage">lleer almacenamientu esternu</string>
     <string name="app_ops_read_mms">lleer los tos mensaxes MMS</string>
+    <string name="app_ops_read_phone_numbers">lleer númberos telefónicos</string>
     <string name="app_ops_read_phone_state">acceder al estáu\'l teléfonu</string>
     <string name="app_ops_read_sms">lleer los tos mensaxes SMS</string>
     <string name="app_ops_receive_sms">recibir un mensaxe SMS</string>

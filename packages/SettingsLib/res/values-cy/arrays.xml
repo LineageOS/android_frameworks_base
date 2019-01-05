@@ -91,16 +91,62 @@
     </string-array>
     <!-- Bluetooth settings -->
     <!-- Titles for Bluetooth AVRCP Versions -->
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (Rhagosodedig)</item>
+        <item>AVRCP 1.3</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
     <!-- Values for Bluetooth AVRCP Versions -->
+    <string-array name="bluetooth_avrcp_version_values">
+        <item>avrcp14</item>
+        <item>avrcp13</item>
+        <item>avrcp15</item>
+        <item>avrcp16</item>
+    </string-array>
     <!-- Titles for Bluetooth Audio Codec selection preference. [CHAR LIMIT=50] -->
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Defnyddio Dewis y System (Rhagosodiad)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>Sain <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g></item>
+        <item>Sain <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™ HD</xliff:g></item>
+        <item>LDAC</item>
+        <item>Galluogi Codecs Dewisol</item>
+        <item>Analluogi Codecs Dewisol</item>
+    </string-array>
     <!-- Values for Bluetooth Audio Codec selection preference. -->
     <!-- Summaries for Bluetooth Audio Codec selection preference. [CHAR LIMIT=50]-->
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Defnyddio Dewis y System (Rhagosodiad)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>Sain <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g></item>
+        <item>Sain <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™ HD</xliff:g></item>
+        <item>LDAC</item>
+        <item>Galluogi Codecs Dewisol</item>
+        <item>Analluogi Codecs Dewisol</item>
+    </string-array>
     <!-- Titles for Bluetooth Audio Codec Sample Rate selection preference. [CHAR LIMIT=50] -->
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Defnyddio Dewis y System (Rhagosodiad)</item>
+        <item>44.1 kHz</item>
+        <item>48.0 kHz</item>
+        <item>88.2 kHz</item>
+        <item>96.0 kHz</item>
+    </string-array>
     <!-- Values for Bluetooth Audio Codec Sample Rate selection preference. -->
     <!-- Summaries for Bluetooth Audio Codec Sample Rate selection preference. [CHAR LIMIT=50]-->
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Defnyddio Dewis y System (Rhagosodiad)</item>
+        <item>44.1 kHz</item>
+        <item>48.0 kHz</item>
+        <item>88.2 kHz</item>
+        <item>96.0 kHz</item>
+    </string-array>
     <!-- Titles for Bluetooth Audio Codec Bits Per Sample selection preference. [CHAR LIMIT=50] -->
     <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
-        <item>Use System Selection (Default)</item>
+        <item>Defnyddio Dewis y System (Rhagosodiad)</item>
         <item>16 did/sampl</item>
         <item>24 did/sampl</item>
         <item>32 did/sampl</item>
@@ -108,17 +154,39 @@
     <!-- Values for Bluetooth Audio Codec Bits Per Sample selection preference. -->
     <!-- Summaries for Bluetooth Audio Codec Bits Per Sample selection preference. [CHAR LIMIT=50]-->
     <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
-        <item>Use System Selection (Default)</item>
+        <item>Defnyddio Dewis y System (Rhagosodiad)</item>
         <item>16 did/sampl</item>
         <item>24 did/sampl</item>
         <item>32 did/sampl</item>
     </string-array>
     <!-- Titles for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50] -->
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Defnyddio Dewis y System (Rhagosodiad)</item>
+        <item>Mono</item>
+        <item>Stereo</item>
+    </string-array>
     <!-- Values for Bluetooth Audio Codec Channel Mode selection preference. -->
     <!-- Summaries for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50]-->
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Defnyddio Dewis y System (Rhagosodiad)</item>
+        <item>Mono</item>
+        <item>Stereo</item>
+    </string-array>
     <!-- Titles for Bluetooth Audio Codec LDAC Playback Quality selection preference. [CHAR LIMIT=70] -->
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Wedi\'i optimeiddio er mwyn Ansawdd Sain (990kbps/909kbps)</item>
+        <item>Ansawdd Cytbwys rhwng Sain a Chysylltiad (660kbps/606kbps)</item>
+        <item>Wedi\'i optimeiddio er mwyn Ansawdd Cysylltiad (330kbps/303kbps)</item>
+        <item>Ymdrech Orau (Didradd Addasedig)</item>
+    </string-array>
     <!-- Values for Bluetooth Audio Codec LDAC Playback Quaility selection preference. -->
     <!-- Summaries for Bluetooth Audio Codec LDAC Playback Quality selection preference. [CHAR LIMIT=70]-->
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Optimeiddiwyd ar gyfer Ansawdd Sain</item>
+        <item>Ansawdd Sain a Chysylltiad yn Gytbwys</item>
+        <item>Optimeiddiwyd ar gyfer Ansawdd Cysylltiad</item>
+        <item>Ymdrech Orau (Didradd Addasedig)</item>
+    </string-array>
     <!-- Titles for logd limit size selection preference. [CHAR LIMIT=14] -->
     <string-array name="select_logd_size_titles">
         <item>I ffwrdd</item>
@@ -228,9 +296,7 @@
     <string-array name="track_frame_time_entries">
         <item>I ffwrdd</item>
         <item>Ar y sgrin fel barrau</item>
-        <item>In 
-            <xliff:g id="as_typed_command">adb shell dumpsys gfxinfo</xliff:g>
-        </item>
+        <item>Yn <xliff:g id="as_typed_command">adb shell dumpsys gfxinfo</xliff:g></item>
     </string-array>
     <!-- Values for frame time tracking preference. -->
     <!-- Titles for debug overdraw preference. [CHAR LIMIT=50] -->
@@ -241,6 +307,10 @@
     </string-array>
     <!-- Values for debug overdraw preference. -->
     <!-- Titles for debug renderer preference. [CHAR LIMIT=50] -->
+    <string-array name="debug_hw_renderer_entries">
+        <item>OpenGL (Rhagosodiad)</item>
+        <item>OpenGL (Skia)</item>
+    </string-array>
     <!-- Values for debug renderer preference. -->
     <!-- Titles for app process limit preference. [CHAR LIMIT=35] -->
     <string-array name="app_process_limit_entries">
