@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78db300f_828b61aa",
+        "filename": "services/core/java/com/android/server/policy/WindowOrientationListener.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-01-05T15:44:42Z",
+      "side": 1,
+      "message": "\u0026\u0026 -\u003e ||\n\notherwise it will never trigger",
+      "revId": "7cd129fdd17fec59dcb6093a4a3f53b689c9c939",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
