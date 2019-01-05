@@ -890,7 +890,6 @@
     <!-- Format string for displaying a name and address summary. $1 is the Full Name, $2 is autofill_address_summary_separator, $3 is the Address
          e.g. (John Smith)(, )(123 Main Street) -->
     <!-- Do not translate. Regex used by AutoFill. -->
-    <string name="autofill_attention_ignored_re">attention|attn</string>
     <!-- Do not translate. Regex used by AutoFill. -->
     <string name="autofill_region_ignored_re">province|region|other<!-- es -->|provincia<!-- pt-BR, pt-PT -->|bairro|suburb</string>
     <!-- Do not translate. Regex used by AutoFill. -->
@@ -912,9 +911,7 @@
     <!-- Do not translate. Regex used by AutoFill. -->
     <string name="autofill_city_re">city|town<!-- de-DE -->|ort|stadt<!-- en-AU -->|suburb<!-- es -->|ciudad|provincia|localidad|poblacion<!-- fr-FR -->|ville|commune<!-- it-IT -->|localita<!-- ja-JP -->|市区町村<!-- pt-BR, pt-PT -->|cidade<!-- ru -->|Город<!-- zh-CN -->|市<!-- zh-TW -->|分區</string>
     <!-- Do not translate. Regex used by AutoFill. -->
-    <string name="autofill_state_re">state|county|region|province<!-- de-DE -->|land<!-- en-UK -->|county|principality<!-- ja-JP -->|都道府県<!-- pt-BR, pt-PT -->|estado|provincia<!-- ru -->|область<!-- zh-CN -->|省<!-- zh-TW -->|地區</string>
     <!-- Do not translate. Regex used by AutoFill. -->
-    <string name="autofill_address_type_same_as_re">same as</string>
     <!-- Do not translate. Regex used by AutoFill. -->
     <string name="autofill_address_type_use_my_re">use my</string>
     <!-- Do not translate. Regex used by AutoFill. -->
@@ -922,9 +919,7 @@
     <!-- Do not translate. Regex used by AutoFill. -->
     <string name="autofill_shipping_designator_re">ship</string>
     <!-- Do not translate. Regex used by AutoFill. -->
-    <string name="autofill_email_re">e.?mail<!-- ja-JP -->|メールアドレス<!-- ru -->|Электронной.?Почты<!-- zh-CN -->|邮件|邮箱<!-- zh-TW -->|電郵地址</string>
     <!-- Do not translate. Regex used by AutoFill. -->
-    <string name="autofill_username_re">user.?name|user.?id<!-- de-DE -->|vollständiger.?name<!-- zh-CN -->|用户名</string>
     <!-- Do not translate. Regex used by AutoFill. -->
     <string name="autofill_name_re">^name|full.?name|your.?name|customer.?name|firstandlastname<!-- es -->|nombre.*y.*apellidos<!-- fr-FR -->|^nom<!-- ja-JP -->|お名前|氏名<!-- pt-BR, pt-PT -->|^nome<!-- zh-CN -->|姓名</string>
     <!-- Do not translate. Regex used by AutoFill. -->
