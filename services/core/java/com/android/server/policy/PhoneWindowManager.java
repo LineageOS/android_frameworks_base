@@ -302,11 +302,12 @@ import com.android.server.wm.DisplayFrames;
 import com.android.server.wm.WindowManagerInternal;
 import com.android.server.wm.WindowManagerInternal.AppTransitionListener;
 
-import lineageos.hardware.LineageHardwareManager;
 import lineageos.providers.LineageSettings;
 
 import org.lineageos.internal.util.ActionUtils;
 import static org.lineageos.internal.util.DeviceKeysConstants.*;
+
+import vendor.lineage.touch.V1_0.IKeyDisabler;
 
 import java.io.File;
 import java.io.FileReader;
@@ -315,6 +316,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.lineageos.internal.buttons.LineageButtons;
 
@@ -933,7 +935,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_STATUS = 0;
     private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_NAVIGATION = 1;
 
-    private LineageHardwareManager mLineageHardware;
+    private IKeyDisabler mKeyDisabler;
     private boolean mClearedBecauseOfForceShow;
     private boolean mTopWindowIsKeyguard;
 
@@ -2887,9 +2889,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_CURRENT);
             if (forceNavbar != mForceNavbar) {
                 mForceNavbar = forceNavbar;
-                if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
-                    mLineageHardware.set(LineageHardwareManager.FEATURE_KEY_DISABLE,
-                            mForceNavbar == 1);
+                if (mKeyDisabler != null) {
+                    mKeyDisabler.setEnabled(mForceNavbar == 1);
                 }
                 mHasNavigationBar = mNeedsNavigationBar || mForceNavbar == 1;
             }
@@ -8357,9 +8358,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mVrManagerInternal.addPersistentVrModeStateListener(mPersistentVrModeListener);
         }
 
-        mLineageHardware = LineageHardwareManager.getInstance(mContext);
-        // Ensure observe happens in systemReady() since we need
-        // LineageHardwareService to be up and running
+        try {
+            mKeyDisabler = IKeyDisabler.getService(true /* retry */);
+        } catch (NoSuchElementException e) {
+            mKeyDisabler = null;
+        }
+
         mSettingsObserver.observe();
 
         readCameraLensCoverState();
