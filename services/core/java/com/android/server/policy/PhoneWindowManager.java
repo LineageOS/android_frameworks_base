@@ -302,7 +302,8 @@ import com.android.server.wm.DisplayFrames;
 import com.android.server.wm.WindowManagerInternal;
 import com.android.server.wm.WindowManagerInternal.AppTransitionListener;
 
-import lineageos.hardware.LineageHardwareManager;
+import vendor.lineage.touch.V1_0.IKeyDisabler;
+
 import lineageos.providers.LineageSettings;
 
 import org.lineageos.internal.util.ActionUtils;
@@ -933,7 +934,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_STATUS = 0;
     private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_NAVIGATION = 1;
 
-    private LineageHardwareManager mLineageHardware;
     private boolean mClearedBecauseOfForceShow;
     private boolean mTopWindowIsKeyguard;
 
@@ -2887,9 +2887,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_CURRENT);
             if (forceNavbar != mForceNavbar) {
                 mForceNavbar = forceNavbar;
-                if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
-                    mLineageHardware.set(LineageHardwareManager.FEATURE_KEY_DISABLE,
-                            mForceNavbar == 1);
+                try {
+                    IKeyDisabler keyDisabler = IKeyDisabler.getService(true /* retry */);
+                    keyDisabler.setEnabled(mForceNavbar == 1);
+                } catch (NoSuchElementException e) {
                 }
                 mHasNavigationBar = mNeedsNavigationBar || mForceNavbar == 1;
             }
@@ -8357,9 +8358,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mVrManagerInternal.addPersistentVrModeStateListener(mPersistentVrModeListener);
         }
 
-        mLineageHardware = LineageHardwareManager.getInstance(mContext);
-        // Ensure observe happens in systemReady() since we need
-        // LineageHardwareService to be up and running
         mSettingsObserver.observe();
 
         readCameraLensCoverState();
