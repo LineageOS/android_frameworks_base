@@ -302,6 +302,8 @@ import com.android.server.wm.DisplayFrames;
 import com.android.server.wm.WindowManagerInternal;
 import com.android.server.wm.WindowManagerInternal.AppTransitionListener;
 
+import vendor.lineage.touch.V1_0.IKeyDisabler;
+
 import lineageos.hardware.LineageHardwareManager;
 import lineageos.providers.LineageSettings;
 
@@ -2887,9 +2889,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_CURRENT);
             if (forceNavbar != mForceNavbar) {
                 mForceNavbar = forceNavbar;
-                if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
-                    mLineageHardware.set(LineageHardwareManager.FEATURE_KEY_DISABLE,
-                            mForceNavbar == 1);
+                try {
+                    IKeyDisabler keyDisabler = IKeyDisabler.getService(true /* retry */)
+                    keyDisabler.setEnabled(mForceNavbar == 1);
+                } catch (NoSuchElementException e) {
                 }
                 mHasNavigationBar = mNeedsNavigationBar || mForceNavbar == 1;
             }

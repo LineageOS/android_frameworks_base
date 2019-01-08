@@ -30,6 +30,7 @@ java_library {
         "services.usb",
         "services.voiceinteraction",
         "android.hidl.base-V1.0-java",
+        "vendor.lineage.touch-V1.0-java",
     ],
 
     libs: [
