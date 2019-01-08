@@ -156,8 +156,10 @@ import android.widget.Toast;
 
 import com.android.server.wm.WindowManagerInternal;
 
-import lineageos.hardware.LineageHardwareManager;
 import lineageos.providers.LineageSettings;
+
+import vendor.lineage.touch.V1_0.IGloveMode;
+import vendor.lineage.touch.V1_0.IStylusMode;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -175,6 +177,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.NoSuchElementException;
 import java.util.WeakHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -346,7 +349,8 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
     private boolean mShowOngoingImeSwitcherForPhones;
     private boolean mNotificationShown;
 
-    private LineageHardwareManager mLineageHardware;
+    private IGloveMode mGloveMode;
+    private IStylusMode mStylusMode;
 
     static class SessionState {
         final ClientState client;
@@ -868,13 +872,12 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
                     Settings.Secure.SHOW_IME_WITH_HARD_KEYBOARD), false, this, userId);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.ACCESSIBILITY_SOFT_KEYBOARD_MODE), false, this, userId);
-            if (mLineageHardware.isSupported(
-                    LineageHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
+            if (mGloveMode != null) {
                 resolver.registerContentObserver(LineageSettings.System.getUriFor(
                         LineageSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE),
                         false, this, userId);
             }
-            if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_TOUCH_HOVERING)) {
+            if (mStylusMode != null) {
                 resolver.registerContentObserver(LineageSettings.Secure.getUriFor(
                         LineageSettings.Secure.FEATURE_TOUCH_HOVERING), false, this, userId);
             }
@@ -1543,8 +1546,17 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
                 mSettings.switchCurrentUser(currentUserId,
                         !mUserManager.isUserUnlockingOrUnlocked(currentUserId));
 
-                // Must happen before registerContentObserverLocked
-                mLineageHardware = LineageHardwareManager.getInstance(mContext);
+                try {
+                    mGloveMode = IGloveMode.getService(true /* retry */);
+                } catch (NoSuchElementException | RemoteException e) {
+                    mGloveMode = null;
+                }
+
+                try {
+                    mStylusMode = IStylusMode.getService(true /* retry */);
+                } catch (NoSuchElementException | RemoteException e) {
+                    mStylusMode = null;
+                }
 
                 updateTouchHovering();
                 updateTouchSensitivity();
@@ -2526,21 +2538,27 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
     }
 
     private void updateTouchSensitivity() {
-        if (!mLineageHardware.isSupported(LineageHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
+        if (mGloveMode == null) {
             return;
         }
         final boolean enabled = LineageSettings.System.getInt(mContext.getContentResolver(),
                 LineageSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, 0) == 1;
-        mLineageHardware.set(LineageHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY, enabled);
+        try {
+            mGloveMode.setEnabled(enabled);
+        } catch (RemoteException e) {
+        }
     }
 
     private void updateTouchHovering() {
-        if (!mLineageHardware.isSupported(LineageHardwareManager.FEATURE_TOUCH_HOVERING)) {
+        if (mStylusMode == null) {
             return;
         }
         final boolean enabled = LineageSettings.Secure.getInt(mContext.getContentResolver(),
                 LineageSettings.Secure.FEATURE_TOUCH_HOVERING, 0) == 1;
-        mLineageHardware.set(LineageHardwareManager.FEATURE_TOUCH_HOVERING, enabled);
+        try {
+            mStylusMode.setEnabled(enabled);
+        } catch (RemoteException e) {
+        }
     }
 
     public void updateKeyboardFromSettingsLocked() {
