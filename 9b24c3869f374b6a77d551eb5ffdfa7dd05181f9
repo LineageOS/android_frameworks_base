@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "836b933a_4fe4768f",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2019-01-09T23:03:55Z",
+      "side": 1,
+      "message": "I would set mUsbRestrictor explicitly to null here",
+      "revId": "9b24c3869f374b6a77d551eb5ffdfa7dd05181f9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2a80a46_8113dead",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2019-01-09T23:03:55Z",
+      "side": 1,
+      "message": "I would use a null check here instead of a try...catch block",
+      "revId": "9b24c3869f374b6a77d551eb5ffdfa7dd05181f9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
