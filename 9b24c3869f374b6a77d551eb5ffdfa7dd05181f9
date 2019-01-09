@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "dc834c2d_82a0796d",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2019-01-09T23:05:21Z",
+      "side": 1,
+      "message": "do getService(true) -- that should wait for the service is up before continuing.",
+      "revId": "9b24c3869f374b6a77d551eb5ffdfa7dd05181f9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6dde563_4f7057e9",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2019-01-09T23:05:21Z",
+      "side": 1,
+      "message": "Where is RemoteException thrown?",
+      "range": {
+        "startLine": 83,
+        "startChar": 42,
+        "endLine": 83,
+        "endChar": 57
+      },
+      "revId": "9b24c3869f374b6a77d551eb5ffdfa7dd05181f9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "836b933a_4fe4768f",
         "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
         "patchSetId": 1
