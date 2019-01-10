@@ -16,5 +16,12 @@
 
 PRODUCT_PACKAGES := \
     DroidSansMono.ttf \
-    AndroidClock.ttf \
+    AndroidClock.ttf
+
+ifeq ($(EXCLUDE_SERIF_FONTS),true)
+PRODUCT_PACKAGES := \
+    exclude_serif/fonts.xml
+else
+PRODUCT_PACKAGES := \
     fonts.xml
+endif
