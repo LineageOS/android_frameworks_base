@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7a0da45_180abd60",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-10T22:26:45Z",
+      "side": 1,
+      "message": "Why only 1? Like this, download is not shown when both upload and download are selected as display mode.",
+      "range": {
+        "startLine": 114,
+        "startChar": 34,
+        "endLine": 114,
+        "endChar": 35
+      },
+      "revId": "20c875ac181c9be10991dfc3ad995c6a4db75cd5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
