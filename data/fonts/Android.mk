@@ -90,7 +90,11 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := fonts.xml
 LOCAL_MODULE_CLASS := ETC
 
+ifeq ($(filter true,$(EXCLUDE_SERIF_FONTS) $(SMALLER_FONT_FOOTPRINT)),)
+AOSP_FONTS_FILE := frameworks/base/data/fonts/exclude_serif/fonts.xml
+else
 AOSP_FONTS_FILE := frameworks/base/data/fonts/fonts.xml
+endif
 
 ifdef ADDITIONAL_FONTS_FILE
 ADDITIONAL_FONTS_SCRIPT := frameworks/base/tools/fonts/add_additional_fonts.py
