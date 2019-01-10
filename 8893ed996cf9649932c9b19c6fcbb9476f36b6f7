@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1604a388_ffcd9021",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-10T23:03:42Z",
+      "side": 1,
+      "message": "You forgot this as well:\n\nandroid:gravity\u003d\"center_vertical|start\"",
+      "range": {
+        "startLine": 114,
+        "startChar": 36,
+        "endLine": 114,
+        "endChar": 37
+      },
+      "revId": "8893ed996cf9649932c9b19c6fcbb9476f36b6f7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
