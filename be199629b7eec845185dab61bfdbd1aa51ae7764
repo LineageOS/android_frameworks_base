@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c86d0ba0_ad1da223",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-11T13:13:23Z",
+      "side": 1,
+      "message": "else\nif getEnabled \u003d\u003d true\nsetEnabled(false)\n\nI would prefer to handle it there",
+      "revId": "be199629b7eec845185dab61bfdbd1aa51ae7764",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
