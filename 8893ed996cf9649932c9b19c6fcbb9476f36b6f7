@@ -22,6 +22,30 @@
       "revId": "8893ed996cf9649932c9b19c6fcbb9476f36b6f7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7445cfdc_f8adf84d",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-01-11T00:43:52Z",
+      "side": 1,
+      "message": "Actually, that one was deliberate.  Since NetworkTraffic is the only item inside LineageStatusBarItemHolder, I didn\u0027t see it as being of much use (since the parent has a gravity specification).  But perhaps I\u0027m wrong - might it make a difference ?",
+      "parentUuid": "1604a388_ffcd9021",
+      "range": {
+        "startLine": 114,
+        "startChar": 36,
+        "endLine": 114,
+        "endChar": 37
+      },
+      "revId": "8893ed996cf9649932c9b19c6fcbb9476f36b6f7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
