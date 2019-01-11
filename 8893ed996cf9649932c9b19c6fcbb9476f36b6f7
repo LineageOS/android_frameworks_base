@@ -46,6 +46,30 @@
       "revId": "8893ed996cf9649932c9b19c6fcbb9476f36b6f7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b453a58_456025c2",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-11T08:59:52Z",
+      "side": 1,
+      "message": "It does make a difference. The arrows are fine, but upload and download values (and units) are not vertically centered otherwise.",
+      "parentUuid": "7445cfdc_f8adf84d",
+      "range": {
+        "startLine": 114,
+        "startChar": 36,
+        "endLine": 114,
+        "endChar": 37
+      },
+      "revId": "8893ed996cf9649932c9b19c6fcbb9476f36b6f7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
