@@ -33,6 +33,24 @@
       "revId": "8c81920692ad36ffcbfc9397c80b719501a0d5fa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9582a43_6c8ef941",
+        "filename": "data/fonts/fonts.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 19082
+      },
+      "writtenOn": "2019-01-14T02:12:04Z",
+      "side": 1,
+      "message": "i don\u0027t know what you meant by that, it should be fonts.xml only, isn\u0027t it ?Can you elaborate a little, i am not able to clearly understand.",
+      "parentUuid": "a32525a2_ccd81478",
+      "revId": "8c81920692ad36ffcbfc9397c80b719501a0d5fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
