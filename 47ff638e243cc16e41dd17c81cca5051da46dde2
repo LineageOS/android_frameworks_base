@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb47f481_2da2da6a",
+        "filename": "data/fonts/Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-14T06:24:49Z",
+      "side": 1,
+      "message": "you should also check for SMALLER_FONT_FOOTPRINT",
+      "revId": "47ff638e243cc16e41dd17c81cca5051da46dde2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
