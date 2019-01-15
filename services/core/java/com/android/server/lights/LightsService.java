@@ -20,6 +20,7 @@ import com.android.server.SystemService;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Trace;
@@ -201,9 +202,14 @@ public class LightsService extends SystemService {
 
     private int getVrDisplayMode() {
         int currentUser = ActivityManager.getCurrentUser();
+
+        final PackageManager pm = getContext().getPackageManager();
+        boolean lpEnable = pm.hasSystemFeature(PackageManager.FEATURE_VR_MODE_HIGH_PERFORMANCE);
+
         return Settings.Secure.getIntForUser(getContext().getContentResolver(),
                 Settings.Secure.VR_DISPLAY_MODE,
-                /*default*/Settings.Secure.VR_DISPLAY_MODE_LOW_PERSISTENCE,
+                lpEnable ? Settings.Secure.VR_DISPLAY_MODE_LOW_PERSISTENCE :
+                        Settings.Secure.VR_DISPLAY_MODE_OFF,
                 currentUser);
     }
 
