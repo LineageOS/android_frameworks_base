@@ -16,6 +16,8 @@
 
 package android.widget;
 
+import static android.Manifest.permission.INTERACT_ACROSS_USERS_FULL;
+
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
 import android.R;
@@ -24,11 +26,13 @@ import android.annotation.DrawableRes;
 import android.annotation.FloatRange;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.annotation.RequiresPermission;
 import android.annotation.Size;
 import android.annotation.StringRes;
 import android.annotation.StyleRes;
 import android.annotation.XmlRes;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.assist.AssistStructure;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -619,6 +623,19 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     private TextDirectionHeuristic mTextDir;
 
     private InputFilter[] mFilters = NO_FILTERS;
+
+    /**
+     * To keep the information to indicate if there is necessary to restrict the power of
+     * INTERACT_ACROSS_USERS_FULL.
+     * <p>
+     * SystemUI always run as user 0 to process all of direct reply. SystemUI has the poer of
+     * INTERACT_ACROSS_USERS_FULL. However, all of the notifications not only belong to user 0 but
+     * also to the other users in multiple user environment.
+     * </p>
+     *
+     * @see #setRestrictedAcrossUser(boolean)
+     */
+    private boolean mIsRestrictedAcrossUser;
 
     private volatile Locale mCurrentSpellCheckerLocaleCache;
 
@@ -8827,6 +8844,24 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     }
 
     /**
+     * To notify the TextView to restricted the power of the app granted INTERACT_ACROSS_USERS_FULL
+     * permission.
+     * <p>
+     * Most of applications should not granted the INTERACT_ACROSS_USERS_FULL permssion.
+     * SystemUI is the special one that run in user 0 process to handle multiple user notification.
+     * Unforunately, the power of INTERACT_ACROSS_USERS_FULL should be limited or restricted for
+     * preventing from information leak.</p>
+     * <p>This function call is called for SystemUI Keyguard and Notification.</p>
+     *
+     * @param isRestricted is true if the power of INTERACT_ACROSS_USERS_FULL should be limited.
+     * @hide
+     */
+    @RequiresPermission(INTERACT_ACROSS_USERS_FULL)
+    public final void setRestrictedAcrossUser(boolean isRestricted) {
+        mIsRestrictedAcrossUser = isRestricted;
+    }
+
+    /**
      * This is a temporary method. Future versions may support multi-locale text.
      * Caveat: This method may not return the latest text services locale, but this should be
      * acceptable and it's more important to make this method asynchronous.
@@ -9569,6 +9604,12 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     }
 
     boolean canCut() {
+        if (mIsRestrictedAcrossUser
+                && UserHandle.myUserId() != ActivityManager.getCurrentUser()) {
+            // When it's restricted, and the curren user is not the process user. It can't cut
+            // because it may cut the text of the user 10 into the clipboard of user 0.
+            return false;
+        }
         if (hasPasswordTransformationMethod()) {
             return false;
         }
@@ -9582,6 +9623,12 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     }
 
     boolean canCopy() {
+        if (mIsRestrictedAcrossUser
+                && UserHandle.myUserId() != ActivityManager.getCurrentUser()) {
+            // When it's restricted, and the curren user is not the process user. It can't copy
+            // because it may copy the text of the user 10 to the clipboard of user 0.
+            return false;
+        }
         if (hasPasswordTransformationMethod()) {
             return false;
         }
@@ -9611,6 +9658,12 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     }
 
     boolean canPaste() {
+        if (mIsRestrictedAcrossUser
+                && UserHandle.myUserId() != ActivityManager.getCurrentUser()) {
+            // When it's restricted, and the curren user is not the process user. It can't paste
+            // because it may copy the text from the user 0 clipboard in current user is 10.
+            return false;
+        }
         return (mText instanceof Editable &&
                 mEditor != null && mEditor.mKeyListener != null &&
                 getSelectionStart() >= 0 &&
