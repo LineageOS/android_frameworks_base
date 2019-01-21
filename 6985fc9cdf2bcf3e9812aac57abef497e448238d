@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "485f0874_aca77257",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2917,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2019-01-21T00:03:43Z",
+      "side": 1,
+      "message": "does not seem to be working. tested on bacon using a l2tp and a openvpn connection (which respectively use, according to /sys/class/net, ppp0 and tun0)",
+      "range": {
+        "startLine": 2917,
+        "startChar": 81,
+        "endLine": 2917,
+        "endChar": 94
+      },
+      "revId": "6985fc9cdf2bcf3e9812aac57abef497e448238d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
