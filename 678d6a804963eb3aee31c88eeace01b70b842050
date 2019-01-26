@@ -1,0 +1,22 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5d66297_d78d6926",
+        "filename": "data/fonts/Android.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-01-26T09:28:08Z",
+      "side": 1,
+      "message": "What about\nAOSP_FONTS_FILE :\u003d frameworks/base/data/fonts/fonts_no_serif.xml\nThis way it lives in the same directory as the original one and makes diffing a bit easier",
+      "parentUuid": "",
+      "revId": "678d6a804963eb3aee31c88eeace01b70b842050",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
