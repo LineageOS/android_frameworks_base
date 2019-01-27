@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- * Copyright (C) 2018 The LineageOS Project
+ * Copyright (C) 2018-2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -133,7 +133,8 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
         state.secondaryLabel = mEntries[state.mode];
         state.icon = ResourceIcon.get(mEntryIconRes[state.mode]);
         state.contentDescription = mDescriptionEntries[state.mode];
-        state.state = mLiveDisplay.getMode() != MODE_OFF ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
+        state.state = mLiveDisplay != null && mLiveDisplay.getMode() != MODE_OFF ?
+                Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
     }
 
     @Override
