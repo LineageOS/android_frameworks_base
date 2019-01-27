@@ -1006,7 +1006,7 @@ final class SystemServiceRegistry {
                 new StaticServiceFetcher<OemLockManager>() {
             @Override
             public OemLockManager createService() throws ServiceNotFoundException {
-                IBinder b = ServiceManager.getServiceOrThrow(Context.OEM_LOCK_SERVICE);
+                IBinder b = ServiceManager.getService(Context.OEM_LOCK_SERVICE);
                 IOemLockService oemLockService = IOemLockService.Stub.asInterface(b);
                 if (oemLockService != null) {
                     return new OemLockManager(oemLockService);
