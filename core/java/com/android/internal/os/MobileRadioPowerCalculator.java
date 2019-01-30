@@ -21,7 +21,7 @@ import android.util.Log;
 
 public class MobileRadioPowerCalculator extends PowerCalculator {
     private static final String TAG = "MobileRadioPowerController";
-    private static final boolean DEBUG = BatteryStatsHelper.DEBUG;
+    private static final boolean DEBUG = true;
     private final double mPowerRadioOn;
     private final double[] mPowerBins = new double[SignalStrength.NUM_SIGNAL_STRENGTH_BINS];
     private final double mPowerScan;
@@ -124,7 +124,10 @@ public class MobileRadioPowerCalculator extends PowerCalculator {
         long radioActiveTimeMs = mStats.getMobileRadioActiveTime(rawRealtimeUs, statsType) / 1000;
         long remainingActiveTimeMs = radioActiveTimeMs - mTotalAppMobileActiveMs;
         if (remainingActiveTimeMs > 0) {
-            power += (mPowerRadioOn * remainingActiveTimeMs) / (1000*60*60);
+            final double q = (mPowerRadioOn * remainingActiveTimeMs) / (1000*60*60);
+            if (DEBUG)
+                Log.d(TAG, "Cell radio active: time=" + remainingActiveTimeMs + " power=" + q);
+            power += q;
         }
 
         if (power != 0) {

@@ -482,11 +482,15 @@ public class BatteryStatsHelper {
             mMaxRealPower = mMaxPower = mUsageList.get(0).totalPowerMah;
             final int usageListCount = mUsageList.size();
             for (int i = 0; i < usageListCount; i++) {
-                mComputedPower += mUsageList.get(i).totalPowerMah;
+                double p = mUsageList.get(i).totalPowerMah;
+                DrainType d = mUsageList.get(i).drainType;
+                if (p > 1)
+                    Log.d(TAG, "Drain " + d + " energy " + p);
+                mComputedPower += p;
             }
         }
 
-        if (DEBUG) {
+        if (true) {
             Log.d(TAG, "Accuracy: total computed=" + makemAh(mComputedPower) + ", min discharge="
                     + makemAh(mMinDrainedPower) + ", max discharge=" + makemAh(mMaxDrainedPower));
         }
