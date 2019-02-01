@@ -31,6 +31,7 @@ import android.os.PatternMatcher;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceControl;
 
 import com.android.systemui.OverviewProxyService.OverviewProxyListener;
@@ -81,6 +82,7 @@ public class OverviewProxyService implements CallbackController<OverviewProxyLis
     private int mConnectionBackoffAttempts;
     private @InteractionType int mInteractionFlags;
     private boolean mIsEnabled;
+    private MotionEvent mStatusBarGestureDownEvent;
 
     private ISystemUiProxy mSysUiProxy = new ISystemUiProxy.Stub() {
 
@@ -167,6 +169,30 @@ public class OverviewProxyService implements CallbackController<OverviewProxyLis
             try {
                 mHandler.post(() -> {
                     notifyBackButtonAlphaChanged(alpha, animate);
+                });
+            } finally {
+                Binder.restoreCallingIdentity(token);
+            }
+        }
+
+        public void onStatusBarMotionEvent(MotionEvent motionEvent) {
+            long token = Binder.clearCallingIdentity();
+            try {
+                mHandler.post(() -> {
+                    StatusBar statusBar = ((SystemUIApplication) mContext).getComponent(
+                            StatusBar.class);
+                    if (statusBar != null) {
+                        statusBar.dispatchNotificationsPanelTouchEvent(motionEvent);
+                        int actionMasked = motionEvent.getActionMasked();
+                        if (actionMasked == MotionEvent.ACTION_DOWN) {
+                            mStatusBarGestureDownEvent = MotionEvent.obtain(motionEvent);
+                        }
+                        if (actionMasked == MotionEvent.ACTION_UP || actionMasked == MotionEvent.ACTION_CANCEL) {
+                            mStatusBarGestureDownEvent.recycle();
+                            mStatusBarGestureDownEvent = null;
+                        }
+                        motionEvent.recycle();
+                    }
                 });
             } finally {
                 Binder.restoreCallingIdentity(token);
