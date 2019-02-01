@@ -2465,6 +2465,18 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mStatusBarKeyguardViewManager.readyForKeyguardDone();
     }
 
+    public void dispatchNotificationsPanelTouchEvent(MotionEvent motionEvent) {
+        if (panelsEnabled()) {
+            mNotificationPanel.dispatchTouchEvent(motionEvent);
+            int action = motionEvent.getAction();
+            if (action == MotionEvent.ACTION_DOWN) {
+                mStatusBarWindowManager.setNotTouchable(true);
+            } else if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL) {
+                mStatusBarWindowManager.setNotTouchable(false);
+            }
+        }
+    }
+
     @Override
     public void animateExpandNotificationsPanel() {
         if (SPEW) Log.d(TAG, "animateExpand: mExpandedVisible=" + mExpandedVisible);

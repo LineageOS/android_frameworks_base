@@ -31,6 +31,7 @@ import android.os.PatternMatcher;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceControl;
 
 import com.android.systemui.OverviewProxyService.OverviewProxyListener;
@@ -81,6 +82,7 @@ public class OverviewProxyService implements CallbackController<OverviewProxyLis
     private int mConnectionBackoffAttempts;
     private @InteractionType int mInteractionFlags;
     private boolean mIsEnabled;
+    private MotionEvent mStatusBarGestureDownEvent;
 
     private ISystemUiProxy mSysUiProxy = new ISystemUiProxy.Stub() {
 
@@ -172,6 +174,31 @@ public class OverviewProxyService implements CallbackController<OverviewProxyLis
                 Binder.restoreCallingIdentity(token);
             }
         }
+
+        public void onStatusBarMotionEvent(MotionEvent motionEvent) {
+            long token = Binder.clearCallingIdentity();
+            try {
+                mHandler.post(() -> {
+                    StatusBar statusBar = ((SystemUIApplication) mContext).getComponent(
+                            StatusBar.class);
+                    if (statusBar != null) {
+                        statusBar.dispatchNotificationsPanelTouchEvent(motionEvent);
+                        int actionMasked = motionEvent.getActionMasked();
+                        if (actionMasked == MotionEvent.ACTION_DOWN) {
+                            mStatusBarGestureDownEvent = MotionEvent.obtain(motionEvent);
+                        }
+                        if (actionMasked == MotionEvent.ACTION_UP ||
+                                actionMasked == MotionEvent.ACTION_CANCEL) {
+                            mStatusBarGestureDownEvent.recycle();
+                            mStatusBarGestureDownEvent = null;
+                        }
+                        motionEvent.recycle();
+                    }
+                });
+            } finally {
+                Binder.restoreCallingIdentity(token);
+            }
+        }
     };
 
     private final Runnable mDeferredConnectionCallback = () -> {
@@ -252,7 +279,7 @@ public class OverviewProxyService implements CallbackController<OverviewProxyLis
 
     // This is the death handler for the binder from the launcher service
     private final IBinder.DeathRecipient mOverviewServiceDeathRcpt
-            = this::startConnectionToCurrentUser;
+            = this::cleanupAfterDeath;
 
     public OverviewProxyService(Context context) {
         mContext = context;
@@ -276,6 +303,22 @@ public class OverviewProxyService implements CallbackController<OverviewProxyLis
             filter.addAction(Intent.ACTION_PACKAGE_CHANGED);
             mContext.registerReceiver(mLauncherStateChangedReceiver, filter);
         }
+    }
+
+    public void cleanupAfterDeath() {
+        if (mStatusBarGestureDownEvent != null) {
+            mHandler.post(() -> {
+                StatusBar statusBar = ((SystemUIApplication) mContext).getComponent(
+                        StatusBar.class);
+                if (statusBar != null) {
+                    mStatusBarGestureDownEvent.setAction(MotionEvent.ACTION_CANCEL);
+                    statusBar.dispatchNotificationsPanelTouchEvent(mStatusBarGestureDownEvent);
+                    mStatusBarGestureDownEvent.recycle();
+                    mStatusBarGestureDownEvent = null;
+                }
+            });
+        }
+        startConnectionToCurrentUser();
     }
 
     public void startConnectionToCurrentUser() {
