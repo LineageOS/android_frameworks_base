@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce33afa5_d37b69aa",
+        "filename": "data/keyboards/Vendor_1532_Product_0900.kl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-02-03T22:46:37Z",
+      "side": 1,
+      "message": "Why did you move these out of the order?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "d7083934918229d9db88c29df3baa7077a8b058b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
