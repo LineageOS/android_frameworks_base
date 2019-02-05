@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "896f3827_a56efb60",
+        "filename": "telecomm/java/android/telecom/Connection.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-02-05T13:12:29Z",
+      "side": 1,
+      "message": "I was trying to follow the capabilities example here and below (can/addCapability/removeCapability).\n\nIf you prefer, I can indeed those three methods, though.",
+      "parentUuid": "ff7e518c_341f4647",
+      "revId": "8760c7967e3bbc5dbd5ddbc15ce7f6655d224f30",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "959d3781_06450018",
         "filename": "telecomm/java/android/telecom/Connection.java",
         "patchSetId": 1
