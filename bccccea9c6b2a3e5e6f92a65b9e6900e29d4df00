@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d208897_68636c52",
+        "filename": "core/res/res/drawable/emergency_icon.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-05T14:24:19Z",
+      "side": 1,
+      "message": "revert",
+      "revId": "bccccea9c6b2a3e5e6f92a65b9e6900e29d4df00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a12f3169_44f060f6",
+        "filename": "core/res/res/drawable/ic_faster_emergency.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-05T14:24:19Z",
+      "side": 1,
+      "message": "ControlNormal",
+      "revId": "bccccea9c6b2a3e5e6f92a65b9e6900e29d4df00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
