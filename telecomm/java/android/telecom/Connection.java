@@ -411,8 +411,20 @@ public abstract class Connection extends Conferenceable {
      */
     public static final int PROPERTY_ASSISTED_DIALING_USED = 1 << 9;
 
+    /**
+     * Whether the call was forwarded from another party (GSM only)
+     * @hide
+     */
+    public static final int PROPERTY_WAS_FORWARDED = 1 << 10;
+
+    /**
+     * Whether incoming calls are barred at the remote side
+     * @hide
+     */
+    public static final int PROPERTY_REMOTE_INCOMING_CALLS_BARRED = 1 << 11;
+
     //**********************************************************************************************
-    // Next PROPERTY value: 1<<10
+    // Next PROPERTY value: 1<<12
     //**********************************************************************************************
 
     /**
@@ -578,6 +590,22 @@ public abstract class Connection extends Conferenceable {
      */
     public static final String EVENT_CALL_REMOTELY_UNHELD =
             "android.telecom.event.CALL_REMOTELY_UNHELD";
+
+    /**
+     * Connection event used to inform {@link InCallService} when the dialing state
+     * is waiting for the busy remote side.
+     * @hide
+     */
+    public static final String EVENT_DIALING_IS_WAITING =
+            "android.telecom.event.DIALING_IS_WAITING";
+
+    /**
+     * Connection event used to inform {@link InCallService} Whether an additional call came in
+     * and was forwarded while the call was active.
+     * @hide
+     */
+    public static final String EVENT_ADDITIONAL_CALL_FORWARDED =
+            "android.telecom.event.ADDITIONAL_CALL_FORWARDED";
 
     /**
      * Connection event used to inform an {@link InCallService} which initiated a call handover via
@@ -798,6 +826,14 @@ public abstract class Connection extends Conferenceable {
 
         if (can(properties, PROPERTY_IS_RTT)) {
             builder.append(isLong ? " PROPERTY_IS_RTT" : " rtt");
+        }
+
+        if (can(properties, PROPERTY_WAS_FORWARDED)) {
+            builder.append(isLong ? " PROPERTY_WAS_FORWARDED" : " forw");
+        }
+
+        if (can(properties, PROPERTY_REMOTE_INCOMING_CALLS_BARRED)) {
+            builder.append(isLong ? " PROPERTY_REMOTE_INCOMING_CALLS_BARRED" : " inc_barr");
         }
 
         builder.append("]");
