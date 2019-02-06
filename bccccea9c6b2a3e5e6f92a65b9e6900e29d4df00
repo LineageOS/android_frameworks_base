@@ -33,6 +33,29 @@
       "revId": "bccccea9c6b2a3e5e6f92a65b9e6900e29d4df00",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24c62b8a_102ef0df",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2019-02-06T07:53:20Z",
+      "side": 1,
+      "message": "removing this fixes tint issue on black style",
+      "range": {
+        "startLine": 825,
+        "startChar": 12,
+        "endLine": 825,
+        "endChar": 44
+      },
+      "revId": "bccccea9c6b2a3e5e6f92a65b9e6900e29d4df00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
