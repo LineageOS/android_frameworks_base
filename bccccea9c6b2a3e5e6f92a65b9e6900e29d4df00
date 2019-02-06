@@ -56,6 +56,24 @@
       "revId": "bccccea9c6b2a3e5e6f92a65b9e6900e29d4df00",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acec3993_c8f45358",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-06T07:58:43Z",
+      "side": 1,
+      "message": "are you sure? this variable isn\u0027t used in the code",
+      "parentUuid": "24c62b8a_102ef0df",
+      "revId": "bccccea9c6b2a3e5e6f92a65b9e6900e29d4df00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
