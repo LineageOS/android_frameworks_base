@@ -256,14 +256,12 @@ public class DreamBackend {
         }
     }
 
-    public void launchSettings(DreamInfo dreamInfo) {
+    public void launchSettings(Context uiContext, DreamInfo dreamInfo) {
         logd("launchSettings(%s)", dreamInfo);
-        if (dreamInfo == null || dreamInfo.settingsComponentName == null)
+        if (dreamInfo == null || dreamInfo.settingsComponentName == null) {
             return;
-        Intent intent = new Intent()
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                .setComponent(dreamInfo.settingsComponentName);
-        mContext.startActivity(intent);
+        }
+        uiContext.startActivity(new Intent().setComponent(dreamInfo.settingsComponentName));
     }
 
     public void preview(DreamInfo dreamInfo) {
