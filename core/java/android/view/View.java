@@ -20295,23 +20295,27 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         }
 
         saveCount = canvas.getSaveCount();
+        long leftSavePtr = 0;
+        long rightSavePtr = 0;
+        long topSavePtr = 0;
+        long bottomSavePtr = 0;
 
         int solidColor = getSolidColor();
         if (solidColor == 0) {
             if (drawTop) {
-                canvas.saveUnclippedLayer(left, top, right, top + length);
+                topSavePtr = canvas.tempSaveUnclippedLayer(left, top, right, top + length);
             }
 
             if (drawBottom) {
-                canvas.saveUnclippedLayer(left, bottom - length, right, bottom);
+                bottomSavePtr = canvas.tempSaveUnclippedLayer(left, bottom - length, right, bottom);
             }
 
             if (drawLeft) {
-                canvas.saveUnclippedLayer(left, top, left + length, bottom);
+                leftSavePtr = canvas.tempSaveUnclippedLayer(left, top, left + length, bottom);
             }
 
             if (drawRight) {
-                canvas.saveUnclippedLayer(right - length, top, right, bottom);
+                rightSavePtr = canvas.tempSaveUnclippedLayer(right - length, top, right, bottom);
             }
         } else {
             scrollabilityCache.setFadeColor(solidColor);
@@ -20363,6 +20367,19 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             canvas.drawRect(right - length, top, right, bottom, p);
         }
 
+        // restore the unclipped layers and all other unrestored saves
+        if (drawRight) {
+            canvas.restoreUnclippedLayer(rightSavePtr);
+        }
+        if (drawLeft) {
+            canvas.restoreUnclippedLayer(leftSavePtr);
+        }
+        if (drawBottom) {
+            canvas.restoreUnclippedLayer(bottomSavePtr);
+        }
+        if (drawTop) {
+            canvas.restoreUnclippedLayer(topSavePtr);
+        }
         canvas.restoreToCount(saveCount);
 
         drawAutofilledHighlight(canvas);

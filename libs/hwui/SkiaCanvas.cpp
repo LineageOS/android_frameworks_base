@@ -22,6 +22,7 @@
 #include "hwui/Bitmap.h"
 #include "hwui/MinikinUtils.h"
 #include "pipeline/skia/AnimatedDrawables.h"
+#include "pipeline/skia/UnclippedLayerDrawables.h"
 
 #include <SkAnimatedImage.h>
 #include <SkCanvasStateUtils.h>
@@ -839,6 +840,21 @@ void SkiaCanvas::drawRenderNode(uirenderer::RenderNode* renderNode) {
 void SkiaCanvas::callDrawGLFunction(Functor* functor,
                                     uirenderer::GlFunctorLifecycleListener* listener) {
     LOG_ALWAYS_FATAL("SkiaCanvas can't directly draw GL Content");
+}
+
+void* SkiaCanvas::saveUnclippedLayer(int left, int top, int right, int bottom) {
+    sk_sp<uirenderer::skiapipeline::StartUnclippedLayerDrawable> drawable(
+            new uirenderer::skiapipeline::StartUnclippedLayerDrawable(
+                    SkIRect::MakeLTRB(left, top, right, bottom)));
+    mCanvas->drawDrawable(drawable.get());
+    return drawable.release();
+}
+
+void SkiaCanvas::restoreUnclippedLayer(void* savePtr) {
+    sk_sp<uirenderer::skiapipeline::EndUnclippedLayerDrawable> drawable(
+            new uirenderer::skiapipeline::EndUnclippedLayerDrawable(
+                reinterpret_cast<uirenderer::skiapipeline::StartUnclippedLayerDrawable*>(savePtr)));
+    mCanvas->drawDrawable(drawable.get());
 }
 
 }  // namespace android

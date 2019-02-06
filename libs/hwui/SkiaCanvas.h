@@ -146,6 +146,9 @@ public:
     virtual void callDrawGLFunction(Functor* functor,
                                     uirenderer::GlFunctorLifecycleListener* listener) override;
 
+    void* saveUnclippedLayer(int left, int top, int right, int bottom) override;
+    void restoreUnclippedLayer(void* savePtr) override;
+
 protected:
     SkiaCanvas();
     void reset(SkCanvas* skiaCanvas);

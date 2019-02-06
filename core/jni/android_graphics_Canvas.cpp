@@ -118,6 +118,14 @@ static jint getSaveCount(jlong canvasHandle) {
     return static_cast<jint>(get_canvas(canvasHandle)->getSaveCount());
 }
 
+static jlong saveUnclippedLayer(jlong canvasHandle, jint l, jint t, jint r, jint b) {
+    return reinterpret_cast<jlong>(get_canvas(canvasHandle)->saveUnclippedLayer(l, t, r, b));
+}
+
+static void restoreUnclippedLayer(jlong canvasHandle, jlong savePtr) {
+    get_canvas(canvasHandle)->restoreUnclippedLayer(reinterpret_cast<void*>(savePtr));
+}
+
 static void getMatrix(jlong canvasHandle, jlong matrixHandle) {
     SkMatrix* matrix = reinterpret_cast<SkMatrix*>(matrixHandle);
     get_canvas(canvasHandle)->getMatrix(matrix);
@@ -610,6 +618,8 @@ static const JNINativeMethod gMethods[] = {
     {"nGetSaveCount","(J)I", (void*) CanvasJNI::getSaveCount},
     {"nRestore","(J)Z", (void*) CanvasJNI::restore},
     {"nRestoreToCount","(JI)V", (void*) CanvasJNI::restoreToCount},
+    {"nSaveUnclippedLayer","(JIIII)J", (void*) CanvasJNI::saveUnclippedLayer},
+    {"nRestoreUnclippedLayer","(JJ)V", (void*) CanvasJNI::restoreUnclippedLayer},
     {"nGetMatrix", "(JJ)V", (void*)CanvasJNI::getMatrix},
     {"nSetMatrix","(JJ)V", (void*) CanvasJNI::setMatrix},
     {"nConcat","(JJ)V", (void*) CanvasJNI::concat},
