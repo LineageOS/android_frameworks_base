@@ -292,7 +292,41 @@ public class Camera {
      * @return total number of accessible camera devices, or 0 if there are no
      *   cameras or an error was encountered enumerating them.
      */
+<<<<<<< HEAD   (6a7381 [DO NOT MERGE] Check CellInfoCallback Detail for Null)
     public native static int getNumberOfCameras();
+=======
+    public static int getNumberOfCameras() {
+        boolean exposeAuxCamera = true;
+        String packageName = ActivityThread.currentOpPackageName();
+        /* Force to expose only two cameras
+         * if the package name does not falls in this bucket
+         */
+        String packageList = SystemProperties.get("vendor.camera.aux.packagelist", "");
+        String packageBlacklist = SystemProperties.get("vendor.camera.aux.packageblacklist", "");
+        if (!packageList.isEmpty()) {
+            exposeAuxCamera = false;
+            if (Arrays.asList(packageList.split(",")).contains(packageName)) {
+                exposeAuxCamera = true;
+            }
+        } else if (!packageBlacklist.isEmpty()) {
+            exposeAuxCamera = true;
+            if (Arrays.asList(packageBlacklist.split(",")).contains(packageName)) {
+                exposeAuxCamera = false;
+            }
+        }
+        int numberOfCameras = _getNumberOfCameras();
+        if (exposeAuxCamera == false && (numberOfCameras > 2)) {
+            numberOfCameras = 2;
+        }
+        return numberOfCameras;
+    }
+
+    /**
+     * Returns the number of physical cameras available on this device.
+     */
+    /** @hide */
+    public native static int _getNumberOfCameras();
+>>>>>>> CHANGE (1d5cac Camera: Simplify code for Aux/Mono white and black lists)
 
     /**
      * Returns the information about a particular camera.
