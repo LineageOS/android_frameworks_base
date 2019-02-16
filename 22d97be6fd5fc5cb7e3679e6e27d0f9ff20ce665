@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a44e217_61dde6bb",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-02-16T09:34:57Z",
+      "side": 1,
+      "message": "Why not check for magnet sensor?",
+      "revId": "22d97be6fd5fc5cb7e3679e6e27d0f9ff20ce665",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
