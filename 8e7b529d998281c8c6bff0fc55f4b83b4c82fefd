@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0602a29_b8c02bd1",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-02-16T05:31:42Z",
+      "side": 1,
+      "message": "maybe use new way.",
+      "revId": "8e7b529d998281c8c6bff0fc55f4b83b4c82fefd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e73d9bec_db3107e2",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-02-16T05:31:42Z",
+      "side": 1,
+      "message": "need to adjust because the angle changed quickly these days.",
+      "revId": "8e7b529d998281c8c6bff0fc55f4b83b4c82fefd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
