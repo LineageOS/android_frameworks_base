@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5f881a3_0b488dcf",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-16T10:17:57Z",
+      "side": 1,
+      "message": "nulling these variables seems useless",
+      "revId": "d1b9f4b00c750115a33377a18bc73aa59f857750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cc6fe5d_e32d4ec8",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-16T10:17:57Z",
+      "side": 1,
+      "message": "cast not needed",
+      "revId": "d1b9f4b00c750115a33377a18bc73aa59f857750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90e2575d_147efea3",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-16T10:17:57Z",
+      "side": 1,
+      "message": "space before cast\nmove directly after if (arg \u003d! null) so we avoid an useless null check",
+      "parentUuid": "",
+      "revId": "d1b9f4b00c750115a33377a18bc73aa59f857750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb388cf6_4fc85e1a",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-16T10:17:57Z",
+      "side": 1,
+      "message": "if (mActive) ?",
+      "revId": "d1b9f4b00c750115a33377a18bc73aa59f857750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42044c14_753db6be",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-16T10:17:57Z",
+      "side": 1,
+      "message": "I don\u0027t understand the null check here, this array is never set to null and never updated afterwards.",
+      "revId": "d1b9f4b00c750115a33377a18bc73aa59f857750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c242a8b_cfab168c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-16T10:17:57Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "d1b9f4b00c750115a33377a18bc73aa59f857750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfe30c44_a5fac893",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CompassTile.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-16T10:17:57Z",
+      "side": 1,
+      "message": "if is not active and not listening we can return earlier to avoid storing the cloned array in the stack",
+      "revId": "d1b9f4b00c750115a33377a18bc73aa59f857750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
