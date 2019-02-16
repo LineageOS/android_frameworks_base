@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016-2018 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+
+    <!-- Cardinal directions for the compass tile -->
+    <string-array name="cardinal_directions">
+        <item>@string/quick_settings_compass_N</item>  <!-- North -->
+        <item>@string/quick_settings_compass_NE</item> <!-- North east -->
+        <item>@string/quick_settings_compass_E</item>  <!-- East -->
+        <item>@string/quick_settings_compass_SE</item> <!-- South east -->
+        <item>@string/quick_settings_compass_S</item>  <!-- South -->
+        <item>@string/quick_settings_compass_SW</item> <!-- South west -->
+        <item>@string/quick_settings_compass_W</item>  <!-- West -->
+        <item>@string/quick_settings_compass_NW</item> <!-- North west -->
+    </string-array>
+</resources>

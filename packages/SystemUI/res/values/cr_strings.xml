@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016-2018 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Screen is being recorded</string>
+    <string name="screenrecord_notif_final_ticker">Screen recorded successfully</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Recording screen</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Stop</string>
+    <string name="screenrecord_notif_completed">Screen recorded successfully</string>
+    <string name="screenrecord_notif_duration">Total:</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Show pointer</string>
+    <string name="screenrecord_notif_pointer_off">Hide pointer</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Unable to record screen</string>
+    <string name="notification_channel_screenrecord">Screenrecords</string>
+
+    <!-- Screenrecord QS tile -->
+    <string name="quick_settings_screenrecord_label">Screenrecord</string>
+    <string name="quick_settings_screenrecord_lq_label">Low Quality</string>
+    <string name="quick_settings_screenrecord_mq_label">Medium Quality</string>
+    <string name="quick_settings_screenrecord_hq_label">High Quality</string>
+    <string name="screenrecord_hide_hint">Hide hint</string>
+    <string name="screenrecord_show_hint">Show hint</string>
+
+    <!-- Screenshot -->
+    <string name="quick_settings_screenshot_label">Screenshot</string>
+    <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU Info</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">CPU Info off</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">CPU Info on</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">CPU Info turned off</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU Info turned on</string>
+
+    <!-- HW Keys Tile -->
+    <string name="quick_settings_hw_keys_label">HW Keys</string>
+    <!-- Content description of the HW keys tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_hw_keys_disabled">HW Keys disabled.</string>
+    <!-- Content description of the HW keys tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_hw_keys_enabled">HW Keys enabled.</string>
+
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
+
+    <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop_label">Expanded desktop</string>
+    <string name="quick_settings_expanded_desktop">Expanded</string>
+    <string name="quick_settings_expanded_desktop_off">Normal</string>
+    <string name="quick_settings_expanded_navigation_off">Hide navbar</string>
+    <string name="quick_settings_expanded_statusbar_off">Hide statusbar</string>
+
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Compass</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Initializing\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Compass off.</string>
+    <string name="accessibility_quick_settings_compass_on">Compass on.</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Compass turned off.</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Compass turned on.</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
+</resources>
