@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef29a0a4_e42ddde5",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2019-02-19T06:28:58Z",
+      "side": 1,
+      "message": "Don\u0027t you want this in alphabetical order, like the rest of the imports?",
+      "revId": "b6b506241602c3733a65ed1da1636a8fb9fcd6bc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b65b0d8b_9ae643f9",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2019-02-19T06:28:58Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "b6b506241602c3733a65ed1da1636a8fb9fcd6bc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
