@@ -143,4 +143,8 @@
 
     <!-- Name of the battery status bar icon. -->
     <string name="status_bar_battery">Battery</string>
+
+    <!-- OneHand mode QS tile -->
+    <string name="qs_onehand_label">OneHand mode</string>
+
 </resources>

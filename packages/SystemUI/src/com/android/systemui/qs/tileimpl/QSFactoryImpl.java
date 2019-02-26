@@ -54,6 +54,7 @@ import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.util.leak.GarbageMonitor;
+import com.android.systemui.qs.tiles.OneHandTile;
 
 public class QSFactoryImpl implements QSFactory {
 
@@ -130,6 +131,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new UsbTetherTile(mHost);
             case "volume_panel":
                 return new VolumeTile(mHost);
+            case "onehand":
+                return new OneHandTile(mHost);
         }
 
         // Intent tiles.
