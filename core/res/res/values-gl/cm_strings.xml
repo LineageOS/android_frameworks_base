@@ -35,6 +35,7 @@
     <string name="app_ops_assist_structure">usar a estrutura de asistencia</string>
     <string name="app_ops_audio_accessibility_volume">volume do son de accesibilidade</string>
     <string name="app_ops_auto_start">Iniciar ao arrancar</string>
+    <string name="app_ops_bluetooth_scan">busca por Bluetooth</string>
     <string name="app_ops_change_wallpaper">mudar o fondo de pantalla</string>
     <string name="app_ops_delete_call_log">Borrar o seu rexistro de chamadas</string>
     <string name="app_ops_delete_contacts">Borrar os seus contactos</string>
@@ -45,6 +46,7 @@
     <string name="app_ops_get_usage_stats">obter estatísticas sobre o uso da aplicación</string>
     <string name="app_ops_install_packages">instalar paquetes</string>
     <string name="app_ops_keep_device_awake">manter o seu dispositivo esperto</string>
+    <string name="app_ops_manage_ipsec_tunnels">xestionar túneles ipsec</string>
     <string name="app_ops_make_phone_call">realizar unha chamada de teléfono</string>
     <string name="app_ops_mock_location">simular a miña localización</string>
     <string name="app_ops_modify_calendar">actualizar o seu calendario</string>
@@ -70,11 +72,13 @@
     <string name="app_ops_read_sms">ler as súas mensaxes SMS</string>
     <string name="app_ops_receive_sms">recibir unha mensaxe SMS</string>
     <string name="app_ops_record_audio">gravar son</string>
+    <string name="app_ops_request_delete_packages">solicitar eliminación de paquetes</string>
     <string name="app_ops_run_in_background">abrir en segundo plano</string>
     <string name="app_ops_scan_wifi">buscar redes Wi-Fi</string>
     <string name="app_ops_send_mms">enviar unha mensaxe MMS</string>
     <string name="app_ops_send_sms">enviar unha mensaxe SMS</string>
     <string name="app_ops_start_at_bootup">iniciar ao arrancar</string>
+    <string name="app_ops_start_foreground">iniciar en primeiro plano</string>
     <string name="app_ops_su">Obter acceso como superusuario</string>
     <string name="app_ops_toast_window">amosar notificacións emerxentes</string>
     <string name="app_ops_toggle_bluetooth">trocar o Bluetooth</string>

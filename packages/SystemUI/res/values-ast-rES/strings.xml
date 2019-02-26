@@ -174,6 +174,7 @@
     <!-- Click action label for accessibility for the phone button. [CHAR LIMIT=NONE] -->
     <string name="camera_label">abrir cámara</string>
     <!-- Caption for "Recents resize" developer debug feature. [CHAR LIMIT=NONE] -->
+    <string name="recents_caption_resize">Esbilla\'l diseñu nuevu de la xera</string>
     <!-- Button name for "Cancel". [CHAR LIMIT=NONE] -->
     <string name="cancel">Encaboxar</string>
     <!-- Message shown when the system-provided fingerprint dialog is shown, asking for authentication -->
@@ -423,6 +424,7 @@
     <!-- Announcement made when the hotspot state changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_hotspot_changed_on">Activóse\'l puntu Wi-Fi.</string>
     <!-- Announcement made when the screen stopped casting (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_casting_turned_off">Pantalla d\'emisión parada.</string>
     <!-- Content description of the work mode title in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_work_mode_off">Mou trabayu desactiváu.</string>
     <!-- Content description of the work mode title in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -561,10 +563,13 @@
     <string name="quick_settings_wifi_detail_empty_text">Nun hai redes Wi-Fi disponibles</string>
     <!-- QuickSettings: Wifi secondary label shown when the wifi is being enabled [CHAR LIMIT=NONE] -->
     <!-- QuickSettings: Cast title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_cast_title">Tresmitir</string>
     <!-- QuickSettings: Cast detail panel, status text when casting [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_casting">Emisión</string>
     <!-- QuickSettings: Cast detail panel, default device name [CHAR LIMIT=NONE] -->
     <string name="quick_settings_cast_device_default_name">Preséu ensin nome</string>
     <!-- QuickSettings: Cast detail panel, default device description [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_cast_device_default_description">Preparáu pa emitir</string>
     <!-- QuickSettings: Cast detail panel, text when there are no items [CHAR LIMIT=NONE] -->
     <string name="quick_settings_cast_detail_empty_text">Nun hai preseos disponibles</string>
     <!-- QuickSettings: Brightness dialog title [CHAR LIMIT=NONE] -->
@@ -634,6 +639,7 @@
     <!-- Recents: The info panel app info button string. [CHAR LIMIT=NONE] -->
     <string name="recents_app_info_button_label">Información d\'aplicación</string>
     <!-- Recents: The screen pinning button. [CHAR LIMIT=NONE] -->
+    <string name="recents_lock_to_app_button_label">fixación de pantalla</string>
     <!-- Recents: Temporary string for the button in the recents search bar. [CHAR LIMIT=NONE] -->
     <string name="recents_search_bar_label">guetar</string>
     <!-- Recents: Launch error string. [CHAR LIMIT=NONE] -->
@@ -951,6 +957,7 @@
     <!-- Description for adding  a quick settings tile -->
     <string name="add_tile">Amestar caxella</string>
     <!-- Name of a quick settings tile controlled by broadcast -->
+    <string name="broadcast_tile">Caxella de tresmisión</string>
     <!-- For preview release. DO NOT TRANSLATE -->
     <string name="regrettable_lack_of_easter_egg">        ¯\\_(ツ)_/¯
     </string>

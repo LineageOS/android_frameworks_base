@@ -20,58 +20,108 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Suffix added to a number to signify size in bytes. -->
+    <string name="byteShort">B</string>
     <!-- Suffix added to a number to signify size in kilobytes (1000 bytes).
         If you retain the Latin script for the localization, please use the lowercase
         'k', as it signifies 1000 bytes as opposed to 1024 bytes. -->
     <!-- Suffix added to a number to signify size in megabytes. -->
+    <string name="megabyteShort">MB</string>
     <!-- Suffix added to a number to signify size in gigabytes. -->
+    <string name="gigabyteShort">GB</string>
     <!-- Suffix added to a number to signify size in terabytes. -->
+    <string name="terabyteShort">TB</string>
     <!-- Suffix added to a number to signify size in petabytes. -->
+    <string name="petabyteShort">PB</string>
     <!-- Format string used to add a suffix like "kB" or "MB" to a number
          to display a size in kilobytes, megabytes, or other size units.
          Some languages (like French) will want to add a space between
          the placeholders. -->
     <!-- Used in Contacts for a field that has no label and in Note Pad
          for a note with no name. -->
+    <string name="untitled">&lt;Gun tiotal&gt;</string>
     <!-- How to display the lack of a phone number -->
+    <string name="emptyPhoneNumber">(Gun àireamh fòn)</string>
     <!-- How to display the lack of a name -->
+    <string name="unknownName">Neo-aithnichte</string>
     <!-- What the UI should display for "voice mail" unless overridden by the SIM-->
+    <string name="defaultVoiceMailAlphaTag">Post-gutha</string>
     <!-- What the UI should display for "Msisdn" unless overridden by the SIM-->
+    <string name="defaultMsisdnAlphaTag">MSISDN1</string>
     <!-- For GsmMmiCode.java -->
     <!-- Displayed when the user dialed an MMI code whose function
          could not be performed. This will be displayed in a toast. -->
+    <string name="mmiError">Duilgheadas leis a’ cheangal no còd MMI mì-dhligheach.</string>
     <!-- Displayed when the user dialed an MMI code whose function
          could not be performed because FDN is enabled. This will be displayed in a toast. -->
+    <string name="mmiFdnError">Chan eil ach àireamhan sònraichte ceadaichte.</string>
     <!-- Displayed when a carrier does not support call forwarding queries when roaming. -->
     <!-- Displayed when a phone feature such as call barring was activated. -->
+    <string name="serviceEnabled">Chaidh an t-seirbheis a chur an comas.</string>
     <!-- Displayed in front of the list of a set of service classes
          (voice, data, fax, etc.) that were enabled. -->
+    <string name="serviceEnabledFor">Chaidh an t-seirbheis a chur an comas airson:</string>
     <!-- Displayed when a phone feature such as call forwarding was deactivated. -->
+    <string name="serviceDisabled">Chaidh an t-seirbheis a chur à comas.</string>
     <!-- Displayed when a phone property such as a SIM password was registered. -->
+    <string name="serviceRegistered">Chaidh a chlàradh.</string>
     <!-- Displayed when a phone property such as a SIM password was erased. -->
+    <string name="serviceErased">Chaidh a sguabadh às.</string>
     <!-- Displayed when a SIM password was entered incorrectly. -->
+    <string name="passwordIncorrect">Facal-faire ceàrr.</string>
     <!-- Displayed when a phone feature triggered by an MMI code is complete. -->
+    <string name="mmiComplete">MMI air a choileanadh.</string>
     <!-- Displayed when a SIM PIN password is entered incorrectly. -->
+    <string name="badPin">Tha an seann PIN a chuir thu a-steach ceàrr.</string>
     <!-- Displayed when a SIM PUK password is entered incorrectly. -->
+    <string name="badPuk">Tha am PUK a chuir thu a-steach ceàrr.</string>
     <!-- Displayed when SIM PIN passwords are entered inconsistently. -->
+    <string name="mismatchPin">Chan eil an dà PIN co-ionnann.</string>
     <!-- Displayed when a SIM PIN password is too long or too short. -->
+    <string name="invalidPin">Cuir a-steach PIN a tha eadar 4 is 8 àireamhan.</string>
     <!-- Displayed when a SIM PUK password is too short. -->
+    <string name="invalidPuk">Cuir a-steach PUK a tha co-dhiù 8 àireamhan a dh’fhaid.</string>
     <!-- Displayed to prompt the user to type the PUK password to unlock
          the SIM card. -->
+    <string name="needPuk">Tha glas PUK air a’ chairt SIM agad. Cuir a-steach am PUK gus a’ ghlas a thoirt dheth.</string>
+    <string name="needPuk2">Cuir a-steach am PUK2 gus a’ ghlas a thoirt far na cairt SIM.</string>
     <!-- Displayed when user attempts to change SIM PIN1 without enabling PIN1. -->
+    <string name="enablePin">Cha do dh’obraich sin, cuir an comas glas SIM/RUIM.</string>
     <!-- Displayed when a SIM PIN/PUK is entered incorrectly. -->
+    <plurals name="pinpuk_attempts">
+        <item quantity="one">Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad mus dèid an SIM a ghlasadh.</item>
+        <item quantity="two">Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad mus dèid an SIM a ghlasadh.</item>
+        <item quantity="few">Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad mus dèid an SIM a ghlasadh.</item>
+        <item quantity="other">Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad mus dèid an SIM a ghlasadh.</item>
+    </plurals>
     <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
+    <string name="imei">IMEI</string>
     <!-- Title for the dialog used to display the user's MEID number on CDMA network
          [CHAR LIMIT=10] -->
+    <string name="meid">MEID</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
+    <string name="ClipMmi">ID na gairm a-steach</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
+    <string name="ClirMmi">ID na gairm a-mach</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID. -->
+    <string name="ColpMmi">ID na loidhne cheangailte</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID restriction. -->
+    <string name="ColrMmi">Cuingeachadh ID na loidhne cheangailte</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling call forwarding. -->
+    <string name="CfMmi">Sìneadh air adhart ghairmean</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling call waiting. -->
+    <string name="CwMmi">Feitheamh ghairmean</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling call barring. -->
+    <string name="BaMmi">Bacadh ghairmean</string>
     <!-- Displayed as the title for a success/failure report changing the SIM password. -->
+    <string name="PwdMmi">Atharrachadh an fhacail-fhaire</string>
     <!-- Displayed as the title for a success/failure report changing the SIM PIN. -->
+    <string name="PinMmi">Atharrachadh a’ PIN</string>
+    <string name="CnipMmi">Tha àireamh fònaidh ann</string>
+    <string name="CnirMmi">Tha an àireamh fo chuing</string>
+    <string name="ThreeWCMmi">Gairmean eadar triùir</string>
+    <string name="RuacMmi">Diùltadh de ghairmean gun iarraidh</string>
+    <string name="CndMmi">Lìbhrigeadh na h-àireimh a tha a’ gairm</string>
+    <string name="DndMmi">Na bris a-steach orm</string>
     <!-- Displayed to confirm to the user that caller ID will be restricted on the next call as usual. -->
     <!-- Displayed to confirm to the user that caller ID will be not restricted on the next call even though it usually is. -->
     <!-- Displayed to confirm to the user that caller ID will not be restricted on the next call but usually is. -->
@@ -90,6 +140,7 @@
     <!-- Displayed to tell the user that emergency calls might not be available. -->
     <!-- Telephony notification channel name for a channel containing network alert notifications. -->
     <!-- Telephony notification channel name for a channel containing call forwarding notifications. -->
+    <string name="notification_channel_call_forward">Sìneadh air adhart ghairmean</string>
     <!-- Telephony notification channel name for a channel containing emergency callback mode notifications. -->
     <!-- Telephony notification channel name for a channel containing mobile data status notifications. -->
     <!-- Telephony notification channel name for a channel containing sms notifications. -->
@@ -1218,6 +1269,7 @@
     <!-- The title of the alarm sound picker dialog [CHAR LIMIT=100] -->
     <!-- The title of the notification sound picker dialog [CHAR LIMIT=100] -->
     <!-- If there is ever a ringtone set for some setting, but that ringtone can no longer be resolved, t his is shown instead.  For example, if the ringtone was on a SD card and it had been removed, this woudl be shown for ringtones on that SD card. -->
+    <string name="ringtone_unknown">Neo-aithnichte</string>
     <!-- A notification is shown when there are open wireless networks nearby.  This is the notification's title. -->
     <!-- A notification is shown when there are open wireless networks nearby.  This is the notification's message. -->
     <!-- Notification title for a nearby open wireless network.-->

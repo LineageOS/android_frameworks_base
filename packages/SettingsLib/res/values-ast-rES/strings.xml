@@ -680,4 +680,5 @@
     <!-- Do not disturb: Title for the dnd duration setting (user can specify how long dnd will last when toggling dnd on from qs or settings) [CHAR LIMIT=30] -->
     <!-- Do not disturb: Duration option to always prompt for the duration of dnd -->
     <!-- time label for event have that happened very recently [CHAR LIMIT=60] -->
+    <string name="time_unit_just_now">Puramente agora</string>
 </resources>

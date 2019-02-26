@@ -35,6 +35,8 @@
     <string name="app_ops_assist_structure">Използвайте структура за подпомагане</string>
     <string name="app_ops_audio_accessibility_volume">достъпност до ниво на звука</string>
     <string name="app_ops_auto_start">изпълнение при включване</string>
+    <string name="app_ops_bind_accessibility_service">свържете се с услуги за достъпност</string>
+    <string name="app_ops_bluetooth_scan">сканиране чрез Bluetooth</string>
     <string name="app_ops_change_wallpaper">Смяна на тапета</string>
     <string name="app_ops_delete_call_log">изтриване на списъка с обаждания</string>
     <string name="app_ops_delete_contacts">Изтриване на контакти</string>
@@ -43,8 +45,10 @@
     <string name="app_ops_draw_on_top">Издърпай прозореца на най-отгоре</string>
     <string name="app_ops_get_accounts">изведи акаунти на устройството</string>
     <string name="app_ops_get_usage_stats">Вземи статистика за използването на приложението</string>
+    <string name="app_ops_accept_handover">прехвърляне на повикване от друго приложение</string>
     <string name="app_ops_install_packages">инсталиране на пакети</string>
     <string name="app_ops_keep_device_awake">Задръж устройството будно</string>
+    <string name="app_ops_manage_ipsec_tunnels">управлявайте Ipsep тунелите</string>
     <string name="app_ops_make_phone_call">осъществете телефонно повикване</string>
     <string name="app_ops_mock_location">симулиране на местоположение</string>
     <string name="app_ops_modify_calendar">актуализиране на вашият календар</string>
@@ -69,12 +73,16 @@
     <string name="app_ops_read_phone_state">достъп до състоянието на телефона</string>
     <string name="app_ops_read_sms">прегледайте вашите SMS съобщения</string>
     <string name="app_ops_receive_sms">получихте SMS съобщение</string>
+    <string name="app_ops_receive_emergency_broadcast">получавате съобщение за спешно излъчване</string>
     <string name="app_ops_record_audio">записване на звук</string>
+    <string name="app_ops_request_delete_packages">заявяване на изтриване на пакети</string>
     <string name="app_ops_run_in_background">работа във фонов режим</string>
+    <string name="app_ops_run_any_in_background">работа във фонов режим</string>
     <string name="app_ops_scan_wifi">сканирай за Wi-Fi мрежи</string>
     <string name="app_ops_send_mms">Изпращане на MMS съобщение</string>
     <string name="app_ops_send_sms">Изпращане на SMS съобщение</string>
     <string name="app_ops_start_at_bootup">изпълнение при включване</string>
+    <string name="app_ops_start_foreground">стартиране на преден план</string>
     <string name="app_ops_su">получете администраторски права</string>
     <string name="app_ops_toast_window">показвай изкачащи уведомления</string>
     <string name="app_ops_toggle_bluetooth">активиране/деактивиране Блутуут</string>

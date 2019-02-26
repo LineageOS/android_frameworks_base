@@ -45,7 +45,7 @@
     <string name="app_ops_get_accounts">lugeda seadme kasutajaid</string>
     <string name="app_ops_get_usage_stats">saada rakenduse kasutamise statistikat</string>
     <string name="app_ops_accept_handover">teiselt rakenduselt kõne ülevõtmine</string>
-    <string name="app_ops_install_packages">pakettide paigaldamine</string>
+    <string name="app_ops_install_packages">pakettide installimine</string>
     <string name="app_ops_keep_device_awake">hoida seade ärkvel</string>
     <string name="app_ops_manage_ipsec_tunnels">IPsec tunnelite haldamine</string>
     <string name="app_ops_make_phone_call">teha telefoni kõnet</string>

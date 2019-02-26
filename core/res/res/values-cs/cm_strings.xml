@@ -35,6 +35,8 @@
     <string name="app_ops_assist_structure">použít asistenční strukturu</string>
     <string name="app_ops_audio_accessibility_volume">hlasitost zvuku přístupnosti</string>
     <string name="app_ops_auto_start">spustit při startu</string>
+    <string name="app_ops_bind_accessibility_service">navázat na službu přístupnosti</string>
+    <string name="app_ops_bluetooth_scan">vyhledávání Bluetooth</string>
     <string name="app_ops_change_wallpaper">změnit tapetu</string>
     <string name="app_ops_delete_call_log">smazat historii hovorů</string>
     <string name="app_ops_delete_contacts">smazat kontakty</string>
@@ -43,8 +45,10 @@
     <string name="app_ops_draw_on_top">vykreslit okna navrchu</string>
     <string name="app_ops_get_accounts">získat účty zařízení</string>
     <string name="app_ops_get_usage_stats">získat statistiky využití aplikace</string>
+    <string name="app_ops_accept_handover">předání hovoru z jiné aplikace</string>
     <string name="app_ops_install_packages">instalovat balíčky</string>
     <string name="app_ops_keep_device_awake">udržovat zařízení probuzené</string>
+    <string name="app_ops_manage_ipsec_tunnels">spravovat tunely ipsec</string>
     <string name="app_ops_make_phone_call">vytvářet telefonní hovory</string>
     <string name="app_ops_mock_location">zfalšovat polohu</string>
     <string name="app_ops_modify_calendar">měnit kalendář</string>
@@ -69,12 +73,16 @@
     <string name="app_ops_read_phone_state">přístup ke stavu telefonu</string>
     <string name="app_ops_read_sms">číst zprávy SMS</string>
     <string name="app_ops_receive_sms">přijímat zprávy SMS</string>
+    <string name="app_ops_receive_emergency_broadcast">přijímat zprávy nouzového vysílání</string>
     <string name="app_ops_record_audio">nahrávat zvuk</string>
+    <string name="app_ops_request_delete_packages">žádat o odstranění balíčků</string>
     <string name="app_ops_run_in_background">spustit na pozadí</string>
+    <string name="app_ops_run_any_in_background">spustit na pozadí</string>
     <string name="app_ops_scan_wifi">prohledávání Wi\u2011Fi sítí</string>
     <string name="app_ops_send_mms">zaslat zprávu MMS</string>
     <string name="app_ops_send_sms">zaslat zprávu SMS</string>
     <string name="app_ops_start_at_bootup">spustit při startu</string>
+    <string name="app_ops_start_foreground">spustit na popředí</string>
     <string name="app_ops_su">získat root přístup</string>
     <string name="app_ops_toast_window">zobrazovat vyskakovací upozornění</string>
     <string name="app_ops_toggle_bluetooth">přepnout Bluetooth</string>

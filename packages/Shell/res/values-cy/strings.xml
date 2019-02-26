@@ -29,15 +29,15 @@
     <!-- Text of notification indicating that bugreport will appear on the phone. [CHAR LIMIT=100] -->
     <string name="bugreport_finished_text" product="watch">Bydd yr adroddiad am wall yn ymddangos ar y ffôn cyn bo hir.</string>
     <!-- Text of notification indicating that tapping will share the captured bugreport. [CHAR LIMIT=100] -->
-    <string name="bugreport_finished_text" product="tv">Tara i rannu dy adroddiad am wall</string>
+    <string name="bugreport_finished_text" product="tv">Tapia i rannu dy adroddiad am wall</string>
     <!-- Text of notification indicating that tapping will share the captured bugreport. [CHAR LIMIT=100] -->
-    <string name="bugreport_finished_text" product="default">Tara i rannu dy adroddiad am wall.</string>
+    <string name="bugreport_finished_text" product="default">Tapia i rannu dy adroddiad am wall.</string>
     <!-- Text of notification indicating that swipe left will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
-    <string name="bugreport_finished_pending_screenshot_text" product="tv">Tara i rannu dy adroddiad am wall heb sgrinlun neu aros i gwblhau\'r sgrinlun</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="tv">Tapia i rannu dy adroddiad am wall heb sgrinlun neu aros i gwblhau\'r sgrinlun</string>
     <!-- Text of notification indicating that swipe left will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
-    <string name="bugreport_finished_pending_screenshot_text" product="watch">Tara i rannu dy adroddiad am wall heb sgrinlun nawr neu arhosa i gwblhau\'r sgrinlun.</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="watch">Tapia i rannu dy adroddiad am wall heb sgrinlun nawr neu arhosa i gwblhau\'r sgrinlun.</string>
     <!-- Text of notification indicating that tapping will share the captured bugreport, but giving user the option to wait for the screenshot. [CHAR LIMIT=100] -->
-    <string name="bugreport_finished_pending_screenshot_text" product="default">Tara i rannu dy adroddiad am wall heb sgrinlun neu aros i gwblhau\'r sgrinlun.</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="default">Tapia i rannu dy adroddiad am wall heb sgrinlun neu aros i gwblhau\'r sgrinlun.</string>
     <!-- Body of dialog informing user about contents of a bugreport. [CHAR LIMIT=NONE] -->
     <string name="bugreport_confirm">Mae adroddiadau am wallau yn cynnwys data o wahanol ffeiliau log y system a gall y rhain cynnwys data rwyt yn ei ystyried yn sensitif, e.e. defnydd apiau a data lleoliad. Rhanna adroddiadau am wallau dim ond gyda phobol ac apiau wyt ti\'n ymddiried ynddyn nhw.</string>
     <!-- Checkbox that indicates this dialog should not be shown again when the next bugreport is taken. [CHAR LIMIT=50] -->

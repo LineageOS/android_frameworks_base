@@ -35,6 +35,8 @@
     <string name="app_ops_assist_structure">使用協助工具</string>
     <string name="app_ops_audio_accessibility_volume">無障礙聲音音量</string>
     <string name="app_ops_auto_start">開機時啟動</string>
+    <string name="app_ops_bind_accessibility_service">連結至協助工具服務</string>
+    <string name="app_ops_bluetooth_scan">藍牙掃描</string>
     <string name="app_ops_change_wallpaper">變更桌布</string>
     <string name="app_ops_delete_call_log">刪除您的通話紀錄</string>
     <string name="app_ops_delete_contacts">刪除您的聯絡人</string>
@@ -43,8 +45,10 @@
     <string name="app_ops_draw_on_top">在頂層繪製視窗</string>
     <string name="app_ops_get_accounts">取得裝置帳號</string>
     <string name="app_ops_get_usage_stats">取得應用程式的使用狀況統計</string>
+    <string name="app_ops_accept_handover">從另一個應用程式切換來電</string>
     <string name="app_ops_install_packages">安裝套件</string>
     <string name="app_ops_keep_device_awake">讓您的裝置保持清醒</string>
+    <string name="app_ops_manage_ipsec_tunnels">管理 ipsec 隧道</string>
     <string name="app_ops_make_phone_call">撥打電話</string>
     <string name="app_ops_mock_location">模擬所在位置</string>
     <string name="app_ops_modify_calendar">更新您的日曆</string>
@@ -69,12 +73,16 @@
     <string name="app_ops_read_phone_state">存取電話狀態</string>
     <string name="app_ops_read_sms">讀取您的簡訊訊息</string>
     <string name="app_ops_receive_sms">接收簡訊訊息</string>
+    <string name="app_ops_receive_emergency_broadcast">接收緊急廣播</string>
     <string name="app_ops_record_audio">錄製音訊</string>
+    <string name="app_ops_request_delete_packages">要求刪除套件</string>
     <string name="app_ops_run_in_background">在背景執行</string>
+    <string name="app_ops_run_any_in_background">在背景執行</string>
     <string name="app_ops_scan_wifi">掃描 Wi-Fi 網路</string>
     <string name="app_ops_send_mms">傳送多媒體訊息</string>
     <string name="app_ops_send_sms">傳送簡訊訊息</string>
     <string name="app_ops_start_at_bootup">開機時啟動</string>
+    <string name="app_ops_start_foreground">開始前景</string>
     <string name="app_ops_su">取得 Root 權限</string>
     <string name="app_ops_toast_window">顯示提示訊息</string>
     <string name="app_ops_toggle_bluetooth">切換至藍牙</string>

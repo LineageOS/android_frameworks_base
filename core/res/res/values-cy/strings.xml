@@ -90,6 +90,14 @@
     <!-- Displayed when user attempts to change SIM PIN1 without enabling PIN1. -->
     <string name="enablePin">Anlwyddiannus. Galluoga Clo SIM/RUIM.</string>
     <!-- Displayed when a SIM PIN/PUK is entered incorrectly. -->
+    <plurals name="pinpuk_attempts">
+        <item quantity="zero">Mae gennyt <xliff:g id="number">%d</xliff:g> ceisiadau yn weddill cyn i\'r SIM cael ei gloi.</item>
+        <item quantity="one">Mae gennyt <xliff:g id="number">%d</xliff:g> cais yn weddill cyn i\'r SIM cael ei gloi.</item>
+        <item quantity="two">Mae gennyt <xliff:g id="number">%d</xliff:g> gais yn weddill cyn i\'r SIM cael ei gloi.</item>
+        <item quantity="few">Mae gennyt <xliff:g id="number">%d</xliff:g> chais yn weddill cyn i\'r SIM cael ei gloi.</item>
+        <item quantity="many">Mae gennyt <xliff:g id="number">%d</xliff:g> cais yn weddill cyn i\'r SIM cael ei gloi.</item>
+        <item quantity="other">Mae gennyt <xliff:g id="number">%d</xliff:g> cais yn weddill cyn i\'r SIM cael ei gloi.</item>
+    </plurals>
     <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
     <string name="imei">IMEI</string>
     <!-- Title for the dialog used to display the user's MEID number on CDMA network
@@ -100,22 +108,33 @@
     <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
     <string name="ClirMmi">ID Galwr Allan</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID. -->
+    <string name="ColpMmi">ID Llinell Cysylltiedig</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID restriction. -->
+    <string name="ColrMmi">Cyfyngiad ID Llinell Cysylltiedig</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling call forwarding. -->
     <string name="CfMmi">Dargyfeirio galwadau</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling call waiting. -->
     <string name="CwMmi">Galwad yn aros</string>
     <!-- Displayed as the title for a success/failure report enabling/disabling call barring. -->
+    <string name="BaMmi">Rhwystro galwadau</string>
     <!-- Displayed as the title for a success/failure report changing the SIM password. -->
     <string name="PwdMmi">Newid cyfrinair</string>
     <!-- Displayed as the title for a success/failure report changing the SIM PIN. -->
     <string name="PinMmi">Newid PIN</string>
+    <string name="CnipMmi">Rhif galw yn bresennol</string>
+    <string name="CnirMmi">Rhif galw wedi\'i gyfyngu</string>
     <string name="ThreeWCMmi">Galwad tair ffordd</string>
+    <string name="RuacMmi">Gwrthod galwadau annymunol</string>
+    <string name="CndMmi">Trosglwyddiad rhif galw</string>
     <string name="DndMmi">Peidiwch â tharfu</string>
     <!-- Displayed to confirm to the user that caller ID will be restricted on the next call as usual. -->
+    <string name="CLIRDefaultOnNextCallOn">ID galwr yn troi nôl i gyfyngedig. Galwad nesaf: Cyfyngedig</string>
     <!-- Displayed to confirm to the user that caller ID will be not restricted on the next call even though it usually is. -->
+    <string name="CLIRDefaultOnNextCallOff">ID galwr yn troi nôl i gyfyngedig. Galwad nesaf: Dim yn gyfyngedig</string>
     <!-- Displayed to confirm to the user that caller ID will not be restricted on the next call but usually is. -->
+    <string name="CLIRDefaultOffNextCallOn">ID galwr yn troi nôl i ddim yn gyfyngedig. Galwad nesaf: Cyfyngedig</string>
     <!-- Displayed to confirm to the user that caller ID will not be restricted on the next call or in general. -->
+    <string name="CLIRDefaultOffNextCallOff">ID galwr yn troi nôl i ddim yn gyfyngedig. Galwad nesaf: Dim yn gyfyngedig</string>
     <!-- Displayed to tell the user that caller ID is not provisioned for their SIM. -->
     <string name="serviceNotProvisioned">Ni ddarperir y gwasanaeth hwn.</string>
     <!-- Displayed to tell the user that they cannot change the caller ID setting. -->
@@ -135,7 +154,7 @@
     <!-- Displayed to tell the user that they should switch their network preference. -->
     <string name="NetworkPreferenceSwitchTitle">Methu â chysylltu â rhwydweithiau symudol</string>
     <!-- Displayed to tell the user that they should switch their network preference. -->
-    <string name="NetworkPreferenceSwitchSummary">Rho gynnig ar newid dy rwydwaith a ffafrir. Tara i\'w newid.</string>
+    <string name="NetworkPreferenceSwitchSummary">Rho gynnig ar newid dy rwydwaith a ffafrir. Tapia i\'w newid.</string>
     <!-- Displayed to tell the user that emergency calls might not be available. -->
     <string name="EmergencyCallWarningTitle">Dyw galwadau brys ddim ar gael</string>
     <!-- Displayed to tell the user that emergency calls might not be available. -->
@@ -260,7 +279,9 @@
     <!-- Displayed when a web request failed because the request timed out -->
     <string name="httpErrorTimeout">Mae\'r cysylltiad â\'r gweinydd wedi dod i ben.</string>
     <!-- Displayed when a web request failed because the site tried to redirect us one too many times -->
+    <string name="httpErrorRedirectLoop">Mae\'r dudalen hon yn cynnwys gormod o ailgyfeiriadau gweinydd.</string>
     <!-- Displayed when a web request failed because the protocol of the server is not supported. -->
+    <string name="httpErrorUnsupportedScheme">Ni chefnogir y protocol.</string>
     <!-- Displayed when a web request failed because the a secure connection couldn't be made to the server.-->
     <string name="httpErrorFailedSslHandshake">Methu â sefydlu cysylltiad diogel.</string>
     <!-- Displayed when a web request failed because the URL isn't in a valid form. -->
@@ -270,11 +291,13 @@
     <!-- Displayed when a request failed because the file wasn't found. -->
     <string name="httpErrorFileNotFound">Methwyd â chanfod y ffeil gofynnwyd amdani.</string>
     <!-- Displayed when a request failed because there are too many requests right now. -->
+    <string name="httpErrorTooManyRequests">Mae gormod o geisiadau yn cael eu prosesu. Rho gynnig arall arni\'n hwyrach.</string>
     <!-- Account notifications -->
     <!-- A notification is shown when the AccountManager is unable to
     supply an auth token without prompting the user to re-enter the
     password.  This is the text that will scroll through the
     notification bar (will be seen by the user as he uses another application). -->
+    <string name="notification_title">Gwall mewngofnodi ar gyfer <xliff:g id="account" example="foo@gmail.com">%1$s</xliff:g></string>
     <!-- Sync notifications -->
     <!-- A notification is shown when there is a sync error.  This is the text that will scroll through the notification bar (will be seen by the user as he uses another application). -->
     <string name="contentServiceSync">Cysoni</string>
@@ -328,7 +351,7 @@ O ganlyniad, cafodd dy broffil gwaith a\'r data perthnasol eu dileu. Cysyllta â
     <string name="network_logging_notification_title">Rheolir y ddyfais</string>
     <!-- Content text for a notification. Tapping opens a dialog with more information on device management and network
          logging. [CHAR LIMIT=NONE]-->
-    <string name="network_logging_notification_text">Mae dy sefydliad yn rheoli\'r ddyfais hon ac o bosib yn monitro traffig rhwydwaith. Tara i weld manylion.</string>
+    <string name="network_logging_notification_text">Mae dy sefydliad yn rheoli\'r ddyfais hon ac o bosib yn monitro traffig rhwydwaith. Tapia i weld manylion.</string>
     <!-- Factory reset warning dialog strings-->
     <!-- Shows up in the dialog's title to warn about an impeding factory reset. [CHAR LIMIT=NONE] -->
     <string name="factory_reset_warning">Bydd yr holl ddata ar dy ddyfais yn cael ei dileu</string>
@@ -371,7 +394,7 @@ O ganlyniad, cafodd dy broffil gwaith a\'r data perthnasol eu dileu. Cysyllta â
     <string name="reboot_to_reset_title">Ailosod data i fel yr oedd wrth adael y ffatri</string>
     <string name="reboot_to_reset_message">Yn ail-gychwyn\u2026</string>
     <!-- Shutdown Progress Dialog. This is shown if the user chooses to power off the phone. -->
-    <string name="shutdown_progress">Yn cau\2019r system\u2026</string>
+    <string name="shutdown_progress">Yn cau\u2019r system\u2026</string>
     <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, there will
          be a confirmation dialog.  This is the message. -->
     <string name="shutdown_confirm" product="tablet">Bydd dy lechen yn cau.</string>
@@ -472,8 +495,11 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- label for item that launches settings in phone options dialog [CHAR LIMIT=15]-->
     <string name="global_action_settings">Gosodiadau</string>
     <!-- label for item that launches assist in phone options dialog [CHAR LIMIT=15]-->
+    <string name="global_action_assist">Cymorth</string>
     <!-- label for item that launches voice assist in phone options dialog [CHAR LIMIT=15]-->
+    <string name="global_action_voice_assist">Cymorth Llais</string>
     <!-- label for item that locks the phone and enforces that it can't be unlocked without strong authentication. [CHAR LIMIT=15] -->
+    <string name="global_action_lockdown">Cloi lawr</string>
     <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated. May need to be localized
@@ -532,7 +558,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
         yn defnyddio\'r batri</string>
     <!-- Content for foreground service notification when one app is running.
         [CHAR LIMIT=NONE] -->
-    <string name="foreground_service_tap_for_details">Tara am fanylion defnydd batri a data</string>
+    <string name="foreground_service_tap_for_details">Tapia am fanylion defnydd batri a data</string>
     <!-- Separator for foreground service notification content listing all apps when there
         are multiple apps running.  The left and right side may both already be compound
         (constructed using this separator).  Should be kept as short as possible, this is
@@ -605,10 +631,15 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgrouplab_sensors">Synwyryddion Corff</string>
     <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_sensors">cael at ddata synhwyrydd am dy arwyddion bywyd</string>
     <!-- Message shown to the user when the apps requests permission from this group -->
+    <string name="permgrouprequest_sensors">Caniatáu i &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; gael at ddata synhwyrydd am dy arwyddion bywyd?</string>
     <!-- Title for the capability of an accessibility service to retrieve window content. -->
+    <string name="capability_title_canRetrieveWindowContent">Adfer cynnwys ffenestr</string>
     <!-- Description for the capability of an accessibility service to retrieve window content. -->
+    <string name="capability_desc_canRetrieveWindowContent">Archwilio cynnwys ffenestr rwyt yn rhyngweithio gyda hi.</string>
     <!-- Title for the capability of an accessibility service to request touch exploration. -->
+    <string name="capability_title_canRequestTouchExploration">Troi Archwilio trwy Gyffwrdd ymlaen</string>
     <!-- Description for the capability of an accessibility service to request touch exploration. -->
     <string name="capability_desc_canRequestTouchExploration">Caiff eitemau sy\'n cael eu taro eu llefaru a bydd modd archwilio\'r sgrin gyda chyffyrddiadau dy fysedd.</string>
     <!-- Title for the capability of an accessibility service to request to filter key events. -->
@@ -624,7 +655,9 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Description for the capability of an accessibility service to perform gestures. -->
     <string name="capability_desc_canPerformGestures">Mae\'n medru taro, llusgo, pinsio, a pherfformio ystumiau eraill.</string>
     <!-- Title for the capability of an accessibility service to capture fingerprint gestures. -->
+    <string name="capability_title_canCaptureFingerprintGestures">Ystumiau ôl bys</string>
     <!-- Description for the capability of an accessibility service to perform gestures. -->
+    <string name="capability_desc_canCaptureFingerprintGestures">Mae\'n gallu adnabod gwahanol symudiadau ar synhwyrydd ôl bys y ddyfais.</string>
     <!--  Permissions -->
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_statusBar">analluogi neu addasu\'r bar statws</string>
@@ -972,6 +1005,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_bluetooth" product="default">Mae\'n caniatáu i\'r ap weld ffurfweddiad Bluetooth y ffôn ac i gysylltu a derbyn cysylltiadau gyda dyfeisiau sy\'n paru.</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_nfc">rheoli Cyfathrebiad Maes Cyfagos</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_nfc">Mae\'n caniatáu i\'r ap gyfathrebu gyda thagiau, cardiau a darllenwyr NFC.</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -1003,7 +1037,9 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Array containing custom messages shown during fingerprint acquisision from vendor.  Vendor is expected to add and translate these strings -->
     <string-array name="fingerprint_acquired_vendor"></string-array>
     <!-- Message shown by the fingerprint dialog when fingerprint is not recognized -->
+    <string name="fingerprint_not_recognized">Dim yn ei adnabod</string>
     <!-- Accessibility message announced when a fingerprint has been authenticated [CHAR LIMIT=NONE] -->
+    <string name="fingerprint_authenticated">Dilyswyd yr ôl bys</string>
     <!-- Error message shown when the fingerprint hardware can't be accessed -->
     <string name="fingerprint_error_hw_not_available">Does dim caledwedd ôl bys ar gael.</string>
     <!-- Error message shown when the fingerprint hardware has run out of room for storing fingerprints -->
@@ -1013,6 +1049,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Generic error message shown when the fingerprint operation (e.g. enrollment or authentication) is canceled. Generally not shown to the user-->
     <string name="fingerprint_error_canceled">Diddymwyd y weithred ôl bys.</string>
     <!-- Generic error message shown when the fingerprint authentication operation is canceled due to user input. Generally not shown to the user -->
+    <string name="fingerprint_error_user_canceled">Diddymwyd y weithred ôl bys gan y defnyddiwr.</string>
     <!-- Generic error message shown when the fingerprint operation fails because too many attempts have been made. -->
     <string name="fingerprint_error_lockout">Gormod o ymdrechion. Rho gynnig arall arni\'n hwyrach.</string>
     <!-- Generic error message shown when the fingerprint operation fails because strong authentication is required -->
@@ -1020,6 +1057,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Generic error message shown when the fingerprint hardware can't recognize the fingerprint -->
     <string name="fingerprint_error_unable_to_process">Ceisia eto.</string>
     <!-- Generic error message shown when the user has no enrolled fingerprints -->
+    <string name="fingerprint_error_no_fingerprints">Dim olion bysedd wedi\'u cofrestru.</string>
     <!-- Generic error message shown when the app requests fingerprint authentication on a device without a sensor -->
     <string name="fingerprint_error_hw_not_present">Nid oes gan y ddyfais hon synhwyrydd olion bysedd</string>
     <!-- Template to be used to name enrolled fingerprints by default. -->
@@ -1097,7 +1135,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_modifyNetworkAccounting">Mae\'n caniatáu i\'r ap addasu sut mae defnydd rhwydwaith yn cael ei gyfrif yn erbyn apiau. Nid ar gyfer defnydd apiau arferol.</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_accessNotifications">cyrchu hysbysiadau</string>
+    <string name="permlab_accessNotifications">cael mynediad at hysbysiadau</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_accessNotifications">Mae\'n caniatáu i\'r ap nôl, archwilio, a chlirio hysbysiadau, gan gynnwys rhai gan apiau eraill.</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -1113,7 +1151,9 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_bindDreamService">Mae\'n caniatáu i\'r deiliad glymu at ryngwyneb haen uchaf gwasanaeth breuddwyd. Ni ddylid byth fod ei angen ar apiau cyffredin.</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_invokeCarrierSetup">erfyn yr ap ffurfweddu a ddarparwyd gan y darparwr gwasanaeth</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_invokeCarrierSetup">Mae\'n caniatáu i\'r deiliad erfyn yr ap ffurfweddu a ddarparwyd gan y darparydd gwasanaeth ffôn. Ni ddylai byth fod ei angen ar apiau cyffredin.</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessNetworkConditions">gwrando am arsylwadau ar gyflyrau rhwydweithiau</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -1125,6 +1165,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <string name="permlab_accessDrmCertificates">cyrchu tystysgrifau DRM</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_accessDrmCertificates">Mae\'n caniatáu i ap ddarparu a defnyddio tystysgrifau DRM. Ni ddylai fod byth ei angen ar apiau arferol.</string>
+    <string name="permlab_handoverStatus">derbyn statws trosglwyddo Android Beam</string>
     <string name="permdesc_handoverStatus">Mae\'n caniatáu i\'r ap hwn dderbyn gwybodaeth am drosglwyddiadau cyfredol Android Beam.</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_removeDrmCertificates">tynnu tystysgrifau DRM</string>
@@ -1382,6 +1423,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Partner relationship type [CHAR LIMIT=20] -->
     <string name="relationTypePartner">Partner</string>
     <!-- Referred by relationship type [CHAR LIMIT=20] -->
+    <string name="relationTypeReferredBy">Cyfeiriwyd gan</string>
     <!-- Relative relationship type [CHAR LIMIT=20] -->
     <string name="relationTypeRelative">Perthynas</string>
     <!-- Sister relationship type [CHAR LIMIT=20] -->
@@ -1410,7 +1452,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- Prompt to enter New SIM PIN in Edit Text Box in unlock screen -->
     <string name="keyguard_password_enter_pin_prompt">Cod PIN Newydd</string>
     <!-- Displayed as hint in passwordEntry EditText on PasswordUnlockScreen [CHAR LIMIT=30]-->
-    <string name="keyguard_password_entry_touch_hint"><font size="17">Tara i roi\'r cyfrinair</font></string>
+    <string name="keyguard_password_entry_touch_hint"><font size="17">Tapia i roi\'r cyfrinair</font></string>
     <!-- Instructions telling the user to enter their text password to unlock the keyguard.
          Displayed in one line in a large font.  -->
     <string name="keyguard_password_enter_password_code">Rho gyfrinair i ddatgloi</string>
@@ -1450,6 +1492,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <!-- On the keyguard screen, this string explains that some features or data may not be available until the device is unlocked. [CHAR LIMIT=48] -->
     <string name="lockscreen_storage_locked">Datgloi ar gyfer pob nodwedd a data</string>
     <!-- Shown when face unlock failed multiple times so we're just using the backup -->
+    <string name="faceunlock_multiple_failures">Wedi gwneud cynifer o ymdrechion Datgloi Wyneb a chaniateir</string>
     <!-- Shown in the lock screen when there is no SIM card. -->
     <string name="lockscreen_missing_sim_message_short">Dim cerdyn SIM</string>
     <!-- Shown in the lock screen when there is no SIM card. -->
@@ -1490,6 +1533,7 @@ Cysyllta â dy ddarparwr gwasanaeth ffôn i gael cerdyn SIM arall.</string>
          PUK locked (Pin Unlock Kode) -->
     <string name="lockscreen_sim_puk_locked_message">Mae\'r cerdyn SIM wedi\'i gloi â PUK.</string>
     <!-- Shown in the lock screen when the SIM has become PUK locked and the user must call customer care to unlock it. -->
+    <string name="lockscreen_sim_puk_locked_instructions">Gweler y Canllaw Defnyddiwr neu gysylltu â Gofal Cwsmeriaid.</string>
     <!-- Shown in the lock screen to tell the user that their SIM is locked and they must unlock it. -->
     <string name="lockscreen_sim_locked_message">Mae\'r cerdyn SIM wedi\'i gloi.</string>
     <!-- For the unlock screen, When the user enters a sim unlock code, it takes a little while to check
@@ -1563,6 +1607,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
          too many patterns and we are forcing them to use their account instead. -->
     <string name="lockscreen_glogin_too_many_attempts">Bu gormod o ymdrechion aflwyddiannus</string>
     <!-- In the unlock screen, message telling the user that they need to use their Google login and password to unlock the phone -->
+    <string name="lockscreen_glogin_instructions">I ddatgloi, mewngofnoda gyda dy gyfrif Google.</string>
     <!-- Hint caption for the username field when unlocking the phone using login and password -->
     <string name="lockscreen_glogin_username_hint">Enw defnyddiwr (ebost)</string>
     <!-- Hint caption for the password field when unlocking the phone using login and password -->
@@ -1627,10 +1672,13 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <!-- Accessibility description of the pattern unlock. [CHAR_LIMIT=none] -->
     <string name="keyguard_accessibility_pattern_unlock">Datgloi â phatrwm.</string>
     <!-- Accessibility description of the face unlock. [CHAR_LIMIT=none] -->
+    <string name="keyguard_accessibility_face_unlock">Datgloi wyneb.</string>
     <!-- Accessibility description of the pin lock. [CHAR_LIMIT=none] -->
     <string name="keyguard_accessibility_pin_unlock">Datgloi â Pin.</string>
     <!-- Accessibility description of the sim pin lock. [CHAR_LIMIT=none] -->
+    <string name="keyguard_accessibility_sim_pin_unlock">Datgloi SIM â PIN.</string>
     <!-- Accessibility description of the sim puk lock. [CHAR_LIMIT=none] -->
+    <string name="keyguard_accessibility_sim_puk_unlock">Datgloi SIM â PUK.</string>
     <!-- Accessibility description of the password lock. [CHAR_LIMIT=none] -->
     <string name="keyguard_accessibility_password_unlock">Datgloi â chyfrinair.</string>
     <!-- Accessibility description of the unlock pattern area. [CHAR_LIMIT=none] -->
@@ -1639,6 +1687,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <string name="keyguard_accessibility_slide_area">Maes llusgo.</string>
     <!-- Password keyboard strings. Used by LockScreen and Settings -->
     <!-- Label for "switch to symbols" key.  Must be short to fit on key! -->
+    <string name="password_keyboard_label_symbol_key">\?123</string>
     <!-- Label for "switch to alphabetic" key.  Must be short to fit on key! -->
     <string name="password_keyboard_label_alpha_key">ABC</string>
     <!-- Label for ALT modifier key.  Must be short to fit on key! -->
@@ -1648,6 +1697,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by word. Only spoken to the user. [CHAR LIMIT=NONE] -->
     <string name="granularity_label_word">gair</string>
     <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by link. Only spoken to the user. [CHAR LIMIT=NONE] -->
+    <string name="granularity_label_link">dolen</string>
     <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by line. Only spoken to the user. [CHAR LIMIT=NONE] -->
     <string name="granularity_label_line">llinell</string>
     <!-- Title of the alert when something went wrong in the factory test. -->
@@ -1667,6 +1717,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <!-- Default title for a javascript dialog -->
     <string name="js_dialog_title_default">JavaScript</string>
     <!-- Title for the unload javascript dialog -->
+    <string name="js_dialog_before_unload_title">Cadarnhau Llywio</string>
     <!-- Text for the positive button on the unload javascript dialog -->
     <string name="js_dialog_before_unload_positive_button">Gadael y Dudalen Hon</string>
     <!-- Text for the negative button on the unload javascript dialog -->
@@ -1676,6 +1727,7 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <!-- Title of the WebView save password dialog.  If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. -->
     <string name="save_password_label">Cadarnhau</string>
     <!-- Toast for double-tap -->
+    <string name="double_tap_toast">Awgrym: Tariad dwbl i chwyddo mewn ac allan.</string>
     <!-- Text to show in the auto complete drop down list on a text view when the WebView can auto fill the entire form, and the user has configured an AutoFill profile [CHAR-LIMIT=8] -->
     <string name="autofill_this_form">Awtolenwi</string>
     <!-- Text to show in the auto complete drop down list on a text view when the WebView can auto fill the entire form but the user has not configured an AutoFill profile [CHAR-LIMIT=19] -->
@@ -1687,10 +1739,13 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <string name="autofill_address_name_separator">\u0020</string>
     <!-- Format string for displaying a name. $1 is First Name, $2 is autofill_address_name_separator, $3 is Last Name.
          e.g. (John)( )(Smith) -->
+    <string name="autofill_address_summary_name_format">$1$2$3</string>
     <!-- String used to separate Name and Address Line 1
          e.g. John Smith<separator>123 Main Street [CHAR-LIMIT=NONE]-->
+    <string name="autofill_address_summary_separator">,\u0020</string>
     <!-- Format string for displaying a name and address summary. $1 is the Full Name, $2 is autofill_address_summary_separator, $3 is the Address
          e.g. (John Smith)(, )(123 Main Street) -->
+    <string name="autofill_address_summary_format">$1$2$3</string>
     <!-- Do not translate. Regex used by AutoFill. -->
     <!-- Do not translate. Regex used by AutoFill. -->
     <!-- Do not translate. Regex used by AutoFill. -->
@@ -1717,21 +1772,37 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <!-- Do not translate. Regex used by AutoFill. -->
     <!-- Do not translate. Regex used by AutoFill. -->
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_area_code_re">area.*code|acode|area</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_phone_prefix_re">prefix<!-- fr-FR -->|preselection<!-- pt-BR, pt-PT -->|ddd</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_phone_suffix_re">ôl-ddodiad</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_phone_extension_re">ext<!-- pt-BR, pt-PT -->|ramal</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_name_on_card_re">card.?holder|name.?on.?card|ccname|owner<!-- de-DE -->|karteninhaber<!-- es -->|nombre.*tarjeta<!-- fr-FR -->|nom.*carte<!-- it-IT -->|nome.*cart<!-- ja-JP -->|名前<!-- ru -->|Имя.*карты<!-- zh-CN -->|信用卡开户名|开户名|持卡人姓名<!-- zh-TW -->|持卡人姓名</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_name_on_card_contextual_re">enw</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_card_cvc_re">verification|card identification|cvn|security code|cvv code|cvc</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_card_number_re">number|card.?#|card.?no|ccnum<!-- de-DE -->|nummer<!-- es -->|credito|numero|número<!-- fr-FR -->|numéro<!-- ja-JP -->|カード番号<!-- ru -->|Номер.*карты<!-- zh-CN -->|信用卡号|信用卡号码<!-- zh-TW -->|信用卡卡號</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_expiration_month_re">expir|exp.*month|exp.*date|ccmonth<!-- de-DE -->|gueltig|gültig|monat<!-- es -->|fecha<!-- fr-FR -->|date.*exp<!-- it-IT -->|scadenza<!-- ja-JP -->|有効期限<!-- pt-BR, pt-PT -->|validade<!-- ru -->|Срок действия карты<!-- zh-CN -->|月</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_expiration_date_re">exp|^/|year<!-- de-DE -->|ablaufdatum|gueltig|gültig|yahr<!-- es -->|fecha<!-- it-IT -->|scadenza<!-- ja-JP -->|有効期限<!-- pt-BR, pt-PT -->|validade<!-- ru -->|Срок действия карты<!-- zh-CN -->|年|有效期</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_card_ignored_re">^card</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_fax_re">fax<!-- fr-FR -->|télécopie|telecopie<!-- ja-JP -->|ファックス<!-- ru -->|факс<!-- zh-CN -->|传真<!-- zh-TW -->|傳真</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_country_code_re">country.*code|ccode|_cc</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_area_code_notext_re">^\\($</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_phone_prefix_separator_re">^-$|^\\)$</string>
     <!-- Do not translate. Regex used by AutoFill. -->
+    <string name="autofill_phone_suffix_separator_re">^-$</string>
     <!-- Label in a web form for "Province" [CHAR-LIMIT=NONE]  -->
     <string name="autofill_province">Talaith</string>
     <!-- Label in a web form for "Postal code" [CHAR-LIMIT=NONE]  -->
@@ -1745,14 +1816,17 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <!-- Label in a web form for "Island" [CHAR-LIMIT=NONE]  -->
     <string name="autofill_island">Ynys</string>
     <!-- Label in a web form for "District" [CHAR-LIMIT=NONE]  -->
+    <string name="autofill_district">Dosbarth</string>
     <!-- Label in a web form for "Department" [CHAR-LIMIT=NONE]  -->
     <string name="autofill_department">Adran</string>
     <!-- Label in a web form for "Prefecture" [CHAR-LIMIT=NONE]  -->
+    <string name="autofill_prefecture">Rhaglawiaeth</string>
     <!-- Label in a web form for "Parish" [CHAR-LIMIT=NONE]  -->
     <string name="autofill_parish">Plwyf</string>
     <!-- Label in a web form for "Area" [CHAR-LIMIT=NONE]  -->
     <string name="autofill_area">Ardal</string>
     <!-- Label in a web form for "Emirate" [CHAR-LIMIT=NONE]  -->
+    <string name="autofill_emirate">Emiraeth</string>
     <!-- Title of an application permission, listed so the user can choose whether
         they want to allow the application to do this. -->
     <string name="permlab_readHistoryBookmarks">darllen dy hanes a nodau tudalennau gwefannau</string>
@@ -1806,11 +1880,17 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <!-- Prepended to the shortcut for a menu item to indicate that the user should hold the MENU button together with the shortcut to invoke the item. For example, if the shortcut to open a new tab in browser is MENU and B together, then this would be prepended to the letter "B" -->
     <string name="prepend_shortcut_label">Dewislen+</string>
     <!-- Prepended to the shortcut for a menu item to indicate that the user should hold the META key together with the shortcut to invoke the item. -->
+    <string name="menu_meta_shortcut_label">Meta+</string>
     <!-- Prepended to the shortcut for a menu item to indicate that the user should hold the CTRL key together with the shortcut to invoke the item. -->
+    <string name="menu_ctrl_shortcut_label">Ctrl+</string>
     <!-- Prepended to the shortcut for a menu item to indicate that the user should hold the ALT key together with the shortcut to invoke the item. -->
+    <string name="menu_alt_shortcut_label">Alt+</string>
     <!-- Prepended to the shortcut for a menu item to indicate that the user should hold the SHIFT key together with the shortcut to invoke the item. -->
+    <string name="menu_shift_shortcut_label">Shift+</string>
     <!-- Prepended to the shortcut for a menu item to indicate that the user should hold the SYM key together with the shortcut to invoke the item. -->
+    <string name="menu_sym_shortcut_label">Sym+</string>
     <!-- Prepended to the shortcut for a menu item to indicate that the user should hold the FUNCTION key together with the shortcut to invoke the item. -->
+    <string name="menu_function_shortcut_label">Function+</string>
     <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+space for the shortcut. -->
     <string name="menu_space_shortcut_label">bwlch</string>
     <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+enter for the shortcut. -->
@@ -2070,6 +2150,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Item on EditText context menu. This action is used to cut selected the text into the clipboard. -->
     <string name="copy">Copïo</string>
     <!-- Error shown by TextView/EditText when cut/copy operation fails because text is too long to copy into the clipboard. -->
+    <string name="failed_to_copy_to_clipboard">Methwyd â chopïo i\'r clipfwrdd</string>
     <!-- Item on EditText context menu. This action is used to paste from the clipboard into the eidt field -->
     <string name="paste">Gludo</string>
     <!-- Item on EditText context menu. This action is used to paste from the clipboard into the eidt field without formatting -->
@@ -2102,22 +2183,35 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="email">Ebost</string>
     <!-- Accessibility description for an item in the text selection menu to trigger an Email app [CHAR LIMIT=NONE] -->
     <!-- Label for item in the text selection menu to trigger a Dialer app [CHAR LIMIT=20] -->
+    <string name="dial">Galw</string>
     <!-- Accessibility description for an item in the text selection menu to call a phone number [CHAR LIMIT=NONE] -->
+    <string name="dial_desc">Galw\'r rhif ffôn a ddewiswyd</string>
     <!-- Label for item in the text selection menu to trigger a Map app [CHAR LIMIT=20] -->
+    <string name="map">Map</string>
     <!-- Accessibility description for an item in the text selection menu to open maps for an address [CHAR LIMIT=NONE] -->
     <!-- Label for item in the text selection menu to trigger a Browser app [CHAR LIMIT=20] -->
     <string name="browse">Agor</string>
     <!-- Accessibility description for an item in the text selection menu to open a URL in a browser [CHAR LIMIT=NONE] -->
+    <string name="browse_desc">Agor y URL a ddewiswyd</string>
     <!-- Label for item in the text selection menu to trigger an SMS app [CHAR LIMIT=20] -->
+    <string name="sms">Neges</string>
     <!-- Accessibility description for an item in the text selection menu to send an SMS to a phone number [CHAR LIMIT=NONE] -->
+    <string name="sms_desc">Anfon neges i\'r rhif ffôn a ddewiswyd</string>
     <!-- Label for item in the text selection menu to trigger adding a contact [CHAR LIMIT=20] -->
+    <string name="add_contact">Ychwanegu</string>
     <!-- Accessibility description for an item in the text selection menu to add the selected detail to contacts [CHAR LIMIT=NONE] -->
+    <string name="add_contact_desc">Ychwanegu at gysylltiadau</string>
     <!-- Label for item in the text selection menu to view the calendar for the selected time/date [CHAR LIMIT=20] -->
+    <string name="view_calendar">Gweld</string>
     <!-- Accessibility description for an item in the text selection menu to view the calendar for a date [CHAR LIMIT=NONE]-->
     <!-- Label for item in the text selection menu to create a calendar event at the selected time/date [CHAR LIMIT=20] -->
+    <string name="add_calendar_event">Trefnu</string>
     <!-- Accessibility description for an item in the text selection menu to schedule an event for a date [CHAR LIMIT=NONE] -->
+    <string name="add_calendar_event_desc">Trefnu digwyddiad ar gyfer yr amser a ddewiswyd</string>
     <!-- Label for item in the text selection menu to track a selected flight number [CHAR LIMIT=20] -->
+    <string name="view_flight">Dilyn</string>
     <!-- Accessibility description for an item in the text selection menu to track a flight [CHAR LIMIT=NONE] -->
+    <string name="view_flight_desc">Dilyn yr hediad a ddewiswyd</string>
     <!-- If the device is getting low on internal storage, a notification is shown to the user.  This is the title of that notification. -->
     <string name="low_internal_storage_view_title">Yn rhedeg yn brin o le storio</string>
     <!-- If the device is getting low on internal storage, a notification is shown to the user.  This is the message of that notification. -->
@@ -2129,7 +2223,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="app_running_notification_title">Mae <xliff:g id="app_name">%1$s</xliff:g> yn rhedeg.</string>
     <!-- [CHAR LIMIT=NONE] Stub notification text for an app running a service that has provided
          a bad bad notification for itself. -->
-    <string name="app_running_notification_text">Tara am ragor o wybodaeth neu i stopio\'r ap.</string>
+    <string name="app_running_notification_text">Tapia am ragor o wybodaeth neu i stopio\'r ap.</string>
     <!-- Preference framework strings. -->
     <string name="ok">Iawn</string>
     <!-- Preference framework strings. -->
@@ -2170,10 +2264,10 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Label for a link to a intent resolver dialog when selecting an editor application -->
     <string name="whichEditApplicationLabel">Golygu</string>
     <!-- Title of intent resolver dialog when selecting a sharing application to run. -->
-    <string name="whichSendApplication">Rhannu gyda</string>
+    <string name="whichSendApplication">Rhannu trwy</string>
     <!-- Title of intent resolver dialog when selecting a sharing application to run
          and a previously used application is known. -->
-    <string name="whichSendApplicationNamed">Rhannu gyda %1$s</string>
+    <string name="whichSendApplicationNamed">Rhannu trwy %1$s</string>
     <!-- Label for a link to a intent resolver dialog to sharing something -->
     <string name="whichSendApplicationLabel">Rhannu</string>
     <!-- Title of intent resolver dialog when selecting an application to run to
@@ -2268,20 +2362,31 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- [CHAR LIMIT=50] Unsupported display size dialog: check box label. -->
     <string name="unsupported_display_size_show">Dangos bob tro</string>
     <!-- [CHAR LIMIT=200] Unsupported compile SDK dialog: message. Shown when an app may not be compatible with the device's current version of Android. -->
+    <string name="unsupported_compile_sdk_message">Cafodd <xliff:g id="app_name">%1$s</xliff:g> ei adeiladu ar gyfer fersiwn arall o Android ac mae\'n bosib na fydd yn ymddwyn fel y disgwyl. Mae\'n bosib bod fersiwn mwy diweddar o\'r ap ar gael.</string>
     <!-- [CHAR LIMIT=50] Unsupported compile SDK dialog: check box label. -->
     <string name="unsupported_compile_sdk_show">Dangos bob tro</string>
     <!-- [CHAR LIMIT=50] Unsupported compile SDK dialog: label for button to check for an app update. -->
+    <string name="unsupported_compile_sdk_check_update">Gwirio am ddiweddariad</string>
     <!-- Text of the alert that is displayed when an application has violated StrictMode. -->
+    <string name="smv_application">Mae\'r ap <xliff:g id="application">%1$s</xliff:g> (proses <xliff:g id="process">%2$s</xliff:g>) wedi gweithredu\'n groes i\'r polisi preifatrwydd StrictMode gorfododd arno\'i hun.</string>
     <!-- Text of the alert that is displayed when an application has violated StrictMode. -->
+    <string name="smv_process">Mae\'r  broses <xliff:g id="process">%1$s</xliff:g> wedi gweithredu\'n groes i\'r polisi preifatrwydd StrictMode gorfododd arno\'i hun.</string>
     <!-- [CHAR LIMIT=40] Title of dialog that is shown when performing a system update. -->
+    <string name="android_upgrading_title" product="default">Mae\'r ffôn yn diweddaru\u2026</string>
     <!-- [CHAR LIMIT=40] Title of dialog that is shown when performing a system update. -->
+    <string name="android_upgrading_title" product="tablet">Mae\'r llechen yn diweddaru\u2026</string>
     <!-- [CHAR LIMIT=40] Title of dialog that is shown when performing a system update. -->
+    <string name="android_upgrading_title" product="device">Mae\'r ddyfasi yn diweddaru\u2026</string>
     <!-- [CHAR LIMIT=40] Title of dialog that is shown when system is starting. -->
+    <string name="android_start_title" product="default">Mae\'r ffôn yn cychwyn\u2026</string>
     <!-- [CHAR LIMIT=40] Title of dialog that is shown when system is starting. -->
+    <string name="android_start_title" product="tablet">Mae\'r llechen yn cychwyn\u2026</string>
     <!-- [CHAR LIMIT=40] Title of dialog that is shown when system is starting. -->
+    <string name="android_start_title" product="device">Mae\'r ddyfais yn cychwyn\u2026</string>
     <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog when doing an fstrim. -->
     <string name="android_upgrading_fstrim">Yn optimeiddio storfa...</string>
     <!-- [CHAR LIMIT=40] Title of notification that is shown when finishing a system update. -->
+    <string name="android_upgrading_notification_title" product="default">Yn cwblhau diweddariad system\u2026</string>
     <!-- [CHAR LIMIT=40] Toast that is shown when an app is still upgrading. -->
     <string name="app_upgrading_toast">Mae <xliff:g id="application">%1$s </xliff:g>yn uwchraddio\u2026</string>
     <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog for each .apk that is optimized. -->
@@ -2295,20 +2400,26 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Notification text to tell the user that a heavy-weight application is running. -->
     <string name="heavy_weight_notification"><xliff:g id="app">%1$s</xliff:g> yn rhedeg</string>
     <!-- Notification details to tell the user that a heavy-weight application is running. -->
+    <string name="heavy_weight_notification_detail">Tapia i ddychwelyd i\'r gêm</string>
     <!-- Title of dialog prompting whether user wants to switch between heavy-weight apps. -->
+    <string name="heavy_weight_switcher_title">Dewis gêm</string>
     <!-- Descriptive text for switching to a new heavy-weight application. -->
+    <string name="heavy_weight_switcher_text">Er mwyn perfformiad gwell, gellir ond agor un o\'r gemau hyn ar yr un pryd.</string>
     <string name="old_app_action">Mynd nôl i <xliff:g id="old_app">%1$s</xliff:g></string>
     <string name="new_app_action">Agor <xliff:g id="new_app">%1$s</xliff:g></string>
     <string name="new_app_description">Bydd <xliff:g id="old_app">%1$s</xliff:g> yn cau heb gadw</string>
     <!-- Notification text to tell the user that a process has exceeded its memory limit. -->
+    <string name="dump_heap_notification">Aeth <xliff:g id="proc">%1$s</xliff:g> dros y terfyn cof</string>
     <!-- Notification details to tell the user that a process has exceeded its memory limit. -->
     <!-- Title of dialog prompting the user to share a heap dump. -->
+    <string name="dump_heap_title">Rhannu\'r \"heap dump\"?</string>
     <!-- Text of dialog prompting the user to share a heap dump. -->
     <string name="dump_heap_text">Mae\'r broses <xliff:g id="proc">%1$s</xliff:g> wedi mynd heibio ei chyfyngiad cof o <xliff:g id="size">%2$s</xliff:g>. Mae yna domen dympio ar gel i\'w rhannu gyda\'i datblygwr. Bu\'n ofalus; gall y domen dympio cynnwys unrhyw wybodaeth bersonol y mae gan yr ap fynediad iddi.</string>
     <!-- Displayed in the title of the chooser for things to do with text that
          is to be sent to another application. For example, I can send
          text through SMS or IM.  A dialog with those choices would be shown,
          and this would be the title. -->
+    <string name="sendText">Dewis gweithred ar gyfer testun</string>
     <!-- Title of the dialog where the user is adjusting the phone ringer volume -->
     <string name="volume_ringtone">Uchder sain caniad ffôn</string>
     <!-- Title of the dialog where the user is adjusting the music volume -->
@@ -2373,13 +2484,15 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Notification title for a nearby open wireless network.-->
     <string name="wifi_available_title">Cysylltu â rhwydwaith Wi\u2011Fi agored</string>
     <!-- Notification title for a nearby carrier wireless network.-->
+    <string name="wifi_available_carrier_network_title">Cysylltu â rhwydwaith Wi\u2011Fi y darparwr gwasanaeth</string>
     <!-- Notification title when the system is connecting to the specified network. The network name is specified in the notification content. -->
+    <string name="wifi_available_title_connecting">Yn cysylltu â rhwydwaith Wi\u2011Fi</string>
     <!-- Notification title when the system has connected to the network. The network name is specified in the notification content. -->
     <string name="wifi_available_title_connected">Wedi cysylltu â rhwydwaith Wi\u2011Fi</string>
     <!-- Notification title when the system failed to connect to the specified network. -->
     <string name="wifi_available_title_failed_to_connect">Methwyd â chysylltu â rhwydwaith Wi\u2011Fi</string>
     <!-- Notification content when the system failed to connect to the specified network. This informs the user that tapping on this notification will open the wifi picker. -->
-    <string name="wifi_available_content_failed_to_connect">Tara i weld pob rhwydwaith</string>
+    <string name="wifi_available_content_failed_to_connect">Tapia i weld pob rhwydwaith</string>
     <!-- Notification action name for connecting to the network specified in the notification body. -->
     <string name="wifi_available_action_connect">Cysylltu</string>
     <!-- Notification action name for opening the wifi picker, showing the user all the nearby networks. -->
@@ -2403,7 +2516,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- A notification is shown when the user connects to a Wi-Fi network and the system detects that that network has no Internet access. This is the notification's title. -->
     <string name="wifi_no_internet">Nid oes gan y Wi-Fi gysylltiad i\'r rhyngrwyd</string>
     <!-- A notification is shown when the user connects to a Wi-Fi network and the system detects that that network has no Internet access. This is the notification's message. -->
-    <string name="wifi_no_internet_detailed">Tara am ddewisiadau</string>
+    <string name="wifi_no_internet_detailed">Tapia am ddewisiadau</string>
     <!-- A notification is shown when the user's softap config has been changed due to underlying
          hardware restrictions. This is the notifications's title.
          [CHAR_LIMIT=NONE] -->
@@ -2411,12 +2524,15 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- A notification is shown when the user's softap config has been changed due to underlying
          hardware restrictions. This is the notification's summary message.
          [CHAR_LIMIT=NONE] -->
+    <string name="wifi_softap_config_change_summary">Mae band dy lecyn Wi-Fi wedi newid.</string>
     <!-- A notification is shown when the user's softap config has been changed due to underlying
          hardware restrictions. This is the notification's full message.
          [CHAR_LIMIT=NONE] -->
+    <string name="wifi_softap_config_change_detailed">Dyw\'r ddyfais hon ddim yn cefnogi dy ddewis o 5 GHz yn unig. Yn hytrach, bydd y ddyfais yn defnyddio\'r band 5 GHz pan ar gael.</string>
     <!-- A notification might be shown if the device switches to another network type (e.g., mobile data) because it detects that the network it was using (e.g., Wi-Fi) has lost Internet connectivity. This is the notification's title. %1$s is the network type that the device switched to, e.g., cellular data. It is one of the strings in the network_switch_type_name array. -->
     <string name="network_switch_metered">Wedi newid i <xliff:g id="network_type">%1$s</xliff:g></string>
     <!-- A notification might be shown if the device switches to another network type (e.g., mobile data) because it detects that the network it was using (e.g., Wi-Fi) has lost Internet connectivity. This is the notification's message. %1$s is the network that the device switched to, e.g., cellular data. %2$s is the network type the device switched from, e.g., Wi-Fi. Both are strings in the network_switch_type_name array. -->
+    <string name="network_switch_metered_detail">Mae\'r ddyfais yn defnyddio <xliff:g id="new_network">%1$s</xliff:g> pan nad oes gan <xliff:g id="previous_network">%2$s</xliff:g> mynediad i\'r rhyngrwyd. Gall fod costau defnydd data symudol.</string>
     <!-- A toast might be shown if the device switches to another network type (e.g., mobile data) because it detects that the network it was using (e.g., Wi-Fi) has lost Internet connectivity. This is the text of the toast. %1$s is the network that the device switched from, e.g., Wi-Fi. %2$s is the network type the device switched from, e.g., cellular data. Both are strings in the network_switch_type_name array. -->
     <string name="network_switch_metered_toast">Newidiwyd o <xliff:g id="previous_network">%1$s</xliff:g> i <xliff:g id="new_network">%2$s</xliff:g></string>
     <!-- Network type names used in the network_switch_metered and network_switch_metered_detail strings. These must be kept in the sync with the values NetworkCapabilities.TRANSPORT_xxx values, and in the same order. -->
@@ -2432,6 +2548,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- A notification is shown when a user's selected SSID is later disabled due to connectivity problems.  This is the notification's title / ticker. -->
     <string name="wifi_watchdog_network_disabled">Methwyd â chysylltu i\'r Wi-Fi</string>
     <!-- A notification is shown when a user's selected SSID is later disabled due to connectivity problems.  The complete alert msg is: <hotspot name> + this string, i.e. "Linksys has a poor internet connection" -->
+    <string name="wifi_watchdog_network_disabled_detailed">Mae gan \u0020 gysylltiad rhyngrwyd gwael.</string>
     <!-- Do not translate. Default access point SSID used for tethering -->
     <!-- Do not translate. Default access point SSID used for local only hotspot -->
     <!-- A notification is shown the first time a connection is attempted on an app owned AP -->
@@ -2445,7 +2562,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="wifi_p2p_turnon_message">Dechrau Wi-Fi Direct. Bydd hyn yn diffodd cleient/llecyn Wi-Fi.</string>
     <string name="wifi_p2p_failed_message">Methwyd â dechrau Wi-Fi Uniongyrchol.</string>
     <string name="wifi_p2p_enabled_notification_title">Mae Wi-Fi Uniongyrchol ymlaen</string>
-    <string name="wifi_p2p_enabled_notification_message">Tara am osodiadau</string>
+    <string name="wifi_p2p_enabled_notification_message">Tapia am osodiadau</string>
     <string name="accept">Derbyn</string>
     <string name="decline">Gwrthod</string>
     <string name="wifi_p2p_invitation_sent_title">Anfonwyd y gwahoddiad</string>
@@ -2482,7 +2599,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Text of the checkbox for the SMS short code confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="sms_short_code_remember_choice">Cofio fy newis</string>
     <!-- Text shown when remember checkbox is checked to inform the user how they may undo the setting. [CHAR LIMIT=40] -->
-    <string name="sms_short_code_remember_undo_instruction">Mae\'n bosib newid hyn hwyrach yn Gosodiadau\u00A0&gt;\u00A0Apiau\"</string>
+    <string name="sms_short_code_remember_undo_instruction">Gellir newid hyn hwyrach yn Gosodiadau\u00A0&gt;\u00A0Apiau</string>
     <!-- Text of the approval button for the SMS short code confirmation dialog when checkbox is checked. [CHAR LIMIT=30] -->
     <string name="sms_short_code_confirm_always_allow">Caniatáu Bob Tro</string>
     <!-- Text of the cancel button for the SMS short code confirmation dialog when checkbox is checked. [CHAR LIMIT=30] -->
@@ -2502,12 +2619,14 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="sim_restart_button">Ailgychwyn</string>
     <!-- See Carrier_App_Dialog. This is the message of that dialog. -->
     <!-- Notification message that shows when the user inserts a SIM card that requires a carrier app download, but the app name is unknown -->
+    <string name="install_carrier_app_notification_text">Lawrlwytha ap y darparwr gwasanaeth i actifadu dy SIM newydd</string>
     <!-- Notification message that shows when the user inserts a SIM card that requires a carrier app download.  App name is known -->
     <string name="install_carrier_app_notification_text_app_name">Lawrlwytha ap <xliff:g id="app_name">%1$s</xliff:g> i actifadu dy SIM newydd</string>
     <!-- See Carrier_App_Notification. This is the button of that dialog. -->
+    <string name="install_carrier_app_notification_button">Lawrlwytho\'r ap</string>
     <!-- See carrier_app_notification. This is the headline. -->
     <string name="carrier_app_notification_title">Gosodwyd SIM newydd</string>
-    <string name="carrier_app_notification_text">Tara i\'w sefydlu</string>
+    <string name="carrier_app_notification_text">Tapia i\'w sefydlu</string>
     <!-- Date/Time picker dialogs strings -->
     <!-- The title of the time picker dialog. [CHAR LIMIT=NONE] -->
     <string name="time_picker_dialog_title">Gosod yr amser</string>
@@ -2529,23 +2648,31 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Dialog ok button-->
     <string name="dlg_ok">Iawn</string>
     <!-- USB_PREFERENCES: Notification for when the user connected to the charger only.  This is the title -->
+    <string name="usb_charging_notification_title">Yn gwefru\'r ddyfais hon trwy USB</string>
     <!-- USB_PREFERENCES: Notification for when the user connects the phone to supply power to attached device.  This is the title -->
+    <string name="usb_supplying_notification_title">Yn gwefru\'r ddyfais a gysylltwyd trwy USB</string>
     <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in MTP mode.  This is the title -->
+    <string name="usb_mtp_notification_title">Mae trosglwyddo ffeiliau trwy USB wedi\'i droi ymlaen</string>
     <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in PTP mode.  This is the title -->
+    <string name="usb_ptp_notification_title">Mae PTP trwy USB wedi\'i droi ymlaen</string>
     <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in Tethering mode.  This is the title -->
+    <string name="usb_tether_notification_title">Mae tenynnu USB wedi\'i droi ymlaen</string>
     <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in MIDI mode.  This is the title -->
+    <string name="usb_midi_notification_title">Mae MIDI twy USB wedi\'i droi ymlaen</string>
     <!-- USB_PREFERENCES: Notification for when a USB accessory is attached.  This is the title -->
+    <string name="usb_accessory_notification_title">Cysylltwyd ategolyn trwy\'r USB</string>
     <!-- See USB_PREFERENCES. This is the message. -->
-    <string name="usb_notification_message">Tara am ragor o opsiynau.</string>
+    <string name="usb_notification_message">Tapia am ragor o opsiynau.</string>
     <!-- See USB_PREFERENCES. This is the message when a data mode is turned on (mtp, ptp, midi) and the device is supplying power.. -->
+    <string name="usb_power_notification_message">Yn gwefru\'r ddyfais a gysylltwyd. Tapia am ragor o opsiynau.</string>
     <!-- USB_PREFERENCES: Notification for when a type-c USB audio accessory is attached but not supported.  This is the title -->
     <string name="usb_unsupported_audio_accessory_title">Synhwyrwyd ategolyn sain analog</string>
     <!-- Message of notification shown when a type-c USB audio accessory is attached but not supported. -->
-    <string name="usb_unsupported_audio_accessory_message">Nid yw\'r ddyfais sydd wedi\'i chysylltu yn gydnaws â\'r ffôn hwn. Tara i ddysgu mwy.</string>
+    <string name="usb_unsupported_audio_accessory_message">Nid yw\'r ddyfais sydd wedi\'i chysylltu yn gydnaws â\'r ffôn hwn. Tapia i ddysgu mwy.</string>
     <!-- Title of notification shown when ADB is actively connected to the phone. -->
     <string name="adb_active_notification_title">Dadfygio USB wedi cysylltu</string>
     <!-- Message of notification shown when ADB is actively connected to the phone. -->
-    <string name="adb_active_notification_message">Tara i analluogi dadfygio USB.</string>
+    <string name="adb_active_notification_message">Tapia i analluogi dadfygio USB</string>
     <string name="adb_active_notification_message" product="tv">Dewisa i analluogi dadfygio USB.</string>
     <!-- Title of notification shown to indicate that bug report is being collected. -->
     <string name="taking_remote_bugreport_notification_title">Yn cymryd adroddiad gwall\u2026</string>
@@ -2575,7 +2702,9 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="select_keyboard_layout_notification_title">Ffurfweddu bysellfwrdd corfforol</string>
     <!-- Message of the notification to prompt the user to configure physical keyboard settings
          where the user can associate language with physical keyboard layout. -->
-    <string name="select_keyboard_layout_notification_message">Tara i ddewis iaith a gosodiad</string>
+    <string name="select_keyboard_layout_notification_message">Tapia i ddewis iaith a gosodiad</string>
+    <string name="fast_scroll_alphabet">\u0020ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="fast_scroll_numeric_alphabet">\u00200123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <!-- Alert windows notification strings -->
     <!-- Name of notification channel group the system post notification to inform the use about apps
          that are drawing ui on-top of other apps (alert-windows) [CHAR LIMIT=NONE] -->
@@ -2590,35 +2719,45 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
          [CHAR LIMIT=NONE] -->
     <string name="alert_windows_notification_message">Os nad wyt ti eisiau i <xliff:g id="name" example="Google Maps">%s</xliff:g> defnyddio’r nodwedd hon, tara i agor gosodiadau a\'i droi i ffwrdd.</string>
     <!-- Notification action to turn-off app displaying on-top of other apps. [CHAR LIMIT=20] -->
+    <string name="alert_windows_notification_turn_off_action">Troi i ffwrdd</string>
     <!-- External media notification strings -->
     <!-- Notification title when external media is being checked [CHAR LIMIT=30] -->
+    <string name="ext_media_checking_notification_title">Yn gwirio <xliff:g id="name" example="SD card">%s</xliff:g>\u2026</string>
     <!-- Notification body when external media is being checked [CHAR LIMIT=NONE] -->
+    <string name="ext_media_checking_notification_message">Yn adolygu\'r cynnwys cyfredol</string>
     <!-- Notification body when new external media is detected [CHAR LIMIT=30] -->
+    <string name="ext_media_new_notification_title"><xliff:g id="name" example="SD card">%s</xliff:g> newydd</string>
     <!-- Notification body when new external media is detected [CHAR LIMIT=NONE] -->
-    <string name="ext_media_new_notification_message">Tara i\'w osod</string>
+    <string name="ext_media_new_notification_message">Tapia i\'w osod</string>
     <!-- Notification body when external media is ready for use [CHAR LIMIT=NONE] -->
     <string name="ext_media_ready_notification_message">I drosglwyddo lluniau a chyfryngau</string>
     <!-- Notification title when external media is unmountable (corrupt) [CHAR LIMIT=30] -->
+    <string name="ext_media_unmountable_notification_title">Problem gyda <xliff:g id="name" example="SD card">%s</xliff:g></string>
     <!-- Notification body when external media is unmountable (corrupt) [CHAR LIMIT=NONE] -->
-    <string name="ext_media_unmountable_notification_message">Tara i drwsio</string>
+    <string name="ext_media_unmountable_notification_message">Tapia i drwsio</string>
     <!-- TV-specifiv notification body when external media is unmountable (corrupt) [CHAR LIMIT=NONE] -->
     <string name="ext_media_unmountable_notification_message" product="tv">Mae <xliff:g id="name" example="SD card">%s</xliff:g> yn llwgr. Dewisa i drwsio.</string>
     <!-- Notification title when external media is unsupported [CHAR LIMIT=30] -->
     <string name="ext_media_unsupported_notification_title"><xliff:g id="name" example="SD card">%s</xliff:g> anghydnaws</string>
     <!-- Notification body when external media is unsupported [CHAR LIMIT=NONE] -->
-    <string name="ext_media_unsupported_notification_message">Nid yw\'r ddyfais hon yn cefnogi\'r <xliff:g id="name" example="SD card">%s</xliff:g> yma. Tara i\'w osod mewn fformat sy\'n gydnaws.</string>
+    <string name="ext_media_unsupported_notification_message">Nid yw\'r ddyfais hon yn cefnogi\'r <xliff:g id="name" example="SD card">%s</xliff:g> yma. Tapia i\'w osod mewn fformat sy\'n gydnaws.</string>
     <!-- TV-specific notification body when external media is unsupported [CHAR LIMIT=NONE] -->
     <string name="ext_media_unsupported_notification_message" product="tv">Nid yw\'r ddyfais hon yn cefnogi\'r <xliff:g id="name" example="SD card">%s</xliff:g> yma. Dewisa i\'w osod mewn fformat sy\'n gydnaws.</string>
     <!-- Notification title when external media is unsafely removed [CHAR LIMIT=30] -->
     <string name="ext_media_badremoval_notification_title">Tynnwyd <xliff:g id="name" example="SD card">%s</xliff:g> yn annisgwyl</string>
     <!-- Notification body when external media is unsafely removed [CHAR LIMIT=NONE] -->
+    <string name="ext_media_badremoval_notification_message">Dadfowntia gyfrwng cyn ei dynnu allan er mwyn osgoi golli data</string>
     <!-- Notification title when external media is missing [CHAR LIMIT=30] -->
+    <string name="ext_media_nomedia_notification_title">Cafodd <xliff:g id="name" example="SD card">%s</xliff:g> ei dynnu</string>
     <!-- Notification body when external media is missing [CHAR LIMIT=NONE] -->
+    <string name="ext_media_nomedia_notification_message">Mae\'n bosib na fydd rhai nodweddion yn gweithio\'n gywir. Gosoda storfa newydd.</string>
     <!-- Notification title when external media is unmounting [CHAR LIMIT=30] -->
+    <string name="ext_media_unmounting_notification_title">Yn dadfowntio <xliff:g id="name" example="SD card">%s</xliff:g></string>
     <!-- Notification body when external media is unmounting [CHAR LIMIT=NONE] -->
     <!-- Notification action to setup external media [CHAR LIMIT=20] -->
     <string name="ext_media_init_action">Gosod</string>
     <!-- Notification action to unmount external media [CHAR LIMIT=20] -->
+    <string name="ext_media_unmount_action">Dadfowntio</string>
     <!-- Notification action to browse external media [CHAR LIMIT=20] -->
     <string name="ext_media_browse_action">Archwilio</string>
     <!-- Notification title when external media is missing [CHAR LIMIT=30] -->
@@ -2629,12 +2768,17 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Notification title when moving data to external storage [CHAR LIMIT=32] -->
     <string name="ext_media_move_title">Yn symud data</string>
     <!-- Notification title when moving data to external storage [CHAR LIMIT=32] -->
+    <string name="ext_media_move_success_title">Trosglwyddiad cynnwys wedi\'i gwblhau</string>
     <!-- Notification title when moving data to external storage [CHAR LIMIT=64] -->
+    <string name="ext_media_move_success_message">Cynnwys wedi\'i symud i <xliff:g id="name" example="SD card">%s</xliff:g></string>
     <!-- Notification title when moving data to external storage failed [CHAR LIMIT=32] -->
+    <string name="ext_media_move_failure_title">Methwyd â symud y cynnwys</string>
     <!-- Notification title when moving data to external storage failed [CHAR LIMIT=64] -->
+    <string name="ext_media_move_failure_message">Rho gynnig arall ar symud y cynnwys</string>
     <!-- Short summary of storage media status when removed [CHAR LIMIT=32] -->
     <string name="ext_media_status_removed">Tynnwyd</string>
     <!-- Short summary of storage media status when unmounted [CHAR LIMIT=32] -->
+    <string name="ext_media_status_unmounted">Wedi dadfowntio</string>
     <!-- Short summary of storage media status when checking [CHAR LIMIT=32] -->
     <string name="ext_media_status_checking">Yn gwirio\u2026</string>
     <!-- Short summary of storage media status when mounted [CHAR LIMIT=32] -->
@@ -2648,6 +2792,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Short summary of storage media status when unsupported [CHAR LIMIT=32] -->
     <string name="ext_media_status_unsupported">Heb gymorth</string>
     <!-- Short summary of storage media status when ejecting [CHAR LIMIT=32] -->
+    <string name="ext_media_status_ejecting">Yn dadfowntio\u2026</string>
     <!-- Short summary of storage media status when formatting [CHAR LIMIT=32] -->
     <string name="ext_media_status_formatting">Yn fformatio\u2026</string>
     <!-- Short summary of storage media status when missing [CHAR LIMIT=32] -->
@@ -2655,6 +2800,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Shown in LauncherActivity when the requested target Intent didn't return any matching Activities, leaving the list empty. -->
     <string name="activity_list_empty">Ni chanfuwyd unrhyw weithredoedd.</string>
     <!-- Title of an application permission that lets an application route media output. -->
+    <string name="permlab_route_media_output">llwybro allbwn cyfryngau</string>
     <!-- Description of an application permission that lets an application route media output. -->
     <string name="permdesc_route_media_output">Mae\'n caniatáu i ap ddargyfeirio allbwn cyfryngau i ddyfeisiau eraill.</string>
     <!-- Title of an application permission that lets it read install sessions. -->
@@ -2674,7 +2820,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Description of an application permission that lets it ask user to ignore battery optimizations for that app-->
     <string name="permdesc_requestIgnoreBatteryOptimizations">Mae\'n caniatáu i ap ofyn am ganiatâd i anwybyddu gosodiadau arbed batri ar gyfer yr ap hwnnw.</string>
     <!-- Shown in the tutorial for tap twice for zoom control. -->
-    <string name="tutorial_double_tap_to_zoom_message_short">Tara dwywaith am reolaeth chwyddo</string>
+    <string name="tutorial_double_tap_to_zoom_message_short">Tapia dwywaith am reolaeth chwyddo</string>
     <!-- Shown in gadget hosts (e.g. the home screen) when there was an error inflating
     the gadget. -->
     <string name="gadget_host_error_inflating">Methwyd ag ychwanegu’r teclyn.</string>
@@ -2691,6 +2837,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- [CHAR LIMIT=6] Long label for a button on a full-screen input method for the "Previous" action. -->
     <string name="ime_action_previous">Blaenorol</string>
     <!-- Long label for a button on a full-screen input method for an unknown action. -->
+    <string name="ime_action_default">Gweithredu</string>
     <!-- Strings for search suggestions. These are going here because they are referenced by both
          ContactsProvider and GoogleContactsProvider -->
     <!-- This string appears (on two lines) when you type a number into contacts search, to let you dial the phone number you typed.  The first line will be in bigger type than the second. -->
@@ -2723,28 +2870,36 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="chooser_wallpaper">Newid y papur wal</string>
     <!-- Label to show for a service that is running because it is observing
          the user's notifications. -->
+    <string name="notification_listener_binding_label">Gwrandawydd hysbysiadau</string>
     <!-- Label to show for a service that is running because the system is in VR mode. -->
     <string name="vr_listener_binding_label">Gwrandäwr VR</string>
     <!-- Label to show for a service that is running because it is providing conditions. -->
+    <string name="condition_provider_service_binding_label">Darparwr amodau</string>
     <!-- Label to show for a service that is running because it is observing and modifying the
          importance of the user's notifications. -->
     <string name="notification_ranker_binding_label">Gwasanaeth blaenoriaethu hysbysiadau</string>
     <!-- Do Not Translate: Alternate eri.xml -->
+    <string name="alternate_eri_file">/data/eri.xml</string>
     <!-- The title of the notification when VPN is active. -->
     <string name="vpn_title">VPN wedi\'i gweithredu</string>
     <!-- The title of the notification when VPN is active with an application name. -->
+    <string name="vpn_title_long">Rhoddir VPN ar waith gan <xliff:g id="app" example="FooVPN client">%s</xliff:g></string>
     <!-- The text of the notification when VPN is active. -->
-    <string name="vpn_text">Tara i reoli\'r rhwydwaith.</string>
+    <string name="vpn_text">Tapia i reoli\'r rhwydwaith.</string>
     <!-- The text of the notification when VPN is active with a session name. -->
-    <string name="vpn_text_long">Wedi cysylltu â <xliff:g id="session" example="office">%s</xliff:g>. Tara i reoli\'r rhwydwaith.</string>
+    <string name="vpn_text_long">Wedi cysylltu â <xliff:g id="session" example="office">%s</xliff:g>. Tapia i reoli\'r rhwydwaith.</string>
     <!-- Notification title when connecting to always-on VPN, a VPN that's set to always stay
          connected. -->
+    <string name="vpn_lockdown_connecting">VPN ymlaen-o-hyd yn cysylltu\u2026</string>
     <!-- Notification title when connected to always-on VPN, a VPN that's set to always stay
          connected. -->
+    <string name="vpn_lockdown_connected">VPN ymlaen-o-hyd wedi cysylltu</string>
     <!-- Notification title when not connected to always-on VPN, a VPN that's set to always stay
          connected. -->
+    <string name="vpn_lockdown_disconnected">Datgysylltwyd o\'r VPN ymlaen-o-hyd</string>
     <!-- Notification title when error connecting to always-on VPN, a VPN that's set to always stay
          connected. -->
+    <string name="vpn_lockdown_error">Methwyd â chysylltu â\'r VPN ymlaen-o-hyd</string>
     <!-- Notification body that indicates user can touch to configure always-on VPN, a VPN that's
          set to always stay connected. -->
     <string name="vpn_lockdown_config">Newid gosodiadau rhwydwaith neu VPN</string>
@@ -2759,14 +2914,17 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="submit">Cyflwyno</string>
     <!-- Strings for car mode notification -->
     <!-- Shown when car mode is enabled -->
+    <string name="car_mode_disable_notification_message">Tapia i adael yr ap gyrru.</string>
     <!-- Strings for tethered notification -->
     <!-- Shown when the device is tethered -->
     <string name="tethered_notification_title">Tenynnu USB neu fan cysylltiad Wi-Fi yn weithredol</string>
-    <string name="tethered_notification_message">Tara i osod.</string>
+    <string name="tethered_notification_message">Tapia i osod.</string>
     <!-- Strings for tether disabling notification -->
     <!-- This notification is shown when tethering has been disabled on a user's device.
     The device is managed by the user's employer. Tethering can't be turned on unless the
     IT administrator allows it. The noun "admin" is another reference for "IT administrator." -->
+    <string name="disable_tether_notification_title">Mae tenynnu wedi\'i analluogi</string>
+    <string name="disable_tether_notification_message">Cysyllta â dy weinyddwr am fanylion</string>
     <!--  Strings for possible PreferenceActivity Back/Next buttons -->
     <string name="back_button_label">Nôl</string>
     <string name="next_button_label">Nesaf</string>
@@ -2817,18 +2975,22 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
          Translation should not be longer than master text. -->
     <string name="gpsNotifMessage">Gwnaed cais gan <xliff:g id="name">%1$s</xliff:g> (<xliff:g id="service" example="SUPL-service">%2$s</xliff:g>)</string>
     <!-- Network positioning verification Yes. Button to push to share location information. -->
+    <string name="gpsVerifYes">Iawn</string>
     <!-- Network positioning verification No. Button to push to deny sharing of location
          information. -->
     <string name="gpsVerifNo">Na</string>
     <!-- Error message when the sync tried to delete too many things -->
+    <string name="sync_too_many_deletes">Dileuwyd mwy na chaniateir</string>
     <!-- Dialog message for when there are too many deletes that would take place and we want user confirmation -->
     <string name="sync_too_many_deletes_desc">Mae yna <xliff:g id="number_of_deleted_items">%1$d</xliff:g> eitem wedi\'u dileu ar gyfer <xliff:g id="type_of_sync">%2$s</xliff:g>, cyfrif <xliff:g id="account_name">%3$s</xliff:g>. Beth wyt ti am wneud?</string>
     <!-- Dialog action for when there are too many deletes that would take place and we want user confirmation, and the user wants to delete the items -->
     <string name="sync_really_delete">Dileu\'r eitemau</string>
     <!-- Dialog action for when there are too many deletes that would take place and we want user confirmation, and the user wants to undo the deletions -->
+    <string name="sync_undo_deletes">Dad-wneud y dileu</string>
     <!-- Dialog action for when there are too many deletes that would take place and we want user confirmation, and the user wants to do nothing for now -->
     <string name="sync_do_nothing">Gwneud dim byd am y tro</string>
     <!-- Choose Account Activity label -->
+    <string name="choose_account_label">Dewisa gyfrif</string>
     <string name="add_account_label">"Ychwanegu cyfrif"</string>
     <!-- List item to add an account [CHAR LIMIT=20] -->
     <string name="add_account_button_label">Ychwanegu cyfrif</string>
@@ -2893,15 +3055,16 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="activitychooserview_choose_application_error">Methwyd â lansio <xliff:g id="application_name" example="Acme">%s</xliff:g></string>
     <!-- ShareActionProvider - accessibility support -->
     <!-- Description of the choose target button in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] -->
-    <string name="shareactionprovider_share_with">Rhannu gyda</string>
+    <string name="shareactionprovider_share_with">Rhannu trwy</string>
     <!-- Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] -->
-    <string name="shareactionprovider_share_with_application">Rhannu gyda <xliff:g id="application_name" example="Bluetooth">%s</xliff:g></string>
+    <string name="shareactionprovider_share_with_application">Rhannu trwy <xliff:g id="application_name" example="Bluetooth">%s</xliff:g></string>
     <!-- Slide lock screen -->
     <!-- Description of the sliding handle in the Slide unlock screen. [CHAR LIMIT=NONE] -->
     <string name="content_description_sliding_handle">"Handlen sy'n llithro. Cyffyrdda a'i dal."</string>
     <!-- Description of the unlock handle in the Slide unlock screen for tablets. [CHAR LIMIT=NONE] -->
     <string name="description_target_unlock_tablet">Llusga i ddatgloi.</string>
     <!-- Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] -->
+    <string name="action_bar_home_description">Llywio i gartref</string>
     <!-- Content description for the action bar "up" affordance. [CHAR LIMIT=NONE] -->
     <string name="action_bar_up_description">Llywio i fyny</string>
     <!-- Content description for the action menu overflow button. [CHAR LIMIT=NONE] -->
@@ -2916,6 +3079,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
          if the window is also providing subtitle text.
          %1$s is the title. %2$s is the subtitle. %3$s is the description of what
          tapping/clicking the whole thing is going to do. -->
+    <string name="action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
     <!-- Storage description for internal shared storage. [CHAR LIMIT=NONE] -->
     <string name="storage_internal">Storfa fewnol sy\'n cael ei rannu</string>
     <!-- Storage description for a generic SD card. [CHAR LIMIT=NONE] -->
@@ -2931,22 +3095,31 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Button text for the edit menu in input method extract mode. [CHAR LIMIT=16] -->
     <string name="extract_edit_menu_button">Golygu</string>
     <!-- Notification title when data usage has exceeded warning threshold. [CHAR LIMIT=50] -->
+    <string name="data_usage_warning_title">Rhybudd data</string>
     <!-- Notification body when data usage has exceeded warning threshold. [CHAR LIMIT=32] -->
+    <string name="data_usage_warning_body">Rwyt wedi defnyddio <xliff:g id="app" example="3.8GB">%s</xliff:g> o ddata</string>
     <!-- Notification title when mobile data usage has exceeded limit threshold, and has been disabled. [CHAR LIMIT=50] -->
     <string name="data_usage_mobile_limit_title">Wedi cyrraedd terfyn data symudol</string>
     <!-- Notification title when Wi-Fi data usage has exceeded limit threshold, and has been disabled. [CHAR LIMIT=32] -->
     <string name="data_usage_wifi_limit_title">Wedi cyrraedd terfyn data Wi-Fi</string>
     <!-- Notification body when data usage has exceeded limit threshold, and has been disabled. -->
+    <string name="data_usage_limit_body">Defnydd data wedi\'i oedi am weddill y cyfnod</string>
     <!-- Notification title when mobile data usage has exceeded limit threshold. [CHAR LIMIT=32] -->
+    <string name="data_usage_mobile_limit_snoozed_title">Dros dy derfyn data symudol</string>
     <!-- Notification title when Wi-Fi data usage has exceeded limit threshold. [CHAR LIMIT=32] -->
+    <string name="data_usage_wifi_limit_snoozed_title">Dros dy derfyn data Wi-Fi</string>
     <!-- Notification body when data usage has exceeded limit threshold. -->
+    <string name="data_usage_limit_snoozed_body">Rwyt wedi defnyddio <xliff:g id="size" example="3.8GB">%s</xliff:g> dros y terfyn a osodwyd</string>
     <!-- Notification title when background data usage is limited. [CHAR LIMIT=32] -->
     <string name="data_usage_restricted_title">Mae cyfyngiad ar ddata cefndirol</string>
     <!-- Notification body when background data usage is limited. -->
-    <string name="data_usage_restricted_body">Tara i dynnu\'r cyfyngiad.</string>
+    <string name="data_usage_restricted_body">Tapia i dynnu\'r cyfyngiad.</string>
     <!-- Notification title when there has been recent excessive data usage. [CHAR LIMIT=32] -->
+    <string name="data_usage_rapid_title">Defnydd uchel o ddata symudol</string>
     <!-- Notification body when there has been recent excessive data usage. [CHAR LIMIT=128] -->
+    <string name="data_usage_rapid_body">Mae dy apiau wedi defnyddio mwy o ddata nag arfer</string>
     <!-- Notification body when there has been recent excessive data usage by a specific app. [CHAR LIMIT=128] -->
+    <string name="data_usage_rapid_app_body">Mae <xliff:g id="app" example="Calculator">%s</xliff:g> wedi defnyddio mwy o ddata nag arfer</string>
     <!-- SSL Certificate dialogs -->
     <!-- Title for an SSL Certificate dialog -->
     <string name="ssl_certificate">Tystysgrif diogelwch</string>
@@ -2979,9 +3152,9 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Title for a button to expand the list of activities in ActivityChooserView [CHAR LIMIT=25] -->
     <string name="activity_chooser_view_see_all">Gweld y cwbl</string>
     <!-- Title default for a dialog showing possible activities in ActivityChooserView [CHAR LIMIT=25] -->
-    <string name="activity_chooser_view_dialog_title_default">Dewis gweithred</string>
+    <string name="activity_chooser_view_dialog_title_default">Dewis gweithgaredd</string>
     <!-- Title for a dialog showing possible activities for sharing in ShareActionProvider [CHAR LIMIT=25] -->
-    <string name="share_action_provider_share_with">Rhannu gyda</string>
+    <string name="share_action_provider_share_with">Rhannu trwy</string>
     <!-- STK sending DTMF, SMS, USSD, SS -->
     <string name="sending">Yn anfon\u2026</string>
     <!-- STK launch Browser -->
@@ -2990,7 +3163,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="SetupCallDefault">Derbyn y galwad?</string>
     <!-- Title for a button to choose the currently selected activity
          as the default in the activity resolver. [CHAR LIMIT=25] -->
-    <string name="activity_resolver_use_always">Bob amser</string>
+    <string name="activity_resolver_use_always">Pob amser</string>
     <!-- Title for a button to choose the currently selected activity
          from the activity resolver to use just this once. [CHAR LIMIT=25] -->
     <string name="activity_resolver_use_once">Unwaith yn unig</string>
@@ -3007,17 +3180,20 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
          a headphone or other wired audio output jack. [CHAR LIMIT=50] -->
     <string name="default_audio_route_name" product="default">Ffôn</string>
     <!-- Name of the default audio route when an audio dock is connected. [CHAR LIMIT=50] -->
+    <string name="default_audio_route_name_dock_speakers">Seinyddion doc</string>
     <!-- Name of the default audio route when HDMI is connected. [CHAR LIMIT=50] -->
     <string name="default_audio_route_name_hdmi">HDMI</string>
     <!-- Name of the default audio route when wired headphones are
          connected. [CHAR LIMIT=50] -->
     <string name="default_audio_route_name_headphones">Clustffonau</string>
     <!-- Name of the default audio route when USB is connected. [CHAR LIMIT=50] -->
+    <string name="default_audio_route_name_usb">USB</string>
     <!-- Name of the default audio route category. [CHAR LIMIT=50] -->
     <string name="default_audio_route_category_name">System</string>
     <!-- Description of the bluetooth a2dp audio route. [CHAR LIMIT=50] -->
     <string name="bluetooth_a2dp_audio_route_name">Sain Bluetooth</string>
     <!-- Description of a wireless display route. [CHAR LIMIT=50] -->
+    <string name="wireless_display_route_description">Dangosydd diwifr</string>
     <!-- Content description of a MediaRouteButton for accessibility support.
         Cast is the standard android verb for sending content to a remote device. [CHAR LIMIT=50] -->
     <string name="media_route_button_content_description">Bwrw</string>
@@ -3043,6 +3219,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="media_route_status_in_use">Mewn defnydd</string>
     <!-- Display manager service -->
     <!-- Name of the built-in display.  [CHAR LIMIT=50] -->
+    <string name="display_manager_built_in_display_name">Sgrin sy\'n rhan o\'r ddyfais</string>
     <!-- Name of the HDMI display.  [CHAR LIMIT=50] -->
     <string name="display_manager_hdmi_display_name">Sgrin HDMI</string>
     <!-- Name of the N'th overlay display for testing.  [CHAR LIMIT=50] -->
@@ -3061,6 +3238,14 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <!-- Message shown when user enters wrong PIN -->
     <string name="kg_wrong_pin">PIN Anghywir</string>
     <!-- Countdown message shown after too many failed unlock attempts -->
+    <plurals name="kg_too_many_failed_attempts_countdown">
+        <item quantity="zero">Rho gynnig arall arni ymhen <xliff:g id="number">%d</xliff:g> eiliadau.</item>
+        <item quantity="one">Rho gynnig arall arni ymhen 1 eiliad.</item>
+        <item quantity="two">Rho gynnig arall arni ymhen <xliff:g id="number">%d</xliff:g> eiliad.</item>
+        <item quantity="few">Rho gynnig arall arni ymhen <xliff:g id="number">%d</xliff:g> eiliad.</item>
+        <item quantity="many">Rho gynnig arall arni ymhen <xliff:g id="number">%d</xliff:g> eiliad.</item>
+        <item quantity="other">Rho gynnig arall arni ymhen <xliff:g id="number">%d</xliff:g> eiliad.</item>
+    </plurals>
     <!-- Instructions for using the pattern unlock screen -->
     <string name="kg_pattern_instructions">Rho dy batrwm</string>
     <!-- Instructions for using the SIM PIN unlock screen -->
@@ -3149,6 +3334,7 @@ Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, mi fydd g
 Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </string>
     <!-- Sequence of characters used to separate message strings in keyguard. Typically just em-dash
          with spaces on either side. [CHAR LIMIT=3] -->
+    <string name="kg_text_message_separator" product="default">" \u2014 "</string>
     <!-- The delete-widget drop target button text -->
     <string name="kg_reordering_delete_drop_target_text">Tynnu</string>
     <!-- Message shown in dialog when user is attempting to set the music volume above the
@@ -3171,8 +3357,10 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <string name="leave_accessibility_shortcut_on">Defnyddio Llwybr Byr</string>
     <!-- Title of Color Inversion feature shown in the warning dialog about the accessibility
     shortcut. -->
+    <string name="color_inversion_feature_name">Gwrthdroad Lliwiau</string>
     <!-- Title of Color Correction feature, which is mostly used to help users who are colorblind,
      shown in the warning dialog about the accessibility shortcut. -->
+    <string name="color_correction_feature_name">Cywiriad Lliw</string>
     <!-- Text in toast to alert the user that the accessibility shortcut turned on an accessibility
     service.-->
     <string name="accessibility_shortcut_enabling_service">Mae Llwybr Byr Hygyrchedd wedi troi <xliff:g id="service_name" example="TalkBack">%1$s</xliff:g> ymlaen</string>
@@ -3362,6 +3550,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Japanese Kaku2 media (paper) size: 240mm x 332mm (9.449" x 13.071") -->
     <string name="mediasize_japanese_kaku2">Kaku2 (Japan)</string>
     <!-- Japanese You4 media (paper) size: 105mm x 235mm (4.134" x 9.252") -->
+    <string name="mediasize_japanese_you4">You4 (Siapan)</string>
     <!-- Media (paper) size for specifying any paper size in portrait.-->
     <string name="mediasize_unknown_portrait">Darlun anhysbys</string>
     <!-- Media (paper) size for specifying any paper size in landscape.-->
@@ -3377,7 +3566,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Title for the notification that a print service was installed. [CHAR LIMIT=50] -->
     <string name="print_service_installed_title">Gosodwyd gwasanaeth <xliff:g id="name" example="Cloud Print">%s</xliff:g></string>
     <!-- Message for the notification that a print service was installed. [CHAR LIMIT=50] -->
-    <string name="print_service_installed_message">Tara i\'w alluogi</string>
+    <string name="print_service_installed_message">Tapia i\'w alluogi</string>
     <!-- PIN entry dialog title for entering the administrator PIN [CHAR LIMIT=none] -->
     <string name="restr_pin_enter_admin_pin">Rho PIN gweinyddwr</string>
     <!-- PIN entry dialog label/hint for PIN [CHAR LIMIT=none] -->
@@ -3447,11 +3636,17 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <string name="managed_profile_label_badge_2">2ail <xliff:g id="label" example="Email">%1$s</xliff:g> Gwaith</string>
     <string name="managed_profile_label_badge_3">3ydd <xliff:g id="label" example="Email">%1$s</xliff:g> Gwaith</string>
     <!-- DO NOT TRANSLATE -->
+    <string name="time_placeholder">--</string>
     <!-- DO NOT TRANSLATE -->
+    <string name="radial_numbers_typeface">sans-serif</string>
     <!-- DO NOT TRANSLATE -->
+    <string name="sans_serif">sans-serif</string>
     <!-- DO NOT TRANSLATE -->
+    <string name="date_picker_month_typeface">sans-serif-medium</string>
     <!-- DO NOT TRANSLATE -->
+    <string name="date_picker_day_of_week_typeface">sans-serif-medium</string>
     <!-- DO NOT TRANSLATE -->
+    <string name="date_picker_day_typeface">sans-serif-medium</string>
     <!-- Lock-to-app unlock pin string -->
     <string name="lock_to_app_unlock_pin">Gofyn am PIN cyn dadbinio</string>
     <!-- Lock-to-app unlock pattern string -->
@@ -3465,7 +3660,9 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Notification shown when device owner silently deletes a package [CHAR LIMIT=NONE] -->
     <string name="package_deleted_device_owner">Dileuwyd gan dy weinyddwr</string>
     <!-- [CHAR_LIMIT=NONE] Battery saver: Feature description, with a "learn more" link. -->
+    <string name="battery_saver_description_with_learn_more">I ymestyn oes dy fatri, mae\'r Arbedwr Batri yn troi rhai nodweddion y ddyfais i ffwrdd ac yn cyfyngu apiau. <annotation id="url">Dysgu mwy</annotation></string>
     <!-- [CHAR_LIMIT=NONE] Battery saver: Feature description, without a "learn more" link. -->
+    <string name="battery_saver_description">I ymestyn oes dy fatri, mae\'r Arbedwr Batri yn troi rhai nodweddion y ddyfais i ffwrdd ac yn rhwystro apiau.</string>
     <!-- [CHAR_LIMIT=NONE] Data saver: Feature description -->
     <string name="data_saver_description">I helpu lleihau defnydd data, mae Arbedwr Data yn rhwystro rhai apiau rhag anfon neu dderbyn data yn y cefndir. Gall ap gael mynediad at ddata tra ei fod yn cael ei ddefnyddio, ond yn llai aml. Mae hyn yn golygu, er enghraifft, na fydd delweddau efallai yn dangos nes dy fod yn eu taro nhw.</string>
     <!-- [CHAR_LIMIT=35] Data saver: Title on first-time dialog -->
@@ -3491,6 +3688,14 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
         <item quantity="other">Am %1$d mun (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
     </plurals>
     <!-- Zen mode condition - summary: time duration in hours. [CHAR LIMIT=NONE] -->
+    <plurals name="zen_mode_duration_hours_summary">
+        <item quantity="zero">Am %1$d oriau (hyd at <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="one">Am 1 awr (hyd at <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="two">Am %1$d awr (hyd at <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="few">Am %1$d awr (hyd at <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="many">Am %1$d awr (hyd at <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+        <item quantity="other">Am %1$d awr (hyd at <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
+    </plurals>
     <!-- Zen mode condition - summary: time duration in hours (short version). [CHAR LIMIT=NONE] -->
     <plurals name="zen_mode_duration_hours_summary_short">
         <item quantity="zero">Am %1$d awr (nes <xliff:g id="formattedTime" example="10:00 PM">%2$s</xliff:g>)</item>
@@ -3519,6 +3724,14 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
         <item quantity="other">Am %d munud</item>
     </plurals>
     <!-- Zen mode condition - line one: time duration in hours. [CHAR LIMIT=NONE] -->
+    <plurals name="zen_mode_duration_hours">
+        <item quantity="zero">Am %d oriau</item>
+        <item quantity="one">Am 1 awr</item>
+        <item quantity="two">Am %d awr</item>
+        <item quantity="few">Am %d awr</item>
+        <item quantity="many">Am %d awr</item>
+        <item quantity="other">Am %d awr</item>
+    </plurals>
     <!-- Zen mode condition - line one: time duration in hours (short version). [CHAR LIMIT=NONE] -->
     <plurals name="zen_mode_duration_hours_short">
         <item quantity="zero">Am %d oriau</item>
@@ -3533,14 +3746,17 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Zen mode condition - line one: Until next alarm. [CHAR LIMIT=NONE] -->
     <string name="zen_mode_alarm">Tan <xliff:g id="formattedTime" example="10:00 PM">%1$s</xliff:g> (larwm nesaf)</string>
     <!-- Zen mode condition: no exit criteria. [CHAR LIMIT=NONE] -->
+    <string name="zen_mode_forever">Nes dy fod yn ei ddiffodd</string>
     <!-- Zen mode condition: no exit criteria, includes the name of the feature for emphasis. [CHAR LIMIT=NONE] -->
     <string name="zen_mode_forever_dnd">Nes dy fod yn diffodd Dim Tarfu</string>
     <!-- Zen mode active automatic rule name separator. [CHAR LIMIT=NONE] -->
     <string name="zen_mode_rule_name_combination"><xliff:g id="first" example="Weeknights">%1$s</xliff:g> / <xliff:g id="rest" example="Meetings">%2$s</xliff:g></string>
     <!-- Content description for the Toolbar icon used to collapse an expanded action mode. [CHAR LIMIT=NONE] -->
+    <string name="toolbar_collapse_description">Lleihau</string>
     <!-- Zen mode - feature name. [CHAR LIMIT=40] -->
     <string name="zen_mode_feature_name">Dim tarfu</string>
     <!-- Zen mode - downtime legacy feature name. [CHAR LIMIT=40] -->
+    <string name="zen_mode_downtime_feature_name">Amser di-fynd</string>
     <!-- Zen mode - name of default automatic schedule for weeknights. [CHAR LIMIT=40] -->
     <string name="zen_mode_default_weeknights_name">Noswaith wythnos</string>
     <!-- Zen mode - name of default automatic schedule for weekends. [CHAR LIMIT=40] -->
@@ -3556,11 +3772,20 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <string name="system_error_manufacturer">Mae yna broblem fewnol gyda dy ddyfais. Cysyllta â\'r gwneuthurwr am fanylion.</string>
     <!-- Displayed when the USSD/SS request is modified by STK CC to a
     different request. This will be displayed in a toast. -->
+    <string name="stk_cc_ussd_to_dial">Newidiwyd cais USSD i alwad arferol</string>
+    <string name="stk_cc_ussd_to_ss">Newidiwyd cais USSD i gais SS</string>
+    <string name="stk_cc_ussd_to_ussd">Newidiwyd i gais USSD newydd</string>
+    <string name="stk_cc_ussd_to_dial_video">Newidiwyd cais USSD i alwad fideo</string>
+    <string name="stk_cc_ss_to_dial">Newidiwyd cais SS i alwad arferol</string>
+    <string name="stk_cc_ss_to_dial_video">Newidiwyd cais SS i alwad fideo</string>
+    <string name="stk_cc_ss_to_ussd">Newidiwyd cais SS i gais USSD</string>
+    <string name="stk_cc_ss_to_ss">Newidiwyd i gais SS newydd</string>
     <!-- Content description of the work profile icon in the notification. -->
     <string name="notification_work_profile_content_description">Proffil gwaith</string>
     <!-- Content description of the expand button icon in the notification when collaped.-->
     <string name="expand_button_content_description_collapsed">Ehangu</string>
     <!-- Content description of the expand button icon in the notification when expanded.-->
+    <string name="expand_button_content_description_expanded">Lleihau</string>
     <!-- Accessibility action description on the expand button. -->
     <string name="expand_action_accessibility">toglo ehangu</string>
     <!-- User visible name for USB MIDI Peripheral port -->
@@ -3573,6 +3798,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Content description for the button that opens the floating toolbar overflow. [CHAR LIMIT=NONE] -->
     <string name="floating_toolbar_open_overflow_description">Rhagor o ddewisiadau</string>
     <!-- Content description for the button that closes the floating toolbar overflow. [CHAR LIMIT=NONE] -->
+    <string name="floating_toolbar_close_overflow_description">Cau\'r gorlif</string>
     <!-- Free style window strings -->
     <!-- Accessibility text for the maximize window button -->
     <string name="maximize_button_text">Mwyhau</string>
@@ -3581,6 +3807,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Ellipsis character to appear in notification templates, e.g.
          notification_template_material_inbox.xml.
          DO NOT TRANSLATE -->
+    <string name="notification_inbox_ellipsis">\u2026</string>
     <!-- Tempalate for Notification.MessagingStyle to join a conversation name with the name of the sender of a message, to make a notification title [CHAR LIMIT=NONE] -->
     <string name="notification_messaging_title_template"><xliff:g id="conversation_title" example="Tîm Cyfieithu">%1$s</xliff:g>: <xliff:g id="sender_name" example="Aled Powell">%2$s</xliff:g></string>
     <!-- Label describing the number of selected items [CHAR LIMIT=48] -->
@@ -3616,16 +3843,22 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Menu item in the locale menu  [CHAR LIMIT=30] -->
     <string name="locale_search_menu">Chwilio</string>
     <!-- Title of the dialog that is shown when the user tries to launch a suspended application [CHAR LIMIT=50] -->
+    <string name="app_suspended_title">Ap ddim ar gael</string>
     <!-- Default message shown in the dialog that is shown when the user tries to launch a suspended application [CHAR LIMIT=NONE] -->
     <string name="app_suspended_default_message">Dyw <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> ddim ar gael ar hyn o bryd. Rheolir hyn gan <xliff:g id="app_name" example="Settings">%2$s</xliff:g>.
     </string>
     <!-- Title of the button to show users more details about why the app has been suspended [CHAR LIMIT=50]-->
+    <string name="app_suspended_more_details">Dysgu mwy</string>
     <!-- Title of a dialog. The string is asking if the user wants to turn on their work profile, which contains work apps that are managed by their employer. "Work" is an adjective. [CHAR LIMIT=30] -->
+    <string name="work_mode_off_title">Troi\'r proffil gwaith ymlaen?</string>
     <!-- Text in a dialog. This string describes what will happen if a user decides to turn on their work profile. "Work profile" is used as an adjective. [CHAR LIMIT=NONE] -->
+    <string name="work_mode_off_message">Caiff dy apiau, hysbysiadau, data a nodweddion eraill dy broffil gwaith eu troi ymlaen</string>
     <!-- Title for button to turn on work profile. [CHAR LIMIT=NONE] -->
     <string name="work_mode_turn_on">Troi ymlaen</string>
     <!-- Message displayed in dialog when app is too old to run on this verison of android. [CHAR LIMIT=NONE] -->
+    <string name="deprecated_target_sdk_message">Cafodd yr ap hwn ei adeiladu ar gyfer fersiwn gynharach o Android ac mae\'n bosib na fydd yn gweithio\'n gywir. Gwiria am ddiweddariadau neu gysylltu â\'r datblygwr.</string>
     <!-- Title for button to see application detail in app store which it came from - it may allow user to update to newer version. [CHAR LIMIT=50] -->
+    <string name="deprecated_target_sdk_app_store">Gwirio am ddiweddariad</string>
     <!-- Notification title shown when new SMS/MMS is received while the device is locked [CHAR LIMIT=NONE] -->
     <string name="new_sms_notification_title">Mae gennyt negeseuon newydd</string>
     <!-- Notification content shown when new SMS/MMS is received while the device is locked [CHAR LIMIT=NONE] -->
@@ -3633,17 +3866,17 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Notification title shown when user profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
     <string name="user_encrypted_title">Gall fod rhai nodweddion wedi eu cyfyngu</string>
     <!-- Notification message shown when user profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
-    <string name="user_encrypted_message">Tara i ddatgloi</string>
+    <string name="user_encrypted_message">Tapia i ddatgloi</string>
     <!-- Notification detail shown when user profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
     <string name="user_encrypted_detail">Mae data defnyddiwr ar glo</string>
     <!-- Notification detail shown when work profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
-    <string name="profile_encrypted_detail">Mae;r proffil gwaith ar glo</string>
+    <string name="profile_encrypted_detail">Mae\'r proffil gwaith ar glo</string>
     <!-- Notification message shown when work profile is credential encrypted and requires the user to unlock before some features are usable [CHAR LIMIT=30] -->
-    <string name="profile_encrypted_message">Tara i ddatgloi\'r proffil gwaith</string>
+    <string name="profile_encrypted_message">Tapia i ddatgloi\'r proffil gwaith</string>
     <!-- Title of notification shown after a MTP device is connected to Android. -->
     <string name="usb_mtp_launch_notification_title">Wedi cysylltu â <xliff:g id="product_name">%1$s</xliff:g></string>
     <!-- Description of notification shown after a MTP device is connected to Android. -->
-    <string name="usb_mtp_launch_notification_description">Tara i weld ffeiliau</string>
+    <string name="usb_mtp_launch_notification_description">Tapia i weld ffeiliau</string>
     <!-- Resolver target actions strings -->
     <!-- Pin (as in to a bulletin board with a pushpin) a resolver
          target to the front of the list. -->
@@ -3651,7 +3884,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Unpin a resolver target such that it sorts normally. -->
     <string name="unpin_target">Dadbinio</string>
     <!-- View application info for a target. -->
-    <string name="app_info">Gwybodaeth ap</string>
+    <string name="app_info">Gwybodaeth am yr ap</string>
     <!-- The representation of a time duration when negative. An example is -1:14. This can be used with a countdown timer for example.-->
     <string name="negative_duration">\u2212<xliff:g id="time" example="1:14">%1$s</xliff:g></string>
     <!-- Text of dialog shown when starting a demo user for the first time [CHAR LIMIT=40] -->
@@ -3663,6 +3896,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Label used by Telephony code, assigned as the display name for conference calls [CHAR LIMIT=60] -->
     <string name="conference_call">Galwad Grŵp</string>
     <!-- Window title for a tooltip [CHAR LIMIT=NONE] -->
+    <string name="tooltip_popup_title">Awgrym Offeryn</string>
     <!-- Category title for apps which are primarily games. [CHAR LIMIT=32] -->
     <string name="app_category_game">Gemau</string>
     <!-- Category title for apps which primarily work with audio or music, such as music players. [CHAR LIMIT=32] -->
@@ -3754,14 +3988,24 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <string name="notification_reply_button_accessibility">Ateb</string>
     <!-- Primary ETWS (Earthquake and Tsunami Warning System) default message for others -->
     <!-- Title of notification when UE fails CS registration with MM reject cause code from network. -->
+    <string name="mmcc_authentication_reject">Ni chaniateir SIM ar gyfer llais</string>
+    <string name="mmcc_imsi_unknown_in_hlr">SIM heb ei baratoi ar gyfer llais</string>
+    <string name="mmcc_illegal_ms">Ni chaniateir SIM ar gyfer llais</string>
+    <string name="mmcc_illegal_me">Ni chaniateir ff6on ar gyfer llais</string>
     <!-- Title of notification when UE fails to register network with MM reject cause code when multiple SIMs are active. -->
+    <string name="mmcc_authentication_reject_msim_template">Ni chaniateir SIM <xliff:g id="simNumber" example="1">%d</xliff:g></string>
+    <string name="mmcc_imsi_unknown_in_hlr_msim_template">Dyw\'r SIM <xliff:g id="simNumber" example="1">%d</xliff:g> heb ei baratoi</string>
+    <string name="mmcc_illegal_ms_msim_template">Ni chaniateir SIM <xliff:g id="simNumber" example="1">%d</xliff:g></string>
+    <string name="mmcc_illegal_me_msim_template">Ni chaniateir SIM <xliff:g id="simNumber" example="1">%d</xliff:g></string>
     <!-- Popup window default title to be read by a screen reader-->
     <string name="popup_window_default_title">Ffenestr Llaim</string>
     <!-- Format string for indicating there is more content in a slice view -->
+    <string name="slice_more_content">+ <xliff:g id="number" example="5">%1$d</xliff:g></string>
     <!--
     A toast message shown when an app shortcut that was restored from a previous device is clicked,
     but it cannot be started because the shortcut was created by a newer version of the app.
     -->
+    <string name="shortcut_restored_on_lower_version">Mae fersiwn yr ap wedi\'i israddio neu ddim yn gydnaws â\'r llwybr byr hwn</string>
     <!--
     A toast message shown when an app shortcut that was restored from a previous device is clicked,
     but it cannot be started because the shortcut was created by an app that doesn't support backup
@@ -3778,6 +4022,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     A toast message shown when an app shortcut is disabled for an unknown rason.
     -->
     <!-- Label for the uninstall button on the harmful app warning dialog. [CHAR LIMIT=20] -->
+    <string name="harmful_app_warning_uninstall">DADOSOD</string>
     <!-- Label for the open anyway button on the harmful app warning dialog. [CHAR LIMIT=20] -->
     <!-- Title for the harmful app warning dialog. [CHAR LIMIT=40] -->
     <!-- Text describing a permission request for one app to show another app's
@@ -3785,13 +4030,19 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <string name="slices_permission_request">Mae <xliff:g id="app" example="Example App">%1$s</xliff:g> eisiau dangos sleisiau <xliff:g id="app_2" example="Other Example App">%2$s</xliff:g></string>
     <!-- Notification action for editing a screenshot (drawing on it, cropping it, etc) -->
     <string name="screenshot_edit">Golygu</string>
+    <string name="volume_dialog_ringer_guidance_vibrate">Bydd galwadau a hysbysiadau yn dirgrynu</string>
+    <string name="volume_dialog_ringer_guidance_silent">Caiff galwadau a hysbysiadau eu distewi</string>
     <!-- Title for the notification channel notifying user of settings system changes. [CHAR LIMIT=NONE] -->
     <!-- Title for the notification channel notifying user of do not disturb system changes (i.e. Do Not Disturb has changed). [CHAR LIMIT=NONE] -->
     <string name="notification_channel_do_not_disturb">Dim Tarfu</string>
     <!-- Title of notification indicating do not disturb visual interruption settings have changed when upgrading to P -->
+    <string name="zen_upgrade_notification_visd_title">Newydd: Mae Dim Tarfu yn cuddio hysbysiadau</string>
     <!-- Content of notification indicating users can tap on the notification to go to dnd behavior settings -->
+    <string name="zen_upgrade_notification_visd_content">Tapia i ddysgu mwy ac i\'w newid.</string>
     <!-- Title of notification indicating do not disturb settings have changed when upgrading to P -->
+    <string name="zen_upgrade_notification_title">Mae Dim Tarfu wedi\'i newid</string>
     <!-- Content of notification indicating users can tap on the notification to go to dnd behavior settings -->
+    <string name="zen_upgrade_notification_content">Tapia i wirio pa beth(au) sydd wedi\'i rhwystro.</string>
     <!-- Application name displayed in notifications [CHAR LIMIT=60] -->
     <string name="notification_app_name_system">System</string>
     <!-- Application name displayed in notifications [CHAR LIMIT=60] -->
@@ -3802,6 +4053,8 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <!-- Content description of the mic icon in the notification. [CHAR LIMIT=NONE] -->
     <string name="notification_appops_microphone_active">Meicroffon</string>
     <!-- Content description of the overlay icon in the notification. [CHAR LIMIT=NONE] -->
+    <string name="notification_appops_overlay_active">dangos dros ben apiau eraill ar dy sgrin</string>
     <!-- Strings for car -->
     <!-- String displayed when loading a user in the car [CHAR LIMIT=30] -->
+    <string name="car_loading_profile">Yn llwytho</string>
 </resources>

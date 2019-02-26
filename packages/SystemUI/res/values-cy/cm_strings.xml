@@ -49,7 +49,14 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">Dangosydd amgylchynol wedi\'i droi ymlaen.</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caffîn</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffîn i ffwrdd.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffîn ymlaen.</string>
     <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Rhagrybudd</string>
+    <string name="accessibility_quick_settings_heads_up_off">Rhagrybudd i ffwrdd.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Rhagrybudd ymlaen.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Rhagrybudd wedi\'i droi i ffwrdd.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Rhagrybudd wedi\'i droi ymlaen.</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Modd darllen</string>
     <string name="accessibility_quick_settings_reading_mode_on">Modd darllen ymlaen.</string>
@@ -60,6 +67,8 @@
     <string name="quick_settings_sync_label">Cysoni</string>
     <string name="accessibility_quick_settings_sync_off">Cysoni i ffwrdd.</string>
     <string name="accessibility_quick_settings_sync_on">Cysoni ymlaen.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Cysoni wedi\'i droi i ffwrdd.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Cysoni wedi\'i droi ymlaen.</string>
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Tenynnu USB</string>
     <!-- Volume panel QS tile -->
@@ -72,4 +81,5 @@
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">I ddadbinio\'r sgrin, cyffyrdda a dal y botwm Nôl</string>
     <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Gwrthdroi\'r cynllun</string>
 </resources>

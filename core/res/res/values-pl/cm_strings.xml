@@ -35,6 +35,7 @@
     <string name="app_ops_assist_structure">wykorzystanie asystenta</string>
     <string name="app_ops_audio_accessibility_volume">głośność dźwięku ułatwień dostępu</string>
     <string name="app_ops_auto_start">uruchamianie podczas włączania urządzenia</string>
+    <string name="app_ops_bluetooth_scan">skanowanie bluetooth</string>
     <string name="app_ops_change_wallpaper">zmiana tapety</string>
     <string name="app_ops_delete_call_log">usuwanie dziennika połączeń</string>
     <string name="app_ops_delete_contacts">usuwanie kontaktów</string>

@@ -35,6 +35,8 @@
     <string name="app_ops_assist_structure">sử dụng cấu trúc hỗ trợ</string>
     <string name="app_ops_audio_accessibility_volume">âm lượng khả năng truy cập âm thanh</string>
     <string name="app_ops_auto_start">chạy lúc khởi động</string>
+    <string name="app_ops_bind_accessibility_service">ràng buộc khả năng truy cập</string>
+    <string name="app_ops_bluetooth_scan">quét bluetooth</string>
     <string name="app_ops_change_wallpaper">thay đổi hình nền</string>
     <string name="app_ops_delete_call_log">xóa nhật ký cuộc gọi của bạn</string>
     <string name="app_ops_delete_contacts">xóa danh bạ của bạn</string>
@@ -43,8 +45,10 @@
     <string name="app_ops_draw_on_top">hiện cửa sổ trên cùng</string>
     <string name="app_ops_get_accounts">lấy thông tin tài khoản thiết bị</string>
     <string name="app_ops_get_usage_stats">lấy thống kê sử dụng ứng dụng</string>
+    <string name="app_ops_accept_handover">bàn giao cuộc gọi từ một ứng dụng khác</string>
     <string name="app_ops_install_packages">gói cài đặt</string>
     <string name="app_ops_keep_device_awake">giữ thiết bị của bạn sáng</string>
+    <string name="app_ops_manage_ipsec_tunnels">quản lý đường hầm ipsec</string>
     <string name="app_ops_make_phone_call">thực hiện cuộc gọi điện thoại</string>
     <string name="app_ops_mock_location">giả vị trí của bạn</string>
     <string name="app_ops_modify_calendar">cập nhật lịch của bạn</string>
@@ -69,12 +73,16 @@
     <string name="app_ops_read_phone_state">truy nhập tình trạng điện thoại</string>
     <string name="app_ops_read_sms">đọc tin nhắn SMS của bạn</string>
     <string name="app_ops_receive_sms">nhận tin nhắn SMS</string>
+    <string name="app_ops_receive_emergency_broadcast">nhận một thông báo phát sóng khẩn cấp</string>
     <string name="app_ops_record_audio">ghi âm</string>
+    <string name="app_ops_request_delete_packages">yêu cầu xoá gói</string>
     <string name="app_ops_run_in_background">chạy trong nền</string>
+    <string name="app_ops_run_any_in_background">chạy bất kỳ trong nền</string>
     <string name="app_ops_scan_wifi">quét mạng Wi-Fi</string>
     <string name="app_ops_send_mms">gửi tin nhắn MMS</string>
     <string name="app_ops_send_sms">gửi tin nhắn SMS</string>
     <string name="app_ops_start_at_bootup">chạy lúc khởi động</string>
+    <string name="app_ops_start_foreground">khởi chạy trong nền</string>
     <string name="app_ops_su">lấy quyền truy cập root</string>
     <string name="app_ops_toast_window">hiện thông báo nhanh</string>
     <string name="app_ops_toggle_bluetooth">bật/tắt Bluetooth</string>

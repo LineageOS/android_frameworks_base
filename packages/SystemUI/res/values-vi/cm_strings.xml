@@ -79,5 +79,7 @@
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Thao tác này sẽ duy trì hiển thị màn hình cho đến khi bạn bỏ ghim. Chạm &amp; giữ Quay lại để bỏ ghim.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Để bỏ ghim màn hình này, chạm &amp; giữ nút Quay lại</string>
     <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Đảo ngược bố cục</string>
 </resources>

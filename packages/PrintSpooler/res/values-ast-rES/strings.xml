@@ -142,6 +142,7 @@
     <!-- Template for the notification label for a failed print job. [CHAR LIMIT=25] -->
     <string name="failed_notification_title_template">Fallu d\'imprentadora <xliff:g id="print_job_name" example="foo.jpg">%1$s</xliff:g></string>
     <!-- Template for the notification label for a blocked print job. [CHAR LIMIT=25] -->
+    <string name="blocked_notification_title_template">La imprentadora bloquió <xliff:g id="PRINT_JOB_NAME">%1$s</xliff:g></string>
     <!-- Label for the notification button for cancelling a print job. [CHAR LIMIT=25] -->
     <string name="cancel">Encaboxar</string>
     <!-- Label for the notification button for restarting a filed print job. [CHAR LIMIT=25] -->

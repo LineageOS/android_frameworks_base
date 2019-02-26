@@ -35,6 +35,8 @@
     <string name="app_ops_assist_structure">usar estrutura de assistência</string>
     <string name="app_ops_audio_accessibility_volume">volume de acessibilidade de áudio</string>
     <string name="app_ops_auto_start">iniciar no arranque</string>
+    <string name="app_ops_bind_accessibility_service">vincular a um serviço de acessibilidade</string>
+    <string name="app_ops_bluetooth_scan">pesquisar Bluetooth</string>
     <string name="app_ops_change_wallpaper">mudar a imagem de fundo</string>
     <string name="app_ops_delete_call_log">eliminar o registo de chamadas</string>
     <string name="app_ops_delete_contacts">eliminar os seus contactos</string>
@@ -43,8 +45,10 @@
     <string name="app_ops_draw_on_top">desenhar janelas em primeiro plano</string>
     <string name="app_ops_get_accounts">obter contas do dispositivo</string>
     <string name="app_ops_get_usage_stats">obter estatísticas de utilização</string>
+    <string name="app_ops_accept_handover">continuar uma chamada a partir de outra aplicação</string>
     <string name="app_ops_install_packages">instalar pacotes</string>
     <string name="app_ops_keep_device_awake">manter o seu dispositivo acordado</string>
+    <string name="app_ops_manage_ipsec_tunnels">gerir tunelamentos IPsec</string>
     <string name="app_ops_make_phone_call">fazer uma chamada telefónica</string>
     <string name="app_ops_mock_location">simular a sua localização</string>
     <string name="app_ops_modify_calendar">atualizar o seu calendário</string>
@@ -69,12 +73,16 @@
     <string name="app_ops_read_phone_state">aceder ao estado do telefone</string>
     <string name="app_ops_read_sms">ler as suas mensagens SMS</string>
     <string name="app_ops_receive_sms">receber uma mensagem de SMS</string>
+    <string name="app_ops_receive_emergency_broadcast">receber mensagens de transmissões de emergência</string>
     <string name="app_ops_record_audio">gravar áudio</string>
+    <string name="app_ops_request_delete_packages">solicitar eliminação de pacotes</string>
     <string name="app_ops_run_in_background">executar em segundo plano</string>
+    <string name="app_ops_run_any_in_background">executar qualquer processo em segundo plano</string>
     <string name="app_ops_scan_wifi">procurar redes Wi-Fi</string>
     <string name="app_ops_send_mms">Enviar uma mensagem MMS</string>
     <string name="app_ops_send_sms">Enviar uma mensagem SMS</string>
     <string name="app_ops_start_at_bootup">iniciar no arranque</string>
+    <string name="app_ops_start_foreground">iniciar em primeiro plano</string>
     <string name="app_ops_su">obter acesso root</string>
     <string name="app_ops_toast_window">mostrar avisos no ecrã</string>
     <string name="app_ops_toggle_bluetooth">ligar/desligar o bluetooth</string>

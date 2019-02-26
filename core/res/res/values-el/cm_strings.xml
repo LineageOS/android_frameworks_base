@@ -35,6 +35,8 @@
     <string name="app_ops_assist_structure">χρήση της βοηθητικής εφαρμογής</string>
     <string name="app_ops_audio_accessibility_volume">ένταση ήχου προσβασιμότητας</string>
     <string name="app_ops_auto_start">άνοιγμα κατά την εκκίνηση</string>
+    <string name="app_ops_bind_accessibility_service">δέσμευση σε υπηρεσία προσβασιμότητας</string>
+    <string name="app_ops_bluetooth_scan">σάρωση Bluetooth</string>
     <string name="app_ops_change_wallpaper">αλλαγή της ταπετσαρίας</string>
     <string name="app_ops_delete_call_log">διαγραφή του ιστορικού κλήσεων σας</string>
     <string name="app_ops_delete_contacts">διαγραφή των επαφών σας</string>
@@ -43,8 +45,10 @@
     <string name="app_ops_draw_on_top">εμφάνιση παραθύρων στην κορυφή</string>
     <string name="app_ops_get_accounts">ανάγνωση λογαριασμών συσκευής</string>
     <string name="app_ops_get_usage_stats">λήψη στατιστικών χρήσης εφαρμογών</string>
+    <string name="app_ops_accept_handover">μεταφορά μιας κλήσης από άλλη εφαρμογή</string>
     <string name="app_ops_install_packages">εγκατάσταση πακέτων</string>
     <string name="app_ops_keep_device_awake">διατήρηση της συσκευής σας σε αφύπνιση</string>
+    <string name="app_ops_manage_ipsec_tunnels">διαχείριση ipsec tunnel</string>
     <string name="app_ops_make_phone_call">πραγματοποίηση μιας τηλεφωνικής κλήσης</string>
     <string name="app_ops_mock_location">αναφορά ψευδής τοποθεσίας</string>
     <string name="app_ops_modify_calendar">ενημέρωση του ημερολογίου σας</string>
@@ -69,12 +73,16 @@
     <string name="app_ops_read_phone_state">πρόσβαση στην κατάσταση τηλεφώνου</string>
     <string name="app_ops_read_sms">ανάγνωση των μηνυμάτων SMS σας</string>
     <string name="app_ops_receive_sms">λήψη ενός μηνύματος SMS</string>
+    <string name="app_ops_receive_emergency_broadcast">λήψη μιας μετάδοσης έκτακτης ανάγκης</string>
     <string name="app_ops_record_audio">εγγραφή ήχου</string>
+    <string name="app_ops_request_delete_packages">αίτηση διαγραφής πακέτων</string>
     <string name="app_ops_run_in_background">εκτέλεση στο παρασκήνιο</string>
+    <string name="app_ops_run_any_in_background">εκτέλεση όλων στο παρασκήνιο</string>
     <string name="app_ops_scan_wifi">σάρωση δίκτυων Wi-Fi</string>
     <string name="app_ops_send_mms">αποστολή ενός μηνύματος MMS</string>
     <string name="app_ops_send_sms">αποστολή ενός μηνύματος SMS</string>
     <string name="app_ops_start_at_bootup">άνοιγμα κατά την εκκίνηση</string>
+    <string name="app_ops_start_foreground">εκκίνηση στο προσκήνιο</string>
     <string name="app_ops_su">πρόσβαση root</string>
     <string name="app_ops_toast_window">εμφάνιση αναδυόμενων μηνυμάτων</string>
     <string name="app_ops_toggle_bluetooth">εναλλαγή Bluetooth</string>

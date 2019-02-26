@@ -83,5 +83,7 @@
     <string name="keyboard_layout_latvian">Letón</string>
     <!-- Persian keyboard layout label. [CHAR LIMIT=35] -->
     <!-- Azerbaijani keyboard layout label. [CHAR LIMIT=35] -->
+    <string name="keyboard_layout_azerbaijani">Azerbaixanu</string>
     <!-- Polish keyboard layout label. [CHAR LIMIT=35] -->
+    <string name="keyboard_layout_polish">Polacu</string>
 </resources>

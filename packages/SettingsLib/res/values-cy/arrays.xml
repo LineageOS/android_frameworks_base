@@ -188,6 +188,16 @@
         <item>Ymdrech Orau (Didradd Addasedig)</item>
     </string-array>
     <!-- Summaries for Android Auto Bluetooth Audio Active Device status. [CHAR LIMIT=50]-->
+    <string-array name="bluetooth_audio_active_device_summaries">
+        <!-- Status message when the device is not Active. -->
+        <item></item>
+        <!-- Status message when the device is Active for Media and Phone. -->
+        <item>, yn weithredol</item>
+        <!-- Status message when the device is Active for Media only. -->
+        <item>, yn weithredol (cyfryngau)</item>
+        <!-- Status message when the device is Active for Phone only. -->
+        <item>, yn weithredol (ffôn)</item>
+    </string-array>
     <!-- Titles for logd limit size selection preference. [CHAR LIMIT=14] -->
     <string-array name="select_logd_size_titles">
         <item>I ffwrdd</item>
@@ -303,7 +313,7 @@
     <!-- Titles for debug overdraw preference. [CHAR LIMIT=50] -->
     <string-array name="debug_hw_overdraw_entries">
         <item>I ffwrdd</item>
-        <item>Dangos ardaloedd gordynnu</item>
+        <item>Dangos ardaloedd trawslunio</item>
         <item>Dangos ardaloedd ar gyfer anomaledd dewter</item>
     </string-array>
     <!-- Values for debug overdraw preference. -->

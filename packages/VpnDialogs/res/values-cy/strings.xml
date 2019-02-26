@@ -39,14 +39,18 @@
     </string>
     <!-- This string is the title of a dialog. The dialog shows up for Android users when always-on
      VPN, a VPN that's set to always stay connected, loses its connection. [CHAR LIMIT=60] -->
+    <string name="always_on_disconnected_title">Methu â chysylltu â\'r VPN ymlaen-o-hyd</string>
     <!-- This message is part of a dialog. The dialog shows up for users when always-on VPN, a VPN
          that's set to always stay connected, loses its connection. Until the phone can reconnect to
          the VPN, it'll automatically connect to a public network if possible. This text is followed
          by a clickable link that leads to VPN settings. [CHAR LIMIT=NONE] -->
+    <string name="always_on_disconnected_message">        Mae <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> wedi ei osod i aros wedi cysylltu o hyd, ond ni all gysylltu ar hyn o bryd. Bydd dy ffôn yn defnyddio rhwydwaith cyhoeddus nes ei fod yn gallu ailgysylltu â <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g>.
+    </string>
     <!-- This message is part of a dialog. The dialog shows up for users when always-on VPN, a VPN
          that's set to always stay connected, loses its connection while in the lockdown mode.
          Until the phone can reconnect to the VPN, it won't be able to connect to the Internet. This
          text is followed by a clickable link that leads to VPN settings. [CHAR LIMIT=NONE] -->
+    <string name="always_on_disconnected_message_lockdown">        Mae <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> wedi ei osod i aros wedi cysylltu o hyd, ond ni all gysylltu ar hyn o bryd. Ni fydd gennyt gysylltiad nes bod y VPN yn llwyddo i ailgysylltu.    </string>
     <!-- This is a space separating the body text and the "Change VPN settings" link that follows
          it. [CHAR LIMIT=5] -->
     <!-- This is a clickable link appended at the end of the body text of a dialog. The dialog shows
@@ -64,6 +68,8 @@
          Until the phone can reconnect to the VPN, it may automatically connect to a public network.
          If it doesn't, the user won't have a connection until the VPN reconnects. [CHAR LIMIT=20]
          -->
+    <string name="open_app">Agor ap</string>
     <!-- This is the label of a button in a dialog. The button lets the user dismiss the dialog
          without any consequences. [CHAR LIMIT=20] -->
+    <string name="dismiss">Gwrthod</string>
 </resources>

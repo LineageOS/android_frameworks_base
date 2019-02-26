@@ -79,5 +79,7 @@
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím a podržením tlačítka Zpět.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Pro uvolnění obrazovky podržte tlačítko Domů</string>
     <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Převrátit rozložení</string>
 </resources>
