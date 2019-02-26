@@ -6199,6 +6199,15 @@ public class WindowManagerService extends IWindowManager.Stub
     }
 
     @Override
+    public boolean isOnehandTurnedON() {
+        if (!checkCallingPermission(android.Manifest.permission.ONE_HANDED_MODE,
+                "isOnehandTurnedON()")) {
+            throw new SecurityException("Requires ONE_HANDED_MODE permission");
+        }
+        return mAnimator.mOneHandAnimator.isOnehandTurnedON();
+    }
+
+    @Override
     public boolean isOneHandedModeAvailable() {
         if (!checkCallingPermission(android.Manifest.permission.ONE_HANDED_MODE,
                 "isOneHandedModeAvailable()")) {
