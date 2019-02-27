@@ -19,7 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">ADB oor netwerk is aktief</string>
+    <string name="adb_net_active_notification_title">test</string>
     <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB oor USB &amp; netwerk is aktief</string>
     <!-- ADB notification message-->
