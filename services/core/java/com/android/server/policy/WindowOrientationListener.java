@@ -102,6 +102,10 @@ public abstract class WindowOrientationListener {
          *  this type.
          */
         for (Sensor s : l) {
+            // Sensors in one-shot mode are not suitable.
+            if (s.getReportingMode() == Sensor.REPORTING_MODE_ONE_SHOT) {
+                continue;
+            }
             if (s.isWakeUpSensor()) {
                 wakeUpDeviceOrientationSensor = s;
             } else {
