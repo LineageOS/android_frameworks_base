@@ -681,12 +681,11 @@ public class GpsLocationProvider implements LocationProviderInterface {
         // while IO initialization and registration is delegated to our internal handler
         // this approach is just fine because events are posted to our handler anyway
         mProperties = new Properties();
-        sendMessage(INITIALIZE_HANDLER, 0, null);
-
-        // Create a GPS net-initiated handler.
+        // Create a GPS net-initiated handler (also needed by handleInitialize)
         mNIHandler = new GpsNetInitiatedHandler(context,
                                                 mNetInitiatedListener,
                                                 mSuplEsEnabled);
+        sendMessage(INITIALIZE_HANDLER, 0, null);
 
         mListenerHelper = new GpsStatusListenerHelper(mHandler) {
             @Override
