@@ -18,26 +18,18 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB via netværk aktiveret</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB via USB &amp; netværk aktiveret</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Tryk for at deaktivere fejlretning.</string>
-    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
     <string name="lineage_system_error_manufacturer">Et forkert vendor image blev fundet. Dette betyder typisk, at dit vendor image er forældet. Sørg for, at dit vendor image matcher <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
-    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
     <string name="lock_to_app_toast_no_navbar">For at frigøre denne skærm, tryk og hold Tilbage-knappen nede.</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">aktivér eller deaktivér privatlivsvagt</string>
     <string name="permdesc_changePrivacyGuardState">Tillader app\'en at ændre, om en anden app kører med Privatlivsvagt. Når en app kører med Privatlivsvagt, vil den ikke have adgang til personlige data såsom kontakter, opkaldslister eller beskeder.</string>
     <string name="privacy_guard_notification">Privatlivsvagt aktiv</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> vil ikke kunne tilgå personlige data</string>
     <string name="privacy_guard_dialog_title">Privatlivsvagt</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> ønsker at <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Husk mit valg</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">tilgå kameraet</string>
     <string name="app_ops_access_location">tilgå din placering</string>
     <string name="app_ops_access_notifications">læse dine meddelelser</string>

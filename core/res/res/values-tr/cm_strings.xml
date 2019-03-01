@@ -18,26 +18,18 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">Ağ üzerinden ADB etkin</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">USB &amp; Ağ üzerinden ADB etkin</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Hata ayıklamayı devre dışı bırakmak için dokunun.</string>
-    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
     <string name="lineage_system_error_manufacturer">Bir üretici dosyası uyuşmazlığı tespit edildi. Bu üretici dosyanızın eski olduğunu gösterir. Lütfen üretici dosyanızın <xliff:g id="fingerprint">%1$s</xliff:g> ile eşleştiğine emin olun.</string>
-    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
     <string name="lock_to_app_toast_no_navbar">Bu ekranı silmek için Geri tuşuna dokunup basılı tutun.</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">Gizlilik Korumasını etkinleştir ya da devre dışı bırak</string>
     <string name="permdesc_changePrivacyGuardState">Uygulamaya başka bir uygulamanın Gizlilik Korumasını kullanıp kullanamayacağını belirleme olanağı verir. Bir uygulama Gizlilik Koruması ile çalışırken; kişiler, arama kayıtları ya da mesajlar gibi kişisel bilgilere ulaşamaz.</string>
     <string name="privacy_guard_notification">Gizlilik Koruması aktif</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> kişisel bilgilere ulaşamayacak</string>
     <string name="privacy_guard_dialog_title">Gizlilik Koruması</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g>  <xliff:g id="op">%2$s</xliff:g> iznini kullanmak istiyor.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Seçimimi hatırla</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">kameraya eriş</string>
     <string name="app_ops_access_location">konuma erişim</string>
     <string name="app_ops_access_notifications">bildirimleri oku</string>

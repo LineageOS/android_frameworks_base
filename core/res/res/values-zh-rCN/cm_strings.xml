@@ -18,26 +18,18 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">网络 ADB 调试已启用</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">USB 和网络 ADB 调试已启用</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">触摸以禁用调试。</string>
-    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
     <string name="lineage_system_error_manufacturer">检测到供应商映像不匹配。这通常意味着您的供应商映像是过时的。请确保您的供应商映像匹配 <xliff:g id="fingerprint">%1$s</xliff:g>。</string>
-    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
     <string name="lock_to_app_toast_no_navbar">要取消固定此屏幕，触摸并按住返回键。</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">启用或禁用隐私防护</string>
     <string name="permdesc_changePrivacyGuardState">允许应用更改其他应用是否启用隐私防护。当一个应用以启用隐私防护运行时，它将不能访问如联系人、通话记录、短信等个人数据。</string>
     <string name="privacy_guard_notification">隐私防护激活</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> 将不能访问个人数据</string>
     <string name="privacy_guard_dialog_title">隐私防护</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> 希望 <xliff:g id="op">%2$s</xliff:g>。</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">记住我的选择</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">存取相机</string>
     <string name="app_ops_access_location">访问您的位置信息</string>
     <string name="app_ops_access_notifications">读取通知</string>
@@ -90,7 +82,7 @@
     <string name="app_ops_start_at_bootup">开机自启动</string>
     <string name="app_ops_su">获取 Root 权限</string>
     <string name="app_ops_toast_window">显示提示信息</string>
-    <string name="app_ops_toggle_bluetooth">开启蓝牙</string>
+    <string name="app_ops_toggle_bluetooth">切换蓝牙</string>
     <string name="app_ops_toggle_mobile_data">切换移动数据</string>
     <string name="app_ops_toggle_nfc">切换 NFC</string>
     <string name="app_ops_toggle_wifi">开关 Wi-Fi</string>

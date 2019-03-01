@@ -18,26 +18,18 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">Đã bật ADB qua mạng</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">Đã kích hoạt ADB qua USB &amp; mạng</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Chạm để tắt gỡ lỗi.</string>
-    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
     <string name="lineage_system_error_manufacturer">Một hình ảnh nhà cung cấp không phù hợp đã được phát hiện. Thông thường, điều này có nghĩa là hình ảnh nhà cung cấp của bạn hết hạn. Vui lòng đảm bảo rằng hình ảnh nhà cung cấp của bạn phù hợp <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
-    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
     <string name="lock_to_app_toast_no_navbar">Để bỏ ghim màn hình này, hãy chạm và giữ phím Quay lại.</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">bật hoặc tắt Bảo vệ quyền riêng tư</string>
     <string name="permdesc_changePrivacyGuardState">Cho phép ứng dụng thay đổi ứng dụng khác chạy với Bảo vệ quyền riêng tư. Khi một ứng dụng chạy với Bảo vệ quyền riêng tư, nó sẽ không có quyền truy cập dữ liệu cá nhân như số liên lạc, nhật ký cuộc gọi hoặc tin nhắn.</string>
     <string name="privacy_guard_notification">Bảo vệ quyền riêng tư đang hoạt động</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> sẽ không thể truy cập dữ liệu cá nhân</string>
     <string name="privacy_guard_dialog_title">Bảo vệ quyền riêng tư</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> muốn <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Nhớ lựa chọn của tôi</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">truy cập máy ảnh</string>
     <string name="app_ops_access_location">truy cập vị trí của bạn</string>
     <string name="app_ops_access_notifications">đọc thông báo của bạn</string>

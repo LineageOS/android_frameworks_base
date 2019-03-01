@@ -18,30 +18,23 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB üle võrgu aktiveeritud</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB üle USB &amp; võrgu aktiveeritud</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Puuduta silumise lõpetamiseks.</string>
-    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
     <string name="lock_to_app_toast_no_navbar">Selle ekraani vabastamiseks puudutage ja hoidke all Tagasi nuppu.</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">lubada või keelata privaatsuskaitset</string>
     <string name="permdesc_changePrivacyGuardState">Sellega lubate muuta mõne muu rakenduse käivitumist Privaatsuskaitsega. Kui rakendus töötab sisselülitatud Privaatsuskaitsega, puudub rakendusel ligipääs isiklikele andmetele nagu kontaktid, kõnelogid või sõnumid.</string>
     <string name="privacy_guard_notification">Privaatsuskaitse aktiveeritud</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> ei pääse ligi isiklikele andmetele</string>
     <string name="privacy_guard_dialog_title">Privaatsuskaitse</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> tahab <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Jäta meelde minu valik</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">kontrollida kaamerat</string>
     <string name="app_ops_access_location">kontrollida asukohta</string>
     <string name="app_ops_access_notifications">lugeda teateid</string>
     <string name="app_ops_activate_vpn">aktiveeri VPN</string>
     <string name="app_ops_add_voicemail">lisa kõnepost</string>
+    <string name="app_ops_app_start_foreground">installimata avatava rakenduse käivitamine esiplaanil</string>
     <string name="app_ops_assist_screenshot">kuvatõmmise tegemine</string>
     <string name="app_ops_assist_structure">kasuta assisteeritud struktuuri</string>
     <string name="app_ops_auto_start">käivitada sisselülitamisel</string>
@@ -53,6 +46,7 @@
     <string name="app_ops_draw_on_top">joonistada aknaid peale</string>
     <string name="app_ops_get_accounts">lugeda seadme kasutajaid</string>
     <string name="app_ops_get_usage_stats">saada rakenduse kasutamise statistikat</string>
+    <string name="app_ops_install_packages">pakettide installimine</string>
     <string name="app_ops_keep_device_awake">hoida seade ärkvel</string>
     <string name="app_ops_make_phone_call">teha telefoni kõnet</string>
     <string name="app_ops_mock_location">teeskle asukohta</string>
@@ -62,6 +56,8 @@
     <string name="app_ops_modify_contacts">värskendada kontakte</string>
     <string name="app_ops_modify_settings">värskendada süsteemiseadeid</string>
     <string name="app_ops_mute_unmute_microphone">välja/sisse lülitada mikrofoni</string>
+    <string name="app_ops_phone_calls">telefonikõnedele vastamine</string>
+    <string name="app_ops_picture_in_picture">pilt-pildis režiimi kasutamine</string>
     <string name="app_ops_play_audio">mängida heli</string>
     <string name="app_ops_post_notification">postitada teateid</string>
     <string name="app_ops_project_media">projekteerida meediat</string>
@@ -72,6 +68,7 @@
     <string name="app_ops_read_contacts">vaadata kontakte</string>
     <string name="app_ops_read_external_storage">lugeda väliselt andmekandjalt</string>
     <string name="app_ops_read_mms">lugeda MMS sõnumeid</string>
+    <string name="app_ops_read_phone_numbers">telefoninumbrite lugemine</string>
     <string name="app_ops_read_phone_state">juurdepääs telefoni olekule</string>
     <string name="app_ops_read_sms">lugeda SMS sõnumeid</string>
     <string name="app_ops_receive_sms">võtta vastu SMS sõnum</string>
