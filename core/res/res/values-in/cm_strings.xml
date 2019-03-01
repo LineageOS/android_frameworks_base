@@ -18,26 +18,18 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB melalui jaringan diaktifkan</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB melalui USB &amp; jaringan diaktifkan</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Sentuh untuk menonaktifkan debugging.</string>
-    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
     <string name="lineage_system_error_manufacturer">Ketidakcocokan Vendor Image telah terdeteksi. Biasanya ini berarti Vendor Image Anda sudah kadaluarsa. Pastikan Vendor Image Anda cocok dengan <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
-    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
     <string name="lock_to_app_toast_no_navbar">Untuk melepas sematan layar ini, sentuh dan tahan tombol Kembali.</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">Aktifkan atau nonaktifkan Penjaga Privasi</string>
     <string name="permdesc_changePrivacyGuardState">Izinkan aplikasi untuk mengubah apakah applikasi lain berjalan dengan Penjaga Privasi. Ketika aplikasi sedang berjalan dengan Penjaga Privasi, aplikasi tidak akan memiliki akses untuk data pribadi seperti kontak, daftar panggilan atau pesan.</string>
     <string name="privacy_guard_notification">Penjaga Privasi aktif</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> tidak akan dapat mengakses data pribadi</string>
     <string name="privacy_guard_dialog_title">Penjaga Privasi</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> ingin <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Ingat pilihan saya</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">mengakses kamera</string>
     <string name="app_ops_access_location">mengakses lokasi Anda</string>
     <string name="app_ops_access_notifications">membaca notifikasi Anda</string>

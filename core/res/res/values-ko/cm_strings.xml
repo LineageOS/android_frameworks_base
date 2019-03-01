@@ -18,26 +18,18 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">네트워크 ADB 활성화됨</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">USB 및 네트워크 ADB 활성화됨</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">디버깅을 사용하지 않으려면 터치하세요.</string>
-    <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
     <string name="lineage_system_error_manufacturer">공급 업체 이미지가 일치하지 않습니다. 이는 일반적으로 사용자의 공급 업체 이미지가 오래되었음을 의미합니다. 공급 업체 이미지가 <xliff:g id="fingerprint">%1$s</xliff:g>과 일치하는지 확인하십시오.</string>
-    <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
     <string name="lock_to_app_toast_no_navbar">화면 고정을 해제하려면 뒤로 버튼을 계속 누르세요</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">프라이버시 가드 활성화 또는 비활성화</string>
     <string name="permdesc_changePrivacyGuardState">다른 앱이 프라이버시 가드와 함께 실행될 것인지 변경할 수 있도록  앱을 허용합니다. 앱이 프라이버시 가드와 함께 실행중일 땐 연락처, 통화 기록, 메시지 등의 개인 정보에 접근할 수 없게 됩니다.</string>
     <string name="privacy_guard_notification">프라이버시 가드 활성화</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g>은(는) 개인 데이터에 접근할 수 없습니다.</string>
     <string name="privacy_guard_dialog_title">프라이버시 가드</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g>이(가) <xliff:g id="op">%2$s</xliff:g>을(를) 원합니다.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">선택 사항 기억하기</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">카메라에 액세스</string>
     <string name="app_ops_access_location">위치 정보에 액세스</string>
     <string name="app_ops_access_notifications">알림 읽기</string>
