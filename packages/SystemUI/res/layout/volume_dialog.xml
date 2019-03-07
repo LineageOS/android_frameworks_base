@@ -93,20 +93,24 @@
                     <!-- volume rows added and removed here! :-) -->
             </LinearLayout>
             <FrameLayout
-                android:id="@+id/settings_container"
+                android:id="@+id/expandable_indicator_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_bg_bottom_background">
-                <com.android.keyguard.AlphaOptimizedImageButton
-                    android:id="@+id/settings"
-                    android:src="@drawable/ic_tune_black_16dp"
-                    android:layout_width="@dimen/volume_dialog_tap_target_size"
-                    android:layout_height="@dimen/volume_dialog_tap_target_size"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/accessibility_volume_settings"
-                    android:background="@drawable/ripple_drawable_20dp"
-                    android:tint="?android:attr/textColorSecondary"
-                    android:soundEffectsEnabled="false" />
+                <com.android.systemui.statusbar.phone.ExpandableIndicator
+                    android:id="@+id/expandable_indicator"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:clipToPadding="false"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_gravity="right"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/accessibility_quick_settings_expand"
+                    android:padding="14dp"
+                    android:rotation="90" />
             </FrameLayout>
         </LinearLayout>
 
