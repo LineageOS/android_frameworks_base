@@ -19,11 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-  <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-  <string name="profile_applist_title">अॅप्स</string>
-  <string name="picker_activities">क्रियाकलाप</string>
-  <string name="select_custom_app_title">सानुकूल अॅप निवडा</string>
-  <string name="select_custom_activity_title">सानुकूल कार्यकलाप निवडा</string>
-  <string name="lockscreen_targets_message">लॉक स्क्रीन शॉर्टकट</string>
+    <string name="profile_applist_title">अॅप्स</string>
+    <string name="picker_activities">क्रियाकलाप</string>
+    <string name="select_custom_app_title">सानुकूल अॅप निवडा</string>
+    <string name="select_custom_activity_title">सानुकूल कार्यकलाप निवडा</string>
+    <string name="lockscreen_targets_message">लॉक स्क्रीन शॉर्टकट</string>
 </resources>

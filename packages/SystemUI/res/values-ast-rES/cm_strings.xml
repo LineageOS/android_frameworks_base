@@ -20,28 +20,18 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">Brilléu de lluz</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">Perfiles desactivaos.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Perfil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Perfiles desactivaos.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">Perfil camudáu a <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">Perfiles desactivaos.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">Perfiles del sistema</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Axustes de lluz</string>
-  <string name="led_notification_text">Lluz LED habilitada polos axustes</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">La llinterna ta encesa</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Calca p\'apagala</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">Colos controles d\'avisu d\'enerxía, pues afitar el nivel d\'importancia dende\'l 0 al 6 pa los avisos d\'una aplicación.
+    <string name="accessibility_notification_brightness">Brilléu de lluz</string>
+    <string name="accessibility_quick_settings_profiles_off">Perfiles desactivaos.</string>
+    <string name="accessibility_quick_settings_profiles">Perfil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Perfiles desactivaos.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Perfil camudáu a <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <string name="quick_settings_profiles_off">Perfiles desactivaos.</string>
+    <string name="quick_settings_profiles">Perfiles del sistema</string>
+    <string name="led_notification_title">Axustes de lluz</string>
+    <string name="led_notification_text">Lluz LED habilitada polos axustes</string>
+    <string name="quick_settings_tile_flashlight_not_title">La llinterna ta encesa</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Calca p\'apagala</string>
+    <string name="cm_power_notification_controls_description">Colos controles d\'avisu d\'enerxía, pues afitar el nivel d\'importancia dende\'l 0 al 6 pa los avisos d\'una aplicación.
         \n\n<b>Nivel 6</b>
         \n- Amuésense no cimero\'l llistáu d\'avisos
         \n- Permiten la interrupción de pantalla completa
@@ -71,130 +61,101 @@
         \n\n<b>Nivel 0</b>
         \n- Blóquiense tolos avisos d\'esta aplicación
     </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">Importancia: Nivel %1$d</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">Ensin interrupción de pantalla completa, intrusión, soníu o vibración. Anubrir de la pantalla de bloquéu.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Esto caltién la pantalla nesta vista hasta que se llibera. Caltén primíu\'l botón Atrás pa lliberala.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">Esliza dende l\'iconu pa %1$s</string>
-  <string name="lockscreen_message">Toca nun iconu de la esquierda o derecha pa reasignar un atayu na pantalla de bloquéu.</string>
-  <string name="lockscreen_default_target">Por defeutu</string>
-  <string name="select_application">Esbillar aplicación</string>
-  <string name="lockscreen_choose_action_title">Escoyer aición</string>
-  <string name="lockscreen_none_target">Nengún</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">Amosar la cola de reproducción</string>
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="accessibility_dpad_left">Cursor esquierda</string>
-  <string name="accessibility_dpad_right">Cursor derecha</string>
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">Menú/Conmutador de tecláu (amosar siempres)</string>
-  <string name="search">Guetar</string>
-  <!-- Name of the clock status bar icon -->
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d veceru</item>
-    <item quantity="other">%1$d veceros</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Llamada</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>Sistema</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Timbre</item>
-    <!-- STREAM_RING -->
-    <item>Medios</item>
-    <!-- STREAM_MUSIC -->
-    <item>Alarma</item>
-    <!-- STREAM_ALARM -->
-    <item>Avisu</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Informes de llocalización: mou d\'aforru de batería.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Informes de llocalización: mou de namái sensores.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Informes de llocalización: mou d\'alta precisión.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Aforru d\'enerxía</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Aforru\nd\'enerxía</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Namái preséu</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Namái\npreséu</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Precisión alta</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Precisión\nalto</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Allugamientu</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Esbillar mou:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Precisión alta</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Aforru d\'enerxía</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Namái preséu</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Usa\'l GPS, Wi\u2011Fi, Bluetooth o redes móviles pa determinar l\'allugamientu</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Usa\'l Wi\u2011Fi, Bluetooth o redes móviles pa determinar l\'allugamientu</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Usa\'l GPS pa determinar l\'allugamientu</string>
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB sobre rede</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente activada.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente desactivada.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Desactivóse la pantalla ambiente.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Activóse la pantalla ambiente.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">Cafeína</string>
-  <string name="accessibility_quick_settings_caffeine_off">Cafeína desactivada</string>
-  <string name="accessibility_quick_settings_caffeine_on">Cafeína activada</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Avisos
+    <string name="importance_level_title">Importancia: Nivel %1$d</string>
+    <string name="notification_importance_very_low">Ensin interrupción de pantalla completa, intrusión, soníu o vibración. Anubrir de la pantalla de bloquéu.</string>
+    <string name="screen_pinning_description_no_navbar">Esto caltién la pantalla nesta vista hasta que se llibera. Caltén primíu\'l botón Atrás pa lliberala.</string>
+    <string name="shortcut_hint">Esliza dende l\'iconu pa %1$s</string>
+    <string name="lockscreen_message">Toca nun iconu de la esquierda o derecha pa reasignar un atayu na pantalla de bloquéu.</string>
+    <string name="lockscreen_default_target">Por defeutu</string>
+    <string name="select_application">Esbillar aplicación</string>
+    <string name="lockscreen_choose_action_title">Escoyer aición</string>
+    <string name="lockscreen_none_target">Nengún</string>
+    <string name="play_queue_extension">Amosar la cola de reproducción</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Cursor esquierda</string>
+    <string name="accessibility_dpad_right">Cursor derecha</string>
+    <string name="menu_ime_always_show">Menú/Conmutador de tecláu (amosar siempres)</string>
+    <string name="search">Guetar</string>
+    <string name="status_bar_clock">Reló</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d veceru</item>
+        <item quantity="other">%1$d veceros</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Llamada</item>
+        <item>Sistema</item>
+        <item>Timbre</item>
+        <item>Medios</item>
+        <item>Alarma</item>
+        <item>Avisu</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Informes de llocalización: mou d\'aforru de batería.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Informes de llocalización: mou de namái sensores.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Informes de llocalización: mou d\'alta precisión.</string>
+    <string name="quick_settings_location_battery_saving_label">Aforru d\'enerxía</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Aforru\nd\'enerxía</string>
+    <string name="quick_settings_location_gps_only_label">Namái preséu</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Namái\npreséu</string>
+    <string name="quick_settings_location_high_accuracy_label">Precisión alta</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Precisión\nalto</string>
+    <string name="quick_settings_location_detail_title">Allugamientu</string>
+    <string name="quick_settings_location_detail_menu_title">Esbillar mou:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Precisión alta</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Aforru d\'enerxía</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Namái preséu</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Usa\'l GPS, Wi\u2011Fi, Bluetooth o redes móviles pa determinar l\'allugamientu</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Usa\'l Wi\u2011Fi, Bluetooth o redes móviles pa determinar l\'allugamientu</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Usa\'l GPS pa determinar l\'allugamientu</string>
+    <string name="quick_settings_network_adb_label">ADB sobre rede</string>
+    <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente activada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Desactivóse la pantalla ambiente.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Activóse la pantalla ambiente.</string>
+    <string name="quick_settings_caffeine_label">Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeína desactivada</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeína activada</string>
+    <string name="quick_settings_heads_up_label">Avisos
 emerxentes</string>
-  <string name="accessibility_quick_settings_heads_up_off">Desactivar notificaciones emerxentes.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Activar notificaciones emerxentes.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emerxentes desactivaes.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emerxentes activaes.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sincronización</string>
-  <string name="accessibility_quick_settings_sync_off">Sincronización desactivada.</string>
-  <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sincronización desactivada.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sincronización activada.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">Tethering USB</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">Sincronización</string>
-  <string name="quick_settings_volume_panel_label">Panel de volume</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <!-- LiveDisplay strings -->
+    <string name="accessibility_quick_settings_heads_up_off">Desactivar notificaciones emerxentes.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Activar notificaciones emerxentes.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emerxentes desactivaes.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emerxentes activaes.</string>
+    <string name="quick_settings_sync_label">Sincronización</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronización desactivada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sincronización desactivada.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sincronización activada.</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="quick_settings_sync_label">Sincronización</string>
+    <string name="quick_settings_volume_panel_label">Panel de volume</string>
+    <string name="accessibility_lock_task">Torgar que <xliff:g id="task">%1$s </xliff:g> s\'escarte</string>
+    <string name="accessibility_unlock_task">Permitir que <xliff:g id="task">%1$s </xliff:g> s\'escarte</string>
+    <string name="live_display_auto">Automáticu</string>
+    <string name="live_display_auto_summary">Axusta automáticamente la temperatura de color de la pantalla dempués del tapecer y l\'aséu</string>
+    <string name="live_display_off">Off</string>
+    <string name="live_display_off_summary">Deshabilita tolos axustes</string>
+    <string name="live_display_day">Día</string>
+    <string name="live_display_day_summary">Usa namái los axustes de día</string>
+    <string name="live_display_night">Nueche</string>
+    <string name="live_display_night_summary">Usa namái los axustes de nueche</string>
+    <string name="live_display_outdoor">Esterior (lluz solar)</string>
+    <string name="live_display_outdoor_summary">Usa namái los axustes d\'esteriores</string>
+    <string name="live_display_hint">LiveDisplay pue ayudar a amenorgar el cansanciu de güeyos y ayudate a dormir pela nueche. ¡Primi equí pa probalu!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay desactiváu.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: mou auto.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: mou diurnu.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: mou nocherniegu.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: mou esterior.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay desactiváu.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay camudó al mou auto.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay camudó al mou diurnu.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay camudó al mou nocherniegu.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay camudó al mou esterior.</string>
 </resources>

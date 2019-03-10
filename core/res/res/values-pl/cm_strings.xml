@@ -17,133 +17,105 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Long-press back kill application -->
-  <string name="app_killed_message">Aplikacja została zamknięta</string>
-  <!-- label for item that screenshots in phone options dialog -->
-  <string name="global_action_screenshot">Zrzut ekranu</string>
-  <!-- label for item that restarts the phone in phone options dialog -->
-  <string name="global_action_reboot">Uruchom ponownie</string>
-  <!-- label for current user in phone options dialog -->
-  <string name="global_action_current_user">Bieżący</string>
-  <!-- status message in phone options dialog for screenshot action -->
-  <string name="global_actions_screenshot_status">Naciśnij i przytrzymaj by wykonać częściowy zrzut ekranu</string>
-  <!-- Restart menu -->
-  <!-- Button to restart the phone, within the Restart Options dialog -->
-  <string name="reboot_reboot">Uruchom ponownie</string>
-  <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
-  <string name="reboot_recovery">Uruchom w trybie Recovery</string>
-  <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
-  <string name="reboot_bootloader">Uruchom w trybie Bootloader</string>
-  <!-- Button to restart the phone into download, within the Restart Options dialog -->
-  <string name="reboot_download">Uruchom w trybie Download</string>
-  <!-- Button to soft restart the device, within the Restart Options dialog -->
-  <string name="reboot_soft">Szybki restart</string>
-  <!-- Title of dialog to confirm restarting. -->
-  <string name="reboot_title">Uruchom ponownie</string>
-  <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
-         be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm" product="tablet">Tablet zostanie uruchomiony ponownie.</string>
-  <string name="reboot_confirm" product="default">Telefon zostanie uruchomiony ponownie.</string>
-  <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
-  <string name="reboot_progress">Ponowne uruchamianie\u2026</string>
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB przez sieć włączone</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB przez USB &amp; sieć włączone</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Dotknij, aby wyłączyć debugowanie.</string>
-  <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">włącz/wyłącz Ochronę Prywatności</string>
-  <string name="permdesc_changePrivacyGuardState">Pozwala aplikacji decydować, kiedy inna aplikacja zostanie uruchomiona w trybie ochrony prywatności. W trybie tym aplikacje nie mają dostępu do osobistych danych użytkownika, takich jak kontakty, historia połączeń czy wiadomości.</string>
-  <string name="privacy_guard_notification">Ochrona prywatności aktywna</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nie będzie mieć dostępu do osobistych danych</string>
-  <string name="privacy_guard_dialog_title">Ochrona prywatności</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> czy chciałbyś <xliff:g id="op">%2$s</xliff:g>.</string>
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">Zapamiętaj mój wybór</string>
-  <!-- App ops requests -->
-  <string name="app_ops_access_camera">dostęp do kamery</string>
-  <string name="app_ops_access_location">dostęp do lokalizacji</string>
-  <string name="app_ops_access_notifications">czytanie powiadomień</string>
-  <string name="app_ops_activate_vpn">aktywowanie VPN</string>
-  <string name="app_ops_auto_start">uruchamianie podczas włączania urządzenia</string>
-  <string name="app_ops_delete_call_log">usuwanie dziennika połączeń</string>
-  <string name="app_ops_delete_contacts">usuwanie kontaktów</string>
-  <string name="app_ops_delete_mms">usuwanie wiadomości MMS</string>
-  <string name="app_ops_delete_sms">usuwanie wiadomości SMS</string>
-  <string name="app_ops_draw_on_top">rysowanie okien na wierzchu</string>
-  <string name="app_ops_get_usage_stats">uzyskanie statystyk użytkowania aplikacji</string>
-  <string name="app_ops_keep_device_awake">zapobieganie przejściu telefonu w stan uśpienia</string>
-  <string name="app_ops_make_phone_call">wykonywanie połączeń telefonicznych</string>
-  <string name="app_ops_modify_calendar">aktualizowanie kalendarza</string>
-  <string name="app_ops_modify_call_log">aktualizowanie rejestru połączeń</string>
-  <string name="app_ops_modify_clipboard">modyfikowanie schowka</string>
-  <string name="app_ops_modify_contacts">aktualizowanie kontaktów</string>
-  <string name="app_ops_modify_settings">aktualizowanie ustawień systemowych</string>
-  <string name="app_ops_mute_unmute_microphone">włączanie/wyłączanie mikrofonu</string>
-  <string name="app_ops_play_audio">odtwarzanie dźwięków</string>
-  <string name="app_ops_post_notification">wysyłanie powiadomienia</string>
-  <string name="app_ops_project_media">wyświetlanie multimediów</string>
-  <string name="app_ops_read_calendar">czytanie kalendarza</string>
-  <string name="app_ops_read_call_log">czytanie rejestru połączeń</string>
-  <string name="app_ops_read_clipboard">czytanie schowka</string>
-  <string name="app_ops_read_contacts">czytanie kontaktów</string>
-  <string name="app_ops_read_mms">czytanie MMS-ów</string>
-  <string name="app_ops_read_sms">czytanie SMS-ów</string>
-  <string name="app_ops_receive_sms">odbieranie SMS-ów</string>
-  <string name="app_ops_record_audio">nagrywanie dźwięku</string>
-  <string name="app_ops_send_mms">wysyłanie MMS-ów</string>
-  <string name="app_ops_send_sms">wysyłanie SMS-ów</string>
-  <string name="app_ops_start_at_bootup">uruchamianie podczas włączania urządzenia</string>
-  <string name="app_ops_toast_window">wyświetlanie komunikatów w dymkach</string>
-  <string name="app_ops_toggle_bluetooth">przełączanie Bluetooth</string>
-  <string name="app_ops_toggle_mobile_data">przełączanie transmisji danych</string>
-  <string name="app_ops_toggle_nfc">Przełączanie NFC</string>
-  <string name="app_ops_toggle_wifi">przełączanie Wi-Fi</string>
-  <string name="app_ops_use_alarm_volume">kontrolowanie głośności alarmu</string>
-  <string name="app_ops_use_audio_focus">kontrolowanie priorytetów audio</string>
-  <string name="app_ops_use_bluetooth_volume">kontrolowanie głośności urządzenia Bluetooth</string>
-  <string name="app_ops_use_master_volume">kontrolowanie głośności</string>
-  <string name="app_ops_use_media_buttons">używanie przycisków mediów</string>
-  <string name="app_ops_use_media_volume">kontrolowanie głośności mediów</string>
-  <string name="app_ops_use_notification_volume">kontrolowanie głośności powiadomień</string>
-  <string name="app_ops_use_ring_volume">kontrolowanie głośności dzwonka</string>
-  <string name="app_ops_use_vibrate">używanie haptic feedback</string>
-  <string name="app_ops_use_voice_volume">kontrolowanie głośności rozmów</string>
-  <string name="app_ops_write_mms">pisanie MMS-ów</string>
-  <string name="app_ops_write_sms">pisanie SMS-ów</string>
-  <string name="app_ops_use_fingerprint">odczyt linii papilarnych</string>
-  <string name="app_ops_add_voicemail">dodawanie wiadomości głosowej</string>
-  <string name="app_ops_read_phone_state">dostęp do stanu telefonu</string>
-  <string name="app_ops_scan_wifi">skanowanie sieci Wi-Fi</string>
-  <string name="app_ops_change_wallpaper">zmiana tapety</string>
-  <string name="app_ops_assist_structure">wykorzystanie asystenta</string>
-  <string name="app_ops_assist_screenshot">tworzenie zrzutów ekranu</string>
-  <string name="app_ops_use_body_sensors">odczyt czujników ciała</string>
-  <string name="app_ops_read_cell_broadcasts">odczyt transmisji komórkowych</string>
-  <string name="app_ops_mock_location">pozorowanie twojej lokalizacji</string>
-  <string name="app_ops_read_external_storage">odczyt pamięci zewnętrznej</string>
-  <string name="app_ops_write_external_storage">zapis pamięci zewnętrznej</string>
-  <string name="app_ops_turn_on_screen">włączanie ekranu</string>
-  <string name="app_ops_get_accounts">dostęp do kont urządzenia</string>
-  <string name="app_ops_run_in_background">działa w tle</string>
-  <string name="app_ops_wifi_change">zmiana stanu Wi-Fi</string>
-  <string name="app_ops_su">dostęp do roota</string>
-  <!-- Protected Apps Notification -->
-  <string name="notify_package_component_protected_title">Aktywność uruchamiania zablokowana</string>
-  <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s </xliff:g> jest chroniony(a) przed uruchomieniem. Kliknij, aby uwierzytelnić i uruchomić tę aplikację.</string>
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Aby odpiąć ekran, dotknij i przytrzymaj przycisk Wstecz.</string>
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="lineage_system_error_manufacturer">Wykryto niezgodność obrazu dostawcy. Zazwyczaj oznacza to, że obraz twojego dostawcy nie jest aktualny. Upewnij się, że obraz odpowiada <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
-  <!-- Single hand mode -->
-  <string name="singlehandmode_click_hint_message">Dotknij miejsca poza ekranem, by opuścić tryb obsługi jedną ręką</string>
-  <!-- Strings for tethered notification -->
-  <!-- Shown when the device is tethered -->
-  <string name="tethered_notification_no_device_message">Brak podłączonego urządzenia</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> podłączone urządzenie</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> podłączone urządzenia</string>
-  <!-- Zen mode buttons -->
-  <string name="silent_mode_priority">Priorytet</string>
-  <string name="silent_mode_none">Brak</string>
+    <string name="app_killed_message">Aplikacja została zamknięta</string>
+    <string name="global_action_screenshot">Zrzut ekranu</string>
+    <string name="global_action_reboot">Uruchom ponownie</string>
+    <string name="global_action_current_user">Bieżący</string>
+    <string name="global_actions_screenshot_status">Naciśnij i przytrzymaj by wykonać częściowy zrzut ekranu</string>
+    <string name="reboot_reboot">Uruchom ponownie</string>
+    <string name="reboot_recovery">Uruchom w trybie Recovery</string>
+    <string name="reboot_bootloader">Uruchom w trybie Bootloader</string>
+    <string name="reboot_download">Uruchom w trybie Download</string>
+    <string name="reboot_soft">Szybki restart</string>
+    <string name="reboot_title">Uruchom ponownie</string>
+    <string name="reboot_confirm" product="tablet">Tablet zostanie uruchomiony ponownie.</string>
+    <string name="reboot_confirm" product="default">Telefon zostanie uruchomiony ponownie.</string>
+    <string name="reboot_progress">Ponowne uruchamianie\u2026</string>
+    <string name="adb_net_active_notification_title">ADB przez sieć włączone</string>
+    <string name="adb_both_active_notification_title">ADB przez USB &amp; sieć włączone</string>
+    <string name="adb_active_generic_notification_message">Dotknij, aby wyłączyć debugowanie.</string>
+    <string name="permlab_changePrivacyGuardState">włącz/wyłącz Ochronę Prywatności</string>
+    <string name="permdesc_changePrivacyGuardState">Pozwala aplikacji decydować, kiedy inna aplikacja zostanie uruchomiona w trybie ochrony prywatności. W trybie tym aplikacje nie mają dostępu do osobistych danych użytkownika, takich jak kontakty, historia połączeń czy wiadomości.</string>
+    <string name="privacy_guard_notification">Ochrona prywatności aktywna</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nie będzie mieć dostępu do osobistych danych</string>
+    <string name="privacy_guard_dialog_title">Ochrona prywatności</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> czy chciałbyś <xliff:g id="op">%2$s</xliff:g>.</string>
+    <string name="permission_remember_choice">Zapamiętaj mój wybór</string>
+    <string name="app_ops_access_camera">dostęp do kamery</string>
+    <string name="app_ops_access_location">dostęp do lokalizacji</string>
+    <string name="app_ops_access_notifications">czytanie powiadomień</string>
+    <string name="app_ops_activate_vpn">aktywowanie VPN</string>
+    <string name="app_ops_auto_start">uruchamianie podczas włączania urządzenia</string>
+    <string name="app_ops_delete_call_log">usuwanie dziennika połączeń</string>
+    <string name="app_ops_delete_contacts">usuwanie kontaktów</string>
+    <string name="app_ops_delete_mms">usuwanie wiadomości MMS</string>
+    <string name="app_ops_delete_sms">usuwanie wiadomości SMS</string>
+    <string name="app_ops_draw_on_top">rysowanie okien na wierzchu</string>
+    <string name="app_ops_get_usage_stats">uzyskanie statystyk użytkowania aplikacji</string>
+    <string name="app_ops_keep_device_awake">zapobieganie przejściu telefonu w stan uśpienia</string>
+    <string name="app_ops_make_phone_call">wykonywanie połączeń telefonicznych</string>
+    <string name="app_ops_modify_calendar">aktualizowanie kalendarza</string>
+    <string name="app_ops_modify_call_log">aktualizowanie rejestru połączeń</string>
+    <string name="app_ops_modify_clipboard">modyfikowanie schowka</string>
+    <string name="app_ops_modify_contacts">aktualizowanie kontaktów</string>
+    <string name="app_ops_modify_settings">aktualizowanie ustawień systemowych</string>
+    <string name="app_ops_mute_unmute_microphone">włączanie/wyłączanie mikrofonu</string>
+    <string name="app_ops_play_audio">odtwarzanie dźwięków</string>
+    <string name="app_ops_post_notification">wysyłanie powiadomienia</string>
+    <string name="app_ops_project_media">wyświetlanie multimediów</string>
+    <string name="app_ops_read_calendar">czytanie kalendarza</string>
+    <string name="app_ops_read_call_log">czytanie rejestru połączeń</string>
+    <string name="app_ops_read_clipboard">czytanie schowka</string>
+    <string name="app_ops_read_contacts">czytanie kontaktów</string>
+    <string name="app_ops_read_mms">czytanie MMS-ów</string>
+    <string name="app_ops_read_sms">czytanie SMS-ów</string>
+    <string name="app_ops_receive_sms">odbieranie SMS-ów</string>
+    <string name="app_ops_record_audio">nagrywanie dźwięku</string>
+    <string name="app_ops_send_mms">wysyłanie MMS-ów</string>
+    <string name="app_ops_send_sms">wysyłanie SMS-ów</string>
+    <string name="app_ops_start_at_bootup">uruchamianie podczas włączania urządzenia</string>
+    <string name="app_ops_toast_window">wyświetlanie komunikatów w dymkach</string>
+    <string name="app_ops_toggle_bluetooth">przełączanie Bluetooth</string>
+    <string name="app_ops_toggle_mobile_data">przełączanie transmisji danych</string>
+    <string name="app_ops_toggle_nfc">Przełączanie NFC</string>
+    <string name="app_ops_toggle_wifi">przełączanie Wi-Fi</string>
+    <string name="app_ops_use_alarm_volume">kontrolowanie głośności alarmu</string>
+    <string name="app_ops_use_audio_focus">kontrolowanie priorytetów audio</string>
+    <string name="app_ops_use_bluetooth_volume">kontrolowanie głośności urządzenia Bluetooth</string>
+    <string name="app_ops_use_master_volume">kontrolowanie głośności</string>
+    <string name="app_ops_use_media_buttons">używanie przycisków mediów</string>
+    <string name="app_ops_use_media_volume">kontrolowanie głośności mediów</string>
+    <string name="app_ops_use_notification_volume">kontrolowanie głośności powiadomień</string>
+    <string name="app_ops_use_ring_volume">kontrolowanie głośności dzwonka</string>
+    <string name="app_ops_use_vibrate">używanie haptic feedback</string>
+    <string name="app_ops_use_voice_volume">kontrolowanie głośności rozmów</string>
+    <string name="app_ops_write_mms">pisanie MMS-ów</string>
+    <string name="app_ops_write_sms">pisanie SMS-ów</string>
+    <string name="app_ops_use_fingerprint">odczyt linii papilarnych</string>
+    <string name="app_ops_add_voicemail">dodawanie wiadomości głosowej</string>
+    <string name="app_ops_read_phone_state">dostęp do stanu telefonu</string>
+    <string name="app_ops_scan_wifi">skanowanie sieci Wi-Fi</string>
+    <string name="app_ops_change_wallpaper">zmiana tapety</string>
+    <string name="app_ops_assist_structure">wykorzystanie asystenta</string>
+    <string name="app_ops_assist_screenshot">tworzenie zrzutów ekranu</string>
+    <string name="app_ops_use_body_sensors">odczyt czujników ciała</string>
+    <string name="app_ops_read_cell_broadcasts">odczyt transmisji komórkowych</string>
+    <string name="app_ops_mock_location">pozorowanie twojej lokalizacji</string>
+    <string name="app_ops_read_external_storage">odczyt pamięci zewnętrznej</string>
+    <string name="app_ops_write_external_storage">zapis pamięci zewnętrznej</string>
+    <string name="app_ops_turn_on_screen">włączanie ekranu</string>
+    <string name="app_ops_get_accounts">dostęp do kont urządzenia</string>
+    <string name="app_ops_run_in_background">działa w tle</string>
+    <string name="app_ops_wifi_change">zmiana stanu Wi-Fi</string>
+    <string name="app_ops_su">dostęp do roota</string>
+    <string name="notify_package_component_protected_title">Aktywność uruchamiania zablokowana</string>
+    <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s </xliff:g> jest chroniony(a) przed uruchomieniem. Kliknij, aby uwierzytelnić i uruchomić tę aplikację.</string>
+    <string name="lock_to_app_toast_no_navbar">Aby odpiąć ekran, dotknij i przytrzymaj przycisk Wstecz.</string>
+    <string name="lineage_system_error_manufacturer">Wykryto niezgodność obrazu dostawcy. Zazwyczaj oznacza to, że obraz twojego dostawcy nie jest aktualny. Upewnij się, że obraz odpowiada <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+    <string name="singlehandmode_click_hint_message">Dotknij miejsca poza ekranem, by opuścić tryb obsługi jedną ręką</string>
+    <string name="tethered_notification_no_device_message">Brak podłączonego urządzenia</string>
+    <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> podłączone urządzenie</string>
+    <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> podłączone urządzenia</string>
+    <string name="silent_mode_priority">Priorytet</string>
+    <string name="silent_mode_none">Brak</string>
 </resources>

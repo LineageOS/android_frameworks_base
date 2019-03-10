@@ -20,28 +20,18 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">Valon kirkkaus</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">Profiilit pois.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Profiili: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Profiilit pois päältä.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">Profiili <xliff:g id="profile" example="Default">%s</xliff:g> otettiin käyttöön.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">Profiilit pois.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">Järjestelmäprofiilit</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Valoasetukset</string>
-  <string name="led_notification_text">LED-valo otettu käyttöön asetuksissa</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Taskulamppu on päällä</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Paina sammuttaaksesi</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">Edistyneillä ilmoitusasetuksilla voit asettaa sovelluksen ilmoitusten tärkeyden asteikolla 0 - 6.
+    <string name="accessibility_notification_brightness">Valon kirkkaus</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiilit pois.</string>
+    <string name="accessibility_quick_settings_profiles">Profiili: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiilit pois päältä.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profiili <xliff:g id="profile" example="Default">%s</xliff:g> otettiin käyttöön.</string>
+    <string name="quick_settings_profiles_off">Profiilit pois.</string>
+    <string name="quick_settings_profiles">Järjestelmäprofiilit</string>
+    <string name="led_notification_title">Valoasetukset</string>
+    <string name="led_notification_text">LED-valo otettu käyttöön asetuksissa</string>
+    <string name="quick_settings_tile_flashlight_not_title">Taskulamppu on päällä</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Paina sammuttaaksesi</string>
+    <string name="cm_power_notification_controls_description">Edistyneillä ilmoitusasetuksilla voit asettaa sovelluksen ilmoitusten tärkeyden asteikolla 0 - 6.
         \n\n<b>Taso 6</b>
         \n- Näytä ylimpänä ilmoituslistassa
         \n- Salli koko näytön keskeytys
@@ -71,153 +61,100 @@
         \n\n<b>Taso 0</b>
         \n- Estä kaikki sovelluksen ilmoitukset
     </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">Tärkeys: Taso %1$d</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">Ei koko näytön keskeytystä, kurkistusta, ääntä tai värinää. Piilota lukitusnäytöltä.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Tämä pitää sen näkyvissä, kunnes poistat kiinnityksen. Paina ja pidä Takasin-näppäintä pohjassa irrottaaksesi.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">Pyyhkäise kuvaketta %1$s</string>
-  <string name="lockscreen_message">Napauta vasenta tai oikeaa kuvaketta määrittääksesi lukitusnäytön pikakuvakkeen.</string>
-  <string name="lockscreen_default_target">Oletus</string>
-  <string name="select_application">Valitse sovellus</string>
-  <string name="lockscreen_choose_action_title">Valitse tehtävä</string>
-  <string name="lockscreen_none_target">Ei mitään</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">Näytä toistojono</string>
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="accessibility_dpad_left">Kohdistin vasemmalle</string>
-  <string name="accessibility_dpad_right">Kohdistin oikealle</string>
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">Valikko / Näppäimistön vaihto (näytä aina)</string>
-  <string name="search">Haku</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">Kello</string>
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d yhdistetty laite</item>
-    <item quantity="other">%1$d yhdistettyä laitetta</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Puhelu</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>Järjestelmä</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Soita</item>
-    <!-- STREAM_RING -->
-    <item>Media</item>
-    <!-- STREAM_MUSIC -->
-    <item>Herätys</item>
-    <!-- STREAM_ALARM -->
-    <item>Ilmoitus</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Sijainnin raportointi: virransäästötila.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Sijainti: Vain laite.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Sijainnin raportointi: korkea tarkkuus.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Virransäästö</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Virran-\nsäästö</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Vain laite</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Vain\nlaite</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Korkea tarkkuus</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Suuri\ntarkkuus</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Sijainti</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Valitse tila:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Korkea tarkkuus</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Virransäästö</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Vain laite</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Paikanna GPS:n ja Wi\u2011Fi-, Bluetooth- ja mobiiliverkkojen avulla</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Paikanna WiF\u2011i-, Bluetooth- ja mobiiliverkkojen avulla</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Paikanna sijaintisi GPS:n avulla</string>
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB verkon yli</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Ambient-näyttö</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient-näyttö pois.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient-näyttö päällä.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient-näyttö pois päältä.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient-näyttö päällä.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">Kofeiini</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kofeiini pois päältä</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kofeiini päälle</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Heads up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads up pois.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up päällä.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up pois päältä.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up päällä.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Synkronointi</string>
-  <string name="accessibility_quick_settings_sync_off">Synkronointi pois.</string>
-  <string name="accessibility_quick_settings_sync_on">Synkronointi päällä.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Synkronointi pois päältä.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Synkronointi päällä.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USB-jakaminen</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">Synkronointi</string>
-  <string name="quick_settings_volume_panel_label">Äänenvoimakkuuspaneeli</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Estä hylkäämästä toimintoa <xliff:g id="task">%1$s</xliff:g> </string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Salli toiminnon <xliff:g id="task">%1$s</xliff:g> hylkääminen</string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">Automaattinen</string>
-  <string name="live_display_auto_summary">Säädä näytön värilämpötilaa automaattisesti auringonlaskun ja -nousun jälkeen</string>
-  <string name="live_display_off">Ei käytössä</string>
-  <string name="live_display_off_summary">Poista kaikki mukautukset</string>
-  <string name="live_display_day">Päivä</string>
-  <string name="live_display_day_summary">Käytä vain päiväasetusta</string>
-  <string name="live_display_night">Yö</string>
-  <string name="live_display_night_summary">Käytä vain yöasetusta</string>
-  <string name="live_display_outdoor">Ulkoilma (kirkas aurinko)</string>
-  <string name="live_display_outdoor_summary">Käytä vain ulkoilma-asetusta</string>
-  <string name="live_display_hint">LiveDisplay voi vähentää silmien rasitusta ja auttaa nukkumaan öisin. Kokeile sitä painamalla tästä!</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay pois.</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automaattitila.</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: päivätila.</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: yötila.</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: ulkoilmatila.</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay pois käytöstä.</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay muutettiin automaattitilaan.</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay asetettu päivätilaan.</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay asetettu yötilaan.</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay asetettu ulkoilmatilaan.</string>
+    <string name="importance_level_title">Tärkeys: Taso %1$d</string>
+    <string name="notification_importance_very_low">Ei koko näytön keskeytystä, kurkistusta, ääntä tai värinää. Piilota lukitusnäytöltä.</string>
+    <string name="screen_pinning_description_no_navbar">Tämä pitää sen näkyvissä, kunnes poistat kiinnityksen. Paina ja pidä Takasin-näppäintä pohjassa irrottaaksesi.</string>
+    <string name="shortcut_hint">Pyyhkäise kuvaketta %1$s</string>
+    <string name="lockscreen_message">Napauta vasenta tai oikeaa kuvaketta määrittääksesi lukitusnäytön pikakuvakkeen.</string>
+    <string name="lockscreen_default_target">Oletus</string>
+    <string name="select_application">Valitse sovellus</string>
+    <string name="lockscreen_choose_action_title">Valitse tehtävä</string>
+    <string name="lockscreen_none_target">Ei mitään</string>
+    <string name="play_queue_extension">Näytä toistojono</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Kohdistin vasemmalle</string>
+    <string name="accessibility_dpad_right">Kohdistin oikealle</string>
+    <string name="menu_ime_always_show">Valikko / Näppäimistön vaihto (näytä aina)</string>
+    <string name="search">Haku</string>
+    <string name="status_bar_clock">Kello</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d yhdistetty laite</item>
+        <item quantity="other">%1$d yhdistettyä laitetta</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Puhelu</item>
+        <item>Järjestelmä</item>
+        <item>Soita</item>
+        <item>Media</item>
+        <item>Herätys</item>
+        <item>Ilmoitus</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Sijainnin raportointi: virransäästötila.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Sijainti: Vain laite.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Sijainnin raportointi: korkea tarkkuus.</string>
+    <string name="quick_settings_location_battery_saving_label">Virransäästö</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Virran-\nsäästö</string>
+    <string name="quick_settings_location_gps_only_label">Vain laite</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Vain\nlaite</string>
+    <string name="quick_settings_location_high_accuracy_label">Korkea tarkkuus</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Suuri\ntarkkuus</string>
+    <string name="quick_settings_location_detail_title">Sijainti</string>
+    <string name="quick_settings_location_detail_menu_title">Valitse tila:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Korkea tarkkuus</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Virransäästö</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Vain laite</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Paikanna GPS:n ja Wi\u2011Fi-, Bluetooth- ja mobiiliverkkojen avulla</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Paikanna WiF\u2011i-, Bluetooth- ja mobiiliverkkojen avulla</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Paikanna sijaintisi GPS:n avulla</string>
+    <string name="quick_settings_network_adb_label">ADB verkon yli</string>
+    <string name="quick_settings_ambient_display_label">Ambient-näyttö</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient-näyttö pois.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient-näyttö päällä.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient-näyttö pois päältä.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient-näyttö päällä.</string>
+    <string name="quick_settings_caffeine_label">Kofeiini</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofeiini pois päältä</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofeiini päälle</string>
+    <string name="quick_settings_heads_up_label">Heads up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads up pois.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads up päällä.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up pois päältä.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up päällä.</string>
+    <string name="quick_settings_sync_label">Synkronointi</string>
+    <string name="accessibility_quick_settings_sync_off">Synkronointi pois.</string>
+    <string name="accessibility_quick_settings_sync_on">Synkronointi päällä.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synkronointi pois päältä.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synkronointi päällä.</string>
+    <string name="quick_settings_usb_tether_label">USB-jakaminen</string>
+    <string name="quick_settings_sync_label">Synkronointi</string>
+    <string name="quick_settings_volume_panel_label">Äänenvoimakkuuspaneeli</string>
+    <string name="accessibility_lock_task">Estä hylkäämästä toimintoa <xliff:g id="task">%1$s</xliff:g> </string>
+    <string name="accessibility_unlock_task">Salli toiminnon <xliff:g id="task">%1$s</xliff:g> hylkääminen</string>
+    <string name="live_display_auto">Automaattinen</string>
+    <string name="live_display_auto_summary">Säädä näytön värilämpötilaa automaattisesti auringonlaskun ja -nousun jälkeen</string>
+    <string name="live_display_off">Ei käytössä</string>
+    <string name="live_display_off_summary">Poista kaikki mukautukset</string>
+    <string name="live_display_day">Päivä</string>
+    <string name="live_display_day_summary">Käytä vain päiväasetusta</string>
+    <string name="live_display_night">Yö</string>
+    <string name="live_display_night_summary">Käytä vain yöasetusta</string>
+    <string name="live_display_outdoor">Ulkoilma (kirkas aurinko)</string>
+    <string name="live_display_outdoor_summary">Käytä vain ulkoilma-asetusta</string>
+    <string name="live_display_hint">LiveDisplay voi vähentää silmien rasitusta ja auttaa nukkumaan öisin. Kokeile sitä painamalla tästä!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay pois.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automaattitila.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: päivätila.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: yötila.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: ulkoilmatila.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay pois käytöstä.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay muutettiin automaattitilaan.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay asetettu päivätilaan.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay asetettu yötilaan.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay asetettu ulkoilmatilaan.</string>
 </resources>

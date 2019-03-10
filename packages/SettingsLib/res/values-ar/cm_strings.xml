@@ -19,11 +19,11 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-  <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-  <string name="profile_applist_title">التطبيقات</string>
-  <string name="picker_activities">النشاطات</string>
-  <string name="select_custom_app_title">تحديد تطبيق مخصص</string>
-  <string name="select_custom_activity_title">تحديد نشاط مخصص</string>
-  <string name="lockscreen_targets_message">اختصارات شاشة التأمين</string>
+    <string name="screen_zoom_summary_smaller">صغير</string>
+    <string name="screen_zoom_summary_smallest">الأصغر</string>
+    <string name="profile_applist_title">التطبيقات</string>
+    <string name="picker_activities">النشاطات</string>
+    <string name="select_custom_app_title">تحديد تطبيق مخصص</string>
+    <string name="select_custom_activity_title">تحديد نشاط مخصص</string>
+    <string name="lockscreen_targets_message">اختصارات شاشة التأمين</string>
 </resources>

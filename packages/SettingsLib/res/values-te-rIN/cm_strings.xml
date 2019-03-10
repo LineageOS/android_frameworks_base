@@ -19,11 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-  <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-  <string name="profile_applist_title">అనువర్తనాలు</string>
-  <string name="picker_activities">కార్యాచరణలు</string>
-  <string name="select_custom_app_title">అనుకూలిత అనువర్తనాన్ని ఎంపిక చేయుము</string>
-  <string name="select_custom_activity_title">అనుకూలిత కార్యాచరణను ఎంపిక చేయుము</string>
-  <string name="lockscreen_targets_message">లాక్ స్క్రీన్ సత్వరమార్గాలు</string>
+    <string name="profile_applist_title">అనువర్తనాలు</string>
+    <string name="picker_activities">కార్యాచరణలు</string>
+    <string name="select_custom_app_title">అనుకూలిత అనువర్తనాన్ని ఎంపిక చేయుము</string>
+    <string name="select_custom_activity_title">అనుకూలిత కార్యాచరణను ఎంపిక చేయుము</string>
+    <string name="lockscreen_targets_message">లాక్ స్క్రీన్ సత్వరమార్గాలు</string>
 </resources>

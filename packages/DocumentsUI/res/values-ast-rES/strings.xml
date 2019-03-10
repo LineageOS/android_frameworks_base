@@ -15,209 +15,121 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Title of the documents application [CHAR LIMIT=32] -->
-  <string name="app_label">Ficheros</string>
-  <!-- Title of the standalone downloads activity. [CHAR LIMIT=32] -->
-  <string name="downloads_label">Descargues</string>
-  <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
-  <string name="title_open">Abrir dende</string>
-  <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
-  <string name="title_save">Guardar en</string>
-  <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
-  <string name="menu_create_dir">Carpeta nueva</string>
-  <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
-  <string name="menu_grid">Vista de rexáu</string>
-  <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
-  <string name="menu_list">Vista de llistáu</string>
-  <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
-  <string name="menu_sort">Ordenar per</string>
-  <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
-  <string name="menu_search">Guetar</string>
-  <!-- Menu item that enters activity to change settings for current root [CHAR LIMIT=24] -->
-  <string name="menu_settings">Axustes d\'almacenamientu</string>
-  <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_open">Abrir</string>
-  <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
-  <string name="menu_save">Guardar</string>
-  <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_share">Compartir</string>
-  <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_delete">Desaniciar</string>
-  <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
-  <string name="menu_select_all">Esbillar too</string>
-  <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
-  <!-- Menu item title that moves the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_move">Mover a\u2026</string>
-  <!-- Menu item title that creates a new window in the activity [CHAR LIMIT=24] -->
-  <string name="menu_new_window">Ventana nueva</string>
-  <!-- Menu item title that copies the selected documents to clipboard [CHAR LIMIT=24] -->
-  <string name="menu_copy_to_clipboard">Copiar</string>
-  <!-- Menu item title that pastes files from the clipboard [CHAR LIMIT=24] -->
-  <string name="menu_paste_from_clipboard">Apegar</string>
-  <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show">Amosar almac. internu</string>
-  <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide">Anubrir almac. internu</string>
-  <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_show">Amosar tamañu de ficheru</string>
-  <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_hide">Anubrir tamañu de ficheru</string>
-  <!-- Button label that select the current directory [CHAR LIMIT=24] -->
-  <string name="button_select">Esbillar</string>
-  <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
-  <string name="button_copy">Copiar</string>
-  <!-- Button label that moves files to the current directory [CHAR LIMIT=24] -->
-  <string name="button_move">Mover</string>
-  <!-- Button label that hides the error bar [CHAR LIMIT=24] -->
-  <string name="button_dismiss">Escartar</string>
-  <string name="button_retry">Tentalo de nueves</string>
-  <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
-  <string name="sort_name">Pel nome</string>
-  <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
-  <string name="sort_date">Pela data de modificación</string>
-  <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
-  <string name="sort_size">Pel tamañu</string>
-  <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_open">Amosar raigaños</string>
-  <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_close">Anubrir raigaños</string>
-  <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
-  <string name="save_error">Fallu al guardar el documentu</string>
-  <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
-  <string name="create_error">Fallu al crear la carpeta</string>
-  <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
-  <string name="query_error">Nesti momentu nun pue cargase\u2019l conteníu</string>
-  <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
-  <string name="root_recent">Recién</string>
-  <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
-  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> llibres</string>
-  <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
-  <string name="root_type_service">Servicios d\'almacenamientu</string>
-  <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
-  <string name="root_type_shortcut">Atayos</string>
-  <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
-  <string name="root_type_device">Preseos</string>
-  <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
-  <string name="root_type_apps">Más aplicaciones</string>
-  <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
-  <string name="empty">Nun hai elementos</string>
-  <!-- Text shown when a file search returns no items [CHAR LIMIT=32] -->
-  <string name="no_results">Nun hai coincidendies en %1$s</string>
-  <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
-  <string name="toast_no_application">Nun pue abrise\u2019l ficheru</string>
-  <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
-  <string name="toast_failed_delete">Nun puen desaniciase dellos documentos</string>
-  <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
-  <string name="share_via">Compartir per</string>
-  <!-- Title of the copy notification [CHAR LIMIT=24] -->
-  <string name="copy_notification_title">Copiando ficheros</string>
-  <!-- Title of the move notification [CHAR LIMIT=24] -->
-  <string name="move_notification_title">Moviendo ficheros</string>
-  <!-- Title of the move notification [CHAR LIMIT=24] -->
-  <string name="delete_notification_title">Desaniciando ficheros</string>
-  <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
-  <string name="copy_remaining">Queden <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
-  <!-- Toast shown when a file copy is kicked off -->
-  <plurals name="copy_begin">
-    <item quantity="one">Copiando <xliff:g id="count" example="1">%1$d</xliff:g> ficheru.</item>
-    <item quantity="other">Copiando <xliff:g id="count" example="1">%1$d</xliff:g> ficheros.</item>
-  </plurals>
-  <plurals name="move_begin">
-    <item quantity="one">Moviendo <xliff:g id="count" example="1">%1$d</xliff:g> ficheru.</item>
-    <item quantity="other">Moviendo <xliff:g id="count" example="3">%1$d</xliff:g> ficheros.</item>
-  </plurals>
-  <!-- Text shown when files are deleted -->
-  <plurals name="deleting">
-    <item quantity="one">Desaniciando <xliff:g id="count" example="1">%1$d</xliff:g> ficheru.</item>
-    <item quantity="other">Desaniciando <xliff:g id="count" example="3">%1$d</xliff:g> ficheros.</item>
-  </plurals>
-  <!-- Text shown for the undo button -->
-  <string name="undo">Desfacer</string>
-  <!-- Text shown on the notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
-  <string name="copy_preparing">Tresnando pa copiar\u2026</string>
-  <!-- Text shown on the notification while DocumentsUI performs setup in preparation for moving files [CHAR LIMIT=32] -->
-  <string name="move_preparing">Tresnando pa mover\u2026</string>
-  <!-- Text shown on the notification while DocumentsUI performs setup in preparation for deleting files [CHAR LIMIT=32] -->
-  <string name="delete_preparing">Tresnando pa desaniciar\u2026</string>
-  <!-- Title of the copy error notification [CHAR LIMIT=48] -->
-  <plurals name="copy_error_notification_title">
-    <item quantity="one">Nun pudo copiase <xliff:g id="count" example="1">%1$d</xliff:g> ficheru</item>
-    <item quantity="other">Nun pudieron copiase <xliff:g id="count" example="1">%1$d</xliff:g> ficheros</item>
-  </plurals>
-  <!-- Title of the move error notification [CHAR LIMIT=48] -->
-  <plurals name="move_error_notification_title">
-    <item quantity="one">Nun pudo movese <xliff:g id="count" example="1">%1$d</xliff:g> ficheru</item>
-    <item quantity="other">Nun pudieron movese <xliff:g id="count" example="1">%1$d</xliff:g> ficheros</item>
-  </plurals>
-  <!-- Title of the delete error notification [CHAR LIMIT=48] -->
-  <plurals name="delete_error_notification_title">
-    <item quantity="one">Nun pudo desaniciase <xliff:g id="count" example="1">%1$d</xliff:g> ficheru</item>
-    <item quantity="other">Nun pudieron desaniciase <xliff:g id="count" example="1">%1$d</xliff:g> ficheros</item>
-  </plurals>
-  <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
-  <string name="notification_touch_for_details">Calca pa ver los detalles</string>
-  <!-- Label of the close dialog button.[CHAR LIMIT=24] -->
-  <string name="close">Zarrar</string>
-  <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="copy_failure_alert_content">Nun se copiaron estos ficheros: <xliff:g id="list">%1$s</xliff:g></string>
-  <!-- Contents of the moving failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="move_failure_alert_content">Nun pudieron movese estos ficheros: <xliff:g id="list">%1$s</xliff:g></string>
-  <!-- Message shown to users when an operation to delete one or more files has failed. Presented in a dialog. [CHAR LIMIT=48] -->
-  <string name="delete_failure_alert_content">Nun pudieron desaniciase estos ficheros: <xliff:g id="list">%1$s</xliff:g></string>
-  <!-- Contents of the copying warning dialog due to converted files. [CHAR LIMIT=64] -->
-  <string name="copy_converted_warning_content">Conviertiéronse estos ficheros a otru formatu: <xliff:g id="list" example="Document.pdf, Photo.jpg, Song.ogg">%1$s</xliff:g></string>
-  <!-- Toast shown when a user copies files to clipboard. -->
-  <plurals name="clipboard_files_clipped">
-    <item quantity="one">Copióse <xliff:g id="count" example="1">%1$d</xliff:g> ficheru al cartafueyu.</item>
-    <item quantity="other">Copiáronse <xliff:g id="count" example="1">%1$d</xliff:g> ficheros al cartafueyu.</item>
-  </plurals>
-  <!-- Toast shown when a user tries to paste files into an unsupported location. -->
-  <string name="clipboard_files_cannot_paste">Nun puen apegase los ficheros esbillaos nesti allugamientu.</string>
-  <!-- Menu item that renames the selected document [CHAR LIMIT=24] -->
-  <string name="menu_rename">Renomar</string>
-  <!-- Toast shown when renaming document failed with an error [CHAR LIMIT=48] -->
-  <string name="rename_error">Fallu al renomar el documentu</string>
-  <!-- First line for notifications saying that some files were converted to a different format
-         during a copy. [CHAR LIMIT=48] -->
-  <string name="notification_copy_files_converted_title">Convirtiéronse dellos ficheros</string>
-  <!-- Text in an alert dialog asking user to grant app access to a given directory in an external storage volume -->
-  <!-- Text in an alert dialog asking user to grant app access to a given directory in the internal storage -->
-  <!-- Text in an alert dialog asking user to grant app access to all data in an external storage volume -->
-  <!-- Checkbox that allows user to not be questioned about the directory access request again -->
-  <string name="never_ask_again">Nun entrugar más</string>
-  <!-- Text in the button asking user to allow access to a given directory. -->
-  <string name="allow">Permitir</string>
-  <!-- Text in the button asking user to deny access to a given directory. -->
-  <string name="deny">Ñegar</string>
-  <!-- Dialog text shown to users when asking if they want to delete files (a confirmation). -->
-  <!-- Label text showing user how many items are selected. Can be one or more elements. -->
-  <!-- Label text showing user how many items are being dragged. Can be one or more elements. -->
-  <plurals name="elements_dragged">
-    <item quantity="one"><xliff:g id="count" example="1">%1$d</xliff:g> elementu</item>
-    <item quantity="other"><xliff:g id="count" example="3">%1$d</xliff:g> elementos</item>
-  </plurals>
-  <!-- Dialog text shown to users when asking if they want to delete a file (a confirmation) -->
-  <string name="delete_filename_confirmation_message">¿Desaniciar «<xliff:g id="name" example="cat.jpg">%1$s</xliff:g>»?</string>
-  <!-- Dialog text shown to users when asking if they want to delete a folder (a confirmation) -->
-  <string name="delete_foldername_confirmation_message">¿Desaniciar carpeta «<xliff:g id="name" example="Photos">%1$s</xliff:g>» y los sos conteníos?</string>
-  <!-- Dialog text shown to users when asking if they want to delete files (a confirmation). -->
-  <plurals name="delete_files_confirmation_message">
-    <item quantity="one">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> ficheru?</item>
-    <item quantity="other">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> ficheros?</item>
-  </plurals>
-  <!-- Dialog text shown to users when asking if they want to delete folders (a confirmation). -->
-  <plurals name="delete_folders_confirmation_message">
-    <item quantity="one">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> carpeta y los sos conteníos?</item>
-    <item quantity="other">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> carpetes y los sos conteníos?</item>
-  </plurals>
-  <!-- Dialog text shown to users when asking if they want to delete mixed type items: files and folders (a confirmation). -->
-  <plurals name="delete_items_confirmation_message">
-    <item quantity="one">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> elementu?</item>
-    <item quantity="other">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> elementos?</item>
-  </plurals>
-  <!-- Snackbar shown to users who wanted to select more than 1000 items (files or directories). -->
-  <string name="too_many_selected">Perdón, namái pues esbillar fasta 1000 elementos al empar</string>
-  <!-- Snackbar shown to users who wanted to select all, but there were too many items (files or directories).
-         Only the first 1000 items are selected in such case. -->
-  <string name="too_many_in_select_all">Namái pudieron esbillase 1000 elementos</string>
+    <string name="app_label">Ficheros</string>
+    <string name="downloads_label">Descargues</string>
+    <string name="title_open">Abrir dende</string>
+    <string name="title_save">Guardar en</string>
+    <string name="menu_create_dir">Carpeta nueva</string>
+    <string name="menu_grid">Vista de rexáu</string>
+    <string name="menu_list">Vista de llistáu</string>
+    <string name="menu_sort">Ordenar per</string>
+    <string name="menu_search">Guetar</string>
+    <string name="menu_settings">Axustes d\'almacenamientu</string>
+    <string name="menu_open">Abrir</string>
+    <string name="menu_save">Guardar</string>
+    <string name="menu_share">Compartir</string>
+    <string name="menu_delete">Desaniciar</string>
+    <string name="menu_select_all">Esbillar too</string>
+    <string name="menu_copy">Copiar a\u2026</string>
+    <string name="menu_move">Mover a\u2026</string>
+    <string name="menu_new_window">Ventana nueva</string>
+    <string name="menu_copy_to_clipboard">Copiar</string>
+    <string name="menu_paste_from_clipboard">Apegar</string>
+    <string name="menu_advanced_show">Amosar almac. internu</string>
+    <string name="menu_advanced_hide">Anubrir almac. internu</string>
+    <string name="menu_file_size_show">Amosar tamañu de ficheru</string>
+    <string name="menu_file_size_hide">Anubrir tamañu de ficheru</string>
+    <string name="button_select">Esbillar</string>
+    <string name="button_copy">Copiar</string>
+    <string name="button_move">Mover</string>
+    <string name="button_dismiss">Escartar</string>
+    <string name="button_retry">Tentalo de nueves</string>
+    <string name="sort_name">Pel nome</string>
+    <string name="sort_date">Pela data de modificación</string>
+    <string name="sort_size">Pel tamañu</string>
+    <string name="drawer_open">Amosar raigaños</string>
+    <string name="drawer_close">Anubrir raigaños</string>
+    <string name="save_error">Fallu al guardar el documentu</string>
+    <string name="create_error">Fallu al crear la carpeta</string>
+    <string name="query_error">Nesti momentu nun pue cargase\u2019l conteníu</string>
+    <string name="root_recent">Recién</string>
+    <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> llibres</string>
+    <string name="root_type_service">Servicios d\'almacenamientu</string>
+    <string name="root_type_shortcut">Atayos</string>
+    <string name="root_type_device">Preseos</string>
+    <string name="root_type_apps">Más aplicaciones</string>
+    <string name="empty">Nun hai elementos</string>
+    <string name="no_results">Nun hai coincidendies en %1$s</string>
+    <string name="toast_no_application">Nun pue abrise\u2019l ficheru</string>
+    <string name="toast_failed_delete">Nun puen desaniciase dellos documentos</string>
+    <string name="share_via">Compartir per</string>
+    <string name="copy_notification_title">Copiando ficheros</string>
+    <string name="move_notification_title">Moviendo ficheros</string>
+    <string name="delete_notification_title">Desaniciando ficheros</string>
+    <string name="copy_remaining">Queden <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
+    <plurals name="copy_begin">
+        <item quantity="one">Copiando <xliff:g id="count" example="1">%1$d</xliff:g> ficheru.</item>
+        <item quantity="other">Copiando <xliff:g id="count" example="1">%1$d</xliff:g> ficheros.</item>
+    </plurals>
+    <plurals name="move_begin">
+        <item quantity="one">Moviendo <xliff:g id="count" example="1">%1$d</xliff:g> ficheru.</item>
+        <item quantity="other">Moviendo <xliff:g id="count" example="3">%1$d</xliff:g> ficheros.</item>
+    </plurals>
+    <plurals name="deleting">
+        <item quantity="one">Desaniciando <xliff:g id="count" example="1">%1$d</xliff:g> ficheru.</item>
+        <item quantity="other">Desaniciando <xliff:g id="count" example="3">%1$d</xliff:g> ficheros.</item>
+    </plurals>
+    <string name="undo">Desfacer</string>
+    <string name="copy_preparing">Tresnando pa copiar\u2026</string>
+    <string name="move_preparing">Tresnando pa mover\u2026</string>
+    <string name="delete_preparing">Tresnando pa desaniciar\u2026</string>
+    <plurals name="copy_error_notification_title">
+        <item quantity="one">Nun pudo copiase <xliff:g id="count" example="1">%1$d</xliff:g> ficheru</item>
+        <item quantity="other">Nun pudieron copiase <xliff:g id="count" example="1">%1$d</xliff:g> ficheros</item>
+    </plurals>
+    <plurals name="move_error_notification_title">
+        <item quantity="one">Nun pudo movese <xliff:g id="count" example="1">%1$d</xliff:g> ficheru</item>
+        <item quantity="other">Nun pudieron movese <xliff:g id="count" example="1">%1$d</xliff:g> ficheros</item>
+    </plurals>
+    <plurals name="delete_error_notification_title">
+        <item quantity="one">Nun pudo desaniciase <xliff:g id="count" example="1">%1$d</xliff:g> ficheru</item>
+        <item quantity="other">Nun pudieron desaniciase <xliff:g id="count" example="1">%1$d</xliff:g> ficheros</item>
+    </plurals>
+    <string name="notification_touch_for_details">Calca pa ver los detalles</string>
+    <string name="close">Zarrar</string>
+    <string name="copy_failure_alert_content">Nun se copiaron estos ficheros: <xliff:g id="list">%1$s</xliff:g></string>
+    <string name="move_failure_alert_content">Nun pudieron movese estos ficheros: <xliff:g id="list">%1$s</xliff:g></string>
+    <string name="delete_failure_alert_content">Nun pudieron desaniciase estos ficheros: <xliff:g id="list">%1$s</xliff:g></string>
+    <string name="copy_converted_warning_content">Conviertiéronse estos ficheros a otru formatu: <xliff:g id="list" example="Document.pdf, Photo.jpg, Song.ogg">%1$s</xliff:g></string>
+    <plurals name="clipboard_files_clipped">
+        <item quantity="one">Copióse <xliff:g id="count" example="1">%1$d</xliff:g> ficheru al cartafueyu.</item>
+        <item quantity="other">Copiáronse <xliff:g id="count" example="1">%1$d</xliff:g> ficheros al cartafueyu.</item>
+    </plurals>
+    <string name="clipboard_files_cannot_paste">Nun puen apegase los ficheros esbillaos nesti allugamientu.</string>
+    <string name="menu_rename">Renomar</string>
+    <string name="rename_error">Fallu al renomar el documentu</string>
+    <string name="notification_copy_files_converted_title">Convirtiéronse dellos ficheros</string>
+    <string name="never_ask_again">Nun entrugar más</string>
+    <string name="allow">Permitir</string>
+    <string name="deny">Ñegar</string>
+    <plurals name="elements_dragged">
+        <item quantity="one"><xliff:g id="count" example="1">%1$d</xliff:g> elementu</item>
+        <item quantity="other"><xliff:g id="count" example="3">%1$d</xliff:g> elementos</item>
+    </plurals>
+    <string name="delete_filename_confirmation_message">¿Desaniciar «<xliff:g id="name" example="cat.jpg">%1$s</xliff:g>»?</string>
+    <string name="delete_foldername_confirmation_message">¿Desaniciar carpeta «<xliff:g id="name" example="Photos">%1$s</xliff:g>» y los sos conteníos?</string>
+    <plurals name="delete_files_confirmation_message">
+        <item quantity="one">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> ficheru?</item>
+        <item quantity="other">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> ficheros?</item>
+    </plurals>
+    <plurals name="delete_folders_confirmation_message">
+        <item quantity="one">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> carpeta y los sos conteníos?</item>
+        <item quantity="other">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> carpetes y los sos conteníos?</item>
+    </plurals>
+    <plurals name="delete_items_confirmation_message">
+        <item quantity="one">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> elementu?</item>
+        <item quantity="other">¿Desaniciar <xliff:g id="count" example="1">%1$d</xliff:g> elementos?</item>
+    </plurals>
+    <string name="too_many_selected">Perdón, namái pues esbillar fasta 1000 elementos al empar</string>
+    <string name="too_many_in_select_all">Namái pudieron esbillase 1000 elementos</string>
 </resources>

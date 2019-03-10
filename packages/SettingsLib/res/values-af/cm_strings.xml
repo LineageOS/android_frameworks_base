@@ -19,13 +19,11 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-  <string name="screen_zoom_summary_smaller">Kleiner</string>
-  <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-  <string name="screen_zoom_summary_smallest">Kleinste</string>
-  <string name="profile_applist_title">Programme</string>
-  <string name="picker_activities">Aktiwiteite</string>
-  <string name="select_custom_app_title">Kies persoonlike program</string>
-  <string name="select_custom_activity_title">Kies persoonlike aktiwiteit</string>
-  <string name="lockscreen_targets_message">Slotskerm kortpaaie</string>
+    <string name="screen_zoom_summary_smaller">Kleiner</string>
+    <string name="screen_zoom_summary_smallest">Kleinste</string>
+    <string name="profile_applist_title">Programme</string>
+    <string name="picker_activities">Aktiwiteite</string>
+    <string name="select_custom_app_title">Kies persoonlike program</string>
+    <string name="select_custom_activity_title">Kies persoonlike aktiwiteit</string>
+    <string name="lockscreen_targets_message">Slotskerm kortpaaie</string>
 </resources>

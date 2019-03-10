@@ -19,13 +19,11 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-  <string name="screen_zoom_summary_smaller">Prus minore</string>
-  <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-  <string name="screen_zoom_summary_smallest">Minore meda</string>
-  <string name="profile_applist_title">Aplicatziones</string>
-  <string name="picker_activities">Atividades</string>
-  <string name="select_custom_app_title">Issèbera un\'aplicatzione personalizada</string>
-  <string name="select_custom_activity_title">Issèbera un\'atividade personalizada</string>
-  <string name="lockscreen_targets_message">Incurtzadas de su blocu de s\'ischermu</string>
+    <string name="screen_zoom_summary_smaller">Prus minore</string>
+    <string name="screen_zoom_summary_smallest">Minore meda</string>
+    <string name="profile_applist_title">Aplicatziones</string>
+    <string name="picker_activities">Atividades</string>
+    <string name="select_custom_app_title">Issèbera un\'aplicatzione personalizada</string>
+    <string name="select_custom_activity_title">Issèbera un\'atividade personalizada</string>
+    <string name="lockscreen_targets_message">Incurtzadas de su blocu de s\'ischermu</string>
 </resources>

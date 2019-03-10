@@ -20,28 +20,18 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">Svetlost lučke</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">Profili izklopljeni.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Profili izklopljeni.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">Profil spremenjen v <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">Profili izklopljeni.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">Sistemski profili</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Nastavitve lučke</string>
-  <string name="led_notification_text">Lučka LED omogočena v nastavitvah</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Svetilka je vklopljena</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Tapnite, če želite izklopiti</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">Z nadzornimi tipkami za obvestila lahko nastavite raven pomembnosti od 0 do 6 za obvestila posamezne aplikacije.
+    <string name="accessibility_notification_brightness">Svetlost lučke</string>
+    <string name="accessibility_quick_settings_profiles_off">Profili izklopljeni.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profili izklopljeni.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil spremenjen v <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_profiles_off">Profili izklopljeni.</string>
+    <string name="quick_settings_profiles">Sistemski profili</string>
+    <string name="led_notification_title">Nastavitve lučke</string>
+    <string name="led_notification_text">Lučka LED omogočena v nastavitvah</string>
+    <string name="quick_settings_tile_flashlight_not_title">Svetilka je vklopljena</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Tapnite, če želite izklopiti</string>
+    <string name="cm_power_notification_controls_description">Z nadzornimi tipkami za obvestila lahko nastavite raven pomembnosti od 0 do 6 za obvestila posamezne aplikacije.
         \n\n<b>6. raven</b>
         \n- Prikaži na vrhu seznama obvestil
         \n- Dovoli obvestilo preko celega zaslona
@@ -71,155 +61,102 @@
         \n\n<b>Raven 0</b>
         \n- Blokiraj vsa obvestila aplikacije
     </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">Pomembnost: %1$d. raven</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">Prepreči obvestila preko celega zaslona, kukanje, zvok ali vibriranje. Skrij na zaklenjenem zaslonu.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">To jo ohrani prikazano, dokler je ne odpnete. Tapnite in pridržite gumb Nazaj, da jo odpnete.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">Potegnite iz ikone za %1$s</string>
-  <string name="lockscreen_message">Tapnite ikono na levi ali desni, da ponovno dodelite bližnjico zaklenjenega zaslona.</string>
-  <string name="lockscreen_default_target">Privzeto</string>
-  <string name="select_application">Izberite aplikacijo</string>
-  <string name="lockscreen_choose_action_title">Izberite dejanje</string>
-  <string name="lockscreen_none_target">Brez</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">Prikaži čak. vrsto pred.</string>
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="accessibility_dpad_left">Kazalec levo</string>
-  <string name="accessibility_dpad_right">Kazalec desno</string>
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">Meni/preklopnik tipkovnice (vedno prikaži)</string>
-  <string name="search">Išči</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">Ura</string>
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d odjemalec</item>
-    <item quantity="two">%1$d odjemalca</item>
-    <item quantity="few">%1$d odjemalci</item>
-    <item quantity="other">%1$d odjemalcev</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Klic</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>Sistem</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Zvonjenje</item>
-    <!-- STREAM_RING -->
-    <item>Predstavnost</item>
-    <!-- STREAM_MUSIC -->
-    <item>Budilka</item>
-    <!-- STREAM_ALARM -->
-    <item>Obvestilo</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Poročanje o lokaciji: način varčevanja z energijo akumulatorja.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Poročanje o lokaciji: način \'samo tipala\'.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Poročanje o lokaciji: način visoke natančnosti.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Varčevanje z energijo akumulatorja</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Varčevanje\nz energijo akumulatorja</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Samo v napravi</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Samo v\nnapravi</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Visoka natančnost</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Visoka\nnatančnost</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Lokacija</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Izberite način:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Visoka natančnost</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Varčevanje z energijo akumulatorja</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Samo v napravi</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Uporaba GPS-ja, Bluetootha, Wi\u2011Fi-ja in mobilnih omrežij za določanje lokacije</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Uporaba Wi\u2011Fi-ja, Bluetootha in mobilnih omrežij za določanje lokacije</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Uporaba GPS-ja za določanje lokacije</string>
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB prek omrežja</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Okoliški zaslon</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Okoliški zaslon izklopljen.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Okoliški zaslon vklopljen.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Okoliški zaslon izklopljen.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Okoliški zaslon vklopljen.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">Kofein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kofein izklopljen</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kofein vklopljen</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Obvestila na zaslonu</string>
-  <string name="accessibility_quick_settings_heads_up_off">Obvestila na zas. izk.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Obvestila na zas. vkl.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Obvestila na zaslonu izklopljena.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Obvestila na zaslonu vklopljena.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sinhronizacija</string>
-  <string name="accessibility_quick_settings_sync_off">Sinhronizacija izklopljena.</string>
-  <string name="accessibility_quick_settings_sync_on">Sinhronizacija vklopljena.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sinhronizacija izklopljena.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sinhronizacija vklopljena.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">Delj. mob. int. USB</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">Sinhronizacija</string>
-  <string name="quick_settings_volume_panel_label">Plošča za glasnost</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Prepreči <xliff:g id="task">%1$s</xliff:g> opuščanje</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Dovoli <xliff:g id="task">%1$s</xliff:g> opuščanje</string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">Samodejno</string>
-  <string name="live_display_auto_summary">Samodejno prilagodi barvno temperaturo zaslona po sončnem zahodu in vzhodu</string>
-  <string name="live_display_off">Izklopljeno</string>
-  <string name="live_display_off_summary">Onemogoči vse prilagoditve</string>
-  <string name="live_display_day">Dan</string>
-  <string name="live_display_day_summary">Uporabi samo dnevne nastavitve</string>
-  <string name="live_display_night">Noč</string>
-  <string name="live_display_night_summary">Uporabi samo nočne nastavitve</string>
-  <string name="live_display_outdoor">Na prostem (močna sončna svetloba)</string>
-  <string name="live_display_outdoor_summary">Uporabi samo nastavitve na prostem</string>
-  <string name="live_display_hint">LiveDisplay lahko pomaga zmanjšati obremenitev oči in vam pomaga spati ponoči. Kliknite tukaj, da ga preizkusite!</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay izklopljen.</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: samodejni način.</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: dnevni način.</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: nočni način.</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: način na prostem.</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay izklopljen.</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay spremenjen v samodejni način.</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay spremenjen v dnevni način.</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay spremenjen v nočni način.</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay spremenjen v način na prostem.</string>
+    <string name="importance_level_title">Pomembnost: %1$d. raven</string>
+    <string name="notification_importance_very_low">Prepreči obvestila preko celega zaslona, kukanje, zvok ali vibriranje. Skrij na zaklenjenem zaslonu.</string>
+    <string name="screen_pinning_description_no_navbar">To jo ohrani prikazano, dokler je ne odpnete. Tapnite in pridržite gumb Nazaj, da jo odpnete.</string>
+    <string name="shortcut_hint">Potegnite iz ikone za %1$s</string>
+    <string name="lockscreen_message">Tapnite ikono na levi ali desni, da ponovno dodelite bližnjico zaklenjenega zaslona.</string>
+    <string name="lockscreen_default_target">Privzeto</string>
+    <string name="select_application">Izberite aplikacijo</string>
+    <string name="lockscreen_choose_action_title">Izberite dejanje</string>
+    <string name="lockscreen_none_target">Brez</string>
+    <string name="play_queue_extension">Prikaži čak. vrsto pred.</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Kazalec levo</string>
+    <string name="accessibility_dpad_right">Kazalec desno</string>
+    <string name="menu_ime_always_show">Meni/preklopnik tipkovnice (vedno prikaži)</string>
+    <string name="search">Išči</string>
+    <string name="status_bar_clock">Ura</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d odjemalec</item>
+        <item quantity="two">%1$d odjemalca</item>
+        <item quantity="few">%1$d odjemalci</item>
+        <item quantity="other">%1$d odjemalcev</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Klic</item>
+        <item>Sistem</item>
+        <item>Zvonjenje</item>
+        <item>Predstavnost</item>
+        <item>Budilka</item>
+        <item>Obvestilo</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Poročanje o lokaciji: način varčevanja z energijo akumulatorja.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Poročanje o lokaciji: način \'samo tipala\'.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Poročanje o lokaciji: način visoke natančnosti.</string>
+    <string name="quick_settings_location_battery_saving_label">Varčevanje z energijo akumulatorja</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Varčevanje\nz energijo akumulatorja</string>
+    <string name="quick_settings_location_gps_only_label">Samo v napravi</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Samo v\nnapravi</string>
+    <string name="quick_settings_location_high_accuracy_label">Visoka natančnost</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Visoka\nnatančnost</string>
+    <string name="quick_settings_location_detail_title">Lokacija</string>
+    <string name="quick_settings_location_detail_menu_title">Izberite način:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Visoka natančnost</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Varčevanje z energijo akumulatorja</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Samo v napravi</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Uporaba GPS-ja, Bluetootha, Wi\u2011Fi-ja in mobilnih omrežij za določanje lokacije</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Uporaba Wi\u2011Fi-ja, Bluetootha in mobilnih omrežij za določanje lokacije</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Uporaba GPS-ja za določanje lokacije</string>
+    <string name="quick_settings_network_adb_label">ADB prek omrežja</string>
+    <string name="quick_settings_ambient_display_label">Okoliški zaslon</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Okoliški zaslon izklopljen.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Okoliški zaslon vklopljen.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Okoliški zaslon izklopljen.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Okoliški zaslon vklopljen.</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein izklopljen</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein vklopljen</string>
+    <string name="quick_settings_heads_up_label">Obvestila na zaslonu</string>
+    <string name="accessibility_quick_settings_heads_up_off">Obvestila na zas. izk.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Obvestila na zas. vkl.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Obvestila na zaslonu izklopljena.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Obvestila na zaslonu vklopljena.</string>
+    <string name="quick_settings_sync_label">Sinhronizacija</string>
+    <string name="accessibility_quick_settings_sync_off">Sinhronizacija izklopljena.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinhronizacija vklopljena.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinhronizacija izklopljena.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinhronizacija vklopljena.</string>
+    <string name="quick_settings_usb_tether_label">Delj. mob. int. USB</string>
+    <string name="quick_settings_sync_label">Sinhronizacija</string>
+    <string name="quick_settings_volume_panel_label">Plošča za glasnost</string>
+    <string name="accessibility_lock_task">Prepreči <xliff:g id="task">%1$s</xliff:g> opuščanje</string>
+    <string name="accessibility_unlock_task">Dovoli <xliff:g id="task">%1$s</xliff:g> opuščanje</string>
+    <string name="live_display_auto">Samodejno</string>
+    <string name="live_display_auto_summary">Samodejno prilagodi barvno temperaturo zaslona po sončnem zahodu in vzhodu</string>
+    <string name="live_display_off">Izklopljeno</string>
+    <string name="live_display_off_summary">Onemogoči vse prilagoditve</string>
+    <string name="live_display_day">Dan</string>
+    <string name="live_display_day_summary">Uporabi samo dnevne nastavitve</string>
+    <string name="live_display_night">Noč</string>
+    <string name="live_display_night_summary">Uporabi samo nočne nastavitve</string>
+    <string name="live_display_outdoor">Na prostem (močna sončna svetloba)</string>
+    <string name="live_display_outdoor_summary">Uporabi samo nastavitve na prostem</string>
+    <string name="live_display_hint">LiveDisplay lahko pomaga zmanjšati obremenitev oči in vam pomaga spati ponoči. Kliknite tukaj, da ga preizkusite!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay izklopljen.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: samodejni način.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: dnevni način.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: nočni način.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: način na prostem.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay izklopljen.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay spremenjen v samodejni način.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay spremenjen v dnevni način.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay spremenjen v nočni način.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay spremenjen v način na prostem.</string>
 </resources>

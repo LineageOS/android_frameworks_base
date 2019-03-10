@@ -20,28 +20,18 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">ライトの明るさ</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">プロファイルはOFFです。</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">プロファイル: <xliff:g id="profile" example="Default">%s</xliff:g>です。</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">プロファイルがOFFになりました。</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">プロファイルが<xliff:g id="profile" example="Default">%s</xliff:g>に変更されました。</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">プロファイルはOFFです。</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">システムプロファイル</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">ライトの設定</string>
-  <string name="led_notification_text">LEDライトが設定によって有効になっています</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">フラッシュライトが点灯しています</string>
-  <string name="quick_settings_tile_flashlight_not_summary">タップして消灯する</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">通知の詳細なコントロールでは、アプリの通知に対して重要度レベルを0から6まで設定することができます。
+    <string name="accessibility_notification_brightness">ライトの明るさ</string>
+    <string name="accessibility_quick_settings_profiles_off">プロファイルはOFFです。</string>
+    <string name="accessibility_quick_settings_profiles">プロファイル: <xliff:g id="profile" example="Default">%s</xliff:g>です。</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">プロファイルがOFFになりました。</string>
+    <string name="accessibility_quick_settings_profiles_changed">プロファイルが<xliff:g id="profile" example="Default">%s</xliff:g>に変更されました。</string>
+    <string name="quick_settings_profiles_off">プロファイルはOFFです。</string>
+    <string name="quick_settings_profiles">システムプロファイル</string>
+    <string name="led_notification_title">ライトの設定</string>
+    <string name="led_notification_text">LEDライトが設定によって有効になっています</string>
+    <string name="quick_settings_tile_flashlight_not_title">フラッシュライトが点灯しています</string>
+    <string name="quick_settings_tile_flashlight_not_summary">タップして消灯する</string>
+    <string name="cm_power_notification_controls_description">通知の詳細なコントロールでは、アプリの通知に対して重要度レベルを0から6まで設定することができます。
         \n\n<b>レベル6</b>
         \n- 通知リストの一番上に表示する
         \n- 全画面表示の中断を許可する
@@ -71,152 +61,99 @@
         \n\n<b>レベル0</b>
         \n- アプリからのすべての通知をブロックする
     </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">重要度: レベル%1$d</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">全画面表示の中断、ポップアップ通知、通知音、バイブレーションが無効になります。ロック画面から非表示になります。</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">固定を解除するまで表示し続けます。固定を解除するには戻るボタンを押し続けます。</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">%1$s のアイコンからスワイプ</string>
-  <string name="lockscreen_message">左右のアイコンをタップしてロック画面のショートカットを変更します。</string>
-  <string name="lockscreen_default_target">デフォルト</string>
-  <string name="select_application">アプリケーションを選択</string>
-  <string name="lockscreen_choose_action_title">動作を選択</string>
-  <string name="lockscreen_none_target">なし</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">再生キューを表示</string>
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="condition">%2$s</xliff:g> <xliff:g id="temp">%1$s</xliff:g></string>
-  <string name="accessibility_dpad_left">カーソルを左へ</string>
-  <string name="accessibility_dpad_right">カーソルを右へ</string>
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">メニュー/キーボード切り替え（常時表示）</string>
-  <string name="search">検索</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">時計</string>
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="other">%1$d台</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>通話</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>システム</item>
-    <!-- STREAM_SYSTEM -->
-    <item>着信音</item>
-    <!-- STREAM_RING -->
-    <item>メディア</item>
-    <!-- STREAM_MUSIC -->
-    <item>アラーム</item>
-    <!-- STREAM_ALARM -->
-    <item>通知</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モードです。</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモードです。</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モードです。</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">バッテリー\n節約</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">端末のみ</string>
-  <string name="quick_settings_location_gps_only_label_twoline">GPS のみ</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">高精度</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">高精度</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">位置情報</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">選択モード:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">高精度</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">バッテリー節約</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">端末のみ</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS、Wi-Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Wi-Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">GPS で現在地を特定します</string>
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">ネットワーク経由のADB</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">アンビエント表示</string>
-  <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示は OFF です。</string>
-  <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示は ON です。</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示が OFF になりました。</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示が ON になりました。</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">カフェイン</string>
-  <string name="accessibility_quick_settings_caffeine_off">カフェインがOFFです</string>
-  <string name="accessibility_quick_settings_caffeine_on">カフェインがONです</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">ヘッドアップ</string>
-  <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>
-  <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップがOFFになりました。</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップがONになりました。</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">同期</string>
-  <string name="accessibility_quick_settings_sync_off">同期はOFFです。</string>
-  <string name="accessibility_quick_settings_sync_on">同期はONです。</string>
-  <string name="accessibility_quick_settings_sync_changed_off">同期がOFFになりました。</string>
-  <string name="accessibility_quick_settings_sync_changed_on">同期がONになりました。</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USBテザリング</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">同期</string>
-  <string name="quick_settings_volume_panel_label">音量パネル</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> が削除されないようにする</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> を削除することを許可する</string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">自動</string>
-  <string name="live_display_auto_summary">日中に画面の色温度を自動的に調整する</string>
-  <string name="live_display_off">OFF</string>
-  <string name="live_display_off_summary">すべての調整を無効にする</string>
-  <string name="live_display_day">昼</string>
-  <string name="live_display_day_summary">昼の設定のみを使用する</string>
-  <string name="live_display_night">夜間</string>
-  <string name="live_display_night_summary">夜間の設定のみを使用する</string>
-  <string name="live_display_outdoor">屋外（日光）</string>
-  <string name="live_display_outdoor_summary">屋外の設定のみを使用する</string>
-  <string name="live_display_hint">LiveDisplayは目の疲れを軽減し、夜の睡眠を邪魔しません。ここをタップして試してみてください。</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay は OFF です</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay：自動モード</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay：昼モード</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay：夜間モード</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay：屋外モード</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplayが OFF になりました。</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay を自動モードに変更しました</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay を昼モードに変更しました</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay を夜間モードに変更しました</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay を屋外モードに変更しました</string>
+    <string name="importance_level_title">重要度: レベル%1$d</string>
+    <string name="notification_importance_very_low">全画面表示の中断、ポップアップ通知、通知音、バイブレーションが無効になります。ロック画面から非表示になります。</string>
+    <string name="screen_pinning_description_no_navbar">固定を解除するまで表示し続けます。固定を解除するには戻るボタンを押し続けます。</string>
+    <string name="shortcut_hint">%1$s のアイコンからスワイプ</string>
+    <string name="lockscreen_message">左右のアイコンをタップしてロック画面のショートカットを変更します。</string>
+    <string name="lockscreen_default_target">デフォルト</string>
+    <string name="select_application">アプリケーションを選択</string>
+    <string name="lockscreen_choose_action_title">動作を選択</string>
+    <string name="lockscreen_none_target">なし</string>
+    <string name="play_queue_extension">再生キューを表示</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="condition">%2$s</xliff:g> <xliff:g id="temp">%1$s</xliff:g></string>
+    <string name="accessibility_dpad_left">カーソルを左へ</string>
+    <string name="accessibility_dpad_right">カーソルを右へ</string>
+    <string name="menu_ime_always_show">メニュー/キーボード切り替え（常時表示）</string>
+    <string name="search">検索</string>
+    <string name="status_bar_clock">時計</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="other">%1$d台</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>通話</item>
+        <item>システム</item>
+        <item>着信音</item>
+        <item>メディア</item>
+        <item>アラーム</item>
+        <item>通知</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モードです。</string>
+    <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモードです。</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モードです。</string>
+    <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">バッテリー\n節約</string>
+    <string name="quick_settings_location_gps_only_label">端末のみ</string>
+    <string name="quick_settings_location_gps_only_label_twoline">GPS のみ</string>
+    <string name="quick_settings_location_high_accuracy_label">高精度</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">高精度</string>
+    <string name="quick_settings_location_detail_title">位置情報</string>
+    <string name="quick_settings_location_detail_menu_title">選択モード:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">高精度</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">バッテリー節約</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">端末のみ</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS、Wi-Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Wi-Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS で現在地を特定します</string>
+    <string name="quick_settings_network_adb_label">ネットワーク経由のADB</string>
+    <string name="quick_settings_ambient_display_label">アンビエント表示</string>
+    <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示は OFF です。</string>
+    <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示は ON です。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示が OFF になりました。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示が ON になりました。</string>
+    <string name="quick_settings_caffeine_label">カフェイン</string>
+    <string name="accessibility_quick_settings_caffeine_off">カフェインがOFFです</string>
+    <string name="accessibility_quick_settings_caffeine_on">カフェインがONです</string>
+    <string name="quick_settings_heads_up_label">ヘッドアップ</string>
+    <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>
+    <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップがOFFになりました。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップがONになりました。</string>
+    <string name="quick_settings_sync_label">同期</string>
+    <string name="accessibility_quick_settings_sync_off">同期はOFFです。</string>
+    <string name="accessibility_quick_settings_sync_on">同期はONです。</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同期がOFFになりました。</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同期がONになりました。</string>
+    <string name="quick_settings_usb_tether_label">USBテザリング</string>
+    <string name="quick_settings_sync_label">同期</string>
+    <string name="quick_settings_volume_panel_label">音量パネル</string>
+    <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> が削除されないようにする</string>
+    <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> を削除することを許可する</string>
+    <string name="live_display_auto">自動</string>
+    <string name="live_display_auto_summary">日中に画面の色温度を自動的に調整する</string>
+    <string name="live_display_off">OFF</string>
+    <string name="live_display_off_summary">すべての調整を無効にする</string>
+    <string name="live_display_day">昼</string>
+    <string name="live_display_day_summary">昼の設定のみを使用する</string>
+    <string name="live_display_night">夜間</string>
+    <string name="live_display_night_summary">夜間の設定のみを使用する</string>
+    <string name="live_display_outdoor">屋外（日光）</string>
+    <string name="live_display_outdoor_summary">屋外の設定のみを使用する</string>
+    <string name="live_display_hint">LiveDisplayは目の疲れを軽減し、夜の睡眠を邪魔しません。ここをタップして試してみてください。</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay は OFF です</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay：自動モード</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay：昼モード</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay：夜間モード</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay：屋外モード</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplayが OFF になりました。</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay を自動モードに変更しました</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay を昼モードに変更しました</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay を夜間モードに変更しました</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay を屋外モードに変更しました</string>
 </resources>

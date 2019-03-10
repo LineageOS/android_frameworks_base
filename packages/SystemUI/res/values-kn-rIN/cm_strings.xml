@@ -20,112 +20,59 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">ಬೆಳಕಿನ ಪ್ರಖರತೆ</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">ಪ್ರೊಫೈಲ್ಸ್ ಆಫ್.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">ಪ್ರೊಫೈಲ್: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">ಪ್ರೊಫೈಲ್ಸ್ ಆಫ್ ಆಗಿದೆ.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">ಪ್ರೊಫೈಲ್ <xliff:g id="profile" example="Default">%s</xliff:g>ಗೆ ಬದಲಾಗಿದೆ.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">ಪ್ರೊಫೈಲ್ಸ್ ಆಫ್.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">ಸಿಸ್ಟಂ ಪ್ರೊಫೈಲ್ಸ್</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">ಲೈಟ್ ಸೆಟ್ಟಿಂಗ್ ಗಳು</string>
-  <string name="led_notification_text">LED ಲೈಟ್ ಶಕ್ತಗೊಂಡ ಸೆಟ್ಟಿಂಗ್ ಗಳು</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">ಫ್ಲ್ಯಾಶ್ಲೈಟ್ ಆನ್ ಆಗಿದೆ</string>
-  <string name="quick_settings_tile_flashlight_not_summary">ಆಫ್ ಮಾಡಲು ಸ್ಪರ್ಶಿಸಿ</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <!-- Notification importance level title-->
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">ಇದು ನೀವು ಅನ್‍ಪಿನ್ ಮಾಡುವವರೆಗೂ ವೀಕ್ಷಣೆಯಲ್ಲಿ ಇಡುತ್ತದೆ. ಅನ್‍ಪಿನ್ ಮಾಡಲು ಬ್ಯಾಕ್ ಬಟನ್ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="lockscreen_message">ಲಾಕ್‌ ಸ್ಕ್ರೀನ್ ಶಾರ್ಟ್‌ಕಟ್‌ ಮರು ಅಸೈನ್‌ ಮಾಡಲು ಎಡ ಅಥವಾ ಬಲಕ್ಕೆ ಐಕಾನ್ ತಟ್ಟಿ.</string>
-  <string name="lockscreen_default_target">ಡೀಫಾಲ್ಟ್</string>
-  <string name="select_application">ಅಪ್ಲಿಕೇಶನ್ ಆಯ್ಕೆಮಾಡಿ</string>
-  <string name="lockscreen_choose_action_title">ಕ್ರಿಯೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
-  <string name="lockscreen_none_target">ಶೂನ್ಯ</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">ಪ್ಲೇ ಸರದಿಯನ್ನು ತೋರಿಸು</string>
-  <!-- Weather string format in keyguard -->
-  <string name="accessibility_dpad_left">ಕರ್ಸರ್ ಎಡ</string>
-  <string name="accessibility_dpad_right">ಕರ್ಸರ್ ಬಲ</string>
-  <!-- NavBar Tuner -->
-  <!-- Name of the clock status bar icon -->
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d ಕ್ಲೈಂಟ್</item>
-    <item quantity="other">%1$d ಕ್ಲೈಂಟ್</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">ಸ್ಥಳ ವರದಿಸಲ್ಲಿಸುವಿಕೆ: ಬ್ಯಾಟರಿ ಉಳಿತಾಯ ಮೋಡ್.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">ಸ್ಥಳ ವರದಿ ಸಲ್ಲಿಸುವಿಕೆ: ಸಂವೇದಕಗಳು ಮಾತ್ರ ಮೋಡ್.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">ಸ್ಥಳ ವರದಿಸಲ್ಲಿಸುವಿಕೆ: ಗರಿಷ್ಟ ನಿಖರತೆ ಮೋಡ್.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">ಬ್ಯಾಟರಿ ಉಳಿತಾಯ</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">ಸಾಧನ ಮಾತ್ರ</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">ಗರಿಷ್ಠ ನಿಖರತೆ</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">ಗರಿಷ್ಠ ನಿಖರತೆ</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">ಬ್ಯಾಟರಿ ಉಳಿತಾಯ</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">ಸಾಧನ ಮಾತ್ರ</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">ನೆಟ್‍ವರ್ಕ್ ಮೇಲೆ ಎಡಿಬಿ</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">ಆವರಿಸಿದ ಪರದೆ</string>
-  <string name="accessibility_quick_settings_ambient_display_off">ಆವರಿಸಿದ ಪರದೆ ಆಫ್.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">ಆವರಿಸಿದ ಪರದೆ ಆನ್.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">ಆವರಿಸಿದ ಪರದೆ ಆಫ್ ಆಗಿದೆ.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">ಆವರಿಸಿದ ಪರದೆ ಆನ್ ಆಗಿದೆ.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">ಕ್ಯಾಫೀನ್</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">ಹೆಡ್ಸ್ ಅಪ್</string>
-  <string name="accessibility_quick_settings_heads_up_off">ಹೆಡ್ಸ್ ಅಪ್ ಆಫ್.</string>
-  <string name="accessibility_quick_settings_heads_up_on">ಹೆಡ್ಸ್ ಅಪ್ ಆನ್.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">ಹೆಡ್ಸ್ ಅಪ್ ಆಫ್ ಆಗಿದೆ.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">ಹೆಡ್ಸ್ ಅಪ್ ಆನ್ ಆಗಿದೆ.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">ಸಿಂಕ್</string>
-  <string name="accessibility_quick_settings_sync_off">ಸಿಂಕ್ ಆಫ್.</string>
-  <string name="accessibility_quick_settings_sync_on">ಸಿಂಕ್ ಆನ್.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">ಸಿಂಕ್ ಆಫ್ ಆಗಿದೆ.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">ಸಿಂಕ್ ಆನ್ ಆಗಿದೆ.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">ಯುಎಸ್‍ಬಿ ಟೆಥರಿಂಗ್</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">ಸಿಂಕ್</string>
-  <string name="quick_settings_volume_panel_label">ವಾಲ್ಯೂಂ ಪ್ಯಾನೆಲ್</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <!-- LiveDisplay strings -->
+    <string name="accessibility_notification_brightness">ಬೆಳಕಿನ ಪ್ರಖರತೆ</string>
+    <string name="accessibility_quick_settings_profiles_off">ಪ್ರೊಫೈಲ್ಸ್ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_profiles">ಪ್ರೊಫೈಲ್: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">ಪ್ರೊಫೈಲ್ಸ್ ಆಫ್ ಆಗಿದೆ.</string>
+    <string name="accessibility_quick_settings_profiles_changed">ಪ್ರೊಫೈಲ್ <xliff:g id="profile" example="Default">%s</xliff:g>ಗೆ ಬದಲಾಗಿದೆ.</string>
+    <string name="quick_settings_profiles_off">ಪ್ರೊಫೈಲ್ಸ್ ಆಫ್.</string>
+    <string name="quick_settings_profiles">ಸಿಸ್ಟಂ ಪ್ರೊಫೈಲ್ಸ್</string>
+    <string name="led_notification_title">ಲೈಟ್ ಸೆಟ್ಟಿಂಗ್ ಗಳು</string>
+    <string name="led_notification_text">LED ಲೈಟ್ ಶಕ್ತಗೊಂಡ ಸೆಟ್ಟಿಂಗ್ ಗಳು</string>
+    <string name="quick_settings_tile_flashlight_not_title">ಫ್ಲ್ಯಾಶ್ಲೈಟ್ ಆನ್ ಆಗಿದೆ</string>
+    <string name="quick_settings_tile_flashlight_not_summary">ಆಫ್ ಮಾಡಲು ಸ್ಪರ್ಶಿಸಿ</string>
+    <string name="screen_pinning_description_no_navbar">ಇದು ನೀವು ಅನ್‍ಪಿನ್ ಮಾಡುವವರೆಗೂ ವೀಕ್ಷಣೆಯಲ್ಲಿ ಇಡುತ್ತದೆ. ಅನ್‍ಪಿನ್ ಮಾಡಲು ಬ್ಯಾಕ್ ಬಟನ್ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ.</string>
+    <string name="lockscreen_message">ಲಾಕ್‌ ಸ್ಕ್ರೀನ್ ಶಾರ್ಟ್‌ಕಟ್‌ ಮರು ಅಸೈನ್‌ ಮಾಡಲು ಎಡ ಅಥವಾ ಬಲಕ್ಕೆ ಐಕಾನ್ ತಟ್ಟಿ.</string>
+    <string name="lockscreen_default_target">ಡೀಫಾಲ್ಟ್</string>
+    <string name="select_application">ಅಪ್ಲಿಕೇಶನ್ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="lockscreen_choose_action_title">ಕ್ರಿಯೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="lockscreen_none_target">ಶೂನ್ಯ</string>
+    <string name="play_queue_extension">ಪ್ಲೇ ಸರದಿಯನ್ನು ತೋರಿಸು</string>
+    <string name="accessibility_dpad_left">ಕರ್ಸರ್ ಎಡ</string>
+    <string name="accessibility_dpad_right">ಕರ್ಸರ್ ಬಲ</string>
+    <string name="status_bar_clock">ಗಡಿಯಾರ</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d ಕ್ಲೈಂಟ್</item>
+        <item quantity="other">%1$d ಕ್ಲೈಂಟ್</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_data_connection_hspap">HSPA</string>
+    <string name="accessibility_quick_settings_location_battery_saving">ಸ್ಥಳ ವರದಿಸಲ್ಲಿಸುವಿಕೆ: ಬ್ಯಾಟರಿ ಉಳಿತಾಯ ಮೋಡ್.</string>
+    <string name="accessibility_quick_settings_location_gps_only">ಸ್ಥಳ ವರದಿ ಸಲ್ಲಿಸುವಿಕೆ: ಸಂವೇದಕಗಳು ಮಾತ್ರ ಮೋಡ್.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">ಸ್ಥಳ ವರದಿಸಲ್ಲಿಸುವಿಕೆ: ಗರಿಷ್ಟ ನಿಖರತೆ ಮೋಡ್.</string>
+    <string name="quick_settings_location_battery_saving_label">ಬ್ಯಾಟರಿ ಉಳಿತಾಯ</string>
+    <string name="quick_settings_location_gps_only_label">ಸಾಧನ ಮಾತ್ರ</string>
+    <string name="quick_settings_location_high_accuracy_label">ಗರಿಷ್ಠ ನಿಖರತೆ</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">ಗರಿಷ್ಠ ನಿಖರತೆ</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">ಬ್ಯಾಟರಿ ಉಳಿತಾಯ</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">ಸಾಧನ ಮಾತ್ರ</string>
+    <string name="quick_settings_network_adb_label">ನೆಟ್‍ವರ್ಕ್ ಮೇಲೆ ಎಡಿಬಿ</string>
+    <string name="quick_settings_ambient_display_label">ಆವರಿಸಿದ ಪರದೆ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">ಆವರಿಸಿದ ಪರದೆ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">ಆವರಿಸಿದ ಪರದೆ ಆನ್.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">ಆವರಿಸಿದ ಪರದೆ ಆಫ್ ಆಗಿದೆ.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">ಆವರಿಸಿದ ಪರದೆ ಆನ್ ಆಗಿದೆ.</string>
+    <string name="quick_settings_caffeine_label">ಕ್ಯಾಫೀನ್</string>
+    <string name="quick_settings_heads_up_label">ಹೆಡ್ಸ್ ಅಪ್</string>
+    <string name="accessibility_quick_settings_heads_up_off">ಹೆಡ್ಸ್ ಅಪ್ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_heads_up_on">ಹೆಡ್ಸ್ ಅಪ್ ಆನ್.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ಹೆಡ್ಸ್ ಅಪ್ ಆಫ್ ಆಗಿದೆ.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ಹೆಡ್ಸ್ ಅಪ್ ಆನ್ ಆಗಿದೆ.</string>
+    <string name="quick_settings_sync_label">ಸಿಂಕ್</string>
+    <string name="accessibility_quick_settings_sync_off">ಸಿಂಕ್ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_sync_on">ಸಿಂಕ್ ಆನ್.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">ಸಿಂಕ್ ಆಫ್ ಆಗಿದೆ.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">ಸಿಂಕ್ ಆನ್ ಆಗಿದೆ.</string>
+    <string name="quick_settings_usb_tether_label">ಯುಎಸ್‍ಬಿ ಟೆಥರಿಂಗ್</string>
+    <string name="quick_settings_sync_label">ಸಿಂಕ್</string>
 </resources>

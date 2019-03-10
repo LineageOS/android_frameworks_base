@@ -15,10 +15,7 @@
      limitations under the License.
 -->
 <resources>
-  <!-- Title of the external storage application [CHAR LIMIT=32] -->
-  <string name="app_label">Externe Späicher</string>
-  <!-- Title for documents backend that offers internal storage. [CHAR LIMIT=24] -->
-  <string name="root_internal_storage">Interne Späicher</string>
-  <!-- Title for directory in which a user may store their own documents and files. [CHAR LIMIT=24] -->
-  <string name="root_documents">Dokumenter</string>
+    <string name="app_label">Externe Späicher</string>
+    <string name="root_internal_storage">Interne Späicher</string>
+    <string name="root_documents">Dokumenter</string>
 </resources>
