@@ -21,6 +21,7 @@
     <string name="adb_net_active_notification_title">ADB dros rwydwaith wedi ei alluogi</string>
     <string name="adb_both_active_notification_title">Galluogwyd ADB dros USB a rhwydwaith</string>
     <string name="adb_active_generic_notification_message">Cyffyrdda i analluogi dadfygio.</string>
+    <string name="lineage_system_error_manufacturer">Synhwyrwyd nad yw\'r ddelwedd darparwr yn cyd-fynd. Mae hyn fel arfer yn golygu bod dy ddelwedd darparwr yn hen. Sicrha bod dy ddelwedd darparwr yn cyd-fynd â <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
     <string name="lock_to_app_toast_no_navbar">I ddadbinio\'r sgrin, cyffyrdda a dal y botwm Nôl.</string>
     <string name="permlab_changePrivacyGuardState">galluogi neu analluogi Gwarchodydd Preifatrwydd</string>
     <string name="permdesc_changePrivacyGuardState">Mae\'n caniatáu i\'r ap newid a yw ap arall yn rhedeg gyda Gwarchodydd Preifatrwydd. Pan fydd ap yn rhedeg gyda Gwarchodydd Preifatrwydd, ni fydd ganddo fynediad at ddata personol megis cysylltiadau, cofnodion galwadau, na negeseuon.</string>

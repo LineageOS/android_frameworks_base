@@ -51,6 +51,10 @@
     <string name="quick_settings_volume_panel_label">Volume panel</string>
     <string name="accessibility_dpad_left">Cursor left</string>
     <string name="accessibility_dpad_right">Cursor right</string>
+    <string name="screen_pinning_description_no_navbar">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
+    <string name="status_bar_clock">Clock</string>
+    <string name="global_action_current_user">Current</string>
+    <string name="global_action_screenshot">Screenshot</string>
     <string name="global_action_restart_system">System</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>

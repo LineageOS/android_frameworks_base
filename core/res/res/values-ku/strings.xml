@@ -238,7 +238,7 @@
     <string name="permdesc_receiveBootCompleted" product="default">ڕێگه‌دان به‌ به‌رنامه‌که‌ بۆ خۆکارانه‌ ده‌ستپێکردن له‌گه‌ڵ داگیرساندنی مۆبایله‌که‌ت. به‌ڵام له‌وانه‌یه‌ هۆکارێک بێت بۆ خاوبوونه‌وه‌ی داگیرساندن وه‌ خاوکردنه‌وه‌ی مۆبایله‌که‌.</string>
     <string name="permlab_broadcastSticky">ناردنی په‌خشی لکێنراو</string>
     <string name="permdesc_broadcastSticky" product="tablet">ڕێگه‌دان به‌ به‌رنامه‌که‌ بۆ ناردنی په‌خشی لکێندراو، که‌ ده‌مێنێته‌وه‌ دوای ته‌واوبونی په‌خشیش. له‌وانه‌یه‌ ببێته‌ هۆی سه‌رفکردنی زۆرێک له‌ بیرگه‌ و خاوکردنه‌وه‌ی تابلێت.
-    </string>
+    </string>
     <string name="permdesc_broadcastSticky" product="default">ڕێگه‌دان به‌ به‌رنامه‌که‌ بۆ ناردنی په‌خشی لکێندراو، که‌ ده‌مێنێته‌وه‌ دوای ته‌واوبونی په‌خشیش. له‌وانه‌یه‌ ببێته‌ هۆی سه‌رفکردنی زۆرێک له‌ بیرگه‌ و خاوکردنه‌وه‌ی مۆبایل.</string>
     <string name="permlab_readContacts">خوێندنه‌وه‌ی په‌یوه‌ندێكانت</string>
     <string name="permdesc_readContacts" product="tablet">ڕێگه‌دان به‌ به‌رنامه‌که‌ بۆ خوێندنه‌وه‌ی زانیاری له‌باره‌ی په‌یوه‌ندییه‌کانت له‌ناو تابلێته‌که‌ته‌، که‌ فریکوەنسی له‌گه‌ڵه‌ بۆ ته‌له‌فۆنکراوه‌کان، ئیمێلکراوه‌کان، کۆمه‌ڵایه‌تییه‌کان له‌ چه‌نده‌ها ڕێگای تره‌وه‌.ده‌سته‌ڵاته‌که‌ ڕێگه‌ ئه‌دات به‌ به‌رنامه‌که‌ که‌ په‌یوه‌ندییه‌کانت پاشه‌که‌وت بکات له‌گه‌ڵ زانیارییه‌کانیان.به‌ڵام وریای به‌رنامه‌ به‌دخووه‌کان به‌ بۆ مه‌به‌ستی خراپ به‌کارده‌هێنن.</string>
@@ -299,7 +299,7 @@
     <string name="permdesc_bluetoothAdmin" product="tablet">ڕێگه‌دان به‌ به‌رنامه‌ بۆ ڕێکخستنی بلوتوسی ناوه‌کی تابلێت.وه‌ دۆزینه‌وه‌ و ناساندنی دووره‌ ئامێر.</string>
     <string name="permdesc_bluetoothAdmin" product="default">ڕێگه‌دان به‌ به‌رنامه‌ بۆ ڕێکخستنی بلوتوسی ناوه‌کی مۆبایل.وه‌ دۆزینه‌وه‌ و ناساندنی دووره‌ ئامێر.</string>
     <string name="permlab_accessWimaxState">په‌یوه‌ندی یان پچڕان له‌ وایماکسه‌وه‌</string>
-    <string name="permdesc_accessWimaxState">ڕێگه‌دان به‌ به‌رنامه‌ بۆ بڕیاردان که‌ی وایماکس کار بکات و زانیاری له‌باره‌ی وایماکس که‌ په‌یوه‌ندی پێوه‌کراوه‌. </string>
+    <string name="permdesc_accessWimaxState">ڕێگه‌دان به‌ به‌رنامه‌ بۆ بڕیاردان که‌ی وایماکس کار بکات و زانیاری له‌باره‌ی وایماکس که‌ په‌یوه‌ندی پێوه‌کراوه‌. </string>
     <string name="permdesc_changeWimaxState" product="tablet">ڕێگه‌دان به‌ به‌رنامه‌ بۆ په‌یوه‌ندی کردنی تابلێت یان پچڕانی تابلێت له‌ وایماکسه‌وه‌.</string>
     <string name="permdesc_changeWimaxState" product="default">ڕێگه‌دان به‌ به‌رنامه‌ بۆ په‌یوه‌ندی کردنی مۆبایل یان پچڕانی مۆبایل له‌ وایماکسه‌وه‌.</string>
     <string name="permlab_bluetooth">ناساندن له‌گه‌ڵ ئامێری بلوتوس</string>
@@ -316,7 +316,7 @@
     <string name="permlab_writeSyncSettings">هاوتاکردن بکوژێنەوە یان داگیرسێنە</string>
     <string name="permdesc_writeSyncSettings">ڕێگە بە بەرنامەکە دەدا کە دەستکاری رێکخستنی هاوتاکردن بکات.بۆ نمونە ئەمە دەتوانریت بۆ هاوتاکردنی بەرنامەی pepole لەگەڵ هەژمارێک بەکاربێت</string>
     <string name="permlab_readSyncStats">خوێندنه‌وه‌ی هاوتاکردنی ئامارکردنه‌کان</string>
-    <string name="permdesc_readSyncStats">ڕێگه‌دان به‌ به‌رنامه‌یه‌ک بۆ هاوتاکردنی ئامار بۆ هه‌ژمارێک، وه‌ک مێژووی هاوتاکردنی ڕووداوه‌کان وه‌ چه‌ند داتا هاوتاکراوه‌. </string>
+    <string name="permdesc_readSyncStats">ڕێگه‌دان به‌ به‌رنامه‌یه‌ک بۆ هاوتاکردنی ئامار بۆ هه‌ژمارێک، وه‌ک مێژووی هاوتاکردنی ڕووداوه‌کان وه‌ چه‌ند داتا هاوتاکراوه‌. </string>
     <string name="permlab_sdcardRead" product="nosdcard">خوێندنه‌وه‌ی به‌شه‌کانی ناو بیرگه‌ی USB.</string>
     <string name="permlab_sdcardRead" product="default">خوێندنه‌وه‌ی پێکهاته‌ی ناو بیرگه‌ی ناوه‌کی</string>
     <string name="permdesc_sdcardRead" product="nosdcard">ڕێگه‌دان به‌ به‌رنامه‌ بۆ خوێندنه‌وه‌ی پێکهاته‌ی ناو بیرگه‌ی USB.</string>
@@ -503,11 +503,11 @@
     <string name="lockscreen_sim_unlock_progress_dialog_message">کردنەوەی سیمکارت\u2026</string>
     <string name="lockscreen_failed_attempts_now_wiping" product="tablet">       تۆ بەهەڵە هەوڵت داوە تاتە بژمێرەکە بکەیتەوە <xliff:g id="number">%d</xliff:g> times.
        Tزۆر هەڵە لێدانی فایلەکان ئەسڕێتەوە بۆ باری بنەڕەتی ئەچێتەوە.
-    .
+    .
     </string>
     <string name="lockscreen_failed_attempts_now_wiping" product="default">       بەهەڵە هەوڵت داوە بۆ چالاککردنی تەلەفۆنەکەت <xliff:g id="number">%d</xliff:g> times.
       تەلەفۆنەکە ئێستا ئەجیتەوە باری بنەڕەتی.
-    .
+    .
     </string>
     <string name="lockscreen_too_many_failed_attempts_countdown">دوبارە هەوڵبدەرەوە <xliff:g id="number">%d</xliff:g> دووەم.</string>
     <string name="lockscreen_forgot_pattern_button_text">بیرچونی کێشانەکە?</string>
@@ -808,8 +808,8 @@
     <string name="decline">ڕەتکردنەوە</string>
     <string name="wifi_p2p_invitation_sent_title">بانگەشەکردنەکە نێردرا</string>
     <string name="wifi_p2p_invitation_to_connect_title">بانگەشەکردن بۆ پەیوەندکردن</string>
-    <string name="wifi_p2p_from_message">لە: </string>
-    <string name="wifi_p2p_to_message">بۆ: </string>
+    <string name="wifi_p2p_from_message">لە: </string>
+    <string name="wifi_p2p_to_message">بۆ: </string>
     <string name="wifi_p2p_enter_pin_message">PINی پێویست بنووسە: </string>
     <string name="wifi_p2p_show_pin_message">PIN: </string>
     <string name="wifi_p2p_frequency_conflict_message" product="tablet">تابلێت بۆ ماوەی کاتی پەیوەندی Wi-Fi ئەپچڕێنێت کاتێک بەستراوەتەوە بە <xliff:g id="device_name">%1$s</xliff:g></string>
@@ -1110,8 +1110,8 @@
     <string name="mediasize_japanese_chou4">Chou4</string>
     <string name="mediasize_japanese_chou3">Chou3</string>
     <string name="mediasize_japanese_chou2">Chou2</string>
-    <string name="mediasize_japanese_hagaki">Hagaki </string>
-    <string name="mediasize_japanese_oufuku">Oufuku </string>
+    <string name="mediasize_japanese_hagaki">Hagaki </string>
+    <string name="mediasize_japanese_oufuku">Oufuku </string>
     <string name="mediasize_japanese_kahu">Kahu</string>
     <string name="mediasize_japanese_kaku2">Kaku2</string>
     <string name="mediasize_japanese_you4">You4</string>

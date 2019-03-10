@@ -21,6 +21,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_lock_task">Rhwystro <xliff:g id="task">%1$s</xliff:g> rhag cael ei ddiystyru</string>
+    <string name="accessibility_unlock_task">Caniatáu i <xliff:g id="task">%1$s</xliff:g> gael ei ddiystyru</string>
     <string name="quick_settings_network_adb_label">ADB dros rwydwaith</string>
     <string name="quick_settings_ambient_display_label">Dangosydd amgylchynol</string>
     <string name="accessibility_quick_settings_ambient_display_off">Dangosydd amgylchynol i ffwrdd.</string>
