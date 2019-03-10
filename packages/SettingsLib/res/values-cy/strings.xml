@@ -180,7 +180,7 @@
     <string name="development_settings_not_available">Dyw dewisiadau datblygu ddim ar gael ar gyfer y defnyddiwr hwn.</string>
     <string name="vpn_settings_not_available">Dyw gosodiadau VPN ddim ar gael ar gyfer y defnyddiwr hwn.</string>
     <string name="tethering_settings_not_available">Dyw gosodiadau tenynnu ddim ar gael ar gyfer y defnyddiwr hwn.</string>
-    <string name="apn_settings_not_available">Dyw gosodiadau Enwau Pwyntiau Mynediad ddim ar gael ar gyfer y defnyddiwr hwn.</string>
+    <string name="apn_settings_not_available">Dyw gosodiadau Enwau Pwyntiau Mynediad (APN) ddim ar gael ar gyfer y defnyddiwr hwn.</string>
     <string name="enable_adb">Dadfygio USB</string>
     <string name="enable_adb_summary">Modd dadfygio tra bod USB wedi\'i gysylltu</string>
     <string name="clear_adb_keys">Dirymu caniatâd dadfygio USB</string>
@@ -359,14 +359,14 @@ Gwasga \'Clirio a Throsi\' i barhau.</string>
     <string name="daltonizer_type_overridden">Mae\'n cael ei or-reoli gan <xliff:g id="title" example="Simulate color space">%1$s</xliff:g></string>
     <string name="power_remaining_duration_only">Tua <xliff:g id="time">^1</xliff:g> yn weddill</string>
     <string name="power_remaining_duration_only_enhanced">Tua <xliff:g id="time">^1</xliff:g> yn weddill yn seiliedig ar dy ddefnydd</string>
-    <string name="power_remaining_charging_duration_only"><xliff:g id="time">^1</xliff:g> yn weddill nes bod y batri\'n llawn</string>
+    <string name="power_remaining_charging_duration_only"><xliff:g id="time">^1</xliff:g> yn weddill nes wedi gwefru\'n llawn</string>
     <string name="power_remaining_duration_only_short"><xliff:g id="time">^1</xliff:g> yn weddill</string>
     <string name="power_remaining_duration_only_short_enhanced"><xliff:g id="time">^1</xliff:g> yn weddill yn seiliedig ar dy ddefnydd</string>
     <string name="power_discharging_duration"><xliff:g id="level">^1</xliff:g> - tua <xliff:g id="time">^2</xliff:g> yn weddill</string>
     <string name="power_discharging_duration_enhanced"><xliff:g id="level">^1</xliff:g> - tua <xliff:g id="time">^2</xliff:g> yn weddill yn seiliedig ar dy ddefnydd</string>
     <string name="power_discharging_duration_short"><xliff:g id="level">^1</xliff:g> - <xliff:g id="time">^2</xliff:g> yn weddill</string>
     <string name="power_charging"><xliff:g id="level">%1$s</xliff:g> - <xliff:g id="state">%2$s</xliff:g></string>
-    <string name="power_charging_duration"><xliff:g id="level">^1</xliff:g> - <xliff:g id="time">^2</xliff:g> nes bod y batri\'n llawn</string>
+    <string name="power_charging_duration"><xliff:g id="level">^1</xliff:g> - <xliff:g id="time">^2</xliff:g> nes wedi gwefru\'n llawn</string>
     <string name="battery_info_status_unknown">Anhysybys</string>
     <string name="battery_info_status_charging">Yn gwefru</string>
     <string name="battery_info_status_charging_lower">yn gwefru</string>

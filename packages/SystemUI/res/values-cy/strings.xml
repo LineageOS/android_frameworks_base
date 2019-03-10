@@ -727,16 +727,16 @@
     </string-array>
     <string name="other">Arall</string>
     <string name="accessibility_divider">Rhannwr sgrin hollt</string>
-    <string name="accessibility_action_divider_left_full">Chwith yn sgrin llawn</string>
+    <string name="accessibility_action_divider_left_full">Chwith yn sgrin lawn</string>
     <string name="accessibility_action_divider_left_70">Chwith 70%</string>
     <string name="accessibility_action_divider_left_50">Chwith 50%</string>
     <string name="accessibility_action_divider_left_30">Chwith 30%</string>
-    <string name="accessibility_action_divider_right_full">De yn sgrin llawn</string>
-    <string name="accessibility_action_divider_top_full">Uchaf yn sgrin llawn</string>
+    <string name="accessibility_action_divider_right_full">De yn sgrin lawn</string>
+    <string name="accessibility_action_divider_top_full">Uchaf yn sgrin lawn</string>
     <string name="accessibility_action_divider_top_70">Uchaf 70%</string>
     <string name="accessibility_action_divider_top_50">Uchaf 50%</string>
     <string name="accessibility_action_divider_top_30">Uchaf 30%</string>
-    <string name="accessibility_action_divider_bottom_full">Isaf yn sgrin llawn</string>
+    <string name="accessibility_action_divider_bottom_full">Isaf yn sgrin lawn</string>
     <string name="accessibility_qs_edit_tile_label">Lleoli <xliff:g id="position" example="2">%1$d</xliff:g>, <xliff:g id="tile_name" example="Wi-Fi">%2$s</xliff:g>. Tariad dwbl i\'w olygu.</string>
     <string name="accessibility_qs_edit_add_tile_label"><xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g>. Rho dariad dwbl i\'w ychwanegu.</string>
     <string name="accessibility_qs_edit_position_label">Lleoli <xliff:g id="position" example="2">%1$d</xliff:g>. Tariad dwbl i ddewis.</string>
@@ -768,7 +768,7 @@
     <string name="pip_phone_dismiss_hint">Llusga i lawr i\'w ddiystyru</string>
     <string name="pip_menu_title">Dewislen</string>
     <string name="pip_notification_title">Mae <xliff:g id="name" example="Google Maps">%s</xliff:g> ym modd llun-mewn-llun</string>
-    <string name="pip_notification_message">Os nad wyt ti eisiau i <xliff:g id="name" example="Google Maps">%s</xliff:g> defnyddio’r nodwedd hon, tara i agor gosodiadau a\'i droi i ffwrdd.</string>
+    <string name="pip_notification_message">Os nad wyt ti eisiau i <xliff:g id="name" example="Google Maps">%s</xliff:g> defnyddio’r nodwedd hon, tapia i agor gosodiadau a\'i droi i ffwrdd.</string>
     <string name="pip_play">Chwarae</string>
     <string name="pip_pause">Seibio</string>
     <string name="pip_skip_to_next">Neidio i\'r nesaf</string>

@@ -296,13 +296,13 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <string name="capability_title_canRetrieveWindowContent">Adfer cynnwys ffenestr</string>
     <string name="capability_desc_canRetrieveWindowContent">Archwilio cynnwys ffenestr rwyt yn rhyngweithio gyda hi.</string>
     <string name="capability_title_canRequestTouchExploration">Troi Archwilio trwy Gyffwrdd ymlaen</string>
-    <string name="capability_desc_canRequestTouchExploration">Caiff eitemau sy\'n cael eu taro eu llefaru a bydd modd archwilio\'r sgrin gyda chyffyrddiadau dy fysedd.</string>
+    <string name="capability_desc_canRequestTouchExploration">Caiff eitemau sy\'n cael eu tapio eu llefaru a bydd modd archwilio\'r sgrin gyda chyffyrddiadau dy fysedd.</string>
     <string name="capability_title_canRequestFilterKeyEvents">Gweld y testun rwyt yn ei deipio</string>
     <string name="capability_desc_canRequestFilterKeyEvents">Mae\'n cynnwys data personol megis rhifau cardiau credyd a chyfrineiriau.</string>
     <string name="capability_title_canControlMagnification">Rheoli chwyddiad y dangosydd</string>
     <string name="capability_desc_canControlMagnification">Rheoli lefel a safle\'r chwyddo\'r dangosydd</string>
     <string name="capability_title_canPerformGestures">Cyffyrddiadau bysedd</string>
-    <string name="capability_desc_canPerformGestures">Mae\'n medru taro, llusgo, pinsio, a pherfformio ystumiau eraill.</string>
+    <string name="capability_desc_canPerformGestures">Mae\'n medru tapio, llusgo, pinsio, a pherfformio ystumiau eraill.</string>
     <string name="capability_title_canCaptureFingerprintGestures">Ystumiau ôl bys</string>
     <string name="capability_desc_canCaptureFingerprintGestures">Mae\'n gallu adnabod gwahanol symudiadau ar synhwyrydd ôl bys y ddyfais.</string>
     <string name="permlab_statusBar">analluogi neu addasu\'r bar statws</string>
@@ -474,7 +474,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <string name="permlab_nfc">rheoli Cyfathrebiad Maes Cyfagos</string>
     <string name="permdesc_nfc">Mae\'n caniatáu i\'r ap gyfathrebu gyda thagiau, cardiau a darllenwyr NFC.</string>
     <string name="permlab_disableKeyguard">analluogi dy glo sgrin</string>
-    <string name="permdesc_disableKeyguard">Mae\'n caniatáu i\'r ap analluogi\'r bysellglo ac unrhyw ddiogelwch cyfrinair cysylltiedig. Er enghraifft, mae\'r ffôn yn analluogi\'r bysellglo wrth dderbyn galwad i mewn, yna yn ail-alluogi\'r bysellglo pan fydd y galwad ar ben.</string>
+    <string name="permdesc_disableKeyguard">Mae\'n caniatáu i\'r ap analluogi\'r bysellglo ac unrhyw ddiogelwch cyfrinair cysylltiedig. Er enghraifft, mae\'r ffôn yn analluogi\'r bysellglo wrth dderbyn galwad i mewn, yna yn ail-alluogi\'r bysellglo pan fydd yr alwad ar ben.</string>
     <string name="permlab_manageFingerprint">rheoli caledwedd ôl bys</string>
     <string name="permdesc_manageFingerprint">Mae\'n caniatáu i\'r ap erfyn dulliau ychwanegu a dileu templedi olion bysedd ar gyfer eu defnyddio.</string>
     <string name="permlab_useFingerprint">defnydio caledwedd ôl bys</string>
@@ -1180,9 +1180,9 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="new_app_action">Dechrau <xliff:g id="old_app">%1$s</xliff:g></string>
     <string name="new_app_description">Stopio\'r hen ap heb gadw.</string>
     <string name="dump_heap_notification">Aeth <xliff:g id="proc">%1$s</xliff:g> dros y terfyn cof</string>
-    <string name="dump_heap_notification_detail">Mae\'r domen dympio wedi ei gasglu;
-      tara i\'w rhannu</string>
-    <string name="dump_heap_title">Rhannu\'r \"heap dump\"?</string>
+    <string name="dump_heap_notification_detail">Mae\'r domen dympio wedi ei chasglu;
+      tapia i\'w rhannu</string>
+    <string name="dump_heap_title">Rhannu\'r domen dympio (heap dump)?</string>
     <string name="dump_heap_text">Mae\'r broses <xliff:g id="proc">%1$s</xliff:g> wedi mynd heibio ei chyfyngiad cof o <xliff:g id="size">%2$s</xliff:g>. Mae yna domen dympio ar gel i\'w rhannu gyda\'i datblygwr. Bu\'n ofalus; gall y domen dympio cynnwys unrhyw wybodaeth bersonol y mae gan yr ap fynediad iddi.</string>
     <string name="sendText">Dewis gweithred ar gyfer testun</string>
     <string name="volume_ringtone">Uchder sain caniad ffôn</string>
@@ -1328,7 +1328,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="alert_windows_notification_channel_group_name">Dangos dros ben apiau eraill</string>
     <string name="alert_windows_notification_channel_name"><xliff:g id="name" example="Google Maps">%s</xliff:g> yn dangos dros ben apiau eraill</string>
     <string name="alert_windows_notification_title">Mae <xliff:g id="name" example="Google Maps">%s</xliff:g> yn dangos dros ben apiau eraill</string>
-    <string name="alert_windows_notification_message">Os nad wyt ti eisiau i <xliff:g id="name" example="Google Maps">%s</xliff:g> defnyddio’r nodwedd hon, tara i agor gosodiadau a\'i droi i ffwrdd.</string>
+    <string name="alert_windows_notification_message">Os nad wyt ti eisiau i <xliff:g id="name" example="Google Maps">%s</xliff:g> defnyddio’r nodwedd hon, tapia i agor gosodiadau a\'i droi i ffwrdd.</string>
     <string name="alert_windows_notification_turn_off_action">TROI I FFWRDD</string>
     <string name="ext_media_checking_notification_title">Yn paratoi <xliff:g id="name" example="SD card">%s</xliff:g></string>
     <string name="ext_media_checking_notification_message">Yn gwirio am wallau</string>
@@ -1536,7 +1536,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="share_action_provider_share_with">Rhannu trwy</string>
     <string name="sending">Yn anfon\u2026</string>
     <string name="launchBrowserDefault">Lansio Porwr?</string>
-    <string name="SetupCallDefault">Derbyn y galwad?</string>
+    <string name="SetupCallDefault">Derbyn yr alwad?</string>
     <string name="activity_resolver_use_always">Pob amser</string>
     <string name="activity_resolver_use_once">Unwaith yn unig</string>
     <string name="activity_resolver_work_profiles_support">Dyw %1$s ddim yn cefnogi proffil gwaith</string>
@@ -1634,7 +1634,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <string name="leave_accessibility_shortcut_on">Defnyddio Llwybr Byr</string>
     <string name="accessibility_shortcut_enabling_service">Mae Llwybr Byr Hygyrchedd wedi troi <xliff:g id="service_name" example="TalkBack">%1$s</xliff:g> ymlaen</string>
     <string name="accessibility_shortcut_disabling_service">Mae Llwybr Byr Hygyrchedd wedi troi <xliff:g id="service_name" example="TalkBack">%1$s</xliff:g> i ffwrdd</string>
-    <string name="accessibility_button_prompt_text">Dewisa nodwedd i\'w defnyddio pan fyddi\'n taro\'r botwm Hygyrchedd:</string>
+    <string name="accessibility_button_prompt_text">Dewisa nodwedd i\'w defnyddio pan fyddi\'n tapio\'r botwm Hygyrchedd:</string>
     <string name="accessibility_button_instructional_text">I newid nodweddion, cyffyrdda a dal dy gyffwrdd ar y botwm Hygyrchedd.</string>
     <string name="accessibility_magnification_chooser_text">Chwyddo</string>
     <string name="user_switched">Defnyddiwr cyfredol <xliff:g id="name" example="Bob">%1$s</xliff:g>.</string>
@@ -1783,7 +1783,7 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <string name="package_updated_device_owner">Diweddarwyd gan dy weinyddwr</string>
     <string name="package_deleted_device_owner">Dileuwyd gan dy weinyddwr</string>
     <string name="battery_saver_description">I helpu ymestyn oes batri, mae\'r arbedwr batri yn lleihau perfformiad dy ddyfais ac yn gosod cyfyngiadau ar ddirgrynu, gwasanaethau lleoliad, a\'r mwyafrif o ddata cefndir. Mae\'n bosib na fydd apiau sy\'n dibynnu ar ddiweddaru neu gysoni, megis Ebost a Negeseu, ddim yn diweddaru nes eu bod yn cael eu hagor.\n\nMae\'r arbedwr batri yn troi i ffwrdd yn awtomatig pan mae\'r ddyfais yn gwefru.</string>
-    <string name="data_saver_description">I helpu lleihau defnydd data, mae Arbedwr Data yn rhwystro rhai apiau rhag anfon neu dderbyn data yn y cefndir. Gall ap gael mynediad at ddata tra ei fod yn cael ei ddefnyddio, ond yn llai aml. Mae hyn yn golygu, er enghraifft, na fydd delweddau efallai yn dangos nes dy fod yn eu taro nhw.</string>
+    <string name="data_saver_description">I helpu lleihau defnydd data, mae Arbedwr Data yn rhwystro rhai apiau rhag anfon neu dderbyn data yn y cefndir. Gall ap gael mynediad at ddata tra ei fod yn cael ei ddefnyddio, ond yn llai aml. Mae hyn yn golygu, er enghraifft, na fydd delweddau efallai yn dangos nes dy fod yn eu tapio nhw.</string>
     <string name="data_saver_enable_title">Rhoi Arbedwr Data ar waith?</string>
     <string name="data_saver_enable_button">Troi ymlaen</string>
     <plurals name="zen_mode_duration_minutes_summary">
@@ -1850,8 +1850,8 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
         <item quantity="many">Am %d awr</item>
         <item quantity="other">Am %d awr</item>
     </plurals>
-    <string name="zen_mode_until">Tan <xliff:g id="formattedTime" example="10:00 PM">%1$s</xliff:g></string>
-    <string name="zen_mode_alarm">Tan <xliff:g id="formattedTime" example="10:00 PM">%1$s</xliff:g> (larwm nesaf)</string>
+    <string name="zen_mode_until">Hyd at <xliff:g id="formattedTime" example="10:00 PM">%1$s</xliff:g></string>
+    <string name="zen_mode_alarm">Hyd at <xliff:g id="formattedTime" example="10:00 PM">%1$s</xliff:g> (larwm nesaf)</string>
     <string name="zen_mode_forever">Nes dy fod yn diffodd Dim Tarfu</string>
     <string name="zen_mode_forever_dnd">Nes dy fod yn diffodd Dim Tarfu</string>
     <string name="zen_mode_rule_name_combination"><xliff:g id="first" example="Weeknights">%1$s</xliff:g> / <xliff:g id="rest" example="Meetings">%2$s</xliff:g></string>

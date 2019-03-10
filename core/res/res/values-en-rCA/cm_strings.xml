@@ -35,8 +35,10 @@
     <string name="app_ops_access_notifications">read your notifications</string>
     <string name="app_ops_activate_vpn">activate a VPN</string>
     <string name="app_ops_add_voicemail">add a voicemail</string>
+    <string name="app_ops_app_start_foreground">start instant app in foreground</string>
     <string name="app_ops_assist_screenshot">take a screenshot</string>
     <string name="app_ops_assist_structure">use assist structure</string>
+    <string name="app_ops_audio_accessibility_volume">audio accessibility volume</string>
     <string name="app_ops_auto_start">start at power up</string>
     <string name="app_ops_change_wallpaper">change the wallpaper</string>
     <string name="app_ops_delete_call_log">delete your call log</string>
@@ -46,6 +48,7 @@
     <string name="app_ops_draw_on_top">draw windows on top</string>
     <string name="app_ops_get_accounts">get device accounts</string>
     <string name="app_ops_get_usage_stats">get app usage stats</string>
+    <string name="app_ops_install_packages">install packages</string>
     <string name="app_ops_keep_device_awake">keep your device awake</string>
     <string name="app_ops_make_phone_call">make a phone call</string>
     <string name="app_ops_mock_location">mock your location</string>
@@ -55,6 +58,8 @@
     <string name="app_ops_modify_contacts">update your contacts</string>
     <string name="app_ops_modify_settings">update system settings</string>
     <string name="app_ops_mute_unmute_microphone">mute/unmute the microphone</string>
+    <string name="app_ops_phone_calls">answer phone calls</string>
+    <string name="app_ops_picture_in_picture">use picture in picture</string>
     <string name="app_ops_play_audio">play audio</string>
     <string name="app_ops_post_notification">post a notification</string>
     <string name="app_ops_project_media">project media</string>
@@ -65,6 +70,7 @@
     <string name="app_ops_read_contacts">read your contacts</string>
     <string name="app_ops_read_external_storage">read external storage</string>
     <string name="app_ops_read_mms">read your MMS messages</string>
+    <string name="app_ops_read_phone_numbers">read phone numbers</string>
     <string name="app_ops_read_phone_state">access phone state</string>
     <string name="app_ops_read_sms">read your SMS messages</string>
     <string name="app_ops_receive_sms">receive an SMS message</string>
