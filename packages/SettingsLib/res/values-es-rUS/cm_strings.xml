@@ -19,13 +19,11 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-  <string name="screen_zoom_summary_smaller">Muy pequeño</string>
-  <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-  <string name="screen_zoom_summary_smallest">Diminuto</string>
-  <string name="profile_applist_title">Aplicaciones</string>
-  <string name="picker_activities">Actividades</string>
-  <string name="select_custom_app_title">Seleccionar aplicación personalizada</string>
-  <string name="select_custom_activity_title">Seleccionar actividad personalizada</string>
-  <string name="lockscreen_targets_message">Atajos de la pantalla bloqueada</string>
+    <string name="screen_zoom_summary_smaller">Muy pequeño</string>
+    <string name="screen_zoom_summary_smallest">Diminuto</string>
+    <string name="profile_applist_title">Aplicaciones</string>
+    <string name="picker_activities">Actividades</string>
+    <string name="select_custom_app_title">Seleccionar aplicación personalizada</string>
+    <string name="select_custom_activity_title">Seleccionar actividad personalizada</string>
+    <string name="lockscreen_targets_message">Atajos de la pantalla bloqueada</string>
 </resources>

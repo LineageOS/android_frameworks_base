@@ -20,175 +20,112 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">Helligkeit</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">Profile aus.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Profile ausgeschaltet.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">Profil auf <xliff:g id="profile" example="Default">%s</xliff:g> geändert.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">Profile aus.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">Systemprofile</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">LED-Einstellungen</string>
-  <string name="led_notification_text">Benachrichtigungs-LED durch Einstellungen aktiviert</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Taschenlampe ist eingeschaltet</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Zum Ausschalten tippen</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">Mit den erweiterten Benachrichtigungseinstellungen können Sie für App-Benachrichtigungen eine Wichtigkeitsstufe von 0 bis 6 festlegen. \n\n<b>Stufe 6</b> \n- Auf der Benachrichtigungsliste ganz oben anzeigen \n- Vollbildunterbrechung zulassen \n- Immer kurz einblenden \n\n<b>Stufe 5</b> \n- Keine Vollbildunterbrechung \n- Immer kurz einblenden \n\n<b>Stufe 4</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n\n<b>Stufe 3</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n\n<b>Stufe 2</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n- Auf der Statusleiste verbergen \n- Auf der Benachrichtigungsliste ganz unten anzeigen  \n\n<b>Stufe 1</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n- Auf Sperrbildschirm und Statusleiste verbergen \n- Auf der Benachrichtigungsliste ganz unten anzeigen \n\n<b>Stufe 0</b> \n- Alle Benachrichtigungen der App sperren</string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">Wichtigkeitsstufe %1$d</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">Keine Vollbildunterbrechung, nie kurz einblenden, weder Ton noch Vibration. Auf dem Sperrbildschirm verbergen.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Dies fixiert die aktuelle Ansicht. Zum Lösen die Zurück-Taste drücken und halten.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">Zum Öffnen von %1$s vom Symbol wegwischen</string>
-  <string name="lockscreen_message">Berühren Sie das linke oder rechte Symbol, um eine Sperrbildschirm-Verknüpfung festzulegen.</string>
-  <string name="lockscreen_default_target">Standard</string>
-  <string name="select_application">App auswählen</string>
-  <string name="lockscreen_choose_action_title">Aktion auswählen</string>
-  <string name="lockscreen_none_target">Keine</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">Warteschlange anzeigen</string>
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> – <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="accessibility_dpad_left">Pfeiltaste links</string>
-  <string name="accessibility_dpad_right">Pfeiltaste rechts</string>
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">Menü / Tastatur-Umschalter (immer anzeigen)</string>
-  <string name="search">Suche</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">Uhr</string>
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d Client</item>
-    <item quantity="other">%1$d Clients</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> – <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Anruf</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>System</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Klingeln</item>
-    <!-- STREAM_RING -->
-    <item>Medien</item>
-    <!-- STREAM_MUSIC -->
-    <item>Wecker</item>
-    <!-- STREAM_ALARM -->
-    <item>Benachrichtigung</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Standortdienste: Energiesparmodus.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Standortdienste: Nur Gerät.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Standortdienste: Hohe Genauigkeit.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Akku-Sparmodus</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Energie\nsparen</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Nur Gerät</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Nur\nGPS</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Hohe Genauigkeit</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Hohe\nGenauigkeit</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Standort</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Modus auswählen:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Hohe Genauigkeit</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Akku-Sparmodus</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Nur Gerät</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, WLAN, Bluetooth oder Mobilfunknetze zur Standortbestimmung nutzen</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">WLAN, Bluetooth oder Mobilfunknetze zur Standortbestimmung nutzen</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">GPS zur Standortbestimmung nutzen</string>
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB über Netzwerk</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Inaktivitätsdisplay</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Inaktivitätsdisplay aus.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Inaktivitätsdisplay an.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Inaktivitätsdisplay ausgeschaltet.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitätsdisplay eingeschaltet.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">Koffein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Koffein aus</string>
-  <string name="accessibility_quick_settings_caffeine_on">Koffein an</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Pop-up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Pop-up aus.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Pop-up an.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Pop-up ausgeschaltet.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Pop-up eingeschaltet.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Synchronisation</string>
-  <string name="accessibility_quick_settings_sync_off">Synchronisierung aus.</string>
-  <string name="accessibility_quick_settings_sync_on">Synchronisierung an.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Synchronisierung ist ausgeschaltet.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Synchronisierung ist eingeschaltet.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USB-Tethering</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">Synchronisation</string>
-  <string name="quick_settings_volume_panel_label">Lautstärke</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Verhindern, dass <xliff:g id="task">%1$s </xliff:g> beendet wird</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Zulassen, dass <xliff:g id="task">%1$s </xliff:g> beendet wird</string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">Automatisch</string>
-  <string name="live_display_auto_summary">Farbtemperatur des Bildschirms nach Sonnenaufgang und Sonnenuntergang automatisch anpassen</string>
-  <string name="live_display_off">Aus</string>
-  <string name="live_display_off_summary">Alle Anpassungen deaktivieren</string>
-  <string name="live_display_day">Tag</string>
-  <string name="live_display_day_summary">Nur Tag-Modus verwenden</string>
-  <string name="live_display_night">Nacht</string>
-  <string name="live_display_night_summary">Nur Nacht-Modus verwenden</string>
-  <string name="live_display_outdoor">Outdoor (helle Sonne)</string>
-  <string name="live_display_outdoor_summary">Nur Outdoor-Einstellungen verwenden</string>
-  <string name="live_display_hint">LiveDisplay kann gegen eine Überanstrengung der Augen und beim Schlafen in der Nacht helfen. Klicken Sie hier, um es auszuprobieren!</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay aus.</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatisch.</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tag-Modus.</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Nacht-Modus.</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Outdoor-Modus.</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay ausgeschaltet.</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auf Auto-Modus geändert.</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Außen-Modus geändert.</string>
+    <string name="accessibility_notification_brightness">Helligkeit</string>
+    <string name="accessibility_quick_settings_profiles_off">Profile aus.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profile ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil auf <xliff:g id="profile" example="Default">%s</xliff:g> geändert.</string>
+    <string name="quick_settings_profiles_off">Profile aus.</string>
+    <string name="quick_settings_profiles">Systemprofile</string>
+    <string name="led_notification_title">LED-Einstellungen</string>
+    <string name="led_notification_text">Benachrichtigungs-LED durch Einstellungen aktiviert</string>
+    <string name="quick_settings_tile_flashlight_not_title">Taschenlampe ist eingeschaltet</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Zum Ausschalten tippen</string>
+    <string name="cm_power_notification_controls_description">Mit den erweiterten Benachrichtigungseinstellungen können Sie für App-Benachrichtigungen eine Wichtigkeitsstufe von 0 bis 6 festlegen. \n\n<b>Stufe 6</b> \n- Auf der Benachrichtigungsliste ganz oben anzeigen \n- Vollbildunterbrechung zulassen \n- Immer kurz einblenden \n\n<b>Stufe 5</b> \n- Keine Vollbildunterbrechung \n- Immer kurz einblenden \n\n<b>Stufe 4</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n\n<b>Stufe 3</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n\n<b>Stufe 2</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n- Auf der Statusleiste verbergen \n- Auf der Benachrichtigungsliste ganz unten anzeigen  \n\n<b>Stufe 1</b> \n- Keine Vollbildunterbrechung \n- Nie kurz einblenden \n- Weder Ton noch Vibration \n- Auf Sperrbildschirm und Statusleiste verbergen \n- Auf der Benachrichtigungsliste ganz unten anzeigen \n\n<b>Stufe 0</b> \n- Alle Benachrichtigungen der App sperren</string>
+    <string name="importance_level_title">Wichtigkeitsstufe %1$d</string>
+    <string name="notification_importance_very_low">Keine Vollbildunterbrechung, nie kurz einblenden, weder Ton noch Vibration. Auf dem Sperrbildschirm verbergen.</string>
+    <string name="screen_pinning_description_no_navbar">Dies fixiert die aktuelle Ansicht. Zum Lösen die Zurück-Taste drücken und halten.</string>
+    <string name="shortcut_hint">Zum Öffnen von %1$s vom Symbol wegwischen</string>
+    <string name="lockscreen_message">Berühren Sie das linke oder rechte Symbol, um eine Sperrbildschirm-Verknüpfung festzulegen.</string>
+    <string name="lockscreen_default_target">Standard</string>
+    <string name="select_application">App auswählen</string>
+    <string name="lockscreen_choose_action_title">Aktion auswählen</string>
+    <string name="lockscreen_none_target">Keine</string>
+    <string name="play_queue_extension">Warteschlange anzeigen</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> – <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Pfeiltaste links</string>
+    <string name="accessibility_dpad_right">Pfeiltaste rechts</string>
+    <string name="menu_ime_always_show">Menü / Tastatur-Umschalter (immer anzeigen)</string>
+    <string name="search">Suche</string>
+    <string name="status_bar_clock">Uhr</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d Client</item>
+        <item quantity="other">%1$d Clients</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> – <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Anruf</item>
+        <item>System</item>
+        <item>Klingeln</item>
+        <item>Medien</item>
+        <item>Wecker</item>
+        <item>Benachrichtigung</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Standortdienste: Energiesparmodus.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Standortdienste: Nur Gerät.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Standortdienste: Hohe Genauigkeit.</string>
+    <string name="quick_settings_location_battery_saving_label">Akku-Sparmodus</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Energie\nsparen</string>
+    <string name="quick_settings_location_gps_only_label">Nur Gerät</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Nur\nGPS</string>
+    <string name="quick_settings_location_high_accuracy_label">Hohe Genauigkeit</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Hohe\nGenauigkeit</string>
+    <string name="quick_settings_location_detail_title">Standort</string>
+    <string name="quick_settings_location_detail_menu_title">Modus auswählen:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Hohe Genauigkeit</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Akku-Sparmodus</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Nur Gerät</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, WLAN, Bluetooth oder Mobilfunknetze zur Standortbestimmung nutzen</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">WLAN, Bluetooth oder Mobilfunknetze zur Standortbestimmung nutzen</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS zur Standortbestimmung nutzen</string>
+    <string name="quick_settings_network_adb_label">ADB über Netzwerk</string>
+    <string name="quick_settings_ambient_display_label">Inaktivitätsdisplay</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Inaktivitätsdisplay aus.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Inaktivitätsdisplay an.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Inaktivitätsdisplay ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitätsdisplay eingeschaltet.</string>
+    <string name="quick_settings_caffeine_label">Koffein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Koffein aus</string>
+    <string name="accessibility_quick_settings_caffeine_on">Koffein an</string>
+    <string name="quick_settings_heads_up_label">Pop-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Pop-up aus.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Pop-up an.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Pop-up ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Pop-up eingeschaltet.</string>
+    <string name="quick_settings_sync_label">Synchronisation</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisierung aus.</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisierung an.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronisierung ist ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronisierung ist eingeschaltet.</string>
+    <string name="quick_settings_usb_tether_label">USB-Tethering</string>
+    <string name="quick_settings_sync_label">Synchronisation</string>
+    <string name="quick_settings_volume_panel_label">Lautstärke</string>
+    <string name="accessibility_lock_task">Verhindern, dass <xliff:g id="task">%1$s </xliff:g> beendet wird</string>
+    <string name="accessibility_unlock_task">Zulassen, dass <xliff:g id="task">%1$s </xliff:g> beendet wird</string>
+    <string name="live_display_auto">Automatisch</string>
+    <string name="live_display_auto_summary">Farbtemperatur des Bildschirms nach Sonnenaufgang und Sonnenuntergang automatisch anpassen</string>
+    <string name="live_display_off">Aus</string>
+    <string name="live_display_off_summary">Alle Anpassungen deaktivieren</string>
+    <string name="live_display_day">Tag</string>
+    <string name="live_display_day_summary">Nur Tag-Modus verwenden</string>
+    <string name="live_display_night">Nacht</string>
+    <string name="live_display_night_summary">Nur Nacht-Modus verwenden</string>
+    <string name="live_display_outdoor">Outdoor (helle Sonne)</string>
+    <string name="live_display_outdoor_summary">Nur Outdoor-Einstellungen verwenden</string>
+    <string name="live_display_hint">LiveDisplay kann gegen eine Überanstrengung der Augen und beim Schlafen in der Nacht helfen. Klicken Sie hier, um es auszuprobieren!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay aus.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatisch.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tag-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Nacht-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Outdoor-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auf Auto-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Außen-Modus geändert.</string>
 </resources>

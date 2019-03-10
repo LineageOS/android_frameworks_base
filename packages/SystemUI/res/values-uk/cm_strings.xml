@@ -20,28 +20,18 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">Яскравість</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">Профілі вимкнено.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Профіль: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Профілі вимкнено.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">Профіль змінено на <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">Профілі вимкнено.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">Системні профілі</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Індикатор подій</string>
-  <string name="led_notification_text">Світлодіод увімкнено параметрами</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Ліхтарик увімкнено</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Торкніться для вимкнення</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">За допомогою елементів керування ви можете налаштувати пріоритет сповіщень застосунка – від 0 до 6 рівня.
+    <string name="accessibility_notification_brightness">Яскравість</string>
+    <string name="accessibility_quick_settings_profiles_off">Профілі вимкнено.</string>
+    <string name="accessibility_quick_settings_profiles">Профіль: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Профілі вимкнено.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Профіль змінено на <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_profiles_off">Профілі вимкнено.</string>
+    <string name="quick_settings_profiles">Системні профілі</string>
+    <string name="led_notification_title">Індикатор подій</string>
+    <string name="led_notification_text">Світлодіод увімкнено параметрами</string>
+    <string name="quick_settings_tile_flashlight_not_title">Ліхтарик увімкнено</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Торкніться для вимкнення</string>
+    <string name="cm_power_notification_controls_description">За допомогою елементів керування ви можете налаштувати пріоритет сповіщень застосунка – від 0 до 6 рівня.
         \n\n<b>Рівень 6</b>
         \n- Показувати сповіщення вгорі списку
         \n- Виводити на весь екран
@@ -71,148 +61,95 @@
         \n\n<b>Рівень 0</b>
         \n- Блокувати всі сповіщення з застосунку
     </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">Пріоритет: рівень %1$d</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">Не виводити на весь екран. Вимкнути короткі сповіщення, звук і вібросигнал. Не показувати на заблокованому екрані.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Триматиме це перед Вами, доки не відкріпите. Торкніться й утримуйте кнопку «Назад», щоб відкріпити.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">Ковзніть від піктограми для %1$s</string>
-  <string name="lockscreen_message">Натисніть на іконку ліворуч або праворуч для зміни ярлика екрану блокування.</string>
-  <string name="lockscreen_default_target">За замовчуванням</string>
-  <string name="select_application">Вибрати програму</string>
-  <string name="lockscreen_choose_action_title">Виберіть дію</string>
-  <string name="lockscreen_none_target">Нічого</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">Показати чергу відтворення</string>
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="accessibility_dpad_left">Курсор ліворуч</string>
-  <string name="accessibility_dpad_right">Курсор праворуч</string>
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">Меню / Вибір методу вводу (завжди показувати)</string>
-  <string name="search">Пошук</string>
-  <!-- Name of the clock status bar icon -->
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Виклик</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>Система</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Дзвінок</item>
-    <!-- STREAM_RING -->
-    <item>Медіа</item>
-    <!-- STREAM_MUSIC -->
-    <item>Будильник</item>
-    <!-- STREAM_ALARM -->
-    <item>Сповіщення</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Надсилання місцезнаходження: економія батареї.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Надсилання місця розташування: тільки датчики.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Надсилання місцезнаходження: висока точність.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Економія батареї</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Економія\nбатареї</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">По датчиках пристрою</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Тільки\nпристрій</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Висока точність</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Висока\nточність</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Місцезнаходження</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Виберіть режим:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Висока точність</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Економія батареї</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">По датчиках пристрою</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Використовувати GPS, Wi‑Fi, Bluetooth і мобільні мережі, щоб визначати місцезнаходження</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Використовувати Wi‑Fi, Bluetooth і мобільні мережі, щоб визначати місцезнаходження</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Використовувати GPS для визначення місцезнаходження</string>
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">Налагодження по мережі</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Ambient дисплей</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient дисплей вимкнено.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient дисплей увімкнено.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient дисплей вимкнено.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient дисплей увімкнено.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">Кофеїн</string>
-  <string name="accessibility_quick_settings_caffeine_off">Заборона сну вимк.</string>
-  <string name="accessibility_quick_settings_caffeine_on">Заборона сну увімк</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Спливаючі сповіщення</string>
-  <string name="accessibility_quick_settings_heads_up_off">Спливаючі сповіщення вимкнено.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Спливаючі сповіщення увімкнено.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Спливаючі сповіщення вимкнено.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Спливаючі сповіщення увімкнено.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Синхронізація</string>
-  <string name="accessibility_quick_settings_sync_off">Синхронізацію вимкнено.</string>
-  <string name="accessibility_quick_settings_sync_on">Синхронізацію увімкнено.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Синхронізацію вимкнено.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Синхронізація увімкнено.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USB-модем</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">Синхронізація</string>
-  <string name="quick_settings_volume_panel_label">Панель гучності</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Заборонити закривати додаток <xliff:g id="task">%1$s</xliff:g></string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Дозволити закривати додаток <xliff:g id="task">%1$s</xliff:g></string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">Автоматично</string>
-  <string name="live_display_auto_summary">Автоматична корекція температури кольору екрана після сходу та заходу сонця</string>
-  <string name="live_display_off">Вимкнуто</string>
-  <string name="live_display_off_summary">Вимкнути всі налаштування</string>
-  <string name="live_display_day">День</string>
-  <string name="live_display_day_summary">Використовувати лише налаштування режиму \"день\"</string>
-  <string name="live_display_night">Ніч</string>
-  <string name="live_display_night_summary">Використовувати лише налаштування режиму \"ніч\"</string>
-  <string name="live_display_outdoor">Надворі (яскраво)</string>
-  <string name="live_display_outdoor_summary">Використовувати лише налаштування \"надворі\"</string>
-  <string name="live_display_hint">LiveDisplay може допомогти зменшити навантаження на очі та допомогти вам спати по ночах. Натисніть тут, щоб спробувати його!</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay вимкнений.</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматичний режим.</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: денний режим.</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: нічний режим.</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим на вулиці.</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay вимкнено.</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay змінено на \"автоматичний\" режим.</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay змінено на \"денний\" режим.</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay змінено на \"нічний\" режим.</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay змінено на режим \"на вулиці\".</string>
+    <string name="importance_level_title">Пріоритет: рівень %1$d</string>
+    <string name="notification_importance_very_low">Не виводити на весь екран. Вимкнути короткі сповіщення, звук і вібросигнал. Не показувати на заблокованому екрані.</string>
+    <string name="screen_pinning_description_no_navbar">Триматиме це перед Вами, доки не відкріпите. Торкніться й утримуйте кнопку «Назад», щоб відкріпити.</string>
+    <string name="shortcut_hint">Ковзніть від піктограми для %1$s</string>
+    <string name="lockscreen_message">Натисніть на іконку ліворуч або праворуч для зміни ярлика екрану блокування.</string>
+    <string name="lockscreen_default_target">За замовчуванням</string>
+    <string name="select_application">Вибрати програму</string>
+    <string name="lockscreen_choose_action_title">Виберіть дію</string>
+    <string name="lockscreen_none_target">Нічого</string>
+    <string name="play_queue_extension">Показати чергу відтворення</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Курсор ліворуч</string>
+    <string name="accessibility_dpad_right">Курсор праворуч</string>
+    <string name="menu_ime_always_show">Меню / Вибір методу вводу (завжди показувати)</string>
+    <string name="search">Пошук</string>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Виклик</item>
+        <item>Система</item>
+        <item>Дзвінок</item>
+        <item>Медіа</item>
+        <item>Будильник</item>
+        <item>Сповіщення</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Надсилання місцезнаходження: економія батареї.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Надсилання місця розташування: тільки датчики.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Надсилання місцезнаходження: висока точність.</string>
+    <string name="quick_settings_location_battery_saving_label">Економія батареї</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Економія\nбатареї</string>
+    <string name="quick_settings_location_gps_only_label">По датчиках пристрою</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Тільки\nпристрій</string>
+    <string name="quick_settings_location_high_accuracy_label">Висока точність</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Висока\nточність</string>
+    <string name="quick_settings_location_detail_title">Місцезнаходження</string>
+    <string name="quick_settings_location_detail_menu_title">Виберіть режим:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Висока точність</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Економія батареї</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">По датчиках пристрою</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Використовувати GPS, Wi‑Fi, Bluetooth і мобільні мережі, щоб визначати місцезнаходження</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Використовувати Wi‑Fi, Bluetooth і мобільні мережі, щоб визначати місцезнаходження</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Використовувати GPS для визначення місцезнаходження</string>
+    <string name="quick_settings_network_adb_label">Налагодження по мережі</string>
+    <string name="quick_settings_ambient_display_label">Ambient дисплей</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient дисплей вимкнено.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient дисплей увімкнено.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient дисплей вимкнено.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient дисплей увімкнено.</string>
+    <string name="quick_settings_caffeine_label">Кофеїн</string>
+    <string name="accessibility_quick_settings_caffeine_off">Заборона сну вимк.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Заборона сну увімк</string>
+    <string name="quick_settings_heads_up_label">Спливаючі сповіщення</string>
+    <string name="accessibility_quick_settings_heads_up_off">Спливаючі сповіщення вимкнено.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Спливаючі сповіщення увімкнено.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Спливаючі сповіщення вимкнено.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Спливаючі сповіщення увімкнено.</string>
+    <string name="quick_settings_sync_label">Синхронізація</string>
+    <string name="accessibility_quick_settings_sync_off">Синхронізацію вимкнено.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхронізацію увімкнено.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронізацію вимкнено.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронізація увімкнено.</string>
+    <string name="quick_settings_usb_tether_label">USB-модем</string>
+    <string name="quick_settings_sync_label">Синхронізація</string>
+    <string name="quick_settings_volume_panel_label">Панель гучності</string>
+    <string name="accessibility_lock_task">Заборонити закривати додаток <xliff:g id="task">%1$s</xliff:g></string>
+    <string name="accessibility_unlock_task">Дозволити закривати додаток <xliff:g id="task">%1$s</xliff:g></string>
+    <string name="live_display_auto">Автоматично</string>
+    <string name="live_display_auto_summary">Автоматична корекція температури кольору екрана після сходу та заходу сонця</string>
+    <string name="live_display_off">Вимкнуто</string>
+    <string name="live_display_off_summary">Вимкнути всі налаштування</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_day_summary">Використовувати лише налаштування режиму \"день\"</string>
+    <string name="live_display_night">Ніч</string>
+    <string name="live_display_night_summary">Використовувати лише налаштування режиму \"ніч\"</string>
+    <string name="live_display_outdoor">Надворі (яскраво)</string>
+    <string name="live_display_outdoor_summary">Використовувати лише налаштування \"надворі\"</string>
+    <string name="live_display_hint">LiveDisplay може допомогти зменшити навантаження на очі та допомогти вам спати по ночах. Натисніть тут, щоб спробувати його!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay вимкнений.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматичний режим.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: денний режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: нічний режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим на вулиці.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay вимкнено.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay змінено на \"автоматичний\" режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay змінено на \"денний\" режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay змінено на \"нічний\" режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay змінено на режим \"на вулиці\".</string>
 </resources>

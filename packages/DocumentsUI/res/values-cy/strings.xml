@@ -15,265 +15,176 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Title of the documents application [CHAR LIMIT=32] -->
-  <string name="app_label">Ffeiliau</string>
-  <!-- Title of the standalone downloads activity. [CHAR LIMIT=32] -->
-  <string name="downloads_label">Llwythi</string>
-  <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
-  <string name="title_open">Agor o</string>
-  <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
-  <string name="title_save">Cadw i</string>
-  <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
-  <string name="menu_create_dir">Ffolder newydd</string>
-  <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
-  <string name="menu_grid">Golwg grid</string>
-  <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
-  <string name="menu_list">Golwg rhestr</string>
-  <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
-  <string name="menu_sort">Trefn</string>
-  <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
-  <string name="menu_search">Chwilio</string>
-  <!-- Menu item that enters activity to change settings for current root [CHAR LIMIT=24] -->
-  <string name="menu_settings">Gosodiadau storfa</string>
-  <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_open">Agor</string>
-  <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
-  <string name="menu_save">Cadw</string>
-  <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_share">Rhannu</string>
-  <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_delete">Dileu</string>
-  <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
-  <string name="menu_select_all">Dewis y cwbl</string>
-  <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_copy">Copïo i\u2026</string>
-  <!-- Menu item title that moves the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_move">Symud i\u2026</string>
-  <!-- Menu item title that creates a new window in the activity [CHAR LIMIT=24] -->
-  <string name="menu_new_window">Ffenestr newydd</string>
-  <!-- Menu item title that copies the selected documents to clipboard [CHAR LIMIT=24] -->
-  <string name="menu_copy_to_clipboard">Copïo</string>
-  <!-- Menu item title that pastes files from the clipboard [CHAR LIMIT=24] -->
-  <string name="menu_paste_from_clipboard">Gludo</string>
-  <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show">Dangos y storfa mewnol</string>
-  <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide">Cuddio\'r storfa mewnol</string>
-  <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_show">Dangos meintiau ffeiliau</string>
-  <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_hide">Cuddio meintiau ffeiliau</string>
-  <!-- Button label that select the current directory [CHAR LIMIT=24] -->
-  <string name="button_select">Dewis</string>
-  <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
-  <string name="button_copy">Copïo</string>
-  <!-- Button label that moves files to the current directory [CHAR LIMIT=24] -->
-  <string name="button_move">Symud</string>
-  <!-- Button label that hides the error bar [CHAR LIMIT=24] -->
-  <string name="button_dismiss">Wfftio</string>
-  <string name="button_retry">Ceisio Eto</string>
-  <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
-  <string name="sort_name">Yn ôl enw</string>
-  <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
-  <string name="sort_date">Yn ôl dyddiad addasu</string>
-  <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
-  <string name="sort_size">Yn ôl maint</string>
-  <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_open">Dangos gwreiddiau</string>
-  <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_close">Cuddio gwreiddiau</string>
-  <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
-  <string name="save_error">Methwyd â chadw\'r ddogfen</string>
-  <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
-  <string name="create_error">Methwyd â chreu ffolder</string>
-  <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
-  <string name="query_error">Methu â llwytho\'r cynnwys ar hyn o bryd</string>
-  <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
-  <string name="root_recent">Diweddar</string>
-  <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
-  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s </xliff:g> ar gael</string>
-  <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
-  <string name="root_type_service">Gwasanaethau storio</string>
-  <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
-  <string name="root_type_shortcut">Llwybrau Byr</string>
-  <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
-  <string name="root_type_device">Dyfeisiau</string>
-  <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
-  <string name="root_type_apps">Rhagor o apiau</string>
-  <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
-  <string name="empty">Dim eitemau</string>
-  <!-- Text shown when a file search returns no items [CHAR LIMIT=32] -->
-  <string name="no_results">Dim cydweddiadau yn %1$s</string>
-  <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
-  <string name="toast_no_application">Methu ag agor y ffeil</string>
-  <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
-  <string name="toast_failed_delete">Methu â dileu rhai dogfennau</string>
-  <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
-  <string name="share_via">Rhannu drwy</string>
-  <!-- Title of the copy notification [CHAR LIMIT=24] -->
-  <string name="copy_notification_title">Wrthi\'n copïo ffeiliau</string>
-  <!-- Title of the move notification [CHAR LIMIT=24] -->
-  <string name="move_notification_title">Yn symud ffeiliau</string>
-  <!-- Title of the move notification [CHAR LIMIT=24] -->
-  <string name="delete_notification_title">Yn dileu ffeiliau</string>
-  <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
-  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s </xliff:g> yn weddill</string>
-  <!-- Toast shown when a file copy is kicked off -->
-  <plurals name="copy_begin">
-    <item quantity="zero">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeiliau.</item>
-    <item quantity="one">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeil.</item>
-    <item quantity="two">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeil.</item>
-    <item quantity="few">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeil.</item>
-    <item quantity="many">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeil.</item>
-    <item quantity="other">Wrthi\'n copïo <xliff:g id="count" example="3">%1$d </xliff:g> ffeil.</item>
-  </plurals>
-  <plurals name="move_begin">
-    <item quantity="zero">Yn symud<xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau.</item>
-    <item quantity="one">Yn symud<xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
-    <item quantity="two">Yn symud<xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
-    <item quantity="few">Yn symud<xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
-    <item quantity="many">Yn symud<xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
-    <item quantity="other">Yn symud<xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
-  </plurals>
-  <!-- Text shown when files are deleted -->
-  <plurals name="deleting">
-    <item quantity="zero">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau.</item>
-    <item quantity="one">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
-    <item quantity="two">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
-    <item quantity="few">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
-    <item quantity="many">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
-    <item quantity="other">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
-  </plurals>
-  <!-- Text shown for the undo button -->
-  <string name="undo">Dadwneud</string>
-  <!-- Text shown on the notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
-  <string name="copy_preparing">Yn paratoi i gopïo\u2026</string>
-  <!-- Text shown on the notification while DocumentsUI performs setup in preparation for moving files [CHAR LIMIT=32] -->
-  <string name="move_preparing">Yn paratoi i symud\u2026</string>
-  <!-- Text shown on the notification while DocumentsUI performs setup in preparation for deleting files [CHAR LIMIT=32] -->
-  <string name="delete_preparing">Yn paratoi i ddileu\u2026</string>
-  <!-- Title of the copy error notification [CHAR LIMIT=48] -->
-  <plurals name="copy_error_notification_title">
-    <item quantity="zero">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeiliau</item>
-    <item quantity="one">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="two">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="few">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="many">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="other">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-  </plurals>
-  <!-- Title of the move error notification [CHAR LIMIT=48] -->
-  <plurals name="move_error_notification_title">
-    <item quantity="zero">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeilau</item>
-    <item quantity="one">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="two">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="few">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="many">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="other">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-  </plurals>
-  <!-- Title of the delete error notification [CHAR LIMIT=48] -->
-  <plurals name="delete_error_notification_title">
-    <item quantity="zero">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeiliau</item>
-    <item quantity="one">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="two">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="few">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="many">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-    <item quantity="other">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
-  </plurals>
-  <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
-  <string name="notification_touch_for_details">Tara i weld manylion</string>
-  <!-- Label of the close dialog button.[CHAR LIMIT=24] -->
-  <string name="close">Cau</string>
-  <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="copy_failure_alert_content">Ni chafodd y ffeiliau hyn eu copïo: <xliff:g id="list">%1$s</xliff:g></string>
-  <!-- Contents of the moving failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="move_failure_alert_content">Ni chafodd y ffeiliau hyn eu symud: <xliff:g id="list">%1$s</xliff:g></string>
-  <!-- Message shown to users when an operation to delete one or more files has failed. Presented in a dialog. [CHAR LIMIT=48] -->
-  <string name="delete_failure_alert_content">Ni chafodd y ffeiliau hyn eu dileu: <xliff:g id="list">%1$s</xliff:g></string>
-  <!-- Contents of the copying warning dialog due to converted files. [CHAR LIMIT=64] -->
-  <string name="copy_converted_warning_content">Cafodd y ffeiliau hyn eu trosi i fformat arall <xliff:g id="list" example="Document.pdf, Photo.jpg, Song.ogg">%1$s</xliff:g></string>
-  <!-- Toast shown when a user copies files to clipboard. -->
-  <plurals name="clipboard_files_clipped">
-    <item quantity="zero">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau i\'r clipfwrdd.</item>
-    <item quantity="one">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
-    <item quantity="two">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
-    <item quantity="few">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
-    <item quantity="many">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
-    <item quantity="other">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
-  </plurals>
-  <!-- Toast shown when a user tries to paste files into an unsupported location. -->
-  <string name="clipboard_files_cannot_paste">Methu â phastio\'r ffeiliau hynny yn y lleoliad yma.</string>
-  <!-- Menu item that renames the selected document [CHAR LIMIT=24] -->
-  <string name="menu_rename">Ailenwi</string>
-  <!-- Toast shown when renaming document failed with an error [CHAR LIMIT=48] -->
-  <string name="rename_error">Methwyd ag ailenwi\'r ddogfen</string>
-  <!-- First line for notifications saying that some files were converted to a different format
-         during a copy. [CHAR LIMIT=48] -->
-  <string name="notification_copy_files_converted_title">Cafodd rhai ffeiliau eu trosi</string>
-  <!-- Text in an alert dialog asking user to grant app access to a given directory in an external storage volume -->
-  <string name="open_external_dialog_request">Caniatáu i <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> gael mynediad at y cyfeiriadur <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g> ar <xliff:g id="storage" example="SD Card"><i>^3</i></xliff:g>?</string>
-  <!-- Text in an alert dialog asking user to grant app access to a given directory in the internal storage -->
-  <string name="open_external_dialog_request_primary_volume">Caniatáu i <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> gael mynediad at y cyfeiriadur <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g>?</string>
-  <!-- Text in an alert dialog asking user to grant app access to all data in an external storage volume -->
-  <string name="open_external_dialog_root_request">Caniatáu i <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> gael mynediad at dy ddata, gan gynnwys lluniau a fideos, ar <xliff:g id="storage" example="SD Card"><i>^2</i></xliff:g>?</string>
-  <!-- Checkbox that allows user to not be questioned about the directory access request again -->
-  <string name="never_ask_again">Peidio â gofyn eto</string>
-  <!-- Text in the button asking user to allow access to a given directory. -->
-  <string name="allow">Caniatáu</string>
-  <!-- Text in the button asking user to deny access to a given directory. -->
-  <string name="deny">Gwrthod</string>
-  <!-- Dialog text shown to users when asking if they want to delete files (a confirmation). -->
-  <!-- Label text showing user how many items are selected. Can be one or more elements. -->
-  <plurals name="elements_selected">
-    <item quantity="zero"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'u dewis</item>
-    <item quantity="one"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'i dewis</item>
-    <item quantity="two"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'u dewis</item>
-    <item quantity="few"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'u dewis</item>
-    <item quantity="many"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'u dewis</item>
-    <item quantity="other"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'u dewis</item>
-  </plurals>
-  <!-- Label text showing user how many items are being dragged. Can be one or more elements. -->
-  <plurals name="elements_dragged">
-    <item quantity="zero"><xliff:g id="count" example="3">%1$d</xliff:g> eitemau</item>
-    <item quantity="one"><xliff:g id="count" example="3">%1$d</xliff:g> eitem</item>
-    <item quantity="two"><xliff:g id="count" example="3">%1$d</xliff:g> eitem</item>
-    <item quantity="few"><xliff:g id="count" example="3">%1$d</xliff:g> eitem</item>
-    <item quantity="many"><xliff:g id="count" example="3">%1$d</xliff:g> eitem</item>
-    <item quantity="other"><xliff:g id="count" example="3">%1$d</xliff:g> eitem</item>
-  </plurals>
-  <!-- Dialog text shown to users when asking if they want to delete a file (a confirmation) -->
-  <string name="delete_filename_confirmation_message">Dileu \"<xliff:g id="name" example="cat.jpg">%1$s</xliff:g>\"?</string>
-  <!-- Dialog text shown to users when asking if they want to delete a folder (a confirmation) -->
-  <string name="delete_foldername_confirmation_message">Dileu\'r ffolder \"<xliff:g id="name" example="Photos">%1$s</xliff:g>\" a\'i chynnwys?</string>
-  <!-- Dialog text shown to users when asking if they want to delete files (a confirmation). -->
-  <plurals name="delete_files_confirmation_message">
-    <item quantity="zero">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau?</item>
-    <item quantity="one">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil?</item>
-    <item quantity="two">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil?</item>
-    <item quantity="few">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil?</item>
-    <item quantity="many">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil?</item>
-    <item quantity="other">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil?</item>
-  </plurals>
-  <!-- Dialog text shown to users when asking if they want to delete folders (a confirmation). -->
-  <plurals name="delete_folders_confirmation_message">
-    <item quantity="zero">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolderi a\'u cynnwys?</item>
-    <item quantity="one">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolder a\'i chynnwys?</item>
-    <item quantity="two">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolder a\'u cynnwys?</item>
-    <item quantity="few">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolder a\'u cynnwys?</item>
-    <item quantity="many">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolder a\'u cynnwys?</item>
-    <item quantity="other">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolder a\'u cynnwys?</item>
-  </plurals>
-  <!-- Dialog text shown to users when asking if they want to delete mixed type items: files and folders (a confirmation). -->
-  <plurals name="delete_items_confirmation_message">
-    <item quantity="zero">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitemau?</item>
-    <item quantity="one">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitem?</item>
-    <item quantity="two">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitem?</item>
-    <item quantity="few">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitem?</item>
-    <item quantity="many">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitem?</item>
-    <item quantity="other">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitem?</item>
-  </plurals>
-  <!-- Snackbar shown to users who wanted to select more than 1000 items (files or directories). -->
-  <string name="too_many_selected">Ymddiheuriadau. Nid yw\'n bosib dewis mwy na 1000 o eitemau ar y tro.</string>
-  <!-- Snackbar shown to users who wanted to select all, but there were too many items (files or directories).
-         Only the first 1000 items are selected in such case. -->
-  <string name="too_many_in_select_all">Dim ond 1000 o eitemau oedd modd eu dewis.</string>
+    <string name="app_label">Ffeiliau</string>
+    <string name="downloads_label">Llwythi</string>
+    <string name="title_open">Agor o</string>
+    <string name="title_save">Cadw i</string>
+    <string name="menu_create_dir">Ffolder newydd</string>
+    <string name="menu_grid">Golwg grid</string>
+    <string name="menu_list">Golwg rhestr</string>
+    <string name="menu_sort">Trefn</string>
+    <string name="menu_search">Chwilio</string>
+    <string name="menu_settings">Gosodiadau storfa</string>
+    <string name="menu_open">Agor</string>
+    <string name="menu_save">Cadw</string>
+    <string name="menu_share">Rhannu</string>
+    <string name="menu_delete">Dileu</string>
+    <string name="menu_select_all">Dewis y cwbl</string>
+    <string name="menu_copy">Copïo i\u2026</string>
+    <string name="menu_move">Symud i\u2026</string>
+    <string name="menu_new_window">Ffenestr newydd</string>
+    <string name="menu_copy_to_clipboard">Copïo</string>
+    <string name="menu_paste_from_clipboard">Gludo</string>
+    <string name="menu_advanced_show">Dangos y storfa fewnol</string>
+    <string name="menu_advanced_hide">Cuddio\'r storfa fewnol</string>
+    <string name="menu_file_size_show">Dangos meintiau ffeiliau</string>
+    <string name="menu_file_size_hide">Cuddio meintiau ffeiliau</string>
+    <string name="button_select">Dewis</string>
+    <string name="button_copy">Copïo</string>
+    <string name="button_move">Symud</string>
+    <string name="button_dismiss">Diystyru</string>
+    <string name="button_retry">Ceisio Eto</string>
+    <string name="sort_name">Yn ôl enw</string>
+    <string name="sort_date">Yn ôl dyddiad addasu</string>
+    <string name="sort_size">Yn ôl maint</string>
+    <string name="drawer_open">Dangos gwreiddiau</string>
+    <string name="drawer_close">Cuddio gwreiddiau</string>
+    <string name="save_error">Methwyd â chadw\'r ddogfen</string>
+    <string name="create_error">Methwyd â chreu ffolder</string>
+    <string name="query_error">Methu â llwytho\'r cynnwys ar hyn o bryd</string>
+    <string name="root_recent">Diweddar</string>
+    <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s </xliff:g> ar gael</string>
+    <string name="root_type_service">Gwasanaethau storio</string>
+    <string name="root_type_shortcut">Llwybrau Byr</string>
+    <string name="root_type_device">Dyfeisiau</string>
+    <string name="root_type_apps">Rhagor o apiau</string>
+    <string name="empty">Dim eitemau</string>
+    <string name="no_results">Dim cydweddiadau yn %1$s</string>
+    <string name="toast_no_application">Methu ag agor y ffeil</string>
+    <string name="toast_failed_delete">Methu â dileu rhai dogfennau</string>
+    <string name="share_via">Rhannu drwy</string>
+    <string name="copy_notification_title">Copïo ffeiliau</string>
+    <string name="move_notification_title">Yn symud ffeiliau</string>
+    <string name="delete_notification_title">Yn dileu ffeiliau</string>
+    <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s </xliff:g> yn weddill</string>
+    <plurals name="copy_begin">
+        <item quantity="zero">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau.</item>
+        <item quantity="one">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="two">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="few">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="many">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="other">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+    </plurals>
+    <plurals name="move_begin">
+        <item quantity="zero">Yn symud <xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau.</item>
+        <item quantity="one">Yn symud <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="two">Yn symud <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="few">Yn symud <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="many">Yn symud <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="other">Yn symud <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+    </plurals>
+    <plurals name="deleting">
+        <item quantity="zero">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau.</item>
+        <item quantity="one">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="two">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="few">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="many">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="other">Yn dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+    </plurals>
+    <string name="undo">Dadwneud</string>
+    <string name="copy_preparing">Yn paratoi i gopïo\u2026</string>
+    <string name="move_preparing">Yn paratoi i symud\u2026</string>
+    <string name="delete_preparing">Yn paratoi i ddileu\u2026</string>
+    <plurals name="copy_error_notification_title">
+        <item quantity="zero">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeiliau</item>
+        <item quantity="one">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="two">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="few">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="many">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="other">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    </plurals>
+    <plurals name="move_error_notification_title">
+        <item quantity="zero">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeilau</item>
+        <item quantity="one">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="two">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="few">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="many">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="other">Methwyd â symud <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    </plurals>
+    <plurals name="delete_error_notification_title">
+        <item quantity="zero">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeiliau</item>
+        <item quantity="one">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="two">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="few">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="many">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="other">Methwyd â dileu <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+    </plurals>
+    <string name="notification_touch_for_details">Tapia i weld manylion</string>
+    <string name="close">Cau</string>
+    <string name="copy_failure_alert_content">Ni chafodd y ffeiliau hyn eu copïo: <xliff:g id="list">%1$s</xliff:g></string>
+    <string name="move_failure_alert_content">Ni chafodd y ffeiliau hyn eu symud: <xliff:g id="list">%1$s</xliff:g></string>
+    <string name="delete_failure_alert_content">Ni chafodd y ffeiliau hyn eu dileu: <xliff:g id="list">%1$s</xliff:g></string>
+    <string name="copy_converted_warning_content">Cafodd y ffeiliau hyn eu trosi i fformat arall <xliff:g id="list" example="Document.pdf, Photo.jpg, Song.ogg">%1$s</xliff:g></string>
+    <plurals name="clipboard_files_clipped">
+        <item quantity="zero">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau i\'r clipfwrdd.</item>
+        <item quantity="one">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
+        <item quantity="two">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
+        <item quantity="few">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
+        <item quantity="many">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
+        <item quantity="other">Copïwyd <xliff:g id="count" example="3">%1$d</xliff:g> ffeil i\'r clipfwrdd.</item>
+    </plurals>
+    <string name="clipboard_files_cannot_paste">Methu â phastio\'r ffeiliau hynny yn y lleoliad yma.</string>
+    <string name="menu_rename">Ailenwi</string>
+    <string name="rename_error">Methwyd ag ailenwi\'r ddogfen</string>
+    <string name="notification_copy_files_converted_title">Cafodd rhai ffeiliau eu trosi</string>
+    <string name="open_external_dialog_request">Caniatáu i <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> gael mynediad at y cyfeiriadur <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g> ar <xliff:g id="storage" example="SD Card"><i>^3</i></xliff:g>?</string>
+    <string name="open_external_dialog_request_primary_volume">Caniatáu i <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> gael mynediad at y cyfeiriadur <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g>?</string>
+    <string name="open_external_dialog_root_request">Caniatáu i <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g> gael mynediad at dy ddata, gan gynnwys lluniau a fideos, ar <xliff:g id="storage" example="SD Card"><i>^2</i></xliff:g>?</string>
+    <string name="never_ask_again">Peidio â gofyn eto</string>
+    <string name="allow">Caniatáu</string>
+    <string name="deny">Gwrthod</string>
+    <plurals name="elements_selected">
+        <item quantity="zero"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'u dewis</item>
+        <item quantity="one"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'i dewis</item>
+        <item quantity="two"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'u dewis</item>
+        <item quantity="few"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'u dewis</item>
+        <item quantity="many"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'u dewis</item>
+        <item quantity="other"><xliff:g id="count" example="3">%1$d</xliff:g> wedi\'u dewis</item>
+    </plurals>
+    <plurals name="elements_dragged">
+        <item quantity="zero"><xliff:g id="count" example="3">%1$d</xliff:g> eitemau</item>
+        <item quantity="one"><xliff:g id="count" example="3">%1$d</xliff:g> eitem</item>
+        <item quantity="two"><xliff:g id="count" example="3">%1$d</xliff:g> eitem</item>
+        <item quantity="few"><xliff:g id="count" example="3">%1$d</xliff:g> eitem</item>
+        <item quantity="many"><xliff:g id="count" example="3">%1$d</xliff:g> eitem</item>
+        <item quantity="other"><xliff:g id="count" example="3">%1$d</xliff:g> eitem</item>
+    </plurals>
+    <string name="delete_filename_confirmation_message">Dileu \"<xliff:g id="name" example="cat.jpg">%1$s</xliff:g>\"?</string>
+    <string name="delete_foldername_confirmation_message">Dileu\'r ffolder \"<xliff:g id="name" example="Photos">%1$s</xliff:g>\" a\'i chynnwys?</string>
+    <plurals name="delete_files_confirmation_message">
+        <item quantity="zero">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau?</item>
+        <item quantity="one">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil?</item>
+        <item quantity="two">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil?</item>
+        <item quantity="few">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil?</item>
+        <item quantity="many">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil?</item>
+        <item quantity="other">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffeil?</item>
+    </plurals>
+    <plurals name="delete_folders_confirmation_message">
+        <item quantity="zero">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolderi a\'u cynnwys?</item>
+        <item quantity="one">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolder a\'i chynnwys?</item>
+        <item quantity="two">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolder a\'u cynnwys?</item>
+        <item quantity="few">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolder a\'u cynnwys?</item>
+        <item quantity="many">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolder a\'u cynnwys?</item>
+        <item quantity="other">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> ffolder a\'u cynnwys?</item>
+    </plurals>
+    <plurals name="delete_items_confirmation_message">
+        <item quantity="zero">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitemau?</item>
+        <item quantity="one">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitem?</item>
+        <item quantity="two">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitem?</item>
+        <item quantity="few">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitem?</item>
+        <item quantity="many">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitem?</item>
+        <item quantity="other">Dileu <xliff:g id="count" example="3">%1$d</xliff:g> eitem?</item>
+    </plurals>
+    <string name="too_many_selected">Ymddiheuriadau. Nid yw\'n bosib dewis mwy na 1000 o eitemau ar y tro.</string>
+    <string name="too_many_in_select_all">Dim ond 1000 o eitemau oedd modd eu dewis.</string>
 </resources>

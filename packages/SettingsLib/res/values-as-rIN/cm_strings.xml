@@ -19,8 +19,6 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-  <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
   <string name="profile_applist_title">এপ্পসমূহ</string>
   <string name="picker_activities">কাৰ্যাৱলীসমূহ</string>
   <string name="select_custom_app_title">কাষ্টম এপ্প চয়ন কৰক</string>

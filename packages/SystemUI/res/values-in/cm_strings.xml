@@ -20,28 +20,18 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">Kecerahan cahaya</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">Profil mati.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Profil dimatikan.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">Profil diubah menjadi <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">Profil mati.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">Profil sistem</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Pengaturan cahaya</string>
-  <string name="led_notification_text">Lampu LED diaktifkan oleh pengaturan</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Senter aktif</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Ketuk untuk mematikan</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">Dengan kontrol kekuatan pemberitahuan, anda dapat mengatur tingkat kepentingan dari 0 sampai 6 untuk pemberitahuan aplikasi ini.
+    <string name="accessibility_notification_brightness">Kecerahan cahaya</string>
+    <string name="accessibility_quick_settings_profiles_off">Profil mati.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profil dimatikan.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil diubah menjadi <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_profiles_off">Profil mati.</string>
+    <string name="quick_settings_profiles">Profil sistem</string>
+    <string name="led_notification_title">Pengaturan cahaya</string>
+    <string name="led_notification_text">Lampu LED diaktifkan oleh pengaturan</string>
+    <string name="quick_settings_tile_flashlight_not_title">Senter aktif</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Ketuk untuk mematikan</string>
+    <string name="cm_power_notification_controls_description">Dengan kontrol kekuatan pemberitahuan, anda dapat mengatur tingkat kepentingan dari 0 sampai 6 untuk pemberitahuan aplikasi ini.
         \n\n<b>Tingkat 6</b>
         \n- Tampilkan di bagian atas daftar pemberitahuan
         \n- Memungkinkan interupsi dilayar manapun
@@ -71,152 +61,99 @@
         \n\n<b>Tingkat 0</b>
         \n- Blokir semua pemberitahuan dari aplikasi
     </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">Penting: Tingkat %1$d</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">Tidak ada gangguan penuh, mengintip, suara atau getaran. Sembunyikan dari layar kunci.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh dan tahan tombol kembali untuk melepas sematan.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">Geser dari ikon untuk %1$s</string>
-  <string name="lockscreen_message">Ketuk ikon di sebelah kiri atau kanan untuk mengatur pintasan kunci layar.</string>
-  <string name="lockscreen_default_target">Standar</string>
-  <string name="select_application">Pilih aplikasi</string>
-  <string name="lockscreen_choose_action_title">Pilih tindakan</string>
-  <string name="lockscreen_none_target">Tidak ada</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">Tampilkan antrean</string>
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g><xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="accessibility_dpad_left">Kursor kiri</string>
-  <string name="accessibility_dpad_right">Kursor kanan</string>
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">Menu / Keyboard Switcher (selalu terlihat)</string>
-  <string name="search">Cari</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">Jam</string>
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="other">%1$d klien</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Panggilan</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>Sistem</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Dering</item>
-    <!-- STREAM_RING -->
-    <item>Media</item>
-    <!-- STREAM_MUSIC -->
-    <item>Alarm</item>
-    <!-- STREAM_ALARM -->
-    <item>Pemberitahuan</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Laporan Lokasi: mode hemat baterai.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Laporan Lokasi: mode hanya sensor.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Laporan Lokasi: mode akurasi tinggi.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Hemat baterai</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Hemat\nbaterai</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Hanya perangkat</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Hanya\nperangkat</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Akurasi tinggi</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Akurasi\ntinggi</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Lokasi</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Pilih mode:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Akurasi tinggi</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Hemat baterai</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Hanya perangkat</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Menggunakan GPS, Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Menggunakan Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Menggunakan GPS untuk menentukan lokasi Anda</string>
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB melalui jaringan</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Tampilan ambien</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Tampilan ambien mati.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Tampilan ambien hidup.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Tampilan ambien dimatikan.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan ambien dihidupkan.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">Kafein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kafein mati</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kafein hidup</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Notifikasi mengambang</string>
-  <string name="accessibility_quick_settings_heads_up_off">Notifikasi mengambang mati.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang hidup.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dimatikan.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang dihidupkan.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sinkronisasi</string>
-  <string name="accessibility_quick_settings_sync_off">Sinkronisasi mati.</string>
-  <string name="accessibility_quick_settings_sync_on">Sinkronisasi hidup.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sinkronisasi dimatikan.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sinkronisasi dihidupkan.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">Tethering USB</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">Sinkronisasi</string>
-  <string name="quick_settings_volume_panel_label">Panel volume</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Mencegah <xliff:g id="task">%1$s</xliff:g> dihentikan</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Memungkinkan <xliff:g id="task">%1$s</xliff:g> dihentikan</string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">Otomatis</string>
-  <string name="live_display_auto_summary">Menyesuaikan suhu warna layar secara otomatis setelah matahari terbenam dan terbit</string>
-  <string name="live_display_off">Mati</string>
-  <string name="live_display_off_summary">Matikan semua pengaturan</string>
-  <string name="live_display_day">Siang</string>
-  <string name="live_display_day_summary">Gunakan pengaturan hanya pada siang hari</string>
-  <string name="live_display_night">Malam</string>
-  <string name="live_display_night_summary">Gunakan pengaturan hanya pada malam hari</string>
-  <string name="live_display_outdoor">Luar ruangan (matahari cerah)</string>
-  <string name="live_display_outdoor_summary">Gunakan pengaturan hanya luar ruangan</string>
-  <string name="live_display_hint">LiveDisplay dapat membantu mengurangi kelelahan mata dan membantu Anda tidur di malam hari. Klik di sini untuk mencobanya!</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay mati.</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modus otomatis.</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modus siang.</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modus malam.</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modus luar ruangan.</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay dimatikan.</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay diubah menjadi modus otomatis.</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay diubah menjadi modus siang.</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay diubah menjadi modus malam.</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay diubah menjadi modus luar ruangan.</string>
+    <string name="importance_level_title">Penting: Tingkat %1$d</string>
+    <string name="notification_importance_very_low">Tidak ada gangguan penuh, mengintip, suara atau getaran. Sembunyikan dari layar kunci.</string>
+    <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh dan tahan tombol kembali untuk melepas sematan.</string>
+    <string name="shortcut_hint">Geser dari ikon untuk %1$s</string>
+    <string name="lockscreen_message">Ketuk ikon di sebelah kiri atau kanan untuk mengatur pintasan kunci layar.</string>
+    <string name="lockscreen_default_target">Standar</string>
+    <string name="select_application">Pilih aplikasi</string>
+    <string name="lockscreen_choose_action_title">Pilih tindakan</string>
+    <string name="lockscreen_none_target">Tidak ada</string>
+    <string name="play_queue_extension">Tampilkan antrean</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g><xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Kursor kiri</string>
+    <string name="accessibility_dpad_right">Kursor kanan</string>
+    <string name="menu_ime_always_show">Menu / Keyboard Switcher (selalu terlihat)</string>
+    <string name="search">Cari</string>
+    <string name="status_bar_clock">Jam</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="other">%1$d klien</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Panggilan</item>
+        <item>Sistem</item>
+        <item>Dering</item>
+        <item>Media</item>
+        <item>Alarm</item>
+        <item>Pemberitahuan</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Laporan Lokasi: mode hemat baterai.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Laporan Lokasi: mode hanya sensor.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Laporan Lokasi: mode akurasi tinggi.</string>
+    <string name="quick_settings_location_battery_saving_label">Hemat baterai</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Hemat\nbaterai</string>
+    <string name="quick_settings_location_gps_only_label">Hanya perangkat</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Hanya\nperangkat</string>
+    <string name="quick_settings_location_high_accuracy_label">Akurasi tinggi</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Akurasi\ntinggi</string>
+    <string name="quick_settings_location_detail_title">Lokasi</string>
+    <string name="quick_settings_location_detail_menu_title">Pilih mode:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Akurasi tinggi</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Hemat baterai</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Hanya perangkat</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Menggunakan GPS, Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Menggunakan Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Menggunakan GPS untuk menentukan lokasi Anda</string>
+    <string name="quick_settings_network_adb_label">ADB melalui jaringan</string>
+    <string name="quick_settings_ambient_display_label">Tampilan ambien</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tampilan ambien mati.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tampilan ambien hidup.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Tampilan ambien dimatikan.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan ambien dihidupkan.</string>
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein mati</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein hidup</string>
+    <string name="quick_settings_heads_up_label">Notifikasi mengambang</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifikasi mengambang mati.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang hidup.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dimatikan.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang dihidupkan.</string>
+    <string name="quick_settings_sync_label">Sinkronisasi</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronisasi mati.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronisasi hidup.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinkronisasi dimatikan.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinkronisasi dihidupkan.</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="quick_settings_sync_label">Sinkronisasi</string>
+    <string name="quick_settings_volume_panel_label">Panel volume</string>
+    <string name="accessibility_lock_task">Mencegah <xliff:g id="task">%1$s</xliff:g> dihentikan</string>
+    <string name="accessibility_unlock_task">Memungkinkan <xliff:g id="task">%1$s</xliff:g> dihentikan</string>
+    <string name="live_display_auto">Otomatis</string>
+    <string name="live_display_auto_summary">Menyesuaikan suhu warna layar secara otomatis setelah matahari terbenam dan terbit</string>
+    <string name="live_display_off">Mati</string>
+    <string name="live_display_off_summary">Matikan semua pengaturan</string>
+    <string name="live_display_day">Siang</string>
+    <string name="live_display_day_summary">Gunakan pengaturan hanya pada siang hari</string>
+    <string name="live_display_night">Malam</string>
+    <string name="live_display_night_summary">Gunakan pengaturan hanya pada malam hari</string>
+    <string name="live_display_outdoor">Luar ruangan (matahari cerah)</string>
+    <string name="live_display_outdoor_summary">Gunakan pengaturan hanya luar ruangan</string>
+    <string name="live_display_hint">LiveDisplay dapat membantu mengurangi kelelahan mata dan membantu Anda tidur di malam hari. Klik di sini untuk mencobanya!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay mati.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modus otomatis.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modus siang.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modus malam.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modus luar ruangan.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay dimatikan.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay diubah menjadi modus otomatis.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay diubah menjadi modus siang.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay diubah menjadi modus malam.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay diubah menjadi modus luar ruangan.</string>
 </resources>

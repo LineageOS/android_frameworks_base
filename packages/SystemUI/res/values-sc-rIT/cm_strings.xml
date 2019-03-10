@@ -20,23 +20,13 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Profilos istudados.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">Profilu cambiadu in <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">Profilos de sistema</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Impostatziones de sas lughes</string>
-  <string name="led_notification_text">Lughe LED abilitada dae sas impostatziones</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">Cun sos controllos de prioridade de sas notìficas, podes impostare unu livellu de prioridade dae 0 a 6 pro sas notìficas de un\'aplicatzione.
+    <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profilos istudados.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profilu cambiadu in <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_profiles">Profilos de sistema</string>
+    <string name="led_notification_title">Impostatziones de sas lughes</string>
+    <string name="led_notification_text">Lughe LED abilitada dae sas impostatziones</string>
+    <string name="cm_power_notification_controls_description">Cun sos controllos de prioridade de sas notìficas, podes impostare unu livellu de prioridade dae 0 a 6 pro sas notìficas de un\'aplicatzione.
         \n\n<b>Livellu 6</b>
         \n- Ammustra in pitzu de sa lista de sas notìficas
         \n- Permiti interrutziones a ischermu intreu
@@ -66,112 +56,60 @@
         \n\n<b>Livellu 0</b>
         \n- Bloca totu sas notìficas dae s\'aplicatzione
     </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">Importàntzia: Livellu %1$d</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">Peruna interrutzione a ischermu intreu, anteprima, sonu o vibratzione. Cua dae s\'ischermada de blocu.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">Iscurre dae s\'icona pro %1$s</string>
-  <string name="lockscreen_default_target">Predefinidu</string>
-  <string name="select_application">Issèbera un\'aplicatzione</string>
-  <string name="lockscreen_choose_action_title">Issèbera un\'atzione</string>
-  <string name="lockscreen_none_target">Nudda</string>
-  <!-- Play queue -->
-  <!-- Weather string format in keyguard -->
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">Menù / Càmbiu tastiera (ammustra semper)</string>
-  <string name="search">Chirca</string>
-  <!-- Name of the clock status bar icon -->
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Mutida</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>Sistema</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Ring</item>
-    <!-- STREAM_RING -->
-    <item>Mèdia</item>
-    <!-- STREAM_MUSIC -->
-    <item>Isvèllia</item>
-    <!-- STREAM_ALARM -->
-    <item>Notìfica</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label_twoline">Petzi\ndispositivu</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label_twoline">Pretzisione\nmanna</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Positzione</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Issèbera sa modalidade:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Imprea su GPS, su Wi\u2011Fi, su Bluetooth, o sas retzas de sos datos mòbiles pro agatare sa positzione</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Imprea su Wi\u2011Fi, su Bluetooth, o sas retzas de sos datos mòbiles pro agatare sa positzione</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Imprea su GPS pro agatare sa positzione tua</string>
-  <!-- Adb over network QS tile -->
-  <!-- Ambient display QS tile -->
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">Cafeina</string>
-  <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada</string>
-  <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
-  <!-- Sync QS tile -->
-  <!-- USB tethering QS tile -->
-  <!-- Volume panel QS tile -->
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Non permìtere chi <xliff:g id="task">%1$s</xliff:g> bèngiat iscantzelladu</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Permìti a <xliff:g id="task">%1$s</xliff:g> de èssere iscantzelladu</string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">Automàticu</string>
-  <string name="live_display_auto_summary">Acontza automaticamente sa temperadura de su colore de s\'ischermu a pustis de s\'arbèschida e de s\'intrinada</string>
-  <string name="live_display_off">Istudadu</string>
-  <string name="live_display_off_summary">Disabìlita totu sos acontzos</string>
-  <string name="live_display_day">Die</string>
-  <string name="live_display_day_summary">Imprea petzi sas impostatziones pro sa die</string>
-  <string name="live_display_night">Note</string>
-  <string name="live_display_night_summary">Imprea petzi sas impostatziones pro sa note</string>
-  <string name="live_display_outdoor">In foras (lughe de su sole)</string>
-  <string name="live_display_outdoor_summary">Imprea petzi sas impostatziones pro istare in foras</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay istudadu.</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modalidade automàtica.</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modalidade pro sa die.</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modalidade pro sa note.</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modalidade a s\'àera aberta.</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay istudadu.</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay: cambiadu in modalidade automàtica.</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay: cambiadu in modalidade pro sa die.</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay: cambiadu in modalidade pro sa note.</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay: cambiadu in modalidade a s\'àera aberta.</string>
+    <string name="importance_level_title">Importàntzia: Livellu %1$d</string>
+    <string name="notification_importance_very_low">Peruna interrutzione a ischermu intreu, anteprima, sonu o vibratzione. Cua dae s\'ischermada de blocu.</string>
+    <string name="shortcut_hint">Iscurre dae s\'icona pro %1$s</string>
+    <string name="lockscreen_default_target">Predefinidu</string>
+    <string name="select_application">Issèbera un\'aplicatzione</string>
+    <string name="lockscreen_choose_action_title">Issèbera un\'atzione</string>
+    <string name="lockscreen_none_target">Nudda</string>
+    <string name="menu_ime_always_show">Menù / Càmbiu tastiera (ammustra semper)</string>
+    <string name="search">Chirca</string>
+    <string name="status_bar_clock">Relògiu</string>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Mutida</item>
+        <item>Sistema</item>
+        <item>Ring</item>
+        <item>Mèdia</item>
+        <item>Isvèllia</item>
+        <item>Notìfica</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="quick_settings_location_gps_only_label_twoline">Petzi\ndispositivu</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Pretzisione\nmanna</string>
+    <string name="quick_settings_location_detail_title">Positzione</string>
+    <string name="quick_settings_location_detail_menu_title">Issèbera sa modalidade:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Imprea su GPS, su Wi\u2011Fi, su Bluetooth, o sas retzas de sos datos mòbiles pro agatare sa positzione</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Imprea su Wi\u2011Fi, su Bluetooth, o sas retzas de sos datos mòbiles pro agatare sa positzione</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Imprea su GPS pro agatare sa positzione tua</string>
+    <string name="quick_settings_caffeine_label">Cafeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta</string>
+    <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
+    <string name="accessibility_lock_task">Non permìtere chi <xliff:g id="task">%1$s</xliff:g> bèngiat iscantzelladu</string>
+    <string name="accessibility_unlock_task">Permìti a <xliff:g id="task">%1$s</xliff:g> de èssere iscantzelladu</string>
+    <string name="live_display_auto">Automàticu</string>
+    <string name="live_display_auto_summary">Acontza automaticamente sa temperadura de su colore de s\'ischermu a pustis de s\'arbèschida e de s\'intrinada</string>
+    <string name="live_display_off">Istudadu</string>
+    <string name="live_display_off_summary">Disabìlita totu sos acontzos</string>
+    <string name="live_display_day">Die</string>
+    <string name="live_display_day_summary">Imprea petzi sas impostatziones pro sa die</string>
+    <string name="live_display_night">Note</string>
+    <string name="live_display_night_summary">Imprea petzi sas impostatziones pro sa note</string>
+    <string name="live_display_outdoor">In foras (lughe de su sole)</string>
+    <string name="live_display_outdoor_summary">Imprea petzi sas impostatziones pro istare in foras</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay istudadu.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modalidade automàtica.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modalidade pro sa die.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modalidade pro sa note.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modalidade a s\'àera aberta.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay istudadu.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay: cambiadu in modalidade automàtica.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay: cambiadu in modalidade pro sa die.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay: cambiadu in modalidade pro sa note.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay: cambiadu in modalidade a s\'àera aberta.</string>
 </resources>

@@ -20,114 +20,61 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">లైట్ ప్రకాశవంతం</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">ప్రోఫైళ్ళు ఆఫ్.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">ప్రొఫైల్: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">ప్రోఫైళ్ళు ఆపివేయబడినవి.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">ప్రొఫైల్ <xliff:g id="profile" example="Default">%s</xliff:g>కు మార్చబడింది.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">ప్రోఫైళ్ళు ఆఫ్.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">సిస్టమ్ ప్రోఫైళ్ళు</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">లైట్ సెట్టింగ్స్</string>
-  <string name="led_notification_text">సెట్టింగ్సుచే చేతనపరచబడిన LED లైట్</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">ఫ్లాష్లైట్ ఆన్ అయ్యింది</string>
-  <string name="quick_settings_tile_flashlight_not_summary">ఆఫ్ చెయ్యడానికి టాప్ నొక్కండి</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <!-- Notification importance level title-->
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">మీరు అన్పిన్ చేసేంతవరకు ఇది దానిని వీక్షణలో ఉంచుతుంది. అన్పిన్ చేసేందుకు బ్యాక్ బటనును తాకి అంతే పట్టుకోండి.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="lockscreen_message">లాక్ స్క్రీన్ సత్వరమార్గాన్ని తిరిగి కేటాయించేందుకు ఎడమ లేదా కుడి వైపున ఉన్న చిహ్నం పైన ట్యాప్ చేయండి.</string>
-  <string name="lockscreen_default_target">డిఫాల్ట్</string>
-  <string name="select_application">అనువర్తనాన్ని ఎంచుకోండి</string>
-  <string name="lockscreen_choose_action_title">కార్యాచరణను ఎంచుకోండి</string>
-  <string name="lockscreen_none_target">ఏదీ లేదు</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">ప్లే క్యూను చూపుము</string>
-  <!-- Weather string format in keyguard -->
-  <string name="accessibility_dpad_left">కర్సర్ ఎడమకి</string>
-  <string name="accessibility_dpad_right">కర్సర్ కుడికి</string>
-  <!-- NavBar Tuner -->
-  <!-- Name of the clock status bar icon -->
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d క్లయింట్</item>
-    <item quantity="other">%1$d క్లయింట్
+    <string name="accessibility_notification_brightness">లైట్ ప్రకాశవంతం</string>
+    <string name="accessibility_quick_settings_profiles_off">ప్రోఫైళ్ళు ఆఫ్.</string>
+    <string name="accessibility_quick_settings_profiles">ప్రొఫైల్: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">ప్రోఫైళ్ళు ఆపివేయబడినవి.</string>
+    <string name="accessibility_quick_settings_profiles_changed">ప్రొఫైల్ <xliff:g id="profile" example="Default">%s</xliff:g>కు మార్చబడింది.</string>
+    <string name="quick_settings_profiles_off">ప్రోఫైళ్ళు ఆఫ్.</string>
+    <string name="quick_settings_profiles">సిస్టమ్ ప్రోఫైళ్ళు</string>
+    <string name="led_notification_title">లైట్ సెట్టింగ్స్</string>
+    <string name="led_notification_text">సెట్టింగ్సుచే చేతనపరచబడిన LED లైట్</string>
+    <string name="quick_settings_tile_flashlight_not_title">ఫ్లాష్లైట్ ఆన్ అయ్యింది</string>
+    <string name="quick_settings_tile_flashlight_not_summary">ఆఫ్ చెయ్యడానికి టాప్ నొక్కండి</string>
+    <string name="screen_pinning_description_no_navbar">మీరు అన్పిన్ చేసేంతవరకు ఇది దానిని వీక్షణలో ఉంచుతుంది. అన్పిన్ చేసేందుకు బ్యాక్ బటనును తాకి అంతే పట్టుకోండి.</string>
+    <string name="lockscreen_message">లాక్ స్క్రీన్ సత్వరమార్గాన్ని తిరిగి కేటాయించేందుకు ఎడమ లేదా కుడి వైపున ఉన్న చిహ్నం పైన ట్యాప్ చేయండి.</string>
+    <string name="lockscreen_default_target">డిఫాల్ట్</string>
+    <string name="select_application">అనువర్తనాన్ని ఎంచుకోండి</string>
+    <string name="lockscreen_choose_action_title">కార్యాచరణను ఎంచుకోండి</string>
+    <string name="lockscreen_none_target">ఏదీ లేదు</string>
+    <string name="play_queue_extension">ప్లే క్యూను చూపుము</string>
+    <string name="accessibility_dpad_left">కర్సర్ ఎడమకి</string>
+    <string name="accessibility_dpad_right">కర్సర్ కుడికి</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d క్లయింట్</item>
+        <item quantity="other">%1$d క్లయింట్
 
 %1$d క్లయింట్స్</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">హెచ్ఎస్పిఎ+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">స్థాన నివేదిక: బ్యాటరీ సేవింగ్ మోడ్.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">స్థాన నివేదిక: సెన్సార్లు మాత్రమే మోడ్.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">స్థాన నివేదిక: అధిక ఖచ్చితత్వ మోడ్.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">బ్యాటరీ ఆదా</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">పరికరం మాత్రమే</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">అధిక నిర్దుష్టత</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">అధిక నిర్దుష్టత</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">బ్యాటరీ ఆదా</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">పరికరం మాత్రమే</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB ఓవర్ నెట్వర్క్</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">యాంబియెంట్ డిస్‌ప్లే</string>
-  <string name="accessibility_quick_settings_ambient_display_off">పరిసర ప్రదర్శన ఆఫ్.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">పరిసర ప్రదర్శన ఆన్.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">పరిసర ప్రదర్శన ఆపివేయబడింది.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">పరిసర ప్రదర్శన ఆన్ చేయబడింది.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">కాఫిన్</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">హెచ్చరిక</string>
-  <string name="accessibility_quick_settings_heads_up_off">హెచ్చరిక ఆఫ్.</string>
-  <string name="accessibility_quick_settings_heads_up_on">హెచ్చరిక ఆన్.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">హెచ్చరిక ఆపివేయబడింది.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">హెచ్చరిక ఆన్ చేయబడింది.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">సమకాలీకరణ</string>
-  <string name="accessibility_quick_settings_sync_off">సమకాలీకరణ ఆఫ్.</string>
-  <string name="accessibility_quick_settings_sync_on">సమకాలీకరణ ఆన్.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">సమకాలీకరణ ఆపివేయబడింది.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">సమకాలీకరణ ఆన్ చేయబడింది.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USB టీథరింగ్</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">సమకాలీకరణ</string>
-  <string name="quick_settings_volume_panel_label">వాల్యూమ్ ప్యానల్</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <!-- LiveDisplay strings -->
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_data_connection_hspap">హెచ్ఎస్పిఎ+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">స్థాన నివేదిక: బ్యాటరీ సేవింగ్ మోడ్.</string>
+    <string name="accessibility_quick_settings_location_gps_only">స్థాన నివేదిక: సెన్సార్లు మాత్రమే మోడ్.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">స్థాన నివేదిక: అధిక ఖచ్చితత్వ మోడ్.</string>
+    <string name="quick_settings_location_battery_saving_label">బ్యాటరీ ఆదా</string>
+    <string name="quick_settings_location_gps_only_label">పరికరం మాత్రమే</string>
+    <string name="quick_settings_location_high_accuracy_label">అధిక నిర్దుష్టత</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">అధిక నిర్దుష్టత</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">బ్యాటరీ ఆదా</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">పరికరం మాత్రమే</string>
+    <string name="quick_settings_network_adb_label">ADB ఓవర్ నెట్వర్క్</string>
+    <string name="quick_settings_ambient_display_label">యాంబియెంట్ డిస్‌ప్లే</string>
+    <string name="accessibility_quick_settings_ambient_display_off">పరిసర ప్రదర్శన ఆఫ్.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">పరిసర ప్రదర్శన ఆన్.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">పరిసర ప్రదర్శన ఆపివేయబడింది.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">పరిసర ప్రదర్శన ఆన్ చేయబడింది.</string>
+    <string name="quick_settings_caffeine_label">కాఫిన్</string>
+    <string name="quick_settings_heads_up_label">హెచ్చరిక</string>
+    <string name="accessibility_quick_settings_heads_up_off">హెచ్చరిక ఆఫ్.</string>
+    <string name="accessibility_quick_settings_heads_up_on">హెచ్చరిక ఆన్.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">హెచ్చరిక ఆపివేయబడింది.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">హెచ్చరిక ఆన్ చేయబడింది.</string>
+    <string name="quick_settings_sync_label">సమకాలీకరణ</string>
+    <string name="accessibility_quick_settings_sync_off">సమకాలీకరణ ఆఫ్.</string>
+    <string name="accessibility_quick_settings_sync_on">సమకాలీకరణ ఆన్.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">సమకాలీకరణ ఆపివేయబడింది.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">సమకాలీకరణ ఆన్ చేయబడింది.</string>
+    <string name="quick_settings_usb_tether_label">USB టీథరింగ్</string>
+    <string name="quick_settings_sync_label">సమకాలీకరణ</string>
+    <string name="quick_settings_volume_panel_label">వాల్యూమ్ ప్యానల్</string>
 </resources>

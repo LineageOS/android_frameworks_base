@@ -20,28 +20,18 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">Luminozitate lumină</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">Profiluri oprit.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Profiluri este activat.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">Profil schimbat în <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">Profiluri oprit.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">Profiluri de sistem</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Setări de lumină</string>
-  <string name="led_notification_text">Lumină LED activată de setări</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Lanterna este pornită</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Atingeți pentru a dezactiva</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">Cu controalele de putere a notificărilor, puteți seta un nivel de importanță de la 0 la 6 pentru notificările unei aplicații.
+    <string name="accessibility_notification_brightness">Luminozitate lumină</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiluri oprit.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiluri este activat.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil schimbat în <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_profiles_off">Profiluri oprit.</string>
+    <string name="quick_settings_profiles">Profiluri de sistem</string>
+    <string name="led_notification_title">Setări de lumină</string>
+    <string name="led_notification_text">Lumină LED activată de setări</string>
+    <string name="quick_settings_tile_flashlight_not_title">Lanterna este pornită</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Atingeți pentru a dezactiva</string>
+    <string name="cm_power_notification_controls_description">Cu controalele de putere a notificărilor, puteți seta un nivel de importanță de la 0 la 6 pentru notificările unei aplicații.
         \n\n<b>Nivel 6</b>
         \n- Arată prima în lista de notificări
         \n- Permiteți întrerupere fullscreen
@@ -71,154 +61,101 @@
         \n\n<b>Nivel 0</b>
         \n- Blocați toate notificările de la această aplicație
     </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">Importanță: Nivel %1$d</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">Fără întrerupere a ecranului complet, afișare de scurtă durată, sunet sau vibrație. Se ascunde din ecranul de blocare.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Aceasta ține în vizualizare ecranul până îl deblocați. Apăsați și țineți apăsat butonul Înapoi pentru a debloca.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">Glisați de pe iconiță pentru %1$s</string>
-  <string name="lockscreen_message">Apăsaţi o pictogramă din stânga sau dreapta pentru a realoca o comandă rapidă pe ecranul de blocare.</string>
-  <string name="lockscreen_default_target">Implicit</string>
-  <string name="select_application">Selectați aplicația</string>
-  <string name="lockscreen_choose_action_title">Alege acțiunea</string>
-  <string name="lockscreen_none_target">Nimic</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">Afișare coadă de redare</string>
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="accessibility_dpad_left">Cursor stânga</string>
-  <string name="accessibility_dpad_right">Cursor dreapta</string>
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">Meniu / Comutare tastatură (arată întotdeauna)</string>
-  <string name="search">Căutare</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">Ceas</string>
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d client</item>
-    <item quantity="few">%1$d clienți</item>
-    <item quantity="other">%1$d clienți</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Apel</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>Sistem</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Sonerie</item>
-    <!-- STREAM_RING -->
-    <item>Media</item>
-    <!-- STREAM_MUSIC -->
-    <item>Alarmă</item>
-    <!-- STREAM_ALARM -->
-    <item>Notificare</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Raportarea locației: mod economisire baterie.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Raportarea locației: doar senzori.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Raportarea locației: precizie ridicată.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Economisire baterie</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Economisire\nbaterie</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Doar dispozitiv</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Doar\ndispozitiv</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Precizie ridicată</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Precizie\nridicată</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Locație</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Selectați modul:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Precizie ridicată</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Economisire baterie</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Doar dispozitiv</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilizează GPS, Wi\u2011Fi, Bluetooth sau rețelele mobile pentru determinarea locației</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Utilizează Wi\u2011Fi, Bluetooth sau rețelele mobile pentru determinarea locației</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Utilizează GPS-ul pentru a vă determina locaţia</string>
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB prin rețea</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Afișare ambientală</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Afișare ambientală oprită.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Afișare ambientală pornită.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Afișaj ambiental dezactivat.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Afișaj ambiental activat.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">Cofeină</string>
-  <string name="accessibility_quick_settings_caffeine_off">Cofeină oprită</string>
-  <string name="accessibility_quick_settings_caffeine_on">Cofeină pornită</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Atenționare</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads-up oprit.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads-up pornit.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up a fost oprit.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up a fost pornit.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sincronizare</string>
-  <string name="accessibility_quick_settings_sync_off">Sincronizare oprită.</string>
-  <string name="accessibility_quick_settings_sync_on">Sincronizare pornită.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sincronizare oprită.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sincronizare pornită.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">Tethering USB</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">Sincronizare</string>
-  <string name="quick_settings_volume_panel_label">Panou volum</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Prevenire ca <xliff:g id="task">%1$s</xliff:g> să fie respins</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Permite ca <xliff:g id="task">%1$s</xliff:g> să fie respins</string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">Automat</string>
-  <string name="live_display_auto_summary">Reglează automat temperatura culorii ecranului după apus şi răsărit</string>
-  <string name="live_display_off">Oprit</string>
-  <string name="live_display_off_summary">Dezactivați toate ajustările</string>
-  <string name="live_display_day">Zi</string>
-  <string name="live_display_day_summary">Utilizați numai setările de zi</string>
-  <string name="live_display_night">Noapte</string>
-  <string name="live_display_night_summary">Utilizați numai setările de noapte</string>
-  <string name="live_display_outdoor">Aer liber (soare strălucitor)</string>
-  <string name="live_display_outdoor_summary">Utilizați numai setările de aer liber</string>
-  <string name="live_display_hint">LiveDisplay poate ajuta la reducerea oboselii ochilor şi vă ajută să dormiți noaptea. Clic aici pentru a-l încerca!</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay este oprit.</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: mod auto.</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: mod zi.</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: mod noapte.</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: mod aer liber.</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay este oprit.</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay s-a schimbat la modul automat.</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay s-a schimbat la modul zi.</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay s-a schimbat la modul noapte.</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay s-a schimbat la modul aer liber.</string>
+    <string name="importance_level_title">Importanță: Nivel %1$d</string>
+    <string name="notification_importance_very_low">Fără întrerupere a ecranului complet, afișare de scurtă durată, sunet sau vibrație. Se ascunde din ecranul de blocare.</string>
+    <string name="screen_pinning_description_no_navbar">Aceasta ține în vizualizare ecranul până îl deblocați. Apăsați și țineți apăsat butonul Înapoi pentru a debloca.</string>
+    <string name="shortcut_hint">Glisați de pe iconiță pentru %1$s</string>
+    <string name="lockscreen_message">Apăsaţi o pictogramă din stânga sau dreapta pentru a realoca o comandă rapidă pe ecranul de blocare.</string>
+    <string name="lockscreen_default_target">Implicit</string>
+    <string name="select_application">Selectați aplicația</string>
+    <string name="lockscreen_choose_action_title">Alege acțiunea</string>
+    <string name="lockscreen_none_target">Nimic</string>
+    <string name="play_queue_extension">Afișare coadă de redare</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Cursor stânga</string>
+    <string name="accessibility_dpad_right">Cursor dreapta</string>
+    <string name="menu_ime_always_show">Meniu / Comutare tastatură (arată întotdeauna)</string>
+    <string name="search">Căutare</string>
+    <string name="status_bar_clock">Ceas</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d client</item>
+        <item quantity="few">%1$d clienți</item>
+        <item quantity="other">%1$d clienți</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Apel</item>
+        <item>Sistem</item>
+        <item>Sonerie</item>
+        <item>Media</item>
+        <item>Alarmă</item>
+        <item>Notificare</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Raportarea locației: mod economisire baterie.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Raportarea locației: doar senzori.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Raportarea locației: precizie ridicată.</string>
+    <string name="quick_settings_location_battery_saving_label">Economisire baterie</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Economisire\nbaterie</string>
+    <string name="quick_settings_location_gps_only_label">Doar dispozitiv</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Doar\ndispozitiv</string>
+    <string name="quick_settings_location_high_accuracy_label">Precizie ridicată</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Precizie\nridicată</string>
+    <string name="quick_settings_location_detail_title">Locație</string>
+    <string name="quick_settings_location_detail_menu_title">Selectați modul:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Precizie ridicată</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Economisire baterie</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Doar dispozitiv</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilizează GPS, Wi\u2011Fi, Bluetooth sau rețelele mobile pentru determinarea locației</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Utilizează Wi\u2011Fi, Bluetooth sau rețelele mobile pentru determinarea locației</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Utilizează GPS-ul pentru a vă determina locaţia</string>
+    <string name="quick_settings_network_adb_label">ADB prin rețea</string>
+    <string name="quick_settings_ambient_display_label">Afișare ambientală</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Afișare ambientală oprită.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Afișare ambientală pornită.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Afișaj ambiental dezactivat.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Afișaj ambiental activat.</string>
+    <string name="quick_settings_caffeine_label">Cofeină</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cofeină oprită</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cofeină pornită</string>
+    <string name="quick_settings_heads_up_label">Atenționare</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads-up oprit.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-up pornit.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up a fost oprit.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up a fost pornit.</string>
+    <string name="quick_settings_sync_label">Sincronizare</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronizare oprită.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronizare pornită.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sincronizare oprită.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sincronizare pornită.</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="quick_settings_sync_label">Sincronizare</string>
+    <string name="quick_settings_volume_panel_label">Panou volum</string>
+    <string name="accessibility_lock_task">Prevenire ca <xliff:g id="task">%1$s</xliff:g> să fie respins</string>
+    <string name="accessibility_unlock_task">Permite ca <xliff:g id="task">%1$s</xliff:g> să fie respins</string>
+    <string name="live_display_auto">Automat</string>
+    <string name="live_display_auto_summary">Reglează automat temperatura culorii ecranului după apus şi răsărit</string>
+    <string name="live_display_off">Oprit</string>
+    <string name="live_display_off_summary">Dezactivați toate ajustările</string>
+    <string name="live_display_day">Zi</string>
+    <string name="live_display_day_summary">Utilizați numai setările de zi</string>
+    <string name="live_display_night">Noapte</string>
+    <string name="live_display_night_summary">Utilizați numai setările de noapte</string>
+    <string name="live_display_outdoor">Aer liber (soare strălucitor)</string>
+    <string name="live_display_outdoor_summary">Utilizați numai setările de aer liber</string>
+    <string name="live_display_hint">LiveDisplay poate ajuta la reducerea oboselii ochilor şi vă ajută să dormiți noaptea. Clic aici pentru a-l încerca!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay este oprit.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: mod auto.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: mod zi.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: mod noapte.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: mod aer liber.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay este oprit.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay s-a schimbat la modul automat.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay s-a schimbat la modul zi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay s-a schimbat la modul noapte.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay s-a schimbat la modul aer liber.</string>
 </resources>

@@ -20,28 +20,18 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">Lys lysstyrke</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">Profiler av.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Profiler deaktivert.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">Profil endret til <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">Profiler av.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">System profiler</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Lysinnstillinger</string>
-  <string name="led_notification_text">LED-lys aktivert av innstillingene</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Lommelykt er på</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Trykk for å slå av</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">Med nivåorganiserte varsler, kan du angi hvor viktige varsler er ved å rangere appens varsler på en skala fra 0 til 6. 
+    <string name="accessibility_notification_brightness">Lys lysstyrke</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiler av.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiler deaktivert.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil endret til <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_profiles_off">Profiler av.</string>
+    <string name="quick_settings_profiles">System profiler</string>
+    <string name="led_notification_title">Lysinnstillinger</string>
+    <string name="led_notification_text">LED-lys aktivert av innstillingene</string>
+    <string name="quick_settings_tile_flashlight_not_title">Lommelykt er på</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Trykk for å slå av</string>
+    <string name="cm_power_notification_controls_description">Med nivåorganiserte varsler, kan du angi hvor viktige varsler er ved å rangere appens varsler på en skala fra 0 til 6. 
         \n\n<b>Nivå 6</b>
         \n- Vises på toppen av listen over varsler
         \n- Tilgang til å forstyrre fullskjerm
@@ -71,152 +61,99 @@
         \n\n<b>Nivå 0</b>
         \n- Blokkerer alle varsler fra appen
     </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">Viktighet: Nivå %1$d</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">Ingen fullskjermsforstyrring, vising på avslått skjerm eller vibrasjon. Skjules fra låseskjermen.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Dette holder den i syne inntill du løsner den. Trykk og hold på tilbake knappen for å løsne.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">Sveip fra ikonet for %1$s</string>
-  <string name="lockscreen_message">Trykk på ikonet til venstre eller høyre for å tilordne en låseskjermsnarvei.</string>
-  <string name="lockscreen_default_target">Standard</string>
-  <string name="select_application">Velg app</string>
-  <string name="lockscreen_choose_action_title">Velg handling</string>
-  <string name="lockscreen_none_target">Ingen</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">Vis avspillingskø</string>
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="accessibility_dpad_left">Markør til venstre</string>
-  <string name="accessibility_dpad_right">Markør til høyre</string>
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">Meny / Tastaturbryter (vis alltid)</string>
-  <string name="search">Søk</string>
-  <!-- Name of the clock status bar icon -->
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d klient</item>
-    <item quantity="other">%1$d klienter</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Anrop</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>System</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Ringing</item>
-    <!-- STREAM_RING -->
-    <item>Media</item>
-    <!-- STREAM_MUSIC -->
-    <item>Alarm</item>
-    <!-- STREAM_ALARM -->
-    <item>Varsler</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Lokasjonsmodus: strømsparemodus.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Lokasjonsmodus: kun sensorer.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Lokasjonsmodus: høy nøyaktighet.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Batterisparing</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">Batteri\nsparing</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Kun enhet</string>
-  <string name="quick_settings_location_gps_only_label_twoline">Kun\nenhet</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Høy nøyaktighet</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">Høy\nnøyaktighet</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Plassering</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Velg metode:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">Høy nøyaktighet</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">Batterisparing</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">Kun enhet</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Bruk GPS, Wi\u2011Fi, Bluetooth eller mobilnettverk for å bestemme plassering</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Bruk Wi\u2011Fi, Bluetooth, eller mobilnettverk for å bestemme plassering</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Bruk GPS til å bestemme din posisjon</string>
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">ADB over nettverk</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Omgivelsesskjerm</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Omgivelsesskjerm av.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Omgivelsesskjerm på.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Omgivelsesskjerm er skrudd av.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Omgivelsesskjerm er skrudd på.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">Koffein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Koffein av</string>
-  <string name="accessibility_quick_settings_caffeine_on">Koffein på</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">Flytende varsler</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads up varsler er av.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up varsler er på.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up ble deaktivert.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up ble aktivert.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Synkronisering</string>
-  <string name="accessibility_quick_settings_sync_off">Synkronisering av.</string>
-  <string name="accessibility_quick_settings_sync_on">Synkronisering på.</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Synkronisering avskrudd.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Synkronisering aktivert.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">Synkronisering</string>
-  <string name="quick_settings_volume_panel_label">Volumpanel</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Forhindre <xliff:g id="task">%1$s</xliff:g> fra å bli avvist</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Tillat <xliff:g id="task">%1$s</xliff:g> å bli avvist</string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">Automatisk</string>
-  <string name="live_display_auto_summary">Juster fargetemperatur på skjermen etter solnedgang og soloppgang</string>
-  <string name="live_display_off">Av</string>
-  <string name="live_display_off_summary">Deaktivere alle justeringer</string>
-  <string name="live_display_day">Dag</string>
-  <string name="live_display_day_summary">Bruk kun dag-innstillinger</string>
-  <string name="live_display_night">Natt</string>
-  <string name="live_display_night_summary">Bruk kun natt-innstillinger</string>
-  <string name="live_display_outdoor">Utendørs (sterkt sollys)</string>
-  <string name="live_display_outdoor_summary">Bruk kun utendørs-innstillinger</string>
-  <string name="live_display_hint">LiveDisplay kan redusere øyebelastning og redusere søvnvansker. Trykk her for å prøve det!</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay av.</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatisk.</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Dag-modus.</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Natt-modus.</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Utendørs-modus.</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay slått av.</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay endret til automatisk-modus.</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay endret til dag-modus.</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay endret til natt-modus.</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay endret til utendørs-modus.</string>
+    <string name="importance_level_title">Viktighet: Nivå %1$d</string>
+    <string name="notification_importance_very_low">Ingen fullskjermsforstyrring, vising på avslått skjerm eller vibrasjon. Skjules fra låseskjermen.</string>
+    <string name="screen_pinning_description_no_navbar">Dette holder den i syne inntill du løsner den. Trykk og hold på tilbake knappen for å løsne.</string>
+    <string name="shortcut_hint">Sveip fra ikonet for %1$s</string>
+    <string name="lockscreen_message">Trykk på ikonet til venstre eller høyre for å tilordne en låseskjermsnarvei.</string>
+    <string name="lockscreen_default_target">Standard</string>
+    <string name="select_application">Velg app</string>
+    <string name="lockscreen_choose_action_title">Velg handling</string>
+    <string name="lockscreen_none_target">Ingen</string>
+    <string name="play_queue_extension">Vis avspillingskø</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Markør til venstre</string>
+    <string name="accessibility_dpad_right">Markør til høyre</string>
+    <string name="menu_ime_always_show">Meny / Tastaturbryter (vis alltid)</string>
+    <string name="search">Søk</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d klient</item>
+        <item quantity="other">%1$d klienter</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Anrop</item>
+        <item>System</item>
+        <item>Ringing</item>
+        <item>Media</item>
+        <item>Alarm</item>
+        <item>Varsler</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Lokasjonsmodus: strømsparemodus.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Lokasjonsmodus: kun sensorer.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Lokasjonsmodus: høy nøyaktighet.</string>
+    <string name="quick_settings_location_battery_saving_label">Batterisparing</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Batteri\nsparing</string>
+    <string name="quick_settings_location_gps_only_label">Kun enhet</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Kun\nenhet</string>
+    <string name="quick_settings_location_high_accuracy_label">Høy nøyaktighet</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Høy\nnøyaktighet</string>
+    <string name="quick_settings_location_detail_title">Plassering</string>
+    <string name="quick_settings_location_detail_menu_title">Velg metode:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Høy nøyaktighet</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Batterisparing</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Kun enhet</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Bruk GPS, Wi\u2011Fi, Bluetooth eller mobilnettverk for å bestemme plassering</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Bruk Wi\u2011Fi, Bluetooth, eller mobilnettverk for å bestemme plassering</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Bruk GPS til å bestemme din posisjon</string>
+    <string name="quick_settings_network_adb_label">ADB over nettverk</string>
+    <string name="quick_settings_ambient_display_label">Omgivelsesskjerm</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Omgivelsesskjerm av.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Omgivelsesskjerm på.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Omgivelsesskjerm er skrudd av.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Omgivelsesskjerm er skrudd på.</string>
+    <string name="quick_settings_caffeine_label">Koffein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Koffein av</string>
+    <string name="accessibility_quick_settings_caffeine_on">Koffein på</string>
+    <string name="quick_settings_heads_up_label">Flytende varsler</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads up varsler er av.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads up varsler er på.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up ble deaktivert.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up ble aktivert.</string>
+    <string name="quick_settings_sync_label">Synkronisering</string>
+    <string name="accessibility_quick_settings_sync_off">Synkronisering av.</string>
+    <string name="accessibility_quick_settings_sync_on">Synkronisering på.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synkronisering avskrudd.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synkronisering aktivert.</string>
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <string name="quick_settings_sync_label">Synkronisering</string>
+    <string name="quick_settings_volume_panel_label">Volumpanel</string>
+    <string name="accessibility_lock_task">Forhindre <xliff:g id="task">%1$s</xliff:g> fra å bli avvist</string>
+    <string name="accessibility_unlock_task">Tillat <xliff:g id="task">%1$s</xliff:g> å bli avvist</string>
+    <string name="live_display_auto">Automatisk</string>
+    <string name="live_display_auto_summary">Juster fargetemperatur på skjermen etter solnedgang og soloppgang</string>
+    <string name="live_display_off">Av</string>
+    <string name="live_display_off_summary">Deaktivere alle justeringer</string>
+    <string name="live_display_day">Dag</string>
+    <string name="live_display_day_summary">Bruk kun dag-innstillinger</string>
+    <string name="live_display_night">Natt</string>
+    <string name="live_display_night_summary">Bruk kun natt-innstillinger</string>
+    <string name="live_display_outdoor">Utendørs (sterkt sollys)</string>
+    <string name="live_display_outdoor_summary">Bruk kun utendørs-innstillinger</string>
+    <string name="live_display_hint">LiveDisplay kan redusere øyebelastning og redusere søvnvansker. Trykk her for å prøve det!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay av.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatisk.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Dag-modus.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Natt-modus.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Utendørs-modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay slått av.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay endret til automatisk-modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay endret til dag-modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay endret til natt-modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay endret til utendørs-modus.</string>
 </resources>

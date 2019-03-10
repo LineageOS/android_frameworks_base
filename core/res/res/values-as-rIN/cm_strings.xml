@@ -17,43 +17,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Long-press back kill application -->
   <string name="app_killed_message">এপ্প্‌ বন্ধ হৈছে</string>
-  <!-- label for item that screenshots in phone options dialog -->
   <string name="global_action_screenshot">স্ক্ৰীণস্বট</string>
-  <!-- label for item that restarts the phone in phone options dialog -->
-  <!-- label for current user in phone options dialog -->
   <string name="global_action_current_user">বৰ্তমান</string>
-  <!-- status message in phone options dialog for screenshot action -->
-  <!-- Restart menu -->
-  <!-- Button to restart the phone, within the Restart Options dialog -->
-  <!-- Button to restart the phone into recovery, within the Restart Options dialog -->
   <string name="reboot_recovery">পুনৰুদ্ধাৰ</string>
-  <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
   <string name="reboot_bootloader">বুটলোডাৰ</string>
-  <!-- Button to restart the phone into download, within the Restart Options dialog -->
   <string name="reboot_download">ডাউনলোড</string>
-  <!-- Button to soft restart the device, within the Restart Options dialog -->
-  <!-- Title of dialog to confirm restarting. -->
-  <!-- Restart Confirmation Dialog.  When the user chooses to restart the device, there will
-         be a confirmation dialog.  This is the message. -->
-  <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
-  <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB অভাৰ নেটৱৰ্ক সক্ষম কৰা হৈছে</string>
-  <!-- ADB over USB and network notification -->
   <string name="adb_both_active_notification_title">ADB অভাৰ USB আৰু নেটৱৰ্ক সক্ষম কৰা হৈছে</string>
-  <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">ডিবাগিং অক্ষম কৰিবলৈ স্পৰ্শ কৰক।</string>
-  <!-- Privacy Guard -->
   <string name="permlab_changePrivacyGuardState">গোপনীয়তা ৰক্ষক সক্ষম বা অক্ষম কৰা</string>
   <string name="permdesc_changePrivacyGuardState">আন এটা এপ্পে গোপনীয়তা ৰক্ষকৰ সৈতে চলিব নে সেইটো পৰিবৰ্তন কৰিবলৈ অনুমতি দিয়ে। যেতিয়া এটা এপ্প্‌ গোপনীয়তা ৰক্ষকৰ সৈতে চলি থাকে, তেতিয়া ই যোগাযোগ, কল লগ বা বাৰ্তাৰ দৰে ব্যক্তিগত ডাটাবোৰত প্ৰৱেশ কৰিব নোৱাৰে।</string>
   <string name="privacy_guard_notification">গোপনীয়তা ৰক্ষক সক্ৰিয় কৰা</string>
   <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> এ ব্যক্তিগত ডাটাত প্ৰৱেশ কৰিব নোৱাৰে</string>
   <string name="privacy_guard_dialog_title">গোপনীয়তা ৰক্ষক</string>
   <string name="privacy_guard_dialog_summary"><xliff:g id="op">%2$s</xliff:g> এ <xliff:g id="app">%1$s</xliff:g> কৰিবলৈ বিচাৰে।</string>
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <string name="permission_remember_choice">মোৰ পচন্দ মনত ৰাখক</string>
-  <!-- App ops requests -->
   <string name="app_ops_access_camera">কেমেৰাত প্ৰৱেশ কৰক</string>
   <string name="app_ops_access_location">আপোনাৰ অৱস্থানত প্ৰৱেশ কৰক</string>
   <string name="app_ops_access_notifications">আপোনাৰ অধিসূচনাসমূহ পঢ়া</string>
@@ -120,19 +99,12 @@
   <string name="app_ops_get_accounts">ডিভাইচ একাউণ্ট প্ৰাপ্ত কৰক</string>
   <string name="app_ops_wifi_change">Wi-Fi অৱস্থা পৰিৱৰ্তন কৰক</string>
   <string name="app_ops_su">ৰুট প্ৰৱেশাধিকাৰ প্ৰাপ্ত কৰা</string>
-  <!-- Protected Apps Notification -->
   <string name="notify_package_component_protected_title">কাৰ্যকলাপ লান্চ্চ কৰাটো অৱৰুদ্ধ কৰা হৈছে</string>
   <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> টো লান্চ্চ কৰাৰ পৰা প্ৰতিৰোধী। এপ্লিকেচনটো প্ৰমাণীকৰণ আৰু লান্চ্চ কৰিবলৈ টেপ কৰক।</string>
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
   <string name="lock_to_app_toast_no_navbar">এই স্ক্ৰীণ আনপিন কৰিবলৈ, বেক বুটামটো স্পৰ্শ কৰক আৰু হেঁচি ৰাখক।</string>
-  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <!-- Single hand mode -->
-  <!-- Strings for tethered notification -->
-  <!-- Shown when the device is tethered -->
   <string name="tethered_notification_no_device_message">কোনো সংযোগিত ডিভাইচ নাই</string>
   <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> সংযোগিত ডিভাইচ</string>
   <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> সংযোগিত ডিভাইচসমূহ</string>
-  <!-- Zen mode buttons -->
   <string name="silent_mode_priority">অগ্ৰাধিকাৰ</string>
   <string name="silent_mode_none">হাল্লা</string>
 </resources>

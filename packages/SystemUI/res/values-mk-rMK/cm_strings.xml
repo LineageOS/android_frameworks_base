@@ -20,17 +20,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the system profiles  -->
-  <!-- Lights settings, LED notification -->
-  <!-- Notification which notifies user flashlight is enabled -->
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">Со контроли за известување за моќ, можете да поставите ниво на важност од 0 до 6 за известувања на апликацијата.
+    <string name="cm_power_notification_controls_description">Со контроли за известување за моќ, можете да поставите ниво на важност од 0 до 6 за известувања на апликацијата.
         \n\n<b>Ниво 6</b>
         \n- Покажи на врвот на листата со известувања
         \n- Дозволи прекин на целиот екран
@@ -59,107 +49,54 @@
         \n- Покажи на дното од листата со известувања
         \n\n<b>Ниво 0</b>
         \n- Блокирај ги сите известувања од апликацијата    </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">Важност: Ниво%1$d</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">Нема прекин на целиот екран, ѕиркање, звук или вибрации. Сокриј од заклучен екран.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">Повлечете од иконата за %1$s</string>
-  <!-- Play queue -->
-  <!-- Weather string format in keyguard -->
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">Мени / Менувач на тастатура (секогаш прикажи)</string>
-  <string name="search">Пребарување</string>
-  <!-- Name of the clock status bar icon -->
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <!-- Weather string format in expanded statusbar header -->
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>Повик</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>Систем</item>
-    <!-- STREAM_SYSTEM -->
-    <item>Ѕвони</item>
-    <!-- STREAM_RING -->
-    <item>Медија</item>
-    <!-- STREAM_MUSIC -->
-    <item>Аларм</item>
-    <!-- STREAM_ALARM -->
-    <item>Известување</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>Bluetooth</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label_twoline">Штедење\nбатерија</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label_twoline">Само\nуред</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label_twoline">Висока\nточност</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Локација</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">Изберете режим:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Користете GPS, Wi\u2011Fi, Bluetooth или мобилни мрежи за да ја одредите локацијата</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Користете Wi\u2011Fi, Bluetooth или мобилни мрежи за да ја одредите локацијата</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">Користете GPS за да ја одредите локацијата</string>
-  <!-- Adb over network QS tile -->
-  <!-- Ambient display QS tile -->
-  <!-- Caffeine -->
-  <string name="accessibility_quick_settings_caffeine_off">Кофеинот е исклучен</string>
-  <string name="accessibility_quick_settings_caffeine_on">Кофеинот е уклучен</string>
-  <!-- Heads up QS tile -->
-  <!-- Sync QS tile -->
-  <!-- USB tethering QS tile -->
-  <!-- Volume panel QS tile -->
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Спречи <xliff:g id="task">%1$s</xliff:g> од отфрлање</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Дозволи <xliff:g id="task">%1$s</xliff:g> за отфрлање</string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">Автоматски</string>
-  <string name="live_display_auto_summary">Автоматски прилагоди ја температурата на бојата на екранот по зајдисонце и изгрејсонце</string>
-  <string name="live_display_off">Исклучено</string>
-  <string name="live_display_off_summary">Оневозможи ги сите прилагодувања</string>
-  <string name="live_display_day">Ден</string>
-  <string name="live_display_day_summary">Користи само поставки за ден</string>
-  <string name="live_display_night">Ноќ</string>
-  <string name="live_display_night_summary">Користи само поставки за ноќ</string>
-  <string name="live_display_outdoor">Надвор (силно сонце)</string>
-  <string name="live_display_outdoor_summary">Користи само поставки за надвор</string>
-  <string name="live_display_hint">LiveDisplay може да помогне во проблемите со очите и да ви помогне да спиете ноќе. Кликни тука за да го пробате!</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay исклучен.</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматски режим.</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дневен режим.</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ноќен режим.</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим на отворено.</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay е исклучен.</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay се промени во автоматски режим.</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay се промени во дневен режим.</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay се промени во ноќен режим.</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay се промени во режим на отворено.</string>
+    <string name="importance_level_title">Важност: Ниво%1$d</string>
+    <string name="notification_importance_very_low">Нема прекин на целиот екран, ѕиркање, звук или вибрации. Сокриј од заклучен екран.</string>
+    <string name="shortcut_hint">Повлечете од иконата за %1$s</string>
+    <string name="menu_ime_always_show">Мени / Менувач на тастатура (секогаш прикажи)</string>
+    <string name="search">Пребарување</string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Повик</item>
+        <item>Систем</item>
+        <item>Ѕвони</item>
+        <item>Медија</item>
+        <item>Аларм</item>
+        <item>Известување</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="quick_settings_location_battery_saving_label_twoline">Штедење\nбатерија</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Само\nуред</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Висока\nточност</string>
+    <string name="quick_settings_location_detail_title">Локација</string>
+    <string name="quick_settings_location_detail_menu_title">Изберете режим:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Користете GPS, Wi\u2011Fi, Bluetooth или мобилни мрежи за да ја одредите локацијата</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Користете Wi\u2011Fi, Bluetooth или мобилни мрежи за да ја одредите локацијата</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Користете GPS за да ја одредите локацијата</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеинот е исклучен</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеинот е уклучен</string>
+    <string name="accessibility_lock_task">Спречи <xliff:g id="task">%1$s</xliff:g> од отфрлање</string>
+    <string name="accessibility_unlock_task">Дозволи <xliff:g id="task">%1$s</xliff:g> за отфрлање</string>
+    <string name="live_display_auto">Автоматски</string>
+    <string name="live_display_auto_summary">Автоматски прилагоди ја температурата на бојата на екранот по зајдисонце и изгрејсонце</string>
+    <string name="live_display_off">Исклучено</string>
+    <string name="live_display_off_summary">Оневозможи ги сите прилагодувања</string>
+    <string name="live_display_day">Ден</string>
+    <string name="live_display_day_summary">Користи само поставки за ден</string>
+    <string name="live_display_night">Ноќ</string>
+    <string name="live_display_night_summary">Користи само поставки за ноќ</string>
+    <string name="live_display_outdoor">Надвор (силно сонце)</string>
+    <string name="live_display_outdoor_summary">Користи само поставки за надвор</string>
+    <string name="live_display_hint">LiveDisplay може да помогне во проблемите со очите и да ви помогне да спиете ноќе. Кликни тука за да го пробате!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay исклучен.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматски режим.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дневен режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ноќен режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим на отворено.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay е исклучен.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay се промени во автоматски режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay се промени во дневен режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay се промени во ноќен режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay се промени во режим на отворено.</string>
 </resources>

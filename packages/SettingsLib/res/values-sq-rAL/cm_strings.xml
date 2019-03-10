@@ -19,13 +19,11 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-  <string name="screen_zoom_summary_smaller">Më e vogël</string>
-  <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-  <string name="screen_zoom_summary_smallest">Më e vogla</string>
-  <string name="profile_applist_title">Aplikacionet</string>
-  <string name="picker_activities">Aktivitete</string>
-  <string name="select_custom_app_title">Zgjidh një aplikacion të personalizuar</string>
-  <string name="select_custom_activity_title">Zgjidh një aktivitet të personalizuar</string>
-  <string name="lockscreen_targets_message">Shkurtoret e ekranit bllokues</string>
+    <string name="screen_zoom_summary_smaller">Më e vogël</string>
+    <string name="screen_zoom_summary_smallest">Më e vogla</string>
+    <string name="profile_applist_title">Aplikacionet</string>
+    <string name="picker_activities">Aktivitete</string>
+    <string name="select_custom_app_title">Zgjidh një aplikacion të personalizuar</string>
+    <string name="select_custom_activity_title">Zgjidh një aktivitet të personalizuar</string>
+    <string name="lockscreen_targets_message">Shkurtoret e ekranit bllokues</string>
 </resources>

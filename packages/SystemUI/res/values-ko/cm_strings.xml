@@ -20,28 +20,18 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">조명 밝기</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">프로필 꺼짐.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">현재 프로필: <xliff:g id="profile" example="Default">%s</xliff:g></string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">프로필이 이제 꺼짐.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">프로필이 <xliff:g id="profile" example="Default">%s</xliff:g>으(로) 바뀜.</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_profiles_off">프로필 꺼짐.</string>
-  <!-- Content description of the system profiles  -->
-  <string name="quick_settings_profiles">시스템 프로필</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">조명 설정</string>
-  <string name="led_notification_text">설정 앱이 LED 전등을 활성화함</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">손전등 켜짐</string>
-  <string name="quick_settings_tile_flashlight_not_summary">탭하여 끄기</string>
-  <!-- [CHAR LIMIT=NONE] Importance Tuner setting title -->
-  <string name="cm_power_notification_controls_description">알림 강도 조절을 이용하여 앱의 알림에 0에서 6까지 중요도 단계를 설정할 수 있습니다.
+    <string name="accessibility_notification_brightness">조명 밝기</string>
+    <string name="accessibility_quick_settings_profiles_off">프로필 꺼짐.</string>
+    <string name="accessibility_quick_settings_profiles">현재 프로필: <xliff:g id="profile" example="Default">%s</xliff:g></string>
+    <string name="accessibility_quick_settings_profiles_changed_off">프로필이 이제 꺼짐.</string>
+    <string name="accessibility_quick_settings_profiles_changed">프로필이 <xliff:g id="profile" example="Default">%s</xliff:g>으(로) 바뀜.</string>
+    <string name="quick_settings_profiles_off">프로필 꺼짐.</string>
+    <string name="quick_settings_profiles">시스템 프로필</string>
+    <string name="led_notification_title">조명 설정</string>
+    <string name="led_notification_text">설정 앱이 LED 전등을 활성화함</string>
+    <string name="quick_settings_tile_flashlight_not_title">손전등 켜짐</string>
+    <string name="quick_settings_tile_flashlight_not_summary">탭하여 끄기</string>
+    <string name="cm_power_notification_controls_description">알림 강도 조절을 이용하여 앱의 알림에 0에서 6까지 중요도 단계를 설정할 수 있습니다.
         \n\n<b>6단계</b>
         \n- 알림 목록의 최상단에 표시
         \n- 전체 화면 해제 허용
@@ -71,152 +61,99 @@
         \n\n<b>0단계</b>
         \n- 해당 앱의 모든 알림 차단
     </string>
-  <!-- Notification importance level title-->
-  <string name="importance_level_title">중요도: %1$d단계</string>
-  <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">전체 화면 인터럽션, 상단 알림, 소리 또는 진동이 발생하지 않습니다. 잠금 화면에서 숨겨집니다.</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">고정을 해제할 때까지 계속 표시합니다. 뒤로 버튼을 계속 눌러 고정을 해제하세요.</string>
-  <!-- String for lockscreen shortcut hints -->
-  <string name="shortcut_hint">%1$s 기능을 사용하려면 아이콘에서 스와이프하세요.</string>
-  <string name="lockscreen_message">잠금화면 바로가기를 다시 지정하려면 왼쪽이나 오른쪽의 아이콘을 탭하세요.</string>
-  <string name="lockscreen_default_target">기본</string>
-  <string name="select_application">앱 선택</string>
-  <string name="lockscreen_choose_action_title">동작 선택</string>
-  <string name="lockscreen_none_target">없음</string>
-  <!-- Play queue -->
-  <string name="play_queue_extension">재생 대기열 표시</string>
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="accessibility_dpad_left">커서 왼쪽</string>
-  <string name="accessibility_dpad_right">커서 오른쪽</string>
-  <!-- NavBar Tuner -->
-  <string name="menu_ime_always_show">메뉴 / 키보드 선택기 (항상 표시)</string>
-  <string name="search">검색</string>
-  <!-- Name of the clock status bar icon -->
-  <string name="status_bar_clock">시계</string>
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="other">%1$d개 장치</item>
-  </plurals>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Volume stream titles - should match the string-array in AOSP -->
-  <string-array name="volume_stream_titles_lineage">
-    <item>통화</item>
-    <!-- STREAM_VOICE_CALL -->
-    <item>시스템</item>
-    <!-- STREAM_SYSTEM -->
-    <item>벨소리</item>
-    <!-- STREAM_RING -->
-    <item>미디어</item>
-    <!-- STREAM_MUSIC -->
-    <item>알람</item>
-    <!-- STREAM_ALARM -->
-    <item>알림</item>
-    <!-- STREAM_NOTIFICATION -->
-    <item>블루투스</item>
-    <!-- STREAM_BLUETOOTH_SCO -->
-    <item></item>
-    <!-- STREAM_SYSTEM_ENFORCED -->
-    <item></item>
-    <!-- STREAM_DTMF -->
-    <item></item>
-    <!-- STREAM_TTS -->
-  </string-array>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">위치 보고: 배터리 절약 모드.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">위치 보고: 기기 전용 모드.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">위치 보고: 높은 정확성 모드.</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">배터리 절약</string>
-  <string name="quick_settings_location_battery_saving_label_twoline">배터리\n절약</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">기기 전용</string>
-  <string name="quick_settings_location_gps_only_label_twoline">기기\n전용</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">높은 정확성</string>
-  <string name="quick_settings_location_high_accuracy_label_twoline">높은\n정확성</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">위치</string>
-  <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_menu_title">모드 선택:</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">높은 정확성</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_title">배터리 절약</string>
-  <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_title">기기 전용</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, Wi\u2011Fi, 블루투스 또는 이동통신망을 사용하여 위치를 찾습니다.</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-  <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, 블루투스 또는 이동통신망을 사용하여 위치를 찾습니다.</string>
-  <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-  <string name="quick_settings_location_detail_mode_sensors_only_description">GPS를 사용하여 위치를 찾습니다.</string>
-  <!-- Adb over network QS tile -->
-  <string name="quick_settings_network_adb_label">네트워크 ADB</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">절전 모드 자동 해제</string>
-  <string name="accessibility_quick_settings_ambient_display_off">절전 모드 자동 해제가 꺼짐.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">절전 모드 자동 해제가 켜짐.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">절전 모드 자동 해제가 꺼졌습니다.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">절전 모드 자동 해제가 켜졌습니다.</string>
-  <!-- Caffeine -->
-  <string name="quick_settings_caffeine_label">카페인</string>
-  <string name="accessibility_quick_settings_caffeine_off">카페인 꺼짐</string>
-  <string name="accessibility_quick_settings_caffeine_on">카페인 켜짐</string>
-  <!-- Heads up QS tile -->
-  <string name="quick_settings_heads_up_label">헤드업 알림</string>
-  <string name="accessibility_quick_settings_heads_up_off">헤드업 알림이 꺼짐.</string>
-  <string name="accessibility_quick_settings_heads_up_on">헤드업 알림이 켜짐.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">헤드업 알림이 꺼졌습니다.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">헤드업 알림이 켜졌습니다.</string>
-  <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">동기화</string>
-  <string name="accessibility_quick_settings_sync_off">동기화 꺼짐</string>
-  <string name="accessibility_quick_settings_sync_on">동기화 켜짐</string>
-  <string name="accessibility_quick_settings_sync_changed_off">동기화가 해제되었습니다.</string>
-  <string name="accessibility_quick_settings_sync_changed_on">동기화가 설정되었습니다.</string>
-  <!-- USB tethering QS tile -->
-  <string name="quick_settings_usb_tether_label">USB 테더링</string>
-  <!-- Volume panel QS tile -->
-  <string name="quick_settings_sync_label">동기화</string>
-  <string name="quick_settings_volume_panel_label">볼륨 패널</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g>이(가) 지워지지 않도록 합니다.</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g>이(가) 지워질 수 있도록 합니다.</string>
-  <!-- LiveDisplay strings -->
-  <string name="live_display_auto">자동</string>
-  <string name="live_display_auto_summary">일출 및 일몰에 따라 화면의 색 온도를 자동으로 조정</string>
-  <string name="live_display_off">꺼짐</string>
-  <string name="live_display_off_summary">모든 조정 사용 안 함</string>
-  <string name="live_display_day">주간</string>
-  <string name="live_display_day_summary">주간 모드만 사용</string>
-  <string name="live_display_night">야간</string>
-  <string name="live_display_night_summary">야간 모드만 사용</string>
-  <string name="live_display_outdoor">야외 (밝은 햇빛)</string>
-  <string name="live_display_outdoor_summary">야외 모드만 사용</string>
-  <string name="live_display_hint">LiveDisplay는 눈의 피로를 줄이고 밤에 수면을 돕습니다. 사용해 보려면 여기를 누르세요!</string>
-  <string name="accessibility_quick_settings_live_display_off">LiveDisplay를 끕니다.</string>
-  <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: 자동 모드입니다.</string>
-  <string name="accessibility_quick_settings_live_display_day">LiveDisplay: 주간 모드입니다.</string>
-  <string name="accessibility_quick_settings_live_display_night">LiveDisplay: 야간 모드입니다.</string>
-  <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: 야외 모드입니다.</string>
-  <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay가 꺼졌습니다.</string>
-  <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay를 자동 모드로 변경했습니다.</string>
-  <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay를 주간 모드로 변경했습니다.</string>
-  <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay를 야간 모드로 변경했습니다.</string>
-  <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay를 야외 모드로 변경했습니다.</string>
+    <string name="importance_level_title">중요도: %1$d단계</string>
+    <string name="notification_importance_very_low">전체 화면 인터럽션, 상단 알림, 소리 또는 진동이 발생하지 않습니다. 잠금 화면에서 숨겨집니다.</string>
+    <string name="screen_pinning_description_no_navbar">고정을 해제할 때까지 계속 표시합니다. 뒤로 버튼을 계속 눌러 고정을 해제하세요.</string>
+    <string name="shortcut_hint">%1$s 기능을 사용하려면 아이콘에서 스와이프하세요.</string>
+    <string name="lockscreen_message">잠금화면 바로가기를 다시 지정하려면 왼쪽이나 오른쪽의 아이콘을 탭하세요.</string>
+    <string name="lockscreen_default_target">기본</string>
+    <string name="select_application">앱 선택</string>
+    <string name="lockscreen_choose_action_title">동작 선택</string>
+    <string name="lockscreen_none_target">없음</string>
+    <string name="play_queue_extension">재생 대기열 표시</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">커서 왼쪽</string>
+    <string name="accessibility_dpad_right">커서 오른쪽</string>
+    <string name="menu_ime_always_show">메뉴 / 키보드 선택기 (항상 표시)</string>
+    <string name="search">검색</string>
+    <string name="status_bar_clock">시계</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="other">%1$d개 장치</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>통화</item>
+        <item>시스템</item>
+        <item>벨소리</item>
+        <item>미디어</item>
+        <item>알람</item>
+        <item>알림</item>
+        <item>블루투스</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">위치 보고: 배터리 절약 모드.</string>
+    <string name="accessibility_quick_settings_location_gps_only">위치 보고: 기기 전용 모드.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">위치 보고: 높은 정확성 모드.</string>
+    <string name="quick_settings_location_battery_saving_label">배터리 절약</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">배터리\n절약</string>
+    <string name="quick_settings_location_gps_only_label">기기 전용</string>
+    <string name="quick_settings_location_gps_only_label_twoline">기기\n전용</string>
+    <string name="quick_settings_location_high_accuracy_label">높은 정확성</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">높은\n정확성</string>
+    <string name="quick_settings_location_detail_title">위치</string>
+    <string name="quick_settings_location_detail_menu_title">모드 선택:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">높은 정확성</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">배터리 절약</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">기기 전용</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, Wi\u2011Fi, 블루투스 또는 이동통신망을 사용하여 위치를 찾습니다.</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, 블루투스 또는 이동통신망을 사용하여 위치를 찾습니다.</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS를 사용하여 위치를 찾습니다.</string>
+    <string name="quick_settings_network_adb_label">네트워크 ADB</string>
+    <string name="quick_settings_ambient_display_label">절전 모드 자동 해제</string>
+    <string name="accessibility_quick_settings_ambient_display_off">절전 모드 자동 해제가 꺼짐.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">절전 모드 자동 해제가 켜짐.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">절전 모드 자동 해제가 꺼졌습니다.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">절전 모드 자동 해제가 켜졌습니다.</string>
+    <string name="quick_settings_caffeine_label">카페인</string>
+    <string name="accessibility_quick_settings_caffeine_off">카페인 꺼짐</string>
+    <string name="accessibility_quick_settings_caffeine_on">카페인 켜짐</string>
+    <string name="quick_settings_heads_up_label">헤드업 알림</string>
+    <string name="accessibility_quick_settings_heads_up_off">헤드업 알림이 꺼짐.</string>
+    <string name="accessibility_quick_settings_heads_up_on">헤드업 알림이 켜짐.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">헤드업 알림이 꺼졌습니다.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">헤드업 알림이 켜졌습니다.</string>
+    <string name="quick_settings_sync_label">동기화</string>
+    <string name="accessibility_quick_settings_sync_off">동기화 꺼짐</string>
+    <string name="accessibility_quick_settings_sync_on">동기화 켜짐</string>
+    <string name="accessibility_quick_settings_sync_changed_off">동기화가 해제되었습니다.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">동기화가 설정되었습니다.</string>
+    <string name="quick_settings_usb_tether_label">USB 테더링</string>
+    <string name="quick_settings_sync_label">동기화</string>
+    <string name="quick_settings_volume_panel_label">볼륨 패널</string>
+    <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g>이(가) 지워지지 않도록 합니다.</string>
+    <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g>이(가) 지워질 수 있도록 합니다.</string>
+    <string name="live_display_auto">자동</string>
+    <string name="live_display_auto_summary">일출 및 일몰에 따라 화면의 색 온도를 자동으로 조정</string>
+    <string name="live_display_off">꺼짐</string>
+    <string name="live_display_off_summary">모든 조정 사용 안 함</string>
+    <string name="live_display_day">주간</string>
+    <string name="live_display_day_summary">주간 모드만 사용</string>
+    <string name="live_display_night">야간</string>
+    <string name="live_display_night_summary">야간 모드만 사용</string>
+    <string name="live_display_outdoor">야외 (밝은 햇빛)</string>
+    <string name="live_display_outdoor_summary">야외 모드만 사용</string>
+    <string name="live_display_hint">LiveDisplay는 눈의 피로를 줄이고 밤에 수면을 돕습니다. 사용해 보려면 여기를 누르세요!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay를 끕니다.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: 자동 모드입니다.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: 주간 모드입니다.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: 야간 모드입니다.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: 야외 모드입니다.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay가 꺼졌습니다.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay를 자동 모드로 변경했습니다.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay를 주간 모드로 변경했습니다.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay를 야간 모드로 변경했습니다.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay를 야외 모드로 변경했습니다.</string>
 </resources>
