@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB per rede activáu</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB per USB y rede activáu</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Toca pa desactivar la depuración.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">acceder a la cámara</string>
     <string name="app_ops_access_location">acceder al to allugamientu</string>
     <string name="app_ops_access_notifications">lleer los tos avisos</string>
@@ -106,13 +102,11 @@
     <string name="app_ops_write_external_storage">escribir nel almacenamientu esternu</string>
     <string name="app_ops_write_mms">escribir un mensaxe MMS</string>
     <string name="app_ops_write_sms">escribir un mensaxe SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">habilitar o deshabilitar la privacidá</string>
     <string name="permdesc_changePrivacyGuardState">Permite que l\'aplicación cambie l\'estáu de privacidá d\'otra. Cuando una aplicación s\'executa cola privacidá habilitada, nun va poder acceder a los datos personales, talos como contautos, mensaxes o rexistros de llamaes.</string>
     <string name="privacy_guard_notification">Guardián de privacidá activu</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nun sedrá a acceder a los datos personales</string>
     <string name="privacy_guard_dialog_title">Guardián de privacidá</string>
     <string name="privacy_guard_dialog_summary">A <xliff:g id="app">%1$s</xliff:g> prestaría-y <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Recordar la mio escoyeta</string>
 </resources>

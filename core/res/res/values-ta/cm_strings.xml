@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">நெட்வொர்க் மீது ADB செயல்படுத்தப்பட்டது</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">USB &amp; நெட்வொர்க் மீது ADB செயல்படுத்தப்பட்டது</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">பிழைநீக்கலை முடக்க தொடு.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">கேமராவை அணுகவும்</string>
     <string name="app_ops_access_location">உங்கள் இருப்பிடத்தை அணுகவும்</string>
     <string name="app_ops_access_notifications">உங்கள் அறிவிப்பைப் படி</string>
@@ -91,13 +87,11 @@
     <string name="app_ops_write_external_storage">உட்புற சேமிப்பகத்தை எழுது</string>
     <string name="app_ops_write_mms">ஒரு MMS செய்தி எழுது</string>
     <string name="app_ops_write_sms">ஒரு SMS செய்தி எழுது</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">அந்தரங்கம் பாதுகாப்பானை செயல்படுத்து அல்லது முடக்கு</string>
     <string name="permdesc_changePrivacyGuardState">வேறொரு பயன்பாடு அந்தரங்கம் பாதுகாப்பானுடன் இயங்குகிறதா என்பதை மாற்ற பயன்பாட்டை அனுமதிக்கிறது. ஒரு பயன்பாடு அந்தரங்கம் பாதுகாப்பானுடன் இயங்கும்போது, அது தனிநபர் தரவுகளான தொடர்புகள், அழைப்பு பதிவுகள், அல்லது செய்திகள் போன்றவற்றை அணுகாது.</string>
     <string name="privacy_guard_notification">அந்தரங்கம் பாதுகாப்பான் செயல்பாட்டிலுள்ளது</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> தனிநபர் தரவை அணுக முடியாது</string>
     <string name="privacy_guard_dialog_title">அந்தரங்கம் பாதுகாப்பான்</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g>  <xliff:g id="op">%2$s</xliff:g> செய்ய விரும்புகிறார்.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">எனது விருப்பத்தேர்வை நினைவில்கொள்</string>
 </resources>

@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ନେଟ୍‍ୱା‌ର୍କ୍‍ରେ ADB ସଷମ କରାଯାଇଛି</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">USB ଓ ନେଟ୍‍ୱା‌ର୍କ୍‍ରେ ADB ସଷମ କରାଯାଇଛି</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">ଡିବଗିଙ୍ଗ ଅଷମ କରିବା ପାଇଁ ସ୍ପର୍ଶ ଅକରନ୍ତୁ।</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">କ୍ୟାମେରା ଆ‌କ୍‍ସେସ୍‍ କରନ୍ତୁ</string>
     <string name="app_ops_access_location">ଆପଣଙ୍କ ଅବସ୍ଥାନ ଆକ୍‍ସେସ୍‍ କରନ୍ତୁ</string>
     <string name="app_ops_access_notifications">ଆପଣଙ୍କ ସୂଚନାବଳି ପଢନ୍ତୁ</string>
@@ -91,13 +87,11 @@
     <string name="app_ops_write_external_storage">ବାହ୍ୟ ଷ୍ଟୋରେଜ୍ ଲେଖନ୍ତୁ</string>
     <string name="app_ops_write_mms">ଏକ MMS ସନ୍ଦେଶ ଲେଖନ୍ତୁ</string>
     <string name="app_ops_write_sms">ଏକ SMS ସନ୍ଦେଶ ଲେଖନ୍ତୁ</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">ପ୍ରାଇଭେସି ଗାର୍ଡ ସଷମ ବା ଅଷମ କରନ୍ତୁ</string>
     <string name="permdesc_changePrivacyGuardState">ପ୍ରାଇଭେସି ଗାର୍ଡ ସହିତ ଅନ୍ୟ ଏକ ଆପ୍ଲିକେସ‌‌ନ୍‍ ର‌ନ୍‍ କରିପାରିବ କି ନାହିଁ ତାହା ପରିବର୍ତ୍ତନ କରିବା ପାଇଁ ଏକ ଆପ୍ଲିକେସ‌କୁ ଅନୁମତି ଦିଏ। ଯେତେବେଳେ ପ୍ରାଇଭେସି ଗାର୍ଡ ସହିତ ଏକ ଆପ୍ଲିକେସନ୍‍ ଚାଳନା କରାଯାଉଥାଏ, ଏହା ବ୍ୟକ୍ତିଗତ ତଥ୍ୟ ଯଥା ସମ୍ପର୍କ, କଲ୍‍ ସୂୀ, ବା ସନ୍ଦେଶଗୁ୍ଡିକ ଆକ୍‍ସେସ୍‍ କରିପାରିବ ନାହିଁ।</string>
     <string name="privacy_guard_notification">ପ୍ରାଇଭେସି ଗାର୍ଡ ଆକ୍ଟିଭ୍‍</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> ବ୍ୟକ୍ତିଗତ ତଥ୍ୟ ଆକ୍‍ସେସ୍‍ କରିବା ପାଇଁ ସଷମ ହେବ ନାହିଁ</string>
     <string name="privacy_guard_dialog_title">ପ୍ରାଇଭେସି ଗାର୍ଡ</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$Sଚାହିଁବ</xliff:g> ଚାହିଁବ <xliff:g id="op">%2$s</xliff:g>।</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">ମୋ ପସନ୍ଦ ମନେରଖନ୍ତୁ</string>
 </resources>

@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">Tha ADB thar lìonra an comas</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">Tha ADB thar USB ⁊ lìonra an comas</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Bean ris airson an dì-bhugachadh a chur à comas.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">cothrom air a’ chamara</string>
     <string name="app_ops_access_location">cothrom air d’ ionad</string>
     <string name="app_ops_access_notifications">na brathan agad a leughadh</string>
@@ -97,13 +93,11 @@
     <string name="app_ops_write_external_storage">sgrìobhadh air stòras air an taobh a-muigh</string>
     <string name="app_ops_write_mms">teachdaireachd MMS a sgrìobhadh</string>
     <string name="app_ops_write_sms">teachdaireachd SMS a sgrìobhadh</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">cuir an comas no à comas freiceadan na prìobhaideachd</string>
     <string name="permdesc_changePrivacyGuardState">Leigidh seo leis an aplacaid atharrachadh an ruith aplacaid eile le freiceadan na prìobhaideachd no as aonais. Ma ruitheas aplacaid le freiceadan na prìobhaideachd, cha bhi cothrom aige air dàta pearsanta mar an luchd-aithne, logaichean ghairmean no teachdaireachdan.</string>
     <string name="privacy_guard_notification">Tha freiceadan na prìobhaideachd an gnìomh</string>
     <string name="privacy_guard_notification_detail">Cha bhi cothrom aig <xliff:g id="app">%1$s</xliff:g> air dàta pearsanta</string>
     <string name="privacy_guard_dialog_title">Freiceadan na prìobhaideachd</string>
     <string name="privacy_guard_dialog_summary">Bu toigh le <xliff:g id="app">%1$s</xliff:g> <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Cuimhnich mo roghainn</string>
 </resources>

@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB sobre xarxa habilitat</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB sobre USB i xarxa habilitat</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Toca per deshabilitar la depuració.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">accedir a la càmera</string>
     <string name="app_ops_access_location">accedir a la teva ubicació</string>
     <string name="app_ops_access_notifications">llegir les teves notificacions</string>
@@ -98,13 +94,11 @@
     <string name="app_ops_write_external_storage">escriure en un emmagatzematge extern</string>
     <string name="app_ops_write_mms">escriure un missatge MMS</string>
     <string name="app_ops_write_sms">escriure un missatge SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">activa o desactiva el guarda de privacitat</string>
     <string name="permdesc_changePrivacyGuardState">Permet a l\'aplicació fer el canvi d\'estat de privacitat d\'una altra aplicació. Quan una aplicació s\'executa amb el guarda de privacitat, no tindrà accés a les dades personals com els contactes, registres de trucades, o missatges.</string>
     <string name="privacy_guard_notification">Guarda de privacitat actiu</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> no tindrà accés a dades personals</string>
     <string name="privacy_guard_dialog_title">Guarda de privacitat</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> voldria <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Recorda la meva elecció</string>
 </resources>

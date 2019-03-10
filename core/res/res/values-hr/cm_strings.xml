@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB preko mreže je omogućen</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB preko USB-a i mreže je omogućen</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Dodirnite da onemogućite ispravljanje grešaka.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">pristupiti fotoaparatu</string>
     <string name="app_ops_access_location">pristupiti vašoj lokaciji</string>
     <string name="app_ops_access_notifications">čitati vaše obavijesti</string>
@@ -98,13 +94,11 @@
     <string name="app_ops_write_external_storage">pisati po vanjskoj pohrani</string>
     <string name="app_ops_write_mms">napisati MMS poruku</string>
     <string name="app_ops_write_sms">napisati SMS poruku</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">omogućavanje ili onemogućavanje Nadzora privatnosti</string>
     <string name="permdesc_changePrivacyGuardState">Dopušta aplikaciji odrediti hoće li druga aplikacija biti pokrenuta pod Nadzorom privatnosti. Kada ja aplikacija pod Nadzorom privatnosti, neće imati pristup osobnim podacima kao što su kontakti, zapisi poziva ili poruke.</string>
     <string name="privacy_guard_notification">Nadzor privatnosti je aktivan</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> neće moći pristupiti osobnim podacima</string>
     <string name="privacy_guard_dialog_title">Nadzor privatnosti</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> želi <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Zapamti moj odabir</string>
 </resources>

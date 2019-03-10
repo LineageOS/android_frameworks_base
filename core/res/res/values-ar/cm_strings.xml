@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">تمكين ADB عبر الشبكة</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB عبر USB &amp; تمكين الشبكة</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">انقر لتعطيل تصحيح الأخطاء.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">الوصول إلى الكاميرا</string>
     <string name="app_ops_access_location">الوصول إلى موقعك</string>
     <string name="app_ops_access_notifications">قراءة إشعاراتك</string>
@@ -106,13 +102,11 @@
     <string name="app_ops_write_external_storage">كتابة الذاكرة الخارجية</string>
     <string name="app_ops_write_mms">كتابة رسالة MMS</string>
     <string name="app_ops_write_sms">كتابة رسالة نصية قصيرة</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">تمكين أو تعطيل حارس الخصوصية</string>
     <string name="permdesc_changePrivacyGuardState">يسمح للتطبيق بتغيير ما إذا كان تطبيق آخر يعمل مع \"حارس الخصوصية\". عندما يتم تشغيل تطبيق مع \"حارس الخصوصية\"، فلن يُسمح بالوصول إلى البيانات الشخصية كجهات الاتصال أو سجلات المكالمات أو الرسائل.</string>
     <string name="privacy_guard_notification">حارس الخصوصية نشط</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> لن تكون قادراً على الوصول إلى البيانات الشخصية</string>
     <string name="privacy_guard_dialog_title">حارس الخصوصية</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> يرغب في <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">تذكر خياري</string>
 </resources>

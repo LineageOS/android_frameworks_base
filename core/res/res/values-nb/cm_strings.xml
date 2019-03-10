@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB over nettverk aktivert</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB over USB &amp; nettverk aktivert</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Trykk for å deaktivere feilsøking.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">tilgang til kameraet</string>
     <string name="app_ops_access_location">tilgang til din plassering</string>
     <string name="app_ops_access_notifications">lese dine varsler</string>
@@ -92,13 +88,11 @@
     <string name="app_ops_write_external_storage">skrive til ekstern lagring</string>
     <string name="app_ops_write_mms">skrive en MMS-melding</string>
     <string name="app_ops_write_sms">skrive en tekstmelding</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">aktivere eller deaktivere personvernvakt</string>
     <string name="permdesc_changePrivacyGuardState">Lar appen endre om en annen app kjører med personlighetsvern. Når en app kjører med personlighetsvern vil den ikke ha tilgang til personlig data som kontakter, samtalelogg eller meldinger.</string>
     <string name="privacy_guard_notification">Personvernvakt aktiv</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> vil ikke få tilgang til personlige data</string>
     <string name="privacy_guard_dialog_title">Personvernvakt</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> vil gjerne <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Husk mitt valg</string>
 </resources>

@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB по сети разрешен</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB через USB &amp; сеть включена</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Нажмите, чтобы отключить отладку.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">получить доступ к камере</string>
     <string name="app_ops_access_location">получить доступ к местоположению устройства</string>
     <string name="app_ops_access_notifications">получить доступ к уведомлениям</string>
@@ -106,13 +102,11 @@
     <string name="app_ops_write_external_storage">записать данные на внешнее запоминающее устройство</string>
     <string name="app_ops_write_mms">создать MMS-сообщение</string>
     <string name="app_ops_write_sms">создать SMS-сообщение</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">включение или отключение Защиты конфиденциальности</string>
     <string name="permdesc_changePrivacyGuardState">Разрешает приложению изменять состояние Защиты конфиденциальности для других приложений. Если приложение запущено в режиме Защиты конфиденциальности, оно не будет иметь доступ к персональным данным, таким как контакты, журнал звонков или сообщения.</string>
     <string name="privacy_guard_notification">Активна защита конфиденциальности</string>
     <string name="privacy_guard_notification_detail">У <xliff:g id="app">%1$s</xliff:g> нет доступа к личным данным</string>
     <string name="privacy_guard_dialog_title">Защита конфиденциальности</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> пытается <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Запомнить мой выбор</string>
 </resources>

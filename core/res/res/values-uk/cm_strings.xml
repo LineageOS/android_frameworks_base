@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB по мережі увімкнено</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB по USB та мережі увімкнено</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Торкніться, аби вимкнути налагодження.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">доступ до камери</string>
     <string name="app_ops_access_location">доступ до місцезнаходження</string>
     <string name="app_ops_access_notifications">читати ваші сповіщення</string>
@@ -95,13 +91,11 @@
     <string name="app_ops_write_external_storage">Записати дані на карту пам\'яті</string>
     <string name="app_ops_write_mms">створити MMS-повідомлення</string>
     <string name="app_ops_write_sms">створити SMS-повідомлення</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">увімк. або вимк. Сторожа Приватності</string>
     <string name="permdesc_changePrivacyGuardState">Програма може вибрати, чи буде друга програма працювати в захищеному режимі. Коли програму запущено в захищеному режимі, вона не отримає доступ до персональних даних, таких як контакти, повідомлення чи журнал дзвінків.</string>
     <string name="privacy_guard_notification">Сторож Приватності активний</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> буде заборонено доступ до персональних даних</string>
     <string name="privacy_guard_dialog_title">Сторож Приватності</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> намагається <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Запам\'ятати мій вибір</string>
 </resources>

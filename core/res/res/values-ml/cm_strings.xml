@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">നെറ്റ്‌വർക്കിലൂടെയുള്ള ADB പ്രാപ്തമാക്കി</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">USB &amp; നെറ്റ്‌വർക്കിലൂടെയുള്ള ADB പ്രാപ്തമാക്കി</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">ഡീബഗ്ഗിംഗ് അപ്രാപ്തമാക്കാൻ സ്‌പർശിക്കുക.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">ക്യാമറ ആക്സസ് ചെയ്യുക</string>
     <string name="app_ops_access_location">നിങ്ങളുടെ സ്ഥാനം ആക്സസ് ചെയ്യുക</string>
     <string name="app_ops_access_notifications">നിങ്ങളുടെ അറിയിപ്പുകൾ വായിക്കുക</string>
@@ -91,13 +87,11 @@
     <string name="app_ops_write_external_storage">ബാഹ്യ സംഭരണം എഴുതാൻ</string>
     <string name="app_ops_write_mms">MMS സന്ദേശം റൈറ്റ് ചെയ്യുക</string>
     <string name="app_ops_write_sms">ഒരു SMS സന്ദേശം റൈറ്റ് ചെയ്യുക</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">പ്രൈവസി ഗാർഡ് അപ്രാപ്തമാക്കുക അല്ലെങ്കില്‍ അപ്രാപ്തമാക്കുക</string>
     <string name="permdesc_changePrivacyGuardState">മറ്റൊരു ആപ്ലിക്കേഷന്‍ സ്വകാര്യത ഗാർഡില്‍ പ്രവര്‍ത്തിക്കുന്നെങ്കില്‍ മാറ്റുന്നതിന് ആപ്ലിക്കേഷനെ അനുവദിക്കുന്നു. ഒരു ആപ്ലിക്കേഷൻ സ്വകാര്യത ഗാർഡ് ഉപയോഗിച്ച് പ്രവർത്തിക്കുമ്പോൾ, കോണ്‍ടാക്റ്റുകള്‍, കോൾ ലോഗുകള്‍, അല്ലെങ്കിൽ സന്ദേശങ്ങൾ പോലുള്ള സ്വകാര്യ ഡാറ്റയില്‍ പ്രവേശനം ഉണ്ടായിരിക്കില്ല.</string>
     <string name="privacy_guard_notification">സ്വകാര്യത ഗാർഡ് സജീവമാണ്</string>
     <string name="privacy_guard_notification_detail">സ്വകാര്യത ഡാറ്റ പ്രവേശനം ചെയ്യാന്‍ <xliff:g id="app">%1$s</xliff:g> ന് കഴിയില്ല</string>
     <string name="privacy_guard_dialog_title">സ്വകാര്യത ഗാർഡ്</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g>, <xliff:g id="op">%1$s</xliff:g> ആഗ്രഹിക്കുന്നു.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">എന്റെ ചോയ്‌സ് ഓർമ്മിക്കുക</string>
 </resources>

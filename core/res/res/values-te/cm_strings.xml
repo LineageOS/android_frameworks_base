@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB ఓవర్ నెట్వర్క్ ప్రారంభించబడింది</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB ఓవర్ USB మరియు నెట్వర్క్ ప్రారంభించబడ్డాయి</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">డీబగ్గింగ్ నిలిపివేయడానికి తాకండి</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">కెమెరాను ప్రాప్యత చేయుము</string>
     <string name="app_ops_access_location">మీ స్థానానికి ప్రాప్యత చేయుము</string>
     <string name="app_ops_access_notifications">మీ నోటిఫికేషన్లను చదువుము</string>
@@ -91,13 +87,11 @@
     <string name="app_ops_write_external_storage">బాహ్య నిల్వకు వ్రాయుము</string>
     <string name="app_ops_write_mms">MMS మెసేజును వ్రాయుము</string>
     <string name="app_ops_write_sms">SMS  మెసేజును వ్రాయుము</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">గోప్యతా సంరక్షణను ప్రారంభించుము/నిలిపివేయుము</string>
     <string name="permdesc_changePrivacyGuardState">ఇంకొక అనువర్తనం గోప్యతా సంరక్షణతో పనిచేస్తుందా అనే దానిని మార్చడానికి అనువర్తనానికి అనుమతినిస్తుంది. అనువర్తనం గోప్యతా సంరక్షణతో పనిచేస్తున్నప్పుడు, పరిచయాలు, కాల్ లాగులు, లేదా మెసేజులు వంటి వ్యక్తిగత డేటాకు అది ప్రాప్యతను కలిగి ఉండదు.</string>
     <string name="privacy_guard_notification">గోప్యతా సంరక్షణ క్రియాశీలం</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> వ్యక్తిగత డేటాకు ప్రాప్యతను కలిగి ఉండదు</string>
     <string name="privacy_guard_dialog_title">గోప్యత రక్షణ</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%2$s</xliff:g> ను చేయడానికి <xliff:g id="op">%1$s</xliff:g> ఇష్టపడుతుంది.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">నా ఎంపికను గుర్తుంచుకో</string>
 </resources>

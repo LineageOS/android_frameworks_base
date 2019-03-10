@@ -19,67 +19,44 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Sistema</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Berreskuratzea</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Abiarazlea</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Deskarga</string>
-    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">Berrabiarazten\u2026</string>
-    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_recovery_progress">Berreskuratze modura berrabiarazten\u2026</string>
-    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_bootloader_progress">Abiarazle modura berrabiarazten\u2026</string>
-    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_download_progress">Deskarga modura berrabiarazten\u2026</string>
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Unekoa</string>
-    <!-- Custom QS tiles -->
-    <!-- ADB over network QS tile -->
     <string name="quick_settings_network_adb_label">Sare gaineko ADB</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ambient display</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambient display itzalita.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambient display piztuta.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display itzalita.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display piztuta.</string>
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Kafeina</string>
     <string name="accessibility_quick_settings_caffeine_off">Kafeina ez.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kafeina bai.</string>
-    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Jakinarazpen flotatzaileak</string>
     <string name="accessibility_quick_settings_heads_up_off">Jakinarazpen flotatzaileak ezgaituta.</string>
     <string name="accessibility_quick_settings_heads_up_on">Jakinarazpen flotatzaileak gaituta.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Jakinarazpen flotatzaileak ezgaituta.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Jakinarazpen flotatzaileak gaituta.</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Irakurketa modua</string>
     <string name="accessibility_quick_settings_reading_mode_on">Irakurketa modua gaituta.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Irakurketa modua desgaituta.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Irakurketa modua gaitu da.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Irakurketa modua desgaitu da.</string>
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinkronizazioa</string>
     <string name="accessibility_quick_settings_sync_off">Sinkronizazioa ezgaituta.</string>
     <string name="accessibility_quick_settings_sync_on">Sinkronizazioa gaituta.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sinkronizazioa ezgaituta.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sinkronizazioa gaituta.</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB tethering</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Bolumen panela</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Kurtsorea ezkerrean</string>
     <string name="accessibility_dpad_right">Kurtsorearen eskuinean</string>
-    <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Honek bistan mantenduko du desiltzatzen duzun arte. Sakatu eta mantendu atzera botoia desiltzatzeko.</string>
-    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Pantaila hau desiltzatzeko sakatu eta mantendu atzera botoia</string>
-    <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Alderantzikatu diseinua</string>
 </resources>

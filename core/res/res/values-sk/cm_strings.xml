@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB cez sieť povolené</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB cez USB a sieť povolené</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Dotykom zakážate ladenie.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">prístup k fotoparátu</string>
     <string name="app_ops_access_location">prístup k polohe</string>
     <string name="app_ops_access_notifications">čítať upozornenia</string>
@@ -98,13 +94,11 @@
     <string name="app_ops_write_external_storage">zapisovať do externého úložiska</string>
     <string name="app_ops_write_mms">napísať správu MMS</string>
     <string name="app_ops_write_sms">napísať správu SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">povoliť alebo zakázať Ochranu súkromia</string>
     <string name="permdesc_changePrivacyGuardState">Umožňuje aplikácii určiť, či má byť iná aplikácia spustená s Ochranou súkromia. Keď je aplikácia spustená s Ochranou súkromia, nemá umožnený prístup k osobným údajom ako sú kontakty, denníky hovorov, alebo správy.</string>
     <string name="privacy_guard_notification">Aktívna ochrana súkromia</string>
     <string name="privacy_guard_notification_detail">Aplikácii <xliff:g id="app">%1$s</xliff:g> nebude umožnený prístup k osobným údajom</string>
     <string name="privacy_guard_dialog_title">Ochrana súkromia</string>
     <string name="privacy_guard_dialog_summary">Aplikácia <xliff:g id="app">%1$s</xliff:g> sa pokúša <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Zapamätať voľbu</string>
 </resources>

@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB po síti povoleno</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB přes USB a po síti povoleno</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Dotykem zakázat ladění.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">používat fotoaparát</string>
     <string name="app_ops_access_location">zjišťovat polohu</string>
     <string name="app_ops_access_notifications">číst upozornění</string>
@@ -106,13 +102,11 @@
     <string name="app_ops_write_external_storage">zapsat na externí úložiště</string>
     <string name="app_ops_write_mms">zapsat zprávu MMS</string>
     <string name="app_ops_write_sms">zapsat zprávu SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">povolit či zakázat Ochranu soukromí</string>
     <string name="permdesc_changePrivacyGuardState">Umožní změnit pravidla, zda bude některá aplikace spuštěna v režimu Ochrany soukromí. Pokud je aplikace spuštěna v režimu Ochrany soukromí, tato aplikace nemá umožněn přístup k osobním datům jako jsou kontakty, historie volání nebo zprávy.</string>
     <string name="privacy_guard_notification">Ochrana soukromí aktivní</string>
     <string name="privacy_guard_notification_detail">Aplikaci <xliff:g id="app">%1$s</xliff:g> nebude umožněn přístup k osobním údajům</string>
     <string name="privacy_guard_dialog_title">Ochrana soukromí</string>
     <string name="privacy_guard_dialog_summary">Aplikace <xliff:g id="app">%1$s</xliff:g> se pokouší <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Zapamatovat si volbu</string>
 </resources>

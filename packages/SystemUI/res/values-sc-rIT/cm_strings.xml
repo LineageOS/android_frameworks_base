@@ -19,35 +19,12 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Sistema</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Iscàrriga</string>
-    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">Torrende a allùghere\u2026</string>
-    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Atuale</string>
-    <!-- Custom QS tiles -->
-    <!-- ADB over network QS tile -->
-    <!-- Ambient display QS tile -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafeina</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
-    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
-    <!-- Reader mode QS tile -->
-    <!-- Sync QS tile -->
-    <!-- USB tethering QS tile -->
-    <!-- Volume panel QS tile -->
-    <!-- Navigation bar dpad -->
-    <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <!-- Button that controls inversion of layout of navigation bar -->
 </resources>

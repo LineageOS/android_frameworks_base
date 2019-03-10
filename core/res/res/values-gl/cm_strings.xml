@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">Activouse a rede en ADB</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">Activada a ADB en USB e rede</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Toque para desactivar a depuración.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">Acceder á cámara</string>
     <string name="app_ops_access_location">Acceder á súa localización</string>
     <string name="app_ops_access_notifications">Ler as súas notificacións</string>
@@ -102,13 +98,11 @@
     <string name="app_ops_write_external_storage">escribir no almacenamento externo</string>
     <string name="app_ops_write_mms">escribir unha mensaxe MMS</string>
     <string name="app_ops_write_sms">escribir unha mensaxe SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">activar ou desactivar a Protección da privacidade</string>
     <string name="permdesc_changePrivacyGuardState">Permítelle á aplicación decidir sobre se outra aplicación debe executarse ou non con Protección da privacidade. De unha aplicación estarse a executar con Protección da privacidade, non poderá acceder a contactos, rexistros de chamadas nin mensaxes.</string>
     <string name="privacy_guard_notification">Protección da privacidade activada</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> non poderá acceder aos datos persoais</string>
     <string name="privacy_guard_dialog_title">Protección da privacidade</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> quere <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Lembrar a miña escolla</string>
 </resources>

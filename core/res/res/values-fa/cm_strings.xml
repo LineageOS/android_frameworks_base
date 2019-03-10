@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ای‌دی‌بی از طریق شبکه فعال شد</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ای‌دی‌بی از طریق شبکه و یواس‌بی فعال شد</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">برای غیرفعال کردن اشکال‌زدایی لمس کنید.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">دسترسی به دوربین</string>
     <string name="app_ops_access_location">دسترسی به مکان شما</string>
     <string name="app_ops_access_notifications">مشاهده اعلان‌های شما</string>
@@ -74,13 +70,11 @@
     <string name="app_ops_use_voice_volume">کنترل صدای تماس صوتی</string>
     <string name="app_ops_write_mms">نوشتن پیام ام‌ام‌اس</string>
     <string name="app_ops_write_sms">نوشتن پیامک</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">فعال یا غیرفعال کردن محافظ حریم خصوصی</string>
     <string name="permdesc_changePrivacyGuardState">به برنامه اجازه می‌دهد اجرا شدن برنامه‌های دیگر با محافظ حریم خصوصی را تغییر دهد. هنگامی که یک برنامه با محافظ حریم خصوصی اجرا می‌شود، به اطلاعات شخصی مانند مخاطبین، گزارش‌های تماس یا پیام‌ها دسترسی نخواهد داشت.</string>
     <string name="privacy_guard_notification">محافظ حریم خصوصی فعال است</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> به اصلاعات شخصی دسترسی نخواهد داشت</string>
     <string name="privacy_guard_dialog_title">محافظ حریم خصوصی</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> می‌خواهد <xliff:g id="op">%2$s</xliff:g> انجام دهد.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">انتخابم را به یاد داشته باش</string>
 </resources>

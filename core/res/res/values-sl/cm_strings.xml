@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB prek omrežja omogočen</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB prek USB in omrežja omogočen</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Dotaknite se, da onemogočite razhroščevanje.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">dostop do fotoaparata</string>
     <string name="app_ops_access_location">dostop do lokacije</string>
     <string name="app_ops_access_notifications">branje obvestil</string>
@@ -106,13 +102,11 @@
     <string name="app_ops_write_external_storage">pisanje zunanje pomnilniške naprave</string>
     <string name="app_ops_write_mms">sestavljanje sporočil MMS</string>
     <string name="app_ops_write_sms">sestavljanje sporočil SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">omogočanje ali onemogočanje Privacy Guarda</string>
     <string name="permdesc_changePrivacyGuardState">Dovoli aplikaciji spreminjanje, ali se druga aplikacija izvaja s Privacy Guardom. Kadar se aplikacija izvaja s Privacy Guardom, ne bo imela dostopa do osebnih podatkov, kot so stiki, dnevniki klicev ali sporočila.</string>
     <string name="privacy_guard_notification">Privacy Guard dejaven</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> ne bo imel dostopa do osebnih podatkov</string>
     <string name="privacy_guard_dialog_title">Privacy Guard</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> bi rad <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Zapomni si mojo izbiro</string>
 </resources>

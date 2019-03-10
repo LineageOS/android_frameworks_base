@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB অভাৰ নেটৱৰ্ক সক্ষম কৰা হৈছে</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB অভাৰ USB আৰু নেটৱৰ্ক সক্ষম কৰা হৈছে</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">ডিবাগিং অক্ষম কৰিবলৈ স্পৰ্শ কৰক।</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">কেমেৰাত প্ৰৱেশ কৰক</string>
     <string name="app_ops_access_location">আপোনাৰ অৱস্থানত প্ৰৱেশ কৰক</string>
     <string name="app_ops_access_notifications">আপোনাৰ অধিসূচনাসমূহ পঢ়া</string>
@@ -91,13 +87,11 @@
     <string name="app_ops_write_external_storage">বাহ্যিক ষ্ট\'ৰেজলৈ লিখক</string>
     <string name="app_ops_write_mms">এটা MMS বাৰ্তা লিখক</string>
     <string name="app_ops_write_sms">এটা SMS বাৰ্তা লিখক</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">গোপনীয়তা ৰক্ষক সক্ষম বা অক্ষম কৰা</string>
     <string name="permdesc_changePrivacyGuardState">আন এটা এপ্পে গোপনীয়তা ৰক্ষকৰ সৈতে চলিব নে সেইটো পৰিবৰ্তন কৰিবলৈ অনুমতি দিয়ে। যেতিয়া এটা এপ্প্‌ গোপনীয়তা ৰক্ষকৰ সৈতে চলি থাকে, তেতিয়া ই যোগাযোগ, কল লগ বা বাৰ্তাৰ দৰে ব্যক্তিগত ডাটাবোৰত প্ৰৱেশ কৰিব নোৱাৰে।</string>
     <string name="privacy_guard_notification">গোপনীয়তা ৰক্ষক সক্ৰিয় কৰা</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> এ ব্যক্তিগত ডাটাত প্ৰৱেশ কৰিব নোৱাৰে</string>
     <string name="privacy_guard_dialog_title">গোপনীয়তা ৰক্ষক</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="op">%2$s</xliff:g> এ <xliff:g id="app">%1$s</xliff:g> কৰিবলৈ বিচাৰে।</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">মোৰ পচন্দ মনত ৰাখক</string>
 </resources>

@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB över nätverk aktiverat</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB över USB och nätverk aktiverat</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Tryck på för att inaktivera felsökning.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">få tillgång till kamera</string>
     <string name="app_ops_access_location">få tillgång till din plats</string>
     <string name="app_ops_access_notifications">läsa dina aviseringar</string>
@@ -92,13 +88,11 @@
     <string name="app_ops_write_external_storage">skriv extern lagring</string>
     <string name="app_ops_write_mms">skriva ett MMS</string>
     <string name="app_ops_write_sms">skriva ett SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">aktivera eller inaktivera integritetsskydd</string>
     <string name="permdesc_changePrivacyGuardState">Tillåter appen att ändra huruvida en annan app körs med integritetsskydd. När en app körs med integritetsskydd har den ingen tillgång till personlig data som kontakter, samtalslistor och meddelanden.</string>
     <string name="privacy_guard_notification">Integritetsskydd aktivt</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> kommer inte få tillgång till personlig data</string>
     <string name="privacy_guard_dialog_title">Integritetsskydd</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> skulle vilja <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Kom ihåg mitt val</string>
 </resources>

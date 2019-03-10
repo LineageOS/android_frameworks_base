@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB праз сетку ўключана</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB праз USB &amp; сетку ўключана</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Націснуць для выключэння наладкі.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">атрымаць доступ да камеры</string>
     <string name="app_ops_access_location">атрымаць доступ да месцазнаходжання прылады</string>
     <string name="app_ops_access_notifications">чытаньне паведамленьняў</string>
@@ -92,13 +88,11 @@
     <string name="app_ops_write_external_storage">захоўваць дадзеныя на картку памяці</string>
     <string name="app_ops_write_mms">стварыць MMS-паведамленне</string>
     <string name="app_ops_write_sms">стварыць SMS-паведамленне</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">уключэнне ці выключэнне рэжыму абароны прыватнасці</string>
     <string name="permdesc_changePrivacyGuardState">Дазваляе праграме выбіраць, ці будзе іншая праграма працаваць у рэжыме абароны прыватнасці. Калі праграма запушчана ў рэжыме абароны прыватнасці, яна не будзе мець доступу да асабістых дадзеных, такіх як кантакты, паведамленні ці гісторыя тэлефанаванняў.</string>
     <string name="privacy_guard_notification">Рэжым абароны прыватнасці актыўны</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> не будзе мець доступу да асабістых дадзеных</string>
     <string name="privacy_guard_dialog_title">Рэжым абароны</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> жадае <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Запамятаць вырашэнне</string>
 </resources>

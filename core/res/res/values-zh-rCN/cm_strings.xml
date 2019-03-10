@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">网络 ADB 调试已启用</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">USB 和网络 ADB 调试已启用</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">触摸以禁用调试。</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">存取相机</string>
     <string name="app_ops_access_location">访问您的位置信息</string>
     <string name="app_ops_access_notifications">读取通知</string>
@@ -106,13 +102,11 @@
     <string name="app_ops_write_external_storage">写入外部存储</string>
     <string name="app_ops_write_mms">编写彩信</string>
     <string name="app_ops_write_sms">编写短信</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">启用或禁用隐私防护</string>
     <string name="permdesc_changePrivacyGuardState">允许应用更改其他应用是否启用隐私防护。当一个应用以启用隐私防护运行时，它将不能访问如联系人、通话记录、短信等个人数据。</string>
     <string name="privacy_guard_notification">隐私防护激活</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> 将不能访问个人数据</string>
     <string name="privacy_guard_dialog_title">隐私防护</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> 希望 <xliff:g id="op">%2$s</xliff:g>。</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">记住我的选择</string>
 </resources>

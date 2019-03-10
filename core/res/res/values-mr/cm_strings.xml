@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">नेटवर्कवर ADB सक्षम केले</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">नेटवर्कवर आणि USB वर ADB सक्षम केले</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">डिबगिंग अक्षम करण्यासाठ स्पर्श करा.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">कॅमेरा ऍक्सेस करा</string>
     <string name="app_ops_access_location">तुमचे स्थान ऍक्सेस करा</string>
     <string name="app_ops_access_notifications">तुमच्या सूचना वाचा</string>
@@ -91,13 +87,11 @@
     <string name="app_ops_write_external_storage">अंतर्गत संग्रह लिहा</string>
     <string name="app_ops_write_mms">MMS संदेश लिहा</string>
     <string name="app_ops_write_sms">SMS संदेश लिहा</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">गुप्तता रक्षक सक्षम किंवा अक्षम करा</string>
     <string name="permdesc_changePrivacyGuardState">गुप्तता रक्षकासह दुसरा अनुप्रयोग चालतो का ते अॅप बदलण्याची परवानगी देते. जेव्हा गुप्तता रक्षकासह एखादा अनुप्रयोग चालू असेल तेव्हा, त्याला वैयक्तिक डेटामध्ये ऍक्सेस नसेल, जसे की संपर्क, कॉल लॉग्ज किंवा संदेश.</string>
     <string name="privacy_guard_notification">गुप्तता रक्षक सक्रिय</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> ला वैयक्तिक डेटामध्ये ऍक्सेस करता येणार नाही</string>
     <string name="privacy_guard_dialog_title">गुप्तता रक्षक</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> ला <xliff:g id="op">%2$s</xliff:g>चे आहे.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">माझी आवड लक्षात ठेवा</string>
 </resources>

@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">নেটওয়ার্কের উপর এডিবি সক্রিয়</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">এডিবির উপর ইউএসবি &amp; নেটওয়ার্ক সক্রিয়</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">ডিবাগ নিষ্ক্রিয় করতে স্পর্শ করুন।</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">ক্যামেরায় প্রবেশাধিকার</string>
     <string name="app_ops_access_location">আপনার অবস্থানে প্রবেশাধিকার</string>
     <string name="app_ops_access_notifications">আপনার নোটিফিকেশানস প্রবেশাধিকার</string>
@@ -63,12 +59,10 @@
     <string name="app_ops_use_voice_volume">ভয়েস কলের ভলিউম নিয়ন্ত্রণ</string>
     <string name="app_ops_write_mms">এমএমএস বার্তা লিখুন</string>
     <string name="app_ops_write_sms">এসএমএস বার্তা লিখুন</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">গোপনীয়তা রক্ষাকারী সক্রিয় বা নিস্ক্রিয় করুন</string>
     <string name="permdesc_changePrivacyGuardState">অ্যাপটি কে অন্য অ্যাপ পরিবর্তন করার অনুমতি দিন যা গোপনীয়তা রক্ষাকারী সঙ্গে চলমান। যখন একটি অ্যাপ গোপনীয়তা রক্ষাকারী সঙ্গে চলমান থাকে তখন এটি ব্যক্তিগত তথ্য ব্যাবহার করতে পারবে না, যেমন যোগাযোগ, কল লগ, বা বার্তা।</string>
     <string name="privacy_guard_notification">গোপনীয়তা রক্ষাকারী সক্রিয়</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> ব্যাক্তিগত তথ্য ব্যাবহার করতে পারবেন না</string>
     <string name="privacy_guard_dialog_title">গোপনীয়তা রক্ষাকারী</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> করতে চায় <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
 </resources>

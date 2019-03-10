@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB μέσω δικτύου ενεργοποιημένο</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB μέσω USB &amp; δικτύου ενεργοποιημένο</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Αγγίξτε για απενεργοποίηση του εντοπισμού σφαλμάτων.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">πρόσβαση στην φωτογρ. μηχανή</string>
     <string name="app_ops_access_location">πρόσβαση στην τοποθεσία σας</string>
     <string name="app_ops_access_notifications">ανάγνωση των ειδοποιήσεών σας</string>
@@ -106,13 +102,11 @@
     <string name="app_ops_write_external_storage">εγγραφή εξωτερικού αποθ. χώρου</string>
     <string name="app_ops_write_mms">εγγραφή ενός μηνύματος MMS</string>
     <string name="app_ops_write_sms">εγγραφή ενός μηνύματος SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">ενεργοποίηση ή απενεργοποίηση της Προστασίας Απορρήτου</string>
     <string name="permdesc_changePrivacyGuardState">Επιτρέπει στην εφαρμογή τον χειρισμό άλλων εφαρμογών με την Προστασία Απορρήτου. Όταν μια εφαρμογή τρέχει με την Προστασία Απορρήτου, δεν θα έχει πρόσβαση στα προσωπικά σας δεδομένα όπως επαφές, μηνύματα ή το αρχείο κλήσεων.</string>
     <string name="privacy_guard_notification">Προστασία Απορρήτου ενεργή</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> δεν θα μπορεί να έχει πρόσβαση στα προσωπικά σας δεδομένα</string>
     <string name="privacy_guard_dialog_title">Προστασία Απορρήτου</string>
     <string name="privacy_guard_dialog_summary">Το <xliff:g id="app">%1$s</xliff:g> ζητά: <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Απομνημόνευση της επιλογής μου</string>
 </resources>

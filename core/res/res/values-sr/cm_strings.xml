@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB преко мреже је омогућен</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB преко USB-а и мреже је омогућен</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Додирните да бисте онемогућили отклањање грешака.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">приступ камери</string>
     <string name="app_ops_access_location">приступ локацији</string>
     <string name="app_ops_access_notifications">читање обавештења</string>
@@ -98,13 +94,11 @@
     <string name="app_ops_write_external_storage">упис података у екстерни меморијски простор</string>
     <string name="app_ops_write_mms">писање MMS порука</string>
     <string name="app_ops_write_sms">писање SMS порука</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">омогућавање или онемогућавање заштите приватности</string>
     <string name="permdesc_changePrivacyGuardState">Апликација може да промени стање заштите приватности за друге апликације. Када је апликација покренута под заштитом приватности, она неће имати приступ личним подацима као што су контакти, евиденције позива или поруке.</string>
     <string name="privacy_guard_notification">Заштита приватности је активна</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> неће моћи да приступи личним подацима</string>
     <string name="privacy_guard_dialog_title">Заштита приватности</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> жели да <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Запамти мој избор</string>
 </resources>

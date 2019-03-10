@@ -18,10 +18,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
-    <!-- ADB over USB and network notification -->
-    <!-- ADB notification message-->
-    <!-- App ops requests -->
     <string name="app_ops_add_voicemail">añadir un mensaje de voz</string>
     <string name="app_ops_assist_screenshot">tomar captura de pantalla</string>
     <string name="app_ops_assist_structure">usar estructura de asistencia</string>
@@ -39,6 +35,4 @@
     <string name="app_ops_use_fingerprint">usar huella digital</string>
     <string name="app_ops_wifi_change">cambiar el estado de Wi-Fi</string>
     <string name="app_ops_write_external_storage">escribir en almacenamiento externo</string>
-    <!-- Privacy Guard -->
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
 </resources>

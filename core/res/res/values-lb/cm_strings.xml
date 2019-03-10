@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB iwwer Netzwierk aktivéiert</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB iwwer USB an Netzwierk aktivéiert</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Drécke fir Debugging ze desaktivéieren.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">op d\'Kamera zougräifen</string>
     <string name="app_ops_access_location">op de Standuert zougräifen</string>
     <string name="app_ops_access_notifications">op d\'Notifikatiounen zougräifen</string>
@@ -91,13 +87,11 @@
     <string name="app_ops_write_external_storage">op externe Späicher schreiwen</string>
     <string name="app_ops_write_mms">eng MMS schreiwen</string>
     <string name="app_ops_write_sms">eng SMS schreiwen</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">Privatsphärschutz aktivéieren oder desaktivéieren</string>
     <string name="permdesc_changePrivacyGuardState">Erlaabt der App, z\'änneren ob eng aner App mam Privatsphärschutz leeft. Wann eng App mam Privatsphärschutz leeft, huet se keen Accès op perséinlech Date wéi Kontakter, Uruffprotokoller oder Messagen.</string>
     <string name="privacy_guard_notification">Privatsphärschutz aktiv</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> huet keen Accès op perséinlech Daten</string>
     <string name="privacy_guard_dialog_title">Privatsphärschutz</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> wëll <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Mäi Choix verhalen</string>
 </resources>

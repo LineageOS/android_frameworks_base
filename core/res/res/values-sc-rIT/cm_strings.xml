@@ -18,10 +18,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
-    <!-- ADB over USB and network notification -->
-    <!-- ADB notification message-->
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">atzèdere a sa càmera</string>
     <string name="app_ops_access_location">atzèdere a sa positzione tua</string>
     <string name="app_ops_access_notifications">lèghere sas notìficas tuas</string>
@@ -77,9 +73,7 @@
     <string name="app_ops_write_external_storage">iscrìere in sa memòria esterna</string>
     <string name="app_ops_write_mms">iscrìere unu messàgiu MMS</string>
     <string name="app_ops_write_sms">iscrìere unu messàgiu SMS</string>
-    <!-- Privacy Guard -->
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> no at a pòdere atzèdere a sos datos personales</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> cheret <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Ammenta s\'issèbera mea</string>
 </resources>

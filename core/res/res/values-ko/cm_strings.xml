@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">네트워크 ADB 활성화됨</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">USB 및 네트워크 ADB 활성화됨</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">디버깅을 사용하지 않으려면 터치하세요.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">카메라에 액세스</string>
     <string name="app_ops_access_location">위치 정보에 액세스</string>
     <string name="app_ops_access_notifications">알림 읽기</string>
@@ -35,6 +31,8 @@
     <string name="app_ops_assist_structure">어시스트 구조 사용</string>
     <string name="app_ops_audio_accessibility_volume">오디오 접근성 볼륨</string>
     <string name="app_ops_auto_start">전원을 켤 때 실행</string>
+    <string name="app_ops_bind_accessibility_service">접근성 바인딩</string>
+    <string name="app_ops_bluetooth_scan">블루투스 검색</string>
     <string name="app_ops_change_wallpaper">배경 화면을 변경</string>
     <string name="app_ops_delete_call_log">통화 기록 삭제</string>
     <string name="app_ops_delete_contacts">연락처 삭제</string>
@@ -43,8 +41,10 @@
     <string name="app_ops_draw_on_top">창을 맨 위에 그리기</string>
     <string name="app_ops_get_accounts">기기 계정 읽기</string>
     <string name="app_ops_get_usage_stats">앱 사용 통계 확인</string>
+    <string name="app_ops_accept_handover">다른 앱에서 수신한 전화 핸드오버</string>
     <string name="app_ops_install_packages">패키지 설치</string>
     <string name="app_ops_keep_device_awake">기기 켜짐 상태 유지</string>
+    <string name="app_ops_manage_ipsec_tunnels">IPSEC 터널 관리</string>
     <string name="app_ops_make_phone_call">전화 걸기</string>
     <string name="app_ops_mock_location">내 위치를 조작</string>
     <string name="app_ops_modify_calendar">캘린더 수정</string>
@@ -69,12 +69,16 @@
     <string name="app_ops_read_phone_state">전화 상태에 접근</string>
     <string name="app_ops_read_sms">SMS 메시지 읽기</string>
     <string name="app_ops_receive_sms">SMS 메시지 받기</string>
+    <string name="app_ops_receive_emergency_broadcast">긴급 상황 메시지 수신</string>
     <string name="app_ops_record_audio">오디오 녹음</string>
+    <string name="app_ops_request_delete_packages">패키지 삭제 요청</string>
     <string name="app_ops_run_in_background">백그라운드에서 실행</string>
+    <string name="app_ops_run_any_in_background">백그라운드에서 실행</string>
     <string name="app_ops_scan_wifi">Wi-Fi 네트워크 스캔</string>
     <string name="app_ops_send_mms">MMS 메시지 보내기</string>
     <string name="app_ops_send_sms">SMS 메시지 보내기</string>
     <string name="app_ops_start_at_bootup">전원을 켤 때 실행</string>
+    <string name="app_ops_start_foreground">포그라운드에서 실행</string>
     <string name="app_ops_su">루트 권한 얻기</string>
     <string name="app_ops_toast_window">팝업 메시지 표시</string>
     <string name="app_ops_toggle_bluetooth">블루투스 켜기/끄기</string>
@@ -98,13 +102,11 @@
     <string name="app_ops_write_external_storage">외부 저장소에 쓰기</string>
     <string name="app_ops_write_mms">MMS 메시지 작성</string>
     <string name="app_ops_write_sms">SMS 메시지 작성</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">프라이버시 가드 활성화 또는 비활성화</string>
     <string name="permdesc_changePrivacyGuardState">다른 앱이 프라이버시 가드와 함께 실행될 것인지 변경할 수 있도록  앱을 허용합니다. 앱이 프라이버시 가드와 함께 실행중일 땐 연락처, 통화 기록, 메시지 등의 개인 정보에 접근할 수 없게 됩니다.</string>
     <string name="privacy_guard_notification">프라이버시 가드 활성화</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g>은(는) 개인 데이터에 접근할 수 없습니다.</string>
     <string name="privacy_guard_dialog_title">프라이버시 가드</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g>이(가) <xliff:g id="op">%2$s</xliff:g>을(를) 원합니다.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">선택 사항 기억하기</string>
 </resources>

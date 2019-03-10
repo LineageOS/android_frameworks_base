@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB บนเครือข่ายถูกเปิดใช้งาน</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB บน USB และ &amp; เครือข่ายถูกเปิดใช้งาน</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">แตะเพื่อปิดการแก้ไขข้อบกพร่อง</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">เข้าถึงกล้อง</string>
     <string name="app_ops_access_location">เข้าถึงตำแหน่งที่ตั้งของคุณ</string>
     <string name="app_ops_access_notifications">อ่านการแจ้งเตือน</string>
@@ -91,13 +87,11 @@
     <string name="app_ops_write_external_storage">เขียนที่เก็บข้อมูลภายนอก</string>
     <string name="app_ops_write_mms">เขียนข้อความ MMS</string>
     <string name="app_ops_write_sms">เขียนข้อความ SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">เปิดหรือปิดการป้องกันความเป็นส่วนตัว</string>
     <string name="permdesc_changePrivacyGuardState">อนุญาตให้แอปเปลี่ยนแปลงไม่ว่าแอปอื่นทำงานโดยใช้การป้องกันความเป็นส่วนตัวหรือไม่ก็ตาม เมื่อแอปกำลังทำงานโดยใช้การป้องกันความเป็นส่วนตัว แอปจะไม่สามารถเข้าถึงข้อมูลส่วนบุคคล เช่น รายชื่อติดต่อ ประวัติการโทร หรือข้อความได้</string>
     <string name="privacy_guard_notification">การป้องกันความเป็นส่วนตัวทำงาน</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> จะไม่สามารถเข้าถึงข้อมูลส่วนตัวได้</string>
     <string name="privacy_guard_dialog_title">รักษาความเป็นส่วนตัว</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> ต้องการ <xliff:g id="op">%2$s</xliff:g></string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">จำตัวเลือกของฉัน</string>
 </resources>

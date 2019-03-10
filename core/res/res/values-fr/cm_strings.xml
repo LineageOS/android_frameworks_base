@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB sur réseau activé</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ADB sur USB et réseau activé</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Appuyez pour désactiver le débogage.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">accéder à l\'appareil photo</string>
     <string name="app_ops_access_location">accéder à votre position</string>
     <string name="app_ops_access_notifications">lire vos notifications</string>
@@ -98,13 +94,11 @@
     <string name="app_ops_write_external_storage">écrire sur le stockage externe</string>
     <string name="app_ops_write_mms">écrire un MMS</string>
     <string name="app_ops_write_sms">écrire un SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">activer ou désactiver la protection des données</string>
     <string name="permdesc_changePrivacyGuardState">Permet à l\'application d\'en exécuter une autre avec la protection des données. Lorsqu\'une application est exécutée avec la protection des données, elle n\'aura pas accès aux données personnelles telles que les contacts, les journaux d\'appels ou les messages.</string>
     <string name="privacy_guard_notification">Protection des données activée</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> ne sera pas en mesure d\'accéder aux données personnelles</string>
     <string name="privacy_guard_dialog_title">Protection des données</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> voudrait <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Se souvenir de mon choix</string>
 </resources>

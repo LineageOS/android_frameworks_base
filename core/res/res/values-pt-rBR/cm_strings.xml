@@ -18,13 +18,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB sobre rede ativado</string>
-    <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">ABD sobre USB e rede ativado</string>
-    <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Toque para desativar a depuração.</string>
-    <!-- App ops requests -->
     <string name="app_ops_access_camera">acessar a câmera</string>
     <string name="app_ops_access_location">acessar sua localização</string>
     <string name="app_ops_access_notifications">ler suas notificações</string>
@@ -98,13 +94,11 @@
     <string name="app_ops_write_external_storage">gravar no armazenamento externo</string>
     <string name="app_ops_write_mms">escrever uma mensagem MMS</string>
     <string name="app_ops_write_sms">escrever uma mensagem SMS</string>
-    <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">ativar ou desativar a Proteção à Privacidade</string>
     <string name="permdesc_changePrivacyGuardState">Permite ao aplicativo alterar se outro aplicativo é executado com Proteção à Privacidade. Quando um aplicativo estiver sendo executado com Proteção à Privacidade, ele não terá acesso a dados pessoais como contatos, registro de chamadas ou mensagens.</string>
     <string name="privacy_guard_notification">Proteção à Privacidade ativa</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> não terá acesso a dados pessoais</string>
     <string name="privacy_guard_dialog_title">Proteção à Privacidade</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> gostaria de <xliff:g id="op">%2$s</xliff:g>.</string>
-    <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Lembrar minha escolha</string>
 </resources>
