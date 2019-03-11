@@ -517,7 +517,7 @@ public class RecoverySystem {
                                       final Handler handler)
             throws IOException {
         String filename = packageFile.getCanonicalPath();
-        if (!filename.startsWith("/data/")) {
+        if (!filename.startsWith("/data/") || !SystemProperties.get("persist.sys.recovery_update", "").equals("true")) {
             return;
         }
 
@@ -632,7 +632,7 @@ public class RecoverySystem {
             // If the package is on the /data partition, the package needs to
             // be processed (i.e. uncrypt'd). The caller specifies if that has
             // been done in 'processed' parameter.
-            if (filename.startsWith("/data/")) {
+            if (SystemProperties.get("persist.sys.recovery_update", "").equals("true") && filename.startsWith("/data/")) {
                 if (processed) {
                     if (!BLOCK_MAP_FILE.exists()) {
                         Log.e(TAG, "Package claimed to have been processed but failed to find "
@@ -860,7 +860,7 @@ public class RecoverySystem {
 
         // If the package is on the /data partition, use the block map file as
         // the package name instead.
-        if (filename.startsWith("/data/")) {
+        if (SystemProperties.get("persist.sys.recovery_update", "").equals("true") && filename.startsWith("/data/")) {
             filename = "@/cache/recovery/block.map";
         }
 
