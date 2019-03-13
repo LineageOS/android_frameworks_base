@@ -167,6 +167,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private int mActiveStream;
     private int mPrevActiveStream;
+    private int allyStream = -1;
     private boolean mAutomute = VolumePrefs.DEFAULT_ENABLE_AUTOMUTE;
     private boolean mSilentMode = VolumePrefs.DEFAULT_ENABLE_SILENT_MODE;
     private State mState;
@@ -580,6 +581,15 @@ public class VolumeDialogImpl implements VolumeDialog,
             });
         }
 
+        if (allyStream == -1) {
+            Log.d(TAG, "allyStream was -1");
+            allyStream = mActiveStream;
+            VolumeRow testRow = findRow(allyStream);
+            Log.d(TAG, "allyStream: Detected active stream: " + testRow.stream);
+        } else {
+            Log.d(TAG, "allyStream was not -1");
+        }
+
         if (mExpandRowsView != null) {
             mExpandRowsView.setVisibility(
                     mDeviceProvisionedController.isCurrentUserSetup() &&
@@ -600,6 +610,14 @@ public class VolumeDialogImpl implements VolumeDialog,
                         if (row != null) {
                             Util.setVisOrGone(row.view, true);
                         }
+                    }
+
+                    // Track ally stream, basically whatever is active next
+                    // to the default one (media stream). e.g call stream.
+                    VolumeRow row = findRow(allyStream);
+                    if (row != null && row.view.getVisibility() != VISIBLE) {
+                        Log.d(TAG, "allyStream: Make ally stream visible: " + row.stream);
+                        Util.setVisOrGone(row.view, true);
                     }
 
                     mController.setActiveStream(AudioManager.STREAM_MUSIC);
@@ -871,6 +889,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             Log.d(TAG, "mDialog.dismiss() reason: " + Events.DISMISS_REASONS[reason]
                     + " from: " + Debug.getCaller());
         }
+        allyStream = -1;
         if (!mShowing) {
             // This may happen when dismissing an expanded panel, don't animate again
             return;
