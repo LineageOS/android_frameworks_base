@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "599f1264_efbe488a",
+        "filename": "packages/SettingsLib/res/values/arrays.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-03-13T10:06:38Z",
+      "side": 1,
+      "message": "I\u0027d prefer to make this custom too, in order to have everything in one file.",
+      "range": {
+        "startLine": 216,
+        "startChar": 24,
+        "endLine": 216,
+        "endChar": 64
+      },
+      "revId": "4777e3394de7081a0634f9ee35c83a9d2ba76801",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
