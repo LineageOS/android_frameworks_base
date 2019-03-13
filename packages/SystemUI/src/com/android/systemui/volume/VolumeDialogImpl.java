@@ -166,6 +166,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private boolean mShowA11yStream;
 
     private int mActiveStream;
+    private int mAllyStream;
     private int mPrevActiveStream;
     private boolean mAutomute = VolumePrefs.DEFAULT_ENABLE_AUTOMUTE;
     private boolean mSilentMode = VolumePrefs.DEFAULT_ENABLE_SILENT_MODE;
@@ -353,6 +354,8 @@ public class VolumeDialogImpl implements VolumeDialog,
         initRingerH();
         initSettingsH();
         initODICaptionsH();
+
+        mAllyStream = -1;
     }
 
     // Helper to set layout gravity.
@@ -567,6 +570,10 @@ public class VolumeDialogImpl implements VolumeDialog,
             });
         }
 
+        if (mAllyStream == -1) {
+            mAllyStream = mActiveStream;
+        }
+
         if (mExpandRowsView != null) {
             mExpandRowsView.setVisibility(
                     mDeviceProvisionedController.isCurrentUserSetup() &&
@@ -583,6 +590,8 @@ public class VolumeDialogImpl implements VolumeDialog,
                     Util.setVisOrGone(findRow(AudioManager.STREAM_NOTIFICATION).view,
                             !mExpanded);
                 }
+                // Ally stream is always visible
+                Util.setVisOrGone(findRow(mAllyStream).view, true);
                 mController.setActiveStream(AudioManager.STREAM_MUSIC);
                 mExpandRows.setExpanded(!mExpanded);
                 mExpanded = !mExpanded;
@@ -871,6 +880,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                     tryToRemoveCaptionsTooltip();
                     mExpanded = false;
                     mExpandRows.setExpanded(mExpanded);
+                    mAllyStream = -1;
                 }, 50));
         animator.translationX(getAnimatorX());
         animator.start();
