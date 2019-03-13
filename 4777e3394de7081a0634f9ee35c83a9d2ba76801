@@ -22,6 +22,30 @@
       "revId": "4777e3394de7081a0634f9ee35c83a9d2ba76801",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23369dc6_e6de86af",
+        "filename": "packages/SettingsLib/res/values/arrays.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 20234
+      },
+      "writtenOn": "2019-03-13T20:46:37Z",
+      "side": 1,
+      "message": "Can you help me with this one? I\u0027m not familiar with these resources and I\u0027m currently unable to compile\u0026test modifications.",
+      "parentUuid": "599f1264_efbe488a",
+      "range": {
+        "startLine": 216,
+        "startChar": 24,
+        "endLine": 216,
+        "endChar": 64
+      },
+      "revId": "4777e3394de7081a0634f9ee35c83a9d2ba76801",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
