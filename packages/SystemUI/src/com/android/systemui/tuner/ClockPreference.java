@@ -64,7 +64,7 @@ public class ClockPreference extends DropDownPreference implements TunerService.
             mClockEnabled = !mBlacklist.contains(mClock);
         } else if (Clock.CLOCK_SECONDS.equals(key)) {
             mReceivedSeconds = true;
-            mHasSeconds = newValue != null && Integer.parseInt(newValue) != 0;
+            mHasSeconds = TunerService.parseIntegerSwitch(newValue, false);
         }
         if (!mHasSetValue && mReceivedClock && mReceivedSeconds) {
             // Because of the complicated tri-state it can end up looping and setting state back to

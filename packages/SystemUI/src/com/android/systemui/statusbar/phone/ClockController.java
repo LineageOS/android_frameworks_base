@@ -81,7 +81,10 @@ public class ClockController implements TunerService.Tunable {
         Log.d(TAG, "onTuningChanged key=" + key + " value=" + newValue);
 
         if (CLOCK_POSITION.equals(key)) {
-            mClockPosition = newValue == null ? CLOCK_POSITION_LEFT : Integer.valueOf(newValue);
+            mClockPosition = CLOCK_POSITION_LEFT;
+            try {
+                mClockPosition = Integer.valueOf(newValue);
+            } catch (NumberFormatException ex) {}
         } else {
             mBlackListed = StatusBarIconController.getIconBlacklist(newValue).contains("clock");
         }

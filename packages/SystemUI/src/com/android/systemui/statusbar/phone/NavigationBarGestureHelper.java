@@ -293,7 +293,7 @@ public class NavigationBarGestureHelper implements TunerService.Tunable, Gesture
     public void onTuningChanged(String key, String newValue) {
         switch (key) {
             case KEY_DOCK_WINDOW_GESTURE:
-                mDockWindowEnabled = newValue != null && (Integer.parseInt(newValue) != 0);
+                mDockWindowEnabled = TunerService.parseIntegerSwitch(newValue, false);
                 break;
         }
     }

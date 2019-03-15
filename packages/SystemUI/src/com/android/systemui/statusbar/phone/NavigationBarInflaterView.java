@@ -181,7 +181,7 @@ public class NavigationBarInflaterView extends FrameLayout
             clearViews();
             inflateLayout(mCurrentLayout);
         } else if (NAV_BAR_INVERSE.equals(key)) {
-            mInverseLayout = newValue != null && Integer.parseInt(newValue) != 0;
+            mInverseLayout = TunerService.parseIntegerSwitch(newValue, false);
             clearViews();
             inflateLayout(mCurrentLayout);
         }
