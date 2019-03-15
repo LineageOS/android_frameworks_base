@@ -470,9 +470,13 @@ public class NotificationPanelView extends PanelView implements
     @Override
     public void onTuningChanged(String key, String newValue) {
         if (STATUS_BAR_QUICK_QS_PULLDOWN.equals(key)) {
-            mOneFingerQuickSettingsIntercept = newValue == null ? 1 : Integer.parseInt(newValue);
+            try {
+                mOneFingerQuickSettingsIntercept = Integer.parseInt(newValue);
+            } catch (NumberFormatException ex) {
+                mOneFingerQuickSettingsIntercept = 1;
+            }
         } else if (DOUBLE_TAP_SLEEP_GESTURE.equals(key)) {
-            mDoubleTapToSleepEnabled = newValue == null || Integer.parseInt(newValue) == 1;
+            mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, true);
         }
     }
 

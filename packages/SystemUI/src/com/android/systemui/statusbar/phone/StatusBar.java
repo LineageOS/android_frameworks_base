@@ -4670,14 +4670,16 @@ public class StatusBar extends SystemUI implements DemoMode,
     @Override
     public void onTuningChanged(String key, String newValue) {
         if (SCREEN_BRIGHTNESS_MODE.equals(key)) {
-            mAutomaticBrightness = newValue != null && Integer.parseInt(newValue)
-                    == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
+            try {
+                mAutomaticBrightness = newValue != null && Integer.parseInt(newValue)
+                        == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
+            } catch (NumberFormatException ex) {}
         } else if (STATUS_BAR_BRIGHTNESS_CONTROL.equals(key)) {
-            mBrightnessControl = newValue != null && Integer.parseInt(newValue) == 1;
+            mBrightnessControl = TunerService.parseIntegerSwitch(newValue, false);
         } else if (FORCE_SHOW_NAVBAR.equals(key) && mDisplayId == Display.DEFAULT_DISPLAY &&
                 mWindowManagerService != null) {
             boolean forcedVisibility = mNeedsNavigationBar ||
-                    (newValue != null && Integer.parseInt(newValue) == 1);
+                    TunerService.parseIntegerSwitch(newValue, false);
             boolean hasNavbar = getNavigationBarView() != null;
             if (forcedVisibility) {
                 if (!hasNavbar) {
