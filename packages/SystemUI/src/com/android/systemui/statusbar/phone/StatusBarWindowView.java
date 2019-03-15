@@ -273,10 +273,9 @@ public class StatusBarWindowView extends FrameLayout implements TunerService.Tun
 
     @Override
     public void onTuningChanged(String key, String newValue) {
-        if (!DOUBLE_TAP_SLEEP_GESTURE.equals(key)) {
-            return;
+        if (DOUBLE_TAP_SLEEP_GESTURE.equals(key)) {
+            mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, true);
         }
-        mDoubleTapToSleepEnabled = newValue == null || Integer.parseInt(newValue) == 1;
     }
 
     @Override

@@ -1170,7 +1170,7 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
     @Override
     public void onTuningChanged(String key, String newValue) {
         if (NAVIGATION_BAR_MENU_ARROW_KEYS.equals(key)) {
-            mShowDpadArrowKeys = newValue != null && Integer.parseInt(newValue) != 0;
+            mShowDpadArrowKeys = TunerService.parseIntegerSwitch(newValue, false);
             setNavigationIconHints(mNavigationIconHints);
         }
     }
