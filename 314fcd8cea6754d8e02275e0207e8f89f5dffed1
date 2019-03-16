@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99f7251e_791ff70c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2019-03-16T20:23:40Z",
+      "side": 1,
+      "message": "Remove @ if you don\u0027t like getting pinged on github",
+      "range": {
+        "startLine": 14,
+        "startChar": 14,
+        "endLine": 14,
+        "endChar": 15
+      },
+      "revId": "314fcd8cea6754d8e02275e0207e8f89f5dffed1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
