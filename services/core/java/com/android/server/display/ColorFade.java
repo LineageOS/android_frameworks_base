@@ -74,6 +74,9 @@ final class ColorFade {
     private static final boolean DESTROY_SURFACE_AFTER_DETACH =
             SystemProperties.getBoolean("ro.egl.destroy_after_detach", false);
 
+    private static final int HWROTATION_ORIENTATION =
+            SystemProperties.getInt("ro.sf.hwrotation", 0) / 90;
+
     private final int mDisplayId;
 
     // Set to true when the animation context has been fully prepared.
@@ -501,10 +504,32 @@ final class ColorFade {
             // Set up texture coordinates for a quad.
             // We might need to change this if the texture ends up being
             // a different size from the display for some reason.
-            mTexCoordBuffer.put(0, 0f); mTexCoordBuffer.put(1, 0f);
-            mTexCoordBuffer.put(2, 0f); mTexCoordBuffer.put(3, 1f);
-            mTexCoordBuffer.put(4, 1f); mTexCoordBuffer.put(5, 1f);
-            mTexCoordBuffer.put(6, 1f); mTexCoordBuffer.put(7, 0f);
+            switch (HWROTATION_ORIENTATION) {
+                case 1: //Value is 90
+                    mTexCoordBuffer.put(0, 0f); mTexCoordBuffer.put(1, 1f);
+                    mTexCoordBuffer.put(2, 1f); mTexCoordBuffer.put(3, 1f);
+                    mTexCoordBuffer.put(4, 1f); mTexCoordBuffer.put(5, 0f);
+                    mTexCoordBuffer.put(6, 0f); mTexCoordBuffer.put(7, 0f);
+                    break;
+                case 2: //Value is 180
+                    mTexCoordBuffer.put(0, 1f); mTexCoordBuffer.put(1, 1f);
+                    mTexCoordBuffer.put(2, 1f); mTexCoordBuffer.put(3, 0f);
+                    mTexCoordBuffer.put(4, 0f); mTexCoordBuffer.put(5, 0f);
+                    mTexCoordBuffer.put(6, 0f); mTexCoordBuffer.put(7, 1f);
+                    break;
+                case 3: //Value is 270
+                    mTexCoordBuffer.put(0, 1f); mTexCoordBuffer.put(1, 0f);
+                    mTexCoordBuffer.put(2, 0f); mTexCoordBuffer.put(3, 0f);
+                    mTexCoordBuffer.put(4, 0f); mTexCoordBuffer.put(5, 1f);
+                    mTexCoordBuffer.put(6, 1f); mTexCoordBuffer.put(7, 1f);
+                    break;
+                default: //Value is 0
+                    mTexCoordBuffer.put(0, 0f); mTexCoordBuffer.put(1, 0f);
+                    mTexCoordBuffer.put(2, 0f); mTexCoordBuffer.put(3, 1f);
+                    mTexCoordBuffer.put(4, 1f); mTexCoordBuffer.put(5, 1f);
+                    mTexCoordBuffer.put(6, 1f); mTexCoordBuffer.put(7, 0f);
+                    break;
+            }
 
             // Set up our viewport.
             GLES20.glViewport(0, 0, mDisplayWidth, mDisplayHeight);
