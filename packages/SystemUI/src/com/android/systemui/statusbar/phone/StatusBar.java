@@ -677,6 +677,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     private NavigationBarFragment mNavigationBar;
     private View mNavigationBarView;
+    private boolean mNeedsNavigationBar;
     protected ActivityLaunchAnimator mActivityLaunchAnimator;
     private HeadsUpAppearanceController mHeadsUpAppearanceController;
     private boolean mVibrateOnOpening;
@@ -733,6 +734,16 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mVibratorHelper = Dependency.get(VibratorHelper.class);
         mScrimSrcModeEnabled = res.getBoolean(R.bool.config_status_bar_scrim_behind_use_src);
         mClearAllEnabled = res.getBoolean(R.bool.config_enableNotificationsClearAll);
+        mNeedsNavigationBar = res.getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+
+        // Allow a system property to override this. Used by the emulator.
+        // See also hasNavigationBar().
+        String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
+        if ("1".equals(navBarOverride)) {
+            mNeedsNavigationBar = false;
+        } else if ("0".equals(navBarOverride)) {
+            mNeedsNavigationBar = true;
+        }
 
         DateTimeView.setReceiverHandler(Dependency.get(Dependency.TIME_TICK_HANDLER));
         putComponent(StatusBar.class, this);
@@ -5909,16 +5920,21 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         } else if (LOCKSCREEN_MEDIA_METADATA.equals(key)) {
             mShowMediaMetadata = newValue == null || Integer.parseInt(newValue) != 0;
         } else if (mWindowManagerService != null && FORCE_SHOW_NAVBAR.equals(key)) {
-            boolean forcedVisibility = newValue != null && Integer.parseInt(newValue) == 1;
+            boolean forcedVisibility = mNeedsNavigationBar ||
+                    (newValue != null && Integer.parseInt(newValue) == 1);
 
-            if (forcedVisibility && mNavigationBarView == null) {
-                createNavigationBar();
-            } else if (mNavigationBarView != null) {
-                FragmentHostManager fm = FragmentHostManager.get(mNavigationBarView);
-                mWindowManager.removeViewImmediate(mNavigationBarView);
-                mNavigationBarView = null;
-                fm.getFragmentManager().beginTransaction().remove(mNavigationBar).commit();
-                mNavigationBar = null;
+            if (forcedVisibility) {
+                if (mNavigationBarView == null) {
+                    createNavigationBar();
+                }
+            } else {
+                if (mNavigationBarView != null) {
+                    FragmentHostManager fm = FragmentHostManager.get(mNavigationBarView);
+                    mWindowManager.removeViewImmediate(mNavigationBarView);
+                    mNavigationBarView = null;
+                    fm.getFragmentManager().beginTransaction().remove(mNavigationBar).commit();
+                    mNavigationBar = null;
+                }
             }
         } else if (BERRY_GLOBAL_STYLE.equals(key)) {
             updateTheme();
