@@ -5909,16 +5909,23 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         } else if (LOCKSCREEN_MEDIA_METADATA.equals(key)) {
             mShowMediaMetadata = newValue == null || Integer.parseInt(newValue) != 0;
         } else if (mWindowManagerService != null && FORCE_SHOW_NAVBAR.equals(key)) {
-            boolean forcedVisibility = newValue != null && Integer.parseInt(newValue) == 1;
-
-            if (forcedVisibility && mNavigationBarView == null) {
-                createNavigationBar();
-            } else if (mNavigationBarView != null) {
-                FragmentHostManager fm = FragmentHostManager.get(mNavigationBarView);
-                mWindowManager.removeViewImmediate(mNavigationBarView);
-                mNavigationBarView = null;
-                fm.getFragmentManager().beginTransaction().remove(mNavigationBar).commit();
-                mNavigationBar = null;
+            try {
+                boolean showNav = mWindowManagerService.hasNavigationBar();
+                if (showNav) {
+                    if (mNavigationBarView == null) {
+                        createNavigationBar();
+                    }
+                } else {
+                    if (mNavigationBarView != null) {
+                        FragmentHostManager fm = FragmentHostManager.get(mNavigationBarView);
+                        mWindowManager.removeViewImmediate(mNavigationBarView);
+                        mNavigationBarView = null;
+                        fm.getFragmentManager().beginTransaction().remove(mNavigationBar).commit();
+                        mNavigationBar = null;
+                    }
+                }
+            } catch (RemoteException ex) {
+                // no window manager? good luck with that
             }
         } else if (BERRY_GLOBAL_STYLE.equals(key)) {
             updateTheme();
