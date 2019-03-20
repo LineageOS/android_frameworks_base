@@ -1005,6 +1005,10 @@ public class BtHelper {
                 return AudioSystem.AUDIO_FORMAT_APTX_HD;
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_LDAC:
                 return AudioSystem.AUDIO_FORMAT_LDAC;
+            case BluetoothCodecConfig.SOURCE_CODEC_TYPE_CELT:
+                return AudioSystem.AUDIO_FORMAT_CELT;
+            case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE:
+                return AudioSystem.AUDIO_FORMAT_APTX_ADAPTIVE;
             default:
                 return AudioSystem.AUDIO_FORMAT_DEFAULT;
         }
