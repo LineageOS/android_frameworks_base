@@ -95,4 +95,7 @@
 
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Invert layout</string>
+
+    <!-- Hint for custom lockscreen shortcuts -->
+    <string name="custom_swipe_hint">Swipe from icon for <xliff:g name="target">%s</xliff:g></string>
 </resources>
