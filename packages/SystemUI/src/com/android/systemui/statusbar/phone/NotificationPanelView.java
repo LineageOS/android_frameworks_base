@@ -42,6 +42,7 @@ import android.graphics.Region;
 import android.hardware.biometrics.BiometricSourceType;
 import android.os.PowerManager;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.MathUtils;
@@ -2703,13 +2704,20 @@ public class NotificationPanelView extends PanelView implements
             }
         });
         rightIcon = getLayoutDirection() == LAYOUT_DIRECTION_RTL ? !rightIcon : rightIcon;
+
+        // Create swipe hint with app name. If it's empty, event calls below will use default hints
+        CharSequence hint = mKeyguardBottomArea.getShortcutTargetName(rightIcon);
+        if (!TextUtils.isEmpty(hint)) {
+            hint = mContext.getString(R.string.custom_swipe_hint, hint);
+        }
+
         if (rightIcon) {
-            mStatusBar.onCameraHintStarted();
+            mStatusBar.onCameraHintStarted(hint);
         } else {
             if (mKeyguardBottomArea.isLeftVoiceAssist()) {
-                mStatusBar.onVoiceAssistHintStarted();
+                mStatusBar.onVoiceAssistHintStarted(hint);
             } else {
-                mStatusBar.onPhoneHintStarted();
+                mStatusBar.onPhoneHintStarted(hint);
             }
         }
     }
@@ -3167,28 +3175,36 @@ public class NotificationPanelView extends PanelView implements
         return !mDozing;
     }
 
-    public void launchCamera(boolean animate, int source) {
+    private String convertCameraLaunchSource(int source) {
         if (source == StatusBarManager.CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP) {
-            mLastCameraLaunchSource = KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP;
+            return KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP;
         } else if (source == StatusBarManager.CAMERA_LAUNCH_SOURCE_WIGGLE) {
-            mLastCameraLaunchSource = KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_WIGGLE;
+            return KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_WIGGLE;
         } else if (source == StatusBarManager.CAMERA_LAUNCH_SOURCE_LIFT_TRIGGER) {
-            mLastCameraLaunchSource = KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_LIFT_TRIGGER;
+            return KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_LIFT_TRIGGER;
         } else {
 
             // Default.
-            mLastCameraLaunchSource = KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE;
+            return KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE;
         }
+    }
+
+    public void launchCamera(boolean animate, int source) {
+        mLastCameraLaunchSource = convertCameraLaunchSource(source);
+        mAffordanceHasPreview = mKeyguardBottomArea.getRightPreview() != null;
 
         // If we are launching it when we are occluded already we don't want it to animate,
         // nor setting these flags, since the occluded state doesn't change anymore, hence it's
         // never reset.
-        if (!isFullyCollapsed()) {
+        if (!isFullyCollapsed() && (mLastCameraLaunchSource ==
+                KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE ||
+                mKeyguardBottomArea.isRightAffordanceDefault())) {
             setLaunchingAffordance(true);
         } else {
             animate = false;
+            mAffordanceHasPreview = mAffordanceHasPreview &&
+                    mKeyguardBottomArea.isRightAffordanceDefault();
         }
-        mAffordanceHasPreview = mKeyguardBottomArea.getRightPreview() != null;
         mAffordanceHelper.launchAffordance(animate, getLayoutDirection() == LAYOUT_DIRECTION_RTL);
     }
 
@@ -3220,14 +3236,27 @@ public class NotificationPanelView extends PanelView implements
     /**
      * Whether the camera application can be launched for the camera launch gesture.
      *
+     * @param source is StatusBarManager constant that tells the gesture source
      * @param keyguardIsShowing whether keyguard is being shown
      */
-    public boolean canCameraGestureBeLaunched(boolean keyguardIsShowing) {
-        if (!mStatusBar.isCameraAllowedByAdmin()) {
-            return false;
+    public boolean canCameraGestureBeLaunched(int source, boolean keyguardIsShowing) {
+        ResolveInfo resolveInfo;
+        boolean adminAllowsCamera = mStatusBar.isCameraAllowedByAdmin();
+
+        if (!(convertCameraLaunchSource(source).equals(
+                KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE))) {
+
+            if (!adminAllowsCamera) {
+                return false;
+            }
+            resolveInfo = mKeyguardBottomArea.resolveCameraIntent();
+        } else {
+            if (mKeyguardBottomArea.isRightAffordanceDefault() && !adminAllowsCamera) {
+                return false;
+            }
+            resolveInfo = mKeyguardBottomArea.resolveRightIntent();
         }
 
-        ResolveInfo resolveInfo = mKeyguardBottomArea.resolveCameraIntent();
         String packageToLaunch = (resolveInfo == null || resolveInfo.activityInfo == null)
                 ? null : resolveInfo.activityInfo.packageName;
         return packageToLaunch != null &&

@@ -102,6 +102,7 @@ import android.provider.Settings;
 import android.service.dreams.DreamService;
 import android.service.dreams.IDreamManager;
 import android.service.notification.StatusBarNotification;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.EventLog;
 import android.util.Log;
@@ -3799,19 +3800,22 @@ public class StatusBar extends SystemUI implements DemoMode,
         mKeyguardIndicationController.hideTransientIndicationDelayed(HINT_RESET_DELAY_MS);
     }
 
-    public void onCameraHintStarted() {
+    public void onCameraHintStarted(CharSequence hint) {
         mFalsingManager.onCameraHintStarted();
-        mKeyguardIndicationController.showTransientIndication(R.string.camera_hint);
+        hint = (TextUtils.isEmpty(hint) ? mContext.getString(R.string.camera_hint) : hint);
+        mKeyguardIndicationController.showTransientIndication(hint);
     }
 
-    public void onVoiceAssistHintStarted() {
+    public void onVoiceAssistHintStarted(CharSequence hint) {
         mFalsingManager.onLeftAffordanceHintStarted();
-        mKeyguardIndicationController.showTransientIndication(R.string.voice_hint);
+        hint = (TextUtils.isEmpty(hint) ? mContext.getString(R.string.voice_hint) : hint);
+        mKeyguardIndicationController.showTransientIndication(hint);
     }
 
-    public void onPhoneHintStarted() {
+    public void onPhoneHintStarted(CharSequence hint) {
         mFalsingManager.onLeftAffordanceHintStarted();
-        mKeyguardIndicationController.showTransientIndication(R.string.phone_hint);
+        hint = (TextUtils.isEmpty(hint) ? mContext.getString(R.string.phone_hint) : hint);
+        mKeyguardIndicationController.showTransientIndication(hint);
     }
 
     public void onTrackingStopped(boolean expand) {
@@ -4074,7 +4078,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             mLaunchCameraOnFinishedGoingToSleep = true;
             return;
         }
-        if (!mNotificationPanel.canCameraGestureBeLaunched(
+        if (!mNotificationPanel.canCameraGestureBeLaunched(source,
                 mStatusBarKeyguardViewManager.isShowing()
                         && (mExpandedVisible || mBouncerShowing))) {
             if (DEBUG_CAMERA_LIFT) Slog.d(TAG, "Can't launch camera right now, mExpandedVisible: " +
