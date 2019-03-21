@@ -25,6 +25,7 @@ import android.content.pm.LauncherApps;
 import android.content.pm.LauncherApps.ShortcutQuery;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ShortcutInfo;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Bundle;
@@ -72,6 +73,9 @@ public class LockscreenFragment extends PreferenceFragment {
     public static final String LOCKSCREEN_LEFT_UNLOCK = "sysui_keyguard_left_unlock";
     public static final String LOCKSCREEN_RIGHT_BUTTON = "sysui_keyguard_right";
     public static final String LOCKSCREEN_RIGHT_UNLOCK = "sysui_keyguard_right_unlock";
+    public static final String LOCKSCREEN_SHORTCUT_CAMERA = "c";
+    public static final String LOCKSCREEN_SHORTCUT_NONE = "n";
+    public static final String LOCKSCREEN_SHORTCUT_VOICE_ASSIST = "v";
 
     private final ArrayList<Tunable> mTunables = new ArrayList<>();
     private TunerService mTunerService;
@@ -96,7 +100,7 @@ public class LockscreenFragment extends PreferenceFragment {
         Preference shortcut = findPreference(buttonSetting);
         SwitchPreference unlock = (SwitchPreference) findPreference(unlockKey);
         addTunable((k, v) -> {
-            boolean visible = !TextUtils.isEmpty(v);
+            boolean visible = v.contains("/") || v.contains("::");
             unlock.setVisible(visible);
             setSummary(shortcut, v);
         }, buttonSetting);
@@ -129,6 +133,10 @@ public class LockscreenFragment extends PreferenceFragment {
             ActivityInfo info = getActivityinfo(getContext(), value);
             shortcut.setSummary(info != null ? info.loadLabel(getContext().getPackageManager())
                     : null);
+        } else if (value.equals(LOCKSCREEN_SHORTCUT_VOICE_ASSIST)) {
+            shortcut.setSummary(R.string.accessibility_voice_assist_button);
+        } else if (value.equals(LOCKSCREEN_SHORTCUT_CAMERA)) {
+            shortcut.setSummary(R.string.accessibility_camera_button);
         } else {
             shortcut.setSummary(R.string.lockscreen_none);
         }
@@ -344,9 +352,39 @@ public class LockscreenFragment extends PreferenceFragment {
                     if (info != null) {
                         return new ActivityButton(mContext, info);
                     }
+                // Voice Assist or Camera shortcut
+                } else if (buttonStr.equals(LOCKSCREEN_SHORTCUT_CAMERA) ||
+                        buttonStr.equals(LOCKSCREEN_SHORTCUT_VOICE_ASSIST)) {
+                    return new FakeButton(buttonStr);
+                // Remove shortcut
+                } else if (buttonStr.equals(LOCKSCREEN_SHORTCUT_NONE)) {
+                    return new FakeButton("");
                 }
             }
             return null;
+        }
+    }
+
+    private static class FakeButton implements IntentButton {
+        private final IconState mIconState;
+
+        public FakeButton(String description) {
+            mIconState = new IconState();
+            mIconState.contentDescription = description;
+            mIconState.isVisible = false;
+            mIconState.drawable = new ColorDrawable(0);
+            mIconState.tint = false;
+        }
+
+        @Override
+        public IconState getIcon() {
+            return mIconState;
+        }
+
+        @Override
+        public Intent getIntent() {
+            // Just a placeholder
+            return new Intent(Intent.ACTION_DIAL);
         }
     }
 
