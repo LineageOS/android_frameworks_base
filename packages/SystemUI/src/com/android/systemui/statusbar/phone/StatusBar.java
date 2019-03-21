@@ -4416,19 +4416,22 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mKeyguardIndicationController.hideTransientIndicationDelayed(HINT_RESET_DELAY_MS);
     }
 
-    public void onCameraHintStarted() {
+    public void onCameraHintStarted(CharSequence hint) {
         mFalsingManager.onCameraHintStarted();
-        mKeyguardIndicationController.showTransientIndication(R.string.camera_hint);
+        hint = (TextUtils.isEmpty(hint) ? mContext.getString(R.string.camera_hint) : hint);
+        mKeyguardIndicationController.showTransientIndication(hint);
     }
 
-    public void onVoiceAssistHintStarted() {
+    public void onVoiceAssistHintStarted(CharSequence hint) {
         mFalsingManager.onLeftAffordanceHintStarted();
-        mKeyguardIndicationController.showTransientIndication(R.string.voice_hint);
+        hint = (TextUtils.isEmpty(hint) ? mContext.getString(R.string.voice_hint) : hint);
+        mKeyguardIndicationController.showTransientIndication(hint);
     }
 
-    public void onPhoneHintStarted() {
+    public void onPhoneHintStarted(CharSequence hint) {
         mFalsingManager.onLeftAffordanceHintStarted();
-        mKeyguardIndicationController.showTransientIndication(R.string.phone_hint);
+        hint = (TextUtils.isEmpty(hint) ? mContext.getString(R.string.phone_hint) : hint);
+        mKeyguardIndicationController.showTransientIndication(hint);
     }
 
     public void onTrackingStopped(boolean expand) {
