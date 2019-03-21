@@ -42,6 +42,7 @@ import android.graphics.Region;
 import android.hardware.biometrics.BiometricSourceType;
 import android.os.PowerManager;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.MathUtils;
@@ -2703,13 +2704,20 @@ public class NotificationPanelView extends PanelView implements
             }
         });
         rightIcon = getLayoutDirection() == LAYOUT_DIRECTION_RTL ? !rightIcon : rightIcon;
+
+        // Create swipe hint with app name. If it's empty, event calls below will use default hints
+        CharSequence hint = mKeyguardBottomArea.getShortcutTargetName(rightIcon);
+        if (!TextUtils.isEmpty(hint)) {
+            hint = mContext.getString(R.string.custom_swipe_hint, hint);
+        }
+
         if (rightIcon) {
-            mStatusBar.onCameraHintStarted();
+            mStatusBar.onCameraHintStarted(hint);
         } else {
             if (mKeyguardBottomArea.isLeftVoiceAssist()) {
-                mStatusBar.onVoiceAssistHintStarted();
+                mStatusBar.onVoiceAssistHintStarted(hint);
             } else {
-                mStatusBar.onPhoneHintStarted();
+                mStatusBar.onPhoneHintStarted(hint);
             }
         }
     }
