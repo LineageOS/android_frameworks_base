@@ -27,6 +27,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ShortcutInfo;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ScaleDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Process;
@@ -129,6 +130,10 @@ public class LockscreenFragment extends PreferenceFragment {
             ActivityInfo info = getActivityinfo(getContext(), value);
             shortcut.setSummary(info != null ? info.loadLabel(getContext().getPackageManager())
                     : null);
+        } else if (value.equals("vo")) {
+            shortcut.setSummary(R.string.accessibility_voice_assist_button);
+        } else if (value.equals("ca")) {
+            shortcut.setSummary(R.string.accessibility_camera_button);
         } else {
             shortcut.setSummary(R.string.lockscreen_none);
         }
@@ -344,9 +349,38 @@ public class LockscreenFragment extends PreferenceFragment {
                     if (info != null) {
                         return new ActivityButton(mContext, info);
                     }
+                // Voice Assist or Camera shortcut
+                } else if (buttonStr.equals("ca") || buttonStr.equals("vo")) {
+                    return new FakeButton(buttonStr);
+                // Remove shortcut
+                } else if (buttonStr.equals("em")) {
+                    return new FakeButton("");
                 }
             }
             return null;
+        }
+    }
+
+    private static class FakeButton implements IntentButton {
+        private final IconState mIconState;
+
+        public FakeButton(String description) {
+            mIconState = new IconState();
+            mIconState.contentDescription = description;
+            mIconState.isVisible = false;
+            mIconState.drawable = new ColorDrawable(0);
+            mIconState.tint = false;
+        }
+
+        @Override
+        public IconState getIcon() {
+            return mIconState;
+        }
+
+        @Override
+        public Intent getIntent() {
+            // Just a placeholder
+            return new Intent(Intent.ACTION_DIAL);
         }
     }
 

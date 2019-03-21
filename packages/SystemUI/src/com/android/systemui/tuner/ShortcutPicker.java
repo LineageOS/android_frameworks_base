@@ -33,6 +33,7 @@ import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.tuner.ShortcutParser.Shortcut;
 import com.android.systemui.tuner.TunerService.Tunable;
+import com.android.systemui.assist.AssistManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,8 @@ public class ShortcutPicker extends PreferenceFragment implements Tunable {
 
     private final ArrayList<SelectablePreference> mSelectablePreferences = new ArrayList<>();
     private String mKey;
-    private SelectablePreference mNonePreference;
+    private CustomPreference mNonePreference;
+    private CustomPreference mDefaultPreference;
     private TunerService mTunerService;
 
     @Override
@@ -52,11 +54,44 @@ public class ShortcutPicker extends PreferenceFragment implements Tunable {
         PreferenceCategory otherApps = new PreferenceCategory(context);
         otherApps.setTitle(R.string.tuner_other_apps);
 
-        mNonePreference = new SelectablePreference(context);
+        // Starting with Pie, this code relies on
+        // config_keyguardShowLeftAffordance and config_keyguardShowCameraAffordance
+        // and there is no true "none" or "default" preference,
+        // this is why there is so much code written in this file.
+/*      mNonePreference = new SelectablePreference(context);
         mSelectablePreferences.add(mNonePreference);
         mNonePreference.setTitle(R.string.lockscreen_none);
         mNonePreference.setIcon(R.drawable.ic_remove_circle);
         screen.addPreference(mNonePreference);
+*/
+
+        // True "none" preference
+        mNonePreference = new CustomPreference(context, "em");
+        mSelectablePreferences.add(mNonePreference);
+        mNonePreference.setTitle(R.string.lockscreen_none);
+        mNonePreference.setIcon(R.drawable.ic_remove_circle);
+        screen.addPreference(mNonePreference);
+
+        // Default shortcuts (voice assist and camera)
+        mKey = getArguments().getString(ARG_PREFERENCE_ROOT);
+        if (LOCKSCREEN_LEFT_BUTTON.equals(mKey)) {
+            mDefaultPreference = new CustomPreference(context, "vo");
+            mSelectablePreferences.add(mDefaultPreference);
+            if (canLaunchVoiceAssist()) {
+                mDefaultPreference.setTitle(R.string.accessibility_voice_assist_button);
+                mDefaultPreference.setIcon(R.drawable.ic_mic_26dp);
+            } else {
+                mDefaultPreference.setTitle(R.string.accessibility_phone_button);
+                mDefaultPreference.setIcon(R.drawable.ic_phone_24dp);
+            }
+            screen.addPreference(mDefaultPreference);
+        } else {
+            mDefaultPreference = new CustomPreference(context, "ca");
+            mSelectablePreferences.add(mDefaultPreference);
+            mDefaultPreference.setTitle(R.string.accessibility_camera_button);
+            mDefaultPreference.setIcon(R.drawable.ic_camera_alt_24dp);
+            screen.addPreference(mDefaultPreference);
+        }
 
         LauncherApps apps = getContext().getSystemService(LauncherApps.class);
         List<LauncherActivityInfo> activities = apps.getActivityList(null,
@@ -97,9 +132,13 @@ public class ShortcutPicker extends PreferenceFragment implements Tunable {
         //screen.addPreference(otherApps);
 
         setPreferenceScreen(screen);
-        mKey = getArguments().getString(ARG_PREFERENCE_ROOT);
         mTunerService = Dependency.get(TunerService.class);
         mTunerService.addTunable(this, mKey);
+    }
+
+    private boolean canLaunchVoiceAssist() {
+        AssistManager mAssistManager = Dependency.get(AssistManager.class);
+        return mAssistManager.canVoiceAssistBeLaunchedFromKeyguard();
     }
 
     @Override
@@ -195,6 +234,20 @@ public class ShortcutPicker extends PreferenceFragment implements Tunable {
         @Override
         public String toString() {
             return mShortcut.toString();
+        }
+    }
+
+    private static class CustomPreference extends SelectablePreference {
+        private String mIdentifier;
+
+        public CustomPreference(Context context, String id) {
+            super(context);
+            mIdentifier = id;
+        }
+
+        @Override
+        public String toString() {
+            return mIdentifier;
         }
     }
 }
