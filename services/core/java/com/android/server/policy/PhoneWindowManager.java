@@ -6848,11 +6848,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case KeyEvent.KEYCODE_FOCUS:
                 if (down && !interactive && mCameraSleepOnRelease) {
                     mIsFocusPressed = true;
-                } else if (!down) {
+                } else if (!down && interactive) {
                     // Check if screen is fully on before letting the device go to sleep
                     if (mScreenOnFully && mIsFocusPressed) {
                         mPowerManager.goToSleep(SystemClock.uptimeMillis());
-                    } else {
+                    } else if (mCameraSleepOnRelease) {
                         mFocusReleasedGoToSleep = true;
                     }
                     mIsFocusPressed = false;
