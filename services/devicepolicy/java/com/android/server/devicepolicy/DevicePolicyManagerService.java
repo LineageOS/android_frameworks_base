@@ -7831,6 +7831,7 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         if (!mHasFeature) {
             return null;
         }
+        enforceManageUsers();
         synchronized (this) {
             List<String> result = null;
             // If we have multiple profiles we return the intersection of the
