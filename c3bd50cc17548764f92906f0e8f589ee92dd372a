@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e01d4e3a_ff1ea910",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-03-25T22:40:16Z",
+      "side": 1,
+      "message": "move that to previous line",
+      "range": {
+        "startLine": 888,
+        "startChar": 20,
+        "endLine": 888,
+        "endChar": 23
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e292fbc_3dfcaed5",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-03-25T22:40:16Z",
+      "side": 1,
+      "message": "move that to previous line",
+      "range": {
+        "startLine": 933,
+        "startChar": 20,
+        "endLine": 933,
+        "endChar": 23
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "233e88ab_fae8f9fc",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-03-25T22:40:16Z",
+      "side": 1,
+      "message": "C goes before S.",
+      "range": {
+        "startLine": 30,
+        "startChar": 33,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63ba83e5_2c1a1b73",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/ShortcutPicker.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-03-25T22:40:16Z",
+      "side": 1,
+      "message": "A goes before T.",
+      "range": {
+        "startLine": 36,
+        "startChar": 28,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cdad6d4_8e6f4dc3",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/ShortcutPicker.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-03-25T22:40:16Z",
+      "side": 1,
+      "message": "D goes before N",
+      "range": {
+        "startLine": 46,
+        "startChar": 29,
+        "endLine": 46,
+        "endChar": 47
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14703193_c5c3c046",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/ShortcutPicker.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-03-25T22:40:16Z",
+      "side": 1,
+      "message": "ugly comment style.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 2
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
