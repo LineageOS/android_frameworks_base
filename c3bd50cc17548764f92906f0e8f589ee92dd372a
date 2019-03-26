@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1608d579_df0f4da2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-03-26T22:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e01d4e3a_ff1ea910",
+      "range": {
+        "startLine": 888,
+        "startChar": 20,
+        "endLine": 888,
+        "endChar": 23
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e292fbc_3dfcaed5",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1717542_344b5bb2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-03-26T22:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e292fbc_3dfcaed5",
+      "range": {
+        "startLine": 933,
+        "startChar": 20,
+        "endLine": 933,
+        "endChar": 23
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8e305dd4_eb438282",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-03-26T22:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "233e88ab_fae8f9fc",
+      "range": {
+        "startLine": 30,
+        "startChar": 33,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63ba83e5_2c1a1b73",
         "filename": "packages/SystemUI/src/com/android/systemui/tuner/ShortcutPicker.java",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77ad92ca_75387932",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/ShortcutPicker.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-03-26T22:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63ba83e5_2c1a1b73",
+      "range": {
+        "startLine": 36,
+        "startChar": 28,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2e960999_025f9845",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/ShortcutPicker.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-03-26T22:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cdad6d4_8e6f4dc3",
+      "range": {
+        "startLine": 46,
+        "startChar": 29,
+        "endLine": 46,
+        "endChar": 47
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14703193_c5c3c046",
         "filename": "packages/SystemUI/src/com/android/systemui/tuner/ShortcutPicker.java",
         "patchSetId": 2
@@ -137,6 +257,30 @@
       "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe3b3e66_c19d8362",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/ShortcutPicker.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-03-26T22:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14703193_c5c3c046",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 2
+      },
+      "revId": "c3bd50cc17548764f92906f0e8f589ee92dd372a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
