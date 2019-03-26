@@ -66,6 +66,11 @@ public class NearestTouchFrame extends FrameLayout {
         getLocationInWindow(mOffset);
     }
 
+    @Override
+    protected boolean onSetAlpha(int alpha) {
+        return true;
+    }
+
     private void addClickableChildren(ViewGroup group) {
         final int N = group.getChildCount();
         for (int i = 0; i < N; i++) {
