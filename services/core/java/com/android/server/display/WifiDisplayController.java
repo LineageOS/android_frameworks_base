@@ -735,6 +735,30 @@ final class WifiDisplayController implements DumpUtils.Dump {
             }
         };
 
+        int WFDR2Info = SystemProperties.getInt("persist.vendor.setWFDInfo.R2",0);
+        Slog.i(TAG, "WFDR2info is: " + WFDR2Info);
+       /*R1 source - R1 sink ->0
+        *R1 source - R2 sink ->1
+        *R2 source - R1 sink ->2
+        *R2 source - R2 sink ->3*/
+        if(WFDR2Info==2 || WFDR2Info==3){
+            WifiP2pWfdInfo wfdInfo = mThisDevice.wfdInfo;
+            mWifiP2pManager.setWFDR2Info(getWifiP2pChannel(), wfdInfo, new ActionListener() {
+                    @Override
+                    public void onSuccess() {
+                        if (DEBUG) {
+                            Slog.i(TAG, "Successfully set WFD R2 info.");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int reason) {
+                        if (DEBUG) {
+                            Slog.i(TAG, "Failed to set WFD R2 info with reason " + reason + ".");
+                        }
+                    }
+                });
+        }
         // Step 5. Try to connect.
         if (mConnectedDevice == null && mConnectingDevice == null) {
             Slog.i(TAG, "Connecting to Wifi display: " + mDesiredDevice.deviceName);
