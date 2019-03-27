@@ -174,12 +174,15 @@ public final class ScanFilter implements Parcelable {
             }
         }
         dest.writeInt(mOrgId);
-        dest.writeInt(mTDSFlags);
-        dest.writeInt(mTDSFlagsMask);
-        dest.writeInt(mWifiNANHash == null ? 0 : 1);
-        if (mWifiNANHash != null) {
-            dest.writeInt(mWifiNANHash.length);
-            dest.writeByteArray(mWifiNANHash);
+        dest.writeInt(mOrgId < 0 ? 0 : 1);
+        if(mOrgId >= 0) {
+            dest.writeInt(mTDSFlags);
+            dest.writeInt(mTDSFlagsMask);
+            dest.writeInt(mWifiNANHash == null ? 0 : 1);
+            if (mWifiNANHash != null) {
+                dest.writeInt(mWifiNANHash.length);
+                dest.writeByteArray(mWifiNANHash);
+            }
         }
     }
 
@@ -259,17 +262,19 @@ public final class ScanFilter implements Parcelable {
             }
 
             int orgId = in.readInt();
-            int TDSFlags = in.readInt();
-            int TDSFlagsMask = in.readInt();
-            if (in.readInt() == 1) {
-                int wifiNANHashLength = in.readInt();
-                byte[] wifiNanHash = new byte[wifiNANHashLength];
-                in.readByteArray(wifiNanHash);
-                builder.setTransportDiscoveryData(orgId, TDSFlags, TDSFlagsMask,
-                        wifiNanHash);
-            }
-            else {
-                builder.setTransportDiscoveryData(orgId, TDSFlags, TDSFlagsMask, null);
+            if(in.readInt() == 1) {
+                int tdsFlags = in.readInt();
+                int tdsFlagsMask = in.readInt();
+                if (in.readInt() == 1) {
+                    int wifiNANHashLength = in.readInt();
+                    byte[] wifiNanHash = new byte[wifiNANHashLength];
+                    in.readByteArray(wifiNanHash);
+                    builder.setTransportDiscoveryData(orgId, tdsFlags, tdsFlagsMask,
+                            wifiNanHash);
+                }
+                else {
+                    builder.setTransportDiscoveryData(orgId, tdsFlags, tdsFlagsMask, null);
+                }
             }
 
             return builder.build();
