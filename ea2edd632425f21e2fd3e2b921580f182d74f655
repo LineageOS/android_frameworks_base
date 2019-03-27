@@ -22,6 +22,30 @@
       "revId": "ea2edd632425f21e2fd3e2b921580f182d74f655",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "288de408_40383c7d",
+        "filename": "services/core/java/com/android/server/display/ColorFade.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 12604
+      },
+      "writtenOn": "2019-03-27T22:27:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "36ac7b1b_adf805dd",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 2
+      },
+      "revId": "ea2edd632425f21e2fd3e2b921580f182d74f655",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
