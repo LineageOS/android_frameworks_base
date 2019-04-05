@@ -17,6 +17,7 @@
 package com.android.server.fingerprint;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.biometrics.fingerprint.V2_1.IBiometricsFingerprint;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.fingerprint.IFingerprintServiceReceiver;
@@ -26,6 +27,11 @@ import android.util.Slog;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.statusbar.IStatusBarService;
+
+import lineageos.app.LineageContextConstants;
+
+import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
 
 import java.util.Arrays;
 
@@ -36,12 +42,18 @@ public abstract class EnrollClient extends ClientMonitor {
     private static final long MS_PER_SEC = 1000;
     private static final int ENROLLMENT_TIMEOUT_MS = 60 * 1000; // 1 minute
     private byte[] mCryptoToken;
+    private final boolean mHasFod;
+    private IStatusBarService mStatusBarService;
 
     public EnrollClient(Context context, long halDeviceId, IBinder token,
             IFingerprintServiceReceiver receiver, int userId, int groupId, byte [] cryptoToken,
-            boolean restricted, String owner) {
+            boolean restricted, String owner, IStatusBarService statusBarService) {
         super(context, halDeviceId, token, receiver, userId, groupId, restricted, owner);
         mCryptoToken = Arrays.copyOf(cryptoToken, cryptoToken.length);
+        mStatusBarService = statusBarService;
+
+        PackageManager packageManager = context.getPackageManager();
+        mHasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
     }
 
     @Override
@@ -69,6 +81,21 @@ public abstract class EnrollClient extends ClientMonitor {
         MetricsLogger.action(getContext(), MetricsEvent.ACTION_FINGERPRINT_ENROLL);
         try {
             receiver.onEnrollResult(getHalDeviceId(), fpId, groupId, remaining);
+            if (remaining == 0 && mHasFod) {
+                IFingerprintInscreen fodDaemon = getFingerprintInScreenDaemon();
+                if (fodDaemon != null) {
+                    try {
+                        fodDaemon.onFinishEnroll();
+                    } catch (RemoteException e) {
+                        Slog.e(TAG, "onFinishEnroll failed", e);
+                    }
+                }
+                try {
+                    mStatusBarService.hideInDisplayFingerprintView();
+                } catch (RemoteException e) {
+                    Slog.e(TAG, "hideInDisplayFingerprintView failed", e);
+                }
+            }
             return remaining == 0;
         } catch (RemoteException e) {
             Slog.w(TAG, "Failed to notify EnrollResult:", e);
@@ -82,6 +109,21 @@ public abstract class EnrollClient extends ClientMonitor {
         if (daemon == null) {
             Slog.w(TAG, "enroll: no fingerprint HAL!");
             return ERROR_ESRCH;
+        }
+        if (mHasFod) {
+            IFingerprintInscreen fodDaemon = getFingerprintInScreenDaemon();
+            if (fodDaemon != null) {
+                try {
+                    fodDaemon.onStartEnroll();
+                } catch (RemoteException e) {
+                    Slog.e(TAG, "onStartEnroll failed", e);
+                }
+            }
+            try {
+                mStatusBarService.showInDisplayFingerprintView();
+            } catch (RemoteException e) {
+                Slog.e(TAG, "showInDisplayFingerprintView failed", e);
+            }
         }
         final int timeout = (int) (ENROLLMENT_TIMEOUT_MS / MS_PER_SEC);
         try {
@@ -103,6 +145,13 @@ public abstract class EnrollClient extends ClientMonitor {
         if (mAlreadyCancelled) {
             Slog.w(TAG, "stopEnroll: already cancelled!");
             return 0;
+        }
+        if (mHasFod) {
+            try {
+                mStatusBarService.hideInDisplayFingerprintView();
+            } catch (RemoteException e) {
+                Slog.e(TAG, "hideInDisplayFingerprintView failed", e);
+            }
         }
         IBiometricsFingerprint daemon = getFingerprintDaemon();
         if (daemon == null) {
