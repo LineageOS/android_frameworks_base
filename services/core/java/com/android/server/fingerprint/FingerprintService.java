@@ -89,7 +89,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.concurrent.CopyOnWriteArrayList;
+
+import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
 
 /**
  * A service to manage multiple clients that want to access the fingerprint HAL API.
@@ -150,6 +153,8 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
 
     private IBinder mToken = new Binder(); // used for internal FingerprintService enumeration
     private ArrayList<UserFingerprint> mUnknownFingerprints = new ArrayList<>(); // hw fingerprints
+
+    private IFingerprintInscreen mExtDaemon;
 
     private class UserFingerprint {
         Fingerprint f;
@@ -397,6 +402,22 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     }
 
     protected void handleError(long deviceId, int error, int vendorCode) {
+        if (mExtDaemon == null) {
+            try {
+                mExtDaemon = IFingerprintInscreen.getService();
+            } catch (NoSuchElementException | RemoteException e) {
+                // do nothing
+            }
+        }
+
+        try {
+            if (mExtDaemon != null && mExtDaemon.handleError(error, vendorCode)) {
+                return;
+            }
+        } catch (NoSuchElementException | RemoteException e) {
+            // do nothing
+        }
+
         ClientMonitor client = mCurrentClient;
         if (client instanceof InternalRemovalClient || client instanceof InternalEnumerateClient) {
             clearEnumerateState();
@@ -472,6 +493,22 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     }
 
     protected void handleAcquired(long deviceId, int acquiredInfo, int vendorCode) {
+        if (mExtDaemon == null) {
+            try {
+                mExtDaemon = IFingerprintInscreen.getService();
+            } catch (NoSuchElementException | RemoteException e) {
+                // do nothing
+            }
+        }
+
+        try {
+            if (mExtDaemon != null && mExtDaemon.handleAcquired(acquiredInfo, vendorCode)) {
+                return;
+            }
+        } catch (NoSuchElementException | RemoteException e) {
+            // do nothing
+        }
+
         ClientMonitor client = mCurrentClient;
         if (client != null && client.onAcquired(acquiredInfo, vendorCode)) {
             removeClient(client);
@@ -955,7 +992,7 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
         final int groupId = userId; // default group for fingerprint enrollment
 
         EnrollClient client = new EnrollClient(getContext(), mHalDeviceId, token, receiver,
-                userId, groupId, cryptoToken, restricted, opPackageName) {
+                userId, groupId, cryptoToken, restricted, opPackageName, mStatusBarService) {
 
             @Override
             public IBiometricsFingerprint getFingerprintDaemon() {
