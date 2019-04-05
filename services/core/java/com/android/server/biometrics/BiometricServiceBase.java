@@ -1048,7 +1048,7 @@ public abstract class BiometricServiceBase extends SystemService
     /**
      * @return true if this is keyguard package
      */
-    private boolean isKeyguard(String clientPackage) {
+    protected boolean isKeyguard(String clientPackage) {
         return mKeyguardPackage.equals(clientPackage);
     }
 
