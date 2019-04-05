@@ -45,6 +45,8 @@ java_library_static {
         "android.hardware.configstore-V1.0-java",
         "android.hardware.contexthub-V1.0-java",
         "vendor.lineage.trust-V1.0-java",
+        "vendor.oneplus.fingerprint.extension-V1.0-java",
+        "vendor.oneplus.hardware.display-V1.0-java",
     ],
 }
 
