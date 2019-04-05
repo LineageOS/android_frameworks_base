@@ -1,5 +1,5 @@
 <!--
-     Copyright (C) 2018 The LineageOS Project
+     Copyright (C) 2018-2019 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -31,4 +31,7 @@
          * Right -> 53 (Gravity.TOP | Gravity.RIGHT)
     -->
     <integer name="hardware_ui_align">53</integer>
+
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ff00</color>
 </resources>
