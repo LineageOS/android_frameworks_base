@@ -3422,4 +3422,7 @@
   <java-symbol type="integer" name="db_wal_truncate_size" />
 
   <java-symbol type="string" name="config_defaultAssistantComponentName" />
+
+  <!-- FoD -->
+  <java-symbol type="bool" name="config_needCustomFODView" />
 </resources>
