@@ -133,6 +133,7 @@ java_library_static {
         "org.lineageos.platform.internal",
         "overlayable_policy_aidl-java",
         "SurfaceFlingerProperties",
+        "vendor.lineage.biometrics.fingerprint.inscreen-V1.0-java",
     ],
 }
 
