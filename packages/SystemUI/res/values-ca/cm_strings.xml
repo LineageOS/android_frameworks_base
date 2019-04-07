@@ -57,4 +57,6 @@
     <string name="accessibility_dpad_left">Cursor esquerra</string>
     <string name="accessibility_dpad_right">Cursor dreta</string>
     <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
+    <string name="screen_pinning_toast_no_navbar">Toca i mantén premut el botó Enrere per deixar de fixar aquesta pantalla</string>
+    <string name="nav_bar_layout_inverse">Inverteix la disposició</string>
 </resources>

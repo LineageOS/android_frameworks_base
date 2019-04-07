@@ -26,6 +26,7 @@
     <string name="app_ops_access_notifications">مشاهده اعلان‌های شما</string>
     <string name="app_ops_activate_vpn">فعال کردن وی‌پی‌ان</string>
     <string name="app_ops_auto_start">اجرا هنگام روشن شدن</string>
+    <string name="app_ops_bluetooth_scan">اسکن بلوتوث</string>
     <string name="app_ops_delete_call_log">حذف گزارش تماس شما</string>
     <string name="app_ops_delete_contacts">حذف مخاطبین شما</string>
     <string name="app_ops_delete_mms">حذف پیام‌های ام‌ام‌اس شما</string>

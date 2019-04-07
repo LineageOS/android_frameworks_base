@@ -44,6 +44,7 @@
     <string name="app_ops_accept_handover">przekazanie połączenia z innej aplikacji</string>
     <string name="app_ops_install_packages">instaluj pakiety</string>
     <string name="app_ops_keep_device_awake">zapobieganie przejściu telefonu w stan uśpienia</string>
+    <string name="app_ops_manage_ipsec_tunnels">zarządzanie tunelami ipsec</string>
     <string name="app_ops_make_phone_call">wykonywanie połączeń telefonicznych</string>
     <string name="app_ops_mock_location">pozorowanie twojej lokalizacji</string>
     <string name="app_ops_modify_calendar">aktualizowanie kalendarza</string>
@@ -70,11 +71,14 @@
     <string name="app_ops_receive_sms">odbieranie SMS-ów</string>
     <string name="app_ops_receive_emergency_broadcast">otrzymywanie komunikatów alarmowych</string>
     <string name="app_ops_record_audio">nagrywanie dźwięku</string>
+    <string name="app_ops_request_delete_packages">żądanie usunięcia pakietów</string>
     <string name="app_ops_run_in_background">działa w tle</string>
+    <string name="app_ops_run_any_in_background">uruchom dowolny w tle</string>
     <string name="app_ops_scan_wifi">skanowanie sieci Wi-Fi</string>
     <string name="app_ops_send_mms">wysyłanie MMS-ów</string>
     <string name="app_ops_send_sms">wysyłanie SMS-ów</string>
     <string name="app_ops_start_at_bootup">uruchamianie podczas włączania urządzenia</string>
+    <string name="app_ops_start_foreground">uruchamianie na pierwszym planie</string>
     <string name="app_ops_su">dostęp do roota</string>
     <string name="app_ops_toast_window">wyświetlanie komunikatów w dymkach</string>
     <string name="app_ops_toggle_bluetooth">przełączanie Bluetooth</string>

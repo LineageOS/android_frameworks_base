@@ -20,6 +20,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="global_action_restart_system">Sistemi</string>
+    <string name="global_action_restart_recovery">Rimëkëmbje</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Shkarko</string>
+    <string name="global_action_restart_progress">Duke u rindezur\u2026</string>
+    <string name="global_action_restart_recovery_progress">Duke u rindezur në metodën e rivendosjes\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Duke u rindezur në metodën e Bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">Duke u rindezur në metodën e shkarkimit\u2026</string>
+    <string name="global_action_current_user">Aktualisht</string>
     <string name="quick_settings_network_adb_label">ADB mbi rrjet</string>
     <string name="quick_settings_ambient_display_label">Drita e ekranit sipas ambientit</string>
     <string name="accessibility_quick_settings_ambient_display_off">Drita e ekranit sipas ambientit inaktive.</string>
@@ -34,6 +42,11 @@
     <string name="accessibility_quick_settings_heads_up_on">Heads-up Aktiv.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Njoftimet Heads-up u çaktivizuan.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Njoftimet Heads-up u aktivizuan.</string>
+    <string name="quick_settings_reading_mode">Mënyrë Leximi</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Metoda pë lexim aktive.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Metoda pë lexim jo aktive.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Metoda për lexim u aktivizua.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Metoda për lexim u ç\'aktivizua.</string>
     <string name="quick_settings_sync_label">Sinkronizimi</string>
     <string name="accessibility_quick_settings_sync_off">Sinkronizimi inaktiv.</string>
     <string name="accessibility_quick_settings_sync_on">Sinkronizimi aktiv.</string>
@@ -43,4 +56,7 @@
     <string name="quick_settings_volume_panel_label">Paneli i volumit</string>
     <string name="accessibility_dpad_left">Kursori majtas</string>
     <string name="accessibility_dpad_right">Kursori djathtas</string>
+    <string name="screen_pinning_description_no_navbar">Kjo e mban në ekran derisa ta shqitësh. Shtyp &amp; mbaj shtypur butonin Prapa për ta shqitur.</string>
+    <string name="screen_pinning_toast_no_navbar">Për ta shqitur këtë ekran, prek &amp; mbaj shtypur butonin Prapa</string>
+    <string name="nav_bar_layout_inverse">E anasjellta e ndërfaqes</string>
 </resources>

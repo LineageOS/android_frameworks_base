@@ -32,6 +32,19 @@
     <string name="data_value_format">        <xliff:g id="number">%1$s</xliff:g> bytes /
         <xliff:g id="number">%2$s</xliff:g> paquetes
     </string>
+    <string name="always_on_disconnected_title">Nun se puede coneutar con una VPN siempre encesa</string>
+    <string name="always_on_disconnected_message">        <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> ta configuráu pa tar coneutáu tol
+        tiempu, pero nun se puede coneutar agora. El to teléfonu va usar una rede pública hasta que pueda
+        reconeutar con <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g>.
+    </string>
+    <string name="always_on_disconnected_message_lockdown">        <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g>ta configuráu pa tar coneutáu tol
+        tiempu, pero nun se puede coneutar agora. Nun vas tener conexón hasta que la VPN pueda
+        reconeutar.
+    
+    </string>
+    <string name="always_on_disconnected_message_settings_link">Camudar axustes de VPN</string>
     <string name="configure">Configurar</string>
     <string name="disconnect">Desconeutar</string>
+    <string name="open_app">Abrir aplicación</string>
+    <string name="dismiss">Escartar</string>
 </resources>

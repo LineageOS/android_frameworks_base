@@ -27,7 +27,7 @@
     <string name="global_action_restart_recovery_progress">Restarting ರೀತಿಗೆ ಪುನರಾರಂಭವಾಗುತ್ತಿದೆ</string>
     <string name="global_action_restart_bootloader_progress">Bootloader ರೀತಿಗೆ ಪುನರಾರಂಭವಾಗುತ್ತಿದೆ\u2026</string>
     <string name="global_action_restart_download_progress">Download ರೀತಿಗೆ ಪುನರಾರಂಭವಾಗುತ್ತಿದೆ\u2026</string>
-    <string name="global_action_current_user">ಪ್ರಸ್ತುತ</string>
+    <string name="global_action_current_user">ಪ್ರಚಲಿತ</string>
     <string name="quick_settings_network_adb_label">ಜಾಲದ ಮೂಲಕ ADB</string>
     <string name="quick_settings_ambient_display_label">ಆವರಿಸಿದ ಪರದೆ</string>
     <string name="accessibility_quick_settings_ambient_display_off">ಆವರಿಸಿದ ಪರದೆ ಆಫ್.</string>
@@ -53,7 +53,10 @@
     <string name="accessibility_quick_settings_sync_changed_off">ಸಿಂಕ್ ಆಫ್ ಆಗಿದೆ.</string>
     <string name="accessibility_quick_settings_sync_changed_on">ಸಿಂಕ್ ಆನ್ ಆಗಿದೆ.</string>
     <string name="quick_settings_usb_tether_label">ಯುಎಸ್‍ಬಿ ಟೆಥರಿಂಗ್</string>
+    <string name="quick_settings_volume_panel_label">ಶಬ್ದಮಟ್ಟ ಫಲಕ</string>
     <string name="accessibility_dpad_left">ಕರ್ಸರ್ ಎಡ</string>
     <string name="accessibility_dpad_right">ಕರ್ಸರ್ ಬಲ</string>
     <string name="screen_pinning_description_no_navbar">ಇದನ್ನು ನೀವು ಬಿಚ್ಚಿಡುವವರೆಗೂ ವೀಕ್ಷಣೆಯಲ್ಲಿ ಇರಿಸುತ್ತದೆ. ಬಿಚ್ಚಿಡಲು ಹಿಂದೆ ಗುಂಡಿಯನ್ನು ಒತ್ತಿ ಹಿಡಿಯಿರಿ.</string>
+    <string name="screen_pinning_toast_no_navbar">ಈ ಪರದೆಯನ್ನು ಕಿತ್ತಲು ಹಿಂದೆ-ಗುಂಡಿ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿದುಕೊಳ್ಳಿ</string>
+    <string name="nav_bar_layout_inverse">ವ್ಯತಿರಿಕ್ತ ವಿನ್ಯಾಸ</string>
 </resources>

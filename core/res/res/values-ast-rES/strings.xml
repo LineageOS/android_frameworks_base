@@ -20,10 +20,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="byteShort">B</string>
+    <string name="kilobyteShort">kB</string>
     <string name="megabyteShort">MB</string>
     <string name="gigabyteShort">GB</string>
     <string name="terabyteShort">TB</string>
     <string name="petabyteShort">PB</string>
+    <string name="fileSizeSuffix"><xliff:g id="number" example="123">%1$s</xliff:g> <xliff:g id="unit" example="MB">%2$s</xliff:g></string>
     <string name="untitled">&lt;Ensin títulu&gt;</string>
     <string name="emptyPhoneNumber">(Nun hai númberu telefónicu)</string>
     <string name="unknownName">Desconozse</string>
@@ -74,7 +76,10 @@
     <string name="CLIRDefaultOffNextCallOff">ID d\'emisor predeterminada a NON TORGÁU. Llamada siguiente: NON TORGÁU</string>
     <string name="serviceNotProvisioned">Nun se forne\'l serviciu.</string>
     <string name="CLIRPermanent">Nun pues camudar l\'axuste d\'ID d\'emisor.</string>
+    <string name="RestrictedOnDataTitle">Nun hai serviciu de datos móviles</string>
+    <string name="RestrictedOnEmergencyTitle">Llamada d\'emerxencia non disponible</string>
     <string name="notification_channel_call_forward">Esvíu de llamaes</string>
+    <string name="notification_channel_sim">Estáu de SIM</string>
     <string name="peerTtyModeFull">El preséu solicitó\'l mou TTY FULL.</string>
     <string name="peerTtyModeHco">El preséu solicitó\'l mou TTY HCO.</string>
     <string name="peerTtyModeVco">El preséu solicitó\'l mou TTY VCO.</string>
@@ -107,6 +112,7 @@
     </string-array>
     <string name="wifi_calling_off_summary">Non</string>
     <string name="wfc_mode_wifi_preferred_summary">Prefierse\'l Wi-Fi</string>
+    <string name="wfc_mode_cellular_preferred_summary">Móvil preferíu</string>
     <string name="wfc_mode_wifi_only_summary">Namái Wi-Fi</string>
     <string name="cfTemplateNotForwarded"><xliff:g id="bearer_service_code">{0}</xliff:g>: Nun s\'esvió</string>
     <string name="cfTemplateForwarded"><xliff:g id="bearer_service_code">{0}</xliff:g>: <xliff:g id="dialing_number">{1}</xliff:g></string>
@@ -133,6 +139,7 @@
     <string name="httpErrorTooManyRequests">Tán procesándose milenta solicitúes. Volvi tentalo más sero.</string>
     <string name="notification_title">Fallu d\'aniciu de sesión de <xliff:g id="account" example="foo@gmail.com">%1$s</xliff:g></string>
     <string name="contentServiceSync">Sincronización</string>
+    <string name="contentServiceSyncNotificationTitle">Nun se puede sincronizar</string>
     <string name="low_memory" product="tablet">L\'almacenamientu de la tableta ta enllén. Desanicia dellos ficheros pa lliberar espaciu.</string>
     <string name="low_memory" product="watch">L\'almacenamientu del reló ta enllén. Desanicia dellos ficheros pa lliberar espaciu.</string>
     <string name="low_memory" product="tv">L\'almacenamientu de la TV ta enllén. Desanicia dellos ficheros pa lliberar espaciu.</string>
@@ -144,6 +151,8 @@
     <string name="ssl_ca_cert_noti_by_unknown">Por un terceru desconocíu</string>
     <string name="ssl_ca_cert_noti_managed">Por <xliff:g id="MANAGING_DOMAIN">%s</xliff:g></string>
     <string name="work_profile_deleted">Perfil de trabayu desaniciáu</string>
+    <string name="network_logging_notification_title">El preséu ta remanáu</string>
+    <string name="network_logging_notification_text">La to organización remana esti preséu y puede monitorizar el tráficu de rede. Calca pa ver detalles.</string>
     <string name="factory_reset_warning">Va desaniciase\'l preséu</string>
     <string name="me">Yo</string>
     <string name="power_dialog" product="tablet">Opciones de la tableta</string>
@@ -182,6 +191,8 @@
     <string name="global_action_power_off">Apagar</string>
     <string name="global_action_emergency">Emerxencia</string>
     <string name="global_action_bug_report">Informe de fallos</string>
+    <string name="global_action_logout">Fin de sesión</string>
+    <string name="global_action_screenshot">Captura de pantalla</string>
     <string name="bugreport_title">Creación d\'informe de fallos</string>
     <string name="bugreport_message">Esto va recoyer información tocante al
         estáu actual del preséu pa unviala como mensaxe de corréu. Va
@@ -208,7 +219,9 @@
     <string name="global_action_settings">Axustes</string>
     <string name="global_action_assist">Asistencia</string>
     <string name="global_action_voice_assist">Asistente voz</string>
+    <string name="global_action_lockdown">Torgar</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="notification_channel_retail_mode">Demo al detalle</string>
     <string name="safeMode">Mou seguru</string>
     <string name="android_system_label">Sistema Android</string>
     <string name="permgrouplab_contacts">Contautos</string>
@@ -376,7 +389,13 @@
     </string>
     <string name="permdesc_bodySensors" product="default">Permite que l\'aplicación acceda a datos de los sensores
     que supervisen la to condición física como los pulseos.</string>
+    <string name="permdesc_readCalendar" product="tablet">Esta aplicación puede lleer tolos eventos del calendariu almacenaos na to tablet y compartir o guardar los tos datos de calendariu.</string>
+    <string name="permdesc_readCalendar" product="tv">Esta aplicación puede lleer tolos eventos del calendariu almacenaos na to Tele y compartir o guardar los tos datos de calendariu.</string>
+    <string name="permdesc_readCalendar" product="default">Esta aplicación puede lleer tolos eventos del calendariu almacenaos nel to móvil y compartir o guardar los tos datos de calendariu.</string>
     <string name="permlab_writeCalendar">amestar o modificar eventos del calendariu y unviar correos a convidaos ensin la conocencia del dueñu</string>
+    <string name="permdesc_writeCalendar" product="tablet">Esta aplicación pue amestar, desaniciar o camudar los eventos del calendariu na to tablet. Esta aplicación pue unviar mensaxes qu\'abulten ser de propietarios de calendarios o camudar eventos ensin notificar a los sos propietarios.</string>
+    <string name="permdesc_writeCalendar" product="tv">Esta aplicación pue amestar, desaniciar o camudar los eventos del calendariu na to Tele. Esta aplicación pue unviar mensaxes qu\'abulten ser de propietarios de calendarios o camudar eventos ensin notificar a los sos propietarios.</string>
+    <string name="permdesc_writeCalendar" product="default">Esta aplicación pue amestar, desaniciar o camudar los eventos del calendariu nel to teléfonu. Esta aplicación pue unviar mensaxes qu\'abulten ser de propietarios de calendarios o camudar eventos ensin notificar a los sos propietarios.</string>
     <string name="permlab_accessLocationExtraCommands">acceder a comandos adicionales del fornidor d\'allugamientu</string>
     <string name="permdesc_accessLocationExtraCommands">Permite que l\'aplicación acceda
         a comandos adicionales del fornidor d\'allugamientu.  Esto podría
@@ -384,8 +403,12 @@
         fontes d\'allugamientu.</string>
     <string name="permlab_accessFineLocation">acceder al allugamientu precisu
       (basáu na rede y GPS)</string>
+    <string name="permdesc_accessFineLocation">Esta aplicación pue obtener el to allugamientu pel GPS o les fontes d\'allugamientu de rede, y de les torres de telefonía móvil y redes Wi-Fi. Estos servicios d\'allugamientu tienen de tar activaos y disponibles nel to teléfonu pa que l\'aplicación pueda usalos. Esto puede aumentar el consumu de batería.</string>
     <string name="permlab_accessCoarseLocation">acceder al allugamientu aproximáu
       (basáu na rede)</string>
+    <string name="permdesc_accessCoarseLocation" product="tablet">Esta aplicación pue obtener el to allugamientu peles fontes d\'allugamientu de rede, y de les torres de telefonía móvil y redes Wi-Fi. Estos servicios d\'allugamientu tienen de tar activaos y disponibles na to tablet pa que l\'aplicación pueda usalos.</string>
+    <string name="permdesc_accessCoarseLocation" product="tv">Esta aplicación pue obtener el to allugamientu peles fontes d\'allugamientu de rede, y de les torres de telefonía móvil y redes Wi-Fi. Estos servicios d\'allugamientu tienen de tar activaos y disponibles na to tele pa que l\'aplicación pueda usalos.</string>
+    <string name="permdesc_accessCoarseLocation" product="default">Esta aplicación pue obtener el to allugamientu peles fontes d\'allugamientu de rede, y de les torres de telefonía móvil y redes Wi-Fi. Estos servicios d\'allugamientu tienen de tar activaos y disponibles nel to teléfonu pa que l\'aplicación pueda usalos.</string>
     <string name="permlab_modifyAudioSettings">camudar los axustes d\'audiu</string>
     <string name="permdesc_modifyAudioSettings">Permite que l\'aplicación modifique los axustes globales d\'audiu como\'l volume o l\'altavoz que s\'usa pa la salida.</string>
     <string name="permlab_recordAudio">grabar audiu</string>
@@ -407,6 +430,8 @@
       carauterístiques del preséu.  Esti permisu permíte-y a l\'aplicación determinar
       el númberu telefónicu y les IDs de preseos, saber si hai llamaes en cursu y los
       númberos que llamen.</string>
+    <string name="permlab_manageOwnCalls">llamaes de ruta pel sistema</string>
+    <string name="permlab_readPhoneNumbers">lleer númberos telefónicos</string>
     <string name="permlab_wakeLock" product="tablet">evitar que la tableta se duerma</string>
     <string name="permlab_wakeLock" product="tv">evitar que la TV se duerma</string>
     <string name="permlab_wakeLock" product="default">evitar que\'l teléfonu se duerma</string>
@@ -514,6 +539,7 @@
     <string name="fingerprint_acquired_too_fast">Moviesti\'l deu perrápido. Volvi tentalo, por favor.</string>
     <string name="fingerprint_acquired_too_slow">Moviesti\'l deu perdespacio. Volvi tentalo, por favor.</string>
     <string-array name="fingerprint_acquired_vendor"/>
+    <string name="fingerprint_not_recognized">Nun se reconoz</string>
     <string name="fingerprint_error_hw_not_available">Hardware de buelgues non disponible.</string>
     <string name="fingerprint_error_no_space">Nun pue atroxase la buelga. Desanicia una de les esistentes, por favor.</string>
     <string name="fingerprint_error_timeout">Escosó\'l tiempu d\'espera de la buelga. Volvi tentalo.</string>
@@ -866,6 +892,8 @@
     <string name="keyguard_accessibility_pattern_unlock">Desbloquéu per patrón.</string>
     <string name="keyguard_accessibility_face_unlock">Desbloquéu facial.</string>
     <string name="keyguard_accessibility_pin_unlock">Desbloquéu per PIN.</string>
+    <string name="keyguard_accessibility_sim_pin_unlock">Desbloquéu per Sim Pin.</string>
+    <string name="keyguard_accessibility_sim_puk_unlock">Desbloquéu per Sim Puk.</string>
     <string name="keyguard_accessibility_password_unlock">Desbloquéu per contraseña.</string>
     <string name="keyguard_accessibility_pattern_area">Área del patrón.</string>
     <string name="keyguard_accessibility_slide_area">Área pa eslizar.</string>
@@ -892,6 +920,7 @@
     <string name="double_tap_toast">Conseyu: Toca dos vegaes p\'averar y alloñar.</string>
     <string name="autofill_this_form">Autocompletáu</string>
     <string name="setup_autofill">Configurar autocompletáu</string>
+    <string name="autofill_window_title">Autorrellenu con <xliff:g id="serviceName" example="MyPass">%1$s</xliff:g></string>
     <string name="autofill_address_name_separator">\u0020</string>
     <string name="autofill_address_summary_name_format">$1$2$3</string>
     <string name="autofill_address_summary_separator">,\u0020</string>
@@ -986,6 +1015,11 @@
     <string name="text_copied">Copióse\'l testu al cartafueyu.</string>
     <string name="more_item_label">Más</string>
     <string name="prepend_shortcut_label">Menu+</string>
+    <string name="menu_meta_shortcut_label">Meta+</string>
+    <string name="menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="menu_shift_shortcut_label">Mayús+</string>
+    <string name="menu_sym_shortcut_label">Sym+</string>
+    <string name="menu_function_shortcut_label">Función+</string>
     <string name="menu_space_shortcut_label">espaciu</string>
     <string name="menu_enter_shortcut_label">intro</string>
     <string name="menu_delete_shortcut_label">desaniciar</string>
@@ -1102,7 +1136,16 @@
     <string name="deleteText">Desaniciar</string>
     <string name="inputMethod">Métodu d\'entrada</string>
     <string name="editTextMenuTitle">Aiciones de testu</string>
+    <string name="dial">Llamada</string>
+    <string name="map">Mapa</string>
     <string name="browse">Abrir</string>
+    <string name="browse_desc">URL escoyida abierta</string>
+    <string name="sms">Mensaxe</string>
+    <string name="add_contact">Amestar</string>
+    <string name="add_contact_desc">Amestar a contautos</string>
+    <string name="view_calendar">Ver</string>
+    <string name="add_calendar_event">Axenda</string>
+    <string name="view_flight">Pista</string>
     <string name="low_internal_storage_view_title">Ta escosando l\'espaciu</string>
     <string name="low_internal_storage_view_text">Podríen nun funcionar delles funciones del sistema</string>
     <string name="low_internal_storage_view_text_no_boot">Nun hai espaciu abondo pal sistema. Asegúrate que tienes 250MB llibre y reanicia.</string>
@@ -1171,11 +1214,19 @@
     <string name="unsupported_display_size_message"><xliff:g id="app_name">%1$s</xliff:g> nun sofita l\'axuste de tamañu de pantalla actual y podría tener un comportamientu inesperáu.</string>
     <string name="unsupported_display_size_show">Amosar siempres</string>
     <string name="unsupported_compile_sdk_show">Amosar siempres</string>
+    <string name="unsupported_compile_sdk_check_update">Comprobar anovamientu</string>
     <string name="smv_application">L\'aplicación <xliff:g id="application">%1$s</xliff:g>
         (procesu <xliff:g id="process">%2$s</xliff:g>) violó la so política StrictMode autoaplicable.</string>
     <string name="smv_process">El procesu <xliff:g id="process">%1$s</xliff:g> violó
       la so política StrictMode autoaplicable.</string>
+    <string name="android_upgrading_title" product="default">El teléfonu ta anováu\u2026</string>
+    <string name="android_upgrading_title" product="tablet">La tablet ta anovada\u2026</string>
+    <string name="android_upgrading_title" product="device">El preséu ta anováu\u2026</string>
+    <string name="android_start_title" product="default">El teléfonu ta arrancando\u2026</string>
+    <string name="android_start_title" product="tablet">La tablet ta arrandando\u2026</string>
+    <string name="android_start_title" product="device">El preséu ta arrandando\u2026</string>
     <string name="android_upgrading_fstrim">Optimizando l\'almacenamientu.</string>
+    <string name="android_upgrading_notification_title" product="default">Finando anovamientu del sistema\u2026</string>
     <string name="app_upgrading_toast"><xliff:g id="application">%1$s</xliff:g> ta anovando\u2026</string>
     <string name="android_upgrading_apk">Optimizando l\'aplicación
         <xliff:g id="number" example="123">%1$d</xliff:g> de
@@ -1184,6 +1235,12 @@
     <string name="android_upgrading_starting_apps">Aniciando aplicaciones.</string>
     <string name="android_upgrading_complete">Finando arranque.</string>
     <string name="heavy_weight_notification"><xliff:g id="app">%1$s</xliff:g> n\'execución</string>
+    <string name="heavy_weight_notification_detail">Calca pa volver al xuegu</string>
+    <string name="heavy_weight_switcher_title">Escueyi xuegu</string>
+    <string name="old_app_action">Tornar a <xliff:g id="old_app">%1$s</xliff:g></string>
+    <string name="new_app_action">Abrir <xliff:g id="new_app">%1$s</xliff:g></string>
+    <string name="new_app_description"><xliff:g id="old_app">%1$s</xliff:g> va zarrase
+        ensin guardar</string>
     <string name="dump_heap_notification"><xliff:g id="proc">%1$s</xliff:g> perpasó la llende
         de memoria</string>
     <string name="dump_heap_title">¿Compartir volcáu de pila?</string>
@@ -1218,12 +1275,18 @@
         <item quantity="one">Rede Wi-Fi abierta disponible</item>
         <item quantity="other">Redes Wi-Fi abiertes disponibles</item>
     </plurals>
+    <string name="wifi_available_title_connected">Coneutáu a la rede Wi\u2011Fi</string>
+    <string name="wifi_available_title_failed_to_connect">Nun se pudo coneutar a la rede Wi\u2011Fi</string>
+    <string name="wifi_available_action_connect">Coneutar</string>
     <string name="wifi_available_action_all_networks">Toles redes</string>
+    <string name="wifi_wakeup_onboarding_title">Wi\u2011Fi prenderáse automáticamente</string>
     <string name="wifi_available_sign_in">Aniciar sesión na rede Wi-Fi</string>
     <string name="network_available_sign_in">Aniciar sesión na rede</string>
     <string name="network_available_sign_in_detailed"><xliff:g id="network_ssid">%1$s</xliff:g></string>
+    <string name="wifi_no_internet">La Wi-Fi nun tien accesu a internet</string>
     <string name="wifi_no_internet_detailed">Calca pa opciones</string>
     <string name="network_switch_metered">Conexón afitada con <xliff:g id="network_type">%1$s</xliff:g></string>
+    <string name="network_switch_metered_detail">El preséu usa <xliff:g id="new_network">%1$s</xliff:g> cuando <xliff:g id="previous_network">%2$s</xliff:g> nun tien accesu a internet. Podríen aplicase cargos.</string>
     <string name="network_switch_metered_toast">Camudóse de <xliff:g id="previous_network">%1$s</xliff:g> a <xliff:g id="new_network">%2$s</xliff:g></string>
     <string-array name="network_switch_type_name">
         <item>mobile data</item>
@@ -1234,6 +1297,7 @@
     </string-array>
     <string name="network_switch_type_name_unknown">un triba desconocida de rede</string>
     <string name="wifi_watchdog_network_disabled">Nun pudo coneutase a la Wi-Fi</string>
+    <string name="wifi_watchdog_network_disabled_detailed">\u0020tien una conexón mala d\'internet.</string>
     <string name="wifi_connect_alert_title">¿Permitir conexón?</string>
     <string name="wifi_connect_alert_message">A l\'aplicación %1$s prestaría-y coneutase a la Wi-Fi %2$s</string>
     <string name="wifi_connect_default_application">Una aplicación</string>
@@ -1271,6 +1335,8 @@
     <string name="sim_done_button">Fecho</string>
     <string name="sim_added_title">Tarxeta SIM amestada</string>
     <string name="sim_restart_button">Reaniciar</string>
+    <string name="install_carrier_app_notification_title">Activar serviciu móvil</string>
+    <string name="install_carrier_app_notification_button">Aplicación baxada</string>
     <string name="carrier_app_notification_title">Inxertóse SIM nueva</string>
     <string name="carrier_app_notification_text">Calca pa configurala</string>
     <string name="time_picker_dialog_title">Afitamientu d\'hora</string>
@@ -1282,11 +1348,20 @@
     <string name="no_permissions">Nun se riquen permisos</string>
     <string name="perm_costs_money">esto podría costate dineru</string>
     <string name="dlg_ok">Aceutar</string>
+    <string name="usb_supplying_notification_title">Cargando\'l preséu coneutáu per USB</string>
+    <string name="usb_mtp_notification_title">Tresferencia USB de ficheros activada</string>
+    <string name="usb_ptp_notification_title">PTP per USB encesu</string>
+    <string name="usb_tether_notification_title">Anclaxe USB encesu</string>
+    <string name="usb_midi_notification_title">MIDI per USB encesu</string>
+    <string name="usb_accessory_notification_title">Accesoriu USB coneutáu</string>
     <string name="usb_notification_message">Calca pa más opciones.</string>
+    <string name="usb_unsupported_audio_accessory_title">Accesoriu d\'audiu analóxicu detectáu</string>
     <string name="adb_active_notification_title">Depuración USB activada</string>
     <string name="taking_remote_bugreport_notification_title">Compartiendo l\'informe de fallu\u2026</string>
     <string name="share_remote_bugreport_notification_title">¿Compatir informe de fallu?</string>
     <string name="sharing_remote_bugreport_notification_title">Compartiendo l\'informe de fallu\u2026</string>
+    <string name="share_remote_bugreport_notification_message_finished">El to administrador pidió un informe de fallu 
+        p\'ayudar a iguar esti preséu. Les aplicaciones y los datos pueden compartise.</string>
     <string name="share_remote_bugreport_action">COMPARTIR</string>
     <string name="decline_remote_bugreport_action">REFUGAR</string>
     <string name="select_input_method">Cambéu de tecláu</string>
@@ -1296,17 +1371,30 @@
     <string name="select_keyboard_layout_notification_message">Calca pa esbillar la llingua y distribución</string>
     <string name="fast_scroll_alphabet">\u0020ABCDEFGHḤIJKLḶMNÑOPQRSTUVWXYZ</string>
     <string name="fast_scroll_numeric_alphabet">\u00200123456789ABCDEFGHḤIJKLḶMNÑOPQRSTUVWXYZ</string>
+    <string name="alert_windows_notification_channel_group_name">La pantalla penriba d\'otres aplicaciones</string>
+    <string name="alert_windows_notification_channel_name"><xliff:g id="name" example="Google Maps">%s</xliff:g> amósase penriba d\'otres aplicaciones</string>
+    <string name="alert_windows_notification_title"><xliff:g id="name" example="Google Maps">%s</xliff:g> ta amosándose penriba d\'otres aplicaciones</string>
+    <string name="alert_windows_notification_turn_off_action">Prender</string>
+    <string name="ext_media_checking_notification_title">Xequeando <xliff:g id="name" example="SD card">%s</xliff:g>\u2026</string>
     <string name="ext_media_new_notification_message">Calca pa configurar</string>
     <string name="ext_media_ready_notification_message">Pa tresferir semeyes y multimedia</string>
+    <string name="ext_media_unmountable_notification_message">Calca pa fixar</string>
+    <string name="ext_media_unmountable_notification_message" product="tv"><xliff:g id="name" example="SD card">%s</xliff:g> ta toyida. Escueyi pa iguar.</string>
     <string name="ext_media_unsupported_notification_title">Nun se sofita <xliff:g id="name" example="SD card">%s</xliff:g></string>
     <string name="ext_media_unsupported_notification_message">Esti preséu nun ye compatible con <xliff:g id="name" example="SD card">%s</xliff:g>. Calca pa la so configuración nun formatu sofitáu.</string>
+    <string name="ext_media_unsupported_notification_message" product="tv">Esti preséu nun sofita <xliff:g id="name" example="SD card">%s</xliff:g>. Escueyi pa configuralu nun formatu sofitáu.</string>
     <string name="ext_media_badremoval_notification_title"><xliff:g id="name" example="SD card">%s</xliff:g> estráxose de mou inesperáu</string>
     <string name="ext_media_init_action">Configurar</string>
     <string name="ext_media_unmount_action">Espulsar</string>
     <string name="ext_media_browse_action">Esplorar</string>
     <string name="ext_media_missing_title">Falta <xliff:g id="name" example="SD card">%s</xliff:g></string>
+    <string name="ext_media_missing_message">Meti\'l preséu otra vuelta</string>
     <string name="ext_media_move_specific_title">Moviendo <xliff:g id="name" example="Calculator">%s</xliff:g></string>
     <string name="ext_media_move_title">Moviendo datos</string>
+    <string name="ext_media_move_success_title">Tresferencia de conteníu fecha</string>
+    <string name="ext_media_move_success_message">Conteníu movíu a <xliff:g id="name" example="SD card">%s</xliff:g></string>
+    <string name="ext_media_move_failure_title">Nu\u2019n se puede mover el conteníu</string>
+    <string name="ext_media_move_failure_message">Intentar volver a mover el conteníu</string>
     <string name="ext_media_status_removed">Estráxose</string>
     <string name="ext_media_status_unmounted">Espulsóse</string>
     <string name="ext_media_status_checking">Comprobando\u2026</string>
@@ -1367,8 +1455,12 @@
     <string name="no_file_chosen">Nun s\'escoyeron ficheros</string>
     <string name="reset">Reafitar</string>
     <string name="submit">Unviar</string>
+    <string name="car_mode_disable_notification_title">L\'aplicación de conducción ta furrulando</string>
+    <string name="car_mode_disable_notification_message">Calca pa salir de l\'aplicación de conducción.</string>
     <string name="tethered_notification_title">Anclaxe a rede/Puntu Wi-Fi activu</string>
     <string name="tethered_notification_message">Calca pa configurar.</string>
+    <string name="disable_tether_notification_title">L\'anclax ta desconeutáu</string>
+    <string name="disable_tether_notification_message">Contauta col to administrador pa los detalles</string>
     <string name="back_button_label">Atrás</string>
     <string name="next_button_label">Siguiente</string>
     <string name="skip_button_label">Saltar</string>
@@ -1441,6 +1533,8 @@
     <string name="storage_usb_drive">Unidá USB</string>
     <string name="storage_usb_drive_label">Unidad USB <xliff:g id="manufacturer" example="Seagate">%s</xliff:g></string>
     <string name="storage_usb">Almacenamientu USB</string>
+    <string name="data_usage_warning_title">Alvertencia de datos</string>
+    <string name="data_usage_mobile_limit_title">Llende datos algamada</string>
     <string name="data_usage_wifi_limit_title">Llende de datos Wi-Fi algamada</string>
     <string name="data_usage_restricted_title">Conexones automátiques restrinxíes</string>
     <string name="data_usage_restricted_body">Calca pa desaniciar la torga.</string>
@@ -1473,6 +1567,7 @@
     <string name="default_audio_route_name_dock_speakers">Altavoces de la base</string>
     <string name="default_audio_route_name_hdmi">HDMI</string>
     <string name="default_audio_route_name_headphones">Auriculares</string>
+    <string name="default_audio_route_name_usb">USB</string>
     <string name="default_audio_route_category_name">Sistema</string>
     <string name="bluetooth_a2dp_audio_route_name">Audiu Bluetooth</string>
     <string name="wireless_display_route_description">Pantalla inalámbrica</string>
@@ -1496,6 +1591,10 @@
     <string name="kg_wrong_pattern">Patrón incorreutu</string>
     <string name="kg_wrong_password">Contraseña incorreuta</string>
     <string name="kg_wrong_pin">PIN incorreutu</string>
+    <plurals name="kg_too_many_failed_attempts_countdown">
+        <item quantity="one">Volvi tentalo nun segundu.</item>
+        <item quantity="other">Volvi tentalo en <xliff:g id="number">%d</xliff:g>segundos.</item>
+    </plurals>
     <string name="kg_pattern_instructions">Dibuxa\'l patrón</string>
     <string name="kg_sim_pin_instructions">Introduz el PIN de la SIM</string>
     <string name="kg_pin_instructions">Introduz el PIN</string>
@@ -1566,6 +1665,15 @@
     <string name="kg_reordering_delete_drop_target_text">Desaniciar</string>
     <string name="safe_media_volume_warning" product="default">       «¿Xubir el volume penriba\'l nivel aconseyáu?\n\nSentir soníos con volume altu demientres periodos de tiempu llargos podría mancate los oyíos.»
     </string>
+    <string name="disable_accessibility_shortcut">Apagar Atayu</string>
+    <string name="leave_accessibility_shortcut_on">Usar Atayu</string>
+    <string name="color_inversion_feature_name">Inversión de Color</string>
+    <string name="color_correction_feature_name">Correición de Color</string>
+    <string name="accessibility_shortcut_enabling_service">Accesibilidá del Atayu
+        <xliff:g id="service_name" example="TalkBack">%1$s</xliff:g> encesa</string>
+    <string name="accessibility_shortcut_disabling_service">Accesibilidá del Atayu
+        <xliff:g id="service_name" example="TalkBack">%1$s</xliff:g> apagada</string>
+    <string name="accessibility_magnification_chooser_text">Aumentu</string>
     <string name="user_switched">Usuariu actual <xliff:g id="name" example="Bob">%1$s</xliff:g>.</string>
     <string name="user_switching_message">Camudando a <xliff:g id="name" example="Bob">%1$s</xliff:g>\u2026</string>
     <string name="user_logging_out_message">Zarrando sesión de <xliff:g id="name" example="Bob">%1$s</xliff:g>\u2026</string>
@@ -1662,6 +1770,7 @@
     <string name="reason_service_unavailable">Nun s\'activó\'l serviciu d\'imprentación</string>
     <string name="print_service_installed_title">Instalóse\'l serviciu <xliff:g id="name" example="Cloud Print">%s</xliff:g></string>
     <string name="print_service_installed_message">Toca p\'activar</string>
+    <string name="restr_pin_enter_admin_pin">Poner PIN alministrador</string>
     <string name="restr_pin_enter_pin">Introducir PIN</string>
     <string name="restr_pin_incorrect">Incorreutu</string>
     <string name="restr_pin_enter_old_pin">PIN actual</string>
@@ -1687,6 +1796,8 @@
     <string name="select_year">Esbillar añu</string>
     <string name="deleted_key"><xliff:g id="key" example="4">%1$s</xliff:g> desaniciáu</string>
     <string name="managed_profile_label_badge"><xliff:g id="label" example="Email">%1$s</xliff:g> de trabayu</string>
+    <string name="managed_profile_label_badge_2"><xliff:g id="label" example="Email">%1$s</xliff:g> 2u de trabayu</string>
+    <string name="managed_profile_label_badge_3"><xliff:g id="label" example="Email">%1$s</xliff:g> 3ru de trabayu</string>
     <string name="time_placeholder">--</string>
     <string name="radial_numbers_typeface">sans-serif</string>
     <string name="sans_serif">sans-serif</string>
@@ -1696,6 +1807,9 @@
     <string name="lock_to_app_unlock_pin">Pidir PIN enantes de desfixar</string>
     <string name="lock_to_app_unlock_pattern">Pidir patrón de desbloquéu enantes de desfixar</string>
     <string name="lock_to_app_unlock_password">Pidir contraseña enantes de desfixar</string>
+    <string name="package_installed_device_owner">Instaláu pol alministrador</string>
+    <string name="package_updated_device_owner">Anováu pol alministrador</string>
+    <string name="package_deleted_device_owner">Desanciáu pol alministrador</string>
     <string name="data_saver_description">P\'amenorgar l\'usu de datos, l\'aforrador de datos evita que delles aplicaciones unvien o reciban datos de fondu. Les aplicaciones que teas usando puen acceder a los datos, pero igual menos davezu. Esto podría significar que les imáxenes nun s\'amuesen fasta que calques nelles.</string>
     <string name="data_saver_enable_title">¿Activar l\'aforrador de datos?</string>
     <string name="data_saver_enable_button">Activar</string>
@@ -1719,12 +1833,17 @@
         <item quantity="one">1 min</item>
         <item quantity="other">%d mins</item>
     </plurals>
+    <plurals name="zen_mode_duration_hours">
+        <item quantity="one">Pa 1 hora</item>
+        <item quantity="other">Pa %d hores</item>
+    </plurals>
     <plurals name="zen_mode_duration_hours_short">
         <item quantity="one">1 h</item>
         <item quantity="other">%d hrs</item>
     </plurals>
     <string name="zen_mode_until">Hasta las <xliff:g id="formattedTime" example="10:00 PM">%1$s</xliff:g></string>
     <string name="zen_mode_alarm">Hasta les <xliff:g id="formattedTime" example="10:00 PM">%1$s</xliff:g> (próxima alarma)</string>
+    <string name="zen_mode_forever">Hasta qu\'apagues</string>
     <string name="zen_mode_forever_dnd">Hasta que desactives el Nun molestar</string>
     <string name="zen_mode_rule_name_combination"><xliff:g id="first" example="Weeknights">%1$s</xliff:g> / <xliff:g id="rest" example="Meetings">%2$s</xliff:g></string>
     <string name="toolbar_collapse_description">Contrayer</string>
@@ -1733,6 +1852,7 @@
     <string name="zen_mode_default_weeknights_name">Nueche, na selmana</string>
     <string name="zen_mode_default_weekends_name">Fin de selmana</string>
     <string name="zen_mode_default_events_name">Eventu</string>
+    <string name="zen_mode_default_every_night_name">Dormiendo</string>
     <string name="system_error_wipe_data">Hai un problema internu col preséu y quiciabes seya inestable hasta reafitalu.</string>
     <string name="system_error_manufacturer">Hai un problema internu col preséu. Contauta col fabricante pa más detalles.</string>
     <string name="notification_work_profile_content_description">Perfil de trabayu</string>
@@ -1751,30 +1871,74 @@
         <item quantity="one"><xliff:g id="count" example="1">%1$d</xliff:g> elementu esbilláu</item>
         <item quantity="other"><xliff:g id="count" example="3">%1$d</xliff:g> elementos esbillaos</item>
     </plurals>
+    <string name="default_notification_channel_label">Ensin categoría</string>
     <string name="importance_from_user">Afitesti la importancia d\'estos avisos.</string>
     <string name="importance_from_person">Esto ye importante pola mor de la xente que collaboró.</string>
+    <string name="user_creation_account_exists">¿Permitir a<xliff:g id="app" example="Gmail">%1$s</xliff:g> crear un usuariu nuevu con <xliff:g id="account" example="foobar@gmail.com">%2$s</xliff:g>?</string>
+    <string name="user_creation_adding">¿Permitir a<xliff:g id="app" example="Gmail">%1$s</xliff:g> crear un usuariu nuevu con <xliff:g id="account" example="foobar@gmail.com">%2$s</xliff:g> (yá esiste un usuariu con esta cuenta)?</string>
     <string name="language_selection_title">Amestar una llingua</string>
     <string name="country_selection_title">Preferencia de rexón</string>
+    <string name="search_language_hint">Teclexa\'l nome la llingua</string>
     <string name="language_picker_section_suggested">Suxerse</string>
     <string name="language_picker_section_all">Toles llingües</string>
     <string name="region_picker_section_all">Toles rexones</string>
     <string name="locale_search_menu">Guetar</string>
+    <string name="app_suspended_more_details">Deprendi más</string>
+    <string name="work_mode_off_title">¿Activar perfil de trabayu?</string>
     <string name="work_mode_turn_on">Activar</string>
+    <string name="deprecated_target_sdk_app_store">Comprobar anovamientu</string>
     <string name="new_sms_notification_title">Tienes mensaxes nuevos</string>
+    <string name="new_sms_notification_content">Abri l\'aplicación SMS pa velu</string>
+    <string name="user_encrypted_title">Quiciabes delles funcionalidaes tean llimitaes</string>
     <string name="user_encrypted_message">Calca pa desbloquiar</string>
+    <string name="user_encrypted_detail">Datos d\'usuariu bloquiaos</string>
+    <string name="profile_encrypted_detail">Perfil de trabayu bloquiáu</string>
     <string name="profile_encrypted_message">Calca pa desbloquiar el perfil de trabayu</string>
+    <string name="usb_mtp_launch_notification_title">Coneutáu a <xliff:g id="product_name">%1$s</xliff:g></string>
     <string name="usb_mtp_launch_notification_description">Calca pa ver los ficheros</string>
     <string name="pin_target">Fixar</string>
     <string name="unpin_target">Desfixar</string>
+    <string name="app_info">Información d\'aplicación</string>
     <string name="negative_duration">\u2212<xliff:g id="time" example="1:14">%1$s</xliff:g></string>
     <string name="demo_starting_message">Aniciando demostración\u2026</string>
     <string name="demo_restarting_message">Reafitando\'l preséu\u2026</string>
+    <string name="suspended_widget_accessibility">Deshabilitóse <xliff:g id="label" example="Calendar">%1$s</xliff:g></string>
     <string name="conference_call">Conferencia telefónica</string>
+    <string name="tooltip_popup_title">Información erbíes</string>
     <string name="time_picker_hour_label">hora</string>
     <string name="time_picker_header_text">Afitamientu d\'hora</string>
+    <string name="time_picker_input_error">Pon una hora válida</string>
+    <string name="time_picker_prompt_label">Escribi una hora</string>
+    <string name="autofill_picker_accessibility_title">Opciones d\'autorrellenáu</string>
+    <string name="autofill_save_accessibility_title">Guardar p\'Autorrellenu</string>
+    <string name="autofill_picker_no_suggestions">Nun hai suxerencies d\'autorrellenáu</string>
+    <plurals name="autofill_picker_some_suggestions">
+        <item quantity="one">Una suxerencia d\'autorrellenáu</item>
+        <item quantity="other"><xliff:g id="count" example="Two">%1$s</xliff:g> suxerencies d\'autorrellenáu</item>
+    </plurals>
+    <string name="autofill_save_title">¿Guardar en &lt;b&gt;<xliff:g id="label" example="MyPass">%1$s</xliff:g>&lt;/b&gt;?</string>
+    <string name="autofill_save_title_with_type">¿Guardar<xliff:g id="type" example="Credit Card">%1$s</xliff:g> en &lt;b&gt;<xliff:g id="label" example="MyPass">%2$s</xliff:g>&lt;/b&gt;?</string>
+    <string name="autofill_save_title_with_2types">¿ Guardar<xliff:g id="type" example="Password">%1$s</xliff:g> y <xliff:g id="type" example="Credit Card">%2$s</xliff:g> en &lt;b&gt;<xliff:g id="label" example="MyPass">%3$s</xliff:g>&lt;/b&gt;?</string>
+    <string name="autofill_save_title_with_3types">¿Guardar <xliff:g id="type" example="Username">%1$s</xliff:g>, <xliff:g id="type" example="Password">%2$s</xliff:g>, y <xliff:g id="type" example="Credit Card">%3$s</xliff:g> en &lt;b&gt;<xliff:g id="label" example="MyPass">%4$s</xliff:g>&lt;/b&gt;?</string>
+    <string name="etws_primary_default_message_test">Testu de mensaxes d\'emerxencia</string>
+    <string name="mmcc_authentication_reject">SIM non permitida pa voz</string>
+    <string name="mmcc_imsi_unknown_in_hlr">SIM non provista pa voz</string>
+    <string name="mmcc_illegal_ms">SIM non permitida pa voz</string>
+    <string name="mmcc_illegal_me">Teléfonu non permitida pa voz</string>
+    <string name="mmcc_authentication_reject_msim_template">SIM <xliff:g id="simNumber" example="1">%d</xliff:g> non permitida</string>
+    <string name="mmcc_imsi_unknown_in_hlr_msim_template">SIM <xliff:g id="simNumber" example="1">%d</xliff:g> non provista</string>
+    <string name="mmcc_illegal_ms_msim_template">SIM <xliff:g id="simNumber" example="1">%d</xliff:g> non permitida</string>
+    <string name="mmcc_illegal_me_msim_template">SIM <xliff:g id="simNumber" example="1">%d</xliff:g> non permitida</string>
+    <string name="harmful_app_warning_uninstall">DESINSTALAR</string>
+    <string name="harmful_app_warning_open_anyway">ABRIR DE TOES MANERES</string>
     <string name="screenshot_edit">Editar</string>
+    <string name="notification_channel_system_changes">Cambeos del sistema</string>
+    <string name="notification_channel_do_not_disturb">Nun molestar</string>
+    <string name="zen_upgrade_notification_visd_content">Calca pa depreder más y camudar.</string>
+    <string name="zen_upgrade_notification_title">Nun molestar camudó</string>
     <string name="notification_app_name_system">Sistema</string>
     <string name="notification_app_name_settings">Axustes</string>
     <string name="notification_appops_camera_active">Cámara</string>
     <string name="notification_appops_microphone_active">Micrófonu</string>
+    <string name="car_loading_profile">Cargando</string>
 </resources>

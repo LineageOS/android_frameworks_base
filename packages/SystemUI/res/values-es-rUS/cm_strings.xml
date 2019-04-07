@@ -57,4 +57,6 @@
     <string name="accessibility_dpad_left">Cursor izquierda</string>
     <string name="accessibility_dpad_right">Cursor derecha</string>
     <string name="screen_pinning_description_no_navbar">Esto lo mantiene a la vista hasta que lo liberes. Mantén pulsado «Atrás» para liberar.</string>
+    <string name="screen_pinning_toast_no_navbar">Para desanclar esta pantalla, mantén pulsado el botón «Atrás»</string>
+    <string name="nav_bar_layout_inverse">Invertir diseño</string>
 </resources>

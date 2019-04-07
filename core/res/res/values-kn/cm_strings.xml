@@ -28,8 +28,10 @@
     <string name="app_ops_app_start_foreground">ತ್ವರಿತ ಆಪನ್ನು ಮುನ್ನೆಲೆಯಲ್ಲಿ ಪ್ರಾರಂಭಿಸು</string>
     <string name="app_ops_assist_screenshot">ಸ್ಕ್ರೀನ್‌ಶಾಟ್‌ ತೆಗೆದುಕೊಳ್ಳಿ</string>
     <string name="app_ops_assist_structure">ಅಸಿಸ್ಟ್‌ ರಚನೆ ಬಳಸಿ</string>
-    <string name="app_ops_audio_accessibility_volume">ಶೃತಿ ಪ್ರವೇಶಿಸುವಿಕೆಯ ಶಬ್ದಮಟ್ಟ</string>
+    <string name="app_ops_audio_accessibility_volume">ಶ್ರಾವ್ಯ ಪ್ರವೇಶಾವಕಾಶ ಶಬ್ದಮಟ್ಟ</string>
     <string name="app_ops_auto_start">ಪವರ್ ಅಪ್ ವೇಳೆ ಆರಂಭವಾಗು</string>
+    <string name="app_ops_bind_accessibility_service">ಪ್ರವೇಶ ಸೇವೆ ಕಟ್ಟು</string>
+    <string name="app_ops_bluetooth_scan">ಬ್ಲೂಟೂತ್ ಅಭೀಕ್ಷಣ</string>
     <string name="app_ops_change_wallpaper">ವಾಲ್‌ಪೇಪರ್‌ ಬದಲಿಸಿ</string>
     <string name="app_ops_delete_call_log">ನಿಮ್ಮ ಕರೆ ಲಾಗ್‍ನ್ನು ಅಳಿಸು</string>
     <string name="app_ops_delete_contacts">ನಿಮ್ಮ ಸಂಪರ್ಕಗಳನ್ನು ಅಳಿಸು</string>
@@ -38,8 +40,10 @@
     <string name="app_ops_draw_on_top">ಟಾಪ್‍ನಲ್ಲಿ ಕಿಟಕಿಗಳನ್ನು ಬಿಡಿಸು</string>
     <string name="app_ops_get_accounts">ಸಾಧನ ಖಾತೆಗಳನ್ನು ಪಡೆಯಿರಿ</string>
     <string name="app_ops_get_usage_stats">ಆಪ್ ಬಳಕೆಯ ಅಂಕಿಅಂಶಗಳನ್ನು ಪಡೆ</string>
+    <string name="app_ops_accept_handover">ಬೇರೊಂದು ಆಪ್ನಿಂದ ಕರೆ ಹಸ್ತಾಂತರ</string>
     <string name="app_ops_install_packages">ಘಂಟುಗಳನ್ನು ಸ್ಥಾಪಿಸು</string>
     <string name="app_ops_keep_device_awake">ನಿಮ್ಮ ಸಾಧನವನ್ನು ಎಚ್ಚರವಾಗಿಡುವಿಕೆ</string>
+    <string name="app_ops_manage_ipsec_tunnels">IPsec ಸುರಂಗಗಳನ್ನು ನಿರ್ವಹಿಸು</string>
     <string name="app_ops_make_phone_call">ದೂರವಾಣಿ ಕರೆಯನ್ನು ಮಾಡು</string>
     <string name="app_ops_mock_location">ನಿಮ್ಮ ಸ್ಥಳ ಅಣಕು ಮಾಡಿ</string>
     <string name="app_ops_modify_calendar">ನಿಮ್ಮ ಕ್ಯಾಲೆಂಡರ್‍ನ್ನು ನವೀಕರಿಸು</string>
@@ -64,12 +68,16 @@
     <string name="app_ops_read_phone_state">ಫೋನ್‌ ಸ್ಥಿತಿ ಅಕ್ಸೆಸ್‌ ಮಾಡಿ</string>
     <string name="app_ops_read_sms">ನಿಮ್ಮ ಎಸ್ಎಂಎಸ್ ಸಂದೇಶಗಳನ್ನು ಓದು</string>
     <string name="app_ops_receive_sms">ಎಸ್ಎಂಎಸ್ ಸಂದೇಶಗಳನ್ನು ಸ್ವೀಕರಿಸು</string>
+    <string name="app_ops_receive_emergency_broadcast">ತುರ್ತುಸ್ಥಿತಿ ಪ್ರಸಾರ ಸಂದೇಶವನ್ನು ಸ್ವೀಕರಿಸು</string>
     <string name="app_ops_record_audio">ಆಡಿಯೋ ರಿಕಾರ್ಡ್ ಮಾಡು</string>
+    <string name="app_ops_request_delete_packages">ಘಂಟುಗಳನ್ನು ಅಳಿಸಲು ವಿನಂತಿಸು</string>
     <string name="app_ops_run_in_background">ಹಿನ್ನೆಲೆಯಲ್ಲಿ ಓಡಿಸು</string>
+    <string name="app_ops_run_any_in_background">ಹಿನ್ನೆಲೆಯಲ್ಲಿ ಓಡಿಸು</string>
     <string name="app_ops_scan_wifi">Wi-Fi ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</string>
     <string name="app_ops_send_mms">ಎಂಎಂಎಸ್ ಸಂದೇಶವನ್ನು ಕಳುಹಿಸು</string>
     <string name="app_ops_send_sms">ಎಸ್ಎಂಎಸ್ ಸಂದೇಶವನ್ನು ಕಳುಹಿಸು</string>
     <string name="app_ops_start_at_bootup">ಪವರ್ ಅಪ್ ವೇಳೆ ಆರಂಭವಾಗು</string>
+    <string name="app_ops_start_foreground">ಮುನ್ನಲೆ ಪ್ರಾರಂಭಿಸು</string>
     <string name="app_ops_su">ರೂಟ್ ಪ್ರವೇಶ ಪಡೆ</string>
     <string name="app_ops_toast_window">ಟೋಸ್ಟ್ ಸಂದೇಶಗಳನ್ನು ಪ್ರದರ್ಶಿಸು</string>
     <string name="app_ops_toggle_bluetooth">ಟಾಗಲ್ ಬ್ಲೂಟೂತ್</string>
@@ -91,6 +99,7 @@
     <string name="app_ops_use_voice_volume">ಧ್ವನಿ ಕರೆ ವಾಲ್ಯೂಂನ್ನು ನಿಯಂತ್ರಿಸು</string>
     <string name="app_ops_wifi_change">ವೈಫೈ ಸ್ಥಿತಿ ಬದಲಿಸಿ</string>
     <string name="app_ops_write_external_storage">ಬಾಹ್ಯ ಸಂಗ್ರಹವನ್ನು ಬರೆಯಿರಿ</string>
+    <string name="app_ops_write_mms">ಒಂದು MMS ಸಂದೇಶ ಬರೆ</string>
     <string name="app_ops_write_sms">ಎಸ್ಎಂಎಸ್ ಸಂದೇಶ ಬರೆ</string>
     <string name="permlab_changePrivacyGuardState">ಗೌಪ್ಯತಾ ರಕ್ಷಕವನ್ನು ಸಕ್ರಿಯ ಅಥವ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವಿಕೆ</string>
     <string name="permdesc_changePrivacyGuardState">ಆಪ್‍ಗೆ ಇತರೆ ಆಪ್ ಗೌಪ್ಯತಾ ರಕ್ಷಕದ ಜೊತೆ  ಚಲಿಸಲು ಅಗುತ್ತದೆಯೆ ಅಥವ ಇಲ್ಲವೇ ಎಂಬುದನ್ನು ಬದಲಾಯಿಸಲು ಅನುಮತಿಸುತ್ತದೆ. ಒಂದು ಆಪ್ Privacy Guard ಜೊತೆ ಚಲಿಸುತ್ತಿದ್ದಲ್ಲಿ, ಅದಕ್ಕೆ ವಯಕ್ತಿಕ ಡೇಟಾವನ್ನು ಪ್ರವೇಶಿಸಲು ಸಾಧ್ಯವಾಗುವಿದಿಲ್ಲ, ಉದಾಹರಣೆಗೆ ಸಂಪರ್ಕಗಳು, ಕರೆ ಲಾಗ್ಸ್, ಅಥವ ಸಂದೇಶಗಳು.</string>
