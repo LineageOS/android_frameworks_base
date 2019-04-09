@@ -1485,6 +1485,15 @@ public class WifiP2pManager {
         }
     }
 
+    /** @hide */
+    public Bundle getPrivilegedP2pInfo(String str) {
+        try {
+            return mService.getPrivilegedP2pInfo(str);
+        } catch(RemoteException e) {
+            return null;
+        }
+    }
+
     /**
      * Get a reference to WifiP2pService handler. This is used to establish
      * an AsyncChannel communication with WifiService
