@@ -16,6 +16,7 @@
 
 package android.net.wifi.p2p;
 
+import android.os.Bundle;
 import android.os.Messenger;
 
 /**
@@ -32,5 +33,6 @@ interface IWifiP2pManager
     void checkConfigureWifiDisplayPermission();
     boolean isAutonomousGroupOwner();
     boolean isAutonomousGroupOwnerInitiated();
+    Bundle getPrivilegedP2pInfo(String str);
 }
 
