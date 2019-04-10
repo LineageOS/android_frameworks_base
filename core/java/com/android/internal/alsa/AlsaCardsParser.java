@@ -29,6 +29,7 @@ import java.util.ArrayList;
  */
 public class AlsaCardsParser {
     private static final String TAG = "AlsaCardsParser";
+    private static final String kUsbBlakeCardNameStr = "USB-Audio - NVIDIA Controller v01.03";
     protected static final boolean DEBUG = false;
 
     private static final String kAlsaFolderPath = "/proc/asound";
@@ -107,6 +108,9 @@ public class AlsaCardsParser {
                   if (tokenIndex != -1) {
                       int keyIndex = line.indexOf(kUsbCardKeyStr);
                       boolean isUsb = keyIndex != -1;
+                      if (kUsbBlakeCardNameStr.equals(this.mCardName)) {
+                          isUsb = false;
+                      }
                       if (isUsb) {
                           mCardDescription = line.substring(tokenIndex, keyIndex - 1);
                       }
