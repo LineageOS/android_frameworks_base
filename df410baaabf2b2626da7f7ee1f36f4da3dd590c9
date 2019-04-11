@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e2768e4_f92b59f6",
+        "filename": "wifi/java/android/net/wifi/WifiManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3770,
+      "author": {
+        "id": 18678
+      },
+      "writtenOn": "2019-04-11T02:13:33Z",
+      "side": 1,
+      "message": "undefined WifiChannel",
+      "range": {
+        "startLine": 3770,
+        "startChar": 16,
+        "endLine": 3770,
+        "endChar": 27
+      },
+      "revId": "df410baaabf2b2626da7f7ee1f36f4da3dd590c9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
