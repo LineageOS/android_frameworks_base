@@ -5146,12 +5146,14 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                         // Otherwise just show the always-on screen.
                         setPulsing(true);
                     }
+                    KeyguardUpdateMonitor.getInstance(mContext).setPulsing(true);
                 }
 
                 @Override
                 public void onPulseFinished() {
                     callback.onPulseFinished();
                     setPulsing(false);
+                    KeyguardUpdateMonitor.getInstance(mContext).setPulsing(false);
                 }
 
                 private void setPulsing(boolean pulsing) {
