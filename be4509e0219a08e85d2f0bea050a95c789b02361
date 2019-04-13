@@ -16,6 +16,24 @@
       "revId": "be4509e0219a08e85d2f0bea050a95c789b02361",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0231889b_ecfbf115",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-04-13T16:47:37Z",
+      "side": 1,
+      "message": "in original code, empty string means it\u0027s empty(no shortcut) and \"shortcut also unlocks phone\" setting shouldn\u0027t be shown, but now both empty ones and single char ones(new constants at the top of this file) shouldn\u0027t allow unlocking phone, because \"n\" means empty, \"c\" and \"v\" (camera-voice) have their own behaviour.",
+      "parentUuid": "6cb24b65_1b9912d3",
+      "revId": "be4509e0219a08e85d2f0bea050a95c789b02361",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
