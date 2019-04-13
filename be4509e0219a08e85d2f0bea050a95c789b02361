@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6cb24b65_1b9912d3",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-04-13T06:06:46Z",
+      "side": 1,
+      "message": "why this change?",
+      "revId": "be4509e0219a08e85d2f0bea050a95c789b02361",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
