@@ -52,6 +52,24 @@
       "revId": "be4509e0219a08e85d2f0bea050a95c789b02361",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "061a370b_ad37607f",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-04-14T16:51:19Z",
+      "side": 1,
+      "message": "You\u0027re right. Fixed it.",
+      "parentUuid": "7f7b71ab_5c023613",
+      "revId": "be4509e0219a08e85d2f0bea050a95c789b02361",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
