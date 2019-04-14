@@ -34,6 +34,24 @@
       "revId": "be4509e0219a08e85d2f0bea050a95c789b02361",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f7b71ab_5c023613",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 18678
+      },
+      "writtenOn": "2019-04-14T12:50:13Z",
+      "side": 1,
+      "message": "v may be null, so suggest add the original condition as:\nboolean visible \u003d (!TextUtils.isEmpty(v)) \u0026\u0026 (v.contains(\"/\") || v.contains(\"::\"));",
+      "parentUuid": "0231889b_ecfbf115",
+      "revId": "be4509e0219a08e85d2f0bea050a95c789b02361",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
