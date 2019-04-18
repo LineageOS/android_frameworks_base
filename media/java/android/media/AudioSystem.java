@@ -153,6 +153,7 @@ public class AudioSystem
     public static final int AUDIO_FORMAT_LDAC           = 0x23000000;
     public static final int AUDIO_FORMAT_CELT           = 0x26000000;
     public static final int AUDIO_FORMAT_APTX_ADAPTIVE  = 0x27000000;
+    public static final int AUDIO_FORMAT_APTX_TWSP      = 0x2A000000;
 
     /**
      * Convert audio format enum values to Bluetooth codec values
@@ -167,6 +168,8 @@ public class AudioSystem
             case AUDIO_FORMAT_CELT: return BluetoothCodecConfig.SOURCE_CODEC_TYPE_CELT;
             case AUDIO_FORMAT_APTX_ADAPTIVE:
                      return BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE;
+            case AUDIO_FORMAT_APTX_TWSP:
+                     return BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_TWSP;
             default: return BluetoothCodecConfig.SOURCE_CODEC_TYPE_INVALID;
         }
     }
