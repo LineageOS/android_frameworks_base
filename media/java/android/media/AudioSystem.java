@@ -200,6 +200,7 @@ public class AudioSystem
     public static final int AUDIO_FORMAT_LDAC           = 0x23000000;
     public static final int AUDIO_FORMAT_CELT           = 0x26000000;
     public static final int AUDIO_FORMAT_APTX_ADAPTIVE  = 0x27000000;
+    public static final int AUDIO_FORMAT_APTX_TWSP      = 0x2A000000;
 
     /** @hide */
     @IntDef(flag = false, prefix = "AUDIO_FORMAT_", value = {
@@ -229,6 +230,8 @@ public class AudioSystem
             case AUDIO_FORMAT_CELT: return BluetoothCodecConfig.SOURCE_CODEC_TYPE_CELT;
             case AUDIO_FORMAT_APTX_ADAPTIVE:
                      return BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE;
+            case AUDIO_FORMAT_APTX_TWSP:
+                     return BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_TWSP;
             default:
                 Log.e(TAG, "Unknown audio format 0x" + Integer.toHexString(audioFormat)
                         + " for conversion to BT codec");
@@ -258,6 +261,8 @@ public class AudioSystem
                 return AudioSystem.AUDIO_FORMAT_CELT;
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE:
                 return AudioSystem.AUDIO_FORMAT_APTX_ADAPTIVE;
+            case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_TWSP:
+                return AudioSystem.AUDIO_FORMAT_APTX_TWSP;
             default:
                 Log.e(TAG, "Unknown BT codec 0x" + Integer.toHexString(btCodec)
                         + " for conversion to audio format");
