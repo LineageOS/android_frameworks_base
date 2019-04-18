@@ -1009,6 +1009,8 @@ public class BtHelper {
                 return AudioSystem.AUDIO_FORMAT_CELT;
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE:
                 return AudioSystem.AUDIO_FORMAT_APTX_ADAPTIVE;
+            case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_TWSP:
+                return AudioSystem.AUDIO_FORMAT_APTX_TWSP;
             default:
                 return AudioSystem.AUDIO_FORMAT_DEFAULT;
         }
