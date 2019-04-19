@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f60a6ee_82d03509",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-04-19T21:36:38Z",
+      "side": 1,
+      "message": "Wrong indentation. Needs 8 spaces more.",
+      "range": {
+        "startLine": 916,
+        "startChar": 20,
+        "endLine": 916,
+        "endChar": 37
+      },
+      "revId": "40e7202193ce48af1bfc343b2a4d776a595eddbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "569cbc8d_f7d94b2e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-04-19T21:36:38Z",
+      "side": 1,
+      "message": "No need to touch this line.",
+      "range": {
+        "startLine": 957,
+        "startChar": 0,
+        "endLine": 958,
+        "endChar": 81
+      },
+      "revId": "40e7202193ce48af1bfc343b2a4d776a595eddbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29a2cbd6_8a27be27",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-04-19T21:36:38Z",
+      "side": 1,
+      "message": "Wrong indentation. Needs 8 spaces more.",
+      "range": {
+        "startLine": 961,
+        "startChar": 20,
+        "endLine": 961,
+        "endChar": 37
+      },
+      "revId": "40e7202193ce48af1bfc343b2a4d776a595eddbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
