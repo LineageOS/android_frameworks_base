@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5a46805_3f859b9c",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-04-19T22:26:23Z",
+      "side": 1,
+      "message": "!TextUtils.isEmpty(v) \u0026\u0026 (v.contains(\"/\") || v.contains(\"::\"))",
+      "range": {
+        "startLine": 103,
+        "startChar": 30,
+        "endLine": 103,
+        "endChar": 65
+      },
+      "revId": "a4ce28e148abccd4794c969e7d511c7c22636a4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c91ceaea_b5a46c07",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-04-19T22:26:23Z",
+      "side": 1,
+      "message": "This looks out of place. I\u0027d rather remove it (not really useful) or move it inside the respective brackets.",
+      "range": {
+        "startLine": 349,
+        "startChar": 16,
+        "endLine": 349,
+        "endChar": 50
+      },
+      "revId": "a4ce28e148abccd4794c969e7d511c7c22636a4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93267e03_d0df8053",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-04-19T22:26:23Z",
+      "side": 1,
+      "message": "Same comment here.",
+      "range": {
+        "startLine": 353,
+        "startChar": 16,
+        "endLine": 353,
+        "endChar": 34
+      },
+      "revId": "a4ce28e148abccd4794c969e7d511c7c22636a4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
