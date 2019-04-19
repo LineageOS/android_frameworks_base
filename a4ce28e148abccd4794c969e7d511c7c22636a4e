@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e916e1b_350b1879",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-04-19T22:35:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5a46805_3f859b9c",
+      "range": {
+        "startLine": 103,
+        "startChar": 30,
+        "endLine": 103,
+        "endChar": 65
+      },
+      "revId": "a4ce28e148abccd4794c969e7d511c7c22636a4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c91ceaea_b5a46c07",
         "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1f40f7ff_5c65abcd",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-04-19T22:35:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c91ceaea_b5a46c07",
+      "range": {
+        "startLine": 349,
+        "startChar": 16,
+        "endLine": 349,
+        "endChar": 50
+      },
+      "revId": "a4ce28e148abccd4794c969e7d511c7c22636a4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93267e03_d0df8053",
         "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
         "patchSetId": 8
@@ -68,6 +116,30 @@
       "revId": "a4ce28e148abccd4794c969e7d511c7c22636a4e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daad8dd1_69612d3e",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-04-19T22:35:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93267e03_d0df8053",
+      "range": {
+        "startLine": 353,
+        "startChar": 16,
+        "endLine": 353,
+        "endChar": 34
+      },
+      "revId": "a4ce28e148abccd4794c969e7d511c7c22636a4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
