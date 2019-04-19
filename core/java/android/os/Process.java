@@ -16,6 +16,7 @@
 
 package android.os;
 
+import android.annotation.NonNull;
 import android.annotation.TestApi;
 import android.net.LocalSocket;
 import android.net.LocalSocketAddress;
@@ -564,15 +565,19 @@ public class Process {
      * @throws ZygoteStartFailedEx if process start failed for any reason
      */
     private static ProcessStartResult zygoteSendArgsAndGetResult(
-            ZygoteState zygoteState, ArrayList<String> args)
+            ZygoteState zygoteState, @NonNull ArrayList<String> args)
             throws ZygoteStartFailedEx {
         try {
             // Throw early if any of the arguments are malformed. This means we can
             // avoid writing a partial response to the zygote.
             int sz = args.size();
             for (int i = 0; i < sz; i++) {
+                // Making two indexOf calls here is faster than running a manually fused loop due
+                // to the fact that indexOf is a optimized intrinsic.
                 if (args.get(i).indexOf('\n') >= 0) {
-                    throw new ZygoteStartFailedEx("embedded newlines not allowed");
+                    throw new ZygoteStartFailedEx("Embedded newlines not allowed");
+                } else if (args.get(i).indexOf('\r') >= 0) {
+                    throw new ZygoteStartFailedEx("Embedded carriage returns not allowed");
                 }
             }
 
