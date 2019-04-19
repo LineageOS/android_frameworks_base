@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d13620cb_3fbd2e36",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-04-19T21:55:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f60a6ee_82d03509",
+      "range": {
+        "startLine": 916,
+        "startChar": 20,
+        "endLine": 916,
+        "endChar": 37
+      },
+      "revId": "40e7202193ce48af1bfc343b2a4d776a595eddbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "569cbc8d_f7d94b2e",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "66ef0771_bf8ad469",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-04-19T21:55:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "569cbc8d_f7d94b2e",
+      "range": {
+        "startLine": 957,
+        "startChar": 0,
+        "endLine": 958,
+        "endChar": 81
+      },
+      "revId": "40e7202193ce48af1bfc343b2a4d776a595eddbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29a2cbd6_8a27be27",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
         "patchSetId": 7
@@ -68,6 +116,30 @@
       "revId": "40e7202193ce48af1bfc343b2a4d776a595eddbd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b723be34_42159f1c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-04-19T21:55:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29a2cbd6_8a27be27",
+      "range": {
+        "startLine": 961,
+        "startChar": 20,
+        "endLine": 961,
+        "endChar": 37
+      },
+      "revId": "40e7202193ce48af1bfc343b2a4d776a595eddbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
