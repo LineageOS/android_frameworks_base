@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d15e75f0_c6b3960f",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 18678
+      },
+      "writtenOn": "2019-04-20T01:42:11Z",
+      "side": 1,
+      "message": "v may be null, so it will cause crash.",
+      "parentUuid": "0e916e1b_350b1879",
+      "range": {
+        "startLine": 103,
+        "startChar": 30,
+        "endLine": 103,
+        "endChar": 65
+      },
+      "revId": "a4ce28e148abccd4794c969e7d511c7c22636a4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c91ceaea_b5a46c07",
         "filename": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
         "patchSetId": 8
