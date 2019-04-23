@@ -27,6 +27,7 @@ import com.android.systemui.statusbar.policy.ZenModeController.Callback;
 public interface ZenModeController extends CallbackController<Callback> {
     void setZen(int zen, Uri conditionId, String reason);
     int getZen();
+    boolean areAlarmsAllowedInPriority();
     ZenRule getManualRule();
     ZenModeConfig getConfig();
     long getNextAlarm();
