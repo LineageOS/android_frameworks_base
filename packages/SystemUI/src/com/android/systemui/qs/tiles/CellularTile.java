@@ -37,6 +37,7 @@ import android.widget.Switch;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settingslib.net.DataUsageController;
+import com.android.settingslib.net.DataUsageUtils;
 import com.android.systemui.Prefs;
 import com.android.systemui.R;
 import com.android.systemui.plugins.ActivityStarter;
@@ -47,6 +48,7 @@ import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.SignalTileView;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
+import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
@@ -63,13 +65,15 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
     private final CellSignalCallback mSignalCallback = new CellSignalCallback();
     private final ActivityStarter mActivityStarter;
+    private final KeyguardStateController mKeyguard;
 
     @Inject
     public CellularTile(QSHost host, NetworkController networkController,
-            ActivityStarter activityStarter) {
+            ActivityStarter activityStarter, KeyguardStateController keyguardStateController) {
         super(host);
         mController = networkController;
         mActivityStarter = activityStarter;
+        mKeyguard = keyguardStateController;
         mDataController = mController.getMobileDataController();
         mDetailAdapter = new CellularDetailAdapter();
         mController.observe(getLifecycle(), mSignalCallback);
@@ -140,7 +144,16 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
     @Override
     protected void handleSecondaryClick() {
+        if (getState().state == Tile.STATE_UNAVAILABLE) {
+            return;
+        }
         if (mDataController.isMobileDataSupported()) {
+            if (mKeyguard.isMethodSecure() && !mKeyguard.canDismissLockScreen()) {
+                mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
+                    showDetail(true);
+                });
+                return;
+            }
             showDetail(true);
         } else {
             mActivityStarter
@@ -161,6 +174,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
         }
 
         final Resources r = mContext.getResources();
+        state.dualTarget = true;
         state.label = r.getString(R.string.mobile_data);
         boolean mobileDataEnabled = mDataController.isMobileDataSupported()
                 && mDataController.isMobileDataEnabled();
@@ -330,7 +344,9 @@ public class CellularTile extends QSTileImpl<SignalState> {
             final DataUsageDetailView v = (DataUsageDetailView) (convertView != null
                     ? convertView
                     : LayoutInflater.from(mContext).inflate(R.layout.data_usage, parent, false));
-            final DataUsageController.DataUsageInfo info = mDataController.getDataUsageInfo();
+            final DataUsageController.DataUsageInfo info = mDataController.getDataUsageInfo(
+                    DataUsageUtils.getMobileTemplate(mContext,
+                            SubscriptionManager.getDefaultDataSubscriptionId()));
             if (info == null) return v;
             v.bind(info);
             v.findViewById(R.id.roaming_text).setVisibility(mSignalCallback.mInfo.roaming

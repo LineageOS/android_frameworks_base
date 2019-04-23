@@ -40,6 +40,11 @@ public class FakeZenModeController extends BaseLeakChecker<Callback> implements 
     }
 
     @Override
+    public boolean areAlarmsAllowedInPriority() {
+        return false;
+    }
+
+    @Override
     public ZenRule getManualRule() {
         return null;
     }
