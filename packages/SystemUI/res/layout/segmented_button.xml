@@ -25,4 +25,5 @@
     android:textColor="@color/segmented_button_text_selector"
     android:background="@drawable/btn_borderless_rect"
     android:textAppearance="@style/TextAppearance.QS.SegmentedButton"
-    android:minHeight="72dp" />
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp" />

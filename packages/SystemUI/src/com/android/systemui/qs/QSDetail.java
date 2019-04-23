@@ -64,6 +64,7 @@ public class QSDetail extends LinearLayout {
     private ViewStub mQsDetailHeaderSwitchStub;
     private Switch mQsDetailHeaderSwitch;
     protected ImageView mQsDetailHeaderProgress;
+    protected View mQsDetailTopSpace;
 
     protected QSTileHost mHost;
 
@@ -91,6 +92,12 @@ public class QSDetail extends LinearLayout {
         for (int i = 0; i < mDetailViews.size(); i++) {
             mDetailViews.valueAt(i).dispatchConfigurationChanged(newConfig);
         }
+
+        // Update top space height in orientation change
+        mQsDetailTopSpace.getLayoutParams().height =
+                mContext.getResources().getDimensionPixelSize(
+                        com.android.internal.R.dimen.quick_qs_offset_height);
+        mQsDetailTopSpace.setLayoutParams(mQsDetailTopSpace.getLayoutParams());
     }
 
     @Override
@@ -104,10 +111,11 @@ public class QSDetail extends LinearLayout {
         mQsDetailHeaderTitle = (TextView) mQsDetailHeader.findViewById(android.R.id.title);
         mQsDetailHeaderSwitchStub = mQsDetailHeader.findViewById(R.id.toggle_stub);
         mQsDetailHeaderProgress = findViewById(R.id.qs_detail_header_progress);
+        mQsDetailTopSpace = findViewById(R.id.qs_detail_top_space);
 
         updateDetailText();
 
-        mClipper = new QSDetailClipper(this);
+        mClipper = new QSDetailClipper(findViewById(R.id.detail_container));
 
         final OnClickListener doneListener = new OnClickListener() {
             @Override
@@ -362,7 +370,6 @@ public class QSDetail extends LinearLayout {
             // Only hide content if still in detail state.
             if (mDetailAdapter != null) {
                 mQsPanel.setGridContentVisibility(false);
-                mHeader.setVisibility(View.INVISIBLE);
                 mFooter.setVisibility(View.INVISIBLE);
             }
             mAnimatingOpen = false;
