@@ -553,6 +553,7 @@ public final class Zygote {
         try {
             // SIGTERM is blocked on loop exit.  This prevents a USAP that is specializing from
             // being killed during a pool flush.
+            setAppProcessName(args, "USAP");
 
             applyUidSecurityPolicy(args, peerCredentials);
             applyDebuggerSystemProperty(args);
@@ -619,10 +620,6 @@ public final class Zygote {
 
             disableExecuteOnly(args.mTargetSdkVersion);
 
-            if (args.mNiceName != null) {
-                Process.setArgV0(args.mNiceName);
-            }
-
             // End of the postFork event.
             Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
 
@@ -646,6 +643,16 @@ public final class Zygote {
     }
 
     private static native void nativeUnblockSigTerm();
+
+    static void setAppProcessName(ZygoteArguments args, String loggingTag) {
+        if (args.mNiceName != null) {
+            Process.setArgV0(args.mNiceName);
+        } else if (args.mPackageName != null) {
+            Process.setArgV0(args.mPackageName);
+        } else {
+            Log.w(loggingTag, "Unable to set package name.");
+        }
+    }
 
     private static final String USAP_ERROR_PREFIX = "Invalid command to USAP: ";
 
