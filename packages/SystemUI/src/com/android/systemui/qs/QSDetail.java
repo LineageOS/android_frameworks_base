@@ -104,7 +104,7 @@ public class QSDetail extends LinearLayout {
 
         updateDetailText();
 
-        mClipper = new QSDetailClipper(this);
+        mClipper = new QSDetailClipper(findViewById(R.id.detail_container));
 
         final OnClickListener doneListener = new OnClickListener() {
             @Override
@@ -353,7 +353,6 @@ public class QSDetail extends LinearLayout {
             // Only hide content if still in detail state.
             if (mDetailAdapter != null) {
                 mQsPanel.setGridContentVisibility(false);
-                mHeader.setVisibility(View.INVISIBLE);
                 mFooter.setVisibility(View.INVISIBLE);
             }
             mAnimatingOpen = false;
