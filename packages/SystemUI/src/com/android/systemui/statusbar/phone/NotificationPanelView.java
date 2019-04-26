@@ -2632,29 +2632,37 @@ public class NotificationPanelView extends PanelView implements
         return !mDozing;
     }
 
-    public void launchCamera(boolean animate, int source) {
-        if (source == StatusBarManager.CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP) {
-            mLastCameraLaunchSource = KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP;
-        } else if (source == StatusBarManager.CAMERA_LAUNCH_SOURCE_WIGGLE) {
-            mLastCameraLaunchSource = KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_WIGGLE;
-        } else if (source == StatusBarManager.CAMERA_LAUNCH_SOURCE_LIFT_TRIGGER) {
-            mLastCameraLaunchSource = KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_LIFT_TRIGGER;
-        } else {
+    private String convertCameraLaunchSource(int source) {
+      if (source == StatusBarManager.CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP) {
+          return KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP;
+      } else if (source == StatusBarManager.CAMERA_LAUNCH_SOURCE_WIGGLE) {
+          return KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_WIGGLE;
+      } else if (source == StatusBarManager.CAMERA_LAUNCH_SOURCE_LIFT_TRIGGER) {
+          return KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_LIFT_TRIGGER;
+      } else {
 
-            // Default.
-            mLastCameraLaunchSource = KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE;
-        }
+          // Default.
+          return KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE;
+      }
+    }
+
+    public void launchCamera(boolean animate, int source) {
+        mLastCameraLaunchSource = convertCameraLaunchSource(source);
+        mAffordanceHasPreview = mKeyguardBottomArea.getRightPreview() != null;
 
         // If we are launching it when we are occluded already we don't want it to animate,
         // nor setting these flags, since the occluded state doesn't change anymore, hence it's
         // never reset.
-        if (!isFullyCollapsed()) {
+        if (!isFullyCollapsed() && (mLastCameraLaunchSource ==
+                KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE ||
+                mKeyguardBottomArea.isRightAffordanceDefault())) {
             mLaunchingAffordance = true;
             setLaunchingAffordance(true);
         } else {
             animate = false;
+            mAffordanceHasPreview = mAffordanceHasPreview &&
+                    mKeyguardBottomArea.isRightAffordanceDefault();
         }
-        mAffordanceHasPreview = mKeyguardBottomArea.getRightPreview() != null;
         mAffordanceHelper.launchAffordance(animate, getLayoutDirection() == LAYOUT_DIRECTION_RTL);
     }
 
@@ -2709,14 +2717,27 @@ public class NotificationPanelView extends PanelView implements
     /**
      * Whether the camera application can be launched for the camera launch gesture.
      *
+     * @param source is StatusBarManager constant that tells the gesture source
      * @param keyguardIsShowing whether keyguard is being shown
      */
-    public boolean canCameraGestureBeLaunched(boolean keyguardIsShowing) {
-        if (!mStatusBar.isCameraAllowedByAdmin()) {
-            return false;
+    public boolean canCameraGestureBeLaunched(int source, boolean keyguardIsShowing) {
+        ResolveInfo resolveInfo;
+        boolean adminAllowsCamera = mStatusBar.isCameraAllowedByAdmin();
+
+        if (!(convertCameraLaunchSource(source).equals(
+                KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE))) {
+
+            if (!adminAllowsCamera) {
+                return false;
+            }
+            resolveInfo = mKeyguardBottomArea.resolveCameraIntent();
+        } else {
+            if (mKeyguardBottomArea.isRightAffordanceDefault() && !adminAllowsCamera) {
+                return false;
+            }
+            resolveInfo = mKeyguardBottomArea.resolveRightIntent();
         }
 
-        ResolveInfo resolveInfo = mKeyguardBottomArea.resolveCameraIntent();
         String packageToLaunch = (resolveInfo == null || resolveInfo.activityInfo == null)
                 ? null : resolveInfo.activityInfo.packageName;
         return packageToLaunch != null &&
