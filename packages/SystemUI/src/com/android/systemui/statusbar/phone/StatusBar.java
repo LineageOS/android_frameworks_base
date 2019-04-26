@@ -4936,7 +4936,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             mLaunchCameraOnFinishedGoingToSleep = true;
             return;
         }
-        if (!mNotificationPanel.canCameraGestureBeLaunched(
+        if (!mNotificationPanel.canCameraGestureBeLaunched(source,
                 mStatusBarKeyguardViewManager.isShowing() && mExpandedVisible)) {
             if (DEBUG_CAMERA_LIFT) Slog.d(TAG, "Can't launch camera right now, mExpandedVisible: " +
                     mExpandedVisible);
