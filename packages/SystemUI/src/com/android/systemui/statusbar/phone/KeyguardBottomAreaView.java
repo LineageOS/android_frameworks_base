@@ -361,8 +361,16 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         refreshAffordance();
     }
 
-    private Intent getCameraIntent() {
+    private Intent getRightIntent() {
         return mRightButton.getIntent();
+    }
+
+    private Intent getCameraIntent() {
+        KeyguardUpdateMonitor updateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
+        boolean canSkipBouncer = updateMonitor.getUserCanSkipBouncer(
+                KeyguardUpdateMonitor.getCurrentUser());
+        boolean secure = mLockPatternUtils.isSecure(KeyguardUpdateMonitor.getCurrentUser());
+        return (secure && !canSkipBouncer) ? SECURE_CAMERA_INTENT : INSECURE_CAMERA_INTENT;
     }
 
     /**
@@ -370,6 +378,12 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
      */
     public ResolveInfo resolveCameraIntent() {
         return mContext.getPackageManager().resolveActivityAsUser(getCameraIntent(),
+                PackageManager.MATCH_DEFAULT_ONLY,
+                KeyguardUpdateMonitor.getCurrentUser());
+    }
+
+    public ResolveInfo resolveRightIntent() {
+        return mContext.getPackageManager().resolveActivityAsUser(getRightIntent(),
                 PackageManager.MATCH_DEFAULT_ONLY,
                 KeyguardUpdateMonitor.getCurrentUser());
     }
@@ -382,7 +396,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
      */
     private void refreshAffordance() {
         if (mRightAffordanceView != null) {
-            if (mRightButton instanceof DefaultRightButton) {
+            if (isRightAffordanceDefault()) {
                 updateRightAffordanceIcon();
             } else if (mRightAffordanceView.getVisibility() != View.VISIBLE) {
                 // Also includes inflating preview
@@ -423,6 +437,11 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         return mLeftIsVoiceAssist;
     }
 
+    // Default means camera - Pie default is camera too, but not visible
+    public boolean isRightAffordanceDefault() {
+        return (mRightButton instanceof DefaultRightButton);
+    }
+
     private boolean isPhoneVisible() {
         PackageManager pm = mContext.getPackageManager();
         return pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)
@@ -447,6 +466,11 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     }
 
     public void bindCameraPrewarmService() {
+        // This method only called at onSwipingStarted. If there's no camera, no need to it.
+        if (!isRightAffordanceDefault()) {
+            return;
+        }
+
         Intent intent = getCameraIntent();
         ActivityInfo targetInfo = mActivityIntentHelper.getTargetActivityInfo(intent,
                 KeyguardUpdateMonitor.getCurrentUser(), true /* onlyDirectBootAware */);
@@ -487,8 +511,16 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     }
 
     public void launchCamera(String source) {
-        final Intent intent = getCameraIntent();
-        intent.putExtra(EXTRA_CAMERA_LAUNCH_SOURCE, source);
+        final Intent intent;
+        if (source.equals(CAMERA_LAUNCH_SOURCE_AFFORDANCE)) {
+            intent = getRightIntent();
+            if (isRightAffordanceDefault()) {
+                intent.putExtra(EXTRA_CAMERA_LAUNCH_SOURCE, source);
+            }
+        } else {
+            intent = getCameraIntent();
+            intent.putExtra(EXTRA_CAMERA_LAUNCH_SOURCE, source);
+        }
         boolean wouldLaunchResolverActivity = mActivityIntentHelper.wouldLaunchResolverActivity(
                 intent, KeyguardUpdateMonitor.getCurrentUser());
         if (intent == SECURE_CAMERA_INTENT && !wouldLaunchResolverActivity) {
@@ -641,6 +673,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         refreshAffordance();
     }
 
+    // Not camera anymore, it's right affordance
     private void inflateCameraPreview() {
         View previewBefore = mCameraPreview;
         boolean visibleBefore = false;
@@ -648,7 +681,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
             mPreviewContainer.removeView(previewBefore);
             visibleBefore = previewBefore.getVisibility() == View.VISIBLE;
         }
-        mCameraPreview = mPreviewInflater.inflatePreview(getCameraIntent());
+        mCameraPreview = mPreviewInflater.inflatePreview(getRightIntent());
         if (mCameraPreview != null) {
             mPreviewContainer.addView(mCameraPreview);
             mCameraPreview.setVisibility(visibleBefore ? View.VISIBLE : View.INVISIBLE);
@@ -879,11 +912,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
 
         @Override
         public Intent getIntent() {
-            KeyguardUpdateMonitor updateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
-            boolean canSkipBouncer = updateMonitor.getUserCanSkipBouncer(
-                    KeyguardUpdateMonitor.getCurrentUser());
-            boolean secure = mLockPatternUtils.isSecure(KeyguardUpdateMonitor.getCurrentUser());
-            return (secure && !canSkipBouncer) ? SECURE_CAMERA_INTENT : INSECURE_CAMERA_INTENT;
+            return getCameraIntent();
         }
     }
 
