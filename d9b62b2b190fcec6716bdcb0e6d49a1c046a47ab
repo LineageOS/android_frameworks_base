@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "57c3b85d_c4026162",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-04-30T13:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7fdd190_7e675095",
+      "range": {
+        "startLine": 509,
+        "startChar": 16,
+        "endLine": 509,
+        "endChar": 20
+      },
+      "revId": "d9b62b2b190fcec6716bdcb0e6d49a1c046a47ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7497320_0c4a510c",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "d9b62b2b190fcec6716bdcb0e6d49a1c046a47ab",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "013f4681_46b1e0d6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2646,
+      "author": {
+        "id": 13627
+      },
+      "writtenOn": "2019-04-30T13:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7497320_0c4a510c",
+      "range": {
+        "startLine": 2636,
+        "startChar": 0,
+        "endLine": 2646,
+        "endChar": 7
+      },
+      "revId": "d9b62b2b190fcec6716bdcb0e6d49a1c046a47ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
