@@ -240,7 +240,7 @@ public final class RotationPolicy {
                 case DisplayOrientation.ORIENTATION_270:
                     return Surface.ROTATION_270;
             }
-        } catch (RemoteException e) {
+        } catch (RemoteException | NoSuchElementException e) {
             // do nothing
         }
 
