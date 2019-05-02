@@ -38,6 +38,8 @@ import android.view.WindowManagerGlobal;
 
 import com.android.internal.R;
 
+import java.util.NoSuchElementException;
+
 /**
  * Provides helper functions for configuring the display rotation policy.
  */
@@ -240,7 +242,7 @@ public final class RotationPolicy {
                 case DisplayOrientation.ORIENTATION_270:
                     return Surface.ROTATION_270;
             }
-        } catch (RemoteException e) {
+        } catch (RemoteException | NoSuchElementException e) {
             // do nothing
         }
 
