@@ -224,6 +224,9 @@ public class CachedBluetoothDeviceManager {
                     cachedDevice.setJustDiscovered(false);
                     mCachedDevices.remove(i);
                 }
+                //Clear if there any Tws battery info on BT turning OFF
+                cachedDevice.mTwspBatteryState = -1;
+                cachedDevice.mTwspBatteryLevel = -1;
             }
         }
     }
