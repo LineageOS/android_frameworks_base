@@ -108,6 +108,8 @@ public class BluetoothEventManager {
         addHandler(BluetoothDevice.ACTION_CLASS_CHANGED, new ClassChangedHandler());
         addHandler(BluetoothDevice.ACTION_UUID, new UuidChangedHandler());
         addHandler(BluetoothDevice.ACTION_BATTERY_LEVEL_CHANGED, new BatteryLevelChangedHandler());
+        addHandler(BluetoothHeadset.ACTION_HF_TWSP_BATTERY_STATE_CHANGED ,
+                  new TwspBatteryLevelChangedHandler());
 
         // Active device broadcasts
         addHandler(BluetoothA2dp.ACTION_ACTIVE_DEVICE_CHANGED, new ActiveDeviceChangedHandler());
@@ -415,6 +417,24 @@ public class BluetoothEventManager {
         public void onReceive(Context context, Intent intent, BluetoothDevice device) {
             CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
             if (cachedDevice != null) {
+                cachedDevice.refresh();
+            }
+        }
+    }
+
+    private class TwspBatteryLevelChangedHandler implements Handler {
+        public void onReceive(Context context, Intent intent,
+                BluetoothDevice device) {
+            CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
+            if (cachedDevice != null) {
+                cachedDevice.mTwspBatteryState =
+                          intent.getIntExtra(
+                              BluetoothHeadset.EXTRA_HF_TWSP_BATTERY_STATE, -1);
+                cachedDevice.mTwspBatteryLevel =
+                          intent.getIntExtra(
+                              BluetoothHeadset.EXTRA_HF_TWSP_BATTERY_LEVEL, -1);
+                Log.i(TAG, cachedDevice + ": mTwspBatteryState: " + cachedDevice.mTwspBatteryState
+                    + "mTwspBatteryLevel: " + cachedDevice.mTwspBatteryLevel);
                 cachedDevice.refresh();
             }
         }

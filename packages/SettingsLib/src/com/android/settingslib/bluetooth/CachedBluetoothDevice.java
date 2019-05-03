@@ -79,6 +79,8 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
 
     private final Collection<Callback> mCallbacks = new CopyOnWriteArrayList<>();
 
+    public int mTwspBatteryState;
+    public int mTwspBatteryLevel;
     /**
      * Last time a bt profile auto-connect was attempted.
      * If an ACTION_UUID intent comes in within
@@ -102,6 +104,8 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         mDevice = device;
         fillData();
         mHiSyncId = BluetoothHearingAid.HI_SYNC_ID_INVALID;
+        mTwspBatteryState = -1;
+        mTwspBatteryLevel = -1;
     }
 
     /* Gets Device for seondary TWS device
@@ -173,6 +177,10 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
                 mProfiles.remove(profile);
                 mRemovedProfiles.add(profile);
                 mLocalNapRoleConnected = false;
+            } else if (profile instanceof HeadsetProfile
+                    && newProfileState == BluetoothProfile.STATE_DISCONNECTED) {
+                mTwspBatteryState = -1;
+                mTwspBatteryLevel = -1;
             }
         }
 
@@ -922,11 +930,28 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         // BluetoothDevice.BATTERY_LEVEL_UNKNOWN, any other value should be a framework bug.
         // Thus assume here that if value is not BluetoothDevice.BATTERY_LEVEL_UNKNOWN, it must
         // be valid
-        final int batteryLevel = getBatteryLevel();
-        if (batteryLevel != BluetoothDevice.BATTERY_LEVEL_UNKNOWN) {
-            // TODO: name com.android.settingslib.bluetooth.Utils something different
-            batteryLevelPercentageString =
+
+        if (mDevice.isTwsPlusDevice() && mTwspBatteryState != -1 &&
+           mTwspBatteryLevel != -1) {
+            String s = "TWSP: ";
+            String chargingState;
+            if (mTwspBatteryState == 1) {
+                chargingState = "Charging, ";
+            } else {
+                chargingState = "Discharging, ";
+            }
+            s = s.concat (chargingState);
+            s = s.concat(
+                 com.android.settingslib.Utils.formatPercentage(mTwspBatteryLevel));
+            batteryLevelPercentageString = s;
+            Log.i(TAG, "UI string" + batteryLevelPercentageString);
+        } else {
+            final int batteryLevel = getBatteryLevel();
+            if (batteryLevel != BluetoothDevice.BATTERY_LEVEL_UNKNOWN) {
+                // TODO: name com.android.settingslib.bluetooth.Utils something different
+                batteryLevelPercentageString =
                     com.android.settingslib.Utils.formatPercentage(batteryLevel);
+            }
         }
 
         int stringRes = R.string.bluetooth_pairing;
