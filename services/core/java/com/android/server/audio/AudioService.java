@@ -542,7 +542,6 @@ public class AudioService extends IAudioService.Stub
     // Devices for which the volume is fixed (volume is either max or muted)
     Set<Integer> mFixedVolumeDevices = new HashSet<>(Arrays.asList(
             AudioSystem.DEVICE_OUT_DGTL_DOCK_HEADSET,
-            AudioSystem.DEVICE_OUT_ANLG_DOCK_HEADSET,
             AudioSystem.DEVICE_OUT_HDMI_ARC,
             AudioSystem.DEVICE_OUT_SPDIF,
             AudioSystem.DEVICE_OUT_AUX_LINE));
@@ -553,9 +552,7 @@ public class AudioService extends IAudioService.Stub
     // by the audio mode (e.g. media playback in MODE_NORMAL, and phone calls in MODE_IN_CALL).
     Set<Integer> mAbsVolumeMultiModeCaseDevices = new HashSet<>(
             Arrays.asList(AudioSystem.DEVICE_OUT_HEARING_AID));
-
     private final boolean mMonitorRotation;
-
     private boolean mDockAudioMediaEnabled = true;
 
     private int mDockState = Intent.EXTRA_DOCK_STATE_UNDOCKED;
