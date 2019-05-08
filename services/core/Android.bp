@@ -206,6 +206,7 @@ java_library_static {
         "icu4j_calendar_astronomer",
         "android.security.aaid_aidl-java",
         "netd-client",
+        "motorola.hardware.health-V1.0-java",
         "overlayable_policy_aidl-java",
         "com.android.sysprop.watchdog",
         "securebox",
