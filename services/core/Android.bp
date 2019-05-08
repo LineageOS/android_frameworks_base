@@ -129,6 +129,7 @@ java_library_static {
         "android.hidl.manager-V1.2-java",
         "capture_state_listener-aidl-java",
         "dnsresolver_aidl_interface-java",
+        "motorola.hardware.health-V1.0-java",
         "netd_aidl_interfaces-platform-java",
         "org.lineageos.platform.internal",
         "overlayable_policy_aidl-java",
