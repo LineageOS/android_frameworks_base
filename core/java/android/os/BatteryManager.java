@@ -164,6 +164,16 @@ public class BatteryManager {
     @SystemApi
     public static final String EXTRA_EVENT_TIMESTAMP = "android.os.extra.EVENT_TIMESTAMP";
 
+    public static final String EXTRA_MOD_FLAG = "android.os.extra.MOD_FLAG";
+    public static final String EXTRA_MOD_POWER_SOURCE = "android.os.extra.MOD_POWER_SOURCE";
+    public static final String EXTRA_MOD_STATUS = "android.os.extra.MOD_STATUS";
+    public static final String EXTRA_MOD_TYPE = "android.os.extra.MOD_TYPE";
+    public static final String EXTRA_PLUGGED_RAW = "android.os.extra.PLUGGED_RAW";
+
+    public static final int BATTERY_PROPERTY_MOD_CHARGE_FULL = 100;
+    public static final int BATTERY_PROPERTY_CHARGE_FULL = 101;
+    public static final int BATTERY_PLUGGED_MOD = 8;
+
     // values for "status" field in the ACTION_BATTERY_CHANGED Intent
     public static final int BATTERY_STATUS_UNKNOWN = Constants.BATTERY_STATUS_UNKNOWN;
     public static final int BATTERY_STATUS_CHARGING = Constants.BATTERY_STATUS_CHARGING;
@@ -191,7 +201,7 @@ public class BatteryManager {
 
     /** @hide */
     public static final int BATTERY_PLUGGED_ANY =
-            BATTERY_PLUGGED_AC | BATTERY_PLUGGED_USB | BATTERY_PLUGGED_WIRELESS;
+            BATTERY_PLUGGED_AC | BATTERY_PLUGGED_USB | BATTERY_PLUGGED_WIRELESS | BATTERY_PLUGGED_MOD;
 
     /**
      * Sent when the device's battery has started charging (or has reached full charge
