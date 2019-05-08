@@ -539,6 +539,7 @@ public class AudioService extends IAudioService.Stub
     // Used to play ringtones outside system_server
     private volatile IRingtonePlayer mRingtonePlayer;
 
+<<<<<<< HEAD   (dae817 NfcTile: Don't create an error when editing tiles)
     // Devices for which the volume is fixed (volume is either max or muted)
     Set<Integer> mFixedVolumeDevices = new HashSet<>(Arrays.asList(
             AudioSystem.DEVICE_OUT_DGTL_DOCK_HEADSET,
@@ -553,6 +554,24 @@ public class AudioService extends IAudioService.Stub
     // by the audio mode (e.g. media playback in MODE_NORMAL, and phone calls in MODE_IN_CALL).
     Set<Integer> mAbsVolumeMultiModeCaseDevices = new HashSet<>(
             Arrays.asList(AudioSystem.DEVICE_OUT_HEARING_AID));
+=======
+    // Request to override default use of A2DP for media.
+    private boolean mBluetoothA2dpEnabled;
+    private final Object mBluetoothA2dpEnabledLock = new Object();
+
+    // Monitoring of audio routes.  Protected by mCurAudioRoutes.
+    final AudioRoutesInfo mCurAudioRoutes = new AudioRoutesInfo();
+    final RemoteCallbackList<IAudioRoutesObserver> mRoutesObservers
+            = new RemoteCallbackList<IAudioRoutesObserver>();
+
+    // Devices for which the volume is fixed and VolumePanel slider should be disabled
+    int mFixedVolumeDevices = AudioSystem.DEVICE_OUT_HDMI |
+            AudioSystem.DEVICE_OUT_DGTL_DOCK_HEADSET |
+            AudioSystem.DEVICE_OUT_HDMI_ARC |
+            AudioSystem.DEVICE_OUT_SPDIF |
+            AudioSystem.DEVICE_OUT_AUX_LINE;
+    int mFullVolumeDevices = 0;
+>>>>>>> CHANGE (24ce6c AudioService: Remove Analog Dock from fixed-volume devices)
 
     private final boolean mMonitorRotation;
 
