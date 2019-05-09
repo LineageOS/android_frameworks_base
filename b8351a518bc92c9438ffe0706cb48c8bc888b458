@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34615759_d4eb563a",
+        "filename": "core/java/android/view/ViewRootImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 5104,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-05-09T10:59:27Z",
+      "side": 1,
+      "message": "Line length.",
+      "range": {
+        "startLine": 5104,
+        "startChar": 12,
+        "endLine": 5104,
+        "endChar": 111
+      },
+      "revId": "b8351a518bc92c9438ffe0706cb48c8bc888b458",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12b727a1_a7573be4",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2306,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-05-09T10:59:27Z",
+      "side": 1,
+      "message": "Line length.",
+      "range": {
+        "startLine": 2306,
+        "startChar": 8,
+        "endLine": 2306,
+        "endChar": 111
+      },
+      "revId": "b8351a518bc92c9438ffe0706cb48c8bc888b458",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11f088c6_4c97fe97",
+        "filename": "services/core/java/com/android/server/policy/SwipeToScreenshotListener.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-05-09T10:59:27Z",
+      "side": 1,
+      "message": "The code in this file is too condensed.",
+      "revId": "b8351a518bc92c9438ffe0706cb48c8bc888b458",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b45b8c60_251a855b",
+        "filename": "services/core/java/com/android/server/policy/SwipeToScreenshotListener.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-05-09T10:59:27Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "range": {
+        "startLine": 110,
+        "startChar": 12,
+        "endLine": 110,
+        "endChar": 16
+      },
+      "revId": "b8351a518bc92c9438ffe0706cb48c8bc888b458",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
