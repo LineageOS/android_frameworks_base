@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e253901e_3f40d866",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2019-05-09T10:38:57Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "975572c7_4e78176e",
+      "range": {
+        "startLine": 884,
+        "startChar": 20,
+        "endLine": 884,
+        "endChar": 37
+      },
+      "revId": "270d5075893d0169fbc0cff3b53a604915def79f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de068d06_d0fbace0",
         "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-05-09T09:48:58Z",
       "side": 1,
       "message": "insert space before",
+      "range": {
+        "startLine": 2699,
+        "startChar": 63,
+        "endLine": 2699,
+        "endChar": 64
+      },
+      "revId": "270d5075893d0169fbc0cff3b53a604915def79f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2be2c549_412dca1e",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2699,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2019-05-09T10:38:57Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "de068d06_d0fbace0",
       "range": {
         "startLine": 2699,
         "startChar": 63,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "c7d4532a_ce3a8453",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2700,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2019-05-09T10:38:57Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "d95cfd89_a75c2221",
+      "revId": "270d5075893d0169fbc0cff3b53a604915def79f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fde8772_949dbaad",
         "filename": "services/core/java/com/android/server/policy/SwipeToScreenshotListener.java",
         "patchSetId": 2
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "1ceb449c_cdb8315c",
+        "filename": "services/core/java/com/android/server/policy/SwipeToScreenshotListener.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2019-05-09T10:38:57Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "8fde8772_949dbaad",
+      "range": {
+        "startLine": 2,
+        "startChar": 26,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "270d5075893d0169fbc0cff3b53a604915def79f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "17c2ce56_22f4a792",
         "filename": "services/core/java/com/android/server/policy/SwipeToScreenshotListener.java",
         "patchSetId": 2
@@ -99,6 +189,30 @@
       "writtenOn": "2019-05-09T09:48:58Z",
       "side": 1,
       "message": "Make this a constant, you\u0027re using it in several places",
+      "range": {
+        "startLine": 111,
+        "startChar": 38,
+        "endLine": 111,
+        "endChar": 60
+      },
+      "revId": "270d5075893d0169fbc0cff3b53a604915def79f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63a94ca8_3ffd61fc",
+        "filename": "services/core/java/com/android/server/policy/SwipeToScreenshotListener.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2019-05-09T10:38:57Z",
+      "side": 1,
+      "message": "its just used here and once in another class",
+      "parentUuid": "17c2ce56_22f4a792",
       "range": {
         "startLine": 111,
         "startChar": 38,
