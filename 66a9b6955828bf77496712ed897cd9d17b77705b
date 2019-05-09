@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b437db5_23dad544",
+        "filename": "core/java/android/view/ViewRootImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 5105,
+      "author": {
+        "id": 16889
+      },
+      "writtenOn": "2019-05-09T13:15:25Z",
+      "side": 1,
+      "message": "Not sure if only prop check is a good thing",
+      "revId": "66a9b6955828bf77496712ed897cd9d17b77705b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
