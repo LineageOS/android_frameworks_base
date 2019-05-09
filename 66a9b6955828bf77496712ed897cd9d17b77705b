@@ -16,6 +16,24 @@
       "revId": "66a9b6955828bf77496712ed897cd9d17b77705b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66fc1cb8_0c670f0f",
+        "filename": "core/java/android/view/ViewRootImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 5105,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-05-09T14:43:29Z",
+      "side": 1,
+      "message": "It\u0027s really ugly to see a prop for a setting, go away from it\nalso why is it needed?",
+      "parentUuid": "",
+      "revId": "66a9b6955828bf77496712ed897cd9d17b77705b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
