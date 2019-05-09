@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "975572c7_4e78176e",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-05-09T09:48:58Z",
+      "side": 1,
+      "message": "mThreeFingerGestureEnabled",
+      "range": {
+        "startLine": 884,
+        "startChar": 20,
+        "endLine": 884,
+        "endChar": 37
+      },
+      "revId": "270d5075893d0169fbc0cff3b53a604915def79f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de068d06_d0fbace0",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2699,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-05-09T09:48:58Z",
+      "side": 1,
+      "message": "insert space before",
+      "range": {
+        "startLine": 2699,
+        "startChar": 63,
+        "endLine": 2699,
+        "endChar": 64
+      },
+      "revId": "270d5075893d0169fbc0cff3b53a604915def79f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d95cfd89_a75c2221",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2700,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-05-09T09:48:58Z",
+      "side": 1,
+      "message": "if (enable !\u003d haveEnableGesture) {\n    return;\n}\nif (enable) {\n    haveEnableGesture \u003d true;\n    mWindowManagerFuncs.registerPointerEventListener(mSwipeToScreenshot);\n} else {\n    haveEnableGesture \u003d false;\n    mWindowManagerFuncs.unregisterPointerEventListener(mSwipeToScreenshot);\n}",
+      "revId": "270d5075893d0169fbc0cff3b53a604915def79f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fde8772_949dbaad",
+        "filename": "services/core/java/com/android/server/policy/SwipeToScreenshotListener.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-05-09T09:48:58Z",
+      "side": 1,
+      "message": "Add \"The LineageOS Project\", below it on another line you can/should keep the original one",
+      "range": {
+        "startLine": 2,
+        "startChar": 26,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "270d5075893d0169fbc0cff3b53a604915def79f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17c2ce56_22f4a792",
+        "filename": "services/core/java/com/android/server/policy/SwipeToScreenshotListener.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-05-09T09:48:58Z",
+      "side": 1,
+      "message": "Make this a constant, you\u0027re using it in several places",
+      "range": {
+        "startLine": 111,
+        "startChar": 38,
+        "endLine": 111,
+        "endChar": 60
+      },
+      "revId": "270d5075893d0169fbc0cff3b53a604915def79f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
