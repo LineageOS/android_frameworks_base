@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae3aa4c6_b794e0bb",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-05-14T06:07:14Z",
+      "side": 1,
+      "message": "Try to add a return here at the beginning if mShowing is false.\nI think we\u0027re hitting a race condition that makes the animation occur\ntwice when dismissing an \"open wide\" panel",
+      "revId": "8048c90819a4aa2bd4030949b64fcf0f0255e4a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
