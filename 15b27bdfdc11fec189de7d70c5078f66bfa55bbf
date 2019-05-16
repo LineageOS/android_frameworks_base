@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffcbcae3_7e53802e",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-05-16T18:07:56Z",
+      "side": 1,
+      "message": "The logic changes here don\u0027t quite look right.\n\nWould it be possible to change the original !mDeviceInteractive to (!mDeviceInteractive \u0026\u0026 proximitySensorAllowsUsingFingerprint()) and leave everything else as is ?",
+      "revId": "15b27bdfdc11fec189de7d70c5078f66bfa55bbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
