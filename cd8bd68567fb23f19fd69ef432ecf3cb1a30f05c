@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b1bc2ee_31099942",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-05-16T10:50:11Z",
+      "side": 1,
+      "message": "move the boolean here just because it was added later",
+      "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f0cd641_504d3eb4",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-05-16T10:50:11Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea553294_43d17423",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-05-16T10:50:11Z",
+      "side": 1,
+      "message": "add parentheses",
+      "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d82f5682_ec5c0294",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-05-16T10:50:11Z",
+      "side": 1,
+      "message": "is there a reason for this loop to be inverted?",
+      "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e3ea07_b3d79f75",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-05-16T10:50:11Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
