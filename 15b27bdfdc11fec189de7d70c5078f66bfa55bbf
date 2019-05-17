@@ -16,6 +16,24 @@
       "revId": "15b27bdfdc11fec189de7d70c5078f66bfa55bbf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9986494f_f5c7da5d",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 15964
+      },
+      "writtenOn": "2019-05-17T02:52:56Z",
+      "side": 1,
+      "message": "1. It works with just using proximitySensorAllowUsingFingerprint() at the end so why (!mDeviceInteractive \u0026\u0026 proximitySensorAllowUsingFingerprint()) together? It avoids which scenario?\n2. Why did you add mDeviceInteractive? It was removed in https://github.com/LineageOS/android_frameworks_base/commit/3119a18fe3cb8782076fb7708f4a20247a011cf2#diff-2e22a78044102b45508b5053ef752bcc",
+      "parentUuid": "ffcbcae3_7e53802e",
+      "revId": "15b27bdfdc11fec189de7d70c5078f66bfa55bbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
