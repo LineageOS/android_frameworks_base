@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "01ad1bb2_28410691",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-05-17T06:42:45Z",
+      "side": 1,
+      "message": "We should guard against sending noop messages:\n\nfinal boolean proximitySensorCovered \u003d event.values[0] \u003c mSensor.getMaximumRange();\nif (mProximitySensorCovered !\u003d proximitySensorCovered) {\n    mProximitySensorCovered \u003d proximitySensorCovered;\n    mHandler.sendEmptyMessage(MSG_PROXIMITY_CHANGE);\n}\n\nI can look at fixing this up this weekend.",
+      "revId": "15b27bdfdc11fec189de7d70c5078f66bfa55bbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ffcbcae3_7e53802e",
         "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
         "patchSetId": 1
