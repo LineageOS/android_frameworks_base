@@ -34,6 +34,24 @@
       "revId": "15b27bdfdc11fec189de7d70c5078f66bfa55bbf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4eed2119_c00b1dce",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-05-17T03:32:44Z",
+      "side": 1,
+      "message": "1. you mean \u0026\u0026 proximitySensorAllowUsingFingerprint() ?   Then proximity sensing will apply all the time and it should only be when the device is \"off\".",
+      "parentUuid": "9986494f_f5c7da5d",
+      "revId": "15b27bdfdc11fec189de7d70c5078f66bfa55bbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
