@@ -52,6 +52,24 @@
       "revId": "15b27bdfdc11fec189de7d70c5078f66bfa55bbf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "428672c1_3bd1b0b7",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 15964
+      },
+      "writtenOn": "2019-05-17T05:08:33Z",
+      "side": 1,
+      "message": "Umm, it would be off when handleScreenTurnedOn() during which disableProximityListener() is called, could you please correct me if I\u0027m wrong?",
+      "parentUuid": "4eed2119_c00b1dce",
+      "revId": "15b27bdfdc11fec189de7d70c5078f66bfa55bbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
