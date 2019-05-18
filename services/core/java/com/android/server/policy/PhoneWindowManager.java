@@ -192,6 +192,10 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.hardware.display.DisplayManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.hardware.hdmi.HdmiControlManager;
 import android.hardware.hdmi.HdmiPlaybackClient;
 import android.hardware.hdmi.HdmiPlaybackClient.OneTouchPlayCallback;
@@ -817,6 +821,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     // (See LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR.)
     int mRingHomeBehavior;
 
+    // Create Lid Event Listener
+    private LidSensorEventListener mEvtListener = null;
+    private Sensor mSensor = null;
+    private SensorManager mSensorManager = null;
+    private int mLidSensorType = 0;
+
     Display mDisplay;
 
     int mLandscapeRotation = 0;  // default landscape rotation
@@ -1216,6 +1226,20 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             "android.policy:GESTURE");
                 }
             }
+        }
+    }
+
+    class LidSensorEventListener implements SensorEventListener {
+
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            if (event.values != null && event.values.length != 0) {
+                notifyLidSwitchChanged(0, ((int) event.values[0]) == 0);
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
     }
 
@@ -2357,6 +2381,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 com.android.internal.R.bool.config_lidControlsScreenLock);
         mLidControlsSleep = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_lidControlsSleep);
+        mLidSensorType = mContext.getResources().getInteger(
+                com.android.internal.R.integer.config_lidSensorType);
         mTranslucentDecorEnabled = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_enableTranslucentDecor);
 
@@ -2599,6 +2625,19 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         filter = new IntentFilter();
         filter.addAction(ACTION_TORCH_OFF);
         context.registerReceiver(torchReceiver, filter);
+
+        if (mLidSensorType > 0) {
+            Slog.d(TAG, "new LidSensorManager");
+            mSensorManager = (SensorManager)context.getSystemService(Context.SENSOR_SERVICE);
+            mSensor = mSensorManager.getDefaultSensor(mLidSensorType, true);
+            if (mSensor == null) {
+                Slog.d(TAG, "get sensor fail...");
+                mEvtListener = null;
+                return;
+            }
+            mEvtListener = new LidSensorEventListener();
+            mSensorManager.registerListener(mEvtListener, mSensor, SensorManager.SENSOR_DELAY_UI);
+        }
     }
 
     private void updateKeyAssignments() {
