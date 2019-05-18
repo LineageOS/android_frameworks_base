@@ -850,6 +850,11 @@
          The default is false. -->
     <bool name="config_lidControlsSleep">false</bool>
 
+    <!-- Indicate the type number of the lid sensor, which is used in QTI sensor framework.
+         0 disables using of the sensor framework for hall.
+         The default is 0. -->
+    <integer name="config_lidSensorType">0</integer>
+
     <!-- Desk dock behavior -->
 
     <!-- The number of degrees to rotate the display when the device is in a desk dock.
