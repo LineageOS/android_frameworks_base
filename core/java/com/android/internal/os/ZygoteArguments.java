@@ -205,6 +205,11 @@ class ZygoteArguments {
     int mHiddenApiAccessStatslogSampleRate = -1;
 
     /**
+     * @see Zygote#START_AS_TOP_APP_ARG
+     */
+    boolean mIsTopApp;
+
+    /**
      * Constructs instance and parses args
      *
      * @param args zygote command-line args
@@ -409,6 +414,8 @@ class ZygoteArguments {
                 mUsapPoolStatusSpecified = true;
                 mUsapPoolEnabled = Boolean.parseBoolean(arg.substring(arg.indexOf('=') + 1));
                 expectRuntimeArgs = false;
+            } else if (arg.startsWith(Zygote.START_AS_TOP_APP_ARG)) {
+                mIsTopApp = true;
             } else {
                 break;
             }
