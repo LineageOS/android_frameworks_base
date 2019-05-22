@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.WindowInsets;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.internal.widget.ViewClippingUtil;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.CrossFadeHelper;
@@ -66,6 +67,13 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
     private final View.OnLayoutChangeListener mStackScrollLayoutChangeListener =
             (v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom)
                     -> updatePanelTranslation();
+    private final ViewClippingUtil.ClippingParameters mParentClippingParams =
+            new ViewClippingUtil.ClippingParameters() {
+                @Override
+                public boolean shouldFinish(View view) {
+                    return view.getId() == R.id.status_bar;
+                }
+            };
     private boolean mAnimationsEnabled = true;
     Point mPoint;
 
@@ -237,6 +245,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
             mShown = isShown;
             if (isShown) {
                 mHeadsUpStatusBarView.setVisibility(View.VISIBLE);
+                updateParentClipping(false /* shouldClip */);
                 show(mHeadsUpStatusBarView);
                 if (!isRightClock) {
                     hide(clockView, View.INVISIBLE);
@@ -251,9 +260,15 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
                 if (mOperatorNameView != null) {
                     show(mOperatorNameView);
                 }
+                updateParentClipping(true /* shouldClip */);
                 hide(mHeadsUpStatusBarView, View.GONE);
             }
         }
+    }
+
+    private void updateParentClipping(boolean shouldClip) {
+        ViewClippingUtil.setClippingDeactivated(
+                mHeadsUpStatusBarView, !shouldClip, mParentClippingParams);
     }
 
     /**
