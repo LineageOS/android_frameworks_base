@@ -21,32 +21,33 @@
     <string name="adb_net_active_notification_title">ಜಾಲದ ಮೂಲಕ ADB ಸಶಕ್ತ</string>
     <string name="adb_both_active_notification_title">ಜಾಲ &amp; USB ಮೂಲಕ ADB ಸಶಕ್ತ</string>
     <string name="adb_active_generic_notification_message">ದೋಷ ನಿರ್ಮೂಲನೆ ಅಶಕ್ತಗೊಳಿಸಲು ಸ್ಪರ್ಶಿಸಿ.</string>
+    <string name="lineage_system_error_manufacturer">ಸರಿಹೊಂದದ ವ್ಯಾಪಾರಿ OS ಕಂಡುಬಂದಿದೆ. ವಿಶಿಷ್ಟವಾಗಿ ಇದು ನಿಮ್ಮ ವ್ಯಾಪಾರಿ OS ಅವಧಿ ಮುಗಿದಿದೆ ಎಂದರ್ಥ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ವ್ಯಾಪಾರಿ OS ಬೆರಳಚ್ಚು <xliff:g id="fingerprint">%1$s</xliff:g> ತದ್ರೂಪಿ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ..</string>
     <string name="lock_to_app_toast_no_navbar">ಪರದೆಯನ್ನು ಅನ್‍ಪಿನ್‍ಮಾಡಲು, ಹಿಂದೆ ಬಟನ್‍ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ.</string>
-    <string name="permlab_changePrivacyGuardState">ಗೌಪ್ಯತಾ ರಕ್ಷಕವನ್ನು ಸಶಕ್ತ ಅಥವ ಅಶಕ್ತಗೊಳಿಸು</string>
-    <string name="permdesc_changePrivacyGuardState">ಆಪ್‍ಗೆ ಇತರೆ ಆಪ್ ಗೌಪ್ಯತಾ ರಕ್ಷಕದ ಜೊತೆ  ಚಲಿಸಲು ಅಗುತ್ತದೆಯೆ ಅಥವ ಇಲ್ಲವೇ ಎಂಬುದನ್ನು ಬದಲಾಯಿಸಲು ಅನುಮತಿಸುತ್ತದೆ. ಒಂದು ಆಪ್ Privacy Guard ಜೊತೆ ಚಲಿಸುತ್ತಿದ್ದಲ್ಲಿ, ಅದಕ್ಕೆ ವಯಕ್ತಿಕ ಡೇಟಾವನ್ನು ಪ್ರವೇಶಿಸಲು ಸಾಧ್ಯವಾಗುವಿದಿಲ್ಲ, ಉದಾಹರಣೆಗೆ ಸಂಪರ್ಕಗಳು, ಕರೆ ಲಾಗ್ಸ್, ಅಥವ ಸಂದೇಶಗಳು.</string>
+    <string name="permlab_changePrivacyGuardState">ಗೌಪ್ಯತಾ ರಕ್ಷಕವನ್ನು ಸಶಕ್ತ ಅಥವ ಅಶಕ್ತಿಸು</string>
+    <string name="permdesc_changePrivacyGuardState">ಆಪ್‍ಗೆ ಇತರೆ ಆಪ್ ಗೌಪ್ಯತಾ ರಕ್ಷಕದ ಜೊತೆ ಚಲಿಸುವುದೇ ಎಂದು ನಿರ್ಧರಿಸಲು ಅನುಮತಿಸುತ್ತದೆ. ಒಂದು ಆಪ್ ಗೌಪ್ಯತಾ ರಕ್ಷಕನ ಜೊತೆ ಚಲಿಸುತ್ತಿರುವಾಗ, ಅದಕ್ಕೆ ವಯಕ್ತಿಕ ದತ್ತಾಂಶ ಸಂಪರ್ಕಗಳು, ಕರೆ ದಾಖಲೆಗಳು ಅಥವ ಸಂದೇಶಗಳನ್ನು ಮುಟ್ಟಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>
     <string name="privacy_guard_notification">ಗೌಪ್ಯತಾ ರಕ್ಷಕ ಸಕ್ರಿಯ</string>
-    <string name="privacy_guard_notification_detail">ವೈಯಕ್ತಿಕ ದತ್ತಾಂಶವನ್ನು ಎಟುಕಲು <xliff:g id="app">%1$s</xliff:g>ಗೆ ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ</string>
+    <string name="privacy_guard_notification_detail">ವೈಯಕ್ತಿಕ ದತ್ತಾಂಶವನ್ನು ಮುಟ್ಟಲು <xliff:g id="app">%1$s</xliff:g>ಗೆ ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ</string>
     <string name="privacy_guard_dialog_title">ಗೌಪ್ಯತಾ ರಕ್ಷಕ</string>
-    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> ನೀವು ಹೀಗೆ <xliff:g id="op">%2$s</xliff:g> ಬಯಸುವಿರಾ.</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> <xliff:g id="op">%2$s</xliff:g> ಬಯಸುತ್ತಿದೆ.</string>
     <string name="permission_remember_choice">ನನ್ನ ಆಯ್ಕೆಯನ್ನು ನೆನಪಿಡು</string>
     <string name="app_ops_access_camera">ಕ್ಯಾಮೆರಾ ಪ್ರವೇಶ</string>
-    <string name="app_ops_access_location">ನಿಮ್ಮ  ಸ್ಥಳವನ್ನು ಪ್ರವೇಶಿಸುವಿಕೆ</string>
+    <string name="app_ops_access_location">ನಿಮ್ಮ ಠಿಕಾಣಿ ಅರಿವು</string>
     <string name="app_ops_access_notifications">ನಿಮ್ಮ ಅಧಿಸೂಚನೆಗಳನ್ನು ಓದು</string>
     <string name="app_ops_activate_vpn">VPN ಸಕ್ರಿಯಗೊಳಿಸು</string>
     <string name="app_ops_add_voicemail">ಒಂದು ಅಂಚೆವಾಣಿ ಸೇರಿಸು</string>
     <string name="app_ops_app_start_foreground">ತ್ವರಿತ ಆಪನ್ನು ಮುನ್ನೆಲೆಯಲ್ಲಿ ಪ್ರಾರಂಭಿಸು</string>
     <string name="app_ops_assist_screenshot">ಪರದೆ ಚಿತ್ರ ಸೆರೆಹಿಡಿ</string>
     <string name="app_ops_assist_structure">ನೆರವು ರಚನೆ ಬಳಸಿ</string>
-    <string name="app_ops_audio_accessibility_volume">ಶೃತಿ ಪ್ರವೇಶಿಸುವಿಕೆಯ ಶಬ್ದಮಟ್ಟ</string>
+    <string name="app_ops_audio_accessibility_volume">ಶ್ರಾವ್ಯ ಪ್ರವೇಶಾವಕಾಶ ಶಬ್ದಮಟ್ಟ</string>
     <string name="app_ops_auto_start">ಪವರ್ ಅಪ್ ವೇಳೆ ಆರಂಭವಾಗು</string>
-    <string name="app_ops_change_wallpaper">ವಾಲ್‌ಪೇಪರ್‌ ಬದಲಿಸಿ</string>
-    <string name="app_ops_delete_call_log">ನಿಮ್ಮ ಕರೆ ಲಾಗ್‍ನ್ನು ಅಳಿಸು</string>
+    <string name="app_ops_change_wallpaper">ಹಿನ್ನೆಲೆಚಿತ್ರ ಬದಲಿಸು</string>
+    <string name="app_ops_delete_call_log">ನಿಮ್ಮ ಕರೆ ದಾಖಲೆ ಅಳಿಸು</string>
     <string name="app_ops_delete_contacts">ನಿಮ್ಮ ಸಂಪರ್ಕಗಳನ್ನು ಅಳಿಸು</string>
-    <string name="app_ops_delete_mms">ಎಂಎಂಎಸ್ ಸಂದೇಶಗಳನ್ನು ಅಳಿಸು</string>
-    <string name="app_ops_delete_sms">ನಿಮ್ಮ ಎಸ್ಎಂಎಸ್ ಸಂದೇಶಗಳನ್ನು ಅಳಿಸು</string>
+    <string name="app_ops_delete_mms">MMS ಸಂದೇಶಗಳನ್ನು ಅಳಿಸು</string>
+    <string name="app_ops_delete_sms">ನಿಮ್ಮ SMS ಸಂದೇಶಗಳನ್ನು ಅಳಿಸು</string>
     <string name="app_ops_draw_on_top">ಕಿಟಕಿಗಳನ್ನು ಮೇಲೆ ಚಿತ್ರಿಸು</string>
-    <string name="app_ops_get_accounts">ಸಾಧನ ಖಾತೆಗಳನ್ನು ಪಡೆಯಿರಿ</string>
-    <string name="app_ops_get_usage_stats">ಆಪ್ ಬಳಕೆಯ ಅಂಕ್ಯಾಂಶಗಳನ್ನು ಪಡೆ</string>
+    <string name="app_ops_get_accounts">ಸಾಧನ ಖಾತೆಗಳನ್ನು ಪಡೆ</string>
+    <string name="app_ops_get_usage_stats">ಆಪ್ಬಳಕೆ ಅಂಕ್ಯಾಂಶಗಳನ್ನು ಪಡೆ</string>
     <string name="app_ops_install_packages">ಘಂಟುಗಳನ್ನು ಸ್ಥಾಪಿಸು</string>
     <string name="app_ops_keep_device_awake">ನಿಮ್ಮ ಸಾಧನವನ್ನು ಎಚ್ಚರವಾಗಿಡುವಿಕೆ</string>
     <string name="app_ops_make_phone_call">ದೂರವಾಣಿ ಕರೆಯನ್ನು ಮಾಡು</string>
@@ -70,7 +71,7 @@
     <string name="app_ops_read_external_storage">ಬಾಹ್ಯ ಸಂಗ್ರಹ ಓದು</string>
     <string name="app_ops_read_mms">ನಿಮ್ಮ ಎಂಎಂಎಸ್ ಸಂದೇಶಗಳನ್ನು ಓದು</string>
     <string name="app_ops_read_phone_numbers">ದೂರವಾಣಿ ಸಂಖ್ಯೆಗಳನ್ನು ಓದು</string>
-    <string name="app_ops_read_phone_state">ಫೋನ್‌ ಸ್ಥಿತಿ ಅಕ್ಸೆಸ್‌ ಮಾಡಿ</string>
+    <string name="app_ops_read_phone_state">ಫೋನ್‌ ಸ್ಥಿತಿ ಎಟುಕು</string>
     <string name="app_ops_read_sms">ನಿಮ್ಮ ಎಸ್ಎಂಎಸ್ ಸಂದೇಶಗಳನ್ನು ಓದು</string>
     <string name="app_ops_receive_sms">ಎಸ್ಎಂಎಸ್ ಸಂದೇಶಗಳನ್ನು ಸ್ವೀಕರಿಸು</string>
     <string name="app_ops_record_audio">ಆಡಿಯೋ ರಿಕಾರ್ಡ್ ಮಾಡು</string>
@@ -79,7 +80,7 @@
     <string name="app_ops_send_mms">MMS ಸಂದೇಶವನ್ನು ಕಳುಹಿಸು</string>
     <string name="app_ops_send_sms">SMS ಸಂದೇಶವನ್ನು ಕಳುಹಿಸು</string>
     <string name="app_ops_start_at_bootup">ಪವರ್ ಅಪ್ ವೇಳೆ ಆರಂಭವಾಗು</string>
-    <string name="app_ops_su">ರೂಟ್ ಪ್ರವೇಶ ಪಡೆ</string>
+    <string name="app_ops_su">ಬೇರು ಪ್ರವೇಶ ಪಡೆ</string>
     <string name="app_ops_toast_window">ಟೋಸ್ಟ್ ಸಂದೇಶಗಳನ್ನು ಪ್ರದರ್ಶಿಸು</string>
     <string name="app_ops_toggle_bluetooth">ಟಾಗಲ್ ಬ್ಲೂಟೂತ್</string>
     <string name="app_ops_toggle_mobile_data">ಮೊಬೈಲ್ ಡಾಟಾ ಟಾಗಲ್ ಮಾಡು</string>
@@ -93,12 +94,12 @@
     <string name="app_ops_use_fingerprint">ಬೆರಳಚ್ಚು ಉಪಯೋಗಿಸು</string>
     <string name="app_ops_use_master_volume">ಮಾಸ್ಟರ್ ವಾಲ್ಯೂಂ ನಿಯಂತ್ರಿಸು</string>
     <string name="app_ops_use_media_buttons">ಮಾಧ್ಯಮ ಬಟನ್‍ಗಳನ್ನು ಉಪಯೋಗಿಸು</string>
-    <string name="app_ops_use_media_volume">ಮಾಧ್ಯಮ ವಾಲ್ಯೂಂನ್ನು ನಿಯಂತ್ರಿಸು</string>
-    <string name="app_ops_use_notification_volume">ಅಧಿಸೂಚನೆ ವಾಲ್ಯೂಂನ್ನು ನಿಯಂತ್ರಿಸು</string>
-    <string name="app_ops_use_ring_volume">ರಿಂಗ್‍ಟೋನ್ ವಾಲ್ಯೂಂನ್ನು ನಿಯಂತ್ರಿಸು</string>
+    <string name="app_ops_use_media_volume">ಮಾಧ್ಯಮ ಶಬ್ದಮಟ್ಟ ನಿಯಂತ್ರಿಸು</string>
+    <string name="app_ops_use_notification_volume">ಅಧಿಸೂಚನೆ ಶಬ್ದಮಟ್ಟ ನಿಯಂತ್ರಿಸು</string>
+    <string name="app_ops_use_ring_volume">ಗಂಟೆನಾದ ಶಬ್ದಮಟ್ಟ ನಿಯಂತ್ರಿಸು</string>
     <string name="app_ops_use_vibrate">ಸ್ಪಾರ್ಶ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಉಪಯೋಗಿಸು</string>
-    <string name="app_ops_use_voice_volume">ಧ್ವನಿ ಕರೆ ವಾಲ್ಯೂಂನ್ನು ನಿಯಂತ್ರಿಸು</string>
-    <string name="app_ops_wifi_change">ವೈಫೈ ಸ್ಥಿತಿ ಬದಲಿಸಿ</string>
+    <string name="app_ops_use_voice_volume">ಕರೆ ಶಬ್ದಮಟ್ಟ ನಿಯಂತ್ರಿಸು</string>
+    <string name="app_ops_wifi_change">Wi-Fi ಸ್ಥಿತಿ ಬದಲಿಸು</string>
     <string name="app_ops_write_external_storage">ಬಾಹ್ಯ ಸಂಗ್ರಹವನ್ನು ಬರೆಯಿರಿ</string>
     <string name="app_ops_write_mms">MMS ಸಂದೇಶ ಬರೆ</string>
     <string name="app_ops_write_sms">SMS ಸಂದೇಶ ಬರೆ</string>

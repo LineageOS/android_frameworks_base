@@ -21,6 +21,7 @@
     <string name="adb_net_active_notification_title">ADB บนเครือข่ายถูกเปิดใช้งาน</string>
     <string name="adb_both_active_notification_title">ADB บน USB และ &amp; เครือข่ายถูกเปิดใช้งาน</string>
     <string name="adb_active_generic_notification_message">แตะเพื่อปิดการแก้ไขข้อบกพร่อง</string>
+    <string name="lineage_system_error_manufacturer">ตรวจพบภาพ vendor ไม่ตรงกัน โดยทั่วไปนี้หมายถึง ภาพ vendor ของคุณล้าสมัย กรุณาตรวจสอบภาพ vendor ของคุณตรงกับ <xliff:g id="fingerprint">%1$s</xliff:g></string>
     <string name="lock_to_app_toast_no_navbar">เพื่อยกเลิกการปักหมุดหน้าจอนี้ กดปุ่มกลับค้างไว้</string>
     <string name="permlab_changePrivacyGuardState">เปิดหรือปิดการป้องกันความเป็นส่วนตัว</string>
     <string name="permdesc_changePrivacyGuardState">อนุญาตให้แอปเปลี่ยนแปลงไม่ว่าแอปอื่นทำงานโดยใช้การป้องกันความเป็นส่วนตัวหรือไม่ก็ตาม เมื่อแอปกำลังทำงานโดยใช้การป้องกันความเป็นส่วนตัว แอปจะไม่สามารถเข้าถึงข้อมูลส่วนบุคคล เช่น รายชื่อติดต่อ ประวัติการโทร หรือข้อความได้</string>
@@ -34,8 +35,10 @@
     <string name="app_ops_access_notifications">อ่านการแจ้งเตือน</string>
     <string name="app_ops_activate_vpn">เปิดใช้งาน VPN</string>
     <string name="app_ops_add_voicemail">เพิ่มการฝากข้อความ</string>
+    <string name="app_ops_app_start_foreground">เริ่ม แอปทันที ในเบื้องหน้า</string>
     <string name="app_ops_assist_screenshot">ถ่ายภาพหน้าจอ</string>
     <string name="app_ops_assist_structure">ใช้โครงสร้างช่วย</string>
+    <string name="app_ops_audio_accessibility_volume">การเข้าถึงระดับเสียง</string>
     <string name="app_ops_auto_start">เริ่มเมื่อเปิดเครื่อง</string>
     <string name="app_ops_change_wallpaper">เปลี่ยนรูปพื้นหลัง</string>
     <string name="app_ops_delete_call_log">ลบประวัติการโทรของคุณ</string>
@@ -45,6 +48,7 @@
     <string name="app_ops_draw_on_top">วาดหน้าต่างทับ</string>
     <string name="app_ops_get_accounts">เข้าถึงบัญชีของอุปกรณ์</string>
     <string name="app_ops_get_usage_stats">รับสถิติการใช้งานแอป</string>
+    <string name="app_ops_install_packages">ติดตั้งแพ็กเกจ</string>
     <string name="app_ops_keep_device_awake">เปิดจอค้าง</string>
     <string name="app_ops_make_phone_call">โทรออก</string>
     <string name="app_ops_mock_location">จำลองที่ตั้ง</string>
@@ -54,6 +58,8 @@
     <string name="app_ops_modify_contacts">อัปเดตรายชื่อติดต่อ</string>
     <string name="app_ops_modify_settings">อัปเดตการตั้งค่าระบบ</string>
     <string name="app_ops_mute_unmute_microphone">ปิด/เปิด ไมโครโฟน</string>
+    <string name="app_ops_phone_calls">รับสายโทรศัพท์</string>
+    <string name="app_ops_picture_in_picture">ใช้รูปภาพในรูปภาพ (PIP)</string>
     <string name="app_ops_play_audio">เล่นเสียง</string>
     <string name="app_ops_post_notification">โพสต์การแจ้งเตือน</string>
     <string name="app_ops_project_media">สื่อโครงการ</string>
@@ -64,10 +70,12 @@
     <string name="app_ops_read_contacts">อ่านรายชื่อติดต่อ</string>
     <string name="app_ops_read_external_storage">อ่านที่เก็บข้อมูลภายนอก</string>
     <string name="app_ops_read_mms">อ่านข้อความ MMS</string>
+    <string name="app_ops_read_phone_numbers">อ่านหมายเลขโทรศัพท์</string>
     <string name="app_ops_read_phone_state">เข้าถึงสถานะโทรศัพท์</string>
     <string name="app_ops_read_sms">อ่านข้อความ SMS</string>
     <string name="app_ops_receive_sms">รับข้อความ SMS</string>
     <string name="app_ops_record_audio">บันทึกเสียง</string>
+    <string name="app_ops_run_in_background">ทำงานในเบื้องหลัง</string>
     <string name="app_ops_scan_wifi">ค้นหาเครือข่าย Wi-Fi</string>
     <string name="app_ops_send_mms">ส่งข้อความ MMS</string>
     <string name="app_ops_send_sms">ส่งข้อความ SMS</string>

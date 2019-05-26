@@ -34,7 +34,9 @@
     <string name="app_ops_access_notifications">lexojë njoftimet</string>
     <string name="app_ops_activate_vpn">aktivizojë një VPN</string>
     <string name="app_ops_add_voicemail">shtojë një mesazh zanor</string>
+    <string name="app_ops_app_start_foreground">hap app e momentit në plan të parë</string>
     <string name="app_ops_assist_screenshot">kapë një foto të ekranit</string>
+    <string name="app_ops_audio_accessibility_volume">volumi i qasshmërisë</string>
     <string name="app_ops_auto_start">niset kur ndizet telefoni</string>
     <string name="app_ops_change_wallpaper">ndërrojë sfondin</string>
     <string name="app_ops_delete_call_log">fshijë listën e thirrjeve</string>
@@ -43,6 +45,7 @@
     <string name="app_ops_delete_sms">fshijë mesazhet SMS</string>
     <string name="app_ops_get_accounts">marrë llogaritë e pajisjes</string>
     <string name="app_ops_get_usage_stats">marrë të dhënat statistikore të përdorimit të aplikacionit</string>
+    <string name="app_ops_install_packages">instalo paketat</string>
     <string name="app_ops_keep_device_awake">mbajë pajisjen zgjuar</string>
     <string name="app_ops_make_phone_call">kryejë një telefonatë</string>
     <string name="app_ops_mock_location">simulojë vendndodhjen tënde</string>
@@ -51,6 +54,8 @@
     <string name="app_ops_modify_contacts">përditësojë kontaktet</string>
     <string name="app_ops_modify_settings">përditësojë parametrat e sistemit</string>
     <string name="app_ops_mute_unmute_microphone">heqi/vëri zërin mikrofonit</string>
+    <string name="app_ops_phone_calls">përgjigju telefonatave</string>
+    <string name="app_ops_picture_in_picture">përdor imazh mbi imazh</string>
     <string name="app_ops_play_audio">luajë audio</string>
     <string name="app_ops_post_notification">postojë një njoftim</string>
     <string name="app_ops_project_media">projektojë media</string>
@@ -60,6 +65,7 @@
     <string name="app_ops_read_contacts">lexojë kontaktet e tua</string>
     <string name="app_ops_read_external_storage">lexojë memorien e jashtme</string>
     <string name="app_ops_read_mms">lexojë mesazhet e tua MMS</string>
+    <string name="app_ops_read_phone_numbers">lexo numrat e telefonit</string>
     <string name="app_ops_read_phone_state">aksesojë statusin e telefonit</string>
     <string name="app_ops_read_sms">lexojë mesazhet e tua SMS</string>
     <string name="app_ops_receive_sms">marrë një mesazh SMS</string>

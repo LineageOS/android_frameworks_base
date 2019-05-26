@@ -21,6 +21,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> elvetésének megakadályozása</string>
+    <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> elvetésének engedélyezése</string>
     <string name="quick_settings_network_adb_label">ADB hálózaton keresztül</string>
     <string name="quick_settings_ambient_display_label">Környezeti kijelző</string>
     <string name="accessibility_quick_settings_ambient_display_off">Környezeti kijelző ki.</string>
@@ -49,7 +51,18 @@
     <string name="quick_settings_volume_panel_label">Hangerőszabályzás</string>
     <string name="accessibility_dpad_left">Kurzor balra</string>
     <string name="accessibility_dpad_right">Kurzor jobbra</string>
+    <string name="screen_pinning_description_no_navbar">Megjelenítve tartja addig, amíg Ön fel nem oldja a rögzítést. A feloldáshoz érintse meg és tartsa lenyomva a Vissza gombot.</string>
+    <string name="status_bar_clock">Óra</string>
+    <string name="global_action_current_user">Jelenlegi</string>
+    <string name="global_action_screenshot">Képernyőmentés</string>
     <string name="global_action_restart_system">Rendszer</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Download-mód</string>
+    <string name="global_action_restart_progress">Újraindítás\u2026</string>
+    <string name="global_action_restart_recovery_progress">Újraindítás recovery-módba\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Újraindítás bootloader-módba\u2026</string>
+    <string name="global_action_restart_download_progress">Újraindítás download-módba\u2026</string>
     <string name="accessibility_quick_settings_location_battery_saving">Helymeghatározás jelentése: energiatakarékos.</string>
     <string name="accessibility_quick_settings_location_gps_only">Helymeghatározás jelentése: csak GPS.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Helymeghatározás jelentése: nagyon pontos.</string>
@@ -67,4 +80,10 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, Wi\u2011Fi, Bluetooth vagy mobilhálózatok használata a tartózkodási hely megállapításához</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, Bluetooth vagy mobilhálózatok használata a tartózkodási hely megállapításához</string>
     <string name="quick_settings_location_detail_mode_sensors_only_description">GPS használata a tartózkodási hely meghatározásához</string>
+    <string name="nav_bar_layout_inverse">Gombelrendezés megfordítása</string>
+    <string name="quick_settings_reading_mode">Olvasómód</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Olvasómód be.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Olvasómód ki.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Olvasómód bekapcsolva.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Olvasómód kikapcsolva.</string>
 </resources>

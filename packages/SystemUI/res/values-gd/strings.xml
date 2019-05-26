@@ -18,5 +18,56 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">UI an t-siostaim</string>
+    <string name="status_bar_clear_all_button">Falamhaich</string>
+    <string name="status_bar_recent_remove_item_title">Thoir air falbh on liosta</string>
+    <string name="status_bar_recent_inspect_item_title">Fiosrachadh mun aplacaid</string>
+    <string name="status_bar_no_recent_apps">Nochdaidh sgrìnichean a bha agad o chionn goirid an-seo</string>
+    <string name="status_bar_accessibility_dismiss_recents">Leig seachad na h-aplacaidean a bha agad o chionn goirid</string>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="one">%d sgrìn san fhoir-shealladh</item>
+        <item quantity="two">%d sgrìn san fhoir-shealladh</item>
+        <item quantity="few">%d sgrìnichean san fhoir-shealladh</item>
+        <item quantity="other">%d sgrìn san fhoir-shealladh</item>
+    </plurals>
+    <string name="status_bar_no_notifications_title">Gun bhrathan</string>
+    <string name="status_bar_ongoing_events_title">A’ dol air adhart</string>
+    <string name="status_bar_latest_events_title">Brathan</string>
+    <string name="battery_low_title">Tha am bataraidh a’ fàs fann</string>
+    <string name="battery_low_percent_format"><xliff:g id="percentage">%s</xliff:g> air fhàgail</string>
+    <string name="battery_low_percent_format_saver_started"><xliff:g id="percentage">%s</xliff:g> air fhàgail. Tha caomhnaiche a’ bhataraidh air.</string>
+    <string name="invalid_charger">Chan eil taic ri teàirrdseadh USB.\nNa cleachd ach an teàirrdsear a fhuair thu.</string>
+    <string name="invalid_charger_title">Chan eil taic ri teàirrdseadh USB.</string>
+    <string name="invalid_charger_text">Na cleachd ach an teàirrdsear a fhuair thu.</string>
+    <string name="battery_low_why">Roghainnean</string>
+    <string name="battery_saver_confirmation_title">A bheil thu airson caomhnaiche a’ bhataraidh a chur air?</string>
+    <string name="battery_saver_confirmation_ok">Cuir air</string>
+    <string name="battery_saver_start_action">Cuir air caomhnaiche a’ bhataraidh</string>
+    <string name="status_bar_settings_settings_button">Roghainnean</string>
+    <string name="status_bar_settings_wifi_button">WiFi</string>
+    <string name="status_bar_settings_auto_rotation">Cuairtich an sgrìn gu fèin-obrachail</string>
+    <string name="status_bar_settings_mute_label">MÙCH</string>
+    <string name="status_bar_settings_auto_brightness_label">AUTO</string>
+    <string name="status_bar_settings_notifications">Brathan</string>
+    <string name="bluetooth_tethered">Bluetooth teadhraichte</string>
+    <string name="status_bar_input_method_settings_configure_input_methods">Suidhich na dòighean ion-chuir</string>
+    <string name="status_bar_use_physical_keyboard">Meur-chlàr fiosaigeach</string>
+    <string name="usb_device_permission_prompt">A bheil thu airson cothrom a thoirt dhan aplacaid <xliff:g id="application">%1$s</xliff:g> air an uidheam USB?</string>
+    <string name="usb_accessory_permission_prompt">A bheil thu airson cothrom a thoirt dhan aplacaid <xliff:g id="application">%1$s</xliff:g> air a’ cho-inneal USB?</string>
+    <string name="usb_device_confirm_prompt">A bheil thu airson <xliff:g id="activity">%1$s</xliff:g> nuair a bhios an t-uidheam USB seo ceangailte ris?</string>
+    <string name="usb_accessory_confirm_prompt">A bheil thu airson <xliff:g id="activity">%1$s</xliff:g> nuair a bhios an co-inneal USB seo ceangailte ris?</string>
+    <string name="usb_accessory_uri_prompt">Chan obraich gin dhe na h-aplacaidean stàlaichte leis a’ cho-inneal USB seo. Barrachd fiosrachaidh mu dhèidhinn aig <xliff:g id="url">%1$s</xliff:g></string>
+    <string name="title_usb_accessory">Co-inneal USB</string>
+    <string name="label_view">Seall</string>
+    <string name="always_use_device">A’ bhun-roghainn dhan uidheam USB seo</string>
+    <string name="always_use_accessory">A’ bhun-roghainn dhan cho-inneal USB seo</string>
+    <string name="usb_debugging_title">A bheil thu airson dì-bhugachadh USB a cheadachadh?</string>
+    <string name="usb_debugging_message">Seo lorg-meòir RSA a’ choimpiutair:\n<xliff:g id="fingerprint">%1$s</xliff:g></string>
+    <string name="usb_debugging_always">Ceadaich an-còmhnaidh on choimpiutair seo</string>
+    <string name="usb_debugging_secondary_user_title">Chan eil dì-bhugachadh USB ceadaichte</string>
+    <string name="accessibility_quick_settings_rotation">Cuairtich an sgrìn gu fèin-obrachail</string>
     <string-array name="recents_blacklist_array"/>
+    <string name="notification_header_default_channel">Brathan</string>
+    <string name="keyboard_shortcut_group_system_notifications">Brathan</string>
+    <string name="app_info">Fiosrachadh mun aplacaid</string>
 </resources>

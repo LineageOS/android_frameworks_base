@@ -20,38 +20,70 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> bağlanılmasının qarşısını al</string>
+    <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> bağlanılmasına icazə ver</string>
     <string name="quick_settings_network_adb_label">Şəbəkə üzərindən ADB</string>
     <string name="quick_settings_ambient_display_label">Bildiriş ekranı</string>
     <string name="accessibility_quick_settings_ambient_display_off">Bildiriş ekranı bağlıdır.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Bildiriş ekranı açıqdır.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Bildiriş ekranı bağlanıldı.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildiriş ekranı açıldı.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Bildiriş ekranı söndürüldü.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildiriş ekranı işə salındı.</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein bağlıdır.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein açıqdır.</string>
     <string name="quick_settings_heads_up_label">Açılan başlıqlar</string>
-    <string name="accessibility_quick_settings_heads_up_off">Açılan başlıq bildirişi bağlıdır.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Açılan başlıq bildişi açıqdır.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Açılan başlıq bildirişi bağlanıldı.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Açılan başlıq bildirişi açıldı.</string>
+    <string name="accessibility_quick_settings_heads_up_off">Açılan başlıqlar bağlıdır.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Açılan başlıqlar açıqdır.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Açılan başlıqlar söndürüldü.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Açılan başlıqlar işə salındı.</string>
     <string name="quick_settings_sync_label">Eyniləşdirmə</string>
     <string name="accessibility_quick_settings_sync_off">Eyniləşdirmə bağlıdır.</string>
     <string name="accessibility_quick_settings_sync_on">Eyniləşdirmə açıqdır.</string>
-    <string name="accessibility_quick_settings_sync_changed_off">Eyniləşdirmə bağlanıldı.</string>
-    <string name="accessibility_quick_settings_sync_changed_on">Eyniləşdirmə açıldı.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Eyniləşdirmə söndürüldü.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Eyniləşdirmə işə salındı.</string>
     <string name="quick_settings_profiles_label">Sistem profilləri</string>
     <string name="accessibility_quick_settings_profiles_off">Profillər bağlıdır.</string>
     <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-    <string name="accessibility_quick_settings_profiles_changed_off">Profillər bağlıdır.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profillər söndürüldü.</string>
     <string name="accessibility_quick_settings_profiles_changed"><xliff:g id="profile" example="Default">%s</xliff:g> profilinə keçildi.</string>
     <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
     <string name="quick_settings_volume_panel_label">Səs paneli</string>
     <string name="accessibility_dpad_left">Sol kursor</string>
     <string name="accessibility_dpad_right">Sağ kursor</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Yer hesabatı: batareyaya qənaət rejimi.</string>
+    <string name="screen_pinning_description_no_navbar">Bu əməliyyat, siz sabitləməni götürənə qədər ekranı baxış rejimində saxlayar. Sabitləməni götürmək üçün Geri-yə toxunub basılı saxlayın.</string>
+    <string name="status_bar_clock">Saat</string>
+    <string name="global_action_current_user">Hazırki</string>
+    <string name="global_action_screenshot">Ekran şəkli</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Bərpa</string>
+    <string name="global_action_restart_bootloader">Önyükləyici</string>
+    <string name="global_action_restart_download">Endirmə</string>
+    <string name="global_action_restart_progress">Yenidən başladılır\u2026</string>
+    <string name="global_action_restart_recovery_progress">Bərpa rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Önyükləyici rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_restart_download_progress">Endirmə rejimində yenidən başladılır\u2026</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Yer hesabatı: batereyaya qənaət rejimi.</string>
     <string name="accessibility_quick_settings_location_gps_only">Yer hesabatı: yalnız sensorlar rejimi.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Yer hesabatı: yüksək həssaslıq rejimi.</string>
-    <string name="quick_settings_location_battery_saving_label">Batareyaya qənaət</string>
+    <string name="quick_settings_location_battery_saving_label">Batereyaya qənaət</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Batareyaya\nqənaət</string>
     <string name="quick_settings_location_gps_only_label">Yalnız cihaz</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Yalnız\ncihaz</string>
     <string name="quick_settings_location_high_accuracy_label">Yüksək həssaslıq</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Yüksək\ndəqiqlik</string>
+    <string name="quick_settings_location_detail_title">Yer</string>
+    <string name="quick_settings_location_detail_menu_title">Rejimi seç:</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Yüksək həssaslıq</string>
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Batareyaya qənaət</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Batereyaya qənaət</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Yalnız cihaz</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Yeri müəyyənləşdirmək üçün GPS, Wi\u2011Fi, Bluetooth və ya hüceyrəvi şəbəkələri istifadə edin</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Yeri müəyyənləşdirmək üçün Wi\u2011Fi, Bluetooth və ya hüceyrəvi şəbəkələri istifadə edin</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Yeri müəyyənləşdirmək üçün GPS istifadə edin</string>
+    <string name="nav_bar_layout_inverse">Düymə düzümünü tərsinə çevir</string>
+    <string name="quick_settings_reading_mode">Oxuma rejimi</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Oxuma rejimi açıqdır.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Oxuma rejimi bağlıdır.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Oxuma rejimi işə salındı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Oxuma rejimi söndürüldü.</string>
 </resources>

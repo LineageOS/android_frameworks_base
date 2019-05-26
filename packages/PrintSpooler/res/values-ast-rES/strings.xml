@@ -29,6 +29,7 @@
     <string name="destination_default_text">Esbillar una imprentadora</string>
     <string name="template_all_pages">Toes (<xliff:g id="page_count" example="100">%1$s</xliff:g>)</string>
     <string name="template_page_range">Rangu de <xliff:g id="page_count" example="100">%1$s</xliff:g></string>
+    <string name="pages_range_example">e.g. 1—5,8,11—13</string>
     <string name="print_preview">Previsualización d\'imprentación</string>
     <string name="install_for_print_preview">Instalar visor PDF pa previsualizar</string>
     <string name="printing_app_crashed">Cascó l\'aplicación d\'imprentación</string>
