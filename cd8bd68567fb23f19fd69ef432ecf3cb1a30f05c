@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cd9b994b_fa74caf3",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2019-05-29T08:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b1bc2ee_31099942",
+      "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f0cd641_504d3eb4",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 6
@@ -33,6 +51,24 @@
       "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d664e48_229f46c9",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2019-05-29T08:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f0cd641_504d3eb4",
+      "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "aa84c744_d4434fe0",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2019-05-29T08:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea553294_43d17423",
+      "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d82f5682_ec5c0294",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 6
@@ -64,6 +118,24 @@
       "writtenOn": "2019-05-16T10:50:11Z",
       "side": 1,
       "message": "is there a reason for this loop to be inverted?",
+      "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "858d7814_3f3a09b5",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2019-05-29T08:18:29Z",
+      "side": 1,
+      "message": "I\u0027m going to guess that this was an attempt to remove the columns from left to right?",
+      "parentUuid": "d82f5682_ec5c0294",
       "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -84,6 +156,24 @@
       "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe91856e_6a9f9a42",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2019-05-29T08:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7e3ea07_b3d79f75",
+      "revId": "cd8bd68567fb23f19fd69ef432ecf3cb1a30f05c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
