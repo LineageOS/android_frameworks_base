@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4531508_6f95eda3",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardHostView.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-02T14:46:42Z",
+      "side": 1,
+      "message": "the ovverride is now useless",
+      "revId": "6f269798d42ac5c7ae93ba59454d5f8459f28374",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
