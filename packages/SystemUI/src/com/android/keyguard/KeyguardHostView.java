@@ -403,13 +403,8 @@ public class KeyguardHostView extends FrameLayout implements SecurityCallback {
         mAudioManager.dispatchMediaKeyEvent(keyEvent);
     }
 
-    @Override
     public void dispatchSystemUiVisibilityChanged(int visibility) {
         super.dispatchSystemUiVisibilityChanged(visibility);
-
-        if (!(mContext instanceof Activity)) {
-            setSystemUiVisibility(STATUS_BAR_DISABLE_BACK);
-        }
     }
 
     /**
