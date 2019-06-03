@@ -135,6 +135,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.internal.app.ColorDisplayController;
 import com.android.internal.colorextraction.ColorExtractor;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -568,6 +569,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private boolean mScreenOn;
     private boolean mKeyguardShowingMedia;
     private boolean mShowMediaMetadata;
+
+    private ColorDisplayController mColorDisplayController;
 
     private BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
         @Override
@@ -1074,6 +1077,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 DozeParameters.getInstance(context));
 
         mVisualizerView = (VisualizerView) mStatusBarWindow.findViewById(R.id.visualizerview);
+
+        mColorDisplayController = new ColorDisplayController(mContext,
+                ActivityManager.getCurrentUser());
 
         // Other icons
         mVolumeComponent = getComponent(VolumeComponent.class);
@@ -2224,6 +2230,21 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         }
         return false;
     }
+
+    private boolean isAospNightModeOn() {
+        // SystemUI is initialized before ColorDisplayService, so the service may not
+        // be ready when this is called the first time
+        if (!mColorDisplayController.isAvailable(mContext)) {
+            return false;
+        }
+        try {
+            return mColorDisplayController.isActivated();
+        } catch (NullPointerException e) {
+            Log.w(TAG, e.getMessage());
+        }
+        return false;
+    }
+
 
     private String getDarkOverlay() {
         return LineageSettings.System.getString(mContext.getContentResolver(),
@@ -4154,7 +4175,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
         switch (globalStyleSetting) {
             case 1:
-                useDarkTheme = isLiveDisplayNightModeOn();
+                useDarkTheme = isLiveDisplayNightModeOn() || isAospNightModeOn();
                 break;
             case 2:
                 useDarkTheme = false;
