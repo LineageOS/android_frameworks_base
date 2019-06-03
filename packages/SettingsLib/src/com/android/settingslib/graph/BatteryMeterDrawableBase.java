@@ -169,8 +169,6 @@ public class BatteryMeterDrawableBase extends Drawable {
         mPowersavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPowersavePaint.setColor(mPlusPaint.getColor());
         mPowersavePaint.setStyle(Style.STROKE);
-        mPowersavePaint.setStrokeWidth(context.getResources()
-                .getDimensionPixelSize(R.dimen.battery_powersave_outline_thickness));
 
         mIntrinsicWidth = context.getResources().getDimensionPixelSize(R.dimen.battery_width);
         mIntrinsicHeight = context.getResources().getDimensionPixelSize(R.dimen.battery_height);
@@ -342,6 +340,8 @@ public class BatteryMeterDrawableBase extends Drawable {
         mBatteryPaint.setStrokeWidth(strokeWidth);
         mBatteryPaint.setStyle(Paint.Style.STROKE);
 
+        mPowersavePaint.setStrokeWidth(strokeWidth);
+
         mFrame.set(
                 strokeWidth / 2.0f + mPadding.left,
                 strokeWidth / 2.0f,
@@ -381,7 +381,11 @@ public class BatteryMeterDrawableBase extends Drawable {
 
         // draw colored arc representing charge level
         if (level > 0) {
-            c.drawArc(mFrame, 270, 3.6f * level, false, mBatteryPaint);
+            if (!mCharging && mPowerSaveEnabled && mPowerSaveAsColorError) {
+                c.drawArc(mFrame, 270, 3.6f * level, false, mPowersavePaint);
+            } else {
+                c.drawArc(mFrame, 270, 3.6f * level, false, mBatteryPaint);
+            }
         }
 
         // compute percentage text
@@ -397,13 +401,6 @@ public class BatteryMeterDrawableBase extends Drawable {
             pctY = (mHeight + mTextHeight) * 0.47f;
 
             c.drawText(pctText, pctX, pctY, mTextPaint);
-        }
-
-        // Draw the powersave outline last
-        if (!mCharging && mPowerSaveEnabled && mPowerSaveAsColorError) {
-            if (level > 0) {
-                c.drawArc(mFrame, 270, 3.6f * level, false, mPowersavePaint);
-            }
         }
     }
 
@@ -426,6 +423,9 @@ public class BatteryMeterDrawableBase extends Drawable {
 
         mBatteryPaint.setStrokeWidth(0);
         mBatteryPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+
+        mPowersavePaint.setStrokeWidth(mContext.getResources()
+                .getDimensionPixelSize(R.dimen.battery_powersave_outline_thickness));
 
         mFrame.set(left, top, width + left, height + top);
         mFrame.offset(px, 0);
