@@ -19,18 +19,16 @@
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
     android:theme="@style/qs_theme">
-    <!-- right-aligned to be physically near volume button -->
     <LinearLayout
         android:id="@+id/volume_dialog"
         android:minWidth="@dimen/volume_dialog_panel_width"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|right"
         android:background="@android:color/transparent"
-        android:paddingRight="@dimen/volume_dialog_panel_transparent_padding_right"
+        android:paddingRight="@dimen/volume_dialog_panel_transparent_padding_horizontal"
         android:paddingTop="@dimen/volume_dialog_panel_transparent_padding"
         android:paddingBottom="@dimen/volume_dialog_panel_transparent_padding"
-        android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding"
+        android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding_horizontal"
         android:orientation="vertical"
         android:clipToPadding="false" >
 
@@ -40,7 +38,6 @@
             android:layout_height="@dimen/volume_dialog_ringer_size"
             android:layout_marginBottom="@dimen/volume_dialog_spacer"
             android:translationZ="@dimen/volume_dialog_elevation"
-            android:layout_gravity="right"
             android:clipToPadding="false"
             android:background="@drawable/rounded_bg_full">
             <com.android.keyguard.AlphaOptimizedImageButton
@@ -56,7 +53,6 @@
             <include layout="@layout/volume_dnd_icon"
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
-                     android:layout_marginRight="@dimen/volume_dialog_stream_padding"
                      android:layout_marginTop="6dp"/>
         </FrameLayout>
 
@@ -94,7 +90,6 @@
                     android:focusable="true"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_gravity="right"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/accessibility_quick_settings_expand"
                     android:padding="14dp"

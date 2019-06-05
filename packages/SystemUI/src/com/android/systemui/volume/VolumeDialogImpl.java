@@ -55,6 +55,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.os.VibrationEffect;
 import android.provider.Settings;
 import android.provider.Settings.Global;
@@ -96,6 +97,8 @@ import com.android.systemui.statusbar.phone.ExpandableIndicator;
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.policy.AccessibilityManagerWrapper;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -151,6 +154,7 @@ public class VolumeDialogImpl implements VolumeDialog {
     private SafetyWarningDialog mSafetyWarning;
     private boolean mHovering = false;
     private boolean mExpanded;
+    private Boolean mVolumePanelOnLeft;
 
     public VolumeDialogImpl(Context context) {
         mContext = new ContextThemeWrapper(context, com.android.systemui.R.style.qs_theme);
@@ -199,7 +203,6 @@ public class VolumeDialogImpl implements VolumeDialog {
         final WindowManager.LayoutParams lp = mWindow.getAttributes();
         lp.format = PixelFormat.TRANSLUCENT;
         lp.setTitle(VolumeDialogImpl.class.getSimpleName());
-        lp.gravity = Gravity.RIGHT | Gravity.CENTER_VERTICAL;
         lp.windowAnimations = -1;
         mWindow.setAttributes(lp);
         mWindow.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -207,7 +210,7 @@ public class VolumeDialogImpl implements VolumeDialog {
         mDialog.setCanceledOnTouchOutside(true);
         mDialog.setContentView(R.layout.volume_dialog);
         mDialog.setOnShowListener(dialog -> {
-            if (!isLandscape()) mDialogView.setTranslationX(mDialogView.getWidth() / 2);
+            if (!isLandscape()) mDialogView.setTranslationX(getAnimatorX());
             mDialogView.setAlpha(0);
             mDialogView.animate()
                     .alpha(1)
@@ -276,6 +279,35 @@ public class VolumeDialogImpl implements VolumeDialog {
         initSettingsH();
     }
 
+    private float getAnimatorX() {
+        float x = mDialogView.getWidth() / 2;
+        if (isVolumePanelOnLeft()) {
+            x = -x;
+        }
+        return x;
+    }
+
+    private void setPanelPosition() {
+        final boolean volumePanelOnLeft = isVolumePanelOnLeft();
+
+        final WindowManager.LayoutParams lp = mWindow.getAttributes();
+        if (!volumePanelOnLeft) {
+            lp.gravity = Gravity.RIGHT | Gravity.CENTER_VERTICAL;
+        } else {
+            lp.gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
+        }
+
+        if (!volumePanelOnLeft) {
+            mRinger.setForegroundGravity(Gravity.RIGHT);
+            mExpandRows.setForegroundGravity(Gravity.RIGHT);
+            mExpandRows.setRotation(90);
+        } else {
+            mRinger.setForegroundGravity(Gravity.LEFT);
+            mExpandRows.setForegroundGravity(Gravity.LEFT);
+            mExpandRows.setRotation(-90);
+        }
+    }
+
     protected ViewGroup getDialogView() {
         return mDialogView;
     }
@@ -318,7 +350,11 @@ public class VolumeDialogImpl implements VolumeDialog {
         if (D.BUG) Slog.d(TAG, "Adding row for stream " + stream);
         VolumeRow row = new VolumeRow();
         initRow(row, stream, iconRes, iconMuteRes, important, defaultStream);
-        mDialogRowsView.addView(row.view, 0);
+        if (!isVolumePanelOnLeft()) {
+            mDialogRowsView.addView(row.view, 0);
+        } else {
+            mDialogRowsView.addView(row.view);
+        }
         mRows.add(0, row);
     }
 
@@ -328,7 +364,11 @@ public class VolumeDialogImpl implements VolumeDialog {
             final VolumeRow row = mRows.get(i);
             initRow(row, row.stream, row.iconRes, row.iconMuteRes, row.important,
                     row.defaultStream);
-            mDialogRowsView.addView(row.view);
+            if(!isVolumePanelOnLeft()){
+                mDialogRowsView.addView(row.view, 0);
+            } else {
+                mDialogRowsView.addView(row.view);
+            }
             updateVolumeRowH(row);
         }
     }
@@ -474,6 +514,16 @@ public class VolumeDialogImpl implements VolumeDialog {
             }
             mExpandRows.setExpanded(mExpanded);
         });
+        final boolean volumePanelOnLeft = LineageSettings.Secure.getIntForUser(
+                mContext.getContentResolver(), LineageSettings.Secure.VOLUME_PANEL_ON_LEFT,
+                0, UserHandle.USER_CURRENT) != 0;
+        if (mVolumePanelOnLeft == null) {
+            mVolumePanelOnLeft = new Boolean(volumePanelOnLeft);
+            setPanelPosition();
+        } else if (mVolumePanelOnLeft != volumePanelOnLeft) {
+            mVolumePanelOnLeft = volumePanelOnLeft;
+            setPanelPosition();
+        }
     }
 
     public void initRingerH() {
@@ -626,7 +676,7 @@ public class VolumeDialogImpl implements VolumeDialog {
                     mExpanded = false;
                     mExpandRows.setExpanded(mExpanded);
                 }, 50));
-        if (!isLandscape()) animator.translationX(mDialogView.getWidth() / 2);
+        if (!isLandscape()) animator.translationX(getAnimatorX());
         animator.start();
 
         Events.writeEvent(mContext, Events.EVENT_DISMISS_DIALOG, reason);
@@ -1349,6 +1399,10 @@ public class VolumeDialogImpl implements VolumeDialog {
 
         private final AccessibilityServicesStateChangeListener mListener =
                 enabled -> updateFeedbackEnabled();
+    }
+
+    private boolean isVolumePanelOnLeft() {
+        return mVolumePanelOnLeft != null ? mVolumePanelOnLeft : false;
     }
 
     private static class VolumeRow {
