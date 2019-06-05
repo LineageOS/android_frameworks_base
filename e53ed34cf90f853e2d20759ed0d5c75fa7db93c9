@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25b33d1d_f7dc2ee8",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-06-05T08:41:16Z",
+      "side": 1,
+      "message": "Could use isNetworkAvailable().",
+      "range": {
+        "startLine": 95,
+        "startChar": 35,
+        "endLine": 95,
+        "endChar": 58
+      },
+      "revId": "e53ed34cf90f853e2d20759ed0d5c75fa7db93c9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4742aa51_5976dbc8",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-06-05T08:41:16Z",
+      "side": 1,
+      "message": "Can\u0027t you simply check if the address is an instance of Inet6Address (https://developer.android.com/reference/java/net/Inet6Address)?",
+      "range": {
+        "startLine": 189,
+        "startChar": 39,
+        "endLine": 189,
+        "endChar": 58
+      },
+      "revId": "e53ed34cf90f853e2d20759ed0d5c75fa7db93c9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
