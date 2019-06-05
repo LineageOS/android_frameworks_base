@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "ed04d240_49e35dd0",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-06-05T17:19:08Z",
+      "side": 1,
+      "message": "https://github.com/LineageOS/android_device_xiaomi_sdm845-common/commit/f173238d303d1dae0122de8aecef6e230f2d3c9b\n\nthey say this(move to handleUserUnlocked) is to avoid battery drain thought idk how",
+      "revId": "15b27bdfdc11fec189de7d70c5078f66bfa55bbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfcda0de_4d51c993",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-06-05T17:19:08Z",
+      "side": 1,
+      "message": "context.getSystemService(SensorManager.class) avoids useless cast",
+      "revId": "15b27bdfdc11fec189de7d70c5078f66bfa55bbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ffcbcae3_7e53802e",
         "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
         "patchSetId": 1
