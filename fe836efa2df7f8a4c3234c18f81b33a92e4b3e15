@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e970b467_a9bd07c7",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-06T09:26:27Z",
+      "side": 1,
+      "message": "boolean?\ndefaults to false",
+      "revId": "fe836efa2df7f8a4c3234c18f81b33a92e4b3e15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b284f51e_1595a5f4",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-06T09:26:27Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "fe836efa2df7f8a4c3234c18f81b33a92e4b3e15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ff16c21_cf82ef6c",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-06T09:26:27Z",
+      "side": 1,
+      "message": "use class variable",
+      "revId": "fe836efa2df7f8a4c3234c18f81b33a92e4b3e15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66535dd5_4737562d",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-06T09:26:27Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "fe836efa2df7f8a4c3234c18f81b33a92e4b3e15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09245484_53de606e",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-06T09:26:27Z",
+      "side": 1,
+      "message": "class variable",
+      "revId": "fe836efa2df7f8a4c3234c18f81b33a92e4b3e15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93bc0d0b_8c07a1bd",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-06T09:26:27Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "fe836efa2df7f8a4c3234c18f81b33a92e4b3e15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fa1dd51_27857c93",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-06T09:26:27Z",
+      "side": 1,
+      "message": "can we use the tuner service? so we can listen for updates properly",
+      "revId": "fe836efa2df7f8a4c3234c18f81b33a92e4b3e15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cba81c4_55d856dc",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-06T09:26:27Z",
+      "side": 1,
+      "message": "and avoid using Boolean ugh",
+      "revId": "fe836efa2df7f8a4c3234c18f81b33a92e4b3e15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
