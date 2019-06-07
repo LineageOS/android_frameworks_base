@@ -16,6 +16,24 @@
       "revId": "a179062a82efba29addc763942964c0e86e06f12",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bcc3844_dc6efaed",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-06-07T17:42:31Z",
+      "side": 1,
+      "message": "I was concerned with this as well. What I can tell is that this piece of code is used in other hals like biometrics.",
+      "parentUuid": "51f7cfe8_ec3bdd2f",
+      "revId": "a179062a82efba29addc763942964c0e86e06f12",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
