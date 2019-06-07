@@ -58,7 +58,7 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
     private final LockPatternUtils mLockPatternUtils;
     private final StateCallback mCallback;
 
-    private IUsbRestrict mUsbRestrictor;
+    private IUsbRestrict mUsbRestrictor = null;
     private ContentResolver mContentResolver;
 
     IKeystoreService mKeystoreService;
@@ -76,12 +76,6 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
             service.addStateMonitorCallback(this);
         } catch (RemoteException e) {
             Slog.w(TAG, "Remote Exception", e);
-        }
-
-        try {
-            mUsbRestrictor = IUsbRestrict.getService();
-        } catch (NoSuchElementException | RemoteException ignored) {
-            // Ignore, the hal is not available
         }
     }
 
@@ -114,6 +108,20 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
             mKeystoreService.onKeyguardVisibilityChanged(showing, mCurrentUserId);
         } catch (RemoteException e) {
             Slog.e(TAG, "Error informing keystore of screen lock", e);
+        }
+
+        if (mUsbRestrictor == null) {
+            try {
+                mUsbRestrictor = IUsbRestrict.getService();
+            } catch (NoSuchElementException | RemoteException ignored) {
+                // Ignore, the hal is not available
+                return;
+            }
+        }
+
+        if (mUsbRestrictor == null) {
+            // Return for now and retry on next time
+            return;
         }
 
         boolean shouldRestrictUsb = LineageSettings.Secure.getInt(mContentResolver,
