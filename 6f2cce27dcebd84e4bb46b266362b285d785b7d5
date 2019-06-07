@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1850ff15_93c3dcb1",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-06-07T14:36:59Z",
+      "side": 1,
+      "message": "private IUsbRestrict mUsbRestrictor \u003d null;",
+      "revId": "6f2cce27dcebd84e4bb46b266362b285d785b7d5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "703c8738_3817f3a5",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-06-07T14:36:59Z",
+      "side": 1,
+      "message": "if (mUsbRestrictor \u003d\u003d null) {\n   try {\n       mUsbRestrictor \u003d IUsbRestrict.getService();\n   } catch (NoSuchElementException | RemoteException ignored) {\n       return;\n   }\n}\n\nif (mUsbRestrictor \u003d\u003d null) {\n   // TODO: check whether you can remove me \n   return;\n}\n\nboolean shouldRestrictUsb \u003d ...",
+      "revId": "6f2cce27dcebd84e4bb46b266362b285d785b7d5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
