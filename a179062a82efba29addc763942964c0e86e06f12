@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51f7cfe8_ec3bdd2f",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-06-07T17:01:42Z",
+      "side": 1,
+      "message": "can the getService() above return null ?  If not, I don\u0027t think mUsbRestrictor can ever be null by the time we get here.",
+      "revId": "a179062a82efba29addc763942964c0e86e06f12",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
