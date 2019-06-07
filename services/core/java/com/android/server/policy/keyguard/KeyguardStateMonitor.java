@@ -77,12 +77,6 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
         } catch (RemoteException e) {
             Slog.w(TAG, "Remote Exception", e);
         }
-
-        try {
-            mUsbRestrictor = IUsbRestrict.getService();
-        } catch (NoSuchElementException | RemoteException ignored) {
-            // Ignore, the hal is not available
-        }
     }
 
     public boolean isShowing() {
@@ -114,6 +108,13 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
             mKeystoreService.onKeyguardVisibilityChanged(showing, mCurrentUserId);
         } catch (RemoteException e) {
             Slog.e(TAG, "Error informing keystore of screen lock", e);
+        }
+
+        try {
+            mUsbRestrictor = IUsbRestrict.getService();
+        } catch (NoSuchElementException | RemoteException e) {
+            // No need to go further if the hal is not available
+            return;
         }
 
         boolean shouldRestrictUsb = LineageSettings.Secure.getInt(mContentResolver,
