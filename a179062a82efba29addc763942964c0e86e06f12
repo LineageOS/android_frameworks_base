@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c6a54baf_60252c61",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-06-07T18:06:34Z",
+      "side": 1,
+      "message": "I just looked at getFingerprintDaemon() and it\u0027s not returning in the catch block so it\u0027s a little different.\n\nThat said, it\u0027s minor and having the null check is safer in the absence of knowing 100% whether there are conditions where getService() can return null.",
+      "parentUuid": "3bcc3844_dc6efaed",
+      "revId": "a179062a82efba29addc763942964c0e86e06f12",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20fee823_fbcae97d",
         "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
         "patchSetId": 6
