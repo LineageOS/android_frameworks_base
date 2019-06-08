@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Ενεργός συγχρονισμός.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Ο συγχρονισμός απενεργοποιήθηκε.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Ο συγχρονισμός ενεργοποιήθηκε.</string>
+    <string name="quick_settings_profiles_label">Προφίλ συστήματος</string>
+    <string name="accessibility_quick_settings_profiles_off">Ανενεργά προφίλ.</string>
+    <string name="accessibility_quick_settings_profiles">Προφίλ: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Τα προφίλ απενεργοποιήθηκαν.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Το προφίλ άλλαξε σε <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Πρόσδεση USB</string>
     <string name="quick_settings_volume_panel_label">Πάνελ έντασης</string>
     <string name="accessibility_dpad_left">Κέρσορας αριστερά</string>
@@ -59,4 +64,23 @@
     <string name="screen_pinning_description_no_navbar">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε παρατεταμένα το στοιχείο \"Επιστροφή\" για ξεκαρφίτσωμα.</string>
     <string name="screen_pinning_toast_no_navbar">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε &amp; κρατήστε πατημένο το πλήκτρο Πίσω</string>
     <string name="nav_bar_layout_inverse">Αντιστροφή διάταξης</string>
+    <string name="custom_swipe_hint">Σύρετε από το εικονίδιο για <xliff:g name="target">%s</xliff:g></string>
+    <string name="accessibility_quick_settings_location_battery_saving">Αναφορά τοποθεσίας: λειτουργία εξοικονόμησης μπαταρίας.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Αναφορά τοποθεσίας: λειτουργία μόνο αισθητήρων.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Αναφορά τοποθεσίας: λειτουργία υψηλής ακρίβειας.</string>
+    <string name="quick_settings_location_battery_saving_label">Εξοικονόμηση μπαταρίας</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Εξοικονόμηση\nμπαταρίας</string>
+    <string name="quick_settings_location_gps_only_label">Μόνο GPS</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Μόνο GPS</string>
+    <string name="quick_settings_location_high_accuracy_label">Υψηλή ακρίβεια</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Υψηλή\nακρίβεια</string>
+    <string name="quick_settings_location_detail_title">Τοποθεσία</string>
+    <string name="quick_settings_location_detail_menu_title">Επιλέξτε λειτουργία:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Υψηλή ακρίβεια</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Εξοικονόμηση μπαταρίας</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Μόνο συσκευή</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Χρήση GPS, Wi\u2011Fi, Bluetooth ή δικτύων κινητής τηλεφωνίας για καθορισμό τοποθεσίας </string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Χρήση Wi\u2011Fi, Bluetooth ή δικτύων κινητής τηλεφωνίας για καθορισμό τοποθεσίας</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Χρήση του GPS για τον προσδιορισμό της τοποθεσίας σας</string>
+    <string name="status_bar_battery">Μπαταρία</string>
 </resources>

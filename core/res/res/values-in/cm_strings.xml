@@ -32,6 +32,7 @@
     <string name="app_ops_audio_accessibility_volume">aksesibilitas volume audio</string>
     <string name="app_ops_auto_start">mulai pada saat dinyalakan</string>
     <string name="app_ops_bind_accessibility_service">tautkan layanan aksesibilitas</string>
+    <string name="app_ops_bluetooth_scan">pindai bluetooth</string>
     <string name="app_ops_change_wallpaper">mengubah wallpaper</string>
     <string name="app_ops_delete_call_log">hapus log panggilan Anda</string>
     <string name="app_ops_delete_contacts">hapus kontak Anda</string>
@@ -42,7 +43,8 @@
     <string name="app_ops_get_usage_stats">dapatkan statistik penggunaan aplikasi</string>
     <string name="app_ops_accept_handover">pemindahan panggilan dari aplikasi lain</string>
     <string name="app_ops_install_packages">memasang paket</string>
-    <string name="app_ops_keep_device_awake">jaga perangkat Anda tetap bangun</string>
+    <string name="app_ops_keep_device_awake">biarkan perangkat Anda tetap menyala</string>
+    <string name="app_ops_manage_ipsec_tunnels">mengelola terowongan ipsec</string>
     <string name="app_ops_make_phone_call">membuat panggilan telepon</string>
     <string name="app_ops_mock_location">memalsukan lokasi Anda</string>
     <string name="app_ops_modify_calendar">memperbarui kalender Anda</string>
@@ -50,12 +52,12 @@
     <string name="app_ops_modify_clipboard">memodifikasi clipboard</string>
     <string name="app_ops_modify_contacts">memperbarui kontak Anda</string>
     <string name="app_ops_modify_settings">memperbarui pengaturan sistem</string>
-    <string name="app_ops_mute_unmute_microphone">diam/mengaktifkan suara mikrofon</string>
+    <string name="app_ops_mute_unmute_microphone">matikan/nyalakan suara mikrofon</string>
     <string name="app_ops_phone_calls">menjawab panggilan telepon</string>
     <string name="app_ops_picture_in_picture">menggunakan fitur gambar dalam gambar</string>
     <string name="app_ops_play_audio">mainkan audio</string>
     <string name="app_ops_post_notification">mengirim pemberitahuan</string>
-    <string name="app_ops_project_media">proyek media</string>
+    <string name="app_ops_project_media">proyeksikan media</string>
     <string name="app_ops_read_calendar">membaca kalender Anda</string>
     <string name="app_ops_read_call_log">membaca log panggilan</string>
     <string name="app_ops_read_cell_broadcasts">baca siaran seluler</string>
@@ -90,7 +92,7 @@
     <string name="app_ops_use_body_sensors">menggunakan sensor badan</string>
     <string name="app_ops_use_fingerprint">gunakan sidik jari</string>
     <string name="app_ops_use_master_volume">mengatur volume utama</string>
-    <string name="app_ops_use_media_buttons">menggunakan tombol media</string>
+    <string name="app_ops_use_media_buttons">gunakan tombol media</string>
     <string name="app_ops_use_media_volume">mengatur volume media</string>
     <string name="app_ops_use_notification_volume">mengatur volume pemberitahuan</string>
     <string name="app_ops_use_ring_volume">mengatur volume nada dering</string>
@@ -101,7 +103,7 @@
     <string name="app_ops_write_mms">tulis pesan MMS</string>
     <string name="app_ops_write_sms">tulis pesan SMS</string>
     <string name="permlab_changePrivacyGuardState">Aktifkan atau nonaktifkan Penjaga Privasi</string>
-    <string name="permdesc_changePrivacyGuardState">Izinkan aplikasi untuk mengubah apakah applikasi lain berjalan dengan Penjaga Privasi. Ketika aplikasi sedang berjalan dengan Penjaga Privasi, aplikasi tidak akan memiliki akses untuk data pribadi seperti kontak, daftar panggilan atau pesan.</string>
+    <string name="permdesc_changePrivacyGuardState">Izinkan aplikasi mengubah apakah aplikasi lain berjalan dengan Penjaga Privasi. Ketika aplikasi sedang berjalan dengan Penjaga Privasi, aplikasi tidak akan memiliki akses ke data pribadi, seperti kontak, log panggilan, atau pesan.</string>
     <string name="privacy_guard_notification">Penjaga Privasi aktif</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> tidak akan dapat mengakses data pribadi</string>
     <string name="privacy_guard_dialog_title">Penjaga Privasi</string>

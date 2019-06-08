@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">การซิงค์เปิดอยู่</string>
     <string name="accessibility_quick_settings_sync_changed_off">การซิงค์ปิดอยู่</string>
     <string name="accessibility_quick_settings_sync_changed_on">การซิงค์เปิดอยู่</string>
+    <string name="quick_settings_profiles_label">โปรไฟล์ระบบ</string>
+    <string name="accessibility_quick_settings_profiles_off">โปรไฟล์ปิดอยู่</string>
+    <string name="accessibility_quick_settings_profiles">โปรไฟล์: <xliff:g id="profile" example="Default">%s</xliff:g></string>
+    <string name="accessibility_quick_settings_profiles_changed_off">ปิดโปรไฟล์</string>
+    <string name="accessibility_quick_settings_profiles_changed">โปรไฟล์เปลี่ยนเป็น <xliff:g id="profile" example="Default">%s</xliff:g></string>
     <string name="quick_settings_usb_tether_label">ปล่อยสัญญาณผ่าน USB</string>
     <string name="quick_settings_volume_panel_label">แผงควบคุมระดับเสียง</string>
     <string name="accessibility_dpad_left">เคอร์เซอร์ซ้าย</string>
@@ -59,4 +64,18 @@
     <string name="screen_pinning_description_no_navbar">การดำเนินการนี้จะเก็บไว้จนกว่าคุณจะเลิกปักหมุด แตะ &amp; ค้างปุ่มกลับเพื่อเลิกปักหมุด</string>
     <string name="screen_pinning_toast_no_navbar">เพื่อยกเลิกการปักหมุดหน้าจอนี้ ให้แตะ &amp; กดปุ่มกลับค้าง</string>
     <string name="nav_bar_layout_inverse">สลับเค้าโครง</string>
+    <string name="accessibility_quick_settings_location_battery_saving">การระบุตำแหน่ง: รูปแบบประหยัดแบตเตอรี่</string>
+    <string name="accessibility_quick_settings_location_gps_only">รายงานตำแหน่งที่ตั้ง: เซนเซอร์เท่านั้น</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">รูปแบบการระบุตำแหน่ง: ความแม่นยำสูง</string>
+    <string name="quick_settings_location_battery_saving_label">ประหยัดแบตเตอรี่</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">ประหยัด\nแบตเตอรี่</string>
+    <string name="quick_settings_location_high_accuracy_label">ความแม่นยำสูง</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">ความแม่นยำ\nสูง</string>
+    <string name="quick_settings_location_detail_title">ตำแหน่ง</string>
+    <string name="quick_settings_location_detail_menu_title">เลือกโหมด:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">ความแม่นยำสูง</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">ประหยัดแบตเตอรี่</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">อุปกรณ์เท่านั้น</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">ใช้ Wi\u2011Fi, บลูทูธ หรือเครือข่ายเซลลูลาร์เพื่อระบุตำแหน่งที่ตั้ง</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">ใช้ GPS เพื่อระบุตำแหน่งของคุณ</string>
 </resources>

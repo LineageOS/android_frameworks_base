@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Включена синхронизация.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Синхронизацията е изключена.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Синхронизацията е включена.</string>
+    <string name="quick_settings_profiles_label">Системни профили</string>
+    <string name="accessibility_quick_settings_profiles_off">Изключени профили.</string>
+    <string name="accessibility_quick_settings_profiles">Профил: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Профилите са изключени.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Профила е сменен с <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Тетъринг през USB</string>
     <string name="quick_settings_volume_panel_label">Звуков панел</string>
     <string name="accessibility_dpad_left">Курсора наляво</string>
@@ -59,4 +64,18 @@
     <string name="screen_pinning_description_no_navbar">Това допълнение ще остане активно. Натиснете&amp; задръжте бутона Назад за освобождаване.</string>
     <string name="screen_pinning_toast_no_navbar">За да откачите този екран, докоснете &amp; задръжте бутона Назад</string>
     <string name="nav_bar_layout_inverse">Объръщане реда на бутоните</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Настройка на местоположение: икономичен режим на батерията.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Доклад на местоположение: само по GPS.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Доклад на местоположение: режим на висока точност.</string>
+    <string name="quick_settings_location_battery_saving_label">Пестене на батерия</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Пестене\n на батерия</string>
+    <string name="quick_settings_location_high_accuracy_label">Висока точност</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Висока\n точност</string>
+    <string name="quick_settings_location_detail_title">Местоположение</string>
+    <string name="quick_settings_location_detail_menu_title">Избор на режим:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Висока точност</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Пестене на батерия</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Само по GPS</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Използвай Wi\u2011Fi, Bluetooth или клетъчни мрежи за определяне на местоположението</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Използвай GPS за определяне на местоположението</string>
 </resources>

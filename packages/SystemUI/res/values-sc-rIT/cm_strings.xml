@@ -27,4 +27,13 @@
     <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
     <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
+    <string name="quick_settings_profiles_label">Profilos de sistema</string>
+    <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profilos istudados.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profilu cambiadu in <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Pretzisione\nmanna</string>
+    <string name="quick_settings_location_detail_title">Positzione</string>
+    <string name="quick_settings_location_detail_menu_title">Issèbera sa modalidade:</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Imprea su Wi\u2011Fi, su Bluetooth, o sas retzas de sos datos mòbiles pro agatare sa positzione</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Imprea su GPS pro agatare sa positzione tua</string>
 </resources>

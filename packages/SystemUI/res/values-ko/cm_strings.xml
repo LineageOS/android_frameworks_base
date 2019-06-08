@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">동기화 켜짐</string>
     <string name="accessibility_quick_settings_sync_changed_off">동기화가 해제되었습니다.</string>
     <string name="accessibility_quick_settings_sync_changed_on">동기화가 설정되었습니다.</string>
+    <string name="quick_settings_profiles_label">시스템 프로필</string>
+    <string name="accessibility_quick_settings_profiles_off">프로필 꺼짐.</string>
+    <string name="accessibility_quick_settings_profiles">현재 프로필: <xliff:g id="profile" example="Default">%s</xliff:g></string>
+    <string name="accessibility_quick_settings_profiles_changed_off">프로필이 이제 꺼짐.</string>
+    <string name="accessibility_quick_settings_profiles_changed">프로필이 <xliff:g id="profile" example="Default">%s</xliff:g>으(로) 바뀜.</string>
     <string name="quick_settings_usb_tether_label">USB 테더링</string>
     <string name="quick_settings_volume_panel_label">볼륨 패널</string>
     <string name="accessibility_dpad_left">커서 왼쪽</string>
@@ -59,4 +64,18 @@
     <string name="screen_pinning_description_no_navbar">고정을 해제하기 전까지 계속 볼 수 있습니다. 고정을 해제하려면 뒤로 가기 버튼을 길게 누르세요.</string>
     <string name="screen_pinning_toast_no_navbar">이 화면을 고정 해제하려면 뒤로 가기 버튼을 길게 누르세요.</string>
     <string name="nav_bar_layout_inverse">레이아웃 반전</string>
+    <string name="accessibility_quick_settings_location_battery_saving">위치 보고: 배터리 절약 모드.</string>
+    <string name="accessibility_quick_settings_location_gps_only">위치 보고: 기기 전용 모드.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">위치 보고: 높은 정확성 모드.</string>
+    <string name="quick_settings_location_battery_saving_label">배터리 절약</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">배터리\n절약</string>
+    <string name="quick_settings_location_high_accuracy_label">높은 정확도</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">높은\n정확성</string>
+    <string name="quick_settings_location_detail_title">위치</string>
+    <string name="quick_settings_location_detail_menu_title">모드 선택:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">높은 정확도</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">배터리 절약</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">기기 전용</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, 블루투스 또는 이동통신망을 사용하여 위치를 찾습니다.</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS를 사용하여 위치를 찾습니다.</string>
 </resources>

@@ -20,13 +20,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="global_action_restart_system">النظام</string>
-    <string name="global_action_restart_recovery">الإسترداد</string>
     <string name="global_action_restart_bootloader">محمل الاقلاع</string>
     <string name="global_action_restart_download">التنزيل</string>
-    <string name="global_action_restart_progress">جارٍ إعادة التشغيل</string>
-    <string name="global_action_restart_recovery_progress">إعادة التشغيل إلى وضع الإسترداد</string>
-    <string name="global_action_restart_bootloader_progress">إعادة التشغيل إلى وضع البوتلودر</string>
-    <string name="global_action_restart_download_progress">إعادة التشغيل الى وضع التنزيل</string>
     <string name="global_action_current_user">الحالي</string>
     <string name="quick_settings_network_adb_label">ADB عبر الشبكة</string>
     <string name="quick_settings_ambient_display_label">العرض المحيط</string>
@@ -52,11 +47,29 @@
     <string name="accessibility_quick_settings_sync_on">تشغيل المزامنة.</string>
     <string name="accessibility_quick_settings_sync_changed_off">تم تعطيل المزامنة.</string>
     <string name="accessibility_quick_settings_sync_changed_on">تم تشغيل المزامنة.</string>
+    <string name="quick_settings_profiles_label">ملفات تعريف النظام</string>
+    <string name="accessibility_quick_settings_profiles_off">إيقاف ملفات التعريف.</string>
+    <string name="accessibility_quick_settings_profiles">ملف التعريف: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">تعطيل ملفات التعريف. </string>
+    <string name="accessibility_quick_settings_profiles_changed">تم تغيير ملف التعريف إلى <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">الربط عبر USB</string>
     <string name="quick_settings_volume_panel_label">لوحة مستوى الصوت</string>
     <string name="accessibility_dpad_left">المؤشر إلى اليسار</string>
     <string name="accessibility_dpad_right">المؤشر الى اليمين</string>
-    <string name="screen_pinning_description_no_navbar">يؤدي هذا إلى استمرار العرض إلى أن يتم إزالة التثبيت. ويمكنك لمس مع الاستمرار لإزالة التثبيت.</string>
-    <string name="screen_pinning_toast_no_navbar">لإلغاء تثبيت هذه الشاشة, استمر بالضغط على زر الرجوع</string>
+    <string name="screen_pinning_toast_no_navbar">لإلغاء تثبيت هذه الشاشة، استمر&amp; بالضغط على زر الرجوع</string>
     <string name="nav_bar_layout_inverse">عكس التخطيط</string>
+    <string name="accessibility_quick_settings_location_battery_saving">تحديد الموقع: وضع توفير البطارية.</string>
+    <string name="accessibility_quick_settings_location_gps_only">تحديد الموقع: وضع المستشعرات فقط.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">تحديد الموقع: وضع الدقة العالية.</string>
+    <string name="quick_settings_location_battery_saving_label">توفير البطارية</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">توفير\nالبطارية</string>
+    <string name="quick_settings_location_high_accuracy_label">دقة عالية</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">دقة\nعالية</string>
+    <string name="quick_settings_location_detail_title">الموقع</string>
+    <string name="quick_settings_location_detail_menu_title">تحديد الوضع:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">دقة عالية</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">توفير البطارية</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">الجهاز فقط</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">‏استخدام شبكات WiFi والبلوتوث وشبكات الجوّال لتحديد الموقع</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">‏استخدام نظام تحديد المواقع العالمي (GPS) في تحديد موقعك</string>
 </resources>

@@ -73,7 +73,7 @@
     <string name="app_ops_record_audio">تسجيل الصوت</string>
     <string name="app_ops_request_delete_packages">طلب حذف الحِزم</string>
     <string name="app_ops_run_in_background">يعمل في الخلفية</string>
-    <string name="app_ops_run_any_in_background">تشغيل ايا كان في الخلفية</string>
+    <string name="app_ops_run_any_in_background">تشغيل أي شيء في الخلفية</string>
     <string name="app_ops_scan_wifi">فحص شبكات Wi-Fi</string>
     <string name="app_ops_send_mms">إرسال رسالة نصية قصيرة</string>
     <string name="app_ops_send_sms">إرسال رسالة نصية قصيرة</string>

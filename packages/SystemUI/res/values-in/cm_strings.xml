@@ -52,10 +52,29 @@
     <string name="accessibility_quick_settings_sync_on">Sinkronisasi hidup.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sinkronisasi dimatikan.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sinkronisasi dihidupkan.</string>
+    <string name="quick_settings_profiles_label">Profil sistem</string>
+    <string name="accessibility_quick_settings_profiles_off">Profil mati.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profil dimatikan.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil diubah menjadi <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <string name="quick_settings_volume_panel_label">Panel volume</string>
     <string name="accessibility_dpad_left">Kursor kiri</string>
     <string name="accessibility_dpad_right">Kursor kanan</string>
     <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh &amp; tahan tombol Kembali untuk melepas sematan.</string>
     <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar ini, sentuh &amp; tahan tombol Kembali</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Laporan Lokasi: mode hemat baterai.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Laporan Lokasi: mode hanya sensor.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Laporan Lokasi: mode akurasi tinggi.</string>
+    <string name="quick_settings_location_battery_saving_label">Hemat baterai</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Hemat\nbaterai</string>
+    <string name="quick_settings_location_high_accuracy_label">Akurasi tinggi</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Akurasi\ntinggi</string>
+    <string name="quick_settings_location_detail_title">Lokasi</string>
+    <string name="quick_settings_location_detail_menu_title">Pilih mode:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Akurasi tinggi</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Hemat baterai</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Hanya perangkat</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Menggunakan Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Menggunakan GPS untuk menentukan lokasi Anda</string>
 </resources>

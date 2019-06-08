@@ -22,7 +22,16 @@
     <string name="quick_settings_network_adb_label">ADB لەڕێی تۆڕەوە</string>
     <string name="quick_settings_ambient_display_label">پیشاندەری دەوروبەر</string>
     <string name="quick_settings_heads_up_label">فه‌رمووه‌کان</string>
+    <string name="quick_settings_profiles_label">زانیاری تایبەتیەکانی سیستەم</string>
     <string name="quick_settings_usb_tether_label">گرتنەدەستی USB</string>
     <string name="accessibility_dpad_left">جێنیشانده‌ر بۆ لای چه‌پ</string>
     <string name="accessibility_dpad_right">جێنیشانده‌ر بۆ لای ڕاست</string>
+    <string name="accessibility_quick_settings_location_battery_saving">دۆزینەوەی شوێن: شێوازی پاراستنی ووزە.</string>
+    <string name="accessibility_quick_settings_location_gps_only">دۆزینەوەی شوێن: تەنیا هەستەوەرەکان.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">دۆزینەوەی شوێن: شێوازی بەکارهێنانی تەواو.</string>
+    <string name="quick_settings_location_battery_saving_label">پاراستنی ووزە</string>
+    <string name="quick_settings_location_high_accuracy_label">بەکارهێنانی زۆر</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">بەکارهێنانی زۆر</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">پاراستنی ووزە</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">تەنها ئامێر</string>
 </resources>

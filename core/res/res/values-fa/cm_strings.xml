@@ -52,6 +52,7 @@
     <string name="app_ops_read_sms">مشاهده پیامک‌های شما</string>
     <string name="app_ops_receive_sms">دریافت پیامک</string>
     <string name="app_ops_record_audio">ضبط صدا</string>
+    <string name="app_ops_run_in_background">اجرا در پس‌زمینه</string>
     <string name="app_ops_send_mms">ارسال پیام ام‌ام‌اس</string>
     <string name="app_ops_send_sms">ارسال پیامک</string>
     <string name="app_ops_start_at_bootup">اجرا هنگام روشن شدن</string>

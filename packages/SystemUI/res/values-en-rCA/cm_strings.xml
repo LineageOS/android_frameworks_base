@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Sync on.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sync turned off.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sync turned on.</string>
+    <string name="quick_settings_profiles_label">System profiles</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiles off.</string>
+    <string name="accessibility_quick_settings_profiles">Profile: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiles turned off.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profile changed to <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB tethering</string>
     <string name="quick_settings_volume_panel_label">Volume panel</string>
     <string name="accessibility_dpad_left">Cursor left</string>
@@ -59,4 +64,18 @@
     <string name="screen_pinning_description_no_navbar">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
     <string name="screen_pinning_toast_no_navbar">To unpin this screen, touch &amp; hold Back button</string>
     <string name="nav_bar_layout_inverse">Invert layout</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
+    <string name="quick_settings_location_battery_saving_label">Battery saving</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Battery\nsaving</string>
+    <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">High\naccuracy</string>
+    <string name="quick_settings_location_detail_title">Location</string>
+    <string name="quick_settings_location_detail_menu_title">Select mode:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">High accuracy</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Battery saving</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Device only</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Use Wi\u2011Fi, Bluetooth, or cellular networks to determine location</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Use GPS to determine your location</string>
 </resources>

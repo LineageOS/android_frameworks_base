@@ -52,9 +52,28 @@
     <string name="accessibility_quick_settings_sync_on">Synkronisering på.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Synkronisering avskrudd.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Synkronisering aktivert.</string>
+    <string name="quick_settings_profiles_label">System profiler</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiler av.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiler deaktivert.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil endret til <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB tethering</string>
     <string name="quick_settings_volume_panel_label">Volumpanel</string>
     <string name="accessibility_dpad_left">Markør til venstre</string>
     <string name="accessibility_dpad_right">Markør til høyre</string>
     <string name="screen_pinning_description_no_navbar">Dette holder den i syne inntil du løsner den. Trykk &amp; hold tilbake-knappen for å løsne.</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Lokasjonsmodus: strømsparemodus.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Lokasjonsmodus: kun sensorer.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Lokasjonsmodus: høy nøyaktighet.</string>
+    <string name="quick_settings_location_battery_saving_label">Batterisparing</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Batteri\nsparing</string>
+    <string name="quick_settings_location_high_accuracy_label">Høy nøyaktighet</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Høy\nnøyaktighet</string>
+    <string name="quick_settings_location_detail_title">Plassering</string>
+    <string name="quick_settings_location_detail_menu_title">Velg metode:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Høy nøyaktighet</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Batterisparing</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Kun enhet</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Bruk Wi\u2011Fi, Bluetooth, eller mobilnettverk for å bestemme plassering</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Bruk GPS til å bestemme din posisjon</string>
 </resources>

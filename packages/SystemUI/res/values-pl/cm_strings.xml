@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Synchronizacja włączona.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Synchronizacja została wyłączona.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Synchronizacja została włączona.</string>
+    <string name="quick_settings_profiles_label">Profile systemowe</string>
+    <string name="accessibility_quick_settings_profiles_off">Profile wyłączone.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profile zostały wyłączone.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil zmieniony na <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <string name="quick_settings_volume_panel_label">Panel głośności</string>
     <string name="accessibility_dpad_left">Kursor w lewo</string>
@@ -59,4 +64,18 @@
     <string name="screen_pinning_description_no_navbar">Ekran będzie widoczny, dopóki go nie odepniesz. Aby to zrobić, kliknij i przytrzymaj Wstecz.</string>
     <string name="screen_pinning_toast_no_navbar">Aby odpiąć ten ekran, naciśnij i przytrzymaj Wstecz</string>
     <string name="nav_bar_layout_inverse">Odwróć układ</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Raportowanie lokalizacji: tryb oszczędzania baterii.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Raportowanie lokalizacji: tylko czujniki.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Raportowanie lokalizacji: wysoka dokładność.</string>
+    <string name="quick_settings_location_battery_saving_label">Oszczędzanie baterii</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Oszczędzanie\nenergii</string>
+    <string name="quick_settings_location_high_accuracy_label">Wysoka dokładność</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Wysoka\ndokładność</string>
+    <string name="quick_settings_location_detail_title">Lokalizacja</string>
+    <string name="quick_settings_location_detail_menu_title">Wybierz tryb:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Wysoka dokładność</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Oszczędzanie baterii</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Tylko urządzenie</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Ustalaj lokalizację przez Wi‑Fi, Bluetooth lub sieci komórkowe</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Użyj GPS do określenia Twojej lokalizacji</string>
 </resources>

@@ -39,8 +39,27 @@
     <string name="accessibility_quick_settings_sync_on">Synkr. til.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Synkr. er slået fra.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Synkr. er slået til.</string>
+    <string name="quick_settings_profiles_label">Systemprofiler</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiler fra.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiler slået fra.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil ændret til <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB-tethering</string>
     <string name="quick_settings_volume_panel_label">Lydstyrkepanel</string>
     <string name="accessibility_dpad_left">Venstremarkør</string>
     <string name="accessibility_dpad_right">Højremarkør</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Placeringsrapportering: Batterisparetilstand.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Placeringsrapportering: Kun sensorer-tilstand.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Placeringsrapportering: Høj nøjagtighed-tilstand.</string>
+    <string name="quick_settings_location_battery_saving_label">Batteribesparelse</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Batteri-\nbesparelse</string>
+    <string name="quick_settings_location_high_accuracy_label">Høj nøjagtighed</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Høj\npræcision</string>
+    <string name="quick_settings_location_detail_title">Placering</string>
+    <string name="quick_settings_location_detail_menu_title">Vælg tilstand:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Høj nøjagtighed</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Batteribesparelse</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Kun enhed</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Brug Wi\u2011Fi, Bluetooth eller mobildata til at afgøre placeringen</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Brug GPS for at afgøre din placering</string>
 </resources>

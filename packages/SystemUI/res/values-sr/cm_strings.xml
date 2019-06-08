@@ -47,9 +47,28 @@
     <string name="accessibility_quick_settings_sync_on">Синхрон. укључено.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Синхронизација је искључена.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Синхронизација је укључена.</string>
+    <string name="quick_settings_profiles_label">Профили система</string>
+    <string name="accessibility_quick_settings_profiles_off">Профили искључени.</string>
+    <string name="accessibility_quick_settings_profiles">Профил: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Профили су искључени.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Профил је промењен у <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB повезивање</string>
     <string name="quick_settings_volume_panel_label">Панел гласноће</string>
     <string name="accessibility_dpad_left">Курсор лево</string>
     <string name="accessibility_dpad_right">Курсор десно</string>
     <string name="screen_pinning_description_no_navbar">Ово се стално приказује док га не уклониш. Додирни &amp; и задржи Назад да би га уклонио.</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Локација извештај: режим чувања батерије.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Локација извештај: режим само сензори.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Локација извештај: режим високе тачности.</string>
+    <string name="quick_settings_location_battery_saving_label">Уштеда батерије</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Уштеда\nбатерије</string>
+    <string name="quick_settings_location_high_accuracy_label">Велика прецизност</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Велика\nпрецизност</string>
+    <string name="quick_settings_location_detail_title">Локација</string>
+    <string name="quick_settings_location_detail_menu_title">Изаберите режим:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Велика прецизност</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Уштеда батерије</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Само уређај</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Користите Wi-Fi, Bluetooth или мобилне мреже за одређивање локације.</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Користите GPS за одређивање локације.</string>
 </resources>

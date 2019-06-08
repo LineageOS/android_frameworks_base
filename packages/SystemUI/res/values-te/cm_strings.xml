@@ -38,8 +38,21 @@
     <string name="accessibility_quick_settings_sync_on">సమకాలీకరణ ఆన్.</string>
     <string name="accessibility_quick_settings_sync_changed_off">సమకాలీకరణ ఆపివేయబడింది.</string>
     <string name="accessibility_quick_settings_sync_changed_on">సమకాలీకరణ ఆన్ చేయబడింది.</string>
+    <string name="quick_settings_profiles_label">సిస్టమ్ ప్రోఫైళ్ళు</string>
+    <string name="accessibility_quick_settings_profiles_off">ప్రోఫైళ్ళు ఆఫ్.</string>
+    <string name="accessibility_quick_settings_profiles">ప్రొఫైల్: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">ప్రోఫైళ్ళు ఆపివేయబడినవి.</string>
+    <string name="accessibility_quick_settings_profiles_changed">ప్రొఫైల్ <xliff:g id="profile" example="Default">%s</xliff:g>కు మార్చబడింది.</string>
     <string name="quick_settings_usb_tether_label">USB టీథరింగ్</string>
     <string name="quick_settings_volume_panel_label">వాల్యూమ్ ప్యానల్</string>
     <string name="accessibility_dpad_left">కర్సర్ ఎడమకి</string>
     <string name="accessibility_dpad_right">కర్సర్ కుడికి</string>
+    <string name="accessibility_quick_settings_location_battery_saving">స్థాన నివేదిక: బ్యాటరీ సేవింగ్ మోడ్.</string>
+    <string name="accessibility_quick_settings_location_gps_only">స్థాన నివేదిక: సెన్సార్లు మాత్రమే మోడ్.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">స్థాన నివేదిక: అధిక ఖచ్చితత్వ మోడ్.</string>
+    <string name="quick_settings_location_battery_saving_label">బ్యాటరీ ఆదా</string>
+    <string name="quick_settings_location_high_accuracy_label">అధిక నిర్దుష్టత</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">అధిక నిర్దుష్టత</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">బ్యాటరీ ఆదా</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">పరికరం మాత్రమే</string>
 </resources>

@@ -35,8 +35,21 @@
     <string name="accessibility_quick_settings_sync_on">Sinchronizavimas įjungtas.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sinchronizavimas išjungtas.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sinchronizavimas įjungtas.</string>
+    <string name="quick_settings_profiles_label">Sistemos profiliai</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiliai išjungti.</string>
+    <string name="accessibility_quick_settings_profiles">Profilis: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiliai išjungti.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profilis pakeistas į <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB susiejimas</string>
     <string name="quick_settings_volume_panel_label">Garsumo skydelis</string>
     <string name="accessibility_dpad_left">Žymeklis kairėje</string>
     <string name="accessibility_dpad_right">Žymeklis dešinėje</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Vietovės ataskaitos: akumuliatoriaus tausojimo režimas.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Vietovės ataskaitos: tik daviklių režimas.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Vietovės ataskaitos: didelio tikslumo režimas.</string>
+    <string name="quick_settings_location_battery_saving_label">Akumuliatoriaus tausojimas</string>
+    <string name="quick_settings_location_high_accuracy_label">Didelis tikslumas</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Didelis tikslumas</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Akumuliatoriaus tausojimas</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Tik įrenginys</string>
 </resources>

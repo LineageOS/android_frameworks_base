@@ -38,8 +38,21 @@
     <string name="accessibility_quick_settings_sync_on">सिंक चालू.</string>
     <string name="accessibility_quick_settings_sync_changed_off">सिंक बंद केले.</string>
     <string name="accessibility_quick_settings_sync_changed_on">सिंक चालू केले.</string>
+    <string name="quick_settings_profiles_label">सिस्टिम प्रोफाइल्स</string>
+    <string name="accessibility_quick_settings_profiles_off">प्रोफाइल्स बंद.</string>
+    <string name="accessibility_quick_settings_profiles">प्रोफाइल: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">प्रोफाइल्स बंद केला.</string>
+    <string name="accessibility_quick_settings_profiles_changed">प्रोफाइल <xliff:g id="profile" example="Default">%s</xliff:g>ला बदलला.</string>
     <string name="quick_settings_usb_tether_label">USB टेदरिंग</string>
     <string name="quick_settings_volume_panel_label">ध्वनी पॅनेल</string>
     <string name="accessibility_dpad_left">कर्सर डावा</string>
     <string name="accessibility_dpad_right">कर्सर उजवा</string>
+    <string name="accessibility_quick_settings_location_battery_saving">स्थान अहवाल देणे: बॅटरी बचत मोड.</string>
+    <string name="accessibility_quick_settings_location_gps_only">स्थान अहवाल देणे: केवळ सेन्सर्स मोड.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">स्थान अहवाल देणे: उच्च अचूकता मोड.</string>
+    <string name="quick_settings_location_battery_saving_label">बॅटरी बचत</string>
+    <string name="quick_settings_location_high_accuracy_label">उच्च अचूकता</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">उच्च अचूकता</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">बॅटरी बचत</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">केवळ डिव्हाइस</string>
 </resources>

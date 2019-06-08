@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Cysoni ymlaen.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Cysoni wedi\'i droi i ffwrdd.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Cysoni wedi\'i droi ymlaen.</string>
+    <string name="quick_settings_profiles_label">Proffiliau system</string>
+    <string name="accessibility_quick_settings_profiles_off">Proffiliau i ffwrdd.</string>
+    <string name="accessibility_quick_settings_profiles">Proffil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Proffiliau wedi eu troi ffwrdd.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Proffiliau wedi eu newid i <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Tenynnu USB</string>
     <string name="quick_settings_volume_panel_label">Panel uchder sain</string>
     <string name="accessibility_dpad_left">Pwyntydd chwith</string>
@@ -59,4 +64,18 @@
     <string name="screen_pinning_description_no_navbar">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei dadbinio. Cyffyrdda a dal Nôl i\'w dadbinio.</string>
     <string name="screen_pinning_toast_no_navbar">I ddadbinio\'r sgrin, cyffyrdda a dal y botwm Nôl</string>
     <string name="nav_bar_layout_inverse">Gwrthdroi\'r cynllun</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Adrodd lleoliad: Modd arbed batri.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Adrodd lleoliad: Modd synwyryddion yn unig.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Adrodd lleoliad: Modd cywirdeb manwl.</string>
+    <string name="quick_settings_location_battery_saving_label">Arbed batri</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Arbed\nbatri</string>
+    <string name="quick_settings_location_high_accuracy_label">Cywirdeb manwl</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Manwl\ngywirdeb</string>
+    <string name="quick_settings_location_detail_title">Lleoliad</string>
+    <string name="quick_settings_location_detail_menu_title">Dewisa modd:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Cywirdeb manwl</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Arbed batri</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Dyfais yn unig</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Defnyddio Wi\u2011Fi, Bluetooth, neu rwydweithiau symudol i adnabod lleoliad</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Defnyddio GPS i adnabod dy leoliad</string>
 </resources>

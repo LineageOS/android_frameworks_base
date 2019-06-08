@@ -28,8 +28,12 @@
     <string name="app_ops_delete_contacts">briše vaše kontakte</string>
     <string name="app_ops_delete_mms">briše vaše MMS poruke</string>
     <string name="app_ops_delete_sms">briše vaše SMS poruke</string>
+    <string name="app_ops_make_phone_call">pozivanje telefonskih brojeva</string>
     <string name="app_ops_read_call_log">čita vaš zapisnik poziva</string>
     <string name="app_ops_read_contacts">čita vaše kontakte</string>
     <string name="app_ops_read_mms">čita vaše MMS poruke</string>
+    <string name="app_ops_read_sms">čita vaše SMS poruke</string>
+    <string name="privacy_guard_notification">Čuvar privatnosti aktivan</string>
+    <string name="privacy_guard_dialog_title">Čuvar privatnosti</string>
     <string name="permission_remember_choice">Zapamti moj odabir</string>
 </resources>

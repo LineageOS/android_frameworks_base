@@ -52,9 +52,30 @@
     <string name="accessibility_quick_settings_sync_on">Sincronización acesa.</string>
     <string name="accessibility_quick_settings_sync_changed_off">A sincronización foi apagada.</string>
     <string name="accessibility_quick_settings_sync_changed_on">A sincronización foi acendida.</string>
+    <string name="quick_settings_profiles_label">Perfís do sistema</string>
+    <string name="accessibility_quick_settings_profiles_off">Perfís desactivados.</string>
+    <string name="accessibility_quick_settings_profiles">Perfil: <xliff:g id="profile" example="Predeterminado">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Perfís desactivados.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Perfil cambiado a <xliff:g id="profile" example="Predeterminado">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Compartir conexión USB</string>
     <string name="quick_settings_volume_panel_label">Panel de volume</string>
     <string name="accessibility_dpad_left">Cursor á esquerda</string>
     <string name="accessibility_dpad_right">Cursor á dereita</string>
     <string name="screen_pinning_description_no_navbar">Amosarase mentres esté fixado. Para deixar de fixalo, mantén tocado o botón Atrás.</string>
+    <string name="screen_pinning_toast_no_navbar">Para deixar de fixar esta pantalla, mantén apertado o botón Atrás</string>
+    <string name="nav_bar_layout_inverse">Inverter disposición</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Informe de localización: en modo aforro de batería.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Informe de localización: en modo de sensores.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Informe de localización: en modo de alta precisión.</string>
+    <string name="quick_settings_location_battery_saving_label">Aforro de batería</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Aforro\nde batería</string>
+    <string name="quick_settings_location_high_accuracy_label">Alta precisión</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisión</string>
+    <string name="quick_settings_location_detail_title">Localización</string>
+    <string name="quick_settings_location_detail_menu_title">Seleccionar modo:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisión</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Aforro de batería</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Só dispositivo</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Empregar Wi\u2011Fi, Bluetooth ou redes móbeis para determinar a localización</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Empregar GPS para determinar a localización</string>
 </resources>

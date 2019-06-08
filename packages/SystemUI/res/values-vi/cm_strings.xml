@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Bật đồng bộ.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Đã tắt đồng bộ.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Đã bật đồng bộ.</string>
+    <string name="quick_settings_profiles_label">Cấu hình hệ thống</string>
+    <string name="accessibility_quick_settings_profiles_off">Hồ sơ tắt.</string>
+    <string name="accessibility_quick_settings_profiles">Hồ sơ: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Hồ sơ đã tắt.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Hồ sơ đã đổi thành <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Kết nối mạng qua USB</string>
     <string name="quick_settings_volume_panel_label">Bảng điều khiển âm lượng</string>
     <string name="accessibility_dpad_left">Trỏ trái</string>
@@ -59,4 +64,18 @@
     <string name="screen_pinning_description_no_navbar">Thao tác này sẽ duy trì hiển thị màn hình cho đến khi bạn bỏ ghim. Chạm &amp; giữ Quay lại để bỏ ghim.</string>
     <string name="screen_pinning_toast_no_navbar">Để bỏ ghim màn hình này, chạm &amp; giữ nút Quay lại</string>
     <string name="nav_bar_layout_inverse">Đảo ngược bố cục</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Báo cáo vị trí: chế độ tiết kiệm pin.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Báo cáo vị trí: chế độ chỉ cám biến.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Báo cáo vị trí: chế độ chính xác cao.</string>
+    <string name="quick_settings_location_battery_saving_label">Tiết kiệm pin</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Tiết kiệm\npin</string>
+    <string name="quick_settings_location_high_accuracy_label">Chính xác cao</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Cao\nchính xác</string>
+    <string name="quick_settings_location_detail_title">Vị trí</string>
+    <string name="quick_settings_location_detail_menu_title">Chọn chế độ:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Chính xác cao</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Tiết kiệm pin</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Chỉ thiết bị</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Sử dụng Wi\u2011Fi, Bluetooth hoặc mạng di động để xác định vị trí</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Sử dụng GPS để xác định vị trí của bạn</string>
 </resources>

@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Eyniləşdirmə açıqdır.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Eyniləşdirmə söndürüldü.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Eyniləşdirmə işə salındı.</string>
+    <string name="quick_settings_profiles_label">Sistem profilləri</string>
+    <string name="accessibility_quick_settings_profiles_off">Profillər bağlıdır.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profillər söndürüldü.</string>
+    <string name="accessibility_quick_settings_profiles_changed"><xliff:g id="profile" example="Default">%s</xliff:g> profilinə keçildi.</string>
     <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
     <string name="quick_settings_volume_panel_label">Səs paneli</string>
     <string name="accessibility_dpad_left">Sol kursor</string>
@@ -59,4 +64,18 @@
     <string name="screen_pinning_description_no_navbar">Bu əməliyyat, siz sabitləməni götürənə qədər ekranı baxış rejimində saxlayar. Sabitləməni götürmək üçün Geri-yə toxunub basılı saxlayın.</string>
     <string name="screen_pinning_toast_no_navbar">Bu ekranı ayırmaq üçün Geri düyməsinə basıb saxlayın</string>
     <string name="nav_bar_layout_inverse">Düzümü tərsinə çevir</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Yer hesabatı: batereyaya qənaət rejimi.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Yer hesabatı: yalnız sensorlar rejimi.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Yer hesabatı: yüksək həssaslıq rejimi.</string>
+    <string name="quick_settings_location_battery_saving_label">Batereyaya qənaət</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Batareyaya\nqənaət</string>
+    <string name="quick_settings_location_high_accuracy_label">Yüksək həssaslıq</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Yüksək\ndəqiqlik</string>
+    <string name="quick_settings_location_detail_title">Yer</string>
+    <string name="quick_settings_location_detail_menu_title">Rejimi seç:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Yüksək həssaslıq</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Batereyaya qənaət</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Yalnız cihaz</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Yeri müəyyənləşdirmək üçün Wi\u2011Fi, Bluetooth və ya hüceyrəvi şəbəkələri istifadə edin</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Yeri müəyyənləşdirmək üçün GPS istifadə edin</string>
 </resources>

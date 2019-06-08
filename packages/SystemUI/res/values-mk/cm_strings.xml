@@ -20,4 +20,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="global_action_restart_system">Систем</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Штедење\nбатерија</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Висока\nточност</string>
+    <string name="quick_settings_location_detail_title">Локација</string>
+    <string name="quick_settings_location_detail_menu_title">Изберете режим:</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Користете Wi\u2011Fi, Bluetooth или мобилни мрежи за да ја одредите локацијата</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Користете GPS за да ја одредите локацијата</string>
 </resources>

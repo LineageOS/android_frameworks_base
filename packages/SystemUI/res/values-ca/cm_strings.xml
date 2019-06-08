@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Sinc activada.</string>
     <string name="accessibility_quick_settings_sync_changed_off">S\'ha desactivat la sincronització.</string>
     <string name="accessibility_quick_settings_sync_changed_on">S\'ha activat la sincronització.</string>
+    <string name="quick_settings_profiles_label">Perfils de sistema</string>
+    <string name="accessibility_quick_settings_profiles_off">Perfils desactivats.</string>
+    <string name="accessibility_quick_settings_profiles">Perfils: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">S\'han desactivat els perfils.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Perfil canviat a <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Ancoratge USB</string>
     <string name="quick_settings_volume_panel_label">Panell de volum</string>
     <string name="accessibility_dpad_left">Cursor esquerra</string>
@@ -59,4 +64,18 @@
     <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
     <string name="screen_pinning_toast_no_navbar">Toca i mantén premut el botó Enrere per deixar de fixar aquesta pantalla</string>
     <string name="nav_bar_layout_inverse">Inverteix la disposició</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Informes d\'ubicació: Mode d\'estalvi de bateria.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Informes d\'ubicació: Mode només sensors.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Informes d\'ubicació: Mode d\'alta precisió.</string>
+    <string name="quick_settings_location_battery_saving_label">Estalvi de bateria</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Estalvi\nde bateria</string>
+    <string name="quick_settings_location_high_accuracy_label">Alta precisió</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisió</string>
+    <string name="quick_settings_location_detail_title">Ubicació</string>
+    <string name="quick_settings_location_detail_menu_title">Selecciona un mode:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisió</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Estalvi de bateria</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Només dispositiu</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Utilitza la Wi\u2011Fi, el Bluetooth o les xarxes mòbils per determinar la ubicació</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Utilitza el GPS per determinar la ubicació</string>
 </resources>

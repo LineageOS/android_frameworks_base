@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Sinkronizimi aktiv.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sinkronizimi u çaktivizua.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sinkronizimi u aktivizua.</string>
+    <string name="quick_settings_profiles_label">Profilet e sistemit</string>
+    <string name="accessibility_quick_settings_profiles_off">Profilet inaktive.</string>
+    <string name="accessibility_quick_settings_profiles">Profili: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profilet u çaktivizuan.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profili u ndërrua në <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB tethering</string>
     <string name="quick_settings_volume_panel_label">Paneli i volumit</string>
     <string name="accessibility_dpad_left">Kursori majtas</string>
@@ -59,4 +64,18 @@
     <string name="screen_pinning_description_no_navbar">Kjo e mban në ekran derisa ta shqitësh. Shtyp &amp; mbaj shtypur butonin Prapa për ta shqitur.</string>
     <string name="screen_pinning_toast_no_navbar">Për ta shqitur këtë ekran, prek &amp; mbaj shtypur butonin Prapa</string>
     <string name="nav_bar_layout_inverse">E anasjellta e ndërfaqes</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Raportimi i vendndodhjes: kursim i baterisë.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Raportimi i vendndodhjes: vetëm nga sensorët.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Raportimi i vendndodhjes: me saktësi të lartë.</string>
+    <string name="quick_settings_location_battery_saving_label">Kursim i baterisë</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Kursim i\nbaterisë</string>
+    <string name="quick_settings_location_high_accuracy_label">Saktësi e lartë</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Saktësi\ne lartë</string>
+    <string name="quick_settings_location_detail_title">Vendndodhja</string>
+    <string name="quick_settings_location_detail_menu_title">Zgjidh profilin:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Saktësi e lartë</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Kursim i baterisë</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Vetëm pajisja</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Përdor Wi\u2011Fi, Bluetooth, ose rrjetet celulare për të përcaktuar vendndodhjen</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Përdor GPS për të përcaktuar vendndodhjen</string>
 </resources>

@@ -38,8 +38,21 @@
     <string name="accessibility_quick_settings_sync_on">പൊരുത്തപ്പെടൽ ഓണ്‍.</string>
     <string name="accessibility_quick_settings_sync_changed_off">പൊരുത്തപ്പെടൽ ഓഫ് ചെയ്തു.</string>
     <string name="accessibility_quick_settings_sync_changed_on">പൊരുത്തപ്പെടൽ ഓണ്‍ ചെയ്തു.</string>
+    <string name="quick_settings_profiles_label">സിസ്റ്റം പ്രൊഫൈലുകൾ</string>
+    <string name="accessibility_quick_settings_profiles_off">പ്രൊഫൈലുകൾ ഓഫ്.</string>
+    <string name="accessibility_quick_settings_profiles">പ്രൊഫൈൽ: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">പ്രൊഫൈലുകൾ ഓഫ് ചെയ്തു.</string>
+    <string name="accessibility_quick_settings_profiles_changed">പ്രൊഫൈൽ <xliff:g id="profile" example="Default">%s</xliff:g> ലേക്ക് മാറ്റി.</string>
     <string name="quick_settings_usb_tether_label">USB ടെതറിംഗ്</string>
     <string name="quick_settings_volume_panel_label">വോളിയം പാനൽ</string>
     <string name="accessibility_dpad_left">കർസർ ഇടത്</string>
     <string name="accessibility_dpad_right">കർസർ വലത്</string>
+    <string name="accessibility_quick_settings_location_battery_saving">സ്ഥാനം റിപ്പോർട്ടിംഗ്: ബാറ്ററി ലാഭിക്കല്‍ മോഡ്.</string>
+    <string name="accessibility_quick_settings_location_gps_only">സ്ഥാനം റിപ്പോർട്ടിംഗ്: സെൻസറുകൾ മാത്രമുള്ള മോഡ്.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">സ്ഥാനം റിപ്പോർട്ടിംഗ്: ഉയർന്ന കൃത്യതാ മോഡ്.</string>
+    <string name="quick_settings_location_battery_saving_label">ബാറ്ററി ലാഭിക്കൽ</string>
+    <string name="quick_settings_location_high_accuracy_label">ഉയർന്ന കൃത്യത</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">ഉയർന്ന കൃത്യത</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">ബാറ്ററി ലാഭിക്കൽ</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">ഉപകരണം മാത്രം</string>
 </resources>

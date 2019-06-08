@@ -31,6 +31,8 @@
     <string name="app_ops_assist_structure">käyttää apurakennetta</string>
     <string name="app_ops_audio_accessibility_volume">äänen esteettömyys voimakkuus</string>
     <string name="app_ops_auto_start">käynnistyä laitetta käynnistettäessä</string>
+    <string name="app_ops_bind_accessibility_service">yhdistä esteettömyyspalvelu</string>
+    <string name="app_ops_bluetooth_scan">bluetoothskannaus</string>
     <string name="app_ops_change_wallpaper">vaihtaa taustakuvan</string>
     <string name="app_ops_delete_call_log">poistaa puhelulokin</string>
     <string name="app_ops_delete_contacts">poistaa yhteystietojasi</string>
@@ -39,8 +41,10 @@
     <string name="app_ops_draw_on_top">piirtää ikkunan päälle</string>
     <string name="app_ops_get_accounts">lukea laitteen tilejä</string>
     <string name="app_ops_get_usage_stats">käyttää sovelluksen käyttötilastoja</string>
+    <string name="app_ops_accept_handover">puhelun luovutus toisesta sovelluksesta</string>
     <string name="app_ops_install_packages">asentaa paketteja</string>
     <string name="app_ops_keep_device_awake">pitää laitteen hereillä</string>
+    <string name="app_ops_manage_ipsec_tunnels">hallitse ipsec tunneleita</string>
     <string name="app_ops_make_phone_call">soittaa puhelun</string>
     <string name="app_ops_mock_location">väärentää sijaintisi</string>
     <string name="app_ops_modify_calendar">päivittää kalenteria</string>
@@ -65,12 +69,16 @@
     <string name="app_ops_read_phone_state">lukea puhelimen tilan</string>
     <string name="app_ops_read_sms">lukea tekstiviestejä</string>
     <string name="app_ops_receive_sms">vastaanottaa tekstiviestejä</string>
+    <string name="app_ops_receive_emergency_broadcast">vastaanottaa hätätiedotusviestejä</string>
     <string name="app_ops_record_audio">tallentaa ääntä</string>
+    <string name="app_ops_request_delete_packages">pyydä pakettien poistamista</string>
     <string name="app_ops_run_in_background">avaa taustalla</string>
+    <string name="app_ops_run_any_in_background">suorita taustalla</string>
     <string name="app_ops_scan_wifi">hakea Wi-Fi-verkkoja</string>
     <string name="app_ops_send_mms">lähettää multimediaviestin</string>
     <string name="app_ops_send_sms">lähettää tekstiviestin</string>
     <string name="app_ops_start_at_bootup">käynnistyä laitetta käynnistettäessä</string>
+    <string name="app_ops_start_foreground">aloita edustalla</string>
     <string name="app_ops_su">pääkäyttäjän oikeudet</string>
     <string name="app_ops_toast_window">Näytä toast-ilmoitukset</string>
     <string name="app_ops_toggle_bluetooth">ottaa Bluetoothin käyttöön</string>

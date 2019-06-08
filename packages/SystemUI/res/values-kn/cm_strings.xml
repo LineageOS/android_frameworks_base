@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">ಸಿಂಕ್ ಆನ್.</string>
     <string name="accessibility_quick_settings_sync_changed_off">ಸಿಂಕ್ ಆಫ್ ಆಗಿದೆ.</string>
     <string name="accessibility_quick_settings_sync_changed_on">ಸಿಂಕ್ ಆನ್ ಆಗಿದೆ.</string>
+    <string name="quick_settings_profiles_label">ಸಿಸ್ಟಂ ಪ್ರೊಫೈಲ್ಸ್</string>
+    <string name="accessibility_quick_settings_profiles_off">ಪ್ರೊಫೈಲ್ಸ್ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_profiles">ಪ್ರೊಫೈಲ್: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">ಪ್ರೊಫೈಲ್ಸ್ ಆಫ್ ಆಗಿದೆ.</string>
+    <string name="accessibility_quick_settings_profiles_changed">ಪ್ರೊಫೈಲ್ <xliff:g id="profile" example="Default">%s</xliff:g>ಗೆ ಬದಲಾಗಿದೆ.</string>
     <string name="quick_settings_usb_tether_label">ಯುಎಸ್‍ಬಿ ಟೆಥರಿಂಗ್</string>
     <string name="quick_settings_volume_panel_label">ಶಬ್ದಮಟ್ಟ ಫಲಕ</string>
     <string name="accessibility_dpad_left">ಕರ್ಸರ್ ಎಡ</string>
@@ -59,4 +64,12 @@
     <string name="screen_pinning_description_no_navbar">ಇದನ್ನು ನೀವು ಬಿಚ್ಚಿಡುವವರೆಗೂ ವೀಕ್ಷಣೆಯಲ್ಲಿ ಇರಿಸುತ್ತದೆ. ಬಿಚ್ಚಿಡಲು ಹಿಂದೆ ಗುಂಡಿಯನ್ನು ಒತ್ತಿ ಹಿಡಿಯಿರಿ.</string>
     <string name="screen_pinning_toast_no_navbar">ಈ ಪರದೆಯನ್ನು ಕಿತ್ತಲು ಹಿಂದೆ-ಗುಂಡಿ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿದುಕೊಳ್ಳಿ</string>
     <string name="nav_bar_layout_inverse">ವ್ಯತಿರಿಕ್ತ ವಿನ್ಯಾಸ</string>
+    <string name="accessibility_quick_settings_location_battery_saving">ಸ್ಥಳ ವರದಿಸಲ್ಲಿಸುವಿಕೆ: ಬ್ಯಾಟರಿ ಉಳಿತಾಯ ಮೋಡ್.</string>
+    <string name="accessibility_quick_settings_location_gps_only">ಸ್ಥಳ ವರದಿ ಸಲ್ಲಿಸುವಿಕೆ: ಸಂವೇದಕಗಳು ಮಾತ್ರ ಮೋಡ್.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">ಸ್ಥಳ ವರದಿಸಲ್ಲಿಸುವಿಕೆ: ಗರಿಷ್ಟ ನಿಖರತೆ ಮೋಡ್.</string>
+    <string name="quick_settings_location_battery_saving_label">ಬ್ಯಾಟರಿ ಉಳಿತಾಯ</string>
+    <string name="quick_settings_location_high_accuracy_label">ಗರಿಷ್ಠ ನಿಖರತೆ</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">ಗರಿಷ್ಠ ನಿಖರತೆ</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">ಬ್ಯಾಟರಿ ಉಳಿತಾಯ</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">ಸಾಧನ ಮಾತ್ರ</string>
 </resources>

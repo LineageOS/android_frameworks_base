@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Sincronizare pornită.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sincronizare oprită.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sincronizare pornită.</string>
+    <string name="quick_settings_profiles_label">Profiluri de sistem</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiluri oprit.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiluri este activat.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil schimbat în <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <string name="quick_settings_volume_panel_label">Panou volum</string>
     <string name="accessibility_dpad_left">Cursor stânga</string>
@@ -59,4 +64,23 @@
     <string name="screen_pinning_description_no_navbar">Aceasta îl ține în vedere până când anulați fixarea. Atingeți &amp; țineți apăsat Înapoi pentru a anula fixarea.</string>
     <string name="screen_pinning_toast_no_navbar">Pentru a anula fixarea acestui ecran, atingeți &amp; și țineți apăsat butonul Înapoi</string>
     <string name="nav_bar_layout_inverse">Inversare aspect</string>
+    <string name="custom_swipe_hint">Glisați de pe iconiță pentru <xliff:g name="target">%s</xliff:g></string>
+    <string name="accessibility_quick_settings_location_battery_saving">Raportarea locației: mod economisire baterie.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Raportarea locației: doar senzori.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Raportarea locației: precizie ridicată.</string>
+    <string name="quick_settings_location_battery_saving_label">Economisire baterie</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Economisire\nbaterie</string>
+    <string name="quick_settings_location_gps_only_label">Doar GPS</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Doar GPS</string>
+    <string name="quick_settings_location_high_accuracy_label">Precizie ridicată</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Precizie\nridicată</string>
+    <string name="quick_settings_location_detail_title">Locație</string>
+    <string name="quick_settings_location_detail_menu_title">Selectați modul:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Precizie ridicată</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Economisire baterie</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Doar dispozitiv</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilizează GPS, Wi\u2011Fi, Bluetooth sau rețelele mobile pentru determinarea locației </string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Utilizează Wi\u2011Fi, Bluetooth sau rețelele mobile pentru determinarea locației</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Utilizează GPS-ul pentru a vă determina locaţia</string>
+    <string name="status_bar_battery">Baterie</string>
 </resources>

@@ -52,6 +52,11 @@
     <string name="accessibility_quick_settings_sync_on">Eşitleme açık.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Eşitleme kapatıldı.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı.</string>
+    <string name="quick_settings_profiles_label">Sistem profilleri</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiller kapalı.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiller kapatıldı.</string>
+    <string name="accessibility_quick_settings_profiles_changed"><xliff:g id="profile" example="Default">%s</xliff:g> profiline geçildi.</string>
     <string name="quick_settings_usb_tether_label">USB İnternet Paylaşımı</string>
     <string name="quick_settings_volume_panel_label">Ses paneli</string>
     <string name="accessibility_dpad_left">Sol imleç</string>
@@ -59,4 +64,23 @@
     <string name="screen_pinning_description_no_navbar">Bu işlem, siz sabitlemeyi kaldırana kadar ekranı görünür durumda tutar. Sabitlemeyi kaldırmak için Geri\'ye dokunun ve basılı tutun.</string>
     <string name="screen_pinning_toast_no_navbar">Bu ekran görünümünü kaldırmak için, Geri tuşuna dokunun ve basılı tutun</string>
     <string name="nav_bar_layout_inverse">Düzeni tersine çevir</string>
+    <string name="custom_swipe_hint"><xliff:g name="target">%s</xliff:g> için simgeden kaydırın</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Konum bildirimi: pil tasarruf modu.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Konum bildirimi: sadece sensörler modu.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Konum bildirimi: yüksek hassasiyet modu.</string>
+    <string name="quick_settings_location_battery_saving_label">Pil tasarrufu</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Pil\ntasarrufu</string>
+    <string name="quick_settings_location_gps_only_label">Sadece GPS</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Sadece GPS</string>
+    <string name="quick_settings_location_high_accuracy_label">Yüksek doğruluk</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Yüksek\ndoğruluk</string>
+    <string name="quick_settings_location_detail_title">Konum</string>
+    <string name="quick_settings_location_detail_menu_title">Modu seç:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Yüksek doğruluk</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Pil tasarrufu</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Sadece cihaz</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Konumu belirlemek için GPS, Wi\u2011Fi, Bluetooth veya hücresel ağlar kullan </string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Konumu belirlemek için Wifi, Bluetooth veya hücresel ağlar kullanılır</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Konumu belirlemek için GPS kullanılır</string>
+    <string name="status_bar_battery">Pil</string>
 </resources>

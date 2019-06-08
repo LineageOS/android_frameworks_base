@@ -51,10 +51,23 @@
     <string name="accessibility_quick_settings_sync_on">Sünk sees.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sünk välja lülitatud.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sünk sisse lülitatud.</string>
+    <string name="quick_settings_profiles_label">Süsteemi profiilid</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiilid väljas.</string>
+    <string name="accessibility_quick_settings_profiles">Profiil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiilid välja lülitatud.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profiil muudetud: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB lõastamine</string>
     <string name="quick_settings_volume_panel_label">Helipaneel</string>
     <string name="accessibility_dpad_left">Kursor vasakule</string>
     <string name="accessibility_dpad_right">Kursor paremale</string>
     <string name="screen_pinning_toast_no_navbar">Selle ekraani vabastamiseks puudutage ja hoidke all tagasinuppu</string>
     <string name="nav_bar_layout_inverse">Pööra paigutus</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Asukoha teatamine: aku säästmise režiim.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Asukoha teatamine: ainult andurite režiim.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Asukoha teatamine: kõrge täpsusega režiim.</string>
+    <string name="quick_settings_location_battery_saving_label">Akut säästev</string>
+    <string name="quick_settings_location_high_accuracy_label">Kõrge täpsusega</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Kõrge täpsusega</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Akut säästev</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Ainult seade</string>
 </resources>
