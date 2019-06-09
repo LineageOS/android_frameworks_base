@@ -22,6 +22,30 @@
       "revId": "8853252798a608480f8bb0ef5295d91ce55c53d9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88bc6a87_2c451c57",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-06-09T16:13:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d4b9bd6_be8fecf4",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 78
+      },
+      "revId": "8853252798a608480f8bb0ef5295d91ce55c53d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
