@@ -16,6 +16,24 @@
       "revId": "dbcc70737a71e7627f49407b6b4f92207485f1f6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "045ff0a8_a4cb1272",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-06-09T18:38:46Z",
+      "side": 1,
+      "message": "Do you mean use Dependency.get(\u003cclass\u003e) ?  That doesn\u0027t seem to work owing to:\njava.lang.IllegalArgumentException: Unsupported dependency class android.net.ConnectivityManager\n\nOr did you mean use the class as an argument to the getSystemService() call ?  I think it\u0027s better as is - use a Context class variable to a context class method.  The Context API stays the same even if the underlying class is changed.",
+      "parentUuid": "41e83ac1_f7eb5323",
+      "revId": "dbcc70737a71e7627f49407b6b4f92207485f1f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
