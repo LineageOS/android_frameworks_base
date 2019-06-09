@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41e83ac1_f7eb5323",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-09T17:52:17Z",
+      "side": 1,
+      "message": "can we keep using the get by class name?",
+      "revId": "dbcc70737a71e7627f49407b6b4f92207485f1f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
