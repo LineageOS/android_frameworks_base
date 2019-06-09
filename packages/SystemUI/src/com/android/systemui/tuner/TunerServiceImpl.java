@@ -45,6 +45,7 @@ import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.util.leak.LeakDetector;
+import com.android.systemui.volume.VolumeDialogImpl;
 
 import lineageos.providers.LineageSettings;
 
@@ -73,7 +74,8 @@ public class TunerServiceImpl extends TunerService {
             StatusBar.BERRY_GLOBAL_STYLE,
             StatusBar.FORCE_SHOW_NAVBAR,
             StatusBar.SCREEN_BRIGHTNESS_MODE,
-            StatusBar.STATUS_BAR_BRIGHTNESS_CONTROL
+            StatusBar.STATUS_BAR_BRIGHTNESS_CONTROL,
+            VolumeDialogImpl.SETTING_VOLUME_PANEL_ON_LEFT,
     };
 
     private final Observer mObserver = new Observer();

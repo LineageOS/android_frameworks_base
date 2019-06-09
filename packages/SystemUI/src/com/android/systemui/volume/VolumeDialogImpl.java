@@ -118,7 +118,7 @@ public class VolumeDialogImpl implements VolumeDialog {
     private static final long USER_ATTEMPT_GRACE_PERIOD = 1000;
     private static final int UPDATE_ANIMATION_DURATION = 80;
 
-    private static final String SETTING_VOLUME_PANEL_ON_LEFT =
+    public static final String SETTING_VOLUME_PANEL_ON_LEFT =
             "lineagesecure:" + LineageSettings.Secure.VOLUME_PANEL_ON_LEFT;
 
     private final Context mContext;
