@@ -347,6 +347,7 @@ public class BatteryMeterDrawableBase extends Drawable {
                 strokeWidth / 2.0f,
                 circleSize - strokeWidth / 2.0f + mPadding.left,
                 circleSize - strokeWidth / 2.0f);
+        mFrame.offset(-2.0f, 0);
 
         // set the battery charging color
         mBatteryPaint.setColor(batteryColorForLevel(level));
