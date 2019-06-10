@@ -17,6 +17,24 @@
       "revId": "1aee0247665d67676c7ce09d9b17d34a3d7ea26a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e3ac7e6_51fc6823",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-06-10T19:25:17Z",
+      "side": 1,
+      "message": "actually this is all done in java isn\u0027t it?",
+      "parentUuid": "de4ac95a_4cd67bc9",
+      "revId": "1aee0247665d67676c7ce09d9b17d34a3d7ea26a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
