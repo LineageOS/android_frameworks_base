@@ -35,6 +35,24 @@
       "revId": "1aee0247665d67676c7ce09d9b17d34a3d7ea26a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f5109c1_3fa50bfc",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-06-10T19:26:55Z",
+      "side": 1,
+      "message": "Nah, it\u0027s done in XML but I didn\u0027t really want to remove it to reduce amount of possible conflicts.",
+      "parentUuid": "9e3ac7e6_51fc6823",
+      "revId": "1aee0247665d67676c7ce09d9b17d34a3d7ea26a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
