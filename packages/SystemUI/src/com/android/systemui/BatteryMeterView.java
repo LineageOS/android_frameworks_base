@@ -78,6 +78,7 @@ public class BatteryMeterView extends LinearLayout implements
     private TextView mBatteryPercentView;
 
     private boolean mCharging;
+    private boolean mBatteryHidden;
     private int mBatteryStyle = BATTERY_STYLE_PORTRAIT;
 
     private BatteryController mBatteryController;
@@ -211,9 +212,9 @@ public class BatteryMeterView extends LinearLayout implements
     public void onTuningChanged(String key, String newValue) {
         if (StatusBarIconController.ICON_BLACKLIST.equals(key)) {
             ArraySet<String> icons = StatusBarIconController.getIconBlacklist(newValue);
-            boolean hidden = icons.contains(mSlotBattery);
-            Dependency.get(IconLogger.class).onIconVisibility(mSlotBattery, !hidden);
-            setVisibility(hidden ? View.GONE : View.VISIBLE);
+            mBatteryHidden = icons.contains(mSlotBattery);
+            Dependency.get(IconLogger.class).onIconVisibility(mSlotBattery, !mBatteryHidden);
+            setVisibility(mBatteryHidden ? View.GONE : View.VISIBLE);
         } else if (STATUS_BAR_BATTERY_STYLE.equals(key) && newValue != null) {
             mBatteryStyle = Integer.parseInt(newValue);
             updateBatteryStyle();
@@ -347,7 +348,7 @@ public class BatteryMeterView extends LinearLayout implements
             mBatteryIconView.setImageDrawable(mDrawable);
             scaleBatteryMeterViews();
         }
-        setVisibility(View.VISIBLE);
+        setVisibility(mBatteryHidden ? View.GONE : View.VISIBLE);
     }
 
     @Override
