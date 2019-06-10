@@ -300,6 +300,13 @@ public class BatteryMeterView extends LinearLayout implements
                                 LayoutParams.WRAP_CONTENT,
                                 LayoutParams.MATCH_PARENT));
             }
+            if (mBatteryStyle == BATTERY_STYLE_TEXT) {
+                mBatteryPercentView.setPaddingRelative(0, 0, 0, 0);
+            } else {
+                Resources res = getContext().getResources();
+                mBatteryPercentView.setPaddingRelative(
+                        res.getDimensionPixelSize(R.dimen.battery_level_padding_start), 0, 0, 0);
+            }
         } else {
             mDrawable.setShowPercent(drawPercentInside);
             if (showing) {
