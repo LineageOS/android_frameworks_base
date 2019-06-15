@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5827d196_2408824f",
+        "filename": "core/java/android/os/INetworkManagementService.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-06-15T17:02:51Z",
+      "side": 1,
+      "message": "Mobile data / VPN / WiFi",
+      "range": {
+        "startLine": 455,
+        "startChar": 35,
+        "endLine": 455,
+        "endChar": 44
+      },
+      "revId": "7054bbe7c8bc726a7914ce87625ce9833d75ce49",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
