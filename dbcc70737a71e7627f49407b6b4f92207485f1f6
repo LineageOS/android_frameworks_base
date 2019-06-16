@@ -88,6 +88,24 @@
       "revId": "dbcc70737a71e7627f49407b6b4f92207485f1f6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8ffe8dc_cc7606ef",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-06-16T18:24:24Z",
+      "side": 1,
+      "message": "I see now:\npublic final T getSystemService (Class\u003cT\u003e serviceClass)\nvs\npublic abstract Object getSystemService (String name)\n\nSo it allows you to get rid of the cast.\n\nDone",
+      "parentUuid": "190bdbad_1a230db9",
+      "revId": "dbcc70737a71e7627f49407b6b4f92207485f1f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
