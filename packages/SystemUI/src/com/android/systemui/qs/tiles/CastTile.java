@@ -67,6 +67,7 @@ public class CastTile extends QSTileImpl<BooleanState> {
     private final ActivityStarter mActivityStarter;
     private Dialog mDialog;
     private boolean mWifiConnected;
+    private final boolean mWfdEnabled;
 
     @Inject
     public CastTile(QSHost host, CastController castController, KeyguardMonitor keyguardMonitor,
@@ -80,6 +81,8 @@ public class CastTile extends QSTileImpl<BooleanState> {
         mController.observe(this, mCallback);
         mKeyguard.observe(this, mCallback);
         mNetworkController.observe(this, mSignalCallback);
+        mWfdEnabled = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_enableWifiDisplay);
     }
 
     @Override
@@ -249,7 +252,7 @@ public class CastTile extends QSTileImpl<BooleanState> {
                         NetworkController.IconState qsIcon, boolean activityIn, boolean activityOut,
                         String description, boolean isTransient, String statusLabel) {
                     // statusIcon.visible has the connected status information
-                    boolean enabledAndConnected = enabled && qsIcon.visible;
+                    boolean enabledAndConnected = enabled && (mWfdEnabled || qsIcon.visible);
                     if (enabledAndConnected != mWifiConnected) {
                         mWifiConnected = enabledAndConnected;
                         refreshState();
