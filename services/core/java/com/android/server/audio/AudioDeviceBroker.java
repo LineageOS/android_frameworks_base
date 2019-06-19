@@ -403,6 +403,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
                 devInfoToRemove);
     }
 
+    /*package*/ void postBluetoothA2dpDeviceConfigChangeExt(
+            @NonNull BluetoothDevice device,
+            @AudioService.BtProfileConnectionState int state, int profile,
+            boolean suppressNoisyIntent, int a2dpVolume) {
+         final BtDeviceConnectionInfo info = new BtDeviceConnectionInfo(device, state, profile,
+                 suppressNoisyIntent, a2dpVolume);
+         sendLMsgNoDelay(MSG_L_A2DP_ACTIVE_DEVICE_CHANGE_EXT, SENDMSG_QUEUE, info);
+    }
+
     private static final class HearingAidDeviceConnectionInfo {
         final @NonNull BluetoothDevice mDevice;
         final @AudioService.BtProfileConnectionState int mState;
@@ -1096,6 +1105,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
                 case MSG_CHECK_MUTE_MUSIC:
                     checkMessagesMuteMusic(0);
                     break;
+                case MSG_L_A2DP_ACTIVE_DEVICE_CHANGE_EXT: {
+                    final BtDeviceConnectionInfo info = (BtDeviceConnectionInfo) msg.obj;
+                    AudioService.sDeviceLogger.log((new AudioEventLogger.StringEvent(
+                    "handleBluetoothA2dpActiveDeviceChangeExt "
+                           + " state=" + info.mState
+                           // only querying address as this is the only readily available
+                           // field on the device
+                           + " addr=" + info.mDevice.getAddress()
+                           + " prof=" + info.mProfile + " supprNoisy=" + info.mSupprNoisy
+                           + " vol=" + info.mVolume)).printLog(TAG));
+                    synchronized (mDeviceStateLock) {
+                        mDeviceInventory.handleBluetoothA2dpActiveDeviceChangeExt(
+                                info.mDevice, info.mState, info.mProfile,
+                                info.mSupprNoisy, info.mVolume);
+                    }
+                } break;
                 default:
                     Log.wtf(TAG, "Invalid message " + msg.what);
             }
@@ -1163,6 +1188,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
     // process external command to (dis)connect a hearing aid device
     private static final int MSG_L_HEARING_AID_DEVICE_CONNECTION_CHANGE_EXT = 31;
 
+    // process external command to (dis)connect or change active A2DP device
+    private static final int MSG_L_A2DP_ACTIVE_DEVICE_CHANGE_EXT = 38;
+
     // a ScoClient died in BtHelper
     private static final int MSG_L_SCOCLIENT_DIED = 32;
     private static final int MSG_IL_SAVE_PREF_DEVICE_FOR_STRATEGY = 33;
@@ -1171,7 +1199,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
     private static final int MSG_L_SPEAKERPHONE_CLIENT_DIED = 35;
     private static final int MSG_CHECK_MUTE_MUSIC = 36;
     private static final int MSG_REPORT_NEW_ROUTES_A2DP = 37;
-
 
     private static boolean isMessageHandledUnderWakelock(int msgId) {
         switch(msgId) {
@@ -1188,6 +1215,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
             case MSG_L_A2DP_DEVICE_CONNECTION_CHANGE_EXT_DISCONNECTION:
             case MSG_L_HEARING_AID_DEVICE_CONNECTION_CHANGE_EXT:
             case MSG_CHECK_MUTE_MUSIC:
+            case MSG_L_A2DP_ACTIVE_DEVICE_CHANGE_EXT:
                 return true;
             default:
                 return false;
