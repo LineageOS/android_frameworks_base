@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,11 +64,14 @@
     <string name="screen_pinning_description_no_navbar">Това допълнение ще остане активно. Натиснете&amp; задръжте бутона Назад за освобождаване.</string>
     <string name="screen_pinning_toast_no_navbar">За да откачите този екран, докоснете &amp; задръжте бутона Назад</string>
     <string name="nav_bar_layout_inverse">Объръщане реда на бутоните</string>
+    <string name="custom_swipe_hint">Плъзнете от иконата за<xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Настройка на местоположение: икономичен режим на батерията.</string>
     <string name="accessibility_quick_settings_location_gps_only">Доклад на местоположение: само по GPS.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Доклад на местоположение: режим на висока точност.</string>
     <string name="quick_settings_location_battery_saving_label">Пестене на батерия</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Пестене\n на батерия</string>
+    <string name="quick_settings_location_gps_only_label">Само по GPS</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Само Gps</string>
     <string name="quick_settings_location_high_accuracy_label">Висока точност</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Висока\n точност</string>
     <string name="quick_settings_location_detail_title">Местоположение</string>
@@ -76,6 +79,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Висока точност</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Пестене на батерия</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Само по GPS</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Използвай GPS, Wi\u2011Fi, Bluetooth или клетъчни мрежи за определяне на местоположението</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Използвай Wi\u2011Fi, Bluetooth или клетъчни мрежи за определяне на местоположението</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Използвай GPS за определяне на местоположението</string>
+    <string name="status_bar_battery">Батерия</string>
 </resources>

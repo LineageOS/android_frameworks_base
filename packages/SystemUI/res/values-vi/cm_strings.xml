@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,6 +69,8 @@
     <string name="accessibility_quick_settings_location_high_accuracy">Báo cáo vị trí: chế độ chính xác cao.</string>
     <string name="quick_settings_location_battery_saving_label">Tiết kiệm pin</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Tiết kiệm\npin</string>
+    <string name="quick_settings_location_gps_only_label">Chỉ thiết bị</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Chỉ\nthiết bị</string>
     <string name="quick_settings_location_high_accuracy_label">Chính xác cao</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Cao\nchính xác</string>
     <string name="quick_settings_location_detail_title">Vị trí</string>
@@ -76,6 +78,6 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Chính xác cao</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Tiết kiệm pin</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Chỉ thiết bị</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Sử dụng GPS, Wi\u2011Fi, Bluetooth hoặc mạng di động để xác định vị trí</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Sử dụng Wi\u2011Fi, Bluetooth hoặc mạng di động để xác định vị trí</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Sử dụng GPS để xác định vị trí của bạn</string>
 </resources>

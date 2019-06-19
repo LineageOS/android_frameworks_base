@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,6 +53,7 @@
     <string name="accessibility_quick_settings_location_high_accuracy">Placeringsrapportering: Høj nøjagtighed-tilstand.</string>
     <string name="quick_settings_location_battery_saving_label">Batteribesparelse</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Batteri-\nbesparelse</string>
+    <string name="quick_settings_location_gps_only_label">Kun enhed</string>
     <string name="quick_settings_location_high_accuracy_label">Høj nøjagtighed</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Høj\npræcision</string>
     <string name="quick_settings_location_detail_title">Placering</string>
@@ -60,6 +61,6 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Høj nøjagtighed</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Batteribesparelse</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Kun enhed</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Brug GPS, Wi\u2011Fi, Bluetooth eller mobildata til at afgøre placeringen</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Brug Wi\u2011Fi, Bluetooth eller mobildata til at afgøre placeringen</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Brug GPS for at afgøre din placering</string>
 </resources>

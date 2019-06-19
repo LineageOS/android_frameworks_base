@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,6 +51,7 @@
     <string name="accessibility_quick_settings_location_gps_only">অৱস্থান ৰিপোৰ্টিং: কেৱল চেনচৰ মোড।</string>
     <string name="accessibility_quick_settings_location_high_accuracy">অৱস্থান ৰিপোৰ্টিং: উচ্চ নিৰ্ভুলতা মোড।</string>
     <string name="quick_settings_location_battery_saving_label">বেটাৰী ছেভ কৰা</string>
+    <string name="quick_settings_location_gps_only_label">কেৱল ডিভাইচ</string>
     <string name="quick_settings_location_high_accuracy_label">উচ্চ সঠিকতা</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_title">উচ্চ সঠিকতা</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">বেটাৰী ছেভ কৰা</string>

@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,6 +69,8 @@
     <string name="accessibility_quick_settings_location_high_accuracy">Kokaleku txostena: Zehaztasun handiko modua.</string>
     <string name="quick_settings_location_battery_saving_label">Bateria aurreztea</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Bateria\naurreztea</string>
+    <string name="quick_settings_location_gps_only_label">Gailua bakarrik</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Gailua\nbesterik ez</string>
     <string name="quick_settings_location_high_accuracy_label">Zehaztasun handia</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Zehaztasun\nhandia</string>
     <string name="quick_settings_location_detail_title">Kokalekua</string>
@@ -76,6 +78,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Zehaztasun handia</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Bateria aurreztea</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Gailua bakarrik</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Erabili GPS, Wi\u2011Fi, Bluetooth, edo sare mugikorrak kokalekua zehazteko</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Erabili Wi\u2011Fi, Bluetooth, edo sare mugikorrak kokalekua zehazteko</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Erabili GPSa zure kokalekua zehazteko</string>
+    <string name="status_bar_battery">Bateria</string>
 </resources>

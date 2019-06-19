@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,6 +69,8 @@
     <string name="accessibility_quick_settings_location_high_accuracy">Localisation : mode haute précision.</string>
     <string name="quick_settings_location_battery_saving_label">Économie de batterie</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Economie de\nbatterie</string>
+    <string name="quick_settings_location_gps_only_label">Appareil uniquement</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Appareil\nuniquement</string>
     <string name="quick_settings_location_high_accuracy_label">Haute précision</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Haute\nprécision</string>
     <string name="quick_settings_location_detail_title">Position</string>
@@ -76,6 +78,6 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Haute précision</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Économie de batterie</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Appareil uniquement</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Utiliser le GPS, le Wi\u2011Fi, le Bluetooth ou les réseaux mobiles pour déterminer la position</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Utiliser le Wi\u2011Fi, le Bluetooth ou les réseaux mobiles pour déterminer la position</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Utiliser le GPS pour déterminer votre position</string>
 </resources>

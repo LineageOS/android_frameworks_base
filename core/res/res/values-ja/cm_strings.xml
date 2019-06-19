@@ -31,6 +31,8 @@
     <string name="app_ops_assist_structure">ストラクチャのアシストの使用</string>
     <string name="app_ops_audio_accessibility_volume">補助音声ボリューム</string>
     <string name="app_ops_auto_start">電源投入時の実行</string>
+    <string name="app_ops_bind_accessibility_service">ユーザー補助を制限</string>
+    <string name="app_ops_bluetooth_scan">Bluetooth のスキャン</string>
     <string name="app_ops_change_wallpaper">壁紙の変更</string>
     <string name="app_ops_delete_call_log">通話履歴の削除</string>
     <string name="app_ops_delete_contacts">連絡先の削除</string>
@@ -39,8 +41,10 @@
     <string name="app_ops_draw_on_top">上部への描画</string>
     <string name="app_ops_get_accounts">端末のアカウントの取得</string>
     <string name="app_ops_get_usage_stats">アプリの使用統計の取得</string>
+    <string name="app_ops_accept_handover">別のアプリからの通話の引き継ぎ</string>
     <string name="app_ops_install_packages">パッケージのインストール</string>
     <string name="app_ops_keep_device_awake">端末のスリープの無効化</string>
+    <string name="app_ops_manage_ipsec_tunnels">IPsec トンネルを管理</string>
     <string name="app_ops_make_phone_call">通話の発信</string>
     <string name="app_ops_mock_location">位置情報の仮想</string>
     <string name="app_ops_modify_calendar">カレンダーの更新</string>
@@ -65,12 +69,16 @@
     <string name="app_ops_read_phone_state">端末の状態へのアクセス</string>
     <string name="app_ops_read_sms">SMSメッセージの読み取り</string>
     <string name="app_ops_receive_sms">SMSメッセージの受信</string>
+    <string name="app_ops_receive_emergency_broadcast">緊急速報メールの受信</string>
     <string name="app_ops_record_audio">音声の録音</string>
+    <string name="app_ops_request_delete_packages">パッケージの削除の要求</string>
     <string name="app_ops_run_in_background">バックグラウンドでの実行</string>
+    <string name="app_ops_run_any_in_background">バックグラウンドでの実行</string>
     <string name="app_ops_scan_wifi">Wi-Fiネットワークのスキャン</string>
     <string name="app_ops_send_mms">MMSメッセージの送信</string>
     <string name="app_ops_send_sms">SMSメッセージの送信</string>
     <string name="app_ops_start_at_bootup">起動時の実行</string>
+    <string name="app_ops_start_foreground">フォアグラウンドで起動する</string>
     <string name="app_ops_su">ルートアクセスの取得</string>
     <string name="app_ops_toast_window">トーストメッセージの表示</string>
     <string name="app_ops_toggle_bluetooth">Bluetoothの切り替え</string>

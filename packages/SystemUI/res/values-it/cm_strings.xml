@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,11 +64,14 @@
     <string name="screen_pinning_description_no_navbar">La schermata rimane in primo piano finché non la sblocchi. Tocca e tieni premuto il tasto Indietro per sbloccarla.</string>
     <string name="screen_pinning_toast_no_navbar">Per sbloccare questo schermo, tocca e tieni premuto il tasto Indietro</string>
     <string name="nav_bar_layout_inverse">Inverti disposizione</string>
+    <string name="custom_swipe_hint">Scorri dall\'icona per <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Geolocalizzazione: modalità risparmio batteria.</string>
     <string name="accessibility_quick_settings_location_gps_only">Geolocalizzazione: modalità solo sensori.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Geolocalizzazione: modalità alta precisione.</string>
     <string name="quick_settings_location_battery_saving_label">Risparmio batteria</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Risparmio\nBatteria</string>
+    <string name="quick_settings_location_gps_only_label">Solo dispositivo</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Solo\ndispositivo</string>
     <string name="quick_settings_location_high_accuracy_label">Alta precisione</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisione</string>
     <string name="quick_settings_location_detail_title">Localizzazione</string>
@@ -76,6 +79,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisione</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Risparmio batteria</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Solo dispositivo</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilizza GPS, Wi\u2011Fi, Bluetooth o reti dati per stabilire la posizione</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Utilizza Wi\u2011Fi, Bluetooth o reti dati per stabilire la posizione</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Utilizza il GPS per stabilire la posizione</string>
+    <string name="status_bar_battery">Batteria</string>
 </resources>

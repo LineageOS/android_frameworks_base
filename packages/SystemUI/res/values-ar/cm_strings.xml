@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,11 +58,14 @@
     <string name="accessibility_dpad_right">المؤشر الى اليمين</string>
     <string name="screen_pinning_toast_no_navbar">لإلغاء تثبيت هذه الشاشة، استمر&amp; بالضغط على زر الرجوع</string>
     <string name="nav_bar_layout_inverse">عكس التخطيط</string>
+    <string name="custom_swipe_hint">اسحب من الأيقونة ل <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">تحديد الموقع: وضع توفير البطارية.</string>
     <string name="accessibility_quick_settings_location_gps_only">تحديد الموقع: وضع المستشعرات فقط.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">تحديد الموقع: وضع الدقة العالية.</string>
     <string name="quick_settings_location_battery_saving_label">توفير البطارية</string>
     <string name="quick_settings_location_battery_saving_label_twoline">توفير\nالبطارية</string>
+    <string name="quick_settings_location_gps_only_label">الجهاز فقط</string>
+    <string name="quick_settings_location_gps_only_label_twoline">الجهاز\nفقط</string>
     <string name="quick_settings_location_high_accuracy_label">دقة عالية</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">دقة\nعالية</string>
     <string name="quick_settings_location_detail_title">الموقع</string>
@@ -70,6 +73,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">دقة عالية</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">توفير البطارية</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">الجهاز فقط</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">‏استخدام نظام تحديد المواقع العالمي (GPS) وشبكات WiFi والبلوتوث أو شبكات الجوّال لتحديد الموقع</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">‏استخدام شبكات WiFi والبلوتوث وشبكات الجوّال لتحديد الموقع</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">‏استخدام نظام تحديد المواقع العالمي (GPS) في تحديد موقعك</string>
+    <string name="status_bar_battery">البطارية</string>
 </resources>

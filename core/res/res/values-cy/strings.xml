@@ -1387,7 +1387,6 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="usb_unsupported_audio_accessory_message">Nid yw\'r ddyfais sydd wedi\'i chysylltu yn gydnaws â\'r ffôn hwn. Tapia i ddysgu mwy.</string>
     <string name="adb_active_notification_title">Dadfygio USB wedi cysylltu</string>
     <string name="adb_active_notification_message">Tapia i analluogi dadfygio USB</string>
-    <string name="adb_active_notification_message" product="tv">Dewisa i analluogi dadfygio USB.</string>
     <string name="taking_remote_bugreport_notification_title">Yn cymryd adroddiad gwall\u2026</string>
     <string name="share_remote_bugreport_notification_title">Rhannu\'r adroddiad gwall?</string>
     <string name="sharing_remote_bugreport_notification_title">Yn rhannu\'r adroddiad gwall\u2026</string>
@@ -1413,10 +1412,8 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="ext_media_ready_notification_message">I drosglwyddo lluniau a chyfryngau</string>
     <string name="ext_media_unmountable_notification_title">Problem gyda <xliff:g id="name" example="SD card">%s</xliff:g></string>
     <string name="ext_media_unmountable_notification_message">Tapia i drwsio</string>
-    <string name="ext_media_unmountable_notification_message" product="tv">Mae <xliff:g id="name" example="SD card">%s</xliff:g> yn llwgr. Dewisa i drwsio.</string>
     <string name="ext_media_unsupported_notification_title"><xliff:g id="name" example="SD card">%s</xliff:g> anghydnaws</string>
     <string name="ext_media_unsupported_notification_message">Nid yw\'r ddyfais hon yn cefnogi\'r <xliff:g id="name" example="SD card">%s</xliff:g> yma. Tapia i\'w osod mewn fformat sy\'n gydnaws.</string>
-    <string name="ext_media_unsupported_notification_message" product="tv">Nid yw\'r ddyfais hon yn cefnogi\'r <xliff:g id="name" example="SD card">%s</xliff:g> yma. Dewisa i\'w osod mewn fformat sy\'n gydnaws.</string>
     <string name="ext_media_badremoval_notification_title">Tynnwyd <xliff:g id="name" example="SD card">%s</xliff:g> yn annisgwyl</string>
     <string name="ext_media_badremoval_notification_message">Dadfowntia gyfrwng cyn ei dynnu allan er mwyn osgoi golli data</string>
     <string name="ext_media_nomedia_notification_title">Cafodd <xliff:g id="name" example="SD card">%s</xliff:g> ei dynnu</string>

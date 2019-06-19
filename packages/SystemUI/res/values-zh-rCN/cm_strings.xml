@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,11 +64,14 @@
     <string name="screen_pinning_description_no_navbar">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。</string>
     <string name="screen_pinning_toast_no_navbar">要取消固定此屏幕，请触摸并按住“返回”按钮。</string>
     <string name="nav_bar_layout_inverse">反转布局</string>
+    <string name="custom_swipe_hint">从图标滑动以 <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">位置报告：节电模式。</string>
     <string name="accessibility_quick_settings_location_gps_only">位置报告：仅传感器模式。</string>
     <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高准确度模式。</string>
     <string name="quick_settings_location_battery_saving_label">耗电量低</string>
     <string name="quick_settings_location_battery_saving_label_twoline">节省\n电量</string>
+    <string name="quick_settings_location_gps_only_label">仅限设备</string>
+    <string name="quick_settings_location_gps_only_label_twoline">仅限\n设备</string>
     <string name="quick_settings_location_high_accuracy_label">准确度高</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">高\n精确度</string>
     <string name="quick_settings_location_detail_title">位置</string>
@@ -76,6 +79,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">准确度高</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">耗电量低</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">仅限设备</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">使用 GPS、Wi\u2011Fi、蓝牙或移动网络确定位置</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">使用 Wi\u2011Fi、蓝牙或移动网络确定位置</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">使用 GPS 确定位置</string>
+    <string name="status_bar_battery">电池</string>
 </resources>

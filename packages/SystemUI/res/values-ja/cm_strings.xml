@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,11 +62,16 @@
     <string name="accessibility_dpad_left">カーソルを左へ</string>
     <string name="accessibility_dpad_right">カーソルを右へ</string>
     <string name="screen_pinning_description_no_navbar">固定を解除するまで画面が常に表示されるようになります。固定を解除するには戻るボタンを押し続けます。</string>
+    <string name="screen_pinning_toast_no_navbar">画面の固定を解除するには戻るボタンを長押しします</string>
+    <string name="nav_bar_layout_inverse">レイアウトを反転</string>
+    <string name="custom_swipe_hint">アイコンからスワイプで<xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モードです。</string>
     <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモードです。</string>
     <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モードです。</string>
     <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
     <string name="quick_settings_location_battery_saving_label_twoline">バッテリー\n節約</string>
+    <string name="quick_settings_location_gps_only_label">端末のみ</string>
+    <string name="quick_settings_location_gps_only_label_twoline">GPS のみ</string>
     <string name="quick_settings_location_high_accuracy_label">高精度</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">高精度</string>
     <string name="quick_settings_location_detail_title">位置情報</string>
@@ -74,6 +79,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">高精度</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">バッテリー節約</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">端末のみ</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS、Wi-Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Wi-Fi、Bluetooth、モバイルネットワークで現在地を特定します</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS で現在地を特定します</string>
+    <string name="status_bar_battery">バッテリー</string>
 </resources>

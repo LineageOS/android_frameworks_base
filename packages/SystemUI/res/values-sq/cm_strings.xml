@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,6 +69,8 @@
     <string name="accessibility_quick_settings_location_high_accuracy">Raportimi i vendndodhjes: me saktësi të lartë.</string>
     <string name="quick_settings_location_battery_saving_label">Kursim i baterisë</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Kursim i\nbaterisë</string>
+    <string name="quick_settings_location_gps_only_label">Vetëm pajisja</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Vetëm\npajisja</string>
     <string name="quick_settings_location_high_accuracy_label">Saktësi e lartë</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Saktësi\ne lartë</string>
     <string name="quick_settings_location_detail_title">Vendndodhja</string>
@@ -76,6 +78,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Saktësi e lartë</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Kursim i baterisë</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Vetëm pajisja</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Përdor Wi\u2011Fi, Bluetooth, ose rrjetet celulare për të përcaktuar vendndodhjen</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Përdor Wi\u2011Fi, Bluetooth, ose rrjetet celulare për të përcaktuar vendndodhjen</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Përdor GPS për të përcaktuar vendndodhjen</string>
+    <string name="status_bar_battery">Bateria</string>
 </resources>

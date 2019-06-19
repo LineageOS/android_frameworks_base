@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,11 +64,14 @@
     <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
     <string name="screen_pinning_toast_no_navbar">Toca i mantén premut el botó Enrere per deixar de fixar aquesta pantalla</string>
     <string name="nav_bar_layout_inverse">Inverteix la disposició</string>
+    <string name="custom_swipe_hint">Llisqueu des de la icona per a <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Informes d\'ubicació: Mode d\'estalvi de bateria.</string>
     <string name="accessibility_quick_settings_location_gps_only">Informes d\'ubicació: Mode només sensors.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Informes d\'ubicació: Mode d\'alta precisió.</string>
     <string name="quick_settings_location_battery_saving_label">Estalvi de bateria</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Estalvi\nde bateria</string>
+    <string name="quick_settings_location_gps_only_label">Només dispositiu</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Només\ndispositiu</string>
     <string name="quick_settings_location_high_accuracy_label">Alta precisió</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisió</string>
     <string name="quick_settings_location_detail_title">Ubicació</string>
@@ -76,6 +79,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisió</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Estalvi de bateria</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Només dispositiu</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilitza el GPS, la Wi\u2011Fi, el Bluetooth, o les xarxes mòbils per determinar la ubicació</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Utilitza la Wi\u2011Fi, el Bluetooth o les xarxes mòbils per determinar la ubicació</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Utilitza el GPS per determinar la ubicació</string>
+    <string name="status_bar_battery">Bateria</string>
 </resources>

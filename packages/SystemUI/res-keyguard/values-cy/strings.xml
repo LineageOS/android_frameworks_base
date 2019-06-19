@@ -33,6 +33,7 @@
     <string name="keyguard_password_wrong_pin_code">Cod PIN anghywir</string>
     <string name="keyguard_sim_error_message_short">Cerdyn Annilys.</string>
     <string name="keyguard_charged">Wedi gwefru</string>
+    <string name="keyguard_plugged_in_wireless"><xliff:g id="percentage" example="20%">%s</xliff:g> • Yn Gwefru\'n Ddi-wifr</string>
     <string name="keyguard_plugged_in"><xliff:g id="percentage">%s</xliff:g> • Yn gwefru</string>
     <string name="keyguard_plugged_in_charging_fast"><xliff:g id="percentage">%s</xliff:g> • Yn gwefru\'n gyflym</string>
     <string name="keyguard_plugged_in_charging_slowly"><xliff:g id="percentage">%s</xliff:g> • Yn gwefru\'n araf</string>

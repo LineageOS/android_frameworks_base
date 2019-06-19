@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,11 +64,14 @@
     <string name="screen_pinning_description_no_navbar">Irá ficar visível até que o solte. Toque e segure o botão Anterior para soltar.</string>
     <string name="screen_pinning_toast_no_navbar">Para soltar este ecrã, toque prolongadamente no botão Anterior</string>
     <string name="nav_bar_layout_inverse">Inverter disposição</string>
+    <string name="custom_swipe_hint">Deslize a partir do ícone para <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Localização: poupança de bateria.</string>
     <string name="accessibility_quick_settings_location_gps_only">Localização: apenas no dispositivo.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Localização: alta precisão.</string>
     <string name="quick_settings_location_battery_saving_label">Poupança de bateria</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Poupança\nde bateria</string>
+    <string name="quick_settings_location_gps_only_label">Apenas no dispositivo</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Apenas no\ndispositivo</string>
     <string name="quick_settings_location_high_accuracy_label">Alta precisão</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisão</string>
     <string name="quick_settings_location_detail_title">Localização</string>
@@ -76,6 +79,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisão</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Poupança de bateria</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Apenas no dispositivo</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilizar GPS, Wi\u2011Fi, bluetooth ou redes móveis para determinar a localização</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Utilizar Wi\u2011Fi, bluetooth ou redes móveis para determinar a localização</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Utilizar o GPS para determinar a sua localização</string>
+    <string name="status_bar_battery">Bateria</string>
 </resources>

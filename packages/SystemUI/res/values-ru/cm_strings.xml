@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,11 +64,14 @@
     <string name="screen_pinning_description_no_navbar">Приложение останется активным, пока вы не отмените блокировку долгим нажатием кнопки «Назад».</string>
     <string name="screen_pinning_toast_no_navbar">Чтобы открепить экран, нажмите &amp; и удерживайте кнопку Назад</string>
     <string name="nav_bar_layout_inverse">Инвертировать порядок кнопок</string>
+    <string name="custom_swipe_hint">Проведите от значка для <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Отправка местоположения: режим экономии батареи.</string>
     <string name="accessibility_quick_settings_location_gps_only">Отправка местоположения: только датчики.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Отправка местоположения: режим высокой точности.</string>
     <string name="quick_settings_location_battery_saving_label">Экономия батареи</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Экономия\nбатареи</string>
+    <string name="quick_settings_location_gps_only_label">По спутникам GPS</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Только\nустройство</string>
     <string name="quick_settings_location_high_accuracy_label">Высокая точность</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">По всем\nисточникам</string>
     <string name="quick_settings_location_detail_title">Местоположение</string>
@@ -76,6 +79,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Высокая точность</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Экономия батареи</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">По спутникам GPS</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Использовать GPS, Wi‑Fi, Bluetooth и мобильные сети для определения местоположения</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Использовать Wi‑Fi, Bluetooth и мобильные сети для определения местоположения</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Использовать GPS для определения местоположения</string>
+    <string name="status_bar_battery">Батарея</string>
 </resources>

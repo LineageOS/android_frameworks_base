@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,11 +64,14 @@
     <string name="screen_pinning_description_no_navbar">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei dadbinio. Cyffyrdda a dal Nôl i\'w dadbinio.</string>
     <string name="screen_pinning_toast_no_navbar">I ddadbinio\'r sgrin, cyffyrdda a dal y botwm Nôl</string>
     <string name="nav_bar_layout_inverse">Gwrthdroi\'r cynllun</string>
+    <string name="custom_swipe_hint">Llusga oddi wrth yr eicon am <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Adrodd lleoliad: Modd arbed batri.</string>
     <string name="accessibility_quick_settings_location_gps_only">Adrodd lleoliad: Modd synwyryddion yn unig.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Adrodd lleoliad: Modd cywirdeb manwl.</string>
     <string name="quick_settings_location_battery_saving_label">Arbed batri</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Arbed\nbatri</string>
+    <string name="quick_settings_location_gps_only_label">Dyfais yn unig</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Dyfais\nyn unig</string>
     <string name="quick_settings_location_high_accuracy_label">Cywirdeb manwl</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Manwl\ngywirdeb</string>
     <string name="quick_settings_location_detail_title">Lleoliad</string>
@@ -76,6 +79,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Cywirdeb manwl</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Arbed batri</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Dyfais yn unig</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Defnyddio GPS, Wi\u2011Fi, Bluetooth, neu rwydweithiau symudol i adnabod lleoliad</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Defnyddio Wi\u2011Fi, Bluetooth, neu rwydweithiau symudol i adnabod lleoliad</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Defnyddio GPS i adnabod dy leoliad</string>
+    <string name="status_bar_battery">Batri</string>
 </resources>

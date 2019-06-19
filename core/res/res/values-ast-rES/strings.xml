@@ -1379,10 +1379,8 @@
     <string name="ext_media_new_notification_message">Calca pa configurar</string>
     <string name="ext_media_ready_notification_message">Pa tresferir semeyes y multimedia</string>
     <string name="ext_media_unmountable_notification_message">Calca pa fixar</string>
-    <string name="ext_media_unmountable_notification_message" product="tv"><xliff:g id="name" example="SD card">%s</xliff:g> ta toyida. Escueyi pa iguar.</string>
     <string name="ext_media_unsupported_notification_title">Nun se sofita <xliff:g id="name" example="SD card">%s</xliff:g></string>
     <string name="ext_media_unsupported_notification_message">Esti preséu nun ye compatible con <xliff:g id="name" example="SD card">%s</xliff:g>. Calca pa la so configuración nun formatu sofitáu.</string>
-    <string name="ext_media_unsupported_notification_message" product="tv">Esti preséu nun sofita <xliff:g id="name" example="SD card">%s</xliff:g>. Escueyi pa configuralu nun formatu sofitáu.</string>
     <string name="ext_media_badremoval_notification_title"><xliff:g id="name" example="SD card">%s</xliff:g> estráxose de mou inesperáu</string>
     <string name="ext_media_init_action">Configurar</string>
     <string name="ext_media_unmount_action">Espulsar</string>

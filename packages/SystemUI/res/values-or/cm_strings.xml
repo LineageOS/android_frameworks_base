@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,6 +51,7 @@
     <string name="accessibility_quick_settings_location_gps_only">ଅବସ୍ଥାନ ରିପୋର୍ଟିଂ: କେବଳ ସେନ୍‍ସର୍‍ ମୋଡ୍‍</string>
     <string name="accessibility_quick_settings_location_high_accuracy">ଅବସ୍ଥାନ ରିପୋର୍ଟିଂ: ଅଧିକ ସଠିକତା ମୋଡ୍‍</string>
     <string name="quick_settings_location_battery_saving_label">ବ୍ୟାଟେରୀ ସଞ୍ଚୟ</string>
+    <string name="quick_settings_location_gps_only_label">କେବଳ ଡିଭାଇସ୍</string>
     <string name="quick_settings_location_high_accuracy_label">ଅଧିକ ସଠିକତା</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_title">ଅଧିକ ସଠିକତା</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">ବ୍ୟାଟେରୀ ସଞ୍ଚୟ</string>

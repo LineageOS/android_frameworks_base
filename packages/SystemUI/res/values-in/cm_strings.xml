@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,11 +63,14 @@
     <string name="accessibility_dpad_right">Kursor kanan</string>
     <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh &amp; tahan tombol Kembali untuk melepas sematan.</string>
     <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar ini, sentuh &amp; tahan tombol Kembali</string>
+    <string name="custom_swipe_hint">Usap dari ikon untuk <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Laporan Lokasi: mode hemat baterai.</string>
     <string name="accessibility_quick_settings_location_gps_only">Laporan Lokasi: mode hanya sensor.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Laporan Lokasi: mode akurasi tinggi.</string>
     <string name="quick_settings_location_battery_saving_label">Hemat baterai</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Hemat\nbaterai</string>
+    <string name="quick_settings_location_gps_only_label">Hanya perangkat</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Hanya\nperangkat</string>
     <string name="quick_settings_location_high_accuracy_label">Akurasi tinggi</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Akurasi\ntinggi</string>
     <string name="quick_settings_location_detail_title">Lokasi</string>
@@ -75,6 +78,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Akurasi tinggi</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Hemat baterai</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Hanya perangkat</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Menggunakan GPS, Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Menggunakan Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Menggunakan GPS untuk menentukan lokasi Anda</string>
+    <string name="status_bar_battery">Baterai</string>
 </resources>

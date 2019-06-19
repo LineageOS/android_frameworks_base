@@ -408,6 +408,7 @@
     <string name="interruption_level_none_twoline">Distawrwydd\nllwyr</string>
     <string name="interruption_level_priority_twoline">Blaenoriaeth\nyn unig</string>
     <string name="interruption_level_alarms_twoline">Larymau\nyn unig</string>
+    <string name="keyguard_indication_charging_time_wireless"><xliff:g id="percentage" example="20%">%2$s</xliff:g> • Yn Gwefru\u2019n Ddi-wifr (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> nes bod y batri\u2019n llawn)</string>
     <string name="keyguard_indication_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Yn gwefru (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> nes bod y batri\'n llawn)</string>
     <string name="keyguard_indication_charging_time_fast"><xliff:g id="percentage">%2$s</xliff:g> • Yn gwefru\'n gyflym (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> nes bod y batri\'n llawn)</string>
     <string name="keyguard_indication_charging_time_slowly"><xliff:g id="percentage">%2$s</xliff:g> • Yn gwefru\'n araf (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> nes bod y batri\'n llawn)</string>
@@ -833,6 +834,9 @@
     <string name="high_temp_title">Mae\'r ffôn yn poethi.</string>
     <string name="high_temp_notif_message">Bydd rhai nodweddion yn cael eu cyfyngu tra bod y ffôn yn oeri.</string>
     <string name="high_temp_dialog_message">Bydd y ffôn yn ceisio oeri yn awtomatig. Mi fydd dal yn bosib defnyddio dy ffôn, ond mae\'n debyg y bydd yn rhedeg yn arafach.\n\nUnwaith y bydd wedi oeri digon, mi fydd yn rhedeg fel arfer.</string>
+    <string name="high_temp_alarm_title">Datgysyllta\u2019r gwefrydd</string>
+    <string name="high_temp_alarm_notify_message">Mae yna broblem gwefru\u2019r ddyfais hon. Datgysyllta\u2019r gwefrydd o\u2019r pŵer, gan gymryd gofal rhag ofn ei fod yn boeth.</string>
+    <string name="high_temp_alarm_help_care_steps">Gweler y camau gofal</string>
     <string name="lockscreen_shortcut_left">Llwybr byr chwith</string>
     <string name="lockscreen_shortcut_right">Llwybr byr dde</string>
     <string name="lockscreen_unlock_left">Llwybr byr chwith hefyd yn datgloi</string>

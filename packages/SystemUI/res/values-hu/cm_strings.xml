@@ -3,7 +3,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2018, The LineageOS Project
+ * Copyright (c) 2017-2019, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,11 +64,14 @@
     <string name="screen_pinning_description_no_navbar">Megjelenítve tartja addig, amíg Ön fel nem oldja a rögzítést. A feloldáshoz érintse meg és tartsa lenyomva a Vissza gombot.</string>
     <string name="screen_pinning_toast_no_navbar">A Képernyőrögzítés feloldásához érintse meg és tartsa nyomva a Vissza gombot</string>
     <string name="nav_bar_layout_inverse">Fordított elrendezés</string>
+    <string name="custom_swipe_hint">Csúsztasson az ikonról a következőért: <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Helymeghatározás jelentése: energiatakarékos.</string>
     <string name="accessibility_quick_settings_location_gps_only">Helymeghatározás jelentése: csak GPS.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Helymeghatározás jelentése: nagyon pontos.</string>
     <string name="quick_settings_location_battery_saving_label">Energiatakarékos</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Energia\ntakarékos</string>
+    <string name="quick_settings_location_gps_only_label">Csak készülék</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Csak\nkészülék</string>
     <string name="quick_settings_location_high_accuracy_label">Nagy pontosság</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Nagy\npontosság</string>
     <string name="quick_settings_location_detail_title">Helymeghatározás</string>
@@ -76,6 +79,7 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Nagy pontosság</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Energiatakarékos</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Csak készülék</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, Wi\u2011Fi, Bluetooth vagy mobilhálózatok használata a tartózkodási hely megállapításához</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, Bluetooth vagy mobilhálózatok használata a tartózkodási hely megállapításához</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS használata a tartózkodási hely meghatározásához</string>
+    <string name="status_bar_battery">Akkumulátor</string>
 </resources>
