@@ -17,12 +17,17 @@
 
 package com.android.systemui.qs.tiles;
 
+import static android.net.NetworkCapabilities.TRANSPORT_ETHERNET;
+import static android.net.NetworkCapabilities.TRANSPORT_WIFI;
+import static android.net.NetworkCapabilities.TRANSPORT_VPN;
+
 import android.content.Context;
 import android.content.Intent;
 import android.database.ContentObserver;
 import android.net.ConnectivityManager;
 import android.net.LinkAddress;
 import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.Uri;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -53,6 +58,7 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
 
     private final ConnectivityManager mConnectivityManager;
 
+    private Network mNetwork;
     private String mNetworkAddress;
 
     private static final Intent SETTINGS_DEVELOPMENT =
@@ -120,11 +126,18 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
     }
 
     private boolean canEnableAdbNetwork() {
-        return isAdbEnabled() && isNetworkAvailable();
+        return isAdbEnabled() && isNetworkAvailable() && isNetworkUsingValidTransport();
     }
 
     private boolean isNetworkAvailable() {
-        return mNetworkAddress != null;
+        mNetwork = mConnectivityManager.getActiveNetwork();
+        return mNetwork != null;
+    }
+
+    private boolean isNetworkUsingValidTransport() {
+        NetworkCapabilities networkCaps = mConnectivityManager.getNetworkCapabilities(mNetwork);
+        return networkCaps.hasTransport(TRANSPORT_ETHERNET) ||
+                networkCaps.hasTransport(TRANSPORT_WIFI) || networkCaps.hasTransport(TRANSPORT_VPN);
     }
 
     private void toggleAction() {
