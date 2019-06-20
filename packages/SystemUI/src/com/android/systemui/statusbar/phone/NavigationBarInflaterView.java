@@ -45,8 +45,6 @@ import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -182,9 +180,14 @@ public class NavigationBarInflaterView extends FrameLayout
             inflateLayout(mCurrentLayout);
         } else if (NAV_BAR_INVERSE.equals(key)) {
             mInverseLayout = TunerService.parseIntegerSwitch(newValue, false);
-            clearViews();
-            inflateLayout(mCurrentLayout);
+            updateLayoutInversion();
         }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        updateLayoutInversion();
     }
 
     public void onLikelyDefaultLayoutChange() {
@@ -260,17 +263,6 @@ public class NavigationBarInflaterView extends FrameLayout
         }
     }
 
-    private String[] swapLeftAndRight(String[] set) {
-        for (int i = 0; i < set.length; i++) {
-            if (set.equals(LEFT)) {
-                set[i] = RIGHT;
-            } else if (set[i].equals(RIGHT)) {
-                set[i] = LEFT;
-            }
-        }
-        return set;
-    }
-
     protected void inflateLayout(String newLayout) {
         mCurrentLayout = newLayout;
         if (newLayout == null) {
@@ -285,18 +277,6 @@ public class NavigationBarInflaterView extends FrameLayout
         String[] start = sets[0].split(BUTTON_SEPARATOR);
         String[] center = sets[1].split(BUTTON_SEPARATOR);
         String[] end = sets[2].split(BUTTON_SEPARATOR);
-        // Invert start, center and end if needed.
-        if (mInverseLayout) {
-            List<String> newStart = Arrays.asList(end);
-            List<String> newCenter = Arrays.asList(center);
-            List<String> newEnd = Arrays.asList(start);
-            Collections.reverse(newStart);
-            Collections.reverse(newCenter);
-            Collections.reverse(newEnd);
-            start = swapLeftAndRight((String[]) newStart.toArray());
-            center = swapLeftAndRight((String[]) newCenter.toArray());
-            end = swapLeftAndRight((String[]) newEnd.toArray());
-        }
         // Inflate these in start to end order or accessibility traversal will be messed up.
         inflateButtons(start, mRot0.findViewById(R.id.ends_group), isRot0Landscape, true);
         inflateButtons(start, mRot90.findViewById(R.id.ends_group), !isRot0Landscape, true);
@@ -311,6 +291,19 @@ public class NavigationBarInflaterView extends FrameLayout
         inflateButtons(end, mRot90.findViewById(R.id.ends_group), !isRot0Landscape, false);
 
         updateButtonDispatchersCurrentView();
+    }
+
+    private void updateLayoutInversion() {
+        if (mInverseLayout) {
+            Configuration config = mContext.getResources().getConfiguration();
+            if (config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+                setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            } else {
+                setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+            }
+        } else {
+            setLayoutDirection(View.LAYOUT_DIRECTION_INHERIT);
+        }
     }
 
     private void addGravitySpacer(LinearLayout layout) {
