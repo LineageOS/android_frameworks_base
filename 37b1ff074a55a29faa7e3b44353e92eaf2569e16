@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c84d18c_03a2d66a",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AdbOverNetworkTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-06-20T17:30:26Z",
+      "side": 1,
+      "message": "Instead of making additional service calls, we could just set mNetwork in the onAvailable / onLost callback methods below.  getActiveNetwork() docs say it returns the active default network so should be the same as is passed to the callback methods.",
+      "revId": "37b1ff074a55a29faa7e3b44353e92eaf2569e16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
