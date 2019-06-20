@@ -239,6 +239,13 @@ public final class BluetoothDevice implements Parcelable {
     public static final String EXTRA_NAME = "android.bluetooth.device.extra.NAME";
 
     /**
+     * Used as a Parcelable {@link BluetoothQualityReport} extra field in
+     * {@link #ACTION_REMOTE_ISSUE_OCCURRED} intent. It contains the {@link BluetoothQualityReport}.
+     * @hide
+     */
+    public static final String EXTRA_BQR = "android.bluetooth.qti.extra.EXTRA_BQR";
+
+    /**
      * Used as an optional short extra field in {@link #ACTION_FOUND} intents.
      * Contains the RSSI value of the remote device as reported by the
      * Bluetooth hardware.
