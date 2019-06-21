@@ -247,6 +247,10 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
             return;
         }
 
+        if (mState != null && (!mState.visible || !mState.provisioned)) {
+            return;
+        }
+
         mVisibleState = state;
         switch (state) {
             case STATE_ICON:
