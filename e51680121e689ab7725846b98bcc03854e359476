@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e890d696_6ad6d5e5",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/StatusBarMobileView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2019-06-21T18:45:49Z",
+      "side": 1,
+      "message": "if (mState \u003d\u003d null || !mState.visible || !mstate.provisioned)",
+      "range": {
+        "startLine": 250,
+        "startChar": 8,
+        "endLine": 252,
+        "endChar": 9
+      },
+      "revId": "e51680121e689ab7725846b98bcc03854e359476",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
