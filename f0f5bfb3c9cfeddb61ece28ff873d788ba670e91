@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89fe1567_759a674f",
+        "filename": "services/core/java/com/android/server/notification/RankingHelper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-06-25T19:11:12Z",
+      "side": 1,
+      "message": "/**\n * @hide\n */",
+      "revId": "f0f5bfb3c9cfeddb61ece28ff873d788ba670e91",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bae2e0d_f13732bd",
+        "filename": "services/core/java/com/android/server/notification/RankingHelper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-06-25T19:11:12Z",
+      "side": 1,
+      "message": "/**\n * @hide\n */",
+      "revId": "f0f5bfb3c9cfeddb61ece28ff873d788ba670e91",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
