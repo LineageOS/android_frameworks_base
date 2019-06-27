@@ -737,12 +737,17 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         refresh();
 
         if (bondState == BluetoothDevice.BOND_BONDED) {
+            boolean mIsBondingInitiatedLocally = mDevice.isBondingInitiatedLocally();
+            Log.w(TAG, "mIsBondingInitiatedLocally" + mIsBondingInitiatedLocally);
+            if (mIsBondingInitiatedLocally) {
+                mDevice.setBondingInitiatedLocally(false);
+            }
             if (mIsTwsConnectEnabled) {
                 Log.d(TAG, "Initiating connection to" + mDevice);
-                if (mDevice.isBondingInitiatedLocally() || mDevice.isTwsPlusDevice()) {
+                if (mIsBondingInitiatedLocally || mDevice.isTwsPlusDevice()) {
                     connect();
                 }
-            } else if (mDevice.isBondingInitiatedLocally()) {
+            } else if (mIsBondingInitiatedLocally) {
                 connect();
             }
         }
