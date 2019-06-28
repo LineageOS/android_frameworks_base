@@ -45,6 +45,29 @@
       "revId": "a9358f268da23c837b613fa14b5732eb5841220d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2260852a_e808798d",
+        "filename": "packages/SystemUI/src/com/android/systemui/fingerprint/FODCircleView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-06-28T13:37:14Z",
+      "side": 1,
+      "message": "Replace tab with spaces.",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 1
+      },
+      "revId": "a9358f268da23c837b613fa14b5732eb5841220d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
