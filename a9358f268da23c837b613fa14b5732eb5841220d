@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "772b2751_f227b354",
+        "filename": "packages/SystemUI/src/com/android/systemui/fingerprint/FODCircleView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-06-28T13:36:13Z",
+      "side": 1,
+      "message": "This would look better, I think:\n\n\u003e if (viewAdded) {\n\u003e     resetPosition();\n\u003e     mWM.updateViewLayout(this, mParams);\n\u003e }",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 44
+      },
+      "revId": "a9358f268da23c837b613fa14b5732eb5841220d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b3b62b1_e55033c0",
+        "filename": "packages/SystemUI/src/com/android/systemui/fingerprint/FODCircleView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-06-28T13:36:13Z",
+      "side": 1,
+      "message": "Isn\u0027t it supposed to be just 4 spaces here?",
+      "range": {
+        "startLine": 307,
+        "startChar": 8,
+        "endLine": 307,
+        "endChar": 16
+      },
+      "revId": "a9358f268da23c837b613fa14b5732eb5841220d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
