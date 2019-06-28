@@ -20,11 +20,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
+import android.graphics.Point;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.provider.Settings;
 import android.view.Gravity;
+import android.view.Surface;
 import android.view.View.OnTouchListener;
 import android.view.View;
 import android.widget.ImageView;
@@ -223,6 +226,13 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         return true;
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        if (!viewAdded) return;
+        resetPosition();
+        mWM.updateViewLayout(this, mParams);
+    }
+
     public void show() {
         show(false);
     }
@@ -240,8 +250,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
         mIsEnrolling = isEnrolling;
 
-        mParams.x = mX;
-        mParams.y = mY;
+        resetPosition();
 
         mParams.height = mW;
         mParams.width = mH;
@@ -289,6 +298,30 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         } catch (RemoteException e) {
             // do nothing
         }
+    }
+
+    private void resetPosition() {
+        Point size = new Point();
+        mWM.getDefaultDisplay().getRealSize(size);
+        switch (mWM.getDefaultDisplay().getRotation()) {
+                case Surface.ROTATION_90:
+                        mParams.x = mY;
+                        mParams.y = mX;
+                        break;
+                case Surface.ROTATION_270:
+                        mParams.x = size.x - mY - mW
+                                - getContext().getResources()
+                                .getDimensionPixelSize(R.dimen.navigation_bar_size);
+                        mParams.y = mX;
+                        break;
+                case Surface.ROTATION_180:
+                        mParams.x = mX;
+                        mParams.y = size.y - mY - mH;
+                        break;
+                default:
+                        mParams.x = mX;
+                        mParams.y = mY;
+	}
     }
 
     private void setDim(boolean dim) {
