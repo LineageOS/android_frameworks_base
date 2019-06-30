@@ -43,6 +43,7 @@ import com.android.systemui.R;
 import java.util.NoSuchElementException;
 
 import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
+import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreenCallback;
 
 public class FODCircleView extends ImageView implements OnTouchListener {
     private final int mX, mY, mW, mH;
@@ -64,6 +65,25 @@ public class FODCircleView extends ImageView implements OnTouchListener {
     public boolean viewAdded;
     private boolean mIsEnrolling;
     private boolean mShouldBoostBrightness;
+
+    IFingerprintInscreenCallback mFingerprintInscreenCallback =
+            new IFingerprintInscreenCallback.Stub() {
+        @Override
+        public void onFingerDown() {
+            android.util.Log.e("AAAA", "onFingerDown");
+            mInsideCircle = true;
+
+            invalidate();
+
+            setDim(true);
+            setImageResource(R.drawable.fod_icon_empty);
+        }
+
+        @Override
+        public void onFingerUp() {
+            android.util.Log.e("AAAA", "onFingerUp");
+        }
+    };
 
     KeyguardUpdateMonitor mUpdateMonitor;
 
@@ -168,6 +188,8 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
         try {
             mFpDaemon = IFingerprintInscreen.getService();
+            mFpDaemon.setCallback(mFingerprintInscreenCallback);
+
             mShouldBoostBrightness = mFpDaemon.shouldBoostBrightness();
         } catch (NoSuchElementException | RemoteException e) {
             // do nothing
