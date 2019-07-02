@@ -183,31 +183,13 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
         Resources res = context.getResources();
 
-        String[] location = SystemProperties.get(
-                "persist.vendor.sys.fp.fod.location.X_Y", "").split(",");
-        String[] size = SystemProperties.get(
-                "persist.vendor.sys.fp.fod.size.width_height", "").split(",");
-        if (size.length == 2 && location.length == 2) {
-            mX = Integer.parseInt(location[0]);
-            mY = Integer.parseInt(location[1]);
-            mW = Integer.parseInt(size[0]);
-            mH = Integer.parseInt(size[1]);
-        } else {
-            mX = -1;
-            mY = -1;
-            mW = -1;
-            mH = -1;
-        }
-
-        mDreamingMaxOffset = (int) (mW * 0.1f);
-
         mPaintFingerprint.setAntiAlias(true);
-        mPaintFingerprint.setColor(Color.GREEN);
+        mPaintFingerprint.setColor(res.getColor(R.color.config_fodColor));
 
         setImageResource(R.drawable.fod_icon_default);
 
         mPaintShow.setAntiAlias(true);
-        mPaintShow.setColor(Color.argb(24, 0, 255, 0));
+        mPaintShow.setColor(res.getColor(R.color.config_fodColor));
 
         setOnTouchListener(this);
 
@@ -218,11 +200,17 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         try {
             mFpDaemon = IFingerprintInscreen.getService();
             mFpDaemon.setCallback(mFingerprintInscreenCallback);
+            mX = mFpDaemon.getPositionX();
+            mY = mFpDaemon.getPositionY();
+            mW = mFpDaemon.getSize();
+            mH = mW; // We do not expect mW != mH
 
             mShouldBoostBrightness = mFpDaemon.shouldBoostBrightness();
         } catch (NoSuchElementException | RemoteException e) {
-            // do nothing
+            throw new RuntimeException(e);
         }
+
+        mDreamingMaxOffset = (int) (mW * 0.1f);
 
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         mUpdateMonitor.registerCallback(mMonitorCallback);
