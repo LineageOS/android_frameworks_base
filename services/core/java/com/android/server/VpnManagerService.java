@@ -65,6 +65,7 @@ import com.android.server.connectivity.Vpn;
 import com.android.server.connectivity.VpnProfileStore;
 import com.android.server.net.LockdownVpnTracker;
 
+import java.util.ArrayList;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.List;
@@ -413,6 +414,26 @@ public class VpnManagerService extends IVpnManager.Stub {
         synchronized (mVpns) {
             return mVpns.get(userId).getLegacyVpnInfo();
         }
+    }
+
+    @Override
+    public VpnProfile[] getAllLegacyVpns() {
+        NetworkStack.checkNetworkStackPermission(mContext);
+
+        final ArrayList<VpnProfile> result = new ArrayList<>();
+        final long token = Binder.clearCallingIdentity();
+        try {
+            for (String profileName : mVpnProfileStore.list(Credentials.VPN)) {
+                final VpnProfile profile = VpnProfile.decode(profileName,
+                        mVpnProfileStore.get(Credentials.VPN + profileName));
+                if (profile != null) {
+                    result.add(profile);
+                }
+            }
+        } finally {
+            Binder.restoreCallingIdentity(token);
+        }
+        return result.toArray(new VpnProfile[result.size()]);
     }
 
     /**
