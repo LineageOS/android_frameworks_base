@@ -415,6 +415,26 @@ public class VpnManagerService extends IVpnManager.Stub {
         }
     }
 
+    @Override
+    public VpnProfile[] getAllLegacyVpns() {
+        NetworkStack.checkNetworkStackPermission(mContext);
+
+        final ArrayList<VpnProfile> result = new ArrayList<>();
+        final long token = Binder.clearCallingIdentity();
+        try {
+            for (String alias : mVpnProfileStore.list(Credentials.VPN)) {
+                final VpnProfile profile = VpnProfile.decode(key,
+                        mKeyStore.get(Credentials.VPN + key));
+                if (profile != null) {
+                    result.add(profile);
+                }
+            }
+        } finally {
+            Binder.restoreCallingIdentity(token);
+        }
+        return result.toArray(new VpnProfile[result.size()]);
+    }
+
     /**
      * Returns the information of the ongoing VPN for {@code userId}. This method is used by
      * VpnDialogs and not available in ConnectivityManager.

@@ -54,6 +54,7 @@ interface IVpnManager {
     /** Legacy VPN APIs */
     void startLegacyVpn(in VpnProfile profile);
     LegacyVpnInfo getLegacyVpnInfo(int userId);
+    VpnProfile[] getAllLegacyVpns();
     boolean updateLockdownVpn();
 
     /** General system APIs */
