@@ -22,6 +22,29 @@
       "revId": "7a3accef1466260163e17baf18ac2860197f98d8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b95faff6_6d3ceaee",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2711,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-07-03T15:41:19Z",
+      "side": 1,
+      "message": "Following Michael\u0027s suggestion:\n\nif (enable !\u003d mThreeFingerGestureEnabled) {\n    mThreeFingerGestureEnabled \u003d enable;\n    if (enable) {\n        mWindowManagerFuncs.registerPointerEventListener(mSwipeToScreenshot);\n    } else {\n        mWindowManagerFuncs.unregisterPointerEventListener(mSwipeToScreenshot);\n    }\n}",
+      "range": {
+        "startLine": 2701,
+        "startChar": 0,
+        "endLine": 2711,
+        "endChar": 9
+      },
+      "revId": "7a3accef1466260163e17baf18ac2860197f98d8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
