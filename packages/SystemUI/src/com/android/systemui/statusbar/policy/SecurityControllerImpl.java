@@ -19,6 +19,7 @@ import static android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED;
 import static android.net.NetworkCapabilities.TRANSPORT_VPN;
 
 import android.annotation.Nullable;
+import android.app.AppOpsManager;
 import android.app.admin.DeviceAdminInfo;
 import android.app.admin.DevicePolicyManager;
 import android.app.admin.DevicePolicyManager.DeviceOwnerType;
@@ -55,6 +56,7 @@ import androidx.annotation.NonNull;
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.net.LegacyVpnInfo;
 import com.android.internal.net.VpnConfig;
+import com.android.internal.net.VpnProfile;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.dagger.qualifiers.Background;
@@ -68,6 +70,8 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.Executor;
 
 import javax.inject.Inject;
@@ -93,6 +97,7 @@ public class SecurityControllerImpl implements SecurityController {
 
     private final Context mContext;
     private final UserTracker mUserTracker;
+    private final AppOpsManager mAppOpsManager;
     private final ConnectivityManager mConnectivityManager;
     private final VpnManager mVpnManager;
     private final DevicePolicyManager mDevicePolicyManager;
@@ -136,6 +141,8 @@ public class SecurityControllerImpl implements SecurityController {
     ) {
         mContext = context;
         mUserTracker = userTracker;
+        mAppOpsManager = (AppOpsManager)
+                context.getSystemService(Context.APP_OPS_SERVICE);
         mDevicePolicyManager = (DevicePolicyManager)
                 context.getSystemService(Context.DEVICE_POLICY_SERVICE);
         mConnectivityManager = (ConnectivityManager)
@@ -234,6 +241,73 @@ public class SecurityControllerImpl implements SecurityController {
             return getNameForVpnConfig(cfg, new UserHandle(mVpnUserId));
         } else {
             return null;
+        }
+    }
+
+    @Override
+    public List<VpnProfile> getConfiguredLegacyVpns() {
+        return Arrays.asList(mVpnManager.getAllLegacyVpns());
+    }
+
+    @Override
+    public List<String> getVpnAppPackageNames() {
+        List<String> result = new ArrayList<>();
+        List<AppOpsManager.PackageOps> apps = mAppOpsManager.getPackagesForOps(
+                new int[] {AppOpsManager.OP_ACTIVATE_VPN});
+        if (apps != null) {
+            for (AppOpsManager.PackageOps pkg : apps) {
+                if (mVpnUserId != UserHandle.getUserId(pkg.getUid())) {
+                    continue;
+                }
+                // Look for a MODE_ALLOWED permission to activate VPN.
+                boolean allowed = false;
+                for (AppOpsManager.OpEntry op : pkg.getOps()) {
+                    if (op.getOp() == AppOpsManager.OP_ACTIVATE_VPN
+                            && op.getMode() == AppOpsManager.MODE_ALLOWED) {
+                        allowed = true;
+                        break;
+                    }
+                }
+                if (allowed) {
+                    result.add(pkg.getPackageName());
+                }
+            }
+        }
+
+        return result;
+    }
+
+    @Override
+    public void connectLegacyVpn(VpnProfile profile) {
+        try {
+            mVpnManager.startLegacyVpn(profile);
+        } catch (IllegalStateException e) {
+            Log.e(TAG, "Failed to connect", e);
+        }
+    }
+
+    @Override
+    public void launchVpnApp(String packageName) {
+        try {
+            UserHandle user = UserHandle.of(mCurrentUserId);
+            Context userContext = mContext.createPackageContextAsUser(
+                    mContext.getPackageName(), 0 /* flags */, user);
+            PackageManager pm = userContext.getPackageManager();
+            Intent appIntent = pm.getLaunchIntentForPackage(packageName);
+            if (appIntent != null) {
+                userContext.startActivityAsUser(appIntent, user);
+            }
+        } catch (NameNotFoundException nnfe) {
+            Log.w(TAG, "VPN provider does not exist: " + packageName, nnfe);
+        }
+    }
+
+    @Override
+    public void disconnectPrimaryVpn() {
+        VpnConfig cfg = mCurrentVpns.get(mVpnUserId);
+        if (cfg != null) {
+            final String user = cfg.legacy ? VpnConfig.LEGACY_VPN : cfg.user;
+            mVpnManager.prepareVpn(user, VpnConfig.LEGACY_VPN, mVpnUserId);
         }
     }
 
@@ -460,7 +534,8 @@ public class SecurityControllerImpl implements SecurityController {
 
     private String getNameForVpnConfig(VpnConfig cfg, UserHandle user) {
         if (cfg.legacy) {
-            return mContext.getString(R.string.legacy_vpn_name);
+            return cfg.session != null
+                    ? cfg.session : mContext.getString(R.string.legacy_vpn_name);
         }
         // The package name for an active VPN is stored in the 'user' field of its VpnConfig
         final String vpnPackage = cfg.user;
