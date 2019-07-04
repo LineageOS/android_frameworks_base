@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f6f12e0_edc41121",
+        "filename": "core/res/res/values/lineage_config.xml",
+        "patchSetId": 22
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-07-04T10:29:56Z",
+      "side": 1,
+      "message": "Might as well update this.",
+      "range": {
+        "startLine": 3,
+        "startChar": 24,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "fff0f546ad9b9ce992bc2e3ddffd407c02db0829",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f8cad1b_67a13df5",
+        "filename": "core/res/res/values/lineage_symbols.xml",
+        "patchSetId": 22
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-07-04T10:29:56Z",
+      "side": 1,
+      "message": "Might as well update this.",
+      "range": {
+        "startLine": 3,
+        "startChar": 24,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "fff0f546ad9b9ce992bc2e3ddffd407c02db0829",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5644b631_e2a580d6",
+        "filename": "packages/SystemUI/src/com/android/systemui/fingerprint/FODCircleView.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-07-04T10:29:56Z",
+      "side": 1,
+      "message": "Java imports should come at the very end.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 40
+      },
+      "revId": "fff0f546ad9b9ce992bc2e3ddffd407c02db0829",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdefe27d_1319a65d",
+        "filename": "services/core/java/com/android/server/fingerprint/AuthenticationClient.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-07-04T10:29:56Z",
+      "side": 1,
+      "message": "Java imports should come at the very end.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 40
+      },
+      "revId": "fff0f546ad9b9ce992bc2e3ddffd407c02db0829",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dd536d7_012dbbfe",
+        "filename": "services/core/java/com/android/server/fingerprint/EnrollClient.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-07-04T10:29:56Z",
+      "side": 1,
+      "message": "Move above Java imports. Java imports should come at the very end.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 80
+      },
+      "revId": "fff0f546ad9b9ce992bc2e3ddffd407c02db0829",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2683f6b_c8618e44",
+        "filename": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-07-04T10:29:56Z",
+      "side": 1,
+      "message": "Move above Java imports. Java imports should come at the very end.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 80
+      },
+      "revId": "fff0f546ad9b9ce992bc2e3ddffd407c02db0829",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
