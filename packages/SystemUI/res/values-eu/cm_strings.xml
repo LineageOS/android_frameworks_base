@@ -29,6 +29,7 @@
     <string name="global_action_restart_download_progress">Deskarga modura berrabiarazten\u2026</string>
     <string name="global_action_current_user">Unekoa</string>
     <string name="quick_settings_network_adb_label">Sare gaineko ADB</string>
+    <string name="quick_settings_network_adb_no_network">sarerik ez</string>
     <string name="quick_settings_ambient_display_label">Ambient display</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambient display itzalita.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambient display piztuta.</string>
@@ -64,6 +65,7 @@
     <string name="screen_pinning_description_no_navbar">Honek bistan mantenduko du desiltzatzen duzun arte. Sakatu eta mantendu atzera botoia desiltzatzeko.</string>
     <string name="screen_pinning_toast_no_navbar">Pantaila hau desiltzatzeko sakatu eta mantendu atzera botoia</string>
     <string name="nav_bar_layout_inverse">Alderantzikatu diseinua</string>
+    <string name="custom_swipe_hint">Pasatu hatza ikonotik hau egiteko: <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Kokaleku txostena: bateria aurrezteko modua.</string>
     <string name="accessibility_quick_settings_location_gps_only">Kokaleku txostena: sentsoreak besterik ez modua.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Kokaleku txostena: Zehaztasun handiko modua.</string>
@@ -80,5 +82,6 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">Gailua bakarrik</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">Erabili GPS, Wi\u2011Fi, Bluetooth, edo sare mugikorrak kokalekua zehazteko</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Erabili Wi\u2011Fi, Bluetooth, edo sare mugikorrak kokalekua zehazteko</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Erabili GPS sistema kokapena zehazteko</string>
     <string name="status_bar_battery">Bateria</string>
 </resources>

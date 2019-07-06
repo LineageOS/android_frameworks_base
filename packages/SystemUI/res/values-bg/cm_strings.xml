@@ -29,6 +29,7 @@
     <string name="global_action_restart_download_progress">Рестартиране за режим изтегляне\u2026</string>
     <string name="global_action_current_user">Текущ</string>
     <string name="quick_settings_network_adb_label">ADB чрез мрежата</string>
+    <string name="quick_settings_network_adb_no_network">няма мрежа</string>
     <string name="quick_settings_ambient_display_label">Активен дисплей</string>
     <string name="accessibility_quick_settings_ambient_display_off">Активен дисплей е изключен.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Активен дисплей е включен.</string>
@@ -81,5 +82,6 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">Само по GPS</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">Използвай GPS, Wi\u2011Fi, Bluetooth или клетъчни мрежи за определяне на местоположението</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Използвай Wi\u2011Fi, Bluetooth или клетъчни мрежи за определяне на местоположението</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Използвай GPS за определяне на местоположението</string>
     <string name="status_bar_battery">Батерия</string>
 </resources>

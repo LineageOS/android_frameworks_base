@@ -70,6 +70,7 @@
     <string name="app_ops_receive_sms">võtta vastu SMS sõnum</string>
     <string name="app_ops_receive_emergency_broadcast">hädaolukorra teatiste vastuvõtmine</string>
     <string name="app_ops_record_audio">salvestada heli</string>
+    <string name="app_ops_request_delete_packages">pakettide eemaldamise taotlemine</string>
     <string name="app_ops_run_any_in_background">mistahes taustal käitamine</string>
     <string name="app_ops_scan_wifi">otsida Wi-Fi võrke</string>
     <string name="app_ops_send_mms">saata MMS sõnum</string>
