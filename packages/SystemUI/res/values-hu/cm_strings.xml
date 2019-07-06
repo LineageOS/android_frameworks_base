@@ -29,6 +29,7 @@
     <string name="global_action_restart_download_progress">Újraindítás download-módba\u2026</string>
     <string name="global_action_current_user">Jelenlegi</string>
     <string name="quick_settings_network_adb_label">ADB hálózaton keresztül</string>
+    <string name="quick_settings_network_adb_no_network">nincs hálózat</string>
     <string name="quick_settings_ambient_display_label">Környezeti kijelző</string>
     <string name="accessibility_quick_settings_ambient_display_off">Környezeti kijelző ki.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Környezeti kijelző be.</string>
@@ -81,5 +82,6 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">Csak készülék</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, Wi\u2011Fi, Bluetooth vagy mobilhálózatok használata a tartózkodási hely megállapításához</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, Bluetooth vagy mobilhálózatok használata a tartózkodási hely megállapításához</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Tartózkodási hely meghatározása GPS használattal</string>
     <string name="status_bar_battery">Akkumulátor</string>
 </resources>

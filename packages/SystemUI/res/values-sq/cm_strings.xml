@@ -29,6 +29,7 @@
     <string name="global_action_restart_download_progress">Duke u rindezur në metodën e shkarkimit\u2026</string>
     <string name="global_action_current_user">Aktualisht</string>
     <string name="quick_settings_network_adb_label">ADB mbi rrjet</string>
+    <string name="quick_settings_network_adb_no_network">nuk ka rrjet</string>
     <string name="quick_settings_ambient_display_label">Drita e ekranit sipas ambientit</string>
     <string name="accessibility_quick_settings_ambient_display_off">Drita e ekranit sipas ambientit inaktive.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Drita e ekranit sipas ambientit aktive.</string>
@@ -64,6 +65,7 @@
     <string name="screen_pinning_description_no_navbar">Kjo e mban në ekran derisa ta shqitësh. Shtyp &amp; mbaj shtypur butonin Prapa për ta shqitur.</string>
     <string name="screen_pinning_toast_no_navbar">Për ta shqitur këtë ekran, prek &amp; mbaj shtypur butonin Prapa</string>
     <string name="nav_bar_layout_inverse">E anasjellta e ndërfaqes</string>
+    <string name="custom_swipe_hint">Rrëshkit nga ikona për <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Raportimi i vendndodhjes: kursim i baterisë.</string>
     <string name="accessibility_quick_settings_location_gps_only">Raportimi i vendndodhjes: vetëm nga sensorët.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Raportimi i vendndodhjes: me saktësi të lartë.</string>
@@ -80,5 +82,6 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">Vetëm pajisja</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">Përdor Wi\u2011Fi, Bluetooth, ose rrjetet celulare për të përcaktuar vendndodhjen</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Përdor Wi\u2011Fi, Bluetooth, ose rrjetet celulare për të përcaktuar vendndodhjen</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Përdor GPS për të caktuar vendndodhjen</string>
     <string name="status_bar_battery">Bateria</string>
 </resources>

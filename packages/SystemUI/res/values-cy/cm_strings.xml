@@ -29,6 +29,7 @@
     <string name="global_action_restart_download_progress">Yn ailgychwyn i\'r modd lawrlwytho\u2026</string>
     <string name="global_action_current_user">Cyfredol</string>
     <string name="quick_settings_network_adb_label">ADB dros rwydwaith</string>
+    <string name="quick_settings_network_adb_no_network">dim rhwydwaith</string>
     <string name="quick_settings_ambient_display_label">Dangosydd amgylchynol</string>
     <string name="accessibility_quick_settings_ambient_display_off">Dangosydd amgylchynol i ffwrdd.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Dangosydd amgylchynol ymlaen.</string>
@@ -81,5 +82,6 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">Dyfais yn unig</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">Defnyddio GPS, Wi\u2011Fi, Bluetooth, neu rwydweithiau symudol i adnabod lleoliad</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Defnyddio Wi\u2011Fi, Bluetooth, neu rwydweithiau symudol i adnabod lleoliad</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Defnyddio GPS i adnabod lleoliad</string>
     <string name="status_bar_battery">Batri</string>
 </resources>

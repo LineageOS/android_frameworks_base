@@ -80,4 +80,5 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">기기 전용</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, Wi\u2011Fi, 블루투스 또는 이동통신망을 사용하여 위치를 찾습니다.</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, 블루투스 또는 이동통신망을 사용하여 위치를 찾습니다.</string>
+    <string name="status_bar_battery">배터리</string>
 </resources>

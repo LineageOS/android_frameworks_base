@@ -29,6 +29,7 @@
     <string name="global_action_restart_download_progress">In Download-Modus neustarten\u2026</string>
     <string name="global_action_current_user">Aktuell</string>
     <string name="quick_settings_network_adb_label">ADB über Netzwerk</string>
+    <string name="quick_settings_network_adb_no_network">kein Netzwerk</string>
     <string name="quick_settings_ambient_display_label">Inaktivitätsdisplay</string>
     <string name="accessibility_quick_settings_ambient_display_off">Inaktivitätsdisplay aus.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Inaktivitätsdisplay an.</string>
@@ -64,6 +65,7 @@
     <string name="screen_pinning_description_no_navbar">Der Bildschirm wird solange angezeigt, bis Sie die Fixierung aufheben. Berühren und halten Sie \"Zurück\", wenn Sie die Fixierung aufheben möchten.</string>
     <string name="screen_pinning_toast_no_navbar">Um die Fixierung dieses Bildschirms aufzuheben, \"Zurück\" berühren und halten</string>
     <string name="nav_bar_layout_inverse">Layout umkehren</string>
+    <string name="custom_swipe_hint">Wischen Sie vom Symbol ausgehend für <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Standortdienste: Energiesparmodus.</string>
     <string name="accessibility_quick_settings_location_gps_only">Standortdienste: Nur Gerät.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Standortdienste: Hohe Genauigkeit.</string>
@@ -80,5 +82,6 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">Nur Gerät</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, WLAN, Bluetooth oder Mobilfunknetze zur Standortbestimmung nutzen</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">WLAN, Bluetooth oder Mobilfunknetze zur Standortbestimmung nutzen</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS zur Standortbestimmung nutzen</string>
     <string name="status_bar_battery">Akku</string>
 </resources>
