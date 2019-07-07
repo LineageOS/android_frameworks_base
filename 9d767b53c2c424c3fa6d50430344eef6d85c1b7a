@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "649e2cad_a3d204bd",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/SecurityControllerImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-07-07T07:58:02Z",
+      "side": 1,
+      "message": "this seems to be a bit too generic\nI\u0027d rather move this to the VPN tile",
+      "revId": "9d767b53c2c424c3fa6d50430344eef6d85c1b7a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
