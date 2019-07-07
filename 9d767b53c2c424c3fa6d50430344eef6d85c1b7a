@@ -16,6 +16,24 @@
       "revId": "9d767b53c2c424c3fa6d50430344eef6d85c1b7a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f64ffce_8434daaa",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/SecurityControllerImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-07-07T16:37:30Z",
+      "side": 1,
+      "message": "I don\u0027t have strong feelings either way, I just moved it here to keep the symmetry with starting the internal (\u0027legacy\u0027) VPN.",
+      "parentUuid": "649e2cad_a3d204bd",
+      "revId": "9d767b53c2c424c3fa6d50430344eef6d85c1b7a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
