@@ -34,6 +34,23 @@
       "revId": "9d767b53c2c424c3fa6d50430344eef6d85c1b7a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d219bc_dceca0d0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/SecurityControllerImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-07-08T05:53:11Z",
+      "side": 1,
+      "message": "Maybe really should keep it here to not have to track current user ID in VpnTile.",
+      "revId": "9d767b53c2c424c3fa6d50430344eef6d85c1b7a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
