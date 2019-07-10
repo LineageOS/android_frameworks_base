@@ -495,6 +495,16 @@ public class Canvas extends BaseCanvas {
     }
 
     /**
+     * @hide
+     * @param saveCount The save level to restore to.
+     * @param paint     This is copied and is applied to the area within the unclipped layer's
+     *                  bounds (e.g. equivalent to a drawPaint()) before restore() is called.
+     */
+    public void restoreUnclippedLayer(int saveCount, Paint paint) {
+        nRestoreUnclippedLayer(mNativeCanvasWrapper, saveCount, paint.getNativeInstance());
+    }
+
+    /**
      * Helper version of saveLayer() that takes 4 values rather than a RectF.
      *
      * As of API Level API level {@value Build.VERSION_CODES#P} the only valid
@@ -1326,6 +1336,9 @@ public class Canvas extends BaseCanvas {
     @CriticalNative
     private static native int nSaveLayerAlpha(long nativeCanvas, float l, float t, float r, float b,
             int alpha, int layerFlags);
+    @CriticalNative
+    private static native void nRestoreUnclippedLayer(long nativeCanvas, int saveCount,
+            long nativePaint);
     @CriticalNative
     private static native boolean nRestore(long canvasHandle);
     @CriticalNative

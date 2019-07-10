@@ -23,7 +23,9 @@
 #include "hwui/MinikinUtils.h"
 #include "pipeline/skia/AnimatedDrawables.h"
 
+#include <SkAndroidFrameworkUtils.h>
 #include <SkAnimatedImage.h>
+#include <SkCanvasPriv.h>
 #include <SkCanvasStateUtils.h>
 #include <SkColorFilter.h>
 #include <SkColorSpaceXformCanvas.h>
@@ -184,6 +186,18 @@ void SkiaCanvas::restoreToCount(int restoreCount) {
     }
 }
 
+void SkiaCanvas::restoreUnclippedLayer(int restoreCount, const SkPaint& paint) {
+
+    while (mCanvas->getSaveCount() > restoreCount + 1) {
+        this->restore();
+    }
+
+    if (mCanvas->getSaveCount() == restoreCount + 1) {
+        SkCanvasPriv::DrawBehind(mCanvas, paint);
+        this->restore();
+    }
+}
+
 static inline SkCanvas::SaveLayerFlags layerFlags(SaveFlags::Flags flags) {
     SkCanvas::SaveLayerFlags layerFlags = 0;
 
@@ -197,8 +211,12 @@ static inline SkCanvas::SaveLayerFlags layerFlags(SaveFlags::Flags flags) {
 int SkiaCanvas::saveLayer(float left, float top, float right, float bottom, const SkPaint* paint,
                           SaveFlags::Flags flags) {
     const SkRect bounds = SkRect::MakeLTRB(left, top, right, bottom);
-    const SkCanvas::SaveLayerRec rec(&bounds, paint, layerFlags(flags));
 
+    if (paint == nullptr && flags == 0) {
+        return SkAndroidFrameworkUtils::SaveBehind(mCanvas, &bounds);
+    }
+
+    const SkCanvas::SaveLayerRec rec(&bounds, paint, layerFlags(flags));
     return mCanvas->saveLayer(rec);
 }
 

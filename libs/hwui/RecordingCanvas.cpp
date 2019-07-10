@@ -110,6 +110,11 @@ void RecordingCanvas::restoreToCount(int saveCount) {
     mState.restoreToCount(saveCount);
 }
 
+void RecordingCanvas::restoreUnclippedLayer(int saveCount, const SkPaint& paint) {
+    // This feature is unimplemented for the legacyGL backend
+    restoreToCount(saveCount);
+}
+
 int RecordingCanvas::saveLayer(float left, float top, float right, float bottom,
                                const SkPaint* paint, SaveFlags::Flags flags) {
     // force matrix/clip isolation for layer
