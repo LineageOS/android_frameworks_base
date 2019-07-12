@@ -5581,6 +5581,7 @@ public class AudioService extends IAudioService.Stub
 
     /**
      * @return true if there is currently a registered dynamic mixing policy that affects media
+     * and is not a render + loopback policy
      */
     /*package*/ boolean hasMediaDynamicPolicy() {
         synchronized (mAudioPolicies) {
@@ -5589,7 +5590,8 @@ public class AudioService extends IAudioService.Stub
             }
             final Collection<AudioPolicyProxy> appColl = mAudioPolicies.values();
             for (AudioPolicyProxy app : appColl) {
-                if (app.hasMixAffectingUsage(AudioAttributes.USAGE_MEDIA)) {
+                if (app.hasMixAffectingUsage(AudioAttributes.USAGE_MEDIA,
+                        AudioMix.ROUTE_FLAG_LOOP_BACK_RENDER)) {
                     return true;
                 }
             }
@@ -7352,9 +7354,10 @@ public class AudioService extends IAudioService.Stub
             Binder.restoreCallingIdentity(identity);
         }
 
-        boolean hasMixAffectingUsage(int usage) {
+        boolean hasMixAffectingUsage(int usage, int excludedFlags) {
             for (AudioMix mix : mMixes) {
-                if (mix.isAffectingUsage(usage)) {
+                if (mix.isAffectingUsage(usage)
+                        && ((mix.getRouteFlags() & excludedFlags) != excludedFlags)) {
                     return true;
                 }
             }
