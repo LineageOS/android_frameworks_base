@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efd4542d_8b44c478",
+        "filename": "core/jni/android_view_SurfaceControl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2019-07-14T09:31:29Z",
+      "side": 1,
+      "message": "I\u0027d prefer removing the \u0027Z\u0027 parameter here, so that we call the \"JNI backwards compatibility\" function they added in the commit that\u0027s causing this:\nhttps://github.com/LineageOS/android_frameworks_base/commit/da7203b66876a680fad56a5aafe3d84ae8354d4f#diff-b7978679b2d9c23198fa4f1ae2087a52R125",
+      "revId": "f6eea165a4a7be4089a141fd3c7f7b88d20310ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
