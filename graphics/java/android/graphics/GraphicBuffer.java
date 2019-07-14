@@ -118,16 +118,6 @@ public class GraphicBuffer implements Parcelable {
     }
 
     /**
-     * For SurfaceControl JNI. Provides and ignored value for capturedSecureLayers for backwards
-     * compatibility
-     * @hide
-     */
-    public static GraphicBuffer createFromExisting(int width, int height,
-            int format, int usage, long unwrappedNativeObject) {
-        return createFromExisting(width, height, format, usage, unwrappedNativeObject, false);
-    }
-
-    /**
       * Returns true if the buffer contains visible secure layers.
       */
     public boolean doesContainSecureLayers() {
