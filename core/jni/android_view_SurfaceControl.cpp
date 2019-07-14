@@ -308,7 +308,8 @@ static jobject nativeCaptureLayers(JNIEnv* env, jclass clazz, jobject layerHandl
                                        buffer->getHeight(),
                                        buffer->getPixelFormat(),
                                        (jint)buffer->getUsage(),
-                                       (jlong)buffer.get());
+                                       (jlong)buffer.get(),
+                                       false);
 }
 
 static void nativeApplyTransaction(JNIEnv* env, jclass clazz, jlong transactionObj, jboolean sync) {
@@ -1084,7 +1085,7 @@ int register_android_view_SurfaceControl(JNIEnv* env)
     jclass graphicsBufferClazz = FindClassOrDie(env, "android/graphics/GraphicBuffer");
     gGraphicBufferClassInfo.clazz = MakeGlobalRefOrDie(env, graphicsBufferClazz);
     gGraphicBufferClassInfo.builder = GetStaticMethodIDOrDie(env, graphicsBufferClazz,
-            "createFromExisting", "(IIIIJZ)Landroid/graphics/GraphicBuffer;");
+            "createFromExisting", "(IIIIJ)Landroid/graphics/GraphicBuffer;");
 
     return err;
 }
