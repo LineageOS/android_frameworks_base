@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11fad4a7_602b52b1",
+        "filename": "core/jni/android_view_SurfaceControl.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-07-15T17:16:57Z",
+      "side": 1,
+      "message": "remove the Z\nSo we fallback to the java code",
+      "range": {
+        "startLine": 1088,
+        "startChar": 41,
+        "endLine": 1088,
+        "endChar": 42
+      },
+      "revId": "f37c55e223d1fff67e5e0fa5b489f9e5c64ae2b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
