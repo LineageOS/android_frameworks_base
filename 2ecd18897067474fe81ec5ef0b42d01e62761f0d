@@ -22,6 +22,30 @@
       "revId": "2ecd18897067474fe81ec5ef0b42d01e62761f0d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cff0319b_cbba89ab",
+        "filename": "core/res/res/values/lineage_config.xml",
+        "patchSetId": 23
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 23283
+      },
+      "writtenOn": "2019-07-15T11:36:43Z",
+      "side": 1,
+      "message": "currently there is no case where fod works without an hal, and I don\u0027t think the current implementation of FODCircleView actually supports one without the fod hal. But a vendor can very possibly make it work without anything more special than a custom icon displayed on a screen -- everything we do with the fod hal could probably be moved somewhere else inside the vendor blobs.",
+      "parentUuid": "6483b75e_2d17239b",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 54
+      },
+      "revId": "2ecd18897067474fe81ec5ef0b42d01e62761f0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
