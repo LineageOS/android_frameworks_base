@@ -46,6 +46,30 @@
       "revId": "f37c55e223d1fff67e5e0fa5b489f9e5c64ae2b5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b267f0f1_d28f50ea",
+        "filename": "core/jni/android_view_SurfaceControl.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2019-07-15T23:07:04Z",
+      "side": 1,
+      "message": "We could define another hook called something like builderCompat without the Z parameter, and call that from nativeCaptureLayers. But it seems quite a waste of code.\nWould be nice to have aosp people\u0027s opinion, if any of you can poke them here https://android-review.googlesource.com/c/platform/frameworks/base/+/1015509",
+      "parentUuid": "a7e0ecdb_fbca44ff",
+      "range": {
+        "startLine": 1088,
+        "startChar": 41,
+        "endLine": 1088,
+        "endChar": 42
+      },
+      "revId": "f37c55e223d1fff67e5e0fa5b489f9e5c64ae2b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
