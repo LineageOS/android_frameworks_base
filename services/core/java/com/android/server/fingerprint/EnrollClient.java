@@ -28,10 +28,10 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.statusbar.IStatusBarService;
 
+import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
+
 import java.util.Arrays;
 import java.util.NoSuchElementException;
-
-import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
 
 /**
  * A class to keep track of the enrollment state for a given client.
@@ -41,8 +41,8 @@ public abstract class EnrollClient extends ClientMonitor {
     private static final int ENROLLMENT_TIMEOUT_MS = 60 * 1000; // 1 minute
     private byte[] mCryptoToken;
     private boolean mDisplayFODView;
+    private IFingerprintInscreen mExtDaemon;
     private IStatusBarService mStatusBarService;
-    private IFingerprintInscreen mExtDaemon = null;
 
     public EnrollClient(Context context, long halDeviceId, IBinder token,
             IFingerprintServiceReceiver receiver, int userId, int groupId, byte [] cryptoToken,
@@ -88,7 +88,7 @@ public abstract class EnrollClient extends ClientMonitor {
                 }
 
                 try {
-                    mStatusBarService.handleInDisplayFingerprintView(false, true);
+                    mStatusBarService.hideInDisplayFingerprintView();
                 } catch (RemoteException ex) {
                     // do nothing
                 }
@@ -117,7 +117,7 @@ public abstract class EnrollClient extends ClientMonitor {
             }
 
             try {
-                mStatusBarService.handleInDisplayFingerprintView(true, true);
+                mStatusBarService.showInDisplayFingerprintView();
             } catch (RemoteException ex) {
                 // do nothing
             }
@@ -147,7 +147,7 @@ public abstract class EnrollClient extends ClientMonitor {
 
         if (mDisplayFODView) {
             try {
-                mStatusBarService.handleInDisplayFingerprintView(false, true);
+                mStatusBarService.hideInDisplayFingerprintView();
             } catch (RemoteException e) {
                 // do nothing
             }
