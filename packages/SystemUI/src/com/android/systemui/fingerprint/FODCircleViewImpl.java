@@ -30,21 +30,20 @@ public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callback
 
     @Override
     public void start() {
-        if (mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)) {
-            getComponent(CommandQueue.class).addCallbacks(this);
+        if (!mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)) {
+            return;
         }
+        getComponent(CommandQueue.class).addCallbacks(this);
+        mFodCircleView = new FODCircleView(mContext);
     }
 
     @Override
-    public void handleInDisplayFingerprintView(boolean show, boolean isEnrolling) {
-        if (mFodCircleView == null) {
-            mFodCircleView = new FODCircleView(mContext);
-        }
+    public void showInDisplayFingerprintView() {
+        mFodCircleView.show();
+    }
 
-        if (!mFodCircleView.viewAdded && show) {
-            mFodCircleView.show(isEnrolling);
-        } else if (mFodCircleView.viewAdded) {
-            mFodCircleView.hide();
-        }
+    @Override
+    public void hideInDisplayFingerprintView() {
+        mFodCircleView.hide();
     }
 }
