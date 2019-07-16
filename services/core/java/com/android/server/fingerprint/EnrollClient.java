@@ -88,7 +88,7 @@ public abstract class EnrollClient extends ClientMonitor {
                 }
 
                 try {
-                    mStatusBarService.handleInDisplayFingerprintView(false, true);
+                    mStatusBarService.hideInDisplayFingerprintView();
                 } catch (RemoteException ex) {
                     // do nothing
                 }
@@ -117,7 +117,7 @@ public abstract class EnrollClient extends ClientMonitor {
             }
 
             try {
-                mStatusBarService.handleInDisplayFingerprintView(true, true);
+                mStatusBarService.showInDisplayFingerprintView();
             } catch (RemoteException ex) {
                 // do nothing
             }
@@ -147,7 +147,7 @@ public abstract class EnrollClient extends ClientMonitor {
 
         if (mDisplayFODView) {
             try {
-                mStatusBarService.handleInDisplayFingerprintView(false, true);
+                mStatusBarService.hideInDisplayFingerprintView();
             } catch (RemoteException e) {
                 // do nothing
             }
