@@ -33,8 +33,6 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.statusbar.IStatusBarService;
 
-import java.util.NoSuchElementException;
-
 import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
 
 /**
@@ -60,7 +58,6 @@ public abstract class AuthenticationClient extends ClientMonitor {
     protected boolean mDialogDismissed;
 
     private boolean mDisplayFODView;
-    private IFingerprintInscreen mExtDaemon = null;
     private final String mKeyguardPackage;
 
     // Receives events from SystemUI and handles them before forwarding them to FingerprintDialog
@@ -248,9 +245,9 @@ public abstract class AuthenticationClient extends ClientMonitor {
         }
         if (result && mDisplayFODView) {
             try {
-                mStatusBarService.handleInDisplayFingerprintView(false, false);
+                mStatusBarService.hideInDisplayFingerprintView();
             } catch (RemoteException e) {
-                // do nothing
+                Slog.e(TAG, "hideInDisplayFingerprintView failed", e);
             }
         }
         return result;
@@ -268,17 +265,18 @@ public abstract class AuthenticationClient extends ClientMonitor {
         }
 
         if (mDisplayFODView) {
-            try {
-                mExtDaemon = IFingerprintInscreen.getService();
-                mExtDaemon.setLongPressEnabled(isKeyguard(getOwnerString()));
-            } catch (NoSuchElementException | RemoteException e) {
-                // do nothing
+            IFingerprintInscreen fodDaemon = getFingerprintInScreenDaemon();
+            if (fodDaemon != null) {
+                try {
+                    fodDaemon.setLongPressEnabled(isKeyguard(getOwnerString()));
+                } catch (RemoteException e) {
+                    Slog.e(TAG, "setLongPressEnabled failed", e);
+                }
             }
-
             try {
-                mStatusBarService.handleInDisplayFingerprintView(true, false);
-            } catch (RemoteException ex) {
-                // do nothing
+                mStatusBarService.showInDisplayFingerprintView();
+            } catch (RemoteException e) {
+                Slog.e(TAG, "showInDisplayFingerprintView failed", e);
             }
         }
         onStart();
@@ -324,9 +322,9 @@ public abstract class AuthenticationClient extends ClientMonitor {
 
         if (mDisplayFODView) {
             try {
-                mStatusBarService.handleInDisplayFingerprintView(false, false);
+                mStatusBarService.hideInDisplayFingerprintView();
             } catch (RemoteException e) {
-                // do nothing
+                Slog.e(TAG, "hideInDisplayFingerprintView failed", e);
             }
         }
 
