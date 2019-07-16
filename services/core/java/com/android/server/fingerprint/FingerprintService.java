@@ -81,6 +81,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -91,8 +93,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
 
 /**
  * A service to manage multiple clients that want to access the fingerprint HAL API.
@@ -131,6 +131,9 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     private static final int MAX_FAILED_ATTEMPTS_LOCKOUT_PERMANENT = 20;
 
     private static final long CANCEL_TIMEOUT_LIMIT = 3000; // max wait for onCancel() from HAL,in ms
+    private static final int FINGERPRINT_IN_SCREEN_UNINITIALIZED = -1;
+    private static final int FINGERPRINT_IN_SCREEN_UNAVAILABLE = 0;
+    private static final int FINGERPRINT_IN_SCREEN_AVAILABLE = 1;
     private final String mKeyguardPackage;
     private int mCurrentUserId = UserHandle.USER_NULL;
     private final FingerprintUtils mFingerprintUtils = FingerprintUtils.getInstance();
@@ -140,6 +143,8 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     private SparseIntArray mFailedAttempts;
     @GuardedBy("this")
     private IBiometricsFingerprint mDaemon;
+    private IFingerprintInscreen mFingerprintInscreenDaemon;
+    private int mFingerprintInscreenDaemonState = FINGERPRINT_IN_SCREEN_UNINITIALIZED;
     private IStatusBarService mStatusBarService;
     private final IActivityManager mActivityManager;
     private final PowerManager mPowerManager;
@@ -153,8 +158,6 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
 
     private IBinder mToken = new Binder(); // used for internal FingerprintService enumeration
     private ArrayList<UserFingerprint> mUnknownFingerprints = new ArrayList<>(); // hw fingerprints
-
-    private IFingerprintInscreen mExtDaemon;
 
     private class UserFingerprint {
         Fingerprint f;
@@ -319,6 +322,29 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
         return mDaemon;
     }
 
+    public synchronized IFingerprintInscreen getFingerprintInScreenDaemon() {
+        if (mFingerprintInscreenDaemonState == FINGERPRINT_IN_SCREEN_UNAVAILABLE) {
+            return null;
+        }
+        if (mFingerprintInscreenDaemon == null) {
+            try {
+                mFingerprintInscreenDaemon = IFingerprintInscreen.getService();
+                if (mFingerprintInscreenDaemon != null) {
+                    mFingerprintInscreenDaemonState = FINGERPRINT_IN_SCREEN_AVAILABLE;
+                    mFingerprintInscreenDaemon.asBinder().linkToDeath((cookie) -> {
+                        mFingerprintInscreenDaemon = null;
+                    }, 0);
+                }
+            } catch (NoSuchElementException | RemoteException e) {
+                Slog.e(TAG, "Failed to get IFingerprintInscreen interface", e);
+                if (mFingerprintInscreenDaemonState == FINGERPRINT_IN_SCREEN_UNINITIALIZED) {
+                    mFingerprintInscreenDaemonState = FINGERPRINT_IN_SCREEN_UNAVAILABLE;
+                }
+            }
+        }
+        return mFingerprintInscreenDaemon;
+    }
+
     /** Populates existing authenticator ids. To be used only during the start of the service. */
     private void loadAuthenticatorIds() {
         // This operation can be expensive, so keep track of the elapsed time. Might need to move to
@@ -402,22 +428,16 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     }
 
     protected void handleError(long deviceId, int error, int vendorCode) {
-        if (mExtDaemon == null) {
+        IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+        if (daemon != null) {
             try {
-                mExtDaemon = IFingerprintInscreen.getService();
-            } catch (NoSuchElementException | RemoteException e) {
-                // do nothing
+                if (daemon.handleError(error, vendorCode)) {
+                    return;
+                }
+            } catch (RemoteException e) {
+                Slog.e(TAG, "handleError failed", e);
             }
         }
-
-        try {
-            if (mExtDaemon != null && mExtDaemon.handleError(error, vendorCode)) {
-                return;
-            }
-        } catch (NoSuchElementException | RemoteException e) {
-            // do nothing
-        }
-
         ClientMonitor client = mCurrentClient;
         if (client instanceof InternalRemovalClient || client instanceof InternalEnumerateClient) {
             clearEnumerateState();
@@ -493,22 +513,16 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     }
 
     protected void handleAcquired(long deviceId, int acquiredInfo, int vendorCode) {
-        if (mExtDaemon == null) {
+        IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+        if (daemon != null) {
             try {
-                mExtDaemon = IFingerprintInscreen.getService();
-            } catch (NoSuchElementException | RemoteException e) {
-                // do nothing
+                if (daemon.handleAcquired(acquiredInfo, vendorCode)) {
+                    return;
+                }
+            } catch (RemoteException e) {
+                Slog.e(TAG, "handleAcquired failed", e);
             }
         }
-
-        try {
-            if (mExtDaemon != null && mExtDaemon.handleAcquired(acquiredInfo, vendorCode)) {
-                return;
-            }
-        } catch (NoSuchElementException | RemoteException e) {
-            // do nothing
-        }
-
         ClientMonitor client = mCurrentClient;
         if (client != null && client.onAcquired(acquiredInfo, vendorCode)) {
             removeClient(client);
@@ -691,6 +705,10 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
                 public IBiometricsFingerprint getFingerprintDaemon() {
                     return FingerprintService.this.getFingerprintDaemon();
                 }
+                @Override
+                public IFingerprintInscreen getFingerprintInScreenDaemon() {
+                    return FingerprintService.this.getFingerprintInScreenDaemon();
+                }
             };
             startClient(client, true);
         }
@@ -705,6 +723,11 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
                 @Override
                 public IBiometricsFingerprint getFingerprintDaemon() {
                     return FingerprintService.this.getFingerprintDaemon();
+                }
+
+                @Override
+                public IFingerprintInscreen getFingerprintInScreenDaemon() {
+                    return FingerprintService.this.getFingerprintInScreenDaemon();
                 }
             };
             startClient(client, true);
@@ -733,6 +756,11 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
                 public IBiometricsFingerprint getFingerprintDaemon() {
                     return FingerprintService.this.getFingerprintDaemon();
                 }
+
+                @Override
+                public IFingerprintInscreen getFingerprintInScreenDaemon() {
+                    return FingerprintService.this.getFingerprintInScreenDaemon();
+                }
             };
             startClient(client, true);
         }
@@ -747,6 +775,11 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
                 @Override
                 public IBiometricsFingerprint getFingerprintDaemon() {
                     return FingerprintService.this.getFingerprintDaemon();
+                }
+
+                @Override
+                public IFingerprintInscreen getFingerprintInScreenDaemon() {
+                    return FingerprintService.this.getFingerprintInScreenDaemon();
                 }
             };
             startClient(client, true);
@@ -967,6 +1000,11 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
             public IBiometricsFingerprint getFingerprintDaemon() {
                 return FingerprintService.this.getFingerprintDaemon();
             }
+
+            @Override
+            public IFingerprintInscreen getFingerprintInScreenDaemon() {
+                return FingerprintService.this.getFingerprintInScreenDaemon();
+            }
         };
 
         int lockoutMode = getLockoutMode();
@@ -997,6 +1035,11 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
             @Override
             public IBiometricsFingerprint getFingerprintDaemon() {
                 return FingerprintService.this.getFingerprintDaemon();
+            }
+
+            @Override
+            public IFingerprintInscreen getFingerprintInScreenDaemon() {
+                return FingerprintService.this.getFingerprintInScreenDaemon();
             }
 
             @Override
