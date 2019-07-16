@@ -166,7 +166,7 @@ public class CommandQueue extends IStatusBar.Stub {
         default void onFingerprintHelp(String message) { }
         default void onFingerprintError(String error) { }
         default void hideFingerprintDialog() { }
-        default void handleInDisplayFingerprintView(boolean show, boolean isEnrolling) { }
+        default void handleInDisplayFingerprintView(boolean show) { }
     }
 
     @VisibleForTesting
@@ -554,11 +554,10 @@ public class CommandQueue extends IStatusBar.Stub {
     }
 
     @Override
-    public void handleInDisplayFingerprintView(boolean show, boolean isEnrolling) {
+    public void handleInDisplayFingerprintView(boolean show) {
         synchronized (mLock) {
             SomeArgs args = SomeArgs.obtain();
             args.arg1 = show;
-            args.arg2 = isEnrolling;
             mHandler.obtainMessage(MSG_IN_DISPLAY_FINGERPRINT, args)
                     .sendToTarget();
         }
@@ -813,8 +812,7 @@ public class CommandQueue extends IStatusBar.Stub {
                 case MSG_IN_DISPLAY_FINGERPRINT:
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).handleInDisplayFingerprintView(
-                                (boolean)((SomeArgs)msg.obj).arg1,
-                                (boolean)((SomeArgs)msg.obj).arg2);
+                                (boolean)((SomeArgs)msg.obj).arg1);
                     }
                     break;
             }
