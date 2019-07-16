@@ -248,7 +248,7 @@ public abstract class AuthenticationClient extends ClientMonitor {
         }
         if (result && mDisplayFODView) {
             try {
-                mStatusBarService.handleInDisplayFingerprintView(false, false);
+                mStatusBarService.handleInDisplayFingerprintView(false);
             } catch (RemoteException e) {
                 // do nothing
             }
@@ -276,7 +276,7 @@ public abstract class AuthenticationClient extends ClientMonitor {
             }
 
             try {
-                mStatusBarService.handleInDisplayFingerprintView(true, false);
+                mStatusBarService.handleInDisplayFingerprintView(true);
             } catch (RemoteException ex) {
                 // do nothing
             }
@@ -324,7 +324,7 @@ public abstract class AuthenticationClient extends ClientMonitor {
 
         if (mDisplayFODView) {
             try {
-                mStatusBarService.handleInDisplayFingerprintView(false, false);
+                mStatusBarService.handleInDisplayFingerprintView(false);
             } catch (RemoteException e) {
                 // do nothing
             }
