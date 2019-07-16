@@ -68,8 +68,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
     private boolean mIsPulsing;
     private boolean mIsScreenOn;
 
-    public boolean viewAdded;
-    private boolean mIsEnrolling;
+    public boolean mViewAdded;
     private boolean mShouldBoostBrightness;
 
     private Timer mBurnInProtectionTimer = null;
@@ -116,7 +115,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
                 mBurnInProtectionTimer.cancel();
             }
 
-            if (viewAdded) {
+            if (mViewAdded) {
                 resetPosition();
                 invalidate();
             }
@@ -159,9 +158,9 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
         @Override
         public void onKeyguardBouncerChanged(boolean isBouncer) {
-            if (viewAdded && isBouncer) {
+            if (isBouncer) {
                 hide();
-            } else if (!viewAdded) {
+            } else if (mUpdateMonitor.isFingerprintDetectionRunning()) {
                 show();
             }
         }
@@ -281,28 +280,20 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        if (viewAdded) {
+        if (mViewAdded) {
             resetPosition();
             mWindowManager.updateViewLayout(this, mParams);
         }
     }
 
     public void show() {
-        show(false);
-    }
-
-    public void show(boolean isEnrolling) {
-        if (!isEnrolling && (!mUpdateMonitor.isUnlockWithFingerprintPossible(
-                        KeyguardUpdateMonitor.getCurrentUser()) ||
-                !mUpdateMonitor.isUnlockingWithFingerprintAllowed())) {
+        if (mViewAdded) {
             return;
         }
 
         if (mX == -1 || mY == -1 || mW == -1 || mH == -1) {
             return;
         }
-
-        mIsEnrolling = isEnrolling;
 
         resetPosition();
 
@@ -322,7 +313,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         setImageResource(R.drawable.fod_icon_default);
 
         mWindowManager.addView(this, mParams);
-        viewAdded = true;
+        mViewAdded = true;
 
         mPressed = false;
         setDim(false);
@@ -335,6 +326,10 @@ public class FODCircleView extends ImageView implements OnTouchListener {
     }
 
     public void hide() {
+        if (!mViewAdded) {
+            return;
+        }
+
         if (mX == -1 || mY == -1 || mW == -1 || mH == -1) {
             return;
         }
@@ -342,7 +337,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         mInsideCircle = false;
 
         mWindowManager.removeView(this);
-        viewAdded = false;
+        mViewAdded = false;
 
         mPressed = false;
         setDim(false);
@@ -387,7 +382,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
             mParams.y += mDreamingOffsetY;
         }
 
-        if (viewAdded) {
+        if (mViewAdded) {
             mWindowManager.updateViewLayout(this, mParams);
         }
     }
@@ -438,7 +433,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
             }
             mDreamingOffsetX -= mDreamingMaxOffset;
             mDreamingOffsetY -= mDreamingMaxOffset;
-            if (viewAdded) {
+            if (mViewAdded) {
                 new Handler(Looper.getMainLooper()).post(() -> resetPosition());
             }
         }
