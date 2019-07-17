@@ -22489,7 +22489,7 @@ public class PackageManagerService extends IPackageManager.Stub
         final StorageManager sm = mInjector.getStorageManager();
         UserManagerInternal umInternal = mInjector.getUserManagerInternal();
         for (UserInfo user : mUserManager.getUsers(false /* includeDying */)) {
-            final int flags;
+            int flags = 0;
             if (umInternal.isUserUnlockingOrUnlocked(user.id)) {
                 flags = StorageManager.FLAG_STORAGE_DE | StorageManager.FLAG_STORAGE_CE;
             } else if (umInternal.isUserRunning(user.id)) {
@@ -22497,9 +22497,12 @@ public class PackageManagerService extends IPackageManager.Stub
             } else {
                 continue;
             }
-
+            if ((vol.disk.flags & DiskInfo.FLAG_UFS_CARD) == DiskInfo.FLAG_UFS_CARD) {
+                flags = flags | DiskInfo.FLAG_UFS_CARD;
+            }
+            final int pflags = flags;
             try {
-                sm.prepareUserStorage(volumeUuid, user.id, user.serialNumber, flags);
+                sm.prepareUserStorage(volumeUuid, user.id, user.serialNumber, pflags);
                 synchronized (mInstallLock) {
                     reconcileAppsDataLI(volumeUuid, user.id, flags, true /* migrateAppData */);
                 }
