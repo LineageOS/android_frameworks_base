@@ -34,6 +34,24 @@
       "revId": "6ab690785a711e6595e1604a5528a2c074d8df81",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e36e4055_2c8d4f0e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/StatusBarMobileView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-07-22T20:52:37Z",
+      "side": 1,
+      "message": "Yea, it did cause a bootloop here. Latest patchset are fine.",
+      "parentUuid": "c64c00f9_ec4314cc",
+      "revId": "6ab690785a711e6595e1604a5528a2c074d8df81",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
