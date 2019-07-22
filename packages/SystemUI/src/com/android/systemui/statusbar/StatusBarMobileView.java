@@ -241,6 +241,25 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
         return mState.visible;
     }
 
+    private void setVisibleMobileGroupState(int state) {
+        if (mState != null && (!mState.visible || !mState.provisioned)) {
+            return;
+        }
+
+        switch (state) {
+            case STATE_ICON:
+                mMobileGroup.setVisibility(View.VISIBLE);
+                break;
+            case STATE_DOT:
+                mMobileGroup.setVisibility(View.INVISIBLE);
+                break;
+            case STATE_HIDDEN:
+            default:
+                mMobileGroup.setVisibility(View.INVISIBLE);
+                break;
+        }
+    }
+
     @Override
     public void setVisibleState(int state) {
         if (state == mVisibleState) {
@@ -248,18 +267,16 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
         }
 
         mVisibleState = state;
+        setVisibleMobileGroupState(state);
         switch (state) {
             case STATE_ICON:
-                mMobileGroup.setVisibility(View.VISIBLE);
                 mDotView.setVisibility(View.GONE);
                 break;
             case STATE_DOT:
-                mMobileGroup.setVisibility(View.INVISIBLE);
                 mDotView.setVisibility(View.VISIBLE);
                 break;
             case STATE_HIDDEN:
             default:
-                mMobileGroup.setVisibility(View.INVISIBLE);
                 mDotView.setVisibility(View.INVISIBLE);
                 break;
         }
