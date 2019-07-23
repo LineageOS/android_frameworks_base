@@ -17,6 +17,7 @@
 package com.android.systemui.statusbar.phone;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
@@ -30,6 +31,8 @@ import com.android.systemui.R;
 import com.android.systemui.statusbar.KeyguardAffordanceView;
 import com.android.systemui.statusbar.policy.AccessibilityController;
 import com.android.systemui.statusbar.policy.UserInfoController.OnUserInfoChangedListener;
+
+import lineageos.app.LineageContextConstants;
 
 /**
  * Manages the different states and animations of the unlock icon.
@@ -57,7 +60,7 @@ public class LockIcon extends KeyguardAffordanceView implements OnUserInfoChange
     private boolean mHasFingerPrintIcon;
     private boolean mHasFaceUnlockIcon;
     private int mDensity;
-    private boolean mDisplayFODView;
+    private boolean mHasFod;
 
     private final Runnable mDrawOffTimeout = () -> update(true /* forceUpdate */);
 
@@ -66,8 +69,9 @@ public class LockIcon extends KeyguardAffordanceView implements OnUserInfoChange
         mTrustDrawable = new TrustDrawable(context);
         setBackground(mTrustDrawable);
         mUnlockMethodCache = UnlockMethodCache.getInstance(context);
-        mDisplayFODView = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_needCustomFODView);
+
+        PackageManager packageManager = context.getPackageManager();
+        mHasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
     }
 
     @Override
@@ -311,13 +315,13 @@ public class LockIcon extends KeyguardAffordanceView implements OnUserInfoChange
         boolean fingerprintRunning = updateMonitor.isFingerprintDetectionRunning();
         boolean unlockingAllowed = updateMonitor.isUnlockingWithFingerprintAllowed();
         if (mTransientFpError) {
-            return mDisplayFODView ? STATE_LOCKED : STATE_FINGERPRINT_ERROR;
+            return mHasFod ? STATE_LOCKED : STATE_FINGERPRINT_ERROR;
         } else if (mUnlockMethodCache.canSkipBouncer()) {
             return STATE_LOCK_OPEN;
         } else if (mUnlockMethodCache.isFaceUnlockRunning()) {
             return STATE_FACE_UNLOCK;
         } else if (fingerprintRunning && unlockingAllowed) {
-            return mDisplayFODView ? STATE_LOCKED : STATE_FINGERPRINT;
+            return mHasFod ? STATE_LOCKED : STATE_FINGERPRINT;
         } else {
             return STATE_LOCKED;
         }

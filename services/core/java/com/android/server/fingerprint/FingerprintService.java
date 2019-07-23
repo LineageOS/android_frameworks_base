@@ -77,6 +77,8 @@ import com.android.internal.util.DumpUtils;
 import com.android.server.SystemServerInitThreadPool;
 import com.android.server.SystemService;
 
+import lineageos.app.LineageContextConstants;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -131,9 +133,6 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     private static final int MAX_FAILED_ATTEMPTS_LOCKOUT_PERMANENT = 20;
 
     private static final long CANCEL_TIMEOUT_LIMIT = 3000; // max wait for onCancel() from HAL,in ms
-    private static final int FINGERPRINT_IN_SCREEN_UNINITIALIZED = -1;
-    private static final int FINGERPRINT_IN_SCREEN_UNAVAILABLE = 0;
-    private static final int FINGERPRINT_IN_SCREEN_AVAILABLE = 1;
     private final String mKeyguardPackage;
     private int mCurrentUserId = UserHandle.USER_NULL;
     private final FingerprintUtils mFingerprintUtils = FingerprintUtils.getInstance();
@@ -144,7 +143,6 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     @GuardedBy("this")
     private IBiometricsFingerprint mDaemon;
     private IFingerprintInscreen mFingerprintInscreenDaemon;
-    private int mFingerprintInscreenDaemonState = FINGERPRINT_IN_SCREEN_UNINITIALIZED;
     private IStatusBarService mStatusBarService;
     private final IActivityManager mActivityManager;
     private final PowerManager mPowerManager;
@@ -153,6 +151,7 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     private ClientMonitor mCurrentClient;
     private ClientMonitor mPendingClient;
     private PerformanceStats mPerformanceStats;
+    private final boolean mHasFod;
     private final boolean mNotifyClient;
     private final boolean mCleanupUnusedFingerprints;
 
@@ -274,6 +273,9 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
                 com.android.internal.R.bool.config_notifyClientOnFingerprintCancelSuccess);
         mCleanupUnusedFingerprints = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_cleanupUnusedFingerprints);
+
+        PackageManager packageManager = context.getPackageManager();
+        mHasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
     }
 
     @Override
@@ -323,23 +325,19 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     }
 
     public synchronized IFingerprintInscreen getFingerprintInScreenDaemon() {
-        if (mFingerprintInscreenDaemonState == FINGERPRINT_IN_SCREEN_UNAVAILABLE) {
+        if (!mHasFod) {
             return null;
         }
         if (mFingerprintInscreenDaemon == null) {
             try {
                 mFingerprintInscreenDaemon = IFingerprintInscreen.getService();
                 if (mFingerprintInscreenDaemon != null) {
-                    mFingerprintInscreenDaemonState = FINGERPRINT_IN_SCREEN_AVAILABLE;
                     mFingerprintInscreenDaemon.asBinder().linkToDeath((cookie) -> {
                         mFingerprintInscreenDaemon = null;
                     }, 0);
                 }
             } catch (NoSuchElementException | RemoteException e) {
                 Slog.e(TAG, "Failed to get IFingerprintInscreen interface", e);
-                if (mFingerprintInscreenDaemonState == FINGERPRINT_IN_SCREEN_UNINITIALIZED) {
-                    mFingerprintInscreenDaemonState = FINGERPRINT_IN_SCREEN_UNAVAILABLE;
-                }
             }
         }
         return mFingerprintInscreenDaemon;

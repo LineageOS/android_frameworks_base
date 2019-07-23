@@ -18,6 +18,7 @@ package com.android.server.fingerprint;
 
 import android.content.Context;
 import android.content.ComponentName;
+import android.content.pm.PackageManager;
 import android.hardware.biometrics.fingerprint.V2_1.IBiometricsFingerprint;
 import android.hardware.biometrics.BiometricPrompt;
 import android.hardware.biometrics.IBiometricPromptReceiver;
@@ -32,6 +33,8 @@ import android.util.Slog;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.statusbar.IStatusBarService;
+
+import lineageos.app.LineageContextConstants;
 
 import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
 
@@ -57,7 +60,7 @@ public abstract class AuthenticationClient extends ClientMonitor {
     private final FingerprintManager mFingerprintManager;
     protected boolean mDialogDismissed;
 
-    private boolean mDisplayFODView;
+    private final boolean mHasFod;
     private final String mKeyguardPackage;
 
     // Receives events from SystemUI and handles them before forwarding them to FingerprintDialog
@@ -102,10 +105,11 @@ public abstract class AuthenticationClient extends ClientMonitor {
         mStatusBarService = statusBarService;
         mFingerprintManager = (FingerprintManager) getContext()
                 .getSystemService(Context.FINGERPRINT_SERVICE);
-        mDisplayFODView = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_needCustomFODView);
         mKeyguardPackage = ComponentName.unflattenFromString(context.getResources().getString(
                 com.android.internal.R.string.config_keyguardComponent)).getPackageName();
+
+        PackageManager packageManager = context.getPackageManager();
+        mHasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
     }
 
     @Override
@@ -243,7 +247,7 @@ public abstract class AuthenticationClient extends ClientMonitor {
             resetFailedAttempts();
             onStop();
         }
-        if (result && mDisplayFODView) {
+        if (result && mHasFod) {
             try {
                 mStatusBarService.hideInDisplayFingerprintView();
             } catch (RemoteException e) {
@@ -264,7 +268,7 @@ public abstract class AuthenticationClient extends ClientMonitor {
             return ERROR_ESRCH;
         }
 
-        if (mDisplayFODView) {
+        if (mHasFod) {
             IFingerprintInscreen fodDaemon = getFingerprintInScreenDaemon();
             if (fodDaemon != null) {
                 try {
@@ -291,7 +295,7 @@ public abstract class AuthenticationClient extends ClientMonitor {
             if (DEBUG) Slog.w(TAG, "client " + getOwnerString() + " is authenticating...");
 
             // If authenticating with system dialog, show the dialog
-            if (!mDisplayFODView && mBundle != null) {
+            if (!mHasFod && mBundle != null) {
                 try {
                     mStatusBarService.showFingerprintDialog(mBundle, mDialogReceiver);
                 } catch (RemoteException e) {
@@ -320,7 +324,7 @@ public abstract class AuthenticationClient extends ClientMonitor {
             return 0;
         }
 
-        if (mDisplayFODView) {
+        if (mHasFod) {
             try {
                 mStatusBarService.hideInDisplayFingerprintView();
             } catch (RemoteException e) {
@@ -349,7 +353,7 @@ public abstract class AuthenticationClient extends ClientMonitor {
             // dialog, we do not need to hide it since it's already hidden.
             // If the device is in lockout, don't hide the dialog - it will automatically hide
             // after BiometricPrompt.HIDE_DIALOG_DELAY
-            if (!mDisplayFODView && mBundle != null && !mDialogDismissed && !mInLockout) {
+            if (!mHasFod && mBundle != null && !mDialogDismissed && !mInLockout) {
                 try {
                     mStatusBarService.hideFingerprintDialog();
                 } catch (RemoteException e) {

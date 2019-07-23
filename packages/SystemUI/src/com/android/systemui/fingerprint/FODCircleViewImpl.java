@@ -17,11 +17,14 @@
 package com.android.systemui.fingerprint;
 
 import android.content.pm.PackageManager;
+import android.util.Slog;
 import android.view.View;
 
 import com.android.systemui.SystemUI;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.CommandQueue.Callbacks;
+
+import lineageos.app.LineageContextConstants;
 
 public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callbacks {
     private static final String TAG = "FODCircleViewImpl";
@@ -30,14 +33,16 @@ public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callback
 
     @Override
     public void start() {
-        if (!mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)) {
+        PackageManager packageManager = mContext.getPackageManager();
+        if (!packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) ||
+                !packageManager.hasSystemFeature(LineageContextConstants.Features.FOD)) {
             return;
         }
         getComponent(CommandQueue.class).addCallbacks(this);
         try {
             mFodCircleView = new FODCircleView(mContext);
         } catch (RuntimeException e) {
-            // do nothing
+            Slog.e(TAG, "Failed to initialize FODCircleView", e);
         }
     }
 
