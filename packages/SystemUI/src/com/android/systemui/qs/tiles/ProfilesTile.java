@@ -96,6 +96,12 @@ public class ProfilesTile extends QSTileImpl<State> {
 
     @Override
     protected void handleClick() {
+        if (mKeyguardMonitor.isSecure() && mKeyguardMonitor.isShowing()) {
+            mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
+                setProfilesEnabled(!profilesEnabled());
+            });
+            return;
+        }
         setProfilesEnabled(!profilesEnabled());
     }
 
