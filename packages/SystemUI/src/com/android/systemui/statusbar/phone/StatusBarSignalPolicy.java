@@ -113,6 +113,9 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
                     // after disabling one of the SIMs.
                     state.typeId = 0;
                 }
+                // Make sure that applyMobileState() gets called
+                mIconController.setMobileIcons(
+                        mSlotMobile, MobileIconState.copyStates(mMobileStates));
             }
         }
     }
