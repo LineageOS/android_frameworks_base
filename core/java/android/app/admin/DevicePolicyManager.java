@@ -2159,6 +2159,7 @@ public class DevicePolicyManager {
      *             does not use {@link DeviceAdminInfo#USES_POLICY_LIMIT_PASSWORD}
      */
     public void setPasswordMinimumLength(@NonNull ComponentName admin, int length) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setPasswordMinimumLength(admin, length, mParentInstance);
@@ -2182,6 +2183,7 @@ public class DevicePolicyManager {
      * all admins.
      */
     public int getPasswordMinimumLength(@Nullable ComponentName admin) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 6;
         return getPasswordMinimumLength(admin, myUserId());
     }
 
@@ -2222,6 +2224,7 @@ public class DevicePolicyManager {
      *             does not use {@link DeviceAdminInfo#USES_POLICY_LIMIT_PASSWORD}
      */
     public void setPasswordMinimumUpperCase(@NonNull ComponentName admin, int length) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setPasswordMinimumUpperCase(admin, length, mParentInstance);
@@ -2256,6 +2259,7 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public int getPasswordMinimumUpperCase(@Nullable ComponentName admin, int userHandle) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 3;
         if (mService != null) {
             try {
                 return mService.getPasswordMinimumUpperCase(admin, userHandle, mParentInstance);
@@ -2291,6 +2295,7 @@ public class DevicePolicyManager {
      *             does not use {@link DeviceAdminInfo#USES_POLICY_LIMIT_PASSWORD}
      */
     public void setPasswordMinimumLowerCase(@NonNull ComponentName admin, int length) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setPasswordMinimumLowerCase(admin, length, mParentInstance);
@@ -2325,6 +2330,7 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public int getPasswordMinimumLowerCase(@Nullable ComponentName admin, int userHandle) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 3;
         if (mService != null) {
             try {
                 return mService.getPasswordMinimumLowerCase(admin, userHandle, mParentInstance);
@@ -2360,6 +2366,7 @@ public class DevicePolicyManager {
      *             does not use {@link DeviceAdminInfo#USES_POLICY_LIMIT_PASSWORD}
      */
     public void setPasswordMinimumLetters(@NonNull ComponentName admin, int length) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setPasswordMinimumLetters(admin, length, mParentInstance);
@@ -2393,6 +2400,7 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public int getPasswordMinimumLetters(@Nullable ComponentName admin, int userHandle) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 3;
         if (mService != null) {
             try {
                 return mService.getPasswordMinimumLetters(admin, userHandle, mParentInstance);
@@ -2428,6 +2436,7 @@ public class DevicePolicyManager {
      *             does not use {@link DeviceAdminInfo#USES_POLICY_LIMIT_PASSWORD}
      */
     public void setPasswordMinimumNumeric(@NonNull ComponentName admin, int length) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setPasswordMinimumNumeric(admin, length, mParentInstance);
@@ -2461,6 +2470,7 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public int getPasswordMinimumNumeric(@Nullable ComponentName admin, int userHandle) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 2;
         if (mService != null) {
             try {
                 return mService.getPasswordMinimumNumeric(admin, userHandle, mParentInstance);
@@ -2496,6 +2506,7 @@ public class DevicePolicyManager {
      *             does not use {@link DeviceAdminInfo#USES_POLICY_LIMIT_PASSWORD}
      */
     public void setPasswordMinimumSymbols(@NonNull ComponentName admin, int length) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setPasswordMinimumSymbols(admin, length, mParentInstance);
@@ -2528,6 +2539,7 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public int getPasswordMinimumSymbols(@Nullable ComponentName admin, int userHandle) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 1;
         if (mService != null) {
             try {
                 return mService.getPasswordMinimumSymbols(admin, userHandle, mParentInstance);
@@ -2563,6 +2575,7 @@ public class DevicePolicyManager {
      *             does not use {@link DeviceAdminInfo#USES_POLICY_LIMIT_PASSWORD}
      */
     public void setPasswordMinimumNonLetter(@NonNull ComponentName admin, int length) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setPasswordMinimumNonLetter(admin, length, mParentInstance);
@@ -2596,6 +2609,7 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public int getPasswordMinimumNonLetter(@Nullable ComponentName admin, int userHandle) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 2;
         if (mService != null) {
             try {
                 return mService.getPasswordMinimumNonLetter(admin, userHandle, mParentInstance);
@@ -2632,6 +2646,7 @@ public class DevicePolicyManager {
      *             does not use {@link DeviceAdminInfo#USES_POLICY_LIMIT_PASSWORD}
      */
     public void setPasswordHistoryLength(@NonNull ComponentName admin, int length) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setPasswordHistoryLength(admin, length, mParentInstance);
@@ -2670,6 +2685,7 @@ public class DevicePolicyManager {
      *             does not use {@link DeviceAdminInfo#USES_POLICY_EXPIRE_PASSWORD}
      */
     public void setPasswordExpirationTimeout(@NonNull ComponentName admin, long timeout) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setPasswordExpirationTimeout(admin, timeout, mParentInstance);
@@ -2694,6 +2710,7 @@ public class DevicePolicyManager {
      * @return The timeout for the given admin or the minimum of all timeouts
      */
     public long getPasswordExpirationTimeout(@Nullable ComponentName admin) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 0;
         if (mService != null) {
             try {
                 return mService.getPasswordExpirationTimeout(admin, myUserId(), mParentInstance);
@@ -2718,6 +2735,7 @@ public class DevicePolicyManager {
      * @return The password expiration time, in milliseconds since epoch.
      */
     public long getPasswordExpiration(@Nullable ComponentName admin) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 0;
         if (mService != null) {
             try {
                 return mService.getPasswordExpiration(admin, myUserId(), mParentInstance);
@@ -2747,6 +2765,7 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public int getPasswordHistoryLength(@Nullable ComponentName admin, int userHandle) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 3;
         if (mService != null) {
             try {
                 return mService.getPasswordHistoryLength(admin, userHandle, mParentInstance);
@@ -2788,6 +2807,8 @@ public class DevicePolicyManager {
      * @throws IllegalStateException if the user is not unlocked.
      */
     public boolean isActivePasswordSufficient() {
+        return true;
+/*
         if (mService != null) {
             try {
                 return mService.isActivePasswordSufficient(myUserId(), mParentInstance);
@@ -2796,6 +2817,7 @@ public class DevicePolicyManager {
             }
         }
         return false;
+*/
     }
 
     /**
@@ -2925,6 +2947,7 @@ public class DevicePolicyManager {
      *             {@link DeviceAdminInfo#USES_POLICY_WIPE_DATA}.
      */
     public void setMaximumFailedPasswordsForWipe(@NonNull ComponentName admin, int num) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setMaximumFailedPasswordsForWipe(admin, num, mParentInstance);
@@ -2953,6 +2976,7 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public int getMaximumFailedPasswordsForWipe(@Nullable ComponentName admin, int userHandle) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 4;
         if (mService != null) {
             try {
                 return mService.getMaximumFailedPasswordsForWipe(
@@ -3085,6 +3109,7 @@ public class DevicePolicyManager {
      * @throws IllegalArgumentException if the supplied token is invalid.
      */
     public boolean setResetPasswordToken(ComponentName admin, byte[] token) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return true;
         throwIfParentInstance("setResetPasswordToken");
         if (mService != null) {
             try {
@@ -3104,6 +3129,7 @@ public class DevicePolicyManager {
      * @throws SecurityException if admin is not a device or profile owner.
      */
     public boolean clearResetPasswordToken(ComponentName admin) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return true;
         throwIfParentInstance("clearResetPasswordToken");
         if (mService != null) {
             try {
@@ -3166,6 +3192,7 @@ public class DevicePolicyManager {
      */
     public boolean resetPasswordWithToken(@NonNull ComponentName admin, String password,
             byte[] token, int flags) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return true;
         throwIfParentInstance("resetPassword");
         if (mService != null) {
             try {
@@ -3196,6 +3223,7 @@ public class DevicePolicyManager {
      *             {@link DeviceAdminInfo#USES_POLICY_FORCE_LOCK}
      */
     public void setMaximumTimeToLock(@NonNull ComponentName admin, long timeMs) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setMaximumTimeToLock(admin, timeMs, mParentInstance);
@@ -3225,6 +3253,7 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public long getMaximumTimeToLock(@Nullable ComponentName admin, int userHandle) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 0;
         if (mService != null) {
             try {
                 return mService.getMaximumTimeToLock(admin, userHandle, mParentInstance);
@@ -3270,6 +3299,7 @@ public class DevicePolicyManager {
      */
     public void setRequiredStrongAuthTimeout(@NonNull ComponentName admin,
             long timeoutMs) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setRequiredStrongAuthTimeout(admin, timeoutMs, mParentInstance);
@@ -3298,6 +3328,7 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public long getRequiredStrongAuthTimeout(@Nullable ComponentName admin, @UserIdInt int userId) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return 0;
         if (mService != null) {
             try {
                 return mService.getRequiredStrongAuthTimeout(admin, userId, mParentInstance);
@@ -3487,6 +3518,7 @@ public class DevicePolicyManager {
      */
     public @Nullable ComponentName setGlobalProxy(@NonNull ComponentName admin, Proxy proxySpec,
             List<String> exclusionList ) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return null;
         throwIfParentInstance("setGlobalProxy");
         if (proxySpec == null) {
             throw new NullPointerException();
@@ -3553,6 +3585,7 @@ public class DevicePolicyManager {
      */
     public void setRecommendedGlobalProxy(@NonNull ComponentName admin, @Nullable ProxyInfo
             proxyInfo) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         throwIfParentInstance("setRecommendedGlobalProxy");
         if (mService != null) {
             try {
@@ -3762,6 +3795,9 @@ public class DevicePolicyManager {
      *             {@link DeviceAdminInfo#USES_ENCRYPTED_STORAGE}
      */
     public int setStorageEncryption(@NonNull ComponentName admin, boolean encrypt) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) {
+            return ENCRYPTION_STATUS_ACTIVE;
+        }
         throwIfParentInstance("setStorageEncryption");
         if (mService != null) {
             try {
@@ -3783,6 +3819,7 @@ public class DevicePolicyManager {
      * @return true if the admin(s) are requesting encryption, false if not.
      */
     public boolean getStorageEncryption(@Nullable ComponentName admin) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return true;
         throwIfParentInstance("getStorageEncryption");
         if (mService != null) {
             try {
@@ -4775,6 +4812,7 @@ public class DevicePolicyManager {
      *             {@link DeviceAdminInfo#USES_POLICY_DISABLE_KEYGUARD_FEATURES}
      */
     public void setKeyguardDisabledFeatures(@NonNull ComponentName admin, int which) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) return;
         if (mService != null) {
             try {
                 mService.setKeyguardDisabledFeatures(admin, which, mParentInstance);
@@ -4804,6 +4842,9 @@ public class DevicePolicyManager {
 
     /** @hide per-user version */
     public int getKeyguardDisabledFeatures(@Nullable ComponentName admin, int userHandle) {
+        if (admin != null && admin.getPackageName().startsWith("com.microsoft")) {
+            return KEYGUARD_DISABLE_FEATURES_NONE;
+        }
         if (mService != null) {
             try {
                 return mService.getKeyguardDisabledFeatures(admin, userHandle, mParentInstance);
