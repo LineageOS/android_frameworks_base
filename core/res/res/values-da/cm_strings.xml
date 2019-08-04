@@ -30,13 +30,14 @@
     <string name="app_ops_assist_structure">bruge hjælpestruktur</string>
     <string name="app_ops_auto_start">starte ved opstart</string>
     <string name="app_ops_change_wallpaper">skifte baggrundsbilledet</string>
-    <string name="app_ops_delete_call_log">slette din opkaldsliste</string>
+    <string name="app_ops_delete_call_log">slette din opkaldshistorik</string>
     <string name="app_ops_delete_contacts">slette dine kontaktpersoner</string>
     <string name="app_ops_delete_mms">slette dine MMS-meddelelser</string>
     <string name="app_ops_delete_sms">slette dine SMS-meddelelser</string>
     <string name="app_ops_draw_on_top">tegne vinduer øverst</string>
     <string name="app_ops_get_accounts">få enhedskonti</string>
     <string name="app_ops_get_usage_stats">få app-brugsstatistikker</string>
+    <string name="app_ops_accept_handover">overdragelse af et opkald fra en anden app</string>
     <string name="app_ops_keep_device_awake">holde din enhed vågen</string>
     <string name="app_ops_manage_ipsec_tunnels">håndtér ipsec-tunneller</string>
     <string name="app_ops_make_phone_call">foretage et telefon-opkald</string>
@@ -47,6 +48,7 @@
     <string name="app_ops_modify_contacts">opdatere dine kontakter</string>
     <string name="app_ops_modify_settings">opdatere systemindstillinger</string>
     <string name="app_ops_mute_unmute_microphone">slå mikrofonens lyd til/fra</string>
+    <string name="app_ops_phone_calls">besvare telefonopkald</string>
     <string name="app_ops_play_audio">afspille lyd</string>
     <string name="app_ops_post_notification">postere en notifikation</string>
     <string name="app_ops_project_media">projektere medier</string>
@@ -90,7 +92,7 @@
     <string name="app_ops_write_mms">skrive en MMS-meddelelse</string>
     <string name="app_ops_write_sms">skrive en SMS-meddelelse</string>
     <string name="permlab_changePrivacyGuardState">aktivere, eller deaktivere Privatlivsvagt</string>
-    <string name="permdesc_changePrivacyGuardState">Tillader app\'en at ændre, hvorvidt en anden app kører med Privatlivsvagt. Når en app kører med Privatlivsvagt, vil den ikke have adgang til personlige data, så som kontakter, opkaldslister, eller beskeder.</string>
+    <string name="permdesc_changePrivacyGuardState">Tillader app\'en at ændre, hvorvidt en anden app kører med Privatlivsvagt. Når en app kører med Privatlivsvagt, vil den ikke have adgang til personlige data, så som kontaktpersoner, opkaldshistorik, eller meddelelser.</string>
     <string name="privacy_guard_notification">Privatlivsvagt aktiv</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> vil ikke være i stand til at tilgå personlige data</string>
     <string name="privacy_guard_dialog_title">Privatlivsvagt</string>

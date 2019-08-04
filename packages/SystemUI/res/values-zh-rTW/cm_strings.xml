@@ -29,6 +29,7 @@
     <string name="global_action_restart_download_progress">正在重新啟動至下載模式\u2026</string>
     <string name="global_action_current_user">目前</string>
     <string name="quick_settings_network_adb_label">透過網路 ADB</string>
+    <string name="quick_settings_network_adb_no_network">沒有網路</string>
     <string name="quick_settings_ambient_display_label">環境顯示</string>
     <string name="accessibility_quick_settings_ambient_display_off">環境顯示關閉</string>
     <string name="accessibility_quick_settings_ambient_display_on">環境顯示開啟</string>
@@ -64,6 +65,7 @@
     <string name="screen_pinning_description_no_navbar">這會讓目前的螢幕畫面保持顯示狀態，直到取消固定為止。按住「返回」鍵即可取消固定。</string>
     <string name="screen_pinning_toast_no_navbar">要取消固定這個畫面，請按住「返回」按鈕。</string>
     <string name="nav_bar_layout_inverse">反轉佈局</string>
+    <string name="custom_swipe_hint">在圖示中滑動以 <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">位置回報：省電模式。</string>
     <string name="accessibility_quick_settings_location_gps_only">位置回報：僅限感應器模式。</string>
     <string name="accessibility_quick_settings_location_high_accuracy">位置回報：高精確度模式。</string>
@@ -80,4 +82,6 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">僅限裝置</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">使用 GPS、Wi\u2011Fi、藍牙或行動網路判斷位置</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">使用 Wi\u2011Fi、藍牙或行動網路判斷位置</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">使用 GPS 判斷位置</string>
+    <string name="status_bar_battery">電量</string>
 </resources>

@@ -29,6 +29,7 @@
     <string name="global_action_restart_download_progress">A reiniciar para o modo de transferência\u2026</string>
     <string name="global_action_current_user">Atual</string>
     <string name="quick_settings_network_adb_label">ADB através da rede</string>
+    <string name="quick_settings_network_adb_no_network">sem rede</string>
     <string name="quick_settings_ambient_display_label">Visualização ambiente</string>
     <string name="accessibility_quick_settings_ambient_display_off">Visualização ambiente desativada.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Visualização ambiente ativada.</string>
@@ -81,5 +82,6 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">Apenas no dispositivo</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilizar GPS, Wi\u2011Fi, bluetooth ou redes móveis para determinar a localização</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Utilizar Wi\u2011Fi, bluetooth ou redes móveis para determinar a localização</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Utilizar o GPS para determinar a localização</string>
     <string name="status_bar_battery">Bateria</string>
 </resources>

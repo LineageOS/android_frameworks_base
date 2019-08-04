@@ -29,6 +29,7 @@
     <string name="global_action_restart_download_progress">Uudelleenkäynnistetään Download-tilaan\u2026</string>
     <string name="global_action_current_user">Nykyinen</string>
     <string name="quick_settings_network_adb_label">ADB verkon yli</string>
+    <string name="quick_settings_network_adb_no_network">ei verkkoa</string>
     <string name="quick_settings_ambient_display_label">Ambient-näyttö</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambient-näyttö pois.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambient-näyttö päällä.</string>
@@ -64,6 +65,7 @@
     <string name="screen_pinning_description_no_navbar">Tämä pitää sen näkyvissä, kunnes peruutat kiinnityksen. Peruuta kiinnitys koskettamalla Edellinen-kohtaa pitkään.</string>
     <string name="screen_pinning_toast_no_navbar">Poistaaksesi tämän näytön kiinnityksen, paina Takasin-näppäintä pitkään</string>
     <string name="nav_bar_layout_inverse">Käänteinen asettelu</string>
+    <string name="custom_swipe_hint">Pyyhkäise kuvakkeesta <xliff:g name="target">%s</xliff:g> varten</string>
     <string name="accessibility_quick_settings_location_battery_saving">Sijainnin raportointi: virransäästötila.</string>
     <string name="accessibility_quick_settings_location_gps_only">Sijainti: Vain laite.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Sijainnin raportointi: korkea tarkkuus.</string>
@@ -80,4 +82,6 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">Vain laite</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">Paikanna GPS:n ja Wi\u2011Fi-, Bluetooth- ja mobiiliverkkojen avulla</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Paikanna WiF\u2011i-, Bluetooth- ja mobiiliverkkojen avulla</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Paikanna sijaintisi GPS:n avulla</string>
+    <string name="status_bar_battery">Akku</string>
 </resources>

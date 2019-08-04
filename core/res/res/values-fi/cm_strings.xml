@@ -44,7 +44,7 @@
     <string name="app_ops_accept_handover">puhelun luovutus toisesta sovelluksesta</string>
     <string name="app_ops_install_packages">asentaa paketteja</string>
     <string name="app_ops_keep_device_awake">pitää laitteen hereillä</string>
-    <string name="app_ops_manage_ipsec_tunnels">hallitse ipsec tunneleita</string>
+    <string name="app_ops_manage_ipsec_tunnels">hallitse ipsec-tunneleita</string>
     <string name="app_ops_make_phone_call">soittaa puhelun</string>
     <string name="app_ops_mock_location">väärentää sijaintisi</string>
     <string name="app_ops_modify_calendar">päivittää kalenteria</string>
@@ -79,7 +79,7 @@
     <string name="app_ops_send_sms">lähettää tekstiviestin</string>
     <string name="app_ops_start_at_bootup">käynnistyä laitetta käynnistettäessä</string>
     <string name="app_ops_start_foreground">aloita edustalla</string>
-    <string name="app_ops_su">pääkäyttäjän oikeudet</string>
+    <string name="app_ops_su">hanki root-oikeudet</string>
     <string name="app_ops_toast_window">Näytä toast-ilmoitukset</string>
     <string name="app_ops_toggle_bluetooth">ottaa Bluetoothin käyttöön</string>
     <string name="app_ops_toggle_mobile_data">ota mobiilidata käyttöön</string>
