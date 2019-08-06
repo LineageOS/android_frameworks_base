@@ -24,7 +24,7 @@
     <string name="global_actions_screenshot_status">长按以进行局部屏幕截图</string>
     <string name="reboot_reboot">重启</string>
     <string name="reboot_recovery">恢复模式</string>
-    <string name="reboot_bootloader">引导程序</string>
+    <string name="reboot_bootloader">引导模式</string>
     <string name="reboot_download">下载模式</string>
     <string name="reboot_soft">软重启</string>
     <string name="reboot_title">重启</string>

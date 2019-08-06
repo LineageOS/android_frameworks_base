@@ -438,6 +438,8 @@
     <string name="accessibility_volume_expand">Espander</string>
     <string name="accessibility_volume_collapse">Contrayer</string>
     <string name="screen_pinning_title">La pantalla ta fixada</string>
+    <string name="screen_pinning_description">Amosaráse mentanto tez fixáu. Pa dexar de fixalo, caltén &amp; calcáu\'l botón Atrás y Visión xeneral.</string>
+    <string name="screen_pinning_description_accessible">Esto caltién la pantalla nesta vista hasta que la desfixes. Ten &amp; primíu\'l botón de Vista xeneral pa desfixar.</string>
     <string name="screen_pinning_positive">Coyío</string>
     <string name="screen_pinning_negative">Non, gracies</string>
     <string name="quick_settings_reset_confirmation_title">¿Anubrir <xliff:g id="tile_label" example="Hotspot">%1$s</xliff:g>?</string>
@@ -513,6 +515,8 @@
     <string name="user_unspecified_importance">Importancia: Automática</string>
     <string name="notification_importance_user_unspecified">L\'aplicación determina la importancia pa cada avisu.</string>
     <string name="notification_importance_blocked">Enxamás nun amosar avisos d\'esta aplicación.</string>
+    <string name="notification_importance_min">Ensin interrupción de pantalla completa, intrusión, soníu o vibración. Anubrir de la pantalla de bloquéu y barra d\'estáu.</string>
+    <string name="notification_importance_low">Ensin interrupción de pantalla completa, intrusión, soníu o vibración.</string>
     <string name="notification_more_settings">Más axustes</string>
     <string name="notification_done">Fecho</string>
     <string name="notification_gear_accessibility">Controles d\'avisu de <xliff:g id="app_name" example="YouTube">%1$s</xliff:g></string>
@@ -533,8 +537,11 @@
     <string name="keyboard_key_media_play_pause">Reproducir/Posar</string>
     <string name="keyboard_key_media_stop">Parar</string>
     <string name="keyboard_key_media_next">Siguiente</string>
+    <string name="keyboard_key_media_previous">Anterior</string>
     <string name="keyboard_key_media_rewind">Rebobinar</string>
     <string name="keyboard_key_media_fast_forward">Avance rápidu</string>
+    <string name="keyboard_key_page_up">Páxina arriba</string>
+    <string name="keyboard_key_page_down">Páxina abaxo</string>
     <string name="keyboard_key_forward_del">Desaniciar</string>
     <string name="keyboard_key_move_home">Aniciu</string>
     <string name="keyboard_key_move_end">Fin</string>
@@ -545,7 +552,9 @@
     <string name="keyboard_shortcut_group_system_back">Atrás</string>
     <string name="keyboard_shortcut_group_system_notifications">Avisos</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Atayos de tecláu</string>
+    <string name="keyboard_shortcut_group_system_switch_input">Camudar métodu d\'entrada</string>
     <string name="keyboard_shortcut_group_applications">Aplicaciones</string>
+    <string name="keyboard_shortcut_group_applications_assist">Asistencia</string>
     <string name="keyboard_shortcut_group_applications_browser">Restolador</string>
     <string name="keyboard_shortcut_group_applications_contacts">Contautos</string>
     <string name="keyboard_shortcut_group_applications_email">Corréu</string>
@@ -581,6 +590,9 @@
     <string name="adjust_button_width">Axuste d\'anchor del botón</string>
     <string name="clipboard">Cartafueyu</string>
     <string name="clipboard_description">Cartafueyu permite que los elementos s\'arrastren direutamente a elli. Tamién puen arrastrase direutamente fuera\'l cartafueyu al tar presente.</string>
+    <string name="accessibility_key">Botón de restolamientu personalizáu</string>
+    <string name="keycode">Clave</string>
+    <string name="select_keycode">Escueyi\'l botón de tecláu</string>
     <string name="preview">Previsualización</string>
     <string name="drag_to_add_tiles">Arrastra p\'amestar caxelles</string>
     <string name="drag_to_remove_tiles">Arrastra equí pa desaniciar</string>
@@ -596,10 +608,20 @@
         <item>Amosar porcentaxe al cargar (por defeutu)</item>
         <item>Nun amosar esti iconu</item>
     </string-array>
+    <string name="other">Otros</string>
     <string name="accessibility_divider">Divisor de pantalla dixebrada</string>
+    <string name="accessibility_action_divider_left_full">Pantalla completa izquierda</string>
     <string name="accessibility_action_divider_left_70">Queda\'l 70%</string>
     <string name="accessibility_action_divider_left_50">Queda\'l 50%</string>
     <string name="accessibility_action_divider_left_30">Queda\'l 30%</string>
+    <string name="accessibility_action_divider_right_full">Pantalla completa drecha</string>
+    <string name="accessibility_action_divider_top_full">Pantalla completa cimera</string>
+    <string name="accessibility_action_divider_top_70">Top 70%</string>
+    <string name="accessibility_action_divider_top_50">Top 50%</string>
+    <string name="accessibility_action_divider_top_30">Top 30%</string>
+    <string name="accessibility_action_divider_bottom_full">Pantalla completa inferior</string>
+    <string name="accessibility_qs_edit_move_tile">Mover <xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g></string>
+    <string name="accessibility_qs_edit_remove_tile">Desaniciar <xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g></string>
     <string name="accessibility_qs_edit_tile_added"><xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g> amestóse a la posición <xliff:g id="position" example="5">%2$d</xliff:g></string>
     <string name="accessibility_qs_edit_tile_removed"><xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g> desanicióse</string>
     <string name="accessibility_qs_edit_tile_moved"><xliff:g id="tile_name" example="Wi-Fi">%1$s</xliff:g> movióse a la posición <xliff:g id="position" example="5">%2$d</xliff:g></string>
@@ -621,4 +643,6 @@
     <string name="high_temp_title">El preséu ta caleciendo</string>
     <string name="high_temp_notif_message">Delles carauterístiques tán llimitaes mentando esfrez el teléfonu</string>
     <string name="high_temp_dialog_message">El preséu va tentar d\'esfrecer automáticamente. Entá pues usar el preséu pero podría volvese lentu.\n\nNamái que\'l preséu esfreza, va funcionar de mou normal.</string>
+    <string name="touch_filtered_warning">Hai una app que ta torgando una solicitú de permisu, poro la configuración 
+        Nun fue a verificar la to rempuesta.</string>
 </resources>

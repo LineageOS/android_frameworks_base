@@ -19,10 +19,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_killed_message">برنامه بسته شد</string>
     <string name="global_action_screenshot">تصویر صفحه</string>
+    <string name="global_action_reboot">شروع دوباره</string>
     <string name="global_action_current_user">فعلی</string>
+    <string name="global_actions_screenshot_status">برای نماگرفت جزئی، فشار طولانی دهید</string>
+    <string name="reboot_reboot">شروع دوباره</string>
     <string name="reboot_recovery">ریکاوری</string>
     <string name="reboot_bootloader">بوت لودر</string>
     <string name="reboot_download">دانلود</string>
+    <string name="reboot_soft">شروع دوبارهٔ نرم</string>
+    <string name="reboot_title">راه‌اندازی مجدد</string>
+    <string name="reboot_confirm" product="tablet">رایانکتان دوباره شروع خواهد کرد.</string>
+    <string name="reboot_confirm" product="default">تلفنتان دوباره شروع خواهد کرد.</string>
+    <string name="reboot_progress">درحال شروع دوباره\u2026</string>
     <string name="adb_net_active_notification_title">ای‌دی‌بی از طریق شبکه فعال شد</string>
     <string name="adb_both_active_notification_title">ای‌دی‌بی از طریق شبکه و یواس‌بی فعال شد</string>
     <string name="adb_active_generic_notification_message">برای غیرفعال کردن اشکال‌زدایی لمس کنید.</string>
@@ -81,8 +89,11 @@
     <string name="app_ops_use_voice_volume">کنترل صدای تماس صوتی</string>
     <string name="app_ops_write_mms">نوشتن پیام ام‌ام‌اس</string>
     <string name="app_ops_write_sms">نوشتن پیامک</string>
+    <string name="app_ops_run_in_background">اجرا در پس‌زمینه</string>
     <string name="app_ops_su">دریافت دسترسی روت</string>
     <string name="lock_to_app_toast_no_navbar">برای از سنجاق درآوردن این صفحه، دکمه بازگشت را زده و نگه دارید.</string>
+    <string name="lineage_system_error_manufacturer">یک عدم مطابقت تصویر سازنده شناسایی شد. عموماً به این معنا که تصویر سازنده‌تان قدیمی است. لطفاً‌مطمئن شوید تصویر سازنده با <xliff:g id="fingerprint">%1$s</xliff:g> مطابق است.</string>
+    <string name="singlehandmode_click_hint_message">برای خروجی از حالت تک‌دستی، بیرون صفحه را لمس کنید</string>
     <string name="tethered_notification_no_device_message">هیچ دستگاه متصلی وجود ندارد</string>
     <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> دستگاه متصل</string>
     <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> دستگاه متصل</string>

@@ -18,6 +18,5 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string-array name="recents_blacklist_array">
-    </string-array>
+    <string-array name="recents_blacklist_array"/>
 </resources>

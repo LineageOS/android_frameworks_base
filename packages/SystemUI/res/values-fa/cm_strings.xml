@@ -26,29 +26,86 @@
     <string name="accessibility_quick_settings_profiles_changed">پروفایل به <xliff:g id="profile" example="Default">%s</xliff:g> تغییر یافت.</string>
     <string name="quick_settings_profiles_off">پروفایل‌ها خاموش.</string>
     <string name="quick_settings_profiles">پروفایل‌ها</string>
+    <string name="cm_power_notification_controls_description">با واپایش‌های آگاهی قوی، می‌توانید برای آگاهی‌های یک کاره، سطح اهمّیتی از ۰ تا ۶ تنظیم کنید.
+        \n\n<b>سطح ۶</b>
+        \n- نمایش در بالای فهرست آگاهی
+        \n- اجازهٔ وقفهٔ تمام‌صفحه
+        \n- دید زنی همیشگی
+        \n\n<b>سطح ۵</b>
+        \n- جلوگیری از وقفهٔ تمام‌صفحه
+        \n- دید زنی همیشگی
+        \n\n<b>سطح ۴</b>
+        \n- جلوگیری از وقفهٔ تمام‌صفحه
+        \n- بدون دید زنی
+        \n\n<b>سطح ۳</b>
+        \n- جلوگیری از وقفهٔ تمام‌صفحه
+        \n- بدون دید زنی
+        \n- بدون صدا و لرزش
+        \n\n<b>سطح ۲</b>
+        \n- جلوگیری از وقفهٔ تمام‌صفحه
+        \n- بدون دید زنی
+        \n- بدون صدا و لرزش
+        \n- نهفتن از قفل صفحه
+        \n- نمایش در انتهای فهرست آگاهی
+        \n\n<b>سطح ۱</b>
+        \n- جلوگیری از وقفهٔ تمام‌صفحه
+        \n- بدون دید زنی
+        \n- بدون صدا و لرزش
+        \n- نهفتن از قفل صفحه و نوار وضعیت
+        \n- نمایش در انتهای فهرست آگاهی
+        \n\n<b>سطح ۰</b>
+        \n-انسداد تمام آگاهی‌های کاره
+    </string>
+    <string name="importance_level_title">اهمّیت: سطح %1$Id</string>
+    <string name="notification_importance_very_low">بدون وقفهN تمام صفحه، دیدزنی، صدا یا لرزش. نهفتن از صفحهٔ قفل.</string>
     <string name="screen_pinning_description_no_navbar">این صفحه تا زمانی که آن را از سنجاق درآورید نمایش داده می‌شود. برای از سنجاق درآوردن دکمه بازگشت را نگه دارید.</string>
+    <string name="shortcut_hint">برای %1$s از نماد بکشید</string>
     <string name="select_application">انتخاب برنامه</string>
     <string name="lockscreen_choose_action_title">انتخاب عملکرد</string>
     <string name="lockscreen_none_target">هیچ‌کدام</string>
     <string name="play_queue_extension">نمایش صف پخش</string>
     <string name="accessibility_dpad_left">نشانگر چپ</string>
     <string name="accessibility_dpad_right">نشانگر راست</string>
+    <string name="menu_ime_always_show">تعویض‌گر صفحه‌کلید / فهرست (نمایش همیشگی)</string>
+    <string name="search">جست‌وجو</string>
     <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s </xliff:g> - <xliff:g id="condition">%2$s </xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>تماس</item>
+        <item>سامانه</item>
+        <item>زنگ</item>
+        <item>رسانه</item>
+        <item>هشدار</item>
+        <item>آگاهی</item>
+        <item>بلوتوث</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
     <string name="accessibility_quick_settings_location_battery_saving">گزارش مکان: حالت صرفه‌جویی در باتری.</string>
     <string name="accessibility_quick_settings_location_gps_only">گزارش مکان: حالت فقط حسگرها.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">گزارش مکان: حالت دقت بالا.</string>
     <string name="quick_settings_location_battery_saving_label">صرفه‌جویی در باتری</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">ذخیره‌سازی باتری</string>
     <string name="quick_settings_location_gps_only_label">فقط دستگاه</string>
+    <string name="quick_settings_location_gps_only_label_twoline">فقط\nافزاره</string>
     <string name="quick_settings_location_high_accuracy_label">دقت بالا</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">دقت بالا</string>
+    <string name="quick_settings_location_detail_title">مکان</string>
+    <string name="quick_settings_location_detail_menu_title">انتخاب حالت:</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_title">دقت بالا</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">صرفه‌جویی در باتری</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">فقط دستگاه</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">استفاده از جی‌پی‌اس ، WI\u2011Fi, بلوتوث یا شبکه های تلفن همراه برای تعیین موقعیت</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">استفاده از Wi\u2011Fi, بلوتوث یا شبکه های تلفن همراه برای تعیین موقعیت</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">از جی‌پی‌اس برای تعیین مکان خود استفاده کنید</string>
     <string name="quick_settings_network_adb_label">ای‌دی‌بی از طریق شبکه</string>
     <string name="quick_settings_ambient_display_label">نمایش حساس به محیط</string>
     <string name="accessibility_quick_settings_ambient_display_off">نمایش حساس به محیط خاموش.</string>
     <string name="accessibility_quick_settings_ambient_display_on">نمایش حساس به محیط روشن.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">نمایش حساس به محیط خاموش شد.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">نمایش حساس به محیط روشن شد.</string>
+    <string name="accessibility_quick_settings_caffeine_off">کافئین خاموش</string>
+    <string name="accessibility_quick_settings_caffeine_on">کافئین روشن</string>
     <string name="quick_settings_heads_up_label">اعلان فوری</string>
     <string name="accessibility_quick_settings_heads_up_off">اعلان فوری خاموش.</string>
     <string name="accessibility_quick_settings_heads_up_on">اعلان فوری روشن.</string>

@@ -19,9 +19,11 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="profile_applist_title">এপ্পসমূহ</string>
-    <string name="picker_activities">কাৰ্যাৱলীসমূহ</string>
-    <string name="select_custom_app_title">কাষ্টম এপ্প চয়ন কৰক</string>
-    <string name="select_custom_activity_title">কাষ্টম কাৰ্যকলাপ চয়ন কৰক</string>
-    <string name="lockscreen_targets_message">লক স্ক্ৰীণ চমুপথ</string>
+    <string name="screen_zoom_summary_smaller">Lytser</string>
+    <string name="screen_zoom_summary_smallest">Lytste</string>
+    <string name="profile_applist_title">Apps</string>
+    <string name="picker_activities">Aktiviteiten</string>
+    <string name="select_custom_app_title">Oanpaste app kieze</string>
+    <string name="select_custom_activity_title">Oanpaste aktiviteit kieze</string>
+    <string name="lockscreen_targets_message">Fluchkeppelingen beskottelingsskerm</string>
 </resources>

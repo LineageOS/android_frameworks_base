@@ -76,6 +76,12 @@
     <string name="menu_ime_always_show">Przełącznik Menu / Klawiatura (zawsze pokazuj)</string>
     <string name="search">Szukaj</string>
     <string name="status_bar_clock">Zegar</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d klient</item>
+        <item quantity="few">%1$d klientów</item>
+        <item quantity="many">%1$d klientów</item>
+        <item quantity="other">%1$d klientów</item>
+    </plurals>
     <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
     <string-array name="volume_stream_titles_lineage">
         <item>Połączenia</item>

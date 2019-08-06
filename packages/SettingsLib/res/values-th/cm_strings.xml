@@ -19,6 +19,8 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_zoom_summary_smaller">ขนาดเล็ก</string>
+    <string name="screen_zoom_summary_smallest">ขนาดเล็กที่สุด</string>
     <string name="profile_applist_title">แอป</string>
     <string name="picker_activities">กิจกรรม</string>
     <string name="select_custom_app_title">เลือกแอปเอง</string>

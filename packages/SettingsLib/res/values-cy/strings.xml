@@ -51,7 +51,7 @@
     <string name="bluetooth_disconnected">Heb gysylltu</string>
     <string name="bluetooth_disconnecting">Yn datgysylltu\u2026</string>
     <string name="bluetooth_connecting">Yn cysylltu\u2026</string>
-    <string name="bluetooth_connected">Wedi cysyllltu</string>
+    <string name="bluetooth_connected">Wedi cysylltu</string>
     <string name="bluetooth_pairing">Yn paru\u2026</string>
     <string name="bluetooth_connected_no_headset">Wedi cysylltu (dim ffôn)</string>
     <string name="bluetooth_connected_no_a2dp">Wedi cysylltu (dim cyfrwng)</string>

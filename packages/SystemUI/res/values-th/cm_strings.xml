@@ -31,29 +31,86 @@
     <string name="led_notification_text">LED ถูกเปิดใช้งานโดยการตั้งค่า</string>
     <string name="quick_settings_tile_flashlight_not_title">ไฟฉายเปิดอยู่</string>
     <string name="quick_settings_tile_flashlight_not_summary">แตะเพื่อปิด</string>
+    <string name="cm_power_notification_controls_description">ด้วยการควบคุมการแจ้งเตือนพลังงานคุณสามารถตั้งค่าระดับความสำคัญได้ตั้งแต่ 0 ถึง 6 สำหรับการแจ้งเตือนของแอป
+        \n\n<b>ระดับ 6</b>
+        \n- แสดงที่ด้านบนของรายการแจ้งเตือน
+        \n- อนุญาตให้มีการรบกวนในโหมดเต็มหน้าจอ
+        \n- มองดูเสมอ
+        \n\n<b>ระดับ 5</b>
+        \n- ป้องกันการรบกวนในโหมดเต็มหน้าจอ
+        \n- มองดูเสมอ
+        \n\n<b>ระดับ 4</b>
+        \n- ป้องกันการรบกวนในโหมดเต็มหน้าจอ
+        \n- อย่ามองดู
+        \n\n<b>ระดับ 3</b>
+        \n- ป้องกันการรบกวนในโหมดเต็มหน้าจอ
+        \n- อย่ามองดู
+        \n- อย่าสร้างเสียงหรือสั่น
+        \n\n<b>ระดับ 2</b>
+        \n- ป้องกันการรบกวนในโหมดเต็มหน้าจอ
+        \n- อย่ามองดู
+        \n- อย่าสร้างเสียงหรือสั่น
+        \n- ซ่อนจากหน้าจอล็อก
+        \n- แสดงที่ด้านล่างของรายการแจ้งเตือน
+        \n\n<b>ระดับ 1</b>
+        \n- ป้องกันการรบกวนในโหมดเต็มหน้าจอ
+        \n- อย่ามองดู
+        \n- อย่าสร้างเสียงหรือสั่น
+        \n- ซ่อนจากหน้าจอล็อกและแถบสถานะ
+        \n- แสดงที่ด้านล่างของรายการแจ้งเตือน
+        \n\n<b>ระดับ 0</b>
+        \n- ปิดกั้นการแจ้งเตือนทั้งหมดจากแอป
+    </string>
+    <string name="importance_level_title">ความสำคัญ: ระดับ %1$d</string>
+    <string name="notification_importance_very_low">ไม่มีการรบกวน การมอง เสียง หรือสั่นในรูปแบบเต็มหน้าจอ ซ่อนจากหน้าจอล็อก</string>
     <string name="screen_pinning_description_no_navbar">จะแสดงหน้านี้จนกว่าคุณจะเลิกปักหมุด กดปุ่มกลับค้างเพื่อเลิกปักหมุด</string>
+    <string name="shortcut_hint">ปัดจากไอคอนสำหรับ %1$s</string>
     <string name="lockscreen_message">แตะที่ไอคอนด้านซ้ายหรือขวาเพื่อกำหนดทางลัดสำหรับหน้าจอล็อค</string>
     <string name="lockscreen_default_target">ค่าเริ่มต้น</string>
     <string name="select_application">เลือกแอปพลิเคชัน</string>
     <string name="lockscreen_choose_action_title">เลือกการกระทำ</string>
     <string name="lockscreen_none_target">ไม่มี</string>
     <string name="play_queue_extension">แสดงคิวเล่น</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
     <string name="accessibility_dpad_left">เคอร์เซอร์ซ้าย</string>
     <string name="accessibility_dpad_right">เคอร์เซอร์ขวา</string>
+    <string name="menu_ime_always_show">เมนู / สลับคีย์บอร์ด (แสดงเสมอ)</string>
+    <string name="search">ค้นหา</string>
+    <string name="status_bar_clock">นาฬิกา</string>
     <plurals name="wifi_hotspot_connected_clients_label">
         <item quantity="other">%1$d ลูกข่าย</item>
     </plurals>
     <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>โทร</item>
+        <item>ระบบ</item>
+        <item>เสียงเรียกเข้า</item>
+        <item>มีเดีย</item>
+        <item>นาฬิกาปลุก</item>
+        <item>การแจ้งเตือน</item>
+        <item>บลูทูธ</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
     <string name="accessibility_data_connection_hspap">HSPA+</string>
     <string name="accessibility_quick_settings_location_battery_saving">การระบุตำแหน่ง: รูปแบบประหยัดแบตเตอรี่</string>
     <string name="accessibility_quick_settings_location_gps_only">รายงานตำแหน่งที่ตั้ง: เซนเซอร์เท่านั้น</string>
     <string name="accessibility_quick_settings_location_high_accuracy">รูปแบบการระบุตำแหน่ง: ความแม่นยำสูง</string>
     <string name="quick_settings_location_battery_saving_label">ประหยัดแบตเตอรี่</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">ประหยัด\nแบตเตอรี่</string>
     <string name="quick_settings_location_gps_only_label">อุปกรณ์เท่านั้น</string>
+    <string name="quick_settings_location_gps_only_label_twoline">อุปกรณ์\nเท่านั้น</string>
     <string name="quick_settings_location_high_accuracy_label">ความแม่นยำสูง</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">ความแม่นยำ\nสูง</string>
+    <string name="quick_settings_location_detail_title">ตำแหน่ง</string>
+    <string name="quick_settings_location_detail_menu_title">เลือกโหมด:</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_title">ความแม่นยำสูง</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">ประหยัดแบตเตอรี่</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">อุปกรณ์เท่านั้น</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">ใช้ GPS, Wi\u2011Fi, บลูทูธ หรือเครือข่ายเซลลูลาร์เพื่อระบุตำแหน่งที่ตั้ง</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">ใช้ Wi\u2011Fi, บลูทูธ หรือเครือข่ายเซลลูลาร์เพื่อระบุตำแหน่งที่ตั้ง</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">ใช้ GPS เพื่อระบุตำแหน่งของคุณ</string>
     <string name="quick_settings_network_adb_label">ADB บนเครือข่าย</string>
     <string name="quick_settings_ambient_display_label">หน้าจอแวดล้อม</string>
     <string name="accessibility_quick_settings_ambient_display_off">ปิดหน้าจอแวดล้อม</string>
@@ -61,6 +118,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">หน้าจอแวดล้อมปิดอยู่</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">หน้าจอแวดล้อมเปิดอยู่</string>
     <string name="quick_settings_caffeine_label">คาเฟอีน</string>
+    <string name="accessibility_quick_settings_caffeine_off">ปิดโหมดคาเฟอีน</string>
+    <string name="accessibility_quick_settings_caffeine_on">เปิดโหมดคาเฟอีน</string>
     <string name="quick_settings_heads_up_label">Heads up</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads up ปิดอยู่</string>
     <string name="accessibility_quick_settings_heads_up_on">Heads up เปิดอยู่</string>
@@ -74,4 +133,27 @@
     <string name="quick_settings_usb_tether_label">ปล่อยสัญญาณผ่าน USB</string>
     <string name="quick_settings_sync_label">ซิงค์</string>
     <string name="quick_settings_volume_panel_label">แผงควบคุมระดับเสียง</string>
+    <string name="accessibility_lock_task">ป้องกัน <xliff:g id="task">%1$s</xliff:g> จากการถูกล็อค</string>
+    <string name="accessibility_unlock_task">อนุญาตให้ <xliff:g id="task">%1$s</xliff:g> ถูกปลดล็อค</string>
+    <string name="live_display_auto">อัตโนมัติ</string>
+    <string name="live_display_auto_summary">ตั้งค่าอุณหภูมิสีหน้าจออัตโนมัติเมื่อดวงอาทิตย์ขึ้นหรือตก</string>
+    <string name="live_display_off">ปิด</string>
+    <string name="live_display_off_summary">ปิดการใช้งานทั้งหมด</string>
+    <string name="live_display_day">กลางวัน</string>
+    <string name="live_display_day_summary">ใช้การตั้งค่ากลางวันเท่านั้น</string>
+    <string name="live_display_night">กลางคืน</string>
+    <string name="live_display_night_summary">ใช้การตั้งค่ากลางคืนเท่านั้น</string>
+    <string name="live_display_outdoor">กลางแจ้ง (แดดจ้ามาก)</string>
+    <string name="live_display_outdoor_summary">ใช้การตั้งค่ากลางแจ้งเท่านั้น</string>
+    <string name="live_display_hint">LiveDisplay สามารถช่วยลดอาการปวดตา และช่วยให้คุณนอนหลับในเวลากลางคืน คลิกเพื่อเปิดใช้งาน!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay ปิดอยู่</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: รูปแบบอัตโนมัติ</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: รูปแบบกลางวัน</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: รูปแบบกลางคืน</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: รูปแบบกลางแจ้ง</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay ถูกปิด</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay ถูกเปลี่ยนเป็นรูปแบบอัตโนมัติ</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay ถูกเปลี่ยนเป็นรูปแบบกลางวัน</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay ถูกเปลี่ยนเป็นรูปแบบกลางคืน</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay ถูกเปลี่ยนเป็นรูปแบบกลางแจ้ง</string>
 </resources>

@@ -19,8 +19,6 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string-array name="fingerprint_acquired_vendor">
-    </string-array>
-  <string-array name="fingerprint_error_vendor">
-    </string-array>
+    <string-array name="fingerprint_acquired_vendor"/>
+    <string-array name="fingerprint_error_vendor"/>
 </resources>

@@ -76,6 +76,12 @@
     <string name="menu_ime_always_show">Menu / Přepínač klávesnice (vždy zobrazovat)</string>
     <string name="search">Vyhledat</string>
     <string name="status_bar_clock">Hodiny</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d klient</item>
+        <item quantity="few">%1$d klienti</item>
+        <item quantity="many">%1$d klientů</item>
+        <item quantity="other">%1$d klientů</item>
+    </plurals>
     <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
     <string-array name="volume_stream_titles_lineage">
         <item>Hovor</item>

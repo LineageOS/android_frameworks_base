@@ -312,7 +312,7 @@
     <string name="quick_settings_color_space_label">Modd cywiro lliwiau</string>
     <string name="quick_settings_more_settings">Rhagor o osodiadau</string>
     <string name="quick_settings_done">Cwblhau</string>
-    <string name="quick_settings_connected">Wedi cysyllltu</string>
+    <string name="quick_settings_connected">Wedi cysylltu</string>
     <string name="quick_settings_connecting">Yn cysylltu...</string>
     <string name="quick_settings_tethering_label">Tenynnu</string>
     <string name="quick_settings_hotspot_label">Llecyn Wi-Fi</string>

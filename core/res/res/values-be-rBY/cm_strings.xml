@@ -17,7 +17,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_killed_message">Дадатак зачынены</string>
+    <string name="app_killed_message">Праграма зачынена</string>
     <string name="global_action_screenshot">Здымак экрану</string>
     <string name="global_action_reboot">Перазапусціць</string>
     <string name="global_action_current_user">Бягучы</string>
@@ -108,7 +108,7 @@
     <string name="app_ops_wifi_change">Змяніць стан Wi-Fi</string>
     <string name="app_ops_su">атрымаць правы суперкарыстальніка</string>
     <string name="notify_package_component_protected_title">Запуск дадатку забаронены</string>
-    <string name="notify_package_component_protected_text">Дадатак <xliff:g id="app_name">%1$s</xliff:g> заблакаваны на запуск. Націсні, каб увесці паролль і запусціць дадатак.</string>
+    <string name="notify_package_component_protected_text">Праграма <xliff:g id="app_name">%1$s</xliff:g> заблакавана на запуск. Націсніце, каб увесці пароль і запусціць праграму.</string>
     <string name="lock_to_app_toast_no_navbar">Каб адмацаваць экран, націсніце і ўтрымвайце кнопку \"Назад\".</string>
     <string name="tethered_notification_no_device_message">Няма падлучаных прылад</string>
     <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> падлучаная прылада</string>

@@ -107,7 +107,7 @@
     <string name="app_ops_get_accounts">lukea laitteen tilejä</string>
     <string name="app_ops_run_in_background">avaa taustalla</string>
     <string name="app_ops_wifi_change">vaihtaa Wi-Fi:n tilaa</string>
-    <string name="app_ops_su">pääkäyttäjän oikeudet</string>
+    <string name="app_ops_su">hanki root-oikeudet</string>
     <string name="notify_package_component_protected_title">Toiminnan käynnistäminen estetty</string>
     <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> on suojattu sovellus. Napauta todentaaksesi ja käynnistääksesi sovelluksen.</string>
     <string name="lock_to_app_toast_no_navbar">Irrottaaksesi tämän näytön, paina ja pidä Takasin-näppäintä pohjassa.</string>

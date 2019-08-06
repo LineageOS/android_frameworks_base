@@ -109,9 +109,20 @@
     <string name="menu_rename">Renomar</string>
     <string name="rename_error">Fallu al renomar el documentu</string>
     <string name="notification_copy_files_converted_title">Convirtiéronse dellos ficheros</string>
+    <string name="open_external_dialog_request">Permitir <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g>
+        accesu a <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g> directoriu en 
+        <xliff:g id="storage" example="SD Card"><i>^3</i></xliff:g>?</string>
+    <string name="open_external_dialog_request_primary_volume">¿Permitir <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g>
+        accesu a <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g> directoriu?</string>
+    <string name="open_external_dialog_root_request">Permitir <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g>
+        accesu a los tos datos, incluyendo semeyes y vídeos, en <xliff:g id="storage" example="SD Card"><i>^2</i></xliff:g>?</string>
     <string name="never_ask_again">Nun entrugar más</string>
     <string name="allow">Permitir</string>
     <string name="deny">Ñegar</string>
+    <plurals name="elements_selected">
+        <item quantity="one"><xliff:g id="count" example="1">%1$d</xliff:g> elementu esbilláu</item>
+        <item quantity="other"><xliff:g id="count" example="3">%1$d</xliff:g> elementos esbillaos</item>
+    </plurals>
     <plurals name="elements_dragged">
         <item quantity="one"><xliff:g id="count" example="1">%1$d</xliff:g> elementu</item>
         <item quantity="other"><xliff:g id="count" example="3">%1$d</xliff:g> elementos</item>

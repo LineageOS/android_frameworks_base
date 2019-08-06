@@ -76,6 +76,7 @@
     <string name="accessibility_dpad_right">Kurzor jobbra</string>
     <string name="menu_ime_always_show">Menü / Billentyűzetváltó (mindig mutat)</string>
     <string name="search">Keresés</string>
+    <string name="status_bar_clock">Óra</string>
     <plurals name="wifi_hotspot_connected_clients_label">
         <item quantity="one">%1$d kliens</item>
         <item quantity="other">%1$d kliens</item>
@@ -133,4 +134,27 @@
     <string name="quick_settings_usb_tether_label">USB megosztás</string>
     <string name="quick_settings_sync_label">Szinkronizálás</string>
     <string name="quick_settings_volume_panel_label">Hangerőszabályzás</string>
+    <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> elvetésének megakadályozása</string>
+    <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> elvetésének engedélyezése</string>
+    <string name="live_display_auto">Automatikus</string>
+    <string name="live_display_auto_summary">Automatikusan beállítja a képernyő színhőmérsékletét napnyugta és napkelte után</string>
+    <string name="live_display_off">Ki</string>
+    <string name="live_display_off_summary">Az összes módosítás kikapcsolása</string>
+    <string name="live_display_day">Nappal</string>
+    <string name="live_display_day_summary">Csak a nappali beállítások használata</string>
+    <string name="live_display_night">Éjszaka</string>
+    <string name="live_display_night_summary">Csak az éjszakai béállítások használata</string>
+    <string name="live_display_outdoor">Kültéri (erős napfény)</string>
+    <string name="live_display_outdoor_summary">Csak a kültéri beállítások használata</string>
+    <string name="live_display_hint">A LiveDisplay segíthet a szemek terhelésének csökkentésében és a jobb éjszakai alvásban. Kattintson ide, hogy kipróbálja!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay ki.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatikus mód.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: nappali mód.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: éjszakai mód.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: kültéri mód.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">A LiveDisplay kikapcsolva.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">A LiveDisplay automatikus módra változtatva.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">A LiveDisplay nappali módra változtatva.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">A LiveDisplay éjszakai módra változtatva.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">A LiveDisplay kültéri módra változtatva.</string>
 </resources>

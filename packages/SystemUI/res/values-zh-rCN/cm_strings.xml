@@ -149,11 +149,11 @@
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay 关闭。</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay：自动模式。</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay：白天模式。</string>
-    <string name="accessibility_quick_settings_live_display_night">LiveDisplay：夜晚模式。</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay：夜间模式。</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay：户外模式。</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay 已关闭。</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay 已修改为自动模式。</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay 已修改为白天模式。</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay 已修改为夜晚模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay 已修改为夜间模式。</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay 已修改为户外模式。</string>
 </resources>

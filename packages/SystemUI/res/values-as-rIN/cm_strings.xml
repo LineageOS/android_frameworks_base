@@ -20,59 +20,59 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="accessibility_notification_brightness">লাইটৰ উজ্জ্বলতা</string>
-  <string name="accessibility_quick_settings_profiles_off">প্ৰ\'ফাইল অফ।</string>
-  <string name="accessibility_quick_settings_profiles">প্ৰ\'ফাইল: <xliff:g id="profile" example="Default">%s</xliff:g>।</string>
-  <string name="accessibility_quick_settings_profiles_changed_off">প্ৰ\'ফাইল অফ কৰা হৈছে।</string>
-  <string name="accessibility_quick_settings_profiles_changed">প্ৰ\'ফাইল <xliff:g id="profile" example="Default">%s</xliff:g>লৈ পৰিৱৰ্তন কৰা হৈছে।</string>
-  <string name="quick_settings_profiles_off">প্ৰ\'ফাইল অফ।</string>
-  <string name="quick_settings_profiles">ছিষ্টেম প্ৰ\'ফাইল</string>
-  <string name="led_notification_title">লাইট ছেটিং</string>
-  <string name="led_notification_text">ছেটিংছৰ দ্বাৰা সক্ষমিত LED লাইট</string>
-  <string name="quick_settings_tile_flashlight_not_title">ফ্লেশলাইট অন আছে</string>
-  <string name="quick_settings_tile_flashlight_not_summary">অফ কৰিবলৈ টেপ কৰক</string>
-  <string name="screen_pinning_description_no_navbar">ই আপুনি আনপিন নকৰালৈকে এইটো দৰ্শনত ৰাখিব৷ আনপিন কৰিবলৈ বেক বুটাম স্পৰ্শ কৰি ধৰি থাকক।</string>
-  <string name="lockscreen_message">লক স্ক্ৰীণ চমুপথ আৰোপ কৰিবলৈ বাওঁফালে বা সোঁফালে এটা আইকনত টেপ কৰক।</string>
-  <string name="lockscreen_default_target">ডিফল্ট</string>
-  <string name="select_application">এপ্লিকেশ্যন বাচনি কৰক</string>
-  <string name="lockscreen_choose_action_title">কাৰ্য পচন্দ কৰক</string>
-  <string name="lockscreen_none_target">হাল্লা</string>
-  <string name="play_queue_extension">প্লে কিউ প্ৰদৰ্শন কৰক</string>
-  <string name="accessibility_dpad_left">কাৰ্ছৰ বাওঁফালে</string>
-  <string name="accessibility_dpad_right">কাৰ্ছৰ সোঁফালে</string>
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d ক্লায়েণ্ট</item>
-    <item quantity="other">%1$d ক্লায়েন্ট</item>
-  </plurals>
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <string name="accessibility_quick_settings_location_battery_saving">অৱস্থান ৰিপোৰ্টিং: বেটাৰি ছেভিং মোড।</string>
-  <string name="accessibility_quick_settings_location_gps_only">অৱস্থান ৰিপোৰ্টিং: কেৱল চেনচৰ মোড।</string>
-  <string name="accessibility_quick_settings_location_high_accuracy">অৱস্থান ৰিপোৰ্টিং: উচ্চ নিৰ্ভুলতা মোড।</string>
-  <string name="quick_settings_location_battery_saving_label">বেটাৰী ছেভ কৰা</string>
-  <string name="quick_settings_location_gps_only_label">কেৱল ডিভাইচ</string>
-  <string name="quick_settings_location_high_accuracy_label">উচ্চ সঠিকতা</string>
-  <string name="quick_settings_location_detail_mode_high_accuracy_title">উচ্চ সঠিকতা</string>
-  <string name="quick_settings_location_detail_mode_battery_saving_title">বেটাৰী ছেভ কৰা</string>
-  <string name="quick_settings_location_detail_mode_sensors_only_title">কেৱল ডিভাইচ</string>
-  <string name="quick_settings_network_adb_label">ADB অভাৰ নেটৱৰ্ক</string>
-  <string name="quick_settings_ambient_display_label">পৰিপাৰ্শ্বিক ডিচপ্লে</string>
-  <string name="accessibility_quick_settings_ambient_display_off">পাৰিপাৰ্শ্বিক প্রদর্শন অফ।</string>
-  <string name="accessibility_quick_settings_ambient_display_on">পাৰিপাৰ্শ্বিক প্রদর্শন অন।</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">পাৰিপাৰ্শ্বিক প্রদর্শন অফ কৰা হৈছে।</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">পাৰিপাৰ্শ্বিক প্রদর্শন অন কৰা হৈছে।</string>
-  <string name="quick_settings_caffeine_label">কেফেইন</string>
-  <string name="quick_settings_heads_up_label">হেডচ আপ</string>
-  <string name="accessibility_quick_settings_heads_up_off">হেডচ আপ অফ।</string>
-  <string name="accessibility_quick_settings_heads_up_on">হেডচ আপ অন।</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">হেডচ আপ অফ কৰা হৈছে।</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">হেডচ আপ অন কৰা হৈছে।</string>
-  <string name="quick_settings_sync_label">সংযোজন</string>
-  <string name="accessibility_quick_settings_sync_off">সকালীকৄত অফ কৰক।</string>
-  <string name="accessibility_quick_settings_sync_on">সকালীকৄত অন কৰক।</string>
-  <string name="accessibility_quick_settings_sync_changed_off">সকালীকৄত অফ কৰা হৈছে।</string>
-  <string name="accessibility_quick_settings_sync_changed_on">সকালীকৄত অন কৰা হৈছে।</string>
-  <string name="quick_settings_usb_tether_label">USB টেথাৰিং</string>
-  <string name="quick_settings_sync_label">সংযোজন</string>
-  <string name="quick_settings_volume_panel_label">ভলিউম পেনেল</string>
+    <string name="accessibility_notification_brightness">লাইটৰ উজ্জ্বলতা</string>
+    <string name="accessibility_quick_settings_profiles_off">প্ৰ\'ফাইল অফ।</string>
+    <string name="accessibility_quick_settings_profiles">প্ৰ\'ফাইল: <xliff:g id="profile" example="Default">%s</xliff:g>।</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">প্ৰ\'ফাইল অফ কৰা হৈছে।</string>
+    <string name="accessibility_quick_settings_profiles_changed">প্ৰ\'ফাইল <xliff:g id="profile" example="Default">%s</xliff:g>লৈ পৰিৱৰ্তন কৰা হৈছে।</string>
+    <string name="quick_settings_profiles_off">প্ৰ\'ফাইল অফ।</string>
+    <string name="quick_settings_profiles">ছিষ্টেম প্ৰ\'ফাইল</string>
+    <string name="led_notification_title">লাইট ছেটিং</string>
+    <string name="led_notification_text">ছেটিংছৰ দ্বাৰা সক্ষমিত LED লাইট</string>
+    <string name="quick_settings_tile_flashlight_not_title">ফ্লেশলাইট অন আছে</string>
+    <string name="quick_settings_tile_flashlight_not_summary">অফ কৰিবলৈ টেপ কৰক</string>
+    <string name="screen_pinning_description_no_navbar">ই আপুনি আনপিন নকৰালৈকে এইটো দৰ্শনত ৰাখিব৷ আনপিন কৰিবলৈ বেক বুটাম স্পৰ্শ কৰি ধৰি থাকক।</string>
+    <string name="lockscreen_message">লক স্ক্ৰীণ চমুপথ আৰোপ কৰিবলৈ বাওঁফালে বা সোঁফালে এটা আইকনত টেপ কৰক।</string>
+    <string name="lockscreen_default_target">ডিফল্ট</string>
+    <string name="select_application">এপ্লিকেশ্যন বাচনি কৰক</string>
+    <string name="lockscreen_choose_action_title">কাৰ্য পচন্দ কৰক</string>
+    <string name="lockscreen_none_target">হাল্লা</string>
+    <string name="play_queue_extension">প্লে কিউ প্ৰদৰ্শন কৰক</string>
+    <string name="accessibility_dpad_left">কাৰ্ছৰ বাওঁফালে</string>
+    <string name="accessibility_dpad_right">কাৰ্ছৰ সোঁফালে</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d ক্লায়েণ্ট</item>
+        <item quantity="other">%1$d ক্লায়েন্ট</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">অৱস্থান ৰিপোৰ্টিং: বেটাৰি ছেভিং মোড।</string>
+    <string name="accessibility_quick_settings_location_gps_only">অৱস্থান ৰিপোৰ্টিং: কেৱল চেনচৰ মোড।</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">অৱস্থান ৰিপোৰ্টিং: উচ্চ নিৰ্ভুলতা মোড।</string>
+    <string name="quick_settings_location_battery_saving_label">বেটাৰী ছেভ কৰা</string>
+    <string name="quick_settings_location_gps_only_label">কেৱল ডিভাইচ</string>
+    <string name="quick_settings_location_high_accuracy_label">উচ্চ সঠিকতা</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">উচ্চ সঠিকতা</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">বেটাৰী ছেভ কৰা</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">কেৱল ডিভাইচ</string>
+    <string name="quick_settings_network_adb_label">ADB অভাৰ নেটৱৰ্ক</string>
+    <string name="quick_settings_ambient_display_label">পৰিপাৰ্শ্বিক ডিচপ্লে</string>
+    <string name="accessibility_quick_settings_ambient_display_off">পাৰিপাৰ্শ্বিক প্রদর্শন অফ।</string>
+    <string name="accessibility_quick_settings_ambient_display_on">পাৰিপাৰ্শ্বিক প্রদর্শন অন।</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">পাৰিপাৰ্শ্বিক প্রদর্শন অফ কৰা হৈছে।</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">পাৰিপাৰ্শ্বিক প্রদর্শন অন কৰা হৈছে।</string>
+    <string name="quick_settings_caffeine_label">কেফেইন</string>
+    <string name="quick_settings_heads_up_label">হেডচ আপ</string>
+    <string name="accessibility_quick_settings_heads_up_off">হেডচ আপ অফ।</string>
+    <string name="accessibility_quick_settings_heads_up_on">হেডচ আপ অন।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">হেডচ আপ অফ কৰা হৈছে।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">হেডচ আপ অন কৰা হৈছে।</string>
+    <string name="quick_settings_sync_label">সংযোজন</string>
+    <string name="accessibility_quick_settings_sync_off">সকালীকৄত অফ কৰক।</string>
+    <string name="accessibility_quick_settings_sync_on">সকালীকৄত অন কৰক।</string>
+    <string name="accessibility_quick_settings_sync_changed_off">সকালীকৄত অফ কৰা হৈছে।</string>
+    <string name="accessibility_quick_settings_sync_changed_on">সকালীকৄত অন কৰা হৈছে।</string>
+    <string name="quick_settings_usb_tether_label">USB টেথাৰিং</string>
+    <string name="quick_settings_sync_label">সংযোজন</string>
+    <string name="quick_settings_volume_panel_label">ভলিউম পেনেল</string>
 </resources>
