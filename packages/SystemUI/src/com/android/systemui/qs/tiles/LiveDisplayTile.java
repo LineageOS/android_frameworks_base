@@ -60,10 +60,11 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
 
     private boolean mListening;
 
-    private int mDayTemperature;
+    private int mDayTemperature = -1;
 
     private final boolean mNightDisplayAvailable;
-    private final boolean mOutdoorModeAvailable;
+    private boolean mOutdoorModeAvailable = false;
+    private boolean mNeedUpdateConfig = true;
 
     private final LiveDisplayManager mLiveDisplay;
 
@@ -84,14 +85,6 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
         updateEntries();
 
         mLiveDisplay = LiveDisplayManager.getInstance(mContext);
-        if (mLiveDisplay.getConfig() != null) {
-            mOutdoorModeAvailable = mLiveDisplay.getConfig().hasFeature(MODE_OUTDOOR) &&
-                    !mLiveDisplay.getConfig().hasFeature(FEATURE_MANAGED_OUTDOOR_MODE);
-            mDayTemperature = mLiveDisplay.getDayColorTemperature();
-        } else {
-            mOutdoorModeAvailable = false;
-            mDayTemperature = -1;
-        }
 
         mObserver = new LiveDisplayObserver(mHandler);
         mObserver.startObserving();
@@ -171,6 +164,13 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
     }
 
     private void changeToNextMode() {
+        if (mNeedUpdateConfig && mLiveDisplay.getConfig() != null) {
+            mOutdoorModeAvailable = mLiveDisplay.getConfig().hasFeature(MODE_OUTDOOR) &&
+                    !mLiveDisplay.getConfig().hasFeature(FEATURE_MANAGED_OUTDOOR_MODE);
+            mDayTemperature = mLiveDisplay.getDayColorTemperature();
+            mNeedUpdateConfig = false;
+        }
+
         int next = getCurrentModeIndex() + 1;
 
         if (next >= mValues.length) {
