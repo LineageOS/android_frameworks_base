@@ -60,10 +60,11 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
 
     private boolean mListening;
 
-    private int mDayTemperature;
+    private int mDayTemperature = -1;
 
     private final boolean mNightDisplayAvailable;
-    private final boolean mOutdoorModeAvailable;
+    private boolean mOutdoorModeAvailable = false;
+    private boolean mNeedUpdateConfig = true;
 
     private final LiveDisplayManager mLiveDisplay;
 
@@ -84,14 +85,6 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
         updateEntries();
 
         mLiveDisplay = LiveDisplayManager.getInstance(mContext);
-        if (mLiveDisplay.getConfig() != null) {
-            mOutdoorModeAvailable = mLiveDisplay.getConfig().hasFeature(MODE_OUTDOOR) &&
-                    !mLiveDisplay.getConfig().hasFeature(FEATURE_MANAGED_OUTDOOR_MODE);
-            mDayTemperature = mLiveDisplay.getDayColorTemperature();
-        } else {
-            mOutdoorModeAvailable = false;
-            mDayTemperature = -1;
-        }
 
         mObserver = new LiveDisplayObserver(mHandler);
         mObserver.startObserving();
@@ -106,9 +99,19 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
         mValues = res.getStringArray(R.array.live_display_values);
     }
 
+    private void updateConfig() {
+        if (mNeedUpdateConfig && mLiveDisplay.getConfig() != null) {
+            mOutdoorModeAvailable = mLiveDisplay.getConfig().hasFeature(MODE_OUTDOOR) &&
+                    !mLiveDisplay.getConfig().hasFeature(FEATURE_MANAGED_OUTDOOR_MODE);
+            mDayTemperature = mLiveDisplay.getDayColorTemperature();
+            mNeedUpdateConfig = false;
+        }
+    }
+
     @Override
     public boolean isAvailable() {
-        return !mNightDisplayAvailable || mOutdoorModeAvailable;
+        updateConfig();
+        return mNeedUpdateConfig ? true : (!mNightDisplayAvailable || mOutdoorModeAvailable);
     }
 
     @Override
@@ -183,6 +186,8 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
         }
 
         int nextMode = 0;
+
+        updateConfig();
 
         while (true) {
             nextMode = Integer.valueOf(mValues[next]);
