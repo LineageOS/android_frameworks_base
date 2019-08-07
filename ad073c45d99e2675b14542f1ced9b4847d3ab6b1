@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04cd1829_0b82a226",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/LiveDisplayTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2019-08-07T14:57:53Z",
+      "side": 1,
+      "message": "This is invoked earlier than mLiveDisplay.getConfig() became valid, I\u0027ve no idea how to make it work, it would be nice if someone could help fix it.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 6
+      },
+      "revId": "ad073c45d99e2675b14542f1ced9b4847d3ab6b1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
