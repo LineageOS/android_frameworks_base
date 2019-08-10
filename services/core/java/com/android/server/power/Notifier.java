@@ -130,6 +130,7 @@ public class Notifier {
     private final FaceDownDetector mFaceDownDetector;
     private final ScreenUndimDetector mScreenUndimDetector;
     private final ActivityManagerInternal mActivityManagerInternal;
+    private final AudioManager mAudioManager;
     private final InputManagerInternal mInputManagerInternal;
     private final InputMethodManagerInternal mInputMethodManagerInternal;
     @Nullable private final StatusBarManagerInternal mStatusBarManagerInternal;
@@ -198,6 +199,7 @@ public class Notifier {
         mFaceDownDetector = faceDownDetector;
         mScreenUndimDetector = screenUndimDetector;
         mActivityManagerInternal = LocalServices.getService(ActivityManagerInternal.class);
+        mAudioManager = mContext.getSystemService(AudioManager.class);
         mInputManagerInternal = LocalServices.getService(InputManagerInternal.class);
         mInputMethodManagerInternal = LocalServices.getService(InputMethodManagerInternal.class);
         mStatusBarManagerInternal = LocalServices.getService(StatusBarManagerInternal.class);
@@ -1012,7 +1014,9 @@ public class Notifier {
         final boolean dndOff = Settings.Global.getInt(mContext.getContentResolver(),
                 Settings.Global.ZEN_MODE, Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS)
                 == Settings.Global.ZEN_MODE_OFF;
-        return enabled && dndOff;
+        final boolean silentMode = mAudioManager.getRingerModeInternal()
+                == AudioManager.RINGER_MODE_SILENT;
+        return enabled && dndOff && !silentMode;
     }
 
     private void notifyWakeLockListener(IWakeLockCallback callback, String tag, boolean isEnabled) {
