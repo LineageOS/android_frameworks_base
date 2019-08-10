@@ -17,54 +17,86 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- label for item that screenshots in phone options dialog -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- label for item that reboots the phone in phone options dialog -->
-  <!-- label for current user in phone options dialog -->
-  <!-- Reboot menu -->
-  <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <!-- Title of dialog to confirm rebooting. -->
-  <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
-         be a confirmation dialog.  This is the message. -->
-  <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <!-- Long-press back kill application -->
-  <!-- ADB over network notification -->
-  <!-- ADB over USB and network notification -->
-  <!-- ADB notification message-->
-  <!-- ADB custom tile -->
-  <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <!-- stylus gestures support -->
-  <!-- Zen mode buttons -->
-  <!-- Wifi Hotspot disabled due to subscription change -->
-  <!-- WiFi turn off notification action text -->
-  <!-- Privacy Guard -->
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <!-- App ops requests -->
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <!-- Template for showing cellular network operator name while LTE calling is enabled -->
-  <!-- Keyguard strings -->
-  <!-- Sequence of characters used to separate carrier message strings in keyguard. Typically just vertical line
-         with spaces on either side. [CHAR LIMIT=3] -->
-  <!-- Protected Apps Notification -->
-  <!-- Battery fully charged notification -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose
-         whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose
-         whether they want to allow the application to do this. -->
-  <!-- Uicc hotswapped event configuration needed notification -->
+    <string name="global_action_screenshot">Ischermada</string>
+    <string name="permlab_receiveProtectedSms">retzire SMS amparados</string>
+    <string name="permdesc_receiveProtectedSms">Permitit a s\'aplicatzione de retzire un\'SMS amparadu.</string>
+    <string name="permlab_modifyProtectedSmsList">modìficare sa lista de SMS amparados</string>
+    <string name="permdesc_modifyProtectedSmsList">Permitit a s\'aplicatzione de modificare sa lista de sos indiritzos de sos SMS amparados.</string>
+    <string name="permgrouplab_security">Seguresa</string>
+    <string name="permgroupdesc_security">Permissos chi pertocant a sas informatziones a pitzu de sa seguresa de su dispositivu.</string>
+    <string name="permlab_readPhoneBlacklist">lèghere sa lista niedda de su telèfonu</string>
+    <string name="permdesc_readPhoneBlacklist">Permitit a un\'aplicatzione de lèghere informatziones chi pertocant sos nùmeros de telèfonu chi sunt blocados pro sos messàgios o sas mutidas in arrivu.</string>
+    <string name="permlab_changePhoneBlacklist">muda sa lista niedda de su telèfonu</string>
+    <string name="permdesc_changePhoneBlacklist">Permitit a un\'aplicatzione de mudare sos nùmeros de telèfonu chi sunt blocados pro sos messàgios o sas mutidas in arrivu.</string>
+    <string name="permdesc_setKeyguardWallpaper">Permitit a un\'aplicatzione de mudare s\'isfundu de s\'ischermu de blocu.</string>
+    <string name="global_action_reboot">Torra a allùghere</string>
+    <string name="global_action_current_user">Atuale</string>
+    <string name="reboot_reboot">Torra a allùghere</string>
+    <string name="reboot_recovery">Recùperu</string>
+    <string name="reboot_bootloader">Bootloader</string>
+    <string name="reboot_download">Iscarrigamentu</string>
+    <string name="reboot_soft">Ri-allughìngiu lestru</string>
+    <string name="reboot_title">Torra a allùghere</string>
+    <string name="reboot_confirm" product="tablet">Sa tauledda tua s\'at a torrare a allùghere.</string>
+    <string name="reboot_confirm" product="default">Su telèfonu tuo s\'at a torrare a allùghere.</string>
+    <string name="reboot_progress">Torrende a allùghere\u2026</string>
+    <string name="app_killed_message">App ochida</string>
+    <string name="adb_active_custom_tile_both">USB &amp; retza</string>
+    <string name="adb_active_custom_tile_usb">USB</string>
+    <string name="adb_active_custom_tile_net">Retza</string>
+    <string name="stylus_app_not_installed">%s no est installadu</string>
+    <string name="silent_mode_priority">Prioridade</string>
+    <string name="silent_mode_none">Nudda</string>
+    <string name="notify_turn_wifi_off_title">Istuda su Wi-Fi</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> no at a pòdere atzèdere a sos datos personales</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> cheret <xliff:g id="op">%2$s</xliff:g>.</string>
+    <string name="permission_remember_choice">Ammenta s\'issèbera mea</string>
+    <string name="app_ops_access_camera">atzèdere a sa càmera</string>
+    <string name="app_ops_access_location">atzèdere a sa positzione tua</string>
+    <string name="app_ops_access_notifications">lèghere sas notìficas tuas</string>
+    <string name="app_ops_activate_vpn">ativare unu VPN</string>
+    <string name="app_ops_auto_start">s\'aviare a s\'allughìngiu</string>
+    <string name="app_ops_delete_call_log">cantzellare su registru de mutidas tuo</string>
+    <string name="app_ops_delete_contacts">cantzellare cuntatos tuos</string>
+    <string name="app_ops_delete_mms">cantzellare messàgios MMS tuos</string>
+    <string name="app_ops_delete_sms">cantzellare SMS tuos</string>
+    <string name="app_ops_get_usage_stats">otènnere istatìsticas de impreu</string>
+    <string name="app_ops_keep_device_awake">mantènnere su dispositivu tuo ischidu</string>
+    <string name="app_ops_make_phone_call">fàghere una mutida de telèfonu</string>
+    <string name="app_ops_modify_calendar">agiornare su calendàriu tuo</string>
+    <string name="app_ops_modify_call_log">agiornare su registru de mutidas</string>
+    <string name="app_ops_modify_clipboard">modificare sa punta de billete</string>
+    <string name="app_ops_modify_contacts">agiornare sos cuntatos tuos</string>
+    <string name="app_ops_modify_settings">agiornare sa cunfiguratzione de sistema</string>
+    <string name="app_ops_play_audio">reprodùere unu documentu àudio</string>
+    <string name="app_ops_post_notification">publicare una notìfica</string>
+    <string name="app_ops_read_calendar">lèghere su calendàriu tuo</string>
+    <string name="app_ops_read_call_log">lèghere su registru de mutidas</string>
+    <string name="app_ops_read_clipboard">lèghere sa punta de billete</string>
+    <string name="app_ops_read_contacts">lèghere sos cuntatos tuos</string>
+    <string name="app_ops_read_mms">lèghere sos messàgios MMS tuos</string>
+    <string name="app_ops_read_sms">lèghere sos messàgios SMS tuos</string>
+    <string name="app_ops_receive_sms">retzire unu messàgiu SMS</string>
+    <string name="app_ops_record_audio">registrare unu documentu àudio</string>
+    <string name="app_ops_send_mms">imbiare unu messàgiu MMS</string>
+    <string name="app_ops_send_sms">imbiare unu messàgiu SMS</string>
+    <string name="app_ops_start_at_bootup">s\'aviare a s\'allughìngiu</string>
+    <string name="app_ops_use_bluetooth_volume">controllare su volùmene de su Bluetooth</string>
+    <string name="app_ops_use_media_volume">controllare su volùmene de is cuntenutos multimediales</string>
+    <string name="app_ops_use_notification_volume">controllare su volùmene de sas notìficas</string>
+    <string name="app_ops_use_ring_volume">controllare su volùmene de sa soneria</string>
+    <string name="app_ops_use_voice_volume">controllare su volùmene de sas mutidas vocales</string>
+    <string name="app_ops_write_mms">iscrìere unu messàgiu MMS</string>
+    <string name="app_ops_write_sms">iscrìere unu messàgiu SMS</string>
+    <string name="app_ops_use_fingerprint">impreare imprentas de sos pòddighes</string>
+    <string name="app_ops_read_phone_state">atzèdere a s\'istadu de su telèfonu</string>
+    <string name="app_ops_scan_wifi">iscansire sas retzas Wi-Fi</string>
+    <string name="app_ops_change_wallpaper">mudare s\'isfundu de s\'ischermada</string>
+    <string name="app_ops_assist_screenshot">fàghere un\'istantànea</string>
+    <string name="app_ops_read_external_storage">lèghere sa memòria esterna</string>
+    <string name="app_ops_write_external_storage">iscrìere in sa memòria esterna</string>
+    <string name="app_ops_turn_on_screen">allùghere s\'ischermu</string>
+    <string name="app_ops_get_accounts">otènnere contos de su dispositivu</string>
+    <string name="app_ops_wifi_change">mudare s\'istadu de su Wi-Fi</string>
+    <string name="app_ops_su">otènnere atzessu a sa raighina</string>
 </resources>

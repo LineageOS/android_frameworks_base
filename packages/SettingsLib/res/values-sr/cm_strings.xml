@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">Апликације</string>
-  <string name="picker_activities">Активности</string>
-  <string name="select_custom_app_title">Изабери прилагођену апликацију</string>
-  <string name="select_custom_activity_title">Избор прилагођене активности</string>
-  <string name="lockscreen_targets_message">Пречице закључаног екрана</string>
+    <string name="profile_applist_title">Апликације</string>
+    <string name="picker_activities">Активности</string>
+    <string name="select_custom_app_title">Изабери прилагођену апликацију</string>
+    <string name="select_custom_activity_title">Избор прилагођене активности</string>
+    <string name="lockscreen_targets_message">Пречице закључаног екрана</string>
 </resources>

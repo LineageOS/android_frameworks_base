@@ -16,210 +16,133 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Content description of the data connection type 4G+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_4g_plus">4G+</string>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">右にスワイプして%1$s</string>
-  <string name="right_shortcut_hint">左にスワイプして%1$s</string>
-  <string name="lockscreen_message">左右のアイコンをタップしてロック画面のショートカットを変更します。</string>
-  <string name="lockscreen_default_target">デフォルト</string>
-  <string name="select_application">アプリケーションを選択</string>
-  <string name="lockscreen_choose_action_title">動作を選択</string>
-  <string name="lockscreen_none_target">なし</string>
-  <!-- Dialog title for navigation bar button selection -->
-  <string name="navbar_dialog_title">設定する動作を選択</string>
-  <string name="navbar_home_button">ホームボタン</string>
-  <string name="navbar_recent_button">履歴ボタン</string>
-  <string name="navbar_search_button">検索ボタン</string>
-  <string name="navbar_back_button">戻るボタン</string>
-  <string name="navbar_empty_button">ボタンなし</string>
-  <string name="navbar_menu_conditional_button">メニューボタン（自動非表示）</string>
-  <string name="navbar_menu_always_button">メニューボタン（常時表示)</string>
-  <string name="navbar_menu_big_button">メニューボタン</string>
-  <string name="accessibility_dpad_left">カーソルを左へ</string>
-  <string name="accessibility_dpad_right">カーソルを右へ</string>
-  <!-- Development shortcuts -->
-  <!-- Title shown in recents popup for wiping application's data -->
-  <string name="advanced_dev_option_wipe_app">アプリのデータを消去</string>
-  <!-- Title shown in recents popup for force stopping the application -->
-  <string name="advanced_dev_option_force_stop">強制停止</string>
-  <!-- Title shown in recents popup for uninstalling the application -->
-  <string name="advanced_dev_option_uninstall">アンインストール</string>
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">ライトの明るさ</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">プロファイルはOFFです。</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">プロファイル: <xliff:g id="profile" example="Default">%s</xliff:g>です。</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">プロファイルがOFFになりました。</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">プロファイルが<xliff:g id="profile" example="Default">%s</xliff:g>に変更されました。</string>
-  <string name="quick_settings_compass_init">初期化中...</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">ライトの設定</string>
-  <string name="led_notification_text">LEDライトが設定によって有効になっています</string>
-  <string name="qs_tile_edit_header_instruction">タイルを長押しして並べ替えます</string>
-  <string name="quick_settings_edit_label">タイルを編集</string>
-  <string name="quick_settings_cannot_delete_edit_tile">編集タイルは削除できません</string>
-  <string name="qs_tiles_reset_confirmation">クイック設定タイルをデフォルトの設定に戻しますか？</string>
-  <string name="quick_settings_tile_reset_to_default">デフォルトのレイアウトに戻す</string>
-  <string name="quick_settings_title_header">ヘッダー</string>
-  <string name="quick_settings_title_tiles">タイル</string>
-  <string name="quick_settings_title_show_weather">天気を表示</string>
-  <string name="quick_settings_title_show_brightness_slider">明るさスライダーを表示</string>
-  <string name="quick_settings_title_enlarge_first_row">1行目を拡大</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">固定を解除するまで表示し続けます。固定を解除するには戻るボタンを押し続けます。</string>
-  <string name="quick_settings_custom_tile_detail_title">カスタムタイル</string>
-  <string name="quick_settings_remove">タイルを削除</string>
-  <string name="quick_settings_network_adb_label">ネットワーク経由のADB</string>
-  <string name="quick_settings_compass_label">コンパス</string>
-  <string name="quick_settings_nfc_label">NFC</string>
-  <string name="quick_settings_profiles">システムプロファイル</string>
-  <string name="quick_settings_profiles_off">プロファイル無効</string>
-  <string name="quick_settings_heads_up_label">ヘッドアップ</string>
-  <string name="quick_settings_battery_saver_label">バッテリーセーバー</string>
-  <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
-  <string name="quick_settings_battery_saver_label_charging">バッテリーセーバー（充電中）</string>
-  <string name="quick_settings_caffeine_label">カフェイン</string>
-  <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_off">同期はOFFです。</string>
-  <!-- Content description of the sync tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_on">同期はONです。</string>
-  <!-- Announcement made when sync changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_changed_off">同期がOFFになりました。</string>
-  <!-- Announcement made when sync changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_changed_on">同期がONになりました。</string>
-  <string name="quick_settings_sync_label">同期</string>
-  <string name="quick_settings_volume_panel_label">音量パネル</string>
-  <string name="quick_settings_usb_tether_label">USBテザリング</string>
-  <string name="quick_settings_screen_timeout_detail_title">画面のタイムアウト</string>
-  <string name="quick_settings_lockscreen_label">ロック画面</string>
-  <string name="quick_settings_ambient_display_label">アンビエント表示</string>
-  <string name="quick_settings_lockscreen_label_enforced">ロック画面強制</string>
-  <string name="quick_settings_lockscreen_label_locked_by_profile">プロファイルによって無効になっています</string>
-  <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_screen_timeout">画面のタイムアウト: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>です。</string>
-  <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_screen_timeout_changed">画面のタイムアウトが<xliff:g id="timeout" example="30 seconds">%s</xliff:g>に変更されました。</string>
-  <string name="qs_tile_performance">バッテリーモード</string>
-  <!-- Content description of the battery mode tile in quick settings when on, power save mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_pwrsv">バッテリーモード: 省電力モードです。</string>
-  <!-- Content description of the battery mode tile in quick settings when on, balanced mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bal">バッテリーモード: バランスモードです。</string>
-  <!-- Content description of the battery mode tile in quick settings when on, performance mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_perf">バッテリーモード: パフォーマンスモードです。</string>
-  <!-- Content description of the battery mode tile in quick settings when on, efficiency mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bias_power">バッテリーモード: 効率モードです。</string>
-  <!-- Content description of the battery mode tile in quick settings when on, quick mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bias_perf">バッテリーモード: クイックモードです。</string>
-  <!-- Announcement made when the battery mode tile changes to power save (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">バッテリーモードが省電力モードに変更されました。</string>
-  <!-- Announcement made when the battery mode tile changes to balanced (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_bal">バッテリーモードがバランスモードに変更されました。</string>
-  <!-- Announcement made when the battery mode tile changes to performance (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_perf">バッテリーモードがパフォーマンスモードに変更されました。</string>
-  <!-- Announcement made when the battery mode tile changes to efficiency (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_bias_power">バッテリーモードが効率モードに変更されました。</string>
-  <!-- Announcement made when the battery mode tile changes to quick (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">バッテリーモードがクイックモードに変更されました。</string>
-  <string name="quick_settings_performance_profile_detail_title">バッテリーモード</string>
-  <!-- Content description of the lock screen tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_off">ロック画面はOFFです。</string>
-  <!-- Content description of the lock screen tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_on">ロック画面はONです。</string>
-  <!-- Announcement made when lock screen changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_changed_off">ロック画面がOFFになりました。</string>
-  <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_changed_on">ロック画面がONになりました。</string>
-  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示は OFF です。</string>
-  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示は ON です。</string>
-  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示が OFF になりました。</string>
-  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示が ON になりました。</string>
-  <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>
-  <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
-  <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップがOFFになりました。</string>
-  <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップがONになりました。</string>
-  <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">カフェインはOFFです。</string>
-  <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">カフェインはONです。</string>
-  <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_off">バッテリーセーバーはOFFです。</string>
-  <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_on">バッテリーセーバーはONです。</string>
-  <!-- Announcement made when battery saver changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_changed_off">バッテリーセーバーがOFFになりました。</string>
-  <!-- Announcement made when battery saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_changed_on">バッテリーセーバーがONになりました。</string>
-  <!-- Dynamic tiles -->
-  <string name="quick_settings_dynamic_tile_detail_title">自動タイル</string>
-  <string name="dynamic_qs_tile_next_alarm_label">次のアラーム</string>
-  <string name="dynamic_qs_tile_ime_selector_label">入力方法の選択</string>
-  <string name="dynamic_qs_tile_su_label">ルートアクセス</string>
-  <string name="dynamic_qs_tile_themes_label">テーマ</string>
-  <string name="quick_settings_title_advanced_location">3方式の位置情報</string>
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モードです。</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモードです。</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モードです。</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">位置情報モード</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">端末のみ</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">高精度</string>
-  <!-- Announcement made when the location tile changes to battery saving (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_battery_saving">位置情報レポートがバッテリー節約モードに変更されました。</string>
-  <!-- Announcement made when the location tile changes to sensors only (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_gps_only">位置情報レポートが端末のみモードに変更されました。</string>
-  <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_high_accuracy">位置情報レポートが高精度モードに変更されました。</string>
-  <string name="quick_settings_tiles_category_system">システムのタイル</string>
-  <!-- detail header when adding a tile -->
-  <string name="quick_settings_tiles_add_tiles">タイルを追加</string>
-  <!-- Hotspot dialog message -->
-  <string name="hotspot_apm_message">機内モードが有効になっている間はモバイルネットワークに接続することはできません。機内モードを無効にしてから再試行してください。</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">フラッシュライトが点灯しています</string>
-  <string name="quick_settings_tile_flashlight_not_summary">タップして消灯する</string>
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="other">%1$d台</item>
-  </plurals>
-  <!-- CellularTile data sim not configured state string -->
-  <string name="data_sim_not_configured">データSIMなし</string>
-  <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_dock_battery_level">ホルダーの電池は<xliff:g id="number">%d</xliff:g>パーセントです。</string>
-  <!-- Play queue -->
-  <string name="play_queue_extention">再生キューを表示</string>
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="condition">%2$s</xliff:g> <xliff:g id="temp">%1$s</xliff:g></string>
-  <string name="expand_hint">下にスワイプして拡張</string>
-  <string name="swipe_left_hint">左にスワイプして<xliff:g id="app_name">%1$s</xliff:g>を起動</string>
-  <string name="swipe_right_hint">左にスワイプして通知を表示</string>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_data_connection_4g_plus">4G+</string>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="left_shortcut_hint">右にスワイプして%1$s</string>
+    <string name="right_shortcut_hint">左にスワイプして%1$s</string>
+    <string name="lockscreen_message">左右のアイコンをタップしてロック画面のショートカットを変更します。</string>
+    <string name="lockscreen_default_target">デフォルト</string>
+    <string name="select_application">アプリケーションを選択</string>
+    <string name="lockscreen_choose_action_title">動作を選択</string>
+    <string name="lockscreen_none_target">なし</string>
+    <string name="navbar_dialog_title">設定する動作を選択</string>
+    <string name="navbar_home_button">ホームボタン</string>
+    <string name="navbar_recent_button">履歴ボタン</string>
+    <string name="navbar_search_button">検索ボタン</string>
+    <string name="navbar_back_button">戻るボタン</string>
+    <string name="navbar_empty_button">ボタンなし</string>
+    <string name="navbar_menu_conditional_button">メニューボタン（自動非表示）</string>
+    <string name="navbar_menu_always_button">メニューボタン（常時表示)</string>
+    <string name="navbar_menu_big_button">メニューボタン</string>
+    <string name="accessibility_dpad_left">カーソルを左へ</string>
+    <string name="accessibility_dpad_right">カーソルを右へ</string>
+    <string name="advanced_dev_option_wipe_app">アプリのデータを消去</string>
+    <string name="advanced_dev_option_force_stop">強制停止</string>
+    <string name="advanced_dev_option_uninstall">アンインストール</string>
+    <string name="accessibility_notification_brightness">ライトの明るさ</string>
+    <string name="accessibility_quick_settings_profiles_off">プロファイルはOFFです。</string>
+    <string name="accessibility_quick_settings_profiles">プロファイル: <xliff:g id="profile" example="Default">%s</xliff:g>です。</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">プロファイルがOFFになりました。</string>
+    <string name="accessibility_quick_settings_profiles_changed">プロファイルが<xliff:g id="profile" example="Default">%s</xliff:g>に変更されました。</string>
+    <string name="quick_settings_compass_init">初期化中...</string>
+    <string name="led_notification_title">ライトの設定</string>
+    <string name="led_notification_text">LEDライトが設定によって有効になっています</string>
+    <string name="qs_tile_edit_header_instruction">タイルを長押しして並べ替えます</string>
+    <string name="quick_settings_edit_label">タイルを編集</string>
+    <string name="quick_settings_cannot_delete_edit_tile">編集タイルは削除できません</string>
+    <string name="qs_tiles_reset_confirmation">クイック設定タイルをデフォルトの設定に戻しますか？</string>
+    <string name="quick_settings_tile_reset_to_default">デフォルトのレイアウトに戻す</string>
+    <string name="quick_settings_title_header">ヘッダー</string>
+    <string name="quick_settings_title_tiles">タイル</string>
+    <string name="quick_settings_title_show_weather">天気を表示</string>
+    <string name="quick_settings_title_show_brightness_slider">明るさスライダーを表示</string>
+    <string name="quick_settings_title_enlarge_first_row">1行目を拡大</string>
+    <string name="screen_pinning_description_no_navbar">固定を解除するまで表示し続けます。固定を解除するには戻るボタンを押し続けます。</string>
+    <string name="quick_settings_custom_tile_detail_title">カスタムタイル</string>
+    <string name="quick_settings_remove">タイルを削除</string>
+    <string name="quick_settings_network_adb_label">ネットワーク経由のADB</string>
+    <string name="quick_settings_compass_label">コンパス</string>
+    <string name="quick_settings_nfc_label">NFC</string>
+    <string name="quick_settings_profiles">システムプロファイル</string>
+    <string name="quick_settings_profiles_off">プロファイル無効</string>
+    <string name="quick_settings_heads_up_label">ヘッドアップ</string>
+    <string name="quick_settings_battery_saver_label">バッテリーセーバー</string>
+    <string name="quick_settings_battery_saver_label_charging">バッテリーセーバー（充電中）</string>
+    <string name="quick_settings_caffeine_label">カフェイン</string>
+    <string name="accessibility_quick_settings_sync_off">同期はOFFです。</string>
+    <string name="accessibility_quick_settings_sync_on">同期はONです。</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同期がOFFになりました。</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同期がONになりました。</string>
+    <string name="quick_settings_sync_label">同期</string>
+    <string name="quick_settings_volume_panel_label">音量パネル</string>
+    <string name="quick_settings_usb_tether_label">USBテザリング</string>
+    <string name="quick_settings_screen_timeout_detail_title">画面のタイムアウト</string>
+    <string name="quick_settings_lockscreen_label">ロック画面</string>
+    <string name="quick_settings_ambient_display_label">アンビエント表示</string>
+    <string name="quick_settings_lockscreen_label_enforced">ロック画面強制</string>
+    <string name="quick_settings_lockscreen_label_locked_by_profile">プロファイルによって無効になっています</string>
+    <string name="accessibility_quick_settings_screen_timeout">画面のタイムアウト: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>です。</string>
+    <string name="accessibility_quick_settings_screen_timeout_changed">画面のタイムアウトが<xliff:g id="timeout" example="30 seconds">%s</xliff:g>に変更されました。</string>
+    <string name="qs_tile_performance">バッテリーモード</string>
+    <string name="accessibility_quick_settings_perf_profile_pwrsv">バッテリーモード: 省電力モードです。</string>
+    <string name="accessibility_quick_settings_perf_profile_bal">バッテリーモード: バランスモードです。</string>
+    <string name="accessibility_quick_settings_perf_profile_perf">バッテリーモード: パフォーマンスモードです。</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_power">バッテリーモード: 効率モードです。</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_perf">バッテリーモード: クイックモードです。</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">バッテリーモードが省電力モードに変更されました。</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bal">バッテリーモードがバランスモードに変更されました。</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_perf">バッテリーモードがパフォーマンスモードに変更されました。</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_power">バッテリーモードが効率モードに変更されました。</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">バッテリーモードがクイックモードに変更されました。</string>
+    <string name="quick_settings_performance_profile_detail_title">バッテリーモード</string>
+    <string name="accessibility_quick_settings_lock_screen_off">ロック画面はOFFです。</string>
+    <string name="accessibility_quick_settings_lock_screen_on">ロック画面はONです。</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_off">ロック画面がOFFになりました。</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_on">ロック画面がONになりました。</string>
+    <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示は OFF です。</string>
+    <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示は ON です。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示が OFF になりました。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示が ON になりました。</string>
+    <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>
+    <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップがOFFになりました。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップがONになりました。</string>
+    <string name="accessibility_quick_settings_caffeine_off">カフェインはOFFです。</string>
+    <string name="accessibility_quick_settings_caffeine_on">カフェインはONです。</string>
+    <string name="accessibility_quick_settings_battery_saver_off">バッテリーセーバーはOFFです。</string>
+    <string name="accessibility_quick_settings_battery_saver_on">バッテリーセーバーはONです。</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_off">バッテリーセーバーがOFFになりました。</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_on">バッテリーセーバーがONになりました。</string>
+    <string name="quick_settings_dynamic_tile_detail_title">自動タイル</string>
+    <string name="dynamic_qs_tile_next_alarm_label">次のアラーム</string>
+    <string name="dynamic_qs_tile_ime_selector_label">入力方法の選択</string>
+    <string name="dynamic_qs_tile_su_label">ルートアクセス</string>
+    <string name="dynamic_qs_tile_themes_label">テーマ</string>
+    <string name="quick_settings_title_advanced_location">3方式の位置情報</string>
+    <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モードです。</string>
+    <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモードです。</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モードです。</string>
+    <string name="quick_settings_location_detail_title">位置情報モード</string>
+    <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
+    <string name="quick_settings_location_gps_only_label">端末のみ</string>
+    <string name="quick_settings_location_high_accuracy_label">高精度</string>
+    <string name="accessibility_quick_settings_location_changed_battery_saving">位置情報レポートがバッテリー節約モードに変更されました。</string>
+    <string name="accessibility_quick_settings_location_changed_gps_only">位置情報レポートが端末のみモードに変更されました。</string>
+    <string name="accessibility_quick_settings_location_changed_high_accuracy">位置情報レポートが高精度モードに変更されました。</string>
+    <string name="quick_settings_tiles_category_system">システムのタイル</string>
+    <string name="quick_settings_tiles_add_tiles">タイルを追加</string>
+    <string name="hotspot_apm_message">機内モードが有効になっている間はモバイルネットワークに接続することはできません。機内モードを無効にしてから再試行してください。</string>
+    <string name="quick_settings_tile_flashlight_not_title">フラッシュライトが点灯しています</string>
+    <string name="quick_settings_tile_flashlight_not_summary">タップして消灯する</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="other">%1$d台</item>
+    </plurals>
+    <string name="data_sim_not_configured">データSIMなし</string>
+    <string name="accessibility_dock_battery_level">ホルダーの電池は<xliff:g id="number">%d</xliff:g>パーセントです。</string>
+    <string name="play_queue_extention">再生キューを表示</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="condition">%2$s</xliff:g> <xliff:g id="temp">%1$s</xliff:g></string>
+    <string name="expand_hint">下にスワイプして拡張</string>
+    <string name="swipe_left_hint">左にスワイプして<xliff:g id="app_name">%1$s</xliff:g>を起動</string>
+    <string name="swipe_right_hint">左にスワイプして通知を表示</string>
 </resources>

@@ -19,104 +19,95 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Toast message when Wi-Fi cannot scan for networks -->
-  <!-- Do not translate.  Concise terminology for wifi with WEP security -->
-  <!-- Do not translate.  Concise terminology for wifi with WPA security -->
-  <!-- Do not translate.  Concise terminology for wifi with WPA2 security -->
-  <!-- Do not translate.  Concise terminology for wifi with both WPA/WPA2 security -->
-  <!-- Do not translate.  Concise terminology for wifi with unknown PSK type -->
-  <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
-  <!-- Used in Wi-Fi settings dialogs when Wi-Fi does not have any security. -->
-  <!-- Do not translate.  Terminology for wifi with WEP security -->
-  <!-- Do not translate.  Terminology for wifi with WPA security -->
-  <!-- Do not translate.  Terminology for wifi with WPA2 security -->
-  <!-- Do not translate.  Terminology for wifi with both WPA/WPA2 security, or unknown -->
-  <!-- Do not translate.  Terminology for wifi with unknown PSK type -->
-  <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
-  <!-- Do not translate.  Concise terminology for Passpoint network -->
-  <!-- Summary for the remembered network. -->
-  <!-- Status for networks disabled for unknown reason -->
-  <!-- Status for networked disabled from a DNS or DHCP failure -->
-  <!-- Status for networked disabled from a wifi association failure -->
-  <!-- Status for networks disabled from authentication failure (wrong password
-         or certificate). -->
-  <!-- Summary for the remembered network but currently not in range. -->
-  <!-- Summary for the remembered network but no internet connection was detected. -->
-  <!-- Summary for saved networks -->
-  <!-- Status message of Wi-Fi when it is connected by a Wi-Fi assistant application. [CHAR LIMIT=NONE] -->
-  <!-- Status message of Wi-Fi when it is connected by Passpoint configuration. [CHAR LIMIT=NONE] -->
-  <!-- Status message of Wi-Fi when network has matching passpoint credentials. [CHAR LIMIT=NONE] -->
-  <!-- Package name for Settings app-->
-  <!-- Package name for Certinstaller app-->
-  <!-- Summary for Connected wifi network without internet -->
-  <!-- Bluetooth settings.  Message when a device is disconnected -->
-  <!-- Bluetooth settings.  Message when disconnecting from a device -->
-  <!-- Bluetooth settings.  Message when connecting to a device -->
-  <!-- Bluetooth settings.  Message when connected to a device. [CHAR LIMIT=40] -->
-  <!--Bluetooth settings screen, summary text under individual Bluetooth devices when pairing -->
-  <!-- Bluetooth settings.  Message when connected to a device, except for phone audio. [CHAR LIMIT=40] -->
-  <!-- Bluetooth settings.  Message when connected to a device, except for media audio. [CHAR LIMIT=40] -->
-  <!-- Bluetooth settings.  Message when connected to a device, except for map. [CHAR LIMIT=40] -->
-  <!-- Bluetooth settings.  Message when connected to a device, except for phone/media audio. [CHAR LIMIT=40] -->
-  <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the A2DP profile. -->
-  <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the headset or handsfree profile. -->
-  <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
-  <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
-  <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (accessing Internet through remote device). [CHAR LIMIT=40] -->
-  <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PBAP profile. [CHAR LIMIT=40] -->
-  <!-- Bluetooth settings. The user-visible summary string that is used whenever referring to the PBAP profile (sharing contacts). [CHAR LIMIT=60] -->
-  <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (sharing this device's Internet connection). [CHAR LIMIT=40] -->
-  <!-- Bluetooth settings. The user-visible string that is used whenever referring to the map profile. -->
-  <!-- Bluetooth settings. The user-visible string that is used whenever referring to the SAP profile (sharing SIM card). -->
-  <!-- Bluetooth settings. The user-visible string that is used whenever referring to the dun profile. -->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the A2DP checkbox preference when A2DP is connected. -->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the headset checkbox preference when headset is connected. -->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference when OPP is connected. -->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the map checkbox preference when map is connected. -->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the sap checkbox preference when SAP is connected. -->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference when OPP is not connected. -->
-  <!-- Bluetooth settings. Connection options screen. The summary for the HID checkbox preference when HID is connected. -->
-  <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (user role). [CHAR LIMIT=25]-->
-  <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (NAP role). [CHAR LIMIT=25]-->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the DUN checkbox preference when DUN is connected. -->
-  <!-- Bluetooth settings. Connection options screen. The summary
-         for the PAN checkbox preference that describes how checking it
-         will set the PAN profile as preferred. -->
-  <!-- Bluetooth settings. Connection options screen.  The summary for the map checkbox preference that describes how checking it will set the map profile as preferred. -->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the sap checkbox preference that describes how checking it will set the sap profile as preferred. -->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the A2DP checkbox preference that describes how checking it will set the A2DP profile as preferred. -->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the headset checkbox preference that describes how checking it will set the headset profile as preferred. -->
-  <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference that describes how checking it will set the OPP profile as preferred. -->
-  <!-- Bluetooth settings. Connection options screen. The summary
-         for the HID checkbox preference that describes how checking it
-         will set the HID profile as preferred. -->
-  <!-- Bluetooth settings. Connection options screen.  The summary for the dun checkbox preference that describes how checking it will set the dun profile as preferred. -->
-  <!-- Button text for accepting an incoming pairing request. [CHAR LIMIT=20] -->
-  <!-- Button text for accepting an incoming pairing request in all caps. [CHAR LIMIT=20] -->
-  <!-- Button text for declining an incoming pairing request. [CHAR LIMIT=20] -->
-  <!-- Message in pairing dialogs.  [CHAR LIMIT=NONE] -->
-  <!-- Message for the error dialog when BT pairing fails generically. -->
-  <!-- Message for the error dialog when BT pairing fails because the PIN /
-    Passkey entered is incorrect. -->
-  <!-- Message for the error dialog when BT pairing fails because the other device is down. -->
-  <!-- Message for the error dialog when BT pairing fails because the other device rejected the pairing. -->
-  <!-- Content description of the WIFI signal when WIFI is disabled for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the WIFI signal when no signal for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the WIFI signal when it is one bar for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the WIFI signal when it is two bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the WIFI signal when it is three bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the WIFI signal when it is full for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Label for kernel threads in battery usage -->
-  <!-- Title of data usage item that represents all uninstalled applications. [CHAR LIMIT=48] -->
-  <!-- Title of data usage item that represents all uninstalled applications or removed users. [CHAR LIMIT=48] -->
-  <!-- Tethering controls, item title to go into the tethering settings -->
-  <!-- Tethering controls, item title to go into the tethering settings when only USB tethering is available [CHAR LIMIT=25]-->
-  <!-- Tethering controls, item title to go into the tethering settings when only Wifi tethering is available [CHAR LIMIT=25]-->
-  <!-- Tethering controls, item title to go into the tethering settings when only Bluetooth tethering is available [CHAR LIMIT=25]-->
-  <!-- Tethering controls, item title to go into the tethering settings when USB and Bluetooth tethering are available [CHAR LIMIT=25]-->
-  <!-- Tethering controls, item title to go into the tethering settings when USB, Bluetooth and Wifi tethering are available [CHAR LIMIT=25]-->
-  <!-- Title for a work profile. [CHAR LIMIT=25] -->
-  <!-- Title for Guest user [CHAR LIMIT=35] -->
-  <!-- Manage apps, individual app screen, substituted for the application's label when the app's label CAN NOT be determined.-->
-  <!-- [CHAR LIMIT=NONE] Label of a running process that represents another user -->
+    <string name="wifi_fail_to_scan">Methu â sganio am rwydweithau</string>
+    <string name="wifi_security_short_wep">WEP</string>
+    <string name="wifi_security_short_wpa">WPA</string>
+    <string name="wifi_security_short_wpa2">WPA2</string>
+    <string name="wifi_security_short_wpa_wpa2">WPA/WPA2</string>
+    <string name="wifi_security_short_psk_generic">@string/wifi_security_short_wpa_wpa2</string>
+    <string name="wifi_security_short_eap">802.1x</string>
+    <string name="wifi_security_none">Dim</string>
+    <string name="wifi_security_wep">WEP</string>
+    <string name="wifi_security_wpa">WPA PSK</string>
+    <string name="wifi_security_wpa2">WPA2 PSK</string>
+    <string name="wifi_security_wpa_wpa2">WPA/WPA2 PSK</string>
+    <string name="wifi_security_psk_generic">@string/wifi_security_wpa_wpa2</string>
+    <string name="wifi_security_eap">802.1x EAP</string>
+    <string name="wifi_security_passpoint">Passpoint</string>
+    <string name="wifi_remembered">Wedi ei gofio</string>
+    <string name="wifi_disabled_generic">Wedi\'i analluogi</string>
+    <string name="wifi_disabled_network_failure">Methiant Ffurfweddiad IP</string>
+    <string name="wifi_disabled_wifi_failure">Methiant Cysylltiad Wi-Fi</string>
+    <string name="wifi_disabled_password_failure">Problem Dilysu</string>
+    <string name="wifi_not_in_range">Dim o fewn cyrraedd</string>
+    <string name="wifi_no_internet">Methu â chanfod cysylltiad i\'r rhyngrwyd. Ni fydd yn ailgysylltu\'n awtomatig.</string>
+    <string name="saved_network">Cadwyd gan <xliff:g id="name">%1$s</xliff:g></string>
+    <string name="connected_via_wfa">Wedi cysylltu trwy gynorthwyydd Wi\u2011Fi.</string>
+    <string name="connected_via_passpoint">Wedi cysylltu drwy %1$s</string>
+    <string name="available_via_passpoint">Ar gael drwy %1$s</string>
+    <string name="wifi_connected_no_internet">Wedi cysylltu; dim rhyngrwyd</string>
+    <string name="bluetooth_disconnected">Heb gysylltu</string>
+    <string name="bluetooth_disconnecting">Yn datgysylltu\u2026</string>
+    <string name="bluetooth_connecting">Yn cysylltu\u2026</string>
+    <string name="bluetooth_connected">Wedi cysylltu</string>
+    <string name="bluetooth_pairing">Yn paru\u2026</string>
+    <string name="bluetooth_connected_no_headset">Wedi cysylltu (dim ffôn)</string>
+    <string name="bluetooth_connected_no_a2dp">Wedi cysylltu (dim cyfrwng)</string>
+    <string name="bluetooth_connected_no_map">Wedi cysylltu (dim mynediad at negeseuon)</string>
+    <string name="bluetooth_connected_no_headset_no_a2dp">Wedi cysylltu (dim ffôn na chyfrwng)</string>
+    <string name="bluetooth_profile_a2dp">Sain cyfryngau</string>
+    <string name="bluetooth_profile_headset">Sain ffôn</string>
+    <string name="bluetooth_profile_opp">Trosglwyddo ffeiliau</string>
+    <string name="bluetooth_profile_hid">Dyfeisiau mewnbwn</string>
+    <string name="bluetooth_profile_pan">Mynediad i\'r rhyngrwyd</string>
+    <string name="bluetooth_profile_pbap">Rhannu cysylltiadau</string>
+    <string name="bluetooth_profile_pbap_summary">Defnyddio ar gyfer rhannu cysylltiadau</string>
+    <string name="bluetooth_profile_pan_nap">Rhannu cysylltiad i\'r rhyngrwyd</string>
+    <string name="bluetooth_profile_map">Mynediad at negeseuon</string>
+    <string name="bluetooth_profile_sap">Mynediad SIM</string>
+    <string name="bluetooth_profile_dun">Mynediad at rwydwaith deialu</string>
+    <string name="bluetooth_a2dp_profile_summary_connected">Wedi cysylltu â sain cyfryngau</string>
+    <string name="bluetooth_headset_profile_summary_connected">Wedi cysylltu â sain ffôn</string>
+    <string name="bluetooth_opp_profile_summary_connected">Wedi cysylltu â gweinydd trosglwyddo ffeiliau</string>
+    <string name="bluetooth_map_profile_summary_connected">Wedi cysylltu â map</string>
+    <string name="bluetooth_sap_profile_summary_connected">Wedi cysylltu â SAP</string>
+    <string name="bluetooth_opp_profile_summary_not_connected">Heb gysylltu â gweinydd trosglwyddo ffeiliau</string>
+    <string name="bluetooth_hid_profile_summary_connected">Wedi cysylltu â dyfais mewnbwn</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">Wedi cysylltu â dyfais ar gyfer mynediad i\'r rhyngrwyd</string>
+    <string name="bluetooth_pan_nap_profile_summary_connected">Rhannu cysylltiad rhyngrwyd lleol gyda dyfais</string>
+    <string name="bluetooth_dun_profile_summary_connected">Wedi cysylltu â gweinydd Dun</string>
+    <string name="bluetooth_pan_profile_summary_use_for">Defnyddio ar gyfer mynediad i\'r rhyngrwyd</string>
+    <string name="bluetooth_map_profile_summary_use_for">Defnyddio ar gyfer map</string>
+    <string name="bluetooth_sap_profile_summary_use_for">Defnyddio ar gyfer mynediad SIM</string>
+    <string name="bluetooth_a2dp_profile_summary_use_for">Defnyddio ar gyfer sain cyfryngau</string>
+    <string name="bluetooth_headset_profile_summary_use_for">Defnyddio ar gyfer sain ffôn</string>
+    <string name="bluetooth_opp_profile_summary_use_for">Defnyddio ar gyfer trosglwyddo ffeiliau</string>
+    <string name="bluetooth_hid_profile_summary_use_for">Defnyddio ar gyfer mewnbynnu</string>
+    <string name="bluetooth_dun_profile_summary_use_for">Defnyddio ar gyfer mynediad Rhwydwaith Deialu</string>
+    <string name="bluetooth_pairing_accept">Paru</string>
+    <string name="bluetooth_pairing_accept_all_caps">PARU</string>
+    <string name="bluetooth_pairing_decline">Diddymu</string>
+    <string name="bluetooth_pairing_will_share_phonebook">Mae paru yn rhoi mynediad at dy gysylltiadau a hanes galwadau tra wedi cysylltu.</string>
+    <string name="bluetooth_pairing_error_message">Methwyd â pharu gyda <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_pin_error_message">Methwyd â pharu gyda <xliff:g id="device_name">%1$s</xliff:g> oherwydd PIN neu cyfrinallwedd anghywir.</string>
+    <string name="bluetooth_pairing_device_down_error_message">Methu â chyfathrebu gyda <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_rejected_error_message">Gwrthodwyd paru gan <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="accessibility_wifi_off">Wi-fi i ffwrdd.</string>
+    <string name="accessibility_no_wifi">Wi-fi heb gysylltu.</string>
+    <string name="accessibility_wifi_one_bar">Un bar W-Fi.</string>
+    <string name="accessibility_wifi_two_bars">Dau far Wi-Fi.</string>
+    <string name="accessibility_wifi_three_bars">Tri bar Wi-Fi.</string>
+    <string name="accessibility_wifi_signal_full">Wi-Fi signal llawn.</string>
+    <string name="process_kernel_label">Android OS</string>
+    <string name="data_usage_uninstalled_apps">Apiau wedi eu tynnu</string>
+    <string name="data_usage_uninstalled_apps_users">Apiau a defnyddwyr wedi eu tynnu</string>
+    <string name="tether_settings_title_usb">Tenynnu USB</string>
+    <string name="tether_settings_title_wifi">Llecyn Wi-Fi cludadwy</string>
+    <string name="tether_settings_title_bluetooth">Tenynnu Bluetooth</string>
+    <string name="tether_settings_title_usb_bluetooth">Tenynnu</string>
+    <string name="tether_settings_title_all">Tenynnu a llecyn Wi-Fi</string>
+    <string name="managed_user_title">Proffil gwaith</string>
+    <string name="user_guest">Gwestai</string>
+    <string name="unknown">Anhysybys</string>
+    <string name="running_process_item_user_label">Defnyddiwr: <xliff:g id="user_name">%1$s</xliff:g></string>
 </resources>

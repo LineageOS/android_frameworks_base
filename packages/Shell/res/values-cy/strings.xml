@@ -15,10 +15,11 @@
      limitations under the License.
 -->
 <resources>
-  <!-- Title of notification indicating a bugreport has been successfully captured. [CHAR LIMIT=50] -->
-  <!-- Text of notification indicating that swipe left will share the captured bugreport. [CHAR LIMIT=100] -->
-  <!-- Text of notification indicating that touching will share the captured bugreport. [CHAR LIMIT=100] -->
-  <!-- Body of dialog informing user about contents of a bugreport. [CHAR LIMIT=NONE] -->
-  <!-- Checkbox that indicates this dialog should be shown again when the next bugreport is taken. [CHAR LIMIT=50] -->
-  <!-- Title for documents backend that offers bugreports. -->
+    <string name="app_label">Cragen</string>
+    <string name="bugreport_finished_title">Wedi cadw adroddiad am wall</string>
+    <string name="bugreport_finished_text" product="watch">Llusga i\'r chwith i rannu dy adroddiad gwall.</string>
+    <string name="bugreport_finished_text" product="default">Cyffwrdd i rannu dy adroddiad am wall</string>
+    <string name="bugreport_confirm">Mae adroddiadau am wallau yn cynnwys data o wahanol ffeiliau log y system, gan gynnwys gwybodaeth bersonol a phreifat. Paid â rhannu\'r adroddiadau gyda phobol nad wyt ti\'n ymddiried ynddyn nhw.</string>
+    <string name="bugreport_confirm_repeat">Dangos y neges hon y tro nesaf</string>
+    <string name="bugreport_storage_title">Adroddiadau am wallau</string>
 </resources>

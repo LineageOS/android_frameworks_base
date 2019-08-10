@@ -16,8 +16,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- When the user inserts a sim card with some personalization enabled -->
-  <!-- Shown in the lock screen when there is SIM card IO error. -->
-  <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
-  <!-- Shown in the KeyguardSimPinView when entry length is too short. -->
+    <string name="keyguard_perso_locked_message">Clo Perso i\'r cerdyn SIM</string>
+    <string name="lockscreen_sim_error_message_short">Cerdyn annilys.</string>
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="zero">Rho PIN y SIM. Mae gennyt <xliff:g id="number">%d</xliff:g> cynnigion yn weddill.</item>
+        <item quantity="one">Rho PIN y SIM. Mae gennyt <xliff:g id="number">%d</xliff:g> cynnig yn weddill.</item>
+        <item quantity="two">Rho PIN y SIM. Mae gennyt <xliff:g id="number">%d</xliff:g> gynnig yn weddill.</item>
+        <item quantity="few">Rho PIN y SIM. Mae gennyt <xliff:g id="number">%d</xliff:g> chynnig yn weddill.</item>
+        <item quantity="many">Rho PIN y SIM. Mae gennyt <xliff:g id="number">%d</xliff:g> chynnig yn weddill.</item>
+        <item quantity="other">Rho PIN y SIM. Mae gennyt <xliff:g id="number">%d</xliff:g> cynnig yn weddill.</item>
+    </plurals>
+    <string name="kg_invalid_sim_length">Gwall: Mewnbwn yn rhy fyr</string>
 </resources>

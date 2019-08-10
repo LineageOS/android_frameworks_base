@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">Appar</string>
-  <string name="picker_activities">Aktiviteter</string>
-  <string name="select_custom_app_title">Välj anpassad app</string>
-  <string name="select_custom_activity_title">Välj anpassad aktivitet</string>
-  <string name="lockscreen_targets_message">Genvägar på låsskärm</string>
+    <string name="profile_applist_title">Appar</string>
+    <string name="picker_activities">Aktiviteter</string>
+    <string name="select_custom_app_title">Välj anpassad app</string>
+    <string name="select_custom_activity_title">Välj anpassad aktivitet</string>
+    <string name="lockscreen_targets_message">Genvägar på låsskärm</string>
 </resources>

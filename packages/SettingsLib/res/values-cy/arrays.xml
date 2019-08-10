@@ -19,9 +19,32 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Wi-Fi settings -->
-  <!-- Match this with the order of NetworkInfo.DetailedState. -->
-  <!-- Wi-Fi settings. The status messages when the network is unknown. -->
-  <!-- Match this with the order of NetworkInfo.DetailedState. -->
-  <!-- Wi-Fi settings. The status messages when the network is known. -->
+    <string-array name="wifi_status">
+        <item/>
+        <item>Yn sganio\u2026</item>
+        <item>Yn cysylltu\u2026</item>
+        <item>Yn dilysu\u2026</item>
+        <item>Yn cael cyfeiriad IP\u2026</item>
+        <item>Wedi cysylltu</item>
+        <item>Wedi\'i atal</item>
+        <item>Yn datgysylltu\u2026</item>
+        <item>Heb gysylltu</item>
+        <item>Aflwyddiannus</item>
+        <item>Wedi\'i rhwystro</item>
+        <item>Yn osgoi cysylltiad gwael am y tro</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item/>
+        <item>Yn sganio\u2026</item>
+        <item>Yn cysylltu â <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Yn dilysu gyda <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Yn cael cyfeiriad IP oddi wrth <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Wedi cysylltu â <xliff:g id="network_name">%1$s </xliff:g></item>
+        <item>Wedi\'i atal</item>
+        <item>Yn datgysylltu â <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Heb gysylltu</item>
+        <item>Aflwyddiannus</item>
+        <item>Wedi\'i rhwystro</item>
+        <item>Yn osgoi cysylltiad gwael am y tro</item>
+    </string-array>
 </resources>

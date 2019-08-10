@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">Εφαρμογές</string>
-  <string name="picker_activities">Δραστηριότητες</string>
-  <string name="select_custom_app_title">Επιλέξτε προσαρμοσμένη εφαρμογή</string>
-  <string name="select_custom_activity_title">Επιλέξτε προσαρμοσμένη δραστηριότητα</string>
-  <string name="lockscreen_targets_message">Συντομεύσεις οθόνης κλειδώματος</string>
+    <string name="profile_applist_title">Εφαρμογές</string>
+    <string name="picker_activities">Δραστηριότητες</string>
+    <string name="select_custom_app_title">Επιλέξτε προσαρμοσμένη εφαρμογή</string>
+    <string name="select_custom_activity_title">Επιλέξτε προσαρμοσμένη δραστηριότητα</string>
+    <string name="lockscreen_targets_message">Συντομεύσεις οθόνης κλειδώματος</string>
 </resources>

@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">Aplikazioak</string>
-  <string name="picker_activities">Aktibitateak</string>
-  <string name="select_custom_app_title">Hautatu aplikazio pertsonalizatua</string>
-  <string name="select_custom_activity_title">Hautatu aktibitate pertsonalizatua</string>
-  <string name="lockscreen_targets_message">Blokeo-pantailako lasterbideak</string>
+    <string name="profile_applist_title">Aplikazioak</string>
+    <string name="picker_activities">Aktibitateak</string>
+    <string name="select_custom_app_title">Hautatu aplikazio pertsonalizatua</string>
+    <string name="select_custom_activity_title">Hautatu aktibitate pertsonalizatua</string>
+    <string name="lockscreen_targets_message">Blokeo-pantailako lasterbideak</string>
 </resources>

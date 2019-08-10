@@ -16,8 +16,14 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Cardinal directions for the compass tile -->
-  <!-- Performance profiles description-->
-  <!-- Performance profiles announcement-->
-  <!-- Dynamic tiles -->
+    <string-array name="cardinal_directions">
+        <item>G</item>
+        <item>GDn</item>
+        <item>Dn</item>
+        <item>DDn</item>
+        <item>De</item>
+        <item>DGn</item>
+        <item>Gn</item>
+        <item>GGn</item>
+        </string-array>
 </resources>

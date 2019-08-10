@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">Aplikacije</string>
-  <string name="picker_activities">Dejavnosti</string>
-  <string name="select_custom_app_title">Izberite aplikacijo po meri</string>
-  <string name="select_custom_activity_title">Izberite dejavnost po meri</string>
-  <string name="lockscreen_targets_message">Bližnjice zaklenjenega zaslona</string>
+    <string name="profile_applist_title">Aplikacije</string>
+    <string name="picker_activities">Dejavnosti</string>
+    <string name="select_custom_app_title">Izberite aplikacijo po meri</string>
+    <string name="select_custom_activity_title">Izberite dejavnost po meri</string>
+    <string name="lockscreen_targets_message">Bližnjice zaklenjenega zaslona</string>
 </resources>

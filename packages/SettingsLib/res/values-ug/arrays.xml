@@ -19,35 +19,18 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Wi-Fi settings -->
-  <!-- Match this with the order of NetworkInfo.DetailedState. -->
-  <!-- Wi-Fi settings. The status messages when the network is unknown. -->
-  <string-array name="wifi_status">
-    <!-- Status message of Wi-Fi when it is idle. -->
-    <item></item>
-    <!-- Status message of Wi-Fi when it is scanning. -->
-    <item>تەكشۈرۈۋاتىدۇ\u2026</item>
-    <!-- Status message of Wi-Fi when it is connecting. -->
-    <item>باغلىنىۋاتىدۇ\u2026</item>
-    <!-- Status message of Wi-Fi when it is authenticating. -->
-    <item>دەلىللەۋاتىدۇ\u2026</item>
-    <!-- Status message of Wi-Fi when it is obtaining IP address. -->
-    <item>IP ئادرېسقا ئېرىشىۋاتىدۇ\u2026</item>
-    <!-- Status message of Wi-Fi when it is connected. -->
-    <item>باغلاندى</item>
-    <!-- Status message of Wi-Fi when it is suspended. -->
-    <item>ۋاقىتلىق توختىتىلدى</item>
-    <!-- Status message of Wi-Fi when it is disconnecting. -->
-    <item>ئۈزۈۋاتىدۇ\u2026</item>
-    <!-- Status message of Wi-Fi when it is disconnected. -->
-    <item>Disconnected</item>
-    <!-- Status message of Wi-Fi when it is a failure. -->
-    <item>Unsuccessful</item>
-    <!-- Status message of Wi-Fi when it is blocked. -->
-    <item>Blocked</item>
-    <!-- Status message of Wi-Fi when connectiong is being verified. -->
-    <item>Temporarily avoiding poor connection</item>
-  </string-array>
-  <!-- Match this with the order of NetworkInfo.DetailedState. -->
-  <!-- Wi-Fi settings. The status messages when the network is known. -->
+    <string-array name="wifi_status">
+        <item/>
+        <item>تەكشۈرۈۋاتىدۇ\u2026</item>
+        <item>باغلىنىۋاتىدۇ\u2026</item>
+        <item>دەلىللەۋاتىدۇ\u2026</item>
+        <item>IP ئادرېسقا ئېرىشىۋاتىدۇ\u2026</item>
+        <item>باغلاندى</item>
+        <item>ۋاقىتلىق توختىتىلدى</item>
+        <item>ئۈزۈۋاتىدۇ\u2026</item>
+        <item>Disconnected</item>
+        <item>Unsuccessful</item>
+        <item>Blocked</item>
+        <item>Temporarily avoiding poor connection</item>
+    </string-array>
 </resources>

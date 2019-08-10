@@ -18,6 +18,5 @@
  */
 -->
 <resources>
-  <!-- Name of the activity for Settings storage. -->
-  <string name="app_label">ساقلىغۇچ تەڭشىكى</string>
+    <string name="app_label">ساقلىغۇچ تەڭشىكى</string>
 </resources>

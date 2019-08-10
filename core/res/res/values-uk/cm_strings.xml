@@ -17,177 +17,127 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- label for item that screenshots in phone options dialog -->
-  <string name="global_action_screenshot">Скріншот</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_receiveProtectedSms">отримувати захищені SMS</string>
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_receiveProtectedSms">Дозволяє програмі отримувати захищені SMS.</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_modifyProtectedSmsList">змінювати список захищених SMS</string>
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_modifyProtectedSmsList">Дозволяє програмі змінювати список адрес захищених SMS.</string>
-  <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Безпека</string>
-  <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Дозволи, пов\'язані з безпекою даних на пристрої.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">перегляд чорного списку</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Дозволяє програмі читати інформацію про список абонентів, від яких заблоковані вхідні дзвінки або повідомлення.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">зміна чорного списку</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Дозволяє програмі змінювати список абонентів, від яких заблоковані вхідні дзвінки або повідомлення.</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">встановлення шпалер екрану блокування</string>
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Дозволяє програмі міняти шпалери екрану блокування.</string>
-  <!-- label for item that reboots the phone in phone options dialog -->
-  <string name="global_action_reboot">Перезавантаження</string>
-  <!-- label for current user in phone options dialog -->
-  <string name="global_action_current_user">Поточний</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Перезавантаження</string>
-  <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Download</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Швидке перезавантаження</string>
-  <!-- Title of dialog to confirm rebooting. -->
-  <string name="reboot_title">Перезавантаження</string>
-  <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
-         be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm" product="tablet">Ваш планшет перезавантажиться.</string>
-  <string name="reboot_confirm" product="default">Ваш телефон перезавантажиться.</string>
-  <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">Перезавантаження\u2026</string>
-  <!-- Long-press back kill application -->
-  <string name="app_killed_message">Програму закрито</string>
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB по мережі увімкнено</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB по USB та мережі увімкнено</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Торкніться, аби вимкнути налагодження.</string>
-  <!-- ADB custom tile -->
-  <string name="adb_active_custom_tile">ADB - <xliff:g id="adb_type" example="USB">%1$s</xliff:g></string>
-  <string name="adb_active_custom_tile_both">USB та мережі</string>
-  <string name="adb_active_custom_tile_usb">USB</string>
-  <string name="adb_active_custom_tile_net">Мережа</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_interceptPackageLaunch">Перехоплення запуску додатку</string>
-  <!-- stylus gestures support -->
-  <string name="stylus_app_not_installed">%s не встановлено</string>
-  <!-- Zen mode buttons -->
-  <string name="silent_mode_priority">Пріоритет</string>
-  <string name="silent_mode_none">Немає</string>
-  <!-- Wifi Hotspot disabled due to subscription change -->
-  <string name="subscription_change_disabled_wifi_ap">Точку доступу Wi-Fi вимкнено через зміну SIM-картки</string>
-  <!-- WiFi turn off notification action text -->
-  <string name="notify_turn_wifi_off_title">Вимкнути Wi-Fi</string>
-  <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">увімк. або вимк. Сторожа Приватності</string>
-  <string name="permdesc_changePrivacyGuardState">Програма може вибрати, чи буде друга програма працювати в захищеному режимі. Коли програму запущено в захищеному режимі, вона не отримає доступ до персональних даних, таких як контакти, повідомлення чи журнал дзвінків.</string>
-  <string name="privacy_guard_notification">Сторож Приватності активний</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> буде заборонено доступ до персональних даних</string>
-  <string name="privacy_guard_dialog_title">Сторож Приватності</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> намагається <xliff:g id="op">%2$s</xliff:g>.</string>
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">Запам\'ятати мій вибір</string>
-  <!-- App ops requests -->
-  <string name="app_ops_access_camera">доступ до камери</string>
-  <string name="app_ops_access_location">доступ до місцезнаходження</string>
-  <string name="app_ops_access_notifications">читати ваші сповіщення</string>
-  <string name="app_ops_activate_vpn">активувати VPN</string>
-  <string name="app_ops_auto_start">запуск при включені пристрою</string>
-  <string name="app_ops_delete_call_log">видалити журнал викликів</string>
-  <string name="app_ops_delete_contacts">видалити контакти</string>
-  <string name="app_ops_delete_mms">видалити MMS-повідомлення</string>
-  <string name="app_ops_delete_sms">видалити SMS-повідомлення</string>
-  <string name="app_ops_draw_on_top">показувати вікна поверх</string>
-  <string name="app_ops_get_usage_stats">отримувати статистику використання програм</string>
-  <string name="app_ops_keep_device_awake">заборонити пристрою переходити в сплячий режим</string>
-  <string name="app_ops_make_phone_call">робити телефонні дзвінки</string>
-  <string name="app_ops_modify_calendar">змінювати дані календаря</string>
-  <string name="app_ops_modify_call_log">змінювати дані списку дзвінків</string>
-  <string name="app_ops_modify_clipboard">змінювати вміст буфера обміну</string>
-  <string name="app_ops_modify_contacts">змінювати дані контактів</string>
-  <string name="app_ops_modify_settings">змінювати системні налаштування</string>
-  <string name="app_ops_mute_unmute_microphone">вимк./увімк. мікрофон</string>
-  <string name="app_ops_play_audio">відтворювати аудіо</string>
-  <string name="app_ops_post_notification">виводити сповіщення</string>
-  <string name="app_ops_project_media">project media</string>
-  <string name="app_ops_read_calendar">читати дані календаря</string>
-  <string name="app_ops_read_call_log">читати журнал дзвінків</string>
-  <string name="app_ops_read_clipboard">читати буфер обміну</string>
-  <string name="app_ops_read_contacts">читати дані ваших контактів</string>
-  <string name="app_ops_read_mms">читати ваші MMS-повідомлення</string>
-  <string name="app_ops_read_sms">читати ваші SMS-повідомлення</string>
-  <string name="app_ops_receive_sms">отримувати SMS-повідомлення</string>
-  <string name="app_ops_record_audio">запис аудіо</string>
-  <string name="app_ops_send_mms">надсилати MMS-повідомлення</string>
-  <string name="app_ops_send_sms">надсилати SMS-повідомлення</string>
-  <string name="app_ops_start_at_bootup">запуск при включені пристрою</string>
-  <string name="app_ops_toast_window">показувати спливаючі сповіщення</string>
-  <string name="app_ops_toggle_bluetooth">увімк. або вимк. Bluetooth</string>
-  <string name="app_ops_toggle_mobile_data">Мобільні дані</string>
-  <string name="app_ops_toggle_nfc">увімк. вимк. NFC</string>
-  <string name="app_ops_toggle_wifi">Переключити Wi-Fi</string>
-  <string name="app_ops_use_alarm_volume">керування гучністю будильника</string>
-  <string name="app_ops_use_audio_focus">керування аудіо-фокусом</string>
-  <string name="app_ops_use_bluetooth_volume">керування гучністю Bluetooth</string>
-  <string name="app_ops_use_master_volume">керування загальною гучністю</string>
-  <string name="app_ops_use_media_buttons">використовувати кнопки мультимедіа</string>
-  <string name="app_ops_use_media_volume">керування гучністю медіа</string>
-  <string name="app_ops_use_notification_volume">керування гучністю сповіщень</string>
-  <string name="app_ops_use_ring_volume">керування гучністю дзвінка</string>
-  <string name="app_ops_use_vibrate">використовувати вібровідгук</string>
-  <string name="app_ops_use_voice_volume">отримати управління гучністю при розмові</string>
-  <string name="app_ops_write_mms">створити MMS-повідомлення</string>
-  <string name="app_ops_write_sms">створити SMS-повідомлення</string>
-  <string name="app_ops_use_fingerprint">використовувати відбитки пальців</string>
-  <string name="app_ops_add_voicemail">Додати голосове повідомлення</string>
-  <string name="app_ops_read_phone_state">Доступ до стану телефону</string>
-  <string name="app_ops_scan_wifi">Сканувати Wi-Fi мережі</string>
-  <string name="app_ops_change_wallpaper">зміна шпалер</string>
-  <string name="app_ops_assist_structure">Використовувати допоміжну структуру</string>
-  <string name="app_ops_assist_screenshot">Скріншот</string>
-  <string name="app_ops_use_body_sensors">Використовувати датчики</string>
-  <string name="app_ops_read_cell_broadcasts">Широкомовні повідомлення</string>
-  <string name="app_ops_mock_location">Фіктивне місцезнаходження</string>
-  <string name="app_ops_read_external_storage">Зчитати дані з карти пам\'яті</string>
-  <string name="app_ops_write_external_storage">Записати дані на карту пам\'яті</string>
-  <string name="app_ops_turn_on_screen">Увімкнути екран</string>
-  <string name="app_ops_get_accounts">Отримати інформацію про акаунти</string>
-  <string name="app_ops_wifi_change">Змінити стан Wi-Fi</string>
-  <string name="app_ops_su">отримати root-доступ</string>
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Щоб відкріпити цей екран, торкніться й утримуйте кнопку назад.</string>
-  <!-- Template for showing cellular network operator name while LTE calling is enabled -->
-  <string name="tethered_notification_no_device_message">Немає під\'єднаного пристрою</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> підключений пристрій</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> підключених пристроїв</string>
-  <!-- Keyguard strings -->
-  <!-- Sequence of characters used to separate carrier message strings in keyguard. Typically just vertical line
-         with spaces on either side. [CHAR LIMIT=3] -->
-  <!-- Protected Apps Notification -->
-  <string name="notify_package_component_protected_title">Запуск програми заборонений</string>
-  <string name="notify_package_component_protected_text">Запуск <xliff:g id="app_name">%1$s</xliff:g> заблоковано. Натисніть, щоб ввести пароль і запустити програму.</string>
-  <!-- Battery fully charged notification -->
-  <string name="notify_battery_fully_charged_title">Батарея повністю заряджена</string>
-  <string name="notify_battery_fully_charged_text">Від’єднайте зарядку задля покращення витривалості батареї.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose
-         whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">скинути статистику акумулятора</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose
-         whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Дозволити програмі скидати дані про використання акумулятора.</string>
-  <!-- Uicc hotswapped event configuration needed notification -->
-  <string name="uicc_hot_swapped_event_title">SIM-карти було змінено</string>
-  <string name="uicc_hot_swapped_event_text">Натисніть, аби встановити типові параметри для SIM-карти</string>
+    <string name="global_action_screenshot">Скріншот</string>
+    <string name="permlab_receiveProtectedSms">отримувати захищені SMS</string>
+    <string name="permdesc_receiveProtectedSms">Дозволяє програмі отримувати захищені SMS.</string>
+    <string name="permlab_modifyProtectedSmsList">змінювати список захищених SMS</string>
+    <string name="permdesc_modifyProtectedSmsList">Дозволяє програмі змінювати список адрес захищених SMS.</string>
+    <string name="permgrouplab_security">Безпека</string>
+    <string name="permgroupdesc_security">Дозволи, пов\'язані з безпекою даних на пристрої.</string>
+    <string name="permlab_readPhoneBlacklist">перегляд чорного списку</string>
+    <string name="permdesc_readPhoneBlacklist">Дозволяє програмі читати інформацію про список абонентів, від яких заблоковані вхідні дзвінки або повідомлення.</string>
+    <string name="permlab_changePhoneBlacklist">зміна чорного списку</string>
+    <string name="permdesc_changePhoneBlacklist">Дозволяє програмі змінювати список абонентів, від яких заблоковані вхідні дзвінки або повідомлення.</string>
+    <string name="permlab_setKeyguardWallpaper">встановлення шпалер екрану блокування</string>
+    <string name="permdesc_setKeyguardWallpaper">Дозволяє програмі міняти шпалери екрану блокування.</string>
+    <string name="global_action_reboot">Перезавантаження</string>
+    <string name="global_action_current_user">Поточний</string>
+    <string name="reboot_reboot">Перезавантаження</string>
+    <string name="reboot_recovery">Recovery</string>
+    <string name="reboot_bootloader">Bootloader</string>
+    <string name="reboot_download">Download</string>
+    <string name="reboot_soft">Швидке перезавантаження</string>
+    <string name="reboot_title">Перезавантаження</string>
+    <string name="reboot_confirm" product="tablet">Ваш планшет перезавантажиться.</string>
+    <string name="reboot_confirm" product="default">Ваш телефон перезавантажиться.</string>
+    <string name="reboot_progress">Перезавантаження\u2026</string>
+    <string name="app_killed_message">Програму закрито</string>
+    <string name="adb_net_active_notification_title">ADB по мережі увімкнено</string>
+    <string name="adb_both_active_notification_title">ADB по USB та мережі увімкнено</string>
+    <string name="adb_active_generic_notification_message">Торкніться, аби вимкнути налагодження.</string>
+    <string name="adb_active_custom_tile">ADB - <xliff:g id="adb_type" example="USB">%1$s</xliff:g></string>
+    <string name="adb_active_custom_tile_both">USB та мережі</string>
+    <string name="adb_active_custom_tile_usb">USB</string>
+    <string name="adb_active_custom_tile_net">Мережа</string>
+    <string name="permlab_interceptPackageLaunch">Перехоплення запуску додатку</string>
+    <string name="stylus_app_not_installed">%s не встановлено</string>
+    <string name="silent_mode_priority">Пріоритет</string>
+    <string name="silent_mode_none">Немає</string>
+    <string name="subscription_change_disabled_wifi_ap">Точку доступу Wi-Fi вимкнено через зміну SIM-картки</string>
+    <string name="notify_turn_wifi_off_title">Вимкнути Wi-Fi</string>
+    <string name="permlab_changePrivacyGuardState">увімк. або вимк. Сторожа Приватності</string>
+    <string name="permdesc_changePrivacyGuardState">Програма може вибрати, чи буде друга програма працювати в захищеному режимі. Коли програму запущено в захищеному режимі, вона не отримає доступ до персональних даних, таких як контакти, повідомлення чи журнал дзвінків.</string>
+    <string name="privacy_guard_notification">Сторож Приватності активний</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> буде заборонено доступ до персональних даних</string>
+    <string name="privacy_guard_dialog_title">Сторож Приватності</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> намагається <xliff:g id="op">%2$s</xliff:g>.</string>
+    <string name="permission_remember_choice">Запам\'ятати мій вибір</string>
+    <string name="app_ops_access_camera">доступ до камери</string>
+    <string name="app_ops_access_location">доступ до місцезнаходження</string>
+    <string name="app_ops_access_notifications">читати ваші сповіщення</string>
+    <string name="app_ops_activate_vpn">активувати VPN</string>
+    <string name="app_ops_auto_start">запуск при включені пристрою</string>
+    <string name="app_ops_delete_call_log">видалити журнал викликів</string>
+    <string name="app_ops_delete_contacts">видалити контакти</string>
+    <string name="app_ops_delete_mms">видалити MMS-повідомлення</string>
+    <string name="app_ops_delete_sms">видалити SMS-повідомлення</string>
+    <string name="app_ops_draw_on_top">показувати вікна поверх</string>
+    <string name="app_ops_get_usage_stats">отримувати статистику використання програм</string>
+    <string name="app_ops_keep_device_awake">заборонити пристрою переходити в сплячий режим</string>
+    <string name="app_ops_make_phone_call">робити телефонні дзвінки</string>
+    <string name="app_ops_modify_calendar">змінювати дані календаря</string>
+    <string name="app_ops_modify_call_log">змінювати дані списку дзвінків</string>
+    <string name="app_ops_modify_clipboard">змінювати вміст буфера обміну</string>
+    <string name="app_ops_modify_contacts">змінювати дані контактів</string>
+    <string name="app_ops_modify_settings">змінювати системні налаштування</string>
+    <string name="app_ops_mute_unmute_microphone">вимк./увімк. мікрофон</string>
+    <string name="app_ops_play_audio">відтворювати аудіо</string>
+    <string name="app_ops_post_notification">виводити сповіщення</string>
+    <string name="app_ops_project_media">project media</string>
+    <string name="app_ops_read_calendar">читати дані календаря</string>
+    <string name="app_ops_read_call_log">читати журнал дзвінків</string>
+    <string name="app_ops_read_clipboard">читати буфер обміну</string>
+    <string name="app_ops_read_contacts">читати дані ваших контактів</string>
+    <string name="app_ops_read_mms">читати ваші MMS-повідомлення</string>
+    <string name="app_ops_read_sms">читати ваші SMS-повідомлення</string>
+    <string name="app_ops_receive_sms">отримувати SMS-повідомлення</string>
+    <string name="app_ops_record_audio">запис аудіо</string>
+    <string name="app_ops_send_mms">надсилати MMS-повідомлення</string>
+    <string name="app_ops_send_sms">надсилати SMS-повідомлення</string>
+    <string name="app_ops_start_at_bootup">запуск при включені пристрою</string>
+    <string name="app_ops_toast_window">показувати спливаючі сповіщення</string>
+    <string name="app_ops_toggle_bluetooth">увімк. або вимк. Bluetooth</string>
+    <string name="app_ops_toggle_mobile_data">Мобільні дані</string>
+    <string name="app_ops_toggle_nfc">увімк. вимк. NFC</string>
+    <string name="app_ops_toggle_wifi">Переключити Wi-Fi</string>
+    <string name="app_ops_use_alarm_volume">керування гучністю будильника</string>
+    <string name="app_ops_use_audio_focus">керування аудіо-фокусом</string>
+    <string name="app_ops_use_bluetooth_volume">керування гучністю Bluetooth</string>
+    <string name="app_ops_use_master_volume">керування загальною гучністю</string>
+    <string name="app_ops_use_media_buttons">використовувати кнопки мультимедіа</string>
+    <string name="app_ops_use_media_volume">керування гучністю медіа</string>
+    <string name="app_ops_use_notification_volume">керування гучністю сповіщень</string>
+    <string name="app_ops_use_ring_volume">керування гучністю дзвінка</string>
+    <string name="app_ops_use_vibrate">використовувати вібровідгук</string>
+    <string name="app_ops_use_voice_volume">отримати управління гучністю при розмові</string>
+    <string name="app_ops_write_mms">створити MMS-повідомлення</string>
+    <string name="app_ops_write_sms">створити SMS-повідомлення</string>
+    <string name="app_ops_use_fingerprint">використовувати відбитки пальців</string>
+    <string name="app_ops_add_voicemail">Додати голосове повідомлення</string>
+    <string name="app_ops_read_phone_state">Доступ до стану телефону</string>
+    <string name="app_ops_scan_wifi">Сканувати Wi-Fi мережі</string>
+    <string name="app_ops_change_wallpaper">зміна шпалер</string>
+    <string name="app_ops_assist_structure">Використовувати допоміжну структуру</string>
+    <string name="app_ops_assist_screenshot">Скріншот</string>
+    <string name="app_ops_use_body_sensors">Використовувати датчики</string>
+    <string name="app_ops_read_cell_broadcasts">Широкомовні повідомлення</string>
+    <string name="app_ops_mock_location">Фіктивне місцезнаходження</string>
+    <string name="app_ops_read_external_storage">Зчитати дані з карти пам\'яті</string>
+    <string name="app_ops_write_external_storage">Записати дані на карту пам\'яті</string>
+    <string name="app_ops_turn_on_screen">Увімкнути екран</string>
+    <string name="app_ops_get_accounts">Отримати інформацію про акаунти</string>
+    <string name="app_ops_wifi_change">Змінити стан Wi-Fi</string>
+    <string name="app_ops_su">отримати root-доступ</string>
+    <string name="lock_to_app_toast_no_navbar">Щоб відкріпити цей екран, торкніться й утримуйте кнопку назад.</string>
+    <string name="tethered_notification_no_device_message">Немає під\'єднаного пристрою</string>
+    <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> підключений пристрій</string>
+    <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> підключених пристроїв</string>
+    <string name="notify_package_component_protected_title">Запуск програми заборонений</string>
+    <string name="notify_package_component_protected_text">Запуск <xliff:g id="app_name">%1$s</xliff:g> заблоковано. Натисніть, щоб ввести пароль і запустити програму.</string>
+    <string name="notify_battery_fully_charged_title">Батарея повністю заряджена</string>
+    <string name="notify_battery_fully_charged_text">Від’єднайте зарядку задля покращення витривалості батареї.</string>
+    <string name="permlab_resetBatteryStats">скинути статистику акумулятора</string>
+    <string name="permdesc_resetBatteryStats">Дозволити програмі скидати дані про використання акумулятора.</string>
+    <string name="uicc_hot_swapped_event_title">SIM-карти було змінено</string>
+    <string name="uicc_hot_swapped_event_text">Натисніть, аби встановити типові параметри для SIM-карти</string>
 </resources>

@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">Uygulamalar</string>
-  <string name="picker_activities">Etkinlikler</string>
-  <string name="select_custom_app_title">Özel uygulama seç</string>
-  <string name="select_custom_activity_title">Özel etkinlik seç</string>
-  <string name="lockscreen_targets_message">Kilit ekranı kısayolları</string>
+    <string name="profile_applist_title">Uygulamalar</string>
+    <string name="picker_activities">Etkinlikler</string>
+    <string name="select_custom_app_title">Özel uygulama seç</string>
+    <string name="select_custom_activity_title">Özel etkinlik seç</string>
+    <string name="lockscreen_targets_message">Kilit ekranı kısayolları</string>
 </resources>

@@ -16,82 +16,134 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the data connection type 4G+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Weather string format in expanded statusbar header -->
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Strings for lockscreen shortcut hints -->
-  <!-- Dialog title for navigation bar button selection -->
-  <!-- Development shortcuts -->
-  <!-- Title shown in recents popup for wiping application's data -->
-  <!-- Title shown in recents popup for force stopping the application -->
-  <!-- Title shown in recents popup for uninstalling the application -->
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Lights settings, LED notification -->
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="quick_settings_nfc_label">NFC</string>
-  <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
-  <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the sync tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when sync changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when sync changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery mode tile in quick settings when on, power save mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery mode tile in quick settings when on, balanced mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery mode tile in quick settings when on, performance mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery mode tile in quick settings when on, efficiency mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery mode tile in quick settings when on, quick mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the battery mode tile changes to power save (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the battery mode tile changes to balanced (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the battery mode tile changes to performance (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the battery mode tile changes to efficiency (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the battery mode tile changes to quick (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the lock screen tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the lock screen tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when lock screen changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when battery saver changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when battery saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Dynamic tiles -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the location tile changes to battery saving (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the location tile changes to sensors only (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- detail header when adding a tile -->
-  <!-- Hotspot dialog message -->
-  <!-- Notification which notifies user flashlight is enabled -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <!-- CellularTile data sim not configured state string -->
-  <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Play queue -->
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Weather string format in keyguard -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_data_connection_4g_plus">4G+</string>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="left_shortcut_hint">Fei nei rjochts foar %1$s</string>
+    <string name="right_shortcut_hint">Fei nei links foar %1$s</string>
+    <string name="lockscreen_message">Tik links of rjochts op in piktogram om de fluchkeppeling opnij ta te wizen.</string>
+    <string name="lockscreen_default_target">Standert</string>
+    <string name="select_application">App selektearje</string>
+    <string name="lockscreen_choose_action_title">Aksje selektearje</string>
+    <string name="lockscreen_none_target">Gjin</string>
+    <string name="navbar_dialog_title">Kies de ta te wizen funksje</string>
+    <string name="navbar_home_button">Thúsknop</string>
+    <string name="navbar_recent_button">Resinte apps-knop</string>
+    <string name="navbar_search_button">Sykknop</string>
+    <string name="navbar_back_button">Tebekknop</string>
+    <string name="navbar_empty_button">Lege knop</string>
+    <string name="navbar_menu_conditional_button">Menuknop (altyd ferstopje)</string>
+    <string name="navbar_menu_always_button">Menuknop (altyd toane)</string>
+    <string name="navbar_menu_big_button">Menuknop</string>
+    <string name="accessibility_dpad_left">Cursor links</string>
+    <string name="accessibility_dpad_right">Cursor rjochts</string>
+    <string name="advanced_dev_option_wipe_app">App-gegevens wiskje</string>
+    <string name="advanced_dev_option_force_stop">No stopje</string>
+    <string name="advanced_dev_option_uninstall">Deynstallearje</string>
+    <string name="accessibility_notification_brightness">Ferljochtingshelderheid</string>
+    <string name="accessibility_quick_settings_profiles_off">Profilen út.</string>
+    <string name="accessibility_quick_settings_profiles">Profyl: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profilen útskeakele.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profyl wizige nei <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_compass_init">Inisjalisearje\u2026</string>
+    <string name="led_notification_title">Ferljochtingsynstellingen</string>
+    <string name="led_notification_text">LED-ferljochting ynskeakele troch ynstellingen</string>
+    <string name="qs_tile_edit_header_instruction">Tegels yndrukt hâlde om te ferpleatsen</string>
+    <string name="quick_settings_edit_label">Tegels bewurkje</string>
+    <string name="quick_settings_cannot_delete_edit_tile">Kin de bewurk-tegel net fuortsmite</string>
+    <string name="qs_tiles_reset_confirmation">Tegels flugge ynstellingen nei standertwearden weromstette?</string>
+    <string name="quick_settings_tile_reset_to_default">Standertyndieling opnij ynstelle</string>
+    <string name="quick_settings_title_header">Koptekst</string>
+    <string name="quick_settings_title_tiles">Tegels</string>
+    <string name="quick_settings_title_show_weather">It waar toane</string>
+    <string name="quick_settings_title_show_brightness_slider">Skowregeler helderheid</string>
+    <string name="quick_settings_title_enlarge_first_row">Earste rige fergrutsje</string>
+    <string name="screen_pinning_description_no_navbar">Mei skerm fêstsette wurdt it byldskerm beskoattele op ien werjefte.\n\nBliuw de Tebek-knop oanreitsje om it skerm los te meitsjen.</string>
+    <string name="quick_settings_custom_tile_detail_title">Oanpaste tegel</string>
+    <string name="quick_settings_remove">Tegel fuortsmite</string>
+    <string name="quick_settings_network_adb_label">ADB oer netwurk</string>
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_nfc_label">NFC</string>
+    <string name="quick_settings_profiles">Systeemprofilen</string>
+    <string name="quick_settings_profiles_off">Profilen útskeakele</string>
+    <string name="quick_settings_heads_up_label">Heads-up</string>
+    <string name="quick_settings_battery_saver_label">Batterijbesparring</string>
+    <string name="quick_settings_battery_saver_label_charging">Batterijbesparring (oplade)</string>
+    <string name="quick_settings_caffeine_label">Kafeïne</string>
+    <string name="accessibility_quick_settings_sync_off">Syngr. út.</string>
+    <string name="accessibility_quick_settings_sync_on">Syngr. oan.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Syngr. útskeakele.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Syngr. ynskeakele.</string>
+    <string name="quick_settings_sync_label">Syngronisearje</string>
+    <string name="quick_settings_volume_panel_label">Folumepaniel</string>
+    <string name="quick_settings_usb_tether_label">USB-tethering</string>
+    <string name="quick_settings_screen_timeout_detail_title">Skermtime-out</string>
+    <string name="quick_settings_lockscreen_label">Skermbefeiliging</string>
+    <string name="quick_settings_ambient_display_label">Omjouwingsdisplay</string>
+    <string name="quick_settings_lockscreen_label_enforced">Skermbefeiliging aktivearje</string>
+    <string name="quick_settings_lockscreen_label_locked_by_profile">Utskeakele troch profyl</string>
+    <string name="accessibility_quick_settings_screen_timeout">Skermtime-out: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_screen_timeout_changed">Skermtime-out wizige nei <xliff:g id="timeout" example="30 seconds">%s </xliff:g>.</string>
+    <string name="qs_tile_performance">Batterijmodus</string>
+    <string name="accessibility_quick_settings_perf_profile_pwrsv">Batterijmodus: enerzjybesparring.</string>
+    <string name="accessibility_quick_settings_perf_profile_bal">Batterijmodus: balansearre.</string>
+    <string name="accessibility_quick_settings_perf_profile_perf">Batterijmodus: prestaasjes.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_power">Batterijmodus: effisjint.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_perf">Batterijmodus: fluch.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">Batterijmodus: wizige nei enerzjybesparring.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bal">Batterijmodus: wizige nei balansearre.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_perf">Batterijmodus: wizige nei prestaasjes.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Batterijmodus: wizige nei effisjint.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Batterijmodus: wizige nei fluch.</string>
+    <string name="quick_settings_performance_profile_detail_title">Batterijmodus</string>
+    <string name="accessibility_quick_settings_lock_screen_off">Skermbeskoatteling út.</string>
+    <string name="accessibility_quick_settings_lock_screen_on">Skermbeskoatteling oan.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_off">Skermbeskoatteling útskeakele.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_on">Skermbeskoatteling ynskeakele.</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Omjouwingsdisplay út.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Omjouwingsdisplay oan.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Omjouwingsdisplay útskeakele.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Omjouwingsdisplay ynskeakele.</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads-up út.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-up oan.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up útskeakele.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up ynskeakele.</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafeïne út.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafeïne oan.</string>
+    <string name="accessibility_quick_settings_battery_saver_off">Batterijbesparring út.</string>
+    <string name="accessibility_quick_settings_battery_saver_on">Batterijbesparring oan.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_off">Batterijbesparring útskeakele.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_on">Batterijbesparring ynskeakele.</string>
+    <string name="quick_settings_dynamic_tile_detail_title">Dynamyske tegel</string>
+    <string name="dynamic_qs_tile_next_alarm_label">Folgjend alarm</string>
+    <string name="dynamic_qs_tile_ime_selector_label">Ynfiermetoade</string>
+    <string name="dynamic_qs_tile_su_label">Root-tagong</string>
+    <string name="dynamic_qs_tile_themes_label">Tema\'s</string>
+    <string name="quick_settings_title_advanced_location">Lokaasje mei 3 stannen</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Lokaasjemelding: batterijbesparring.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Lokaasjemelding: allinnich apparaat.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Lokaasjemelding: grutte sekuerens.</string>
+    <string name="quick_settings_location_detail_title">Lokaasjemodus</string>
+    <string name="quick_settings_location_battery_saving_label">Batterijbesparring</string>
+    <string name="quick_settings_location_gps_only_label">Allinnich apparaat</string>
+    <string name="quick_settings_location_high_accuracy_label">Grutte sekuerens</string>
+    <string name="accessibility_quick_settings_location_changed_battery_saving">Lokaasjemelding wizige nei batterijbesparring.</string>
+    <string name="accessibility_quick_settings_location_changed_gps_only">Lokaasjemelding wizige nei allinnich apparaat.</string>
+    <string name="accessibility_quick_settings_location_changed_high_accuracy">Lokaasjemelding wizige nei grutte sekuerens.</string>
+    <string name="quick_settings_tiles_category_system">Systeemtegels</string>
+    <string name="quick_settings_tiles_add_tiles">Tegel tafoegje</string>
+    <string name="hotspot_apm_message">Kin gjin ferbining meitsje mei mobile netwurken as fleantúchmodus ynskeakele is. Skeakelje fleantúchmodus út en probearje it opnij.</string>
+    <string name="quick_settings_tile_flashlight_not_title">Bûslampe stiet oan</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Tik om út te skeakeljen</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d client</item>
+        <item quantity="other">%1$d clients</item>
+    </plurals>
+    <string name="data_sim_not_configured">Gjin data-sim</string>
+    <string name="accessibility_dock_battery_level">Dock-batterij <xliff:g id="number">%d</xliff:g> prosint.</string>
+    <string name="play_queue_extention">Wachtrige werjaan</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="expand_hint">Fei omleech om út te klappen</string>
+    <string name="swipe_left_hint">Fei nei links foar <xliff:g id="app_name">%1$s</xliff:g></string>
+    <string name="swipe_right_hint">Fei nei rjochts foar meldingen</string>
 </resources>

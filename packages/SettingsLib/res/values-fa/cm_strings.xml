@@ -18,4 +18,10 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="profile_applist_title">برنامه ها</string>
+    <string name="picker_activities">فعالیت ها</string>
+    <string name="select_custom_app_title">انتخاب برنامه سفارشی</string>
+    <string name="select_custom_activity_title">انتخاب فعالیت سفارشی</string>
+    <string name="lockscreen_targets_message">میانبر های قفل صفحه</string>
+</resources>

@@ -16,81 +16,138 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the data connection type 4G+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Weather string format in expanded statusbar header -->
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Strings for lockscreen shortcut hints -->
-  <!-- Dialog title for navigation bar button selection -->
-  <!-- Development shortcuts -->
-  <!-- Title shown in recents popup for wiping application's data -->
-  <!-- Title shown in recents popup for force stopping the application -->
-  <!-- Title shown in recents popup for uninstalling the application -->
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Lights settings, LED notification -->
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
-  <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the sync tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when sync changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when sync changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery mode tile in quick settings when on, power save mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery mode tile in quick settings when on, balanced mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery mode tile in quick settings when on, performance mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery mode tile in quick settings when on, efficiency mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery mode tile in quick settings when on, quick mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the battery mode tile changes to power save (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the battery mode tile changes to balanced (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the battery mode tile changes to performance (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the battery mode tile changes to efficiency (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the battery mode tile changes to quick (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the lock screen tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the lock screen tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when lock screen changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when battery saver changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when battery saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Dynamic tiles -->
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the location tile changes to battery saving (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the location tile changes to sensors only (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- detail header when adding a tile -->
-  <!-- Hotspot dialog message -->
-  <!-- Notification which notifies user flashlight is enabled -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <!-- CellularTile data sim not configured state string -->
-  <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Play queue -->
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Weather string format in keyguard -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_data_connection_4g_plus">4G+</string>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="left_shortcut_hint">Llusga i\'r dde ar gyfer %1$s</string>
+    <string name="right_shortcut_hint">Llithra i\'r chwith ar gyfer %1$s</string>
+    <string name="lockscreen_message">Tapia eicon ar y chwith neu\'r dde i ail-neilltuo llwybr byr ar y sgrin cloi.</string>
+    <string name="lockscreen_default_target">Rhagosodiad</string>
+    <string name="select_application">Dewis ap</string>
+    <string name="lockscreen_choose_action_title">Dewis weithred</string>
+    <string name="lockscreen_none_target">Dim</string>
+    <string name="navbar_dialog_title">Dewis gweithred i\'w neilltuo</string>
+    <string name="navbar_home_button">Botwm cartref</string>
+    <string name="navbar_recent_button">Botwm eitemau diweddar</string>
+    <string name="navbar_search_button">Botwm chwilio</string>
+    <string name="navbar_back_button">Botwm nôl</string>
+    <string name="navbar_empty_button">Botwm gwag</string>
+    <string name="navbar_menu_conditional_button">Botwm dewislen (awtoGuddio)</string>
+    <string name="navbar_menu_always_button">Botwm dewislen (dangosoHyd)</string>
+    <string name="navbar_menu_big_button">Botwm dewislen</string>
+    <string name="accessibility_dpad_left">Pwyntydd chwith</string>
+    <string name="accessibility_dpad_right">Pwyntydd de</string>
+    <string name="advanced_dev_option_wipe_app">Clirio data\'r ap</string>
+    <string name="advanced_dev_option_force_stop">Gorfodi stopio</string>
+    <string name="advanced_dev_option_uninstall">Dadosod</string>
+    <string name="accessibility_notification_brightness">Disgleirdeb golau</string>
+    <string name="accessibility_quick_settings_profiles_off">Proffiliau i ffwrdd.</string>
+    <string name="accessibility_quick_settings_profiles">Proffil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Proffiliau wedi eu troi ffwrdd.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Proffiliau wedi eu newid i <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_compass_init">Yn ymgychwyn\u2026</string>
+    <string name="led_notification_title">Gosodiadau golau</string>
+    <string name="led_notification_text">Galluogwyd golau LED gan y gosodiadau</string>
+    <string name="qs_tile_edit_header_instruction">Cyffyrdda a dal teils i\'w ad-drefnu</string>
+    <string name="quick_settings_edit_label">Golygu teils</string>
+    <string name="quick_settings_cannot_delete_edit_tile">Methu â dileu\'r teil Golygu</string>
+    <string name="qs_tiles_reset_confirmation">Ailosod y teils gosodiadau cyflym i\'w rhagosodiadau?</string>
+    <string name="quick_settings_tile_reset_to_default">Ailosod i\'r gosodiad rhagosodedig</string>
+    <string name="quick_settings_title_header">Pennyn</string>
+    <string name="quick_settings_title_tiles">Teils</string>
+    <string name="quick_settings_title_show_weather">Dangos y tywydd</string>
+    <string name="quick_settings_title_show_brightness_slider">Dangos llithrydd disgleirdeb</string>
+    <string name="quick_settings_title_enlarge_first_row">Helaethu\'r rhes gyntaf</string>
+    <string name="screen_pinning_description_no_navbar">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei dadbinio. Cyffyrdda a dal y botwn Nôl i\'w dadbinio.</string>
+    <string name="quick_settings_custom_tile_detail_title">Teil addasedig</string>
+    <string name="quick_settings_remove">Tynnu\'r teil</string>
+    <string name="quick_settings_network_adb_label">ADB dros rwydwaith</string>
+    <string name="quick_settings_compass_label">Cwmpawd</string>
+    <string name="quick_settings_nfc_label">Cyfathrebiad Maes Cyfagos (NFC)</string>
+    <string name="quick_settings_profiles">Proffiliau system</string>
+    <string name="quick_settings_profiles_off">Analluogwyd proffiliau</string>
+    <string name="quick_settings_heads_up_label">Rhagrybudd</string>
+    <string name="quick_settings_battery_saver_label">Arbedwr batri</string>
+    <string name="quick_settings_battery_saver_label_charging">Arbedwr batri (yn gwefru)</string>
+    <string name="quick_settings_caffeine_label">Caffîn</string>
+    <string name="accessibility_quick_settings_sync_off">Cysoni i ffwrdd.</string>
+    <string name="accessibility_quick_settings_sync_on">Cysoni ymlaen.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Cysoni wedi\'i droi i ffwrdd.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Cysoni wedi\'i droi ymlaen.</string>
+    <string name="quick_settings_sync_label">Cysoni</string>
+    <string name="quick_settings_volume_panel_label">Panel uchder sain</string>
+    <string name="quick_settings_usb_tether_label">Tenynnu USB</string>
+    <string name="quick_settings_screen_timeout_detail_title">Terfyn amser y sgrin</string>
+    <string name="quick_settings_lockscreen_label">Sgrin cloi</string>
+    <string name="quick_settings_ambient_display_label">Dangosydd amgylchynol</string>
+    <string name="quick_settings_lockscreen_label_enforced">Gorfodir y sgrin cloi</string>
+    <string name="quick_settings_lockscreen_label_locked_by_profile">Analluogwyd gan broffil</string>
+    <string name="accessibility_quick_settings_screen_timeout">Terfyn amser y sgrin: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_screen_timeout_changed">Newidiwyd terfyn amser y sgrin i <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+    <string name="qs_tile_performance">Modd batri</string>
+    <string name="accessibility_quick_settings_perf_profile_pwrsv">Modd batri: modd arbed pŵer.</string>
+    <string name="accessibility_quick_settings_perf_profile_bal">Modd batri: modd cytbwys.</string>
+    <string name="accessibility_quick_settings_perf_profile_perf">Modd batri: modd perfformiad.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_power">Modd batri: Modd effeithlonrwydd.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_perf">Modd batri: modd cyflym.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">Newidiwyd y modd batri i fodd arbed pŵer.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bal">Newidiwyd y modd batri i fodd cytbwys.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_perf">Newidiwyd y modd batri i fodd perfformiad.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Newidiwyd y modd batri i fodd effeithlonrwydd.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Newidiwyd y modd batri i fodd cyflym.</string>
+    <string name="quick_settings_performance_profile_detail_title">Modd batri</string>
+    <string name="accessibility_quick_settings_lock_screen_off">Sgrin cloi i ffwrdd.</string>
+    <string name="accessibility_quick_settings_lock_screen_on">Sgrin cloi ymlaen.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_off">Sgrin cloi wedi\'i throi i ffwrdd.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_on">Sgrin cloi wedi\'i throi ymlaen.</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Dangosydd amgylchynol i ffwrdd.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Dangosydd amgylchynol ymlaen.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Dangosydd amgylchynol wedi\'i droi i ffwrdd.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Dangosydd amgylchynol wedi\'i droi ymlaen.</string>
+    <string name="accessibility_quick_settings_heads_up_off">Rhagrybudd i ffwrdd.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Rhagrybudd ymlaen.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Rhagrybudd wedi\'i droi i ffwrdd.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Rhagrybudd wedi\'i droi ymlaen.</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffîn i ffwrdd.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffîn ymlaen.</string>
+    <string name="accessibility_quick_settings_battery_saver_off">Arbedwr batri i ffwrdd.</string>
+    <string name="accessibility_quick_settings_battery_saver_on">Arbedwr batri ymlaen.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_off">Arbedwr batri wedi\'i droi i ffwrdd.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_on">Arbedwr batri wedi\'i droi i ymlaen.</string>
+    <string name="quick_settings_dynamic_tile_detail_title">Teilsen ddeinamig</string>
+    <string name="dynamic_qs_tile_next_alarm_label">Larwm nesaf</string>
+    <string name="dynamic_qs_tile_ime_selector_label">Dewisydd IME</string>
+    <string name="dynamic_qs_tile_su_label">Mynediad craidd</string>
+    <string name="dynamic_qs_tile_themes_label">Themâu</string>
+    <string name="quick_settings_title_advanced_location">Lleoliad tair ffurf</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Adrodd lleoliad: Modd arbed batri.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Adrodd lleoliad: Modd synwyryddion yn unig.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Adrodd lleoliad: Modd cywirdeb manwl.</string>
+    <string name="quick_settings_location_detail_title">Modd lleoliad</string>
+    <string name="quick_settings_location_battery_saving_label">Arbed batri</string>
+    <string name="quick_settings_location_gps_only_label">Dyfais yn unig</string>
+    <string name="quick_settings_location_high_accuracy_label">Cywirdeb manwl</string>
+    <string name="accessibility_quick_settings_location_changed_battery_saving">Adrodd lleoliad: Newidiwyd i fodd arbed batri.</string>
+    <string name="accessibility_quick_settings_location_changed_gps_only">Adrodd lleoliad: Newidiwyd i fodd synwyryddion yn unig.</string>
+    <string name="accessibility_quick_settings_location_changed_high_accuracy">Adrodd lleoliad: Newidiwyd i fodd cywirdeb manwl.</string>
+    <string name="quick_settings_tiles_category_system">Teiliau system</string>
+    <string name="quick_settings_tiles_add_tiles">Ychwanegu teil</string>
+    <string name="hotspot_apm_message">Methu â chysylltu â rhwydweithiau symudol tra bod Modd Awyren ymlaen. Tro Modd Awyren i ffwrdd a rhoi cynnig arall arni.</string>
+    <string name="quick_settings_tile_flashlight_not_title">Mae\'r fflacholau ymlaen</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Tapia i droi ffwrdd</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="zero">%1$d cleientiaid</item>
+        <item quantity="one">%1$d cleient</item>
+        <item quantity="two">%1$d gleient</item>
+        <item quantity="few">%1$d chleient</item>
+        <item quantity="many">%1$d chleient</item>
+        <item quantity="other">%1$d cleient</item>
+    </plurals>
+    <string name="data_sim_not_configured">Dim data SIM</string>
+    <string name="accessibility_dock_battery_level">Batri\'r doc <xliff:g id="number">%d</xliff:g> y cant.</string>
+    <string name="play_queue_extention">Dangos y ciw chwarae</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="expand_hint">Llusga i lawr i ehangu</string>
+    <string name="swipe_left_hint">Llusga i\'r chwith am <xliff:g id="app_name">%1$s</xliff:g></string>
+    <string name="swipe_right_hint">Llusg i\'r dde am hysbysiadau</string>
 </resources>

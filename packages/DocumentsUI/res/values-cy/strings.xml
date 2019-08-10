@@ -15,53 +15,67 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Title of the documents application [CHAR LIMIT=32] -->
-  <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
-  <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
-  <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
-  <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
-  <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
-  <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
-  <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
-  <!-- Menu item that enters activity to change settings [CHAR LIMIT=24] -->
-  <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
-  <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
-  <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
-  <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
-  <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
-  <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
-  <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
-  <!-- Menu item that reveals SD cards built into the device [CHAR LIMIT=24] -->
-  <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
-  <!-- Menu item that hides SD cards built into the device [CHAR LIMIT=24] -->
-  <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
-  <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
-  <!-- Button label that select the current directory [CHAR LIMIT=24] -->
-  <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
-  <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
-  <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
-  <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
-  <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
-  <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
-  <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
-  <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
-  <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
-  <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
-  <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
-  <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
-  <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
-  <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
-  <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
-  <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
-  <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
-  <!-- Title of the copy notification [CHAR LIMIT=24] -->
-  <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
-  <!-- Toast shown when a file copy is kicked off -->
-  <!-- Text shown on the copy notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
-  <!-- Title of the copy error notification [CHAR LIMIT=48] -->
-  <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
-  <!-- Label of a dialog button for retrying a failed operation [CHAR LIMIT=24] -->
-  <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
+    <string name="app_label">Dogfennau</string>
+    <string name="title_open">Agor o</string>
+    <string name="title_save">Cadw i</string>
+    <string name="menu_create_dir">Creu ffolder</string>
+    <string name="menu_grid">Golwg grid</string>
+    <string name="menu_list">Golwg rhestr</string>
+    <string name="menu_sort">Trefn</string>
+    <string name="menu_search">Chwilio</string>
+    <string name="menu_settings">Gosodiadau</string>
+    <string name="menu_open">Agor</string>
+    <string name="menu_save">Cadw</string>
+    <string name="menu_share">Rhannu</string>
+    <string name="menu_delete">Dileu</string>
+    <string name="menu_select_all">Dewis y cwbl</string>
+    <string name="menu_copy">Copïo i\u2026</string>
+    <string name="menu_advanced_show" product="nosdcard">Dangos y storfa fewnol</string>
+    <string name="menu_advanced_show" product="default">Dangos y cerdyn SD</string>
+    <string name="menu_advanced_hide" product="nosdcard">Cuddio\'r storfa fewnol</string>
+    <string name="menu_advanced_hide" product="default">Cuddio\'r cerdyn SD</string>
+    <string name="menu_file_size_show">Dangos meintiau ffeiliau</string>
+    <string name="menu_file_size_hide">Cuddio meintiau ffeiliau</string>
+    <string name="button_select">Dewis</string>
+    <string name="button_copy">Copïo</string>
+    <string name="sort_name">Yn ôl enw</string>
+    <string name="sort_date">Yn ôl dyddiad addasu</string>
+    <string name="sort_size">Yn ôl maint</string>
+    <string name="drawer_open">Dangos gwreiddiau</string>
+    <string name="drawer_close">Cuddio gwreiddiau</string>
+    <string name="save_error">Methwyd â chadw\'r ddogfen</string>
+    <string name="create_error">Methwyd â chreu ffolder</string>
+    <string name="query_error">Methwyd ag ymholi dogfennau</string>
+    <string name="root_recent">Diweddar</string>
+    <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s </xliff:g> ar gael</string>
+    <string name="root_type_service">Gwasanaethau storio</string>
+    <string name="root_type_shortcut">Llwybrau Byr</string>
+    <string name="root_type_device">Dyfeisiau</string>
+    <string name="root_type_apps">Rhagor o apiau</string>
+    <string name="empty">Dim eitemau</string>
+    <string name="toast_no_application">Methu ag agor y ffeil</string>
+    <string name="toast_failed_delete">Methu â dileu rhai dogfennau</string>
+    <string name="share_via">Rhannu drwy</string>
+    <string name="copy_notification_title">Copïo ffeiliau</string>
+    <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s </xliff:g> yn weddill</string>
+    <plurals name="copy_begin">
+        <item quantity="zero">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeiliau.</item>
+        <item quantity="one">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="two">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="few">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="many">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+        <item quantity="other">Yn copïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil.</item>
+    </plurals>
+    <string name="copy_preparing">Yn paratoi i gopïo\u2026</string>
+    <plurals name="copy_error_notification_title">
+        <item quantity="zero">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="one">Methwyd â chopïo <xliff:g id="count" example="1">%1$d</xliff:g> ffeil</item>
+        <item quantity="two">Methwyd â chopïo <xliff:g id="count" example="2">%1$d</xliff:g> ffeil</item>
+        <item quantity="few">Methwyd â chopïo <xliff:g id="count" example="3">%1$d</xliff:g> ffeil</item>
+        <item quantity="many">Methwyd â chopïo <xliff:g id="count" example="99">%1$d</xliff:g> ffeil</item>
+        <item quantity="other">Methwyd â chopïo <xliff:g id="count" example="4">%1$d</xliff:g> ffeil</item>
+    </plurals>
+    <string name="notification_touch_for_details">Cyffwrdd i weld manylion</string>
+    <string name="retry">Ailgeisio</string>
+    <string name="copy_failure_alert_content">Ni chafodd ffeiliau hyn eu copïo: <xliff:g id="list">%1$s</xliff:g></string>
 </resources>

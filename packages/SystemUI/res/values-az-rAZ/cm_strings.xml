@@ -16,173 +16,134 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the data connection type 4G+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$s üçün sağa sürüşdürün</string>
-  <string name="right_shortcut_hint">%1$s üçün sola sürüşdürün</string>
-  <string name="select_application">Tətbiqetmə seç</string>
-  <string name="lockscreen_choose_action_title">Hərəkət seç</string>
-  <string name="lockscreen_none_target">Yoxdur</string>
-  <!-- Dialog title for navigation bar button selection -->
-  <string name="navbar_dialog_title">Hərəkət seçin</string>
-  <string name="navbar_home_button">Əsas ekran düyməsi</string>
-  <string name="navbar_recent_button">Son tətb. düyməsi</string>
-  <string name="navbar_search_button">Axtarış düyməsi</string>
-  <string name="navbar_back_button">Geri düyməsi</string>
-  <string name="navbar_empty_button">Boş düymə</string>
-  <string name="navbar_menu_conditional_button">Menyu (avtoGizlət) düyməsi</string>
-  <string name="navbar_menu_always_button">Menyu (hmşGöstər) düyməsi</string>
-  <string name="navbar_menu_big_button">Menyu düyməsi</string>
-  <string name="accessibility_dpad_left">Sol kursor</string>
-  <string name="accessibility_dpad_right">Sağ kursor</string>
-  <!-- Development shortcuts -->
-  <!-- Title shown in recents popup for wiping application's data -->
-  <string name="advanced_dev_option_wipe_app">Tətbiq verilənlərini sil</string>
-  <!-- Title shown in recents popup for force stopping the application -->
-  <string name="advanced_dev_option_force_stop">Dayanmağa məcbur et</string>
-  <!-- Title shown in recents popup for uninstalling the application -->
-  <string name="advanced_dev_option_uninstall">Çıxart</string>
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">Profillər bağlıdır.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Profillər bağlıdır.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed"><xliff:g id="profile" example="Default">%s</xliff:g> profilinə keçildi.</string>
-  <string name="quick_settings_compass_init">Başladılır\u2026</string>
-  <!-- Lights settings, LED notification -->
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Ekrandan çıxarılana qədər görsənəcək. Çıxartmaq üçün Geri düyməsinə toxunub basılı tutun.</string>
-  <string name="quick_settings_custom_tile_detail_title">Özəl kvadrat</string>
-  <string name="quick_settings_remove">Kvadratı çıxart</string>
-  <string name="quick_settings_network_adb_label">Şəbəkə üzərindən ADB</string>
-  <string name="quick_settings_compass_label">Kompas</string>
-  <string name="quick_settings_nfc_label">NFC</string>
-  <string name="quick_settings_profiles">Sistem profilləri</string>
-  <string name="quick_settings_profiles_off">Profillər ləğv edildi</string>
-  <string name="quick_settings_heads_up_label">Açılan başlıqlar</string>
-  <string name="quick_settings_battery_saver_label">Batereyaya qənaət</string>
-  <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
-  <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_off">Eyniləşdirmə bağlıdır.</string>
-  <!-- Content description of the sync tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_on">Eyniləşdirmə açıqdır.</string>
-  <!-- Announcement made when sync changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_changed_off">Eyniləşdirmə bağlanıldı.</string>
-  <!-- Announcement made when sync changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_changed_on">Eyniləşdirmə açıldı.</string>
-  <string name="quick_settings_sync_label">Eyniləşdirmə</string>
-  <string name="quick_settings_volume_panel_label">Səs paneli</string>
-  <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
-  <string name="quick_settings_screen_timeout_detail_title">Ekrana qoyulan vaxt</string>
-  <string name="quick_settings_lockscreen_label">Kilid ekranı</string>
-  <string name="quick_settings_ambient_display_label">Bildiriş ekranı</string>
-  <string name="quick_settings_lockscreen_label_enforced">Kilit ekranı məcburidir</string>
-  <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_screen_timeout">Ekrana qoyulan vaxt: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
-  <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_screen_timeout_changed">Ekrana qoyulan vaxt <xliff:g id="timeout" example="30 seconds">%s</xliff:g> olaraq tənzimləndi.</string>
-  <string name="qs_tile_performance">Batereya rejimi</string>
-  <!-- Content description of the battery mode tile in quick settings when on, power save mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_pwrsv">Batereya rejimi: enerjiyə qənaəti rejimi.</string>
-  <!-- Content description of the battery mode tile in quick settings when on, balanced mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bal">Batereya rejimi: tarazlaşdırılmış rejim.</string>
-  <!-- Content description of the battery mode tile in quick settings when on, performance mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_perf">Batereya rejimi: performans rejimi.</string>
-  <!-- Content description of the battery mode tile in quick settings when on, efficiency mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bias_power">Batareya rejimi: səmərəli rejim.</string>
-  <!-- Content description of the battery mode tile in quick settings when on, quick mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bias_perf">Batereya rejimi: cəld rejim.</string>
-  <!-- Announcement made when the battery mode tile changes to power save (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">Batereya rejimi enerjiyə qənaət rejiminə keçdi.</string>
-  <!-- Announcement made when the battery mode tile changes to balanced (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_bal">Batereya rejimi tarazlaşdırılmış rejimə keçdi.</string>
-  <!-- Announcement made when the battery mode tile changes to performance (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_perf">Batereya rejimi performans rejiminə keçdi.</string>
-  <!-- Announcement made when the battery mode tile changes to efficiency (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Batereya rejimi səmərəli rejimə keçdi.</string>
-  <!-- Announcement made when the battery mode tile changes to quick (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Batereya rejimi cəld rejiminə keçdi.</string>
-  <string name="quick_settings_performance_profile_detail_title">Batereya rejimi</string>
-  <!-- Content description of the lock screen tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_off">Kilit ekranı bağlıdır.</string>
-  <!-- Content description of the lock screen tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_on">Kilit ekranı açıldı.</string>
-  <!-- Announcement made when lock screen changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_changed_off">Kilit ekranı bağlanıldı.</string>
-  <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_changed_on">Kilit ekranı açıldı.</string>
-  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_off">Bildiriş ekranı bağlıdır.</string>
-  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_on">Bildiriş ekranı açıqdır.</string>
-  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Bildiriş ekranı bağlanıldı.</string>
-  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Bildiriş ekranı açıldı.</string>
-  <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_off">Açılan başlıq bildirişi bağlıdır.</string>
-  <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_on">Açılan başlıq bildişi açıqdır.</string>
-  <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_changed_off">Açılan başlıq bildirişi bağlanıldı.</string>
-  <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_changed_on">Açılan başlıq bildirişi açıldı.</string>
-  <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_off">Batereyaya qənaət bağlıdır.</string>
-  <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_on">Batereyaya qənaət açıqdır.</string>
-  <!-- Announcement made when battery saver changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_changed_off">Batereyaya qənaət bağlanıldı.</string>
-  <!-- Announcement made when battery saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_changed_on">Batereyaya qənaət açıldı.</string>
-  <!-- Dynamic tiles -->
-  <string name="quick_settings_dynamic_tile_detail_title">Dinamik kvadrat</string>
-  <string name="dynamic_qs_tile_next_alarm_label">Növbəti zəngli saat</string>
-  <string name="dynamic_qs_tile_ime_selector_label">IME seçici</string>
-  <string name="dynamic_qs_tile_su_label">Root müraciəti</string>
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Yer hesabatı: batareyaya qənaət rejimi.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Yer hesabatı: yalnız sensorlar rejimi.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Yer hesabatı: yüksək həssaslıq rejimi.</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Yer rejimi</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">Batareyaya qənaət</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">Yalnız cihaz</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">Yüksək həssaslıq</string>
-  <!-- Announcement made when the location tile changes to battery saving (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_battery_saving">Yer bildirişi batereyaya qənaət rejiminə keçdi.</string>
-  <!-- Announcement made when the location tile changes to sensors only (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_gps_only">Yer bildirişi yalnız sensorlar rejiminə keçdi.</string>
-  <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_high_accuracy">Yer bildirişi yüksək dəqiqlik rejiminə keçdi.</string>
-  <!-- detail header when adding a tile -->
-  <!-- Hotspot dialog message -->
-  <!-- Notification which notifies user flashlight is enabled -->
-  <!-- Wi-Fi hotspot label when enabled -->
-  <!-- CellularTile data sim not configured state string -->
-  <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_dock_battery_level">Modul batareya faizi <xliff:g id="number">%d</xliff:g>.</string>
-  <!-- Play queue -->
-  <string name="play_queue_extention">Oynatma sırasını göstər</string>
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Weather string format in keyguard -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_data_connection_4g_plus">4G+</string>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="left_shortcut_hint">%1$s üçün sağa sürüşdürün</string>
+    <string name="right_shortcut_hint">%1$s üçün sola sürüşdürün</string>
+    <string name="lockscreen_message">Kilid ekranı qısayolu təyin etmək üçün sol və ya sağdakı nişana toxunun.</string>
+    <string name="lockscreen_default_target">İlkin</string>
+    <string name="select_application">Tətbiqetmə seç</string>
+    <string name="lockscreen_choose_action_title">Hərəkət seç</string>
+    <string name="lockscreen_none_target">Yoxdur</string>
+    <string name="navbar_dialog_title">Hərəkət seçin</string>
+    <string name="navbar_home_button">Əsas ekran düyməsi</string>
+    <string name="navbar_recent_button">Son tətb. düyməsi</string>
+    <string name="navbar_search_button">Axtarış düyməsi</string>
+    <string name="navbar_back_button">Geri düyməsi</string>
+    <string name="navbar_empty_button">Boş düymə</string>
+    <string name="navbar_menu_conditional_button">Menyu (avtoGizlət) düyməsi</string>
+    <string name="navbar_menu_always_button">Menyu (hmşGöstər) düyməsi</string>
+    <string name="navbar_menu_big_button">Menyu düyməsi</string>
+    <string name="accessibility_dpad_left">Sol kursor</string>
+    <string name="accessibility_dpad_right">Sağ kursor</string>
+    <string name="advanced_dev_option_wipe_app">Tətbiq verilənlərini sil</string>
+    <string name="advanced_dev_option_force_stop">Dayanmağa məcbur et</string>
+    <string name="advanced_dev_option_uninstall">Çıxart</string>
+    <string name="accessibility_notification_brightness">İşıq parlaqlığı</string>
+    <string name="accessibility_quick_settings_profiles_off">Profillər bağlıdır.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profillər söndürüldü.</string>
+    <string name="accessibility_quick_settings_profiles_changed"><xliff:g id="profile" example="Default">%s</xliff:g> profilinə keçildi.</string>
+    <string name="quick_settings_compass_init">Başladılır\u2026</string>
+    <string name="led_notification_title">İşıq tənzimləmələri</string>
+    <string name="led_notification_text">LED işıq, tənzimləmələr tərəfindən fəallaşdırıldı</string>
+    <string name="qs_tile_edit_header_instruction">Çərçivələrə yenidən düzəliş etmək üçün basılı tutun</string>
+    <string name="quick_settings_edit_label">Çərçivələrə düzəliş et</string>
+    <string name="quick_settings_cannot_delete_edit_tile">Düzəliş et çərçivəsi silinə bilmir</string>
+    <string name="qs_tiles_reset_confirmation">Cəld tənzimləmələr çərçivələri ilkin vəziyyətinə qaytarılsın?</string>
+    <string name="quick_settings_tile_reset_to_default">İlkin düzümə qaytar</string>
+    <string name="quick_settings_title_header">Başlıq</string>
+    <string name="quick_settings_title_tiles">Çərçivələr</string>
+    <string name="quick_settings_title_show_weather">Havanı göstər</string>
+    <string name="quick_settings_title_show_brightness_slider">Parlaqlıq diyircəyini göstər</string>
+    <string name="quick_settings_title_enlarge_first_row">İlk sətri böyüt</string>
+    <string name="screen_pinning_description_no_navbar">Ekrandan çıxarılana qədər görsənəcək. Çıxartmaq üçün Geri düyməsinə toxunub basılı tutun.</string>
+    <string name="quick_settings_custom_tile_detail_title">Özəl çərçivə</string>
+    <string name="quick_settings_remove">Çərçivəni çıxart</string>
+    <string name="quick_settings_network_adb_label">Şəbəkə üzərindən ADB</string>
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_nfc_label">NFC</string>
+    <string name="quick_settings_profiles">Sistem profilləri</string>
+    <string name="quick_settings_profiles_off">Profillər sıradan çıxarıldı</string>
+    <string name="quick_settings_heads_up_label">Açılan başlıqlar</string>
+    <string name="quick_settings_battery_saver_label">Batereyaya qənaət</string>
+    <string name="quick_settings_battery_saver_label_charging">Batereyaya qənaət (dolur)</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_sync_off">Eyniləşdirmə bağlıdır.</string>
+    <string name="accessibility_quick_settings_sync_on">Eyniləşdirmə açıqdır.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Eyniləşdirmə söndürüldü.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Eyniləşdirmə işə salındı.</string>
+    <string name="quick_settings_sync_label">Eyniləşdirmə</string>
+    <string name="quick_settings_volume_panel_label">Səs paneli</string>
+    <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
+    <string name="quick_settings_screen_timeout_detail_title">Ekranın açıq qalma vaxtı</string>
+    <string name="quick_settings_lockscreen_label">Kilid ekranı</string>
+    <string name="quick_settings_ambient_display_label">Bildiriş ekranı</string>
+    <string name="quick_settings_lockscreen_label_enforced">Kilid ekranı məcburidir</string>
+    <string name="quick_settings_lockscreen_label_locked_by_profile">Profil tərəfindən sıradan çıxarıldı</string>
+    <string name="accessibility_quick_settings_screen_timeout">Ekranın açıq qalma vaxtı: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_screen_timeout_changed">Ekranın açıq qalma vaxtı <xliff:g id="timeout" example="30 seconds">%s</xliff:g> olaraq tənzimləndi.</string>
+    <string name="qs_tile_performance">Batereya rejimi</string>
+    <string name="accessibility_quick_settings_perf_profile_pwrsv">Batereya rejimi: enerjiyə qənaəti rejimi.</string>
+    <string name="accessibility_quick_settings_perf_profile_bal">Batereya rejimi: tarazlaşdırılmış rejim.</string>
+    <string name="accessibility_quick_settings_perf_profile_perf">Batereya rejimi: performans rejimi.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_power">Batareya rejimi: səmərəli rejim.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_perf">Batereya rejimi: cəld rejim.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">Batereya rejimi enerjiyə qənaət rejiminə keçdi.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bal">Batereya rejimi tarazlaşdırılmış rejimə keçdi.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_perf">Batereya rejimi performans rejiminə keçdi.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Batereya rejimi səmərəli rejimə keçdi.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Batereya rejimi cəld rejiminə keçdi.</string>
+    <string name="quick_settings_performance_profile_detail_title">Batereya rejimi</string>
+    <string name="accessibility_quick_settings_lock_screen_off">Kilid ekranı bağlıdır.</string>
+    <string name="accessibility_quick_settings_lock_screen_on">Kilid ekranı açıldı.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_off">Kilid ekranı söndürüldü.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_on">Kilid ekranı işə salındı.</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Bildiriş ekranı bağlıdır.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Bildiriş ekranı açıqdır.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Bildiriş ekranı söndürüldü.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildiriş ekranı işə salındı.</string>
+    <string name="accessibility_quick_settings_heads_up_off">Açılan başlıqlar bağlıdır.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Açılan başlıqlar açıqdır.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Açılan başlıqlar söndürüldü.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Açılan başlıqlar işə salındı.</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein bağlıdır.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein açıqdır.</string>
+    <string name="accessibility_quick_settings_battery_saver_off">Batereyaya qənaət bağlıdır.</string>
+    <string name="accessibility_quick_settings_battery_saver_on">Batereyaya qənaət açıqdır.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_off">Batereyaya qənaət söndürüldü.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_on">Batereyaya qənaət işə salındı.</string>
+    <string name="quick_settings_dynamic_tile_detail_title">Dinamik çərçivə</string>
+    <string name="dynamic_qs_tile_next_alarm_label">Növbəti zəngli saat</string>
+    <string name="dynamic_qs_tile_ime_selector_label">IME seçici</string>
+    <string name="dynamic_qs_tile_su_label">Kök müraciəti</string>
+    <string name="dynamic_qs_tile_themes_label">Temalar</string>
+    <string name="quick_settings_title_advanced_location">3 vəziyyətli yer</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Yer hesabatı: batereyaya qənaət rejimi.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Yer hesabatı: yalnız sensorlar rejimi.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Yer hesabatı: yüksək həssaslıq rejimi.</string>
+    <string name="quick_settings_location_detail_title">Yer rejimi</string>
+    <string name="quick_settings_location_battery_saving_label">Batereyaya qənaət</string>
+    <string name="quick_settings_location_gps_only_label">Yalnız cihaz</string>
+    <string name="quick_settings_location_high_accuracy_label">Yüksək həssaslıq</string>
+    <string name="accessibility_quick_settings_location_changed_battery_saving">Yer hesabatı batereyaya qənaət rejiminə keçdi.</string>
+    <string name="accessibility_quick_settings_location_changed_gps_only">Yer hesabatı yalnız sensorlar rejiminə keçdi.</string>
+    <string name="accessibility_quick_settings_location_changed_high_accuracy">Yer hesabatı yüksək dəqiqlik rejiminə keçdi.</string>
+    <string name="quick_settings_tiles_category_system">Sistem çərçivələri</string>
+    <string name="quick_settings_tiles_add_tiles">Çərçivə əlavə et</string>
+    <string name="hotspot_apm_message">Təyyarə rejimi fəal olanda hüceyrəvi şəbəkələrlə bağlantı qurmaq olmur. Təyyarə rejimini sıradan çıxarıb yenidən sınayın.</string>
+    <string name="quick_settings_tile_flashlight_not_title">Fənər yanılıdır</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Söndürmək üçün toxun</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d cihaz</item>
+        <item quantity="other">%1$d cihaz</item>
+    </plurals>
+    <string name="data_sim_not_configured">SIM verilənləri yoxdu</string>
+    <string name="accessibility_dock_battery_level">Modul batareya faizi <xliff:g id="number">%d</xliff:g>.</string>
+    <string name="play_queue_extention">Oynatma sırasını göstər</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="expand_hint">Genişləndirmək üçün aşağı sürüşdürün</string>
+    <string name="swipe_left_hint"><xliff:g id="app_name">%1$s</xliff:g> üçün sola sürüşdürün</string>
+    <string name="swipe_right_hint">Bildirişləri açmaq üçün sağa sürüşdürün</string>
 </resources>

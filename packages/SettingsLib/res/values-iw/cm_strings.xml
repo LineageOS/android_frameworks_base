@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">יישומים</string>
-  <string name="picker_activities">פעילויות</string>
-  <string name="select_custom_app_title">בחר יישום מותאם אישית</string>
-  <string name="select_custom_activity_title">בחר פעילות מותאמת אישית</string>
-  <string name="lockscreen_targets_message">קיצורי דרך במסך הנעילה</string>
+    <string name="profile_applist_title">יישומים</string>
+    <string name="picker_activities">פעילויות</string>
+    <string name="select_custom_app_title">בחר יישום מותאם אישית</string>
+    <string name="select_custom_activity_title">בחר פעילות מותאמת אישית</string>
+    <string name="lockscreen_targets_message">קיצורי דרך במסך הנעילה</string>
 </resources>

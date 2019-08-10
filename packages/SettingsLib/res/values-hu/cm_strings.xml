@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">Alkalmazások</string>
-  <string name="picker_activities">Tevékenységek</string>
-  <string name="select_custom_app_title">Válassz egyedi alkalmazást</string>
-  <string name="select_custom_activity_title">Válassz egyedi tevékenységet</string>
-  <string name="lockscreen_targets_message">Zárképernyő hivatkozások</string>
+    <string name="profile_applist_title">Alkalmazások</string>
+    <string name="picker_activities">Tevékenységek</string>
+    <string name="select_custom_app_title">Válassz egyedi alkalmazást</string>
+    <string name="select_custom_activity_title">Válassz egyedi tevékenységet</string>
+    <string name="lockscreen_targets_message">Zárképernyő hivatkozások</string>
 </resources>

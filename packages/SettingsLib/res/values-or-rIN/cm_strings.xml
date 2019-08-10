@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">ଆପ୍ଲିକେସନଗୁଡିକ</string>
-  <string name="picker_activities">କାର୍ଯ୍ୟକଳାପଗୁଡିକ</string>
-  <string name="select_custom_app_title">କଷ୍ଟମ୍‍ ଆପ୍ଲିକେସନ୍‍ ଚୟନ କରନ୍ତୁ</string>
-  <string name="select_custom_activity_title">କଷ୍ଟମ୍‍ ସଂଚାଳନ ଚୟନ କରନ୍ତୁ</string>
-  <string name="lockscreen_targets_message">ଲକ୍‍ ସ୍କ୍ରିନ୍‍ ସର୍ଟ୍‍କଟ୍‍ଗୁଡିକ</string>
+    <string name="profile_applist_title">ଆପ୍ଲିକେସନଗୁଡିକ</string>
+    <string name="picker_activities">କାର୍ଯ୍ୟକଳାପଗୁଡିକ</string>
+    <string name="select_custom_app_title">କଷ୍ଟମ୍‍ ଆପ୍ଲିକେସନ୍‍ ଚୟନ କରନ୍ତୁ</string>
+    <string name="select_custom_activity_title">କଷ୍ଟମ୍‍ ସଂଚାଳନ ଚୟନ କରନ୍ତୁ</string>
+    <string name="lockscreen_targets_message">ଲକ୍‍ ସ୍କ୍ରିନ୍‍ ସର୍ଟ୍‍କଟ୍‍ଗୁଡିକ</string>
 </resources>

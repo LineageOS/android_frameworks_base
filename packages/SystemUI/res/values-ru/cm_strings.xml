@@ -16,212 +16,136 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Content description of the data connection type 4G+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_4g_plus">4G+</string>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$s: проведите от значка</string>
-  <string name="right_shortcut_hint">%1$s: проведите от значка</string>
-  <string name="lockscreen_message">Нажмите значок слева или справа для изменения ярлыка экрана блокировки.</string>
-  <string name="lockscreen_default_target">По умолчанию</string>
-  <string name="select_application">Выбор приложения</string>
-  <string name="lockscreen_choose_action_title">Выбор действия</string>
-  <string name="lockscreen_none_target">Ничего</string>
-  <!-- Dialog title for navigation bar button selection -->
-  <string name="navbar_dialog_title">Выберите действие</string>
-  <string name="navbar_home_button">Домой</string>
-  <string name="navbar_recent_button">Запущ. приложения</string>
-  <string name="navbar_search_button">Поиск</string>
-  <string name="navbar_back_button">Назад</string>
-  <string name="navbar_empty_button">Пустая кнопка</string>
-  <string name="navbar_menu_conditional_button">Меню (если доступно)</string>
-  <string name="navbar_menu_always_button">Меню (всегда)</string>
-  <string name="navbar_menu_big_button">Меню</string>
-  <string name="accessibility_dpad_left">Курсор влево</string>
-  <string name="accessibility_dpad_right">Курсор вправо</string>
-  <!-- Development shortcuts -->
-  <!-- Title shown in recents popup for wiping application's data -->
-  <string name="advanced_dev_option_wipe_app">Стереть данные</string>
-  <!-- Title shown in recents popup for force stopping the application -->
-  <string name="advanced_dev_option_force_stop">Остановить</string>
-  <!-- Title shown in recents popup for uninstalling the application -->
-  <string name="advanced_dev_option_uninstall">Удалить</string>
-  <!-- Content description of the light brightness slider (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_notification_brightness">Яркость</string>
-  <!-- Content description of the profiles tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_off">Профили выключены.</string>
-  <!-- Content description of the profiles tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles">Профиль: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <!-- Announcement made when the profiles tile changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed_off">Профили выключены.</string>
-  <!-- Announcement made when the profiles tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_profiles_changed">Профиль изменён на <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-  <string name="quick_settings_compass_init">Включение\u2026</string>
-  <!-- Lights settings, LED notification -->
-  <string name="led_notification_title">Настройки яркости</string>
-  <string name="led_notification_text">Светодиод включен параметрами</string>
-  <string name="qs_tile_edit_header_instruction">Нажмите и удерживайте плитку для изменения</string>
-  <string name="quick_settings_edit_label">Редактировать плитки</string>
-  <string name="quick_settings_cannot_delete_edit_tile">Невозможно удалить кнопку редактирования</string>
-  <string name="qs_tiles_reset_confirmation">Восстановить набор плиток по умолчанию?</string>
-  <string name="quick_settings_tile_reset_to_default">Восстановить стандартные</string>
-  <string name="quick_settings_title_header">Заголовок</string>
-  <string name="quick_settings_title_tiles">Плитки</string>
-  <string name="quick_settings_title_show_weather">Сведения о погоде</string>
-  <string name="quick_settings_title_show_brightness_slider">Показывать регулятор яркости</string>
-  <string name="quick_settings_title_enlarge_first_row">Увеличить первый ряд</string>
-  <!-- Screen pinning dialog description (for devices without navbar) -->
-  <string name="screen_pinning_description_no_navbar">Это приложение останется активным, пока вы не отмените блокировку долгим нажатием кнопки «Назад».</string>
-  <string name="quick_settings_custom_tile_detail_title">Пользовательская плитка</string>
-  <string name="quick_settings_remove">Удалить плитку</string>
-  <string name="quick_settings_network_adb_label">Отладка по сети</string>
-  <string name="quick_settings_compass_label">Компас</string>
-  <string name="quick_settings_nfc_label">NFC</string>
-  <string name="quick_settings_profiles">Профили системы</string>
-  <string name="quick_settings_profiles_off">Профили отключены</string>
-  <string name="quick_settings_heads_up_label">Всплывающие уведомления</string>
-  <string name="quick_settings_battery_saver_label">Энергосбережение</string>
-  <!-- quick settings battery saver label to show when device is charging and tile is disabled -->
-  <string name="quick_settings_battery_saver_label_charging">Энергосбережение (идёт зарядка)</string>
-  <string name="quick_settings_caffeine_label">Запрет сна</string>
-  <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_off">Синхронизация отключена.</string>
-  <!-- Content description of the sync tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_on">Синхронизация включена.</string>
-  <!-- Announcement made when sync changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_changed_off">Синхронизация отключена.</string>
-  <!-- Announcement made when sync changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_sync_changed_on">Синхронизация включена.</string>
-  <string name="quick_settings_sync_label">Синхронизация</string>
-  <string name="quick_settings_volume_panel_label">Панель громкости</string>
-  <string name="quick_settings_usb_tether_label">USB-модем</string>
-  <string name="quick_settings_screen_timeout_detail_title">Задержка отключения экрана</string>
-  <string name="quick_settings_lockscreen_label">Экран блокировки</string>
-  <string name="quick_settings_ambient_display_label">Индикация событий</string>
-  <string name="quick_settings_lockscreen_label_enforced">Блокировка экрана включена</string>
-  <string name="quick_settings_lockscreen_label_locked_by_profile">Отключено профилем</string>
-  <!-- Content description of the screen timeout tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_screen_timeout">Время до выключения экрана: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
-  <!-- Announcement made when the screen timeout tile changes (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_screen_timeout_changed">Время до выключения экрана изменено на <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
-  <string name="qs_tile_performance">Энергопотребление</string>
-  <!-- Content description of the battery mode tile in quick settings when on, power save mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_pwrsv">Режим энергопотребления: сберегающий.</string>
-  <!-- Content description of the battery mode tile in quick settings when on, balanced mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bal">Режим энергопотребления: сбалансированный.</string>
-  <!-- Content description of the battery mode tile in quick settings when on, performance mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_perf">Режим энергопотребления: высокая производительность.</string>
-  <!-- Content description of the battery mode tile in quick settings when on, efficiency mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bias_power">Режим энергопотребления: энергоэффективный.</string>
-  <!-- Content description of the battery mode tile in quick settings when on, quick mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_bias_perf">Режим энергопотребления: оптимальная производительность.</string>
-  <!-- Announcement made when the battery mode tile changes to power save (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">Режим энергопотребления изменён на сберегающий.</string>
-  <!-- Announcement made when the battery mode tile changes to balanced (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_bal">Режим энергопотребления изменён на сбалансированный.</string>
-  <!-- Announcement made when the battery mode tile changes to performance (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_perf">Режим энергопотребления изменён на производительный.</string>
-  <!-- Announcement made when the battery mode tile changes to efficiency (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Режим энергопотребления изменён на эффективный.</string>
-  <!-- Announcement made when the battery mode tile changes to quick (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Режим энергопотребления изменён на режим оптимальной производительности.</string>
-  <string name="quick_settings_performance_profile_detail_title">Энергопотребление</string>
-  <!-- Content description of the lock screen tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_off">Экран блокировки выключен.</string>
-  <!-- Content description of the lock screen tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_on">Экран блокировки включён.</string>
-  <!-- Announcement made when lock screen changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_changed_off">Экран блокировки выключен.</string>
-  <!-- Announcement made when lock screen changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_lock_screen_changed_on">Экран блокировки включён.</string>
-  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_off">Индикация событий экраном отключена.</string>
-  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_on">Индикация событий экраном включена.</string>
-  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Индикация событий экраном отключена.</string>
-  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Индикация событий экраном включена.</string>
-  <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_off">Всплывающие уведомления отключены.</string>
-  <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления включены.</string>
-  <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления отключены.</string>
-  <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены.</string>
-  <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">Переход в спящий режим разрешён.</string>
-  <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">Переход в спящий режим запрещён.</string>
-  <!-- Content description of the battery saver tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_off">Режим энергосбережения выключен.</string>
-  <!-- Content description of the battery saver tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_on">Режим энергосбережения включён.</string>
-  <!-- Announcement made when battery saver changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_changed_off">Режим энергосбережения выключен.</string>
-  <!-- Announcement made when battery saver changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_battery_saver_changed_on">Режим энергосбережения включён.</string>
-  <!-- Dynamic tiles -->
-  <string name="quick_settings_dynamic_tile_detail_title">Динамическая плитка</string>
-  <string name="dynamic_qs_tile_next_alarm_label">Следующий будильник</string>
-  <string name="dynamic_qs_tile_ime_selector_label">Выбор метода ввода</string>
-  <string name="dynamic_qs_tile_su_label">Суперпользователь</string>
-  <string name="dynamic_qs_tile_themes_label">Темы</string>
-  <string name="quick_settings_title_advanced_location">Параметры отправки геоданных</string>
-  <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_battery_saving">Отправка местоположения: режим экономии батареи.</string>
-  <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_gps_only">Отправка местоположения: только по GPS.</string>
-  <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_high_accuracy">Отправка местоположения: режим высокой точности.</string>
-  <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_detail_title">Определение местоположения</string>
-  <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_battery_saving_label">По координатам сети</string>
-  <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_gps_only_label">По спутникам GPS</string>
-  <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_location_high_accuracy_label">По всем источникам</string>
-  <!-- Announcement made when the location tile changes to battery saving (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_battery_saving">Служба отправки местоположения переключена в режим экономии батареи.</string>
-  <!-- Announcement made when the location tile changes to sensors only (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_gps_only">Для отправки местоположения используются только данные GPS.</string>
-  <!-- Announcement made when the location tile changes to high accuracy (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_location_changed_high_accuracy">Служба отправки местоположения переключена в режим высокой точности.</string>
-  <string name="quick_settings_tiles_category_system">Системные плитки</string>
-  <!-- detail header when adding a tile -->
-  <string name="quick_settings_tiles_add_tiles">Добавление плитки</string>
-  <!-- Hotspot dialog message -->
-  <string name="hotspot_apm_message">Подключение к мобильной сети невозможно, пока включён режим полёта. Отключите его, а затем повторите попытку.</string>
-  <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Фонарик включён</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Нажмите, чтобы отключить</string>
-  <!-- Wi-Fi hotspot label when enabled -->
-  <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">Подключено %1$d устройство</item>
-    <item quantity="few">Подключены %1$d устройства</item>
-    <item quantity="other">Подключено %1$d устройств</item>
-  </plurals>
-  <!-- CellularTile data sim not configured state string -->
-  <string name="data_sim_not_configured">Нет SIM для моб. данных</string>
-  <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_dock_battery_level">Заряд батареи док-станции <xliff:g id="number">%d</xliff:g> процентов.</string>
-  <!-- Play queue -->
-  <string name="play_queue_extention">Показать очередь воспроизведения</string>
-  <!-- Path data for portrait battery -->
-  <!-- Path data for landscape battery -->
-  <!-- Path data for circle battery -->
-  <!-- Weather string format in keyguard -->
-  <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g>, <xliff:g id="condition">%2$s</xliff:g></string>
-  <string name="expand_hint">Проведите вниз, чтобы развернуть</string>
-  <string name="swipe_left_hint">Проведите влево, чтобы перейти к <xliff:g id="app_name">%1$s </xliff:g></string>
-  <string name="swipe_right_hint">Проведите вправо, чтобы перейти к уведомлениям</string>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_data_connection_4g_plus">4G+</string>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="left_shortcut_hint">Свайп вправо для %1$s</string>
+    <string name="right_shortcut_hint">Свайп влево для %1$s</string>
+    <string name="lockscreen_message">Нажмите значок слева или справа для изменения ярлыка экрана блокировки.</string>
+    <string name="lockscreen_default_target">По умолчанию</string>
+    <string name="select_application">Выбор приложения</string>
+    <string name="lockscreen_choose_action_title">Выбор действия</string>
+    <string name="lockscreen_none_target">Ничего</string>
+    <string name="navbar_dialog_title">Выберите действие</string>
+    <string name="navbar_home_button">Домой</string>
+    <string name="navbar_recent_button">Запущ. приложения</string>
+    <string name="navbar_search_button">Поиск</string>
+    <string name="navbar_back_button">Назад</string>
+    <string name="navbar_empty_button">Пустая кнопка</string>
+    <string name="navbar_menu_conditional_button">Меню (если доступно)</string>
+    <string name="navbar_menu_always_button">Меню (всегда)</string>
+    <string name="navbar_menu_big_button">Меню</string>
+    <string name="accessibility_dpad_left">Курсор влево</string>
+    <string name="accessibility_dpad_right">Курсор вправо</string>
+    <string name="advanced_dev_option_wipe_app">Стереть данные</string>
+    <string name="advanced_dev_option_force_stop">Остановить</string>
+    <string name="advanced_dev_option_uninstall">Удалить</string>
+    <string name="accessibility_notification_brightness">Яркость</string>
+    <string name="accessibility_quick_settings_profiles_off">Профили выключены.</string>
+    <string name="accessibility_quick_settings_profiles">Профиль: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Профили выключены.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Профиль изменен на <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_compass_init">Включение\u2026</string>
+    <string name="led_notification_title">Настройки яркости</string>
+    <string name="led_notification_text">Светодиод включен параметрами</string>
+    <string name="qs_tile_edit_header_instruction">Нажмите и удерживайте плитку для изменения</string>
+    <string name="quick_settings_edit_label">Редактировать плитки</string>
+    <string name="quick_settings_cannot_delete_edit_tile">Невозможно удалить кнопку редактирования</string>
+    <string name="qs_tiles_reset_confirmation">Восстановить набор плиток по умолчанию?</string>
+    <string name="quick_settings_tile_reset_to_default">Восстановить стандартные</string>
+    <string name="quick_settings_title_header">Заголовок</string>
+    <string name="quick_settings_title_tiles">Плитки</string>
+    <string name="quick_settings_title_show_weather">Сведения о погоде</string>
+    <string name="quick_settings_title_show_brightness_slider">Показывать регулятор яркости</string>
+    <string name="quick_settings_title_enlarge_first_row">Увеличить первый ряд</string>
+    <string name="screen_pinning_description_no_navbar">Это приложение останется активным, пока вы не отмените блокировку долгим нажатием кнопки «Назад».</string>
+    <string name="quick_settings_custom_tile_detail_title">Пользовательская плитка</string>
+    <string name="quick_settings_remove">Удалить плитку</string>
+    <string name="quick_settings_network_adb_label">ADB по сети</string>
+    <string name="quick_settings_compass_label">Компас</string>
+    <string name="quick_settings_nfc_label">NFC</string>
+    <string name="quick_settings_profiles">Системные профили</string>
+    <string name="quick_settings_profiles_off">Профили отключены</string>
+    <string name="quick_settings_heads_up_label">Всплывающие уведомления</string>
+    <string name="quick_settings_battery_saver_label">Энергосбережение</string>
+    <string name="quick_settings_battery_saver_label_charging">Энергосбережение (идет зарядка)</string>
+    <string name="quick_settings_caffeine_label">Кофеин</string>
+    <string name="accessibility_quick_settings_sync_off">Синхронизация отключена.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхронизация включена.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронизация отключена.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронизация включена.</string>
+    <string name="quick_settings_sync_label">Синхронизация</string>
+    <string name="quick_settings_volume_panel_label">Панель громкости</string>
+    <string name="quick_settings_usb_tether_label">USB-модем</string>
+    <string name="quick_settings_screen_timeout_detail_title">Задержка отключения экрана</string>
+    <string name="quick_settings_lockscreen_label">Экран блокировки</string>
+    <string name="quick_settings_ambient_display_label">Индикация событий</string>
+    <string name="quick_settings_lockscreen_label_enforced">Блокировка экрана включена</string>
+    <string name="quick_settings_lockscreen_label_locked_by_profile">Отключено профилем</string>
+    <string name="accessibility_quick_settings_screen_timeout">Время до выключения экрана: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_screen_timeout_changed">Время до выключения экрана изменено на <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+    <string name="qs_tile_performance">Энергопотребление</string>
+    <string name="accessibility_quick_settings_perf_profile_pwrsv">Режим энергопотребления: сберегающий.</string>
+    <string name="accessibility_quick_settings_perf_profile_bal">Режим энергопотребления: сбалансированный.</string>
+    <string name="accessibility_quick_settings_perf_profile_perf">Режим энергопотребления: высокая производительность.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_power">Режим энергопотребления: энергоэффективный.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_perf">Режим энергопотребления: оптимальная производительность.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">Режим энергопотребления изменен на сберегающий.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bal">Режим энергопотребления изменен на сбалансированный.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_perf">Режим энергопотребления изменен на производительный.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Режим энергопотребления изменен на эффективный.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Режим энергопотребления изменен на режим оптимальной производительности.</string>
+    <string name="quick_settings_performance_profile_detail_title">Энергопотребление</string>
+    <string name="accessibility_quick_settings_lock_screen_off">Экран блокировки выключен.</string>
+    <string name="accessibility_quick_settings_lock_screen_on">Блокировка экрана включена.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_off">Экран блокировки выключен.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_on">Блокировка экрана включена.</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Индикация событий экраном отключена.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Индикация событий экраном включена.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Индикация событий экраном отключена.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Индикация событий экраном включена.</string>
+    <string name="accessibility_quick_settings_heads_up_off">Всплывающие уведомления отключены.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления включены.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления отключены.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены.</string>
+    <string name="accessibility_quick_settings_caffeine_off">Переход в спящий режим разрешен.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Переход в спящий режим запрещен.</string>
+    <string name="accessibility_quick_settings_battery_saver_off">Режим энергосбережения выключен.</string>
+    <string name="accessibility_quick_settings_battery_saver_on">Режим энергосбережения включен.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_off">Режим энергосбережения выключен.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_on">Режим энергосбережения включен.</string>
+    <string name="quick_settings_dynamic_tile_detail_title">Динамическая плитка</string>
+    <string name="dynamic_qs_tile_next_alarm_label">Следующий будильник</string>
+    <string name="dynamic_qs_tile_ime_selector_label">Выбор метода ввода</string>
+    <string name="dynamic_qs_tile_su_label">Суперпользователь</string>
+    <string name="dynamic_qs_tile_themes_label">Темы</string>
+    <string name="quick_settings_title_advanced_location">Параметры отправки геоданных</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Отправка местоположения: режим экономии батареи.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Отправка местоположения: только датчики.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Отправка местоположения: режим высокой точности.</string>
+    <string name="quick_settings_location_detail_title">Определение местоположения</string>
+    <string name="quick_settings_location_battery_saving_label">Экономия батареи</string>
+    <string name="quick_settings_location_gps_only_label">По спутникам GPS</string>
+    <string name="quick_settings_location_high_accuracy_label">Высокая точность</string>
+    <string name="accessibility_quick_settings_location_changed_battery_saving">Служба отправки местоположения переключена в режим экономии батареи.</string>
+    <string name="accessibility_quick_settings_location_changed_gps_only">Для отправки местоположения теперь используются только датчики устройства.</string>
+    <string name="accessibility_quick_settings_location_changed_high_accuracy">Служба отправки местоположения переключена в режим высокой точности.</string>
+    <string name="quick_settings_tiles_category_system">Системные плитки</string>
+    <string name="quick_settings_tiles_add_tiles">Добавление плитки</string>
+    <string name="hotspot_apm_message">Подключение к мобильной сети в режиме полета невозможно. Отключите его и повторите попытку.</string>
+    <string name="quick_settings_tile_flashlight_not_title">Фонарик включен</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Нажмите, чтобы отключить</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">Подключено %1$d устройство</item>
+        <item quantity="few">Подключены %1$d устройства</item>
+        <item quantity="many">Подключено %1$d устройств</item>
+        <item quantity="other">Подключено %1$d устройств</item>
+    </plurals>
+    <string name="data_sim_not_configured">Нет SIM для моб. данных</string>
+    <string name="accessibility_dock_battery_level">Заряд батареи док-станции <xliff:g id="number">%d</xliff:g> процентов.</string>
+    <string name="play_queue_extention">Показать очередь воспроизведения</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g>, <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="expand_hint">Свайп вниз, чтобы развернуть</string>
+    <string name="swipe_left_hint">Свайп влево для перехода к <xliff:g id="app_name">%1$s </xliff:g></string>
+    <string name="swipe_right_hint">Свайп вправо для перехода к уведомлениям</string>
 </resources>

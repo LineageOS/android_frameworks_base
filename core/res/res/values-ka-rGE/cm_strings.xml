@@ -17,54 +17,33 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- label for item that screenshots in phone options dialog -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- label for item that reboots the phone in phone options dialog -->
-  <!-- label for current user in phone options dialog -->
-  <!-- Reboot menu -->
-  <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <!-- Title of dialog to confirm rebooting. -->
-  <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
-         be a confirmation dialog.  This is the message. -->
-  <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <!-- Long-press back kill application -->
-  <!-- ADB over network notification -->
-  <!-- ADB over USB and network notification -->
-  <!-- ADB notification message-->
-  <!-- ADB custom tile -->
-  <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <!-- stylus gestures support -->
-  <!-- Zen mode buttons -->
-  <!-- Wifi Hotspot disabled due to subscription change -->
-  <!-- WiFi turn off notification action text -->
-  <!-- Privacy Guard -->
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <!-- App ops requests -->
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <!-- Template for showing cellular network operator name while LTE calling is enabled -->
-  <!-- Keyguard strings -->
-  <!-- Sequence of characters used to separate carrier message strings in keyguard. Typically just vertical line
-         with spaces on either side. [CHAR LIMIT=3] -->
-  <!-- Protected Apps Notification -->
-  <!-- Battery fully charged notification -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose
-         whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose
-         whether they want to allow the application to do this. -->
-  <!-- Uicc hotswapped event configuration needed notification -->
+    <string name="reboot_bootloader">ჩამტვირთავი</string>
+    <string name="silent_mode_none">არცერთი</string>
+    <string name="permission_remember_choice">არჩევანის დამახსოვრება</string>
+    <string name="app_ops_make_phone_call">სატელეფონო ზარის გაშვება</string>
+    <string name="app_ops_modify_call_log">ზარების ჩანაწერების განახლება</string>
+    <string name="app_ops_post_notification">შეტყობინების გამოქვეყნება</string>
+    <string name="app_ops_read_calendar">თქვენი კალენდრის წაკითხვა</string>
+    <string name="app_ops_read_mms">თქვენი MMS-ების წაკითხვა</string>
+    <string name="app_ops_read_sms">თქვენი SMS-ების წაკითხვა</string>
+    <string name="app_ops_send_mms">MMS-ის გაგზავნა</string>
+    <string name="app_ops_send_sms">SMS-ის გაგზავნა</string>
+    <string name="app_ops_start_at_bootup">ჩართვისას გაშვება</string>
+    <string name="app_ops_toggle_bluetooth">Bluetooth-ის გადართვა</string>
+    <string name="app_ops_toggle_nfc">NFC-ის გადართვა</string>
+    <string name="app_ops_use_master_volume">მთავარი ხმის დონის მართვა</string>
+    <string name="app_ops_use_notification_volume">შეტყობინებების ხმის დონის მართვა</string>
+    <string name="app_ops_use_ring_volume">ზარის ხმის დონის მართვა</string>
+    <string name="app_ops_write_mms">MMS-ის დაწერა</string>
+    <string name="app_ops_write_sms">SMS-ის დაწერა</string>
+    <string name="app_ops_use_fingerprint">თითის ანაბეჭდის გამოყენება</string>
+    <string name="app_ops_add_voicemail">ხმოვანი ფოსტის დამატება</string>
+    <string name="app_ops_read_phone_state">ტელეფონის მდგომარეობაზე წვდომა</string>
+    <string name="app_ops_read_external_storage">გარე მეხსიერების წაკითხვა</string>
+    <string name="app_ops_write_external_storage">გარე მეხსიერებაზე ჩაწერა</string>
+    <string name="app_ops_turn_on_screen">ეკრანის ჩართვა</string>
+    <string name="app_ops_su">ძირეული წვდომის მიღება</string>
+    <string name="notify_battery_fully_charged_title">ბატარეა დამუხტულია სრულად</string>
+    <string name="permlab_resetBatteryStats">ბატარეის სტატისტიკის განულება</string>
+    <string name="uicc_hot_swapped_event_title">SIM-ბარათები შეიცვალა</string>
 </resources>

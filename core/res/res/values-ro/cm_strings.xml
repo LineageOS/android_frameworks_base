@@ -17,177 +17,127 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- label for item that screenshots in phone options dialog -->
-  <string name="global_action_screenshot">Captură de ecran</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_receiveProtectedSms">primește SMS-uri protejate</string>
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_receiveProtectedSms">Permite aplicației să primească un SMS protejat.</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_modifyProtectedSmsList">modifică lista de SMS-uri protejate</string>
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_modifyProtectedSmsList">Permite aplicației să modifice lista adreselor SMS protejate.</string>
-  <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Securitate</string>
-  <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Permisiunile legate de informațiile de securitate ale dispozitivului.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">citește lista neagră a telefonului</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Permite unei aplicații să citească informații despre numerele de telefon care sunt blocate pentru primirea de apeluri sau de mesaje.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">schimbă lista neagră a telefonului</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Permite unei aplicații să schimbe numere de telefon care sunt blocate pentru primirea de apeluri sau mesaje.</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">setare fundal ecran de blocare</string>
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Permite unei aplicații să schimbe imaginea de fundal a ecranului de blocare.</string>
-  <!-- label for item that reboots the phone in phone options dialog -->
-  <string name="global_action_reboot">Repornire</string>
-  <!-- label for current user in phone options dialog -->
-  <string name="global_action_current_user">Actual</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Repornire</string>
-  <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Descărcare</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Repornirea sistemului</string>
-  <!-- Title of dialog to confirm rebooting. -->
-  <string name="reboot_title">Repornire</string>
-  <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
-         be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm" product="tablet">Tableta va reporni.</string>
-  <string name="reboot_confirm" product="default">Telefonul dvs. va reporni.</string>
-  <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">Repornire\u2026</string>
-  <!-- Long-press back kill application -->
-  <string name="app_killed_message">Aplicație oprită</string>
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB prin rețea activ</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB prin USB &amp; rețea activ</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Apasă pentru dezactivarea depanării.</string>
-  <!-- ADB custom tile -->
-  <string name="adb_active_custom_tile">ADB - <xliff:g id="adb_type" example="USB">%1$s</xliff:g></string>
-  <string name="adb_active_custom_tile_both">USB &amp; rețea</string>
-  <string name="adb_active_custom_tile_usb">USB</string>
-  <string name="adb_active_custom_tile_net">Rețea</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_interceptPackageLaunch">interceptează lansarea aplicației</string>
-  <!-- stylus gestures support -->
-  <string name="stylus_app_not_installed">%s nu este instalată</string>
-  <!-- Zen mode buttons -->
-  <string name="silent_mode_priority">Prioritate</string>
-  <string name="silent_mode_none">Nimic</string>
-  <!-- Wifi Hotspot disabled due to subscription change -->
-  <string name="subscription_change_disabled_wifi_ap">Hotspot-ul Wi-Fi a fost dezactivat din cauza schimbării abonării SIM</string>
-  <!-- WiFi turn off notification action text -->
-  <string name="notify_turn_wifi_off_title">Oprește Wi-Fi</string>
-  <!-- Privacy Guard -->
-  <string name="permlab_changePrivacyGuardState">activează sau dezactivează Privacy Guard</string>
-  <string name="permdesc_changePrivacyGuardState">Permite aplicației să stabilească dacă o altă aplicație rulează cu garda de confidențialitate. Când o aplicație rulează cu garda de confidențialitate, nu va avea acces la date personale, cum ar fi contacte, jurnalul de apeluri sau mesaje.</string>
-  <string name="privacy_guard_notification">Protejarea datelor activată</string>
-  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nu va putea accesa datele personale</string>
-  <string name="privacy_guard_dialog_title">Privacy Guard</string>
-  <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> dorește să <xliff:g id="op">%2$s</xliff:g>.</string>
-  <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-  <string name="permission_remember_choice">Memorează alegerea mea</string>
-  <!-- App ops requests -->
-  <string name="app_ops_access_camera">accesează camera</string>
-  <string name="app_ops_access_location">accesează locația</string>
-  <string name="app_ops_access_notifications">citește notificările</string>
-  <string name="app_ops_activate_vpn">activați un VPN</string>
-  <string name="app_ops_auto_start">lansează la pornire</string>
-  <string name="app_ops_delete_call_log">șterge lista de apeluri</string>
-  <string name="app_ops_delete_contacts">șterge lista de contacte</string>
-  <string name="app_ops_delete_mms">șterge mesajele MMS</string>
-  <string name="app_ops_delete_sms">șterge mesajele SMS</string>
-  <string name="app_ops_draw_on_top">lansează ferestre deasupra</string>
-  <string name="app_ops_get_usage_stats">obține statistici de utilizare a aplicației</string>
-  <string name="app_ops_keep_device_awake">ține dispozitivul deschis</string>
-  <string name="app_ops_make_phone_call">inițiază un apel telefonic</string>
-  <string name="app_ops_modify_calendar">actualizează calendarul</string>
-  <string name="app_ops_modify_call_log">actualizează jurnalul de apeluri</string>
-  <string name="app_ops_modify_clipboard">modifică clipboard</string>
-  <string name="app_ops_modify_contacts">actualizează contacte</string>
-  <string name="app_ops_modify_settings">actualizează setări de sistem</string>
-  <string name="app_ops_mute_unmute_microphone">activează/dezactivează microfonul</string>
-  <string name="app_ops_play_audio">redă sunet</string>
-  <string name="app_ops_post_notification">trimite o notificare</string>
-  <string name="app_ops_project_media">proiect media</string>
-  <string name="app_ops_read_calendar">citește calendarul</string>
-  <string name="app_ops_read_call_log">citește jurnalul de apeluri</string>
-  <string name="app_ops_read_clipboard">citește clipboard-ul</string>
-  <string name="app_ops_read_contacts">citește contactele</string>
-  <string name="app_ops_read_mms">citește mesajele MMS</string>
-  <string name="app_ops_read_sms">citește mesajele SMS</string>
-  <string name="app_ops_receive_sms">primește un mesaj SMS</string>
-  <string name="app_ops_record_audio">înregistrare audio</string>
-  <string name="app_ops_send_mms">trimite un mesaj MMS</string>
-  <string name="app_ops_send_sms">trimite un mesaj SMS</string>
-  <string name="app_ops_start_at_bootup">începe la pornire</string>
-  <string name="app_ops_toast_window">afișează mesajele temporare</string>
-  <string name="app_ops_toggle_bluetooth">comută Bluetooth</string>
-  <string name="app_ops_toggle_mobile_data">comutare date mobile</string>
-  <string name="app_ops_toggle_nfc">Comutare NFC</string>
-  <string name="app_ops_toggle_wifi">comută Wi-Fi</string>
-  <string name="app_ops_use_alarm_volume">controlează volumul alarmei</string>
-  <string name="app_ops_use_audio_focus">controlează focalizarea audio</string>
-  <string name="app_ops_use_bluetooth_volume">controlează volumul Bluetooth</string>
-  <string name="app_ops_use_master_volume">controlează volumul master</string>
-  <string name="app_ops_use_media_buttons">folosește butoanele media</string>
-  <string name="app_ops_use_media_volume">controlează volumul media</string>
-  <string name="app_ops_use_notification_volume">controlează volumul la notificare</string>
-  <string name="app_ops_use_ring_volume">controlează volumul la sonerie</string>
-  <string name="app_ops_use_vibrate">folosește răspunsul tactil</string>
-  <string name="app_ops_use_voice_volume">controlează volumul apelului de voce</string>
-  <string name="app_ops_write_mms">scrie un mesaj MMS</string>
-  <string name="app_ops_write_sms">scrie un mesaj SMS</string>
-  <string name="app_ops_use_fingerprint">utilizează amprentă digitală</string>
-  <string name="app_ops_add_voicemail">adaugă un mesaj vocal</string>
-  <string name="app_ops_read_phone_state">citește starea telefonului</string>
-  <string name="app_ops_scan_wifi">scanează rețelele Wi-Fi</string>
-  <string name="app_ops_change_wallpaper">schimbă imaginea de fundal</string>
-  <string name="app_ops_assist_structure">folosește structura de asistență</string>
-  <string name="app_ops_assist_screenshot">face o captură de ecran</string>
-  <string name="app_ops_use_body_sensors">utilizează senzorii corporali</string>
-  <string name="app_ops_read_cell_broadcasts">citește trasmisiunile din rețea</string>
-  <string name="app_ops_mock_location">simulează locația dvs.</string>
-  <string name="app_ops_read_external_storage">citește stocare externă</string>
-  <string name="app_ops_write_external_storage">scrie stocare externă</string>
-  <string name="app_ops_turn_on_screen">pornește ecranul</string>
-  <string name="app_ops_get_accounts">obține conturile dispozitivului</string>
-  <string name="app_ops_wifi_change">schimbă starea Wi-Fi</string>
-  <string name="app_ops_su">obțină acces root</string>
-  <!-- Notify user that they are in Lock-to-app (for devices without navbar) -->
-  <string name="lock_to_app_toast_no_navbar">Pentru a anula fixarea acestui ecran, atingeți și țineți apăsat butonul Înapoi.</string>
-  <!-- Template for showing cellular network operator name while LTE calling is enabled -->
-  <string name="tethered_notification_no_device_message">Niciun dispozitiv conectat</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitiv conectat</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitive conectate</string>
-  <!-- Keyguard strings -->
-  <!-- Sequence of characters used to separate carrier message strings in keyguard. Typically just vertical line
-         with spaces on either side. [CHAR LIMIT=3] -->
-  <!-- Protected Apps Notification -->
-  <string name="notify_package_component_protected_title">Lansarea activității blocată</string>
-  <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> este protejat de la lansare. Atingeți pentru a vă autentifica și pentru a lansa aplicația.</string>
-  <!-- Battery fully charged notification -->
-  <string name="notify_battery_fully_charged_title">Acumulator încărcat complet</string>
-  <string name="notify_battery_fully_charged_text">Deconectați aparatul de la încărcător pentru a îmbunătăți longevitatea bateriei.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose
-         whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">resetează statisticile bateriei</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose
-         whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Permite unei aplicații să reseteze datele curente de utilizare a bateriei.</string>
-  <!-- Uicc hotswapped event configuration needed notification -->
-  <string name="uicc_hot_swapped_event_title">Cardurile SIM s-au modificat</string>
-  <string name="uicc_hot_swapped_event_text">Atingeți pentru a seta preferințele implicite ale cardului SIM</string>
+    <string name="global_action_screenshot">Captură de ecran</string>
+    <string name="permlab_receiveProtectedSms">primește SMS-uri protejate</string>
+    <string name="permdesc_receiveProtectedSms">Permite aplicației să primească un SMS protejat.</string>
+    <string name="permlab_modifyProtectedSmsList">modifică lista de SMS-uri protejate</string>
+    <string name="permdesc_modifyProtectedSmsList">Permite aplicației să modifice lista adreselor SMS protejate.</string>
+    <string name="permgrouplab_security">Securitate</string>
+    <string name="permgroupdesc_security">Permisiunile legate de informațiile de securitate ale dispozitivului.</string>
+    <string name="permlab_readPhoneBlacklist">citește lista neagră a telefonului</string>
+    <string name="permdesc_readPhoneBlacklist">Permite unei aplicații să citească informații despre numerele de telefon care sunt blocate pentru primirea de apeluri sau de mesaje.</string>
+    <string name="permlab_changePhoneBlacklist">schimbă lista neagră a telefonului</string>
+    <string name="permdesc_changePhoneBlacklist">Permite unei aplicații să schimbe numere de telefon care sunt blocate pentru primirea de apeluri sau mesaje.</string>
+    <string name="permlab_setKeyguardWallpaper">setare fundal ecran de blocare</string>
+    <string name="permdesc_setKeyguardWallpaper">Permite unei aplicații să schimbe imaginea de fundal a ecranului de blocare.</string>
+    <string name="global_action_reboot">Repornire</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="reboot_reboot">Repornire</string>
+    <string name="reboot_recovery">Recovery</string>
+    <string name="reboot_bootloader">Bootloader</string>
+    <string name="reboot_download">Descărcare</string>
+    <string name="reboot_soft">Repornirea sistemului</string>
+    <string name="reboot_title">Repornire</string>
+    <string name="reboot_confirm" product="tablet">Tableta va reporni.</string>
+    <string name="reboot_confirm" product="default">Telefonul dvs. va reporni.</string>
+    <string name="reboot_progress">Repornire\u2026</string>
+    <string name="app_killed_message">Aplicație oprită</string>
+    <string name="adb_net_active_notification_title">ADB prin rețea activ</string>
+    <string name="adb_both_active_notification_title">ADB prin USB &amp; rețea activ</string>
+    <string name="adb_active_generic_notification_message">Apasă pentru dezactivarea depanării.</string>
+    <string name="adb_active_custom_tile">ADB - <xliff:g id="adb_type" example="USB">%1$s</xliff:g></string>
+    <string name="adb_active_custom_tile_both">USB &amp; rețea</string>
+    <string name="adb_active_custom_tile_usb">USB</string>
+    <string name="adb_active_custom_tile_net">Rețea</string>
+    <string name="permlab_interceptPackageLaunch">interceptează lansarea aplicației</string>
+    <string name="stylus_app_not_installed">%s nu este instalată</string>
+    <string name="silent_mode_priority">Prioritate</string>
+    <string name="silent_mode_none">Nimic</string>
+    <string name="subscription_change_disabled_wifi_ap">Hotspot-ul Wi-Fi a fost dezactivat din cauza schimbării abonării SIM</string>
+    <string name="notify_turn_wifi_off_title">Oprește Wi-Fi</string>
+    <string name="permlab_changePrivacyGuardState">activează sau dezactivează Privacy Guard</string>
+    <string name="permdesc_changePrivacyGuardState">Permite aplicației să stabilească dacă o altă aplicație rulează cu garda de confidențialitate. Când o aplicație rulează cu garda de confidențialitate, nu va avea acces la date personale, cum ar fi contacte, jurnalul de apeluri sau mesaje.</string>
+    <string name="privacy_guard_notification">Protejarea datelor activată</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nu va putea accesa datele personale</string>
+    <string name="privacy_guard_dialog_title">Privacy Guard</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> dorește să <xliff:g id="op">%2$s</xliff:g>.</string>
+    <string name="permission_remember_choice">Memorează alegerea mea</string>
+    <string name="app_ops_access_camera">accesează camera</string>
+    <string name="app_ops_access_location">accesează locația</string>
+    <string name="app_ops_access_notifications">citește notificările</string>
+    <string name="app_ops_activate_vpn">activați un VPN</string>
+    <string name="app_ops_auto_start">lansează la pornire</string>
+    <string name="app_ops_delete_call_log">șterge lista de apeluri</string>
+    <string name="app_ops_delete_contacts">șterge lista de contacte</string>
+    <string name="app_ops_delete_mms">șterge mesajele MMS</string>
+    <string name="app_ops_delete_sms">șterge mesajele SMS</string>
+    <string name="app_ops_draw_on_top">lansează ferestre deasupra</string>
+    <string name="app_ops_get_usage_stats">obține statistici de utilizare a aplicației</string>
+    <string name="app_ops_keep_device_awake">ține dispozitivul deschis</string>
+    <string name="app_ops_make_phone_call">inițiază un apel telefonic</string>
+    <string name="app_ops_modify_calendar">actualizează calendarul</string>
+    <string name="app_ops_modify_call_log">actualizează jurnalul de apeluri</string>
+    <string name="app_ops_modify_clipboard">modifică clipboard</string>
+    <string name="app_ops_modify_contacts">actualizează contacte</string>
+    <string name="app_ops_modify_settings">actualizează setări de sistem</string>
+    <string name="app_ops_mute_unmute_microphone">activează/dezactivează microfonul</string>
+    <string name="app_ops_play_audio">redă sunet</string>
+    <string name="app_ops_post_notification">trimite o notificare</string>
+    <string name="app_ops_project_media">proiect media</string>
+    <string name="app_ops_read_calendar">citește calendarul</string>
+    <string name="app_ops_read_call_log">citește jurnalul de apeluri</string>
+    <string name="app_ops_read_clipboard">citește clipboard-ul</string>
+    <string name="app_ops_read_contacts">citește contactele</string>
+    <string name="app_ops_read_mms">citește mesajele MMS</string>
+    <string name="app_ops_read_sms">citește mesajele SMS</string>
+    <string name="app_ops_receive_sms">primește un mesaj SMS</string>
+    <string name="app_ops_record_audio">înregistrare audio</string>
+    <string name="app_ops_send_mms">trimite un mesaj MMS</string>
+    <string name="app_ops_send_sms">trimite un mesaj SMS</string>
+    <string name="app_ops_start_at_bootup">începe la pornire</string>
+    <string name="app_ops_toast_window">afișează mesajele temporare</string>
+    <string name="app_ops_toggle_bluetooth">comută Bluetooth</string>
+    <string name="app_ops_toggle_mobile_data">comutare date mobile</string>
+    <string name="app_ops_toggle_nfc">Comutare NFC</string>
+    <string name="app_ops_toggle_wifi">comută Wi-Fi</string>
+    <string name="app_ops_use_alarm_volume">controlează volumul alarmei</string>
+    <string name="app_ops_use_audio_focus">controlează focalizarea audio</string>
+    <string name="app_ops_use_bluetooth_volume">controlează volumul Bluetooth</string>
+    <string name="app_ops_use_master_volume">controlează volumul master</string>
+    <string name="app_ops_use_media_buttons">folosește butoanele media</string>
+    <string name="app_ops_use_media_volume">controlează volumul media</string>
+    <string name="app_ops_use_notification_volume">controlează volumul la notificare</string>
+    <string name="app_ops_use_ring_volume">controlează volumul la sonerie</string>
+    <string name="app_ops_use_vibrate">folosește răspunsul tactil</string>
+    <string name="app_ops_use_voice_volume">controlează volumul apelului de voce</string>
+    <string name="app_ops_write_mms">scrie un mesaj MMS</string>
+    <string name="app_ops_write_sms">scrie un mesaj SMS</string>
+    <string name="app_ops_use_fingerprint">utilizează amprentă digitală</string>
+    <string name="app_ops_add_voicemail">adaugă un mesaj vocal</string>
+    <string name="app_ops_read_phone_state">citește starea telefonului</string>
+    <string name="app_ops_scan_wifi">scanează rețelele Wi-Fi</string>
+    <string name="app_ops_change_wallpaper">schimbă imaginea de fundal</string>
+    <string name="app_ops_assist_structure">folosește structura de asistență</string>
+    <string name="app_ops_assist_screenshot">face o captură de ecran</string>
+    <string name="app_ops_use_body_sensors">utilizează senzorii corporali</string>
+    <string name="app_ops_read_cell_broadcasts">citește trasmisiunile din rețea</string>
+    <string name="app_ops_mock_location">simulează locația dvs.</string>
+    <string name="app_ops_read_external_storage">citește stocare externă</string>
+    <string name="app_ops_write_external_storage">scrie stocare externă</string>
+    <string name="app_ops_turn_on_screen">pornește ecranul</string>
+    <string name="app_ops_get_accounts">obține conturile dispozitivului</string>
+    <string name="app_ops_wifi_change">schimbă starea Wi-Fi</string>
+    <string name="app_ops_su">obțină acces root</string>
+    <string name="lock_to_app_toast_no_navbar">Pentru a anula fixarea acestui ecran, atingeți și țineți apăsat butonul Înapoi.</string>
+    <string name="tethered_notification_no_device_message">Niciun dispozitiv conectat</string>
+    <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitiv conectat</string>
+    <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitive conectate</string>
+    <string name="notify_package_component_protected_title">Lansarea activității blocată</string>
+    <string name="notify_package_component_protected_text"><xliff:g id="app_name">%1$s</xliff:g> este protejat de la lansare. Atingeți pentru a vă autentifica și pentru a lansa aplicația.</string>
+    <string name="notify_battery_fully_charged_title">Acumulator încărcat complet</string>
+    <string name="notify_battery_fully_charged_text">Deconectați aparatul de la încărcător pentru a îmbunătăți longevitatea bateriei.</string>
+    <string name="permlab_resetBatteryStats">resetează statisticile bateriei</string>
+    <string name="permdesc_resetBatteryStats">Permite unei aplicații să reseteze datele curente de utilizare a bateriei.</string>
+    <string name="uicc_hot_swapped_event_title">Cardurile SIM s-au modificat</string>
+    <string name="uicc_hot_swapped_event_text">Atingeți pentru a seta preferințele implicite ale cardului SIM</string>
 </resources>

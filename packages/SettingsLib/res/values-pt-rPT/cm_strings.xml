@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">Aplicações</string>
-  <string name="picker_activities">Atividades</string>
-  <string name="select_custom_app_title">Selecione uma aplicação personalizada</string>
-  <string name="select_custom_activity_title">Selecione uma atividade personalizada</string>
-  <string name="lockscreen_targets_message">Atalhos do ecrã de bloqueio</string>
+    <string name="profile_applist_title">Aplicações</string>
+    <string name="picker_activities">Atividades</string>
+    <string name="select_custom_app_title">Selecione uma aplicação personalizada</string>
+    <string name="select_custom_activity_title">Selecione uma atividade personalizada</string>
+    <string name="lockscreen_targets_message">Atalhos do ecrã de bloqueio</string>
 </resources>

@@ -16,8 +16,11 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- When the user inserts a sim card with some personalization enabled -->
-  <!-- Shown in the lock screen when there is SIM card IO error. -->
-  <!-- Instructions telling the user remaining times when enter SIM PIN view.  -->
-  <!-- Shown in the KeyguardSimPinView when entry length is too short. -->
+    <string name="keyguard_perso_locked_message">Simkaart is Perso-beskoattele</string>
+    <string name="lockscreen_sim_error_message_short">Unjildige simkaart.</string>
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">Sim-pin ynfiere, jo hawwe <xliff:g id="number">%d</xliff:g> restearjende besykjen eardat jo kontakt opnimme moatte mei jo provider om jo apparaat te ûntskoatteljen.</item>
+        <item quantity="other">Sim-pin ynfiere, jo hawe <xliff:g id="number">%d</xliff:g> restearjende besykjen.</item>
+    </plurals>
+    <string name="kg_invalid_sim_length">Flater: Ynfier is koarter as minimumlingte</string>
 </resources>

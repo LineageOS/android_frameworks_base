@@ -19,9 +19,9 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="profile_applist_title">Ứ.dụng</string>
-  <string name="picker_activities">Hoạt động</string>
-  <string name="select_custom_app_title">Chọn ứng dụng tuỳ chỉnh</string>
-  <string name="select_custom_activity_title">Chọn hoạt động tuỳ chỉnh</string>
-  <string name="lockscreen_targets_message">Lối tắt màn hình khóa</string>
+    <string name="profile_applist_title">Ứ.dụng</string>
+    <string name="picker_activities">Hoạt động</string>
+    <string name="select_custom_app_title">Chọn ứng dụng tuỳ chỉnh</string>
+    <string name="select_custom_activity_title">Chọn hoạt động tuỳ chỉnh</string>
+    <string name="lockscreen_targets_message">Lối tắt màn hình khóa</string>
 </resources>
