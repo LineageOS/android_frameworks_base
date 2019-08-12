@@ -34,6 +34,24 @@
       "revId": "c29588aac040a063fff8c66f20e2776c3ab6cf14",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5adfb31_7118c956",
+        "filename": "services/core/java/com/android/server/power/Notifier.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-08-12T02:12:41Z",
+      "side": 0,
+      "message": "I\u0027m not sure what you mean.. it\u0027s the fw/b counterpart to settings here:\nhttps://github.com/LineageOS/android_packages_apps_LineageParts/blob/6e96470b9d044cbfc4e9108ef5ad1980f7cec29b/src/org/lineageos/lineageparts/sounds/ChargingSoundsSettings.java#L42",
+      "parentUuid": "723f4973_e26c57c0",
+      "revId": "c29588aac040a063fff8c66f20e2776c3ab6cf14",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
