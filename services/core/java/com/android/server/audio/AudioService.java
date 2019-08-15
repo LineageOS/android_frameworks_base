@@ -1663,6 +1663,58 @@ public class AudioService extends IAudioService.Stub
     ///////////////////////////////////////////////////////////////////////////
     // IPC methods
     ///////////////////////////////////////////////////////////////////////////
+    /** Indicates no special treatment in the handling of the volume adjustement */
+    private static final int VOL_ADJUST_NORMAL = 0;
+    /** Indicates the start of a volume adjustement */
+    private static final int VOL_ADJUST_START = 1;
+    /** Indicates the end of a volume adjustment */
+    private static final int VOL_ADJUST_END = 2;
+
+    // pre-condition: event.getKeyCode() is one of KeyEvent.KEYCODE_VOLUME_UP,
+    //                                   KeyEvent.KEYCODE_VOLUME_DOWN, KeyEvent.KEYCODE_VOLUME_MUTE
+    public void handleVolumeKey(@NonNull KeyEvent event, boolean isOnTv,
+            @NonNull String callingPackage, @NonNull String caller) {
+        int keyEventMode = VOL_ADJUST_NORMAL;
+        if (isOnTv) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                keyEventMode = VOL_ADJUST_START;
+            } else { // may catch more than ACTION_UP, but will end vol adjustement
+                // the vol key is either released (ACTION_UP), or multiple keys are pressed
+                // (ACTION_MULTIPLE) and we don't know what to do for volume control on CEC, end
+                // the repeated volume adjustement
+                keyEventMode = VOL_ADJUST_END;
+            }
+        } else if (event.getAction() != KeyEvent.ACTION_DOWN) {
+            return;
+        }
+
+        int flags = AudioManager.FLAG_SHOW_UI | AudioManager.FLAG_PLAY_SOUND
+                | AudioManager.FLAG_FROM_KEY;
+
+        switch (event.getKeyCode()) {
+            case KeyEvent.KEYCODE_VOLUME_UP:
+                    adjustSuggestedStreamVolume(AudioManager.ADJUST_RAISE,
+                            AudioManager.USE_DEFAULT_STREAM_TYPE, flags, callingPackage, caller,
+                            Binder.getCallingUid(), keyEventMode);
+                break;
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                    adjustSuggestedStreamVolume(AudioManager.ADJUST_LOWER,
+                            AudioManager.USE_DEFAULT_STREAM_TYPE, flags, callingPackage, caller,
+                            Binder.getCallingUid(), keyEventMode);
+                break;
+            case KeyEvent.KEYCODE_VOLUME_MUTE:
+                if (event.getRepeatCount() == 0) {
+                    adjustSuggestedStreamVolume(AudioManager.ADJUST_TOGGLE_MUTE,
+                            AudioManager.USE_DEFAULT_STREAM_TYPE, flags, callingPackage, caller,
+                            Binder.getCallingUid(), VOL_ADJUST_NORMAL);
+                }
+                break;
+            default:
+                Log.e(TAG, "Invalid key code " + event.getKeyCode() + " sent by " + callingPackage);
+                return; // not needed but added if code gets added below this switch statement
+        }
+    }
+
     /** @see AudioManager#adjustVolume(int, int) */
     public void adjustSuggestedStreamVolume(int direction, int suggestedStreamType, int flags,
             String callingPackage, String caller) {
@@ -1676,12 +1728,12 @@ public class AudioService extends IAudioService.Stub
                     extVolCtlr, 0 /*delay*/);
         } else {
             adjustSuggestedStreamVolume(direction, suggestedStreamType, flags, callingPackage,
-                    caller, Binder.getCallingUid());
+                    caller, Binder.getCallingUid(), VOL_ADJUST_NORMAL);
         }
     }
 
     private void adjustSuggestedStreamVolume(int direction, int suggestedStreamType, int flags,
-            String callingPackage, String caller, int uid) {
+            String callingPackage, String caller, int uid, int keyEventMode) {
         if (DEBUG_VOL) Log.d(TAG, "adjustSuggestedStreamVolume() stream=" + suggestedStreamType
                 + ", flags=" + flags + ", caller=" + caller
                 + ", volControlStream=" + mVolumeControlStream
@@ -1735,7 +1787,8 @@ public class AudioService extends IAudioService.Stub
             if (DEBUG_VOL) Log.d(TAG, "Volume controller suppressed adjustment");
         }
 
-        adjustStreamVolume(streamType, direction, flags, callingPackage, caller, uid);
+        adjustStreamVolume(streamType, direction, flags, callingPackage, caller, uid,
+                keyEventMode);
     }
 
     /** @see AudioManager#adjustStreamVolume(int, int, int) */
@@ -1749,11 +1802,11 @@ public class AudioService extends IAudioService.Stub
         sVolumeLogger.log(new VolumeEvent(VolumeEvent.VOL_ADJUST_STREAM_VOL, streamType,
                 direction/*val1*/, flags/*val2*/, callingPackage));
         adjustStreamVolume(streamType, direction, flags, callingPackage, callingPackage,
-                Binder.getCallingUid());
+                Binder.getCallingUid(), VOL_ADJUST_NORMAL);
     }
 
     protected void adjustStreamVolume(int streamType, int direction, int flags,
-            String callingPackage, String caller, int uid) {
+            String callingPackage, String caller, int uid, int keyEventMode) {
         if (mUseFixedVolume) {
             return;
         }
@@ -1976,8 +2029,21 @@ public class AudioService extends IAudioService.Stub
                         if (keyCode != KeyEvent.KEYCODE_UNKNOWN) {
                             final long ident = Binder.clearCallingIdentity();
                             try {
-                                mHdmiPlaybackClient.sendVolumeKeyEvent(keyCode, true);
-                                mHdmiPlaybackClient.sendVolumeKeyEvent(keyCode, false);
+                                final long time = java.lang.System.currentTimeMillis();
+                                switch (keyEventMode) {
+                                    case VOL_ADJUST_NORMAL:
+                                        mHdmiPlaybackClient.sendVolumeKeyEvent(keyCode, true);
+                                        mHdmiPlaybackClient.sendVolumeKeyEvent(keyCode, false);
+                                        break;
+                                    case VOL_ADJUST_START:
+                                        mHdmiPlaybackClient.sendVolumeKeyEvent(keyCode, true);
+                                        break;
+                                    case VOL_ADJUST_END:
+                                        mHdmiPlaybackClient.sendVolumeKeyEvent(keyCode, false);
+                                        break;
+                                    default:
+                                        Log.e(TAG, "Invalid keyEventMode " + keyEventMode);
+                                }
                             } finally {
                                 Binder.restoreCallingIdentity(ident);
                             }
@@ -6795,7 +6861,7 @@ public class AudioService extends IAudioService.Stub
             // direction and stream type swap here because the public
             // adjustSuggested has a different order than the other methods.
             adjustSuggestedStreamVolume(direction, streamType, flags, callingPackage,
-                    callingPackage, uid);
+                    callingPackage, uid, VOL_ADJUST_NORMAL);
         }
 
         @Override
@@ -6807,7 +6873,7 @@ public class AudioService extends IAudioService.Stub
                         .append(" uid:").append(uid).toString()));
             }
             adjustStreamVolume(streamType, direction, flags, callingPackage,
-                    callingPackage, uid);
+                    callingPackage, uid, VOL_ADJUST_NORMAL);
         }
 
         @Override
