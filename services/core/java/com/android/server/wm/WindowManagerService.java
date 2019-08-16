@@ -4590,6 +4590,7 @@ public class WindowManagerService extends IWindowManager.Stub
         mPolicy.systemReady();
         mTaskSnapshotController.systemReady();
         mHasWideColorGamutSupport = queryWideColorGamutSupport();
+        com.nvidia.shieldtech.NvHookHelper.init(mContext);
     }
 
     private static boolean queryWideColorGamutSupport() {

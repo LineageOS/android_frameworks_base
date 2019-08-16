@@ -504,6 +504,9 @@ final class InputMonitor implements InputManagerService.WindowManagerCallbacks {
         }
 
         if (newWindow != mInputFocus) {
+            String packageName = (newWindow != null && newWindow.mAttrs != null) ? newWindow.mAttrs.packageName : null;
+            com.nvidia.shieldtech.NvHookHelper.notifyInputFocusChange(packageName);
+
             if (newWindow != null && newWindow.canReceiveKeys()) {
                 // Displaying a window implicitly causes dispatching to be unpaused.
                 // This is to protect against bugs if someone pauses dispatching but
