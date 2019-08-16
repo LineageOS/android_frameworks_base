@@ -710,6 +710,13 @@ filegroup {
 }
 
 filegroup {
+    name: "framework-nvidia-enhancements-shared-srcs",
+    srcs: [
+        "core/java/com/nvidia/shieldtech/INvHookBinder.aidl",
+    ],
+}
+
+filegroup {
     name: "framework-services-net-module-wifi-shared-srcs",
     srcs: [
         "core/java/android/net/DhcpResults.java",
