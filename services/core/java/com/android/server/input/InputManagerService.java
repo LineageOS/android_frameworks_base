@@ -410,6 +410,7 @@ public class InputManagerService extends IInputManager.Stub
         if (mWiredAccessoryCallbacks != null) {
             mWiredAccessoryCallbacks.systemReady();
         }
+        com.nvidia.shieldtech.NvHookHelper.init(mContext);
     }
 
     private void reloadKeyboardLayouts() {
@@ -1918,6 +1919,7 @@ public class InputManagerService extends IInputManager.Stub
 
     // Native callback.
     private int interceptKeyBeforeQueueing(KeyEvent event, int policyFlags) {
+        if ((policyFlags = com.nvidia.shieldtech.NvHookHelper.interceptKeyBeforeQueueing(event, policyFlags)) < 0)   return 0;
         return mWindowManagerCallbacks.interceptKeyBeforeQueueing(event, policyFlags);
     }
 
@@ -1930,6 +1932,7 @@ public class InputManagerService extends IInputManager.Stub
 
     // Native callback.
     private long interceptKeyBeforeDispatching(IBinder focus, KeyEvent event, int policyFlags) {
+        if ((policyFlags = com.nvidia.shieldtech.NvHookHelper.interceptKeyBeforeDispatching(event, policyFlags)) < 0)   return -1;
         return mWindowManagerCallbacks.interceptKeyBeforeDispatching(focus, event, policyFlags);
     }
 
