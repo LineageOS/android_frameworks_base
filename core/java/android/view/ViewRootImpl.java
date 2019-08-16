@@ -110,6 +110,8 @@ import com.android.internal.view.BaseSurfaceHolder;
 import com.android.internal.view.RootViewSurfaceTaker;
 import com.android.internal.view.SurfaceCallbackHelper;
 
+import com.nvidia.shieldtech.NvHookHelper;
+
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -544,6 +546,8 @@ public final class ViewRootImpl implements ViewParent,
         }
 
         loadSystemProperties();
+
+        NvHookHelper.init(context);
     }
 
     public static void addFirstDrawHandler(Runnable callback) {
@@ -6784,6 +6788,8 @@ public final class ViewRootImpl implements ViewParent,
             }
 
             mAdded = false;
+
+            NvHookHelper.die();
         }
         WindowManagerGlobal.getInstance().doRemoveView(this);
     }
@@ -7065,7 +7071,8 @@ public final class ViewRootImpl implements ViewParent,
             }
             mChoreographer.mFrameInfo.updateInputEventTime(eventTime, oldestEventTime);
 
-            deliverInputEvent(q);
+            q.mFlags = NvHookHelper.deliverInputEvent(q.mEvent, q.mFlags);
+            if (q.mFlags >= 0)  deliverInputEvent(q);
         }
 
         // We are done processing all input events that we can process right now
