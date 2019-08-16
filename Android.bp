@@ -713,6 +713,7 @@ filegroup {
     name: "frameworks-nvidia-enhancements-shared-srcs",
     srcs: [
         "core/java/com/nvidia/NvCPLSvc/INvCPLRemoteService.aidl",
+        "core/java/com/nvidia/shieldtech/INvHookBinder.aidl",
     ],
 }
 
