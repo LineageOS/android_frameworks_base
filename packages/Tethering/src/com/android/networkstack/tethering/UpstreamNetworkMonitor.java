@@ -45,6 +45,8 @@ import android.util.SparseIntArray;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.StateMachine;
 
+import lineageos.providers.LineageSettings;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -122,6 +124,9 @@ public class UpstreamNetworkMonitor {
     // The current upstream network used for tethering.
     private Network mTetheringUpstreamNetwork;
 
+    // Set if the Internet is considered reachable via a VPN network
+    private Network mVpnInternetNetwork;
+
     public UpstreamNetworkMonitor(Context ctx, StateMachine tgt, SharedLog log, int what) {
         mContext = ctx;
         mTarget = tgt;
@@ -182,6 +187,8 @@ public class UpstreamNetworkMonitor {
      */
     public void stop() {
         releaseMobileNetworkRequest();
+
+        mVpnInternetNetwork = null;
 
         releaseCallback(mListenAllCallback);
         mListenAllCallback = null;
@@ -302,6 +309,13 @@ public class UpstreamNetworkMonitor {
      * Returns null if no current upstream is available.
      */
     public UpstreamNetworkState getCurrentPreferredUpstream() {
+        // Use VPN upstreams if hotspot settings allow.
+        if (mVpnInternetNetwork != null &&
+                LineageSettings.Secure.getInt(mContext.getContentResolver(),
+                        LineageSettings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS, 0) == 1) {
+            return mNetworkMap.get(mVpnInternetNetwork);
+        }
+
         final UpstreamNetworkState dfltState = (mDefaultInternetNetwork != null)
                 ? mNetworkMap.get(mDefaultInternetNetwork)
                 : null;
@@ -343,6 +357,8 @@ public class UpstreamNetworkMonitor {
     }
 
     private void handleNetCap(Network network, NetworkCapabilities newNc) {
+        if (isVpnInternetNetwork(newNc)) mVpnInternetNetwork = network;
+
         final UpstreamNetworkState prev = mNetworkMap.get(network);
         if (prev == null || newNc.equals(prev.networkCapabilities)) {
             // Ignore notifications about networks for which we have not yet
@@ -393,6 +409,10 @@ public class UpstreamNetworkMonitor {
         //       been lost (by any callback)
         //     - deletes the entry from the map only when the LISTEN_ALL
         //       callback gets notified.
+
+        if (network.equals(mVpnInternetNetwork)) {
+            mVpnInternetNetwork = null;
+        }
 
         if (!mNetworkMap.containsKey(network)) {
             // Ignore loss of networks about which we had not previously
@@ -568,6 +588,11 @@ public class UpstreamNetworkMonitor {
     private static boolean isNetworkUsableAndNotCellular(UpstreamNetworkState ns) {
         return (ns != null) && (ns.networkCapabilities != null) && (ns.linkProperties != null)
                && !isCellular(ns.networkCapabilities);
+    }
+
+    private static boolean isVpnInternetNetwork(NetworkCapabilities nc) {
+        return (nc != null) && !nc.hasCapability(NET_CAPABILITY_NOT_VPN) &&
+               nc.hasCapability(NET_CAPABILITY_INTERNET);
     }
 
     private static UpstreamNetworkState findFirstDunNetwork(
