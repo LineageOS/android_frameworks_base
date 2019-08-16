@@ -4944,6 +4944,8 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
             // pause and then resume again later, which will result in a double life-cycle event.
             stack.checkReadyForSleep();
         }
+	// FIXME: realActivity no longer exists
+        //com.nvidia.shieldtech.NvHookHelper.notifyAppResume(realActivity);
     }
 
     void activityPaused(boolean timeout) {
