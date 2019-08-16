@@ -166,6 +166,7 @@ public class SecureSettings {
         Settings.Secure.PEOPLE_STRIP,
         Settings.Secure.MEDIA_CONTROLS_RESUME,
         Settings.Secure.ACCESSIBILITY_MAGNIFICATION_MODE,
-        Settings.Secure.ACCESSIBILITY_BUTTON_TARGETS
+        Settings.Secure.ACCESSIBILITY_BUTTON_TARGETS,
+        Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS
     };
 }

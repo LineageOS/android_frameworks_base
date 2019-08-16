@@ -9009,6 +9009,15 @@ public final class Settings {
         public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
 
         /**
+         * Whether tethering is allowed to use VPN upstreams. (0 = false, 1 = true)
+         * Any changes here must also be reflected in:
+         * packages/Tethering/src/com/android/networkstack/tethering/Tethering.java
+         * packages/Tethering/src/com/android/networkstack/tethering/UpstreamNetworkMonitor.java
+         * @hide
+         */
+        public static final String TETHERING_ALLOW_VPN_UPSTREAMS = "tethering_allow_vpn_upstreams";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
