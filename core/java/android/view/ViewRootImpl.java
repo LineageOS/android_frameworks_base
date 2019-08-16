@@ -793,7 +793,11 @@ public final class ViewRootImpl implements ViewParent,
         }
 
         loadSystemProperties();
+<<<<<<< HEAD   (3e9fa1 Allow SBC as HD audio codec in Bluetooth device configuratio)
         mImeFocusController = new ImeFocusController(this);
+=======
+        com.nvidia.shieldtech.NvHookHelper.init(mContext);
+>>>>>>> CHANGE (3bb64d Add Nvidia ShieldTech hooks [1/2])
     }
 
     public static void addFirstDrawHandler(Runnable callback) {
@@ -7722,6 +7726,7 @@ public final class ViewRootImpl implements ViewParent,
             }
 
             mAdded = false;
+            com.nvidia.shieldtech.NvHookHelper.die();
         }
         WindowManagerGlobal.getInstance().doRemoveView(this);
     }
@@ -8034,6 +8039,7 @@ public final class ViewRootImpl implements ViewParent,
             }
             mChoreographer.mFrameInfo.updateInputEventTime(eventTime, oldestEventTime);
 
+            if ((q.mFlags = com.nvidia.shieldtech.NvHookHelper.deliverInputEvent(q.mEvent, q.mFlags)) < 0)   continue;
             deliverInputEvent(q);
         }
 

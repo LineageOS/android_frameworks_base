@@ -1882,6 +1882,7 @@ public final class PowerManagerService extends SystemService
             Slog.i(TAG, "Going to sleep due to " + PowerManager.sleepReasonToString(reason)
                     + " (uid " + uid + ")...");
 
+            com.nvidia.shieldtech.NvHookHelper.notifyGoToSleepReason(reason);
             mLastSleepTime = eventTime;
             mLastSleepReason = reason;
             mSandmanSummoned = true;
