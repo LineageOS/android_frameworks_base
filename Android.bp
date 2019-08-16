@@ -602,6 +602,7 @@ java_library {
         "lowpan/java/android/net/lowpan/ILowpanManager.aidl",
 
         "core/java/com/nvidia/shieldtech/INvHookBinder.aidl",
+        "core/java/com/nvidia/NvCPLSvc/INvCPLRemoteService.aidl",
 
         "core/java/android/app/admin/SecurityLogTags.logtags",
         "core/java/android/content/EventLogTags.logtags",
