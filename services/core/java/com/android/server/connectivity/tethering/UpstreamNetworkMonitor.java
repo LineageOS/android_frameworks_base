@@ -21,6 +21,7 @@ import static android.net.ConnectivityManager.TYPE_NONE;
 import static android.net.ConnectivityManager.TYPE_MOBILE_DUN;
 import static android.net.ConnectivityManager.TYPE_MOBILE_HIPRI;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_DUN;
+import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN;
 import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
 
@@ -28,6 +29,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
+import android.os.UserHandle;
 import android.net.ConnectivityManager;
 import android.net.ConnectivityManager.NetworkCallback;
 import android.net.IpPrefix;
@@ -44,6 +46,8 @@ import android.util.Log;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.StateMachine;
+
+import lineageos.providers.LineageSettings;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -103,6 +107,9 @@ public class UpstreamNetworkMonitor {
     // The current upstream network used for tethering.
     private Network mTetheringUpstreamNetwork;
 
+    // Set if the Internet is considered reachable via a VPN network
+    private Network mVpnInternetNetwork;
+
     public UpstreamNetworkMonitor(Context ctx, StateMachine tgt, SharedLog log, int what) {
         mContext = ctx;
         mTarget = tgt;
@@ -145,6 +152,7 @@ public class UpstreamNetworkMonitor {
         releaseCallback(mDefaultNetworkCallback);
         mDefaultNetworkCallback = null;
         mDefaultInternetNetwork = null;
+        mVpnInternetNetwork = null;
 
         releaseCallback(mListenAllCallback);
         mListenAllCallback = null;
@@ -237,6 +245,14 @@ public class UpstreamNetworkMonitor {
 
     // Returns null if no current upstream available.
     public NetworkState getCurrentPreferredUpstream() {
+        // Use VPN upstreams if hotspot settings allow.
+        if (mVpnInternetNetwork != null &&
+                LineageSettings.Secure.getIntForUser(mContext.getContentResolver(),
+                       LineageSettings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS,
+                       0, UserHandle.USER_CURRENT) == 1) {
+            return mNetworkMap.get(mVpnInternetNetwork);
+        }
+
         final NetworkState dfltState = (mDefaultInternetNetwork != null)
                 ? mNetworkMap.get(mDefaultInternetNetwork)
                 : null;
@@ -266,6 +282,8 @@ public class UpstreamNetworkMonitor {
 
     private void handleNetCap(int callbackType, Network network, NetworkCapabilities newNc) {
         if (callbackType == CALLBACK_DEFAULT_INTERNET) mDefaultInternetNetwork = network;
+
+        if (isVpnInternetNetwork(newNc)) mVpnInternetNetwork = network;
 
         final NetworkState prev = mNetworkMap.get(network);
         if (prev == null || newNc.equals(prev.networkCapabilities)) {
@@ -339,6 +357,9 @@ public class UpstreamNetworkMonitor {
             //     - deletes the entry from the map only when the LISTEN_ALL
             //       callback gets  notified.
             if (callbackType == CALLBACK_DEFAULT_INTERNET) return;
+        }
+        if (network.equals(mVpnInternetNetwork)) {
+            mVpnInternetNetwork = null;
         }
 
         if (!mNetworkMap.containsKey(network)) {
@@ -503,6 +524,11 @@ public class UpstreamNetworkMonitor {
     private static boolean isNetworkUsableAndNotCellular(NetworkState ns) {
         return (ns != null) && (ns.networkCapabilities != null) && (ns.linkProperties != null) &&
                !isCellular(ns.networkCapabilities);
+    }
+
+    private static boolean isVpnInternetNetwork(NetworkCapabilities nc) {
+        return (nc != null) && !nc.hasCapability(NET_CAPABILITY_NOT_VPN) &&
+               nc.hasCapability(NET_CAPABILITY_INTERNET);
     }
 
     private static NetworkState findFirstDunNetwork(Iterable<NetworkState> netStates) {
