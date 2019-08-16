@@ -456,6 +456,7 @@ java_defaults {
         "core/java/com/android/internal/widget/ICheckCredentialProgressCallback.aidl",
         "core/java/com/android/internal/widget/ILockSettings.aidl",
         "core/java/com/android/internal/widget/IRemoteViewsFactory.aidl",
+        "core/java/com/nvidia/NvCPLSvc/INvCPLRemoteService.aidl",
         "core/java/com/nvidia/shieldtech/INvHookBinder.aidl",
         "keystore/java/android/security/IKeyChainAliasCallback.aidl",
         "keystore/java/android/security/IKeyChainService.aidl",
