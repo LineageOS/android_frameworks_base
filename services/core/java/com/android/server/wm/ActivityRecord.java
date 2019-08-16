@@ -2241,6 +2241,7 @@ final class ActivityRecord extends ConfigurationContainer {
             // pause and then resume again later, which will result in a double life-cycle event.
             stack.checkReadyForSleep();
         }
+        com.nvidia.shieldtech.NvHookHelper.notifyAppResume(realActivity);
     }
 
     final void activityStoppedLocked(Bundle newIcicle, PersistableBundle newPersistentState,
