@@ -1959,7 +1959,8 @@ public abstract class ActivityManagerNative extends Binder implements IActivityM
             int initialPid = data.readInt();
             String packageName = data.readString();
             String message = data.readString();
-            crashApplication(uid, initialPid, packageName, message);
+            crashApplication(uid, initialPid, packageName, message,
+                    false /*force*/);
             reply.writeNoException();
             return true;
         }
@@ -5523,7 +5524,7 @@ class ActivityManagerProxy implements IActivityManager
     }
 
     public void crashApplication(int uid, int initialPid, String packageName,
-            String message) throws RemoteException {
+            String message, boolean force) throws RemoteException {
         Parcel data = Parcel.obtain();
         Parcel reply = Parcel.obtain();
         data.writeInterfaceToken(IActivityManager.descriptor);

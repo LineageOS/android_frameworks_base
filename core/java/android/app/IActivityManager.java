@@ -428,7 +428,7 @@ public interface IActivityManager extends IInterface {
     public boolean isTopOfTask(IBinder token) throws RemoteException;
 
     public void crashApplication(int uid, int initialPid, String packageName,
-            String message) throws RemoteException;
+            String message, boolean force) throws RemoteException;
 
     public String getProviderMimeType(Uri uri, int userId) throws RemoteException;
 
