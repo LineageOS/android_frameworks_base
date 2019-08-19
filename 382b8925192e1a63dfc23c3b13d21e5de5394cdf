@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20823c71_759ff670",
+        "filename": "services/core/java/com/android/server/lights/LightsService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-08-19T17:29:58Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 20
+      },
+      "revId": "382b8925192e1a63dfc23c3b13d21e5de5394cdf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
