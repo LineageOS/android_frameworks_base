@@ -66,7 +66,7 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
     private int mDayTemperature = -1;
 
     private final boolean mNightDisplayAvailable;
-    private boolean mOutdoorModeAvailable;
+    private boolean mOutdoorModeAvailable = true;
     private boolean mReceiverRegistered;
 
     private final LiveDisplayManager mLiveDisplay;
@@ -116,6 +116,9 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
             mOutdoorModeAvailable = mLiveDisplay.getConfig().hasFeature(MODE_OUTDOOR) &&
                     !mLiveDisplay.getConfig().hasFeature(FEATURE_MANAGED_OUTDOOR_MODE);
             mDayTemperature = mLiveDisplay.getDayColorTemperature();
+            if (!isAvailable()) {
+                mHost.removeTile(getTileSpec());
+            }
             return true;
         }
         return false;
@@ -128,6 +131,11 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
         mDescriptionEntries = res.getStringArray(R.array.live_display_description);
         mAnnouncementEntries = res.getStringArray(R.array.live_display_announcement);
         mValues = res.getStringArray(R.array.live_display_values);
+    }
+
+    @Override
+    public boolean isAvailable() {
+        return !mNightDisplayAvailable || mOutdoorModeAvailable;
     }
 
     @Override
@@ -160,8 +168,7 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
         state.secondaryLabel = mEntries[state.mode];
         state.icon = ResourceIcon.get(mEntryIconRes[state.mode]);
         state.contentDescription = mDescriptionEntries[state.mode];
-        state.state = (mNightDisplayAvailable && !mOutdoorModeAvailable) ? Tile.STATE_UNAVAILABLE:
-                mLiveDisplay.getMode() != MODE_OFF ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
+        state.state = mLiveDisplay.getMode() != MODE_OFF ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
     }
 
     @Override
@@ -253,7 +260,6 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
         @Override
         public void onReceive(Context context, Intent intent) {
             updateConfig();
-            refreshState();
             unregisterReceiver();
         }
     };
