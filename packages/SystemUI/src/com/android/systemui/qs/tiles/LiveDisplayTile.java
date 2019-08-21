@@ -116,6 +116,9 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
             mOutdoorModeAvailable = mLiveDisplay.getConfig().hasFeature(MODE_OUTDOOR) &&
                     !mLiveDisplay.getConfig().hasFeature(FEATURE_MANAGED_OUTDOOR_MODE);
             mDayTemperature = mLiveDisplay.getDayColorTemperature();
+            if (mNightDisplayAvailable && !mOutdoorModeAvailable){
+                mHost.removeTile(getTileSpec());
+            }
             return true;
         }
         return false;
