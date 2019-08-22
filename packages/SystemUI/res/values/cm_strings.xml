@@ -18,6 +18,15 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Expanded desktop QS tile -->
+    <string name="quick_settings_expanded_desktop_label">Expanded desktop</string>
+    <string name="accessibility_quick_settings_expanded_desktop_off">Expanded desktop off.</string>
+    <string name="accessibility_quick_settings_expanded_desktop_on_both">Expanded desktop on (both).</string>
+    <string name="accessibility_quick_settings_expanded_desktop_on_navbar">Expanded desktop on (navbar).</string>
+    <string name="accessibility_quick_settings_expanded_desktop_on_statusbar">Expanded desktop on (statusbar).</string>
+    <string name="accessibility_quick_settings_expanded_desktop_changed_off">Expanded desktop turned off.</string>
+    <string name="accessibility_quick_settings_expanded_desktop_changed_on">Expanded desktop turned on.</string>
+
     <!-- Mono audio QS tile -->
     <string name="quick_settings_mono_audio_label">Mono audio</string>
     <string name="accessibility_quick_settings_mono_audio_off">Mono audio off.</string>
