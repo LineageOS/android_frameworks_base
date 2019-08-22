@@ -397,10 +397,11 @@ public class StorageNotification extends SystemUI {
             // USB disks notification can be persistent
             if (disk.isUsb()) {
                 builder.setOngoing(true);
-            }
-            // Non-adoptable disks can't be snoozed.
-            if (disk.isAdoptable()) {
-                builder.setDeleteIntent(buildSnoozeIntent(vol.getFsUuid()));
+
+                // Non-adoptable USB disks can't be snoozed.
+                if (disk.isAdoptable()) {
+                    builder.setDeleteIntent(buildSnoozeIntent(vol.getFsUuid()));
+                }
             }
 
             return builder.build();
