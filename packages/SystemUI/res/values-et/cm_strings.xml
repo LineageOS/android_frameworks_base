@@ -61,6 +61,7 @@
     <string name="quick_settings_volume_panel_label">Helipaneel</string>
     <string name="accessibility_dpad_left">Kursor vasakule</string>
     <string name="accessibility_dpad_right">Kursor paremale</string>
+    <string name="screen_pinning_description_no_navbar">See hoitakse kuval, kuni selle vabastate. Vabastamiseks puudutage pikalt tagasinuppu.</string>
     <string name="screen_pinning_toast_no_navbar">Selle ekraani vabastamiseks puudutage ja hoidke all tagasinuppu</string>
     <string name="nav_bar_layout_inverse">Pööra paigutus</string>
     <string name="custom_swipe_hint">Lohista ikoonilt <xliff:g name="target">%s</xliff:g> jaoks</string>

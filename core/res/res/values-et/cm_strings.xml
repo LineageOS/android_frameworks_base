@@ -29,6 +29,7 @@
     <string name="app_ops_app_start_foreground">installimata avatava rakenduse käivitamine esiplaanil</string>
     <string name="app_ops_assist_screenshot">kuvatõmmise tegemine</string>
     <string name="app_ops_assist_structure">kasuta assisteeritud struktuuri</string>
+    <string name="app_ops_audio_accessibility_volume">abistava heli tugevus</string>
     <string name="app_ops_auto_start">käivitada sisselülitamisel</string>
     <string name="app_ops_bind_accessibility_service">juurdepääsetavusteenuse ühendamine</string>
     <string name="app_ops_bluetooth_scan">Bluetoothi skannimine</string>
