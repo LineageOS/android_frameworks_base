@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0a3a600_b2dfc772",
+        "filename": "packages/SettingsProvider/res/values/defaults.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-08-28T07:54:35Z",
+      "side": 1,
+      "message": "should be 0 to keep default",
+      "revId": "244633201aa7a6a031c4eed4959e6709426647e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee31226e_3dbdcd5a",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2327,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-08-28T07:54:35Z",
+      "side": 1,
+      "message": "space",
+      "revId": "244633201aa7a6a031c4eed4959e6709426647e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c864884c_d11dcc20",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2424,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-08-28T07:54:35Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "244633201aa7a6a031c4eed4959e6709426647e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe824edb_1098e656",
+        "filename": "services/core/java/com/android/server/connectivity/NetworkMonitor.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-08-28T07:54:35Z",
+      "side": 1,
+      "message": "I didn\u0027t find anything about the function aosp uses so I create notifyNetworkTestResultValid()",
+      "revId": "244633201aa7a6a031c4eed4959e6709426647e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
