@@ -597,28 +597,6 @@ public class StatusBarManagerService extends IStatusBarService.Stub {
     }
 
     @Override
-    public void showInDisplayFingerprintView() {
-        if (mBar != null) {
-            try {
-                mBar.showInDisplayFingerprintView();
-            } catch (RemoteException ex) {
-                // do nothing
-            }
-        }
-    }
-
-    @Override
-    public void hideInDisplayFingerprintView() {
-        if (mBar != null) {
-            try {
-                mBar.hideInDisplayFingerprintView();
-            } catch (RemoteException ex) {
-                // do nothing
-            }
-        }
-    }
-
-    @Override
     public void disable(int what, IBinder token, String pkg) {
         disableForUser(what, token, pkg, mCurrentUserId);
     }

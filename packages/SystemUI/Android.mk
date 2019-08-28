@@ -55,8 +55,7 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
 LOCAL_STATIC_JAVA_LIBRARIES := \
     SystemUI-tags \
     SystemUI-proto \
-    org.lineageos.platform.internal \
-    vendor.lineage.biometrics.fingerprint.inscreen-V1.0-java
+    org.lineageos.platform.internal
 
 LOCAL_JAVA_LIBRARIES := telephony-common \
     android.car
