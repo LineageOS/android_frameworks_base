@@ -349,6 +349,13 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     private SparseBooleanArray mPendingRestrictOnData = new SparseBooleanArray();
     private SparseBooleanArray mPendingRestrictOnVpn = new SparseBooleanArray();
 
+    /* map keys used by netd to keep per app interface restrictions
+     * separate for each use case.
+     */
+    private static final String RESTRICT_USECASE_DATA = "data";
+    private static final String RESTRICT_USECASE_VPN  = "vpn";
+    private static final String RESTRICT_USECASE_WLAN = "wlan";
+
     /**
      * Constructs a new NetworkManagementService instance
      *
@@ -1834,82 +1841,51 @@ public class NetworkManagementService extends INetworkManagementService.Stub
 
     @Override
     public void restrictAppOnData(int uid, boolean restrict) {
-        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
-        // silently discard when control disabled
-        if (!mBandwidthControlEnabled) return;
-
         initDataInterface();
-        if (TextUtils.isEmpty(mDataInterfaceName)) {
-            // We don't have an interface name since data is not active
-            // yet, so queue up the request for when it comes up alive
-            mPendingRestrictOnData.put(uid, restrict);
-            return;
-        }
-
-        synchronized (mQuotaLock) {
-            boolean oldValue = mDataBlacklist.get(uid, false);
-            if (oldValue == restrict) {
-                return;
-            }
-            mDataBlacklist.put(uid, restrict);
-        }
-
-        try {
-            final String action = restrict ? "add" : "remove";
-            mConnector.execute("bandwidth", action + "restrictappsondata", mDataInterfaceName, uid);
-        } catch (NativeDaemonConnectorException e) {
-            throw e.rethrowAsParcelableException();
-        }
+        restrictAppOnInterface(RESTRICT_USECASE_DATA, uid, restrict, mDataInterfaceName,
+                mPendingRestrictOnData, mDataBlacklist);
     }
 
     @Override
     public void restrictAppOnVpn(int uid, boolean restrict) {
-        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
-        // silently discard when control disabled
-        if (!mBandwidthControlEnabled) return;
-
         initVpnInterface();
-        if (TextUtils.isEmpty(mVpnInterfaceName)) {
-            // We don't have an interface name since vpn is not active
-            // yet, so queue up the request for when it comes up alive
-            mPendingRestrictOnVpn.put(uid, restrict);
-            return;
-        }
-
-        synchronized (mQuotaLock) {
-            boolean oldValue = mVpnBlacklist.get(uid, false);
-            if (oldValue == restrict) {
-                return;
-            }
-            mVpnBlacklist.put(uid, restrict);
-        }
-
-        try {
-            final String action = restrict ? "add" : "remove";
-            mConnector.execute("bandwidth", action + "restrictappsonvpn", mVpnInterfaceName, uid);
-        } catch (NativeDaemonConnectorException e) {
-            throw e.rethrowAsParcelableException();
-        }
+        restrictAppOnInterface(RESTRICT_USECASE_VPN, uid, restrict, mVpnInterfaceName,
+                mPendingRestrictOnVpn, mVpnBlacklist);
     }
 
     @Override
     public void restrictAppOnWlan(int uid, boolean restrict) {
+        /* note: wlan doesn't have a pending list since interface name is a system prop */
+        restrictAppOnInterface(RESTRICT_USECASE_WLAN, uid, restrict, mWlanInterfaceName,
+                null, mWlanBlacklist);
+    }
+
+    private void restrictAppOnInterface(String key, int uid, boolean restrict, final String iface,
+            final SparseBooleanArray pendingBlacklist, final SparseBooleanArray blacklist) {
         mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
-        // silently discard when control disabled
+        // Silently discard when control disabled
         if (!mBandwidthControlEnabled) return;
 
+        if (TextUtils.isEmpty(iface)) {
+            // We don't have an interface name yet so queue
+            // the request for when it comes up
+            if (pendingBlacklist != null) {
+                pendingBlacklist.put(uid, restrict);
+            }
+            return;
+        }
+
         synchronized (mQuotaLock) {
-            boolean oldValue = mWlanBlacklist.get(uid, false);
+            boolean oldValue = blacklist.get(uid, false);
             if (oldValue == restrict) {
                 return;
             }
-            mWlanBlacklist.put(uid, restrict);
+            blacklist.put(uid, restrict);
         }
 
         try {
             final String action = restrict ? "add" : "remove";
-            mConnector.execute("bandwidth", action + "restrictappsonwlan",
-                    mWlanInterfaceName, uid);
+            mConnector.execute("bandwidth", action + "restrictappsoninterface", key, iface, uid);
         } catch (NativeDaemonConnectorException e) {
             throw e.rethrowAsParcelableException();
         }
