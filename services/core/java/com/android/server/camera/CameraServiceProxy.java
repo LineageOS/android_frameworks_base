@@ -33,6 +33,7 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -76,9 +77,12 @@ public class CameraServiceProxy extends SystemService
 
     // Handler message codes
     private static final int MSG_SWITCH_USER = 1;
+    private static final int MSG_CAMERA_CLOSED = 1001;
+    private static final int MSG_CAMERA_OPEN = 1002;
 
     private static final int RETRY_DELAY_TIME = 20; //ms
     private static final int RETRY_TIMES = 30;
+    private static final int CAMERA_EVENT_DELAY_TIME = 70; //ms
 
     // Maximum entries to keep in usage history before dumping out
     private static final int MAX_USAGE_HISTORY = 100;
@@ -124,6 +128,9 @@ public class CameraServiceProxy extends SystemService
     private final @NfcNotifyState int mNotifyNfc;
     private boolean mLastNfcPollState = true;
     private final boolean mAllowMediaUid;
+
+    private long mClosedEvent;
+    private long mOpenEvent;
 
     /**
      * Structure to track camera usage
@@ -217,6 +224,25 @@ public class CameraServiceProxy extends SystemService
                     state + " for client " + clientName + " API Level " + apiLevel);
 
             updateActivityCount(cameraId, newCameraState, facing, clientName, apiLevel);
+
+            if (facing == ICameraServiceProxy.CAMERA_FACING_FRONT) {
+                switch (newCameraState) {
+                   case ICameraServiceProxy.CAMERA_STATE_OPEN : {
+                       mOpenEvent = SystemClock.elapsedRealtime();
+                       if (SystemClock.elapsedRealtime() - mClosedEvent < CAMERA_EVENT_DELAY_TIME) {
+                           mHandler.removeMessages(MSG_CAMERA_CLOSED);
+                       }
+                       mHandler.sendEmptyMessageDelayed(MSG_CAMERA_OPEN, CAMERA_EVENT_DELAY_TIME);
+                   } break;
+                   case ICameraServiceProxy.CAMERA_STATE_CLOSED : {
+                       mClosedEvent = SystemClock.elapsedRealtime();
+                       if (SystemClock.elapsedRealtime() - mOpenEvent < CAMERA_EVENT_DELAY_TIME) {
+                           mHandler.removeMessages(MSG_CAMERA_OPEN);
+                       }
+                       mHandler.sendEmptyMessageDelayed(MSG_CAMERA_CLOSED, CAMERA_EVENT_DELAY_TIME);
+                   } break;
+                }
+            }
         }
     };
 
@@ -243,7 +269,13 @@ public class CameraServiceProxy extends SystemService
             case MSG_SWITCH_USER: {
                 notifySwitchWithRetries(msg.arg1);
             } break;
-            default: {
+            case MSG_CAMERA_CLOSED: {
+                sendCameraStateIntent("0");
+            } break;
+            case MSG_CAMERA_OPEN: {
+                sendCameraStateIntent("1");
+            } break;
+           default: {
                 Slog.e(TAG, "CameraServiceProxy error, invalid message: " + msg.what);
             } break;
         }
@@ -579,6 +611,12 @@ public class CameraServiceProxy extends SystemService
             default: break;
         }
         return "CAMERA_FACING_UNKNOWN";
+    }
+
+    private void sendCameraStateIntent(String cameraState) {
+        Intent intent = new Intent(lineageos.content.Intent.ACTION_CAMERA_STATUS_CHANGED);
+        intent.putExtra(lineageos.content.Intent.EXTRA_CAMERA_STATE, cameraState);
+        mContext.sendBroadcastAsUser(intent, UserHandle.SYSTEM);
     }
 
     private static String nfcNotifyToString(@NfcNotifyState int nfcNotifyState) {
