@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1668d3b_7c620a0b",
+        "filename": "packages/SystemUI/src/com/android/systemui/usb/StorageNotification.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-08-30T12:43:33Z",
+      "side": 0,
+      "message": "my another idea would be to call setDeleteIntent() for disk.isSd() instead, so that usb notifications can\u0027t be dismissed.",
+      "range": {
+        "startLine": 401,
+        "startChar": 12,
+        "endLine": 404,
+        "endChar": 13
+      },
+      "revId": "cc845e2b4d87171670e11198802b274a1bfa5fa0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
