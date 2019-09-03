@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0a31994_8d950a2c",
+        "filename": "packages/SystemUI/src/com/android/systemui/usb/StorageNotification.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-03T13:47:28Z",
+      "side": 1,
+      "message": "No longer applies.",
+      "range": {
+        "startLine": 360,
+        "startChar": 53,
+        "endLine": 361,
+        "endChar": 59
+      },
+      "revId": "966e3c2bae18e08922d061ae5b2d28de3c643a46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1eeca5c_7a86a974",
+        "filename": "packages/SystemUI/src/com/android/systemui/usb/StorageNotification.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-03T13:47:28Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 401,
+        "startChar": 12,
+        "endLine": 401,
+        "endChar": 52
+      },
+      "revId": "966e3c2bae18e08922d061ae5b2d28de3c643a46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
