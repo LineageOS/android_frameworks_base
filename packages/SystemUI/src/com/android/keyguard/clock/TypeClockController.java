@@ -131,7 +131,7 @@ public class TypeClockController implements ClockPlugin {
         setDarkAmount(1f);
         setTextColor(Color.WHITE);
         ColorExtractor.GradientColors colors = mColorExtractor.getColors(
-                WallpaperManager.FLAG_LOCK, true);
+                WallpaperManager.FLAG_LOCK);
         setColorPalette(colors.supportsDarkText(), colors.getColorPalette());
         onTimeTick();
 
@@ -152,6 +152,11 @@ public class TypeClockController implements ClockPlugin {
             createViews();
         }
         return mView;
+    }
+
+    @Override
+    public int getPreferredY(int totalHeight) {
+        return totalHeight / 2;
     }
 
     @Override
