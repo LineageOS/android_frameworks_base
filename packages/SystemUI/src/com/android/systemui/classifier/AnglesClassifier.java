@@ -52,7 +52,7 @@ public class AnglesClassifier extends StrokeClassifier {
     private HashMap<Stroke, Data> mStrokeMap = new HashMap<>();
 
     public static final boolean VERBOSE = SystemProperties.getBoolean("debug.falsing_log.ang",
-            Build.IS_DEBUGGABLE);
+            Build.IS_ENG);
 
     private static String TAG = "ANG";
 

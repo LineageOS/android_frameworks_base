@@ -162,7 +162,7 @@ public final class LocationAccessPolicy {
         }
         Log.e(TAG, errorMsg);
         try {
-            if (Build.IS_DEBUGGABLE) {
+            if (Build.IS_ENG) {
                 Toast.makeText(context, errorMsg, Toast.LENGTH_SHORT).show();
             }
         } catch (Throwable t) {

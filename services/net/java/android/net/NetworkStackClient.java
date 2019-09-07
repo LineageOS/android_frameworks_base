@@ -364,7 +364,7 @@ public class NetworkStackClient {
         //   Considering that this only matters if last boot was some time ago, it's likely that
         //   time will be set correctly. Otherwise, not crashing is not a big problem anyway. Being
         //   in this last state would also not last for long since the window is only a few hours.
-        final boolean alwaysCrash = Build.IS_DEBUGGABLE && !alwaysRatelimit;
+        final boolean alwaysCrash = Build.IS_ENG && !alwaysRatelimit;
         final boolean justBooted = uptime < minUptimeBeforeCrash;
         final boolean haveLastCrashTime = (lastCrashTime != 0) && (lastCrashTime < now);
         final boolean haveKnownRecentCrash =

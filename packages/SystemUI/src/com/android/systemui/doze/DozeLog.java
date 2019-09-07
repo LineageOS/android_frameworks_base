@@ -32,7 +32,7 @@ public class DozeLog {
     private static final String TAG = "DozeLog";
     private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
     private static final boolean ENABLED = true;
-    private static final int SIZE = Build.IS_DEBUGGABLE ? 400 : 50;
+    private static final int SIZE = Build.IS_ENG ? 400 : 50;
     static final SimpleDateFormat FORMAT = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
 
     public static final int REASONS = 10;

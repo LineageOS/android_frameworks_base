@@ -119,7 +119,7 @@ import java.util.concurrent.TimeUnit;
 // TODO (bug:122218838): Validate changed time is handled correctly
 final class HistoricalRegistry {
     private static final boolean DEBUG = false;
-    private static final boolean KEEP_WTF_LOG = Build.IS_DEBUGGABLE;
+    private static final boolean KEEP_WTF_LOG = Build.IS_ENG;
 
     private static final String LOG_TAG = HistoricalRegistry.class.getSimpleName();
 
