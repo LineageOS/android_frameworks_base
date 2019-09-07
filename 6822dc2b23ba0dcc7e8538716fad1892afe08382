@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fe072e9_c97e3852",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4952,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-09-07T12:34:26Z",
+      "side": 1,
+      "message": "Build.IS_ENG",
+      "range": {
+        "startLine": 4952,
+        "startChar": 46,
+        "endLine": 4952,
+        "endChar": 70
+      },
+      "revId": "6822dc2b23ba0dcc7e8538716fad1892afe08382",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
