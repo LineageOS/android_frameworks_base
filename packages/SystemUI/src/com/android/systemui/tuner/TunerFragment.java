@@ -76,7 +76,7 @@ public class TunerFragment extends PreferenceFragment {
         if (!alwaysOnAvailable()) {
             getPreferenceScreen().removePreference(findPreference(KEY_DOZE));
         }
-        if (!Build.IS_DEBUGGABLE) {
+        if (!Build.IS_ENG) {
             for (int i = 0; i < DEBUG_ONLY.length; i++) {
                 Preference preference = findPreference(DEBUG_ONLY[i]);
                 if (preference != null) getPreferenceScreen().removePreference(preference);

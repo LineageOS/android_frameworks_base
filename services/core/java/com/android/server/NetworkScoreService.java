@@ -84,8 +84,8 @@ import java.util.function.UnaryOperator;
  */
 public class NetworkScoreService extends INetworkScoreService.Stub {
     private static final String TAG = "NetworkScoreService";
-    private static final boolean DBG = Build.IS_DEBUGGABLE && Log.isLoggable(TAG, Log.DEBUG);
-    private static final boolean VERBOSE = Build.IS_DEBUGGABLE && Log.isLoggable(TAG, Log.VERBOSE);
+    private static final boolean DBG = Build.IS_ENG && Log.isLoggable(TAG, Log.DEBUG);
+    private static final boolean VERBOSE = Build.IS_ENG && Log.isLoggable(TAG, Log.VERBOSE);
 
     private final Context mContext;
     private final NetworkScorerAppManager mNetworkScorerAppManager;

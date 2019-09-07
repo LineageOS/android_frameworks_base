@@ -199,7 +199,7 @@ public class AmbientDisplayConfiguration {
     }
 
     private boolean alwaysOnDisplayDebuggingEnabled() {
-        return SystemProperties.getBoolean("debug.doze.aod", false) && Build.IS_DEBUGGABLE;
+        return SystemProperties.getBoolean("debug.doze.aod", false) && Build.IS_ENG;
     }
 
     private boolean boolSettingDefaultOn(String name, int user) {

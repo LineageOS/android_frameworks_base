@@ -904,7 +904,7 @@ public class ActivityManager {
     @UnsupportedAppUsage
     public static boolean isLowRamDeviceStatic() {
         return RoSystemProperties.CONFIG_LOW_RAM ||
-                (Build.IS_DEBUGGABLE && DEVELOPMENT_FORCE_LOW_RAM);
+                (Build.IS_ENG && DEVELOPMENT_FORCE_LOW_RAM);
     }
 
     /**

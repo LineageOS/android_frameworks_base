@@ -69,7 +69,7 @@ public final class SQLiteDebug {
         /**
          * True to enable database performance testing instrumentation.
          */
-        public static final boolean DEBUG_LOG_SLOW_QUERIES = Build.IS_DEBUGGABLE;
+        public static final boolean DEBUG_LOG_SLOW_QUERIES = Build.IS_ENG;
 
         private static final String SLOW_QUERY_THRESHOLD_PROP = "db.log.slow_query_threshold";
 
@@ -79,7 +79,7 @@ public final class SQLiteDebug {
         /**
          * Whether to add detailed information to slow query log.
          */
-        public static final boolean DEBUG_LOG_DETAILED = Build.IS_DEBUGGABLE
+        public static final boolean DEBUG_LOG_DETAILED = Build.IS_ENG
                 && SystemProperties.getBoolean("db.log.detailed", false);
     }
 

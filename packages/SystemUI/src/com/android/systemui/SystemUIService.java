@@ -40,7 +40,7 @@ public class SystemUIService extends Service {
         ((SystemUIApplication) getApplication()).startServicesIfNeeded();
 
         // For debugging RescueParty
-        if (Build.IS_DEBUGGABLE && SystemProperties.getBoolean("debug.crash_sysui", false)) {
+        if (Build.IS_ENG && SystemProperties.getBoolean("debug.crash_sysui", false)) {
             throw new RuntimeException();
         }
 
@@ -85,7 +85,7 @@ public class SystemUIService extends Service {
                 pw.println("dumping service: " + ui.getClass().getName());
                 ui.dump(fd, pw, args);
             }
-            if (Build.IS_DEBUGGABLE) {
+            if (Build.IS_ENG) {
                 pw.println("dumping plugins:");
                 ((PluginManagerImpl) Dependency.get(PluginManager.class)).dump(fd, pw, args);
             }

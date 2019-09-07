@@ -59,7 +59,7 @@ public class UnlockMethodCache {
         mKeyguardUpdateMonitor = KeyguardUpdateMonitor.getInstance(ctx);
         KeyguardUpdateMonitor.getInstance(ctx).registerCallback(mCallback);
         update(true /* updateAlways */);
-        if (Build.IS_DEBUGGABLE && DEBUG_AUTH_WITH_ADB) {
+        if (Build.IS_ENG && DEBUG_AUTH_WITH_ADB) {
             // Watch for interesting updates
             final IntentFilter filter = new IntentFilter();
             filter.addAction(AUTH_BROADCAST_KEY);
@@ -120,7 +120,7 @@ public class UnlockMethodCache {
         int user = KeyguardUpdateMonitor.getCurrentUser();
         boolean secure = mLockPatternUtils.isSecure(user);
         boolean canSkipBouncer = !secure || mKeyguardUpdateMonitor.getUserCanSkipBouncer(user)
-                || (Build.IS_DEBUGGABLE && DEBUG_AUTH_WITH_ADB && mDebugUnlocked);
+                || (Build.IS_ENG && DEBUG_AUTH_WITH_ADB && mDebugUnlocked);
         boolean trustManaged = mKeyguardUpdateMonitor.getUserTrustIsManaged(user);
         boolean trusted = mKeyguardUpdateMonitor.getUserHasTrust(user);
         boolean faceAuthEnabled = mKeyguardUpdateMonitor.isFaceAuthEnabledForUser(user);

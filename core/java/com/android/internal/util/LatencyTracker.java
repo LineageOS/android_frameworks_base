@@ -121,7 +121,7 @@ public class LatencyTracker {
     }
 
     public static boolean isEnabled(Context ctx) {
-        return Build.IS_DEBUGGABLE && getInstance(ctx).mEnabled;
+        return Build.IS_ENG && getInstance(ctx).mEnabled;
     }
 
     /**
