@@ -57,7 +57,7 @@ public class EmergencyAffordanceManager {
     private static Uri getPhoneUri(Context context) {
         String number = context.getResources().getString(
                 com.android.internal.R.string.config_emergency_call_number);
-        if (Build.IS_DEBUGGABLE) {
+        if (Build.IS_ENG) {
             String override = Settings.Global.getString(
                     context.getContentResolver(), EMERGENCY_CALL_NUMBER_SETTING);
             if (override != null) {

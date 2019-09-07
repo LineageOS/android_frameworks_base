@@ -53,7 +53,7 @@ public class SignatureVerifier {
 
     public SignatureVerifier(SignedConfigEvent event) {
         mEvent = event;
-        mDebugKey = Build.IS_DEBUGGABLE ? createKey(DEBUG_KEY) : null;
+        mDebugKey = Build.IS_ENG ? createKey(DEBUG_KEY) : null;
         mProdKey = createKey(PROD_KEY);
     }
 
@@ -103,7 +103,7 @@ public class SignatureVerifier {
         byte[] data = config.getBytes(StandardCharsets.UTF_8);
         if (DBG) Slog.i(TAG, "Data: " + Base64.getEncoder().encodeToString(data));
 
-        if (Build.IS_DEBUGGABLE) {
+        if (Build.IS_ENG) {
             if (mDebugKey != null) {
                 if (DBG) Slog.w(TAG, "Trying to verify signature using debug key");
                 if (verifyWithPublicKey(mDebugKey, data, signature)) {

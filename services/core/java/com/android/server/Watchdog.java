@@ -697,7 +697,7 @@ public class Watchdog extends Thread {
 
         public static OpenFdMonitor create() {
             // Only run the FD monitor on debuggable builds (such as userdebug and eng builds).
-            if (!Build.IS_DEBUGGABLE) {
+            if (!Build.IS_ENG) {
                 return null;
             }
 

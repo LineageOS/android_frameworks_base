@@ -159,7 +159,7 @@ public class SyncManager {
     private static final boolean DEBUG_ACCOUNT_ACCESS = false;
 
     // Only do the check on a debuggable build.
-    private static final boolean ENABLE_SUSPICIOUS_CHECK = Build.IS_DEBUGGABLE;
+    private static final boolean ENABLE_SUSPICIOUS_CHECK = Build.IS_ENG;
 
     /** Delay a sync due to local changes this long. In milliseconds */
     private static final long LOCAL_SYNC_DELAY;

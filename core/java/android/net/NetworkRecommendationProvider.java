@@ -50,7 +50,7 @@ import java.util.concurrent.Executor;
 @SystemApi
 public abstract class NetworkRecommendationProvider {
     private static final String TAG = "NetworkRecProvider";
-    private static final boolean VERBOSE = Build.IS_DEBUGGABLE && Log.isLoggable(TAG, Log.VERBOSE);
+    private static final boolean VERBOSE = Build.IS_ENG && Log.isLoggable(TAG, Log.VERBOSE);
     private final IBinder mService;
 
     /**

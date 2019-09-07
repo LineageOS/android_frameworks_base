@@ -326,7 +326,7 @@ final class ActivityManagerConstants extends ContentObserver {
     ActivityManagerConstants(Context context, ActivityManagerService service, Handler handler) {
         super(handler);
         mService = service;
-        mSystemServerAutomaticHeapDumpEnabled = Build.IS_DEBUGGABLE
+        mSystemServerAutomaticHeapDumpEnabled = Build.IS_ENG
                 && context.getResources().getBoolean(
                 com.android.internal.R.bool.config_debugEnableAutomaticSystemServerHeapDumps);
         mSystemServerAutomaticHeapDumpPackageName = context.getPackageName();

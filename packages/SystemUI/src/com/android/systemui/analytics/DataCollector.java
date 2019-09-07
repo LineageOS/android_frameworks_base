@@ -135,16 +135,16 @@ public class DataCollector implements SensorEventListener {
     }
 
     private void updateConfiguration() {
-        mEnableCollector = Build.IS_DEBUGGABLE && 0 != Settings.Secure.getInt(
+        mEnableCollector = Build.IS_ENG && 0 != Settings.Secure.getInt(
                 mContext.getContentResolver(),
                 COLLECTOR_ENABLE, 0);
         mCollectBadTouches = mEnableCollector && 0 != Settings.Secure.getInt(
                 mContext.getContentResolver(),
                 COLLECT_BAD_TOUCHES, 0);
-        mAllowReportRejectedTouch = Build.IS_DEBUGGABLE && 0 != Settings.Secure.getInt(
+        mAllowReportRejectedTouch = Build.IS_ENG && 0 != Settings.Secure.getInt(
                 mContext.getContentResolver(),
                 ALLOW_REJECTED_TOUCH_REPORTS, 0);
-        mDisableUnlocking = mEnableCollector && Build.IS_DEBUGGABLE && 0 != Settings.Secure.getInt(
+        mDisableUnlocking = mEnableCollector && Build.IS_ENG && 0 != Settings.Secure.getInt(
                 mContext.getContentResolver(),
                 DISABLE_UNLOCKING_FOR_FALSING_COLLECTION, 0);
     }

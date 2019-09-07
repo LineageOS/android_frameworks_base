@@ -8116,7 +8116,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     @Override
     public void requestSystemServerHeapDump() {
-        if (!Build.IS_DEBUGGABLE) {
+        if (!Build.IS_ENG) {
             Slog.wtf(TAG, "requestSystemServerHeapDump called on a user build");
             return;
         }
@@ -17492,7 +17492,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                     throw new SecurityException("No process found for calling pid "
                             + Binder.getCallingPid());
                 }
-                if (!Build.IS_DEBUGGABLE
+                if (!Build.IS_ENG
                         && (proc.info.flags&ApplicationInfo.FLAG_DEBUGGABLE) == 0) {
                     throw new SecurityException("Not running a debuggable build");
                 }

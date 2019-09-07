@@ -75,7 +75,7 @@ public class SyncLogger {
         if (sInstance == null) {
             final String flag = SystemProperties.get("debug.synclog");
             final boolean enable =
-                    (Build.IS_DEBUGGABLE
+                    (Build.IS_ENG
                     || "1".equals(flag)
                     || Log.isLoggable(TAG, Log.VERBOSE)) && !"0".equals(flag);
             if (enable) {

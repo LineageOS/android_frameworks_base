@@ -1350,7 +1350,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             if (dumpUnreachable) {
                 boolean showContents = ((mBoundApplication != null)
                     && ((mBoundApplication.appInfo.flags&ApplicationInfo.FLAG_DEBUGGABLE) != 0))
-                    || android.os.Build.IS_DEBUGGABLE;
+                    || android.os.Build.IS_ENG;
                 pw.println(" ");
                 pw.println(" Unreachable memory");
                 pw.print(Debug.getUnreachableMemory(100, showContents));
@@ -1476,7 +1476,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             if (dumpUnreachable) {
                 int flags = mBoundApplication == null ? 0 : mBoundApplication.appInfo.flags;
                 boolean showContents = (flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0
-                        || android.os.Build.IS_DEBUGGABLE;
+                        || android.os.Build.IS_ENG;
                 proto.write(MemInfoDumpProto.AppData.UNREACHABLE_MEMORY,
                         Debug.getUnreachableMemory(100, showContents));
             }
@@ -6279,13 +6279,13 @@ public final class ActivityThread extends ClientTransactionHandler {
         }
 
         // Initialize heap profiling.
-        if (isAppProfileable || Build.IS_DEBUGGABLE) {
+        if (isAppProfileable || Build.IS_ENG) {
             nInitZygoteChildHeapProfiling();
         }
 
         // Allow renderer debugging features if we're debuggable.
         boolean isAppDebuggable = (data.appInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
-        HardwareRenderer.setDebuggingEnabled(isAppDebuggable || Build.IS_DEBUGGABLE);
+        HardwareRenderer.setDebuggingEnabled(isAppDebuggable || Build.IS_ENG);
         HardwareRenderer.setPackageName(data.appInfo.packageName);
 
         /**

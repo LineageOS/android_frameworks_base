@@ -46,7 +46,7 @@ import java.util.List;
  */
 @SystemApi
 public abstract class InstantAppResolverService extends Service {
-    private static final boolean DEBUG_INSTANT = Build.IS_DEBUGGABLE;
+    private static final boolean DEBUG_INSTANT = Build.IS_ENG;
     private static final String TAG = "PackageManager";
 
     /** @hide */

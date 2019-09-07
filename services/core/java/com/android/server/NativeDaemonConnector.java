@@ -182,7 +182,7 @@ final class NativeDaemonConnector implements Runnable, Handler.Callback, Watchdo
         // In order to ensure that unprivileged apps aren't able to impersonate native daemons on
         // production devices, even if said native daemons ill-advisedly pick a socket name that
         // starts with __test__, only allow this on debug builds.
-        if (mSocket.startsWith("__test__") && Build.IS_DEBUGGABLE) {
+        if (mSocket.startsWith("__test__") && Build.IS_ENG) {
             return new LocalSocketAddress(mSocket);
         } else {
             return new LocalSocketAddress(mSocket, LocalSocketAddress.Namespace.RESERVED);

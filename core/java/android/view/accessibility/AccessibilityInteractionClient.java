@@ -683,7 +683,7 @@ public final class AccessibilityInteractionClient
                 result = Collections.emptyList();
             }
             clearResultLocked();
-            if (Build.IS_DEBUGGABLE && CHECK_INTEGRITY) {
+            if (Build.IS_ENG && CHECK_INTEGRITY) {
                 checkFindAccessibilityNodeInfoResultIntegrity(result);
             }
             return result;

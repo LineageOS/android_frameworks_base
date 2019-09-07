@@ -47,7 +47,7 @@ import java.util.Locale;
  */
 public class FalsingLog {
     public static final boolean ENABLED = SystemProperties.getBoolean("debug.falsing_log",
-            Build.IS_DEBUGGABLE);
+            Build.IS_ENG);
     private static final boolean LOGCAT = SystemProperties.getBoolean("debug.falsing_logcat",
             false);
 
@@ -144,7 +144,7 @@ public class FalsingLog {
 
         Application application = ActivityThread.currentApplication();
         String fileMessage = "";
-        if (Build.IS_DEBUGGABLE && application != null) {
+        if (Build.IS_ENG && application != null) {
             File f = new File(application.getDataDir(), "falsing-"
                     + new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".txt");
             PrintWriter pw = null;

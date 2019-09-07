@@ -56,7 +56,7 @@ public final class ContentCaptureHelper {
      */
     @LoggingLevel
     public static int getDefaultLoggingLevel() {
-        return Build.IS_DEBUGGABLE ? LOGGING_LEVEL_DEBUG : LOGGING_LEVEL_OFF;
+        return Build.IS_ENG ? LOGGING_LEVEL_DEBUG : LOGGING_LEVEL_OFF;
     }
 
     /**

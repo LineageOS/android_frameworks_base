@@ -827,7 +827,7 @@ public class PackageManagerServiceUtils {
             return false;
         }
         final boolean isDebuggable =
-                Build.IS_DEBUGGABLE || ((applicationFlags
+                Build.IS_ENG || ((applicationFlags
                         & ApplicationInfo.FLAG_DEBUGGABLE) != 0);
         if (isDebuggable) {
             return true;

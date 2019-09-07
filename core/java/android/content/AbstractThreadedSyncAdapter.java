@@ -111,7 +111,7 @@ public abstract class AbstractThreadedSyncAdapter {
     @Deprecated
     public static final int LOG_SYNC_DETAILS = 2743;
 
-    private static final boolean ENABLE_LOG = Build.IS_DEBUGGABLE && Log.isLoggable(TAG, Log.DEBUG);
+    private static final boolean ENABLE_LOG = Build.IS_ENG && Log.isLoggable(TAG, Log.DEBUG);
 
     private final Context mContext;
     private final AtomicInteger mNumSyncStarts;

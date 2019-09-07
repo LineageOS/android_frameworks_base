@@ -58,7 +58,7 @@ final class InstantAppResolverConnection implements DeathRecipient {
             Build.IS_ENG ? 500 : 300;
     private static final long CALL_SERVICE_TIMEOUT_MS =
             Build.IS_ENG ? 200 : 100;
-    private static final boolean DEBUG_INSTANT = Build.IS_DEBUGGABLE;
+    private static final boolean DEBUG_INSTANT = Build.IS_ENG;
 
     private final Object mLock = new Object();
     private final GetInstantAppResolveInfoCaller mGetInstantAppResolveInfoCaller =

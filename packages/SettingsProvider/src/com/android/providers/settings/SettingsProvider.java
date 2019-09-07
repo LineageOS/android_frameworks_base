@@ -2191,7 +2191,7 @@ public class SettingsProvider extends ContentProvider {
 
     private static boolean isCallerSystemOrShellOrRootOnDebuggableBuild() {
         final int appId = UserHandle.getAppId(Binder.getCallingUid());
-        return appId == SYSTEM_UID || (Build.IS_DEBUGGABLE
+        return appId == SYSTEM_UID || (Build.IS_ENG
                 && (appId == SHELL_UID || appId == ROOT_UID));
     }
 

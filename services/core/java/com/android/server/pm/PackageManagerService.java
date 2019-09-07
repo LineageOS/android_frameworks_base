@@ -428,7 +428,7 @@ public class PackageManagerService extends IPackageManager.Stub
     private static final boolean DEBUG_VERIFY = false;
     public static final boolean DEBUG_PERMISSIONS = false;
     private static final boolean DEBUG_SHARED_LIBRARIES = false;
-    public static final boolean DEBUG_COMPRESSION = Build.IS_DEBUGGABLE;
+    public static final boolean DEBUG_COMPRESSION = Build.IS_ENG;
 
     // Debug output for dexopting. This is shared between PackageManagerService, OtaDexoptService
     // and PackageDexOptimizer. All these classes have their own flag to allow switching a single
@@ -436,7 +436,7 @@ public class PackageManagerService extends IPackageManager.Stub
     public static final boolean DEBUG_DEXOPT = false;
 
     private static final boolean DEBUG_ABI_SELECTION = false;
-    private static final boolean DEBUG_INSTANT = Build.IS_DEBUGGABLE;
+    private static final boolean DEBUG_INSTANT = Build.IS_ENG;
     private static final boolean DEBUG_APP_DATA = false;
 
     /** REMOVE. According to Svet, this was only used to reset permissions during development. */
@@ -3886,7 +3886,7 @@ public class PackageManagerService extends IPackageManager.Stub
     private @Nullable Pair<ComponentName, String> getInstantAppResolverLPr() {
         final String[] packageArray =
                 mContext.getResources().getStringArray(R.array.config_ephemeralResolverPackage);
-        if (packageArray.length == 0 && !Build.IS_DEBUGGABLE) {
+        if (packageArray.length == 0 && !Build.IS_ENG) {
             if (DEBUG_INSTANT) {
                 Slog.d(TAG, "Ephemeral resolver NOT found; empty package list");
             }
@@ -3897,7 +3897,7 @@ public class PackageManagerService extends IPackageManager.Stub
         final int resolveFlags =
                 MATCH_DIRECT_BOOT_AWARE
                 | MATCH_DIRECT_BOOT_UNAWARE
-                | (!Build.IS_DEBUGGABLE ? MATCH_SYSTEM_ONLY : 0);
+                | (!Build.IS_ENG ? MATCH_SYSTEM_ONLY : 0);
         String actionName = Intent.ACTION_RESOLVE_INSTANT_APP_PACKAGE;
         final Intent resolverIntent = new Intent(actionName);
         List<ResolveInfo> resolvers = queryIntentServicesInternal(resolverIntent, null,
@@ -3919,7 +3919,7 @@ public class PackageManagerService extends IPackageManager.Stub
             }
 
             final String packageName = info.serviceInfo.packageName;
-            if (!possiblePackages.contains(packageName) && !Build.IS_DEBUGGABLE) {
+            if (!possiblePackages.contains(packageName) && !Build.IS_ENG) {
                 if (DEBUG_INSTANT) {
                     Slog.d(TAG, "Ephemeral resolver not in allowed package list;"
                             + " pkg: " + packageName + ", info:" + info);
@@ -18090,7 +18090,7 @@ public class PackageManagerService extends IPackageManager.Stub
             // In legacy mode, fs-verity can only be enabled by process with CAP_SYS_ADMIN.
             final VerityUtils.SetupResult result = VerityUtils.generateApkVeritySetupData(filePath);
             if (result.isOk()) {
-                if (Build.IS_DEBUGGABLE) Slog.i(TAG, "Enabling verity to " + filePath);
+                if (Build.IS_ENG) Slog.i(TAG, "Enabling verity to " + filePath);
                 final FileDescriptor fd = result.getUnownedFileDescriptor();
                 try {
                     final byte[] rootHash = VerityUtils.generateApkVerityRootHash(filePath);
