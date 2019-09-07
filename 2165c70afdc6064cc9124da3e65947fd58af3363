@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3073a635_adb612cc",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-09-07T19:50:54Z",
+      "side": 1,
+      "message": "missed findViewById(R.id.brightness_icon),",
+      "revId": "2165c70afdc6064cc9124da3e65947fd58af3363",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
