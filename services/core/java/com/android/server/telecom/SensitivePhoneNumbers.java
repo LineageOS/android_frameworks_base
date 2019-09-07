@@ -20,6 +20,7 @@ package com.android.server.telecom;
 import android.content.Context;
 import android.os.Environment;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -35,6 +36,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class SensitivePhoneNumbers {
     private final String LOG_TAG = this.getClass().getSimpleName();
@@ -96,17 +98,37 @@ public class SensitivePhoneNumbers {
     }
 
     public boolean isSensitiveNumber(Context context, String numberToCheck, int subId) {
-        TelephonyManager telephonyManager = context.getSystemService(TelephonyManager.class);
+        SubscriptionManager subManager = context.getSystemService(SubscriptionManager.class);
 
-        if (subId == SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
-            subId = SubscriptionManager.getDefaultSubscriptionId();
+        List<SubscriptionInfo> list = subManager.getActiveSubscriptionInfoList();
+        if (list != null) {
+            // Test all subscriptions so an accidential use of a wrong sim also hides the number
+            for (SubscriptionInfo subInfo : list) {
+                String mcc = String.valueOf(subInfo.getMcc());
+                if (isSensitiveNumber(numberToCheck, mcc)) {
+                    return true;
+                }
+            }
+        } else {
+            // Fall back to check with the passed subId
+            TelephonyManager telephonyManager = context.getSystemService(TelephonyManager.class);
+            if (subId == SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
+                subId = SubscriptionManager.getDefaultSubscriptionId();
+            }
+            String networkUsed = telephonyManager.getNetworkOperator(subId);
+            if (!TextUtils.isEmpty(networkUsed)) {
+                String networkMCC = networkUsed.substring(0, 3);
+                return isSensitiveNumber(numberToCheck, networkMCC);
+            }
         }
 
-        String networkUsed = telephonyManager.getNetworkOperator(subId);
-        if (!TextUtils.isEmpty(networkUsed)) {
-            String networkMCC = networkUsed.substring(0, 3);
-            if (mSensitiveNumbersMap.containsKey(networkMCC)) {
-                for (String num : mSensitiveNumbersMap.get(networkMCC)) {
+        return false;
+    }
+
+    private boolean isSensitiveNumber(String numberToCheck, String mcc) {
+        if (!TextUtils.isEmpty(numberToCheck)) {
+            if (mSensitiveNumbersMap.containsKey(mcc)) {
+                for (String num : mSensitiveNumbersMap.get(mcc)) {
                     if (PhoneNumberUtils.compare(numberToCheck, num)) {
                         return true;
                     }
