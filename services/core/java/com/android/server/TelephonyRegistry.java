@@ -1599,7 +1599,7 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
         mContext.sendBroadcastAsUser(intent, UserHandle.ALL,
                 android.Manifest.permission.READ_PHONE_STATE,
                 AppOpsManager.OP_READ_PHONE_STATE);
-        mContext.sendBroadcastAsUserMultiplePermissions(intentWithPhoneNumber, UserHandle.ALL,
+        mContext.sendBroadcastAsUserMultiplePermissions(intentWithPhoneNumber, UserHandle.SYSTEM,
                 new String[] { android.Manifest.permission.READ_PHONE_STATE,
                         android.Manifest.permission.READ_CALL_LOG});
     }
