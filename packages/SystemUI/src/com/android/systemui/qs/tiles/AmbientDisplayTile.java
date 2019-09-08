@@ -33,6 +33,8 @@ import com.android.systemui.R;
 
 import org.lineageos.internal.logging.LineageMetricsLogger;
 
+import javax.inject.Inject;
+
 /** Quick settings tile: Ambient Display **/
 public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
 
@@ -42,6 +44,7 @@ public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
 
     private final SecureSetting mSetting;
 
+    @Inject
     public AmbientDisplayTile(QSHost host) {
         super(host);
 

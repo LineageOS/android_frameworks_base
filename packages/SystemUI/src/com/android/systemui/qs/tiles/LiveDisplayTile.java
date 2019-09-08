@@ -43,6 +43,8 @@ import org.lineageos.platform.internal.R;
 import lineageos.hardware.LiveDisplayManager;
 import lineageos.providers.LineageSettings;
 
+import javax.inject.Inject;
+
 /** Quick settings tile: LiveDisplay mode switcher **/
 public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
 
@@ -67,6 +69,7 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
 
     private static final int OFF_TEMPERATURE = 6500;
 
+    @Inject
     public LiveDisplayTile(QSHost host) {
         super(host);
 

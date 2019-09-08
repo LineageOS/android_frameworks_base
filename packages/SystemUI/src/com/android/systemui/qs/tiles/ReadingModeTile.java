@@ -29,6 +29,8 @@ import org.lineageos.internal.logging.LineageMetricsLogger;
 import lineageos.hardware.LineageHardwareManager;
 import lineageos.providers.LineageSettings;
 
+import javax.inject.Inject;
+
 public class ReadingModeTile extends QSTileImpl<BooleanState> {
 
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_reader);
@@ -38,6 +40,7 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
 
     private LineageHardwareManager mHardware;
 
+    @Inject
     public ReadingModeTile(QSHost host) {
         super(host);
         mHardware = LineageHardwareManager.getInstance(mContext);

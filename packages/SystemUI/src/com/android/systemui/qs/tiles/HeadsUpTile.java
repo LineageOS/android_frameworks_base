@@ -30,6 +30,8 @@ import com.android.systemui.R;
 
 import org.lineageos.internal.logging.LineageMetricsLogger;
 
+import javax.inject.Inject;
+
 /** Quick settings tile: Heads up **/
 public class HeadsUpTile extends QSTileImpl<BooleanState> {
 
@@ -40,6 +42,7 @@ public class HeadsUpTile extends QSTileImpl<BooleanState> {
 
     private final GlobalSetting mSetting;
 
+    @Inject
     public HeadsUpTile(QSHost host) {
         super(host);
 

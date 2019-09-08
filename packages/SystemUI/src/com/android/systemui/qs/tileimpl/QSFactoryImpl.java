@@ -85,6 +85,15 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<NfcTile> mNfcTileProvider;
     private final Provider<GarbageMonitor.MemoryTile> mMemoryTileProvider;
     private final Provider<UiModeNightTile> mUiModeNightTileProvider;
+    private final Provider<AdbOverNetworkTile> mAdbOverNetworkTileProvider;
+    private final Provider<AmbientDisplayTile> mAmbientDisplayTileProvider;
+    private final Provider<CaffeineTile> mCaffeineTileProvider;
+    private final Provider<HeadsUpTile> mHeadsUpTileProvider;
+    private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
+    private final Provider<ReadingModeTile> mReadingModeTileProvider;
+    private final Provider<SyncTile> mSyncTileProvider;
+    private final Provider<UsbTetherTile> mUsbTetherTileProvider;
+    private final Provider<VolumeTile> mVolumeTileProvider;
 
     private QSTileHost mHost;
 
@@ -107,7 +116,16 @@ public class QSFactoryImpl implements QSFactory {
             Provider<NightDisplayTile> nightDisplayTileProvider,
             Provider<NfcTile> nfcTileProvider,
             Provider<GarbageMonitor.MemoryTile> memoryTileProvider,
-            Provider<UiModeNightTile> uiModeNightTileProvider) {
+            Provider<UiModeNightTile> uiModeNightTileProvider,
+            Provider<AdbOverNetworkTile> adbOverNetworkTileProvider,
+            Provider<AmbientDisplayTile> ambientDisplayTileProvider,
+            Provider<CaffeineTile> caffeineTileProvider,
+            Provider<HeadsUpTile> headsUpTileProvider,
+            Provider<LiveDisplayTile> liveDisplayTileProvider,
+            Provider<ReadingModeTile> readingModeTileProvider,
+            Provider<SyncTile> syncTileProvider,
+            Provider<UsbTetherTile> usbTetherTileProvider,
+            Provider<VolumeTile> volumeTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -127,6 +145,15 @@ public class QSFactoryImpl implements QSFactory {
         mNfcTileProvider = nfcTileProvider;
         mMemoryTileProvider = memoryTileProvider;
         mUiModeNightTileProvider = uiModeNightTileProvider;
+        mAdbOverNetworkTileProvider = adbOverNetworkTileProvider;
+        mAmbientDisplayTileProvider = ambientDisplayTileProvider;
+        mCaffeineTileProvider = caffeineTileProvider;
+        mHeadsUpTileProvider = headsUpTileProvider;
+        mLiveDisplayTileProvider = liveDisplayTileProvider;
+        mReadingModeTileProvider = readingModeTileProvider;
+        mSyncTileProvider = syncTileProvider;
+        mUsbTetherTileProvider = usbTetherTileProvider;
+        mVolumeTileProvider = volumeTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -182,23 +209,23 @@ public class QSFactoryImpl implements QSFactory {
                 return mUiModeNightTileProvider.get();
             // Custom tiles.
             case "adb_network":
-                return new AdbOverNetworkTile(mHost);
+                return mAdbOverNetworkTileProvider.get();
             case "ambient_display":
-                return new AmbientDisplayTile(mHost);
+                return mAmbientDisplayTileProvider.get();
             case "caffeine":
-                return new CaffeineTile(mHost);
+                return mCaffeineTileProvider.get();
             case "heads_up":
-                return new HeadsUpTile(mHost);
+                return mHeadsUpTileProvider.get();
             case "livedisplay":
-                return new LiveDisplayTile(mHost);
+                return mLiveDisplayTileProvider.get();
             case "reading_mode":
-                return new ReadingModeTile(mHost);
+                return mReadingModeTileProvider.get();
             case "sync":
-                return new SyncTile(mHost);
+                return mSyncTileProvider.get();
             case "usb_tether":
-                return new UsbTetherTile(mHost);
+                return mUsbTetherTileProvider.get();
             case "volume_panel":
-                return new VolumeTile(mHost);
+                return mVolumeTileProvider.get();
         }
 
         // Intent tiles.

@@ -33,6 +33,8 @@ import com.android.systemui.R;
 
 import org.lineageos.internal.logging.LineageMetricsLogger;
 
+import javax.inject.Inject;
+
 /** Quick settings tile: Caffeine **/
 public class CaffeineTile extends QSTileImpl<BooleanState> {
 
@@ -51,6 +53,7 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
     public long mLastClickTime = -1;
     private final Receiver mReceiver = new Receiver();
 
+    @Inject
     public CaffeineTile(QSHost host) {
         super(host);
         mWakeLock = mContext.getSystemService(PowerManager.class).newWakeLock(

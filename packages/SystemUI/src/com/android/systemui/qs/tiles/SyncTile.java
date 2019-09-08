@@ -29,6 +29,8 @@ import com.android.systemui.R;
 
 import org.lineageos.internal.logging.LineageMetricsLogger;
 
+import javax.inject.Inject;
+
 /** Quick settings tile: Sync **/
 public class SyncTile extends QSTileImpl<BooleanState> {
 
@@ -37,6 +39,7 @@ public class SyncTile extends QSTileImpl<BooleanState> {
     private Object mSyncObserverHandle = null;
     private boolean mListening;
 
+    @Inject
     public SyncTile(QSHost host) {
         super(host);
     }

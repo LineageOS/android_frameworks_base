@@ -46,6 +46,8 @@ import org.lineageos.internal.logging.LineageMetricsLogger;
 
 import java.net.InetAddress;
 
+import javax.inject.Inject;
+
 /** Quick settings tile: AdbOverNetwork **/
 public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
 
@@ -60,6 +62,7 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
     private static final Intent SETTINGS_DEVELOPMENT =
             new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);
 
+    @Inject
     public AdbOverNetworkTile(QSHost host) {
         super(host);
         mController = Dependency.get(NetworkController.class);

@@ -29,10 +29,13 @@ import com.android.systemui.R;
 
 import org.lineageos.internal.logging.LineageMetricsLogger;
 
+import javax.inject.Inject;
+
 public class VolumeTile extends QSTileImpl<BooleanState> {
 
     private static final Intent SOUND_SETTINGS = new Intent("android.settings.SOUND_SETTINGS");
 
+    @Inject
     public VolumeTile(QSHost host) {
         super(host);
     }

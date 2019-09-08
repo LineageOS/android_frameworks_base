@@ -34,6 +34,8 @@ import com.android.systemui.R;
 
 import org.lineageos.internal.logging.LineageMetricsLogger;
 
+import javax.inject.Inject;
+
 /**
  * USB Tether quick settings tile
  */
@@ -51,6 +53,7 @@ public class UsbTetherTile extends QSTileImpl<BooleanState> {
     private boolean mUsbConnected = false;
     private boolean mUsbTetherEnabled = false;
 
+    @Inject
     public UsbTetherTile(QSHost host) {
         super(host);
         mConnectivityManager = mContext.getSystemService(ConnectivityManager.class);
