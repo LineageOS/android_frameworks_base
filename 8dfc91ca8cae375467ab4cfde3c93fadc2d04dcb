@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e49d927_cac1e21d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-08T22:10:14Z",
+      "side": 1,
+      "message": "Where is this sha1 from? Github doesn\u0027t resolve it.",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 47
+      },
+      "revId": "8dfc91ca8cae375467ab4cfde3c93fadc2d04dcb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
