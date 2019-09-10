@@ -90,7 +90,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
             mHandler.post(() -> {
                 setDim(true);
-                setImageDrawable(null);
+                setImageResource(R.drawable.fod_icon_pressed);
 
                 invalidate();
             });
@@ -249,7 +249,8 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         super.onDraw(canvas);
 
         if (mIsInsideCircle) {
-            canvas.drawCircle(mWidth / 2, mHeight / 2, (float) (mWidth / 2.0f), mPaintFingerprint);
+            //canvas.drawCircle(mWidth / 2, mHeight / 2, (float) (mWidth / 2.0f), mPaintFingerprint);
+            setImageResource(R.drawable.fod_icon_pressed);
         }
     }
 
@@ -325,7 +326,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             setDim(true);
-            setImageDrawable(null);
+            setImageResource(R.drawable.fod_icon_pressed);
         }
 
         return true;
