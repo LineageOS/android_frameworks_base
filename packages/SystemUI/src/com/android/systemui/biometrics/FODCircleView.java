@@ -192,6 +192,9 @@ public class FODCircleView extends ImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+        if (mIsCircleShowing) {
+            setImageResource(R.drawable.fod_icon_pressed);
+        }
         super.onDraw(canvas);
     }
 
