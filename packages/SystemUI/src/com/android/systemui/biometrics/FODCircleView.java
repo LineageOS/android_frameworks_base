@@ -202,6 +202,7 @@ public class FODCircleView extends ImageView {
             }
         };
 
+        mPressedView.setImageResource(R.drawable.fod_icon_pressed);
         mWindowManager.addView(this, mParams);
 
         updatePosition();
