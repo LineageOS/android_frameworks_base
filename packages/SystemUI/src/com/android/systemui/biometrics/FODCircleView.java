@@ -248,6 +248,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+<<<<<<< HEAD   (809068 DO NOT MERGE Revert all scrim related changes in qpr)
         if (mIsInsideCircle) {
             canvas.drawCircle(mWidth / 2, mHeight / 2, (float) (mWidth / 2.0f), mPaintFingerprint);
         }
@@ -294,6 +295,11 @@ public class FODCircleView extends ImageView implements OnTouchListener {
                 mIsRemoving = false;
                 mWindowManager.removeView(this);
             }
+=======
+        if (mIsCircleShowing) {
+            //canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+            setImageResource(R.drawable.fod_icon_pressed);
+>>>>>>> CHANGE (96daec FODCircleView: Add MIUI FP icon)
         }
     }
 
@@ -304,11 +310,17 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
         boolean newInside = (x > 0 && x < mWidth) && (y > 0 && y < mWidth);
 
+<<<<<<< HEAD   (809068 DO NOT MERGE Revert all scrim related changes in qpr)
         if (event.getAction() == MotionEvent.ACTION_UP) {
             newInside = false;
             setDim(false);
             setImageResource(R.drawable.fod_icon_default);
         }
+=======
+        if (event.getAction() == MotionEvent.ACTION_DOWN && newIsInside) {
+            setImageResource(R.drawable.fod_icon_pressed);
+            showCircle();
+>>>>>>> CHANGE (96daec FODCircleView: Add MIUI FP icon)
 
         if (newInside == mIsInsideCircle) {
             return mIsInsideCircle;
@@ -384,6 +396,43 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         return mFingerprintInscreenDaemon;
     }
 
+<<<<<<< HEAD   (809068 DO NOT MERGE Revert all scrim related changes in qpr)
+=======
+    public void showCircle() {
+        setDim(true);
+
+        mIsCircleShowing = true;
+        updateAlpha();
+
+        setImageResource(R.drawable.fod_icon_pressed);
+        invalidate();
+
+        IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+        try {
+            daemon.onPress();
+        } catch (RemoteException e) {
+            // do nothing
+        }
+    }
+
+    public void hideCircle() {
+        IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+        try {
+            daemon.onRelease();
+        } catch (RemoteException e) {
+            // do nothing
+        }
+
+        mIsCircleShowing = false;
+        updateAlpha();
+
+        setImageResource(R.drawable.fod_icon_default);
+        invalidate();
+
+        setDim(false);
+    }
+
+>>>>>>> CHANGE (96daec FODCircleView: Add MIUI FP icon)
     public void show() {
         if (mIsRemoving) {
             // Last removal hasn't been finished yet
