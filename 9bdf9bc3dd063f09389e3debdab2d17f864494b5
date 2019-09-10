@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e7b0b10_45991bd1",
+        "filename": "packages/SystemUI/tests/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-10T23:41:20Z",
+      "side": 1,
+      "message": "This should be LOCAL_STATIC_JAVA_LIBRARIES",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 35
+      },
+      "revId": "9bdf9bc3dd063f09389e3debdab2d17f864494b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
