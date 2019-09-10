@@ -29,4 +29,7 @@
 
     <!-- Rotation sensor -->
     <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+
+    <!-- Post reset runnable for all clients -->
+    <java-symbol type="bool" name="config_postResetRunnableForAllClients" />
 </resources>
