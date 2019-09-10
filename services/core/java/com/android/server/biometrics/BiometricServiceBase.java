@@ -87,6 +87,7 @@ public abstract class BiometricServiceBase extends SystemService
     private final BiometricTaskStackListener mTaskStackListener = new BiometricTaskStackListener();
     private final ResetClientStateRunnable mResetClientState = new ResetClientStateRunnable();
     private final ArrayList<LockoutResetMonitor> mLockoutMonitors = new ArrayList<>();
+    private final boolean mPostResetRunnableForAllClients;
 
     protected final IStatusBarService mStatusBarService;
     protected final Map<Integer, Long> mAuthenticatorIds =
@@ -645,6 +646,8 @@ public abstract class BiometricServiceBase extends SystemService
         mPowerManager = mContext.getSystemService(PowerManager.class);
         mUserManager = UserManager.get(mContext);
         mMetricsLogger = new MetricsLogger();
+        mPostResetRunnableForAllClients = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_mPostResetRunnableForAllClients);
     }
 
     @Override
@@ -1042,12 +1045,16 @@ public abstract class BiometricServiceBase extends SystemService
                             + "(" + newClient.getOwnerString() + ")"
                             + ", initiatedByClient = " + initiatedByClient);
                 }
+                if (mPostResetRunnableForAllClients) {
+                    mHandler.removeCallbacks(mResetClientState);
+                    mHandler.postDelayed(mResetClientState, CANCEL_TIMEOUT_LIMIT);
+                }
             } else {
                 currentClient.stop(initiatedByClient);
 
-                // Only post the reset runnable for non-cleanup clients. Cleanup clients should
-                // never be forcibly stopped since they ensure synchronization between HAL and
-                // framework. Thus, we should instead just start the pending client once cleanup
+                // Only post the reset runnable for non-cleanup clients. Cleanup clients should	
+                // never be forcibly stopped since they ensure synchronization between HAL and	
+                // framework. Thus, we should instead just start the pending client once cleanup	
                 // finishes instead of using the reset runnable.
                 mHandler.removeCallbacks(mResetClientState);
                 mHandler.postDelayed(mResetClientState, CANCEL_TIMEOUT_LIMIT);
@@ -1229,7 +1236,6 @@ public abstract class BiometricServiceBase extends SystemService
         } else {
             clearEnumerateState();
             if (mPendingClient != null) {
-                Slog.d(getTag(), "Enumerate finished, starting pending client");
                 startClient(mPendingClient, false /* initiatedByClient */);
                 mPendingClient = null;
             }
