@@ -18,4 +18,15 @@
     <!-- Button backlight -->
     <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
     <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
+<<<<<<< HEAD
+=======
+
+    <!-- Post reset runnable for all clients -->
+    <java-symbol type="bool" name="config_fingerprintPostResetRunnableForAllClients" />
+
+    <!-- Package Manager -->
+    <java-symbol type="array" name="config_deviceDisabledComponents" />
+    <java-symbol type="array" name="config_globallyDisabledComponents" />
+    <java-symbol type="array" name="config_forceEnabledComponents" />
+>>>>>>> 97bcf0600ae7... biometrics: Allow posting reset runnable for all clients
 </resources>

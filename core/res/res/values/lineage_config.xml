@@ -18,4 +18,8 @@
     <!-- Button backlight -->
     <dimen name="config_buttonBrightnessSettingDefaultFloat">1.0</dimen>
     <bool name="config_deviceHasVariableButtonBrightness">false</bool>
+
+    <!-- Whether to post reset runnable for all clients. Needed for some older
+         vendor fingerprint HAL implementations. -->
+    <bool name="config_fingerprintPostResetRunnableForAllClients">false</bool>
 </resources>
