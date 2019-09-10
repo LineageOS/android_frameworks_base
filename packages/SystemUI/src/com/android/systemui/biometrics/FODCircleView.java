@@ -289,7 +289,7 @@ public class FODCircleView extends ImageView {
         updateAlpha();
 
         mPaintFingerprint.setColor(mColor);
-        setImageDrawable(null);
+        setImageResource(R.drawable.fod_icon_pressed);
         invalidate();
     }
 
