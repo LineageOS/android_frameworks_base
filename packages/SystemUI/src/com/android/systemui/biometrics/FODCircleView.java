@@ -173,7 +173,8 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         super.onDraw(canvas);
 
         if (mIsCircleShowing) {
-            canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+            //canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+            setImageResource(R.drawable.fod_icon_pressed);
         }
     }
 
@@ -185,6 +186,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         boolean newIsInside = (x > 0 && x < mSize) && (y > 0 && y < mSize);
 
         if (event.getAction() == MotionEvent.ACTION_DOWN && newIsInside) {
+            setImageResource(R.drawable.fod_icon_pressed);
             showCircle();
 
             // Finger down, receive following touch events for this gesture
@@ -228,7 +230,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         mIsCircleShowing = true;
         updateAlpha();
 
-        setImageDrawable(null);
+        setImageResource(R.drawable.fod_icon_pressed);
         invalidate();
 
         IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
