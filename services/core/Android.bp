@@ -46,6 +46,7 @@ java_library_static {
         "android.hardware.contexthub-V1.0-java",
         "vendor.lineage.biometrics.fingerprint.inscreen-V1.0-java",
         "vendor.lineage.trust-V1.0-java",
+        "libphonenumber",
     ],
 }
 
