@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b926372b_72480bcb",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 1971,
+      "author": {
+        "id": 18061
+      },
+      "writtenOn": "2019-09-12T07:52:50Z",
+      "side": 1,
+      "message": "I think \"mDisplayPowerRequest.screenBrightness\" should become \"mDisplayPowerRequest.screenBrightnessOverride\" here.\nSee https://github.com/LineageOS/android_frameworks_base/commit/d846023804ddadcd692666152db420c54594ddb9#diff-51364b516772073f8a7b4f8e4ffc7a43",
+      "revId": "732a79c21e87f11c0b7148f7d319a2a0c13e3de8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
