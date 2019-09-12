@@ -146,7 +146,7 @@ public class KeyguardStatusBarView extends RelativeLayout
         mSystemIconsContainer.setLayoutParams(lp);
         mSystemIconsContainer.setPaddingRelative(mSystemIconsContainer.getPaddingStart(),
                 mSystemIconsContainer.getPaddingTop(),
-                getResources().getDimensionPixelSize(R.dimen.system_icons_keyguard_padding_end),
+                mSystemIconsContainer.getPaddingEnd(),
                 mSystemIconsContainer.getPaddingBottom());
 
         // Respect font size setting.
