@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb6d899e_b1360e34",
+        "filename": "packages/SystemUI/res/layout/keyguard_status_bar.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2019-09-12T12:52:48Z",
+      "side": 1,
+      "message": "keep the empty line",
+      "range": {
+        "startLine": 35,
+        "startChar": 71,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "1a91014bd3d9493e7b3d19e6c768d5cd42cf1f0c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
