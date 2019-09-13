@@ -60,6 +60,7 @@ import android.hardware.usb.gadget.V1_0.Status;
 import android.hidl.manager.V1_0.IServiceManager;
 import android.hidl.manager.V1_0.IServiceNotification;
 import android.os.BatteryManager;
+import android.os.Build;
 import android.os.Environment;
 import android.os.FileUtils;
 import android.os.Handler;
@@ -1144,7 +1145,7 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
                     }
 
                     Notification.Builder builder = new Notification.Builder(mContext, channel)
-                            .setSmallIcon(com.android.internal.R.drawable.stat_sys_adb)
+                            .setSmallIcon(com.android.internal.R.drawable.stat_sys_data_usb)
                             .setWhen(0)
                             .setOngoing(true)
                             .setTicker(title)
@@ -1190,11 +1191,46 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
                     mNotificationManager.cancelAsUser(null, id, UserHandle.ALL);
                 }
 
+<<<<<<< HEAD   (53eea7 Remove DUN requirement for tethering)
                 if (!mAdbNotificationShown) {
                     Notification notification = AdbNotifications.createNotification(mContext,
                             AdbTransportType.USB);
                     mAdbNotificationShown = true;
                     mNotificationManager.notifyAsUser(null, id, notification, UserHandle.ALL);
+=======
+                if (titleRes != 0) {
+                    Resources r = mContext.getResources();
+                    CharSequence title = r.getText(titleRes);
+                    CharSequence message = r.getText(
+                            com.android.internal.R.string.adb_active_notification_message);
+
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                            | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    PendingIntent pi = PendingIntent.getActivityAsUser(mContext, 0,
+                            intent, 0, null, UserHandle.CURRENT);
+
+                    Notification notification =
+                            new Notification.Builder(mContext, SystemNotificationChannels.DEVELOPER)
+                                    .setSmallIcon(com.android.internal.R.drawable.stat_sys_adb)
+                                    .setWhen(0)
+                                    .setOngoing(true)
+                                    .setTicker(title)
+                                    .setDefaults(0)  // please be quiet
+                                    .setColor(mContext.getColor(
+                                            com.android.internal.R.color
+                                                    .system_notification_accent_color))
+                                    .setContentTitle(title)
+                                    .setContentText(message)
+                                    .setSubText(Build.ID)
+                                    .setContentIntent(pi)
+                                    .setVisibility(Notification.VISIBILITY_PUBLIC)
+                                    .extend(new Notification.TvExtender()
+                                            .setChannelId(ADB_NOTIFICATION_CHANNEL_ID_TV))
+                                    .build();
+                    mNotificationManager.notifyAsUser(null, id, notification,
+                            UserHandle.ALL);
+>>>>>>> CHANGE (3aa78a Updates to various icons:)
                 }
             } else if (mAdbNotificationShown) {
                 mAdbNotificationShown = false;
