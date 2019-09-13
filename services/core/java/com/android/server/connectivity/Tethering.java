@@ -35,6 +35,7 @@ import static android.net.ConnectivityManager.TETHER_ERROR_NO_ERROR;
 import static android.net.ConnectivityManager.TETHER_ERROR_SERVICE_UNAVAIL;
 import static android.net.ConnectivityManager.TETHER_ERROR_UNAVAIL_IFACE;
 import static android.net.ConnectivityManager.TETHER_ERROR_UNKNOWN_IFACE;
+import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN;
 import static android.net.wifi.WifiManager.EXTRA_WIFI_AP_INTERFACE_NAME;
 import static android.net.wifi.WifiManager.EXTRA_WIFI_AP_MODE;
 import static android.net.wifi.WifiManager.EXTRA_WIFI_AP_STATE;
@@ -1619,6 +1620,12 @@ public class Tethering extends BaseNetworkObserver {
             }
 
             public void updateUpstreamNetworkState(NetworkState ns) {
+                // Disable hw offload on vpn upstream interfaces.
+                // setUpstreamLinkProperties() interprets null as disable.
+                if (ns != null && ns.networkCapabilities != null
+                        && !ns.networkCapabilities.hasCapability(NET_CAPABILITY_NOT_VPN)) {
+                    ns = null;
+                }
                 mOffloadController.setUpstreamLinkProperties(
                         (ns != null) ? ns.linkProperties : null);
             }
