@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b0315b4_cd614be8",
+        "filename": "services/core/java/com/android/server/biometrics/BiometricServiceBase.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-09-14T11:03:50Z",
+      "side": 1,
+      "message": "note: Need to check the sencond condition: it does not exist before.",
+      "revId": "3a44ba6713f0d809854112b61aa02dacd8fd1d01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
