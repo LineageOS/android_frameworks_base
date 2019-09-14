@@ -17,6 +17,8 @@
 
 package com.android.server.telecom;
 
+import android.util.Log;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -27,64 +29,88 @@ public class SensitivePhoneNumber {
     private static final String LOG_TAG = "SensitivePhoneNumber";
     private static final String ns = null;
 
-    private String networkNumeric;
-    private ArrayList<String> phoneNumbers;
+    private String mNetworkNumeric;
+    private ArrayList<SensitivePhoneNumberInfo> mPhoneNumberInfos;
 
-    public SensitivePhoneNumber(String networkNumeric, ArrayList<String> phoneNumbers) {
-        this.networkNumeric = networkNumeric;
-        this.phoneNumbers = phoneNumbers;
+    public SensitivePhoneNumber(String networkNumeric, ArrayList<SensitivePhoneNumberInfo> infos) {
+        mNetworkNumeric = networkNumeric;
+        mPhoneNumberInfos = infos;
     }
 
     public String getNetworkNumeric() {
-        return networkNumeric;
+        return mNetworkNumeric;
     }
 
-    public ArrayList<String> getPhoneNumbers() {
-        return phoneNumbers;
+    public ArrayList<SensitivePhoneNumberInfo> getPhoneNumberInfos() {
+        return mPhoneNumberInfos;
     }
 
     public void setNetworkNumeric(String networkNumeric) {
-        this.networkNumeric = networkNumeric;
+        mNetworkNumeric = networkNumeric;
     }
 
-    public void setPhoneNumbers(ArrayList<String> phoneNumbers) {
-        this.phoneNumbers = phoneNumbers;
+    public void setPhoneNumberInfos(ArrayList<SensitivePhoneNumberInfo> infos) {
+        mPhoneNumberInfos = infos;
     }
 
-    public void addPhoneNumber(String phoneNumber) {
-        this.phoneNumbers.add(phoneNumber);
+    public void addPhoneNumberInfo(SensitivePhoneNumberInfo info) {
+        mPhoneNumberInfos.add(info);
     }
 
     public static SensitivePhoneNumber readSensitivePhoneNumbers (XmlPullParser parser)
                 throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, "sensitivePN");
 
-        String numeric = parser.getAttributeValue(null, "network");
+        String network = parser.getAttributeValue(null, "network");
 
-        ArrayList<String> numbers = null;
-        numbers = readPhoneNumber(parser);
+        ArrayList<SensitivePhoneNumberInfo> infos = null;
+        infos = readPhoneNumberInfo(parser);
 
-        return new SensitivePhoneNumber(numeric, numbers);
+        return new SensitivePhoneNumber(network, infos);
     }
 
-    private static ArrayList<String> readPhoneNumber (XmlPullParser parser)
+    private static ArrayList<SensitivePhoneNumberInfo> readPhoneNumberInfo (XmlPullParser parser)
                 throws XmlPullParserException, IOException {
-        ArrayList<String> numbers = new ArrayList<>();
+        ArrayList<SensitivePhoneNumberInfo> numberInfos = new ArrayList<>();
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
             }
+
             parser.require(XmlPullParser.START_TAG, ns, "item");
-
-            String item = "";
-            if (parser.next() == XmlPullParser.TEXT) {
-                item = parser.getText();
-                parser.nextTag();
-            }
+            SensitivePhoneNumberInfo item = parseItem(parser);
+            numberInfos.add(item);
             parser.require(XmlPullParser.END_TAG, ns, "item");
-
-            numbers.add(item);
         }
-        return numbers;
+        return numberInfos;
+    }
+
+    private static SensitivePhoneNumberInfo parseItem(XmlPullParser parser)
+            throws XmlPullParserException, IOException {
+        SensitivePhoneNumberInfo item = new SensitivePhoneNumberInfo();
+        while (parser.next() != XmlPullParser.END_TAG) {
+            int eventType = parser.getEventType();
+
+            if (eventType == XmlPullParser.START_TAG) {
+                String tag = parser.getName();
+                String value = "";
+                if (parser.next() == XmlPullParser.TEXT) {
+                    value = parser.getText();
+                    parser.nextTag();
+                }
+                parser.require(XmlPullParser.END_TAG, ns, tag);
+
+                item.set(tag, value);
+            } else if (eventType == XmlPullParser.TEXT) {
+                String number = parser.getText();
+                if (!number.trim().isEmpty()) {
+                    item.set("number", number);
+                } else {
+                    // skipping all whitespace
+                    continue;
+                }
+            }
+        }
+        return item;
     }
 }
