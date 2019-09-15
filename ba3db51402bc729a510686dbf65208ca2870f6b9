@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c20d3875_5162362f",
+        "filename": "services/core/java/com/android/server/wm/DisplayPolicy.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2019-09-15T13:26:06Z",
+      "side": 1,
+      "message": "Probably needs something like:\n    return mTopFullscreenOpaqueWindowState !\u003d null ? mTopFullscreenOpaqueWindowState.getAttrs() : 0;",
+      "range": {
+        "startLine": 718,
+        "startChar": 8,
+        "endLine": 718,
+        "endChar": 58
+      },
+      "revId": "ba3db51402bc729a510686dbf65208ca2870f6b9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
