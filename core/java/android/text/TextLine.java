@@ -208,6 +208,7 @@ class TextLine {
         int lastRunIndex = runs.length - 2;
         for (int i = 0; i < runs.length; i += 2) {
             int runStart = runs[i];
+            if (runStart > mLen) break;
             int runLimit = runStart + (runs[i+1] & Layout.RUN_LENGTH_MASK);
             if (runLimit > mLen) {
                 runLimit = mLen;
@@ -285,6 +286,7 @@ class TextLine {
         int[] runs = mDirections.mDirections;
         for (int i = 0; i < runs.length; i += 2) {
             int runStart = runs[i];
+            if (runStart > mLen) break;
             int runLimit = runStart + (runs[i+1] & Layout.RUN_LENGTH_MASK);
             if (runLimit > mLen) {
                 runLimit = mLen;
@@ -374,6 +376,7 @@ class TextLine {
         int[] runs = mDirections.mDirections;
         for (int i = 0; i < runs.length; i += 2) {
             int runStart = runs[i];
+            if (runStart > mLen) break;
             int runLimit = runStart + (runs[i + 1] & Layout.RUN_LENGTH_MASK);
             if (runLimit > mLen) {
                 runLimit = mLen;
