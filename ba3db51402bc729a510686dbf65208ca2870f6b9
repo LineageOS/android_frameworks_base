@@ -22,6 +22,30 @@
       "revId": "ba3db51402bc729a510686dbf65208ca2870f6b9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e189947_a4e679f6",
+        "filename": "services/core/java/com/android/server/wm/DisplayPolicy.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2019-09-16T19:11:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c20d3875_5162362f",
+      "range": {
+        "startLine": 718,
+        "startChar": 8,
+        "endLine": 718,
+        "endChar": 58
+      },
+      "revId": "ba3db51402bc729a510686dbf65208ca2870f6b9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
