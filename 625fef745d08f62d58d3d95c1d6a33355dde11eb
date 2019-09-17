@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad74fd77_715f8d34",
+        "filename": "core/java/com/android/internal/view/RotationPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-09-17T21:56:47Z",
+      "side": 1,
+      "message": "The configstore access problem looks to be caused by running at class instantiation time.  Workaround incoming.",
+      "revId": "625fef745d08f62d58d3d95c1d6a33355dde11eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
