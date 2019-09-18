@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "165304a3_4dd3ff88",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-18T08:51:29Z",
+      "side": 1,
+      "message": "Should go to LineageManifest.xml",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 641,
+        "endChar": 104
+      },
+      "revId": "8bf763f57b58d47eb13785f87c310f9dc0500896",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
