@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3616ee57_c6da929b",
+        "filename": "services/core/java/com/android/server/wm/RootWindowContainer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-18T08:47:48Z",
+      "side": 1,
+      "message": "Lines too long.",
+      "range": {
+        "startLine": 713,
+        "startChar": 0,
+        "endLine": 714,
+        "endChar": 103
+      },
+      "revId": "b8f0a95f0b4064032c1eaed898714dc786eb039d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
