@@ -24,6 +24,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.hardware.biometrics.BiometricSourceType;
 import android.os.Handler;
 import android.os.IHwBinder;
@@ -81,6 +85,10 @@ public class FODCircleView extends ImageView implements OnTouchListener {
     private Handler mHandler;
 
     private Timer mBurnInProtectionTimer;
+
+    private SensorManager mSensorManager;
+    private Sensor mLightSensor;
+    private int mCurrentAmbient;
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
             new IFingerprintInscreenCallback.Stub() {
@@ -215,6 +223,9 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
         mWindowManager = context.getSystemService(WindowManager.class);
 
+        mSensorManager = context.getSystemService(SensorManager.class);
+        mLightSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
         mNavigationBarSize = res.getDimensionPixelSize(R.dimen.navigation_bar_size);
 
         try {
@@ -269,7 +280,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
                 IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
                 if (daemon != null) {
                     try {
-                        daemon.onPress();
+                        daemon.onPress(mCurrentAmbient);
                     } catch (RemoteException e) {
                         // do nothing
                     }
@@ -401,6 +412,8 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
         resetPosition();
 
+        mSensorManager.registerListener(mLightListener, mLightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+
         mParams.height = mWidth;
         mParams.width = mHeight;
         mParams.format = PixelFormat.TRANSLUCENT;
@@ -427,6 +440,8 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         if (!mIsViewAdded) {
             return;
         }
+
+        mSensorManager.unregisterListener(mLightListener, mLightSensor);
 
         mIsInsideCircle = false;
         mIsViewAdded = false;
@@ -526,6 +541,19 @@ public class FODCircleView extends ImageView implements OnTouchListener {
             if (mIsViewAdded) {
                 mHandler.post(() -> resetPosition());
             }
+        }
+    };
+
+   private SensorEventListener mLightListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
+               mCurrentAmbient = (int) event.values[0];
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
     };
 }
