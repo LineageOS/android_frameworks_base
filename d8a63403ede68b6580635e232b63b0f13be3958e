@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5a70b12_7cef5e0c",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-09-18T15:17:29Z",
+      "side": 1,
+      "message": "mSensorManager",
+      "range": {
+        "startLine": 872,
+        "startChar": 12,
+        "endLine": 872,
+        "endChar": 39
+      },
+      "revId": "d8a63403ede68b6580635e232b63b0f13be3958e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26671990_1b825db0",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-09-18T15:17:29Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 903,
+        "startChar": 0,
+        "endLine": 903,
+        "endChar": 76
+      },
+      "revId": "d8a63403ede68b6580635e232b63b0f13be3958e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
