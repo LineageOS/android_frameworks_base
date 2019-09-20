@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32c94400_333cf071",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-09-20T19:26:24Z",
+      "side": 1,
+      "message": "Move to additional_manifest in Android.bp",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 641,
+        "endChar": 104
+      },
+      "revId": "77c8f32b1146222a41e4b8dd4f7acceaccb4c5a5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c027eaf9_9fe90229",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-09-20T19:26:24Z",
+      "side": 1,
+      "message": "private",
+      "revId": "77c8f32b1146222a41e4b8dd4f7acceaccb4c5a5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa2e52bf_ba31e9aa",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1894,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-09-20T19:26:24Z",
+      "side": 1,
+      "message": "mCameraManager \u003d mContext.getSystemService(CameraManager.class);\nto match other code",
+      "range": {
+        "startLine": 1894,
+        "startChar": 0,
+        "endLine": 1894,
+        "endChar": 91
+      },
+      "revId": "77c8f32b1146222a41e4b8dd4f7acceaccb4c5a5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
