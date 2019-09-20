@@ -22,7 +22,10 @@ import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON;
 import android.annotation.Nullable;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.graphics.drawable.Icon;
+import android.net.Uri;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseArray;
@@ -44,6 +47,8 @@ import com.android.systemui.recents.OverviewProxyService;
 import com.android.systemui.res.R;
 import com.android.systemui.shared.system.QuickStepContract;
 
+import lineageos.providers.LineageSettings;
+
 import java.io.PrintWriter;
 import java.lang.ref.WeakReference;
 import java.util.Objects;
@@ -54,6 +59,7 @@ public class NavigationBarInflaterView extends FrameLayout {
     public static final String NAV_BAR_VIEWS = "sysui_nav_bar";
     public static final String NAV_BAR_LEFT = "sysui_nav_bar_left";
     public static final String NAV_BAR_RIGHT = "sysui_nav_bar_right";
+    public static final String NAV_BAR_INVERSE = "sysui_nav_bar_inverse";
 
     public static final String MENU_IME_ROTATE = "menu_ime";
     public static final String BACK = "back";
@@ -119,12 +125,26 @@ public class NavigationBarInflaterView extends FrameLayout {
     private OverviewProxyService mOverviewProxyService;
     private int mNavBarMode = NAV_BAR_MODE_3BUTTON;
 
+    private boolean mInverseLayout;
+
+    private final ContentObserver mContentObserver;
+
     public NavigationBarInflaterView(Context context, AttributeSet attrs) {
         super(context, attrs);
         createInflaters();
         mOverviewProxyService = Dependency.get(OverviewProxyService.class);
         mListener = new Listener(this);
         mNavBarMode = Dependency.get(NavigationModeController.class).addListener(mListener);
+        mContentObserver = new ContentObserver(null) {
+            @Override
+            public void onChange(boolean selfChange, @Nullable Uri uri) {
+                if (Settings.Secure.getUriFor(NAV_BAR_INVERSE).equals(uri)) {
+                    mInverseLayout = Settings.Secure.getInt(mContext.getContentResolver(),
+                            NAV_BAR_INVERSE, 0) != 0;
+                    updateLayoutInversion();
+                }
+            }
+        };
     }
 
     @VisibleForTesting
@@ -169,9 +189,25 @@ public class NavigationBarInflaterView extends FrameLayout {
     }
 
     @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Uri navBarInverse = Settings.Secure.getUriFor(NAV_BAR_INVERSE);
+        mContext.getContentResolver().registerContentObserver(navBarInverse, false,
+                mContentObserver);
+        mContentObserver.onChange(true, navBarInverse);
+    }
+
+    @Override
     protected void onDetachedFromWindow() {
         Dependency.get(NavigationModeController.class).removeListener(mListener);
+        mContext.getContentResolver().unregisterContentObserver(mContentObserver);
         super.onDetachedFromWindow();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        updateLayoutInversion();
     }
 
     public void onLikelyDefaultLayoutChange() {
@@ -282,6 +318,21 @@ public class NavigationBarInflaterView extends FrameLayout {
                 true /* landscape */, false /* start */);
 
         updateButtonDispatchersCurrentView();
+    }
+
+    private void updateLayoutInversion() {
+        mContext.getMainExecutor().execute(() -> {
+            if (mInverseLayout) {
+                Configuration config = mContext.getResources().getConfiguration();
+                if (config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+                    setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+                } else {
+                    setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+                }
+            } else {
+                setLayoutDirection(View.LAYOUT_DIRECTION_INHERIT);
+            }
+        });
     }
 
     private void addGravitySpacer(LinearLayout layout) {
