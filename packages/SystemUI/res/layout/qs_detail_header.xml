@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textDirection="locale"
+            android:textColor="?android:attr/textColorPrimary"
             android:textAppearance="@style/TextAppearance.QS.DetailHeader" />
 
         <ImageView
@@ -54,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="false"
+            android:textColor="?android:attr/colorAccent"
             android:textAppearance="@style/TextAppearance.QS.DetailHeader" />
 
     </LinearLayout>
