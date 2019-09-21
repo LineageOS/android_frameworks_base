@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e020433_28617899",
+        "filename": "services/core/java/com/android/server/policy/keyguard/KeyguardStateMonitor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2019-09-21T13:28:41Z",
+      "side": 1,
+      "message": "if (mUsbRestrictor \u003d\u003d null) {\n    try {\n        IUSBRestrict service \u003d IUsbRestrict.getService();\n        if (service \u003d\u003d null) {\n            // Ignore, the hal is not available\n            return;\n        }\n        mUsbRestrictor \u003d service;\n    } catch (NoSuchElementException | RemoteException ignored) {\n        return;\n    }\n}",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 19
+      },
+      "revId": "3a529b026ac86b2ad8fd9c4adfd5a0b35529b580",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
