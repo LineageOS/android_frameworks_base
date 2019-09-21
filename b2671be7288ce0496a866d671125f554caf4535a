@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bec273d4_1ce4406e",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 4515,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-21T08:22:04Z",
+      "side": 1,
+      "message": "Can we use lambda here?",
+      "revId": "b2671be7288ce0496a866d671125f554caf4535a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
