@@ -40,4 +40,7 @@
     <java-symbol type="array" name="config_deviceDisabledComponents" />
     <java-symbol type="array" name="config_globallyDisabledComponents" />
     <java-symbol type="array" name="config_forceEnabledComponents" />
+
+    <!-- Whether to use scaled brightness (set -1 to disable) -->
+    <java-symbol type="integer" name="config_useScaleBrightness" />
 </resources>
