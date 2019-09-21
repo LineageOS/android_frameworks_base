@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9318a335_93d5b15b",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2078,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-21T08:19:23Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "5df83dbfc1514761f069a9361586a397bb8c98d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
