@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2181131_b48b33ce",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-21T23:31:35Z",
+      "side": 1,
+      "message": "Google added this in Q. Not sure if it can collide with nw traffic when it\u0027s set to the centered postition.",
+      "range": {
+        "startLine": 106,
+        "startChar": 29,
+        "endLine": 106,
+        "endChar": 47
+      },
+      "revId": "41f46bcfdef825e5a89ab61622798536569b4900",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
