@@ -51,13 +51,12 @@ public class SensitivePhoneNumbers {
     private static final String ns = null;
 
     private static SensitivePhoneNumbers sInstance = null;
+    private static boolean sNumbersLoaded;
 
     private HashMap<String, ArrayList<SensitivePhoneNumberInfo>> mSensitiveNumbersMap =
             new HashMap<>();
 
-    private SensitivePhoneNumbers() {
-        loadSensiblePhoneNumbers();
-    }
+    private SensitivePhoneNumbers() { }
 
     public static SensitivePhoneNumbers getInstance() {
         if (sInstance == null) {
@@ -67,6 +66,10 @@ public class SensitivePhoneNumbers {
     }
 
     private void loadSensiblePhoneNumbers() {
+        if (sNumbersLoaded) {
+            return;
+        }
+
         FileReader sensiblePNReader;
 
         File sensiblePNFile = new File(Environment.getRootDirectory(),
@@ -90,6 +93,8 @@ public class SensitivePhoneNumbers {
         } catch (IOException | XmlPullParserException e) {
             Log.w(LOG_TAG, "Exception in spn-conf parser", e);
         }
+
+        sNumbersLoaded = true;
     }
 
     private void readSensitivePNS(XmlPullParser parser)
@@ -114,10 +119,12 @@ public class SensitivePhoneNumbers {
     }
 
     public ArrayList<SensitivePhoneNumberInfo> getSensitivePnInfosForMcc(String mcc) {
+        loadSensiblePhoneNumbers();
         return mSensitiveNumbersMap.getOrDefault(mcc, new ArrayList<SensitivePhoneNumberInfo>());
     }
 
     public boolean isSensitiveNumber(Context context, String numberToCheck, int subId) {
+        loadSensiblePhoneNumbers();
         String nationalNumber = formatNumberToNational(context, numberToCheck);
 
         SubscriptionManager subManager = context.getSystemService(SubscriptionManager.class);
