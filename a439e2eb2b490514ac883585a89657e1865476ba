@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47e16a35_0b1508fb",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/row/wrapper/NotificationMediaTemplateViewWrapper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2019-09-27T13:42:43Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "a439e2eb2b490514ac883585a89657e1865476ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
