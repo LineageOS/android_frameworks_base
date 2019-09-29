@@ -1062,11 +1062,6 @@ public class LockPatternView extends View {
             setPatternInProgress(false);
             cancelLineAnimations();
             notifyPatternDetected();
-            // Also clear pattern if fading is enabled
-            if (mFadePattern) {
-                clearPatternDrawLookup();
-                mPatternDisplayMode = DisplayMode.Correct;
-            }
             invalidate();
         }
         if (PROFILE_DRAWING) {
@@ -1209,8 +1204,9 @@ public class LockPatternView extends View {
         // TODO: the path should be created and cached every time we hit-detect a cell
         // only the last segment of the path should be computed here
         // draw the path of the pattern (unless we are in stealth mode)
-        final boolean drawPath = ((!mInStealthMode && mPatternDisplayMode != DisplayMode.Wrong)
-                || (mPatternDisplayMode == DisplayMode.Wrong && mShowErrorPath));
+        final boolean drawWrongPath = mPatternDisplayMode == DisplayMode.Wrong && mShowErrorPath;
+        final boolean drawPath = (!mInStealthMode && mPatternDisplayMode != DisplayMode.Wrong)
+                || drawWrongPath;
 
         if (drawPath) {
             mPathPaint.setColor(getCurrentColor(true /* partOfPattern */));
@@ -1246,14 +1242,14 @@ public class LockPatternView extends View {
                     currentPath.moveTo(lastX, lastY);
                     if (state.lineEndX != Float.MIN_VALUE && state.lineEndY != Float.MIN_VALUE) {
                         currentPath.lineTo(state.lineEndX, state.lineEndY);
-                        if (mFadePattern) {
+                        if (mFadePattern && !drawWrongPath) {
                             mPathPaint.setAlpha((int) 255 - lineFadeVal );
                         } else {
                             mPathPaint.setAlpha(255);
                         }
                     } else {
                         currentPath.lineTo(centerX, centerY);
-                        if (mFadePattern) {
+                        if (mFadePattern && !drawWrongPath) {
                             mPathPaint.setAlpha((int) 255 - lineFadeVal );
                         } else {
                             mPathPaint.setAlpha(255);
