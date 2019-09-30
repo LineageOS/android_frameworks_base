@@ -92,6 +92,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.Collections;
 
 /**
  * InputMethodService provides a standard implementation of an InputMethod,
@@ -437,6 +438,7 @@ public class InputMethodService extends AbstractInputMethodService {
     private static final int VOLUME_CURSOR_ON_REVERSE = 2;
 
     final ViewTreeObserver.OnComputeInternalInsetsListener mInsetsComputer = info -> {
+        onComputeInsets(mTmpInsets);
         if (isExtractViewShown()) {
             // In true fullscreen mode, we just say the window isn't covering
             // any content so we don't impact whatever is behind.
@@ -445,11 +447,14 @@ public class InputMethodService extends AbstractInputMethodService {
             info.touchableRegion.setEmpty();
             info.setTouchableInsets(ViewTreeObserver.InternalInsetsInfo.TOUCHABLE_INSETS_FRAME);
         } else {
-            onComputeInsets(mTmpInsets);
             info.contentInsets.top = mTmpInsets.contentTopInsets;
             info.visibleInsets.top = mTmpInsets.visibleTopInsets;
             info.touchableRegion.set(mTmpInsets.touchableRegion);
             info.setTouchableInsets(mTmpInsets.touchableInsets);
+        }
+
+        if (mInputFrame != null) {
+            setImeExclusionRect(mTmpInsets.visibleTopInsets);
         }
     };
 
@@ -673,6 +678,14 @@ public class InputMethodService extends AbstractInputMethodService {
 
     private void setImeWindowStatus(int visibilityFlags, int backDisposition) {
         mPrivOps.setImeWindowStatus(visibilityFlags, backDisposition);
+    }
+
+    /** Set region of the keyboard to be avoided from back gesture */
+    private void setImeExclusionRect(int visibleTopInsets) {
+        View inputFrameRootView = mInputFrame.getRootView();
+        Rect r = new Rect(0, visibleTopInsets, inputFrameRootView.getWidth(),
+                inputFrameRootView.getHeight());
+        inputFrameRootView.setSystemGestureExclusionRects(Collections.singletonList(r));
     }
 
     /**
