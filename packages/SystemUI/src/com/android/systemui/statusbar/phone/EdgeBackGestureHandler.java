@@ -61,7 +61,6 @@ import com.android.systemui.R;
 import com.android.systemui.bubbles.BubbleController;
 import com.android.systemui.recents.OverviewProxyService;
 import com.android.systemui.shared.system.QuickStepContract;
-import com.android.systemui.shared.system.WindowManagerWrapper;
 import com.android.systemui.tuner.TunerService;
 
 import lineageos.providers.LineageSettings;
@@ -83,37 +82,6 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
 
     private static final String KEY_GESTURE_BACK_EXCLUDE_TOP =
             "lineagesecure:" + LineageSettings.Secure.GESTURE_BACK_EXCLUDE_TOP;
-
-    private final IPinnedStackListener.Stub mImeChangedListener = new IPinnedStackListener.Stub() {
-        @Override
-        public void onListenerRegistered(IPinnedStackController controller) {
-        }
-
-        @Override
-        public void onImeVisibilityChanged(boolean imeVisible, int imeHeight) {
-            // No need to thread jump, assignments are atomic
-            mImeHeight = imeVisible ? imeHeight : 0;
-            // TODO: Probably cancel any existing gesture
-        }
-
-        @Override
-        public void onShelfVisibilityChanged(boolean shelfVisible, int shelfHeight) {
-        }
-
-        @Override
-        public void onMinimizedStateChanged(boolean isMinimized) {
-        }
-
-        @Override
-        public void onMovementBoundsChanged(Rect insetBounds, Rect normalBounds,
-                Rect animatingBounds, boolean fromImeAdjustment, boolean fromShelfAdjustment,
-                int displayRotation) {
-        }
-
-        @Override
-        public void onActionsChanged(ParceledListSlice actions) {
-        }
-    };
 
     private ISystemGestureExclusionListener mGestureExclusionListener =
             new ISystemGestureExclusionListener.Stub() {
@@ -163,8 +131,6 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
     private boolean mAllowGesture = false;
     private boolean mInRejectedExclusion = false;
     private boolean mIsOnLeftEdge;
-
-    private int mImeHeight = 0;
 
     private boolean mIsAttached;
     private boolean mIsGesturalModeEnabled;
@@ -270,7 +236,6 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
         }
 
         if (!mIsEnabled) {
-            WindowManagerWrapper.getInstance().removePinnedStackListener(mImeChangedListener);
             mContext.getSystemService(DisplayManager.class).unregisterDisplayListener(this);
 
             try {
@@ -287,7 +252,6 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
                     mContext.getMainThreadHandler());
 
             try {
-                WindowManagerWrapper.getInstance().addPinnedStackListener(mImeChangedListener);
                 WindowManagerGlobal.getWindowManagerService()
                         .registerSystemGestureExclusionListener(
                                 mGestureExclusionListener, mDisplayId);
@@ -344,14 +308,8 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
     }
 
     private boolean isWithinTouchRegion(int x, int y) {
-        final int baseY = mDisplaySize.y - Math.max(mImeHeight, mNavBarHeight);
-        // Disallow if over the IME
-        if (y > baseY) {
-            return false;
-        }
-
         // Disallow if over user exclusion area
-        if (mUserExclude > 0 && y < baseY - mUserExclude) {
+        if (mUserExclude > 0 && y < mDisplaySize.y - mNavBarHeight - mUserExclude) {
             return false;
         }
 
@@ -582,7 +540,6 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
         pw.println("  mInRejectedExclusion" + mInRejectedExclusion);
         pw.println("  mExcludeRegion=" + mExcludeRegion);
         pw.println("  mUnrestrictedExcludeRegion=" + mUnrestrictedExcludeRegion);
-        pw.println("  mImeHeight=" + mImeHeight);
         pw.println("  mIsAttached=" + mIsAttached);
         pw.println("  mEdgeWidth=" + mEdgeWidth);
     }
