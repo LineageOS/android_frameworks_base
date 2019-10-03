@@ -1,0 +1,108 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79e93b09_5b15989c",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-10-03T06:29:16Z",
+      "side": 1,
+      "message": "revert",
+      "revId": "c3f97cf520d6c7a59282db4b3a7f0bd924b6199b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80e55677_59582ce1",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-10-03T06:29:16Z",
+      "side": 1,
+      "message": "rename to secure server",
+      "revId": "c3f97cf520d6c7a59282db4b3a7f0bd924b6199b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c61632a3_77ecf4a4",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-10-03T06:29:16Z",
+      "side": 1,
+      "message": "revert",
+      "parentUuid": "",
+      "revId": "c3f97cf520d6c7a59282db4b3a7f0bd924b6199b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ac8a629_7d2c091c",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-10-03T06:29:16Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "c3f97cf520d6c7a59282db4b3a7f0bd924b6199b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4be37c5b_b806a2cb",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-10-03T06:29:16Z",
+      "side": 1,
+      "message": "pass directly secure_server",
+      "parentUuid": "",
+      "revId": "c3f97cf520d6c7a59282db4b3a7f0bd924b6199b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b976fce_d86a4144",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-10-03T06:29:16Z",
+      "side": 1,
+      "message": "if secure_server \u003d! null\n    server \u003d getString",
+      "revId": "c3f97cf520d6c7a59282db4b3a7f0bd924b6199b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
