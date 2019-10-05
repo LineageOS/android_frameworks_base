@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2da7e7b_fcaa4eb9",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 5767,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-10-05T02:17:44Z",
+      "side": 1,
+      "message": "I think the timeout period check should be here so that hasValidSound and hasValidVibrate are still set correctly.  Otherwise, they are always false during the timeout period so the clearSoundLocked() and clearVibrateLocked() conditions fire further down.  This is a problem if an app does multiple notification updates in quick succession.  For eg open vpn connect does three notification updates during vpn connect.  With a non-zero timeout period (eg 10s) you never hear any sound at all (ever).  Moving isInSoundTimeoutPeriod() down here fixes it so you still hear sound every min interval.",
+      "revId": "f879e64cf8142a6e47e0a868f5998742a3087a70",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
