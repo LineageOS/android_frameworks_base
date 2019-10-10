@@ -59,6 +59,7 @@ import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.RotationLockController;
 import com.android.systemui.statusbar.policy.RotationLockController.RotationLockControllerCallback;
 import com.android.systemui.statusbar.policy.SensorPrivacyController;
+import com.android.systemui.statusbar.policy.SuController;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 
@@ -96,6 +97,7 @@ public class PhoneStatusBarPolicy
     private final String mSlotDataSaver;
     private final String mSlotLocation;
     private final String mSlotSensorsOff;
+    private final String mSlotSu;
 
     private final Context mContext;
     private final Handler mHandler = new Handler();
@@ -114,6 +116,7 @@ public class PhoneStatusBarPolicy
     private final LocationController mLocationController;
     private final UiOffloadThread mUiOffloadThread = Dependency.get(UiOffloadThread.class);
     private final SensorPrivacyController mSensorPrivacyController;
+    private final SuController mSuController;
 
     // Assume it's all good unless we hear otherwise.  We don't always seem
     // to get broadcasts that it *is* there.
@@ -145,6 +148,7 @@ public class PhoneStatusBarPolicy
         mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
         mLocationController = Dependency.get(LocationController.class);
         mSensorPrivacyController = Dependency.get(SensorPrivacyController.class);
+        mSuController = Dependency.get(SuController.class);
 
         mSlotCast = context.getString(com.android.internal.R.string.status_bar_cast);
         mSlotHotspot = context.getString(com.android.internal.R.string.status_bar_hotspot);
@@ -160,6 +164,7 @@ public class PhoneStatusBarPolicy
         mSlotDataSaver = context.getString(com.android.internal.R.string.status_bar_data_saver);
         mSlotLocation = context.getString(com.android.internal.R.string.status_bar_location);
         mSlotSensorsOff = context.getString(com.android.internal.R.string.status_bar_sensors_off);
+        mSlotSu = context.getString(com.android.internal.R.string.status_bar_su);
 
         // listen for broadcasts
         IntentFilter filter = new IntentFilter();
@@ -228,6 +233,10 @@ public class PhoneStatusBarPolicy
         mIconController.setIconVisibility(mSlotSensorsOff,
                 mSensorPrivacyController.isSensorPrivacyEnabled());
 
+        // su
+        mIconController.setIcon(mSlotSu, R.drawable.stat_sys_su, null);
+        mIconController.setIconVisibility(mSlotSu, mSuController.getSessionCount() > 0);
+
         mRotationLockController.addCallback(this);
         mBluetooth.addCallback(this);
         mProvisionedController.addCallback(this);
@@ -239,6 +248,7 @@ public class PhoneStatusBarPolicy
         mKeyguardMonitor.addCallback(this);
         mSensorPrivacyController.addCallback(mSensorPrivacyListener);
         mLocationController.addCallback(this);
+        mSuController.addCallback(mSuCallback);
 
         SysUiServiceProvider.getComponent(mContext, CommandQueue.class).addCallback(this);
     }
@@ -519,6 +529,13 @@ public class PhoneStatusBarPolicy
                     });
                 }
             };
+
+    private final SuController.Callback mSuCallback = new SuController.Callback() {
+        @Override
+        public void onSuSessionsChanged(int sessionCount) {
+            mIconController.setIconVisibility(mSlotSu, sessionCount > 0);
+        }
+    };
 
     @Override
     public void appTransitionStarting(int displayId, long startTime, long duration,

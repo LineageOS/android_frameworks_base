@@ -65,6 +65,7 @@ import android.os.Binder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.Process;
 import android.os.RemoteCallback;
 import android.os.RemoteException;
@@ -104,8 +105,11 @@ import com.android.internal.util.FastXmlSerializer;
 import com.android.internal.util.Preconditions;
 import com.android.internal.util.XmlUtils;
 import com.android.internal.util.function.pooled.PooledLambda;
+import com.android.server.am.ActivityManagerService;
 import com.android.server.LocalServices;
 import com.android.server.LockGuard;
+import com.android.server.PermissionDialogReqQueue;
+import com.android.server.PermissionDialogReqQueue.PermissionDialogReq;
 
 import libcore.util.EmptyArray;
 
@@ -173,9 +177,17 @@ public class AppOpsService extends IAppOpsService.Stub {
         UID_STATE_CACHED,               // ActivityManager.PROCESS_STATE_NONEXISTENT
     };
 
+    // Rate limiting thresholds for ask operations
+    public static final int RATE_LIMIT_OPS_TOTAL_PKG_COUNT = 4;
+
     Context mContext;
     final AtomicFile mFile;
     final Handler mHandler;
+    final Looper mLooper;
+
+    private boolean mIsInteractive = true;
+
+    private final ActivityManagerService mActivityManagerService;
 
     private final AppOpsManagerInternalImpl mAppOpsManagerInternal
             = new AppOpsManagerInternalImpl();
@@ -310,7 +322,7 @@ public class AppOpsService extends IAppOpsService.Stub {
     final Constants mConstants;
 
     @VisibleForTesting
-    static final class UidState {
+    public static final class UidState {
         public final int uid;
 
         public int state = UID_STATE_CACHED;
@@ -407,11 +419,12 @@ public class AppOpsService extends IAppOpsService.Stub {
         }
     }
 
-    final static class Op {
-        int op;
+    /** @hide */
+    public final static class Op {
+        public int op;
         boolean running;
-        final UidState uidState;
-        final @NonNull String packageName;
+        public final UidState uidState;
+        public final @NonNull String packageName;
 
         private @Mode int mode;
         private @Nullable LongSparseLongArray mAccessTimes;
@@ -423,11 +436,14 @@ public class AppOpsService extends IAppOpsService.Stub {
         int startNesting;
         long startRealtime;
 
+        PermissionDialogReqQueue dialogReqQueue;
+
         Op(UidState uidState, String packageName, int op) {
             this.op = op;
             this.uidState = uidState;
             this.packageName = packageName;
             this.mode = AppOpsManager.opToDefaultMode(op);
+            this.dialogReqQueue = new PermissionDialogReqQueue();
         }
 
         int getMode() {
@@ -717,11 +733,13 @@ public class AppOpsService extends IAppOpsService.Stub {
         }
     }
 
-    public AppOpsService(File storagePath, Handler handler) {
+    public AppOpsService(File storagePath, Handler handler, ActivityManagerService service) {
         LockGuard.installLock(this, LockGuard.INDEX_APP_OPS);
         mFile = new AtomicFile(storagePath, "appops");
         mHandler = handler;
         mConstants = new Constants(mHandler);
+        mLooper = Looper.myLooper();
+        mActivityManagerService = service;
         readState();
     }
 
@@ -734,6 +752,11 @@ public class AppOpsService extends IAppOpsService.Stub {
     public void systemReady() {
         mConstants.startMonitoring(mContext.getContentResolver());
         mHistoricalRegistry.systemReady(mContext.getContentResolver());
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_SCREEN_ON);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        mContext.registerReceiver(mIntentReceiver, filter);
 
         synchronized (this) {
             boolean changed = false;
@@ -856,6 +879,43 @@ public class AppOpsService extends IAppOpsService.Stub {
                     });
         }
     }
+
+
+    private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(Intent.ACTION_SCREEN_ON)) {
+                synchronized (AppOpsService.this) {
+                    mIsInteractive = true;
+                }
+            } else if (action.equals(Intent.ACTION_SCREEN_OFF)) {
+                synchronized (AppOpsService.this) {
+                    for (int i = mUidStates.size() - 1; i >= 0; i--) {
+                        UidState uidState = mUidStates.valueAt(i);
+
+                        ArrayMap<String, Ops> packages = uidState.pkgOps;
+                        if (packages == null) {
+                            continue;
+                        }
+
+                        Iterator<Map.Entry<String, Ops>> it = packages.entrySet().iterator();
+                        while (it.hasNext()) {
+                            Map.Entry<String, Ops> ent = it.next();
+                            Ops pkgOps = ent.getValue();
+                            for (int j = pkgOps.size() - 1; j >= 0; j--) {
+                                Op curOp = pkgOps.valueAt(j);
+                                if (DEBUG) Slog.d(TAG, "Ignoring " + curOp.packageName + " request "
+                                        + curOp.op);
+                                curOp.dialogReqQueue.ignore();
+                            }
+                        }
+                    }
+                    mIsInteractive = false;
+                }
+            }
+        }
+    };
 
     public void packageRemoved(int uid, String packageName) {
         synchronized (this) {
@@ -1994,6 +2054,7 @@ public class AppOpsService extends IAppOpsService.Stub {
 
     private int noteOperationUnchecked(int code, int uid, String packageName,
             int proxyUid, String proxyPackageName, @OpFlags int flags) {
+        PermissionDialogReq req = null;
         synchronized (this) {
             final Ops ops = getOpsRawLocked(uid, packageName, true /* edit */,
                     false /* uidMismatchExpected */);
@@ -2039,7 +2100,7 @@ public class AppOpsService extends IAppOpsService.Stub {
             } else {
                 final Op switchOp = switchCode != code ? getOpLocked(ops, switchCode, true) : op;
                 final int mode = switchOp.evalMode();
-                if (switchOp.mode != AppOpsManager.MODE_ALLOWED) {
+                if (switchOp.mode != AppOpsManager.MODE_ALLOWED && switchOp.mode != AppOpsManager.MODE_ASK) {
                     if (DEBUG) Slog.d(TAG, "noteOperation: reject #" + mode + " for code "
                             + switchCode + " (" + code + ") uid " + uid + " package "
                             + packageName);
@@ -2049,18 +2110,44 @@ public class AppOpsService extends IAppOpsService.Stub {
                             uidState.state, flags);
                     scheduleOpNotedIfNeededLocked(code, uid, packageName, mode);
                     return mode;
+                } else if (mode == AppOpsManager.MODE_ASK) {
+                    if (Looper.myLooper() == mLooper || Thread.holdsLock(mActivityManagerService)) {
+                        Slog.e(TAG, "noteOperation: this method will deadlock if called" +
+                               " from the main thread. (Code: " + code + " uid: " + uid +
+                               " package: " + packageName + ")");
+                        return switchOp.mode;
+                    }
+
+                    if (DEBUG) {
+                            Slog.d(TAG, "Total pkops for " + ops.packageName + " "
+                                    + ops.uidState.pkgOps.size());
+                    }
+
+                    if (mIsInteractive &&
+                            ops.uidState.pkgOps.size() < RATE_LIMIT_OPS_TOTAL_PKG_COUNT) {
+                        req = askOperationLocked(code, uid, packageName, switchOp);
+                    } else {
+                        return AppOpsManager.MODE_IGNORED;
+                    }
                 }
             }
-            if (DEBUG) Slog.d(TAG, "noteOperation: allowing code " + code + " uid " + uid
-                    + " package " + packageName);
-            op.accessed(System.currentTimeMillis(), proxyUid, proxyPackageName,
-                    uidState.state, flags);
-            mHistoricalRegistry.incrementOpAccessedCount(op.op, uid, packageName,
-                    uidState.state, flags);
-            scheduleOpNotedIfNeededLocked(code, uid, packageName,
-                    AppOpsManager.MODE_ALLOWED);
-            return AppOpsManager.MODE_ALLOWED;
+            if (req == null) {
+                if (DEBUG) Slog.d(TAG, "noteOperation: allowing code " + code + " uid " + uid
+                        + " package " + packageName);
+                op.accessed(System.currentTimeMillis(), proxyUid, proxyPackageName,
+                        uidState.state, flags);
+                mHistoricalRegistry.incrementOpAccessedCount(op.op, uid, packageName,
+                        uidState.state, flags);
+                scheduleOpNotedIfNeededLocked(code, uid, packageName,
+                        AppOpsManager.MODE_ALLOWED);
+                return AppOpsManager.MODE_ALLOWED;
+            }
         }
+
+        if (DEBUG) Slog.d(TAG, "noteOperation: waiting for result code " + code + " uid " + uid
+                + " package " + packageName);
+
+        return req.get();
     }
 
     @Override
@@ -4380,6 +4467,116 @@ public class AppOpsService extends IAppOpsService.Stub {
         int uid = Binder.getCallingUid();
         if (uid != Process.SYSTEM_UID) {
             throw new SecurityException(function + " must by called by the system");
+        }
+    }
+
+    final class AskRunnable implements Runnable {
+        private final PermissionDialogReq mRequest;
+
+        public AskRunnable(PermissionDialogReq request) {
+            super();
+            mRequest = request;
+        }
+
+        @Override
+        public void run() {
+            final PermissionDialogReqQueue queue = mRequest.mOp.dialogReqQueue;
+            synchronized (AppOpsService.this) {
+                Slog.e(TAG, "Creating dialog box");
+                queue.register(AppOpsService.this, mRequest);
+            }
+            queue.showDialog();
+        }
+    }
+
+    private PermissionDialogReq askOperationLocked(int code, int uid, String packageName, Op op) {
+        PermissionDialogReq request = new PermissionDialogReq(op);
+        mHandler.post(new AskRunnable(request));
+        return request;
+    }
+
+
+    private void printOperationLocked(Op op, int mode, String operation) {
+        if (op != null) {
+            int switchCode = AppOpsManager.opToSwitch(op.op);
+            if (mode == AppOpsManager.MODE_IGNORED) {
+                if (DEBUG) Slog.d(TAG, operation + ": reject #" + mode + " for code "
+                        + switchCode + " (" + op.op + ") uid " + op.uidState.uid + " package "
+                        + op.packageName);
+            } else if (mode == AppOpsManager.MODE_ALLOWED) {
+                if (DEBUG) Slog.d(TAG, operation + ": allowing code " + op.op + " uid "
+                    + op.uidState.uid + " package " + op.packageName);
+            }
+        }
+    }
+
+    private void recordOperationLocked(int code, int uid, String packageName, int mode) {
+        Op op = getOpLocked(code, uid, packageName, false, false, false);
+        UidState uidState = getUidStateLocked(uid, false);
+        if (op != null && uidState != null) {
+            if (mode == AppOpsManager.MODE_ALLOWED) {
+                if (op.startNesting == 0) {
+                    scheduleOpActiveChangedIfNeededLocked(code, uid, packageName, true);
+                }
+            }
+        }
+    }
+
+    public void notifyOperation(int code, int uid, String packageName, int mode, boolean remember) {
+        if (DEBUG) Slog.d(TAG, "notifyOperation("
+                + code + ", " + uid + ", " + packageName + ", " + mode + ")");
+
+        verifyIncomingUid(uid);
+        verifyIncomingOp(code);
+        ArraySet<ModeCallback> repCbs = null;
+        int switchCode = AppOpsManager.opToSwitch(code);
+        boolean needsPolicyUpdate = false;
+        synchronized (this) {
+            recordOperationLocked(code, uid, packageName, mode);
+            Op op = getOpLocked(switchCode, uid, packageName, true, false, false);
+            if (op != null) {
+                // Send result to all waiting client
+                op.dialogReqQueue.dismissAndNotify(mode);
+                if (remember && op.mode != mode) {
+                    op.mode = mode;
+                    ArraySet<ModeCallback> cbs = mOpModeWatchers.get(switchCode);
+                    if (cbs != null) {
+                        if (repCbs == null) {
+                            repCbs = new ArraySet<ModeCallback>();
+                        }
+                        repCbs.addAll(cbs);
+                    }
+                    cbs = mPackageModeWatchers.get(packageName);
+                    if (cbs != null) {
+                        if (repCbs == null) {
+                            repCbs = new ArraySet<ModeCallback>();
+                        }
+                        repCbs.addAll(cbs);
+                    }
+                    if (mode == AppOpsManager.opToDefaultMode(op.op)) {
+                        // If going into the default mode, prune this op
+                        // if there is nothing else interesting in it.
+                        pruneOp(op, uid, packageName);
+                    }
+                    scheduleWriteLocked();
+                }
+            }
+            UidState uidState = getUidStateLocked(uid, false);
+            if (uidState != null) {
+                if (mode == AppOpsManager.MODE_ALLOWED) {
+                    needsPolicyUpdate = true;
+                }
+            }
+        }
+        if (repCbs != null) {
+            mHandler.sendMessage(PooledLambda.obtainMessage(
+                    AppOpsService::notifyOpChanged,
+                    this, repCbs, code, uid, packageName));
+        }
+        if (needsPolicyUpdate) {
+            StorageManagerInternal storageManagerInternal =
+                LocalServices.getService(StorageManagerInternal.class);
+            storageManagerInternal.onExternalStoragePolicyChanged(uid, packageName);
         }
     }
 
