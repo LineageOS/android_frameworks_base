@@ -159,7 +159,8 @@ public class AppOpsManager {
             MODE_IGNORED,
             MODE_ERRORED,
             MODE_DEFAULT,
-            MODE_FOREGROUND
+            MODE_FOREGROUND,
+            MODE_ASK
     })
     public @interface Mode {}
 
@@ -207,6 +208,12 @@ public class AppOpsManager {
      * the actual check for access to the op.</p>
      */
     public static final int MODE_FOREGROUND = 4;
+
+    /**
+     * @hide Result from {@link #checkOp}, {@link #noteOp}, {@link #startOp}:
+     * AppOps Service should show a dialog box on screen to get user permission.
+     */
+    public static final int MODE_ASK = 5;
 
     /**
      * Flag for {@link #startWatchingMode(String, String, int, OnOpChangedListener)}:
@@ -834,9 +841,11 @@ public class AppOpsManager {
     public static final int OP_ACCESS_ACCESSIBILITY = 88;
     /** @hide Read the device identifiers (IMEI / MEID, IMSI, SIM / Build serial) */
     public static final int OP_READ_DEVICE_IDENTIFIERS = 89;
+    /** @hide SU access */
+    public static final int OP_SU = 90;
     /** @hide */
     @UnsupportedAppUsage
-    public static final int _NUM_OP = 90;
+    public static final int _NUM_OP = 91;
 
     /** Access to coarse location information. */
     public static final String OPSTR_COARSE_LOCATION = "android:coarse_location";
@@ -1112,6 +1121,8 @@ public class AppOpsManager {
     public static final String OPSTR_ACCESS_ACCESSIBILITY = "android:access_accessibility";
     /** @hide Read device identifiers */
     public static final String OPSTR_READ_DEVICE_IDENTIFIERS = "android:read_device_identifiers";
+    /** @hide */
+    public static final String OPSTR_SU = "android:su";
 
     // Warning: If an permission is added here it also has to be added to
     // com.android.packageinstaller.permission.utils.EventLogger
@@ -1172,6 +1183,7 @@ public class AppOpsManager {
             OP_REQUEST_INSTALL_PACKAGES,
             OP_START_FOREGROUND,
             OP_SMS_FINANCIAL_TRANSACTIONS,
+            OP_SU,
     };
 
     /**
@@ -1273,6 +1285,7 @@ public class AppOpsManager {
             OP_LEGACY_STORAGE,                  // LEGACY_STORAGE
             OP_ACCESS_ACCESSIBILITY,            // ACCESS_ACCESSIBILITY
             OP_READ_DEVICE_IDENTIFIERS,         // READ_DEVICE_IDENTIFIERS
+            OP_SU,                              // SU
     };
 
     /**
@@ -1369,6 +1382,7 @@ public class AppOpsManager {
             OPSTR_LEGACY_STORAGE,
             OPSTR_ACCESS_ACCESSIBILITY,
             OPSTR_READ_DEVICE_IDENTIFIERS,
+            OPSTR_SU,
     };
 
     /**
@@ -1466,6 +1480,7 @@ public class AppOpsManager {
             "LEGACY_STORAGE",
             "ACCESS_ACCESSIBILITY",
             "READ_DEVICE_IDENTIFIERS",
+            "SU",
     };
 
     /**
@@ -1564,6 +1579,7 @@ public class AppOpsManager {
             null, // no permission for OP_LEGACY_STORAGE
             null, // no permission for OP_ACCESS_ACCESSIBILITY
             null, // no direct permission for OP_READ_DEVICE_IDENTIFIERS
+            null, // no permission for OP_SU
     };
 
     /**
@@ -1662,6 +1678,7 @@ public class AppOpsManager {
             null, // LEGACY_STORAGE
             null, // ACCESS_ACCESSIBILITY
             null, // READ_DEVICE_IDENTIFIERS
+            UserManager.DISALLOW_SU, // SU
     };
 
     /**
@@ -1759,6 +1776,7 @@ public class AppOpsManager {
             false, // LEGACY_STORAGE
             false, // ACCESS_ACCESSIBILITY
             false, // READ_DEVICE_IDENTIFIERS
+            false, // SU
     };
 
     /**
@@ -1855,6 +1873,7 @@ public class AppOpsManager {
             AppOpsManager.MODE_DEFAULT, // LEGACY_STORAGE
             AppOpsManager.MODE_ALLOWED, // ACCESS_ACCESSIBILITY
             AppOpsManager.MODE_ERRORED, // READ_DEVICE_IDENTIFIERS
+            AppOpsManager.MODE_ASK,      // OP_SU
     };
 
     /**
