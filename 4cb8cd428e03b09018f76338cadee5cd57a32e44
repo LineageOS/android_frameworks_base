@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0fe55fe8_8ec65b9d",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2019-10-10T01:21:55Z",
+      "side": 1,
+      "message": "are these ok here?",
+      "range": {
+        "startLine": 265,
+        "startChar": 4,
+        "endLine": 273,
+        "endChar": 63
+      },
+      "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fe93b184_8d731037",
         "filename": "services/core/java/com/android/server/NetworkManagementService.java",
         "patchSetId": 12
@@ -13,6 +36,24 @@
       "writtenOn": "2019-10-10T00:42:27Z",
       "side": 1,
       "message": "Long line (and several more below).",
+      "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f937cdf_48a5e6d7",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2019-10-10T01:21:55Z",
+      "side": 1,
+      "message": "can fix if we decide or have to do what you suggested (see replies below)",
+      "parentUuid": "fe93b184_8d731037",
       "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -36,6 +77,24 @@
     },
     {
       "key": {
+        "uuid": "38d7ca32_be9a3440",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2019-10-10T01:21:55Z",
+      "side": 1,
+      "message": "I must have misunderstood NetworkCallback and onLinkPropertiesChanged because I thought this method would handle the case of an interface name change (because of the change of LinkProperties). if this is not the case I agree with the handling you suggest",
+      "parentUuid": "d1280aae_d31800aa",
+      "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "59ffa8f9_a93d11c3",
         "filename": "services/core/java/com/android/server/NetworkManagementService.java",
         "patchSetId": 12
@@ -53,6 +112,24 @@
     },
     {
       "key": {
+        "uuid": "a68f5c84_11f3cfe1",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2019-10-10T01:21:55Z",
+      "side": 1,
+      "message": "agree. you suggest Handler for this I suppose?",
+      "parentUuid": "59ffa8f9_a93d11c3",
+      "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "50497000_d6a8ea06",
         "filename": "services/core/java/com/android/server/NetworkManagementService.java",
         "patchSetId": 12
@@ -64,6 +141,24 @@
       "writtenOn": "2019-10-10T00:42:27Z",
       "side": 1,
       "message": "This is c++ indent, use java :-)",
+      "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81b048e2_a22d412a",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2019-10-10T01:21:55Z",
+      "side": 1,
+      "message": "I\u0027m afraid I don\u0027t know java\u0027s indentation standard but will look it up",
+      "parentUuid": "50497000_d6a8ea06",
       "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
