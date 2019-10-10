@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe93b184_8d731037",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-10-10T00:42:27Z",
+      "side": 1,
+      "message": "Long line (and several more below).",
+      "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1280aae_d31800aa",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-10-10T00:42:27Z",
+      "side": 1,
+      "message": "We can do initial testing without but we\u0027ll need to deal with interface name changes.  When this happens we should remove all rules with the old name and then add new.  Even better would be to add new and then remove old though this would also require netd changes to mRestrictAppsOnInterface (possibly just key by interface instead of use case).",
+      "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59ffa8f9_a93d11c3",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-10-10T00:42:27Z",
+      "side": 1,
+      "message": "To be a good citizen, time spent in a callback should be as short as possible to avoid tying up the calling loop (and delaying other callback clients in the same process).  Consider posting the process pending work to the main looper (since it will typically call out to netd).",
+      "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50497000_d6a8ea06",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-10-10T00:42:27Z",
+      "side": 1,
+      "message": "This is c++ indent, use java :-)",
+      "revId": "4cb8cd428e03b09018f76338cadee5cd57a32e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
