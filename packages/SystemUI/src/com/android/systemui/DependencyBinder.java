@@ -64,6 +64,8 @@ import com.android.systemui.statusbar.policy.SecurityController;
 import com.android.systemui.statusbar.policy.SecurityControllerImpl;
 import com.android.systemui.statusbar.policy.SensorPrivacyController;
 import com.android.systemui.statusbar.policy.SensorPrivacyControllerImpl;
+import com.android.systemui.statusbar.policy.SuController;
+import com.android.systemui.statusbar.policy.SuControllerImpl;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.ZenModeController;
@@ -241,4 +243,9 @@ public abstract class DependencyBinder {
      */
     @Binds
     public abstract FalsingManager provideFalsingmanager(FalsingManagerProxy falsingManagerImpl);
+
+    /*
+     */
+    @Binds
+    public abstract SuController provideSuController(SuControllerImpl controllerImpl);
 }
