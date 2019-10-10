@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17a5ac80_7a5a689c",
+        "filename": "packages/SystemUI/res/drawable-nodpi/fod_icon_pressed.png",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2019-10-10T03:07:28Z",
+      "side": 1,
+      "message": "Someone converts it into xml plz",
+      "revId": "42f647f2ba1142779227a71a9d8a97240bcb8559",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
