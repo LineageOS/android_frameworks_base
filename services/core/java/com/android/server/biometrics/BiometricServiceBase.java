@@ -1231,7 +1231,6 @@ public abstract class BiometricServiceBase extends SystemService
             if (mPendingClient != null) {
                 Slog.d(getTag(), "Enumerate finished, starting pending client");
                 startClient(mPendingClient, false /* initiatedByClient */);
-                mPendingClient = null;
             }
         }
     }
