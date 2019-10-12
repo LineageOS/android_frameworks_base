@@ -587,7 +587,6 @@ Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->asInterface(L
 Landroid/service/vr/IVrManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/vr/IVrManager;
 Landroid/service/wallpaper/IWallpaperConnection$Stub;-><init>()V
 Landroid/service/wallpaper/IWallpaperService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/wallpaper/IWallpaperService;
-Landroid/telephony/ims/compat/feature/MMTelFeature;-><init>()V
 Landroid/telephony/ims/compat/ImsService;-><init>()V
 Landroid/telephony/ims/compat/stub/ImsCallSessionImplBase;-><init>()V
 Landroid/telephony/ims/compat/stub/ImsUtListenerImplBase;-><init>()V
