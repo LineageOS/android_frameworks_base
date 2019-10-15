@@ -19,7 +19,7 @@
 //#define LOG_NDEBUG 0
 
 #include <android/hardware/power/1.1/IPower.h>
-#include <vendor/lineage/power/1.0/ILineagePower.h>
+#include <vendor/deltaotg/power/1.0/ILineagePower.h>
 #include "JNIHelp.h"
 #include "jni.h"
 
@@ -47,7 +47,7 @@ using android::hardware::power::V1_1::IPower;
 using android::hardware::power::V1_0::PowerHint;
 using android::hardware::power::V1_0::Feature;
 using android::String8;
-using vendor::lineage::power::V1_0::LineageFeature;
+using vendor::deltaotg::power::V1_0::LineageFeature;
 
 namespace android {
 
@@ -62,7 +62,7 @@ static struct {
 static jobject gPowerManagerServiceObj;
 sp<android::hardware::power::V1_0::IPower> gPowerHalV1_0 = nullptr;
 sp<android::hardware::power::V1_1::IPower> gPowerHalV1_1 = nullptr;
-sp<vendor::lineage::power::V1_0::ILineagePower> gLineagePowerHalV1_0 = nullptr;
+sp<vendor::deltaotg::power::V1_0::ILineagePower> gLineagePowerHalV1_0 = nullptr;
 bool gPowerHalExists = true;
 bool gLineagePowerHalExists = true;
 std::mutex gPowerHalMutex;
@@ -103,7 +103,7 @@ bool getPowerHal() {
 // The caller must be holding gPowerHalMutex.
 bool getLineagePowerHal() {
     if (gLineagePowerHalExists && gLineagePowerHalV1_0 == nullptr) {
-        gLineagePowerHalV1_0 = vendor::lineage::power::V1_0::ILineagePower::getService();
+        gLineagePowerHalV1_0 = vendor::deltaotg::power::V1_0::ILineagePower::getService();
         if (gLineagePowerHalV1_0 != nullptr) {
             ALOGI("Loaded power HAL service");
         } else {

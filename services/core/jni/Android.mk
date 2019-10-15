@@ -110,7 +110,7 @@ LOCAL_SHARED_LIBRARIES += \
     android.frameworks.sensorservice@1.0 \
 
 LOCAL_SHARED_LIBRARIES += \
-    vendor.lineage.power@1.0
+    vendor.deltaotg.power@1.0
 
 LOCAL_STATIC_LIBRARIES += \
     android.hardware.broadcastradio@1.1-utils-lib \
