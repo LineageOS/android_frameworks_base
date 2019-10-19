@@ -28,4 +28,8 @@
     <!-- Max visible notification icons -->
     <integer name="config_maxVisibleNotificationIcons">4</integer>
     <integer name="config_maxVisibleNotificationIconsWhenDark">5</integer>
+
+    <!-- If true, enable the brightline falsing manager on the lockscreen.
+         On some devices it does not work well. -->
+    <bool name="config_brightlineFalsingManagerEnabled">true</bool>
 </resources>
