@@ -19,7 +19,11 @@ package com.android.systemui.classifier;
 import static com.android.internal.config.sysui.SystemUiDeviceConfigFlags.BRIGHTLINE_FALSING_MANAGER_ENABLED;
 
 import android.content.Context;
+<<<<<<< HEAD   (5ba607 Check UID's process state before restricting its network.)
 import android.hardware.SensorManager;
+=======
+import android.content.res.Resources;
+>>>>>>> CHANGE (aaef70 SystemUI: Allow disabling BrightlineFalsingManager with conf)
 import android.net.Uri;
 import android.provider.DeviceConfig;
 import android.util.DisplayMetrics;
@@ -28,8 +32,13 @@ import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 
 import com.android.internal.annotations.VisibleForTesting;
+<<<<<<< HEAD   (5ba607 Check UID's process state before restricting its network.)
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.systemui.Dumpable;
+=======
+import com.android.systemui.Dependency;
+import com.android.systemui.R;
+>>>>>>> CHANGE (aaef70 SystemUI: Allow disabling BrightlineFalsingManager with conf)
 import com.android.systemui.classifier.brightline.BrightLineFalsingManager;
 import com.android.systemui.classifier.brightline.FalsingDataProvider;
 import com.android.systemui.dagger.qualifiers.Main;
@@ -128,6 +137,7 @@ public class FalsingManagerProxy implements FalsingManager, Dumpable {
     /**
      * Chooses the FalsingManager implementation.
      */
+<<<<<<< HEAD   (5ba607 Check UID's process state before restricting its network.)
     private void setupFalsingManager(Context context) {
         boolean brightlineEnabled = mDeviceConfig.getBoolean(
                 DeviceConfig.NAMESPACE_SYSTEMUI, BRIGHTLINE_FALSING_MANAGER_ENABLED, true);
@@ -136,6 +146,14 @@ public class FalsingManagerProxy implements FalsingManager, Dumpable {
         }
         mBrightlineEnabled = brightlineEnabled;
 
+=======
+    @VisibleForTesting
+    public void setupFalsingManager(Context context) {
+        Resources res = context.getResources();
+        boolean brightlineEnabled = DeviceConfig.getBoolean(
+                DeviceConfig.NAMESPACE_SYSTEMUI, BRIGHTLINE_FALSING_MANAGER_ENABLED,
+                res.getBoolean(R.bool.config_lockscreenAntiFalsingClassifierEnabled));
+>>>>>>> CHANGE (aaef70 SystemUI: Allow disabling BrightlineFalsingManager with conf)
         if (mInternalFalsingManager != null) {
             mInternalFalsingManager.cleanup();
         }
