@@ -27,6 +27,7 @@ import android.view.MotionEvent;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.systemui.Dependency;
+import com.android.systemui.R;
 import com.android.systemui.classifier.brightline.BrightLineFalsingManager;
 import com.android.systemui.classifier.brightline.FalsingDataProvider;
 import com.android.systemui.plugins.FalsingManager;
@@ -92,7 +93,8 @@ public class FalsingManagerProxy implements FalsingManager {
     @VisibleForTesting
     public void setupFalsingManager(Context context) {
         boolean brightlineEnabled = DeviceConfig.getBoolean(
-                DeviceConfig.NAMESPACE_SYSTEMUI, BRIGHTLINE_FALSING_MANAGER_ENABLED, true);
+                DeviceConfig.NAMESPACE_SYSTEMUI, BRIGHTLINE_FALSING_MANAGER_ENABLED,
+                context.getResources().getBoolean(R.bool.config_brightlineFalsingManagerEnabled));
         if (mInternalFalsingManager != null) {
             mInternalFalsingManager.cleanup();
         }
