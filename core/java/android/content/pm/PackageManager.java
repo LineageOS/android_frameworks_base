@@ -62,6 +62,8 @@ import android.util.Log;
 
 import com.android.internal.util.ArrayUtils;
 
+import com.nvidia.NvAppProfileService;
+
 import dalvik.system.VMRuntime;
 
 import java.io.File;
@@ -3282,6 +3284,8 @@ public abstract class PackageManager {
      */
     public abstract List<PermissionGroupInfo> getAllPermissionGroups(
             @PermissionGroupInfoFlags int flags);
+
+    public abstract NvAppProfileService getAppProfileService();
 
     /**
      * Retrieve all of the information we know about a particular
