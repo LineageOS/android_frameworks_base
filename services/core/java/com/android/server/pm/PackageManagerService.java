@@ -320,6 +320,8 @@ import com.android.server.pm.permission.PermissionsState.PermissionState;
 import com.android.server.security.VerityUtils;
 import com.android.server.storage.DeviceStorageMonitorInternal;
 
+import com.nvidia.NvAppProfileService;
+
 import dalvik.system.CloseGuard;
 import dalvik.system.VMRuntime;
 
@@ -867,6 +869,13 @@ public class PackageManagerService extends IPackageManager.Stub
                 String targetPath) {
             return getStaticOverlayPaths(targetPackageName, targetPath);
         }
+
+        @Override public NvAppProfileService getAppProfileService() {
+            if (mAppProfileService == null) {
+                mAppProfileService = new NvAppProfileService(mContext);
+            }
+            return mAppProfileService;
+        }
     }
 
     class ParallelPackageParserCallback extends PackageParserCallback {
@@ -958,6 +967,8 @@ public class PackageManagerService extends IPackageManager.Stub
             = new SparseArray<PackageVerificationState>();
 
     final PackageInstallerService mInstallerService;
+
+    private NvAppProfileService mAppProfileService;
 
     final ArtManagerService mArtManagerService;
 
