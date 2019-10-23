@@ -105,6 +105,8 @@ import libcore.util.HexEncoding;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import com.nvidia.NvAppProfileService;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -578,6 +580,7 @@ public class PackageParser {
      * a package.
      */
     public interface Callback {
+        NvAppProfileService getAppProfileService();
         boolean hasFeature(String feature);
     }
 
@@ -590,6 +593,10 @@ public class PackageParser {
 
         public CallbackImpl(PackageManager pm) {
             mPm = pm;
+        }
+
+        @Override public NvAppProfileService getAppProfileService() {
+            return mPm.getAppProfileService();
         }
 
         @Override public boolean hasFeature(String feature) {
