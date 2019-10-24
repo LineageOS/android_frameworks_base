@@ -1639,8 +1639,14 @@ public class ActivityStackSupervisor implements RecentTasks.Callbacks {
         if (wasTrimmed) {
             // Task was trimmed from the recent tasks list -- remove the active task record as well
             // since the user won't really be able to go back to it
-            removeTaskById(task.mTaskId, killProcess, false /* removeFromRecents */,
-                    "recent-task-trimmed");
+            boolean res = removeTaskByIdLocked(task.mTaskId, killProcess,
+                    false /* removeFromRecents */,
+                    !PAUSE_IMMEDIATELY, "recent-task-trimmed");
+
+            // Notify task stack changes for the non-existent task
+            if (!res) {
+                mService.getTaskChangeNotificationController().notifyTaskStackChanged();
+            }
         }
         task.removedFromRecents();
     }
