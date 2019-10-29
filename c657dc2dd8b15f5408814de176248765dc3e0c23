@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "939f7886_f4eeb20d",
+        "filename": "core/res/res/values/lineage_config.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-10-29T17:57:23Z",
+      "side": 1,
+      "message": "\u0027approval fist\u0027 sounds somewhat scary :-P",
+      "revId": "c657dc2dd8b15f5408814de176248765dc3e0c23",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
