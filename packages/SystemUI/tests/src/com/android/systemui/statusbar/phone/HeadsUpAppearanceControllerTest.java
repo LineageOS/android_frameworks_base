@@ -86,6 +86,7 @@ public class HeadsUpAppearanceControllerTest extends SysuiTestCase {
         mKeyguardStateController = mock(KeyguardStateController.class);
         mCommandQueue = mock(CommandQueue.class);
         mHeadsUpAppearanceController = new HeadsUpAppearanceController(
+                mContext,
                 mock(NotificationIconAreaController.class),
                 mHeadsUpManager,
                 mStatusbarStateController,
@@ -165,6 +166,7 @@ public class HeadsUpAppearanceControllerTest extends SysuiTestCase {
         mHeadsUpAppearanceController.setAppearFraction(1.0f, 1.0f);
 
         HeadsUpAppearanceController newController = new HeadsUpAppearanceController(
+                mContext,
                 mock(NotificationIconAreaController.class),
                 mHeadsUpManager,
                 mStatusbarStateController,
