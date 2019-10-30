@@ -1300,7 +1300,8 @@ metalava_framework_docs_args = "--manifest $(location core/res/AndroidManifest.x
     "--hide RequiresPermission " +
     "--hide MissingPermission --hide BroadcastBehavior " +
     "--hide HiddenSuperclass --hide DeprecationMismatch --hide UnavailableSymbol " +
-    "--hide SdkConstant --hide HiddenTypeParameter --hide Todo --hide Typo"
+    "--hide SdkConstant --hide HiddenTypeParameter --hide Todo --hide Typo " +
+    "-nodocs"
 
 stubs_defaults {
     name: "framework-doc-stubs-default",
