@@ -59,6 +59,7 @@ cc_library_shared {
     shared_libs: [
         "libui",
         "libhwui",
+        "libmedia",
         "libEGL",
         "libGLESv1_CM",
         "libgui",
