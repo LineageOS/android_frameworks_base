@@ -3183,25 +3183,14 @@ public class PackageManagerService extends IPackageManager.Stub
 
             // Disable components marked for disabling at build-time
             mDisabledComponentsList = new ArrayList<ComponentName>();
-            disableComponents(mContext.getResources().getStringArray(
-                    com.android.internal.R.array.config_deviceDisabledComponents));
-            disableComponents(mContext.getResources().getStringArray(
-                    com.android.internal.R.array.config_globallyDisabledComponents));
+            enableComponents(mContext.getResources().getStringArray(
+                    com.android.internal.R.array.config_deviceDisabledComponents), false);
+            enableComponents(mContext.getResources().getStringArray(
+                    com.android.internal.R.array.config_globallyDisabledComponents), false);
 
             // Enable components marked for forced-enable at build-time
-            for (String name : mContext.getResources().getStringArray(
-                    com.android.internal.R.array.config_forceEnabledComponents)) {
-                ComponentName cn = ComponentName.unflattenFromString(name);
-                Slog.v(TAG, "Enabling " + name);
-                String className = cn.getClassName();
-                PackageSetting pkgSetting = mSettings.mPackages.get(cn.getPackageName());
-                if (pkgSetting == null || pkgSetting.pkg == null
-                        || !pkgSetting.pkg.hasComponentClassName(className)) {
-                    Slog.w(TAG, "Unable to enable " + name);
-                    continue;
-                }
-                pkgSetting.enableComponentLPw(className, UserHandle.USER_OWNER);
-            }
+            enableComponents(mContext.getResources().getStringArray(
+                    com.android.internal.R.array.config_forceEnabledComponents), true);
 
             // If this is first boot after an OTA, and a normal boot, then
             // we need to clear code cache directories.
@@ -3319,20 +3308,26 @@ public class PackageManagerService extends IPackageManager.Stub
         Trace.traceEnd(TRACE_TAG_PACKAGE_MANAGER);
     }
 
-    private void disableComponents(String[] components) {
-        // Disable components marked for disabling at build-time
+    private void enableComponents(String[] components, boolean enable) {
+        // Disable or enable components marked at build-time
         for (String name : components) {
             ComponentName cn = ComponentName.unflattenFromString(name);
-            mDisabledComponentsList.add(cn);
-            Slog.v(TAG, "Disabling " + name);
+            if (!enable) {
+                mDisabledComponentsList.add(cn);
+            }
+            Slog.v(TAG, "Changing enabled state of " + name + " to " + enable);
             String className = cn.getClassName();
             PackageSetting pkgSetting = mSettings.mPackages.get(cn.getPackageName());
             if (pkgSetting == null || pkgSetting.pkg == null
                     || !pkgSetting.pkg.hasComponentClassName(className)) {
-                Slog.w(TAG, "Unable to disable " + name);
+                Slog.w(TAG, "Unable to change enabled state of " + name + " to " + enable);
                 continue;
             }
-            pkgSetting.disableComponentLPw(className, UserHandle.USER_OWNER);
+            if (enable) {
+                pkgSetting.enableComponentLPw(className, UserHandle.USER_OWNER);
+            } else {
+                pkgSetting.disableComponentLPw(className, UserHandle.USER_OWNER);
+            }
         }
     }
 
