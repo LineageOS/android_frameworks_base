@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c3c4be_7fea4af9",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-11-08T09:19:46Z",
+      "side": 1,
+      "message": "Blacklist it also: https://github.com/LineageOS/android_frameworks_base/blob/lineage-17.0/packages/SystemUI/src/com/android/systemui/tuner/TunerServiceImpl.java#L71",
+      "range": {
+        "startLine": 200,
+        "startChar": 38,
+        "endLine": 200,
+        "endChar": 64
+      },
+      "revId": "06ab83d32e5e04a4b183be9603fe0c679322b88e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
