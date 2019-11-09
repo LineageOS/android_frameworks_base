@@ -397,6 +397,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     // Nav bar is always translucent when the freeform stack is visible, otherwise always opaque.
     static final int NAV_BAR_TRANSLUCENT_WHEN_FREEFORM_OPAQUE_OTHERWISE = 1;
 
+    //one handed mode
+    private static final String EXTRA_ALIGNMENT_STATE = "alignment_state";
+    private static final int EXTRA_ALIGNMENT_STATE_UNALIGNED = -1;
+    private static final int EXTRA_ALIGNMENT_STATE_LEFT = 0;
+    private static final int EXTRA_ALIGNMENT_STATE_RIGHT = 1;
+    private static final String ACTION_ONEHAND_TRIGGER_EVENT =
+            "com.android.server.wm.onehand.intent.action.ONEHAND_TRIGGER_EVENT";
+
     static public final String SYSTEM_DIALOG_REASON_KEY = "reason";
     static public final String SYSTEM_DIALOG_REASON_GLOBAL_ACTIONS = "globalactions";
     static public final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
@@ -2225,9 +2233,39 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case SPLIT_SCREEN:
                 toggleSplitScreen();
                 break;
+            case SINGLE_HAND_LEFT:
+                toggleOneHandedMode(EXTRA_ALIGNMENT_STATE_LEFT);
+                break;
+            case SINGLE_HAND_RIGHT:
+                toggleOneHandedMode(EXTRA_ALIGNMENT_STATE_RIGHT);
+                break;
             default:
                 break;
         }
+    }
+
+    private void toggleOneHandedMode(int direction) {
+        if (isOneHandTurnedOn()) {
+            sendOneHandBroadcast(EXTRA_ALIGNMENT_STATE_UNALIGNED);
+        }
+        else {
+            sendOneHandBroadcast(direction);
+        }
+    }
+
+    private boolean isOneHandTurnedOn() {
+        try {
+            return mWindowManager.isOnehandTurnedON();
+        } catch (RemoteException e) {
+            return false;
+        }
+    }
+
+    private void sendOneHandBroadcast(int direction) {
+        Intent intent = new Intent();
+        intent.setAction(ACTION_ONEHAND_TRIGGER_EVENT);
+        intent.putExtra(EXTRA_ALIGNMENT_STATE, direction);
+        mContext.sendBroadcast(intent);
     }
 
     private final Runnable mHomeDoubleTapTimeoutRunnable = new Runnable() {
