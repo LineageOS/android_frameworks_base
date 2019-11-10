@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca64b9fc_36bf5d6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2019-11-10T12:02:53Z",
+      "side": 1,
+      "message": "could you please expand the SHA or link to the commit? Neither gerrit nor github bring up results using this",
+      "range": {
+        "startLine": 9,
+        "startChar": 16,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "33125f15a21cc4386c50d3495b9a4f6435dae737",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
