@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bf36564_af9e8353",
+        "filename": "core/res/res/values/lineage_config.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2019-11-11T21:03:49Z",
+      "side": 1,
+      "message": "This need to have a better name. Nothing suggests it\u0027s related to biometric/fingerprint",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 67
+      },
+      "revId": "549b48f19c5c4dd1aef8cf2cc1aecf407b060f10",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
