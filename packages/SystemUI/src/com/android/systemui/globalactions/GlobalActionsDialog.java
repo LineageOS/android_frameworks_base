@@ -314,6 +314,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 items.add(new RestartBootloaderAction());
             } else if (GLOBAL_ACTION_KEY_RESTART_DOWNLOAD.equals(actionKey)) {
                 items.add(new RestartDownloadAction());
+            } else if (GLOBAL_ACTION_KEY_RESTART_FASTBOOT.equals(actionKey)) {
+                items.add(new RestartFastbootAction());
             }
         }
         return items;
@@ -447,6 +449,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             } else if (GLOBAL_ACTION_KEY_RESTART_DOWNLOAD.equals(actionKey) &&
                     PowerMenuUtils.isAdvancedRestartPossible(mContext)) {
                 mItems.add(new RestartDownloadAction());
+            } else if (GLOBAL_ACTION_KEY_RESTART_FASTBOOT.equals(actionKey) &&
+                    PowerMenuUtils.isAdvancedRestartPossible(mContext)) {
+                mItems.add(new RestartFastbootAction());
             } else if (GLOBAL_ACTION_KEY_SCREENSHOT.equals(actionKey)) {
                 mItems.add(new ScreenshotAction());
             } else if (GLOBAL_ACTION_KEY_LOGOUT.equals(actionKey)) {
@@ -748,6 +753,28 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         @Override
         public void onPress() {
             mWindowManagerFuncs.reboot(false, PowerManager.REBOOT_DOWNLOAD);
+        }
+    }
+
+    private final class RestartFastbootAction extends SinglePressAction {
+        private RestartFastbootAction() {
+            super(com.android.systemui.R.drawable.ic_lock_restart_fastboot,
+                    com.android.systemui.R.string.global_action_restart_fastboot);
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return true;
+        }
+
+        @Override
+        public void onPress() {
+            mWindowManagerFuncs.reboot(false, PowerManager.REBOOT_FASTBOOT);
         }
     }
 
