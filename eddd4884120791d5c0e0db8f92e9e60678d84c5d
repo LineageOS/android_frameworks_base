@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1591981_b7b6d2c7",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2248,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2019-11-16T16:33:08Z",
+      "side": 1,
+      "message": "this function needs curly braces after each if and else...",
+      "revId": "eddd4884120791d5c0e0db8f92e9e60678d84c5d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
