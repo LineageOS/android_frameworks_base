@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "604da865_0cae898d",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2251,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2019-11-17T13:36:13Z",
+      "side": 1,
+      "message": "\"else\" is in the wrong line\nit should be\nif (x) {\n...\n} else {\n...\n}",
+      "range": {
+        "startLine": 2251,
+        "startChar": 0,
+        "endLine": 2251,
+        "endChar": 14
+      },
+      "revId": "4dde5b040a8be1d2b0391db4155240d18edf8069",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
