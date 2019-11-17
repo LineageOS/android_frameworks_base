@@ -60,10 +60,13 @@ class PulsingGestureListener @Inject constructor(
 ) : GestureDetector.SimpleOnGestureListener(), Dumpable {
     private var doubleTapEnabled = false
     private var singleTapEnabled = false
+    private var doubleTapEnabledNative = false
 
     init {
-        val tunable = Tunable { key: String?, _: String? ->
+        val tunable = Tunable { key: String?, value: String? ->
             when (key) {
+                Settings.Secure.DOUBLE_TAP_TO_WAKE ->
+                    doubleTapEnabledNative = TunerService.parseIntegerSwitch(value, false)
                 Settings.Secure.DOZE_DOUBLE_TAP_GESTURE ->
                     doubleTapEnabled = ambientDisplayConfiguration.doubleTapGestureEnabled(
                             userTracker.userId)
@@ -73,6 +76,7 @@ class PulsingGestureListener @Inject constructor(
             }
         }
         tunerService.addTunable(tunable,
+                Settings.Secure.DOUBLE_TAP_TO_WAKE,
                 Settings.Secure.DOZE_DOUBLE_TAP_GESTURE,
                 Settings.Secure.DOZE_TAP_SCREEN_GESTURE)
 
@@ -109,7 +113,7 @@ class PulsingGestureListener @Inject constructor(
         // checks MUST be on the ACTION_UP event.
         if (e.actionMasked == MotionEvent.ACTION_UP &&
                 statusBarStateController.isDozing &&
-                (doubleTapEnabled || singleTapEnabled) &&
+                (doubleTapEnabled || singleTapEnabled || doubleTapEnabledNative) &&
                 !falsingManager.isProximityNear &&
                 !falsingManager.isFalseDoubleTap
         ) {
@@ -126,6 +130,7 @@ class PulsingGestureListener @Inject constructor(
     override fun dump(pw: PrintWriter, args: Array<out String>) {
         pw.println("singleTapEnabled=$singleTapEnabled")
         pw.println("doubleTapEnabled=$doubleTapEnabled")
+        pw.println("doubleTapEnabledNative=$doubleTapEnabledNative")
         pw.println("isDocked=${dockManager.isDocked}")
         pw.println("isProxCovered=${falsingManager.isProximityNear}")
     }
