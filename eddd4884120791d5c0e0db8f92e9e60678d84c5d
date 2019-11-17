@@ -16,6 +16,24 @@
       "revId": "eddd4884120791d5c0e0db8f92e9e60678d84c5d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7a808db_1524433a",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2248,
+      "author": {
+        "id": 20803
+      },
+      "writtenOn": "2019-11-17T12:55:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1591981_b7b6d2c7",
+      "revId": "eddd4884120791d5c0e0db8f92e9e60678d84c5d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
