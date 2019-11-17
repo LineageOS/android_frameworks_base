@@ -8929,7 +8929,7 @@ public final class Settings {
 
         private static final Validator AWARE_LOCK_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
-        /*
+        /**
          * Boolean value whether to link ringtone and notification volume
          * @hide
          */
