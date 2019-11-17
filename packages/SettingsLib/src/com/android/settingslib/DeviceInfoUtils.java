@@ -24,6 +24,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
+import android.os.SystemProperties;
 import android.system.Os;
 import android.system.StructUtsname;
 import android.telephony.PhoneNumberUtils;
@@ -154,7 +155,8 @@ public class DeviceInfoUtils {
     }
 
     public static String getSecurityPatch() {
-        String patch = Build.VERSION.SECURITY_PATCH;
+        String patch = SystemProperties.get(
+                "ro.lineage.build.version.security_patch", Build.VERSION.SECURITY_PATCH);
         if (!"".equals(patch)) {
             try {
                 SimpleDateFormat template = new SimpleDateFormat("yyyy-MM-dd");
