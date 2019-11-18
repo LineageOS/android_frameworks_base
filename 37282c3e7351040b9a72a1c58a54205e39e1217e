@@ -16,6 +16,24 @@
       "revId": "37282c3e7351040b9a72a1c58a54205e39e1217e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8563d7db_993ea219",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-11-18T18:38:19Z",
+      "side": 1,
+      "message": "Well, it shouldn\u0027t be true by default IMO.",
+      "parentUuid": "757ab802_56aa90bc",
+      "revId": "37282c3e7351040b9a72a1c58a54205e39e1217e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
