@@ -3222,6 +3222,10 @@
          remote provider -->
     <string name="config_tvRemoteServicePackage" translatable="false"></string>
 
+    <!-- Package of the vendor tv remote service which can connect to tv
+         remote provider -->
+    <string name="config_tvVendorRemoteServicePackage" translatable="false"></string>
+
     <!-- True if the device supports persisting security logs across reboots.
          This requires the device's kernel to have pstore and pmsg enabled,
          and DRAM to be powered and refreshed through all stages of reboot. -->

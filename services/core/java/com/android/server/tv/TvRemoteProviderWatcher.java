@@ -51,6 +51,7 @@ final class TvRemoteProviderWatcher {
     private final ArrayList<TvRemoteProviderProxy> mProviderProxies = new ArrayList<>();
     private final int mUserId;
     private final String mUnbundledServicePackage;
+    private final String mVendorServicePackage;
 
     private boolean mRunning;
 
@@ -62,6 +63,8 @@ final class TvRemoteProviderWatcher {
         mPackageManager = context.getPackageManager();
         mUnbundledServicePackage = context.getString(
                 com.android.internal.R.string.config_tvRemoteServicePackage);
+        mVendorServicePackage = context.getString(
+                com.android.internal.R.string.config_tvVendorRemoteServicePackage);
     }
 
     public void start() {
@@ -156,7 +159,8 @@ final class TvRemoteProviderWatcher {
         }
 
         // Check if package name is white-listed here.
-        if (!serviceInfo.packageName.equals(mUnbundledServicePackage)) {
+        if (!serviceInfo.packageName.equals(mUnbundledServicePackage) &&
+            !serviceInfo.packageName.equals(mVendorServicePackage)) {
             Slog.w(TAG, "Ignoring atv remote provider service because the package has not "
                     + "been set and/or whitelisted: "
                     + serviceInfo.packageName + "/" + serviceInfo.name);
