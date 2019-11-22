@@ -17,7 +17,6 @@
 package android.adb;
 
 import android.adbroot.IADBRootService;
-import android.content.Context;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -32,7 +31,6 @@ public class ADBRootService {
     private static final String ADB_ROOT_SERVICE = "adbroot_service";
 
     private IADBRootService mService;
-    private Context mContext;
 
     private final IBinder.DeathRecipient mDeathRecipient = new IBinder.DeathRecipient() {
         @Override
@@ -43,13 +41,6 @@ public class ADBRootService {
             mService = null;
         }
     };
-
-    /**
-     * Creates a new instance.
-     */
-    public ADBRootService(Context context) {
-        mContext = context;
-    }
 
     private synchronized IADBRootService getService()
             throws RemoteException {
@@ -72,8 +63,6 @@ public class ADBRootService {
      * @hide
      */
     public void setEnabled(boolean enable) {
-        mContext.enforceCallingOrSelfPermission(
-                android.Manifest.permission.ADBROOT, "adbroot");
         try {
             final IADBRootService svc = getService();
             if (svc != null) {
@@ -88,8 +77,6 @@ public class ADBRootService {
      * @hide
      */
     public boolean getEnabled() {
-        mContext.enforceCallingOrSelfPermission(
-                android.Manifest.permission.ADBROOT, "adbroot");
         try {
             final IADBRootService svc = getService();
             if (svc != null) {
