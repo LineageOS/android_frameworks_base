@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1c05cf4_0644c4de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2019-11-24T06:46:07Z",
+      "side": 1,
+      "message": "This is how enforceCallingOrSelfPermission is implemented. It\u0027s extremely easy to verify by picking https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/264584 and https://review.lineageos.org/c/LineageOS/android_packages_apps_Settings/+/264690 while keeping the check here. The toggle still works.",
+      "range": {
+        "startLine": 12,
+        "startChar": 38,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "7e2bd031acb26482721eb5b930ea54748d0bb274",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
