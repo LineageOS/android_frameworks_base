@@ -4059,6 +4059,23 @@ public final class Settings {
         public static final String ANIMATOR_DURATION_SCALE = Global.ANIMATOR_DURATION_SCALE;
 
         /**
+         * Control the type of rotation which can be performed using the accelerometer
+         * if ACCELEROMETER_ROTATION is enabled.
+         * Value is a bitwise combination of
+         * 1 = 0 degrees (portrait)
+         * 2 = 90 degrees (left)
+         * 4 = 180 degrees (inverted portrait)
+         * 8 = 270 degrees (right)
+         * Setting to 0 is effectively orientation lock
+         * @hide
+         */
+        public static final String ACCELEROMETER_ROTATION_ANGLES = "accelerometer_rotation_angles";
+
+        /** @hide */
+        public static final Validator ACCELEROMETER_ROTATION_ANGLES_VALIDATOR =
+                NON_NEGATIVE_INTEGER_VALIDATOR;
+
+        /**
          * Control whether the accelerometer will be used to change screen
          * orientation.  If 0, it will not be used unless explicitly requested
          * by the application; if 1, it will be used by default unless explicitly
@@ -4755,6 +4772,8 @@ public final class Settings {
             VALIDATORS.put(WIFI_STATIC_DNS2, WIFI_STATIC_DNS2_VALIDATOR);
             VALIDATORS.put(SHOW_BATTERY_PERCENT, SHOW_BATTERY_PERCENT_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
+            VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES,
+                    ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
         }
 
         /**
@@ -5960,6 +5979,18 @@ public final class Settings {
          */
         @Deprecated
         public static final String DEVICE_PROVISIONED = Global.DEVICE_PROVISIONED;
+
+        /**
+         * Indicates whether a DPC has been downloaded during provisioning.
+         *
+         * <p>Type: int (0 for false, 1 for true)
+         *
+         * <p>If this is true, then any attempts to begin setup again should result in factory reset
+         *
+         * @hide
+         */
+        public static final String MANAGED_PROVISIONING_DPC_DOWNLOADED =
+                "managed_provisioning_dpc_downloaded";
 
         /**
          * Indicates whether the current user has completed setup via the setup wizard.
@@ -8898,7 +8929,7 @@ public final class Settings {
 
         private static final Validator AWARE_LOCK_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
-        /*
+        /**
          * Boolean value whether to link ringtone and notification volume
          * @hide
          */
