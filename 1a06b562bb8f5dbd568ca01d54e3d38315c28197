@@ -22,6 +22,30 @@
       "revId": "1a06b562bb8f5dbd568ca01d54e3d38315c28197",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e27f4f0b_ba855752",
+        "filename": "core/java/android/util/NtpTrustedTime.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-11-25T10:33:55Z",
+      "side": 1,
+      "message": "Or named as one, I mean.",
+      "parentUuid": "c5466ca2_a8fc6f43",
+      "range": {
+        "startLine": 97,
+        "startChar": 21,
+        "endLine": 97,
+        "endChar": 33
+      },
+      "revId": "1a06b562bb8f5dbd568ca01d54e3d38315c28197",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
