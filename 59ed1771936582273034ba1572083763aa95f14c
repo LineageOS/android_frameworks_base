@@ -16,6 +16,24 @@
       "revId": "59ed1771936582273034ba1572083763aa95f14c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a86ea49_5ad28bc1",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-11-25T17:49:45Z",
+      "side": 1,
+      "message": "It\u0027s already disabled by default. You need to overlay global actions in lineage-sdk ^^",
+      "parentUuid": "fa86b90a_65d2f507",
+      "revId": "59ed1771936582273034ba1572083763aa95f14c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
