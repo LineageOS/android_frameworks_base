@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa86b90a_65d2f507",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2019-11-25T17:40:53Z",
+      "side": 1,
+      "message": "Should we allow a device to disable this option if it has no fastboot ?",
+      "revId": "59ed1771936582273034ba1572083763aa95f14c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
