@@ -127,13 +127,13 @@ public class BatteryMeterDrawableBase extends Drawable {
         colors.recycle();
 
         mWarningString = context.getString(R.string.battery_meter_very_low_overlay_symbol);
-        mCriticalLevel = mContext.getResources().getInteger(
+        mCriticalLevel = res.getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);
-        mButtonHeightFraction = context.getResources().getFraction(
+        mButtonHeightFraction = res.getFraction(
                 R.fraction.battery_button_height_fraction, 1, 1);
-        mSubpixelSmoothingLeft = context.getResources().getFraction(
+        mSubpixelSmoothingLeft = res.getFraction(
                 R.fraction.battery_subpixel_smoothing_left, 1, 1);
-        mSubpixelSmoothingRight = context.getResources().getFraction(
+        mSubpixelSmoothingRight = res.getFraction(
                 R.fraction.battery_subpixel_smoothing_right, 1, 1);
 
         mFramePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -170,8 +170,8 @@ public class BatteryMeterDrawableBase extends Drawable {
         mPowersavePaint.setColor(mPlusPaint.getColor());
         mPowersavePaint.setStyle(Style.STROKE);
 
-        mIntrinsicWidth = context.getResources().getDimensionPixelSize(R.dimen.battery_width);
-        mIntrinsicHeight = context.getResources().getDimensionPixelSize(R.dimen.battery_height);
+        mIntrinsicWidth = res.getDimensionPixelSize(R.dimen.battery_width);
+        mIntrinsicHeight = res.getDimensionPixelSize(R.dimen.battery_height);
     }
 
     @Override
