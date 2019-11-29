@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ba5109a_9a4495ad",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/graph/BatteryMeterDrawableBase.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-11-29T23:54:56Z",
+      "side": 1,
+      "message": "Defined here.",
+      "range": {
+        "startLine": 112,
+        "startChar": 8,
+        "endLine": 112,
+        "endChar": 53
+      },
+      "revId": "2f09f8f7e5914a225451759162272d0bba5f3612",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af5f7486_8bab8c89",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/graph/BatteryMeterDrawableBase.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-11-29T23:54:56Z",
+      "side": 1,
+      "message": "Should change here as well?",
+      "range": {
+        "startLine": 129,
+        "startChar": 25,
+        "endLine": 129,
+        "endChar": 32
+      },
+      "revId": "2f09f8f7e5914a225451759162272d0bba5f3612",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
