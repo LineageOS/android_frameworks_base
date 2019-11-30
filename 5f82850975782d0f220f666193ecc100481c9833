@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1761f2de_6328cab1",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-11-30T13:00:48Z",
+      "side": 1,
+      "message": "a \u0026\u0026 (b || c) || d is kinda confusing",
+      "range": {
+        "startLine": 416,
+        "startChar": 8,
+        "endLine": 417,
+        "endChar": 54
+      },
+      "revId": "5f82850975782d0f220f666193ecc100481c9833",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
