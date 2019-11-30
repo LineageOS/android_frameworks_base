@@ -16,6 +16,24 @@
       "revId": "2e99b3cf79b7002c1a1842987eb0f368c535d9f8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91befc32_9709b254",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-11-30T09:47:10Z",
+      "side": 1,
+      "message": "We don\u0027t hit NPE here.",
+      "parentUuid": "b3937374_d32820a8",
+      "revId": "2e99b3cf79b7002c1a1842987eb0f368c535d9f8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
