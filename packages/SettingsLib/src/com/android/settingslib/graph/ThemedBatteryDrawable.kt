@@ -25,6 +25,7 @@ import android.graphics.Path
 import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.graphics.RectF
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.util.PathParser
 import android.util.TypedValue
@@ -106,6 +107,12 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
             postInvalidate()
         }
 
+    var showPercent = false
+        set(value) {
+            field = value
+            postInvalidate()
+        }
+
     private val fillColorStrokePaint = Paint(Paint.ANTI_ALIAS_FLAG).also { p ->
         p.color = frameColor
         p.isDither = true
@@ -149,6 +156,11 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
         p.isDither = true
         p.strokeWidth = 0f
         p.style = Paint.Style.FILL_AND_STROKE
+    }
+
+    private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).also { p ->
+        p.typeface = Typeface.create("sans-serif-condensed", Typeface.BOLD)
+        p.textAlign = Paint.Align.CENTER
     }
 
     init {
@@ -249,6 +261,17 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
             c.drawPath(scaledPlus, errorPaint)
         }
         c.restore()
+
+        if (!charging && showPercent) {
+            val height = bounds.bottom - padding.bottom - (bounds.top + padding.top)
+            val width = bounds.right - padding.right - (bounds.left + padding.left)
+            textPaint.color = getColorForLevel(batteryLevel)
+            textPaint.textSize = height * 0.37f
+            val textHeight = -textPaint.fontMetrics.ascent
+            val pctX = width * 0.5f
+            val pctY = (height + textHeight) * 0.5f
+            c.drawText(batteryLevel.toString(), pctX, pctY, textPaint)
+        }
     }
 
     private fun batteryColorForLevel(level: Int): Int {
