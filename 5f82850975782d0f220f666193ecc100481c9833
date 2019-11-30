@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "269d3ada_f641cb3f",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2019-11-30T13:33:34Z",
+      "side": 1,
+      "message": "Can probably improve readability by fetching the setting only once and do the comparison separately",
+      "revId": "5f82850975782d0f220f666193ecc100481c9833",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1761f2de_6328cab1",
         "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
         "patchSetId": 5
