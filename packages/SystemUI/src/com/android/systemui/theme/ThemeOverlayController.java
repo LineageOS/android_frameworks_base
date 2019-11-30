@@ -85,6 +85,7 @@ import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
 import com.android.systemui.util.kotlin.JavaAdapter;
 import com.android.systemui.util.settings.SecureSettings;
+import com.android.systemui.util.settings.SystemSettings;
 
 import com.google.ux.material.libmonet.dynamiccolor.DynamicColor;
 import com.google.ux.material.libmonet.dynamiccolor.MaterialDynamicColors;
@@ -128,6 +129,7 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
     private final BroadcastDispatcher mBroadcastDispatcher;
     private final Executor mBgExecutor;
     private final SecureSettings mSecureSettings;
+    private final SystemSettings mSystemSettings;
     private final Executor mMainExecutor;
     private final Handler mBgHandler;
     private final Context mContext;
@@ -406,6 +408,7 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
             @Background Executor bgExecutor,
             ThemeOverlayApplier themeOverlayApplier,
             SecureSettings secureSettings,
+            SystemSettings systemSettings,
             WallpaperManager wallpaperManager,
             UserManager userManager,
             DeviceProvisionedController deviceProvisionedController,
@@ -429,6 +432,7 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
         mBgHandler = bgHandler;
         mThemeManager = themeOverlayApplier;
         mSecureSettings = secureSettings;
+        mSystemSettings = systemSettings;
         mWallpaperManager = wallpaperManager;
         mUserTracker = userTracker;
         mResources = resources;
@@ -497,6 +501,33 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
                             return;
                         }
                         reevaluateSystemTheme(true /* forceReload */);
+                    }
+                },
+                UserHandle.USER_ALL);
+
+        mSystemSettings.registerContentObserverForUserSync(
+                LineageSettings.System.getUriFor(LineageSettings.System.STATUS_BAR_BATTERY_STYLE),
+                false,
+                new ContentObserver(mBgHandler) {
+                    @Override
+                    public void onChange(boolean selfChange, Collection<Uri> collection, int flags,
+                            int userId) {
+                        if (DEBUG) Log.d(TAG, "Overlay changed for user: " + userId);
+                        if (mUserTracker.getUserId() != userId) {
+                            return;
+                        }
+                        if (!mDeviceProvisionedController.isUserSetup(userId)) {
+                            Log.i(TAG, "Theme application deferred when setting changed.");
+                            mDeferredThemeEvaluation = true;
+                            return;
+                        }
+                        boolean isCircleBattery = LineageSettings.System.getIntForUser(
+                                mContext.getContentResolver(),
+                                LineageSettings.System.STATUS_BAR_BATTERY_STYLE,
+                                0, UserHandle.USER_CURRENT) == 1;
+                        if (isCircleBattery) {
+                            reevaluateSystemTheme(true /* forceReload */);
+                        }
                     }
                 },
                 UserHandle.USER_ALL);
