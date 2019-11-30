@@ -15,7 +15,7 @@
  */
 package com.android.systemui.battery;
 
-import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
+import static lineageos.providers.LineageSettings.System.STATUS_BAR_SHOW_BATTERY_PERCENT;
 
 import android.app.ActivityManager;
 import android.content.ContentResolver;
@@ -35,6 +35,8 @@ import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.ViewController;
+
+import lineageos.providers.LineageSettings;
 
 import javax.inject.Inject;
 
@@ -63,7 +65,13 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
             if (StatusBarIconController.ICON_HIDE_LIST.equals(key)) {
                 ArraySet<String> icons = StatusBarIconController.getIconHideList(
                         getContext(), newValue);
-                mView.setVisibility(icons.contains(mSlotBattery) ? View.GONE : View.VISIBLE);
+                mBatteryHidden = icons.contains(mSlotBattery);
+                mView.setVisibility(mBatteryHidden ? View.GONE : View.VISIBLE);
+            } else if (BatteryMeterView.STATUS_BAR_BATTERY_STYLE.equals(key)) {
+                if (!mBatteryHidden) {
+                    mView.setBatteryStyle(TunerService.parseInteger(newValue,
+                            BatteryMeterView.BATTERY_STYLE_PORTRAIT));
+                }
             }
         }
     };
@@ -89,6 +97,8 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
     // Some places may need to show the battery conditionally, and not obey the tuner
     private boolean mIgnoreTunerUpdates;
     private boolean mIsSubscribedForTunerUpdates;
+
+    private boolean mBatteryHidden;
 
     @Inject
     public BatteryMeterViewController(
@@ -156,7 +166,8 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
             return;
         }
 
-        mTunerService.addTunable(mTunable, StatusBarIconController.ICON_HIDE_LIST);
+        mTunerService.addTunable(mTunable, StatusBarIconController.ICON_HIDE_LIST,
+                BatteryMeterView.STATUS_BAR_BATTERY_STYLE);
         mIsSubscribedForTunerUpdates = true;
     }
 
@@ -171,7 +182,7 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
 
     private void registerShowBatteryPercentObserver(int user) {
         mContentResolver.registerContentObserver(
-                Settings.System.getUriFor(SHOW_BATTERY_PERCENT),
+                LineageSettings.System.getUriFor(STATUS_BAR_SHOW_BATTERY_PERCENT),
                 false,
                 mSettingObserver,
                 user);
