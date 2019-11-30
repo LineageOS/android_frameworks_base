@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3937374_d32820a8",
+        "filename": "packages/SystemUI/src/com/android/systemui/BatteryMeterView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2019-11-30T09:43:23Z",
+      "side": 1,
+      "message": "apply https://github.com/LineageOS/android_frameworks_base/commit/7c7ad3ae1e50abf6da0b8b3984dbd1f67c485192#diff-84d75706d3620a1118b774d44c4023d6R80",
+      "revId": "2e99b3cf79b7002c1a1842987eb0f368c535d9f8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
