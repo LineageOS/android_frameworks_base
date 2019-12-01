@@ -801,6 +801,19 @@ public class NavigationBarView extends FrameLayout implements
                 showSwipeUpUI ? mQuickStepAccessibilityDelegate : null);
     }
 
+    public void setPartialScreenshot(boolean active) {
+        int displayId = mContext.getDisplayId();
+        // tell to system and launcher to disable overview (recents) gesture
+        mOverviewProxyService.setSystemUiStateFlag(SYSUI_STATE_OVERVIEW_DISABLED,
+                active || (mDisabledFlags & View.STATUS_BAR_DISABLE_RECENT) != 0,
+                displayId);
+        // tell to system and launcher that we are (fake) showing an expanded notification
+        // panel so left/right swipe back action gets disabled
+        mOverviewProxyService.setSystemUiStateFlag(SYSUI_STATE_NOTIFICATION_PANEL_EXPANDED,
+                active || (mPanelView.isFullyExpanded() && !mPanelView.isInSettings()),
+                displayId);
+    }
+
     /**
      * Updates the {@link WindowManager.LayoutParams.FLAG_SLIPPERY} state dependent on if swipe up
      * is enabled, or the notifications is fully opened without being in an animated state. If
