@@ -67,6 +67,8 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.PowerManager;
 import android.os.Process;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -86,6 +88,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.internal.messages.nano.SystemMessageProto.SystemMessage;
+import com.android.internal.statusbar.IStatusBarService;
 import com.android.systemui.R;
 import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.SystemUI;
@@ -518,6 +521,7 @@ class GlobalScreenshot {
     private Context mContext;
     private WindowManager mWindowManager;
     private WindowManager.LayoutParams mWindowLayoutParams;
+    private IStatusBarService mStatusBarService;
     private NotificationManager mNotificationManager;
     private Display mDisplay;
     private DisplayMetrics mDisplayMetrics;
@@ -584,6 +588,8 @@ class GlobalScreenshot {
         mWindowLayoutParams.setTitle("ScreenshotAnimation");
         mWindowLayoutParams.layoutInDisplayCutoutMode = LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
         mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        mStatusBarService = IStatusBarService.Stub.asInterface(
+                ServiceManager.getService(Context.STATUS_BAR_SERVICE));
         mNotificationManager =
             (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
         mDisplay = mWindowManager.getDefaultDisplay();
@@ -673,6 +679,11 @@ class GlobalScreenshot {
     void takeScreenshotPartial(final Runnable finisher, final boolean statusBarVisible,
             final boolean navBarVisible) {
         mWindowManager.addView(mScreenshotLayout, mWindowLayoutParams);
+        try {
+            mStatusBarService.setPartialScreenshot(true);
+        } catch (RemoteException e) {
+            // do nothing
+        }
         mScreenshotSelectorView.setSelectionListener(
                 new ScreenshotSelectorView.OnSelectionListener() {
             @Override
@@ -721,6 +732,11 @@ class GlobalScreenshot {
     }
 
     void hideScreenshotSelector() {
+        try {
+            mStatusBarService.setPartialScreenshot(false);
+        } catch (RemoteException e) {
+            // do nothing
+        }
         mWindowManager.removeView(mScreenshotLayout);
         mScreenshotSelectorView.stopSelection();
         mScreenshotSelectorView.setVisibility(View.GONE);
@@ -735,6 +751,12 @@ class GlobalScreenshot {
         if (mScreenshotSelectorView.getSelectionRect() != null) {
             mWindowManager.removeView(mScreenshotLayout);
             mScreenshotSelectorView.stopSelection();
+        }
+        try {
+            // called when unbinding screenshot service
+            mStatusBarService.setPartialScreenshot(false);
+        } catch (RemoteException e) {
+            // do nothing
         }
     }
 
