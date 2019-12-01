@@ -94,6 +94,9 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
     open var criticalLevel: Int = context.resources.getInteger(
             com.android.internal.R.integer.config_criticalBatteryWarningLevel)
 
+    open var width: Float = context.resources.getFloat(
+            com.android.internal.R.dimen.config_batteryPathWidth)
+
     var charging = false
         set(value) {
             field = value
@@ -154,7 +157,7 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
     init {
         val density = context.resources.displayMetrics.density
         intrinsicHeight = (Companion.HEIGHT * density).toInt()
-        intrinsicWidth = (Companion.WIDTH * density).toInt()
+        intrinsicWidth = (width * density).toInt()
 
         val res = context.resources
         val levels = res.obtainTypedArray(R.array.batterymeter_color_levels)
@@ -362,7 +365,7 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
         if (b.isEmpty) {
             scaleMatrix.setScale(1f, 1f)
         } else {
-            scaleMatrix.setScale((b.right / WIDTH), (b.bottom / HEIGHT))
+            scaleMatrix.setScale((b.right / width), (b.bottom / HEIGHT))
         }
 
         perimeterPath.transform(scaleMatrix, scaledPerimeter)
@@ -375,7 +378,7 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
         // It is expected that this view only ever scale by the same factor in each dimension, so
         // just pick one to scale the strokeWidths
         val scaledStrokeWidth =
-                Math.max(b.right / WIDTH * PROTECTION_STROKE_WIDTH, PROTECTION_MIN_STROKE_WIDTH)
+                Math.max(b.right / width * PROTECTION_STROKE_WIDTH, PROTECTION_MIN_STROKE_WIDTH)
 
         fillColorStrokePaint.strokeWidth = scaledStrokeWidth
         fillColorStrokeProtection.strokeWidth = scaledStrokeWidth
@@ -412,10 +415,9 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
 
     companion object {
         private const val TAG = "ThemedBatteryDrawable"
-        private const val WIDTH = 12f
         private const val HEIGHT = 20f
         private const val CRITICAL_LEVEL = 15
-        // On a 12x20 grid, how wide to make the fill protection stroke.
+        // On a default 12x20 grid, how wide to make the fill protection stroke.
         // Scales when our size changes
         private const val PROTECTION_STROKE_WIDTH = 3f
         // Arbitrarily chosen for visibility at small sizes

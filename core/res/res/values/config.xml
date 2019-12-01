@@ -4049,10 +4049,10 @@
     <array name="config_displayWhiteBalanceDisplayColorTemperatures">
     </array>
 
-    <!-- All of the paths defined for the batterymeter are defined on a 12x20 canvas, and must
-     be parsable by android.utill.PathParser -->
+    <!-- All of the paths defined for the batterymeter are defined on a @config_batteryPathWidthx20 canvas,
+         and must be parsable by android.utill.PathParser -->
     <string name="config_batterymeterPerimeterPath" translatable="false">
-		M3.5,2 v0 H1.33 C0.6,2 0,2.6 0,3.33 V13v5.67 C0,19.4 0.6,20 1.33,20 h9.33 C11.4,20 12,19.4 12,18.67 V13V3.33 C12,2.6 11.4,2 10.67,2 H8.5 V0 H3.5 z M2,18v-7V4h8v9v5H2L2,18z
+        M3.5,2 v0 H1.33 C0.6,2 0,2.6 0,3.33 V13v5.67 C0,19.4 0.6,20 1.33,20 h9.33 C11.4,20 12,19.4 12,18.67 V13V3.33 C12,2.6 11.4,2 10.67,2 H8.5 V0 H3.5 z M2,18v-7V4h8v9v5H2L2,18z
     </string>
     <string name="config_batterymeterErrorPerimeterPath" translatable="false">@string/config_batterymeterPerimeterPath</string>
     <string name="config_batterymeterFillMask" translatable="false">
@@ -4064,6 +4064,9 @@
     <string name="config_batterymeterPowersavePath" translatable="false">
         M9,10l-2,0l0,-2l-2,0l0,2l-2,0l0,2l2,0l0,2l2,0l0,-2l2,0z
     </string>
+
+    <!-- The default width of the battery path -->
+    <item name="config_batteryPathWidth" format="float" type="dimen">12.0</item>
 
     <!-- A dual tone battery meter draws the perimeter path twice - once to define the shape
      and a second time clipped to the fill level to indicate charge -->

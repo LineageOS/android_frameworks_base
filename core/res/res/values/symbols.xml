@@ -3267,6 +3267,7 @@
   <java-symbol type="string" name="config_batterymeterFillMask" />
   <java-symbol type="string" name="config_batterymeterBoltPath" />
   <java-symbol type="string" name="config_batterymeterPowersavePath" />
+  <java-symbol type="dimen" name="config_batteryPathWidth" />
   <java-symbol type="bool" name="config_batterymeterDualTone" />
 
   <java-symbol type="bool" name="config_debugEnableAutomaticSystemServerHeapDumps" />
