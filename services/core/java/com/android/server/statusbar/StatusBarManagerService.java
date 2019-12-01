@@ -676,6 +676,17 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
     }
 
     @Override
+    public void setPartialScreenshot(boolean active) {
+        if (mBar != null) {
+            try {
+                mBar.setPartialScreenshot(active);
+            } catch (RemoteException ex) {
+                // do nothing
+            }
+        }
+    }
+
+    @Override
     public void hideInDisplayFingerprintView() {
         if (mBar != null) {
             try {
