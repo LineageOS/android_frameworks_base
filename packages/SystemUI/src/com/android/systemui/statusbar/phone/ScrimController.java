@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (C) 2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -120,6 +121,8 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
     private static final int TAG_END_ALPHA = R.id.scrim_alpha_end;
     private static final float NOT_INITIALIZED = -1;
 
+    private static final int SCRIM_DEFAULT_COLOR = Color.BLACK;     // Default scrim color
+
     private ScrimState mState = ScrimState.UNINITIALIZED;
     private final Context mContext;
     protected final ScrimView mScrimBehind;
@@ -200,7 +203,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
 
         mColorExtractor = Dependency.get(SysuiColorExtractor.class);
         mColorExtractor.addOnColorsChangedListener(this);
-        mColors = mColorExtractor.getNeutralColors();
+        mColors = getDarkGradientColor();
         mNeedsDrawableColorUpdate = true;
 
         final ScrimState[] states = ScrimState.values();
@@ -856,9 +859,17 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
 
     @Override
     public void onColorsChanged(ColorExtractor colorExtractor, int which) {
-        mColors = mColorExtractor.getNeutralColors();
+        mColors = getDarkGradientColor();
         mNeedsDrawableColorUpdate = true;
         scheduleUpdate();
+    }
+
+    private GradientColors getDarkGradientColor() {
+        GradientColors fromWallpaper = mColorExtractor.getNeutralColors();
+        int color = fromWallpaper.supportsDarkText() ? Color.TRANSPARENT : SCRIM_DEFAULT_COLOR;
+        fromWallpaper.setMainColor(color);
+        fromWallpaper.setSecondaryColor(color);
+        return fromWallpaper;
     }
 
     @VisibleForTesting
