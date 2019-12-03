@@ -399,6 +399,20 @@ public class NetworkPolicyManager {
     }
 
     /**
+     * Sets if new apps should be restricted after install.
+     * @param restrictNewApps True, when new apps should be restricted after install.
+     *
+     * @hide
+     */
+    public void setRestrictNewApps(boolean restrictNewApps) {
+        try {
+            mService.setRestrictNewApps(restrictNewApps);
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
      * Set the subscription plans for a specific subscriber.
      *
      * @param subId the subscriber this relationship applies to.
@@ -426,6 +440,20 @@ public class NetworkPolicyManager {
     public SubscriptionPlan[] getSubscriptionPlans(int subId, @NonNull String callingPackage) {
         try {
             return mService.getSubscriptionPlans(subId, callingPackage);
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+    
+    /**
+     * Returns if new apps get restricted after install.
+     * @return True, when new apps get restricted after install.
+     *
+     * @hide
+     */
+    public boolean getRestrictNewApps() {
+        try {
+            return mService.getRestrictNewApps();
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
         }
