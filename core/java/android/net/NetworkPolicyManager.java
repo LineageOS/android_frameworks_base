@@ -254,6 +254,34 @@ public class NetworkPolicyManager {
     }
 
     /**
+     * Sets if new apps should be restricted after install.
+     * @param restrictNewApps True, when new apps should be restricted after install.
+     *
+     * @hide
+     */
+    public void setRestrictNewApps(boolean restrictNewApps) {
+        try {
+            mService.setRestrictNewApps(restrictNewApps);
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * Returns if new apps get restricted after install.
+     * @return True, when new apps get restricted after install.
+     *
+     * @hide
+     */
+    public boolean getRestrictNewApps() {
+        try {
+            return mService.getRestrictNewApps();
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
      * Resets network policy settings back to factory defaults.
      *
      * @hide

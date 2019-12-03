@@ -57,6 +57,10 @@ interface INetworkPolicyManager {
     @UnsupportedAppUsage
     boolean getRestrictBackground();
 
+    /** Control if freshly installed apps are restricted. */
+    void setRestrictNewApps(boolean restrictNewApps);
+    boolean getRestrictNewApps();
+
     /** Callback used to change internal state on tethering */
     void onTetheringChanged(String iface, boolean tethering);
 
