@@ -252,6 +252,30 @@ public class NetworkPolicyManager {
     }
 
     /**
+     * Sets if new apps should be restricted after install.
+     * @param restrictNewApps True, when new apps should be restricted after install.
+     */
+    public void setRestrictNewApps(boolean restrictNewApps) {
+        try {
+            mService.setRestrictNewApps(restrictNewApps);
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * Returns if new apps get restricted after install.
+     * @return True, when new apps get restricted after install.
+     */
+    public boolean getRestrictNewApps() {
+        try {
+            return mService.getRestrictNewApps();
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
      * Resets network policy settings back to factory defaults.
      *
      * @hide
@@ -384,6 +408,6 @@ public class NetworkPolicyManager {
         @Override public void onMeteredIfacesChanged(String[] meteredIfaces) { }
         @Override public void onRestrictBackgroundChanged(boolean restrictBackground) { }
         @Override public void onUidPoliciesChanged(int uid, int uidPolicies) { }
-        @Override public void onSubscriptionOverride(int subId, int overrideMask, int overrideValue) { }
+        @Override public void onSubscriptionOverride(int subId, int mask, int overrideVal) { }
     }
 }
