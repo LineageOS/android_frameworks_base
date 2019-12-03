@@ -57,6 +57,10 @@ interface INetworkPolicyManager {
     @UnsupportedAppUsage
     boolean getRestrictBackground();
 
+    /** Control if freshly installed apps are restricted. */
+    void setRestrictNewApps(boolean restrictNewApps);
+    boolean getRestrictNewApps();
+
     /** Gets the restrict background status based on the caller's UID:
         1 - disabled
         2 - whitelisted

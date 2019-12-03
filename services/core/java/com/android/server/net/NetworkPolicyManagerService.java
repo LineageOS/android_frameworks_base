@@ -325,7 +325,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     private static final int VERSION_SWITCH_UID = 10;
     private static final int VERSION_ADDED_CYCLE = 11;
     private static final int VERSION_ADDED_NETWORK_TYPES = 12;
-    private static final int VERSION_LATEST = VERSION_ADDED_NETWORK_TYPES;
+    private static final int VERSION_ADDED_RESTRICT_NEW_APPS = 13;
+    private static final int VERSION_LATEST = VERSION_ADDED_RESTRICT_NEW_APPS;
 
     @VisibleForTesting
     public static final int TYPE_WARNING = SystemMessage.NOTE_NET_WARNING;
@@ -348,6 +349,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
     private static final String ATTR_VERSION = "version";
     private static final String ATTR_RESTRICT_BACKGROUND = "restrictBackground";
+    private static final String ATTR_RESTRICT_NEW_APPS = "restrictNewApps";
     private static final String ATTR_NETWORK_TEMPLATE = "networkTemplate";
     private static final String ATTR_SUBSCRIBER_ID = "subscriberId";
     private static final String ATTR_NETWORK_ID = "networkId";
@@ -438,6 +440,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     // Denotes the status of restrict background read from disk.
     private boolean mLoadedRestrictBackground;
 
+    // flag for restricting new apps read from disk.
+    private boolean mLoadedRestrictNewApps;
+
     // See main javadoc for instructions on how to use these locks.
     final Object mUidRulesFirstLock = new Object();
     final Object mNetworkPoliciesSecondLock = new Object();
@@ -445,6 +450,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     @GuardedBy({"mUidRulesFirstLock", "mNetworkPoliciesSecondLock"})
     volatile boolean mSystemReady;
 
+    // Flag for blocking new apps
+    @GuardedBy("mUidRulesFirstLock") volatile boolean mRestrictNewApps;
     @GuardedBy("mUidRulesFirstLock") volatile boolean mRestrictBackground;
     @GuardedBy("mUidRulesFirstLock") volatile boolean mRestrictPower;
     @GuardedBy("mUidRulesFirstLock") volatile boolean mDeviceIdleMode;
@@ -821,6 +828,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     }
 
                     setRestrictBackgroundUL(mLoadedRestrictBackground, "init_service");
+                    setRestrictNewAppsUL(mLoadedRestrictNewApps);
+                    
                     updateRulesForGlobalChangeAL(false);
                     updateNotificationsNL();
                     // Enable the network isolated blacklist chain
@@ -984,6 +993,13 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 // Clear the cache for the app
                 synchronized (mUidRulesFirstLock) {
                     mInternetPermissionMap.delete(uid);
+
+                    if (mRestrictNewApps &&
+                            !intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) {
+                        setUidPolicyUncheckedUL(uid, POLICY_REJECT_CELLULAR
+                                | POLICY_REJECT_VPN | POLICY_REJECT_WIFI, false);
+                    }
+
                     updateRestrictionRulesForUidUL(uid);
                 }
             }
@@ -2229,6 +2245,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                         version = readIntAttribute(in, ATTR_VERSION);
                         mLoadedRestrictBackground = (version >= VERSION_ADDED_RESTRICT_BACKGROUND)
                                 && readBooleanAttribute(in, ATTR_RESTRICT_BACKGROUND);
+                        mLoadedRestrictNewApps = (version >= VERSION_ADDED_RESTRICT_NEW_APPS)
+                                && readBooleanAttribute(in, ATTR_RESTRICT_NEW_APPS);
                     } else if (TAG_NETWORK_POLICY.equals(tag)) {
                         final int networkTemplate = readIntAttribute(in, ATTR_NETWORK_TEMPLATE);
                         final String subscriberId = in.getAttributeValue(null, ATTR_SUBSCRIBER_ID);
@@ -2488,6 +2506,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             out.startTag(null, TAG_POLICY_LIST);
             writeIntAttribute(out, ATTR_VERSION, VERSION_LATEST);
             writeBooleanAttribute(out, ATTR_RESTRICT_BACKGROUND, mRestrictBackground);
+            writeBooleanAttribute(out, ATTR_RESTRICT_NEW_APPS, mRestrictNewApps);
 
             // write all known network policies
             for (int i = 0; i < mNetworkPolicy.size(); i++) {
@@ -3032,6 +3051,58 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
         synchronized (mUidRulesFirstLock) {
             return mRestrictBackground;
+        }
+    }
+
+    @Override
+    public void setRestrictNewApps(boolean restrictNewApps) {
+        Trace.traceBegin(Trace.TRACE_TAG_NETWORK, "setRestrictNewApps");
+        try {
+            mContext.enforceCallingOrSelfPermission(MANAGE_NETWORK_POLICY, TAG);
+            final long token = Binder.clearCallingIdentity();
+            try {
+                synchronized (mUidRulesFirstLock) {
+                    setRestrictNewAppsUL(restrictNewApps);
+                }
+            } finally {
+                Binder.restoreCallingIdentity(token);
+            }
+        } finally {
+            Trace.traceEnd(Trace.TRACE_TAG_NETWORK);
+        }
+    }
+
+    private void setRestrictNewAppsUL(boolean restrictNewApps) {
+        Trace.traceBegin(Trace.TRACE_TAG_NETWORK, "setRestrictNewAppsUL");
+        try {
+            if (restrictNewApps == mRestrictNewApps) {
+                // Ideally, UI should never allow this scenario...
+                Slog.w(TAG, "setRestrictNewAppsUL: already " + restrictNewApps);
+                return;
+            }
+            Slog.d(TAG, "setRestrictNewAppsUL(): " + restrictNewApps);
+            final boolean oldRestrictNewApps = mRestrictNewApps;
+            mRestrictNewApps = restrictNewApps;
+
+            // ToDo: Do some event Handling
+            //sendRestrictBackgroundChangedMsg();
+            //mLogger.restrictBackgroundChanged(oldRestrictBackground, mRestrictBackground);
+
+            synchronized (mNetworkPoliciesSecondLock) {
+                updateNotificationsNL();
+                writePolicyAL();
+            }
+        } finally {
+            Trace.traceEnd(Trace.TRACE_TAG_NETWORK);
+        }
+    }
+
+    @Override
+    public boolean getRestrictNewApps() {
+        mContext.enforceCallingOrSelfPermission(MANAGE_NETWORK_POLICY, TAG);
+
+        synchronized (mUidRulesFirstLock) {
+            return mRestrictNewApps;
         }
     }
 
