@@ -1031,7 +1031,11 @@ public final class BluetoothDevice implements Parcelable {
         try {
             String name = service.getRemoteName(this);
             if (name != null) {
-                return name.replaceAll("[\\t\\n\\r]+", " ");
+                // remove whitespace characters from the name
+                return name
+                        .replace('\t', ' ')
+                        .replace('\n', ' ')
+                        .replace('\r', ' ');
             }
             return null;
         } catch (RemoteException e) {
