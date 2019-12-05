@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "514807b2_f6405059",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2019-12-05T18:58:30Z",
+      "side": 1,
+      "message": "Run git commit --amend, remove this line and all lines below it, and then try uploading again.",
+      "revId": "6b7f83c0768606916f1f6d2c1d23b03f9d23dd06",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
