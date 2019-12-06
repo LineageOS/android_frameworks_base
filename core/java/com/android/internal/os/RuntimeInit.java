@@ -28,8 +28,14 @@ import android.os.SystemProperties;
 import android.os.Trace;
 import android.util.Log;
 import android.util.Slog;
+
 import com.android.internal.logging.AndroidConfig;
 import com.android.server.NetworkManagementSocketTagger;
+<<<<<<< HEAD   (d8f92a Do not compute outside given range in TextLine)
+=======
+
+import dalvik.system.RuntimeHooks;
+>>>>>>> CHANGE (ecbe37 Allow tuning of heaptargetutilization)
 import dalvik.system.VMRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -298,9 +304,6 @@ public class RuntimeInit {
         // leftover running threads to crash before the process actually exits.
         nativeSetExitWithoutCleanup(true);
 
-        // We want to be fairly aggressive about heap utilization, to avoid
-        // holding on to a lot of memory that isn't needed.
-        VMRuntime.getRuntime().setTargetHeapUtilization(0.75f);
         VMRuntime.getRuntime().setTargetSdkVersion(targetSdkVersion);
 
         final Arguments args = new Arguments(argv);
