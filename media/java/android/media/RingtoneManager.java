@@ -798,6 +798,7 @@ public class RingtoneManager {
      *        returned.
      * @return A {@link Uri} pointing to the default sound for the sound type.
      * @see #setActualDefaultRingtoneUriForPhoneAccountHandle(Context, int, Uri, PhoneAccountHandle)
+     * @hide
      */
     public static Uri getActualDefaultRingtoneUriForPhoneAccountHandle(Context context, int type,
             PhoneAccountHandle phoneAccountHandle) {
@@ -852,6 +853,7 @@ public class RingtoneManager {
      * @param ringtoneUri A {@link Uri} pointing to the default sound to set.
      * @param phoneAccountHandle The {@link PhoneAccountHandle} whose default sound should be set.
      * @see #getActualDefaultRingtoneUriForPhoneAccountHandle(Context, int, PhoneAccountHandle)
+     * @hide
      */
     public static void setActualDefaultRingtoneUriForPhoneAccountHandle(Context context, int type,
                 Uri ringtoneUri, PhoneAccountHandle phoneAccountHandle) {
