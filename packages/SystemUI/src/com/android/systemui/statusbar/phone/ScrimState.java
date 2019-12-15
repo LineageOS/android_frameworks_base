@@ -127,7 +127,7 @@ public enum ScrimState {
     PULSING(5) {
         @Override
         public void prepare(ScrimState previousState) {
-            mCurrentInFrontAlpha = mAodFrontScrimAlpha;
+            mCurrentInFrontAlpha = 0;
             mCurrentBehindTint = Color.BLACK;
             mCurrentInFrontTint = Color.BLACK;
             mBlankScreen = mDisplayRequiresBlanking;
