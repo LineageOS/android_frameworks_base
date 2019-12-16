@@ -4521,6 +4521,22 @@ public final class Settings {
         public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
         /**
+         * Whether the phone vibrates on call connect
+         * @hide
+         */
+        public static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
+         /**
+         * Whether the phone vibrates on call waiting
+         * @hide
+         */
+        public static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
+         /**
+         * Whether the phone vibrates on disconnect
+         * @hide
+         */
+        public static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
