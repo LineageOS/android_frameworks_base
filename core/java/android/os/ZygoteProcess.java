@@ -290,7 +290,7 @@ public class ZygoteProcess {
      * pool.  When the USAP pool is disabled the application lifecycle will be identical to
      * previous versions of Android.
      */
-    private boolean mUsapPoolEnabled = false;
+    private boolean mUsapPoolEnabled = true;
 
     /**
      * Start a new process.
@@ -345,11 +345,6 @@ public class ZygoteProcess {
                                                   int zygotePolicyFlags,
                                                   boolean isTopApp,
                                                   @Nullable String[] zygoteArgs) {
-        // TODO (chriswailes): Is there a better place to check this value?
-        if (fetchUsapPoolEnabledPropWithMinInterval()) {
-            informZygotesOfUsapPoolStatus();
-        }
-
         try {
             return startViaZygote(processClass, niceName, uid, gid, gids,
                     runtimeFlags, mountExternal, targetSdkVersion, seInfo,

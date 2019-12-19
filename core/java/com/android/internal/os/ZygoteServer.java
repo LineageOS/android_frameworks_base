@@ -185,7 +185,11 @@ class ZygoteServer {
         }
 
         mUsapPoolSupported = true;
-        fetchUsapPoolPolicyProps();
+        mUsapPoolEnabled = true;
+        mUsapPoolSizeMax = Integer.parseInt(USAP_POOL_SIZE_MAX_DEFAULT);
+        mUsapPoolSizeMin = Integer.parseInt(USAP_POOL_SIZE_MIN_DEFAULT);
+        mUsapPoolRefillThreshold = mUsapPoolSizeMax / 2;
+        mUsapPoolRefillDelayMs = Integer.parseInt(USAP_POOL_REFILL_DELAY_MS_DEFAULT);
     }
 
     void setForkChild() {
@@ -343,9 +347,6 @@ class ZygoteServer {
     Runnable fillUsapPool(int[] sessionSocketRawFDs, boolean isPriorityRefill) {
         Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "Zygote:FillUsapPool");
 
-        // Ensure that the pool properties have been fetched.
-        fetchUsapPoolPolicyPropsIfUnfetched();
-
         int usapPoolCount = Zygote.getUsapPoolCount();
         int numUsapsToSpawn;
 
@@ -431,7 +432,6 @@ class ZygoteServer {
         mUsapPoolRefillTriggerTimestamp = INVALID_TIMESTAMP;
 
         while (true) {
-            fetchUsapPoolPolicyPropsWithMinInterval();
             mUsapPoolRefillAction = UsapPoolRefillAction.NONE;
 
             int[] usapPipeFDs = null;
