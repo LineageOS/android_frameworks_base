@@ -76,11 +76,11 @@ import com.android.systemui.statusbar.policy.DeadZone;
 import com.android.systemui.statusbar.policy.KeyButtonDrawable;
 import com.android.systemui.tuner.TunerService;
 
-import lineageos.providers.LineageSettings;
-
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.function.Consumer;
+
+import lineageos.providers.LineageSettings;
 
 public class NavigationBarView extends FrameLayout implements
         NavigationModeController.ModeChangedListener, TunerService.Tunable {

@@ -40,13 +40,11 @@ import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.settings.CurrentUserTracker;
 import com.android.systemui.statusbar.phone.ClockController;
 import com.android.systemui.statusbar.phone.NotificationPanelView;
-import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBar;
+import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.util.leak.LeakDetector;
 import com.android.systemui.volume.VolumeDialogImpl;
-
-import lineageos.providers.LineageSettings;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -55,6 +53,8 @@ import java.util.Set;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
+
+import lineageos.providers.LineageSettings;
 
 
 /**
