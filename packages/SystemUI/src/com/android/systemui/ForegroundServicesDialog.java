@@ -75,7 +75,7 @@ public final class ForegroundServicesDialog extends AlertActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Dependency.initDependencies(SystemUIFactory.getInstance().getRootComponent());
+        Dependency.initDependencies(getApplicationContext());
 
         mMetricsLogger = Dependency.get(MetricsLogger.class);
 

@@ -31,7 +31,6 @@ import androidx.preference.PreferenceScreen;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
-import com.android.systemui.SystemUIFactory;
 import com.android.systemui.fragments.FragmentService;
 
 public class TunerActivity extends Activity implements
@@ -51,7 +50,7 @@ public class TunerActivity extends Activity implements
             setActionBar(toolbar);
         }
 
-        Dependency.initDependencies(SystemUIFactory.getInstance().getRootComponent());
+        Dependency.initDependencies(this);
 
         if (getFragmentManager().findFragmentByTag(TAG_TUNER) == null) {
             final String action = getIntent().getAction();

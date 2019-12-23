@@ -89,9 +89,6 @@ public class SystemUIFactory {
     private void init(Context context) {
         mRootComponent = buildSystemUIRootComponent(context);
 
-        // Every other part of our codebase currently relies on Dependency, so we
-        // really need to ensure the Dependency gets initialized early on.
-        Dependency.initDependencies(mRootComponent);
     }
 
     protected SystemUIRootComponent buildSystemUIRootComponent(Context context) {
@@ -111,7 +108,7 @@ public class SystemUIFactory {
     }
 
     public KeyguardBouncer createKeyguardBouncer(Context context, ViewMediatorCallback callback,
-            LockPatternUtils lockPatternUtils, ViewGroup container,
+            LockPatternUtils lockPatternUtils,  ViewGroup container,
             DismissCallbackRegistry dismissCallbackRegistry,
             KeyguardBouncer.BouncerExpansionCallback expansionCallback,
             FalsingManager falsingManager, KeyguardBypassController bypassController) {
