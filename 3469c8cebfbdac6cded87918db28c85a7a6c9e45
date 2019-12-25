@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8cfa14e_69211393",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2019-12-25T09:21:00Z",
+      "side": 1,
+      "message": "Bad indent.",
+      "revId": "3469c8cebfbdac6cded87918db28c85a7a6c9e45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
