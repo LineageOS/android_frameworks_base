@@ -16,6 +16,24 @@
       "revId": "815d631d1373280fdadd159d6199fe72dc00c3af",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "231b8ba3_d31e78c2",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2019-12-25T11:43:17Z",
+      "side": 1,
+      "message": "while `if (x) y();` is correct I would prefer if you did `if (x) {\\ny();\\n};` as that\u0027s what code below does.",
+      "parentUuid": "984458f4_57b1dab4",
+      "revId": "815d631d1373280fdadd159d6199fe72dc00c3af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
