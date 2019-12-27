@@ -4464,6 +4464,520 @@ public final class Settings {
         /** @hide */
         public static final Validator LOCK_TO_APP_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /** @hide */
+        public static final String GESTURE_PILL_TOGGLE = "gesture_pill_toggle";
+
+        /** @hide */
+        private static final Validator GESTURE_PILL_TOGGLE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * I am the lolrus.
+         * <p>
+         * Nonzero values indicate that the user has a bukkit.
+         * Backward-compatible with <code>PrefGetPreference(prefAllowEasterEggs)</code>.
+         * @hide
+         */
+        public static final String EGG_MODE = "egg_mode";
+
+        /** @hide */
+        public static final Validator EGG_MODE_VALIDATOR = new Validator() {
+            @Override
+            public boolean validate(@Nullable String value) {
+                try {
+                    return Long.parseLong(value) >= 0;
+                } catch (NumberFormatException e) {
+                    return false;
+                }
+            }
+        };
+
+        /**
+         * Setting to determine whether or not to show the battery percentage in the status bar.
+         *    0 - Don't show percentage
+         *    1 - Show percentage
+         * @hide
+         */
+        public static final String SHOW_BATTERY_PERCENT = "dummy_show_battery_percent";
+
+        /** Whether to show ambient or lockscreen if AoD is disabled
+         * and we do a wake gesture like lift to wake or double tap
+         *
+         * @hide
+         */
+        public static final String AMBIENT_WAKE_GESTURES = "ambient_wake_gestures";
+
+        /** @hide */
+        public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";
+
+        /** @hide */
+        private static final Validator BACK_GESTURE_HEIGHT_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /** @hide */
+        public static final String BACK_GESTURE_BLOCK_IME = "back_gesture_block_ime";
+
+        /** @hide */
+        private static final Validator BACK_GESTURE_BLOCK_IME_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to show arrow keys in navigation bar
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
+
+        private static final Validator NAVIGATION_BAR_ARROW_KEYS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * IMPORTANT: If you add a new public settings you also have to add it to
+         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
+         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
+         * the setting value. See an example above.
+         */
+
+        /**
+         * Double tap on lockscreen to sleep
+         * @hide
+         */
+        public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN = "double_tap_sleep_lockscreen";
+
+        /**
+         * @hide
+         */
+        public static final String ADVANCED_REBOOT = "advanced_reboot";
+
+        private static final Validator ADVANCED_REBOOT_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_LIST = "global_actions_list";
+
+        /**
+         * Whether to display power in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_POWER = "global_actions_power";
+
+        /**
+         * Whether to display reboot in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_RESTART = "global_actions_restart";
+
+        /**
+         * Whether to display sound panel in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SOUNDPANEL = "global_actions_soundpanel";
+
+        /**
+         * Whether to display screenshot in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SCREENSHOT = "global_actions_screenshot";
+
+        /**
+         * Whether to display screenrecord in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SCREENRECORD = "global_actions_screenrecord";
+
+        /**
+         * Whether to display settings in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SETTINGS = "global_actions_settings";
+
+        /**
+         * Whether to display lock in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_LOCKDOWN = "global_actions_lockdown";
+
+        /**
+         * Whether to display airplane in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_AIRPLANE = "global_actions_airplane";
+
+        /**
+         * Whether to display the users option in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_USERS = "global_actions_users";
+
+        /**
+         * Whether to display the flashlight option in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_FLASHLIGHT = "global_actions_flashlight";
+
+        /** Whether to skip music track with volume rocker 
+        /**
+         * @hide
+         */
+        public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
+
+        /**
+         * Whether to display the flashlight option in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_EMERGENCY = "global_actions_emergency";
+
+        /**
+         * Screenrecord: enable mic
+         * @hide
+         */
+        public static final String SCREENRECORD_ENABLE_MIC = "screenrecord_enable_mic";
+
+        /**
+         * Screenrecord: show taps
+         * @hide
+         */
+        public static final String SCREENRECORD_SHOW_TAPS = "screenrecord_show_taps";
+
+        /**
+         * Screenrecord: show stop dot
+         * @hide
+         */
+        public static final String SCREENRECORD_STOP_DOT = "screenrecord_stop_dot";
+
+        /**
+         * Screenrecord: low quality
+         * @hide
+         */
+        public static final String SCREENRECORD_LOW_QUALITY = "screenrecord_low_quality";
+
+        /** Whether to pulse ambient on new music tracks
+         *
+         * @hide
+         */
+        public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
+
+        /**
+         * Change volume up and down handlign based on rotation
+         * @hide
+         */
+        public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
+
+        /**
+         * Volume rocker wake
+         * @hide
+         */
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
+        /**
+         * Use doubletap as doze pulse triggers
+         * @hide
+         */
+        public static final String DOZE_TRIGGER_DOUBLETAP = "doze_trigger_doubletap";
+
+        /**
+         * Display style of the status bar battery information
+         *    0: Display the battery as portrait icon (default)
+         *    1: Display the battery as dotted circle
+         *    2: Display the battery as circle
+         *    3: Display the battery as text
+         *    4: Do not display the battery
+         *    default: 0
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+
+        /**
+         * Display style of the battery information in the quick status bar header
+         *    0: Hide the battery percentage (default)
+         *    1: Display the battery percentage next to the icon
+         *    2: Display the battery percentage inside the icon
+         *    3: Display the battery estimates
+         * @hide
+         */
+        public static final String QS_BATTERY_MODE = "qs_battery_mode";
+
+        /**
+         * Whether or not to show the battery percentage in the status bar
+         *    0: Hide the battery percentage (default)
+         *    1: Display the battery percentage inside the icon
+         *    2: Display the battery percentage next to the icon
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+
+        /**
+         * Whether or not to show battery percentage when charging
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
+
+        /**
+         * media artwork wallpaper blur level on lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
+
+        /**
+         * Whether to show the battery info on the lockscreen while charging
+         * @hide
+         */
+        public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
+
+        /**
+         * Where to display the network traffic indicator
+         * 	0: None/disabled
+         * 	1: Statusbar
+         * 	2: Expanded header
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
+
+        /**
+         * Network traffic inactivity threshold (default is 1 kBs)
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
+
+        /**
+         * Type of speed indicator to display for network traffic
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_TYPE = "network_traffic_type";
+
+        /**
+         * Whether to disable showing arrows in statusbar network traffic indicators
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_ARROW = "network_traffic_arrow";
+
+        /**
+         * What size to show for network traffic indicator in statusbar
+         * @hide
+         */
+         public static final String NETWORK_TRAFFIC_FONT_SIZE = "network_traffic_font_size";
+
+       /**
+        * Whether to persist settings icon on non-expanded panel or not
+        * @hide
+        */
+        public static final String SETTING_BUTTON_TOGGLE = "setting_button_toggle";
+
+        /**
+         * Whether to show the battery bar
+         * @hide
+         */
+        public static final String BATTERY_BAR_LOCATION = "battery_bar_location";
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_COLOR = "battery_bar_color";
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_THICKNESS = "battery_bar_thickness";
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_STYLE = "battery_bar_style";
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_ANIMATE = "battery_bar_animate";
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_CHARGING_COLOR = "battery_bar_charging_color";
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_BATTERY_LOW_COLOR_WARNING = "battery_bar_battery_low_color_warning";
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_HIGH_COLOR = "battery_bar_high_color";
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_LOW_COLOR = "battery_bar_low_color";
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_USE_GRADIENT_COLOR = "battery_bar_use_gradient_color";
+
+        /**
+         * Whether allowing pocket service to register sensors and dispatch informations.
+         *   0 = disabled
+         *   1 = enabled
+         * @author Carlo Savignano
+         * @hide
+         */
+        public static final String POCKET_JUDGE = "pocket_judge";
+
+        /** @hide */
+        public static final Validator POCKET_JUDGE_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
+
+        /**
+         * Number of qs columns on landscape orientation
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS_LANDSCAPE = "qs_layout_columns_landscape";
+
+        /**
+         * Change quick settings tiles animation style
+         *
+         * @hide
+         */
+        public static final String ANIM_TILE_STYLE = "anim_tile_style";
+
+        /**
+         * Change quick settings tiles animation duration
+         *
+         * @hide
+         */
+        public static final String ANIM_TILE_DURATION = "anim_tile_duration";
+
+        /**
+         * Change quick settings tiles interpolator
+         *
+         * @hide
+         */
+        public static final String ANIM_TILE_INTERPOLATOR = "anim_tile_interpolator";
+
+        /**
+         * Whether to display qs tile titles in the qs panel
+         * @hide
+         */
+        public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
+
+        /**
+         * Allow users to pull down the status bar quickly
+         * @hide
+         */
+        public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
+
+        /**
+         * Whether to show or hide the edit icon
+         * @hide
+         */
+        public static final String QS_EDIT_TOGGLE = "qs_edit_toggle";
+
+        /**
+         * Quick Settings Smart Pulldown
+         * @hide
+         */
+        public static final String QS_SMART_PULLDOWN = "qs_smart_pulldown";
+
+        /**
+         * Applications list where heasdup should't show
+         *
+         * @hide
+         */
+        public static final String HEADS_UP_STOPLIST_VALUES = "heads_up_stoplist_values";
+        /** @hide */
+        private static final Validator HEADS_UP_STOPLIST_VALUES_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
+         * Which applications to disable heads up notifications for
+         *
+         * @hide
+         */
+        public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
+        /** @hide */
+        private static final Validator HEADS_UP_BLACKLIST_VALUES_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+       /**
+        * Defines the global heads up notification snooze
+        * @hide
+        */
+        public static final String HEADS_UP_NOTIFICATION_SNOOZE = "heads_up_notification_snooze";
+
+        /** @hide */
+        private static final Validator HEADS_UP_NOTIFICATION_SNOOZE_VALIDATOR =
+              new SettingsValidators.InclusiveIntegerRangeValidator(0, 1200000);
+
+        /**
+         * One of the sip call options: Always use SIP with network access.
+         * @hide
+         */
+        public static final String SIP_ALWAYS = "SIP_ALWAYS";
+
+        /** @hide */
+        public static final Validator SIP_ALWAYS_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * One of the sip call options: Only if destination is a SIP address.
+         * @hide
+         */
+        public static final String SIP_ADDRESS_ONLY = "SIP_ADDRESS_ONLY";
+
+        /** @hide */
+        public static final Validator SIP_ADDRESS_ONLY_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * @deprecated Use SIP_ALWAYS or SIP_ADDRESS_ONLY instead.  Formerly used to indicate that
+         * the user should be prompted each time a call is made whether it should be placed using
+         * SIP.  The {@link com.android.providers.settings.DatabaseHelper} replaces this with
+         * SIP_ADDRESS_ONLY.
+         * @hide
+         */
+        @Deprecated
+        public static final String SIP_ASK_ME_EACH_TIME = "SIP_ASK_ME_EACH_TIME";
+
+        /** @hide */
+        public static final Validator SIP_ASK_ME_EACH_TIME_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Pointer speed setting.
+         * This is an integer value in a range between -7 and +7, so there are 15 possible values.
+         *   -7 = slowest
+         *    0 = default speed
+         *   +7 = fastest
+         * @hide
+         */
+        @UnsupportedAppUsage
+        public static final String POINTER_SPEED = "pointer_speed";
+
+        /** @hide */
+        public static final Validator POINTER_SPEED_VALIDATOR =
+                new SettingsValidators.InclusiveFloatRangeValidator(-7, 7);
+
+        /**
+         * Whether lock-to-app will be triggered by long-press on recents.
+         * @hide
+         */
+        public static final String LOCK_TO_APP_ENABLED = "lock_to_app_enabled";
+
+        /** @hide */
+        public static final Validator LOCK_TO_APP_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**
          * I am the lolrus.
          * <p>
@@ -4568,6 +5082,7 @@ public final class Settings {
             VIBRATE_WHEN_RINGING,
             RINGTONE,
             LOCK_TO_APP_ENABLED,
+            GESTURE_PILL_TOGGLE,
             NOTIFICATION_SOUND,
             ACCELEROMETER_ROTATION,
             SHOW_BATTERY_PERCENT,
@@ -4693,6 +5208,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SIP_ASK_ME_EACH_TIME);
             PRIVATE_SETTINGS.add(POINTER_SPEED);
             PRIVATE_SETTINGS.add(LOCK_TO_APP_ENABLED);
+            PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
             PRIVATE_SETTINGS.add(EGG_MODE);
             PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
@@ -4781,6 +5297,7 @@ public final class Settings {
             VALIDATORS.put(SIP_ASK_ME_EACH_TIME, SIP_ASK_ME_EACH_TIME_VALIDATOR);
             VALIDATORS.put(POINTER_SPEED, POINTER_SPEED_VALIDATOR);
             VALIDATORS.put(LOCK_TO_APP_ENABLED, LOCK_TO_APP_ENABLED_VALIDATOR);
+            VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
             VALIDATORS.put(EGG_MODE, EGG_MODE_VALIDATOR);
             VALIDATORS.put(WIFI_STATIC_IP, WIFI_STATIC_IP_VALIDATOR);
             VALIDATORS.put(WIFI_STATIC_GATEWAY, WIFI_STATIC_GATEWAY_VALIDATOR);
