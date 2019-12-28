@@ -880,7 +880,7 @@ public final class SystemServer implements Dumpable {
             initZygoteChildHeapProfiling();
 
             // Debug builds - spawn a thread to monitor for fd leaks.
-            if (Build.IS_DEBUGGABLE) {
+            if (Build.IS_ENG) {
                 spawnFdLeakCheckThread();
             }
 
