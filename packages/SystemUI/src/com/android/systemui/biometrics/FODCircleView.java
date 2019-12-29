@@ -112,11 +112,6 @@ public class FODCircleView extends ImageView implements OnTouchListener {
                 show();
             }
         }
-
-        @Override
-        public void onScreenTurnedOff() {
-            hideCircle();
-        }
     };
 
     public FODCircleView(Context context) {
