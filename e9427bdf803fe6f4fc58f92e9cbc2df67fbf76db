@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d783a16_d78cd0ee",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-12-29T16:10:33Z",
+      "side": 1,
+      "message": "not related, but this could be easily avoided by making the call synchronous and using java locks",
+      "revId": "e9427bdf803fe6f4fc58f92e9cbc2df67fbf76db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
