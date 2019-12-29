@@ -59,7 +59,6 @@ public class FODCircleView extends ImageView implements OnTouchListener {
     private final int mDreamingMaxOffset;
     private final boolean mShouldBoostBrightness;
     private final Paint mPaintFingerprint = new Paint();
-    private final Paint mPaintShow = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
     private final WindowManager mWindowManager;
 
@@ -207,9 +206,6 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         mPaintFingerprint.setColor(res.getColor(R.color.config_fodColor));
 
         setImageResource(R.drawable.fod_icon_default);
-
-        mPaintShow.setAntiAlias(true);
-        mPaintShow.setColor(res.getColor(R.color.config_fodColor));
 
         setOnTouchListener(this);
 
