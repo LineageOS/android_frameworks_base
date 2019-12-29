@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6cefb97b_b49d7ca2",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-12-29T22:03:00Z",
+      "side": 1,
+      "message": "can you add some logs to try to understand where the show call is happening? imo the check should go there instead",
+      "revId": "45527e20f47fc77296d358fca54cb108628f22be",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
