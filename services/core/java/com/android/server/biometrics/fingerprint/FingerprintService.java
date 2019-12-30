@@ -103,7 +103,7 @@ public class FingerprintService extends BiometricServiceBase {
     private static final String ACTION_LOCKOUT_RESET =
             "com.android.server.biometrics.fingerprint.ACTION_LOCKOUT_RESET";
     private static final int MAX_FAILED_ATTEMPTS_LOCKOUT_TIMED = 5;
-    private static final int MAX_FAILED_ATTEMPTS_LOCKOUT_PERMANENT = 20;
+    private static final int MAX_FAILED_ATTEMPTS_LOCKOUT_PERMANENT = 5;
     private static final long FAIL_LOCKOUT_TIMEOUT_MS = 30 * 1000;
     private static final String KEY_LOCKOUT_RESET_USER = "lockout_reset_user";
 
