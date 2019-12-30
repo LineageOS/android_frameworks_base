@@ -22,11 +22,14 @@ import android.service.quicksettings.Tile;
 import android.widget.Switch;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.statusbar.phone.ManagedProfileController;
+import com.android.systemui.plugins.ActivityStarter;
+import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
 import javax.inject.Inject;
 
@@ -34,6 +37,8 @@ import javax.inject.Inject;
 public class WorkModeTile extends QSTileImpl<BooleanState> implements
         ManagedProfileController.Callback {
     private final Icon mIcon = ResourceIcon.get(R.drawable.stat_sys_managed_profile_status);
+    private final KeyguardMonitor mKeyguard;
+    private final KeyguardCallback mKeyguardCallback = new KeyguardCallback();
 
     private final ManagedProfileController mProfileController;
 
@@ -42,6 +47,7 @@ public class WorkModeTile extends QSTileImpl<BooleanState> implements
         super(host);
         mProfileController = managedProfileController;
         mProfileController.observe(getLifecycle(), this);
+        mKeyguard = Dependency.get(KeyguardMonitor.class);
     }
 
     @Override
@@ -51,6 +57,11 @@ public class WorkModeTile extends QSTileImpl<BooleanState> implements
 
     @Override
     public void handleSetListening(boolean listening) {
+        if (listening) {
+            mKeyguard.addCallback(mKeyguardCallback);
+        } else {
+            mKeyguard.removeCallback(mKeyguardCallback);
+        }
     }
 
     @Override
@@ -60,6 +71,13 @@ public class WorkModeTile extends QSTileImpl<BooleanState> implements
 
     @Override
     public void handleClick() {
+        if (mKeyguard.isSecure() && mKeyguard.isShowing()) {
+            Dependency.get(ActivityStarter.class).postQSRunnableDismissingKeyguard(() -> {
+                mHost.openPanels();
+                mProfileController.setWorkModeEnabled(!mState.value);
+            });
+            return;
+        }
         mProfileController.setWorkModeEnabled(!mState.value);
     }
 
@@ -126,6 +144,13 @@ public class WorkModeTile extends QSTileImpl<BooleanState> implements
             return mContext.getString(R.string.accessibility_quick_settings_work_mode_changed_on);
         } else {
             return mContext.getString(R.string.accessibility_quick_settings_work_mode_changed_off);
+        }
+    }
+        
+    private final class KeyguardCallback implements KeyguardMonitor.Callback {
+        @Override
+        public void onKeyguardShowingChanged() {
+            refreshState();
         }
     }
 }
