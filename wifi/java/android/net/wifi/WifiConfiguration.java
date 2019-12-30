@@ -1009,18 +1009,23 @@ public class WifiConfiguration implements Parcelable {
      * @hide
      * Use factory MAC when connecting to this network
      */
-    public static final int RANDOMIZATION_NONE = 0;
+    public static final int RANDOMIZATION_NONE = 2;
     /**
      * @hide
      * Generate a randomized MAC once and reuse it for all connections to this network
      */
     public static final int RANDOMIZATION_PERSISTENT = 1;
+    /**
+     * @hide
+     * Generate a randomize MAC always
+     */
+    public static final int RANDOMIZATION_ALWAYS = 0;
 
     /**
      * @hide
      * Level of MAC randomization for this network
      */
-    public int macRandomizationSetting = RANDOMIZATION_PERSISTENT;
+    public int macRandomizationSetting = RANDOMIZATION_ALWAYS;
 
     /**
      * @hide
@@ -1049,10 +1054,24 @@ public class WifiConfiguration implements Parcelable {
      */
     public @NonNull MacAddress getOrCreateRandomizedMacAddress() {
         int randomMacGenerationCount = 0;
-        while (!isValidMacAddressForRandomization(mRandomizedMacAddress)
-                && randomMacGenerationCount < MAXIMUM_RANDOM_MAC_GENERATION_RETRY) {
-            mRandomizedMacAddress = MacAddress.createRandomUnicastAddress();
-            randomMacGenerationCount++;
+        if (macRandomizationSetting == RANDOMIZATION_ALWAYS) {
+            // initialize new mac address to an invalid mac address
+            MacAddress newRandomizedMacAddress = MacAddress.fromString(WifiInfo.DEFAULT_MAC_ADDRESS);
+            while (!isValidMacAddressForRandomization(newRandomizedMacAddress)
+                    && mRandomizedMacAddress.equals(newRandomizedMacAddress)
+                    && randomMacGenerationCount < MAXIMUM_RANDOM_MAC_GENERATION_RETRY) {
+                // iterate until found new valid mac address and does not match current mac address
+                newRandomizedMacAddress = MacAddress.createRandomUnicastAddress();
+                randomMacGenerationCount++;
+            }
+            // update current mac address to new mac address
+            mRandomizedMacAddress = newRandomizedMacAddress;
+        } else {
+            while (!isValidMacAddressForRandomization(mRandomizedMacAddress)
+                    && randomMacGenerationCount < MAXIMUM_RANDOM_MAC_GENERATION_RETRY) {
+                mRandomizedMacAddress = MacAddress.createRandomUnicastAddress();
+                randomMacGenerationCount++;
+            }
         }
 
         if (!isValidMacAddressForRandomization(mRandomizedMacAddress)) {
