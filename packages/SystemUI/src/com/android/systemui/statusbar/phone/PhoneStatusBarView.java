@@ -24,15 +24,19 @@ import android.annotation.Nullable;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Rect;
+import android.os.RemoteException;
 import android.util.AttributeSet;
 import android.util.EventLog;
 import android.util.Pair;
+import android.view.Display;
 import android.view.DisplayCutout;
 import android.view.Gravity;
+import android.view.IWindowManager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.view.WindowManagerGlobal;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.LinearLayout;
 
@@ -42,11 +46,13 @@ import com.android.systemui.R;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.CommandQueue;
+import com.android.systemui.statusbar.CommandQueue.Callbacks;
 import com.android.systemui.util.leak.RotationUtils;
 
+import java.util.function.Consumer;
 import java.util.Objects;
 
-public class PhoneStatusBarView extends PanelBar {
+public class PhoneStatusBarView extends PanelBar implements Callbacks {
     private static final String TAG = "PhoneStatusBarView";
     private static final boolean DEBUG = StatusBar.DEBUG;
     private static final boolean DEBUG_GESTURES = false;
@@ -67,6 +73,7 @@ public class PhoneStatusBarView extends PanelBar {
     };
     private DarkReceiver mBattery;
     private int mRotationOrientation = -1;
+    private RotationButtonController mRotationButtonController;
     @Nullable
     private View mCenterIconSpace;
     @Nullable
@@ -86,6 +93,33 @@ public class PhoneStatusBarView extends PanelBar {
     public PhoneStatusBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mCommandQueue = Dependency.get(CommandQueue.class);
+
+        // Only create FRB here if there is no navbar
+        if (!hasNavigationBar()) {
+            final FloatingRotationButton floatingRotationButton =
+                    new FloatingRotationButton(context);
+            mRotationButtonController = new RotationButtonController(context,
+                    R.style.RotateButtonCCWStart90, floatingRotationButton,
+                    mRotationButtonListener);
+        }
+    }
+
+    @Override
+    public void onRotationProposal(final int rotation, boolean isValid) {
+        if (mRotationButtonController != null && !hasNavigationBar()) {
+            final int winRotation = getDisplay().getRotation();
+            mRotationButtonController.onRotationProposal(rotation, winRotation, isValid);
+        }
+    }
+
+    private final Consumer<Boolean> mRotationButtonListener = (visible) -> {};
+
+    private boolean hasNavigationBar() {
+        try {
+            IWindowManager windowManager = WindowManagerGlobal.getWindowManagerService();
+            return windowManager.hasNavigationBar(Display.DEFAULT_DISPLAY);
+        } catch (RemoteException ex) {}
+        return false;
     }
 
     public void setBar(StatusBar bar) {
@@ -113,6 +147,11 @@ public class PhoneStatusBarView extends PanelBar {
         if (updateOrientationAndCutout()) {
             updateLayoutForCutout();
         }
+
+        if (mRotationButtonController != null && !hasNavigationBar()) {
+            mRotationButtonController.registerListeners();
+            mCommandQueue.addCallback(this);
+        }
     }
 
     @Override
@@ -120,6 +159,11 @@ public class PhoneStatusBarView extends PanelBar {
         super.onDetachedFromWindow();
         Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mBattery);
         mDisplayCutout = null;
+
+        if (mRotationButtonController != null) {
+            mRotationButtonController.unregisterListeners();
+            mCommandQueue.removeCallback(this);
+        }
     }
 
     @Override
