@@ -35,6 +35,7 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Size;
@@ -49,6 +50,8 @@ import androidx.annotation.VisibleForTesting;
 
 import com.android.internal.R;
 import com.android.internal.policy.SystemBarUtils;
+
+import lineageos.providers.LineageSettings;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -461,6 +464,11 @@ public class DisplayLayout {
 
     static boolean hasNavigationBar(DisplayInfo info, Context context, int displayId) {
         if (displayId == Display.DEFAULT_DISPLAY) {
+            if (LineageSettings.System.getIntForUser(context.getContentResolver(),
+                    LineageSettings.System.FORCE_SHOW_NAVBAR, 0,
+                    UserHandle.USER_CURRENT) == 1) {
+                return true;
+            }
             // Allow a system property to override this. Used by the emulator.
             final String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
             if ("1".equals(navBarOverride)) {

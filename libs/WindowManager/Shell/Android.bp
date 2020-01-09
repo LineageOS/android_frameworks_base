@@ -168,6 +168,7 @@ android_library {
         "PlatformAnimationLib",
         "dagger2",
         "jsr330",
+        "org.lineageos.platform.internal",
         "kotlinx-coroutines-android",
         "kotlinx-coroutines-core",
         "lottie",
