@@ -124,7 +124,7 @@ public class RotationButtonController {
         return (disable2Flags & StatusBarManager.DISABLE2_ROTATE_SUGGESTIONS) != 0;
     }
 
-    RotationButtonController(Context context, @ColorInt int lightIconColor,
+    public RotationButtonController(Context context, @ColorInt int lightIconColor,
             @ColorInt int darkIconColor) {
         mContext = context;
         mLightIconColor = lightIconColor;
@@ -136,7 +136,7 @@ public class RotationButtonController {
         mTaskStackListener = new TaskStackListenerImpl();
     }
 
-    void setRotationButton(RotationButton rotationButton,
+    public void setRotationButton(RotationButton rotationButton,
             Consumer<Boolean> visibilityChangedCallback) {
         mRotationButton = rotationButton;
         mRotationButton.setRotationButtonController(this);
@@ -179,7 +179,7 @@ public class RotationButtonController {
         TaskStackChangeListeners.getInstance().unregisterTaskStackListener(mTaskStackListener);
     }
 
-    void setRotationCallback(Consumer<Integer> watcher) {
+    public void setRotationCallback(Consumer<Integer> watcher) {
         mRotWatcherListener = watcher;
     }
 
@@ -287,7 +287,7 @@ public class RotationButtonController {
         mRotationButton.setDarkIntensity(darkIntensity);
     }
 
-    void onRotationProposal(int rotation, int windowRotation, boolean isValid) {
+    public void onRotationProposal(int rotation, int windowRotation, boolean isValid) {
         if (!mRotationButton.acceptRotationProposal() || (!mHomeRotationEnabled
                 && mIsRecentsAnimationRunning)) {
             return;
