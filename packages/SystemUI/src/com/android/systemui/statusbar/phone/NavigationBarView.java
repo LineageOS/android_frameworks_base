@@ -158,7 +158,6 @@ public class NavigationBarView extends FrameLayout implements
     private NavigationBarInflaterView mNavigationInflaterView;
     private RecentsOnboarding mRecentsOnboarding;
     private NotificationPanelViewController mPanelView;
-    private FloatingRotationButton mFloatingRotationButton;
     private RotationButtonController mRotationButtonController;
 
     /**
@@ -316,10 +315,11 @@ public class NavigationBarView extends FrameLayout implements
 
         mOverviewProxyService = Dependency.get(OverviewProxyService.class);
         mRecentsOnboarding = new RecentsOnboarding(context, mOverviewProxyService);
-        mFloatingRotationButton = new FloatingRotationButton(context);
-        mRotationButtonController = new RotationButtonController(context,
-                R.style.RotateButtonCCWStart90,
-                isGesturalMode ? mFloatingRotationButton : rotateSuggestionButton);
+
+        if (!isGesturalMode) {
+            mRotationButtonController = new RotationButtonController(context,
+                    R.style.RotateButtonCCWStart90, rotateSuggestionButton);
+        }
 
         mConfiguration = new Configuration();
         mTmpLastConfiguration = new Configuration();
@@ -452,10 +452,6 @@ public class NavigationBarView extends FrameLayout implements
 
     public RotationButtonController getRotationButtonController() {
         return mRotationButtonController;
-    }
-
-    public FloatingRotationButton getFloatingRotationButton() {
-        return mFloatingRotationButton;
     }
 
     public ButtonDispatcher getRecentsButton() {

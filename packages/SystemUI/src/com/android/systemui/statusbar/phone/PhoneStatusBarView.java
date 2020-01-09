@@ -42,11 +42,12 @@ import com.android.systemui.R;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.CommandQueue;
+import com.android.systemui.statusbar.CommandQueue.Callbacks;
 import com.android.systemui.util.leak.RotationUtils;
 
 import java.util.Objects;
 
-public class PhoneStatusBarView extends PanelBar {
+public class PhoneStatusBarView extends PanelBar implements Callbacks {
     private static final String TAG = "PhoneStatusBarView";
     private static final boolean DEBUG = StatusBar.DEBUG;
     private static final boolean DEBUG_GESTURES = false;
@@ -67,6 +68,8 @@ public class PhoneStatusBarView extends PanelBar {
     };
     private DarkReceiver mBattery;
     private int mRotationOrientation = -1;
+    private FloatingRotationButton mFloatingRotationButton;
+    private RotationButtonController mRotationButtonController;
     @Nullable
     private View mCenterIconSpace;
     @Nullable
@@ -86,6 +89,18 @@ public class PhoneStatusBarView extends PanelBar {
     public PhoneStatusBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mCommandQueue = Dependency.get(CommandQueue.class);
+
+        mFloatingRotationButton = new FloatingRotationButton(context);
+        mRotationButtonController =
+            new RotationButtonController(context,
+                                         R.style.RotateButtonCCWStart90,
+                                         mFloatingRotationButton);
+    }
+
+    @Override
+    public void onRotationProposal(final int rotation, boolean isValid) {
+        final int winRotation = getDisplay().getRotation();
+        mRotationButtonController.onRotationProposal(rotation, winRotation, isValid);
     }
 
     public void setBar(StatusBar bar) {
@@ -113,6 +128,9 @@ public class PhoneStatusBarView extends PanelBar {
         if (updateOrientationAndCutout()) {
             updateLayoutForCutout();
         }
+
+        mRotationButtonController.registerListeners();
+        mCommandQueue.addCallback(this);
     }
 
     @Override
@@ -120,6 +138,9 @@ public class PhoneStatusBarView extends PanelBar {
         super.onDetachedFromWindow();
         Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mBattery);
         mDisplayCutout = null;
+
+        mRotationButtonController.unregisterListeners();
+        mCommandQueue.removeCallback(this);
     }
 
     @Override
