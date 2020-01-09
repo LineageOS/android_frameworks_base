@@ -158,8 +158,9 @@ public class NavigationBarView extends FrameLayout implements
     private NavigationBarInflaterView mNavigationInflaterView;
     private RecentsOnboarding mRecentsOnboarding;
     private NotificationPanelViewController mPanelView;
-    private FloatingRotationButton mFloatingRotationButton;
     private RotationButtonController mRotationButtonController;
+
+    boolean mIsGesturalMode = false;
 
     /**
      * Helper that is responsible for showing the right toast when a disallowed activity operation
@@ -290,7 +291,7 @@ public class NavigationBarView extends FrameLayout implements
         mIsVertical = false;
         mLongClickableAccessibilityButton = false;
         mNavBarMode = Dependency.get(NavigationModeController.class).addListener(this);
-        boolean isGesturalMode = isGesturalMode(mNavBarMode);
+        mIsGesturalMode = isGesturalMode(mNavBarMode);
 
         mSysUiFlagContainer = Dependency.get(SysUiState.class);
         mPluginManager = Dependency.get(PluginManager.class);
@@ -304,7 +305,7 @@ public class NavigationBarView extends FrameLayout implements
                 new ContextualButton(R.id.accessibility_button,
                         R.drawable.ic_sysbar_accessibility_button);
         mContextualButtonGroup.addButton(imeSwitcherButton);
-        if (!isGesturalMode) {
+        if (!mIsGesturalMode) {
             mContextualButtonGroup.addButton(rotateSuggestionButton);
         }
         mContextualButtonGroup.addButton(accessibilityButton);
@@ -316,10 +317,10 @@ public class NavigationBarView extends FrameLayout implements
 
         mOverviewProxyService = Dependency.get(OverviewProxyService.class);
         mRecentsOnboarding = new RecentsOnboarding(context, mOverviewProxyService);
-        mFloatingRotationButton = new FloatingRotationButton(context);
+
         mRotationButtonController = new RotationButtonController(context,
                 R.style.RotateButtonCCWStart90,
-                isGesturalMode ? mFloatingRotationButton : rotateSuggestionButton);
+                rotateSuggestionButton);
 
         mConfiguration = new Configuration();
         mTmpLastConfiguration = new Configuration();
@@ -452,10 +453,6 @@ public class NavigationBarView extends FrameLayout implements
 
     public RotationButtonController getRotationButtonController() {
         return mRotationButtonController;
-    }
-
-    public FloatingRotationButton getFloatingRotationButton() {
-        return mFloatingRotationButton;
     }
 
     public ButtonDispatcher getRecentsButton() {
@@ -618,7 +615,10 @@ public class NavigationBarView extends FrameLayout implements
 
     public void setWindowVisible(boolean visible) {
         mRegionSamplingHelper.setWindowVisible(visible);
-        mRotationButtonController.onNavigationBarWindowVisibilityChange(visible);
+
+        if (mRotationButtonController != null && !mIsGesturalMode) {
+            mRotationButtonController.onNavigationBarWindowVisibilityChange(visible);
+        }
     }
 
     @Override
@@ -651,7 +651,10 @@ public class NavigationBarView extends FrameLayout implements
             mTransitionListener.onBackAltCleared();
         }
         mImeVisible = visible;
-        mRotationButtonController.getRotationButton().setCanShowRotationButton(!mImeVisible);
+
+        if (mRotationButtonController != null && !mIsGesturalMode) {
+            mRotationButtonController.getRotationButton().setCanShowRotationButton(!mImeVisible);
+        }
     }
 
     public void setDisabledFlags(int disabledFlags) {
@@ -1202,7 +1205,7 @@ public class NavigationBarView extends FrameLayout implements
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, NAVIGATION_BAR_MENU_ARROW_KEYS);
         setUpSwipeUpOnboarding(isQuickStepSwipeUpEnabled());
-        if (mRotationButtonController != null) {
+        if (mRotationButtonController != null && !mIsGesturalMode) {
             mRotationButtonController.registerListeners();
         }
 
