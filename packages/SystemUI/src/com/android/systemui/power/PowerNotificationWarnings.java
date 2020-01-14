@@ -68,6 +68,8 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
     private static final String TAG = PowerUI.TAG + ".Notification";
     private static final boolean DEBUG = PowerUI.DEBUG;
 
+    private static final String BATTERY_NOTIFICATION_CHANNEL_ID_TV = "powernotifications.battery.tv";
+
     private static final String TAG_BATTERY = "low_battery";
     private static final String TAG_TEMPERATURE = "high_temp";
     private static final String TAG_AUTO_SAVER = "auto_saver";
@@ -276,7 +278,9 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
                         .setOnlyAlertOnce(true)
                         .setDeleteIntent(pendingBroadcast(ACTION_DISMISSED_WARNING))
                         .setStyle(new Notification.BigTextStyle().bigText(contentText))
-                        .setVisibility(Notification.VISIBILITY_PUBLIC);
+                        .setVisibility(Notification.VISIBILITY_PUBLIC)
+                        .extend(new Notification.TvExtender()
+                                .setChannelId(BATTERY_NOTIFICATION_CHANNEL_ID_TV));
         if (hasBatterySettings()) {
             nb.setContentIntent(pendingBroadcast(ACTION_SHOW_BATTERY_SETTINGS));
         }
