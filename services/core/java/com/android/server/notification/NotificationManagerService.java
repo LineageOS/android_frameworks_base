@@ -2302,6 +2302,15 @@ public class NotificationManagerService extends SystemService {
                         mRankingHelper.getNotificationChannel(pkg, uid, channel.getId(), false),
                         NOTIFICATION_CHANNEL_OR_GROUP_ADDED);
             }
+            if (isTv()) {
+                // TV-specific notification channel
+                mNotificationManager.createNotificationChannel(
+                        new NotificationChannel(BATTERY_NOTIFICATION_CHANNEL_ID_TV,
+                                mContext.getString(
+                                        com.android.internal.R.string
+                                                .battery_notification_channel_tv),
+                                NotificationManager.IMPORTANCE_HIGH));
+            }
             savePolicyFile();
         }
 
