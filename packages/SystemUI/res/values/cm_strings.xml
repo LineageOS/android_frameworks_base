@@ -137,4 +137,7 @@
     <string name="screenrecord_skip_time_summary">Remove the 3 second wait</string>
     <string name="screenrecord_hevc_switch_label">HEVC encoding</string>
     <string name="screenrecord_hevc_switch_summary">Use the more efficient HEVC encoder</string>
+
+    <!-- Channel name for Battery notifications -->
+    <string name="battery_notification_channel_tv">Battery warning</string>
 </resources>
