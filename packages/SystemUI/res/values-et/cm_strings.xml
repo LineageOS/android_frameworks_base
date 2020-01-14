@@ -37,11 +37,11 @@
     <string name="quick_settings_caffeine_label">Kofeiin</string>
     <string name="accessibility_quick_settings_caffeine_off">Kofeiin välja.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofeiin sisse.</string>
-    <string name="quick_settings_heads_up_label">Etteteavitus</string>
-    <string name="accessibility_quick_settings_heads_up_off">Etteteavitus väljas.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Etteteavitus sees.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Etteteavitus on väljalülitatud.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Etteteavitus on sisselülitatud.</string>
+    <string name="quick_settings_heads_up_label">Piiluvad teated</string>
+    <string name="accessibility_quick_settings_heads_up_off">Piiluvad teated väljas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Piiluvad teated sees.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Piiluvad teated on väljalülitatud.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Piiluvad teated on sisselülitatud.</string>
     <string name="quick_settings_reading_mode">Lugemisrežiim</string>
     <string name="accessibility_quick_settings_reading_mode_on">Lugemisrežiim sees.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Lugemisrežiim väljas.</string>

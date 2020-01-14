@@ -72,7 +72,7 @@
     <string name="app_ops_receive_emergency_broadcast">larrialdietarako difusio mezu bat jaso</string>
     <string name="app_ops_record_audio">soinua grabatu</string>
     <string name="app_ops_request_delete_packages">paketeak ezabatzea eskatu</string>
-    <string name="app_ops_run_in_background">exekutatu bigarren planoan</string>
+    <string name="app_ops_run_in_background">bigarren planoan exekutatu</string>
     <string name="app_ops_run_any_in_background">edozein bigarren planoan exekutatu</string>
     <string name="app_ops_scan_wifi">Wi-Fi sareak eskaneatu</string>
     <string name="app_ops_send_mms">MMS mezu bat bidali</string>

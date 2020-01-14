@@ -65,6 +65,7 @@
     <string name="screen_pinning_description_no_navbar">Ekran będzie widoczny, dopóki go nie odepniesz. Aby to zrobić, kliknij i przytrzymaj Wstecz.</string>
     <string name="screen_pinning_toast_no_navbar">Aby odpiąć ten ekran, naciśnij i przytrzymaj Wstecz</string>
     <string name="nav_bar_layout_inverse">Odwróć układ</string>
+    <string name="custom_swipe_hint">Przesuń po ikonie, aby <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Raportowanie lokalizacji: tryb oszczędzania baterii.</string>
     <string name="accessibility_quick_settings_location_gps_only">Raportowanie lokalizacji: tylko czujniki.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Raportowanie lokalizacji: wysoka dokładność.</string>
