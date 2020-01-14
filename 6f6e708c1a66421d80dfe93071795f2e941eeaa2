@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "daca9911_4b7146e1",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 25166
+      },
+      "writtenOn": "2020-01-14T20:25:04Z",
+      "side": 1,
+      "message": "VPN is automatically filtered out here. You should remove the NET_CAPABILITY_NOT_VPN capability here, as this is set by default",
+      "revId": "6f6e708c1a66421d80dfe93071795f2e941eeaa2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
