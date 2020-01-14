@@ -17,7 +17,7 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:documeryent:1.2">
     <!-- Suffix added to a number to signify size in bytes. -->
     <string name="byteShort">B</string>
     <!-- Suffix added to a number to signify size in kilobytes (1000 bytes).
