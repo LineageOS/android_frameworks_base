@@ -276,7 +276,9 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
                         .setOnlyAlertOnce(true)
                         .setDeleteIntent(pendingBroadcast(ACTION_DISMISSED_WARNING))
                         .setStyle(new Notification.BigTextStyle().bigText(contentText))
-                        .setVisibility(Notification.VISIBILITY_PUBLIC);
+                        .setVisibility(Notification.VISIBILITY_PUBLIC)
+                        .extend(new Notification.TvExtender()
+                                .setChannelId(ADB_NOTIFICATION_CHANNEL_ID_TV));
         if (hasBatterySettings()) {
             nb.setContentIntent(pendingBroadcast(ACTION_SHOW_BATTERY_SETTINGS));
         }
