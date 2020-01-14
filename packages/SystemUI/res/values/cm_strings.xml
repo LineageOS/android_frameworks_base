@@ -107,4 +107,7 @@
 
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB tethering</string>
+
+    <!-- Channel name for Battery notifications -->
+    <string name="battery_notification_channel_tv">Battery warning</string>
 </resources>
