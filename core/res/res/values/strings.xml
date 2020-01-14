@@ -5123,6 +5123,8 @@
     <!-- Category title for apps which are primarily productivity apps, such as cloud storage or workplace apps. [CHAR LIMIT=32] -->
     <string name="app_category_productivity">Productivity</string>
 
+    <!-- Channel name for Battery notifications -->
+    <string name="battery_notification_channel_tv">Battery warning</string>
     <!-- Channel name for DeviceStorageMonitor notifications -->
     <string name="device_storage_monitor_notification_channel">Device storage</string>
     <!-- Channel name for UsbDeviceManager adb debugging notifications -->

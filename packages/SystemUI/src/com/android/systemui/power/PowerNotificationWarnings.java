@@ -18,6 +18,7 @@ package com.android.systemui.power;
 
 import android.app.KeyguardManager;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
@@ -26,6 +27,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.media.AudioAttributes;
 import android.net.Uri;
 import android.os.Bundle;
@@ -78,6 +80,8 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
 
     private static final String TAG = PowerUI.TAG + ".Notification";
     private static final boolean DEBUG = PowerUI.DEBUG;
+
+    private static final String BATTERY_NOTIFICATION_CHANNEL_ID_TV = "powernotifications.battery.tv";
 
     private static final String TAG_BATTERY = "low_battery";
     private static final String TAG_TEMPERATURE = "high_temp";
@@ -166,6 +170,16 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
         mKeyguard = mContext.getSystemService(KeyguardManager.class);
         mReceiver.init();
         mActivityStarter = activityStarter;
+
+        if (isTv()) {
+            // TV-specific notification channel
+            mNoMan.createNotificationChannel(
+                    new NotificationChannel(BATTERY_NOTIFICATION_CHANNEL_ID_TV,
+                            mContext.getString(
+                                    com.android.internal.R.string
+                                            .battery_notification_channel_tv),
+                            NotificationManager.IMPORTANCE_HIGH));
+        }
     }
 
     @Override
@@ -233,6 +247,10 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
         }
     }
 
+    private boolean isTv() {
+        return mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_LEANBACK);
+    }
+
     private void showInvalidChargerNotification() {
         final Notification.Builder nb =
                 new Notification.Builder(mContext, NotificationChannels.ALERTS)
@@ -276,7 +294,9 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
                         .setOnlyAlertOnce(true)
                         .setDeleteIntent(pendingBroadcast(ACTION_DISMISSED_WARNING))
                         .setStyle(new Notification.BigTextStyle().bigText(contentText))
-                        .setVisibility(Notification.VISIBILITY_PUBLIC);
+                        .setVisibility(Notification.VISIBILITY_PUBLIC)
+                        .extend(new Notification.TvExtender()
+                                .setChannelId(BATTERY_NOTIFICATION_CHANNEL_ID_TV));
         if (hasBatterySettings()) {
             nb.setContentIntent(pendingBroadcast(ACTION_SHOW_BATTERY_SETTINGS));
         }
