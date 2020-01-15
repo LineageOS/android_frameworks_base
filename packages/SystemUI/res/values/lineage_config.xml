@@ -36,4 +36,8 @@
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
+
+    <!-- Whether the binned brightness sensor reports a value of 0 on proximity
+	 near events -->
+    <bool name="doze_brightness_sensor_reports_proximity" translatable="false">true</bool>
 </resources>
