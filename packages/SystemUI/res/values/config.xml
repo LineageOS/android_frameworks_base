@@ -201,6 +201,10 @@
          always-on display) -->
     <string name="doze_brightness_sensor_type" translatable="false"></string>
 
+    <!-- Whether the binned brightness sensor reports a value of 0 on proximity
+	 near events -->
+    <bool name="doze_brightness_sensor_reports_proximity" translatable="false">true</bool>
+
     <!-- Doze: pulse parameter - how long does it take to fade in? -->
     <integer name="doze_pulse_duration_in">130</integer>
 
