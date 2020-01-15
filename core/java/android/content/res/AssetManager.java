@@ -65,24 +65,24 @@ public final class AssetManager implements AutoCloseable {
 
     private static final String TAG = "AssetManager";
     private static final boolean localLOGV = false || false;
-    
+
     private static final boolean DEBUG_REFS = false;
-    
+
     private static final Object sSync = new Object();
     /*package*/ static AssetManager sSystem = null;
 
     private final TypedValue mValue = new TypedValue();
     private final long[] mOffsets = new long[2];
-    
+
     // For communication with native code.
     private long mObject;
 
     private StringBlock mStringBlocks[] = null;
-    
+
     private int mNumRefs = 1;
     private boolean mOpen = true;
     private HashMap<Long, RuntimeException> mRefStacks;
- 
+
     /**
      * Create a new AssetManager containing only the basic system assets.
      * Applications will not generally use this method, instead retrieving the
@@ -111,7 +111,7 @@ public final class AssetManager implements AutoCloseable {
             }
         }
     }
-    
+
     private AssetManager(boolean isSystem) {
         if (DEBUG_REFS) {
             synchronized (this) {
@@ -310,10 +310,10 @@ public final class AssetManager implements AutoCloseable {
      * Open an asset using ACCESS_STREAMING mode.  This provides access to
      * files that have been bundled with an application as assets -- that is,
      * files placed in to the "assets" directory.
-     * 
+     *
      * @param fileName The name of the asset to open.  This name can be
      *                 hierarchical.
-     * 
+     *
      * @see #open(String, int)
      * @see #list
      */
@@ -326,11 +326,11 @@ public final class AssetManager implements AutoCloseable {
      * read its contents.  This provides access to files that have been bundled
      * with an application as assets -- that is, files placed in to the
      * "assets" directory.
-     * 
+     *
      * @param fileName The name of the asset to open.  This name can be
      *                 hierarchical.
      * @param accessMode Desired access mode for retrieving the data.
-     * 
+     *
      * @see #ACCESS_UNKNOWN
      * @see #ACCESS_STREAMING
      * @see #ACCESS_RANDOM
@@ -370,14 +370,14 @@ public final class AssetManager implements AutoCloseable {
 
     /**
      * Return a String array of all the assets at the given path.
-     * 
+     *
      * @param path A relative path within the assets, i.e., "docs/home.html".
-     * 
+     *
      * @return String[] Array of strings, one for each asset.  These file
      *         names are relative to 'path'.  You can open the file by
      *         concatenating 'path' and a name in the returned string (via
      *         File) and passing that to open().
-     * 
+     *
      * @see #open
      */
     public native final String[] list(String path)
@@ -389,7 +389,7 @@ public final class AssetManager implements AutoCloseable {
      * provides direct access to all of the files included in an application
      * package (not only its assets).  Applications should not normally use
      * this.
-     * 
+     *
      * @see #open(String)
      */
     public final InputStream openNonAsset(String fileName) throws IOException {
@@ -402,7 +402,7 @@ public final class AssetManager implements AutoCloseable {
      * provides direct access to all of the files included in an application
      * package (not only its assets).  Applications should not normally use
      * this.
-     * 
+     *
      * @see #open(String, int)
      */
     public final InputStream openNonAsset(String fileName, int accessMode)
@@ -413,7 +413,7 @@ public final class AssetManager implements AutoCloseable {
     /**
      * {@hide}
      * Open a non-asset in a specified package.  Not for use by applications.
-     * 
+     *
      * @param cookie Identifier of the package to be opened.
      * @param fileName Name of the asset to retrieve.
      */
@@ -425,7 +425,7 @@ public final class AssetManager implements AutoCloseable {
     /**
      * {@hide}
      * Open a non-asset in a specified package.  Not for use by applications.
-     * 
+     *
      * @param cookie Identifier of the package to be opened.
      * @param fileName Name of the asset to retrieve.
      * @param accessMode Desired access mode for retrieving the data.
@@ -450,7 +450,7 @@ public final class AssetManager implements AutoCloseable {
             throws IOException {
         return openNonAssetFd(0, fileName);
     }
-    
+
     public final AssetFileDescriptor openNonAssetFd(int cookie,
             String fileName) throws IOException {
         synchronized (this) {
@@ -465,20 +465,20 @@ public final class AssetManager implements AutoCloseable {
         }
         throw new FileNotFoundException("Asset absolute file: " + fileName);
     }
-    
+
     /**
      * Retrieve a parser for a compiled XML file.
-     * 
+     *
      * @param fileName The name of the file to retrieve.
      */
     public final XmlResourceParser openXmlResourceParser(String fileName)
             throws IOException {
         return openXmlResourceParser(0, fileName);
     }
-    
+
     /**
      * Retrieve a parser for a compiled XML file.
-     * 
+     *
      * @param cookie Identifier of the package to be opened.
      * @param fileName The name of the file to retrieve.
      */
@@ -494,7 +494,7 @@ public final class AssetManager implements AutoCloseable {
      * {@hide}
      * Retrieve a non-asset as a compiled XML file.  Not for use by
      * applications.
-     * 
+     *
      * @param fileName The name of the file to retrieve.
      */
     /*package*/ final XmlBlock openXmlBlockAsset(String fileName)
@@ -506,7 +506,7 @@ public final class AssetManager implements AutoCloseable {
      * {@hide}
      * Retrieve a non-asset as a compiled XML file.  Not for use by
      * applications.
-     * 
+     *
      * @param cookie Identifier of the package to be opened.
      * @param fileName Name of the asset to retrieve.
      */
@@ -561,12 +561,18 @@ public final class AssetManager implements AutoCloseable {
                     }
                 }
             }
-            destroy();
+
+            synchronized (this) {
+                if (mObject != 0) {
+                    destroy();
+                    mObject = 0;
+                }
+            }
         } finally {
             super.finalize();
         }
     }
-    
+
     public final class AssetInputStream extends InputStream {
         /**
          * @hide
@@ -769,7 +775,7 @@ public final class AssetManager implements AutoCloseable {
     /*package*/ native final String getResourcePackageName(int resid);
     /*package*/ native final String getResourceTypeName(int resid);
     /*package*/ native final String getResourceEntryName(int resid);
-    
+
     private native final long openAsset(String fileName, int accessMode);
     private final native ParcelFileDescriptor openAssetFd(String fileName,
             long[] outOffsets) throws IOException;
@@ -829,17 +835,17 @@ public final class AssetManager implements AutoCloseable {
      * {@hide}
      */
     public native static final int getGlobalAssetCount();
-    
+
     /**
      * {@hide}
      */
     public native static final String getAssetAllocations();
-    
+
     /**
      * {@hide}
      */
     public native static final int getGlobalAssetManagerCount();
-    
+
     private native final long newTheme();
     private native final void deleteTheme(long theme);
     /*package*/ native static final void applyThemeStyle(long theme, int styleRes, boolean force);
@@ -872,7 +878,7 @@ public final class AssetManager implements AutoCloseable {
         }
         mNumRefs++;
     }
-    
+
     private final void decRefsLocked(long id) {
         if (DEBUG_REFS && mRefStacks != null) {
             mRefStacks.remove(id);
@@ -880,8 +886,9 @@ public final class AssetManager implements AutoCloseable {
         mNumRefs--;
         //System.out.println("Dec streams: mNumRefs=" + mNumRefs
         //                   + " mReleased=" + mReleased);
-        if (mNumRefs == 0) {
+        if (mNumRefs == 0 && mObject != 0) {
             destroy();
+            mObject = 0;
         }
     }
 }
