@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3ac84e3_2bcef1fd",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 15525
+      },
+      "writtenOn": "2020-01-17T17:31:28Z",
+      "side": 1,
+      "message": "I think it\u0027s not good to call any `setXXX` methods in onDraw callback.",
+      "range": {
+        "startLine": 196,
+        "startChar": 12,
+        "endLine": 196,
+        "endChar": 28
+      },
+      "revId": "97507f6b440578c8500d2e35e2ced35ed3bf513f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
