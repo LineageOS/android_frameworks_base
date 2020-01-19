@@ -1,6 +1,7 @@
 package com.android.internal.util;
 
 import static android.view.WindowManager.ScreenshotSource.SCREENSHOT_OTHER;
+import static android.view.WindowManager.TAKE_SCREENSHOT_SELECTED_REGION;
 
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -364,7 +365,9 @@ public class ScreenshotHelper {
                         Context.BIND_AUTO_CREATE | Context.BIND_FOREGROUND_SERVICE,
                         UserHandle.CURRENT)) {
                     mScreenshotConnection = conn;
-                    handler.postDelayed(mScreenshotTimeout, timeoutMs);
+                    if (screenshotType != TAKE_SCREENSHOT_SELECTED_REGION) {
+                        handler.postDelayed(mScreenshotTimeout, timeoutMs);
+                    }
                 }
             } else {
                 Messenger messenger = new Messenger(mScreenshotService);
@@ -377,7 +380,9 @@ public class ScreenshotHelper {
                         completionConsumer.accept(null);
                     }
                 }
-                handler.postDelayed(mScreenshotTimeout, timeoutMs);
+                if (screenshotType != TAKE_SCREENSHOT_SELECTED_REGION) {
+                    handler.postDelayed(mScreenshotTimeout, timeoutMs);
+                }
             }
         }
     }
