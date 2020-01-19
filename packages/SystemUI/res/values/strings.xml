@@ -237,6 +237,10 @@
     <string name="screenshot_dismiss_ui_description">Dismiss screenshot</string>
     <!-- Content description indicating that the view is a preview of the screenshot that was just taken [CHAR LIMIT=NONE] -->
     <string name="screenshot_preview_description">Screenshot preview</string>
+    <!-- Clickable icon content description for partial screenshot capture -->
+    <string name="global_screenshot_selector_capture_description">Capture partial screenshot</string>
+    <!-- Clickable icon content description for partial screenshot cancel -->
+    <string name="global_screenshot_selector_cancel_description">Cancel partial screenshot</string>
 
     <!-- Notification title displayed for screen recording [CHAR LIMIT=50]-->
     <string name="screenrecord_name">Screen Recorder</string>
