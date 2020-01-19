@@ -333,6 +333,15 @@
     <dimen name="screenshot_dismissal_height_delta">80dp</dimen>
 
 
+    <!-- The width of the partial screenshot border resize handles -->
+    <dimen name="global_screenshot_selector_border_width">4dp</dimen>
+
+    <!-- The width of the partial screenshot corner resize handles -->
+    <dimen name="global_screenshot_selector_corner_width">8dp</dimen>
+
+    <!-- The size of the area around a resize handle used for touch detection -->
+    <dimen name="global_screenshot_selector_touch_width">30dp</dimen>
+
     <!-- The width of the view containing navigation buttons -->
     <dimen name="navigation_key_width">70dp</dimen>
 
