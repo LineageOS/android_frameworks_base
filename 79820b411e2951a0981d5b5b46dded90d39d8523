@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d446d78_f4b20896",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/ScreenshotSelectorView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-19T22:00:24Z",
+      "side": 1,
+      "message": "drop this?",
+      "range": {
+        "startLine": 152,
+        "startChar": 12,
+        "endLine": 152,
+        "endChar": 16
+      },
+      "revId": "79820b411e2951a0981d5b5b46dded90d39d8523",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39391abb_c11bab54",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/ScreenshotSelectorView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-19T22:00:24Z",
+      "side": 1,
+      "message": "drop this?",
+      "range": {
+        "startLine": 158,
+        "startChar": 8,
+        "endLine": 158,
+        "endChar": 12
+      },
+      "revId": "79820b411e2951a0981d5b5b46dded90d39d8523",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
