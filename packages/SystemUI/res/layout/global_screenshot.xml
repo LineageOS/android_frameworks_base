@@ -33,10 +33,45 @@
         android:layout_height="match_parent"
         android:src="@android:color/white"
         android:visibility="gone" />
-    <com.android.systemui.screenshot.ScreenshotSelectorView
-        android:id="@+id/global_screenshot_selector"
+    <FrameLayout
+        android:id="@+id/global_partial_screenshot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        android:pointerIcon="crosshair"/>
+        android:pointerIcon="crosshair">
+        <com.android.systemui.screenshot.ScreenshotSelectorView
+            android:id="@+id/global_partial_screenshot_selector"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:animateLayoutChanges="true">
+            <ImageView
+                android:id="@+id/global_partial_screenshot_selector_save"
+                android:clickable="true"
+                android:contentDescription="@string/global_partial_screenshot_save"
+                android:src="@drawable/ic_partial_screenshot_save"
+                android:background="?selectableItemBackground"
+                android:focusable="true"
+                android:layout_gravity="fill"
+                android:layout_height="48dp"
+                android:layout_width="48dp"
+                android:padding="12dp"
+                android:layout_marginHorizontal="48dp" />
+            <ImageView
+                android:id="@+id/global_partial_screenshot_selector_cancel"
+                android:clickable="true"
+                android:contentDescription="@string/global_partial_screenshot_cancel"
+                android:src="@drawable/ic_partial_screenshot_cancel"
+                android:background="?selectableItemBackground"
+                android:focusable="true"
+                android:layout_height="48dp"
+                android:layout_width="48dp"
+                android:padding="12dp"
+                android:layout_marginHorizontal="48dp" />
+        </LinearLayout>
+    </FrameLayout>
 </FrameLayout>
