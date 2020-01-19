@@ -521,6 +521,8 @@ class GlobalScreenshot {
     private Bitmap mScreenBitmap;
     private View mScreenshotLayout;
     private ScreenshotSelectorView mScreenshotSelectorView;
+    private View mSaveButton;
+    private View mCancelButton;
     private ImageView mBackgroundView;
     private ImageView mScreenshotView;
     private ImageView mScreenshotFlash;
@@ -552,6 +554,8 @@ class GlobalScreenshot {
         mScreenshotFlash = (ImageView) mScreenshotLayout.findViewById(R.id.global_screenshot_flash);
         mScreenshotSelectorView = (ScreenshotSelectorView) mScreenshotLayout.findViewById(
                 R.id.global_screenshot_selector);
+        mSaveButton = mScreenshotLayout.findViewById(R.id.global_screenshot_selector_save);
+        mCancelButton = mScreenshotLayout.findViewById(R.id.global_screenshot_selector_cancel);
         mScreenshotLayout.setFocusable(true);
         mScreenshotSelectorView.setFocusable(true);
         mScreenshotSelectorView.setFocusableInTouchMode(true);
@@ -663,47 +667,61 @@ class GlobalScreenshot {
     void takeScreenshotPartial(final Runnable finisher, final boolean statusBarVisible,
             final boolean navBarVisible) {
         mWindowManager.addView(mScreenshotLayout, mWindowLayoutParams);
-        mScreenshotSelectorView.setOnTouchListener(new View.OnTouchListener() {
+        mScreenshotSelectorView.setSelectionListener(
+                new ScreenshotSelectorView.OnSelectionListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                ScreenshotSelectorView view = (ScreenshotSelectorView) v;
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        view.startSelection((int) event.getX(), (int) event.getY());
-                        return true;
-                    case MotionEvent.ACTION_MOVE:
-                        view.updateSelection((int) event.getX(), (int) event.getY());
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        view.setVisibility(View.GONE);
-                        mWindowManager.removeView(mScreenshotLayout);
-                        final Rect rect = view.getSelectionRect();
-                        if (rect != null) {
-                            if (rect.width() != 0 && rect.height() != 0) {
-                                // Need mScreenshotLayout to handle it after the view disappears
-                                mScreenshotLayout.post(new Runnable() {
-                                    public void run() {
-                                        takeScreenshot(finisher, statusBarVisible, navBarVisible,
-                                                rect);
-                                    }
-                                });
-                            }
-                        }
-
-                        view.stopSelection();
-                        return true;
+            public void onSelectionChanged(Rect rect, boolean firstSelection) {
+                if (firstSelection) {
+                    allowSaveScreenshotSelector();
                 }
-
-                return false;
+            }
+        });
+        mCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideScreenshotSelector();
+            }
+        });
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Rect rect = mScreenshotSelectorView.getSelectionRect();
+                hideScreenshotSelector();
+                if (rect != null) {
+                    if (rect.width() != 0 && rect.height() != 0) {
+                        // Need mScreenshotLayout to handle it after the view disappears
+                        mScreenshotLayout.post(new Runnable() {
+                            public void run() {
+                                takeScreenshot(finisher, statusBarVisible, navBarVisible,
+                                        rect);
+                            }
+                        });
+                    }
+                }
             }
         });
         mScreenshotLayout.post(new Runnable() {
             @Override
             public void run() {
-                mScreenshotSelectorView.setVisibility(View.VISIBLE);
-                mScreenshotSelectorView.requestFocus();
+                showScreenshotSelector();
             }
         });
+    }
+
+    void hideScreenshotSelector() {
+        mScreenshotSelectorView.setVisibility(View.GONE);
+        mSaveButton.setVisibility(View.GONE);
+        mWindowManager.removeView(mScreenshotLayout);
+        mScreenshotSelectorView.stopSelection();
+    }
+
+    void showScreenshotSelector() {
+        mScreenshotSelectorView.setVisibility(View.VISIBLE);
+        mScreenshotSelectorView.requestFocus();
+    }
+
+    void allowSaveScreenshotSelector() {
+        mSaveButton.setVisibility(View.VISIBLE);
     }
 
     /**
