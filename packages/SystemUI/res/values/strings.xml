@@ -205,6 +205,10 @@
     <!-- Notification text displayed when we fail to take a screenshot. [CHAR LIMIT=100] -->
     <string name="screenshot_failed_to_capture_text">Taking screenshots isn\'t allowed by the app or
         your organization</string>
+    <!-- Clickable icon content description for partial screenshot save -->
+    <string name="global_partial_screenshot_save">Save partial screenshot</string>
+    <!-- Clickable icon content description for partial screenshot cancel -->
+    <string name="global_partial_screenshot_cancel">Cancel partial screenshot</string>
 
     <!-- Notification title displayed for screen recording [CHAR LIMIT=50]-->
     <string name="screenrecord_name">Screen Recording</string>
