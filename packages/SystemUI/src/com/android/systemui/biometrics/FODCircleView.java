@@ -68,6 +68,7 @@ public class FODCircleView extends ImageView {
 
     private boolean mIsBouncer;
     private boolean mIsDreaming;
+    private boolean mIsKeyguard;
     private boolean mIsShowing;
     private boolean mIsCircleShowing;
 
@@ -104,6 +105,12 @@ public class FODCircleView extends ImageView {
             } else if (mBurnInProtectionTimer != null) {
                 mBurnInProtectionTimer.cancel();
             }
+        }
+
+        @Override
+        public void onKeyguardVisibilityChanged(boolean showing) {
+            mIsKeyguard = showing;
+            updatePosition();
         }
 
         @Override
@@ -357,7 +364,10 @@ public class FODCircleView extends ImageView {
                 throw new IllegalArgumentException("Unknown rotation: " + rotation);
         }
 
-        if (mIsDreaming) {
+        if (mIsKeyguard) {
+            mParams.x = mPositionX;
+            mParams.y = mPositionY;
+        } else if (mIsDreaming) {
             mParams.x += mDreamingOffsetX;
             mParams.y += mDreamingOffsetY;
         }
