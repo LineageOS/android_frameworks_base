@@ -474,6 +474,7 @@ import dalvik.system.VMRuntime;
 
 import libcore.io.IoUtils;
 import libcore.util.EmptyArray;
+import lineageos.power.PerformanceManagerInternal;
 
 import com.google.android.collect.Lists;
 import com.google.android.collect.Maps;
@@ -1537,6 +1538,11 @@ public class ActivityManagerService extends IActivityManager.Stub
      * sleeping while it is active.
      */
     IVoiceInteractionSession mRunningVoice;
+
+    /**
+     * For application power profile
+     */
+    PerformanceManagerInternal mPerf;
 
     /**
      * For some direct access we need to power manager.
@@ -4144,6 +4150,39 @@ public class ActivityManagerService extends IActivityManager.Stub
                     crashHandler);
             return proc != null;
         }
+    }
+
+    void activityLaunchStarted() {
+        if (mPerf == null) {
+            mPerf = LocalServices.getService(PerformanceManagerInternal.class);
+            if (mPerf == null) {
+                Slog.e(TAG, "PerformanceManager not ready!");
+                return;
+            }
+        }
+        mPerf.activityLaunchStarted();
+    }
+
+    void activityResumed(String packageName) {
+        if (mPerf == null) {
+            mPerf = LocalServices.getService(PerformanceManagerInternal.class);
+            if (mPerf == null) {
+                Slog.e(TAG, "PerformanceManager not ready!");
+                return;
+            }
+        }
+        mPerf.activityResumed(packageName);
+    }
+
+    void activityLaunchEnded() {
+        if (mPerf == null) {
+            mPerf = LocalServices.getService(PerformanceManagerInternal.class);
+            if (mPerf == null) {
+                Slog.e(TAG, "PerformanceManager not ready!");
+                return;
+            }
+        }
+        mPerf.activityLaunchEnded();
     }
 
     @GuardedBy("this")

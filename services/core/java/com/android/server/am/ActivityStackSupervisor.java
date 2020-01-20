@@ -1723,6 +1723,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
         }
 
         if (sendHint && mService.mLocalPowerManager != null) {
+            mService.activityLaunchStarted();
             mService.mLocalPowerManager.powerHint(PowerHint.LAUNCH, 1);
             mPowerHintSent = true;
         }
@@ -1732,6 +1733,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
         // Trigger launch power hint if activity is launched
         if (mPowerHintSent && mService.mLocalPowerManager != null) {
             mService.mLocalPowerManager.powerHint(PowerHint.LAUNCH, 0);
+            mService.activityLaunchEnded();
             mPowerHintSent = false;
         }
     }
