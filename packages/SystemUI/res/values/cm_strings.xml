@@ -143,4 +143,7 @@
 
     <!-- Dot Analog clock -->
     <string name="clock_title_dot" translatable="false">Dot</string>
+
+    <!-- Spidey Analog clock -->                                                                                                
+    <string name="clock_title_spidey" translatable="false">Spidey</string>    
 </resources>
