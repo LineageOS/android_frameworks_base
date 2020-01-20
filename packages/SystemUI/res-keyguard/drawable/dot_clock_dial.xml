@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 The dotOS
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:width="150.000000dp"
+    android:height="150.000000dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <path
+        android:name="path"
+        android:pathData="M 256 5 C 189.456 5 125.57 31.463 78.516 78.516 C 31.463 125.57 5 189.456 5 256 C 5 322.544 31.463 386.43 78.516 433.484 C 125.57 480.537 189.456 507 256 507 C 322.544 507 386.43 480.537 433.484 433.484 C 480.537 386.43 507 322.544 507 256 C 507 189.456 480.537 125.57 433.484 78.516 C 386.43 31.463 322.544 5 256 5 Z"
+        android:fillColor="#ebefee"
+        android:strokeWidth="1"/>
+    <path
+        android:name="path_3"
+        android:pathData="M 256 440.1 C 154.5 440.1 71.9 357.5 71.9 256 C 71.9 154.5 154.5 71.9 256 71.9 C 357.5 71.9 440.1 154.5 440.1 256 C 440.1 357.5 357.5 440.1 256 440.1 Z M 256 116.8 C 179.3 116.8 116.8 179.2 116.8 256 C 116.8 332.8 179.3 395.2 256 395.2 C 332.7 395.2 395.2 332.8 395.2 256 C 395.2 179.2 332.7 116.8 256 116.8 Z"
+        android:fillColor="#d8d8d8"
+        android:strokeWidth="1"/>
+</vector>

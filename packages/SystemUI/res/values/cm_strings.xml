@@ -140,4 +140,7 @@
 
     <!-- Lineage clock -->
     <string name="clock_title_lineage" translatable="false">LineageOS</string>
+
+    <!-- Dot Analog clock -->
+    <string name="clock_title_dot" translatable="false">Dot</string>
 </resources>
