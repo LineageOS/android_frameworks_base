@@ -146,4 +146,9 @@
 
     <!-- Spidey Analog clock -->                                                                                                
     <string name="clock_title_spidey" translatable="false">Spidey</string>    
+
+    <!-- Spectrum Analog clock -->
+    <string name="clock_title_spectrum" translatable="false">Spectrum</string>
+
+
 </resources>

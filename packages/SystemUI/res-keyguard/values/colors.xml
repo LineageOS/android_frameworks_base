@@ -21,4 +21,7 @@
   <color name="bubbleMinuteHandColor">#F5C983</color>
   <!-- Accent color for Typographic clock. -->
   <color name="typeClockAccentColor">#F5C983</color>
+
+   <!-- Custom Analog clocks -->
+    <color name="analog_clock_hand_hour_color">@*android:color/accent_device_default_light</color>
 </resources>
