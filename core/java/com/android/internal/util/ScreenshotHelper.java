@@ -16,6 +16,8 @@ import android.util.Log;
 
 import java.util.function.Consumer;
 
+import static android.view.WindowManager.TAKE_SCREENSHOT_SELECTED_REGION;
+
 public class ScreenshotHelper {
     private static final String TAG = "ScreenshotHelper";
 
@@ -170,7 +172,9 @@ public class ScreenshotHelper {
                     Context.BIND_AUTO_CREATE | Context.BIND_FOREGROUND_SERVICE_WHILE_AWAKE,
                     UserHandle.CURRENT)) {
                 mScreenshotConnection = conn;
-                handler.postDelayed(mScreenshotTimeout, timeoutMs);
+                if (screenshotType != TAKE_SCREENSHOT_SELECTED_REGION) {
+                    handler.postDelayed(mScreenshotTimeout, timeoutMs);
+                }
             }
         }
     }
