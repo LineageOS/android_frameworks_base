@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69454a0d_bc3f382a",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-01-20T10:23:14Z",
+      "side": 1,
+      "message": "Use lambda?",
+      "range": {
+        "startLine": 670,
+        "startChar": 0,
+        "endLine": 678,
+        "endChar": 11
+      },
+      "revId": "45f19f96b227190e57a1c836115297689b2bca8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a315323_a83eb36a",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-01-20T10:23:14Z",
+      "side": 1,
+      "message": "Also here?",
+      "range": {
+        "startLine": 679,
+        "startChar": 0,
+        "endLine": 684,
+        "endChar": 11
+      },
+      "revId": "45f19f96b227190e57a1c836115297689b2bca8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a2d329e_b8f3a535",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-01-20T10:23:14Z",
+      "side": 1,
+      "message": "Here too?",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 702,
+        "endChar": 11
+      },
+      "revId": "45f19f96b227190e57a1c836115297689b2bca8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
