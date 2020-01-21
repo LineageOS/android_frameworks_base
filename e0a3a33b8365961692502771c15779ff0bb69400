@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7269f96d_7425d916",
+        "filename": "packages/SystemUI/res/drawable/ic_screenshot_selector_save.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-01-21T10:16:56Z",
+      "side": 1,
+      "message": "M 9 16.17 L 4.83 12 L 3.41 13.41 L 9 19 L 21 7 L 19.59 5.59 L 9 16.17 Z\n\n\n---\n\n\"Save\" icon as floppy does not have the same meaning / recognization on mobile UIs as on PCs. Use the standard checkmark instead or, replace the icons with plain text so they are unequivocally understandable",
+      "range": {
+        "startLine": 6,
+        "startChar": 53,
+        "endLine": 6,
+        "endChar": 247
+      },
+      "revId": "e0a3a33b8365961692502771c15779ff0bb69400",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2e125f3_f4c7c8c2",
+        "filename": "packages/SystemUI/res/layout/global_screenshot.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-01-21T10:16:56Z",
+      "side": 1,
+      "message": "android:layout_marginEnd\n\n---\nIf you use marginHorizontal and you have a window with small width, the layout may mess up as it\u0027s forced to have a redundant extra margin on the left",
+      "range": {
+        "startLine": 58,
+        "startChar": 16,
+        "endLine": 58,
+        "endChar": 47
+      },
+      "revId": "e0a3a33b8365961692502771c15779ff0bb69400",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0594939_f0b7ccb9",
+        "filename": "packages/SystemUI/res/layout/global_screenshot.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-01-21T10:16:56Z",
+      "side": 1,
+      "message": "android:layout_marginStart\n\n---\nSee explanation above",
+      "range": {
+        "startLine": 67,
+        "startChar": 16,
+        "endLine": 67,
+        "endChar": 47
+      },
+      "revId": "e0a3a33b8365961692502771c15779ff0bb69400",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23ef2ad1_fc8939f4",
+        "filename": "packages/SystemUI/res/values/dimens.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-01-21T10:16:56Z",
+      "side": 1,
+      "message": "4dp",
+      "range": {
+        "startLine": 292,
+        "startChar": 58,
+        "endLine": 292,
+        "endChar": 61
+      },
+      "revId": "e0a3a33b8365961692502771c15779ff0bb69400",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "072914d9_7c21843e",
+        "filename": "packages/SystemUI/res/values/dimens.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-01-21T10:16:56Z",
+      "side": 1,
+      "message": "8dp",
+      "range": {
+        "startLine": 295,
+        "startChar": 58,
+        "endLine": 295,
+        "endChar": 61
+      },
+      "revId": "e0a3a33b8365961692502771c15779ff0bb69400",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb220ba3_c423a2ff",
+        "filename": "packages/SystemUI/res/values/strings.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-01-21T10:16:56Z",
+      "side": 1,
+      "message": "Capture",
+      "range": {
+        "startLine": 209,
+        "startChar": 63,
+        "endLine": 209,
+        "endChar": 86
+      },
+      "revId": "e0a3a33b8365961692502771c15779ff0bb69400",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81183b62_f3494e50",
+        "filename": "packages/SystemUI/res/values/strings.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-01-21T10:16:56Z",
+      "side": 1,
+      "message": "Cancel",
+      "range": {
+        "startLine": 211,
+        "startChar": 65,
+        "endLine": 211,
+        "endChar": 90
+      },
+      "revId": "e0a3a33b8365961692502771c15779ff0bb69400",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39ce2c87_a3a27be9",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-01-21T10:16:56Z",
+      "side": 1,
+      "message": "This doesn\u0027t look good:\n\nsince you have the `android:animateLayoutChanges\u003d\"true\"` attribute set, the setVisibility() calls are all routed through an animator, making this method act as if was \"sync\", and you rely on the fact that in your configuration, the animations start and end within 500ms, but if the timing for animations was different for some reason this would easily break.\n\nMy suggestion is to do the following:\n\n1. Remove the `animateLayoutChanges` attribute\n2. Do animations animations on your own (write on slack if you need help)\n3. When you have the hide animator, add a listener to the end of the animation which calls `takeScreenshot`",
+      "range": {
+        "startLine": 695,
+        "startChar": 0,
+        "endLine": 695,
+        "endChar": 71
+      },
+      "revId": "e0a3a33b8365961692502771c15779ff0bb69400",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
