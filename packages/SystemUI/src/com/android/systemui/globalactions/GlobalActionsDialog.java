@@ -247,16 +247,21 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
      */
     public void showDialog(boolean keyguardShowing, boolean isDeviceProvisioned,
             GlobalActionsPanelPlugin panelPlugin) {
+        final String[] lastMenuActions = mCurrentMenuActions;
         mKeyguardShowing = keyguardShowing;
         mDeviceProvisioned = isDeviceProvisioned;
         mPanelPlugin = panelPlugin;
         mIsRestartMenu = false;
         mCurrentMenuActions = mRootMenuActions;
         if (mDialog != null) {
-            mDialog.dismiss();
-            mDialog = null;
-            // Show delayed, so that the dismiss of the previous dialog completes
-            mHandler.sendEmptyMessage(MESSAGE_SHOW);
+            if (lastMenuActions != mRootMenuActions) {
+                mDialog.dismiss();
+                mDialog = null;
+                // Show delayed, so that the dismiss of the previous dialog completes
+                mHandler.sendEmptyMessage(MESSAGE_SHOW);
+            } else if (!mDialog.isShowing()) {
+                mDialog.show();
+            }
         } else {
             handleShow();
         }
