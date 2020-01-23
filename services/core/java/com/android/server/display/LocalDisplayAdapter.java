@@ -160,6 +160,7 @@ final class LocalDisplayAdapter extends DisplayAdapter {
     private final class LocalDisplayDevice extends DisplayDevice {
         private final int mBuiltInDisplayId;
         private final Light mBacklight;
+        private final Light mKeyboardBacklight;
         private final SparseArray<DisplayModeRecord> mSupportedModes = new SparseArray<>();
         private final ArrayList<Integer> mSupportedColorModes = new ArrayList<>();
 
@@ -191,8 +192,10 @@ final class LocalDisplayAdapter extends DisplayAdapter {
             if (mBuiltInDisplayId == SurfaceControl.BUILT_IN_DISPLAY_ID_MAIN) {
                 LightsManager lights = LocalServices.getService(LightsManager.class);
                 mBacklight = lights.getLight(LightsManager.LIGHT_ID_BACKLIGHT);
+                mKeyboardBacklight = lights.getLight(LightsManager.LIGHT_ID_KEYBOARD);
             } else {
                 mBacklight = null;
+                mKeyboardBacklight = null;
             }
             mHdrCapabilities = SurfaceControl.getHdrCapabilities(displayToken);
         }
@@ -578,6 +581,7 @@ final class LocalDisplayAdapter extends DisplayAdapter {
                                 + "id=" + displayId + ", brightness=" + brightness + ")");
                         try {
                             mBacklight.setBrightness(brightness);
+                            mKeyboardBacklight.setBrightness(brightness);
                             Trace.traceCounter(Trace.TRACE_TAG_POWER,
                                     "ScreenBrightness", brightness);
                         } finally {
@@ -653,6 +657,7 @@ final class LocalDisplayAdapter extends DisplayAdapter {
             pw.println("mState=" + Display.stateToString(mState));
             pw.println("mBrightness=" + mBrightness);
             pw.println("mBacklight=" + mBacklight);
+            pw.println("mKeyboardBacklight=" + mKeyboardBacklight);
             pw.println("mDisplayInfos=");
             for (int i = 0; i < mDisplayInfos.length; i++) {
                 pw.println("  " + mDisplayInfos[i]);
