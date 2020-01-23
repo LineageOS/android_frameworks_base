@@ -70,4 +70,7 @@ interface IPowerManager
 
     // controls whether PowerManager should doze after the screen turns off or not
     void setDozeAfterScreenOff(boolean on);
+
+    void setKeyboardVisibility(boolean visible);
+
 }
