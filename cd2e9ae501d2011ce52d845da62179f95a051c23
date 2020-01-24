@@ -34,6 +34,23 @@
       "revId": "cd2e9ae501d2011ce52d845da62179f95a051c23",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ca4e15e_477c4a80",
+        "filename": "media/java/android/media/RingtoneManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-01-24T17:41:12Z",
+      "side": 1,
+      "message": "Similar to comments above, there should be a check that type is TYPE_RINGTONE before calling this",
+      "revId": "cd2e9ae501d2011ce52d845da62179f95a051c23",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
