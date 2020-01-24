@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdfa1511_81310eac",
+        "filename": "media/java/android/media/RingtoneManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-01-24T17:08:52Z",
+      "side": 1,
+      "message": "This is the line that causes the SecurityException, breaking DeskClock and other apps.\n\nPassing null here fixes those apps",
+      "revId": "cd2e9ae501d2011ce52d845da62179f95a051c23",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
