@@ -122,7 +122,7 @@ public class ScreenshotSelectorView extends FrameLayout implements View.OnTouchL
         setWillNotDraw(false);
     }
 
-    public void startSelection(int x, int y) {
+    private void startSelection(int x, int y) {
         mSelectionRect = new Rect(x, y, x, y);
         invalidate();
     }
@@ -131,7 +131,7 @@ public class ScreenshotSelectorView extends FrameLayout implements View.OnTouchL
         return mSelectionRect;
     }
 
-    public void sortSelectionRect() {
+    private void sortSelectionRect() {
         // The coordinates of the rect can end up being unsorted if the
         // user drags one side over the opposite side. Fix it
         mSelectionRect.sort();
@@ -142,7 +142,7 @@ public class ScreenshotSelectorView extends FrameLayout implements View.OnTouchL
         invalidate();
     }
 
-    public void delegateSelection() {
+    private void delegateSelection() {
         if (mListener != null) {
             mListener.onSelectionChanged(mSelectionRect, mIsFirstSelection);
         }
@@ -170,7 +170,7 @@ public class ScreenshotSelectorView extends FrameLayout implements View.OnTouchL
                 fx >= sl && fx <= el;
     }
 
-    public boolean isTouching(ResizingHandle handle, int x, int y) {
+    private boolean isTouching(ResizingHandle handle, int x, int y) {
         switch (handle) {
             case LEFT:
                 return isTouchingBorder(mSelectionRect.top, mSelectionRect.bottom,
