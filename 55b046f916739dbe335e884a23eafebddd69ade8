@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bced148_f6ce0d34",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:35:28Z",
+      "side": 1,
+      "message": "can\u0027t we just do String[] lel \u003d packageList.split(\u0027,\u0027); and then just exposeAuxCamera \u003d lel.contains(packageName)?\n\nofc then you may as well get rid of exposeAuxCamera var.",
+      "range": {
+        "startLine": 304,
+        "startChar": 12,
+        "endLine": 304,
+        "endChar": 36
+      },
+      "revId": "55b046f916739dbe335e884a23eafebddd69ade8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e358133_a62d33c8",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:35:28Z",
+      "side": 1,
+      "message": "if (!exposeAuxCamera \u0026\u0026 numberOfCameras \u003e 2",
+      "range": {
+        "startLine": 314,
+        "startChar": 8,
+        "endLine": 314,
+        "endChar": 64
+      },
+      "revId": "55b046f916739dbe335e884a23eafebddd69ade8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dcee1ba_7aef4ac4",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:35:28Z",
+      "side": 1,
+      "message": "if (",
+      "range": {
+        "startLine": 610,
+        "startChar": 8,
+        "endLine": 610,
+        "endChar": 13
+      },
+      "revId": "55b046f916739dbe335e884a23eafebddd69ade8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d6e6fdb_07311b1b",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:35:28Z",
+      "side": 1,
+      "message": "Usually in alphabet A is before L.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 29
+      },
+      "revId": "55b046f916739dbe335e884a23eafebddd69ade8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c91082d2_a1939528",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:35:28Z",
+      "side": 1,
+      "message": "same comment as in prev file.",
+      "range": {
+        "startLine": 1012,
+        "startChar": 16,
+        "endLine": 1023,
+        "endChar": 21
+      },
+      "revId": "55b046f916739dbe335e884a23eafebddd69ade8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e074a428_f05fa10b",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:35:28Z",
+      "side": 1,
+      "message": "if (!exposeAuxCamera \u0026\u0026 i \u003d\u003d 2) break;",
+      "range": {
+        "startLine": 1027,
+        "startChar": 20,
+        "endLine": 1027,
+        "endChar": 59
+      },
+      "revId": "55b046f916739dbe335e884a23eafebddd69ade8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c31c6b7_84e6db89",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:35:28Z",
+      "side": 1,
+      "message": "if (!exposeAuxCamera \u0026\u0026 i \u003d\u003d 2) break;",
+      "range": {
+        "startLine": 1036,
+        "startChar": 20,
+        "endLine": 1036,
+        "endChar": 59
+      },
+      "revId": "55b046f916739dbe335e884a23eafebddd69ade8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a552cda9_40a7eec8",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:35:28Z",
+      "side": 1,
+      "message": "same crap",
+      "range": {
+        "startLine": 1234,
+        "startChar": 12,
+        "endLine": 1248,
+        "endChar": 17
+      },
+      "revId": "55b046f916739dbe335e884a23eafebddd69ade8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9146aaa_c12f988b",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:35:28Z",
+      "side": 1,
+      "message": "make it a single if and use ! instead of \u003d\u003d false",
+      "range": {
+        "startLine": 1251,
+        "startChar": 12,
+        "endLine": 1252,
+        "endChar": 48
+      },
+      "revId": "55b046f916739dbe335e884a23eafebddd69ade8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
