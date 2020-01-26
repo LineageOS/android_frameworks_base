@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1eabac84_56f4b200",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:36:44Z",
+      "side": 1,
+      "message": "single if?",
+      "range": {
+        "startLine": 599,
+        "startChar": 8,
+        "endLine": 600,
+        "endChar": 78
+      },
+      "revId": "400c59a30ee6ae3a026b6605e012759c0cd1a049",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
