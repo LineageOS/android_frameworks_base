@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fde76a8_823cbc10",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:36:07Z",
+      "side": 1,
+      "message": "see prev change.",
+      "range": {
+        "startLine": 315,
+        "startChar": 12,
+        "endLine": 323,
+        "endChar": 13
+      },
+      "revId": "7e992a5aaf1edc353a6e3f31bd2d6543ed0c4eab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8739747a_7009ceec",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:36:07Z",
+      "side": 1,
+      "message": "over 100 chars bro",
+      "range": {
+        "startLine": 1015,
+        "startChar": 16,
+        "endLine": 1015,
+        "endChar": 101
+      },
+      "revId": "7e992a5aaf1edc353a6e3f31bd2d6543ed0c4eab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d375a374_f11419cf",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:36:07Z",
+      "side": 1,
+      "message": "see prev change",
+      "range": {
+        "startLine": 1027,
+        "startChar": 20,
+        "endLine": 1035,
+        "endChar": 21
+      },
+      "revId": "7e992a5aaf1edc353a6e3f31bd2d6543ed0c4eab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "391ce2a7_903b9cc4",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1272,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-26T00:36:07Z",
+      "side": 1,
+      "message": "see prev change",
+      "range": {
+        "startLine": 1264,
+        "startChar": 16,
+        "endLine": 1272,
+        "endChar": 17
+      },
+      "revId": "7e992a5aaf1edc353a6e3f31bd2d6543ed0c4eab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
