@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbbad4dd_da0fcf49",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-01-27T01:41:44Z",
+      "side": 1,
+      "message": "we should introduce our own flag instead...",
+      "range": {
+        "startLine": 806,
+        "startChar": 8,
+        "endLine": 814,
+        "endChar": 27
+      },
+      "revId": "668de17d9d9f4857ff41187912c3f2b803eeb33b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
