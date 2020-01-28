@@ -3239,7 +3239,7 @@ public class SettingsProvider extends ContentProvider {
         }
 
         private final class UpgradeController {
-            private static final int SETTINGS_VERSION = 184;
+            private static final int SETTINGS_VERSION = 183;
 
             private final int mUserId;
 
@@ -4459,11 +4459,7 @@ public class SettingsProvider extends ContentProvider {
                                     R.bool.def_notification_bubbles) ? "1" : "0", null /* tag */,
                             true /* makeDefault */, SettingsState.SYSTEM_PACKAGE_NAME);
 
-                    currentVersion = 183;
-                }
-
-                if (currentVersion == 183) {
-                    // Version 183: Reset the default for system sounds.
+                    // Version 182 (part 2): Reset the default for system sounds.
                     final SettingsState globalSettings = getGlobalSettingsLocked();
 
                     globalSettings.updateSettingLocked(Settings.Global.CAR_DOCK_SOUND,
@@ -4511,7 +4507,33 @@ public class SettingsProvider extends ContentProvider {
                                 R.string.def_trusted_sound), null,
                             true, SettingsState.SYSTEM_PACKAGE_NAME);
 
-                    currentVersion = 184;
+                    // Version 182 (part 3): Migrate ringtone/notif/alarm
+                    final SettingsState systemSettings = getSystemSettingsLocked(userId);
+
+                    // If any of those 3 have a sound from /system/media, change the
+                    // path to /product/media. If it's a custom path, leave it alone
+                    for (Map.Entry<String, String> type : new HashMap<String, String>() {{
+                            put(Settings.System.RINGTONE, "ringtones");
+                            put(Settings.System.NOTIFICATION_SOUND, "notifications");
+                            put(Settings.System.ALARM_ALERT, "alarm");
+                    }}.entrySet()) {
+                        String sound = systemSettings.getSettingLocked(type.getKey());
+                        if (sound.startsWith("content://media/internal")) {
+                            // URI is of the format:
+                            // content://media/internal/audio/media/ID?title=filename&canonical=1
+                            // We split on ? to get the part following the equal sign
+                            // and then split on & to get the part before the ampersand
+                            // When you combine the two actions, you get the filename,
+                            // which we can use to build a new URI based on /product/media
+                            String filename = sound.split("=")[1].split("&")[0];
+                            String uri = Uri.fromFile(new File("/product/media/audio/" +
+                                    type.getValue() + "/" + filename + ".ogg")).toString();
+                            systemSettings.updateSettingLocked(type.getKey(), sound, null, true,
+                                    SettingsState.SYSTEM_PACKAGE_NAME);
+                        }
+                    }
+
+                    currentVersion = 183;
                 }
 
                 // vXXX: Add new settings above this point.
