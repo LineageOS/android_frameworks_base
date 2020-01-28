@@ -3239,7 +3239,7 @@ public class SettingsProvider extends ContentProvider {
         }
 
         private final class UpgradeController {
-            private static final int SETTINGS_VERSION = 184;
+            private static final int SETTINGS_VERSION = 183;
 
             private final int mUserId;
 
@@ -4459,11 +4459,7 @@ public class SettingsProvider extends ContentProvider {
                                     R.bool.def_notification_bubbles) ? "1" : "0", null /* tag */,
                             true /* makeDefault */, SettingsState.SYSTEM_PACKAGE_NAME);
 
-                    currentVersion = 183;
-                }
-
-                if (currentVersion == 183) {
-                    // Version 183: Reset the default for system sounds.
+                    // Version 182 (part 2): Reset the default for system sounds.
                     final SettingsState globalSettings = getGlobalSettingsLocked();
 
                     globalSettings.updateSettingLocked(Settings.Global.CAR_DOCK_SOUND,
@@ -4511,7 +4507,33 @@ public class SettingsProvider extends ContentProvider {
                                 R.string.def_trusted_sound), null,
                             true, SettingsState.SYSTEM_PACKAGE_NAME);
 
-                    currentVersion = 184;
+                    // Version 182 (part 3): Migrate ringtone/notif/alarm
+
+                    // If any of those 3 have a sound from /system/media, change the
+                    // path to /product/media. If it's a custom path, leave it alone
+                    for (Map.Entry<String, String> type : new HashMap<String, String>() {{
+                            put(Settings.System.RINGTONE, "ringtones");
+                            put(Settings.System.NOTIFICATION_SOUND, "notifications");
+                            put(Settings.System.ALARM_ALERT, "alarm");
+                    }}.entrySet()) {
+                        String sound = getSystemSetting(type.getKey(), userId).getValue();
+                        if (sound != null && sound.startsWith("content://media/internal")) {
+                            // URI is of the format:
+                            // content://media/internal/audio/media/ID?title=filename&canonical=1
+                            // We parse the URI and get the title parameter to build the new path
+                            Uri uri = Uri.parse(sound);
+                            String filename = uri.getQueryParameter("title");
+                            if (filename == null) continue;
+                            String newUri = Uri.fromFile(new File("/product/media/audio/" +
+                                    type.getValue() + "/" + filename + ".ogg")).toString();
+                            // For some reason, Uri.fromFile() doesn't add the parameters
+                            // To fix the setting, add back the URI parameters from before
+                            newUri += "?title=" + filename + "&canonical=1";
+                            updateSystemSetting(type.getKey(), newUri, userId);
+                        }
+                    }
+
+                    currentVersion = 183;
                 }
 
                 // vXXX: Add new settings above this point.
