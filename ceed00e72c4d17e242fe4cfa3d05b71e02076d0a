@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "779f81af_31a259d4",
+        "filename": "core/res/res/drawable/sym_def_app_icon_foreground.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-01-28T13:59:14Z",
+      "side": 1,
+      "message": "Why is this messed up?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 571
+      },
+      "revId": "ceed00e72c4d17e242fe4cfa3d05b71e02076d0a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
