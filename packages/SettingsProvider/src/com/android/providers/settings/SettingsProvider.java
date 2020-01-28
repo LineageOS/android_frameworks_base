@@ -3239,7 +3239,7 @@ public class SettingsProvider extends ContentProvider {
         }
 
         private final class UpgradeController {
-            private static final int SETTINGS_VERSION = 184;
+            private static final int SETTINGS_VERSION = 183;
 
             private final int mUserId;
 
@@ -4459,11 +4459,7 @@ public class SettingsProvider extends ContentProvider {
                                     R.bool.def_notification_bubbles) ? "1" : "0", null /* tag */,
                             true /* makeDefault */, SettingsState.SYSTEM_PACKAGE_NAME);
 
-                    currentVersion = 183;
-                }
-
-                if (currentVersion == 183) {
-                    // Version 183: Reset the default for system sounds.
+                    // Version 182 (part 2): Reset the default for system sounds.
                     final SettingsState globalSettings = getGlobalSettingsLocked();
 
                     globalSettings.updateSettingLocked(Settings.Global.CAR_DOCK_SOUND,
@@ -4511,7 +4507,27 @@ public class SettingsProvider extends ContentProvider {
                                 R.string.def_trusted_sound), null,
                             true, SettingsState.SYSTEM_PACKAGE_NAME);
 
-                    currentVersion = 184;
+                    // Version 182 (part 3): Migrate ringtone/notif/alarm
+                    final SettingsState systemSettings = getSystemSettingsLocked(userId);
+
+                    // If any of those 3 have a sound from /system/media, change the
+                    // path to /product/media. If it's a custom path, leave it alone
+                    String[] settings = {
+                        Settings.System.RINGTONE,
+                        Settings.System.NOTIFICATION_SOUND,
+                        Settings.System.ALARM_ALERT
+                    };
+
+                    for (String setting : settings) {
+                        String sound = systemSettings.getSettingLocked(setting);
+                        if (sound.startsWith("/system/media")) {
+                            sound.replace("/system/media", "/product/media");
+                            systemSettings.updateSettingLocked(setting, sound, null, true,
+                                    SettingsState.SYSTEM_PACKAGE_NAME);
+                        }
+                    }
+
+                    currentVersion = 183;
                 }
 
                 // vXXX: Add new settings above this point.
