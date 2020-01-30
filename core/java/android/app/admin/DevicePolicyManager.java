@@ -2765,7 +2765,7 @@ public class DevicePolicyManager {
      */
     public int getPasswordMaximumLength(int quality) {
         // Kind-of arbitrary.
-        return 16;
+        return 64;
     }
 
     /**
