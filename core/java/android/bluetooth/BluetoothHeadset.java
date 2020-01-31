@@ -270,6 +270,13 @@ public final class BluetoothHeadset implements BluetoothProfile {
     public static final String VENDOR_SPECIFIC_HEADSET_EVENT_XEVENT_BATTERY_LEVEL = "BATTERY";
 
     /**
+     * Headset state when SCO audio is disconnecting.
+     *
+     * @hide
+     */
+    public static final int STATE_AUDIO_DISCONNECTING = 13;
+
+    /**
      * Headset state when SCO audio is not connected.
      * This state can be one of
      * {@link #EXTRA_STATE} or {@link #EXTRA_PREVIOUS_STATE} of
