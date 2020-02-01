@@ -445,12 +445,19 @@ public class QSTileHost implements QSHost, Tunable, PluginListener<QSFactory>, D
             if (tile.isEmpty()) continue;
             if (tile.equals("default")) {
                 if (!addedDefault) {
+<<<<<<< HEAD   (f58f64 fixup! fw/b: Button backlight brightness)
                     List<String> defaultSpecs = getDefaultSpecs(context);
                     for (String spec : defaultSpecs) {
                         if (!addedSpecs.contains(spec)) {
                             tiles.add(spec);
                             addedSpecs.add(spec);
                         }
+=======
+                    tiles.addAll(Arrays.asList(defaultTileList.split(",")));
+                    if (Build.IS_ENG
+                            && GarbageMonitor.MemoryTile.ADD_TO_DEFAULT_ON_DEBUGGABLE_BUILDS) {
+                        tiles.add(GarbageMonitor.MemoryTile.TILE_SPEC);
+>>>>>>> CHANGE (835bcc SystemUI: Only add GarbageMonitor tile to default tiles on E)
                     }
                     addedDefault = true;
                 }
