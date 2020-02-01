@@ -81,8 +81,8 @@ public class QSFactoryImpl implements QSFactory {
     protected QSTileImpl createTileInternal(String tileSpec) {
         // Stock tiles.
         if (mTileMap.containsKey(tileSpec)
-                // We should not return a Garbage Monitory Tile if the build is not Debuggable
-                && (!tileSpec.equals(GarbageMonitor.MemoryTile.TILE_SPEC) || Build.IS_DEBUGGABLE)) {
+                // We should not return a Garbage Monitory Tile if the build is not Eng
+                && (!tileSpec.equals(GarbageMonitor.MemoryTile.TILE_SPEC) || Build.IS_ENG)) {
             return mTileMap.get(tileSpec).get();
         }
 
