@@ -581,6 +581,11 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
      * Takes a screenshot of the current display and shows an animation.
      */
     private void takeScreenshot(Consumer<Uri> finisher, Rect crop) {
+        if (mScreenshotLayout.getParent() != null) {
+            finisher.accept(null);
+            return;
+        }
+
         // copy the input Rect, since SurfaceControl.screenshot can mutate it
         Rect screenRect = new Rect(crop);
         int rot = mDisplay.getRotation();
@@ -669,6 +674,11 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
      */
     @SuppressLint("ClickableViewAccessibility")
     void takeScreenshotPartial(final Consumer<Uri> finisher, Runnable onComplete) {
+        if (mScreenshotLayout.getParent() != null) {
+            finisher.accept(null);
+            return;
+        }
+
         dismissScreenshot("new screenshot requested", true);
         mOnCompleteRunnable = onComplete;
 
