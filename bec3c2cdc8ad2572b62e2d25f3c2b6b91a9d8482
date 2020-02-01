@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80f87503_a1a6d1af",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4156,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-02-01T07:27:18Z",
+      "side": 1,
+      "message": "make the 3 same checks a standalone method?",
+      "revId": "bec3c2cdc8ad2572b62e2d25f3c2b6b91a9d8482",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
