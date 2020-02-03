@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2f65fe0_8239945c",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T16:24:10Z",
+      "side": 0,
+      "message": "maybe add comment too",
+      "revId": "0a183fd189a5a57431093d22f1a3cbfa2bf91eb6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
