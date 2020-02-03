@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66013fc5_d4bab1e3",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "...couldn\u0027t you simplify this?",
+      "range": {
+        "startLine": 305,
+        "startChar": 12,
+        "endLine": 308,
+        "endChar": 13
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a3b9ec7_ee254cb1",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "simplify.",
+      "range": {
+        "startLine": 310,
+        "startChar": 12,
+        "endLine": 313,
+        "endChar": 13
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1389bd10_5612366d",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "use exclamation mark and drop () after \u0026\u0026",
+      "range": {
+        "startLine": 316,
+        "startChar": 12,
+        "endLine": 316,
+        "endChar": 36
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26075a8f_943a0172",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "spaces",
+      "range": {
+        "startLine": 337,
+        "startChar": 8,
+        "endLine": 337,
+        "endChar": 45
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0cc793a_da960459",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "spaces",
+      "range": {
+        "startLine": 612,
+        "startChar": 8,
+        "endLine": 612,
+        "endChar": 45
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a9e8fea_3a01f3dd",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "over 100 chars",
+      "range": {
+        "startLine": 1014,
+        "startChar": 16,
+        "endLine": 1014,
+        "endChar": 105
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bbf1fa8_491fd272",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "simplify.",
+      "range": {
+        "startLine": 1016,
+        "startChar": 20,
+        "endLine": 1019,
+        "endChar": 21
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88a1002c_92a9fca6",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "simplify.",
+      "range": {
+        "startLine": 1021,
+        "startChar": 20,
+        "endLine": 1024,
+        "endChar": 21
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0217a63_ede9a986",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "spaces; useless ().",
+      "range": {
+        "startLine": 1028,
+        "startChar": 20,
+        "endLine": 1028,
+        "endChar": 59
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3634d14d_f14206d1",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "spaces; useless ().",
+      "range": {
+        "startLine": 1037,
+        "startChar": 20,
+        "endLine": 1037,
+        "endChar": 59
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c388fe3a_b46c7006",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "over 100 chars",
+      "range": {
+        "startLine": 1241,
+        "startChar": 0,
+        "endLine": 1241,
+        "endChar": 101
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "696ae386_6eafa715",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "simplify.",
+      "range": {
+        "startLine": 1243,
+        "startChar": 16,
+        "endLine": 1246,
+        "endChar": 17
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "433dca97_b3b18a0e",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "simplify.",
+      "range": {
+        "startLine": 1248,
+        "startChar": 16,
+        "endLine": 1251,
+        "endChar": 17
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36ce28ff_579da2d0",
+        "filename": "core/java/android/hardware/camera2/CameraManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-03T00:48:59Z",
+      "side": 1,
+      "message": "single if, exclamation mark.",
+      "range": {
+        "startLine": 1254,
+        "startChar": 12,
+        "endLine": 1255,
+        "endChar": 48
+      },
+      "revId": "52161718371c7e85b364b93cc82c44ef08dc1307",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
