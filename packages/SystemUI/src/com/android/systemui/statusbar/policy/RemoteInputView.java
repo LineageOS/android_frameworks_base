@@ -18,6 +18,7 @@ package com.android.systemui.statusbar.policy;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.RemoteInput;
@@ -28,11 +29,14 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.SpannedString;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -45,6 +49,7 @@ import android.view.inputmethod.CompletionInfo;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
+import android.view.textclassifier.TextClassifier;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -187,9 +192,33 @@ public class RemoteInputView extends LinearLayout implements View.OnClickListene
                 LayoutInflater.from(context).inflate(R.layout.remote_input, root, false);
         v.mController = controller;
         v.mEntry = entry;
+        v.mEditText.setRestrictedAcrossUser(true);
         v.setTag(VIEW_TAG);
 
+        // Disable the TextClassifier to avoid cross user interactions.
+        v.mEditText.setTextClassifier(TextClassifier.NO_OP);
+
         return v;
+    }
+
+    @Override
+    public ActionMode startActionMode(ActionMode.Callback callback, int type) {
+        try {
+            UserHandle notificationUser = mEntry.notification.getUser();
+            UserHandle currentUser = UserHandle.of(ActivityManager.getCurrentUser());
+            if (!UserHandle.ALL.equals(notificationUser)
+                    && !currentUser.equals(notificationUser)) {
+                // If this happens to be a selection action mode, a non-NO_OP TextClassifier could
+                // leak data across users. This widget uses TextClassifier.NO_OP so this is fine.
+                // Log the security fix.
+                android.util.EventLog.writeEvent(0x534e4554, "123232892", -1, "");
+            }
+        } catch (Throwable t) {
+            // Avoid crashing because of this log attempt.
+            Log.i(TAG, "Error attempting to log security fix for bug 123232892", t);
+
+        }
+        return super.startActionMode(callback, type);
     }
 
     @Override
@@ -292,6 +321,16 @@ public class RemoteInputView extends LinearLayout implements View.OnClickListene
         if (mWrapper != null) {
             mWrapper.setRemoteInputVisible(true);
         }
+
+        // Disable suggestions on non-owner (secondary) user.
+        // SpellCheckerService of primary user runs on secondary as well which shows
+        // "Add to dictionary" dialog on the primary user. (See b/123232892)
+        // Note: this doesn't affect work-profile users on P or older versions.
+        if (UserHandle.myUserId() != ActivityManager.getCurrentUser()) {
+            mEditText.setInputType(
+                    mEditText.getInputType() | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        }
+
         mEditText.setInnerFocusable(true);
         mEditText.mShowImeOnInputConnection = true;
         mEditText.setText(mEntry.remoteInputText);
