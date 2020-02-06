@@ -486,9 +486,7 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
     }
 
     private void updateDisplaySize() {
-        mContext.getSystemService(DisplayManager.class)
-                .getDisplay(mDisplayId)
-                .getRealSize(mDisplaySize);
+        mContext.getDisplay().getRealSize(mDisplaySize);
         updateLongSwipeWidth();
         loadUserExclusion();
     }
