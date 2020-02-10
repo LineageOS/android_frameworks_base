@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4354eaa_56f60a2e",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CastTile.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2020-02-10T22:39:44Z",
+      "side": 1,
+      "message": "This block could be simplified to\n\nboolean enabledAndConnected \u003d enabled \u0026\u0026 (mWfdEnabled || qsIcon.visible);\nif (enabledAndConnected !\u003d mWifiConnected) {\n    mWifiConnected \u003d enabledAndConnected;\n    refreshState();\n}",
+      "revId": "6a4412cba7309be5878c52ecd550daf9f21f98dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
