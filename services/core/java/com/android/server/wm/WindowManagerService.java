@@ -214,6 +214,7 @@ import static android.view.WindowManagerGlobal.RELAYOUT_RES_SURFACE_CHANGED;
 import static android.view.WindowManagerPolicy.FINISH_LAYOUT_REDO_WALLPAPER;
 import static android.view.WindowManagerPolicy.TRANSIT_EXIT;
 import static android.view.WindowManagerPolicy.TRANSIT_PREVIEW_DONE;
+import static com.android.server.wm.AppTransition.MAX_APP_TRANSITION_DURATION;
 import static com.android.server.wm.AppWindowAnimator.PROLONG_ANIMATION_AT_END;
 import static com.android.server.wm.AppWindowAnimator.PROLONG_ANIMATION_AT_START;
 import static com.android.server.wm.DragResizeMode.DRAG_RESIZE_MODE_DOCKED_DIVIDER;
@@ -3333,7 +3334,16 @@ public class WindowManagerService extends IWindowManager.Stub
                     mCurConfiguration.orientation, frame, displayFrame, insets, surfaceInsets,
                     isVoiceInteraction, freeform, atoken.mTask.mTaskId);
             if (a != null) {
-                if (DEBUG_ANIM) logWithStack(TAG, "Loaded animation " + a + " for " + atoken);
+                if (a != null) {
+                    // Setup the maximum app transition duration to prevent malicious app may set a long
+                    // animation duration or infinite repeat counts for the app transition through
+                    // ActivityOption#makeCustomAnimation or WindowManager#overridePendingTransition.
+                    a.restrictDuration(MAX_APP_TRANSITION_DURATION);
+                }
+                if (DEBUG_ANIM) {
+                    logWithStack(TAG, "Loaded animation " + a + " for " + atoken
+                            + ", duration: " + ((a != null) ? a.getDuration() : 0));
+                }
                 final int containingWidth = frame.width();
                 final int containingHeight = frame.height();
                 atoken.mAppAnimator.setAnimation(a, containingWidth, containingHeight,
