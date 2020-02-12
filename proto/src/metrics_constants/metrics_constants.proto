@@ -7429,5 +7429,8 @@ message MetricsEvent {
     // ---- End Q Constants, all Q constants go above this line ----
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
+
+    // Extra Settings
+    EXTRA_SETTINGS = 10000;
   }
 }
