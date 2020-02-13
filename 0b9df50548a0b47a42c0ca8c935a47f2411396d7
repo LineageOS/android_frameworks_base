@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78fda14f_50cfaa53",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/VisualizerView.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-02-13T11:40:11Z",
+      "side": 1,
+      "message": "false?",
+      "range": {
+        "startLine": 201,
+        "startChar": 75,
+        "endLine": 201,
+        "endChar": 79
+      },
+      "revId": "0b9df50548a0b47a42c0ca8c935a47f2411396d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
