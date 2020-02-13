@@ -817,7 +817,20 @@ public class AudioDeviceInventory {
                 delay = 0;
             }
 
-            final int a2dpCodec = mDeviceBroker.getA2dpCodec(device);
+            final int a2dpCodec;
+            if (state == BluetoothA2dp.STATE_DISCONNECTED) {
+                final String key = DeviceInfo.makeDeviceListKey(AudioSystem.DEVICE_OUT_BLUETOOTH_A2DP,
+                        device.getAddress());
+                final DeviceInfo di = mConnectedDevices.get(key);
+                if (di != null) {
+                    a2dpCodec = di.mDeviceCodecFormat;
+                } else {
+                    Log.e(TAG, "invalid null DeviceInfo in setBluetoothA2dpDeviceConnectionState");
+                    return;
+                }
+            } else {
+                a2dpCodec = mDeviceBroker.getA2dpCodec(device);
+            }
 
             if (AudioService.DEBUG_DEVICES) {
                 Log.i(TAG, "setBluetoothA2dpDeviceConnectionState device: " + device
