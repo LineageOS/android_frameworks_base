@@ -25,8 +25,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.view.Display;
@@ -52,7 +54,7 @@ import java.util.NoSuchElementException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class FODCircleView extends ImageView implements TunerService.Tunable {
+public class FODCircleView extends ImageView implements Handler.Callback, TunerService.Tunable {
     private final String SCREEN_BRIGHTNESS = "system:" + Settings.System.SCREEN_BRIGHTNESS;
 
     private final int mPositionX;
@@ -60,6 +62,8 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     private final int mSize;
     private final int mDreamingMaxOffset;
     private final int mNavigationBarSize;
+    private final int MSG_HBM_OFF = 1001;
+    private final int MSG_HBM_ON = 1002;
     private final boolean mShouldBoostBrightness;
     private final Paint mPaintFingerprint = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
@@ -67,6 +71,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
     private IFingerprintInscreen mFingerprintInscreenDaemon;
 
+    private int mCurDim;
     private int mDreamingOffsetX;
     private int mDreamingOffsetY;
 
@@ -76,6 +81,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
     private boolean mIsBouncer;
     private boolean mIsDreaming;
+    private boolean mIsFingerprintInScreenDaemonV1_1;
     private boolean mIsShowing;
     private boolean mIsCircleShowing;
 
@@ -176,7 +182,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
         mDreamingMaxOffset = (int) (mSize * 0.1f);
 
-        mHandler = new Handler(Looper.getMainLooper());
+        mHandler = new Handler(Looper.getMainLooper(), this);
 
         mParams.height = mSize;
         mParams.width = mSize;
@@ -202,11 +208,13 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
         getViewTreeObserver().addOnGlobalLayoutListener(() -> {
             float drawingDimAmount = mParams.dimAmount;
-            if (mCurrentDimAmount == 0.0f && drawingDimAmount > 0.0f) {
-                dispatchPress();
-                mCurrentDimAmount = drawingDimAmount;
-            } else if (mCurrentDimAmount > 0.0f && drawingDimAmount == 0.0f) {
-                mCurrentDimAmount = drawingDimAmount;
+            if (!mIsFingerprintInScreenDaemonV1_1) {
+                if (mCurrentDimAmount == 0.0f && drawingDimAmount > 0.0f) {
+                    dispatchPress();
+                    mCurrentDimAmount = drawingDimAmount;
+                } else if (mCurrentDimAmount > 0.0f && drawingDimAmount == 0.0f) {
+                    mCurrentDimAmount = drawingDimAmount;
+                }
             }
         });
     }
@@ -253,6 +261,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             try {
                 mFingerprintInscreenDaemon = IFingerprintInscreen.getService();
                 if (mFingerprintInscreenDaemon != null) {
+                    getFingerprintInScreenDaemonV1_1(mFingerprintInscreenDaemon);
                     mFingerprintInscreenDaemon.setCallback(mFingerprintInscreenCallback);
                     mFingerprintInscreenDaemon.asBinder().linkToDeath((cookie) -> {
                         mFingerprintInscreenDaemon = null;
@@ -263,6 +272,21 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             }
         }
         return mFingerprintInscreenDaemon;
+    }
+
+    public vendor.lineage.biometrics.fingerprint.inscreen.V1_1.IFingerprintInscreen
+        getFingerprintInScreenDaemonV1_1(IFingerprintInscreen daemon) {
+            vendor.lineage.biometrics.fingerprint.inscreen.V1_1.IFingerprintInscreen
+                    fingerprintDaemonV1_1;
+        try {
+            fingerprintDaemonV1_1 =
+                    vendor.lineage.biometrics.fingerprint.inscreen.V1_1.IFingerprintInscreen.castFrom(
+                            daemon);
+        } catch (NoSuchElementException e) {
+            fingerprintDaemonV1_1 = null;
+        }
+        mIsFingerprintInScreenDaemonV1_1 = fingerprintDaemonV1_1 != null;
+        return fingerprintDaemonV1_1;
     }
 
     public void dispatchPress() {
@@ -301,12 +325,37 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         }
     }
 
+    public void switchHbm(boolean enable) {
+        if (mShouldBoostBrightness) {
+            if (enable) {
+                mParams.screenBrightness = 1.0f;
+            } else {
+                mParams.screenBrightness = 0.0f;
+            }
+            mWindowManager.updateViewLayout(this, mParams);
+        }
+
+        vendor.lineage.biometrics.fingerprint.inscreen.V1_1.IFingerprintInscreen daemon =
+                getFingerprintInScreenDaemonV1_1(getFingerprintInScreenDaemon());
+
+        try {
+            daemon.switchHbm(enable);
+        } catch (RemoteException e) {
+            // do nothing
+        }
+    }
+
     public void showCircle() {
         mIsCircleShowing = true;
 
         setKeepScreenOn(true);
 
-        setDim(true);
+        if (!mIsFingerprintInScreenDaemonV1_1) {
+            setDim(true);
+        } else {
+            dispatchPress();
+            setColorFilter(Color.argb(0, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
+        }
         updateAlpha();
 
         mPaintFingerprint.setColor(mColor);
@@ -323,7 +372,13 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
         dispatchRelease();
 
-        setDim(false);
+        if (!mIsFingerprintInScreenDaemonV1_1) {
+            setDim(false);
+        } else {
+            setColorFilter(Color.argb(mCurDim, 0, 0, 0),
+                    PorterDuff.Mode.SRC_ATOP);
+            invalidate();
+        }
         updateAlpha();
 
         setKeepScreenOn(false);
@@ -347,12 +402,23 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         updatePosition();
 
         dispatchShow();
+        if (mIsFingerprintInScreenDaemonV1_1) {
+            setDim(true);
+            mHandler.sendEmptyMessageDelayed(MSG_HBM_ON, 230);
+        }
         setVisibility(View.VISIBLE);
     }
 
     public void hide() {
         mIsShowing = false;
 
+        if (mIsFingerprintInScreenDaemonV1_1) {
+            mHandler.sendEmptyMessageDelayed(MSG_HBM_OFF, 50);
+            if (mHandler.hasMessages(MSG_HBM_ON)) {
+                mHandler.removeMessages(MSG_HBM_ON);
+            }
+            setDim(false);
+        }
         setVisibility(View.GONE);
         hideCircle();
         dispatchHide();
@@ -415,13 +481,12 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
                 // do nothing
             }
 
-            if (mShouldBoostBrightness) {
-                mParams.screenBrightness = 1.0f;
-            }
-
             mParams.dimAmount = dimAmount / 255.0f;
+            if (mIsFingerprintInScreenDaemonV1_1) {
+                mCurDim = dimAmount;
+                setColorFilter(Color.argb(dimAmount, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
+            }
         } else {
-            mParams.screenBrightness = 0.0f;
             mParams.dimAmount = 0.0f;
         }
 
@@ -464,4 +529,18 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             mHandler.post(() -> updatePosition());
         }
     };
+
+    @Override
+    public boolean handleMessage(Message msg) {
+        switch (msg.what) {
+            case MSG_HBM_OFF: {
+                switchHbm(false);
+            } break;
+            case MSG_HBM_ON: {
+                switchHbm(true);
+            } break;
+
+        }
+        return true;
+    }
 }
