@@ -1531,6 +1531,10 @@ final class ActivityRecord {
         }
     }
 
+    int getUid() {
+        return info.applicationInfo.uid;
+    }
+
     @Override
     public String toString() {
         if (stringName != null) {
