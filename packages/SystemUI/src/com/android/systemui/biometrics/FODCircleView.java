@@ -41,7 +41,9 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.tuner.TunerService;
 
 import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
 import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreenCallback;
@@ -50,7 +52,9 @@ import java.util.NoSuchElementException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class FODCircleView extends ImageView {
+public class FODCircleView extends ImageView implements TunerService.Tunable {
+    private final String SCREEN_BRIGHTNESS = "system:" + Settings.System.SCREEN_BRIGHTNESS;
+
     private final int mPositionX;
     private final int mPositionY;
     private final int mSize;
@@ -68,6 +72,7 @@ public class FODCircleView extends ImageView {
 
     private int mColor;
     private int mColorBackground;
+    private int mCurrentBrightness;
 
     private boolean mIsBouncer;
     private boolean mIsDreaming;
@@ -207,6 +212,12 @@ public class FODCircleView extends ImageView {
     }
 
     @Override
+    public void onTuningChanged(String key, String newValue) {
+        mCurrentBrightness = newValue != null ?  Integer.parseInt(newValue) : 0;
+        setDim(true);
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
         super.onDraw(canvas);
@@ -329,6 +340,8 @@ public class FODCircleView extends ImageView {
             return;
         }
 
+        Dependency.get(TunerService.class).addTunable(this, SCREEN_BRIGHTNESS);
+
         mIsShowing = true;
 
         updatePosition();
@@ -343,6 +356,8 @@ public class FODCircleView extends ImageView {
         setVisibility(View.GONE);
         hideCircle();
         dispatchHide();
+
+        Dependency.get(TunerService.class).removeTunable(this);
     }
 
     private void updateAlpha() {
@@ -391,13 +406,11 @@ public class FODCircleView extends ImageView {
 
     private void setDim(boolean dim) {
         if (dim) {
-            int curBrightness = Settings.System.getInt(getContext().getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS, 100);
             int dimAmount = 0;
 
             IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
             try {
-                dimAmount = daemon.getDimAmount(curBrightness);
+                dimAmount = daemon.getDimAmount(mCurrentBrightness);
             } catch (RemoteException e) {
                 // do nothing
             }
