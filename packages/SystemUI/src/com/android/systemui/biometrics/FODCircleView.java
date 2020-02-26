@@ -43,7 +43,9 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.tuner.TunerService;
 
 import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
 import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreenCallback;
@@ -52,7 +54,9 @@ import java.util.NoSuchElementException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class FODCircleView extends ImageView implements Handler.Callback {
+public class FODCircleView extends ImageView implements Handler.Callback, TunerService.Tunable {
+
+    private final String SCREEN_BRIGHTNESS = "system:" + Settings.System.SCREEN_BRIGHTNESS;
 
     private final int mPositionX;
     private final int mPositionY;
@@ -74,6 +78,7 @@ public class FODCircleView extends ImageView implements Handler.Callback {
 
     private int mColor;
     private int mColorBackground;
+    private int mCurrentBrightness;
 
     private int mHbmOffDelay = 0;
     private int mHbmOnDelay = 0;
@@ -224,6 +229,12 @@ public class FODCircleView extends ImageView implements Handler.Callback {
                 }
             }
         });
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        mCurrentBrightness = newValue != null ?  Integer.parseInt(newValue) : 0;
+        setDim(true);
     }
 
     @Override
@@ -395,6 +406,7 @@ public class FODCircleView extends ImageView implements Handler.Callback {
 
         dispatchShow();
         if (mSupportsAlwaysOnHbm) {
+            Dependency.get(TunerService.class).addTunable(this, SCREEN_BRIGHTNESS);
             setDim(true);
             mHandler.sendEmptyMessageDelayed(MSG_HBM_ON, mHbmOnDelay);
         }
@@ -410,6 +422,7 @@ public class FODCircleView extends ImageView implements Handler.Callback {
                 mHandler.removeMessages(MSG_HBM_ON);
             }
             setDim(false);
+            Dependency.get(TunerService.class).removeTunable(this);
         }
         setVisibility(View.GONE);
         hideCircle();
@@ -462,13 +475,16 @@ public class FODCircleView extends ImageView implements Handler.Callback {
 
     private void setDim(boolean dim) {
         if (dim) {
-            int curBrightness = Settings.System.getInt(getContext().getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS, 100);
             int dimAmount = 0;
+
+            if (!mIsFingerprintInScreenDaemonV1_1) {
+                mCurrentBrightness = Settings.System.getInt(getContext().getContentResolver(),
+                       Settings.System.SCREEN_BRIGHTNESS, 100);
+            }
 
             IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
             try {
-                dimAmount = daemon.getDimAmount(curBrightness);
+                dimAmount = daemon.getDimAmount(mCurrentBrightness);
             } catch (RemoteException e) {
                 // do nothing
             }
