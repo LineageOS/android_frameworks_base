@@ -38,7 +38,9 @@ import android.widget.ImageView;
 
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.tuner.TunerService;
 
 import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
 import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreenCallback;
@@ -47,7 +49,9 @@ import java.util.NoSuchElementException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class FODCircleView extends ImageView {
+public class FODCircleView extends ImageView implements TunerService.Tunable {
+    private final String SCREEN_BRIGHTNESS = "system:" + Settings.System.SCREEN_BRIGHTNESS;
+
     private final int mPositionX;
     private final int mPositionY;
     private final int mSize;
@@ -65,6 +69,7 @@ public class FODCircleView extends ImageView {
 
     private int mColor;
     private int mColorBackground;
+    private int mCurrentBrightness;
 
     private boolean mIsBouncer;
     private boolean mIsDreaming;
@@ -182,6 +187,14 @@ public class FODCircleView extends ImageView {
 
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         mUpdateMonitor.registerCallback(mMonitorCallback);
+
+	Dependency.get(TunerService.class).addTunable(this, SCREEN_BRIGHTNESS);
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        mCurrentBrightness = newValue != null ?  Integer.parseInt(newValue) : 0;
+        updateDim();
     }
 
     @Override
@@ -372,13 +385,11 @@ public class FODCircleView extends ImageView {
 
     private void updateDim() {
         if (mIsCircleShowing) {
-            int curBrightness = Settings.System.getInt(getContext().getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS, 100);
             int dimAmount = 0;
 
             IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
             try {
-                dimAmount = daemon.getDimAmount(curBrightness);
+                dimAmount = daemon.getDimAmount(mCurrentBrightness);
             } catch (RemoteException e) {
                 return;
             }
