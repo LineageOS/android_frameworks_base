@@ -44,11 +44,100 @@ public class StatusBarWindowView extends FrameLayout {
     public static final boolean DEBUG = StatusBar.DEBUG;
 
     private int mLeftInset = 0;
+<<<<<<< HEAD   (53eea7 Remove DUN requirement for tethering)
     private int mRightInset = 0;
     private int mTopInset = 0;
+=======
+
+    private StatusBar mService;
+    private final Paint mTransparentSrcPaint = new Paint();
+    private FalsingManager mFalsingManager;
+
+    private boolean mDoubleTapToSleepEnabled;
+    private int mQuickQsOffsetHeight;
+
+    // Implements the floating action mode for TextView's Cut/Copy/Past menu. Normally provided by
+    // DecorView, but since this is a special window we have to roll our own.
+    private View mFloatingActionModeOriginatingView;
+    private ActionMode mFloatingActionMode;
+    private FloatingToolbar mFloatingToolbar;
+    private ViewTreeObserver.OnPreDrawListener mFloatingToolbarPreDrawListener;
+    private boolean mTouchCancelled;
+    private boolean mTouchActive;
+    private boolean mExpandAnimationRunning;
+    private boolean mExpandAnimationPending;
+    private boolean mSuppressingWakeUpGesture;
+
+    private final GestureDetector.SimpleOnGestureListener mGestureListener =
+            new GestureDetector.SimpleOnGestureListener() {
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent e) {
+            if (mSingleTapEnabled && !mSuppressingWakeUpGesture) {
+                mService.wakeUpIfDozing(SystemClock.uptimeMillis(), StatusBarWindowView.this,
+                        "SINGLE_TAP");
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            if (!mService.isDozing() && mDoubleTapToSleepEnabled
+                    && e.getY() < mQuickQsOffsetHeight) {
+                PowerManager pm = mContext.getSystemService(PowerManager.class);
+                if (pm != null) {
+                    pm.goToSleep(e.getEventTime());
+                }
+                return true;
+            }
+            if (mDoubleTapEnabled || mSingleTapEnabled) {
+                mService.wakeUpIfDozing(SystemClock.uptimeMillis(), StatusBarWindowView.this,
+                        "DOUBLE_TAP");
+                return true;
+            }
+            return false;
+        }
+    };
+    private final TunerService.Tunable mTunable = (key, newValue) -> {
+        AmbientDisplayConfiguration configuration = new AmbientDisplayConfiguration(mContext);
+        switch (key) {
+            case Settings.Secure.DOZE_DOUBLE_TAP_GESTURE:
+                mDoubleTapEnabled = configuration.doubleTapGestureEnabled(UserHandle.USER_CURRENT);
+                break;
+            case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
+                mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
+                break;
+            case DOUBLE_TAP_SLEEP_GESTURE:
+                mDoubleTapToSleepEnabled = newValue == null || Integer.parseInt(newValue) == 1;
+                break;
+        }
+    };
+
+    /**
+     * If set to true, the current gesture started below the notch and we need to dispatch touch
+     * events manually as it's outside of the regular view bounds.
+     */
+    private boolean mExpandingBelowNotch;
+    private KeyguardBypassController mBypassController;
+>>>>>>> CHANGE (2904ee SystemUI: Don't sleep on double tap below status bar)
 
     public StatusBarWindowView(Context context, AttributeSet attrs) {
         super(context, attrs);
+<<<<<<< HEAD   (53eea7 Remove DUN requirement for tethering)
+=======
+        setMotionEventSplittingEnabled(false);
+        mTransparentSrcPaint.setColor(0);
+        mTransparentSrcPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
+        mFalsingManager = Dependency.get(FalsingManager.class);  // TODO: inject into a controller.
+        mGestureDetector = new GestureDetector(context, mGestureListener);
+        mStatusBarStateController = Dependency.get(StatusBarStateController.class);
+        Dependency.get(TunerService.class).addTunable(mTunable,
+                Settings.Secure.DOZE_DOUBLE_TAP_GESTURE,
+                Settings.Secure.DOZE_TAP_SCREEN_GESTURE,
+                DOUBLE_TAP_SLEEP_GESTURE);
+        mQuickQsOffsetHeight = getResources().getDimensionPixelSize(
+                com.android.internal.R.dimen.quick_qs_offset_height);
+>>>>>>> CHANGE (2904ee SystemUI: Don't sleep on double tap below status bar)
     }
 
     @Override
