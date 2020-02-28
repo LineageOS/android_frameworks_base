@@ -1,0 +1,24 @@
+# Nintendo Switch Joycon (right)
+
+key 304 BUTTON_A
+key 305 BUTTON_B
+key 308 BUTTON_Y
+key 307 BUTTON_X
+key 315 BUTTON_START
+key 314 BUTTON_SELECT
+key 310 BUTTON_L1
+key 311 BUTTON_R1
+key 312 BUTTON_L2
+key 313 BUTTON_R2
+key 316 HOME
+key 306 BACK
+
+axis 0x00 X flat 1024
+axis 0x01 Y flat 1024
+axis 0x02 Z flat 1024
+axis 0x05 RZ flat 1024
+
+axis 0x10 HAT_X
+axis 0x11 HAT_Y
+axis 0x14 LTRIGGER
+axis 0x15 RTRIGGER
