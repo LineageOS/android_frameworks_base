@@ -352,8 +352,14 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
         if (mIsInTransientImmersiveStickyState) {
             return true;
         }
-
         boolean isInExcludedRegion = mExcludeRegion.contains(x, y);
+
+        /* if Launcher is showing and want to block back gesture, let's still trigger our custom
+        swipe actions at the very bottom of the screen, because we are cool */
+        if (mIsLongSwipeEnabled) {
+            isInExcludedRegion = isInExcludedRegion && y < ((mDisplaySize.y / 4) * 3);
+        }
+
         if (isInExcludedRegion) {
             mOverviewProxyService.notifyBackAction(false /* completed */, -1, -1,
                     false /* isButton */, !mIsOnLeftEdge);
