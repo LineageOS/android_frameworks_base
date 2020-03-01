@@ -152,6 +152,8 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
 
 
     private final int mNavBarHeight;
+    // User-limited area
+    private int mUserExclude;
 
     private final PointF mDownPoint = new PointF();
     private boolean mThresholdCrossed = false;
@@ -338,8 +340,14 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
     }
 
     private boolean isWithinTouchRegion(int x, int y) {
+        final int baseY = mDisplaySize.y - Math.max(mImeHeight, mNavBarHeight);
         // Disallow if over the IME
-        if (y > (mDisplaySize.y - Math.max(mImeHeight, mNavBarHeight))) {
+        if (y > baseY) {
+            return false;
+        }
+
+        // Disallow if over user exclusion area
+        if (mUserExclude > 0 && y < baseY - mUserExclude) {
             return false;
         }
 
@@ -511,6 +519,7 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
                 .getDisplay(mDisplayId)
                 .getRealSize(mDisplaySize);
         updateLongSwipeWidth();
+        loadUserExclusion();
     }
 
     @Override
@@ -540,6 +549,19 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
             ev.setDisplayId(bubbleDisplayId);
         }
         InputManager.getInstance().injectInputEvent(ev, InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+    }
+
+    public void loadUserExclusion() {
+        if (mDisplaySize == null) return;
+
+        final int excludedPercentage = LineageSettings.Secure.getInt(mContext.getContentResolver(),
+                LineageSettings.Secure.GESTURE_BACK_EXCLUDE_TOP, 0);
+        if (excludedPercentage != 0) {
+            // Exclude a part of the top of the vertical display size
+            mUserExclude = mDisplaySize.y - mDisplaySize.y * excludedPercentage / 100;
+        } else {
+            mUserExclude = 0;
+        }
     }
 
     public void setInsets(int leftInset, int rightInset) {
