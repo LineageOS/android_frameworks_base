@@ -1,4 +1,4 @@
-/*
+lineage/*
  * Copyright (C) 2019 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,12 +36,16 @@ import android.app.PendingIntent;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.om.IOverlayManager;
 import android.content.pm.PackageManager;
 import android.content.res.ApkAssets;
+import android.database.ContentObserver;
+import android.net.Uri;
+import android.os.Handler;
 import android.os.PatternMatcher;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -56,6 +60,8 @@ import com.android.systemui.Dumpable;
 import com.android.systemui.UiOffloadThread;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -76,6 +82,9 @@ public class NavigationModeController implements Dumpable {
 
     public interface ModeChangedListener {
         void onNavigationModeChanged(int mode);
+
+        default void onSettingsChanged() {
+        }
     }
 
     private final Context mContext;
@@ -143,6 +152,20 @@ public class NavigationModeController implements Dumpable {
 
     private BroadcastReceiver mEnableGestureNavReceiver;
 
+    private final class LineageContentObserver extends ContentObserver {
+        LineageContentObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            for (int i = 0; i < mListeners.size(); i++) {
+                // Reload user settings
+                mListeners.get(i).onSettingsChanged();
+            }
+        }
+    }
+
     @Inject
     public NavigationModeController(Context context,
             DeviceProvisionedController deviceProvisionedController,
@@ -168,6 +191,13 @@ public class NavigationModeController implements Dumpable {
 
         // Check if we need to defer enabling gestural nav
         deferGesturalNavOverlayIfNecessary();
+
+        final LineageContentObserver lineageContentObserver =
+                new LineageContentObserver(new Handler());
+        mContext.getContentResolver().registerContentObserver(
+                LineageSettings.Secure.getUriFor(
+                LineageSettings.Secure.GESTURE_BACK_EXCLUDE_TOP),
+                false, lineageContentObserver, UserHandle.USER_ALL);
     }
 
     private void removeEnableGestureNavListener() {
