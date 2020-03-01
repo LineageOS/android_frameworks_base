@@ -24,20 +24,31 @@ import com.android.systemui.R;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.systemui.statusbar.policy.BatteryController;
 
 import org.lineageos.internal.logging.LineageMetricsLogger;
 
 import javax.inject.Inject;
 
-public class AODTile extends QSTileImpl<BooleanState> {
+public class AODTile extends QSTileImpl<BooleanState> implements
+        BatteryController.BatteryStateChangeCallback {
     private boolean mAodDisabled;
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_aod);
+    private final BatteryController mBatteryController;
 
     @Inject
-    public AODTile(QSHost host) {
+    public AODTile(QSHost host, BatteryController batteryController) {
         super(host);
         mAodDisabled = Settings.Secure.getInt(mContext.getContentResolver(),
                 Settings.Secure.DOZE_ALWAYS_ON, 1) == 0;
+
+        mBatteryController = batteryController;
+        batteryController.observe(getLifecycle(), this);
+    }
+
+    @Override
+    public void onPowerSaveChanged(boolean isPowerSave) {
+        refreshState();
     }
 
     @Override
@@ -67,6 +78,9 @@ public class AODTile extends QSTileImpl<BooleanState> {
 
     @Override
     public CharSequence getTileLabel() {
+        if (mBatteryController.isAodPowerSave()) {
+            return mContext.getString(R.string.quick_settings_aod_off_powersave_label);
+        }
         return mContext.getString(R.string.quick_settings_aod_label);
     }
 
@@ -79,7 +93,9 @@ public class AODTile extends QSTileImpl<BooleanState> {
         state.value = mAodDisabled;
         state.slash.isSlashed = state.value;
         state.label = mContext.getString(R.string.quick_settings_aod_label);
-        if (mAodDisabled) {
+        if (mBatteryController.isAodPowerSave()) {
+            state.state = Tile.STATE_UNAVAILABLE;
+        } else if (mAodDisabled) {
             state.state = Tile.STATE_INACTIVE;
         } else {
             state.state = Tile.STATE_ACTIVE;
