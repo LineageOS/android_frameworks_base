@@ -66,6 +66,8 @@ import com.android.systemui.tuner.TunerService;
 
 import lineageos.providers.LineageSettings;
 
+import lineageos.providers.LineageSettings;
+
 import java.io.PrintWriter;
 import java.util.concurrent.Executor;
 
@@ -147,11 +149,13 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
     // The threshold where the touch needs to be at most, such that the arrow is displayed above the
     // finger, otherwise it will be below
     private final int mMinArrowPosition;
-    // The amount by which the arrow is shifted to avoid the finger
+    // The amount by which the arrow is lineageed to avoid the finger
     private final int mFingerOffset;
 
 
     private final int mNavBarHeight;
+    // User-limited area
+    private int mUserExclude;
 
     private final PointF mDownPoint = new PointF();
     private boolean mThresholdCrossed = false;
@@ -338,8 +342,14 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
     }
 
     private boolean isWithinTouchRegion(int x, int y) {
+        final int baseY = mDisplaySize.y - Math.max(mImeHeight, mNavBarHeight);
         // Disallow if over the IME
-        if (y > (mDisplaySize.y - Math.max(mImeHeight, mNavBarHeight))) {
+        if (y > baseY) {
+            return false;
+        }
+
+        // Disallow if over user exclusion area
+        if (mUserExclude > 0 && y < baseY - mUserExclude) {
             return false;
         }
 
@@ -510,6 +520,7 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
         mContext.getSystemService(DisplayManager.class)
                 .getDisplay(mDisplayId)
                 .getRealSize(mDisplaySize);
+<<<<<<< HEAD
         updateLongSwipeWidth();
     }
 
@@ -520,6 +531,9 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
                     && Action.fromIntSafe(Integer.parseInt(newValue)) != Action.NOTHING;
             updateLongSwipeWidth();
         }
+=======
+        loadUserLimitation();
+>>>>>>> 8d8a273a7b6... SystemUI: add top exclusion to the back gesture
     }
 
     private void sendEvent(int action, int code) {
@@ -540,6 +554,21 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
             ev.setDisplayId(bubbleDisplayId);
         }
         InputManager.getInstance().injectInputEvent(ev, InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+    }
+
+    public void loadUserLimitation() {
+        if (mDisplaySize == null) return;
+
+        final boolean excludeTop = LineageSettings.Secure.getInt(mContext.getContentResolver(),
+                LineageSettings.Secure.GESTURE_BACK_EXCLUDE_TOP, 0) == 1;
+        if (excludeTop) {
+            // Exclude a part of the top of the vertical display size
+            int excluded = mContext.getResources().getDimensionPixelSize(
+                    R.dimen.back_gesture_exclude_size);
+            mUserExclude = mDisplaySize.y - excluded;
+        } else {
+            mUserExclude = 0;
+        }
     }
 
     public void setInsets(int leftInset, int rightInset) {

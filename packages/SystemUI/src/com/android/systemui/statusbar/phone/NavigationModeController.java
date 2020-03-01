@@ -36,12 +36,16 @@ import android.app.PendingIntent;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.om.IOverlayManager;
 import android.content.pm.PackageManager;
 import android.content.res.ApkAssets;
+import android.database.ContentObserver;
+import android.net.Uri;
+import android.os.Handler;
 import android.os.PatternMatcher;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -56,6 +60,8 @@ import com.android.systemui.Dumpable;
 import com.android.systemui.UiOffloadThread;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
+
+import shiftos.providers.ShiftSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -76,6 +82,9 @@ public class NavigationModeController implements Dumpable {
 
     public interface ModeChangedListener {
         void onNavigationModeChanged(int mode);
+
+        default void onSettingsChanged() {
+        }
     }
 
     private final Context mContext;
@@ -143,6 +152,20 @@ public class NavigationModeController implements Dumpable {
 
     private BroadcastReceiver mEnableGestureNavReceiver;
 
+    private final class ShiftContentObserver extends ContentObserver {
+        ShiftContentObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            for (int i = 0; i < mListeners.size(); i++) {
+                // Reload user settings
+                mListeners.get(i).onSettingsChanged();
+            }
+        }
+    }
+
     @Inject
     public NavigationModeController(Context context,
             DeviceProvisionedController deviceProvisionedController,
@@ -168,6 +191,11 @@ public class NavigationModeController implements Dumpable {
 
         // Check if we need to defer enabling gestural nav
         deferGesturalNavOverlayIfNecessary();
+
+        final ShiftContentObserver shiftContentObserver = new ShiftContentObserver(new Handler());
+        mContext.getContentResolver().registerContentObserver(
+                ShiftSettings.Secure.getUriFor(ShiftSettings.Secure.GESTURE_BACK_EXCLUDE_TOP),
+                false, shiftContentObserver, UserHandle.USER_ALL);
     }
 
     private void removeEnableGestureNavListener() {
