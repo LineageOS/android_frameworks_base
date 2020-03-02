@@ -307,6 +307,7 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         }
 
         mConnectAttempted = SystemClock.elapsedRealtime();
+        Log.d(TAG, "connect: mConnectAttempted = " + mConnectAttempted);
         connectAllEnabledProfiles();
     }
 
@@ -344,6 +345,13 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
                 // upon arrival of the ACTION_UUID intent.
                 Log.d(TAG, "No profiles. Maybe we will connect later for device " + mDevice);
                 return;
+            }
+            // BondingInitiatedLocally flag should be reset in onBondingStateChanged
+            // But Settings executing onBondingStateChanged twice and its lead to auto connection
+            // failure. this flag will be moved from here once settings issue fixed.
+            if (mDevice.isBondingInitiatedLocally()) {
+                Log.w(TAG, "reset BondingInitiatedLocally flag");
+                mDevice.setBondingInitiatedLocally(false);
             }
 
             mLocalAdapter.connectAllEnabledProfiles(mDevice);
@@ -724,8 +732,8 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
          * If a connect was attempted earlier without any UUID, we will do the connect now.
          * Otherwise, allow the connect on UUID change.
          */
-        if (!mProfiles.isEmpty()
-                && ((mConnectAttempted + timeout) > SystemClock.elapsedRealtime())) {
+        if ((mConnectAttempted + timeout) > SystemClock.elapsedRealtime()) {
+            Log.d(TAG, "onUuidChanged: triggering connectAllEnabledProfiles");
             connectAllEnabledProfiles();
         }
 
@@ -747,9 +755,6 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         if (bondState == BluetoothDevice.BOND_BONDED) {
             boolean mIsBondingInitiatedLocally = mDevice.isBondingInitiatedLocally();
             Log.w(TAG, "mIsBondingInitiatedLocally" + mIsBondingInitiatedLocally);
-            if (mIsBondingInitiatedLocally) {
-                mDevice.setBondingInitiatedLocally(false);
-            }
             if (mIsTwsConnectEnabled) {
                 Log.d(TAG, "Initiating connection to" + mDevice);
                 if (mIsBondingInitiatedLocally || mDevice.isTwsPlusDevice()) {
