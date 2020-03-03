@@ -3738,6 +3738,11 @@ final class ActivityStack {
 
     final boolean navigateUpToLocked(ActivityRecord srec, Intent destIntent, int resultCode,
             Intent resultData) {
+        if (srec.app == null || srec.app.thread == null) {
+            // Nothing to do if the caller is not attached, because this method should be called
+            // from an alive activity.
+            return false;
+        }
         final TaskRecord task = srec.task;
         final ArrayList<ActivityRecord> activities = task.mActivities;
         final int start = activities.indexOf(srec);
