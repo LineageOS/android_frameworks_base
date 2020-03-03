@@ -719,7 +719,7 @@ public class SubscriptionInfo implements Parcelable {
     public static String givePrintableIccid(String iccId) {
         String iccIdToPrint = null;
         if (iccId != null) {
-            if (iccId.length() > 9 && !Build.IS_DEBUGGABLE) {
+            if (iccId.length() > 9 && !Build.IS_ENG) {
                 iccIdToPrint = iccId.substring(0, 9) + Rlog.pii(false, iccId.substring(9));
             } else {
                 iccIdToPrint = iccId;
@@ -735,7 +735,7 @@ public class SubscriptionInfo implements Parcelable {
         return "{id=" + mId + ", iccId=" + iccIdToPrint + " simSlotIndex=" + mSimSlotIndex
                 + " carrierId=" + mCarrierId + " displayName=" + mDisplayName
                 + " carrierName=" + mCarrierName + " nameSource=" + mNameSource
-                + " iconTint=" + mIconTint + " mNumber=" + Rlog.pii(Build.IS_DEBUGGABLE, mNumber)
+                + " iconTint=" + mIconTint + " mNumber=" + Rlog.pii(Build.IS_ENG, mNumber)
                 + " dataRoaming=" + mDataRoaming + " iconBitmap=" + mIconBitmap + " mcc " + mMcc
                 + " mnc " + mMnc + "mCountryIso=" + mCountryIso + " isEmbedded " + mIsEmbedded
                 + " accessRules " + Arrays.toString(mAccessRules)
