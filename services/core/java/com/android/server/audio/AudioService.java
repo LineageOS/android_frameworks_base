@@ -983,6 +983,12 @@ public class AudioService extends IAudioService.Stub
                         MAX_STREAM_VOLUME[AudioSystem.STREAM_SYSTEM];
         }
 
+        int maxRingNotificationVolume = SystemProperties.getInt("ro.config.ring_notification_vol_steps", -1);
+        if (maxRingNotificationVolume != -1) {
+            MAX_STREAM_VOLUME[AudioSystem.STREAM_RING] = maxRingNotificationVolume;
+            MAX_STREAM_VOLUME[AudioSystem.STREAM_NOTIFICATION] = maxRingNotificationVolume;
+        }
+
         mVoiceCapable = context.getResources().getBoolean(
                 com.android.internal.R.bool.config_voice_capable);
 
