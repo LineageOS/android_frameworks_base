@@ -403,7 +403,9 @@ public class PhoneStatusBarPolicy
                 mContext.getString(R.string.accessibility_quick_settings_bluetooth_on);
         boolean bluetoothVisible = false;
         if (mBluetooth != null) {
-            if (mBluetooth.isBluetoothConnected()) {
+            if (mBluetooth.isBluetoothConnected()
+                    && (mBluetooth.isBluetoothAudioActive()
+                    || !mBluetooth.isBluetoothAudioProfileOnly())) {
                 List<CachedBluetoothDevice> connectedDevices = mBluetooth.getConnectedDevices();
                 int batteryLevel = connectedDevices.isEmpty() ?
                         -1 : connectedDevices.get(0).getBatteryLevel();
@@ -428,7 +430,8 @@ public class PhoneStatusBarPolicy
                 } else if (batteryLevel >= 10) {
                     iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_0;
                 }
-                contentDescription = mContext.getString(R.string.accessibility_bluetooth_connected);
+                contentDescription = mContext.getString(
+                        R.string.accessibility_bluetooth_connected);
                 bluetoothVisible = mBluetooth.isBluetoothEnabled();
             }
         }
