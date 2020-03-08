@@ -31,6 +31,7 @@ import android.hardware.display.DisplayManager;
 import android.hardware.display.DisplayManager.DisplayListener;
 import android.hardware.input.InputManager;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
@@ -163,6 +164,8 @@ public class EdgeBackGestureHandler implements DisplayListener {
 
     private final WindowManager mWm;
 
+    private final PowerManager mPowerManager;
+
     private NavigationBarEdgePanel mEdgePanel;
     private WindowManager.LayoutParams mEdgePanelLp;
     private final Rect mSamplingRect = new Rect();
@@ -176,6 +179,7 @@ public class EdgeBackGestureHandler implements DisplayListener {
         mDisplayId = context.getDisplayId();
         mMainExecutor = context.getMainExecutor();
         mWm = context.getSystemService(WindowManager.class);
+        mPowerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
         mOverviewProxyService = overviewProxyService;
 
         // Reduce the default touch slop to ensure that we can intercept the gesture
@@ -417,7 +421,12 @@ public class EdgeBackGestureHandler implements DisplayListener {
 
             boolean isUp = action == MotionEvent.ACTION_UP;
             if (isUp) {
-                boolean performAction = mEdgePanel.shouldTriggerBack();
+                boolean performLongSwipe = mEdgePanel.shouldTriggerLongSwipe();
+                boolean performAction = mEdgePanel.shouldTriggerBack() && !performLongSwipe;
+                if (performLongSwipe) {
+                    // Perform long swipe action
+                    mPowerManager.goToSleep(SystemClock.uptimeMillis());
+                }
                 if (performAction) {
                     // Perform back
                     sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK);
