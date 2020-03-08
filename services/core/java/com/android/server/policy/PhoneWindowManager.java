@@ -4316,10 +4316,20 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 } else {
                     boolean handled = interceptBackKeyUp(event);
 
+                    if (!handled) {
+                        if ((event.getFlags() & (KeyEvent.FLAG_LONG_PRESS
+                                | KeyEvent.FLAG_FROM_SYSTEM
+                                | KeyEvent.FLAG_VIRTUAL_HARD_KEY)) != 0) {
+                            performKeyAction(Action.SLEEP, event);
+                            handled = true;
+                        }
+                    }
+
                     // Don't pass back press to app if we've already handled it via long press
                     if (handled) {
                         result &= ~ACTION_PASS_TO_USER;
                     }
+
                 }
                 break;
             }

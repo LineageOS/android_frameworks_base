@@ -31,6 +31,7 @@ import android.hardware.display.DisplayManager;
 import android.hardware.display.DisplayManager.DisplayListener;
 import android.hardware.input.InputManager;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
@@ -163,6 +164,8 @@ public class EdgeBackGestureHandler implements DisplayListener {
 
     private final WindowManager mWm;
 
+    private final PowerManager mPowerManager;
+
     private NavigationBarEdgePanel mEdgePanel;
     private WindowManager.LayoutParams mEdgePanelLp;
     private final Rect mSamplingRect = new Rect();
@@ -176,6 +179,7 @@ public class EdgeBackGestureHandler implements DisplayListener {
         mDisplayId = context.getDisplayId();
         mMainExecutor = context.getMainExecutor();
         mWm = context.getSystemService(WindowManager.class);
+        mPowerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
         mOverviewProxyService = overviewProxyService;
 
         // Reduce the default touch slop to ensure that we can intercept the gesture
@@ -418,11 +422,17 @@ public class EdgeBackGestureHandler implements DisplayListener {
             boolean isUp = action == MotionEvent.ACTION_UP;
             if (isUp) {
                 boolean performAction = mEdgePanel.shouldTriggerBack();
-                if (performAction) {
+                boolean performLongSwipe = mEdgePanel.shouldTriggerLongSwipe();
+                if (performLongSwipe) {
+                    // Perform long swipe action
+                    sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_PRESS);
+                    sendEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_PRESS);
+                } else if (performAction) {
                     // Perform back
                     sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK);
                     sendEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK);
                 }
+                performAction = performAction || performLongSwipe;
                 mOverviewProxyService.notifyBackAction(performAction, (int) mDownPoint.x,
                         (int) mDownPoint.y, false /* isButton */, !mIsOnLeftEdge);
                 int backtype = performAction ? (mInRejectedExclusion
@@ -480,10 +490,14 @@ public class EdgeBackGestureHandler implements DisplayListener {
     }
 
     private void sendEvent(int action, int code) {
+        sendEvent(action, code, 0);
+    }
+
+    private void sendEvent(int action, int code, int flags) {
         long when = SystemClock.uptimeMillis();
         final KeyEvent ev = new KeyEvent(when, when, action, code, 0 /* repeat */,
                 0 /* metaState */, KeyCharacterMap.VIRTUAL_KEYBOARD, 0 /* scancode */,
-                KeyEvent.FLAG_FROM_SYSTEM | KeyEvent.FLAG_VIRTUAL_HARD_KEY,
+                flags | KeyEvent.FLAG_FROM_SYSTEM | KeyEvent.FLAG_VIRTUAL_HARD_KEY,
                 InputDevice.SOURCE_KEYBOARD);
 
         // Bubble controller will give us a valid display id if it should get the back event
