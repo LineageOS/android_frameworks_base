@@ -732,6 +732,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private int mTorchTimeout;
     private PendingIntent mTorchOffPendingIntent;
 
+
+    private boolean mLongSwipeDown;
+    private static final int LONG_SWIPE_FLAGS = KeyEvent.FLAG_LONG_PRESS
+            | KeyEvent.FLAG_FROM_SYSTEM | KeyEvent.FLAG_VIRTUAL_HARD_KEY;
+
     private LineageHardwareManager mLineageHardware;
 
     private class PolicyHandler extends Handler {
@@ -4311,6 +4316,23 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         // Handle special keys.
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK: {
+                boolean isLongSwipe = (event.getFlags() & LONG_SWIPE_FLAGS) == LONG_SWIPE_FLAGS;
+                if (mLongSwipeDown && isLongSwipe && !down) {
+                    // Trigger long swipe action
+                    performKeyAction(Action.SLEEP, event);
+                    // Reset long swipe state
+                    mLongSwipeDown = false;
+                    // Don't pass back press to app
+                    result &= ~ACTION_PASS_TO_USER;
+                    break;
+                }
+                mLongSwipeDown = isLongSwipe && down;
+                if (mLongSwipeDown) {
+                    // Don't pass back press to app
+                    result &= ~ACTION_PASS_TO_USER;
+                    break;
+                }
+
                 if (down) {
                     interceptBackKeyDown();
                 } else {
