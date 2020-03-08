@@ -22,6 +22,7 @@ import android.app.NotificationManager;
 import android.content.ContentResolver;
 import android.database.ContentObserver;
 import android.hardware.display.AmbientDisplayConfiguration;
+import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.os.RemoteException;
@@ -52,8 +53,8 @@ import javax.inject.Inject;
 @SysUISingleton
 public class NotificationInterruptStateProviderImpl implements NotificationInterruptStateProvider {
     private static final String TAG = "InterruptionStateProvider";
-    private static final boolean DEBUG = true; //false;
-    private static final boolean DEBUG_HEADS_UP = true;
+    private static final boolean DEBUG = Build.IS_ENG;
+    private static final boolean DEBUG_HEADS_UP = Build.IS_ENG;
     private static final boolean ENABLE_HEADS_UP = true;
     private static final String SETTING_HEADS_UP_TICKER = "ticker_gets_heads_up";
 
