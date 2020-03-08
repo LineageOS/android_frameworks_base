@@ -30,13 +30,18 @@ import android.database.ContentObserver;
 import android.graphics.Point;
 import android.graphics.PointF;
 import android.hardware.HardwareBuffer;
+import android.hardware.input.InputManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.RemoteException;
+import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings.Global;
 import android.util.Log;
+import android.view.InputDevice;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.RemoteAnimationTarget;
 import android.view.SurfaceControl;
@@ -92,6 +97,8 @@ public class BackAnimationController implements RemoteCallable<BackAnimationCont
     private boolean mTransitionInProgress = false;
     /** @see #setTriggerBack(boolean) */
     private boolean mTriggerBack;
+    /** @see #setTriggerLongSwipe(boolean) */
+    private boolean mTriggerLongSwipe;
 
     @Nullable
     private BackNavigationInfo mBackNavigationInfo;
@@ -191,6 +198,12 @@ public class BackAnimationController implements RemoteCallable<BackAnimationCont
         @Override
         public void setTriggerBack(boolean triggerBack) {
             mShellExecutor.execute(() -> BackAnimationController.this.setTriggerBack(triggerBack));
+        }
+
+        @Override
+        public void setTriggerLongSwipe(boolean triggerLongSwipe) {
+            mShellExecutor.execute(
+                    () -> BackAnimationController.this.setTriggerLongSwipe(triggerLongSwipe));
         }
 
         @Override
@@ -381,6 +394,12 @@ public class BackAnimationController implements RemoteCallable<BackAnimationCont
         if (!mBackGestureStarted || mBackNavigationInfo == null) {
             return;
         }
+        if (mTriggerLongSwipe) {
+            // Let key event handlers deal with back long swipe gesture
+            sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_SWIPE);
+            sendEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_SWIPE);
+            return;
+        }
         int backType = mBackNavigationInfo.getType();
         boolean shouldDispatchToLauncher = shouldDispatchToLauncher(backType);
         IOnBackInvokedCallback targetCallback = shouldDispatchToLauncher
@@ -398,6 +417,18 @@ public class BackAnimationController implements RemoteCallable<BackAnimationCont
             // Launcher callback missing. Simply finish animation.
             finishAnimation();
         }
+    }
+
+    private boolean sendEvent(int action, int code, int flags) {
+        long when = SystemClock.uptimeMillis();
+        final KeyEvent ev = new KeyEvent(when, when, action, code, 0 /* repeat */,
+                0 /* metaState */, KeyCharacterMap.VIRTUAL_KEYBOARD, 0 /* scancode */,
+                flags | KeyEvent.FLAG_FROM_SYSTEM | KeyEvent.FLAG_VIRTUAL_HARD_KEY,
+                InputDevice.SOURCE_KEYBOARD);
+
+        ev.setDisplayId(mContext.getDisplay().getDisplayId());
+        return InputManager.getInstance()
+                .injectInputEvent(ev, InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
     }
 
     private boolean shouldDispatchToLauncher(int backType) {
@@ -461,6 +492,17 @@ public class BackAnimationController implements RemoteCallable<BackAnimationCont
         mTriggerBack = triggerBack;
     }
 
+    /**
+     * Sets to true when the back long swipe gesture has passed the triggering threshold,
+     * false otherwise.
+     */
+    public void setTriggerLongSwipe(boolean triggerLongSwipe) {
+        if (mTransitionInProgress) {
+            return;
+        }
+        mTriggerLongSwipe = triggerLongSwipe;
+    }
+
     private void setSwipeThresholds(float triggerThreshold, float progressThreshold) {
         mProgressThreshold = progressThreshold;
         mTriggerThreshold = triggerThreshold;
@@ -475,6 +517,7 @@ public class BackAnimationController implements RemoteCallable<BackAnimationCont
         boolean triggerBack = mTriggerBack;
         mBackNavigationInfo = null;
         mTriggerBack = false;
+        mTriggerLongSwipe = false;
         if (backNavigationInfo == null) {
             return;
         }
