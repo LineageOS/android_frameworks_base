@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86d3943b_4749a366",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 2322,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-03-10T17:53:01Z",
+      "side": 1,
+      "message": "You should look in a way to make the \"double arrow\" appear only if the setting is set, otherwise long swipe won\u0027t trigger any action changing the default behavior",
+      "range": {
+        "startLine": 2322,
+        "startChar": 31,
+        "endLine": 2322,
+        "endChar": 45
+      },
+      "revId": "1c5b1324329470f164ff2f2c0032110e0f8fdd4c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
