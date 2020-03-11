@@ -22,6 +22,24 @@
       "revId": "05d961d87eedbc3ba73be4839de45755a2071543",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3912b19_a6b57303",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarEdgePanel.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-03-11T17:20:08Z",
+      "side": 1,
+      "message": "It\u0027s fine either way, but I\u0027d prefer it to be harder to trigger, so including the arrow size might do it",
+      "parentUuid": "41b7b378_1ebb79ae",
+      "revId": "05d961d87eedbc3ba73be4839de45755a2071543",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
