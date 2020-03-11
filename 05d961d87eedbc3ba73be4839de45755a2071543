@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41b7b378_1ebb79ae",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarEdgePanel.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 20357
+      },
+      "writtenOn": "2020-03-11T17:18:21Z",
+      "side": 1,
+      "message": "Currently long swipe is defined by half screen size. It works fine on my device but UX may vary by dimension of the device.\nWill it be better to define as min(mScreenSize * 0.5f - mArrowPaddingEnd, mSwipeThreshold * 4.0f)?",
+      "range": {
+        "startLine": 491,
+        "startChar": 30,
+        "endLine": 491,
+        "endChar": 67
+      },
+      "revId": "05d961d87eedbc3ba73be4839de45755a2071543",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
