@@ -40,6 +40,24 @@
       "revId": "05d961d87eedbc3ba73be4839de45755a2071543",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b70ec37_06813225",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarEdgePanel.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 20357
+      },
+      "writtenOn": "2020-03-12T04:14:55Z",
+      "side": 1,
+      "message": "I was thinking about some device with large screen like tablet. Half screen may be too hard to trigger.",
+      "parentUuid": "a3912b19_a6b57303",
+      "revId": "05d961d87eedbc3ba73be4839de45755a2071543",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
