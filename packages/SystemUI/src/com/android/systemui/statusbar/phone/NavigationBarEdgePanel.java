@@ -194,6 +194,7 @@ public class NavigationBarEdgePanel extends View {
     private long mVibrationTime;
     private int mScreenSize;
 
+    private boolean mIsBackExcluded;
     private boolean mIsLongSwipeEnabled;
 
     private DynamicAnimation.OnAnimationEndListener mSetGoneEndListener
@@ -329,7 +330,7 @@ public class NavigationBarEdgePanel extends View {
     }
 
     public boolean shouldTriggerBack() {
-        return mTriggerBack;
+        return mTriggerBack && !mIsBackExcluded;
     }
 
     public boolean shouldTriggerLongSwipe() {
@@ -348,6 +349,10 @@ public class NavigationBarEdgePanel extends View {
 
     public void setIsLeftPanel(boolean isLeftPanel) {
         mIsLeftPanel = isLeftPanel;
+    }
+
+    public void setIsBackExcluded(boolean isBackExcluded) {
+        mIsBackExcluded = isBackExcluded;
     }
 
     public void setLongSwipeThreshold(float longSwipeThreshold) {
@@ -440,6 +445,9 @@ public class NavigationBarEdgePanel extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        if (mIsBackExcluded && !mTriggerLongSwipe) {
+            return;
+        }
         float pointerPosition = mCurrentTranslation - mArrowThickness / 2.0f;
         canvas.save();
         canvas.translate(

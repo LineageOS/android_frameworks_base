@@ -165,6 +165,7 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
     private boolean mIsGesturalModeEnabled;
     private boolean mIsEnabled;
     private boolean mIsInTransientImmersiveStickyState;
+    private boolean mIsBackExcluded;
     private boolean mIsLongSwipeEnabled;
 
     private InputMonitor mInputMonitor;
@@ -354,6 +355,7 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
         }
 
         boolean isInExcludedRegion = mExcludeRegion.contains(x, y);
+        mIsBackExcluded = isInExcludedRegion;
         if (isInExcludedRegion) {
             mOverviewProxyService.notifyBackAction(false /* completed */, -1, -1,
                     false /* isButton */, !mIsOnLeftEdge);
@@ -364,7 +366,7 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
         } else {
             mInRejectedExclusion = mUnrestrictedExcludeRegion.contains(x, y);
         }
-        return !isInExcludedRegion;
+        return !isInExcludedRegion || mIsLongSwipeEnabled;
     }
 
     private void cancelGesture(MotionEvent ev) {
@@ -384,6 +386,7 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
             // either the bouncer is showing or the notification panel is hidden
             int stateFlags = mOverviewProxyService.getSystemUiStateFlags();
             mIsOnLeftEdge = ev.getX() <= mEdgeWidth + mLeftInset;
+            mIsBackExcluded = false;
             mInRejectedExclusion = false;
             mAllowGesture = !QuickStepContract.isBackGestureDisabled(stateFlags)
                     && isWithinTouchRegion((int) ev.getX(), (int) ev.getY());
@@ -392,6 +395,7 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
                         ? (Gravity.LEFT | Gravity.TOP)
                         : (Gravity.RIGHT | Gravity.TOP);
                 mEdgePanel.setIsLeftPanel(mIsOnLeftEdge);
+                mEdgePanel.setIsBackExcluded(mIsBackExcluded);
                 mEdgePanel.handleTouch(ev);
                 updateEdgePanelPosition(ev.getY());
                 mWm.updateViewLayout(mEdgePanel, mEdgePanelLp);
@@ -417,7 +421,8 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
                         cancelGesture(ev);
                         return;
 
-                    } else if (dx > dy && dx > mTouchSlop) {
+                    } else if (dx > dy && dx > (mIsBackExcluded
+                            ? mLongSwipeWidth * 0.75f : mTouchSlop)) {
                         mThresholdCrossed = true;
                         // Capture inputs
                         mInputMonitor.pilferPointers();
