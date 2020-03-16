@@ -678,6 +678,9 @@ final class HdmiCecLocalDeviceTv extends HdmiCecLocalDevice {
     @ServiceThreadOnly
     protected boolean handleReportAudioStatus(HdmiCecMessage message) {
         assertRunOnServiceThread();
+        if (!mService.isHdmiCecVolumeControlEnabled()) {
+            return false;
+        }
 
         boolean mute = HdmiUtils.isAudioStatusMute(message);
         int volume = HdmiUtils.getAudioStatusVolume(message);
@@ -983,7 +986,7 @@ final class HdmiCecLocalDeviceTv extends HdmiCecLocalDevice {
     }
 
     void setAudioStatus(boolean mute, int volume) {
-        if (!isSystemAudioActivated()) {
+        if (!isSystemAudioActivated() || !mService.isHdmiCecVolumeControlEnabled()) {
             return;
         }
         synchronized (mLock) {
@@ -1005,7 +1008,7 @@ final class HdmiCecLocalDeviceTv extends HdmiCecLocalDevice {
             // On initialization process, getAvrDeviceInfo() may return null and cause exception
             return;
         }
-        if (delta == 0 || !isSystemAudioActivated()) {
+        if (delta == 0 || !isSystemAudioActivated() || !mService.isHdmiCecVolumeControlEnabled()) {
             return;
         }
 
@@ -1034,7 +1037,7 @@ final class HdmiCecLocalDeviceTv extends HdmiCecLocalDevice {
     @ServiceThreadOnly
     void changeMute(boolean mute) {
         assertRunOnServiceThread();
-        if (getAvrDeviceInfo() == null) {
+        if (getAvrDeviceInfo() == null || !mService.isHdmiCecVolumeControlEnabled()) {
             // On initialization process, getAvrDeviceInfo() may return null and cause exception
             return;
         }
