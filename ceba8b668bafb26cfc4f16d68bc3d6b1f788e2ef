@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9238379_bdab0eec",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationModeController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-03-19T10:12:40Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 68
+      },
+      "revId": "ceba8b668bafb26cfc4f16d68bc3d6b1f788e2ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
