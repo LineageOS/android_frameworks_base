@@ -16,6 +16,24 @@
       "revId": "03f20c5cd99915c0a6852f0838eefcad3f93a1c0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4d4ddd0_bafed023",
+        "filename": "core/java/com/nvidia/shieldtech/NvHookHelper.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2020-03-20T04:13:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7f8ceca_39c6056c",
+      "revId": "03f20c5cd99915c0a6852f0838eefcad3f93a1c0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
