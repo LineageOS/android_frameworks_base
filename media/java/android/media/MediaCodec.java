@@ -1703,22 +1703,20 @@ final public class MediaCodec {
                     break;
                 }
                 case EVENT_FRAME_RENDERED:
-                    Map<String, Object> map = (Map<String, Object>)msg.obj;
-                    for (int i = 0; ; ++i) {
-                        Object mediaTimeUs = map.get(i + "-media-time-us");
-                        Object systemNano = map.get(i + "-system-nano");
-                        OnFrameRenderedListener onFrameRenderedListener;
-                        synchronized (mListenerLock) {
-                            onFrameRenderedListener = mOnFrameRenderedListener;
+                    synchronized (mListenerLock) {
+                        Map<String, Object> map = (Map<String, Object>)msg.obj;
+                        for (int i = 0; ; ++i) {
+                            Object mediaTimeUs = map.get(i + "-media-time-us");
+                            Object systemNano = map.get(i + "-system-nano");
+                            if (mediaTimeUs == null || systemNano == null
+                                    || mOnFrameRenderedListener == null) {
+                                break;
+                            }
+                            mOnFrameRenderedListener.onFrameRendered(
+                                    mCodec, (long)mediaTimeUs, (long)systemNano);
                         }
-                        if (mediaTimeUs == null || systemNano == null
-                                || onFrameRenderedListener == null) {
-                            break;
-                        }
-                        onFrameRenderedListener.onFrameRendered(
-                                mCodec, (long)mediaTimeUs, (long)systemNano);
+                        break;
                     }
-                    break;
                 default:
                 {
                     break;
