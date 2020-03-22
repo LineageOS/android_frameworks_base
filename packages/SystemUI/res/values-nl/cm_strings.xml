@@ -64,6 +64,7 @@
     <string name="accessibility_dpad_right">Cursor rechts</string>
     <string name="screen_pinning_description_no_navbar">Met scherm vastzetten wordt het beeldscherm vergrendeld op één weergave.\n\nBlijf de Terug-knop aanraken om het scherm los te maken.</string>
     <string name="screen_pinning_toast_no_navbar">Houd de Terug-knop ingedrukt om dit scherm te ontgrendelen</string>
+    <string name="nav_bar_layout_inverse">Omgekeerde lay-out</string>
     <string name="accessibility_quick_settings_location_battery_saving">Locatiemelding: accubesparing.</string>
     <string name="accessibility_quick_settings_location_gps_only">Locatiemelding: alleen apparaat.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Locatiemelding: grote nauwkeurigheid.</string>
