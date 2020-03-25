@@ -849,6 +849,13 @@ public final class DefaultPermissionGrantPolicy {
             grantRuntimePermissions(sharedStorageBackupPackage, STORAGE_PERMISSIONS, true, userId);
         }
 
+        // NvAccessories (Requires access to BT/BLE scans)
+        PackageParser.Package nvAccessoriesPackage = getSystemPackage("com.nvidia.blakepairing");
+        if (nvAccessoriesPackage != null
+                && doesPackageSupportRuntimePermissions(nvAccessoriesPackage)) {
+            grantRuntimePermissions(nvAccessoriesPackage, LOCATION_PERMISSIONS, false, userId);
+        }
+
         if (mPermissionGrantedCallback != null) {
             mPermissionGrantedCallback.onDefaultRuntimePermissionsGranted(userId);
         }
