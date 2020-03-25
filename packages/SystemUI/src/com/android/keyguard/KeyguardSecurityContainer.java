@@ -329,8 +329,11 @@ public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSe
 
     @Override
     protected boolean fitSystemWindows(Rect insets) {
+        int minBottomMargin = getResources().getDimensionPixelSize(
+                R.dimen.kg_security_container_min_bottom_margin);
         // Consume bottom insets because we're setting the padding locally (for IME and navbar.)
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), insets.bottom);
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(),
+                minBottomMargin > insets.bottom ? minBottomMargin : insets.bottom);
         insets.bottom = 0;
         return false;
     }
