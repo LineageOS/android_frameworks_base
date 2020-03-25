@@ -579,6 +579,7 @@ public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSe
         mCurrentSecurityView = newView;
         mSecurityCallback.onSecurityModeChanged(securityMode,
                 securityMode != SecurityMode.None && newView.needsInput());
+        mUpdateMonitor.setSecurityMode(securityMode);
     }
 
     private KeyguardSecurityViewFlipper getFlipper() {
