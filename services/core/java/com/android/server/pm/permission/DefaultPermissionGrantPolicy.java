@@ -839,6 +839,10 @@ public final class DefaultPermissionGrantPolicy {
             grantPermissionsToSystemPackage(pm, systemCaptionsServicePackageName, userId,
                     MICROPHONE_PERMISSIONS);
         }
+
+        // NvAccessories (Requires access to BT/BLE scans)
+        grantPermissionsToPackage(pm, "com.nvidia.blakepairing", userId, false, false,
+                ALWAYS_LOCATION_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(PackageManagerWrapper pm,
