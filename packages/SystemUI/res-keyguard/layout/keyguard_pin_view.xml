@@ -33,6 +33,7 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             android:layout_weight="1"
+            android:layout_marginBottom="@dimen/pin_view_bottom_margin"
             android:layoutDirection="ltr"
             >
         <com.android.keyguard.AlphaOptimizedRelativeLayout
