@@ -140,8 +140,7 @@ sk_sp<Bitmap> Bitmap::createFrom(sp<GraphicBuffer> graphicBuffer) {
         return nullptr;
     }
     SkImageInfo info = SkImageInfo::Make(graphicBuffer->getWidth(), graphicBuffer->getHeight(),
-                                         kRGBA_8888_SkColorType, kPremul_SkAlphaType,
-                                         SkColorSpace::MakeSRGB());
+                                         kRGBA_8888_SkColorType, kPremul_SkAlphaType);
     return sk_sp<Bitmap>(new Bitmap(graphicBuffer.get(), info));
 }
 
