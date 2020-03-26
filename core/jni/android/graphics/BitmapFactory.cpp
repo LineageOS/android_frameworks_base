@@ -317,6 +317,41 @@ static jobject doDecode(JNIEnv* env, std::unique_ptr<SkStreamRewindable> stream,
         scaledHeight = static_cast<int>(scaledHeight * scale + 0.5f);
     }
 
+    /* TRONX2100 and RAWMAIN for MTK L861 fixes skewed display for hw bitmaps */
+    /* also needs to revert bitmap copy hw
+     * https://gitlab.bangl.de/crackling-dev/android_frameworks_base/commit/05126d151eb3caa85bd3a039cffb6e37940c3fa4 */
+    const int needsOffset = 32;
+    const int minScaleHandlesize = 16; // we do not handle smaller sizes needsOffset/2
+    if (isHardware && scaledWidth >= minScaleHandlesize && scaledHeight >= minScaleHandlesize) {
+        int rx = scaledWidth % needsOffset;
+        int ry = scaledHeight % needsOffset;
+        bool scaleX = false;
+
+        //ALOGI("[Before scaling] scaledWidth: %d, scaledHeight: %d, rx: %d, ry: %d", scaledWidth, scaledHeight, rx, ry);
+        if (rx != 0) {
+            willScale = true;
+            if (rx >= (needsOffset / 2)){
+                scaleX = true; // upscale
+                rx = needsOffset - rx;
+                scaledWidth = scaledWidth + rx;
+            } else {
+                scaledWidth = scaledWidth - rx;
+            }
+        }
+        if (ry != 0) {
+            willScale = true;
+            if (ry >= (needsOffset / 2) || scaleX){
+                // upscale
+                ry = needsOffset - ry;
+                scaledHeight = scaledHeight + ry;
+            } else {
+                scaledHeight = scaledHeight - ry;
+            }
+        }
+        //ALOGI("[After scaling] scaledWidth: %d, scaledHeight: %d, rx: %d, ry: %d", scaledWidth, scaledHeight, rx, ry);
+    }
+    /* END TRONX2100 */
+
     android::Bitmap* reuseBitmap = nullptr;
     unsigned int existingBufferSize = 0;
     if (javaBitmap != NULL) {
