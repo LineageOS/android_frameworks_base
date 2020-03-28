@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="more_options_button">Barrachd roghainnean</string>
+    <string name="label_copies_summary">Lethbhreacan:</string>
+    <string name="label_color">Dath</string>
+    <string name="label_duplex">Dà-thaobhach</string>
+    <string name="label_orientation">Comhair</string>
+    <string name="label_pages">Duilleagan</string>
+    <string name="save_as_pdf">Sàbhail mar PDF</string>
+    <string name="search">Lorg</string>
+    <string name="could_not_create_file">Cha b’ urrainn dhuinn am faidhle a chruthachadh</string>
+    <string name="print_searching_for_printers">A’ lorg clò-bhualadairean</string>
+    <string name="all_services_title">Na seirbheisean uile</string>
+    <string-array name="color_mode_labels">
+        <item>Black &amp; White</item>
+        <item>Dath</item>
+    </string-array>
+    <string-array name="duplex_mode_labels">
+        <item>Chan eil gin</item>
+        <item>Long edge</item>
+        <item>Short edge</item>
+    </string-array>
+    <string-array name="orientation_labels">
+        <item>Portraid</item>
+        <item>Landscape</item>
+    </string-array>
+    <string name="print_error_retry">Feuch ris a-rithist</string>
+</resources>
