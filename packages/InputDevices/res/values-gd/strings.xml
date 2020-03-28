@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="keyboard_layout_english_us_label">Beurla (SA)</string>
+    <string name="keyboard_layout_german_label">Gearmailtis</string>
+    <string name="keyboard_layout_spanish_label">Spàinntis</string>
+    <string name="keyboard_layout_swiss_french_label">Fraingis Eilbheiseach</string>
+    <string name="keyboard_layout_swiss_german_label">Gearmailtis Eilbheiseach</string>
+    <string name="keyboard_layout_belgian">Beilgeach</string>
+    <string name="keyboard_layout_italian">Eadailtis</string>
+    <string name="keyboard_layout_danish">Danmhairgis</string>
+    <string name="keyboard_layout_norwegian">Nirribhis</string>
+    <string name="keyboard_layout_swedish">Suainis</string>
+    <string name="keyboard_layout_croatian">Cròthaisis</string>
+    <string name="keyboard_layout_hungarian">Ungairis</string>
+    <string name="keyboard_layout_portuguese">Portagailis</string>
+    <string name="keyboard_layout_slovak">Slòbhacais</string>
+    <string name="keyboard_layout_slovenian">Slòbhainis</string>
+    <string name="keyboard_layout_turkish">Turcais</string>
+    <string name="keyboard_layout_ukrainian">Ucràinis</string>
+    <string name="keyboard_layout_greek">Greugais</string>
+    <string name="keyboard_layout_hebrew">Eabhra</string>
+    <string name="keyboard_layout_lithuanian">Liotuainis</string>
+    <string name="keyboard_layout_latvian">Laitbheis</string>
+    <string name="keyboard_layout_azerbaijani">Asarbaideànais</string>
+    <string name="keyboard_layout_polish">Pòlainnis</string>
+</resources>
