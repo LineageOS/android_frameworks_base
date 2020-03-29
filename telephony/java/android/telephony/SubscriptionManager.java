@@ -139,6 +139,9 @@ public class SubscriptionManager {
      * @hide
      */
     public static Uri getUriForSubscriptionId(int subscriptionId) {
+        if (subscriptionId < 0) {
+            subscriptionId = MIN_SUBSCRIPTION_ID_VALUE;
+        }
         return Uri.withAppendedPath(CONTENT_URI, String.valueOf(subscriptionId));
     }
 
