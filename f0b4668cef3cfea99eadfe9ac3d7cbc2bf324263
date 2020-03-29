@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37e18bf0_042283c6",
+        "filename": "telephony/java/android/telephony/SubscriptionManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-03-29T17:40:22Z",
+      "side": 1,
+      "message": "I think that more proper than returning CONTENT_URI here is forcing subscriptionId to 0.",
+      "range": {
+        "startLine": 143,
+        "startChar": 11,
+        "endLine": 143,
+        "endChar": 30
+      },
+      "revId": "f0b4668cef3cfea99eadfe9ac3d7cbc2bf324263",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
