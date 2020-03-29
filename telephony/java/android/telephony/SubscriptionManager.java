@@ -140,7 +140,7 @@ public class SubscriptionManager {
      */
     public static Uri getUriForSubscriptionId(int subscriptionId) {
         if (subscriptionId < 0) {
-           return CONTENT_URI;
+           subscriptionId = MIN_SUBSCRIPTION_ID_VALUE;
         }
         return Uri.withAppendedPath(CONTENT_URI, String.valueOf(subscriptionId));
     }
