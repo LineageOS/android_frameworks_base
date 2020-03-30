@@ -46,6 +46,24 @@
       "revId": "ec6a17c4bb2b76ee05b85768d215ecde55d2bcf9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "887d94aa_6ec99453",
+        "filename": "services/core/java/com/android/server/wm/DisplayPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-03-30T11:21:48Z",
+      "side": 1,
+      "message": "by passing this is ties the content observer to the current context and main thread.\ninstead passing the custom observer that has its own handler/looper aka another thread might fix it",
+      "parentUuid": "",
+      "revId": "ec6a17c4bb2b76ee05b85768d215ecde55d2bcf9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
