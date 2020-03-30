@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1924a4f9_e297352f",
+        "filename": "services/core/java/com/android/server/wm/DisplayPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-03-30T11:07:53Z",
+      "side": 1,
+      "message": "try using mSettingsObserver",
+      "range": {
+        "startLine": 443,
+        "startChar": 70,
+        "endLine": 443,
+        "endChar": 74
+      },
+      "revId": "ec6a17c4bb2b76ee05b85768d215ecde55d2bcf9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
