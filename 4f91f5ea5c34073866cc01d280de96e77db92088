@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6d033ea_9c7a974b",
+        "filename": "services/core/java/com/android/server/wm/DisplayPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-03-30T12:37:40Z",
+      "side": 0,
+      "message": "Can be as well moved into the if...else block that starts in line 615, because this was our addition.",
+      "range": {
+        "startLine": 636,
+        "startChar": 8,
+        "endLine": 636,
+        "endChar": 59
+      },
+      "revId": "4f91f5ea5c34073866cc01d280de96e77db92088",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
