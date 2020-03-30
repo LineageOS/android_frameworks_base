@@ -82,6 +82,24 @@
       "revId": "ec6a17c4bb2b76ee05b85768d215ecde55d2bcf9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d281ecd_f7db7e15",
+        "filename": "services/core/java/com/android/server/wm/DisplayPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-03-30T18:47:38Z",
+      "side": 1,
+      "message": "ugh right, then moving the observer registration into the if check seems the proper solution",
+      "parentUuid": "b5311d19_bf731316",
+      "revId": "ec6a17c4bb2b76ee05b85768d215ecde55d2bcf9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
