@@ -88,6 +88,7 @@ import android.util.SparseIntArray;
 import android.util.TimingsTraceLog;
 import android.util.proto.ProtoOutputStream;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 
 import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
@@ -554,6 +555,22 @@ class UserController implements Handler.Callback {
                             Bundle extras, boolean ordered, boolean sticky, int sendingUser)
                             throws RemoteException {
                         Slog.i(UserController.TAG, "Finished processing BOOT_COMPLETED for u" + userId);
+
+                        List<ActivityManager.RunningAppProcessInfo> appProcesses = mInjector.mService.getRunningAppProcesses();
+
+                        for (ActivityManager.RunningAppProcessInfo appProcess: appProcesses) {
+                            if (!appProcess.processName.equals("com.nvidia.shield.remote.server")) {// TODO: BEYONDER_PACKAGE
+                                continue;
+                            }
+
+                            InputMethodManager manager = mInjector.getContext().getSystemService(InputMethodManager.class);
+
+                            if (manager == null) {
+                                continue;
+                            }
+
+                            manager.enableBeyonderSwitchImeNotifier();
+                        }
                     }
                 }, 0, null, null,
                 new String[]{android.Manifest.permission.RECEIVE_BOOT_COMPLETED},

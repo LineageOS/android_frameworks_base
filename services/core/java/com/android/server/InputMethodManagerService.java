@@ -140,6 +140,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputBinding;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionInspector;
+import android.view.InputDevice;
 import android.view.inputmethod.InputMethod;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -215,6 +216,8 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
     static final int MSG_SET_USER_ACTION_NOTIFICATION_SEQUENCE_NUMBER = 3040;
     static final int MSG_REPORT_FULLSCREEN_MODE = 3045;
     static final int MSG_SWITCH_IME = 3050;
+    static final int MSG_SWITCH_IME_BROADCAST = 3055;
+
 
     static final int MSG_HARD_KEYBOARD_SWITCH_CHANGED = 4000;
 
@@ -624,6 +627,11 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
     private final String mSlotIme;
     @HardKeyboardBehavior
     private final int mHardKeyboardBehavior;
+
+    private static String sCurrentInputMethod = "defaultIME"; // TODO: SWITCH_TO_DEFAULT_IME
+    private static boolean sBeyonderSwitchImeNotifier = false;
+    private static String sLastInputDevice;
+
 
     /**
      * Whether we temporarily allow IMEs implemented in instant apps to run for testing.
@@ -3559,6 +3567,9 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
             case MSG_SWITCH_IME:
                 handleSwitchInputMethod(msg.arg1 != 0);
                 return true;
+            case MSG_SWITCH_IME_BROADCAST:
+                sendSwitchInputMethodBroadcast((String) msg.obj);
+                return true;
             case MSG_SET_USER_ACTION_NOTIFICATION_SEQUENCE_NUMBER: {
                 final int sequenceNumber = msg.arg1;
                 final ClientState clientState = (ClientState)msg.obj;
@@ -4657,6 +4668,59 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
                         MSG_REPORT_FULLSCREEN_MODE, fullscreen ? 1 : 0, mCurClient));
             }
         }
+    }
+
+    @Override
+    public void enableBeyonderSwitchImeNotifier() {
+        sBeyonderSwitchImeNotifier = true;
+    }
+
+    @Override
+    public String getCurrentInputMethod() {
+        return sCurrentInputMethod;
+    }
+
+    @Override
+    public void handleInputSourceChange(final InputDevice inputDevice) {
+        if (!sBeyonderSwitchImeNotifier) {
+            return;
+        }
+
+        if (inputDevice.getName().equals("Virtual") && inputDevice.getId() == -1) {
+            return;
+        }
+
+        if (sLastInputDevice == null) {
+            sLastInputDevice = inputDevice.getName();
+
+            if (sLastInputDevice.startsWith("beyonder-remote")) { //TODO: BEYONDER_DEVICE_NAME
+                mHandler.sendMessage(mHandler.obtainMessage(MSG_SWITCH_IME_BROADCAST, (Object)"beyonderIME")); //TODO: SWITCH_TO_BEYONDER_IME
+            }
+
+            return;
+        }
+
+        final String name = inputDevice.getName();
+        if (!sLastInputDevice.equals(name)) {
+            if (sLastInputDevice.startsWith("beyonder-remote")) { //TODO: BEYONDER_DEVICE_NAME
+                if (!name.startsWith("beyonder-remote")) { //TODO: BEYONDER_DEVICE_NAME
+                    mHandler.sendMessage(this.mHandler.obtainMessage(MSG_SWITCH_IME_BROADCAST, (Object)"defaultIME")); //TODO: SWITCH_TO_DEFAULT_IME
+                }
+            } else if (name.startsWith("beyonder-remote")) { //TODO: BEYONDER_DEVICE_NAME
+                mHandler.sendMessage(this.mHandler.obtainMessage(MSG_SWITCH_IME_BROADCAST, (Object)"beyonderIME")); //TODO: SWITCH_TO_BEYONDER_IME
+            }
+
+            sLastInputDevice = name;
+        }
+    }
+
+    private void sendSwitchInputMethodBroadcast(final String inputMethod) {
+        final Intent intent = new Intent();
+        intent.setAction("com.nvidia.framework.android.view.SwitchInputMethod"); // TODO: ACTION_SWITCH_INPUT_METHOD
+        intent.setPackage("com.nvidia.shield.remote.server"); // TODO: BEYONDER_PACKAGE
+        intent.putExtra("com.nvidia.framework.android.view.SwitchInputMethod.SWITCH_TO_IME", sCurrentInputMethod); // TODO: EXTRA_SWITCH_TO_IME
+        mContext.sendBroadcast(intent);
+        sCurrentInputMethod = inputMethod;
     }
 
     @Override

@@ -121,6 +121,41 @@ public class TvRemoteService extends SystemService implements Watchdog.Monitor {
         }
     }
 
+    // Incoming calls.
+    private void openInputBridgeInternalLocked(TvRemoteProviderProxy provider, IBinder token,
+                                               String name, int width, int height,
+                                               int maxPointers, int axisMin, int axisMax,
+                                               int fuzz, int flat) {
+        if (DEBUG) {
+            Slog.d(TAG, "openInputBridgeInternalLocked(), token: " + token + ", name: " + name +
+                    ", width: " + width + ", height: " + height + ", maxPointers: " + maxPointers +
+                    ", axisMin: " + axisMin + ", axisMax: " + axisMax + ", fuzz: " + fuzz +
+                    ", flat: " + flat);
+        }
+
+        try {
+            //Create a new bridge, if one does not exist already
+            if (mBridgeMap.containsKey(token)) {
+                if (DEBUG) Slog.d(TAG, "RemoteBridge already exists");
+                // Respond back with success.
+                informInputBridgeConnected(token);
+                return;
+            }
+
+            UinputBridge inputBridge = new UinputBridge(token, name, width, height, maxPointers,
+                                                        axisMin, axisMax, fuzz, flat);
+
+            mBridgeMap.put(token, inputBridge);
+            mProviderMap.put(token, provider);
+
+            // Respond back with success.
+            informInputBridgeConnected(token);
+
+        } catch (IOException ioe) {
+            Slog.e(TAG, "Cannot create device for " + name);
+        }
+    }
+
     private void closeInputBridgeInternalLocked(IBinder token) {
         if (DEBUG) {
             Slog.d(TAG, "closeInputBridgeInternalLocked(), token: " + token);
@@ -211,6 +246,66 @@ public class TvRemoteService extends SystemService implements Watchdog.Monitor {
         }
     }
 
+    private void sendMouseBtnLeftInternalLocked(IBinder token, boolean down) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseBtnLeftInternalLocked(), token: " + token + ", down: " +
+                    down);
+        }
+
+        UinputBridge inputBridge = mBridgeMap.get(token);
+        if (inputBridge != null) {
+            inputBridge.sendMouseBtnLeft(token, down);
+        }
+    }
+
+    private void sendMouseBtnRightInternalLocked(IBinder token, boolean down) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseBtnRightInternalLocked(), token: " + token + ", down: " +
+                    down);
+        }
+
+        UinputBridge inputBridge = mBridgeMap.get(token);
+        if (inputBridge != null) {
+            inputBridge.sendMouseBtnRight(token, down);
+        }
+    }
+
+    private void sendMouseMoveInternalLocked(IBinder token, int x, int y) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseMoveInternalLocked(), token: " + token + ", x: " + x +
+                    ", y: " + y);
+        }
+
+        UinputBridge inputBridge = mBridgeMap.get(token);
+        if (inputBridge != null) {
+            inputBridge.sendMouseMove(token, x, y);
+        }
+    }
+
+    private void sendMouseWheelInternalLocked(IBinder token, int x, int y) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseWheelInternalLocked(), token: " + token + ", x: " + x +
+                    ", y: " + y);
+        }
+
+        UinputBridge inputBridge = mBridgeMap.get(token);
+        if (inputBridge != null) {
+            inputBridge.sendMouseWheel(token, x, y);
+        }
+    }
+
+    private void sendAbsEventInternalLocked(IBinder token, int x, int y, int axis) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendAbsEventInternalLocked(), token: " + token + ", x: " + x +
+                    ", y: " + y + ", axis: " + axis);
+        }
+
+        UinputBridge inputBridge = mBridgeMap.get(token);
+        if (inputBridge != null) {
+            inputBridge.sendAbsEvent(token, x, y, axis);
+        }
+    }
+
     private final class UserHandler extends Handler {
 
         public static final int MSG_START = 1;
@@ -276,6 +371,26 @@ public class TvRemoteService extends SystemService implements Watchdog.Monitor {
             }
         }
 
+
+        @Override
+        public void openInputBridge(TvRemoteProviderProxy provider, IBinder token, String name,
+                                    int width, int height, int maxPointers, int axisMin,
+                                    int axisMax, int fuzz, int flat) {
+            if (DEBUG) {
+                Slog.d(TAG, "openInputBridge(), token: " + token +
+                        ", name: " + name + ", width: " + width +
+                        ", height: " + height + ", maxPointers: " + maxPointers +
+                        ", axisMin: " + axisMin + ", axisMax: " + axisMax +
+                        ", fuzz: " + fuzz + ", flat: " + flat);
+            }
+
+            synchronized (mLock) {
+                if (mProviderList.contains(provider)) {
+                    mService.openInputBridgeInternalLocked(provider, token, name, width, height,
+                            maxPointers, axisMin, axisMax, fuzz, flat);
+                }
+            }
+        }
         @Override
         public void closeInputBridge(TvRemoteProviderProxy provider, IBinder token) {
             if (DEBUG) Slog.d(TAG, "closeInputBridge(), token: " + token);
@@ -361,6 +476,51 @@ public class TvRemoteService extends SystemService implements Watchdog.Monitor {
             synchronized (mLock) {
                 if (mProviderList.contains(provider)) {
                     mService.sendPointerSyncInternalLocked(token);
+                }
+            }
+        }
+
+        @Override
+        public void sendMouseBtnLeft(TvRemoteProviderProxy provider, IBinder token, boolean down) {
+            synchronized (mLock) {
+                if (mProviderList.contains(provider)) {
+                    mService.sendMouseBtnLeftInternalLocked(token, down);
+                }
+            }
+        }
+
+        @Override
+        public void sendMouseBtnRight(TvRemoteProviderProxy provider, IBinder token, boolean down) {
+            synchronized (mLock) {
+                if (mProviderList.contains(provider)) {
+                    mService.sendMouseBtnRightInternalLocked(token, down);
+                }
+            }
+        }
+
+        @Override
+        public void sendMouseMove(TvRemoteProviderProxy provider, IBinder token, int x, int y) {
+            synchronized (mLock) {
+                if (mProviderList.contains(provider)) {
+                    mService.sendMouseMoveInternalLocked(token, x, y);
+                }
+            }
+        }
+
+        @Override
+        public void sendMouseWheel(TvRemoteProviderProxy provider, IBinder token, int x, int y) {
+            synchronized (mLock) {
+                if (mProviderList.contains(provider)) {
+                    mService.sendMouseWheelInternalLocked(token, x, y);
+                }
+            }
+        }
+
+        @Override
+        public void sendAbsEvent(TvRemoteProviderProxy provider, IBinder token, int x, int y, int axis) {
+            synchronized (mLock) {
+                if (mProviderList.contains(provider)) {
+                    mService.sendAbsEventInternalLocked(token, x, y, axis);
                 }
             }
         }

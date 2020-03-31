@@ -22,6 +22,7 @@ import android.text.style.SuggestionSpan;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodSubtype;
 import android.view.inputmethod.EditorInfo;
+import android.view.InputDevice;
 import com.android.internal.inputmethod.IInputContentUriToken;
 import com.android.internal.view.InputBindResult;
 import com.android.internal.view.IInputContext;
@@ -93,4 +94,8 @@ interface IInputMethodManager {
     void reportFullscreenMode(in IBinder token, boolean fullscreen);
 
     oneway void notifyUserAction(int sequenceNumber);
+
+    void handleInputSourceChange(in InputDevice InputDevice);
+    void enableBeyonderSwitchImeNotifier();
+    String getCurrentInputMethod();
 }

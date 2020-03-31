@@ -33,6 +33,9 @@ public final class UinputBridge {
 
     private static native long nativeOpen(String name, String uniqueId, int width, int height,
                                           int maxPointers);
+    private static native long nativeNvOpen(String name, String uniqueId, int width, int height,
+                                          int maxPointers, int axisMin, int axisMax, int fuzz,
+                                          int flat);
     private static native void nativeClose(long ptr);
     private static native void nativeClear(long ptr);
     private static native void nativeSendTimestamp(long ptr, long timestamp);
@@ -40,6 +43,12 @@ public final class UinputBridge {
     private static native void nativeSendPointerDown(long ptr, int pointerId, int x, int y);
     private static native void nativeSendPointerUp(long ptr, int pointerId);
     private static native void nativeSendPointerSync(long ptr);
+    private static native void nativeSendMouseBtnLeft(long ptr, boolean down);
+    private static native void nativeSendMouseBtnRight(long ptr, boolean down);
+    private static native void nativeSendMouseMove(long ptr, int x, int y);
+    private static native void nativeSendMouseWheel(long ptr, int x, int y);
+    private static native void nativeSendAbsEvent(long ptr, int x, int y, int axis);
+
 
     public UinputBridge(IBinder token, String name, int width, int height, int maxPointers)
                         throws IOException {
@@ -53,6 +62,26 @@ public final class UinputBridge {
             throw new IllegalArgumentException("Token cannot be null");
         }
         mPtr = nativeOpen(name, token.toString(), width, height, maxPointers);
+        if (mPtr == 0) {
+            throw new IOException("Could not open uinput device " + name);
+        }
+        mToken = token;
+        mCloseGuard.open("close");
+    }
+
+    public UinputBridge(IBinder token, String name, int width, int height, int maxPointers,
+                        int axisMin, int axisMax, int fuzz, int flat)
+                        throws IOException {
+        if (width < 1 || height < 1) {
+            throw new IllegalArgumentException("Touchpad must be at least 1x1.");
+        }
+        if (maxPointers < 1 || maxPointers > 32) {
+            throw new IllegalArgumentException("Touchpad must support between 1 and 32 pointers.");
+        }
+        if (token == null) {
+            throw new IllegalArgumentException("Token cannot be null");
+        }
+        mPtr = nativeNvOpen(name, token.toString(), width, height, maxPointers, axisMin, axisMax, fuzz, flat);
         if (mPtr == 0) {
             throw new IOException("Could not open uinput device " + name);
         }
@@ -136,4 +165,33 @@ public final class UinputBridge {
         }
     }
 
+    public void sendMouseBtnLeft(IBinder token, boolean down) {
+        if (isTokenValid(token)) {
+            nativeSendMouseBtnLeft(mPtr, down);
+        }
+    }
+
+    public void sendMouseBtnRight(IBinder token, boolean down) {
+        if (isTokenValid(token)) {
+            nativeSendMouseBtnRight(mPtr, down);
+        }
+    }
+
+    public void sendMouseMove(IBinder token, int x, int y) {
+        if (isTokenValid(token)) {
+            nativeSendMouseMove(mPtr, x, y);
+        }
+    }
+
+    public void sendMouseWheel(IBinder token, int x, int y) {
+        if (isTokenValid(token)) {
+            nativeSendMouseWheel(mPtr, x, y);
+        }
+    }
+
+    public void sendAbsEvent(IBinder token, int x, int y, int axis) {
+        if (isTokenValid(token)) {
+            nativeSendAbsEvent(mPtr, x, y, axis);
+        }
+    }
 }
