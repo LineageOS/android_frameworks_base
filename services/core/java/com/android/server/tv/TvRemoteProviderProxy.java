@@ -251,6 +251,10 @@ final class TvRemoteProviderProxy implements ServiceConnection {
         void openInputBridge(TvRemoteProviderProxy provider, IBinder token, String name,
                              int width, int height, int maxPointers);
 
+        void openInputBridge(TvRemoteProviderProxy provider, IBinder token, String name,
+                             int width, int height, int maxPointers, int axisMin, int axisMax,
+                             int fuzz, int flat);
+
         void closeInputBridge(TvRemoteProviderProxy provider, IBinder token);
 
         void clearInputBridge(TvRemoteProviderProxy provider, IBinder token);
@@ -267,6 +271,16 @@ final class TvRemoteProviderProxy implements ServiceConnection {
         void sendPointerUp(TvRemoteProviderProxy provider, IBinder token, int pointerId);
 
         void sendPointerSync(TvRemoteProviderProxy provider, IBinder token);
+
+        void sendMouseBtnLeft(TvRemoteProviderProxy provider, IBinder token, boolean down);
+
+        void sendMouseBtnRight(TvRemoteProviderProxy provider, IBinder token, boolean down);
+
+        void sendMouseMove(TvRemoteProviderProxy provider, IBinder token, int x, int y);
+
+        void sendMouseWheel(TvRemoteProviderProxy provider, IBinder token, int x, int y);
+
+        void sendAbsEvent(TvRemoteProviderProxy provider, IBinder token, int x, int y, int axis);
     }
 
     private final class Connection implements IBinder.DeathRecipient {
@@ -349,6 +363,33 @@ final class TvRemoteProviderProxy implements ServiceConnection {
             }
         }
 
+        void openInputBridge(final IBinder token, final String name, final int width,
+                             final int height, final int maxPointers, final int axisMin,
+                             final int axisMax, final int fuzz, final int flat) {
+            synchronized (mLock) {
+                if (mActiveConnection == this && Binder.getCallingUid() == mUid) {
+                    if (DEBUG) {
+                        Slog.d(TAG, this + ": openInputBridge," +
+                                " token=" + token + ", name=" + name);
+                    }
+                    final long idToken = Binder.clearCallingIdentity();
+                    try {
+                        if (mProviderMethods != null) {
+                            mProviderMethods.openInputBridge(TvRemoteProviderProxy.this, token,
+                                    name, width, height, maxPointers, axisMin, axisMax, fuzz, flat);
+                        }
+                    } finally {
+                        Binder.restoreCallingIdentity(idToken);
+                    }
+                } else {
+                    if (DEBUG) {
+                        Slog.w(TAG,
+                                "openInputBridge, Invalid connection or incorrect uid: " + Binder
+                                        .getCallingUid());
+                    }
+                }
+            }
+        }
         void closeInputBridge(final IBinder token) {
             synchronized (mLock) {
                 if (mActiveConnection == this && Binder.getCallingUid() == mUid) {
@@ -548,6 +589,134 @@ final class TvRemoteProviderProxy implements ServiceConnection {
                 }
             }
         }
+
+        void sendMouseBtnLeft(final IBinder token, boolean down) {
+            synchronized (mLock) {
+                if (mActiveConnection == this && Binder.getCallingUid() == mUid) {
+                    if (DEBUG_KEY) {
+                        Slog.d(TAG, this + ": sendMouseBtnLeft," +
+                                " token=" + token + ", down=" + down);
+                    }
+                    final long idToken = Binder.clearCallingIdentity();
+                    try {
+                        if (mProviderMethods != null) {
+                            mProviderMethods.sendMouseBtnLeft(TvRemoteProviderProxy.this, token, down);
+                        }
+                    } finally {
+                        Binder.restoreCallingIdentity(idToken);
+                    }
+                } else {
+                    if (DEBUG) {
+                        Slog.w(TAG,
+                                "sendMouseBtnLeft, Invalid connection or incorrect uid: " + Binder
+                                        .getCallingUid());
+                    }
+                }
+            }
+        }
+
+        void sendMouseBtnRight(final IBinder token, boolean down) {
+            synchronized (mLock) {
+                if (mActiveConnection == this && Binder.getCallingUid() == mUid) {
+                    if (DEBUG_KEY) {
+                        Slog.d(TAG, this + ": sendMouseBtnRight," +
+                                " token=" + token + ", down=" + down);
+                    }
+                    final long idToken = Binder.clearCallingIdentity();
+                    try {
+                        if (mProviderMethods != null) {
+                            mProviderMethods.sendMouseBtnRight(TvRemoteProviderProxy.this, token, down);
+                        }
+                    } finally {
+                        Binder.restoreCallingIdentity(idToken);
+                    }
+                } else {
+                    if (DEBUG) {
+                        Slog.w(TAG,
+                                "sendMouseBtnRight, Invalid connection or incorrect uid: " + Binder
+                                        .getCallingUid());
+                    }
+                }
+            }
+        }
+
+        void sendMouseMove(final IBinder token, int x, int y) {
+            synchronized (mLock) {
+                if (mActiveConnection == this && Binder.getCallingUid() == mUid) {
+                    if (DEBUG_KEY) {
+                        Slog.d(TAG, this + ": sendMouseMove," +
+                                " token=" + token + ", x=" + x +
+                                ", y=" + y);
+                    }
+                    final long idToken = Binder.clearCallingIdentity();
+                    try {
+                        if (mProviderMethods != null) {
+                            mProviderMethods.sendMouseMove(TvRemoteProviderProxy.this, token, x, y);
+                        }
+                    } finally {
+                        Binder.restoreCallingIdentity(idToken);
+                    }
+                } else {
+                    if (DEBUG) {
+                        Slog.w(TAG,
+                                "sendMouseBtnLeft, Invalid connection or incorrect uid: " + Binder
+                                        .getCallingUid());
+                    }
+                }
+            }
+        }
+
+        void sendMouseWheel(final IBinder token, int x, int y) {
+            synchronized (mLock) {
+                if (mActiveConnection == this && Binder.getCallingUid() == mUid) {
+                    if (DEBUG_KEY) {
+                        Slog.d(TAG, this + ": sendMouseWheel," +
+                                " token=" + token + ", x=" + x +
+                                ", y=" + y);
+                    }
+                    final long idToken = Binder.clearCallingIdentity();
+                    try {
+                        if (mProviderMethods != null) {
+                            mProviderMethods.sendMouseWheel(TvRemoteProviderProxy.this, token, x, y);
+                        }
+                    } finally {
+                        Binder.restoreCallingIdentity(idToken);
+                    }
+                } else {
+                    if (DEBUG) {
+                        Slog.w(TAG,
+                                "sendMouseWheel, Invalid connection or incorrect uid: " + Binder
+                                        .getCallingUid());
+                    }
+                }
+            }
+        }
+
+        void sendAbsEvent(final IBinder token, int x, int y, int axis) {
+            synchronized (mLock) {
+                if (mActiveConnection == this && Binder.getCallingUid() == mUid) {
+                    if (DEBUG_KEY) {
+                        Slog.d(TAG, this + ": sendAbsEvent," +
+                                " token=" + token + ", x=" + x +
+                                ", y=" + y + ", axis=" + axis);
+                    }
+                    final long idToken = Binder.clearCallingIdentity();
+                    try {
+                        if (mProviderMethods != null) {
+                            mProviderMethods.sendAbsEvent(TvRemoteProviderProxy.this, token, x, y, axis);
+                        }
+                    } finally {
+                        Binder.restoreCallingIdentity(idToken);
+                    }
+                } else {
+                    if (DEBUG) {
+                        Slog.w(TAG,
+                                "sendAbsEvent, Invalid connection or incorrect uid: " + Binder
+                                        .getCallingUid());
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -576,6 +745,16 @@ final class TvRemoteProviderProxy implements ServiceConnection {
             Connection connection = mConnectionRef.get();
             if (connection != null) {
                 connection.openInputBridge(token, name, width, height, maxPointers);
+            }
+        }
+
+        @Override
+        public void nvOpenInputBridge(IBinder token, String name, int width,
+                                    int height, int maxPointers, int axisMin,
+                                    int axisMax, int fuzz, int flat) throws RemoteException {
+            Connection connection = mConnectionRef.get();
+            if (connection != null) {
+                connection.openInputBridge(token, name, width, height, maxPointers, axisMin, axisMax, fuzz, flat);
             }
         }
 
@@ -641,6 +820,46 @@ final class TvRemoteProviderProxy implements ServiceConnection {
             Connection connection = mConnectionRef.get();
             if (connection != null) {
                 connection.sendPointerSync(token);
+            }
+        }
+
+        @Override
+        public void sendMouseBtnLeft(IBinder token, boolean down) throws RemoteException {
+            Connection connection = mConnectionRef.get();
+            if (connection != null) {
+                connection.sendMouseBtnLeft(token, down);
+            }
+        }
+
+        @Override
+        public void sendMouseBtnRight(IBinder token, boolean down) throws RemoteException {
+            Connection connection = mConnectionRef.get();
+            if (connection != null) {
+                connection.sendMouseBtnRight(token, down);
+            }
+        }
+
+        @Override
+        public void sendMouseMove(IBinder token, int x, int y) throws RemoteException {
+            Connection connection = mConnectionRef.get();
+            if (connection != null) {
+                connection.sendMouseMove(token, x, y);
+            }
+        }
+
+        @Override
+        public void sendMouseWheel(IBinder token, int x, int y) throws RemoteException {
+            Connection connection = mConnectionRef.get();
+            if (connection != null) {
+                connection.sendMouseWheel(token, x, y);
+            }
+        }
+
+        @Override
+        public void sendAbsEvent(IBinder token, int x, int y, int axis) throws RemoteException {
+            Connection connection = mConnectionRef.get();
+            if (connection != null) {
+                connection.sendAbsEvent(token, x, y, axis);
             }
         }
     }

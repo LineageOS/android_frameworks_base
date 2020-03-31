@@ -22,6 +22,7 @@ package android.media.tv;
 oneway interface ITvRemoteServiceInput {
     // InputBridge related
     void openInputBridge(IBinder token, String name, int width, int height, int maxPointers);
+    void nvOpenInputBridge(IBinder token, String name, int width, int height, int maxPointers, int axisMin, int axisMax, int fuzz, int flat);
     void closeInputBridge(IBinder token);
     void clearInputBridge(IBinder token);
     void sendTimestamp(IBinder token, long timestamp);
@@ -30,4 +31,9 @@ oneway interface ITvRemoteServiceInput {
     void sendPointerDown(IBinder token, int pointerId, int x, int y);
     void sendPointerUp(IBinder token, int pointerId);
     void sendPointerSync(IBinder token);
+    void sendMouseBtnLeft(IBinder token, boolean down);
+    void sendMouseBtnRight(IBinder token, boolean down);
+    void sendMouseMove(IBinder token, int x, int y);
+    void sendMouseWheel(IBinder token, int x, int y);
+    void sendAbsEvent(IBinder token, int x, int y, int axis);
 }

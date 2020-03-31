@@ -103,6 +103,10 @@ public:
     static NativeConnection* open(const char* name, const char* uniqueId,
             int32_t width, int32_t height, int32_t maxPointerId);
 
+    static NativeConnection* nvOpen(const char* name, const char* uniqueId,
+            int32_t width, int32_t height, int32_t maxPointerId,
+            int32_t axisMin, int32_t axisMax, int32_t fuzz, int32_t flat);
+
     void sendEvent(int32_t type, int32_t code, int32_t value);
 
     int32_t getMaxPointers() const { return mMaxPointers; }
@@ -174,6 +178,132 @@ NativeConnection* NativeConnection::open(const char* name, const char* uniqueId,
     return new NativeConnection(fd, maxPointers);
 }
 
+
+NativeConnection* NativeConnection::nvOpen(const char* name, const char* uniqueId,
+        int32_t width, int32_t height, int32_t maxPointers, int32_t axisMin,
+        int32_t axisMax, int32_t fuzz, int32_t flat) {
+    ALOGI("Registering uinput device %s: touch pad size %dx%d, "
+            "max pointers %d, axis min %d, axis max %d, fuzz %d, "
+            "flat %d.", name, width, height, maxPointers, axisMin, axisMax, fuzz,
+            flat);
+
+    int fd = ::open("/dev/uinput", O_WRONLY | O_NDELAY);
+    if (fd < 0) {
+        ALOGE("Cannot open /dev/uinput: %s.", strerror(errno));
+        return nullptr;
+    }
+
+    struct uinput_user_dev uinp;
+    memset(&uinp, 0, sizeof(struct uinput_user_dev));
+    strlcpy(uinp.name, name, UINPUT_MAX_NAME_SIZE);
+    uinp.id.version = 1;
+    uinp.id.bustype = BUS_VIRTUAL;
+
+    // initialize keymap
+    initKeysMap();
+
+    // write device unique id to the phys property
+    ioctl(fd, UI_SET_PHYS, uniqueId);
+
+    ioctl(fd, UI_SET_PROPBIT, INPUT_PROP_POINTER);
+
+    // set the keys mapped
+    ioctl(fd, UI_SET_EVBIT, EV_KEY);
+    for (size_t i = 0; i < NELEM(KEYS); i++) {
+        ioctl(fd, UI_SET_KEYBIT, KEYS[i].linuxKeyCode);
+    }
+
+    // set the mouse event maps
+    ioctl(fd, UI_SET_KEYBIT, BTN_LEFT);
+    ioctl(fd, UI_SET_KEYBIT, BTN_RIGHT);
+
+    ioctl(fd, UI_SET_EVBIT, EV_REL);
+    ioctl(fd, UI_SET_RELBIT, REL_X);
+    ioctl(fd, UI_SET_RELBIT, REL_Y);
+    ioctl(fd, UI_SET_RELBIT, REL_HWHEEL);
+    ioctl(fd, UI_SET_RELBIT, REL_WHEEL);
+
+    if ((axisMin & axisMax & fuzz & flat) != (int)0xffffffff) {
+        // configure virtual controller
+        ioctl(fd, UI_SET_KEYBIT, BTN_SOUTH);
+        ioctl(fd, UI_SET_KEYBIT, BTN_EAST);
+        ioctl(fd, UI_SET_KEYBIT, BTN_NORTH);
+        ioctl(fd, UI_SET_KEYBIT, BTN_WEST);
+        ioctl(fd, UI_SET_KEYBIT, BTN_START);
+        ioctl(fd, UI_SET_KEYBIT, BTN_SELECT);
+        ioctl(fd, UI_SET_KEYBIT, BTN_MODE);
+        ioctl(fd, UI_SET_KEYBIT, BTN_THUMBL);
+        ioctl(fd, UI_SET_KEYBIT, BTN_THUMBR);
+        ioctl(fd, UI_SET_KEYBIT, BTN_TL);
+        ioctl(fd, UI_SET_KEYBIT, BTN_TR);
+
+        ioctl(fd, UI_SET_EVBIT, EV_ABS);
+
+        ioctl(fd, UI_SET_ABSBIT, ABS_HAT0X);
+        ioctl(fd, UI_SET_ABSBIT, ABS_HAT0Y);
+
+        // FIXME TODO: all wrong
+        input_absinfo axisInfo = {
+            .value = 0,
+            .minimum = -0xffff,
+            .maximum = 0xffff,
+            .fuzz = 1,
+            .flat = 0x10000,
+            .resolution = 1,
+        };
+
+        ioctl(fd, UI_SET_ABSBIT, ABS_X);
+        ioctl(fd, UI_SET_ABSBIT, ABS_Y);
+
+        axisInfo = {
+            .value = 0,
+            .minimum = axisMin,
+            .maximum = axisMax,
+            .fuzz = fuzz,
+            .flat = flat,
+            .resolution = 1,
+        };
+
+        ioctl(fd, EVIOCSABS(ABS_Z), &axisInfo);
+        ioctl(fd, EVIOCSABS(ABS_RZ), &axisInfo);
+
+        ioctl(fd, EVIOCSABS(ABS_RX), &axisInfo);
+        ioctl(fd, EVIOCSABS(ABS_BRAKE), &axisInfo);
+
+        axisInfo = {
+            .value = 0,
+            .minimum = -0x7fff,
+            .maximum = 0x7fff,
+            .fuzz = 0xff,
+            .flat = 0xff,
+            .resolution = 1,
+        };
+
+        ioctl(fd, EVIOCSABS(ABS_RY), &axisInfo);
+        ioctl(fd, EVIOCSABS(ABS_GAS), &axisInfo);
+    }
+
+    // set the misc events maps
+    ioctl(fd, UI_SET_EVBIT, EV_MSC);
+    ioctl(fd, UI_SET_MSCBIT, MSC_ANDROID_TIME_SEC);
+    ioctl(fd, UI_SET_MSCBIT, MSC_ANDROID_TIME_USEC);
+
+    // register the input device
+    if (write(fd, &uinp, sizeof(uinp)) != sizeof(uinp)) {
+        ALOGE("Cannot write uinput_user_dev to fd %d: %s.", fd, strerror(errno));
+        close(fd);
+        return NULL;
+    }
+    if (ioctl(fd, UI_DEV_CREATE) != 0) {
+        ALOGE("Unable to create uinput device: %s.", strerror(errno));
+        close(fd);
+        return nullptr;
+    }
+
+    ALOGV("Created uinput device, fd=%d.", fd);
+    return new NativeConnection(fd, maxPointers);
+}
+
 void NativeConnection::sendEvent(int32_t type, int32_t code, int32_t value) {
     struct input_event iev;
     memset(&iev, 0, sizeof(iev));
@@ -192,6 +322,19 @@ static jlong nativeOpen(JNIEnv* env, jclass clazz,
 
     NativeConnection* connection = NativeConnection::open(name.c_str(), uniqueId.c_str(),
             width, height, maxPointers);
+    return reinterpret_cast<jlong>(connection);
+}
+
+static jlong nativeNvOpen(JNIEnv* env, jclass clazz,
+        jstring nameStr, jstring uniqueIdStr,
+        jint width, jint height, jint maxPointers,
+		jint axisMin, jint axisMax, jint fuzz,
+		jint flat) {
+    ScopedUtfChars name(env, nameStr);
+    ScopedUtfChars uniqueId(env, uniqueIdStr);
+
+    NativeConnection* connection = NativeConnection::nvOpen(name.c_str(), uniqueId.c_str(),
+            width, height, maxPointers, axisMin, axisMax, fuzz, flat);
     return reinterpret_cast<jlong>(connection);
 }
 
@@ -272,6 +415,67 @@ static void nativeClear(JNIEnv* env, jclass clazz, jlong ptr) {
     connection->sendEvent(EV_SYN, SYN_REPORT, 0);
 }
 
+static void nativeSendMouseBtnRight(JNIEnv* env, jclass clazz, jlong ptr, jboolean down) {
+    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+    connection->sendEvent(EV_KEY, BTN_RIGHT, down ? 1 : 0);
+}
+
+static void nativeSendMouseBtnLeft(JNIEnv* env, jclass clazz, jlong ptr, jboolean down) {
+    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+    connection->sendEvent(EV_KEY, BTN_LEFT, down ? 1 : 0);
+}
+
+static void nativeSendMouseMove(JNIEnv* env, jclass clazz, jlong ptr, jint x, jint y) {
+    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+    connection->sendEvent(EV_REL, REL_X, x);
+    connection->sendEvent(EV_REL, REL_Y, y);
+    connection->sendEvent(EV_SYN, SYN_REPORT, 0);
+}
+
+static void nativeSendMouseWheel(JNIEnv* env, jclass clazz, jlong ptr, jint x, jint y) {
+    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+
+    if (x != 0)
+        connection->sendEvent(EV_REL, REL_HWHEEL, x);
+
+    if (y != 0)
+        connection->sendEvent(EV_REL, REL_WHEEL, y);
+}
+
+static void nativeSendAbsEvent(JNIEnv* env, jclass clazz, jlong ptr, jint x, jint y, jint axis) {
+    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+    int axisX = 0, axisY = 0;
+
+    switch (axis) {
+        case 1:
+            axisX = ABS_HAT0X;
+            axisY = ABS_HAT0Y;
+            break;
+        case 2:
+            axisX = ABS_RX;
+            axisY = ABS_BRAKE;
+            break;
+        case 3:
+            axisX = ABS_RY;
+            axisY = ABS_GAS;
+            break;
+        case 4:
+            axisX = ABS_X;
+            axisY = ABS_Y;
+            break;
+        case 5:
+            axisX = ABS_Z;
+            axisY = ABS_RZ;
+            break;
+        default:
+            ALOGE("Received an unknown choice: %d.", axis);
+            return;
+    }
+
+    connection->sendEvent(EV_ABS, axisX, x);
+    connection->sendEvent(EV_ABS, axisY, y);
+}
+
 /*
  * JNI registration
  */
@@ -279,6 +483,8 @@ static void nativeClear(JNIEnv* env, jclass clazz, jlong ptr) {
 static JNINativeMethod gUinputBridgeMethods[] = {
     { "nativeOpen", "(Ljava/lang/String;Ljava/lang/String;III)J",
         (void*)nativeOpen },
+    { "nativeNvOpen", "(Ljava/lang/String;Ljava/lang/String;IIIIIII)J",
+        (void*)nativeNvOpen },
     { "nativeClose", "(J)V",
         (void*)nativeClose },
     { "nativeSendTimestamp", "(JJ)V",
@@ -293,6 +499,16 @@ static JNINativeMethod gUinputBridgeMethods[] = {
         (void*)nativeClear },
     { "nativeSendPointerSync", "(J)V",
         (void*)nativeSendPointerSync },
+    { "nativeSendMouseBtnRight", "(JZ)V",
+        (void*)nativeSendMouseBtnRight },
+    { "nativeSendMouseBtnLeft", "(JZ)V",
+        (void*)nativeSendMouseBtnLeft },
+    { "nativeSendMouseMove", "(JII)V",
+        (void*)nativeSendMouseMove },
+    { "nativeSendMouseWheel", "(JII)V",
+        (void*)nativeSendMouseWheel },
+    { "nativeSendAbsEvent", "(JIII)V",
+        (void*)nativeSendAbsEvent },
 };
 
 int register_android_server_tv_TvUinputBridge(JNIEnv* env) {
