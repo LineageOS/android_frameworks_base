@@ -70,6 +70,23 @@
       "revId": "a13c193d683db96825718e16e0d107288d9ec793",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6ea663e_6facd371",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-03-31T22:09:01Z",
+      "side": 1,
+      "message": "I think it might be this after all ;-)\n\n\"\".split(\",\") returns an array with one element (that being a zero length string) meaning the packageList.isEmpty() call doesn\u0027t return true when the prop is not set.",
+      "revId": "a13c193d683db96825718e16e0d107288d9ec793",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
