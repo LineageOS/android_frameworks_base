@@ -16,6 +16,24 @@
       "revId": "a13c193d683db96825718e16e0d107288d9ec793",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e13a4dc_8092f63a",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-03-31T19:39:20Z",
+      "side": 1,
+      "message": "!blacklist.contains(pkg) \u0026\u0026 (whitelist.empty() || whitelist.contains(pkg) should return true nonetheless or am I being wrong here?",
+      "parentUuid": "868b8714_9278b924",
+      "revId": "a13c193d683db96825718e16e0d107288d9ec793",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
