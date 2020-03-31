@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67489a0d_ae44faa6",
+        "filename": "services/core/java/com/android/server/power/ShutdownThread.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-03-31T19:36:13Z",
+      "side": 0,
+      "message": "When isAttemptingFactoryReset() returns true it means the device is going to reboot and prompt the user for whether they wish to wipe (rescue party calls RecoverySystem.rebootPromptAndWipeUserData()).  So isn\u0027t it correct as is ?",
+      "revId": "665e51b752871e733bb5f1154d22ce818fb30c54",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
