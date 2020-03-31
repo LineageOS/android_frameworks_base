@@ -333,7 +333,7 @@ public final class ShutdownThread extends Thread {
             if (mRebootCustom && showSysuiReboot()) {
                 return null;
             }
-            if (RescueParty.isAttemptingFactoryReset()) {
+            if (!RescueParty.isAttemptingFactoryReset()) {
                 // We're not actually doing a factory reset yet; we're rebooting
                 // to ask the user if they'd like to reset, so give them a less
                 // scary dialog message.

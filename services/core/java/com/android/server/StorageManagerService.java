@@ -525,7 +525,7 @@ class StorageManagerService extends IStorageManager.Stub
         public void onServiceConnected(ComponentName name, IBinder service) {
             if (DEBUG_OBB)
                 Slog.i(TAG, "onServiceConnected");
-            IMediaContainerService imcs = IMediaContainerService.Stub.asInterface(service);
+            IMediaContainerService imcs = IMediaContainerService.Stub.asInterface(Binder.allowBlocking(service));
             mObbActionHandler.sendMessage(mObbActionHandler.obtainMessage(OBB_MCS_BOUND, imcs));
         }
 
