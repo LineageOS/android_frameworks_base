@@ -459,6 +459,7 @@ public class AudioDeviceInventory {
 
             if (event == BtHelper.EVENT_ACTIVE_DEVICE_CHANGE) {
                 // Device is connected
+                mApmConnectedDevices.replace(AudioSystem.DEVICE_OUT_BLUETOOTH_A2DP, key);
                 if (a2dpVolume != -1) {
                     mDeviceBroker.postSetVolumeIndexOnDevice(AudioSystem.STREAM_MUSIC,
                             // convert index to internal representation in VolumeStreamState
