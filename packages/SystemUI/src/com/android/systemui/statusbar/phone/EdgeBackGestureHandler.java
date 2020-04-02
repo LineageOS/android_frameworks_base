@@ -78,7 +78,7 @@ public class EdgeBackGestureHandler implements DisplayListener, TunerService.Tun
     private static final int MAX_LONG_PRESS_TIMEOUT = SystemProperties.getInt(
             "gestures.back_timeout", 250);
 
-    private static final String KEY_EDGE_LONG_SWIPE_ACTION =
+    public static final String KEY_EDGE_LONG_SWIPE_ACTION =
             "lineagesystem:" + LineageSettings.System.KEY_EDGE_LONG_SWIPE_ACTION;
 
     private final IPinnedStackListener.Stub mImeChangedListener = new IPinnedStackListener.Stub() {
