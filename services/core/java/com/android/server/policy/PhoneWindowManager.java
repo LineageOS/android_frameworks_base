@@ -115,6 +115,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
+import android.app.StatusBarManager;
 import android.app.UiModeManager;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -1850,8 +1851,19 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case SPLIT_SCREEN:
                 toggleSplitScreen();
                 break;
+            case PULL_STATUS_BAR:
+                toggleStatusBar();
+                break;
             default:
                 break;
+        }
+    }
+
+    private void toggleStatusBar() {
+        StatusBarManager statusBar = (StatusBarManager) mContext.getSystemService(
+                Context.STATUS_BAR_SERVICE);
+        if (statusBar != null) {
+            statusBar.togglePanel();
         }
     }
 

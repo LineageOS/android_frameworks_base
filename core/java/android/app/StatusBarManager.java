@@ -276,6 +276,24 @@ public class StatusBarManager {
     }
 
     /**
+     * Toggles the status bar: When collapsed it gets expanded otherwise
+     * collapsed.
+     *
+     * @hide
+     */
+    @UnsupportedAppUsage
+    public void togglePanel() {
+        try {
+            final IStatusBarService svc = getService();
+            if (svc != null) {
+                svc.togglePanel();
+            }
+        } catch (RemoteException ex) {
+            throw ex.rethrowFromSystemServer();
+        }
+    }
+
+    /**
      * Collapse the notifications and settings panels.
      *
      * @hide
