@@ -1850,8 +1850,19 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case SPLIT_SCREEN:
                 toggleSplitScreen();
                 break;
+            case PULL_STATUS_BAR:
+                toggleStatusBar();
+                break;
             default:
                 break;
+        }
+    }
+
+    private void toggleStatusBar() {
+        StatusBarManager statusBar = (StatusBarManager) mContext.getSystemService(
+                Context.STATUS_BAR_SERVICE);
+        if (statusBar != null) {
+            statusBar.togglePanel();
         }
     }
 
