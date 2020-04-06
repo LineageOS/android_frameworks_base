@@ -46,6 +46,7 @@ import com.android.internal.logging.UiEvent;
 import com.android.internal.logging.UiEventLogger;
 import com.android.internal.logging.UiEventLoggerImpl;
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.systemui.R;
 import com.android.systemui.plugins.SensorManagerPlugin;
 import com.android.systemui.statusbar.phone.DozeParameters;
 import com.android.systemui.util.sensors.AsyncSensorManager;
@@ -174,13 +175,15 @@ public class DozeSensors {
                         dozeLog),
         };
 
-        setProxListening(false);  // Don't immediately start listening when we register.
-        mProximitySensor.register(
-                proximityEvent -> {
-                    if (proximityEvent != null) {
-                        mProxCallback.accept(!proximityEvent.getBelow());
-                    }
-                });
+        if (context.getResources().getBoolean(R.bool.doze_proximity_sensor_supported)) {
+            setProxListening(false);  // Don't immediately start listening when we register.
+            mProximitySensor.register(
+                    proximityEvent -> {
+                        if (proximityEvent != null) {
+                            mProxCallback.accept(!proximityEvent.getBelow());
+                        }
+                    });
+        }
     }
 
     /**
