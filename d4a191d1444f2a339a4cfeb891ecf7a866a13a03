@@ -16,6 +16,24 @@
       "revId": "d4a191d1444f2a339a4cfeb891ecf7a866a13a03",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a9c3f2c_4d2e2a8b",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-04-06T14:16:54Z",
+      "side": 1,
+      "message": "If you never initialize a \u0027final\u0027 variable compiler will scream at you.",
+      "parentUuid": "db0d8787_c4b5f796",
+      "revId": "d4a191d1444f2a339a4cfeb891ecf7a866a13a03",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
