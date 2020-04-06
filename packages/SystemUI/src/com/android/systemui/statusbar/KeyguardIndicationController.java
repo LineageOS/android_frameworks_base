@@ -429,6 +429,7 @@ public class KeyguardIndicationController implements StateListener,
             if (!mKeyguardUpdateMonitor.isUserUnlocked(userId)) {
                 mTextView.switchIndication(com.android.internal.R.string.lockscreen_storage_locked);
             } else if (!TextUtils.isEmpty(mTransientIndication)) {
+<<<<<<< HEAD   (1ba831 Download: Add support to manually pause/resume download)
                 if (powerIndication != null && !mTransientIndication.equals(powerIndication)) {
                     String indication = mContext.getResources().getString(
                             R.string.keyguard_indication_trust_unlocked_plugged_in,
@@ -438,6 +439,10 @@ public class KeyguardIndicationController implements StateListener,
                     mTextView.switchIndication(mTransientIndication);
                 }
                 isError = mTransientTextIsError;
+=======
+                mTextView.switchIndication(mTransientIndication);
+                mTextView.setTextColor(mTransientTextColorState);
+>>>>>>> CHANGE (27bc82 SystemUI: Fix showing duplicated charging status)
             } else if (!TextUtils.isEmpty(trustGrantedIndication)
                     && mKeyguardUpdateMonitor.getUserHasTrust(userId)) {
                 if (powerIndication != null) {
