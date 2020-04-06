@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db0d8787_c4b5f796",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2020-04-06T14:09:07Z",
+      "side": 1,
+      "message": "not sure I understand this line",
+      "revId": "d4a191d1444f2a339a4cfeb891ecf7a866a13a03",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
