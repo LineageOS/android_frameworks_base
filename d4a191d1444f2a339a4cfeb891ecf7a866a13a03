@@ -34,6 +34,24 @@
       "revId": "d4a191d1444f2a339a4cfeb891ecf7a866a13a03",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82cf56cc_1ead8063",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-04-06T14:59:31Z",
+      "side": 1,
+      "message": "Why not make it non-final, init it as null and avoid this last else statement?",
+      "parentUuid": "4a9c3f2c_4d2e2a8b",
+      "revId": "d4a191d1444f2a339a4cfeb891ecf7a866a13a03",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
