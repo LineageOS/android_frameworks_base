@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10c68ff3_07e8a077",
+        "filename": "packages/SystemUI/src/com/android/systemui/doze/DozeSensors.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-04-06T15:41:58Z",
+      "side": 1,
+      "message": "fwiw, it will work if you just remove .toString(). Posting this here for transparency.",
+      "range": {
+        "startLine": 277,
+        "startChar": 39,
+        "endLine": 277,
+        "endChar": 47
+      },
+      "revId": "f791c6f04c5189f628e9f9894dc26770cbb42ff7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
