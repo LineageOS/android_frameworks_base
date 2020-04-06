@@ -146,7 +146,12 @@ public class DozeSensors {
                         false /* touchscreen */, mConfig.getWakeLockScreenDebounce()),
         };
 
-        mProxSensor = new ProxSensor(policy);
+        if (context.getResources().getBoolean(R.bool.doze_proximity_sensor_supported)) {
+            mProxSensor = new ProxSensor(policy);
+        } else {
+            mProxSensor = null;
+        }
+
         mCallback = callback;
     }
 
@@ -236,7 +241,9 @@ public class DozeSensors {
     }
 
     public void setProxListening(boolean listen) {
-        mProxSensor.setRequested(listen);
+        if (mProxSensor != null) {
+            mProxSensor.setRequested(listen);
+        }
     }
 
     private final ContentObserver mSettingsObserver = new ContentObserver(mHandler) {
@@ -269,14 +276,15 @@ public class DozeSensors {
         for (TriggerSensor s : mSensors) {
             pw.print("  Sensor: "); pw.println(s.toString());
         }
-        pw.print("  ProxSensor: "); pw.println(mProxSensor.toString());
+        pw.print("  ProxSensor: "); pw.println(mProxSensor == null
+                ? "null" : mProxSensor.toString());
     }
 
     /**
      * @return true if prox is currently far, false if near or null if unknown.
      */
     public Boolean isProximityCurrentlyFar() {
-        return mProxSensor.mCurrentlyFar;
+        return mProxSensor == null ? null : mProxSensor.mCurrentlyFar;
     }
 
     private class ProxSensor implements SensorEventListener {
