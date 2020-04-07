@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b44e768_347e7c23",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 1649,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-04-07T08:15:56Z",
+      "side": 1,
+      "message": "various things wrong with this but okay for testing still.  rewrite is on the way.",
+      "revId": "d960f0a8999f6b969101a1265b1b86d61cdd33b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
