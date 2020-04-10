@@ -408,8 +408,10 @@ public class BatteryMeterView extends LinearLayout implements
         final boolean showing = mBatteryPercentView != null;
         final int showBatteryPercent = LineageSettings.System.getIntForUser(
                 getContext().getContentResolver(), STATUS_BAR_SHOW_BATTERY_PERCENT, 0, mUser);
-        final boolean drawPercentInside = showBatteryPercent == 1;
-        final boolean drawPercentOnly = showBatteryPercent == 2;
+        final boolean drawPercentInside = mShowPercentMode == MODE_DEFAULT &&
+                showBatteryPercent == 1;
+        final boolean drawPercentOnly = mShowPercentMode == MODE_ESTIMATE ||
+                showBatteryPercent == 2;
         if (drawPercentOnly && (!drawPercentInside || mCharging) ||
                 mBatteryStyle == BATTERY_STYLE_TEXT) {
             mCircleDrawable.setShowPercent(false);
