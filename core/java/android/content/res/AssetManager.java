@@ -1159,8 +1159,11 @@ public final class AssetManager implements AutoCloseable {
             }
         }
 
-        if (mObject != 0) {
-            nativeDestroy(mObject);
+        synchronized (this) {
+            if (mObject != 0) {
+                nativeDestroy(mObject);
+                mObject = 0;
+            }
         }
     }
 
