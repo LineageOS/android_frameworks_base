@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2018 The OmniROM Project
+ *               2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,7 +60,9 @@ public class AODTile extends QSTileImpl<BooleanState> implements
 
     @Override
     public BooleanState newTileState() {
-        return new BooleanState();
+        BooleanState state = new BooleanState();
+        state.handlesLongClick = false;
+        return state;
     }
 
     @Override
