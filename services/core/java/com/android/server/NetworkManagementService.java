@@ -282,8 +282,10 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
 
     @GuardedBy("mQuotaLock")
     private RestrictIf[] mRestrictIf = {
-            new RestrictIf(RESTRICT_USECASE_DATA, NetworkCapabilities.TRANSPORT_CELLULAR),
+            // Ordered by match preference (in the event we get a callback with
+            // multiple transports).
             new RestrictIf(RESTRICT_USECASE_VPN, NetworkCapabilities.TRANSPORT_VPN),
+            new RestrictIf(RESTRICT_USECASE_DATA, NetworkCapabilities.TRANSPORT_CELLULAR),
             new RestrictIf(RESTRICT_USECASE_WLAN, NetworkCapabilities.TRANSPORT_WIFI),
     };
 
@@ -360,6 +362,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
                 for (RestrictIf restrictIf : mRestrictIf) {
                     if (nc.hasTransport(restrictIf.transport)) {
                         matchedRestrictIf = restrictIf;
+                        break;
                     }
                 }
                 if (matchedRestrictIf == null) {
@@ -1559,6 +1562,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
                         continue;
                     }
                     setAppOnInterfaceLocked(restrictIf.useCase, restrictIf.ifName, uid, false);
+                    restrictIf.active.setValueAt(i, false);
                     // Use pending list to queue re-add.
                     // (Prefer keeping existing pending status if it exists.)
                     if (restrictIf.pending.indexOfKey(uid) < 0) {
