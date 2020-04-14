@@ -27,6 +27,7 @@ import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_S
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_SEARCH_DISABLED;
 import static com.android.systemui.shared.system.QuickStepContract.isGesturalMode;
 import static com.android.systemui.shared.system.QuickStepContract.isLegacyMode;
+import static com.android.systemui.shared.system.QuickStepContract.isSwipeUpMode;
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_OPAQUE;
 
 import android.animation.LayoutTransition;
@@ -644,9 +645,9 @@ public class NavigationBarView extends FrameLayout implements
         final boolean showCursorKeys = mShowCursorKeys
                 && (mNavigationIconHints & StatusBarManager.NAVIGATION_HINT_BACK_ALT) != 0;
         final boolean showImeSwitcher = isImeShown
-                // IME switcher in 3-button mode and cursor keys take the same spot in
-                // the view, so one can only use one or the other
-                && (!isLegacyMode(mNavBarMode) || !showCursorKeys);
+                // IME switcher in 3-button mode or gesture mode and cursor keys take the same spot
+                // in the view, so one can only use one or the other
+                && (isSwipeUpMode(mNavBarMode) || !showCursorKeys);
 
         // Update IME button visibility, a11y and rotate button always overrides the appearance
         mContextualButtonGroup.setButtonVisibility(R.id.ime_switcher, showImeSwitcher);
