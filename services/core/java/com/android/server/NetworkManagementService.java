@@ -1559,6 +1559,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
                         continue;
                     }
                     setAppOnInterfaceLocked(restrictIf.useCase, restrictIf.ifName, uid, false);
+                    restrictIf.active.setValueAt(i, false);
                     // Use pending list to queue re-add.
                     // (Prefer keeping existing pending status if it exists.)
                     if (restrictIf.pending.indexOfKey(uid) < 0) {
