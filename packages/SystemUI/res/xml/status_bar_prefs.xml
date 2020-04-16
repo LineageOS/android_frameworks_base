@@ -51,6 +51,10 @@
     <!-- speakerphone -->
 
     <com.android.systemui.tuner.StatusBarSwitch
+        android:key="microphone"
+        android:title="@string/status_bar_microphone" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
         android:key="zen"
         android:title="@string/quick_settings_dnd_label" />
 
@@ -76,6 +80,10 @@
         android:key="airplane"
         android:title="@string/status_bar_airplane" />
 
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:key="location"
+        android:title="@string/status_bar_location" />
+
     <!-- other weird signal stuff -->
 
     <com.android.systemui.tuner.StatusBarSwitch
@@ -85,6 +93,10 @@
     <com.android.systemui.tuner.StatusBarSwitch
         android:key="alarm_clock"
         android:title="@string/status_bar_alarm" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:key="camera"
+        android:title="@string/status_bar_camera" />
 
     <!-- secure -->
 
