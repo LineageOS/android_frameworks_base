@@ -145,6 +145,7 @@
     <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
     <string name="quick_settings_location_detail_mode_sensors_only_description">Use GPS to determine location</string>
 
-    <!-- Name of the battery status bar icon. -->
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
     <string name="status_bar_battery">Battery</string>
+    <string name="status_bar_location">Location</string>
 </resources>
