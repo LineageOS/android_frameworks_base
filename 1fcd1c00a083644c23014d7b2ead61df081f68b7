@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41e3846f_5de78cf8",
+        "filename": "packages/SystemUI/src/com/android/systemui/doze/DozeSensors.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-04-17T21:02:16Z",
+      "side": 1,
+      "message": "\"\" + mProxSensor?\navoid adding the check",
+      "revId": "1fcd1c00a083644c23014d7b2ead61df081f68b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
