@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f83f0bf7_c5faa732",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardSecurityContainer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-04-18T22:21:10Z",
+      "side": 1,
+      "message": "return packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) \u0026\u0026\n        packageManager.hasSystemFeature(LineageContextConstants.Features.FOD)",
+      "range": {
+        "startLine": 484,
+        "startChar": 8,
+        "endLine": 489,
+        "endChar": 21
+      },
+      "revId": "2592d1cd14eff7def4c3d9d6300c5d8a9de589c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
