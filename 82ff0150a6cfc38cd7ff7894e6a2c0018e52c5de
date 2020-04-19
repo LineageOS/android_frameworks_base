@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7a07909_24ff4791",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardSecurityContainer.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2020-04-19T12:35:44Z",
+      "side": 1,
+      "message": "can actually remove these hooks and move them to FodCircleView",
+      "range": {
+        "startLine": 582,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 53
+      },
+      "revId": "82ff0150a6cfc38cd7ff7894e6a2c0018e52c5de",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
