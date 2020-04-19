@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d35239f_b7de7b1c",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-04-19T20:34:16Z",
+      "side": 1,
+      "message": "mContext.getSystemService(TelephonyManager.class);",
+      "range": {
+        "startLine": 244,
+        "startChar": 16,
+        "endLine": 244,
+        "endChar": 88
+      },
+      "revId": "d914cfb1a9b7e4de5dc9c733dab29be8909581c6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
