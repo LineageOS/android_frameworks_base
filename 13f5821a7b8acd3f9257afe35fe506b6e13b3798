@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce84cbec_6b43ced4",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-04-19T20:30:33Z",
+      "side": 1,
+      "message": "Indentation is a bit off here. Also, can the opening and closing parenthesis be removed?",
+      "range": {
+        "startLine": 1561,
+        "startChar": 0,
+        "endLine": 1562,
+        "endChar": 64
+      },
+      "revId": "13f5821a7b8acd3f9257afe35fe506b6e13b3798",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
