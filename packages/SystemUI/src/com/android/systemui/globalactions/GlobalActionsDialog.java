@@ -169,6 +169,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private String[] mCurrentMenuActions;
     private boolean mIsRestartMenu;
 
+    private TelephonyManager mTelephonyManager;
+
     /**
      * @param context everything needs a context :(
      */
@@ -196,9 +198,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         mHasTelephony = cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE);
 
         // get notified of phone state changes
-        TelephonyManager telephonyManager =
+        mTelephonyManager =
                 (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        telephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_SERVICE_STATE);
         mContext.getContentResolver().registerContentObserver(
                 Settings.Global.getUriFor(Settings.Global.AIRPLANE_MODE_ON), true,
                 mAirplaneModeObserver);
@@ -245,6 +246,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     public void dismissDialog() {
         mHandler.removeMessages(MESSAGE_DISMISS);
         mHandler.sendEmptyMessage(MESSAGE_DISMISS);
+        mTelephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_NONE);
     }
 
     private void awakenIfNecessary() {
@@ -312,6 +314,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
      * @return A new dialog.
      */
     private ActionsDialog createDialog() {
+        mTelephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_SERVICE_STATE);
         // Simple toggle style if there's no vibrator, otherwise use a tri-state
         if (!mHasVibrator) {
             mSilentModeAction = new SilentModeToggleAction();
