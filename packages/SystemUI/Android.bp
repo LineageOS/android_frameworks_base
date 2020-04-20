@@ -122,6 +122,7 @@ android_library {
         "dagger2",
         "jsr330",
         "lottie",
+        "vendor.lineage.powershare-V1.0-java",
     ],
     manifest: "AndroidManifest.xml",
     additional_manifests: ["LineageManifest.xml"],
@@ -237,6 +238,7 @@ android_library {
         "dagger2",
         "jsr330",
         "WindowManager-Shell",
+        "vendor.lineage.powershare-V1.0-java",
     ],
     libs: [
         "android.test.runner",
