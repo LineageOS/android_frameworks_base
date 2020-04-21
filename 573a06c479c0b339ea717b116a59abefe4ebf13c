@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "27cc9f2b_0f0938fa",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2020-04-21T13:20:00Z",
+      "side": 1,
+      "message": "Checkstyle does not like it being any higher there.",
+      "parentUuid": "57e88832_b48d8480",
+      "revId": "573a06c479c0b339ea717b116a59abefe4ebf13c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e9fd059a_768a36a4",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
         "patchSetId": 2
