@@ -39,6 +39,30 @@
       "revId": "573a06c479c0b339ea717b116a59abefe4ebf13c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49610857_9de4c065",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-04-21T12:35:32Z",
+      "side": 1,
+      "message": "Oh, nevermind. You just moved AOSP code.",
+      "parentUuid": "715c012c_04beb0c1",
+      "range": {
+        "startLine": 617,
+        "startChar": 60,
+        "endLine": 617,
+        "endChar": 69
+      },
+      "revId": "573a06c479c0b339ea717b116a59abefe4ebf13c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
