@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd2227ce_dc526b68",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-04-21T13:17:47Z",
+      "side": 1,
+      "message": "Needs to be added to the RESET_BLACKLIST",
+      "range": {
+        "startLine": 595,
+        "startChar": 43,
+        "endLine": 595,
+        "endChar": 88
+      },
+      "revId": "64c2ad66f39f30eb89f4db0f2d8a84ad7cbbe3f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
