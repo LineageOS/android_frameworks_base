@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "e9fd059a_768a36a4",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-04-21T12:38:06Z",
+      "side": 1,
+      "message": "This doesn\u0027t need to be a member variable. Rename to shouldBeTransparent.",
+      "range": {
+        "startLine": 596,
+        "startChar": 24,
+        "endLine": 596,
+        "endChar": 44
+      },
+      "revId": "573a06c479c0b339ea717b116a59abefe4ebf13c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "715c012c_04beb0c1",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
         "patchSetId": 2
