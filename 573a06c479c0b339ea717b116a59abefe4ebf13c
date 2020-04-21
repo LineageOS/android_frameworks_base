@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57e88832_b48d8480",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-04-21T12:25:44Z",
+      "side": 1,
+      "message": "Goes before java imports.",
+      "revId": "573a06c479c0b339ea717b116a59abefe4ebf13c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "715c012c_04beb0c1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-04-21T12:25:44Z",
+      "side": 1,
+      "message": "You no longer want this here, do you?",
+      "range": {
+        "startLine": 617,
+        "startChar": 60,
+        "endLine": 617,
+        "endChar": 69
+      },
+      "revId": "573a06c479c0b339ea717b116a59abefe4ebf13c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
