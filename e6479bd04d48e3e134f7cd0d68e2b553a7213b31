@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11ef405d_fe5afa10",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 444
+      },
+      "writtenOn": "2020-04-22T22:30:38Z",
+      "side": 1,
+      "message": "mAirplaneState \u003d getUpdatedAirplaneToggleState(); got moved down by the below code block,\nbut I believe it needs to be present here too. At least that\u0027s how it is by looking at\n15.1 sources.",
+      "revId": "e6479bd04d48e3e134f7cd0d68e2b553a7213b31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
