@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "383efc78_22003803",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-04-22T20:47:11Z",
+      "side": 0,
+      "message": "FYI: this code is not necessary as addTunable() calls the callback on init.",
+      "range": {
+        "startLine": 618,
+        "startChar": 0,
+        "endLine": 620,
+        "endChar": 34
+      },
+      "revId": "2184236cdd579df840cb144dea60265a0986ec95",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
