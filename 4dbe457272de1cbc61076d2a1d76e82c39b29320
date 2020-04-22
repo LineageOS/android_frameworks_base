@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4871da86_7b7f30b0",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-04-22T06:21:58Z",
+      "side": 1,
+      "message": "This can be inlined to the function",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 37
+      },
+      "revId": "4dbe457272de1cbc61076d2a1d76e82c39b29320",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2a31e80_7a656501",
         "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
         "patchSetId": 6
