@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef24679e_7c07d76f",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 444
+      },
+      "writtenOn": "2020-04-22T22:28:00Z",
+      "side": 1,
+      "message": "Move this before updatePowerMenuActions() ?",
+      "revId": "d782c0264dec968bfb99dd402a01096d00a93ae3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
