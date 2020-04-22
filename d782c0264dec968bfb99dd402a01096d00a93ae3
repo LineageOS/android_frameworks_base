@@ -16,6 +16,24 @@
       "revId": "d782c0264dec968bfb99dd402a01096d00a93ae3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dea3e9bc_2e6b6dfc",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 444
+      },
+      "writtenOn": "2020-04-22T22:42:45Z",
+      "side": 1,
+      "message": "Ref:\nhttps://github.com/LineageOS/android_frameworks_base/blob/28bc3b45d32edeadf9bf4ac9b6ff7132c8910b03/packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java#L211\n\nFrom patch:\nhttps://github.com/LineageOS/android_frameworks_base/commit/28bc3b45d32edeadf9bf4ac9b6ff7132c8910b03#diff-729c29f05e3e7ec50f4e5a62d510fefa",
+      "parentUuid": "ef24679e_7c07d76f",
+      "revId": "d782c0264dec968bfb99dd402a01096d00a93ae3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
