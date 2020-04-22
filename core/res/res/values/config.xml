@@ -3022,7 +3022,7 @@
 
     <!-- Whether safe headphone hearing is enforced by any regulation (e.g.
          EN50332-3, EN50332-2) or not (country specific). -->
-    <bool name="config_safe_media_volume_enabled">true</bool>
+    <bool name="config_safe_media_volume_enabled">false</bool>
 
     <!-- Whether safe headphone sound dosage warning is enabled or not.
          This value should only be overlaid to true when a vendor supports
