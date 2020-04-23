@@ -114,7 +114,9 @@ import org.lineageos.internal.util.PowerMenuUtils;
 
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Helper to show the global actions dialog.  Each item is an {@link Action} that
@@ -172,7 +174,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private boolean mIsRestartMenu;
 
     private BitSet mAirplaneModeBits;
-    private final List<PhoneStateListener> mPhoneStateListeners = new ArrayList<>();
+    private final Hashtable<Integer, PhoneStateListener> mPhoneStateListeners =
+            new Hashtable<Integer, PhoneStateListener>();
 
     /**
      * @param context everything needs a context :(
@@ -237,8 +240,11 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private void setupAirplaneModeListeners() {
         TelephonyManager telephonyManager = mContext.getSystemService(TelephonyManager.class);
 
-        for (PhoneStateListener listener : mPhoneStateListeners) {
-            telephonyManager.listen(listener, PhoneStateListener.LISTEN_NONE);
+        Set<Integer> keys = mPhoneStateListeners.keySet();
+        for (int subId : keys) {
+            PhoneStateListener listener = (PhoneStateListener) mPhoneStateListeners.get(subId);
+            telephonyManager.createForSubscriptionId(subId).listen(listener,
+                    PhoneStateListener.LISTEN_NONE);
         }
         mPhoneStateListeners.clear();
 
@@ -250,8 +256,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             for (int i = 0; i < subInfoList.size(); i++) {
                 // we need the current index inside the listener, so make it final
                 final int subIndex = i;
-                PhoneStateListener subListener = new PhoneStateListener(subInfoList.get(subIndex)
-                        .getSubscriptionId()) {
+                int subId = subInfoList.get(subIndex).getSubscriptionId();
+                PhoneStateListener subListener = new PhoneStateListener() {
                     @Override
                     public void onServiceStateChanged(ServiceState serviceState) {
                         final boolean inAirplaneMode = serviceState.getState()
@@ -268,8 +274,9 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                         }
                     }
                 };
-                mPhoneStateListeners.add(subListener);
-                telephonyManager.listen(subListener, PhoneStateListener.LISTEN_SERVICE_STATE);
+                mPhoneStateListeners.put(subId, subListener);
+                telephonyManager.createForSubscriptionId(subId).listen(subListener,
+                        PhoneStateListener.LISTEN_SERVICE_STATE);
             }
         } else {
             mHasTelephony = false;
