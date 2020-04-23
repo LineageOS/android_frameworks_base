@@ -16,6 +16,24 @@
       "revId": "e6479bd04d48e3e134f7cd0d68e2b553a7213b31",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03ebbaf8_cfaaca1c",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-04-23T06:21:13Z",
+      "side": 1,
+      "message": "I think 15.1 port was wrong there. See Line 217, which calls setupAirplaneModeListeners, which in turn does set the mAirplaneState var to the proper value. No flaw in logic visible :) Also: The 15.0 commit which I took to port it also moved it down.",
+      "parentUuid": "11ef405d_fe5afa10",
+      "revId": "e6479bd04d48e3e134f7cd0d68e2b553a7213b31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
