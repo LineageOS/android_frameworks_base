@@ -4622,7 +4622,7 @@
     <!-- Allows an application to override the power key action
          @hide <p>Not for use by third-party applications.
     -->
-    <permission android:name="android.permission.PREVENT_POWER_KEY"
+    <permission android:name="lineage.permission.PREVENT_POWER_KEY"
                 android:protectionLevel="signature|privileged" />
 
     <application android:process="system"
