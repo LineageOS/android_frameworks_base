@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="keyguard_enter_your_pin">Cuir a-steach am PIN agad</string>
+    <string name="keyguard_sim_error_message_short">Cairt mhì-dhligheach.</string>
+    <string name="keyguard_plugged_in"><xliff:g id="percentage">%s</xliff:g> • ’Ga theàirrdseadh</string>
+    <string name="keyguard_plugged_in_charging_fast"><xliff:g id="percentage">%s</xliff:g> • ’Ga theàirrdseadh gu luath</string>
+    <string name="keyguard_plugged_in_charging_slowly"><xliff:g id="percentage">%s</xliff:g> • ’Ga theàirrdseadh gu mall</string>
+    <string name="keyguard_accessibility_password">Facal-faire an uidheim</string>
+    <string name="error_disable_esim_title">Chan urrainn dhuinn an eSIM a chur à comas</string>
+    <string name="error_disable_esim_msg">Cha ghabh an eSIM a chur à comas ri linn mearachd.</string>
+    <plurals name="kg_too_many_failed_attempts_countdown">
+        <item quantity="one">Feuch ris a-rithist an ceann <xliff:g id="number">%d</xliff:g> diog.</item>
+        <item quantity="two">Feuch ris a-rithist an ceann <xliff:g id="number">%d</xliff:g> dhiog.</item>
+        <item quantity="few">Feuch ris a-rithist an ceann <xliff:g id="number">%d</xliff:g> diogan.</item>
+        <item quantity="other">Feuch ris a-rithist an ceann <xliff:g id="number">%d</xliff:g> diog.</item>
+    </plurals>
+    <string name="kg_sim_lock_esim_instructions"><xliff:g id="previous_msg" example="Enter SIM PIN.">%1$s</xliff:g> Cuir an eSIM à comas airson an t-uidheam a chleachdadh às aonais seirbheis mobile.</string>
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">Cuir a-steach PIN an t-SIM. Tha <xliff:g id="number">%d</xliff:g> oidhirp air fhàgail
+agad mus bi agad ri bruidhinn ris a’ ghiùlanair agad airson a’ ghlas a thoirt far an uidheim agad.</item>
+        <item quantity="two">Cuir a-steach PIN an t-SIM. Tha <xliff:g id="number">%d</xliff:g> oidhirp air fhàgail
+agad.</item>
+        <item quantity="few">Cuir a-steach PIN an t-SIM. Tha <xliff:g id="number">%d</xliff:g> oidhirpean air fhàgail
+agad.</item>
+        <item quantity="other">Cuir a-steach PIN an t-SIM. Tha <xliff:g id="number">%d</xliff:g> oidhirp air fhàgail
+agad.</item>
+    </plurals>
+    <plurals name="kg_password_default_puk_message">
+        <item quantity="one">Tha an SIM à comas a-nis. Cuir a-steach còd PUK airson leantainn air adhart. Tha <xliff:g id=" number">%d</xliff:g> oidhirp air fhàgail dhut gus nach gabh an SIM a chleachdadh a-rithist gu bràth tuilleadh. Cuir fios gun ghiùlanair airson barrachd fiosrachaidh.</item>
+        <item quantity="two">Tha an SIM à comas a-nis. Cuir a-steach còd PUK airson leantainn air adhart. Tha <xliff:g id=" number">%d</xliff:g> oidhirp air fhàgail dhut gus nach gabh an SIM a chleachdadh a-rithist gu bràth tuilleadh. Cuir fios gun ghiùlanair airson barrachd fiosrachaidh.</item>
+        <item quantity="few">Tha an SIM à comas a-nis. Cuir a-steach còd PUK airson leantainn air adhart. Tha <xliff:g id=" number">%d</xliff:g> oidhirpean air fhàgail dhut gus nach gabh an SIM a chleachdadh a-rithist gu bràth tuilleadh. Cuir fios gun ghiùlanair airson barrachd fiosrachaidh.</item>
+        <item quantity="other">Tha an SIM à comas a-nis. Cuir a-steach còd PUK airson leantainn air adhart. Tha <xliff:g id=" number">%d</xliff:g> oidhirp air fhàgail dhut gus nach gabh an SIM a chleachdadh a-rithist gu bràth tuilleadh. Cuir fios gun ghiùlanair airson barrachd fiosrachaidh.</item>
+    </plurals>
+</resources>

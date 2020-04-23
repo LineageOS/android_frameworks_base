@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2020, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,13 +46,4 @@
     <string name="accessibility_quick_settings_profiles_changed">ప్రొఫైల్ <xliff:g id="profile" example="Default">%s</xliff:g>కు మార్చబడింది.</string>
     <string name="quick_settings_usb_tether_label">USB టీథరింగ్</string>
     <string name="quick_settings_volume_panel_label">వాల్యూమ్ ప్యానల్</string>
-    <string name="accessibility_quick_settings_location_battery_saving">స్థాన నివేదిక: బ్యాటరీ సేవింగ్ మోడ్.</string>
-    <string name="accessibility_quick_settings_location_gps_only">స్థాన నివేదిక: సెన్సార్లు మాత్రమే మోడ్.</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">స్థాన నివేదిక: అధిక ఖచ్చితత్వ మోడ్.</string>
-    <string name="quick_settings_location_battery_saving_label">బ్యాటరీ ఆదా</string>
-    <string name="quick_settings_location_gps_only_label">పరికరం మాత్రమే</string>
-    <string name="quick_settings_location_high_accuracy_label">అధిక నిర్దుష్టత</string>
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">అధిక నిర్దుష్టత</string>
-    <string name="quick_settings_location_detail_mode_battery_saving_title">బ్యాటరీ ఆదా</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_title">పరికరం మాత్రమే</string>
 </resources>

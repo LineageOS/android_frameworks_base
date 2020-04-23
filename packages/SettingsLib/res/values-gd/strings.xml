@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2015 The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="wifi_security_none">Chan eil gin</string>
+    <string name="wifi_remembered">Air a shàbhaladh</string>
+    <string name="wifi_disabled_generic">À comas</string>
+    <string name="wifi_not_in_range">Tha thu ro fhad air falbh</string>
+    <string name="wifi_no_internet">Gun cheangal ris an eadar-lìon</string>
+    <string name="wifi_connected_no_internet">Ceangailte gun eadar-lìon</string>
+    <string name="wifi_status_no_internet">Gun eadar-lìon</string>
+    <string name="wifi_status_sign_in_required">Tha feum air clàradh a-steach</string>
+    <string name="speed_label_fast">Luath</string>
+    <string name="bluetooth_connecting">’Ga cheangal…</string>
+    <string name="bluetooth_connected">Chaidh<xliff:g id="active_device">%1$s</xliff:g> a cheangal</string>
+    <string name="bluetooth_connected_no_headset">Chaidh<xliff:g id="active_device">%1$s</xliff:g> a cheangal (gun fhòn)</string>
+    <string name="bluetooth_connected_no_a2dp">Chaidh<xliff:g id="active_device">%1$s</xliff:g> a cheangal (gun mheadhanan)</string>
+    <string name="bluetooth_connected_no_map">Chaidh<xliff:g id="active_device">%1$s</xliff:g> a cheangal (gun inntrigeadh do theachdaireachdan)</string>
+    <string name="bluetooth_connected_no_headset_no_a2dp">Chaidh<xliff:g id="active_device">%1$s</xliff:g> a cheangal (gun fhòn no meadhanan)</string>
+    <string name="bluetooth_connected_battery_level">Ceangailte, bataraidh <xliff:g id="battery_level_as_percentage">%1$s</xliff:g><xliff:g id="active_device">%2$s</xliff:g></string>
+    <string name="bluetooth_connected_no_headset_battery_level">Ceangailte (gun fhòn), bataraidh <xliff:g id="battery_level_as_percentage">%1$s</xliff:g><xliff:g id="active_device">%2$s</xliff:g></string>
+    <string name="bluetooth_connected_no_a2dp_battery_level">Ceangailte (gun mheadhanan), bataraidh <xliff:g id="battery_level_as_percentage">%1$s</xliff:g><xliff:g id="active_device">%2$s</xliff:g></string>
+    <string name="bluetooth_connected_no_headset_no_a2dp_battery_level">Ceangailte (gun fhòn no meadhanan), bataraidh <xliff:g id="battery_level_as_percentage">%1$s</xliff:g><xliff:g id="active_device">%2$s</xliff:g></string>
+    <string name="bluetooth_active_battery_level">Gnìomhach, <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> a bhataraidh</string>
+    <string name="bluetooth_battery_level"><xliff:g id="battery_level_as_percentage">%1$s</xliff:g> a bhataraidh</string>
+    <string name="bluetooth_active_no_battery_level">Gnìomhach</string>
+    <string name="bluetooth_profile_pan">Inntrigeadh an eadar-lìn</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">Ceangailte uidheam airson inntrigeadh ris an eadar-lìon</string>
+    <string name="bluetooth_pan_nap_profile_summary_connected">A’ co-roinneadh an ceangal ionadail ris an eadar-lìon leis an uidheam</string>
+    <string name="bluetooth_pan_profile_summary_use_for">Cleachd airson ceangal ris an eadar-lìon</string>
+    <string name="bluetooth_pairing_accept">Paidhrich</string>
+    <string name="bluetooth_talkback_computer">Coimpiutair</string>
+    <string name="bluetooth_talkback_headset">Headset</string>
+    <string name="bluetooth_talkback_phone">Fòn</string>
+    <string name="bluetooth_talkback_imaging">Ìomhaigheachd</string>
+    <string name="bluetooth_talkback_headphone">Headphone</string>
+    <string name="bluetooth_talkback_input_peripheral">Uidheam-taice ion-chuir</string>
+    <string name="bluetooth_talkback_bluetooth">Bluetooth</string>
+    <string name="bluetooth_hearingaid_left_pairing_message">A’ paidhreachadh an inneil-chlaisneachd chlì\u2026</string>
+    <string name="bluetooth_hearingaid_right_pairing_message">A’ paidhreachadh an inneil-chlaisneachd dheis\u2026</string>
+    <string name="bluetooth_hearingaid_left_battery_level">Deas – <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> a bhataraidh</string>
+    <string name="bluetooth_hearingaid_right_battery_level">Clì – <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> a bhataraidh</string>
+    <string name="data_usage_uninstalled_apps">Aplacaidean a chaidh a thoirt air falbh</string>
+    <string name="data_usage_uninstalled_apps_users">Aplacaidean ’s cleachdaichean a chaidh a thoirt air falbh</string>
+    <string name="tether_settings_title_usb">Teadhrachadh USB</string>
+    <string name="user_guest">Aoigh</string>
+    <string name="running_process_item_user_label">Cleachdaiche: <xliff:g id="user_name">%1$s</xliff:g></string>
+    <string name="tts_default_lang_title">Cànan</string>
+    <string-array name="tts_rate_entries">
+        <item>Glè shlaodach</item>
+        <item>Slow</item>
+        <item>Normal</item>
+        <item>Luath</item>
+        <item>Nas luaithe</item>
+        <item>Glè luath</item>
+        <item>Rapid</item>
+        <item>Very rapid</item>
+        <item>As luaithe</item>
+    </string-array>
+    <string name="category_personal">Pearsanta</string>
+    <string name="category_work">Obair</string>
+    <string name="debug_networking_category">Lìonrachadh</string>
+    <string name="bluetooth_select_a2dp_codec_type_dialog_title">Adhbharaich taghadh codec fuaim\u000ABluetooth</string>
+    <string name="bluetooth_select_a2dp_codec_sample_rate_dialog_title">Adhbharaich taghadh codec fuaim\u000ABluetooth: Reat shampallan</string>
+    <string name="bluetooth_select_a2dp_codec_bits_per_sample_dialog_title">Adhbharaich taghadh codec fuaim\u000ABluetooth: Biod gach sampaill</string>
+    <string name="bluetooth_select_a2dp_codec_channel_mode_dialog_title">Adhbharaich taghadh codec fuaim\u000ABluetooth: Modh seanail</string>
+    <string name="bluetooth_select_a2dp_codec_ldac_playback_quality_dialog_title">Adhbharaich taghadh codec fuaim\u000ABluetooth: Càileachd na cluiche</string>
+    <string name="select_private_dns_configuration_title">DNS prìobhaideach</string>
+    <string name="select_private_dns_configuration_dialog_title">Tagh modh an DNS phrìobhaidich</string>
+    <string name="private_dns_mode_off">Dheth</string>
+    <string name="private_dns_mode_opportunistic">Fèin-obrachail</string>
+    <string name="private_dns_mode_provider">Ainm-òstair solaraiche an DNS phrìobhaidich</string>
+    <string name="private_dns_mode_provider_hostname_hint">Cuir a-steach ainm-òstair aig solaraiche an DNS</string>
+    <string name="private_dns_mode_provider_failure">Cha b’ urrainn dhuinn ceangal a dhèanamh</string>
+    <string name="wifi_metered_label">Meadaraichte</string>
+    <string name="wifi_unmetered_label">Neo-mheadaraichte</string>
+    <string name="enable_terminal_title">Tèirmineal ionadail</string>
+    <string name="enable_terminal_summary">Cuid an comas aplacaid tèirmineil a bheir inntrigeadh do shlige ionadail dhut</string>
+    <string name="debug_debugging_category">Dì-bhugachadh</string>
+    <string name="select_application">Tagh aplacaid</string>
+    <string name="no_application">Na dèan dad</string>
+    <string name="debug_drawing_category">Peantadh</string>
+    <string name="enable_gpu_debug_layers">Cuir an comas breathan dì-bhugachaidh a’ GPU</string>
+    <string name="enable_gpu_debug_layers_summary">Ceadaich luchdadh breathan dì-bhugachaidh a’ GPU airson aplacaidean dì-bhugachaidh</string>
+    <string name="debug_applications_category">Aplacaidean</string>
+    <string name="show_all_anrs">Seall “gun fhreagairt” a’ chùlaibh</string>
+    <string name="show_all_anrs_summary">Seall còmhradh “Chan eil an aplacaid a fhreagairt” airson aplacaidean cùlaibh</string>
+    <string-array name="color_mode_names">
+        <item>Vibrant (default)</item>
+        <item>Nàdarra</item>
+        <item>Standard</item>
+    </string-array>
+    <string name="inactive_apps_title">Aplacaidean ’nam fuireachas</string>
+    <string name="standby_bucket_summary">Aplacaid ’na fhuireachas
+        staid:<xliff:g id="bucket"> %s</xliff:g></string>
+    <string name="daltonizer_mode_disabled">À comas</string>
+    <string name="power_remaining_settings_home_page"><xliff:g id="percentage" example="10%">%1$s</xliff:g> – <xliff:g id="time_string" example="1 hour left based on your usage">%2$s</xliff:g></string>
+    <string name="power_remaining_duration_only">Mu <xliff:g id="time_remaining">%1$s</xliff:g> air fhàgail</string>
+    <string name="power_discharging_duration">Mu <xliff:g id="time_remaining">%1$s</xliff:g> air fhàgail (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_remaining_duration_only_enhanced">Mu <xliff:g id="time_remaining">%1$s</xliff:g> air fhàgail a-rèir do chaitheamh</string>
+    <string name="power_discharging_duration_enhanced">Mu <xliff:g id="time_remaining">%1$s</xliff:g> air fhàgail a-rèir do chaitheamh</string>
+    <string name="power_discharge_by_enhanced">Bu chòir dha mairsinn mu <xliff:g id="time">%1$s</xliff:g> a-rèir do chaitheamh (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_discharge_by_only_enhanced">Bu chòir dha mairsinn mu <xliff:g id="time">%1$s</xliff:g> a-rèir do chaitheamh</string>
+    <string name="power_discharge_by">Bu chòir dha mairsinn mu <xliff:g id="time">%1$s</xliff:g> (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_discharge_by_only">Bu chòir dha mairsinn mu <xliff:g id="time">%1$s</xliff:g></string>
+    <string name="power_remaining_less_than_duration_only">Tha nas lugha na <xliff:g id="threshold">%1$s</xliff:g> air fhàgail</string>
+    <string name="power_remaining_less_than_duration">Tha nas lugha na <xliff:g id="threshold">%1$s</xliff:g> air fhàgail (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_remaining_more_than_subtext">Tha barrachd air <xliff:g id="time_remaining">%1$s</xliff:g> air fhàgail (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_remaining_only_more_than_subtext">Tha barrachd air <xliff:g id="time_remaining">%1$s</xliff:g> air fhàgail</string>
+    <string name="power_remaining_duration_only_shutdown_imminent" product="default">Thèid am fòn a chur sìos a dh’aithghearr</string>
+    <string name="power_remaining_duration_only_shutdown_imminent" product="tablet">Thèid an tablaid a chur sìos a dh’aithghearr</string>
+    <string name="power_remaining_duration_only_shutdown_imminent" product="device">Thèid an t-uidheam a chur sìos a dh’aithghearr</string>
+    <string name="power_remaining_duration_shutdown_imminent" product="default">Thèid am fòn a chur sìos a dh’aithghearr (<xliff:g id="level">%1$s</xliff:g>)</string>
+    <string name="power_remaining_duration_shutdown_imminent" product="tablet">Thèid an tablaid a chur sìos a dh’aithghearr (<xliff:g id="level">%1$s</xliff:g>)</string>
+    <string name="power_remaining_duration_shutdown_imminent" product="device">Thèid an t-uidheam a chur sìos a dh’aithghearr (<xliff:g id="level">%1$s</xliff:g>)</string>
+    <string name="power_remaining_charging_duration_only"><xliff:g id="time">%1$s</xliff:g> air fhàgail gus am bi e air a làn-theàirrdseadh</string>
+    <string name="power_charging_duration"><xliff:g id="level">%1$s</xliff:g> – <xliff:g id="time">%2$s</xliff:g> gus am bi e air a làn-theairrdseadh</string>
+    <string name="battery_info_status_full">Làn</string>
+    <string name="disabled">À comas</string>
+    <string name="screen_zoom_summary_small">Beag</string>
+    <string name="screen_zoom_summary_large">Mòr</string>
+    <string name="screen_zoom_summary_very_large">Nas motha</string>
+    <string name="screen_zoom_summary_extremely_large">As motha buileach</string>
+    <string name="retail_demo_reset_next">Air adhart</string>
+    <string name="retail_demo_reset_title">Tha feum air facal-faire</string>
+    <string name="ims_reg_title">"Staid clàradh IMS"</string>
+    <string name="ims_reg_status_registered">"Clàraichte"</string>
+    <string name="ims_reg_status_not_registered">"Gun chlàradh"</string>
+    <string name="status_unavailable">Chan eil seo ri fhaighinn</string>
+    <string name="wifi_status_mac_randomized">Tha MAC air thuaiream agad</string>
+    <plurals name="wifi_tether_connected_summary">
+        <item quantity="one">Chaidh %1$d uidheam a cheangal</item>
+        <item quantity="two">Chaidh %1$d uidheam a cheangal</item>
+        <item quantity="few">Chaidh %1$d uidheaman a cheangal</item>
+        <item quantity="other">Chaidh %1$d uidheam a cheangal</item>
+    </plurals>
+    <string name="accessibility_manual_zen_more_time">Barrachd ùine.</string>
+    <string name="accessibility_manual_zen_less_time">Nas lugha de dh’ùine.</string>
+    <string name="zen_mode_enable_dialog_turn_on">Cuir air</string>
+    <string name="zen_mode_settings_turn_on_dialog_title">Cuir air “Na bris a-steach orm”</string>
+    <string name="zen_mode_settings_summary_off">Chan ann idir</string>
+    <string name="zen_interruption_level_priority">Le prìomhachas a-mhàin</string>
+    <string name="zen_mode_and_condition"><xliff:g id="zen_mode" example="Priority interruptions only">%1$s</xliff:g>. <xliff:g id="exit_condition" example="For one hour">%2$s</xliff:g></string>
+    <string name="zen_alarm_warning_indef">Cha chluinn thu an ath-chaismeachd agad <xliff:g id="when" example="at 7:00 AM">%1$s</xliff:g> ach mura cuir thu seo dheth roimhe sin</string>
+    <string name="zen_alarm_warning">Cha chluinn thu an ath-chaismeachd agad <xliff:g id="when" example="at 7:00 AM">%1$s</xliff:g></string>
+    <string name="alarm_template">aig <xliff:g id="when" example="7:00 AM">%1$s</xliff:g></string>
+    <string name="alarm_template_far"><xliff:g id="when" example="Fri 7:00 AM">%1$s</xliff:g></string>
+    <string name="zen_mode_duration_settings_title">Faid</string>
+    <string name="zen_mode_duration_always_prompt_title">Faighnich dhìom gach turas</string>
+    <string name="time_unit_just_now">An-dràsta fhèin</string>
+</resources>
