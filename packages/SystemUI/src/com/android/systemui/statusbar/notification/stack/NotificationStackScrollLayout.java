@@ -192,8 +192,9 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
     private final NotificationSwipeHelper mSwipeHelper;
     private int mCurrentStackHeight = Integer.MAX_VALUE;
     private final Paint mBackgroundPaint = new Paint();
-    private boolean mShouldDrawNotificationBackground;
+    private final boolean mShouldDrawNotificationBackground;
     private boolean mHighPriorityBeforeSpeedBump;
+    private boolean mTranslucentNotificationsBgEnabled;
     private final boolean mAllowLongPress;
     private boolean mDismissRtl;
 
@@ -565,6 +566,8 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
                 getContext(), mMenuEventListener, mFalsingManager);
         mStackScrollAlgorithm = createStackScrollAlgorithm(context);
         initView(context);
+        mShouldDrawNotificationBackground =
+                res.getBoolean(R.bool.config_drawNotificationBackground);
         mFadeNotificationsOnDismiss =
                 res.getBoolean(R.bool.config_fadeNotificationsOnDismiss);
         mRoundnessManager.setAnimatedChildren(mChildrenToAddAnimated);
@@ -579,6 +582,8 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
             blockingHelperManager.setNotificationShadeExpanded(height);
         });
 
+        boolean willDraw = mShouldDrawNotificationBackground || DEBUG;
+        setWillNotDraw(!willDraw);
         mBackgroundPaint.setAntiAlias(true);
         if (DEBUG) {
             mDebugPaint = new Paint();
@@ -596,8 +601,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
             } else if (key.equals(Settings.Secure.NOTIFICATION_DISMISS_RTL)) {
                 updateDismissRtlSetting("1".equals(newValue));
             } else if (key.equals(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED)) {
-                mShouldDrawNotificationBackground = !"1".equals(newValue);
-                setWillNotDraw(!mShouldDrawNotificationBackground && onKeyguard());
+                mTranslucentNotificationsBgEnabled = "1".equals(newValue);
             }
         }, HIGH_PRIORITY, Settings.Secure.NOTIFICATION_DISMISS_RTL,
                 LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED);
@@ -777,7 +781,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
 
     @ShadeViewRefactor(RefactorComponent.DECORATOR)
     protected void onDraw(Canvas canvas) {
-        if ((mShouldDrawNotificationBackground || !onKeyguard())
+        if (mShouldDrawNotificationBackground
                 && (mSections[0].getCurrentBounds().top
                 < mSections[NUM_SECTIONS - 1].getCurrentBounds().bottom
                 || mAmbientState.isDozing())) {
@@ -951,7 +955,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
     @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
     private void updateBackgroundDimming() {
         // No need to update the background color if it's not being drawn.
-        if (!mShouldDrawNotificationBackground && onKeyguard()) {
+        if (!mShouldDrawNotificationBackground) {
             return;
         }
 
@@ -960,6 +964,10 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         float colorInterpolation = MathUtils.smoothStep(0.4f /* start */, 1f /* end */,
                 mLinearHideAmount);
         int color = ColorUtils.blendARGB(mBgColor, Color.WHITE, colorInterpolation);
+
+        if (mTranslucentNotificationsBgEnabled && onKeyguard()) {
+            color &= 0x7FFFFFFF;
+        }
 
         if (mCachedBackgroundColor != color) {
             mCachedBackgroundColor = color;
@@ -2475,7 +2483,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
     @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
     private void updateBackground() {
         // No need to update the background color if it's not being drawn.
-        if (!mShouldDrawNotificationBackground && onKeyguard()) {
+        if (!mShouldDrawNotificationBackground) {
             return;
         }
 
@@ -5326,8 +5334,6 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
 
         mEntryManager.updateNotifications();
         updateVisibility();
-
-        setWillNotDraw(!mShouldDrawNotificationBackground && onKeyguard);
     }
 
     @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
