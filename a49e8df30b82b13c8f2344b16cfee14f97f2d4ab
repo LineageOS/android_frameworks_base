@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71c6971e_860fa572",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-04-24T18:30:45Z",
+      "side": 1,
+      "message": "Can we override refreshState to call that method?  It seems wrong that refreshState doesn\u0027t do that automatically. I haven\u0027t looked at any other tiles though, so if other tiles do it like this, lemme know.",
+      "revId": "a49e8df30b82b13c8f2344b16cfee14f97f2d4ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
