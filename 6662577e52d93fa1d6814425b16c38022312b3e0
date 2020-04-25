@@ -16,6 +16,23 @@
       "revId": "6662577e52d93fa1d6814425b16c38022312b3e0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e496b4df_e4ed0663",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-04-25T04:43:54Z",
+      "side": 1,
+      "message": "mPowerShare \u003d\u003d null might be sufficient, would avoid another overlay",
+      "revId": "6662577e52d93fa1d6814425b16c38022312b3e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
