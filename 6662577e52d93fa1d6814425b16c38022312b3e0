@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12df56dd_73100cc0",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-04-25T04:40:31Z",
+      "side": 1,
+      "message": "nit: line length should be under 100 chars throughout the file.",
+      "revId": "6662577e52d93fa1d6814425b16c38022312b3e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
