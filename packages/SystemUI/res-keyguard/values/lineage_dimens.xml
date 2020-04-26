@@ -20,4 +20,7 @@
 
     <!-- The margin between the pin view and the Emergency Carrier area -->
     <dimen name="pin_view_bottom_margin">0dp</dimen>
+
+    <!-- The bottom margin of the keyguard security container -->
+    <dimen name="kg_security_container_min_bottom_margin">0dp</dimen>
 </resources>
