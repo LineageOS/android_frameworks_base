@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41890e69_3e35a5b9",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3693,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-04-28T17:28:02Z",
+      "side": 1,
+      "message": "The cache name includes the build time in the hash so it looks like the cache should be blown away between different lineage builds as things stand.\n\nAre you sure that this change has an effect ?",
+      "revId": "4932cda34e597d2a46bd579587eec4b8af8d8bc2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
