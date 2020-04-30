@@ -69,7 +69,6 @@ public class FODCircleView extends ImageView {
     private int mColor;
     private int mColorBackground;
 
-    private boolean mIsBouncer;
     private boolean mIsDreaming;
     private boolean mIsShowing;
     private boolean mIsCircleShowing;
@@ -113,7 +112,6 @@ public class FODCircleView extends ImageView {
 
         @Override
         public void onKeyguardBouncerChanged(boolean isBouncer) {
-            mIsBouncer = isBouncer;
             if (mUpdateMonitor.isFingerprintDetectionRunning()) {
                 if (isPinOrPattern(mUpdateMonitor.getCurrentUser()) || !isBouncer) {
                     show();
@@ -321,11 +319,6 @@ public class FODCircleView extends ImageView {
     public void show() {
         if (!mUpdateMonitor.isScreenOn()) {
             // Keyguard is shown just after screen turning off
-            return;
-        }
-
-        if (mIsBouncer) {
-            // Ignore show calls when Keyguard pin screen is being shown
             return;
         }
 
