@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f72739f7_cde7c466",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 2320
+      },
+      "writtenOn": "2020-05-01T11:09:55Z",
+      "side": 1,
+      "message": "I\u0027m adding this to prevent NULL pointer exceptions:\n\n05-01 11:24:15.111  4639  4639 E AndroidRuntime: FATAL EXCEPTION: main\n05-01 11:24:15.111  4639  4639 E AndroidRuntime: Process: com.android.systemui, PID: 4639\n05-01 11:24:15.111  4639  4639 E AndroidRuntime: java.lang.NullPointerException: Attempt to invoke interface method \u0027boolean vendor.lineage.powershare.V1_0.IPowerShare.isEnabled()\u0027 on a null object reference\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.tiles.PowerShareTile.updatePowerShareState(PowerShareTile.java:100)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.tiles.PowerShareTile.refreshState(PowerShareTile.java:82)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.tiles.PowerShareTile.onPowerSaveChanged(PowerShareTile.java:77)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.statusbar.policy.BatteryControllerImpl.addCallback(BatteryControllerImpl.java:127)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.statusbar.policy.BatteryControllerImpl.addCallback(BatteryControllerImpl.java:51)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.tiles.PowerShareTile.\u003cinit\u003e(PowerShareTile.java:56)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.tiles.PowerShareTile_Factory.provideInstance(PowerShareTile_Factory.java:27)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.tiles.PowerShareTile_Factory.get(PowerShareTile_Factory.java:22)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.tiles.PowerShareTile_Factory.get(PowerShareTile_Factory.java:9)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.tileimpl.QSFactoryImpl.createTileInternal(QSFactoryImpl.java:240)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.tileimpl.QSFactoryImpl.createTile(QSFactoryImpl.java:180)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.QSTileHost.createTile(QSTileHost.java:341)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.customize.TileQueryHelper.addCurrentAndStockTiles(TileQueryHelper.java:107)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.customize.TileQueryHelper.queryTiles(TileQueryHelper.java:74)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.customize.QSCustomizer.queryTiles(QSCustomizer.java:212)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.customize.QSCustomizer.show(QSCustomizer.java:187)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.systemui.qs.QSPanel$2.run(QSPanel.java:535)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at android.os.Handler.handleCallback(Handler.java:883)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at android.os.Handler.dispatchMessage(Handler.java:100)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at android.os.Looper.loop(Looper.java:214)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at android.app.ActivityThread.main(ActivityThread.java:7356)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at java.lang.reflect.Method.invoke(Native Method)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:491)\n05-01 11:24:15.111  4639  4639 E AndroidRuntime:        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:930)",
+      "parentUuid": "fd257a00_aea5bd74",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 9
+      },
+      "revId": "c49876055b9188dcff2eefcc64c60bcebc9959c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01bb23fb_bafcefd5",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
         "patchSetId": 14
