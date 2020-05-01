@@ -16,6 +16,24 @@
       "revId": "7dcdb93d16448fbc7fed5174babd0aff7da04d7e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85e56147_cfdb6cce",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2320
+      },
+      "writtenOn": "2020-05-01T11:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eef7dca9_a712297e",
+      "revId": "7dcdb93d16448fbc7fed5174babd0aff7da04d7e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
