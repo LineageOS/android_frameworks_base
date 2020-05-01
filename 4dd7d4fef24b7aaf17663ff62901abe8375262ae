@@ -22,6 +22,30 @@
       "revId": "4dd7d4fef24b7aaf17663ff62901abe8375262ae",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbeebe2e_90802ca5",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 2320
+      },
+      "writtenOn": "2020-05-01T10:05:20Z",
+      "side": 1,
+      "message": "Just wanted to be sure to not run into a null pointer exception. I can remove it if you prefer that.",
+      "parentUuid": "0b6c29fc_5254c1ce",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 9
+      },
+      "revId": "4dd7d4fef24b7aaf17663ff62901abe8375262ae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
