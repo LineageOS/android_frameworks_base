@@ -46,6 +46,30 @@
       "revId": "4dd7d4fef24b7aaf17663ff62901abe8375262ae",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2f43798_92c1e68e",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-05-01T10:06:58Z",
+      "side": 1,
+      "message": "Well, you should only do that on places where it makes sense. Definitely not here.",
+      "parentUuid": "dbeebe2e_90802ca5",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 9
+      },
+      "revId": "4dd7d4fef24b7aaf17663ff62901abe8375262ae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
