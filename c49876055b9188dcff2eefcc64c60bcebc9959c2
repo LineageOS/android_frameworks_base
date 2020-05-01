@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "eb091095_56ff99fc",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 2320
+      },
+      "writtenOn": "2020-05-01T11:14:51Z",
+      "side": 1,
+      "message": "Better safe than sorry ...",
+      "parentUuid": "01bb23fb_bafcefd5",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 9
+      },
+      "revId": "c49876055b9188dcff2eefcc64c60bcebc9959c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eff17156_006015f7",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
         "patchSetId": 14
@@ -92,6 +116,30 @@
       "revId": "c49876055b9188dcff2eefcc64c60bcebc9959c2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edd41ead_745076fc",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 2320
+      },
+      "writtenOn": "2020-05-01T11:14:51Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "eff17156_006015f7",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 9
+      },
+      "revId": "c49876055b9188dcff2eefcc64c60bcebc9959c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
