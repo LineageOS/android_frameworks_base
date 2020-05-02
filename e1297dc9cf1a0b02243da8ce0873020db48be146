@@ -16,6 +16,24 @@
       "revId": "e1297dc9cf1a0b02243da8ce0873020db48be146",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00d2f693_c80e5da4",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-05-02T19:55:23Z",
+      "side": 1,
+      "message": "I\u0027ve worked this up locally.  Will upload after testing.",
+      "parentUuid": "5997d772_d3941d18",
+      "revId": "e1297dc9cf1a0b02243da8ce0873020db48be146",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
