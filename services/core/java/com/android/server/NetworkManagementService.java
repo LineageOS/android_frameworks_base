@@ -360,7 +360,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
                 NetworkCapabilities nc = mConnectivityManager.getNetworkCapabilities(network);
                 RestrictIf matchedRestrictIf = null;
                 for (RestrictIf restrictIf : mRestrictIf) {
-                    if (nc.hasTransport(restrictIf.transport)) {
+                    if (nc != null && nc.hasTransport(restrictIf.transport)) {
                         matchedRestrictIf = restrictIf;
                         break;
                     }
