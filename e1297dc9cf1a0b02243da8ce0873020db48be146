@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5997d772_d3941d18",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-02T12:34:45Z",
+      "side": 1,
+      "message": "This might be fine for now but:\n\nDo NOT call ConnectivityManager.getNetworkCapabilities(android.net.Network) or other synchronous ConnectivityManager methods in this callback as this is prone to race conditions\n\nInstead, wait for a call to onCapabilitiesChanged(android.net.Network, android.net.NetworkCapabilities) and onLinkPropertiesChanged(android.net.Network, android.net.LinkProperties) whose arguments are guaranteed to be well-ordered with respect to other callbacks.\n\nWe\u0027ll have to create a map of NetworkCapabilities and LinkProperties and then run this method whenever these changes",
+      "revId": "e1297dc9cf1a0b02243da8ce0873020db48be146",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
