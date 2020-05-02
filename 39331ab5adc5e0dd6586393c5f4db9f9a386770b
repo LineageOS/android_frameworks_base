@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e858703_a25b4ee9",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-02T20:40:38Z",
+      "side": 1,
+      "message": "I\u0027d rather see how it plays with the map first",
+      "revId": "39331ab5adc5e0dd6586393c5f4db9f9a386770b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
