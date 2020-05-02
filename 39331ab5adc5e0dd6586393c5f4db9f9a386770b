@@ -16,6 +16,24 @@
       "revId": "39331ab5adc5e0dd6586393c5f4db9f9a386770b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aed932ed_d785192e",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-05-02T20:42:56Z",
+      "side": 1,
+      "message": "If we do get null (maybe a bug in network callbacks code) it\u0027s going to result in a system server crash.  Is it really worth the risk ?",
+      "parentUuid": "3e858703_a25b4ee9",
+      "revId": "39331ab5adc5e0dd6586393c5f4db9f9a386770b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
