@@ -358,6 +358,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
             @Override
             public void onLinkPropertiesChanged(Network network, LinkProperties linkProperties) {
                 NetworkCapabilities nc = mConnectivityManager.getNetworkCapabilities(network);
+                if (nc == null) {
+                    return;
+                }
                 RestrictIf matchedRestrictIf = null;
                 for (RestrictIf restrictIf : mRestrictIf) {
                     if (nc.hasTransport(restrictIf.transport)) {
