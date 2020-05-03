@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- * Copyright (C) 2017-2019 The LineageOS Project
+ * Copyright (C) 2017-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,11 +17,11 @@
 
 package com.android.systemui.qs.tiles;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.ContentObserver;
 import android.net.ConnectivityManager;
 import android.net.LinkAddress;
+import android.net.LinkProperties;
 import android.net.Network;
 import android.net.Uri;
 import android.os.UserHandle;
@@ -29,11 +29,11 @@ import android.provider.Settings;
 import android.service.quicksettings.Tile;
 
 import com.android.systemui.Dependency;
+import com.android.systemui.R;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
-import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.UnlockMethodCache;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
@@ -43,7 +43,6 @@ import org.lineageos.internal.logging.LineageMetricsLogger;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -182,13 +181,11 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
     private ConnectivityManager.NetworkCallback mNetworkCallback =
             new ConnectivityManager.NetworkCallback() {
         @Override
-        public void onAvailable(Network network) {
-            List<LinkAddress> linkAddresses =
-                    mConnectivityManager.getLinkProperties(network).getLinkAddresses();
+        public void onLinkPropertiesChanged(Network network, LinkProperties linkProperties) {
             // Determine local network address.
             // Use first IPv4 address if available, otherwise use first IPv6.
             String ipv4 = null, ipv6 = null;
-            for (LinkAddress la : linkAddresses) {
+            for (LinkAddress la : linkProperties.getLinkAddresses()) {
                 final InetAddress addr = la.getAddress();
                 if (ipv4 == null && addr instanceof Inet4Address) {
                     ipv4 = addr.getHostAddress();
