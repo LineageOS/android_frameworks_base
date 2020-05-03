@@ -52,6 +52,24 @@
       "revId": "39331ab5adc5e0dd6586393c5f4db9f9a386770b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebc24a63_fdc34d2d",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-05-03T00:54:05Z",
+      "side": 1,
+      "message": "for now, how about keep the null check but log when it happens.",
+      "parentUuid": "e9a8d55b_53ce9764",
+      "revId": "39331ab5adc5e0dd6586393c5f4db9f9a386770b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
