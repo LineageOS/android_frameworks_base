@@ -20,8 +20,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.os.RemoteException;
-import android.os.ServiceManager;
-import android.security.IKeystoreService;
 import android.util.Slog;
 
 import com.android.internal.policy.IKeyguardService;
@@ -61,16 +59,11 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
     private IUsbRestrict mUsbRestrictor = null;
     private ContentResolver mContentResolver;
 
-    IKeystoreService mKeystoreService;
-
     public KeyguardStateMonitor(Context context, IKeyguardService service, StateCallback callback) {
         mLockPatternUtils = new LockPatternUtils(context);
         mCurrentUserId = ActivityManager.getCurrentUser();
         mCallback = callback;
         mContentResolver = context.getContentResolver();
-
-        mKeystoreService = IKeystoreService.Stub.asInterface(ServiceManager
-                .getService("android.security.keystore"));
 
         try {
             service.addStateMonitorCallback(this);
@@ -104,11 +97,6 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
         mIsShowing = showing;
 
         mCallback.onShowingChanged();
-        try {
-            mKeystoreService.onKeyguardVisibilityChanged(showing, mCurrentUserId);
-        } catch (RemoteException e) {
-            Slog.e(TAG, "Error informing keystore of screen lock", e);
-        }
 
         if (mUsbRestrictor == null) {
             try {
@@ -142,10 +130,6 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
 
     public synchronized void setCurrentUser(int userId) {
         mCurrentUserId = userId;
-    }
-
-    private synchronized int getCurrentUser() {
-        return mCurrentUserId;
     }
 
     @Override // Binder interface
