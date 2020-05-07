@@ -123,13 +123,7 @@ public class TaskPositioningControllerTests extends WindowTestsBase {
             assertNull(mTarget.getDragWindowHandleLocked());
         }
 
-        final DisplayContent content = mock(DisplayContent.class);
-        when(content.findTaskForResizePoint(anyInt(), anyInt())).thenReturn(mWindow.getTask());
-        assertNotNull(mWindow.getTask().getTopVisibleAppMainWindow());
-
-        mTarget.handleTapOutsideTask(content, 0, 0);
-        // Wait until the looper processes finishTaskPositioning.
-        assertTrue(mWm.mH.runWithScissors(() -> { }, TIMEOUT_MS));
+        triggerHandleTapOutsideTask();
 
         synchronized (mWm.mGlobalLock) {
             assertTrue(mTarget.isPositioningLocked());
@@ -142,5 +136,33 @@ public class TaskPositioningControllerTests extends WindowTestsBase {
 
         assertFalse(mTarget.isPositioningLocked());
         assertNull(mTarget.getDragWindowHandleLocked());
+    }
+
+    @Test
+    public void testHandleTapOutsideTaskWithTransferTouchFocusFailed() {
+        when(mWm.mInputManager.transferTouchFocus(
+                any(InputChannel.class),
+                any(InputChannel.class))).thenReturn(false);
+        synchronized (mWm.mGlobalLock) {
+            assertFalse(mTarget.isPositioningLocked());
+            assertNull(mTarget.getDragWindowHandleLocked());
+        }
+
+        triggerHandleTapOutsideTask();
+
+        synchronized (mWm.mGlobalLock) {
+            assertFalse(mTarget.isPositioningLocked());
+            assertNull(mTarget.getDragWindowHandleLocked());
+        }
+    }
+
+    private void triggerHandleTapOutsideTask() {
+        final DisplayContent content = mock(DisplayContent.class);
+        when(content.findTaskForResizePoint(anyInt(), anyInt())).thenReturn(mWindow.getTask());
+        assertNotNull(mWindow.getTask().getTopVisibleAppMainWindow());
+
+        mTarget.handleTapOutsideTask(content, 0, 0);
+        // Wait until the looper processes finishTaskPositioning.
+        assertTrue(mWm.mH.runWithScissors(() -> { }, TIMEOUT_MS));
     }
 }
