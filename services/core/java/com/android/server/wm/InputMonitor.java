@@ -321,7 +321,11 @@ final class InputMonitor {
     }
 
     void updateInputWindowsImmediately() {
-        if (mUpdateInputWindowsPending) {
+        updateInputWindowsImmediately(false);
+    }
+
+    void updateInputWindowsImmediately(boolean ignorePending) {
+        if (ignorePending || mUpdateInputWindowsPending) {
             mApplyImmediately = true;
             mUpdateInputWindows.run();
             mApplyImmediately = false;

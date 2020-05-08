@@ -308,7 +308,11 @@ class TaskPositioner implements IBinder.DeathRecipient {
         mDisplayContent.pauseRotationLocked();
 
         // Notify InputMonitor to take mDragWindowHandle.
-        mDisplayContent.getInputMonitor().updateInputWindowsImmediately();
+        // We must add mDragWindowHandle to InputManager immediately although
+        // there is pending for updateInputWindows. Otherwise, the
+        // InputManager.transferTouchFocus will fail because of not-found
+        // mDragWindowHandle(to window).
+        mDisplayContent.getInputMonitor().updateInputWindowsImmediately(true);
         new SurfaceControl.Transaction().syncInputWindows().apply();
 
         mSideMargin = dipToPixel(SIDE_MARGIN_DIP, mDisplayMetrics);
