@@ -20,8 +20,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.os.RemoteException;
-import android.os.ServiceManager;
-import android.security.keystore.IKeystoreService;
 import android.util.Slog;
 
 import com.android.internal.policy.IKeyguardService;
@@ -61,16 +59,11 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
     private IUsbRestrict mUsbRestrictor = null;
     private ContentResolver mContentResolver;
 
-    IKeystoreService mKeystoreService;
-
     public KeyguardStateMonitor(Context context, IKeyguardService service, StateCallback callback) {
         mLockPatternUtils = new LockPatternUtils(context);
         mCurrentUserId = ActivityManager.getCurrentUser();
         mCallback = callback;
         mContentResolver = context.getContentResolver();
-
-        mKeystoreService = IKeystoreService.Stub.asInterface(ServiceManager
-                .getService("android.security.keystore"));
 
         try {
             service.addStateMonitorCallback(this);
@@ -104,23 +97,6 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
         mIsShowing = showing;
 
         mCallback.onShowingChanged();
-        int retry = 2;
-        while (retry > 0) {
-            try {
-                mKeystoreService.onKeyguardVisibilityChanged(showing, mCurrentUserId);
-                break;
-            } catch (RemoteException e) {
-                if (retry == 2) {
-                    Slog.w(TAG, "Error informing keystore of screen lock. Keystore may have died"
-                            + " -> refreshing service token and retrying");
-                    mKeystoreService = IKeystoreService.Stub.asInterface(ServiceManager
-                            .getService("android.security.keystore"));
-                } else {
-                    Slog.e(TAG, "Error informing keystore of screen lock after retrying once", e);
-                }
-                --retry;
-            }
-        }
 
         if (mUsbRestrictor == null) {
             try {
@@ -152,10 +128,6 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
 
     public synchronized void setCurrentUser(int userId) {
         mCurrentUserId = userId;
-    }
-
-    private synchronized int getCurrentUser() {
-        return mCurrentUserId;
     }
 
     @Override // Binder interface
