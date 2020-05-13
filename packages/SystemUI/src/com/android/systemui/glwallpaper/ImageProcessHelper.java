@@ -86,7 +86,13 @@ class ImageProcessHelper {
         protected Float doInBackground(Bitmap... bitmaps) {
             Bitmap bitmap = bitmaps[0];
             if (bitmap != null) {
-                return new Threshold().compute(bitmap);
+                try {
+                    return new Threshold().compute(bitmap);
+                } catch (RuntimeException e) {
+                    Log.e(TAG, "Failed at computing threshold, color space="
+                            + bitmap.getColorSpace(), e);
+                    return DEFAULT_THRESHOLD;
+                }
             }
             Log.e(TAG, "ThresholdComputeTask: Can't get bitmap");
             return DEFAULT_THRESHOLD;
