@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c4a0fb2_19d11a6a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-05-16T17:24:57Z",
+      "side": 1,
+      "message": "move below",
+      "revId": "e1627854425332c9686f172a5631b584e6bff3b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2456b8c_72cc021b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4896,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-05-16T17:24:57Z",
+      "side": 1,
+      "message": "use TunerService.parseIntegerSwitch",
+      "revId": "e1627854425332c9686f172a5631b584e6bff3b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
