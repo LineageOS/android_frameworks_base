@@ -109,7 +109,6 @@ class PolicyRequestProcessor(
                 val screenshot =
                     captureDisplay(type.displayId) ?: error("Failed to capture screenshot")
                 return original.copy(
-                    type = TAKE_SCREENSHOT_FULLSCREEN,
                     bitmap = screenshot,
                     userHandle = params.owner,
                     topComponent = params.contentTask.component,

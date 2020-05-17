@@ -62,6 +62,8 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
@@ -95,6 +97,8 @@ import com.android.server.UiThread;
 import com.android.server.input.data.InputDataStore;
 import com.android.server.pm.UserManagerInternal;
 import com.android.server.wm.WindowManagerInternal;
+
+import lineageos.providers.LineageSettings;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -243,6 +247,8 @@ final class KeyGestureController {
     private int mRingerToggleChord = Settings.Secure.VOLUME_HUSH_OFF;
     private int mPowerVolUpBehavior;
 
+    // Click volume down + power for partial screenshot
+    private boolean mClickPartialScreenshot;
 
     // List of currently registered key gesture event listeners keyed by process pid
     @GuardedBy("mKeyGestureEventListenerRecords")
@@ -321,6 +327,9 @@ final class KeyGestureController {
                 Settings.Global.KEY_CHORD_POWER_VOLUME_UP,
                 mContext.getResources().getInteger(
                         com.android.internal.R.integer.config_keyChordPowerVolumeUp));
+        mClickPartialScreenshot = LineageSettings.System.getIntForUser(resolver,
+                LineageSettings.System.CLICK_PARTIAL_SCREENSHOT, 0,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     private void initKeyCombinationRules() {
@@ -348,6 +357,11 @@ final class KeyGestureController {
                                     KeyGestureEvent.KEY_GESTURE_TYPE_SCREENSHOT_CHORD,
                                     KeyGestureEvent.ACTION_GESTURE_COMPLETE,
                                     KeyGestureEvent.FLAG_CANCELLED);
+                        }
+
+                        @Override
+                        public long getKeyInterceptDelayMs() {
+                            return mClickPartialScreenshot ? 500 : 150;
                         }
                     });
 
@@ -1411,7 +1425,8 @@ final class KeyGestureController {
                 mAccessibilityShortcutController.performAccessibilityShortcut();
                 break;
             case MSG_SCREENSHOT_SHORTCUT:
-                takeScreenshot(msg.arg1, msg.arg2);
+                TakeScreenshotData data = (TakeScreenshotData) msg.obj;
+                takeScreenshot(data.source, data.type, data.displayId);
                 break;
             case MSG_EXIT_FOCUSED_APP:
                 handleKeyGesture((AidlKeyGestureEvent) msg.obj, /* focusedToken= */null);
@@ -1750,6 +1765,9 @@ final class KeyGestureController {
             resolver.registerContentObserver(Settings.Global.getUriFor(
                             Settings.Global.KEY_CHORD_POWER_VOLUME_UP), false, this,
                     UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                            LineageSettings.System.CLICK_PARTIAL_SCREENSHOT), false, this,
+                    UserHandle.USER_ALL);
         }
 
         @Override
@@ -1809,18 +1827,20 @@ final class KeyGestureController {
         }
     }
 
-    private void takeScreenshot(int source, int displayId) {
+    private void takeScreenshot(int source, int type, int displayId) {
         ScreenshotRequest request =
-                new ScreenshotRequest.Builder(WindowManager.TAKE_SCREENSHOT_FULLSCREEN, source)
+                new ScreenshotRequest.Builder(type, source)
                         .setDisplayId(displayId)
                         .build();
         mScreenshotHelper.takeScreenshot(request, mHandler, null /* completionConsumer */);
     }
 
     private long getScreenshotChordLongPressDelay() {
-        long delayMs = DeviceConfig.getLong(
+        // If click to partial screenshot is enabled, restore pre Android QPR1
+        // default delay (500ms) in case SCREENSHOT_KEYCHORD_DELAY is shorter than it.
+        long delayMs = Long.max(mClickPartialScreenshot ? 500 : 0, DeviceConfig.getLong(
                 DeviceConfig.NAMESPACE_SYSTEMUI, SCREENSHOT_KEYCHORD_DELAY,
-                ViewConfiguration.get(mContext).getScreenshotChordKeyTimeout());
+                ViewConfiguration.get(mContext).getScreenshotChordKeyTimeout()));
         if (mWindowManagerCallbacks.isKeyguardLocked(DEFAULT_DISPLAY)) {
             // Double the time it takes to take a screenshot from the keyguard
             return (long) (KEYGUARD_SCREENSHOT_CHORD_DELAY_MULTIPLIER * delayMs);
@@ -1890,11 +1910,43 @@ final class KeyGestureController {
         }
     }
 
+    private class TakeScreenshotData implements Parcelable {
+        int source;
+        int type;
+        int displayId;
+
+        public TakeScreenshotData(Parcel in) {
+            source = in.readInt();
+            type = in.readInt();
+            displayId = in.readInt();
+        }
+
+        public TakeScreenshotData(int source, int type, int displayId) {
+            this.source = source;
+            this.type = type;
+            this.displayId = displayId;
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel out, int flags) {
+            out.writeInt(source);
+            out.writeInt(type);
+            out.writeInt(displayId);
+        }
+    }
+
     private class LocalKeyGestureEventHandler implements InputManager.KeyGestureEventHandler {
 
         @Override
         public void handleKeyGestureEvent(@NonNull KeyGestureEvent event,
                 @Nullable IBinder focusedToken) {
+            final boolean cancel = event.getAction() == KeyGestureEvent.ACTION_GESTURE_COMPLETE
+                    && event.isCancelled();
             final boolean complete = event.getAction() == KeyGestureEvent.ACTION_GESTURE_COMPLETE
                     && !event.isCancelled();
             final boolean start = event.getAction() == KeyGestureEvent.ACTION_GESTURE_START;
@@ -1915,16 +1967,43 @@ final class KeyGestureController {
                 case KeyGestureEvent.KEY_GESTURE_TYPE_TAKE_SCREENSHOT:
                     if (complete) {
                         mHandler.sendMessage(mHandler.obtainMessage(MSG_SCREENSHOT_SHORTCUT,
-                                SCREENSHOT_KEY_OTHER, event.getDisplayId()));
+                                new TakeScreenshotData(
+                                        SCREENSHOT_KEY_OTHER,
+                                        WindowManager.TAKE_SCREENSHOT_FULLSCREEN,
+                                        event.getDisplayId()
+                                )
+                            )
+                        );
                     }
                     break;
                 case KeyGestureEvent.KEY_GESTURE_TYPE_SCREENSHOT_CHORD:
-                    mHandler.removeMessages(MSG_SCREENSHOT_SHORTCUT);
+                    if (cancel) {
+                        if (mClickPartialScreenshot &&
+                                mHandler.hasMessages(MSG_SCREENSHOT_SHORTCUT)) {
+                            mHandler.removeMessages(MSG_SCREENSHOT_SHORTCUT);
+                            mHandler.sendMessage(
+                                    mHandler.obtainMessage(MSG_SCREENSHOT_SHORTCUT,
+                                            new TakeScreenshotData(
+                                                    SCREENSHOT_KEY_CHORD,
+                                                    WindowManager.TAKE_SCREENSHOT_SELECTED_REGION,
+                                                    event.getDisplayId()
+                                            )
+                                    )
+                            );
+                        } else {
+                            mHandler.removeMessages(MSG_SCREENSHOT_SHORTCUT);
+                        }
+                    }
                     if (start) {
+                        mHandler.removeMessages(MSG_SCREENSHOT_SHORTCUT);
                         mHandler.sendMessageDelayed(
                                 mHandler.obtainMessage(MSG_SCREENSHOT_SHORTCUT,
-                                        SCREENSHOT_KEY_CHORD,
-                                        event.getDisplayId()),
+                                        new TakeScreenshotData(
+                                                SCREENSHOT_KEY_CHORD,
+                                                WindowManager.TAKE_SCREENSHOT_FULLSCREEN,
+                                                event.getDisplayId()
+                                        )
+                                ),
                                 getScreenshotChordLongPressDelay());
                     }
                     break;

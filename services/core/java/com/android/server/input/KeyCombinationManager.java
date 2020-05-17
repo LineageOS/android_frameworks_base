@@ -86,8 +86,8 @@ final class KeyCombinationManager {
             final long now = SystemClock.uptimeMillis();
             if (downTimes.get(mKeyCode1) > 0
                     && downTimes.get(mKeyCode2) > 0
-                    && now <= downTimes.get(mKeyCode1) + COMBINE_KEY_DELAY_MILLIS
-                    && now <= downTimes.get(mKeyCode2) + COMBINE_KEY_DELAY_MILLIS) {
+                    && now <= downTimes.get(mKeyCode1) + getKeyInterceptDelayMs()
+                    && now <= downTimes.get(mKeyCode2) + getKeyInterceptDelayMs()) {
                 return true;
             }
             return false;
