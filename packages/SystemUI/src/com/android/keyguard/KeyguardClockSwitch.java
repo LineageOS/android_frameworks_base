@@ -394,7 +394,8 @@ public class KeyguardClockSwitch extends RelativeLayout {
         }
         if (Build.IS_DEBUGGABLE) {
             // Log for debugging b/130888082 (sysui waking up, but clock not updating)
-            Log.d(TAG, "Updating clock: " + mClockView.getText());
+            Log.d(TAG, "Updating clock: " + mClockView.getText().toString()
+                    .replaceAll("[^\\x00-\\x7F]", ":"));
         }
     }
 
