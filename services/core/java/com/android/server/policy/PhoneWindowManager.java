@@ -537,6 +537,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     boolean mVolumeAnswerCall;
 
+    // Click volume down + power for partial screenshot
+    boolean mClickPartialScreenshot;
+
     private boolean mPendingKeyguardOccluded;
     private boolean mKeyguardOccludedChanged;
 
@@ -925,6 +928,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(LineageSettings.System.getUriFor(
                     LineageSettings.System.VOLUME_ANSWER_CALL), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.CLICK_PARTIAL_SCREENSHOT), false, this,
                     UserHandle.USER_ALL);
 
             updateSettings();
@@ -1585,7 +1591,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // Double the time it takes to take a screenshot from the keyguard
             return (long) (KEYGUARD_SCREENSHOT_CHORD_DELAY_MULTIPLIER * delayMs);
         }
-        return delayMs;
+        // If click to partial screenshot is enabled, default to the old long press behavior
+        return mClickPartialScreenshot ? 500 : delayMs;
     }
 
     private long getRingerToggleChordDelay() {
@@ -2415,6 +2422,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             UserHandle.USER_CURRENT) == 1;
             mCameraLaunch = LineageSettings.System.getIntForUser(resolver,
                     LineageSettings.System.CAMERA_LAUNCH, 0,
+                    UserHandle.USER_CURRENT) == 1;
+            mClickPartialScreenshot = LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.CLICK_PARTIAL_SCREENSHOT, 0,
                     UserHandle.USER_CURRENT) == 1;
 
             // Configure wake gesture.
@@ -4270,6 +4280,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         mScreenshotChordVolumeDownKeyTriggered = false;
                         cancelPendingScreenshotChordAction();
                         cancelPendingAccessibilityShortcutAction();
+
+                        if (mClickPartialScreenshot && mScreenshotChordVolumeDownKeyConsumed) {
+                            mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_SELECTED_REGION);
+                            mHandler.post(mScreenshotRunnable);
+                        }
                     }
                 } else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
                     if (down) {
