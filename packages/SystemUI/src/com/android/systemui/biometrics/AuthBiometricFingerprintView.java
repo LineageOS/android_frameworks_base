@@ -18,16 +18,22 @@ package com.android.systemui.biometrics;
 
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 
 import com.android.systemui.R;
+
+import lineageos.app.LineageContextConstants;
 
 public class AuthBiometricFingerprintView extends AuthBiometricView {
 
     private static final String TAG = "BiometricPrompt/AuthBiometricFingerprintView";
+
+    private final boolean mHasFod;
 
     public AuthBiometricFingerprintView(Context context) {
         this(context, null);
@@ -35,6 +41,10 @@ public class AuthBiometricFingerprintView extends AuthBiometricView {
 
     public AuthBiometricFingerprintView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        PackageManager packageManager = mContext.getPackageManager();
+        mHasFod = packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
+                packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
     }
 
     @Override
@@ -60,6 +70,29 @@ public class AuthBiometricFingerprintView extends AuthBiometricView {
     @Override
     protected boolean supportsSmallDialog() {
         return false;
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+
+        if (mHasFod) {
+            final int navbarHeight = getResources().getDimensionPixelSize(
+                    com.android.internal.R.dimen.navigation_bar_height);
+            final int fodMargin = getResources().getDimensionPixelSize(
+                    R.dimen.biometric_dialog_fod_margin);
+
+            mIconView.setVisibility(View.INVISIBLE);
+            // The view is invisible, so it still takes space and
+            // we use that to adjust for the FOD.
+            mIconView.setPadding(0, 0, 0, fodMargin - navbarHeight);
+
+            // Add error text above the biometric icon.
+            removeView(mIndicatorView);
+            addView(mIndicatorView, indexOfChild(mIconView));
+        } else {
+            mIconView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
