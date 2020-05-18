@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3eee7ca9_cb4a6f90",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/OneHandTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 10245
+      },
+      "writtenOn": "2020-05-18T19:02:52Z",
+      "side": 1,
+      "message": "You should use a OneHandedModeListener to properly update the icon state on change, instead of this (it won\u0027t always work correctly).",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 23
+      },
+      "revId": "f52c0e0b9bab53937f46469a516b1c4eb2bd6840",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "808b415a_f766c842",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/OneHandTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 10245
+      },
+      "writtenOn": "2020-05-18T19:02:52Z",
+      "side": 1,
+      "message": "This should be:\n state.value ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE",
+      "range": {
+        "startLine": 103,
+        "startChar": 22,
+        "endLine": 103,
+        "endChar": 41
+      },
+      "revId": "f52c0e0b9bab53937f46469a516b1c4eb2bd6840",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
