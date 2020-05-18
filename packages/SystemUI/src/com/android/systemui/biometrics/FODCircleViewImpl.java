@@ -115,6 +115,10 @@ public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callback
         sendUpdates(callback);
     }
 
+    public int getHeight(boolean includeDecor) {
+         return mFodCircleView.getHeight(includeDecor);
+    }
+
     public void removeCallback(FODCircleViewImplCallback callback) {
         Assert.isMainThread();
         Slog.v(TAG, "*** unregister callback for " + callback);
