@@ -22,6 +22,7 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 
 import com.android.systemui.R;
 
@@ -60,6 +61,29 @@ public class AuthBiometricFingerprintView extends AuthBiometricView {
     @Override
     protected boolean supportsSmallDialog() {
         return false;
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+
+        if (mHasFod) {
+            final int navbarHeight = getResources().getDimensionPixelSize(
+                    com.android.internal.R.dimen.navigation_bar_height);
+            final int fodMargin = getResources().getDimensionPixelSize(
+                    R.dimen.biometric_dialog_fod_margin);
+
+            mIconView.setVisibility(View.INVISIBLE);
+            // The view is invisible, so it still takes space and
+            // we use that to adjust for the FOD.
+            mIconView.setPadding(0, 0, 0, fodMargin - navbarHeight);
+
+            // Add error text above the biometric icon.
+            this.removeView(mIndicatorView);
+            this.addView(mIndicatorView, this.indexOfChild(mIconView));
+        } else {
+            mIconView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

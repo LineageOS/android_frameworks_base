@@ -24,6 +24,7 @@ import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 import android.os.Handler;
@@ -41,6 +42,8 @@ import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.systemui.R;
+
+import lineageos.app.LineageContextConstants;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -157,6 +160,7 @@ public abstract class AuthBiometricView extends LinearLayout {
     private final AccessibilityManager mAccessibilityManager;
     private final int mTextColorError;
     private final int mTextColorHint;
+    protected final boolean mHasFod;
 
     private AuthPanelController mPanelController;
     private Bundle mBiometricPromptBundle;
@@ -247,6 +251,10 @@ public abstract class AuthBiometricView extends LinearLayout {
         mInjector.mBiometricView = this;
 
         mAccessibilityManager = context.getSystemService(AccessibilityManager.class);
+
+        PackageManager packageManager = mContext.getPackageManager();
+        mHasFod = packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
+                packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
 
         mResetErrorRunnable = () -> {
             updateState(getStateForAfterError());
