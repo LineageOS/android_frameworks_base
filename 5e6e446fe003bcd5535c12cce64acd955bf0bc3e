@@ -34,6 +34,24 @@
       "revId": "5e6e446fe003bcd5535c12cce64acd955bf0bc3e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c56c32f5_d9f16f96",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationModeController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-05-19T10:12:58Z",
+      "side": 1,
+      "message": "https://github.com/LineageOS/android_frameworks_base/blob/c0444c200e6e919687f51b53e5b5003e70db7c5c/packages/SystemUI/src/com/android/systemui/tuner/TunerService.java#L111",
+      "parentUuid": "3c85125b_9880fd69",
+      "revId": "5e6e446fe003bcd5535c12cce64acd955bf0bc3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
