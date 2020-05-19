@@ -41,6 +41,8 @@ import com.android.systemui.statusbar.phone.ReverseLinearLayout.ReverseRelativeL
 import com.android.systemui.statusbar.policy.KeyButtonView;
 import com.android.systemui.tuner.TunerService;
 
+import lineageos.providers.LineageSettings;
+
 import java.util.Objects;
 
 public class NavigationBarInflaterView extends FrameLayout
@@ -80,6 +82,11 @@ public class NavigationBarInflaterView extends FrameLayout
     private static final String ABSOLUTE_SUFFIX = "A";
     private static final String ABSOLUTE_VERTICAL_CENTERED_SUFFIX = "C";
 
+    private static final String KEY_NAVIGATION_HIDE_HINT =
+            "lineagesystem:" + LineageSettings.System.NAVIGATION_BAR_HIDE_HINT;
+    private static final String OVERLAY_NAVIGATION_HIDE_HINT =
+            "org.lineageos.overlay.customization.navbar.nohint";
+
     protected LayoutInflater mLayoutInflater;
     protected LayoutInflater mLandscapeInflater;
 
@@ -101,6 +108,7 @@ public class NavigationBarInflaterView extends FrameLayout
     private int mNavBarMode = NAV_BAR_MODE_3BUTTON;
 
     private boolean mInverseLayout;
+    private boolean mIsHideHintEnabled = false;
 
     public NavigationBarInflaterView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -139,7 +147,8 @@ public class NavigationBarInflaterView extends FrameLayout
 
     protected String getDefaultLayout() {
         final int defaultResource = QuickStepContract.isGesturalMode(mNavBarMode)
-                ? R.string.config_navBarLayoutHandle
+                ? (mIsHideHintEnabled ? R.string.config_navBarLayoutHandleNoHint
+		        : R.string.config_navBarLayoutHandle)
                 : mOverviewProxyService.shouldShowSwipeUpUI()
                         ? R.string.config_navBarLayoutQuickstep
                         : R.string.config_navBarLayout;
@@ -156,6 +165,7 @@ public class NavigationBarInflaterView extends FrameLayout
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         Dependency.get(TunerService.class).addTunable(this, NAV_BAR_INVERSE);
+        Dependency.get(TunerService.class).addTunable(this, KEY_NAVIGATION_HIDE_HINT);
     }
 
     @Override
@@ -170,6 +180,9 @@ public class NavigationBarInflaterView extends FrameLayout
         if (NAV_BAR_INVERSE.equals(key)) {
             mInverseLayout = TunerService.parseIntegerSwitch(newValue, false);
             updateLayoutInversion();
+        } else if (KEY_NAVIGATION_HIDE_HINT.equals(key)) {
+	    mIsHideHintEnabled = TunerService.parseIntegerSwitch(newValue, false);
+	    onLikelyDefaultLayoutChange();
         }
     }
 

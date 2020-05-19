@@ -52,10 +52,14 @@ import android.provider.Settings.Secure;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 
+import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
 import com.android.systemui.UiOffloadThread;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
+import com.android.systemui.tuner.TunerService;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -73,6 +77,12 @@ public class NavigationModeController implements Dumpable {
 
     private static final String TAG = NavigationModeController.class.getSimpleName();
     private static final boolean DEBUG = false;
+
+    private static final String KEY_NAVIGATION_HIDE_HINT =
+            "lineagesystem:" + LineageSettings.System.NAVIGATION_BAR_HIDE_HINT;
+    private static final String OVERLAY_NAVIGATION_HIDE_HINT =
+            "org.lineageos.overlay.customization.navbar.nohint";
+    private boolean mIsHideHintEnabled = false;
 
     public interface ModeChangedListener {
         void onNavigationModeChanged(int mode);
@@ -143,6 +153,17 @@ public class NavigationModeController implements Dumpable {
 
     private BroadcastReceiver mEnableGestureNavReceiver;
 
+    private final TunerService.Tunable mTunable =
+            new TunerService.Tunable() {
+                @Override
+                public void onTuningChanged(String key, String newValue) {
+                    if (KEY_NAVIGATION_HIDE_HINT.equals(key)) {
+                        mIsHideHintEnabled = TunerService.parseIntegerSwitch(newValue, false);
+                        updateCurrentInteractionMode(false);
+                    }
+                }
+            };
+
     @Inject
     public NavigationModeController(Context context,
             DeviceProvisionedController deviceProvisionedController,
@@ -168,6 +189,8 @@ public class NavigationModeController implements Dumpable {
 
         // Check if we need to defer enabling gestural nav
         deferGesturalNavOverlayIfNecessary();
+
+        Dependency.get(TunerService.class).addTunable(mTunable, KEY_NAVIGATION_HIDE_HINT);
     }
 
     private void removeEnableGestureNavListener() {
@@ -257,6 +280,21 @@ public class NavigationModeController implements Dumpable {
                 mListeners.get(i).onNavigationModeChanged(mode);
             }
         }
+
+        mUiOffloadThread.submit(() -> {
+            boolean state = (mode == NAV_BAR_MODE_GESTURAL) && mIsHideHintEnabled;
+            int userId = mCurrentUserContext.getUserId();
+            try {
+                mOverlayManager.setEnabled(OVERLAY_NAVIGATION_HIDE_HINT, state, userId);
+                if (DEBUG) {
+                    Log.d(TAG, "setHideHintOverlay: overlayPackage="
+                            + OVERLAY_NAVIGATION_HIDE_HINT + " userId=" + userId);
+                }
+            } catch (RemoteException e) {
+                Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
+                        + " overlay " + OVERLAY_NAVIGATION_HIDE_HINT + " for user " + userId);
+            }
+        });
     }
 
     public int addListener(ModeChangedListener listener) {
