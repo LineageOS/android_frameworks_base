@@ -41,6 +41,8 @@ import com.android.systemui.statusbar.phone.ReverseLinearLayout.ReverseRelativeL
 import com.android.systemui.statusbar.policy.KeyButtonView;
 import com.android.systemui.tuner.TunerService;
 
+import lineageos.providers.LineageSettings;
+
 import java.util.Objects;
 
 public class NavigationBarInflaterView extends FrameLayout
@@ -80,6 +82,9 @@ public class NavigationBarInflaterView extends FrameLayout
     private static final String ABSOLUTE_SUFFIX = "A";
     private static final String ABSOLUTE_VERTICAL_CENTERED_SUFFIX = "C";
 
+    private static final String KEY_NAVIGATION_HINT =
+            "lineagesystem:" + LineageSettings.System.NAVIGATION_BAR_HINT;
+
     protected LayoutInflater mLayoutInflater;
     protected LayoutInflater mLandscapeInflater;
 
@@ -101,6 +106,7 @@ public class NavigationBarInflaterView extends FrameLayout
     private int mNavBarMode = NAV_BAR_MODE_3BUTTON;
 
     private boolean mInverseLayout;
+    private boolean mIsHintEnabled = true;
 
     public NavigationBarInflaterView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -143,6 +149,9 @@ public class NavigationBarInflaterView extends FrameLayout
                 : mOverviewProxyService.shouldShowSwipeUpUI()
                         ? R.string.config_navBarLayoutQuickstep
                         : R.string.config_navBarLayout;
+        if (!mIsHintEnabled && defaultResource == R.string.config_navBarLayoutHandle) {
+            return getContext().getString(defaultResource).replace("home_handle", "");
+        }
         return getContext().getString(defaultResource);
     }
 
@@ -156,6 +165,7 @@ public class NavigationBarInflaterView extends FrameLayout
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         Dependency.get(TunerService.class).addTunable(this, NAV_BAR_INVERSE);
+        Dependency.get(TunerService.class).addTunable(this, KEY_NAVIGATION_HINT);
     }
 
     @Override
@@ -170,6 +180,10 @@ public class NavigationBarInflaterView extends FrameLayout
         if (NAV_BAR_INVERSE.equals(key)) {
             mInverseLayout = TunerService.parseIntegerSwitch(newValue, false);
             updateLayoutInversion();
+        } else if (KEY_NAVIGATION_HINT.equals(key)) {
+            mIsHintEnabled = TunerService.parseIntegerSwitch(newValue, true);
+            Dependency.get(NavigationModeController.class).onHintStateChanged(mIsHintEnabled);
+            onLikelyDefaultLayoutChange();
         }
     }
 
