@@ -43,6 +43,7 @@ import com.android.systemui.statusbar.notification.stack.NotificationStackScroll
 import com.android.systemui.statusbar.phone.ClockController;
 import com.android.systemui.statusbar.phone.EdgeBackGestureHandler;
 import com.android.systemui.statusbar.phone.NavigationBarView;
+import com.android.systemui.statusbar.phone.NavigationBarInflaterView;
 import com.android.systemui.statusbar.phone.NotificationPanelView;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBar;
@@ -78,6 +79,7 @@ public class TunerServiceImpl extends TunerService {
             ClockController.CLOCK_POSITION,
             EdgeBackGestureHandler.KEY_EDGE_LONG_SWIPE_ACTION,
             NavigationBarView.NAVIGATION_BAR_MENU_ARROW_KEYS,
+            NavigationBarInflaterView.KEY_NAVIGATION_HIDE_HINT,
             NotificationPanelView.DOUBLE_TAP_SLEEP_GESTURE,
             NotificationPanelView.STATUS_BAR_QUICK_QS_PULLDOWN,
             NotificationStackScrollLayout.LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED,

@@ -74,6 +74,10 @@ public class NavigationModeController implements Dumpable {
     private static final String TAG = NavigationModeController.class.getSimpleName();
     private static final boolean DEBUG = false;
 
+    private static final String OVERLAY_NAVIGATION_HIDE_HINT =
+            "org.lineageos.overlay.customization.navbar.nohint";
+    private boolean mIsHideHintEnabled = false;
+
     public interface ModeChangedListener {
         void onNavigationModeChanged(int mode);
     }
@@ -142,6 +146,11 @@ public class NavigationModeController implements Dumpable {
             };
 
     private BroadcastReceiver mEnableGestureNavReceiver;
+
+    public void onHideHintChanged(boolean state) {
+        mIsHideHintEnabled = state;
+        updateCurrentInteractionMode(false);
+    }
 
     @Inject
     public NavigationModeController(Context context,
@@ -257,6 +266,21 @@ public class NavigationModeController implements Dumpable {
                 mListeners.get(i).onNavigationModeChanged(mode);
             }
         }
+
+        mUiOffloadThread.submit(() -> {
+            boolean state = (mode == NAV_BAR_MODE_GESTURAL) && mIsHideHintEnabled;
+            int userId = mCurrentUserContext.getUserId();
+            try {
+                mOverlayManager.setEnabled(OVERLAY_NAVIGATION_HIDE_HINT, state, userId);
+                if (DEBUG) {
+                    Log.d(TAG, "setHideHintOverlay: overlayPackage="
+                            + OVERLAY_NAVIGATION_HIDE_HINT + " userId=" + userId);
+                }
+            } catch (RemoteException e) {
+                Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
+                        + " overlay " + OVERLAY_NAVIGATION_HIDE_HINT + " for user " + userId);
+            }
+        });
     }
 
     public int addListener(ModeChangedListener listener) {
