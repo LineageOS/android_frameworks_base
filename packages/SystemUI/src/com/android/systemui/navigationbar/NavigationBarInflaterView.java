@@ -18,13 +18,18 @@ package com.android.systemui.navigationbar;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
 
 import android.annotation.Nullable;
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.om.IOverlayManager;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -88,6 +93,9 @@ public class NavigationBarInflaterView extends FrameLayout {
     private static final String ABSOLUTE_SUFFIX = "A";
     private static final String ABSOLUTE_VERTICAL_CENTERED_SUFFIX = "C";
 
+    private static final String OVERLAY_NAVIGATION_HIDE_HINT =
+            "org.lineageos.overlay.customization.navbar.nohint";
+
     private static class Listener implements NavigationModeController.ModeChangedListener {
         private final WeakReference<NavigationBarInflaterView> mSelf;
 
@@ -126,6 +134,7 @@ public class NavigationBarInflaterView extends FrameLayout {
     private int mNavBarMode = NAV_BAR_MODE_3BUTTON;
 
     private boolean mInverseLayout;
+    private boolean mIsHintEnabled;
 
     private final ContentObserver mContentObserver;
 
@@ -142,6 +151,14 @@ public class NavigationBarInflaterView extends FrameLayout {
                     mInverseLayout = Settings.Secure.getInt(mContext.getContentResolver(),
                             NAV_BAR_INVERSE, 0) != 0;
                     updateLayoutInversion();
+                } else if (LineageSettings.System.getUriFor(
+                        LineageSettings.System.NAVIGATION_BAR_HINT).equals(uri)) {
+                    mIsHintEnabled = LineageSettings.System.getInt(mContext.getContentResolver(),
+                            LineageSettings.System.NAVIGATION_BAR_HINT, 0) != 0;
+                    updateHint();
+                    mContext.getMainExecutor().execute(() -> {
+                        onLikelyDefaultLayoutChange();
+                    });
                 }
             }
         };
@@ -181,20 +198,29 @@ public class NavigationBarInflaterView extends FrameLayout {
                 : mOverviewProxyService.shouldShowSwipeUpUI()
                         ? R.string.config_navBarLayoutQuickstep
                         : R.string.config_navBarLayout;
+        if (!mIsHintEnabled && defaultResource == R.string.config_navBarLayoutHandle) {
+            return getContext().getString(defaultResource).replace(HOME_HANDLE, "");
+        }
         return getContext().getString(defaultResource);
     }
 
     private void onNavigationModeChanged(int mode) {
         mNavBarMode = mode;
+        updateHint();
     }
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         Uri navBarInverse = Settings.Secure.getUriFor(NAV_BAR_INVERSE);
+        Uri navigationBarHint = LineageSettings.System.getUriFor(
+                LineageSettings.System.NAVIGATION_BAR_HINT);
         mContext.getContentResolver().registerContentObserver(navBarInverse, false,
                 mContentObserver);
+        mContext.getContentResolver().registerContentObserver(navigationBarHint, false,
+                mContentObserver);
         mContentObserver.onChange(true, navBarInverse);
+        mContentObserver.onChange(true, navigationBarHint);
     }
 
     @Override
@@ -260,6 +286,24 @@ public class NavigationBarInflaterView extends FrameLayout {
     private void updateAlternativeOrder(View v) {
         if (v instanceof ReverseLinearLayout) {
             ((ReverseLinearLayout) v).setAlternativeOrder(mAlternativeOrder);
+        }
+    }
+
+    private void updateHint() {
+        final IOverlayManager iom = IOverlayManager.Stub.asInterface(
+                ServiceManager.getService(Context.OVERLAY_SERVICE));
+        final boolean state = mNavBarMode == NAV_BAR_MODE_GESTURAL && !mIsHintEnabled;
+        final int userId = ActivityManager.getCurrentUser();
+        try {
+            iom.setEnabled(OVERLAY_NAVIGATION_HIDE_HINT, state, userId);
+            if (state) {
+                // As overlays are also used to apply navigation mode, it is needed to set
+                // our customization overlay to highest priority to ensure it is applied.
+                iom.setHighestPriority(OVERLAY_NAVIGATION_HIDE_HINT, userId);
+            }
+        } catch (IllegalArgumentException | RemoteException e) {
+            Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
+                    + " overlay " + OVERLAY_NAVIGATION_HIDE_HINT + " for user " + userId);
         }
     }
 
