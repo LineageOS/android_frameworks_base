@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65b5b6f4_dc2c5d66",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationModeController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-05-19T08:42:13Z",
+      "side": 1,
+      "message": "iirc tuner itself has a safe method",
+      "revId": "5e6e446fe003bcd5535c12cce64acd955bf0bc3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
