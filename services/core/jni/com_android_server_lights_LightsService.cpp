@@ -38,6 +38,8 @@ using LightState = ::android::hardware::light::V2_0::LightState;
 using Status     = ::android::hardware::light::V2_0::Status;
 using Type       = ::android::hardware::light::V2_0::Type;
 template<typename T>
+using hidl_vec   = ::android::hardware::hidl_vec<T>;
+template<typename T>
 using Return     = ::android::hardware::Return<T>;
 
 static bool sLightSupported = true;
@@ -169,8 +171,23 @@ static void setLight_native(
     }
 }
 
+static bool isLightSupported_native(
+        JNIEnv* /* env */,
+        jobject /* clazz */,
+        jint light) {
+    bool ret = false;
+    sp<ILight> hal = ILight::getService();
+    if (hal != nullptr) {
+        hal->getSupportedTypes([light, &ret](const hidl_vec<Type> &types) {
+            ret = std::find(types.begin(), types.end(), static_cast<Type>(light)) != types.end();
+        });
+    }
+    return ret;
+}
+
 static const JNINativeMethod method_table[] = {
     { "setLight_native", "(IIIIIII)V", (void*)setLight_native },
+    { "isLightSupported_native", "(I)Z", (void*)isLightSupported_native },
 };
 
 int register_android_server_LightsService(JNIEnv *env) {

@@ -96,6 +96,11 @@ public class LightsService extends SystemService {
         }
 
         @Override
+        public boolean isSupported() {
+            return isLightSupported_native(mId);
+        }
+
+        @Override
         public void setColor(int color) {
             synchronized (this) {
                 setLightLocked(color, LIGHT_FLASH_NONE, 0, 0, 0);
@@ -264,4 +269,5 @@ public class LightsService extends SystemService {
 
     static native void setLight_native(int light, int color, int mode,
             int onMS, int offMS, int brightnessMode, int brightnessLevel);
+    static native boolean isLightSupported_native(int light);
 }
