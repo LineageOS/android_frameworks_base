@@ -374,6 +374,9 @@ public class KeyguardViewMediator extends SystemUI {
     private IKeyguardDrawnCallback mDrawnCallback;
     private CharSequence mCustomMessage;
 
+    // We need to make sure to dismiss keyguard only after boot, not when locking due to timeout
+    private boolean mIsFirstLockAfterBoot;
+
     KeyguardUpdateMonitorCallback mUpdateCallback = new KeyguardUpdateMonitorCallback() {
 
         @Override
@@ -1309,6 +1312,8 @@ public class KeyguardViewMediator extends SystemUI {
      * Enable the keyguard if the settings are appropriate.
      */
     private void doKeyguardLocked(Bundle options) {
+        boolean isFirstLock = mIsFirstLockAfterBoot;
+        mIsFirstLockAfterBoot = false;
         if (KeyguardUpdateMonitor.CORE_APPS_ONLY) {
             // Don't show keyguard during half-booted cryptkeeper stage.
             if (DEBUG) Log.d(TAG, "doKeyguard: not showing because booting to cryptkeeper");
@@ -1353,8 +1358,10 @@ public class KeyguardViewMediator extends SystemUI {
             if (isKeyguardDisabled(KeyguardUpdateMonitor.getCurrentUser())
                     && !lockedOrMissing && !forceShow) {
                 if (DEBUG) Log.d(TAG, "doKeyguard: not showing because lockscreen is off");
-                setShowingLocked(false, mAodShowing);
-                hideLocked();
+                if (isFirstLock) {
+                    setShowingLocked(false, mAodShowing);
+                    hideLocked();
+                }
                 return;
             }
 
@@ -2087,6 +2094,7 @@ public class KeyguardViewMediator extends SystemUI {
         mUpdateMonitor.dispatchBootCompleted();
         synchronized (this) {
             mBootCompleted = true;
+            mIsFirstLockAfterBoot = true;
             if (mBootSendUserPresent) {
                 sendUserPresentBroadcast();
             }
