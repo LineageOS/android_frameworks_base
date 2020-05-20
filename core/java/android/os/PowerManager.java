@@ -875,6 +875,15 @@ public final class PowerManager {
     }
 
     /**
+     * Gets if there is button that lights on when there is an interaction.
+     * @hide
+     */
+    public boolean getHaveLightButton() {
+        return mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_deviceHasLightButton);
+    }
+
+    /**
      * Gets the default button brightness value.
      * @hide
      */

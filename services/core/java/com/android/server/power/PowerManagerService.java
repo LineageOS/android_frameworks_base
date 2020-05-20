@@ -512,6 +512,9 @@ public final class PowerManagerService extends SystemService
     // Set to -1 when not told the user is inactive since the last period spent dozing or asleep.
     private long mOverriddenTimeout = -1;
 
+    // The device has buttons that lights on when there is an interaction.
+    private boolean mHaveLightButton = false;
+
     // The button brightness setting override from the window manager
     // to allow the current foreground activity to override the button brightness.
     // Use -1 to disable.
@@ -878,6 +881,7 @@ public final class PowerManagerService extends SystemService
             mAttentionDetector.systemReady(mContext);
 
             PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+            mHaveLightButton = pm.getHaveLightButton();
             mButtonBrightnessSettingDefault = pm.getDefaultButtonBrightness();
             mScreenBrightnessSettingMinimum = pm.getMinimumScreenBrightnessSetting();
             mScreenBrightnessSettingMaximum = pm.getMaximumScreenBrightnessSetting();
@@ -2158,7 +2162,7 @@ public final class PowerManagerService extends SystemService
                             + screenOffTimeout - screenDimDuration;
                     if (now < nextTimeout) {
                         mUserActivitySummary = USER_ACTIVITY_SCREEN_BRIGHT;
-                        if (mWakefulness == WAKEFULNESS_AWAKE) {
+                        if (mHaveLightButton && mWakefulness == WAKEFULNESS_AWAKE) {
                             int buttonBrightness;
                             if (mButtonBrightnessOverrideFromWindowManager >= 0) {
                                 buttonBrightness = mButtonBrightnessOverrideFromWindowManager;
@@ -2193,7 +2197,7 @@ public final class PowerManagerService extends SystemService
                         nextTimeout = mLastUserActivityTime + screenOffTimeout;
                         if (now < nextTimeout) {
                             mUserActivitySummary = USER_ACTIVITY_SCREEN_DIM;
-                            if (mWakefulness == WAKEFULNESS_AWAKE) {
+                            if (mHaveLightButton && mWakefulness == WAKEFULNESS_AWAKE) {
                                 mButtonsLight.setBrightness(0);
                                 mButtonOn = false;
                             }

@@ -152,6 +152,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
     private final IBatteryStats mBatteryStats;
 
     // The lights service.
+    private boolean mHaveLightButton;
     private final LightsManager mLights;
 
     // The sensor manager.
@@ -443,6 +444,9 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
                 com.android.internal.R.integer.config_brightness_ramp_rate_slow);
         mSkipScreenOnBrightnessRamp = resources.getBoolean(
                 com.android.internal.R.bool.config_skipScreenOnBrightnessRamp);
+
+        mHaveLightButton = resources.getBoolean(
+                com.android.internal.R.bool.config_deviceHasLightButton);
 
         if (mUseSoftwareAutoBrightnessConfig) {
             final float dozeScaleFactor = resources.getFraction(
@@ -855,13 +859,18 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
         if (state == Display.STATE_OFF) {
             brightness = PowerManager.BRIGHTNESS_OFF;
             mBrightnessReasonTemp.setReason(BrightnessReason.REASON_SCREEN_OFF);
-            mLights.getLight(LightsManager.LIGHT_ID_BUTTONS).setBrightness(brightness);
         }
 
-        // Disable button lights when dozing
-        if (state == Display.STATE_DOZE || state == Display.STATE_DOZE_SUSPEND) {
-            mLights.getLight(LightsManager.LIGHT_ID_BUTTONS)
-                    .setBrightness(PowerManager.BRIGHTNESS_OFF);
+        // Disable button lights when dozing or screen off
+        if (mHaveLightButton) {
+            if (state == Display.STATE_OFF) {
+                mLights.getLight(LightsManager.LIGHT_ID_BUTTONS)
+                        .setBrightness(brightness);
+            }
+            if (state == Display.STATE_DOZE || state == Display.STATE_DOZE_SUSPEND) {
+                mLights.getLight(LightsManager.LIGHT_ID_BUTTONS)
+                        .setBrightness(PowerManager.BRIGHTNESS_OFF);
+            }
         }
 
         // Always use the VR brightness when in the VR state.
