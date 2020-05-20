@@ -50,6 +50,7 @@ public abstract class Light {
      */
     public abstract void setBrightness(int brightness, int brightnessMode);
 
+    public abstract boolean isSupported();
     public abstract void setColor(int color);
     public abstract void setFlashing(int color, int mode, int onMS, int offMS);
     public abstract void setModes(int brightnessLevel);
