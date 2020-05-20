@@ -76,6 +76,7 @@ public class LightsService extends SystemService {
                 // right now we just fall back to the old path through Lights brightessMode is
                 // anything but USER or the device shouldBeInLowPersistenceMode().
                 if (brightnessMode == BRIGHTNESS_MODE_USER && !shouldBeInLowPersistenceMode()
+                        && mId == LightsManager.LIGHT_ID_BACKLIGHT
                         && mSurfaceControlMaximumBrightness == 255) {
                     // TODO: the last check should be mSurfaceControlMaximumBrightness != 0; the
                     // reason we enforce 255 right now is to stay consistent with the old path. In
