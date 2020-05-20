@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa8720f5_45d4e8f2",
+        "filename": "services/core/jni/com_android_server_lights_LightsService.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-05-20T21:30:39Z",
+      "side": 1,
+      "message": "Replace with types.contains() in R.",
+      "range": {
+        "startLine": 182,
+        "startChar": 12,
+        "endLine": 182,
+        "endChar": 97
+      },
+      "revId": "60689ac38c16b12d4bc2c6c100299a047edfc1a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
