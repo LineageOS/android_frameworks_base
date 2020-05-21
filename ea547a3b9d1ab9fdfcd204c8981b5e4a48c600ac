@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e12e6582_64f68f5e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarInflaterView.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-05-21T11:54:38Z",
+      "side": 1,
+      "message": "Can you prevent adding duplicating keys?",
+      "revId": "ea547a3b9d1ab9fdfcd204c8981b5e4a48c600ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
