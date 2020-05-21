@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c96256d1_f49bef3e",
+        "filename": "services/core/java/com/android/server/display/DisplayPowerController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2020-05-21T08:07:31Z",
+      "side": 1,
+      "message": "Couldn\u0027t you leave the isSupported stuff local to LightsService and make it return null for getLight() for unsupported lights? Then you could use null checks instead of the additional boolean variable, which seems somewhat cleaner to me",
+      "revId": "24db1ba9ecde4b0e790b53a64c63ca82589f333d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
