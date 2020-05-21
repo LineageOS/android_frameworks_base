@@ -370,7 +370,8 @@ public class TunerServiceImpl extends TunerService {
         mContext.sendBroadcast(intent);
 
         for (String key : mTunableLookup.keySet()) {
-            if (ArrayUtils.contains(RESET_BLACKLIST, key)) {
+            if (ArrayUtils.contains(RESET_BLACKLIST, key) ||
+                    isLineageGlobal(key) || isLineageSystem(key) || isLineageSecure(key)) {
                 continue;
             }
             setValue(key, null);
