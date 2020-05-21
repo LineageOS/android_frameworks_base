@@ -164,6 +164,11 @@ public class TunerServiceImpl extends TunerService {
         setValue(TUNER_VERSION, newVersion);
     }
 
+    private boolean isLineageSetting(String key) {
+        return isLineageGlobal(key) || isLineageSystem(key) || isLineageSecure(key);
+    }
+
+
     private boolean isLineageGlobal(String key) {
         return key.startsWith("lineageglobal:");
     }
@@ -370,7 +375,7 @@ public class TunerServiceImpl extends TunerService {
         mContext.sendBroadcast(intent);
 
         for (String key : mTunableLookup.keySet()) {
-            if (ArrayUtils.contains(RESET_BLACKLIST, key)) {
+            if (ArrayUtils.contains(RESET_BLACKLIST, key) || isLineageSetting(key)) {
                 continue;
             }
             setValue(key, null);
