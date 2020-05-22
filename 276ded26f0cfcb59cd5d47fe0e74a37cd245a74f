@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fee651e0_8ee4767c",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerServiceImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-05-22T09:23:57Z",
+      "side": 0,
+      "message": "FIY, this is not a lineage key, although it is added by us.",
+      "range": {
+        "startLine": 87,
+        "startChar": 12,
+        "endLine": 87,
+        "endChar": 44
+      },
+      "revId": "276ded26f0cfcb59cd5d47fe0e74a37cd245a74f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
