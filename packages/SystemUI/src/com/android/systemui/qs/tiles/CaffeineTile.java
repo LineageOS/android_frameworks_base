@@ -26,10 +26,10 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.service.quicksettings.Tile;
 
+import com.android.systemui.R;
+import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
-import com.android.systemui.plugins.qs.QSTile.BooleanState;
-import com.android.systemui.R;
 
 import org.lineageos.internal.logging.LineageMetricsLogger;
 
@@ -49,6 +49,7 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
         30 * 60,  // 30 min
         -1,       // infinity
     };
+    private static final int INFINITE_DURATION_INDEX = DURATIONS.length - 1;
     private CountDownTimer mCountdownTimer = null;
     public long mLastClickTime = -1;
     private final Receiver mReceiver = new Receiver();
@@ -120,6 +121,16 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleLongClick() {
+        if (mWakeLock.isHeld()) {
+            if (mDuration == INFINITE_DURATION_INDEX) {
+                return;
+            }
+        } else {
+            mWakeLock.acquire();
+        }
+        mDuration = INFINITE_DURATION_INDEX;
+        startCountDown(DURATIONS[INFINITE_DURATION_INDEX]);
+        refreshState();
     }
 
     @Override
