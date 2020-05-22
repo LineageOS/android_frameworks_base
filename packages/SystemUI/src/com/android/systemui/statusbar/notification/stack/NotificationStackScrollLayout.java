@@ -164,11 +164,12 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         NotificationListContainer, ConfigurationListener, Dumpable,
         DynamicPrivacyController.Listener {
 
-    public static final String LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED =
+    public static final float BACKGROUND_ALPHA_DIMMED = 0.7f;
+
+    private static final String LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED =
             "lineagesecure:" +
             LineageSettings.Secure.LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED;
 
-    public static final float BACKGROUND_ALPHA_DIMMED = 0.7f;
     private static final String TAG = "StackScroller";
     private static final boolean DEBUG = false;
     private static final float RUBBER_BAND_FACTOR_NORMAL = 0.35f;
