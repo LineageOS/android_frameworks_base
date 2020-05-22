@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72969ae5_a109d958",
+        "filename": "packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-05-22T05:28:57Z",
+      "side": 1,
+      "message": "I haven\u0027t looked in depth but since lockImmediately is true whenever mLockPatternUtils.isSecure() is false, could we just make the !lockImmediately check apply to OFF_BECAUSE_OF_TIMEOUT too ?  eg:\nif (((why \u003d\u003d WindowManagerPolicyConstants.OFF_BECAUSE_OF_TIMEOUT \u0026\u0026 timeout \u003e 0) || (why \u003d\u003d WindowManagerPolicyConstants.OFF_BECAUSE_OF_USER)) \u0026\u0026 !lockImmediately) {\n\n(if I\u0027ve understood the problem correctly)",
+      "revId": "cb869e606b6609a4a95bf5f61e203dbb43286927",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
