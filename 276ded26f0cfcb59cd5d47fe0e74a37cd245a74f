@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d12a85f3_b6553f2c",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerServiceImpl.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-05-22T14:33:36Z",
+      "side": 1,
+      "message": "Do we want to consider all lineage keys? I mean, the only ones we have been adding to reset blacklist are mostly system and one secure, iirc.",
+      "range": {
+        "startLine": 377,
+        "startChar": 61,
+        "endLine": 377,
+        "endChar": 77
+      },
+      "revId": "276ded26f0cfcb59cd5d47fe0e74a37cd245a74f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
