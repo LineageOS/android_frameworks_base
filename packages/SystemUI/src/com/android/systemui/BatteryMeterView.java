@@ -75,7 +75,7 @@ import java.text.NumberFormat;
 public class BatteryMeterView extends LinearLayout implements
         BatteryStateChangeCallback, Tunable, DarkReceiver, ConfigurationListener {
 
-    public static final String STATUS_BAR_BATTERY_STYLE =
+    private static final String STATUS_BAR_BATTERY_STYLE =
             "lineagesystem:" + LineageSettings.System.STATUS_BAR_BATTERY_STYLE;
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
