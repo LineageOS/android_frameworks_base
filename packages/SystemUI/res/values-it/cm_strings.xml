@@ -71,4 +71,6 @@
     <string name="vpn_credentials_dialog_connect">Connetti</string>
     <string name="status_bar_battery">Batteria</string>
     <string name="status_bar_location">Localizzazione</string>
+    <string name="screen_pinning_description_no_navbar">La schermata rimane in primo piano finché non la sblocchi. Tocca e tieni premuto il tasto Indietro per sbloccarla.</string>
+    <string name="screen_pinning_toast_no_navbar">Per sbloccare questo schermo, tocca e tieni premuto il tasto Indietro</string>
 </resources>

@@ -61,4 +61,6 @@
     <string name="quick_settings_usb_tether_label">Zdieľanie cez USB</string>
     <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
     <string name="status_bar_location">Poloha</string>
+    <string name="screen_pinning_description_no_navbar">Obsah bude pripnutý v zobrazení, až kým ho neuvoľníte. Uvoľníte ho stlačením a podržaním tlačidla Späť.</string>
+    <string name="screen_pinning_toast_no_navbar">Na odopnutie tejto obrazovky stlačte &amp; a podržte tlačidlo Späť</string>
 </resources>

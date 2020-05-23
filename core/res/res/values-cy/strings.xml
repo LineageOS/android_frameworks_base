@@ -225,7 +225,7 @@ O ganlyniad, cafodd dy broffil gwaith a\'r data perthnasol eu dileu. Cysyllta â
     <string name="shutdown_confirm_question">Wyt ti eisiau cau\'r ddyfais?</string>
     <string name="reboot_safemode_title">Ailgychwyn ym modd diogel</string>
     <string name="reboot_safemode_confirm">Wyt ti am ailgychwyn yn y modd diogel?
-          Bydd hyn yn analluogi\'r holl apiau trydydd parti sydd wedi\'i gosod gennyt.
+          Bydd hyn yn analluogi\'r holl apiau trydydd parti sydd wedi\'u gosod gennyt.
           Cânt eu hadfer pan fyddi di\'n ailgychwyn eto.</string>
     <string name="recent_tasks_title">Diweddar</string>
     <string name="no_recent_tasks">Dim apiau diweddar.</string>

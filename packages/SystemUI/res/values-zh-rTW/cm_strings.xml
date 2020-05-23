@@ -63,4 +63,6 @@
     <string name="quick_settings_volume_panel_label">音量面板</string>
     <string name="status_bar_battery">電量</string>
     <string name="status_bar_location">位置</string>
+    <string name="screen_pinning_description_no_navbar">這會讓目前的螢幕畫面保持顯示狀態，直到取消固定為止。按住「返回」鍵即可取消固定。</string>
+    <string name="screen_pinning_toast_no_navbar">要取消固定這個畫面，請按住「返回」按鈕。</string>
 </resources>

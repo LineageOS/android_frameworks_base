@@ -69,6 +69,12 @@
     <string name="vpn_credentials_username">Brûkersnamme</string>
     <string name="vpn_credentials_password">Wachtwurd</string>
     <string name="vpn_credentials_dialog_connect">Ferbine</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD út\nEnerzjybesparmodus</string>
     <string name="status_bar_battery">Batterij</string>
+    <string name="status_bar_camera">Kamera</string>
     <string name="status_bar_location">Lokaasje</string>
+    <string name="status_bar_microphone">Mikrofoan</string>
+    <string name="screen_pinning_description_no_navbar">It skerm bliuwt sichtber oant jo it losmeitsje. Hâld ‘Tebek’ yndrukt om it los te meitsjen.</string>
+    <string name="screen_pinning_toast_no_navbar">Hâld ‘Tebek’ yndrukt om dit skerm te ûntskoatteljen</string>
 </resources>

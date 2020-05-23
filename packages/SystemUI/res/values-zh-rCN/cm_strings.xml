@@ -69,6 +69,12 @@
     <string name="vpn_credentials_username">用户名</string>
     <string name="vpn_credentials_password">密码</string>
     <string name="vpn_credentials_dialog_connect">连接</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD 关闭\n省电模式</string>
     <string name="status_bar_battery">电池</string>
+    <string name="status_bar_camera">相机</string>
     <string name="status_bar_location">位置</string>
+    <string name="status_bar_microphone">麦克风</string>
+    <string name="screen_pinning_description_no_navbar">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。</string>
+    <string name="screen_pinning_toast_no_navbar">要取消固定此屏幕，请触摸并按住“返回”按钮。</string>
 </resources>

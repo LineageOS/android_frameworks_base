@@ -61,4 +61,6 @@
     <string name="quick_settings_usb_tether_label">Anclaje USB</string>
     <string name="quick_settings_volume_panel_label">Panel de volumen</string>
     <string name="status_bar_location">Ubicación</string>
+    <string name="screen_pinning_description_no_navbar">Esto lo mantiene a la vista hasta que lo liberes. Mantén pulsado «Atrás» para liberar.</string>
+    <string name="screen_pinning_toast_no_navbar">Para desanclar esta pantalla, mantén pulsado el botón «Atrás»</string>
 </resources>

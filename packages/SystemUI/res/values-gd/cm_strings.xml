@@ -61,4 +61,5 @@
     <string name="quick_settings_usb_tether_label">Teadhrachadh USB</string>
     <string name="quick_settings_volume_panel_label">Panail àirde na fuaime</string>
     <string name="status_bar_location">Ionad</string>
+    <string name="screen_pinning_description_no_navbar">Cumaidh seo san t-sealladh e gus an dì-phrìnich thu e. Suath ri “Air ais” ⁊ cùm e gus a dhì-phrìneachadh.</string>
 </resources>

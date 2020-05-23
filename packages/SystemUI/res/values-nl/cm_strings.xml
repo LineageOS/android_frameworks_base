@@ -63,4 +63,6 @@
     <string name="quick_settings_volume_panel_label">Volumepaneel</string>
     <string name="status_bar_battery">Accu</string>
     <string name="status_bar_location">Locatie</string>
+    <string name="screen_pinning_description_no_navbar">Met scherm vastzetten wordt het beeldscherm vergrendeld op één weergave.\n\nBlijf de Terug-knop aanraken om het scherm los te maken.</string>
+    <string name="screen_pinning_toast_no_navbar">Houd de Terug-knop ingedrukt om dit scherm te ontgrendelen</string>
 </resources>
