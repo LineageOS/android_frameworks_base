@@ -56,4 +56,5 @@
     <string name="quick_settings_usb_tether_label">Anclaje de red por USB</string>
     <string name="quick_settings_volume_panel_label">Panel de volumen</string>
     <string name="status_bar_location">Ubicación</string>
+    <string name="screen_pinning_description_no_navbar">Esto lo mantiene a la vista hasta que lo libere. Mantenga pulsado «Atrás» para liberar.</string>
 </resources>

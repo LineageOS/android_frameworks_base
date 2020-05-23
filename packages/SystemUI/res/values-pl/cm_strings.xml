@@ -71,4 +71,6 @@
     <string name="vpn_credentials_dialog_connect">Połącz</string>
     <string name="status_bar_battery">Bateria</string>
     <string name="status_bar_location">Lokalizacja</string>
+    <string name="screen_pinning_description_no_navbar">Ekran będzie widoczny, dopóki go nie odepniesz. Aby to zrobić, kliknij i przytrzymaj Wstecz.</string>
+    <string name="screen_pinning_toast_no_navbar">Aby odpiąć ten ekran, naciśnij i przytrzymaj Wstecz</string>
 </resources>

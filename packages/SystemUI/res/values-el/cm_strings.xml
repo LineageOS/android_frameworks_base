@@ -75,4 +75,6 @@
     <string name="status_bar_camera">Φωτογραφική μηχανή</string>
     <string name="status_bar_location">Τοποθεσία</string>
     <string name="status_bar_microphone">Μικρόφωνο</string>
+    <string name="screen_pinning_description_no_navbar">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε παρατεταμένα το στοιχείο \"Επιστροφή\" για ξεκαρφίτσωμα.</string>
+    <string name="screen_pinning_toast_no_navbar">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε &amp; κρατήστε πατημένο το πλήκτρο Πίσω</string>
 </resources>

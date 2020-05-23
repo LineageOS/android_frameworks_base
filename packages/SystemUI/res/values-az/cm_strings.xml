@@ -71,4 +71,6 @@
     <string name="vpn_credentials_dialog_connect">Bağlantı qur</string>
     <string name="status_bar_battery">Batereya</string>
     <string name="status_bar_location">Yer</string>
+    <string name="screen_pinning_description_no_navbar">Bu əməliyyat, siz sabitləməni götürənə qədər ekranı baxış rejimində saxlayar. Sabitləməni götürmək üçün Geri-yə toxunub basılı saxlayın.</string>
+    <string name="screen_pinning_toast_no_navbar">Bu ekranı ayırmaq üçün Geri düyməsinə basıb saxlayın</string>
 </resources>

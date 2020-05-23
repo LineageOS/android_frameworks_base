@@ -63,4 +63,6 @@
     <string name="status_bar_battery">Aku</string>
     <string name="status_bar_camera">Kaamera</string>
     <string name="status_bar_microphone">Mikrofon</string>
+    <string name="screen_pinning_description_no_navbar">See hoitakse kuval, kuni selle vabastate. Vabastamiseks puudutage pikalt tagasinuppu.</string>
+    <string name="screen_pinning_toast_no_navbar">Selle ekraani vabastamiseks puudutage ja hoidke all tagasinuppu</string>
 </resources>

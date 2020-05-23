@@ -69,4 +69,6 @@
     <string name="vpn_credentials_dialog_connect">Se connecter</string>
     <string name="status_bar_battery">Batterie</string>
     <string name="status_bar_location">Position</string>
+    <string name="screen_pinning_description_no_navbar">Cet écran est épinglé jusqu\'à l\'annulation de l\'opération. Pour annuler l\'épinglage, appuyez de manière prolongée sur \"Retour\".</string>
+    <string name="screen_pinning_toast_no_navbar">Pour annuler l\'épinglage de l\'écran, appuyez de manière prolongée sur le bouton \"Retour\"</string>
 </resources>

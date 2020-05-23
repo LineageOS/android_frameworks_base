@@ -69,6 +69,12 @@
     <string name="vpn_credentials_username">Uporabniško ime</string>
     <string name="vpn_credentials_password">Geslo</string>
     <string name="vpn_credentials_dialog_connect">Poveži</string>
+    <string name="quick_settings_aod_label">Stalni prikaz</string>
+    <string name="quick_settings_aod_off_powersave_label">Stalni prikaz izklopljen\nVarčevanje z energijo akumulatorja</string>
     <string name="status_bar_battery">Akumulator</string>
+    <string name="status_bar_camera">Fotoaparat</string>
     <string name="status_bar_location">Lokacija</string>
+    <string name="status_bar_microphone">Mikrofon</string>
+    <string name="screen_pinning_description_no_navbar">To ga ohrani prikazanega, dokler ga ne odpnete. Dotaknite se in pridržite gumb Nazaj, da ga odpnete.</string>
+    <string name="screen_pinning_toast_no_navbar">Da odpnete ta zaslon, se dotaknite in pridržite gumb Nazaj</string>
 </resources>
