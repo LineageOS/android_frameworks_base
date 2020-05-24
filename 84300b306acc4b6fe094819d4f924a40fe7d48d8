@@ -22,6 +22,30 @@
       "revId": "84300b306acc4b6fe094819d4f924a40fe7d48d8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78fe132d_9dc42395",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2461,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-05-24T19:48:01Z",
+      "side": 1,
+      "message": "Yeap",
+      "parentUuid": "fabcdd9b_cbf5e2b3",
+      "range": {
+        "startLine": 2461,
+        "startChar": 69,
+        "endLine": 2461,
+        "endChar": 70
+      },
+      "revId": "84300b306acc4b6fe094819d4f924a40fe7d48d8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
