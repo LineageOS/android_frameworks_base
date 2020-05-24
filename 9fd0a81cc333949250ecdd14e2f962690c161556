@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89c6105c_9a3cb08d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-05-24T14:58:25Z",
+      "side": 1,
+      "message": "true here",
+      "range": {
+        "startLine": 241,
+        "startChar": 69,
+        "endLine": 241,
+        "endChar": 73
+      },
+      "revId": "9fd0a81cc333949250ecdd14e2f962690c161556",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f13e576a_d95a17a6",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-05-24T14:58:25Z",
+      "side": 1,
+      "message": "but false here, really makes you think.",
+      "range": {
+        "startLine": 246,
+        "startChar": 68,
+        "endLine": 246,
+        "endChar": 73
+      },
+      "revId": "9fd0a81cc333949250ecdd14e2f962690c161556",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
