@@ -42,7 +42,7 @@ public class WifiIcons {
     };
     static final int[][] WIFI_SIGNAL_STRENGTH = QS_WIFI_SIGNAL_STRENGTH;
 
-    public static final int QS_WIFI_DISABLED = com.android.internal.R.drawable.ic_wifi_signal_0;
+    public static final int QS_WIFI_DISABLED = com.android.internal.R.drawable.ic_wifi_signal_4;
     public static final int QS_WIFI_NO_NETWORK = com.android.internal.R.drawable.ic_wifi_signal_0;
     static final int WIFI_NO_NETWORK = QS_WIFI_NO_NETWORK;
 
