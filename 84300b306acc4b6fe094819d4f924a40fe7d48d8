@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fabcdd9b_cbf5e2b3",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2461,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-05-24T19:33:27Z",
+      "side": 1,
+      "message": "regarding the \"never visited buttons settings\" bug i described on the other change I think the default value here should be \"1\"",
+      "range": {
+        "startLine": 2461,
+        "startChar": 69,
+        "endLine": 2461,
+        "endChar": 70
+      },
+      "revId": "84300b306acc4b6fe094819d4f924a40fe7d48d8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
