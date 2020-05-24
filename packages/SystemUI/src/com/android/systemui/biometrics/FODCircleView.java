@@ -59,6 +59,7 @@ public class FODCircleView extends ImageView {
     private final boolean mShouldBoostBrightness;
     private final Paint mPaintFingerprint = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
+    private final WindowManager.LayoutParams mPressedParams = new WindowManager.LayoutParams();
     private final WindowManager mWindowManager;
 
     private IFingerprintInscreen mFingerprintInscreenDaemon;
@@ -75,6 +76,8 @@ public class FODCircleView extends ImageView {
     private boolean mIsCircleShowing;
 
     private Handler mHandler;
+
+    private final ImageView mPressedView;
 
     private LockPatternUtils mLockPatternUtils;
 
@@ -185,6 +188,9 @@ public class FODCircleView extends ImageView {
 
         mWindowManager.addView(this, mParams);
 
+        mPressedParams.copyFrom(mParams);
+        mPressedParams.setTitle("Fingerprint on display.touched");
+
         updatePosition();
         hide();
 
@@ -192,11 +198,23 @@ public class FODCircleView extends ImageView {
 
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         mUpdateMonitor.registerCallback(mMonitorCallback);
+
+        mPressedView = new ImageView(context)  {
+            @Override
+            protected void onDraw(Canvas canvas) {
+                if (mIsCircleShowing) {
+                    canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+                }
+                super.onDraw(canvas);
+            };
+        };
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+        if (!mIsCircleShowing) {
+            canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+        }
         super.onDraw(canvas);
     }
 
@@ -284,6 +302,8 @@ public class FODCircleView extends ImageView {
         setKeepScreenOn(true);
 
         setDim(true);
+        mWindowManager.addView(mPressedView, mPressedParams);
+        mWindowManager.updateViewLayout(mPressedView, mPressedParams);
         updateAlpha();
         dispatchPress();
 
@@ -302,6 +322,11 @@ public class FODCircleView extends ImageView {
         dispatchRelease();
 
         setDim(false);
+        try {
+            mWindowManager.removeView(mPressedView);
+        } catch (Exception e) {
+        }
+
         updateAlpha();
 
         setKeepScreenOn(false);
@@ -369,6 +394,9 @@ public class FODCircleView extends ImageView {
             default:
                 throw new IllegalArgumentException("Unknown rotation: " + rotation);
         }
+
+        mPressedParams.x = mParams.x;
+        mPressedParams.y = mParams.y;
 
         if (mIsDreaming) {
             mParams.x += mDreamingOffsetX;
