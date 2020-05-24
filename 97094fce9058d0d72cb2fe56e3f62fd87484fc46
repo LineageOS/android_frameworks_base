@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae6f2143_cc886107",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-05-24T14:15:33Z",
+      "side": 1,
+      "message": "see comment below.",
+      "range": {
+        "startLine": 250,
+        "startChar": 42,
+        "endLine": 250,
+        "endChar": 56
+      },
+      "revId": "97094fce9058d0d72cb2fe56e3f62fd87484fc46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4211c46_3b1107cb",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-05-24T14:15:33Z",
+      "side": 1,
+      "message": "`View.`?",
+      "range": {
+        "startLine": 254,
+        "startChar": 54,
+        "endLine": 254,
+        "endChar": 63
+      },
+      "revId": "97094fce9058d0d72cb2fe56e3f62fd87484fc46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4be63dc_826dd9cb",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-05-24T14:15:33Z",
+      "side": 1,
+      "message": "will throw NumberFormatException if newValue isn\u0027t be a number.",
+      "range": {
+        "startLine": 254,
+        "startChar": 20,
+        "endLine": 254,
+        "endChar": 46
+      },
+      "revId": "97094fce9058d0d72cb2fe56e3f62fd87484fc46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
