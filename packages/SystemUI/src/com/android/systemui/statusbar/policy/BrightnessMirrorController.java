@@ -18,10 +18,13 @@ package com.android.systemui.statusbar.policy;
 
 import android.annotation.NonNull;
 import android.content.res.Resources;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.ArraySet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.android.internal.util.Preconditions;
 import com.android.systemui.R;
@@ -58,6 +61,7 @@ public class BrightnessMirrorController
         mBrightnessMirror.setVisibility(View.VISIBLE);
         mVisibilityCallback.accept(true);
         mNotificationPanel.setPanelAlpha(0, true /* animate */);
+        updateIcon();
     }
 
     public void hideMirror() {
@@ -132,5 +136,23 @@ public class BrightnessMirrorController
 
     public interface BrightnessMirrorListener {
         void onBrightnessMirrorReinflated(View brightnessMirror);
+    }
+
+    private void updateIcon() {
+        ImageView iv = mBrightnessMirror.findViewById(R.id.brightness_icon);
+        boolean autoBrightnessAvailable = mBrightnessMirror.getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_automatic_brightness_available);
+        if (autoBrightnessAvailable) {
+            int automatic = Settings.System.getIntForUser(mBrightnessMirror.getContext()
+                            .getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS_MODE,
+                    Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL,
+                    UserHandle.USER_CURRENT);
+            boolean isAutomatic = automatic != Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
+            iv.setImageResource(isAutomatic
+                    ? com.android.systemui.R.drawable.ic_qs_brightness_auto_on
+                    : com.android.systemui.R.drawable.ic_qs_brightness_auto_off);
+            iv.setVisibility(View.VISIBLE);
+        }
     }
 }
