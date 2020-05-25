@@ -104,7 +104,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     private Record mDetailRecord;
 
     private BrightnessMirrorController mBrightnessMirrorController;
-    private ImageView mMirrorAutoBrightnessView;
     private View mDivider;
 
     public QSPanel(Context context) {
@@ -233,24 +232,11 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             updateViewVisibilityForTuningValue(mAutoBrightnessView, newValue);
         } else if (QS_SHOW_BRIGHTNESS_SLIDER.equals(key)) {
             updateViewVisibilityForTuningValue(mBrightnessView, newValue);
-            updateViewVisibilityForBrightnessMirrorIcon(newValue);
         }
     }
 
     private void updateViewVisibilityForTuningValue(View view, @Nullable String newValue) {
         view.setVisibility(TunerService.parseIntegerSwitch(newValue, true) ? VISIBLE : GONE);
-    }
-
-    private void updateViewVisibilityForBrightnessMirrorIcon(@Nullable String newValue) {
-        if (mMirrorAutoBrightnessView != null) {
-            mMirrorAutoBrightnessView.setVisibility(
-                    TunerService.parseIntegerSwitch(newValue, true) ? INVISIBLE : GONE);
-        } else if (mBrightnessMirrorController != null) {
-            mMirrorAutoBrightnessView = mBrightnessMirrorController.getMirror()
-                    .findViewById(R.id.brightness_icon);
-            mMirrorAutoBrightnessView.setVisibility(mAutoBrightnessView.getVisibility()
-                    == VISIBLE ? INVISIBLE : GONE);
-        }
     }
 
     public void openDetails(String subPanel) {
@@ -280,7 +266,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             mBrightnessMirrorController.addCallback(this);
         }
         updateBrightnessMirror();
-        updateViewVisibilityForBrightnessMirrorIcon(null);
     }
 
     @Override
