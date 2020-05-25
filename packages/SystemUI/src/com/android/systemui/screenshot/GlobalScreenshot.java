@@ -204,17 +204,21 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
         boolean onKeyguard = context.getSystemService(KeyguardManager.class).isKeyguardLocked();
         if (!onKeyguard && appName != null) {
             String appNameString = appName.toString();
+            Slog.e(TAG, "aviraxp origin", appNameString);
             try {
                 // With some languages like Virgin Islands English, the Settings app gets a weird
                 // long name and some special voodoo chars, so we convert the string to utf-8 to get
                 // a  char instead, easy to remove it then
                 final String temp = new String(appNameString.getBytes("ISO-8859-15"), "UTF-8");
+                Slog.e(TAG, "aviraxp origin2", temp);
                 appNameString = temp.replaceAll("[]+", "");
+                Slog.e(TAG, "aviraxp origin3", appNameString);
             } catch (UnsupportedEncodingException e) {
                 // Do nothing
             }
             // Now replace all spaces and special chars with an underscore
             appNameString = appNameString.replaceAll("[\\\\/:*?\"<>|\\s]+", "_");
+            Slog.e(TAG, "aviraxp origin4", appNameString);
             mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE_APPNAME,
                     imageDate, appNameString);
         } else {
