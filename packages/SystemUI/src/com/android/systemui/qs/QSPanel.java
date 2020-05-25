@@ -244,12 +244,12 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     private void updateViewVisibilityForBrightnessMirrorIcon(@Nullable String newValue) {
         if (mMirrorAutoBrightnessView != null) {
             mMirrorAutoBrightnessView.setVisibility(
-                    TunerService.parseIntegerSwitch(newValue, true) ? INVISIBLE : GONE);
+                    TunerService.parseIntegerSwitch(newValue, true) ? VISIBLE : GONE);
         } else if (mBrightnessMirrorController != null) {
             mMirrorAutoBrightnessView = mBrightnessMirrorController.getMirror()
                     .findViewById(R.id.brightness_icon);
             mMirrorAutoBrightnessView.setVisibility(mAutoBrightnessView.getVisibility()
-                    == VISIBLE ? INVISIBLE : GONE);
+                    == VISIBLE ? VISIBLE : GONE);
         }
     }
 
