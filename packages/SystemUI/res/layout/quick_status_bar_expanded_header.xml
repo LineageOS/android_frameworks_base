@@ -54,6 +54,16 @@
         android:focusable="true"
         android:importantForAccessibility="yes" />
 
+    <FrameLayout
+        android:id="@+id/quick_qs_brightness_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/brightness_mirror_height"
+        android:layout_below="@id/quick_qs_panel"
+        android:layout_marginLeft="@dimen/notification_side_paddings"
+        android:layout_marginRight="@dimen/notification_side_paddings">
+        <include layout="@layout/quick_settings_brightness_dialog" />
+    </FrameLayout>
+
     <com.android.systemui.statusbar.AlphaOptimizedImageView
         android:id="@+id/qs_detail_header_progress"
         android:layout_width="match_parent"
