@@ -70,6 +70,7 @@ import com.android.systemui.privacy.PrivacyItem;
 import com.android.systemui.privacy.PrivacyItemController;
 import com.android.systemui.privacy.PrivacyItemControllerKt;
 import com.android.systemui.qs.QSDetail.Callback;
+import com.android.systemui.settings.BrightnessController;
 import com.android.systemui.statusbar.phone.PhoneStatusBarView;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBarIconController.TintedIconManager;
@@ -124,11 +125,15 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private TouchAnimator mStatusIconsAlphaAnimator;
     private TouchAnimator mHeaderTextContainerAlphaAnimator;
     private TouchAnimator mPrivacyChipAlphaAnimator;
+    private TouchAnimator mQuickQsBrightnessAlphaAnimator;
     private DualToneHandler mDualToneHandler;
 
     private View mSystemIconsView;
     private View mQuickQsStatusIcons;
     private View mHeaderTextContainerView;
+
+    private View mQuickQsBrightness;
+    private BrightnessController mBrightnessController;
 
     private int mRingerMode = AudioManager.RINGER_MODE_NORMAL;
     private AlarmManager.AlarmClockInfo mNextAlarm;
@@ -209,6 +214,16 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         iconContainer.addIgnoredSlots(getIgnoredIconSlots());
         iconContainer.setShouldRestrictIcons(false);
         mIconManager = new TintedIconManager(iconContainer);
+
+        mQuickQsBrightness = findViewById(R.id.quick_qs_brightness_bar);
+        if (getResources().getBoolean(
+                com.android.internal.R.bool.config_automatic_brightness_available)) {
+            mQuickQsBrightness.findViewById(R.id.brightness_icon)
+                    .setVisibility(View.VISIBLE);
+        }
+        mBrightnessController = new BrightnessController(getContext(),
+                mQuickQsBrightness.findViewById(R.id.brightness_icon),
+                mQuickQsBrightness.findViewById(R.id.brightness_slider));
 
         // Views corresponding to the header info section (e.g. ringer and next alarm).
         mHeaderTextContainerView = findViewById(R.id.header_text_container);
@@ -379,8 +394,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 com.android.internal.R.dimen.status_bar_height);
         int qqsHeight = mContext.getResources().getDimensionPixelSize(
                 R.dimen.qs_quick_header_panel_height);
+        int brtHeight = mContext.getResources().getDimensionPixelSize(
+                R.dimen.qs_brightness_height);
 
-        setMinimumHeight(sbHeight + qqsHeight);
+        setMinimumHeight(sbHeight + qqsHeight + brtHeight);
     }
 
     private void updateResources() {
@@ -395,6 +412,14 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mSystemIconsView.getLayoutParams().height = resources.getDimensionPixelSize(
                 com.android.internal.R.dimen.quick_qs_offset_height);
         mSystemIconsView.setLayoutParams(mSystemIconsView.getLayoutParams());
+
+        // Offset container margin to align quick QS brightness bar with QS brightness bar.
+        RelativeLayout.LayoutParams lpQuickQsBrightness = (RelativeLayout.LayoutParams)
+                mQuickQsBrightness.getLayoutParams();
+        lpQuickQsBrightness.setMargins(
+                -resources.getDimensionPixelSize(R.dimen.status_bar_padding_start), 0,
+                -resources.getDimensionPixelSize(R.dimen.status_bar_padding_end), 0);
+        mQuickQsBrightness.setLayoutParams(lpQuickQsBrightness);
 
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
         if (mQsDisabled) {
@@ -411,6 +436,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         updateStatusIconAlphaAnimator();
         updateHeaderTextContainerAlphaAnimator();
         updatePrivacyChipAlphaAnimator();
+        updateQuickQsBrightnessAlphaAnimator();
     }
 
     private void updateStatusIconAlphaAnimator() {
@@ -428,6 +454,12 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private void updatePrivacyChipAlphaAnimator() {
         mPrivacyChipAlphaAnimator = new TouchAnimator.Builder()
                 .addFloat(mPrivacyChip, "alpha", 1, 0, 1)
+                .build();
+    }
+
+    private void updateQuickQsBrightnessAlphaAnimator() {
+        mQuickQsBrightnessAlphaAnimator = new TouchAnimator.Builder()
+                .addFloat(mQuickQsBrightness, "alpha", 1, 0, 0)
                 .build();
     }
 
@@ -473,6 +505,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             mPrivacyChip.setExpanded(expansionFraction > 0.5);
             mPrivacyChipAlphaAnimator.setPosition(keyguardExpansionFraction);
         }
+
+        if (mQuickQsBrightnessAlphaAnimator != null) {
+            mQuickQsBrightnessAlphaAnimator.setPosition(keyguardExpansionFraction);
+        }
     }
 
     public void disable(int state1, int state2, boolean animate) {
@@ -482,6 +518,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderQsPanel.setDisabledByPolicy(disabled);
         mHeaderTextContainerView.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
         mQuickQsStatusIcons.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
+        mQuickQsBrightness.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
         updateResources();
     }
 
@@ -545,11 +582,13 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             mContext.registerReceiver(mRingerReceiver,
                     new IntentFilter(AudioManager.INTERNAL_RINGER_MODE_CHANGED_ACTION));
             mPrivacyItemController.addCallback(mPICCallback);
+            mBrightnessController.registerCallbacks();
         } else {
             mZenController.removeCallback(this);
             mAlarmController.removeCallback(this);
             mPrivacyItemController.removeCallback(mPICCallback);
             mContext.unregisterReceiver(mRingerReceiver);
+            mBrightnessController.unregisterCallbacks();
             mPrivacyChipLogged = false;
         }
     }
