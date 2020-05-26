@@ -16,6 +16,24 @@
       "revId": "3593b66e13fa0267d24316e3502bd4ec2b45f1cb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b87cdbc_7e656f14",
+        "filename": "packages/SystemUI/res/layout/volume_dialog.xml",
+        "patchSetId": 23
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T18:18:40Z",
+      "side": 1,
+      "message": "I think every item there shouldn\u0027t have sound, so do it for the other element as well",
+      "parentUuid": "70a359fb_9b9f7d20",
+      "revId": "3593b66e13fa0267d24316e3502bd4ec2b45f1cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
