@@ -37,8 +37,11 @@ import com.android.systemui.R;
 import com.android.systemui.SystemUI;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.dagger.qualifiers.Background;
+import com.android.systemui.tuner.TunerService;
 
 import com.google.android.collect.Sets;
+
+import lineageos.providers.LineageSettings;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,13 +71,45 @@ public class ThemeOverlayController extends SystemUI {
     private UserManager mUserManager;
     private BroadcastDispatcher mBroadcastDispatcher;
     private final Handler mBgHandler;
+    private final TunerService mTunerService;
 
     @Inject
     public ThemeOverlayController(Context context, BroadcastDispatcher broadcastDispatcher,
-            @Background Handler bgHandler) {
+            @Background Handler bgHandler, TunerService tunerService) {
         super(context);
         mBroadcastDispatcher = broadcastDispatcher;
         mBgHandler = bgHandler;
+        mTunerService = tunerService;
+    }
+
+    static final String KEY_BERRY_BLACK_THEME =
+            "lineagesystem:" + LineageSettings.System.BERRY_BLACK_THEME;
+    static final String OVERLAY_BERRY_BLACK_THEME =
+            "org.lineageos.overlay.customization.blacktheme";
+    private final TunerService.Tunable mTunable =
+            new TunerService.Tunable() {
+                @Override
+                public void onTuningChanged(String key, String newValue) {
+                    if (KEY_BERRY_BLACK_THEME.equals(key)) {
+                        applyBlackTheme(TunerService.parseIntegerSwitch(newValue, false));
+                    }
+                }
+            };
+
+    private OverlayManager mOverlayManager;
+
+    private void applyBlackTheme(boolean state) {
+        UserHandle userId = UserHandle.of(ActivityManager.getCurrentUser());
+        try {
+            mOverlayManager.setEnabled(OVERLAY_BERRY_BLACK_THEME, state, userId);
+            if (DEBUG) {
+                Log.d(TAG, "applyBlackTheme: overlayPackage="
+                        + OVERLAY_BERRY_BLACK_THEME + " userId=" + userId);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
+                    + " overlay " + OVERLAY_BERRY_BLACK_THEME + " for user " + userId);
+        }
     }
 
     @Override
@@ -111,6 +146,8 @@ public class ThemeOverlayController extends SystemUI {
                     }
                 },
                 UserHandle.USER_ALL);
+        mOverlayManager = mContext.getSystemService(OverlayManager.class);
+        mTunerService.addTunable(mTunable, KEY_BERRY_BLACK_THEME);
     }
 
     private void updateThemeOverlays() {
