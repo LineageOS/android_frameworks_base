@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "c3301470_da8a6ddb",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-05-26T10:37:26Z",
+      "side": 1,
+      "message": "query the initial values for these in the constructor, don\u0027t statically assume true here",
+      "range": {
+        "startLine": 162,
+        "startChar": 4,
+        "endLine": 163,
+        "endChar": 54
+      },
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "18d839b9_95efce74",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
         "patchSetId": 7
@@ -76,6 +99,52 @@
     },
     {
       "key": {
+        "uuid": "64f5e4eb_425882fb",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-05-26T10:37:26Z",
+      "side": 1,
+      "message": "boolean autoBrightness \u003d  mIsQsAutoBrightnessEnabled \u0026\u0026 resources.getBoolean(com.android...);\nmQuickQsBrightness.findViewById(R.id.brightness_icon).setVisibility(autoBrightness ? View.VISIBLE : View.GONE);",
+      "range": {
+        "startLine": 448,
+        "startChar": 8,
+        "endLine": 455,
+        "endChar": 9
+      },
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5eedacd7_566eba9b",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-05-26T10:37:26Z",
+      "side": 1,
+      "message": "can\u0027t be null here",
+      "range": {
+        "startLine": 735,
+        "startChar": 12,
+        "endLine": 735,
+        "endChar": 30
+      },
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3bfebb93_21f9f9a0",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
         "patchSetId": 7
@@ -87,6 +156,29 @@
       "writtenOn": "2020-05-26T10:37:12Z",
       "side": 1,
       "message": "else if and remove the return",
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5584d78_009be739",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-05-26T10:37:26Z",
+      "side": 1,
+      "message": "use \"else if\"",
+      "range": {
+        "startLine": 743,
+        "startChar": 8,
+        "endLine": 743,
+        "endChar": 10
+      },
       "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
