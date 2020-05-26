@@ -36,6 +36,7 @@ import java.util.List;
  * TODO: Should be merged into PermissionManagerInternal, but currently uses internal classes.
  */
 public abstract class PermissionManagerServiceInternal extends PermissionManagerInternal {
+
     /**
      * Callbacks invoked when interesting actions have been taken on a permission.
      * <p>
@@ -212,4 +213,10 @@ public abstract class PermissionManagerServiceInternal extends PermissionManager
     /** Get all permission that have a certain protection level */
     public abstract @NonNull ArrayList<PermissionInfo> getAllPermissionWithProtectionLevel(
             @PermissionInfo.Protection int protectionLevel);
+
+    /**
+     * Removes invalid permissions which are not {@link PermissionInfo#FLAG_HARD_RESTRICTED} or
+     * {@link PermissionInfo#FLAG_SOFT_RESTRICTED} from the input.
+     */
+    public abstract void retainHardAndSoftRestrictedPermissions(@NonNull List<String> permissions);
 }
