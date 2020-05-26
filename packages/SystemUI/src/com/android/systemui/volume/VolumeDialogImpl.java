@@ -406,6 +406,11 @@ public class VolumeDialogImpl implements VolumeDialog,
         mHandler.sendEmptyMessage(H.RECHECK_ALL);
     }
 
+    private boolean isNotificationVolumeLinked() {
+        ContentResolver cr = mContext.getContentResolver();
+        return Settings.Secure.getInt(cr, Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+    }
+
     private void addRow(int stream, int iconRes, int iconMuteRes, boolean important,
             boolean defaultStream) {
         addRow(stream, iconRes, iconMuteRes, important, defaultStream, false);
@@ -434,7 +439,10 @@ public class VolumeDialogImpl implements VolumeDialog,
     private void cleanExpandedRows() {
         for (int i = mRows.size() - 1; i >= 0; i--) {
             final VolumeRow row = mRows.get(i);
-            if (row.stream == AudioManager.STREAM_RING || row.stream == AudioManager.STREAM_ALARM) {
+            if (row.stream == AudioManager.STREAM_RING ||
+                    row.stream == AudioManager.STREAM_ALARM ||
+                    row.stream == AudioManager.STREAM_NOTIFICATION &&
+                    !isNotificationVolumeLinked()) {
                 Util.setVisOrGone(row.view, false);
             }
         }
@@ -568,9 +576,12 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (mExpandRows != null) {
             mExpandRows.setOnClickListener(v -> {
                 if (!mExpanded) {
-                    int[] streams = new int[2];
+                    int[] streams = new int[isNotificationVolumeLinked() ? 2 : 3];
                     streams[0] = AudioManager.STREAM_RING;
                     streams[1] = AudioManager.STREAM_ALARM;
+                    if (!isNotificationVolumeLinked()) {
+                        streams[2] = AudioManager.STREAM_NOTIFICATION;
+                    }
                     for (int stream : streams) {
                         VolumeRow row = findRow(stream);
                         if (row != null) {
