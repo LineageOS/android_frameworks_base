@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c020c05b_35f59d4c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSAnimator.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T10:51:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6b85745a_b7bb3fed",
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c57672a9_2cf4474d",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/QSAnimator.java",
         "patchSetId": 7
@@ -112,6 +130,30 @@
       "side": 1,
       "message": "Yep. and IMO it is generally bad to let a variable uninitialized.",
       "parentUuid": "18d839b9_95efce74",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 0
+      },
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd60962a_f876fb44",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T10:51:50Z",
+      "side": 1,
+      "message": "These values are initialized after the ctor is called, so it\u0027s safe to assume the default value is fine",
+      "parentUuid": "d8abb24a_7d3e4104",
       "range": {
         "startLine": 162,
         "startChar": 0,
@@ -280,6 +322,24 @@
       "side": 1,
       "message": "I intentionally use ifs only to make sure there is only code addition (no code change) and potentially make it easier to pick in next release.",
       "parentUuid": "f3265433_da989227",
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6fc0523_17e1d8ca",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T10:51:50Z",
+      "side": 1,
+      "message": "Still stand my case",
+      "parentUuid": "4b54b56f_27c129a7",
       "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
