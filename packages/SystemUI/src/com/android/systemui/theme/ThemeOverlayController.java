@@ -55,6 +55,7 @@ import com.android.systemui.SystemUI;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.dagger.qualifiers.Background;
+<<<<<<< HEAD   (70abcf SystemUI: Add support for persistent usb drive notification.)
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dump.DumpManager;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
@@ -63,6 +64,13 @@ import com.android.systemui.statusbar.FeatureFlags;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
 import com.android.systemui.util.settings.SecureSettings;
+=======
+import com.android.systemui.tuner.TunerService;
+
+import com.google.android.collect.Sets;
+>>>>>>> CHANGE (6eacdc SystemUI: support black theme for dark mode [1/4])
+
+import lineageos.providers.LineageSettings;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -102,6 +110,7 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
     private SecureSettings mSecureSettings;
     private final Executor mMainExecutor;
     private final Handler mBgHandler;
+<<<<<<< HEAD   (70abcf SystemUI: Add support for persistent usb drive notification.)
     private final boolean mIsMonetEnabled;
     private UserTracker mUserTracker;
     private DeviceProvisionedController mDeviceProvisionedController;
@@ -258,15 +267,22 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
             }
         }
     };
+=======
+    private final TunerService mTunerService;
+>>>>>>> CHANGE (6eacdc SystemUI: support black theme for dark mode [1/4])
 
     @Inject
     public ThemeOverlayController(Context context, BroadcastDispatcher broadcastDispatcher,
+<<<<<<< HEAD   (70abcf SystemUI: Add support for persistent usb drive notification.)
             @Background Handler bgHandler, @Main Executor mainExecutor,
             @Background Executor bgExecutor, ThemeOverlayApplier themeOverlayApplier,
             SecureSettings secureSettings, WallpaperManager wallpaperManager,
             UserManager userManager, DeviceProvisionedController deviceProvisionedController,
             UserTracker userTracker, DumpManager dumpManager, FeatureFlags featureFlags,
             WakefulnessLifecycle wakefulnessLifecycle) {
+=======
+            @Background Handler bgHandler, TunerService tunerService) {
+>>>>>>> CHANGE (6eacdc SystemUI: support black theme for dark mode [1/4])
         super(context);
 
         mIsMonetEnabled = featureFlags.isMonetEnabled();
@@ -276,12 +292,46 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
         mBgExecutor = bgExecutor;
         mMainExecutor = mainExecutor;
         mBgHandler = bgHandler;
+<<<<<<< HEAD   (70abcf SystemUI: Add support for persistent usb drive notification.)
         mThemeManager = themeOverlayApplier;
         mSecureSettings = secureSettings;
         mWallpaperManager = wallpaperManager;
         mUserTracker = userTracker;
         mWakefulnessLifecycle = wakefulnessLifecycle;
         dumpManager.registerDumpable(TAG, this);
+=======
+        mTunerService = tunerService;
+    }
+
+    static final String KEY_BERRY_BLACK_THEME =
+            "lineagesystem:" + LineageSettings.System.BERRY_BLACK_THEME;
+    static final String OVERLAY_BERRY_BLACK_THEME =
+            "org.lineageos.overlay.customization.blacktheme";
+    private final TunerService.Tunable mTunable =
+            new TunerService.Tunable() {
+                @Override
+                public void onTuningChanged(String key, String newValue) {
+                    if (KEY_BERRY_BLACK_THEME.equals(key)) {
+                        applyBlackTheme(TunerService.parseIntegerSwitch(newValue, false));
+                    }
+                }
+            };
+
+    private OverlayManager mOverlayManager;
+
+    private void applyBlackTheme(boolean state) {
+        UserHandle userId = UserHandle.of(ActivityManager.getCurrentUser());
+        try {
+            mOverlayManager.setEnabled(OVERLAY_BERRY_BLACK_THEME, state, userId);
+            if (DEBUG) {
+                Log.d(TAG, "applyBlackTheme: overlayPackage="
+                        + OVERLAY_BERRY_BLACK_THEME + " userId=" + userId);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
+                    + " overlay " + OVERLAY_BERRY_BLACK_THEME + " for user " + userId);
+        }
+>>>>>>> CHANGE (6eacdc SystemUI: support black theme for dark mode [1/4])
     }
 
     @Override
@@ -318,6 +368,7 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
                     }
                 },
                 UserHandle.USER_ALL);
+<<<<<<< HEAD   (70abcf SystemUI: Add support for persistent usb drive notification.)
 
         if (!mIsMonetEnabled) {
             return;
@@ -422,6 +473,10 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
      */
     protected @Nullable FabricatedOverlay getOverlay(int color, int type) {
         return null;
+=======
+        mOverlayManager = mContext.getSystemService(OverlayManager.class);
+        mTunerService.addTunable(mTunable, KEY_BERRY_BLACK_THEME);
+>>>>>>> CHANGE (6eacdc SystemUI: support black theme for dark mode [1/4])
     }
 
     private void updateThemeOverlays() {
