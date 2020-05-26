@@ -89,6 +89,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -149,6 +150,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private View mDialog;
     private ViewGroup mDialogView;
+    private ViewGroup mDialogMainView;
     private ViewGroup mDialogRowsView;
     private ViewGroup mRinger;
     private ImageButton mRingerIcon;
@@ -284,16 +286,25 @@ public class VolumeDialogImpl implements VolumeDialog,
         dialogViewLP.gravity = Gravity.CENTER_VERTICAL;
         mDialogView.setLayoutParams(dialogViewLP);
 
+        mDialogMainView = mDialog.findViewById(R.id.main);
+        if (mDialogMainView != null) {
+            setLayoutGravity(mDialogMainView.getLayoutParams(), panelGravity);
+        }
+
         mDialogRowsView = mDialog.findViewById(R.id.volume_dialog_rows);
         mRinger = mDialog.findViewById(R.id.ringer);
         if (mRinger != null) {
             mRingerIcon = mRinger.findViewById(R.id.ringer_icon);
             mZenIcon = mRinger.findViewById(R.id.dnd_icon);
+            // Apply ringer layout gravity based on panel left/right setting
+            // Layout type is different between landscape/portrait.
+            setLayoutGravity(mRinger.getLayoutParams(), panelGravity);
         }
 
         mODICaptionsView = mDialog.findViewById(R.id.odi_captions);
         if (mODICaptionsView != null) {
             mODICaptionsIcon = mODICaptionsView.findViewById(R.id.odi_captions_icon);
+            setLayoutGravity(mODICaptionsView.getLayoutParams(), panelGravity);
         }
         mODICaptionsTooltipViewStub = mDialog.findViewById(R.id.odi_captions_tooltip_stub);
         if (mHasSeenODICaptionsTooltip && mODICaptionsTooltipViewStub != null) {
@@ -303,9 +314,16 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         mMediaOutputView = mDialog.findViewById(R.id.media_output_container);
         mMediaOutputIcon = mDialog.findViewById(R.id.media_output);
+        if (mMediaOutputIcon != null) {
+            setLayoutGravity(mMediaOutputIcon.getLayoutParams(), panelGravity);
+        }
 
         mExpandRowsView = mDialog.findViewById(R.id.expandable_indicator_container);
         mExpandRows = mDialog.findViewById(R.id.expandable_indicator);
+        if (mExpandRows != null) {
+            setLayoutGravity(mExpandRows.getLayoutParams(), panelGravity);
+            mExpandRows.setRotation(mVolumePanelOnLeft ? -90 : 90);
+        }
 
         if (mRows.isEmpty()) {
             if (!AudioSystem.isSingleVolume(mContext)) {
@@ -357,6 +375,17 @@ public class VolumeDialogImpl implements VolumeDialog,
                 dialogLocation[1] + mDialogView.getHeight()
         ));
     };
+
+    // Helper to set layout gravity.
+    // Particular useful when the ViewGroup in question
+    // is different for portait vs landscape.
+    private void setLayoutGravity(Object obj, int gravity) {
+        if (obj instanceof FrameLayout.LayoutParams) {
+            ((FrameLayout.LayoutParams) obj).gravity = gravity;
+        } else if (obj instanceof LinearLayout.LayoutParams) {
+            ((LinearLayout.LayoutParams) obj).gravity = gravity;
+        }
+    }
 
     private float getAnimatorX() {
         final float x = mDialogView.getWidth() / 2.0f;
