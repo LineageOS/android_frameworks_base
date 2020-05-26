@@ -72,6 +72,8 @@ import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
 import com.android.systemui.util.settings.SecureSettings;
 
+import lineageos.providers.LineageSettings;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -99,6 +101,8 @@ import javax.inject.Inject;
 @SysUISingleton
 public class ThemeOverlayController extends SystemUI implements Dumpable {
     protected static final String TAG = "ThemeOverlayController";
+    protected static final String OVERLAY_BERRY_BLACK_THEME =
+            "org.lineageos.overlay.customization.blacktheme";
     private static final boolean DEBUG = true;
 
     protected static final int NEUTRAL = 0;
@@ -408,6 +412,32 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
                 },
                 UserHandle.USER_ALL);
 
+        mSecureSettings.registerContentObserverForUser(
+                LineageSettings.System.getUriFor(LineageSettings.System.BERRY_BLACK_THEME),
+                false,
+                new ContentObserver(mBgHandler) {
+                    @Override
+                    public void onChange(boolean selfChange, Collection<Uri> collection, int flags,
+                            int userId) {
+                        if (DEBUG) Log.d(TAG, "Overlay changed for user: " + userId);
+                        if (mUserTracker.getUserId() != userId) {
+                            return;
+                        }
+                        if (!mDeviceProvisionedController.isUserSetup(userId)) {
+                            Log.i(TAG, "Theme application deferred when setting changed.");
+                            mDeferredThemeEvaluation = true;
+                            return;
+                        }
+                        if (mSkipSettingChange) {
+                            if (DEBUG) Log.d(TAG, "Skipping setting change");
+                            mSkipSettingChange = false;
+                            return;
+                        }
+                        reevaluateSystemTheme(true /* forceReload */);
+                    }
+                },
+                UserHandle.USER_ALL);
+
         if (!mIsMonetEnabled) {
             return;
         }
@@ -623,6 +653,15 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
         if (!categoryToPackage.containsKey(OVERLAY_CATEGORY_ACCENT_COLOR)
                 && mSecondaryOverlay != null) {
             categoryToPackage.put(OVERLAY_CATEGORY_ACCENT_COLOR, mSecondaryOverlay.getIdentifier());
+        }
+
+        boolean inNightMode = (mContext.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
+        boolean isBlackMode = (LineageSettings.System.getIntForUser(mContext.getContentResolver(),
+                LineageSettings.System.BERRY_BLACK_THEME, 0, currentUser) == 1) && inNightMode;
+        OverlayIdentifier blackTheme = new OverlayIdentifier(OVERLAY_BERRY_BLACK_THEME);
+        if (categoryToPackage.containsKey(OVERLAY_CATEGORY_SYSTEM_PALETTE) && isBlackMode) {
+            categoryToPackage.put(OVERLAY_CATEGORY_SYSTEM_PALETTE, blackTheme);
         }
 
         Set<UserHandle> managedProfiles = new HashSet<>();
