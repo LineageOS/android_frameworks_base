@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1237ca73_7e367d09",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-05-26T20:16:07Z",
+      "side": 1,
+      "message": "Is there a better way then this?\nmState.linkedNotification doesn\u0027t work because that is only set after it\u0027s changed",
+      "revId": "8c2f101023f5d43823c5b4fcfeea5811b5d5b612",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
