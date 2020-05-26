@@ -69,6 +69,24 @@
       "revId": "3593b66e13fa0267d24316e3502bd4ec2b45f1cb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4e00502_1987511b",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T19:21:14Z",
+      "side": 1,
+      "message": "I guess we should if the setting is toggled\ncan you do it in another change? I prefer this one to stay as close as possible to aosp",
+      "parentUuid": "",
+      "revId": "3593b66e13fa0267d24316e3502bd4ec2b45f1cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
