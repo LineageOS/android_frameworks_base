@@ -68,7 +68,10 @@ import com.android.systemui.monet.ColorScheme;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.settings.SecureSettings;
+
+import lineageos.providers.LineageSettings;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -99,6 +102,9 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
     protected static final String TAG = "ThemeOverlayController";
     private static final boolean DEBUG = true;
 
+    static final String KEY_BERRY_BLACK_THEME =
+        "lineagesystem:" + LineageSettings.System.BERRY_BLACK_THEME;
+
     protected static final int NEUTRAL = 0;
     protected static final int ACCENT = 1;
 
@@ -109,6 +115,7 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
     private final SecureSettings mSecureSettings;
     private final Executor mMainExecutor;
     private final Handler mBgHandler;
+    private final TunerService mTunerService;
     private final boolean mIsMonetEnabled;
     private final UserTracker mUserTracker;
     private final DeviceProvisionedController mDeviceProvisionedController;
@@ -342,7 +349,7 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
             SecureSettings secureSettings, WallpaperManager wallpaperManager,
             UserManager userManager, DeviceProvisionedController deviceProvisionedController,
             UserTracker userTracker, DumpManager dumpManager, FeatureFlags featureFlags,
-            WakefulnessLifecycle wakefulnessLifecycle) {
+            WakefulnessLifecycle wakefulnessLifecycle, TunerService tunerService) {
         super(context);
 
         mIsMonetEnabled = featureFlags.isMonetEnabled();
@@ -357,8 +364,19 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
         mWallpaperManager = wallpaperManager;
         mUserTracker = userTracker;
         mWakefulnessLifecycle = wakefulnessLifecycle;
+        mTunerService = tunerService;
         dumpManager.registerDumpable(TAG, this);
     }
+
+    private final TunerService.Tunable mTunable = new TunerService.Tunable() {
+        @Override
+        public void onTuningChanged(String key, String newValue) {
+            if (KEY_BERRY_BLACK_THEME.equals(key)) {
+                mThemeManager.applyBlackTheme(TunerService.parseIntegerSwitch(newValue, false));
+                reevaluateSystemTheme(true /* forceReload */);
+            }
+        }
+    };
 
     @Override
     public void start() {
@@ -393,6 +411,8 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
                     }
                 },
                 UserHandle.USER_ALL);
+
+        mTunerService.addTunable(mTunable, KEY_BERRY_BLACK_THEME);
 
         if (!mIsMonetEnabled) {
             return;
