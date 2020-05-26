@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70a359fb_9b9f7d20",
+        "filename": "packages/SystemUI/res/layout/volume_dialog.xml",
+        "patchSetId": 23
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-05-26T18:03:07Z",
+      "side": 1,
+      "message": "Does it make sense to disable sound effects here and should there be sound effects on the expandable indicator?",
+      "revId": "3593b66e13fa0267d24316e3502bd4ec2b45f1cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
