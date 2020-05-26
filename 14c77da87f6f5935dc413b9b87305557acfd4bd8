@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e036015_622aeb6d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSAnimator.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T10:37:12Z",
+      "side": 1,
+      "message": "Add QS_SHOW_BRIGHTNESS_SLIDER here",
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c57672a9_2cf4474d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSAnimator.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T10:37:12Z",
+      "side": 1,
+      "message": "Number format exception and null casa",
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18d839b9_95efce74",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T10:37:12Z",
+      "side": 1,
+      "message": "Can default to false, the tuner has static callbacks so as soon as registered they\u0027ll be called",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 0
+      },
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6557442e_2a38b8f9",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T10:37:12Z",
+      "side": 1,
+      "message": "append the tunable here",
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bfebb93_21f9f9a0",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T10:37:12Z",
+      "side": 1,
+      "message": "else if and remove the return",
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3265433_da989227",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T10:37:12Z",
+      "side": 1,
+      "message": "else case",
+      "revId": "14c77da87f6f5935dc413b9b87305557acfd4bd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
