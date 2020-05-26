@@ -72,6 +72,8 @@ import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
 import com.android.systemui.util.settings.SecureSettings;
 
+import lineageos.providers.LineageSettings;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -99,6 +101,8 @@ import javax.inject.Inject;
 @SysUISingleton
 public class ThemeOverlayController extends SystemUI implements Dumpable {
     protected static final String TAG = "ThemeOverlayController";
+    protected static final String OVERLAY_BERRY_BLACK_THEME =
+            "org.lineageos.overlay.customization.blacktheme";
     private static final boolean DEBUG = true;
 
     protected static final int NEUTRAL = 0;
@@ -243,6 +247,11 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
             }
         }
         return false;
+    }
+
+    private boolean isNightMode() {
+        return (mContext.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
     }
 
     private void handleWallpaperColors(WallpaperColors wallpaperColors, int flags, int userId) {
@@ -507,10 +516,7 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
      * Given a color candidate, return an overlay definition.
      */
     protected @Nullable FabricatedOverlay getOverlay(int color, int type) {
-        boolean nightMode = (mContext.getResources().getConfiguration().uiMode
-                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
-
-        mColorScheme = new ColorScheme(color, nightMode);
+        mColorScheme = new ColorScheme(color, isNightMode());
         List<Integer> colorShades = type == ACCENT
                 ? mColorScheme.getAllAccentColors() : mColorScheme.getAllNeutralColors();
         String name = type == ACCENT ? "accent" : "neutral";
@@ -623,6 +629,13 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
         if (!categoryToPackage.containsKey(OVERLAY_CATEGORY_ACCENT_COLOR)
                 && mSecondaryOverlay != null) {
             categoryToPackage.put(OVERLAY_CATEGORY_ACCENT_COLOR, mSecondaryOverlay.getIdentifier());
+        }
+
+        boolean isBlackMode = (LineageSettings.System.getIntForUser(mContext.getContentResolver(),
+                LineageSettings.System.BERRY_BLACK_THEME, 0, currentUser) == 1) && isNightMode();
+        OverlayIdentifier blackTheme = new OverlayIdentifier(OVERLAY_BERRY_BLACK_THEME);
+        if (categoryToPackage.containsKey(OVERLAY_CATEGORY_SYSTEM_PALETTE) && isBlackMode) {
+            categoryToPackage.put(OVERLAY_CATEGORY_SYSTEM_PALETTE, blackTheme);
         }
 
         Set<UserHandle> managedProfiles = new HashSet<>();
