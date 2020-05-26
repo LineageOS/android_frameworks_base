@@ -66,6 +66,8 @@ import com.android.systemui.flags.FeatureFlags;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
 import com.android.systemui.monet.ColorScheme;
 import com.android.systemui.settings.UserTracker;
+import com.android.systemui.statusbar.policy.ConfigurationController;
+import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
 import com.android.systemui.util.settings.SecureSettings;
@@ -111,6 +113,7 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
     private final Handler mBgHandler;
     private final boolean mIsMonetEnabled;
     private final UserTracker mUserTracker;
+    private final ConfigurationController mConfigurationController;
     private final DeviceProvisionedController mDeviceProvisionedController;
     // Current wallpaper colors associated to a user.
     private final SparseArray<WallpaperColors> mCurrentColors = new SparseArray<>();
@@ -138,6 +141,15 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
     private boolean mDeferredThemeEvaluation;
     // Determines if we should ignore THEME_CUSTOMIZATION_OVERLAY_PACKAGES setting changes.
     private boolean mSkipSettingChange;
+
+    private final ConfigurationListener mConfigurationListener =
+            new ConfigurationListener() {
+                @Override
+                public void onUiModeChanged() {
+                    Log.i(TAG, "Re-applying theme on UI change");
+                    reevaluateSystemTheme(true /* forceReload */);
+                }
+            };
 
     private final DeviceProvisionedListener mDeviceProvisionedListener =
             new DeviceProvisionedListener() {
@@ -342,10 +354,12 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
             SecureSettings secureSettings, WallpaperManager wallpaperManager,
             UserManager userManager, DeviceProvisionedController deviceProvisionedController,
             UserTracker userTracker, DumpManager dumpManager, FeatureFlags featureFlags,
-            WakefulnessLifecycle wakefulnessLifecycle) {
+            WakefulnessLifecycle wakefulnessLifecycle, ConfigurationController
+            configurationController) {
         super(context);
 
         mIsMonetEnabled = featureFlags.isMonetEnabled();
+        mConfigurationController = configurationController;
         mDeviceProvisionedController = deviceProvisionedController;
         mBroadcastDispatcher = broadcastDispatcher;
         mUserManager = userManager;
@@ -400,6 +414,7 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
 
         mUserTracker.addCallback(mUserTrackerCallback, mMainExecutor);
 
+        mConfigurationController.addCallback(mConfigurationListener);
         mDeviceProvisionedController.addCallback(mDeviceProvisionedListener);
 
         // Upon boot, make sure we have the most up to date colors
