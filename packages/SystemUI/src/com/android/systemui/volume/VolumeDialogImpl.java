@@ -533,6 +533,11 @@ public class VolumeDialogImpl implements VolumeDialog,
         }
     }
 
+    private boolean isNotificationVolumeLinked() {
+        ContentResolver cr = mContext.getContentResolver();
+        return Settings.Secure.getInt(cr, Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+    }
+
     private static boolean isBluetoothA2dpConnected() {
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         return mBluetoothAdapter != null && mBluetoothAdapter.isEnabled()
@@ -566,9 +571,10 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (mExpandRows != null) {
             mExpandRows.setOnClickListener(v -> {
                 // On click, invert visibility states.
-                int[] streams = new int[2];
+                int[] streams = new int[isNotificationVolumeLinked() ? 2 : 3];
                 streams[0] = AudioManager.STREAM_RING;
                 streams[1] = AudioManager.STREAM_ALARM;
+                if (!isNotificationVolumeLinked()) streams[2] = AudioManager.STREAM_NOTIFICATION;
                 for (int stream : streams) {
                     if (findRow(stream) != null) {
                         Util.setVisOrGone(findRow(stream).view, !mExpanded);
