@@ -45,8 +45,6 @@
             android:layout_width="@dimen/volume_dialog_ringer_size"
             android:layout_height="@dimen/volume_dialog_ringer_size"
             android:layout_marginBottom="@dimen/volume_dialog_spacer"
-            android:gravity="right"
-            android:layout_gravity="right"
             android:translationZ="@dimen/volume_dialog_elevation"
             android:clipToPadding="false"
             android:background="@drawable/rounded_bg_full">
@@ -74,8 +72,6 @@
             android:minWidth="@dimen/volume_dialog_panel_width"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_gravity="right"
             android:orientation="vertical"
             android:translationZ="@dimen/volume_dialog_elevation"
             android:clipChildren="false"
@@ -104,7 +100,6 @@
                     android:layout_height="@dimen/volume_dialog_tap_target_size"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_gravity="right"
                     android:contentDescription="@string/accessibility_volume_settings"
                     android:background="@drawable/ripple_drawable_20dp"
                     android:tint="?android:attr/textColorSecondary"
@@ -121,13 +116,11 @@
                     android:layout_height="@dimen/volume_dialog_tap_target_size"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_gravity="right"
                     android:contentDescription="@string/accessibility_volume_expand"
                     android:background="@drawable/ripple_drawable_20dp"
                     android:tint="?android:attr/textColorSecondary"
                     android:soundEffectsEnabled="false"
-                    android:padding="14dp"
-                    android:rotation="90" />
+                    android:padding="14dp" />
             </FrameLayout>
         </LinearLayout>
 
@@ -136,8 +129,6 @@
             android:layout_width="@dimen/volume_dialog_caption_size"
             android:layout_height="@dimen/volume_dialog_caption_size"
             android:layout_marginTop="@dimen/volume_dialog_spacer"
-            android:gravity="right"
-            android:layout_gravity="right"
             android:clipToPadding="false"
             android:translationZ="@dimen/volume_dialog_elevation"
             android:background="@drawable/rounded_bg_full">
