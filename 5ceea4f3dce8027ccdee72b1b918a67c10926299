@@ -16,6 +16,24 @@
       "revId": "5ceea4f3dce8027ccdee72b1b918a67c10926299",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "594e7a51_9f88594e",
+        "filename": "packages/SystemUI/res/layout/volume_dialog.xml",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-05-26T17:33:36Z",
+      "side": 0,
+      "message": "This one configures rounded corners at the bottom, it would look like this:\nhttps://imgur.com/a/xRI1uu1",
+      "parentUuid": "01862228_2ef60d2e",
+      "revId": "5ceea4f3dce8027ccdee72b1b918a67c10926299",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
