@@ -141,6 +141,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private Window mWindow;
     private CustomDialog mDialog;
+    private ViewGroup mDialogMainView;
     private ViewGroup mDialogView;
     private ViewGroup mDialogRowsView;
     private ViewGroup mRinger;
@@ -281,6 +282,10 @@ public class VolumeDialogImpl implements VolumeDialog,
             return true;
         });
 
+        mDialogMainView = mDialog.findViewById(R.id.main);
+        if (mDialogMainView != null) {
+            setLayoutGravity(mDialogMainView.getLayoutParams(), panelGravity);
+        }
         mDialogRowsView = mDialog.findViewById(R.id.volume_dialog_rows);
         mRinger = mDialog.findViewById(R.id.ringer);
         if (mRinger != null) {
@@ -294,6 +299,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mODICaptionsView = mDialog.findViewById(R.id.odi_captions);
         if (mODICaptionsView != null) {
             mODICaptionsIcon = mODICaptionsView.findViewById(R.id.odi_captions_icon);
+            setLayoutGravity(mODICaptionsView.getLayoutParams(), panelGravity);
         }
         mODICaptionsTooltipViewStub = mDialog.findViewById(R.id.odi_captions_tooltip_stub);
         if (mHasSeenODICaptionsTooltip && mODICaptionsTooltipViewStub != null) {
@@ -303,9 +309,16 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         mMediaOutputView = mDialog.findViewById(R.id.media_output_container);
         mMediaOutputIcon = mDialog.findViewById(R.id.media_output);
+        if (mMediaOutputIcon != null) {
+            setLayoutGravity(mMediaOutputIcon.getLayoutParams(), panelGravity);
+        }
 
         mExpandRowsView = mDialog.findViewById(R.id.expandable_indicator_container);
         mExpandRows = mDialog.findViewById(R.id.expandable_indicator);
+        if (mExpandRows != null) {
+            setLayoutGravity(mExpandRows.getLayoutParams(), panelGravity);
+            mExpandRows.setRotation(mVolumePanelOnLeft ? -90 : 90);
+        }
 
         if (mRows.isEmpty()) {
             if (!AudioSystem.isSingleVolume(mContext)) {
