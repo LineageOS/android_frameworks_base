@@ -72,6 +72,8 @@ import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
 import com.android.systemui.util.settings.SecureSettings;
 
+import lineageos.providers.LineageSettings;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -408,6 +410,32 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
                 },
                 UserHandle.USER_ALL);
 
+        mSecureSettings.registerContentObserverForUser(
+                LineageSettings.System.getUriFor(LineageSettings.System.BERRY_BLACK_THEME),
+                false,
+                new ContentObserver(mBgHandler) {
+                    @Override
+                    public void onChange(boolean selfChange, Collection<Uri> collection, int flags,
+                            int userId) {
+                        if (DEBUG) Log.d(TAG, "Overlay changed for user: " + userId);
+                        if (mUserTracker.getUserId() != userId) {
+                            return;
+                        }
+                        if (!mDeviceProvisionedController.isUserSetup(userId)) {
+                            Log.i(TAG, "Theme application deferred when setting changed.");
+                            mDeferredThemeEvaluation = true;
+                            return;
+                        }
+                        if (mSkipSettingChange) {
+                            if (DEBUG) Log.d(TAG, "Skipping setting change");
+                            mSkipSettingChange = false;
+                            return;
+                        }
+                        reevaluateSystemTheme(true /* forceReload */);
+                    }
+                },
+                UserHandle.USER_ALL);
+
         if (!mIsMonetEnabled) {
             return;
         }
@@ -540,6 +568,11 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
     }
 
     private void updateThemeOverlays() {
+        boolean inNightMode = (mContext.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
+        boolean isBlackMode = (LineageSettings.System.getInt(
+                LineageSettings.System.SYSTEM_BLACK_THEME, 0) == 1) && inNightMode;
+
         final int currentUser = mUserTracker.getUserId();
         final String overlayPackageJson = mSecureSettings.getStringForUser(
                 Settings.Secure.THEME_CUSTOMIZATION_OVERLAY_PACKAGES,
@@ -625,6 +658,10 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
             categoryToPackage.put(OVERLAY_CATEGORY_ACCENT_COLOR, mSecondaryOverlay.getIdentifier());
         }
 
+        if (systemPalette != null && systemPalette.getPackageName() != null && isBlackMode) {
+            categoryToPackage.remove(OVERLAY_CATEGORY_SYSTEM_PALETTE);
+        }
+
         Set<UserHandle> managedProfiles = new HashSet<>();
         for (UserInfo userInfo : mUserManager.getEnabledProfiles(currentUser)) {
             if (userInfo.isManagedProfile()) {
@@ -645,6 +682,8 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
             mThemeManager.applyCurrentUserOverlays(categoryToPackage, null, currentUser,
                     managedProfiles);
         }
+
+        mThemeManager.applyBlackTheme(isBlackMode);
     }
 
     @Override
