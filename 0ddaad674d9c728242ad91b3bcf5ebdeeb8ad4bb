@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f6ebddd_68e56f3c",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T16:17:36Z",
+      "side": 1,
+      "message": "static imports go on top",
+      "revId": "0ddaad674d9c728242ad91b3bcf5ebdeeb8ad4bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "083d557c_201b3a14",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-05-26T16:17:36Z",
+      "side": 1,
+      "message": "Now that we can easily reach the output selector I\u0027d say we\u0027re good to have it always on",
+      "revId": "0ddaad674d9c728242ad91b3bcf5ebdeeb8ad4bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
