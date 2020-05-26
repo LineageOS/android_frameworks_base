@@ -16,6 +16,7 @@
 package com.android.systemui.theme;
 
 import android.annotation.AnyThread;
+import android.app.ActivityManager;
 import android.content.om.FabricatedOverlay;
 import android.content.om.OverlayIdentifier;
 import android.content.om.OverlayInfo;
@@ -62,6 +63,8 @@ public class ThemeOverlayApplier implements Dumpable {
     @VisibleForTesting
     static final String SYSUI_PACKAGE = "com.android.systemui";
 
+    static final String OVERLAY_BERRY_BLACK_THEME =
+            "org.lineageos.overlay.customization.blacktheme";
     static final String OVERLAY_CATEGORY_ACCENT_COLOR =
             "android.theme.customization.accent_color";
     static final String OVERLAY_CATEGORY_SYSTEM_PALETTE =
@@ -136,6 +139,8 @@ public class ThemeOverlayApplier implements Dumpable {
     private final Executor mMainExecutor;
     private final String mLauncherPackage;
     private final String mThemePickerPackage;
+
+    private boolean mBlackTheme;
 
     public ThemeOverlayApplier(OverlayManager overlayManager,
             Executor bgExecutor,
@@ -236,6 +241,21 @@ public class ThemeOverlayApplier implements Dumpable {
         return new OverlayManagerTransaction.Builder();
     }
 
+    public void applyBlackTheme(boolean state) {
+        mBlackTheme = state;
+        UserHandle userId = UserHandle.of(ActivityManager.getCurrentUser());
+        try {
+            mOverlayManager.setEnabled(OVERLAY_BERRY_BLACK_THEME, state, userId);
+            if (DEBUG) {
+                Log.d(TAG, "applyBlackTheme: overlayPackage="
+                    + OVERLAY_BERRY_BLACK_THEME + " userId=" + userId);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
+                    + " overlay " + OVERLAY_BERRY_BLACK_THEME + " for user " + userId);
+        }
+    }
+
     @AnyThread
     private void setEnabled(OverlayManagerTransaction.Builder transaction,
             OverlayIdentifier identifier, String category, int currentUser,
@@ -243,6 +263,10 @@ public class ThemeOverlayApplier implements Dumpable {
         if (DEBUG) {
             Log.d(TAG, "setEnabled: " + identifier.getPackageName() + " category: "
                     + category + ": " + enabled);
+        }
+
+        if (OVERLAY_CATEGORY_SYSTEM_PALETTE.equals(category)) {
+            enabled = enabled && !mBlackTheme;
         }
 
         OverlayInfo overlayInfo = mOverlayManager.getOverlayInfo(identifier,
