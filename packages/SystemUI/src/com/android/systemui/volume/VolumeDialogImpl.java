@@ -442,7 +442,9 @@ public class VolumeDialogImpl implements VolumeDialog,
     private void cleanExpandedRows() {
         for (int i = mRows.size() - 1; i >= 0; i--) {
             final VolumeRow row = mRows.get(i);
-            if (row.stream == AudioManager.STREAM_RING || row.stream == AudioManager.STREAM_ALARM) {
+            if (row.stream == AudioManager.STREAM_RING ||
+                    row.stream == AudioManager.STREAM_NOTIFICATION ||
+                    row.stream == AudioManager.STREAM_ALARM) {
                 removeRow(row);
             }
         }
@@ -586,6 +588,12 @@ public class VolumeDialogImpl implements VolumeDialog,
                             R.drawable.ic_volume_ringer_mute, true, false);
                     addRow(AudioManager.STREAM_ALARM, R.drawable.ic_volume_alarm,
                             R.drawable.ic_volume_alarm_mute, true, false);
+                    ContentResolver cr = mContext.getContentResolver();
+                    int linkNotificationWithVolume = Settings.Secure.getInt(cr, Settings.Secure.VOLUME_LINK_NOTIFICATION, 1);
+                    if (linkNotificationWithVolume != 1) {
+                        addRow(AudioManager.STREAM_NOTIFICATION, R.drawable.ic_volume_notification,
+                                R.drawable.ic_volume_notification_mute, true, false);
+                    }
                     updateAllActiveRows();
                     mExpanded = true;
                 } else {
