@@ -52,7 +52,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:alpha="0"
-            android:background="@color/qs_detail_progress_track"
             android:src="@drawable/indeterminate_anim"
             android:scaleType="fitXY"
             />
