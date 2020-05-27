@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81f861d6_211a3187",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarInflaterView.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-05-27T13:33:37Z",
+      "side": 1,
+      "message": "You can remove ( ). Also, why not leaving early in case gestural navbar is not enabled?",
+      "range": {
+        "startLine": 267,
+        "startChar": 24,
+        "endLine": 267,
+        "endChar": 62
+      },
+      "revId": "1f12eb3f24397ee0837b05d014ddf329002d95b2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
