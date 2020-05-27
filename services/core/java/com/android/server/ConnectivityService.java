@@ -58,6 +58,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.net.CaptivePortal;
@@ -575,6 +576,8 @@ public class ConnectivityService extends IConnectivityManager.Stub
 
     private UserManager mUserManager;
 
+    private PackageManager mPackageManager;
+
     private NetworkConfig[] mNetConfigs;
     private int mNetworksDefined;
 
@@ -906,6 +909,8 @@ public class ConnectivityService extends IConnectivityManager.Stub
         mPendingIntentWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
 
         mNetConfigs = new NetworkConfig[ConnectivityManager.MAX_NETWORK_TYPE+1];
+
+        mPackageManager = mContext.getPackageManager();
 
         // TODO: What is the "correct" way to do determine if this is a wifi only device?
         boolean wifiOnly = mSystemProperties.getBoolean("ro.radio.noril", false);
@@ -1248,6 +1253,10 @@ public class ConnectivityService extends IConnectivityManager.Stub
      */
     private boolean isNetworkWithLinkPropertiesBlocked(LinkProperties lp, int uid,
             boolean ignoreBlocked) {
+        // Network isolation should be checked first.
+        if (mPolicyManagerInternal.isNetworkingIsolatedByUid(uid)) {
+            return true;
+        }
         // Networks aren't blocked when ignoring blocked status
         if (ignoreBlocked) {
             return false;
@@ -1846,12 +1855,74 @@ public class ConnectivityService extends IConnectivityManager.Stub
         final int oldRules = mUidRules.get(uid, RULE_NONE);
         if (oldRules == newRules) return;
 
+        final boolean wasIsolated =
+                mPolicyManagerInternal.isNetworkingIsolatedByUidRules(oldRules);
+        final boolean isIsolated =
+                mPolicyManagerInternal.isNetworkingIsolatedByUidRules(newRules);
+        if (isIsolated != wasIsolated) {
+            setAirplaneMode(isIsolated, uid);
+            if (isIsolated) {
+                detachNetworkRequests(uid);
+            } else {
+                reattachNetworkRequests(uid);
+            }
+        }
+
         maybeNotifyNetworkBlockedForNewUidRules(uid, newRules);
 
         if (newRules == RULE_NONE) {
             mUidRules.delete(uid);
         } else {
             mUidRules.put(uid, newRules);
+        }
+    }
+
+    void detachNetworkRequests(int uid) {
+        // Collect network requests for this uid
+        final List<NetworkRequestInfo> nriList = new ArrayList<>();
+        for (NetworkRequestInfo nri : mNetworkRequests.values()) {
+            if (nri != null && nri.mUid == uid) {
+                nriList.add(nri);
+            }
+        }
+        for (NetworkRequestInfo nri : nriList) {
+            if (DBG) {
+                Log.d(TAG, "detaching request " + nri);
+            }
+            mDetachedRequests.put(nri.request, nri);
+
+            // Trigger onLost callbacks for matching networks
+            for (NetworkAgentInfo nai : mNetworkAgentInfos.values()) {
+                if (nai.isSatisfyingRequest(nri.request.requestId)) {
+                    if (DBG) {
+                        Log.d(TAG, "sending onLost to " + nri + " for " + nai);
+                    }
+                    callCallbackForRequest(nri, nai, ConnectivityManager.CALLBACK_LOST, 0);
+                }
+            }
+            // Remove the request from normal ConnectivityService machinery.
+            // This prevents receiving any further callbacks.
+            handleRemoveNetworkRequest(nri);
+        }
+    }
+
+    void reattachNetworkRequests(int uid) {
+        // Collect network requests for this uid
+        final List<NetworkRequestInfo> nriList = new ArrayList<>();
+        for (NetworkRequestInfo nri : mDetachedRequests.values()) {
+            if (nri != null && nri.mUid == uid) {
+                nriList.add(nri);
+            }
+        }
+        for (NetworkRequestInfo nri : nriList) {
+            if (DBG) {
+                Log.d(TAG, "reattaching request " + nri);
+            }
+            mDetachedRequests.remove(nri.request);
+            // Go through nri constructor to reinitialize things cleaned up
+            // by handleRemoveNetworkRequest() in detachNetworkRequests().
+            // eg updating per uid reference counts and setting binder linkToDeath.
+            handleRegisterNetworkRequest(new NetworkRequestInfo(nri));
         }
     }
 
@@ -4806,6 +4877,24 @@ public class ConnectivityService extends IConnectivityManager.Stub
         }
     }
 
+    private void setAirplaneMode(boolean enable, int uid) {
+        final long ident = Binder.clearCallingIdentity();
+        try {
+            for (String pkgName : mPackageManager.getPackagesForUid(uid)) {
+                Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+                intent.putExtra("state", enable);
+                intent.setPackage(pkgName);
+                mContext.sendBroadcastAsUser(intent, UserHandle.ALL);
+                if (DBG) {
+                    Log.d(TAG, "sending airplane mode changed intent to uid = "
+                            + uid + " state = " + enable);
+                }
+            }
+        } finally {
+            Binder.restoreCallingIdentity(ident);
+        }
+    }
+
     private void onUserStart(int userId) {
         synchronized (mVpns) {
             Vpn userVpn = mVpns.get(userId);
@@ -4968,6 +5057,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
 
     private final HashMap<Messenger, NetworkFactoryInfo> mNetworkFactoryInfos = new HashMap<>();
     private final HashMap<NetworkRequest, NetworkRequestInfo> mNetworkRequests = new HashMap<>();
+    private final HashMap<NetworkRequest, NetworkRequestInfo> mDetachedRequests = new HashMap<>();
 
     private static final int MAX_NETWORK_REQUESTS_PER_UID = 100;
     // Map from UID to number of NetworkRequests that UID has filed.
@@ -5035,6 +5125,25 @@ public class ConnectivityService extends IConnectivityManager.Stub
                 mBinder.linkToDeath(this, 0);
             } catch (RemoteException e) {
                 binderDied();
+            }
+        }
+
+        // Recreate new from a previously detached request.
+        NetworkRequestInfo(NetworkRequestInfo nri) {
+            request = nri.request;
+            messenger = nri.messenger;
+            mBinder = nri.mBinder;
+            mPendingIntent = nri.mPendingIntent;
+            mPid = nri.mPid;
+            mUid = nri.mUid;
+            enforceRequestCountLimit();
+
+            if (mBinder != null) {
+                try {
+                    mBinder.linkToDeath(this, 0);
+                } catch (RemoteException e) {
+                    binderDied();
+                }
             }
         }
 
