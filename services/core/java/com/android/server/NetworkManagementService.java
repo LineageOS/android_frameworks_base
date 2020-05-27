@@ -22,6 +22,7 @@ import static android.Manifest.permission.OBSERVE_NETWORK_POLICY;
 import static android.Manifest.permission.SHUTDOWN;
 import static android.net.INetd.FIREWALL_BLACKLIST;
 import static android.net.INetd.FIREWALL_CHAIN_DOZABLE;
+import static android.net.INetd.FIREWALL_CHAIN_ISOLATED;
 import static android.net.INetd.FIREWALL_CHAIN_NONE;
 import static android.net.INetd.FIREWALL_CHAIN_POWERSAVE;
 import static android.net.INetd.FIREWALL_CHAIN_STANDBY;
@@ -29,6 +30,7 @@ import static android.net.INetd.FIREWALL_RULE_ALLOW;
 import static android.net.INetd.FIREWALL_RULE_DENY;
 import static android.net.INetd.FIREWALL_WHITELIST;
 import static android.net.NetworkPolicyManager.FIREWALL_CHAIN_NAME_DOZABLE;
+import static android.net.NetworkPolicyManager.FIREWALL_CHAIN_NAME_ISOLATED;
 import static android.net.NetworkPolicyManager.FIREWALL_CHAIN_NAME_POWERSAVE;
 import static android.net.NetworkPolicyManager.FIREWALL_CHAIN_NAME_STANDBY;
 import static android.net.NetworkPolicyManager.FIREWALL_RULE_DEFAULT;
@@ -219,6 +221,12 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
      */
     @GuardedBy("mRulesLock")
     private SparseIntArray mUidFirewallPowerSaveRules = new SparseIntArray();
+    /**
+     * Set of UIDs that are to be blocked/allowed by firewall controller.  This set of Ids matches
+     * unconditionally at all times.
+     */
+    @GuardedBy("mRulesLock")
+    private SparseIntArray mUidFirewallIsolatedRules = new SparseIntArray();
     /** Set of states for the child firewall chains. True if the chain is active. */
     @GuardedBy("mRulesLock")
     final SparseBooleanArray mFirewallChainStates = new SparseBooleanArray();
@@ -714,9 +722,11 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
             syncFirewallChainLocked(FIREWALL_CHAIN_STANDBY, "standby ");
             syncFirewallChainLocked(FIREWALL_CHAIN_DOZABLE, "dozable ");
             syncFirewallChainLocked(FIREWALL_CHAIN_POWERSAVE, "powersave ");
+            syncFirewallChainLocked(FIREWALL_CHAIN_ISOLATED, "isolated ");
 
             final int[] chains =
-                    {FIREWALL_CHAIN_STANDBY, FIREWALL_CHAIN_DOZABLE, FIREWALL_CHAIN_POWERSAVE};
+                    {FIREWALL_CHAIN_STANDBY, FIREWALL_CHAIN_DOZABLE, FIREWALL_CHAIN_POWERSAVE,
+                    FIREWALL_CHAIN_ISOLATED};
             for (int chain : chains) {
                 if (getFirewallChainState(chain)) {
                     setFirewallChainEnabled(chain, true);
@@ -1908,6 +1918,8 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
                 return FIREWALL_CHAIN_NAME_DOZABLE;
             case FIREWALL_CHAIN_POWERSAVE:
                 return FIREWALL_CHAIN_NAME_POWERSAVE;
+            case FIREWALL_CHAIN_ISOLATED:
+                return FIREWALL_CHAIN_NAME_ISOLATED;
             default:
                 throw new IllegalArgumentException("Bad child chain: " + chain);
         }
@@ -1921,6 +1933,8 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
                 return FIREWALL_WHITELIST;
             case FIREWALL_CHAIN_POWERSAVE:
                 return FIREWALL_WHITELIST;
+            case FIREWALL_CHAIN_ISOLATED:
+                return FIREWALL_BLACKLIST;
             default:
                 return isFirewallEnabled() ? FIREWALL_WHITELIST : FIREWALL_BLACKLIST;
         }
@@ -1964,6 +1978,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
                         break;
                     case FIREWALL_CHAIN_POWERSAVE:
                         mNetdService.firewallReplaceUidChain("fw_powersave", true, uids);
+                        break;
+                    case FIREWALL_CHAIN_ISOLATED:
+                        mNetdService.firewallReplaceUidChain("fw_isolated", false, uids);
                         break;
                     case FIREWALL_CHAIN_NONE:
                     default:
@@ -2049,6 +2066,8 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
                 return mUidFirewallDozableRules;
             case FIREWALL_CHAIN_POWERSAVE:
                 return mUidFirewallPowerSaveRules;
+            case FIREWALL_CHAIN_ISOLATED:
+                return mUidFirewallIsolatedRules;
             case FIREWALL_CHAIN_NONE:
                 return mUidFirewallRules;
             default:
@@ -2134,6 +2153,10 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
             pw.println("UID firewall powersave chain enabled: " +
                     getFirewallChainState(FIREWALL_CHAIN_POWERSAVE));
             dumpUidFirewallRule(pw, FIREWALL_CHAIN_NAME_POWERSAVE, mUidFirewallPowerSaveRules);
+
+            pw.println("UID firewall isolated chain enabled: " +
+                    getFirewallChainState(FIREWALL_CHAIN_ISOLATED));
+            dumpUidFirewallRule(pw, FIREWALL_CHAIN_NAME_ISOLATED, mUidFirewallIsolatedRules);
         }
 
         synchronized (mIdleTimerLock) {
@@ -2312,6 +2335,11 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
 
     private boolean isNetworkRestrictedInternal(int uid) {
         synchronized (mRulesLock) {
+            if (getFirewallChainState(FIREWALL_CHAIN_ISOLATED)
+                    && mUidFirewallIsolatedRules.get(uid) == FIREWALL_RULE_DENY) {
+                if (DBG) Slog.d(TAG, "Uid " + uid + " restricted because of isolated mode");
+                return true;
+            }
             if (getFirewallChainState(FIREWALL_CHAIN_STANDBY)
                     && mUidFirewallStandbyRules.get(uid) == FIREWALL_RULE_DENY) {
                 if (DBG) Slog.d(TAG, "Uid " + uid + " restricted because of app standby mode");
@@ -2397,7 +2425,8 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
                 final int[] chains = {
                         FIREWALL_CHAIN_DOZABLE,
                         FIREWALL_CHAIN_STANDBY,
-                        FIREWALL_CHAIN_POWERSAVE
+                        FIREWALL_CHAIN_POWERSAVE,
+                        FIREWALL_CHAIN_ISOLATED
                 };
                 for (int chain : chains) {
                     setFirewallChainState(chain, false);
