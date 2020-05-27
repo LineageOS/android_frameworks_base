@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c584200_b8c1bbff",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-05-27T10:34:18Z",
+      "side": 1,
+      "message": "AudioManager mAudioManager \u003d mContext.getSystemService(AudioManager.class);",
+      "range": {
+        "startLine": 984,
+        "startChar": 16,
+        "endLine": 984,
+        "endChar": 109
+      },
+      "revId": "4460f4aaee30491a5a9f4bdcebb9dc86182ee416",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
