@@ -196,6 +196,62 @@ public final class PeriodicAdvertisingManager {
         }
     }
 
+    public void transferSync(BluetoothDevice bda, int service_data, int sync_handle) {
+        IBluetoothGatt gatt;
+        try {
+            gatt = mBluetoothManager.getBluetoothGatt();
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to get Bluetooth gatt - ", e);
+            PeriodicAdvertisingCallback callback = null;
+            for (PeriodicAdvertisingCallback cb : mCallbackWrappers.keySet()) {
+                callback = cb;
+            }
+            if (callback != null) {
+                callback.onSyncTransfered(bda,
+                        PeriodicAdvertisingCallback.SYNC_NO_RESOURCES);
+            }
+            return;
+        }
+        try {
+            gatt.transferSync(bda, service_data , sync_handle);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to register sync - ", e);
+            return;
+        }
+    }
+
+    public void transferSetInfo(BluetoothDevice bda, int service_data,
+                      int adv_handle, PeriodicAdvertisingCallback callback) {
+        transferSetInfo(bda, service_data, adv_handle, callback, null);
+    }
+
+    public void transferSetInfo (BluetoothDevice bda, int service_data,
+                        int adv_handle, PeriodicAdvertisingCallback callback, Handler handler) {
+        if (callback == null) {
+            throw new IllegalArgumentException("callback can't be null");
+        }
+        IBluetoothGatt gatt;
+        try {
+            gatt = mBluetoothManager.getBluetoothGatt();
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to get Bluetooth gatt - ", e);
+            return;
+        }
+        if (handler == null) {
+            handler = new Handler(Looper.getMainLooper());
+        }
+        IPeriodicAdvertisingCallback wrapper = wrap(callback, handler);
+        if (wrapper == null) {
+            throw new IllegalArgumentException("callback was not properly registered");
+        }
+        try {
+            gatt.transferSetInfo(bda, service_data , adv_handle, wrapper);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to register sync - ", e);
+            return;
+        }
+
+    }
     private IPeriodicAdvertisingCallback wrap(PeriodicAdvertisingCallback callback,
             Handler handler) {
         return new IPeriodicAdvertisingCallback.Stub() {
@@ -236,6 +292,18 @@ public final class PeriodicAdvertisingManager {
                         // App can still unregister the sync until notified it's lost.
                         // Remove callback after app was notifed.
                         mCallbackWrappers.remove(callback);
+                    }
+                });
+            }
+
+            public void onSyncTransfered(BluetoothDevice device, int status) {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.onSyncTransfered(device, status);
+                        // App can still unregister the sync until notified it's lost.
+                        // Remove callback after app was notifed.
+                        //mCallbackWrappers.remove(callback);
                     }
                 });
             }
