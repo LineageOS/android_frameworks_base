@@ -53,12 +53,15 @@ import android.graphics.Insets;
 import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
 import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.media.AudioSystem;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -256,12 +259,14 @@ public class ScreenshotController {
     private final WindowManager mWindowManager;
     private final WindowManager.LayoutParams mWindowLayoutParams;
     private final AccessibilityManager mAccessibilityManager;
+    private final AudioManager mAudioManager;
     private final ListenableFuture<MediaPlayer> mCameraSound;
     private final ScrollCaptureClient mScrollCaptureClient;
     private final PhoneWindow mWindow;
     private final DisplayManager mDisplayManager;
     private final ScrollCaptureController mScrollCaptureController;
     private final LongScreenshotData mLongScreenshotHolder;
+    private final Vibrator mVibrator;
     private final boolean mIsLowRamDevice;
     private final TimeoutHandler mScreenshotHandler;
 
@@ -341,6 +346,10 @@ public class ScreenshotController {
 
         // Setup the Camera shutter sound
         mCameraSound = loadCameraSound();
+
+        // Grab system services needed for screenshot sound
+        mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
 
         mCopyBroadcastReceiver = new BroadcastReceiver() {
             @Override
@@ -853,13 +862,27 @@ public class ScreenshotController {
 
     private void playCameraSound() {
         mCameraSound.addListener(() -> {
-            try {
-                MediaPlayer player = mCameraSound.get();
-                if (player != null) {
-                    player.start();
-                }
-            } catch (InterruptedException | ExecutionException e) {
+            switch (mAudioManager.getRingerMode()) {
+                case AudioManager.RINGER_MODE_SILENT:
+                    // do nothing
+                    break;
+                case AudioManager.RINGER_MODE_VIBRATE:
+                    if (mVibrator != null && mVibrator.hasVibrator()) {
+                        mVibrator.vibrate(VibrationEffect.createOneShot(50,
+                                VibrationEffect.DEFAULT_AMPLITUDE));
+                    }
+                    break;
+                case AudioManager.RINGER_MODE_NORMAL:
+                    // Play the shutter sound to notify that we've taken a screenshot
+                    try {
+                        MediaPlayer player = mCameraSound.get();
+                        if (player != null) {
+                            player.start();
+                        }
+                    } catch (InterruptedException | ExecutionException e) {
+                    }
             }
+
         }, mBgExecutor);
     }
 
