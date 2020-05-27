@@ -39,6 +39,7 @@ import static android.net.ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED
 import static android.net.ConnectivityManager.RESTRICT_BACKGROUND_STATUS_WHITELISTED;
 import static android.net.ConnectivityManager.TYPE_MOBILE;
 import static android.net.INetd.FIREWALL_CHAIN_DOZABLE;
+import static android.net.INetd.FIREWALL_CHAIN_ISOLATED;
 import static android.net.INetd.FIREWALL_CHAIN_POWERSAVE;
 import static android.net.INetd.FIREWALL_CHAIN_STANDBY;
 import static android.net.INetd.FIREWALL_RULE_ALLOW;
@@ -54,6 +55,7 @@ import static android.net.NetworkPolicyManager.FIREWALL_RULE_DEFAULT;
 import static android.net.NetworkPolicyManager.MASK_ALL_NETWORKS;
 import static android.net.NetworkPolicyManager.MASK_METERED_NETWORKS;
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
+import static android.net.NetworkPolicyManager.POLICY_NETWORK_ISOLATED;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_DATA;
@@ -61,6 +63,7 @@ import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_VPN;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_WLAN;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_ALL;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_METERED;
+import static android.net.NetworkPolicyManager.RULE_NETWORK_ISOLATED;
 import static android.net.NetworkPolicyManager.RULE_NONE;
 import static android.net.NetworkPolicyManager.RULE_REJECT_ALL;
 import static android.net.NetworkPolicyManager.RULE_REJECT_METERED;
@@ -107,6 +110,7 @@ import static com.android.server.net.NetworkPolicyLogger.NTWK_ALLOWED_TMP_WHITEL
 import static com.android.server.net.NetworkPolicyLogger.NTWK_ALLOWED_WHITELIST;
 import static com.android.server.net.NetworkPolicyLogger.NTWK_BLOCKED_BG_RESTRICT;
 import static com.android.server.net.NetworkPolicyLogger.NTWK_BLOCKED_BLACKLIST;
+import static com.android.server.net.NetworkPolicyLogger.NTWK_BLOCKED_ISOLATED;
 import static com.android.server.net.NetworkPolicyLogger.NTWK_BLOCKED_POWER;
 import static com.android.server.net.NetworkStatsService.ACTION_NETWORK_STATS_UPDATED;
 
@@ -462,6 +466,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     final SparseIntArray mUidFirewallDozableRules = new SparseIntArray();
     @GuardedBy("mUidRulesFirstLock")
     final SparseIntArray mUidFirewallPowerSaveRules = new SparseIntArray();
+    @GuardedBy("mUidRulesFirstLock")
+    final SparseIntArray mUidFirewallIsolatedRules = new SparseIntArray();
 
     /** Set of states for the child firewall chains. True if the chain is active. */
     @GuardedBy("mUidRulesFirstLock")
@@ -804,6 +810,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     setRestrictBackgroundUL(mLoadedRestrictBackground);
                     updateRulesForGlobalChangeAL(false);
                     updateNotificationsNL();
+                    // Enable the network isolated blacklist chain
+                    enableFirewallChainUL(FIREWALL_CHAIN_ISOLATED, true);
                 }
             }
 
@@ -2545,6 +2553,11 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         if (!UserHandle.isApp(uid)) {
             throw new IllegalArgumentException("cannot apply policy to UID " + uid);
         }
+
+        if (LOGD) {
+            Log.d(TAG, "setUidPolicy: uid = " + uid + " policy = " + policy);
+        }
+
         synchronized (mUidRulesFirstLock) {
             final long token = Binder.clearCallingIdentity();
             try {
@@ -2567,6 +2580,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             throw new IllegalArgumentException("cannot apply policy to UID " + uid);
         }
 
+        if (LOGD) {
+            Log.d(TAG, "addUidPolicy: uid = " + uid + " policy = " + policy);
+        }
+
         synchronized (mUidRulesFirstLock) {
             final int oldPolicy = mUidPolicy.get(uid, POLICY_NONE);
             policy |= oldPolicy;
@@ -2583,6 +2600,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
         if (!UserHandle.isApp(uid)) {
             throw new IllegalArgumentException("cannot apply policy to UID " + uid);
+        }
+
+        if (LOGD) {
+            Log.d(TAG, "removeUidPolicy: uid = " + uid + " policy = " + policy);
         }
 
         synchronized (mUidRulesFirstLock) {
@@ -2637,6 +2658,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
         // uid policy changed, recompute rules and persist policy.
         updateRulesForDataUsageRestrictionsUL(uid);
+        updateRulesForIsolatedUL(uid);
         if (persist) {
             synchronized (mNetworkPoliciesSecondLock) {
                 writePolicyAL();
@@ -4115,6 +4137,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         mUidFirewallStandbyRules.delete(uid);
         mUidFirewallDozableRules.delete(uid);
         mUidFirewallPowerSaveRules.delete(uid);
+        mUidFirewallIsolatedRules.delete(uid);
         mPowerSaveWhitelistExceptIdleAppIds.delete(uid);
         mPowerSaveWhitelistAppIds.delete(uid);
         mPowerSaveTempWhitelistAppIds.delete(uid);
@@ -4321,6 +4344,37 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         }
     }
 
+    private void updateRulesForIsolatedUL(int uid) {
+        final int uidPolicy = mUidPolicy.get(uid, POLICY_NONE);
+        final int oldUidRules = mUidRules.get(uid, RULE_NONE);
+        final boolean wasIsolated = (oldUidRules & RULE_NETWORK_ISOLATED) != 0;
+        final boolean isIsolated = (uidPolicy & POLICY_NETWORK_ISOLATED) != 0;
+
+        if (isIsolated == wasIsolated) {
+            // No change
+            return;
+        }
+
+        setUidFirewallRule(FIREWALL_CHAIN_ISOLATED, uid,
+                isIsolated ? FIREWALL_RULE_DENY : FIREWALL_RULE_DEFAULT);
+
+        int uidRules = oldUidRules;
+        if (isIsolated) {
+            uidRules |= RULE_NETWORK_ISOLATED;
+        } else {
+            uidRules &= ~RULE_NETWORK_ISOLATED;
+        }
+
+        if (uidRules == RULE_NONE) {
+            mUidRules.delete(uid);
+        } else {
+            mUidRules.put(uid, uidRules);
+        }
+
+        // Dispatch changed rule to existing listeners.
+        mHandler.obtainMessage(MSG_RULES_CHANGED, uid, uidRules).sendToTarget();
+    }
+
     /**
      * Updates the power-related part of the {@link #mUidRules} for a given map, and notify external
      * listeners in case of change.
@@ -4400,7 +4454,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             newRule = isWhitelisted ? RULE_ALLOW_ALL : RULE_REJECT_ALL;
         }
 
-        final int newUidRules = (oldUidRules & MASK_METERED_NETWORKS) | newRule;
+        // Generate new uid rules, ensuring we persist any existing
+        // metered networks and network isolated rules.
+        final int newUidRules = (oldUidRules
+                & (MASK_METERED_NETWORKS | RULE_NETWORK_ISOLATED)) | newRule;
 
         if (LOGV) {
             Log.v(TAG, "updateRulesForPowerRestrictionsUL(" + uid + ")"
@@ -4857,6 +4914,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 mUidFirewallStandbyRules.put(uid, rule);
             } else if (chain == FIREWALL_CHAIN_POWERSAVE) {
                 mUidFirewallPowerSaveRules.put(uid, rule);
+            } else if (chain == FIREWALL_CHAIN_ISOLATED) {
+                mUidFirewallIsolatedRules.put(uid, rule);
             }
 
             try {
@@ -4902,6 +4961,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             mNetworkManager.setFirewallUidRule(FIREWALL_CHAIN_STANDBY, uid, FIREWALL_RULE_DEFAULT);
             mNetworkManager
                     .setFirewallUidRule(FIREWALL_CHAIN_POWERSAVE, uid, FIREWALL_RULE_DEFAULT);
+            mNetworkManager.setFirewallUidRule(FIREWALL_CHAIN_ISOLATED, uid, FIREWALL_RULE_DEFAULT);
             mNetworkManager.setUidMeteredNetworkWhitelist(uid, false);
             mNetworkManager.setUidMeteredNetworkBlacklist(uid, false);
         } catch (IllegalStateException e) {
@@ -5085,6 +5145,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         if (isSystem(uid)) {
             reason = NTWK_ALLOWED_SYSTEM;
         }
+        else if (hasRule(uidRules, RULE_NETWORK_ISOLATED)) {
+            reason = NTWK_BLOCKED_ISOLATED;
+        }
         else if (hasRule(uidRules, RULE_REJECT_ALL)) {
             reason = NTWK_BLOCKED_POWER;
         }
@@ -5119,6 +5182,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             case NTWK_BLOCKED_POWER:
             case NTWK_BLOCKED_BLACKLIST:
             case NTWK_BLOCKED_BG_RESTRICT:
+            case NTWK_BLOCKED_ISOLATED:
                 blocked = true;
                 break;
             default:
@@ -5186,6 +5250,11 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             mStatLogger.logDurationStat(Stats.IS_UID_NETWORKING_BLOCKED, startTime);
 
             return ret;
+        }
+
+        @Override
+        public boolean isNetworkingIsolatedByUidRules(int uidRules) {
+            return hasRule(uidRules, RULE_NETWORK_ISOLATED);
         }
 
         @Override

@@ -63,6 +63,8 @@ public class NetworkPolicyManager {
     public static final int POLICY_REJECT_ON_VPN = 0x20000;
     /** Reject network usage on wifi network */
     public static final int POLICY_REJECT_ON_WLAN = 0x8000;
+    /** Reject network usage on all networks at all times */
+    public static final int POLICY_NETWORK_ISOLATED = 0x40000;
 
     /*
      * Rules defining whether an uid has access to a network given its type (metered / non-metered).
@@ -93,6 +95,8 @@ public class NetworkPolicyManager {
     public static final int RULE_ALLOW_ALL = 1 << 5;
     /** Reject traffic on all networks. */
     public static final int RULE_REJECT_ALL = 1 << 6;
+    /** Reject traffic on all networks at all times */
+    public static final int RULE_NETWORK_ISOLATED = 1 << 7;
     /** Mask used to get the {@code RULE_xxx_METERED} rules */
     public static final int MASK_METERED_NETWORKS = 0b00001111;
     /** Mask used to get the {@code RULE_xxx_ALL} rules */
@@ -104,6 +108,7 @@ public class NetworkPolicyManager {
     public static final String FIREWALL_CHAIN_NAME_DOZABLE = "dozable";
     public static final String FIREWALL_CHAIN_NAME_STANDBY = "standby";
     public static final String FIREWALL_CHAIN_NAME_POWERSAVE = "powersave";
+    public static final String FIREWALL_CHAIN_NAME_ISOLATED = "isolated";
 
     private static final boolean ALLOW_PLATFORM_APP_POLICY = true;
 
