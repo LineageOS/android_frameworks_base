@@ -819,7 +819,8 @@ public class Notifier {
         final String soundPath = LineageSettings.Global.getString(mContext.getContentResolver(),
                 LineageSettings.Global.POWER_NOTIFICATIONS_RINGTONE);
         if (isChargingFeedbackEnabled(userId) && soundPath != null && !soundPath.equals("silent")) {
-            final Uri soundUri = Uri.parse(soundPath);
+            final Uri soundUri = Uri.parse(soundPath.startsWith("content://") ?
+                    soundPath : "file://" + soundPath);
             if (soundUri != null) {
                 final Ringtone sfx = RingtoneManager.getRingtone(mContext, soundUri);
                 if (sfx != null) {
