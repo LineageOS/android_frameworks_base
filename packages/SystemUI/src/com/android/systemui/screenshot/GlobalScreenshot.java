@@ -49,12 +49,16 @@ import android.graphics.Outline;
 import android.graphics.PixelFormat;
 import android.graphics.PointF;
 import android.graphics.Rect;
+<<<<<<< HEAD   (299dc3 Screenshot: Append app name to filename)
 import android.graphics.Region;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
+=======
+import android.media.AudioManager;
+>>>>>>> CHANGE (aa9fba SystemUI: Adapt screenshot sound to ringer modes)
 import android.media.MediaActionSound;
 import android.net.Uri;
 import android.os.Handler;
@@ -62,7 +66,19 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.RemoteException;
+<<<<<<< HEAD   (299dc3 Screenshot: Append app name to filename)
 import android.provider.Settings;
+=======
+import android.os.ServiceManager;
+import android.os.SystemClock;
+import android.os.UserHandle;
+import android.os.UserManager;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.provider.DeviceConfig;
+import android.provider.MediaStore;
+import android.text.TextUtils;
+>>>>>>> CHANGE (aa9fba SystemUI: Adapt screenshot sound to ringer modes)
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.MathUtils;
@@ -229,6 +245,8 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
     private float mDismissDeltaY;
 
     private MediaActionSound mCameraSound;
+    private AudioManager mAudioManager;
+    private Vibrator mVibrator;
 
     private int mNavMode;
     private int mLeftInset;
@@ -327,6 +345,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         mCameraSound = new MediaActionSound();
         mCameraSound.load(MediaActionSound.SHUTTER_CLICK);
 
+<<<<<<< HEAD   (299dc3 Screenshot: Append app name to filename)
         // Store UI background executor
         mUiBgExecutor = uiBgExecutor;
 
@@ -531,6 +550,11 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         if (mScreenshotLayout.isAttachedToWindow()) {
             mWindowManager.updateViewLayout(mScreenshotLayout, mWindowLayoutParams);
         }
+=======
+        // Grab system services needed for screenshot sound
+        mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+>>>>>>> CHANGE (aa9fba SystemUI: Adapt screenshot sound to ringer modes)
     }
 
     /**
@@ -843,6 +867,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
             // make static preview invisible (from gone) so we can query its location on screen
             mScreenshotPreview.setVisibility(View.INVISIBLE);
 
+<<<<<<< HEAD   (299dc3 Screenshot: Append app name to filename)
             mScreenshotHandler.post(() -> {
                 mScreenshotLayout.getViewTreeObserver().addOnComputeInternalInsetsListener(this);
 
@@ -858,6 +883,31 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
 
                 // Play the shutter sound to notify that we've taken a screenshot
                 mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+=======
+                // Clear any references to the bitmap
+                mScreenBitmap = null;
+                mScreenshotView.setImageBitmap(null);
+            }
+        });
+        mScreenshotLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                switch (mAudioManager.getRingerMode()) {
+                    case AudioManager.RINGER_MODE_SILENT:
+                        // do nothing
+                        break;
+                    case AudioManager.RINGER_MODE_VIBRATE:
+                        if (mVibrator != null && mVibrator.hasVibrator()) {
+                            mVibrator.vibrate(VibrationEffect.createOneShot(50,
+                                    VibrationEffect.DEFAULT_AMPLITUDE));
+                        }
+                        break;
+                    case AudioManager.RINGER_MODE_NORMAL:
+                        // Play the shutter sound to notify that we've taken a screenshot
+                        mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                        break;
+                }
+>>>>>>> CHANGE (aa9fba SystemUI: Adapt screenshot sound to ringer modes)
 
                 mScreenshotPreview.setLayerType(View.LAYER_TYPE_HARDWARE, null);
                 mScreenshotPreview.buildLayer();
