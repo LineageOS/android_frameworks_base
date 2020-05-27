@@ -19,8 +19,6 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval" >
 
-    <solid android:color="@color/screen_pinning_nav_icon_highlight_outer" />
-
     <size
         android:height="@dimen/screen_pinning_nav_highlight_outer_size"
         android:width="@dimen/screen_pinning_nav_highlight_outer_size" />
