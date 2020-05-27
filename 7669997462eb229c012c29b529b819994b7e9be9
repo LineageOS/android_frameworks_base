@@ -22,6 +22,29 @@
       "revId": "7669997462eb229c012c29b529b819994b7e9be9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c8f2ec5_6e5e8725",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-05-27T13:25:25Z",
+      "side": 1,
+      "message": "deprecated, see https://developer.android.com/reference/android/os/Vibrator?hl\u003den#vibrate(long)",
+      "range": {
+        "startLine": 996,
+        "startChar": 28,
+        "endLine": 996,
+        "endChar": 50
+      },
+      "revId": "7669997462eb229c012c29b529b819994b7e9be9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
