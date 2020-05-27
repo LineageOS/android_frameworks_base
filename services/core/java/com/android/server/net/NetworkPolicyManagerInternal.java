@@ -68,7 +68,7 @@ public abstract class NetworkPolicyManagerInternal {
         // frequently. And metrics are unlikely needed on this method because the callers are
         // external and this method doesn't take any locks or perform expensive operations.
         return isUidNetworkingBlockedInternal(uid, uidRules, isNetworkMetered,
-                isBackgroundRestricted, null);
+                isBackgroundRestricted, false, null);
     }
 
     /**

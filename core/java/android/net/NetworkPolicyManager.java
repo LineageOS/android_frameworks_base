@@ -79,6 +79,8 @@ public class NetworkPolicyManager {
     public static final int POLICY_REJECT_VPN = 0x20000;
     /** Reject network usage on wifi network */
     public static final int POLICY_REJECT_WIFI = 0x8000;
+    /** Reject network usage on all networks */
+    public static final int POLICY_REJECT_ALL = 0x40000;
 
     /*
      * Rules defining whether an uid has access to a network given its type (metered / non-metered).
@@ -150,6 +152,8 @@ public class NetworkPolicyManager {
     public static final String FIREWALL_CHAIN_NAME_STANDBY = "standby";
     /** @hide */
     public static final String FIREWALL_CHAIN_NAME_POWERSAVE = "powersave";
+    /** @hide */
+    public static final String FIREWALL_CHAIN_NAME_RESTRICTED = "restricted";
 
     private static final boolean ALLOW_PLATFORM_APP_POLICY = true;
 
