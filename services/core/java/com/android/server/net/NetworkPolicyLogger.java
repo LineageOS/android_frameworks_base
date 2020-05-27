@@ -16,11 +16,13 @@
 package com.android.server.net;
 
 import static android.net.INetd.FIREWALL_CHAIN_DOZABLE;
+import static android.net.INetd.FIREWALL_CHAIN_ISOLATED;
 import static android.net.INetd.FIREWALL_CHAIN_POWERSAVE;
 import static android.net.INetd.FIREWALL_CHAIN_STANDBY;
 import static android.net.INetd.FIREWALL_RULE_ALLOW;
 import static android.net.INetd.FIREWALL_RULE_DENY;
 import static android.net.NetworkPolicyManager.FIREWALL_CHAIN_NAME_DOZABLE;
+import static android.net.NetworkPolicyManager.FIREWALL_CHAIN_NAME_ISOLATED;
 import static android.net.NetworkPolicyManager.FIREWALL_CHAIN_NAME_POWERSAVE;
 import static android.net.NetworkPolicyManager.FIREWALL_CHAIN_NAME_STANDBY;
 import static android.net.NetworkPolicyManager.FIREWALL_RULE_DEFAULT;
@@ -74,6 +76,7 @@ public class NetworkPolicyLogger {
     static final int NTWK_BLOCKED_BG_RESTRICT = 5;
     static final int NTWK_ALLOWED_DEFAULT = 6;
     static final int NTWK_ALLOWED_SYSTEM = 7;
+    static final int NTWK_BLOCKED_ISOLATED = 8;
 
     private final LogBuffer mNetworkBlockedBuffer = new LogBuffer(MAX_NETWORK_BLOCKED_LOG_SIZE);
     private final LogBuffer mUidStateChangeBuffer = new LogBuffer(MAX_LOG_SIZE);
@@ -236,6 +239,8 @@ public class NetworkPolicyLogger {
                 return "blocked when background is restricted";
             case NTWK_ALLOWED_DEFAULT:
                 return "allowed by default";
+            case NTWK_BLOCKED_ISOLATED:
+                return "blocked by isolation";
             default:
                 return String.valueOf(reason);
         }
@@ -296,6 +301,8 @@ public class NetworkPolicyLogger {
                 return FIREWALL_CHAIN_NAME_STANDBY;
             case FIREWALL_CHAIN_POWERSAVE:
                 return FIREWALL_CHAIN_NAME_POWERSAVE;
+            case FIREWALL_CHAIN_ISOLATED:
+                return FIREWALL_CHAIN_NAME_ISOLATED;
             default:
                 return String.valueOf(chain);
         }
