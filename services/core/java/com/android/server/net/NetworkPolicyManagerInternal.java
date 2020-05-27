@@ -42,6 +42,11 @@ public abstract class NetworkPolicyManagerInternal {
     public abstract boolean isUidRestrictedOnMeteredNetworks(int uid);
 
     /**
+     * @return true if the uid rules provided mean that network access should be blocked.
+     */
+    public abstract boolean isNetworkingIsolatedByUidRules(int uidRules);
+
+    /**
      * @return true if networking is blocked on the given interface for the given uid according
      * to current networking policies.
      */
