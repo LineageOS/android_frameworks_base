@@ -64,6 +64,7 @@ import android.graphics.Picture;
 import android.graphics.PixelFormat;
 import android.graphics.PointF;
 import android.graphics.Rect;
+import android.media.AudioManager;
 import android.media.MediaActionSound;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -77,6 +78,7 @@ import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.os.Vibrator;
 import android.provider.DeviceConfig;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -979,8 +981,19 @@ class GlobalScreenshot {
         mScreenshotLayout.post(new Runnable() {
             @Override
             public void run() {
-                // Play the shutter sound to notify that we've taken a screenshot
-                mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                AudioManager mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+                Vibrator mVibrator = mContext.getSystemService(Vibrator.class);
+
+                if (mAudioManager.getRingerMode() == AudioManager.RINGER_MODE_SILENT) {
+                    //do nothing
+                } else if (mAudioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE) {
+                    if (mVibrator != null && mVibrator.hasVibrator()) {
+                        mVibrator.vibrate(50);
+                    }
+                } else {
+                    // Play the shutter sound to notify that we've taken a screenshot
+                    mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                }
 
                 mScreenshotView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
                 mScreenshotView.buildLayer();
