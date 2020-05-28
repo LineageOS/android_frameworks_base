@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f460d75b_b40b17f9",
+        "filename": "services/core/java/com/android/server/power/Notifier.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2020-05-28T04:14:20Z",
+      "side": 1,
+      "message": "Could also check whether the parsed URI has a scheme and - if not - set the \u0027file\u0027 scheme on it.",
+      "revId": "caeb1eb0633af1b6b86bdf0b8f6a25320fd6994b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
