@@ -109,6 +109,7 @@ public class FODCircleView extends ImageView {
             } else if (mBurnInProtectionTimer != null) {
                 mBurnInProtectionTimer.cancel();
             }
+            updatePosition();
         }
 
         @Override
