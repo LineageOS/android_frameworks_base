@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5a748f99_96cc8919",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSAnimator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-28T11:27:26Z",
+      "side": 1,
+      "message": "\u003e - catch \u0027NumberFormatException | NullPointerException e\u0027 here, with an explanatory comment why those are catched (NFE for invalid value, NPE for unset value)\n\nComments would be added but won\u0027t \"Exception e\" be cleaner here? It covers all exceptions and definitely we don\u0027t want SystemUI crashes.\n\n\u003e - explicitly set mIsQuickQsBrightnessEnabled to false here, as the current behavior of relying on the boolean being initialized to false is a little subtle.\n\nI do prefer that we initialize/set the values (I do C/C++ more so I have that habit) but Luca and Bruno are hard-no on this (unnecessary in Java, as they said).",
+      "parentUuid": "1debc96a_600e93b2",
+      "revId": "7907be408e9dcacc05b72d8d2d99da02e56ffc50",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a87a4d8_4b47f028",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
         "patchSetId": 11
@@ -33,6 +51,24 @@
       "revId": "7907be408e9dcacc05b72d8d2d99da02e56ffc50",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b15857aa_e89608ca",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-28T11:27:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1a87a4d8_4b47f028",
+      "revId": "7907be408e9dcacc05b72d8d2d99da02e56ffc50",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
