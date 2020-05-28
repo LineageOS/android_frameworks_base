@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1debc96a_600e93b2",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSAnimator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2020-05-28T06:48:52Z",
+      "side": 1,
+      "message": "It would be clearer to\n- catch \u0027NumberFormatException | NullPointerException e\u0027 here, with an explanatory comment why those are catched (NFE for invalid value, NPE for unset value)\n- explicitly set mIsQuickQsBrightnessEnabled to false here, as the current behavior of relying on the boolean being initialized to false is a little subtle.",
+      "revId": "7907be408e9dcacc05b72d8d2d99da02e56ffc50",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a87a4d8_4b47f028",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2020-05-28T06:48:52Z",
+      "side": 1,
+      "message": "Same comments as in QSAnimator.java apply here as well.",
+      "revId": "7907be408e9dcacc05b72d8d2d99da02e56ffc50",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
