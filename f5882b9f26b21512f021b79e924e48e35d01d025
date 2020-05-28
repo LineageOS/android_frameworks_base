@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f38b3eb2_31fb12ba",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-05-28T13:11:52Z",
+      "side": 1,
+      "message": "Can you simplify to:\n\n            mExpandRows.setRotation(mVolumePanelOnLeft ? -90 : 90);",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 13
+      },
+      "revId": "f5882b9f26b21512f021b79e924e48e35d01d025",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
