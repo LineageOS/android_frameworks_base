@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6745db3c_a4c68de0",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-29T18:15:41Z",
+      "side": 1,
+      "message": "if (mMirrorAutoBrightnessView !\u003d null) {\n            updateViewVisibilityForTuningValue(mBrightnessMirrorController.getMirror()\n                    .findViewById(R.id.brightness_icon), newValue);\n        }",
+      "revId": "9d42c48c16bba2fcc836cbb68e2979ed9c0d1b23",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
