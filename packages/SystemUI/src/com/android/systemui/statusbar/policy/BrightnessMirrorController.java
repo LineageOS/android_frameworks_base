@@ -27,9 +27,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.android.internal.util.Preconditions;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.NotificationPanelView;
 import com.android.systemui.statusbar.phone.StatusBarWindowView;
+import com.android.systemui.tuner.TunerService;
+
+import lineageos.providers.LineageSettings;
 
 import java.util.function.Consumer;
 
@@ -37,7 +41,11 @@ import java.util.function.Consumer;
  * Controls showing and hiding of the brightness mirror.
  */
 public class BrightnessMirrorController
-        implements CallbackController<BrightnessMirrorController.BrightnessMirrorListener> {
+        implements CallbackController<BrightnessMirrorController.BrightnessMirrorListener>,
+        TunerService.Tunable {
+
+    private static final String QS_SHOW_AUTO_BRIGHTNESS =
+            "lineagesecure:" + LineageSettings.Secure.QS_SHOW_AUTO_BRIGHTNESS;
 
     private final StatusBarWindowView mStatusBarWindow;
     private final Consumer<Boolean> mVisibilityCallback;
@@ -45,6 +53,7 @@ public class BrightnessMirrorController
     private final ArraySet<BrightnessMirrorListener> mBrightnessMirrorListeners = new ArraySet<>();
     private final int[] mInt2Cache = new int[2];
     private View mBrightnessMirror;
+    private boolean mShouldShowAutoBrightness;
 
     public BrightnessMirrorController(StatusBarWindowView statusBarWindow,
             @NonNull Consumer<Boolean> visibilityCallback) {
@@ -55,6 +64,8 @@ public class BrightnessMirrorController
             mBrightnessMirror.setVisibility(View.INVISIBLE);
         });
         mVisibilityCallback = visibilityCallback;
+
+        Dependency.get(TunerService.class).addTunable(this, QS_SHOW_AUTO_BRIGHTNESS);
     }
 
     public void showMirror() {
@@ -142,7 +153,7 @@ public class BrightnessMirrorController
         ImageView iv = mBrightnessMirror.findViewById(R.id.brightness_icon);
         boolean autoBrightnessAvailable = mBrightnessMirror.getContext().getResources().getBoolean(
                 com.android.internal.R.bool.config_automatic_brightness_available);
-        if (autoBrightnessAvailable) {
+        if (autoBrightnessAvailable && mShouldShowAutoBrightness) {
             int automatic = Settings.System.getIntForUser(mBrightnessMirror.getContext()
                             .getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS_MODE,
@@ -153,6 +164,15 @@ public class BrightnessMirrorController
                     ? com.android.systemui.R.drawable.ic_qs_brightness_auto_on
                     : com.android.systemui.R.drawable.ic_qs_brightness_auto_off);
             iv.setVisibility(View.VISIBLE);
+        } else {
+            iv.setVisibility(View.GONE);
+        }
+    }
+
+    public void onTuningChanged(String key, String newValue) {
+        if (QS_SHOW_AUTO_BRIGHTNESS.equals(key)) {
+            mShouldShowAutoBrightness = TunerService.parseIntegerSwitch(newValue, true);
+            updateIcon();
         }
     }
 }
