@@ -16,6 +16,24 @@
       "revId": "9d42c48c16bba2fcc836cbb68e2979ed9c0d1b23",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cbcb181_b8cf9ef5",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-29T18:18:33Z",
+      "side": 1,
+      "message": "s/mMirrorAutoBrightnessView/mBrightnessMirrorController/",
+      "parentUuid": "6745db3c_a4c68de0",
+      "revId": "9d42c48c16bba2fcc836cbb68e2979ed9c0d1b23",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
