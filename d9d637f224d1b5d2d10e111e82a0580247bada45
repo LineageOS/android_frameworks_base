@@ -46,6 +46,30 @@
       "revId": "d9d637f224d1b5d2d10e111e82a0580247bada45",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10bfd6a3_22ddaeda",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 37
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-05-30T10:53:44Z",
+      "side": 1,
+      "message": "The intention of the array was to not do the same for 2, with the following commit 3, streams. But if the sanity checks are already done in Util.setVisOrGone it might be easier to have the same line with 1 different parameter 3 times",
+      "parentUuid": "032d7578_9ca0c01b",
+      "range": {
+        "startLine": 572,
+        "startChar": 34,
+        "endLine": 572,
+        "endChar": 41
+      },
+      "revId": "d9d637f224d1b5d2d10e111e82a0580247bada45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
