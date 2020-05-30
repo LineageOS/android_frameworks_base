@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df15fc55_5b727f17",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-05-30T10:09:28Z",
+      "side": 1,
+      "message": "I added this back for sanity, so that we don\u0027t try to make a null stream visible in the case a stream is not available for whatever reasons",
+      "revId": "04b24da63e394e024f2d0f0138e4a5d3190d594a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
