@@ -34,6 +34,24 @@
       "revId": "8b408a7e7a72603b69d060c60d26672e3509201a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9c832ea_0e3dd791",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-05-30T12:40:33Z",
+      "side": 1,
+      "message": "We need to set the active stream when the panel is collapsed because on the expanded panel we can change the volume of a stream that isn\u0027t visible in the collapsed state. If we wouldn\u0027t set the active stream here the volume buttons would still control the last active stream on the collapsed panel and the ally stream row wouldn\u0027t be tinted. We don\u0027t need to set the active stream when we expand the panel because there is a stream active already and we don\u0027t hide any streams while expanding.",
+      "parentUuid": "e079759a_828f7014",
+      "revId": "8b408a7e7a72603b69d060c60d26672e3509201a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
