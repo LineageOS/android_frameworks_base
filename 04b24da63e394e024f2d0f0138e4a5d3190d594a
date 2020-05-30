@@ -16,6 +16,24 @@
       "revId": "04b24da63e394e024f2d0f0138e4a5d3190d594a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a5159f7_88d9e373",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-30T10:37:11Z",
+      "side": 1,
+      "message": "NO. Util.setVisOrGone already contains sanity checks.",
+      "parentUuid": "df15fc55_5b727f17",
+      "revId": "04b24da63e394e024f2d0f0138e4a5d3190d594a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

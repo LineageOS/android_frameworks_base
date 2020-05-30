@@ -22,6 +22,30 @@
       "revId": "d9d637f224d1b5d2d10e111e82a0580247bada45",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "032d7578_9ca0c01b",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 37
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-30T10:37:11Z",
+      "side": 1,
+      "message": "PS34 has no array at all. Array is not necessary here. (and IMO unnecessary complex and redundant)",
+      "parentUuid": "13726dde_24503c48",
+      "range": {
+        "startLine": 572,
+        "startChar": 34,
+        "endLine": 572,
+        "endChar": 41
+      },
+      "revId": "d9d637f224d1b5d2d10e111e82a0580247bada45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
