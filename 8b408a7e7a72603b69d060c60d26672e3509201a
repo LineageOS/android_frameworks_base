@@ -16,6 +16,24 @@
       "revId": "8b408a7e7a72603b69d060c60d26672e3509201a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e079759a_828f7014",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-30T12:32:45Z",
+      "side": 1,
+      "message": "OK now I saw that it makes sure the a visible row is selected when user selected a another stream in expanded state and then transit back to collapse state. In this case, we don\u0027t want to remove setActiveStream here but we still want allystream selected in both collapse and expanded state.",
+      "parentUuid": "a998d658_ec01c70d",
+      "revId": "8b408a7e7a72603b69d060c60d26672e3509201a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
