@@ -34,6 +34,24 @@
       "revId": "1e977b762a72deccdafe0d985394e9ccaaf8605c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d0cc755_f78810ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-05-30T20:58:43Z",
+      "side": 1,
+      "message": "It should just show that it\u0027s the second \"default\" stream next to the music one. I think it might not be the best word here, do you have any suggestions for a better matching word?",
+      "parentUuid": "14b765e5_27a3b56f",
+      "revId": "1e977b762a72deccdafe0d985394e9ccaaf8605c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
