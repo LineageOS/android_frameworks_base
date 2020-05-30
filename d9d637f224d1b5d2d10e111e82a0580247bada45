@@ -111,6 +111,24 @@
       "revId": "d9d637f224d1b5d2d10e111e82a0580247bada45",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "809fdc5c_ca286e85",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 37
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-30T12:26:37Z",
+      "side": 1,
+      "message": "Resolved in new PS.",
+      "parentUuid": "3267af6a_85fc1c2a",
+      "revId": "d9d637f224d1b5d2d10e111e82a0580247bada45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
