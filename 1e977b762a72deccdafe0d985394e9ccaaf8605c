@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "881d8483_42fe751e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-05-30T18:52:34Z",
+      "side": 1,
+      "message": "Do we know where does the term \"ally stream\" originates from ? (Is it an android thing?)  I can see what the code is doing but I don\u0027t intuitively see how \"ally\" relates to what\u0027s happening here.",
+      "revId": "1e977b762a72deccdafe0d985394e9ccaaf8605c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
