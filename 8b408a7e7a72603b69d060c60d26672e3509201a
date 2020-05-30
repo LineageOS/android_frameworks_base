@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a998d658_ec01c70d",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-30T12:28:40Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the allystream also be selected when in expanded state? I prefer that we removed the setActiveStream here. I don\u0027t understand what it does.",
+      "revId": "8b408a7e7a72603b69d060c60d26672e3509201a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
