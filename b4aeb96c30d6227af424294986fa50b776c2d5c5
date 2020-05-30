@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "adcfba5d_872b8584",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-05-30T08:55:31Z",
+      "side": 1,
+      "message": "I don\u0027t think so. The index passed to addView should be 0 so that the rows appear on the left while this would be wrong for the panel on the left side, they should appear on the right side of the music row.",
+      "parentUuid": "13d4cb35_a3abf3f5",
+      "range": {
+        "startLine": 419,
+        "startChar": 32,
+        "endLine": 419,
+        "endChar": 72
+      },
+      "revId": "b4aeb96c30d6227af424294986fa50b776c2d5c5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9bef26f2_55f45bb6",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 33
