@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81c655f2_c98ad561",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BrightnessMirrorController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-30T08:01:54Z",
+      "side": 1,
+      "message": "It can be TunerService.Tunable and then we can remove Tunable import. It also matches the style elsewhere. \nand FYI: Check https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/276673/2/packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java#71 for an alternative impl for Tunable part.",
+      "revId": "c046ea93315b24fa444a81ed4afc4ebe1a83da34",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
