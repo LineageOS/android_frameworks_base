@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aabbcc69_9ec964d6",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-31T16:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87707797_9b7e3489",
+      "revId": "9d348762d4c8c2d84bbb26a69fcc06c745038590",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98dfd890_06996cf8",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
         "patchSetId": 15
@@ -39,6 +57,30 @@
       "revId": "9d348762d4c8c2d84bbb26a69fcc06c745038590",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c9d44a7_5ef62ede",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-05-31T16:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98dfd890_06996cf8",
+      "range": {
+        "startLine": 403,
+        "startChar": 8,
+        "endLine": 408,
+        "endChar": 9
+      },
+      "revId": "9d348762d4c8c2d84bbb26a69fcc06c745038590",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
