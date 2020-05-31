@@ -167,6 +167,8 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private int mActiveStream;
     private int mAllyStream;
+    private int mLastAlarmVolume;
+    private int mLastVoiceCallVolume;
     private int mPrevActiveStream;
     private boolean mAutomute = VolumePrefs.DEFAULT_ENABLE_AUTOMUTE;
     private boolean mMusicHidden;
@@ -531,6 +533,24 @@ public class VolumeDialogImpl implements VolumeDialog,
                             mController.setStreamVolume(stream, 1);
                         }
                     }
+                } else if (row.stream == AudioManager.STREAM_ALARM) {
+                    if (row.ss.level != 1) {
+                        mLastAlarmVolume = row.ss.level;
+                    } else if (mLastAlarmVolume == 0) {
+                        mLastAlarmVolume = 2;
+                    }
+                    final boolean vmute = row.ss.level == row.ss.levelMin;
+                    mController.setStreamVolume(stream,
+                            vmute ? mLastAlarmVolume : row.ss.levelMin);
+                } else if (row.stream == AudioManager.STREAM_VOICE_CALL) {
+                    if (row.ss.level != 1) {
+                        mLastVoiceCallVolume = row.ss.level;
+                    } else if (mLastVoiceCallVolume == 0) {
+                        mLastVoiceCallVolume = 2;
+                    }
+                    final boolean vmute = row.ss.level == row.ss.levelMin;
+                    mController.setStreamVolume(stream,
+                            vmute ? mLastVoiceCallVolume : row.ss.levelMin);
                 } else {
                     final boolean vmute = row.ss.level == row.ss.levelMin;
                     mController.setStreamVolume(stream,
@@ -1182,7 +1202,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                         (ss.muted ? R.drawable.ic_volume_media_bt_mute
                                 : R.drawable.ic_volume_media_bt)
                 : mAutomute && ss.level == 0 ? row.iconMuteRes
-                : (ss.muted ? row.iconMuteRes : row.iconRes);
+                : (ss.muted || (isAlarmStream && row.ss.level == 1) ? row.iconMuteRes : row.iconRes);
         row.icon.setImageResource(iconRes);
         row.iconState =
                 iconRes == R.drawable.ic_volume_ringer_vibrate ? Events.ICON_STATE_VIBRATE
