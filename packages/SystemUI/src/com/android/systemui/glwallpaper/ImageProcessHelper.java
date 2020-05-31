@@ -102,7 +102,7 @@ class ImageProcessHelper {
     private static class Threshold {
         public float compute(Bitmap bitmap) {
             Bitmap grayscale = toGrayscale(bitmap);
-            int[] histogram = getHistogram(grayscale);
+            int[] histogram = getHistogram(bitmap);
             boolean isSolidColor = isSolidColor(grayscale, histogram);
 
             // We will see gray wallpaper during the transition if solid color wallpaper is set,
@@ -126,16 +126,21 @@ class ImageProcessHelper {
             return grayscale;
         }
 
-        private int[] getHistogram(Bitmap grayscale) {
-            int width = grayscale.getWidth();
-            int height = grayscale.getHeight();
+        private int[] getHistogram(Bitmap bitmap) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
 
             // TODO: Fine tune the performance here, tracking on b/123615079.
             int[] histogram = new int[256];
             for (int row = 0; row < height; row++) {
                 for (int col = 0; col < width; col++) {
-                    int pixel = grayscale.getPixel(col, row);
-                    int y = Color.red(pixel) + Color.green(pixel) + Color.blue(pixel);
+                    int pixel = bitmap.getPixel(col, row);
+                    // For histogram, we need to round to the closest integer so the sum does not
+                    // exeed 255 (max index for histogramm)
+                    int red = Math.round(Color.red(pixel) * LUMINOSITY_MATRIX[0]);
+                    int green = Math.round(Color.green(pixel) * LUMINOSITY_MATRIX[6]);
+                    int blue = Math.round(Color.blue(pixel) * LUMINOSITY_MATRIX[12]);
+                    int y = red + green + blue;
                     histogram[y]++;
                 }
             }
