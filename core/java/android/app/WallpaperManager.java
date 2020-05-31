@@ -40,6 +40,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
+import android.graphics.ColorSpace;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
@@ -463,6 +464,7 @@ public class WallpaperManager {
                 if (fd != null) {
                     try {
                         BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inPreferredColorSpace = ColorSpace.get(ColorSpace.Named.SRGB);
                         if (hardware) {
                             options.inPreferredConfig = Bitmap.Config.HARDWARE;
                         }
