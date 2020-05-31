@@ -464,7 +464,7 @@ public class WallpaperManager {
                 if (fd != null) {
                     try {
                         BitmapFactory.Options options = new BitmapFactory.Options();
-                        options.inPreferredColorSpace = ColorSpace.get(Named.SRGB);
+                        options.inPreferredColorSpace = ColorSpace.get(ColorSpace.Named.SRGB);
                         if (hardware) {
                             options.inPreferredConfig = Bitmap.Config.HARDWARE;
                         }
