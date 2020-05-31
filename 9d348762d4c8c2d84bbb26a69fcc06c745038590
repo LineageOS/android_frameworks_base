@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87707797_9b7e3489",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-05-31T13:44:05Z",
+      "side": 1,
+      "message": "Move these two variable declarations to the other two at L#162 - there is already a mixture of various types (Views/Widgets and booleans), e.g. at L#148-L#160) - keeps the footprint smaller",
+      "revId": "9d348762d4c8c2d84bbb26a69fcc06c745038590",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98dfd890_06996cf8",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-05-31T13:44:05Z",
+      "side": 1,
+      "message": "I like this approach more than the previous one :)",
+      "range": {
+        "startLine": 403,
+        "startChar": 8,
+        "endLine": 408,
+        "endChar": 9
+      },
+      "revId": "9d348762d4c8c2d84bbb26a69fcc06c745038590",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
