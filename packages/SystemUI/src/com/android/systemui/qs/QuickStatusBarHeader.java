@@ -428,9 +428,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                     mQuickQsBrightness.getLayoutParams();
             lpQuickQsBrightness.setMargins(
                     resources.getDimensionPixelSize(R.dimen.notification_side_paddings)
-                            - resources.getDimensionPixelSize(R.dimen.status_bar_padding_start),
+                            - resources.getDimensionPixelSize(R.dimen.status_bar_padding_start) * 2,
                     0, resources.getDimensionPixelSize(R.dimen.notification_side_paddings)
-                            - resources.getDimensionPixelSize(R.dimen.status_bar_padding_end),
+                            - resources.getDimensionPixelSize(R.dimen.status_bar_padding_end) * 2,
                     0);
             mQuickQsBrightness.setLayoutParams(lpQuickQsBrightness);
             if (mIsQsAutoBrightnessEnabled && resources.getBoolean(
