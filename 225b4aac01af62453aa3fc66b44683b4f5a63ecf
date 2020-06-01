@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6be51f8_e2dffdb5",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-06-01T16:15:00Z",
+      "side": 1,
+      "message": "\\-                if (mMusicHidden) Util.setVisOrGone(findRow(AudioManager.STREAM_MUSIC).view, !mExpanded);\n\\+                if (mMusicHidden) {\n\\+                    Util.setVisOrGone(findRow(AudioManager.STREAM_MUSIC).view,\n\\+                            !mExpanded);\n\\+                }",
+      "range": {
+        "startLine": 587,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 105
+      },
+      "revId": "225b4aac01af62453aa3fc66b44683b4f5a63ecf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
