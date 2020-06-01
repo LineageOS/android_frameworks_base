@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1621aa5c_25740415",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-06-01T04:26:24Z",
+      "side": 1,
+      "message": "To avoid confusion, we would want to flip mExpanded at first or at last. It is not a good idea to mix !mExpanded (before we flip mExpanded, it means “to-be” mExpanded) with mExpanded (after we flip mExpanded).",
+      "revId": "537a25a85d058cc7c47a1258dd23ff5a926b8a67",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
