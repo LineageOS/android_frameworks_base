@@ -128,4 +128,6 @@
 
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">To unpin this screen, touch &amp; hold Back button</string>
+
+    <string name="lineage_version" translatable="false">LineageOS 17.1</string>
 </resources>

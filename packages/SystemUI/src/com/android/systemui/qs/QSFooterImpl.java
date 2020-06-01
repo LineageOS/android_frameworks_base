@@ -172,7 +172,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
                     Build.ID));
             v.setVisibility(View.VISIBLE);
         } else {
-            v.setVisibility(View.GONE);
+            v.setText(mContext.getString(R.string.lineage_version));
+            v.setVisibility(View.VISIBLE);
         }
     }
 
