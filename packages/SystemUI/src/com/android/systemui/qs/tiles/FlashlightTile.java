@@ -72,7 +72,7 @@ public class FlashlightTile extends QSTileImpl<BooleanState> implements
 
     @Override
     public boolean isAvailable() {
-        return mFlashlightController.hasFlashlight();
+        return mFlashlightController.hasFlashlight() && mFlashlightController.isAvailable();
     }
 
     @Override
