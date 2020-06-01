@@ -36,6 +36,52 @@
     },
     {
       "key": {
+        "uuid": "72a6cbf1_a0dfb4c9",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-06-01T16:14:09Z",
+      "side": 1,
+      "message": "\\-                    mActivityManager.getLockTaskModeState() \u003d\u003d LOCK_TASK_MODE_NONE \u0026\u0026\n\\-                    isBluetoothA2dpConnected() ? VISIBLE : GONE);\n\\+                            mActivityManager.getLockTaskModeState() \u003d\u003d LOCK_TASK_MODE_NONE \u0026\u0026\n\\+                            isBluetoothA2dpConnected() ? VISIBLE : GONE);",
+      "range": {
+        "startLine": 539,
+        "startChar": 0,
+        "endLine": 540,
+        "endChar": 65
+      },
+      "revId": "537a25a85d058cc7c47a1258dd23ff5a926b8a67",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d515e6b_567389c9",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 40
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-06-01T16:14:09Z",
+      "side": 1,
+      "message": "\\-                    mActivityManager.getLockTaskModeState() \u003d\u003d LOCK_TASK_MODE_NONE ?\n\\+                            mActivityManager.getLockTaskModeState() \u003d\u003d LOCK_TASK_MODE_NONE ?",
+      "range": {
+        "startLine": 555,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 84
+      },
+      "revId": "537a25a85d058cc7c47a1258dd23ff5a926b8a67",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1621aa5c_25740415",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 40
