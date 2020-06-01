@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c516e7cb_6db9b3a3",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-06-01T16:14:38Z",
+      "side": 1,
+      "message": "\\-                if (!isNotificationVolumeLinked()) Util.setVisOrGone(\n\\-                        findRow(AudioManager.STREAM_NOTIFICATION).view, !mExpanded);\n\\+                if (!isNotificationVolumeLinked()) {\n\\+                    Util.setVisOrGone(\n\\+                            findRow(AudioManager.STREAM_NOTIFICATION).view, !mExpanded);\n\\+                }",
+      "range": {
+        "startLine": 567,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 84
+      },
+      "revId": "3fe77d1dbfbb635f08bfad549b36d0a3573fb8b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
