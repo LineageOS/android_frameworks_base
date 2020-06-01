@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3664e27_552d5477",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardClockSwitch.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2020-06-01T17:17:05Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "308f6ce7104c8287427ee1601ca0d761c2002555",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
