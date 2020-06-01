@@ -16,6 +16,24 @@
       "revId": "308f6ce7104c8287427ee1601ca0d761c2002555",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9396d31b_27bac569",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardClockSwitch.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2020-06-01T20:33:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3664e27_552d5477",
+      "revId": "308f6ce7104c8287427ee1601ca0d761c2002555",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
