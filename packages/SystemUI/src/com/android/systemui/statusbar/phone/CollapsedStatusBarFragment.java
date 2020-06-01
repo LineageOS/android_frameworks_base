@@ -290,8 +290,14 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
      * don't set the clock GONE otherwise it'll mess up the animation.
      */
     private int clockHiddenMode() {
+<<<<<<< HEAD   (a88aa3 Correction in logic of roundend size calculation of SD card)
         if (!mStatusBar.isClosed() && !mKeyguardStateController.isShowing()
                 && !mStatusBarStateController.isDozing()) {
+=======
+        if (!mStatusBar.isClosed() && !mKeyguardMonitor.isShowing()
+                && !mStatusBarStateController.isDozing()
+                && mClockController.getClock().shouldBeVisible()) {
+>>>>>>> CHANGE (63fc6d SystemUI: Make clock truly invisible)
             return View.INVISIBLE;
         }
         return View.GONE;
