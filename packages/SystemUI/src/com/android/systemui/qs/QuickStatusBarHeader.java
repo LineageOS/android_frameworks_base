@@ -710,7 +710,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             // Prevents these views from getting set a margin.
             // The Icon views all have the same padding set in XML to be aligned.
             if (v == mSystemIconsView || v == mQuickQsStatusIcons || v == mHeaderQsPanel
-                    || v == mHeaderTextContainerView) {
+                    || v == mHeaderTextContainerView || v == mQuickQsBrightness) {
                 continue;
             }
             RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) v.getLayoutParams();
