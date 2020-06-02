@@ -423,16 +423,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mSystemIconsView.setLayoutParams(mSystemIconsView.getLayoutParams());
 
         if (mIsQuickQsBrightnessEnabled) {
-            // Offset container margin to align quick QS brightness bar with QS brightness bar.
-            RelativeLayout.LayoutParams lpQuickQsBrightness = (RelativeLayout.LayoutParams)
-                    mQuickQsBrightness.getLayoutParams();
-            lpQuickQsBrightness.setMargins(
-                    resources.getDimensionPixelSize(R.dimen.notification_side_paddings)
-                            - resources.getDimensionPixelSize(R.dimen.status_bar_padding_start),
-                    0, resources.getDimensionPixelSize(R.dimen.notification_side_paddings)
-                            - resources.getDimensionPixelSize(R.dimen.status_bar_padding_end),
-                    0);
-            mQuickQsBrightness.setLayoutParams(lpQuickQsBrightness);
             if (mIsQsAutoBrightnessEnabled && resources.getBoolean(
                     com.android.internal.R.bool.config_automatic_brightness_available)) {
                 mQuickQsBrightness.findViewById(R.id.brightness_icon).setVisibility(View.VISIBLE);
@@ -562,6 +552,17 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             mSystemIconsView.setPadding(padding.first, 0, padding.second, 0);
 
         }
+        RelativeLayout.LayoutParams lpQuickQsBrightness = (RelativeLayout.LayoutParams)
+                mQuickQsBrightness.getLayoutParams();
+        lpQuickQsBrightness.addRule(RelativeLayout.BELOW, R.id.header_text_container);
+        // Offset container margin to align quick QS brightness bar with QS brightness bar.
+        lpQuickQsBrightness.setMargins(
+                getResources().getDimensionPixelSize(R.dimen.notification_side_paddings)
+                        - mPaddingLeft,
+                0, getResources().getDimensionPixelSize(R.dimen.notification_side_paddings)
+                        - mPaddingRight,
+                0);
+        mQuickQsBrightness.setLayoutParams(lpQuickQsBrightness);
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) mSpace.getLayoutParams();
         if (cutout != null) {
             Rect topCutout = cutout.getBoundingRectTop();
