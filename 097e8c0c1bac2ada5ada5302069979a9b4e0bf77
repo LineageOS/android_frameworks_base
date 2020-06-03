@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fade9836_02fa6f6c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-03T12:31:27Z",
+      "side": 1,
+      "message": "int sp \u003d getResources().getDimensionPixelSize(R.dimen.notification_side_paddings);\nlpQuickQsBrightness.setMargins(sp - mPaddingLeft, 0, sp - mPaddingRight, 0);",
+      "range": {
+        "startLine": 574,
+        "startChar": 8,
+        "endLine": 578,
+        "endChar": 44
+      },
+      "revId": "097e8c0c1bac2ada5ada5302069979a9b4e0bf77",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
