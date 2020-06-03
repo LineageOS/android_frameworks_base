@@ -128,4 +128,7 @@
 
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">To unpin this screen, touch &amp; hold Back button</string>
+
+    <!-- Lineage clock -->
+    <string name="clock_title_lineage" translatable="false">LineageOS</string>
 </resources>
