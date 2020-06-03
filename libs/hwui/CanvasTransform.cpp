@@ -45,7 +45,7 @@ static SkColor makeLight(SkColor color) {
 
 static SkColor makeDark(SkColor color) {
     Lab lab = sRGBToLab(color);
-    float invertedL = std::min(110 - lab.L, 100.0f);
+    float invertedL = std::min(100 - lab.L, 100.0f);
     if (invertedL < lab.L) {
         lab.L = invertedL;
         return LabToSRGB(lab, SkColorGetA(color));
