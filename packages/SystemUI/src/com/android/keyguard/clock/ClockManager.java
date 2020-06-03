@@ -150,6 +150,12 @@ public final class ClockManager {
         LayoutInflater layoutInflater = injectionInflater.injectable(LayoutInflater.from(context));
 
         addBuiltinClock(() -> new DefaultClockController(res, layoutInflater, colorExtractor));
+<<<<<<< HEAD   (34a1b9 Merge cherrypicks of [12265987, 12265921] into rvc-release)
+=======
+        addBuiltinClock(() -> new BubbleClockController(res, layoutInflater, colorExtractor));
+        addBuiltinClock(() -> new AnalogClockController(res, layoutInflater, colorExtractor));
+        addBuiltinClock(() -> new LineageClockController(res, layoutInflater, colorExtractor));
+>>>>>>> CHANGE (257a68 Add a LineageOS clock)
 
         // Store the size of the display for generation of clock preview.
         DisplayMetrics dm = res.getDisplayMetrics();
