@@ -29,6 +29,7 @@ import static android.view.View.ACCESSIBILITY_LIVE_REGION_POLITE;
 import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 import static com.android.settingslib.media.MediaOutputSliceConstants.ACTION_MEDIA_OUTPUT;
@@ -251,7 +252,10 @@ public class VolumeDialogImpl implements VolumeDialog,
         lp.windowAnimations = -1;
         lp.gravity = panelGravity | Gravity.CENTER_VERTICAL;
         mWindow.setAttributes(lp);
-        mWindow.setLayout(WRAP_CONTENT, WRAP_CONTENT);
+        // Ensure DecorView has been created so MATCH_PARENT works properly
+        mWindow.getDecorView();
+        // MATCH_PARENT to reserve space for expanded panel to avoid re-layout
+        mWindow.setLayout(MATCH_PARENT, WRAP_CONTENT);
 
         mDialog.setContentView(R.layout.volume_dialog);
         mDialogView = mDialog.findViewById(R.id.volume_dialog);
