@@ -148,6 +148,7 @@ public final class ClockManager {
         Resources res = context.getResources();
 
         addBuiltinClock(() -> new DefaultClockController(res, layoutInflater, colorExtractor));
+        addBuiltinClock(() -> new LineageClockController(res, layoutInflater, colorExtractor));
 
         // Store the size of the display for generation of clock preview.
         DisplayMetrics dm = res.getDisplayMetrics();

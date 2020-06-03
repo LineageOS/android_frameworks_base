@@ -100,4 +100,7 @@
 
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB tethering</string>
+
+    <!-- Lineage clock -->
+    <string name="clock_title_lineage" translatable="false">LineageOS</string>
 </resources>
