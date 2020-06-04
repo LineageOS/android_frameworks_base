@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5934f79d_ee363ae2",
+        "filename": "packages/SystemUI/res-keyguard/layout/lineage_clock.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2020-06-04T09:45:43Z",
+      "side": 1,
+      "message": "Should probably give this a more meaningful ID name (or nuke the ID completely).",
+      "revId": "d40bf9ace22d1deb2d6d7b20727ea8bb05cd06c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
