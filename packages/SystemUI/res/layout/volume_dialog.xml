@@ -79,9 +79,8 @@
             android:background="@drawable/rounded_bg_full" >
             <LinearLayout
                 android:id="@+id/volume_dialog_rows"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/volume_dialog_panel_width"
                 android:layout_height="wrap_content"
-                android:minWidth="@dimen/volume_dialog_panel_width"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingRight="@dimen/volume_dialog_stream_padding"
