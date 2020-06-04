@@ -16,6 +16,29 @@
       "revId": "d40bf9ace22d1deb2d6d7b20727ea8bb05cd06c4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71fd9a9a_d5387ad2",
+        "filename": "packages/SystemUI/src/com/android/keyguard/clock/LineageClockController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-04T10:04:23Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be either the LineageOS Copyright or at least ours be added additionally?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 53
+      },
+      "revId": "d40bf9ace22d1deb2d6d7b20727ea8bb05cd06c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
