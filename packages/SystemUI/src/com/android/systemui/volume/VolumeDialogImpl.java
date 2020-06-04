@@ -80,7 +80,9 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Transformation;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -435,7 +437,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (D.BUG) Slog.d(TAG, "Adding row for stream " + stream);
         VolumeRow row = new VolumeRow();
         initRow(row, stream, iconRes, iconMuteRes, important, defaultStream);
-        mDialogRowsView.addView(row.view, mVolumePanelOnLeft ? -1 : 0);
+        mDialogRowsView.addView(row.view, -1);
         mRows.add(row);
     }
 
@@ -445,7 +447,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             final VolumeRow row = mRows.get(i);
             initRow(row, row.stream, row.iconRes, row.iconMuteRes, row.important,
                     row.defaultStream);
-            mDialogRowsView.addView(row.view, mVolumePanelOnLeft ? -1 : 0);
+            mDialogRowsView.addView(row.view, -1);
             updateVolumeRowH(row);
         }
     }
@@ -538,6 +540,65 @@ public class VolumeDialogImpl implements VolumeDialog,
                 == BluetoothProfile.STATE_CONNECTED;
     }
 
+    private void updateExpandedRows() {
+        if (mMusicHidden) {
+            Util.setVisOrGone(findRow(AudioManager.STREAM_MUSIC).view,
+                    !mExpanded);
+        }
+        Util.setVisOrGone(findRow(AudioManager.STREAM_RING).view, !mExpanded);
+        Util.setVisOrGone(findRow(STREAM_ALARM).view, !mExpanded);
+        if (!isNotificationVolumeLinked()) {
+            Util.setVisOrGone(
+                    findRow(AudioManager.STREAM_NOTIFICATION).view, !mExpanded);
+        }
+    }
+
+    private void animateExpandedRowsChange(boolean expand) {
+        final Resources resources = mDialogRowsView.getContext().getResources();
+        final int startWidth = mDialogRowsView.getLayoutParams().width;
+        final int targetWidth;
+
+        if (expand) {
+            updateExpandedRows();
+            mDialogRowsView.measure(WRAP_CONTENT, WRAP_CONTENT);
+            targetWidth = mDialogRowsView.getMeasuredWidth();
+        } else {
+            targetWidth = resources.getDimensionPixelSize(R.dimen.volume_dialog_panel_width);
+        }
+        Animation a = new Animation()
+        {
+            @Override
+            protected void applyTransformation(float interpolatedTime, Transformation t) {
+                mDialogRowsView.getLayoutParams().width = expand
+                        ? (int)((targetWidth - startWidth) * interpolatedTime + startWidth)
+                        : (int)(startWidth - (startWidth - targetWidth) * interpolatedTime);
+                mDialogRowsView.requestLayout();
+            }
+
+            @Override
+            public boolean willChangeBounds() {
+                return true;
+            }
+        };
+        if (!expand) {
+            a.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) { }
+
+                @Override
+                public void onAnimationEnd(Animation animation){
+                    updateExpandedRows();
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) { }
+            });
+        }
+        a.setDuration(expand ? DIALOG_SHOW_ANIMATION_DURATION : DIALOG_HIDE_ANIMATION_DURATION);
+
+        mDialogRowsView.startAnimation(a);
+    }
+
     public void initSettingsH() {
         if (mMediaOutputView != null) {
             mMediaOutputView.setVisibility(
@@ -567,16 +628,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         }
         if (mExpandRows != null) {
             mExpandRows.setOnClickListener(v -> {
-                if (mMusicHidden) {
-                    Util.setVisOrGone(findRow(AudioManager.STREAM_MUSIC).view,
-                            !mExpanded);
-                }
-                Util.setVisOrGone(findRow(AudioManager.STREAM_RING).view, !mExpanded);
-                Util.setVisOrGone(findRow(STREAM_ALARM).view, !mExpanded);
-                if (!isNotificationVolumeLinked()) {
-                    Util.setVisOrGone(
-                            findRow(AudioManager.STREAM_NOTIFICATION).view, !mExpanded);
-                }
+                animateExpandedRowsChange(!mExpanded);
 
                 if (mExpanded) mController.setActiveStream(mAllyStream);
                 mExpandRows.setExpanded(!mExpanded);
@@ -865,6 +917,9 @@ public class VolumeDialogImpl implements VolumeDialog,
                     mDialog.dismiss();
                     tryToRemoveCaptionsTooltip();
                     mExpanded = false;
+                    mDialogRowsView.getLayoutParams().width = mContext.getResources()
+                            .getDimensionPixelSize(R.dimen.volume_dialog_panel_width);
+                    updateExpandedRows();
                     mExpandRows.setExpanded(mExpanded);
                     mAllyStream = -1;
                     mMusicHidden = false;
