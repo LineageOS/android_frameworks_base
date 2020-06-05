@@ -341,7 +341,8 @@ public class A2dpProfile implements LocalBluetoothProfile {
             return mContext.getString(unknownCodecId);
         }
         return mContext.getString(R.string.bluetooth_profile_a2dp_high_quality,
-                mContext.getResources().getStringArray(R.array.bluetooth_a2dp_codec_titles)[index]);
+                mContext.getResources().getStringArray(
+                        R.array.bluetooth_a2dp_codec_titles_cm)[index]);
     }
 
     public String toString() {
