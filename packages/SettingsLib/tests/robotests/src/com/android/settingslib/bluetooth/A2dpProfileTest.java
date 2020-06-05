@@ -146,7 +146,7 @@ public class A2dpProfileTest {
 
         final Resources res = mock(Resources.class);
         when(mContext.getResources()).thenReturn(res);
-        when(res.getStringArray(eq(R.array.bluetooth_a2dp_codec_titles)))
+        when(res.getStringArray(eq(R.array.bluetooth_a2dp_codec_titles_cm)))
                 .thenReturn(CODEC_NAMES);
 
         // Most tests want to simulate optional codecs being supported by the device, so do that
