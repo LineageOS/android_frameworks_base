@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eac40cec_28236a14",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-06-05T22:27:16Z",
+      "side": 1,
+      "message": "@Stefano - I think this should resolve the issue you describe where an app update inherits blocked state if block for all new is enabled.  I was able to repro the bug.  Waiting for another app to need update to test that this fixes.",
+      "revId": "293ff04858a09c0ca761720a2b93fc7f58f3d313",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
