@@ -16,6 +16,24 @@
       "revId": "293ff04858a09c0ca761720a2b93fc7f58f3d313",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96c94a1c_9bdd8b2d",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-06-06T06:13:06Z",
+      "side": 1,
+      "message": "Yep, seems to have fixed it.",
+      "parentUuid": "eac40cec_28236a14",
+      "revId": "293ff04858a09c0ca761720a2b93fc7f58f3d313",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
