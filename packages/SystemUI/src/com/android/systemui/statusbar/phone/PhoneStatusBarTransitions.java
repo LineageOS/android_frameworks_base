@@ -29,24 +29,22 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
     private static final float ICON_ALPHA_WHEN_LIGHTS_OUT_BATTERY_CLOCK = 0.5f;
     private static final float ICON_ALPHA_WHEN_LIGHTS_OUT_NON_BATTERY_CLOCK = 0;
 
-    private final PhoneStatusBarView mView;
     private final float mIconAlphaWhenOpaque;
 
-    private View mLeftSide, mStatusIcons, mNetworkTraffic, mBattery, mClock;
+    private View mLeftSide, mStatusIcons, mNetworkTraffic, mBattery;
     private Animator mCurrentAnimation;
 
-    public PhoneStatusBarTransitions(PhoneStatusBarView view) {
-        super(view, R.drawable.status_background);
-        mView = view;
-        final Resources res = mView.getContext().getResources();
+    /**
+     * @param backgroundView view to apply the background drawable
+     */
+    public PhoneStatusBarTransitions(PhoneStatusBarView statusBarView, View backgroundView) {
+        super(backgroundView, R.drawable.status_background);
+        final Resources res = statusBarView.getContext().getResources();
         mIconAlphaWhenOpaque = res.getFraction(R.dimen.status_bar_icon_drawing_alpha, 1, 1);
-    }
-
-    public void init() {
-        mLeftSide = mView.findViewById(R.id.status_bar_left_side);
-        mStatusIcons = mView.findViewById(R.id.statusIcons);
-        mNetworkTraffic = mView.findViewById(R.id.network_traffic);
-        mBattery = mView.findViewById(R.id.battery);
+        mLeftSide = statusBarView.findViewById(R.id.status_bar_left_side);
+        mStatusIcons = statusBarView.findViewById(R.id.statusIcons);
+        mNetworkTraffic = statusBarView.findViewById(R.id.network_traffic);
+        mBattery = statusBarView.findViewById(R.id.battery);
         applyModeBackground(-1, getMode(), false /*animate*/);
         applyMode(getMode(), false /*animate*/);
     }
