@@ -18,10 +18,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="@dimen/qs_detail_header_padding"
-    android:paddingTop="@dimen/qs_detail_items_padding_top"
-    android:paddingBottom="@dimen/qs_detail_items_padding_top"
-    android:paddingEnd="@dimen/qs_panel_padding"
     android:background="@drawable/qs_detail_toolbar"
     android:orientation="vertical"
     android:gravity="center">
@@ -29,11 +25,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="@dimen/qs_detail_header_text_padding"
+        android:paddingEnd="@dimen/qs_detail_header_text_padding"
+        android:paddingTop="@dimen/qs_detail_items_padding_top"
+        android:paddingBottom="@dimen/qs_detail_items_padding_top"
         android:orientation="horizontal">
 
         <TextView
             android:id="@android:id/title"
-            android:paddingStart="@dimen/qs_detail_header_text_padding"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
