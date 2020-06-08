@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29c2790d_79445be8",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-06-08T17:34:12Z",
+      "side": 1,
+      "message": "animator?",
+      "revId": "f6af956f1463c332b09847733c7a1ec1d4b28afe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae4c4dbb_7fd23795",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-06-08T17:34:12Z",
+      "side": 1,
+      "message": "weird styling",
+      "revId": "f6af956f1463c332b09847733c7a1ec1d4b28afe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
