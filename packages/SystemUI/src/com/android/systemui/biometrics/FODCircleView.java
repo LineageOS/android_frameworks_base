@@ -52,6 +52,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class FODCircleView extends ImageView {
+    private static final int FADE_ANIM_DURATION = 250;
+
     private final int mPositionX;
     private final int mPositionY;
     private final int mSize;
@@ -73,6 +75,7 @@ public class FODCircleView extends ImageView {
     private int mColorBackground;
 
     private boolean mIsBiometricRunning;
+    private boolean mFading;
     private boolean mIsBouncer;
     private boolean mIsDreaming;
     private boolean mIsCircleShowing;
@@ -298,6 +301,7 @@ public class FODCircleView extends ImageView {
     }
 
     public void dispatchPress() {
+        if (mFading) return;
         IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
         try {
             daemon.onPress();
@@ -334,6 +338,7 @@ public class FODCircleView extends ImageView {
     }
 
     public void showCircle() {
+        if (mFading) return;
         mIsCircleShowing = true;
 
         setKeepScreenOn(true);
@@ -380,12 +385,25 @@ public class FODCircleView extends ImageView {
 
         updatePosition();
 
-        dispatchShow();
         setVisibility(View.VISIBLE);
+        animate().withStartAction(() -> mFading = true)
+                .alpha(mIsDreaming ? 0.5f : 1.0f)
+                .setDuration(FADE_ANIM_DURATION)
+                .withEndAction(() -> mFading = false)
+                .start();
+        dispatchShow();
     }
 
     public void hide() {
-        setVisibility(View.GONE);
+        animate().withStartAction(() -> mFading = true)
+                .alpha(0)
+                .setDuration(FADE_ANIM_DURATION)
+                .withEndAction(() -> {
+                    setVisibility(View.GONE);
+                    mFading = false;
+                })
+                .start();
+
         hideCircle();
         dispatchHide();
     }
