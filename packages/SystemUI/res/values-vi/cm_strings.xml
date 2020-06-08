@@ -61,4 +61,6 @@
     <string name="quick_settings_usb_tether_label">Kết nối mạng qua USB</string>
     <string name="quick_settings_volume_panel_label">Bảng điều khiển âm lượng</string>
     <string name="status_bar_location">Vị trí</string>
+    <string name="screen_pinning_description_no_navbar">Thao tác này sẽ duy trì hiển thị màn hình cho đến khi bạn bỏ ghim. Chạm &amp; giữ Quay lại để bỏ ghim.</string>
+    <string name="screen_pinning_toast_no_navbar">Để bỏ ghim màn hình này, chạm &amp; giữ nút Quay lại</string>
 </resources>

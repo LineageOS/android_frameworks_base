@@ -69,6 +69,12 @@
     <string name="vpn_credentials_username">Nome de utilizador</string>
     <string name="vpn_credentials_password">Palavra-passe</string>
     <string name="vpn_credentials_dialog_connect">Ligar</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD desligado\nPoupança de bateria</string>
     <string name="status_bar_battery">Bateria</string>
+    <string name="status_bar_camera">Câmara</string>
     <string name="status_bar_location">Localização</string>
+    <string name="status_bar_microphone">Microfone</string>
+    <string name="screen_pinning_description_no_navbar">Irá ficar visível até que o solte. Toque e segure o botão Anterior para soltar.</string>
+    <string name="screen_pinning_toast_no_navbar">Para soltar este ecrã, toque prolongadamente no botão Anterior</string>
 </resources>

@@ -15,7 +15,7 @@
  */
 package com.android.systemui.tuner;
 
-import static com.android.systemui.Dependency.BG_HANDLER_NAME;
+import static com.android.systemui.Dependency.MAIN_HANDLER_NAME;
 
 import android.app.ActivityManager;
 import android.content.ContentResolver;
@@ -72,21 +72,11 @@ public class TunerServiceImpl extends TunerService {
 
     // Things that use the tunable infrastructure but are now real user settings and
     // shouldn't be reset with tuner settings.
+    // Do not add Lineage specific keys here as they are blacklisted automatically
     private static final String[] RESET_BLACKLIST = new String[] {
-            BatteryMeterView.STATUS_BAR_BATTERY_STYLE,
-            Clock.CLOCK_STYLE,
-            ClockController.CLOCK_POSITION,
-            EdgeBackGestureHandler.KEY_EDGE_LONG_SWIPE_ACTION,
-            NavigationBarView.NAVIGATION_BAR_MENU_ARROW_KEYS,
-            NotificationPanelView.DOUBLE_TAP_SLEEP_GESTURE,
-            NotificationPanelView.STATUS_BAR_QUICK_QS_PULLDOWN,
-            NotificationStackScrollLayout.LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED,
             QSTileHost.TILES_SETTING,
             Settings.Secure.DOZE_ALWAYS_ON,
-            StatusBar.FORCE_SHOW_NAVBAR,
             StatusBar.SCREEN_BRIGHTNESS_MODE,
-            StatusBar.STATUS_BAR_BRIGHTNESS_CONTROL,
-            VolumeDialogImpl.SETTING_VOLUME_PANEL_ON_LEFT,
     };
 
     private final Observer mObserver = new Observer();
@@ -106,7 +96,7 @@ public class TunerServiceImpl extends TunerService {
     /**
      */
     @Inject
-    public TunerServiceImpl(Context context, @Named(BG_HANDLER_NAME) Handler bgHandler,
+    public TunerServiceImpl(Context context, @Named(MAIN_HANDLER_NAME) Handler mainHandler,
             LeakDetector leakDetector) {
         mContext = context;
         mContentResolver = mContext.getContentResolver();
@@ -115,7 +105,7 @@ public class TunerServiceImpl extends TunerService {
         for (UserInfo user : UserManager.get(mContext).getUsers()) {
             mCurrentUser = user.getUserHandle().getIdentifier();
             if (getValue(TUNER_VERSION, 0) != CURRENT_TUNER_VERSION) {
-                upgradeTuner(getValue(TUNER_VERSION, 0), CURRENT_TUNER_VERSION, bgHandler);
+                upgradeTuner(getValue(TUNER_VERSION, 0), CURRENT_TUNER_VERSION, mainHandler);
             }
         }
 
@@ -136,7 +126,7 @@ public class TunerServiceImpl extends TunerService {
         mUserTracker.stopTracking();
     }
 
-    private void upgradeTuner(int oldVersion, int newVersion, Handler bgHandler) {
+    private void upgradeTuner(int oldVersion, int newVersion, Handler mainHandler) {
         if (oldVersion < 1) {
             String blacklistStr = getValue(StatusBarIconController.ICON_BLACKLIST);
             if (blacklistStr != null) {
@@ -158,10 +148,14 @@ public class TunerServiceImpl extends TunerService {
         if (oldVersion < 4) {
             // Delay this so that we can wait for everything to be registered first.
             final int user = mCurrentUser;
-            bgHandler.postDelayed(
+            mainHandler.postDelayed(
                     () -> clearAllFromUser(user), 5000);
         }
         setValue(TUNER_VERSION, newVersion);
+    }
+
+    private boolean isLineageSetting(String key) {
+        return isLineageGlobal(key) || isLineageSystem(key) || isLineageSecure(key);
     }
 
     private boolean isLineageGlobal(String key) {
@@ -370,7 +364,7 @@ public class TunerServiceImpl extends TunerService {
         mContext.sendBroadcast(intent);
 
         for (String key : mTunableLookup.keySet()) {
-            if (ArrayUtils.contains(RESET_BLACKLIST, key)) {
+            if (ArrayUtils.contains(RESET_BLACKLIST, key) || isLineageSetting(key)) {
                 continue;
             }
             setValue(key, null);

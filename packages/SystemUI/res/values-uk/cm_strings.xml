@@ -51,4 +51,5 @@
     <string name="quick_settings_usb_tether_label">USB-модем</string>
     <string name="quick_settings_volume_panel_label">Панель гучності</string>
     <string name="status_bar_location">Місцезнаходження</string>
+    <string name="screen_pinning_description_no_navbar">Ви постійно бачитимете екран, доки не відкріпите його. Щоб відкріпити екран, натисніть і утримуйте кнопку \"Назад\".</string>
 </resources>

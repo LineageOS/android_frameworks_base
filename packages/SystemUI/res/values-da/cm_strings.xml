@@ -49,4 +49,6 @@
     <string name="quick_settings_volume_panel_label">Lydstyrke-panel</string>
     <string name="status_bar_battery">Batteri</string>
     <string name="status_bar_location">Placering</string>
+    <string name="screen_pinning_description_no_navbar">Dette fastholder den i visning, indtil du frigør. Rør &amp; hold Tilbage nede, for at frigøre.</string>
+    <string name="screen_pinning_toast_no_navbar">Rør &amp; hold Tilbage-knap nede, for at frigøre denne skærm.</string>
 </resources>

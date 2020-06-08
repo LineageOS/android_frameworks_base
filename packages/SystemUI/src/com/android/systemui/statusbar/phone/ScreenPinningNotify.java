@@ -17,8 +17,12 @@
 package com.android.systemui.statusbar.phone;
 
 import android.content.Context;
+import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Slog;
+import android.view.IWindowManager;
+import android.view.WindowManager;
+import android.view.WindowManagerGlobal;
 import android.widget.Toast;
 
 import com.android.systemui.R;
@@ -60,11 +64,13 @@ public class ScreenPinningNotify {
         if (mLastToast != null) {
             mLastToast.cancel();
         }
-        mLastToast = makeAllUserToastAndShow(isGestureNavEnabled
-                ? R.string.screen_pinning_toast_gesture_nav
-                : isRecentsButtonVisible
-                        ? R.string.screen_pinning_toast
-                        : R.string.screen_pinning_toast_recents_invisible);
+        mLastToast = makeAllUserToastAndShow(!hasNavigationBar()
+                ? R.string.screen_pinning_toast_no_navbar
+                : isGestureNavEnabled
+                        ? R.string.screen_pinning_toast_gesture_nav
+                        : isRecentsButtonVisible
+                                ? R.string.screen_pinning_toast
+                                : R.string.screen_pinning_toast_recents_invisible);
         mLastShowToastTime = showToastTime;
     }
 
@@ -73,4 +79,14 @@ public class ScreenPinningNotify {
         toast.show();
         return toast;
     }
+
+    private boolean hasNavigationBar() {
+        IWindowManager windowManagerService = WindowManagerGlobal.getWindowManagerService();
+        try {
+            return windowManagerService.hasNavigationBar(mContext.getDisplayId());
+        } catch (RemoteException e) {
+            // ignore
+        }
+        return false;
+     }
 }

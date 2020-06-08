@@ -67,6 +67,11 @@
     <string name="vpn_credentials_username">ชื่อผู้ใช้</string>
     <string name="vpn_credentials_password">รหัสผ่าน</string>
     <string name="vpn_credentials_dialog_connect">เชื่อมต่อ</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD ถูกปิด\nประหยัดพลังงาน</string>
     <string name="status_bar_battery">แบตเตอรี่</string>
+    <string name="status_bar_camera">กล้อง</string>
     <string name="status_bar_location">ตำแหน่ง</string>
+    <string name="status_bar_microphone">ไมโครโฟน</string>
+    <string name="screen_pinning_description_no_navbar">การดำเนินการนี้จะเก็บไว้จนกว่าคุณจะเลิกปักหมุด แตะ &amp; ค้างปุ่มกลับเพื่อเลิกปักหมุด</string>
+    <string name="screen_pinning_toast_no_navbar">เพื่อยกเลิกการปักหมุดหน้าจอนี้ ให้แตะ &amp; กดปุ่มกลับค้าง</string>
 </resources>

@@ -58,4 +58,6 @@
     <string name="accessibility_quick_settings_profiles_changed_off">ಪ್ರೊಫೈಲ್ಸ್ ಆಫ್ ಆಗಿದೆ.</string>
     <string name="accessibility_quick_settings_profiles_changed">ಪ್ರೊಫೈಲ್ <xliff:g id="profile" example="Default">%s</xliff:g>ಗೆ ಬದಲಾಗಿದೆ.</string>
     <string name="quick_settings_usb_tether_label">ಯುಎಸ್‍ಬಿ ಟೆಥರಿಂಗ್</string>
+    <string name="screen_pinning_description_no_navbar">ಇದನ್ನು ನೀವು ಬಿಚ್ಚಿಡುವವರೆಗೂ ವೀಕ್ಷಣೆಯಲ್ಲಿ ಇರಿಸುತ್ತದೆ. ಬಿಚ್ಚಿಡಲು ಹಿಂದೆ ಗುಂಡಿಯನ್ನು ಒತ್ತಿ ಹಿಡಿಯಿರಿ.</string>
+    <string name="screen_pinning_toast_no_navbar">ಈ ಪರದೆಯನ್ನು ಕಿತ್ತಲು ಹಿಂದೆ-ಗುಂಡಿ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿದುಕೊಳ್ಳಿ</string>
 </resources>

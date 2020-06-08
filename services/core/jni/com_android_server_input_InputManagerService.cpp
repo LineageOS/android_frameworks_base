@@ -228,6 +228,7 @@ public:
     void reloadPointerIcons();
     void setCustomPointerIcon(const SpriteIcon& icon);
     void setPointerCapture(bool enabled);
+    void setMotionClassifierEnabled(bool enabled);
 
     /* --- InputReaderPolicyInterface implementation --- */
 
@@ -1334,6 +1335,10 @@ int32_t NativeInputManager::getCustomPointerIconId() {
     return POINTER_ICON_STYLE_CUSTOM;
 }
 
+void NativeInputManager::setMotionClassifierEnabled(bool enabled) {
+    mInputManager->setMotionClassifierEnabled(enabled);
+}
+
 // ----------------------------------------------------------------------------
 
 static jlong nativeInit(JNIEnv* env, jclass /* clazz */,
@@ -1773,6 +1778,14 @@ static jboolean nativeCanDispatchToDisplay(JNIEnv* env, jclass /* clazz */, jlon
     return im->getInputManager()->getReader()->canDispatchToDisplay(deviceId, displayId);
 }
 
+static void nativeSetMotionClassifierEnabled(JNIEnv* /* env */, jclass /* clazz */, jlong ptr,
+                                             jboolean enabled) {
+    NativeInputManager* im = reinterpret_cast<NativeInputManager*>(ptr);
+
+    im->setMotionClassifierEnabled(enabled);
+}
+
+
 // ----------------------------------------------------------------------------
 
 static const JNINativeMethod gInputManagerMethods[] = {
@@ -1858,6 +1871,8 @@ static const JNINativeMethod gInputManagerMethods[] = {
             (void*) nativeSetCustomPointerIcon },
     { "nativeCanDispatchToDisplay", "(JII)Z",
             (void*) nativeCanDispatchToDisplay },
+    {"nativeSetMotionClassifierEnabled", "(JZ)V",
+            (void*) nativeSetMotionClassifierEnabled},
 };
 
 #define FIND_CLASS(var, className) \

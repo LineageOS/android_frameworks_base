@@ -69,6 +69,12 @@
     <string name="vpn_credentials_username">Enw defnyddiwr</string>
     <string name="vpn_credentials_password">Cyfrinair</string>
     <string name="vpn_credentials_dialog_connect">Cysylltu</string>
+    <string name="quick_settings_aod_label">DYOH</string>
+    <string name="quick_settings_aod_off_powersave_label">DYOH i ffwrdd\nArbedwr batri</string>
     <string name="status_bar_battery">Batri</string>
+    <string name="status_bar_camera">Camera</string>
     <string name="status_bar_location">Lleoliad</string>
+    <string name="status_bar_microphone">Meicroffon</string>
+    <string name="screen_pinning_description_no_navbar">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei dadbinio. Cyffyrdda a dal Nôl i\'w dadbinio.</string>
+    <string name="screen_pinning_toast_no_navbar">I ddadbinio\'r sgrin, cyffyrdda a dal y botwm Nôl</string>
 </resources>

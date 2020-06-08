@@ -63,4 +63,6 @@
     <string name="quick_settings_volume_panel_label">لوحة مستوى الصوت</string>
     <string name="status_bar_battery">البطارية</string>
     <string name="status_bar_location">الموقع</string>
+    <string name="screen_pinning_description_no_navbar">يؤدي هذا إلى استمرار العرض إلى أن يتم إزالة التثبيت. ويمكنك لمس مع الاستمرار لإزالة التثبيت.</string>
+    <string name="screen_pinning_toast_no_navbar">لإلغاء تثبيت هذه الشاشة، استمر&amp; بالضغط على زر الرجوع</string>
 </resources>

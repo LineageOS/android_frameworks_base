@@ -69,4 +69,5 @@
     <string name="vpn_credentials_password">Лозинка</string>
     <string name="vpn_credentials_dialog_connect">Повежи се</string>
     <string name="status_bar_location">Локација</string>
+    <string name="screen_pinning_description_no_navbar">Ово се стално приказује док га не уклониш. Додирни &amp; и задржи Назад да би га уклонио.</string>
 </resources>

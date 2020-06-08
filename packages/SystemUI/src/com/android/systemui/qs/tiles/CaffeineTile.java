@@ -121,8 +121,10 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleLongClick() {
-        if (mWakeLock.isHeld() && mDuration == INFINITE_DURATION_INDEX) return;
-        if (!mWakeLock.isHeld()) {
+        if (mWakeLock.isHeld()) {
+            if (mDuration == INFINITE_DURATION_INDEX)
+                return;
+        } else {
             mWakeLock.acquire();
         }
         mDuration = INFINITE_DURATION_INDEX;

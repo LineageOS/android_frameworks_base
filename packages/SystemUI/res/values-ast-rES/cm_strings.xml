@@ -62,4 +62,6 @@ emerxentes</string>
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <string name="quick_settings_volume_panel_label">Panel de volume</string>
     <string name="status_bar_location">Allugamientu</string>
+    <string name="screen_pinning_description_no_navbar">Amosaráse mentanto tez fixáu. Pa dexar de fixalo, caltén calcáu\'l botón Atrás.</string>
+    <string name="screen_pinning_toast_no_navbar">Pa desfixar esta pantalla, ten primíu\'l&amp; botón d\'Atrás</string>
 </resources>

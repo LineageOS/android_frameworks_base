@@ -71,4 +71,6 @@
     <string name="vpn_credentials_dialog_connect">Kapcsolódás</string>
     <string name="status_bar_battery">Akkumulátor</string>
     <string name="status_bar_location">Helymeghatározás</string>
+    <string name="screen_pinning_description_no_navbar">Megjelenítve tartja addig, amíg Ön fel nem oldja a rögzítést. A feloldáshoz érintse meg és tartsa lenyomva a Vissza gombot.</string>
+    <string name="screen_pinning_toast_no_navbar">A Képernyőrögzítés feloldásához érintse meg és tartsa nyomva a Vissza gombot</string>
 </resources>

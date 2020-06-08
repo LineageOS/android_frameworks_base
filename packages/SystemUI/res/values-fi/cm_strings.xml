@@ -63,4 +63,6 @@
     <string name="quick_settings_volume_panel_label">Äänenvoimakkuuspaneeli</string>
     <string name="status_bar_battery">Akku</string>
     <string name="status_bar_location">Sijainti</string>
+    <string name="screen_pinning_description_no_navbar">Tämä pitää sen näkyvissä, kunnes peruutat kiinnityksen. Peruuta kiinnitys koskettamalla Edellinen-kohtaa pitkään.</string>
+    <string name="screen_pinning_toast_no_navbar">Poistaaksesi tämän näytön kiinnityksen, paina Takasin-näppäintä pitkään</string>
 </resources>

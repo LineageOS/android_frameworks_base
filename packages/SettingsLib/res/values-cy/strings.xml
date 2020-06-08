@@ -267,7 +267,7 @@
     <string name="dev_settings_warning_message">Mae\'r gosodiadau hyn ar gyfer pwrpas datblygiad yn unig. Mae\'n bosib iddyn nhw achosi apiau i gamweithio neu i dorri dy ddyfais.</string>
     <string name="verify_apps_over_usb_title">Gwirio apiau dros USB</string>
     <string name="verify_apps_over_usb_summary">Gwirio apiau wedi\'u gosod trwy ADB/ADT am ymddygiad niweidiol.</string>
-    <string name="bluetooth_show_devices_without_names_summary">Caif dyfeisiau Bluetooth heb enwau (cyfeiriadau MAC yn unig) eu dangos</string>
+    <string name="bluetooth_show_devices_without_names_summary">Caiff dyfeisiau Bluetooth heb enwau (cyfeiriadau MAC yn unig) eu dangos</string>
     <string name="bluetooth_disable_absolute_volume_summary">Mae\'n analluogi nodwedd uchelder sain absoliwt y Bluetooth rhag ofn bod problemau lefel sain gyda dyfeisiau pell, megis sain yn rhy uchel neu ddiffyg rheolaeth.</string>
     <string name="enable_terminal_title">Terfynell leol</string>
     <string name="enable_terminal_summary">Galluogi ap terfynell sy\'n cynnig mynediad cragen leol</string>

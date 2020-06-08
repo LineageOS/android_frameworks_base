@@ -64,6 +64,7 @@ import android.graphics.Picture;
 import android.graphics.PixelFormat;
 import android.graphics.PointF;
 import android.graphics.Rect;
+import android.media.AudioManager;
 import android.media.MediaActionSound;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -77,6 +78,8 @@ import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.provider.DeviceConfig;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -112,7 +115,6 @@ import libcore.io.IoUtils;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -203,18 +205,8 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
         CharSequence appName = getRunningActivityName(context);
         boolean onKeyguard = context.getSystemService(KeyguardManager.class).isKeyguardLocked();
         if (!onKeyguard && appName != null) {
-            String appNameString = appName.toString();
-            try {
-                // With some languages like Virgin Islands English, the Settings app gets a weird
-                // long name and some special voodoo chars, so we convert the string to utf-8 to get
-                // a  char instead, easy to remove it then
-                final String temp = new String(appNameString.getBytes("ISO-8859-15"), "UTF-8");
-                appNameString = temp.replaceAll("[]+", "");
-            } catch (UnsupportedEncodingException e) {
-                // Do nothing
-            }
-            // Now replace all spaces and special chars with an underscore
-            appNameString = appNameString.replaceAll("[\\\\/:*?\"<>|\\s]+", "_");
+            // Replace all spaces and special chars with an underscore
+            String appNameString = appName.toString().replaceAll("[\\\\/:*?\"<>|\\s]+", "_");
             mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE_APPNAME,
                     imageDate, appNameString);
         } else {
@@ -672,6 +664,8 @@ class GlobalScreenshot {
     private AsyncTask<Void, Void, Void> mSaveInBgTask;
 
     private MediaActionSound mCameraSound;
+    private AudioManager mAudioManager;
+    private Vibrator mVibrator;
 
 
     /**
@@ -745,6 +739,10 @@ class GlobalScreenshot {
         // Setup the Camera shutter sound
         mCameraSound = new MediaActionSound();
         mCameraSound.load(MediaActionSound.SHUTTER_CLICK);
+
+        // Grab system services needed for screenshot sound
+        mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
     }
 
     /**
@@ -979,8 +977,21 @@ class GlobalScreenshot {
         mScreenshotLayout.post(new Runnable() {
             @Override
             public void run() {
-                // Play the shutter sound to notify that we've taken a screenshot
-                mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                switch (mAudioManager.getRingerMode()) {
+                    case AudioManager.RINGER_MODE_SILENT:
+                        // do nothing
+                        break;
+                    case AudioManager.RINGER_MODE_VIBRATE:
+                        if (mVibrator != null && mVibrator.hasVibrator()) {
+                            mVibrator.vibrate(VibrationEffect.createOneShot(50,
+                                    VibrationEffect.DEFAULT_AMPLITUDE));
+                        }
+                        break;
+                    case AudioManager.RINGER_MODE_NORMAL:
+                        // Play the shutter sound to notify that we've taken a screenshot
+                        mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                        break;
+                }
 
                 mScreenshotView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
                 mScreenshotView.buildLayer();
