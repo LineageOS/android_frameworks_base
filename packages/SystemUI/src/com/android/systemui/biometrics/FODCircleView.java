@@ -25,6 +25,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
+import android.hardware.biometrics.BiometricSourceType;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
@@ -71,9 +72,11 @@ public class FODCircleView extends ImageView {
     private int mColor;
     private int mColorBackground;
 
+    private boolean mIsBiometricRunning;
     private boolean mIsBouncer;
     private boolean mIsDreaming;
     private boolean mIsCircleShowing;
+    private boolean mIsKeyguard;
 
     private Handler mHandler;
 
@@ -100,9 +103,29 @@ public class FODCircleView extends ImageView {
 
     private KeyguardUpdateMonitorCallback mMonitorCallback = new KeyguardUpdateMonitorCallback() {
         @Override
+        public void onBiometricAuthenticated(int userId, BiometricSourceType biometricSourceType) {
+            // We assume that if biometricSourceType matches Fingerprint it will be
+            // handled here, so we hide only when other biometric types authenticate
+            if (biometricSourceType != BiometricSourceType.FINGERPRINT) hide();
+        }
+
+        @Override
+        public void onBiometricRunningStateChanged(boolean running,
+                BiometricSourceType biometricSourceType) {
+            if (biometricSourceType == BiometricSourceType.FINGERPRINT) {
+                mIsBiometricRunning = running;
+            }
+        }
+
+        @Override
         public void onDreamingStateChanged(boolean dreaming) {
             mIsDreaming = dreaming;
-            updateAlpha();
+
+            if (mIsKeyguard && mUpdateMonitor.isFingerprintDetectionRunning()) {
+                show();
+            } else {
+                hide();
+            }
 
             if (dreaming) {
                 mBurnInProtectionTimer = new Timer();
@@ -123,6 +146,17 @@ public class FODCircleView extends ImageView {
                 }
             } else {
                 hide();
+            }
+        }
+
+        @Override
+        public void onKeyguardVisibilityChanged(boolean showing) {
+            mIsKeyguard = showing;
+
+            if (!showing) {
+                hide();
+            } else {
+                updateAlpha();
             }
         }
 
@@ -331,6 +365,16 @@ public class FODCircleView extends ImageView {
 
         if (mIsBouncer && !isPinOrPattern(mUpdateMonitor.getCurrentUser())) {
             // Ignore show calls when Keyguard password screen is being shown
+            return;
+        }
+
+        if (mUpdateMonitor.getUserCanSkipBouncer(mUpdateMonitor.getCurrentUser())) {
+            // Ignore show calls if user can skip bouncer
+            return;
+        }
+
+        if (mIsKeyguard && !mIsBiometricRunning) {
+            // Ignore show calls if biometric state is false
             return;
         }
 
