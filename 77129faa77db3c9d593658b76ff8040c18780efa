@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ef572d1_0c4a7be4",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-06-08T16:50:44Z",
+      "side": 1,
+      "message": "Calling isHeld() twice unnecessarily.  Consider something like:\n\n    if (mWakeLock.isHeld()) { \n        if (mDuration \u003d\u003d INFINITE_DURATION_INDEX) {\n            return;\n        }\n    } else {\n        mWakeLock.acquire();\n    }",
+      "revId": "77129faa77db3c9d593658b76ff8040c18780efa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
