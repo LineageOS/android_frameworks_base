@@ -27,6 +27,7 @@ import android.net.Network;
 import android.net.wifi.IDppCallback;
 import android.net.wifi.INetworkRequestMatchCallback;
 import android.net.wifi.ISoftApCallback;
+import android.net.wifi.IStaStateCallback;
 import android.net.wifi.ITrafficStateCallback;
 import android.net.wifi.IOnWifiUsabilityStatsListener;
 import android.net.wifi.PasspointManagementObjectDefinition;
@@ -219,4 +220,8 @@ interface IWifiManager
     void stopDppSession();
 
     void updateWifiUsabilityScore(int seqNum, int score, int predictionHorizonSec);
+
+    void registerStaStateCallback(in IBinder binder, in IStaStateCallback callback, int callbackIdentifier);
+
+    void unregisterStaStateCallback(int callbackIdentifier);
 }

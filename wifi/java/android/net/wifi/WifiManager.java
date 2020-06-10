@@ -4552,6 +4552,71 @@ public class WifiManager {
     }
 
     /**
+     * @hide
+     */
+    public interface StaStateCallback {
+        /**
+         * @hide
+         */
+        void onStaToBeOff();
+    }
+
+    /**
+     * @hide
+     */
+    private class StaStateCallbackProxy extends IStaStateCallback.Stub {
+        private final Handler mHandler;
+        private final StaStateCallback mCallback;
+
+        StaStateCallbackProxy(Looper looper, StaStateCallback callback) {
+            mHandler = new Handler(looper);
+            mCallback = callback;
+        }
+
+        @Override
+        public void onStaToBeOff() {
+            if (mVerboseLoggingEnabled) {
+                Log.v(TAG, "StaStateCallbackProxy: onStaToBeOff");
+            }
+            mHandler.post(() -> {
+                mCallback.onStaToBeOff();
+            });
+        }
+    }
+
+    /**
+     * @hide
+     */
+    public void registerStaStateCallback(@NonNull StaStateCallback callback,
+                                             @Nullable Handler handler) {
+        if (callback == null) throw new IllegalArgumentException("callback cannot be null");
+        Log.v(TAG, "registerStaStateCallback: callback=" + callback + ", handler=" + handler);
+
+        Looper looper = (handler == null) ? mContext.getMainLooper() : handler.getLooper();
+        Binder binder = new Binder();
+        try {
+            mService.registerStaStateCallback(
+                    binder, new StaStateCallbackProxy(looper, callback), callback.hashCode());
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * @hide
+     */
+    public void unregisterStaStateCallback(@NonNull StaStateCallback callback) {
+        if (callback == null) throw new IllegalArgumentException("callback cannot be null");
+        Log.v(TAG, "unregisterStaStateCallback: callback=" + callback);
+
+        try {
+            mService.unregisterStaStateCallback(callback.hashCode());
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
      * Helper method to update the local verbose logging flag based on the verbose logging
      * level from wifi service.
      */
