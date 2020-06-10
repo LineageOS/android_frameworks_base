@@ -25,6 +25,7 @@ import android.net.wifi.IDppCallback;
 import android.net.wifi.INetworkRequestMatchCallback;
 import android.net.wifi.IOnWifiUsabilityStatsListener;
 import android.net.wifi.ISoftApCallback;
+import android.net.wifi.IStaStateCallback;
 import android.net.wifi.ITrafficStateCallback;
 import android.net.wifi.IWifiManager;
 import android.net.wifi.ScanResult;
@@ -479,6 +480,17 @@ public class BaseWifiService extends IWifiManager.Stub {
 
     @Override
     public void updateWifiUsabilityScore(int seqNum, int score, int predictionHorizonSec) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void registerStaStateCallback(
+            IBinder binder, IStaStateCallback callback, int callbackIdentifier) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void unregisterStaStateCallback(int callbackIdentifier) {
         throw new UnsupportedOperationException();
     }
 }
