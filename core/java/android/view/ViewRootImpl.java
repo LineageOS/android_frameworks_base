@@ -1211,10 +1211,14 @@ public final class ViewRootImpl implements ViewParent,
         if (mAttachInfo.mThreadedRenderer == null) return;
 
         boolean useAutoDark = getNightMode() == Configuration.UI_MODE_NIGHT_YES;
+        // Check if override is enabled
+        useAutoDark = useAutoDark || mContext.getApplicationInfo().forceDarkOverride;
 
         if (useAutoDark) {
             boolean forceDarkAllowedDefault =
-                    SystemProperties.getBoolean(ThreadedRenderer.DEBUG_FORCE_DARK, false);
+                    SystemProperties.getBoolean(ThreadedRenderer.DEBUG_FORCE_DARK,
+                        mContext.getApplicationInfo().forceDarkOverride);
+
             TypedArray a = mContext.obtainStyledAttributes(R.styleable.Theme);
             useAutoDark = a.getBoolean(R.styleable.Theme_isLightTheme, true)
                     && a.getBoolean(R.styleable.Theme_forceDarkAllowed, forceDarkAllowedDefault);

@@ -60,6 +60,7 @@ message ApplicationInfoProto {
         optional int32 target_sdk_version = 3;
         optional int32 version_code = 4;
         optional int32 target_sandbox_version = 5;
+        optional bool force_dark_override = 6;
     }
     optional Version version = 16;
 

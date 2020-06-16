@@ -7497,4 +7497,8 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
     public boolean shouldForceLongScreen(String packageName) {
         return mLineageActivityManager.shouldForceLongScreen(packageName);
     }
+
+    public boolean shouldForceDarkTheme(String packageName) {
+        return mLineageActivityManager.shouldForceDarkTheme(packageName);
+    }
 }
