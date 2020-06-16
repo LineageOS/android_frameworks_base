@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Animatable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Pair;
 import android.util.SparseArray;
 import android.view.DisplayCutout;
@@ -159,16 +160,18 @@ public class QSDetail extends LinearLayout {
         DisplayCutout cutout = insets.getDisplayCutout();
         Pair<Integer, Integer> padding = PhoneStatusBarView.cornerCutoutMargins(
                 cutout, getDisplay());
+        int paddingTopBottom = getResources().getDimensionPixelSize(
+                R.dimen.qs_detail_items_padding_top);
         if (padding == null) {
             mQsDetailHeader.setPaddingRelative(
                     getResources().getDimensionPixelSize(R.dimen.qs_detail_header_padding),
-                    getPaddingTop(),
-                    getResources().getDimensionPixelSize(R.dimen.qs_detail_header_padding),
-                    getPaddingBottom()
+                    paddingTopBottom,
+                    getResources().getDimensionPixelSize(R.dimen.qs_panel_padding),
+                    paddingTopBottom
             );
         } else {
-            mQsDetailHeader.setPadding(padding.first, getPaddingTop(),
-                    padding.second, getPaddingBottom());
+            mQsDetailHeader.setPadding(padding.first, paddingTopBottom,
+                    padding.second, paddingTopBottom);
         }
         return super.onApplyWindowInsets(insets);
     }
