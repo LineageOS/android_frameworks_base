@@ -159,16 +159,12 @@ public class QSDetail extends LinearLayout {
         DisplayCutout cutout = insets.getDisplayCutout();
         Pair<Integer, Integer> padding = PhoneStatusBarView.cornerCutoutMargins(
                 cutout, getDisplay());
-        if (padding == null) {
-            mQsDetailHeader.setPaddingRelative(
-                    getResources().getDimensionPixelSize(R.dimen.qs_detail_header_padding),
-                    getPaddingTop(),
-                    getResources().getDimensionPixelSize(R.dimen.qs_detail_header_padding),
-                    getPaddingBottom()
+        if (padding != null) {
+            mQsDetailHeader.setPadding(padding.first,
+                    getResources().getDimensionPixelSize(R.dimen.qs_detail_items_padding_top),
+                    padding.second,
+                    getResources().getDimensionPixelSize(R.dimen.qs_detail_items_padding_top)
             );
-        } else {
-            mQsDetailHeader.setPadding(padding.first, getPaddingTop(),
-                    padding.second, getPaddingBottom());
         }
         return super.onApplyWindowInsets(insets);
     }
