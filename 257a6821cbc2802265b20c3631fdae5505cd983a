@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d36b525a_d8b763d3",
+        "filename": "packages/SystemUI/src/com/android/keyguard/clock/LineageClockController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-06-16T22:56:22Z",
+      "side": 1,
+      "message": "FYI - extra newline I added is to conform to AOSP style guideline:\nhttps://source.android.com/setup/contribute/code-style#use-javadoc-standard-comments",
+      "revId": "257a6821cbc2802265b20c3631fdae5505cd983a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
