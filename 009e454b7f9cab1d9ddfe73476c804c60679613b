@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97c71c7b_e2defe0e",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-06-16T20:45:40Z",
+      "side": 1,
+      "message": "If you really want to force the rows to be added on the right you can just use:\nmDialogRowsView.addView(row.view);\nI just used -1 for on left case so that we can use \"mVolumePanelOnLeft ? -1 : 0\" instead of a bigger if case.",
+      "revId": "009e454b7f9cab1d9ddfe73476c804c60679613b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
