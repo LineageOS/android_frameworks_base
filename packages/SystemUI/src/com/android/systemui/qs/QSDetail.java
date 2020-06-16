@@ -162,13 +162,13 @@ public class QSDetail extends LinearLayout {
         if (padding == null) {
             mQsDetailHeader.setPaddingRelative(
                     getResources().getDimensionPixelSize(R.dimen.qs_detail_header_padding),
-                    getPaddingTop(),
-                    getResources().getDimensionPixelSize(R.dimen.qs_detail_header_padding),
-                    getPaddingBottom()
+                    mQsDetailHeader.getPaddingTop(),
+                    getResources().getDimensionPixelSize(R.dimen.qs_panel_padding),
+                    mQsDetailHeader.getPaddingBottom()
             );
         } else {
-            mQsDetailHeader.setPadding(padding.first, getPaddingTop(),
-                    padding.second, getPaddingBottom());
+            mQsDetailHeader.setPadding(padding.first, mQsDetailHeader.getPaddingTop(),
+                    padding.second, mQsDetailHeader.getPaddingBottom());
         }
         return super.onApplyWindowInsets(insets);
     }
