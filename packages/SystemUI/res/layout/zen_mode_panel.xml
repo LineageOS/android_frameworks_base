@@ -15,17 +15,18 @@
      limitations under the License.
 -->
 <!-- extends LinearLayout -->
-<com.android.systemui.volume.ZenModePanel xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.systemui.volume.ZenModePanel
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/zen_mode_panel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipChildren="false" >
+    android:clipChildren="false"
+    android:background="@drawable/qs_background_primary">
 
     <LinearLayout
         android:id="@+id/edit_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?android:attr/colorPrimary"
         android:clipChildren="false"
         android:orientation="vertical">
 
@@ -129,7 +130,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="?android:attr/colorPrimary"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -152,7 +152,6 @@
         android:id="@+id/auto_rule"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?android:attr/colorPrimary"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
