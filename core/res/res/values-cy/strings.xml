@@ -1361,7 +1361,6 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="wifi_cannot_connect_with_randomized_mac_title">Methu â chysylltu â <xliff:g id="ssid" example="SSID_1">%1$s</xliff:g></string>
     <string name="wifi_cannot_connect_with_randomized_mac_message">Tapia i newid gosodiadau preifatrwydd a cheisio eto</string>
     <string name="wifi_disable_mac_randomization_dialog_title">Newid gosodiad preifatrwydd?</string>
-    <string name="wifi_disable_mac_randomization_dialog_message">Gall fod <xliff:g id="ssid" example="SSID_1">%1$s</xliff:g> eisiau cysylltu gan ddefnyddio cyfeiriad MAC dy ddyfais, dynodwr unigryw. Gall hyn caniatáu i ddyfeisiau cyfagos wybod lleoliad dy ddyfais.\n\nOs rwyt yn parhau, bydd <xliff:g id="ssid" example="SSID_1">%1$s</xliff:g> yn newid dy osodiad preifatrwydd ac yn ceisio cysylltu eto.</string>
     <string name="wifi_disable_mac_randomization_dialog_confirm_text">Newid gosodiad</string>
     <string name="wifi_disable_mac_randomization_dialog_success">Diweddarwyd y gosodiad. Ceisia gysylltu eto.</string>
     <string name="wifi_disable_mac_randomization_dialog_failure">Methu â newid gosodiad preifatrwydd</string>

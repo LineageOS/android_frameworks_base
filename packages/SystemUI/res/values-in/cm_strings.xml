@@ -70,7 +70,9 @@
     <string name="vpn_credentials_password">Kata sandi</string>
     <string name="vpn_credentials_dialog_connect">Hubungkan</string>
     <string name="status_bar_battery">Baterai</string>
+    <string name="status_bar_camera">Kamera</string>
     <string name="status_bar_location">Lokasi</string>
+    <string name="status_bar_microphone">Mikrofon</string>
     <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh &amp; tahan tombol Kembali untuk melepas sematan.</string>
     <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar ini, sentuh &amp; tahan tombol Kembali</string>
 </resources>

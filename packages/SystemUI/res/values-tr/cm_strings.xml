@@ -71,6 +71,10 @@
     <string name="vpn_credentials_dialog_connect">Bağlan</string>
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD kapalı\nPil tasarrufu</string>
+    <string name="quick_settings_powershare_label">Kablosuz Güç Paylaşımı</string>
+    <string name="quick_settings_powershare_off_powersave_label">Kablosuz Güç Paylaşımı kapalı\nPil tasarrufu</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Kablosuz Güç Paylaşımı\nPil seviyesi çok düşük</string>
+    <string name="quick_settings_powershare_enabled_label">Kablosuz Güç Paylaşımı etkin</string>
     <string name="status_bar_battery">Pil</string>
     <string name="status_bar_camera">Kamera</string>
     <string name="status_bar_location">Konum</string>

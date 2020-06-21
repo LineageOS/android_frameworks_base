@@ -178,10 +178,7 @@
     <string name="data_connection_4g_plus">4G+</string>
     <string name="data_connection_lte">LTE</string>
     <string name="data_connection_lte_plus">LTE+</string>
-    <string name="data_connection_5ge" translate="false">5Ge</string>
     <string name="data_connection_5ge_html" translate="false"> &lt;i&gt;5G &lt;small&gt;E&lt;/small&gt;&lt;/i&gt; </string>
-    <string name="data_connection_5g" translate="false">5G</string>
-    <string name="data_connection_5g_plus" translate="false">5G+</string>
     <string name="data_connection_cdma">1X</string>
     <string name="data_connection_roaming">Crwydro</string>
     <string name="data_connection_edge">YMYL</string>
