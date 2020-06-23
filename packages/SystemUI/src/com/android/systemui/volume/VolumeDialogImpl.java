@@ -851,6 +851,13 @@ public class VolumeDialogImpl implements VolumeDialog,
                 return true;
             }
 
+            // if the active row is the default row, continue to display previous active row
+            // as user could switch active row to default stream by interaction and it is bad
+            // to see the row disappear
+            if (activeRow.defaultStream && row.stream == mPrevActiveStream) {
+                return true;
+            }
+
             if (row.defaultStream) {
                 return activeRow.stream == STREAM_RING
                         || activeRow.stream == STREAM_ALARM
