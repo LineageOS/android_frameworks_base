@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d5802ca_4ae821d5",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-06-23T22:12:16Z",
+      "side": 1,
+      "message": "We might want to move this to updateExpandedRows(), so that the correct stream is already selected while animating the small panel.",
+      "revId": "8de4ef549996b52f7faba88b80cfa7e7147cb50e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
