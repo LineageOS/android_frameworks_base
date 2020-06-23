@@ -23,6 +23,7 @@ import static android.media.AudioManager.RINGER_MODE_VIBRATE;
 import static android.media.AudioManager.STREAM_ACCESSIBILITY;
 import static android.media.AudioManager.STREAM_ALARM;
 import static android.media.AudioManager.STREAM_MUSIC;
+import static android.media.AudioManager.STREAM_NOTIFICATION;
 import static android.media.AudioManager.STREAM_RING;
 import static android.media.AudioManager.STREAM_VOICE_CALL;
 import static android.view.View.ACCESSIBILITY_LIVE_REGION_POLITE;
@@ -1672,6 +1673,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
 
             if (row.defaultStream) {
                 return activeRow.stream == STREAM_RING
+                        || activeRow.stream == STREAM_NOTIFICATION
                         || activeRow.stream == STREAM_ALARM
                         || activeRow.stream == STREAM_VOICE_CALL
                         || activeRow.stream == STREAM_ACCESSIBILITY
