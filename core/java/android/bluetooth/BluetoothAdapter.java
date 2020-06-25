@@ -3065,6 +3065,9 @@ public final class BluetoothAdapter {
         } else if (profile == BluetoothProfile.LE_AUDIO) {
             BluetoothLeAudio leAudio = new BluetoothLeAudio(context, listener, this);
             return true;
+        } else if (profile == BluetoothProfile.GROUP_CLIENT) {
+            BluetoothDeviceGroup groupClient = new BluetoothDeviceGroup(context, listener);
+            return true;
         } else {
             return false;
         }
@@ -3157,6 +3160,10 @@ public final class BluetoothAdapter {
             case BluetoothProfile.LE_AUDIO:
                 BluetoothLeAudio leAudio = (BluetoothLeAudio) proxy;
                 leAudio.close();
+            case BluetoothProfile.GROUP_CLIENT:
+                BluetoothDeviceGroup groupClient = (BluetoothDeviceGroup) proxy;
+                groupClient.close();
+                break;
         }
     }
 
