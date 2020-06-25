@@ -19,6 +19,7 @@ package com.android.settingslib.bluetooth;
 import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothA2dpSink;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDeviceGroup;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothHeadsetClient;
@@ -85,10 +86,11 @@ public class LocalBluetoothProfileManager {
 
     private final Context mContext;
     private final CachedBluetoothDeviceManager mDeviceManager;
-    private final BluetoothEventManager mEventManager;
+    protected final BluetoothEventManager mEventManager;
 
     private A2dpProfile mA2dpProfile;
     private A2dpSinkProfile mA2dpSinkProfile;
+    private DeviceGroupClientProfile mGroupClientProfile;
     private HeadsetProfile mHeadsetProfile;
     private HfpClientProfile mHfpClientProfile;
     private MapProfile mMapProfile;
@@ -219,6 +221,12 @@ public class LocalBluetoothProfileManager {
             }
             mSapProfile = new SapProfile(mContext, mDeviceManager, this);
             addProfile(mSapProfile, SapProfile.NAME, BluetoothSap.ACTION_CONNECTION_STATE_CHANGED);
+        }
+        if (mGroupClientProfile == null && supportedList.contains(BluetoothProfile.GROUP_CLIENT)) {
+            if (DEBUG) Log.d(TAG, "Adding local GROUP CLIENT profile");
+            mGroupClientProfile = new DeviceGroupClientProfile(mContext, mDeviceManager, this);
+            addProfile(mGroupClientProfile, mGroupClientProfile.NAME,
+                    BluetoothDeviceGroup.ACTION_CONNECTION_STATE_CHANGED);
         }
         mEventManager.registerProfileIntentReceiver();
     }
@@ -455,6 +463,9 @@ public class LocalBluetoothProfileManager {
         return mHidDeviceProfile;
     }
 
+    public DeviceGroupClientProfile getDeviceGroupClientProfile() {
+        return mGroupClientProfile;
+    }
     /**
      * Fill in a list of LocalBluetoothProfile objects that are supported by
      * the local device and the remote device.
