@@ -212,6 +212,8 @@ public class FODCircleView extends ImageView {
 
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         mUpdateMonitor.registerCallback(mMonitorCallback);
+
+        setImageResource(R.drawable.fod_icon_default);
     }
 
     @Override
@@ -307,16 +309,10 @@ public class FODCircleView extends ImageView {
 
         setDim(true);
         dispatchPress();
-
-        setImageDrawable(null);
-        invalidate();
     }
 
     public void hideCircle() {
         mIsCircleShowing = false;
-
-        setImageResource(R.drawable.fod_icon_default);
-        invalidate();
 
         dispatchRelease();
         setDim(false);
