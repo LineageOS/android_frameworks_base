@@ -31,6 +31,16 @@
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
+        <ImageView
+            android:id="@+id/ims_hd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="3dp"
+            android:paddingEnd="1dp"
+            android:src="@drawable/volte"
+            android:visibility="gone"
+            />
+
         <FrameLayout
             android:id="@+id/inout_container"
             android:layout_height="17dp"

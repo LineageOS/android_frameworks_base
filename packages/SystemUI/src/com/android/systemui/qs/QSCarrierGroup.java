@@ -209,7 +209,7 @@ public class QSCarrierGroup extends LinearLayout implements
             int qsType, boolean activityIn, boolean activityOut,
             CharSequence typeContentDescription,
             CharSequence typeContentDescriptionHtml, CharSequence description,
-            boolean isWide, int subId, boolean roaming) {
+            boolean isWide, int subId, boolean roaming, boolean mIsMobileIms) {
         int slotIndex = getSlotIndex(subId);
         if (slotIndex >= SIM_SLOTS) {
             Log.w(TAG, "setMobileDataIndicators - slot: " + slotIndex);
@@ -224,6 +224,7 @@ public class QSCarrierGroup extends LinearLayout implements
         mInfos[slotIndex].contentDescription = statusIcon.contentDescription;
         mInfos[slotIndex].typeContentDescription = typeContentDescription.toString();
         mInfos[slotIndex].roaming = roaming;
+        mInfos[slotIndex].mIsMobileIms = mIsMobileIms;
         handleUpdateState();
     }
 
@@ -243,5 +244,6 @@ public class QSCarrierGroup extends LinearLayout implements
         String contentDescription;
         String typeContentDescription;
         boolean roaming;
+        boolean mIsMobileIms;
     }
 }

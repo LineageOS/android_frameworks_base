@@ -30,6 +30,7 @@ import android.telephony.SignalStrength;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.telephony.ims.ImsMmTelManager;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -41,11 +42,13 @@ import com.android.internal.telephony.cdma.EriInfo;
 import com.android.settingslib.Utils;
 import com.android.settingslib.graph.SignalDrawable;
 import com.android.settingslib.net.SignalStrengthUtil;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl.Config;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl.SubscriptionDefaults;
+import com.android.systemui.tuner.TunerService;
 
 import java.io.PrintWriter;
 import java.util.BitSet;
@@ -55,12 +58,14 @@ import java.util.regex.Pattern;
 
 
 public class MobileSignalController extends SignalController<
-        MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> {
+        MobileSignalController.MobileState, MobileSignalController.MobileIconGroup>
+        implements TunerService.Tunable {
 
     // The message to display Nr5G icon gracfully by CarrierConfig timeout
     private static final int MSG_DISPLAY_GRACE = 1;
 
     private final TelephonyManager mPhone;
+    private final ImsMmTelManager mImsManager;
     private final SubscriptionDefaults mDefaults;
     private final String mNetworkNameDefault;
     private final String mNetworkNameSeparator;
@@ -90,6 +95,9 @@ public class MobileSignalController extends SignalController<
     // Some specific carriers have 5GE network which is special LTE CA network.
     private static final int NETWORK_TYPE_LTE_CA_5GE = TelephonyManager.MAX_NETWORK_TYPE + 1;
 
+    private boolean mVoLTEicon;
+    private static final String SHOW_VOLTE_ICON = "show_volte_icon";
+
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
     public MobileSignalController(Context context, Config config, boolean hasMobileData,
@@ -104,6 +112,8 @@ public class MobileSignalController extends SignalController<
         mPhone = phone;
         mDefaults = defaults;
         mSubscriptionInfo = info;
+        mImsManager =
+                ImsMmTelManager.createForSubscriptionId(mSubscriptionInfo.getSubscriptionId());
         mPhoneStateListener = new MobilePhoneStateListener(receiverLooper);
         mNetworkNameSeparator = getStringIfExists(R.string.status_bar_network_name_separator)
                 .toString();
@@ -127,6 +137,7 @@ public class MobileSignalController extends SignalController<
             }
         };
 
+        Dependency.get(TunerService.class).addTunable(this, SHOW_VOLTE_ICON);
         mDisplayGraceHandler = new Handler(receiverLooper) {
             @Override
             public void handleMessage(Message msg) {
@@ -138,11 +149,25 @@ public class MobileSignalController extends SignalController<
         };
     }
 
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case SHOW_VOLTE_ICON:
+                mVoLTEicon =
+                TunerService.parseIntegerSwitch(newValue, false);
+                updateTelephony();
+        }
+    }
+
     public void setConfiguration(Config config) {
         mConfig = config;
         updateInflateSignalStrength();
         mapIconSets();
         updateTelephony();
+    }
+
+    public int getDataContentDescription() {
+        return getIcons().mDataContentDescription;
     }
 
     public void setAirplaneMode(boolean airplaneMode) {
@@ -354,7 +379,7 @@ public class MobileSignalController extends SignalController<
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, dataContentDescription, dataContentDescriptionHtml,
                 description, icons.mIsWide, mSubscriptionInfo.getSubscriptionId(),
-                mCurrentState.roaming);
+                mCurrentState.roaming, mCurrentState.mMobileIms);
     }
 
     @Override
@@ -545,6 +570,9 @@ public class MobileSignalController extends SignalController<
             mCurrentState.networkNameData = mServiceState.getDataOperatorAlphaShort();
         }
 
+        mCurrentState.mMobileIms = mVoLTEicon
+                && mPhone.isImsRegistered(mSubscriptionInfo.getSubscriptionId())
+                && mImsManager.isAdvancedCallingSettingEnabled();
         notifyListenersIfNecessary();
     }
 
@@ -775,6 +803,7 @@ public class MobileSignalController extends SignalController<
         boolean userSetup;
         boolean roaming;
         boolean defaultDataOff;  // Tracks the on/off state of the defaultDataSubscription
+        boolean mMobileIms;
 
         @Override
         public void copyFrom(State s) {
@@ -790,6 +819,7 @@ public class MobileSignalController extends SignalController<
             carrierNetworkChangeMode = state.carrierNetworkChangeMode;
             userSetup = state.userSetup;
             roaming = state.roaming;
+            mMobileIms = state.mMobileIms;
             defaultDataOff = state.defaultDataOff;
         }
 
@@ -802,6 +832,7 @@ public class MobileSignalController extends SignalController<
             builder.append("networkNameData=").append(networkNameData).append(',');
             builder.append("dataConnected=").append(dataConnected).append(',');
             builder.append("roaming=").append(roaming).append(',');
+            builder.append("mobileIms=").append(mMobileIms).append(',');
             builder.append("isDefault=").append(isDefault).append(',');
             builder.append("isEmergency=").append(isEmergency).append(',');
             builder.append("airplaneMode=").append(airplaneMode).append(',');
@@ -824,6 +855,7 @@ public class MobileSignalController extends SignalController<
                     && ((MobileState) o).userSetup == userSetup
                     && ((MobileState) o).isDefault == isDefault
                     && ((MobileState) o).roaming == roaming
+                    && ((MobileState) o).mMobileIms == mMobileIms
                     && ((MobileState) o).defaultDataOff == defaultDataOff;
         }
     }
