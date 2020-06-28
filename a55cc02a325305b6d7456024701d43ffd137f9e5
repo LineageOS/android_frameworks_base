@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e46971f_53169aef",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4527,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-28T16:31:43Z",
+      "side": 1,
+      "message": "This should, if at all, be a LineageSetting",
+      "range": {
+        "startLine": 4527,
+        "startChar": 8,
+        "endLine": 4527,
+        "endChar": 71
+      },
+      "revId": "a55cc02a325305b6d7456024701d43ffd137f9e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e83716_1b2a1e74",
+        "filename": "packages/SystemUI/res/drawable/volte.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-28T16:31:43Z",
+      "side": 1,
+      "message": "these look wrong. Expecting something like 24, not a faktor of \u003e100 of that",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 34
+      },
+      "revId": "a55cc02a325305b6d7456024701d43ffd137f9e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37a3975d_39509a94",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarSignalPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-28T16:31:43Z",
+      "side": 1,
+      "message": "wrong indentation\nAlso keep the style of the existing code, so move operators to the previous line\u0027s end",
+      "range": {
+        "startLine": 414,
+        "startChar": 20,
+        "endLine": 416,
+        "endChar": 99
+      },
+      "revId": "a55cc02a325305b6d7456024701d43ffd137f9e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "840c0bbd_f10c8b1a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MobileSignalController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-28T16:31:43Z",
+      "side": 1,
+      "message": "definitely needs another name indication that it\u0027s relevant for visibility. mShowVolteIcon (notice that inside a word, no upper case happens)",
+      "range": {
+        "startLine": 98,
+        "startChar": 20,
+        "endLine": 98,
+        "endChar": 31
+      },
+      "revId": "a55cc02a325305b6d7456024701d43ffd137f9e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9279c82_b939d472",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/MobileSignalController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-28T16:31:43Z",
+      "side": 1,
+      "message": "Does either fit into one line or needs different indentation",
+      "range": {
+        "startLine": 156,
+        "startChar": 16,
+        "endLine": 157,
+        "endChar": 65
+      },
+      "revId": "a55cc02a325305b6d7456024701d43ffd137f9e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
