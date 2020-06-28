@@ -244,7 +244,7 @@ public class SystemImpl implements SystemInterface {
 
     @Override
     public boolean systemIsDebuggable() {
-        return Build.IS_DEBUGGABLE;
+        return Build.IS_DEBUGGABLE && Build.IS_ENG;
     }
 
     @Override
