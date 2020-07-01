@@ -1148,7 +1148,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
         boolean alwaysShowDataRatIcon = false;
         public String patternOfCarrierSpecificDataIcon = "";
         public long nrIconDisplayGracePeriodMs;
-
+        boolean showVolteIcon = false;
         /**
          * Mapping from NR 5G status string to an integer. The NR 5G status string should match
          * those in carrier config.
@@ -1174,6 +1174,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
                     res.getBoolean(R.bool.config_hspa_data_distinguishable);
             config.inflateSignalStrengths = res.getBoolean(
                     com.android.internal.R.bool.config_inflateSignalStrength);
+            config.showVolteIcon = res.getBoolean(R.bool.config_display_volte);
 
             CarrierConfigManager configMgr = (CarrierConfigManager)
                     context.getSystemService(Context.CARRIER_CONFIG_SERVICE);
