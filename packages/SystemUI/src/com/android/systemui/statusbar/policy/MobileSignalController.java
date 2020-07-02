@@ -98,10 +98,14 @@ public class MobileSignalController extends SignalController<
     // Some specific carriers have 5GE network which is special LTE CA network.
     private static final int NETWORK_TYPE_LTE_CA_5GE = TelephonyManager.MAX_NETWORK_TYPE + 1;
 
+    private int mCallState = TelephonyManager.CALL_STATE_IDLE;
+
     private ImsManager mImsManager;
     private ImsManager.Connector mImsManagerConnector;
     private boolean mShowVolteIcon;
+    private boolean mShowVowifiIcon;
     private static final String SHOW_VOLTE_ICON = "show_volte_icon";
+    private static final String SHOW_VOWIFI_ICON = "show_vowifi_icon";
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
@@ -159,6 +163,7 @@ public class MobileSignalController extends SignalController<
         };
 
         Dependency.get(TunerService.class).addTunable(this, SHOW_VOLTE_ICON);
+        Dependency.get(TunerService.class).addTunable(this, SHOW_VOWIFI_ICON);
         mDisplayGraceHandler = new Handler(receiverLooper) {
             @Override
             public void handleMessage(Message msg) {
@@ -176,6 +181,10 @@ public class MobileSignalController extends SignalController<
             case SHOW_VOLTE_ICON:
                 mShowVolteIcon = TunerService.parseIntegerSwitch(newValue, false);
                 Log.d(mTag, "mShowVolteIcon=" + mShowVolteIcon);
+                notifyListeners();
+            case SHOW_VOWIFI_ICON:
+                mShowVowifiIcon = TunerService.parseIntegerSwitch(newValue, false);
+                Log.d(mTag, "mShowVowifiIcon=" + mShowVowifiIcon);
                 notifyListeners();
         }
     }
@@ -463,6 +472,13 @@ public class MobileSignalController extends SignalController<
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
         int volteIcon = (mShowVolteIcon && mConfig.showVolteIcon
                 && isVolteSwitchOn()) ? getVolteResId() : 0;
+        MobileIconGroup vowifiIconGroup = getVowifiIconGroup();
+        if (mShowVowifiIcon && mConfig.showVowifiIcon && vowifiIconGroup != null) {
+            typeIcon = vowifiIconGroup.mDataType;
+            statusIcon = new IconState(true,
+                    mCurrentState.enabled && !mCurrentState.airplaneMode ? statusIcon.icon : 0,
+                    statusIcon.contentDescription);
+        }
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, volteIcon, dataContentDescription,
                 dataContentDescriptionHtml, description, icons.mIsWide,
@@ -757,9 +773,18 @@ public class MobileSignalController extends SignalController<
         return !mPhone.isDataCapable();
     }
 
+    private boolean isCallIdle() {
+        return mCallState == TelephonyManager.CALL_STATE_IDLE;
+    }
+
     private int getVoiceNetworkType() {
         return mServiceState != null
                 ? mServiceState.getVoiceNetworkType() : TelephonyManager.NETWORK_TYPE_UNKNOWN;
+    }
+
+    private int getDataNetworkType() {
+        return mServiceState != null
+                ? mServiceState.getDataNetworkType() : TelephonyManager.NETWORK_TYPE_UNKNOWN;
     }
 
     @VisibleForTesting
@@ -771,6 +796,21 @@ public class MobileSignalController extends SignalController<
         mCurrentState.activityDormant = activity == TelephonyManager.DATA_ACTIVITY_DORMANT;
 
         notifyListenersIfNecessary();
+    }
+
+    private boolean isVowifiAvailable() {
+        return mCurrentState.voiceCapable &&  mCurrentState.imsRegistered
+                && getDataNetworkType() == TelephonyManager.NETWORK_TYPE_IWLAN;
+    }
+
+    private MobileIconGroup getVowifiIconGroup() {
+        if (isVowifiAvailable() && !isCallIdle()) {
+            return TelephonyIcons.VOWIFI_CALLING;
+        } else if (isVowifiAvailable()) {
+            return TelephonyIcons.VOWIFI;
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -858,6 +898,15 @@ public class MobileSignalController extends SignalController<
         public void onActiveDataSubscriptionIdChanged(int subId) {
             if (DEBUG) Log.d(mTag, "onActiveDataSubscriptionIdChanged: subId=" + subId);
             updateDataSim();
+            updateTelephony();
+        }
+
+        @Override
+        public void onCallStateChanged(int state, String phoneNumber) {
+            if (DEBUG) {
+                Log.d(mTag, "onCallStateChanged: state=" + state);
+            }
+            mCallState = state;
             updateTelephony();
         }
     };
