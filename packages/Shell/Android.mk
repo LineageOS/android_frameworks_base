@@ -22,6 +22,8 @@ LOCAL_PRIVILEGED_MODULE := true
 
 LOCAL_JACK_COVERAGE_INCLUDE_FILTER := com.android.shell.*
 
+LOCAL_FULL_LIBS_MANIFEST_FILES := $(LOCAL_PATH)/LineageManifest.xml
+
 include $(BUILD_PACKAGE)
 
 include $(LOCAL_PATH)/tests/Android.mk
