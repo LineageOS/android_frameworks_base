@@ -201,9 +201,12 @@
 
     <!-- Permission required to test ExplicitHealthCheckServiceImpl. -->
     <uses-permission android:name="android.permission.BIND_EXPLICIT_HEALTH_CHECK_SERVICE" />
-    
+
     <!-- Permission required for CTS test - CrossProfileAppsHostSideTest -->
     <uses-permission android:name="android.permission.INTERACT_ACROSS_PROFILES"/>
+
+    <!-- Permission required to get Diagnostic Output (dumpsys) of LiveDisplay -->
+    <uses-permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
 
     <application android:label="@string/app_label"
                 android:theme="@android:style/Theme.DeviceDefault.DayNight"
