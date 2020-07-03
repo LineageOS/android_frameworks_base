@@ -922,6 +922,7 @@ public class AudioDeviceInventory {
           if (state == BluetoothProfile.STATE_DISCONNECTED) {
               mDeviceBroker.queueBluetoothA2dpDeviceConnectionStateSuppressNoisyIntent(
                   new AudioDeviceBroker.BtDeviceConnectionInfo(device,state,profile,suppressNoisyIntent, a2dpVolume));
+              BtHelper.SetA2dpActiveDevice(null);
               return;
           }
           // state == BluetoothProfile.STATE_CONNECTED
@@ -946,6 +947,7 @@ public class AudioDeviceInventory {
                                  AudioSystem.DEVICE_OUT_BLUETOOTH_A2DP, BtHelper.getName(device),
                                  address, a2dpCodec));
                       if (BtHelper.isTwsPlusSwitch(device, existingDevice.getValue().mDeviceAddress)) {
+                          BtHelper.SetA2dpActiveDevice(device);
                           if (AudioService.DEBUG_DEVICES) {
                               Log.d(TAG,"TWS+ device switch");
                           }
