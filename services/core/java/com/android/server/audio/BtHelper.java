@@ -72,6 +72,7 @@ public class BtHelper {
 
     // Reference to BluetoothA2dp to query for AbsoluteVolume.
     static private @Nullable BluetoothA2dp mA2dp;
+    static private @Nullable BluetoothDevice mBluetoothA2dpActiveDevice;
 
     // If absolute volume is supported in AVRCP device
     private boolean mAvrcpAbsVolSupported = false;
@@ -219,6 +220,11 @@ public class BtHelper {
         return deviceName;
     }
 
+    /*packages*/ static void SetA2dpActiveDevice(BluetoothDevice device) {
+        Log.w(TAG,"SetA2dpActiveDevice for TWS+ pair as " + device);
+        mBluetoothA2dpActiveDevice = device;
+    }
+
     /*packages*/ @NonNull static boolean isTwsPlusSwitch(@NonNull BluetoothDevice device,
                                                                  String address) {
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
@@ -230,8 +236,8 @@ public class BtHelper {
         if (device.isTwsPlusDevice() &&
             connDevice.isTwsPlusDevice() &&
             device.getTwsPlusPeerAddress().equals(address)) {
-            if(mA2dp.getConnectionState(connDevice) != BluetoothProfile.STATE_CONNECTED) {
-                Log.w(TAG,"Active earbud is already disconnected");
+            if (mBluetoothA2dpActiveDevice == null) {
+                Log.w(TAG,"Not a TwsPlusSwitch as previous active device was null");
                 return false;
             }
             Log.i(TAG,"isTwsPlusSwitch true");
