@@ -675,6 +675,15 @@ public class FingerprintService extends BiometricServiceBase {
                         mCurrentUserId = UserHandle.USER_NULL;
                     }
                 }
+                if (mHasFod && error != BiometricConstants.BIOMETRIC_SUCCESS
+                        && error != BiometricConstants.BIOMETRIC_ERROR_VENDOR
+                        && error < BiometricConstants.BIOMETRIC_ERROR_VENDOR_BASE) {
+                    try {
+                        mStatusBarService.hideInDisplayFingerprintView();
+                    } catch (RemoteException e) {
+                        Slog.e(TAG, "hideInDisplayFingerprintView failed", e);
+                    }
+                }
             });
         }
 
