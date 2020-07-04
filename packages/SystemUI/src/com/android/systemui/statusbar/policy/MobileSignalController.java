@@ -98,6 +98,8 @@ public class MobileSignalController extends SignalController<
     // Some specific carriers have 5GE network which is special LTE CA network.
     private static final int NETWORK_TYPE_LTE_CA_5GE = TelephonyManager.MAX_NETWORK_TYPE + 1;
 
+    private int mCallState = TelephonyManager.CALL_STATE_IDLE;
+
     private ImsManager mImsManager;
     private ImsManager.Connector mImsManagerConnector;
     private boolean mShowVolteIcon;
@@ -228,6 +230,11 @@ public class MobileSignalController extends SignalController<
                 true, mObserver);
         mContext.getContentResolver().registerContentObserver(Global.getUriFor(
                 Global.MOBILE_DATA + mSubscriptionInfo.getSubscriptionId()),
+                true, mObserver);
+        mContext.getContentResolver().registerContentObserver(Global.getUriFor(Global.DATA_ROAMING),
+                true, mObserver);
+        mContext.getContentResolver().registerContentObserver(Global.getUriFor(
+                Global.DATA_ROAMING + mSubscriptionInfo.getSubscriptionId()),
                 true, mObserver);
         mImsManagerConnector.connect();
     }
@@ -464,6 +471,13 @@ public class MobileSignalController extends SignalController<
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
         int volteIcon = (mShowVolteIcon && mConfig.showVolteIcon
                 && isVolteSwitchOn()) ? getVolteResId() : 0;
+        MobileIconGroup vowifiIconGroup = getVowifiIconGroup();
+        if (mConfig.showVowifiIcon && vowifiIconGroup != null) {
+            typeIcon = vowifiIconGroup.mDataType;
+            statusIcon = new IconState(true,
+                    mCurrentState.enabled && !mCurrentState.airplaneMode ? statusIcon.icon : 0,
+                    statusIcon.contentDescription);
+        }
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, volteIcon, dataContentDescription,
                 dataContentDescriptionHtml, description, icons.mIsWide,
@@ -758,9 +772,18 @@ public class MobileSignalController extends SignalController<
         return !mPhone.isDataCapable();
     }
 
+    private boolean isCallIdle() {
+        return mCallState == TelephonyManager.CALL_STATE_IDLE;
+    }
+
     private int getVoiceNetworkType() {
         return mServiceState != null
                 ? mServiceState.getVoiceNetworkType() : TelephonyManager.NETWORK_TYPE_UNKNOWN;
+    }
+
+    private int getDataNetworkType() {
+        return mServiceState != null
+                ? mServiceState.getDataNetworkType() : TelephonyManager.NETWORK_TYPE_UNKNOWN;
     }
 
     @VisibleForTesting
@@ -772,6 +795,19 @@ public class MobileSignalController extends SignalController<
         mCurrentState.activityDormant = activity == TelephonyManager.DATA_ACTIVITY_DORMANT;
 
         notifyListenersIfNecessary();
+    }
+
+    private boolean isVowifiAvailable() {
+        return mCurrentState.voiceCapable &&  mCurrentState.imsRegistered
+                && getDataNetworkType() == TelephonyManager.NETWORK_TYPE_IWLAN;
+    }
+
+    private MobileIconGroup getVowifiIconGroup() {
+        if (isVowifiAvailable()) {
+            return !isCallIdle() ? TelephonyIcons.VOWIFI_CALLING : TelephonyIcons.VOWIFI;
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -859,6 +895,15 @@ public class MobileSignalController extends SignalController<
         public void onActiveDataSubscriptionIdChanged(int subId) {
             if (DEBUG) Log.d(mTag, "onActiveDataSubscriptionIdChanged: subId=" + subId);
             updateDataSim();
+            updateTelephony();
+        }
+
+        @Override
+        public void onCallStateChanged(int state, String phoneNumber) {
+            if (DEBUG) {
+                Log.d(mTag, "onCallStateChanged: state=" + state);
+            }
+            mCallState = state;
             updateTelephony();
         }
     };
