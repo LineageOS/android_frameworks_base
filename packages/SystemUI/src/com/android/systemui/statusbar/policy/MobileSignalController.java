@@ -38,6 +38,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.android.ims.ImsConfig;
 import com.android.ims.ImsException;
 import com.android.ims.ImsManager;
 import com.android.internal.annotations.VisibleForTesting;
@@ -362,6 +363,23 @@ public class MobileSignalController extends SignalController<
         return getCurrentIconId();
     }
 
+    private boolean isWfcCellularPreferred() {
+	if (mImsManager != null) {
+            switch (mImsManager.getWfcMode(false)) {
+	        case ImsConfig.WfcModeFeatureValueConstants.WIFI_ONLY:
+		    return false;
+                case ImsConfig.WfcModeFeatureValueConstants.WIFI_PREFERRED:
+                    return false;
+                case ImsConfig.WfcModeFeatureValueConstants.CELLULAR_PREFERRED:
+                    return true;
+                default:
+                    return true;
+            }
+        } else {
+            return true;
+        }
+    }
+
     private boolean isVolteSwitchOn() {
         return mImsManager != null && mImsManager.isEnhanced4gLteModeSettingEnabledByUser();
     }
@@ -471,9 +489,9 @@ public class MobileSignalController extends SignalController<
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
         int volteIcon = (mShowVolteIcon && mConfig.showVolteIcon
-                && isVolteSwitchOn()) ? getVolteResId() : 0;
+                && isVolteSwitchOn() && isWfcCellularPreferred()) ? getVolteResId() : 0;
         MobileIconGroup vowifiIconGroup = getVowifiIconGroup();
-        if (mShowVowifiIcon && mConfig.showVowifiIcon && vowifiIconGroup != null) {
+        if (mShowVowifiIcon && mConfig.showVowifiIcon && !isWfcCellularPreferred() && vowifiIconGroup != null) {
             typeIcon = vowifiIconGroup.mDataType;
             statusIcon = new IconState(true,
                     mCurrentState.enabled && !mCurrentState.airplaneMode ? statusIcon.icon : 0,
