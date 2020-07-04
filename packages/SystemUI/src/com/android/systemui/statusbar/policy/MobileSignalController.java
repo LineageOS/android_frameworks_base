@@ -103,7 +103,9 @@ public class MobileSignalController extends SignalController<
     private ImsManager mImsManager;
     private ImsManager.Connector mImsManagerConnector;
     private boolean mShowVolteIcon;
+    private boolean mShowVowifiIcon;
     private static final String SHOW_VOLTE_ICON = "show_volte_icon";
+    private static final String SHOW_VOWIFI_ICON = "show_vowifi_icon";
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
@@ -161,6 +163,7 @@ public class MobileSignalController extends SignalController<
         };
 
         Dependency.get(TunerService.class).addTunable(this, SHOW_VOLTE_ICON);
+        Dependency.get(TunerService.class).addTunable(this, SHOW_VOWIFI_ICON);
         mDisplayGraceHandler = new Handler(receiverLooper) {
             @Override
             public void handleMessage(Message msg) {
@@ -178,6 +181,10 @@ public class MobileSignalController extends SignalController<
             case SHOW_VOLTE_ICON:
                 mShowVolteIcon = TunerService.parseIntegerSwitch(newValue, false);
                 Log.d(mTag, "mShowVolteIcon=" + mShowVolteIcon);
+                notifyListeners();
+            case SHOW_VOWIFI_ICON:
+                mShowVowifiIcon = TunerService.parseIntegerSwitch(newValue, false);
+                Log.d(mTag, "mShowVowifiIcon=" + mShowVowifiIcon);
                 notifyListeners();
         }
     }
@@ -466,7 +473,7 @@ public class MobileSignalController extends SignalController<
         int volteIcon = (mShowVolteIcon && mConfig.showVolteIcon
                 && isVolteSwitchOn()) ? getVolteResId() : 0;
         MobileIconGroup vowifiIconGroup = getVowifiIconGroup();
-        if (mConfig.showVowifiIcon && vowifiIconGroup != null) {
+        if (mShowVowifiIcon && mConfig.showVowifiIcon && vowifiIconGroup != null) {
             typeIcon = vowifiIconGroup.mDataType;
             statusIcon = new IconState(true,
                     mCurrentState.enabled && !mCurrentState.airplaneMode ? statusIcon.icon : 0,
