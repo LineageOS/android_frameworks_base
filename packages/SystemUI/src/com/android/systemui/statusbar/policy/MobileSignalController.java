@@ -38,6 +38,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.android.ims.ImsConfig;
 import com.android.ims.ImsException;
 import com.android.ims.ImsManager;
 import com.android.internal.annotations.VisibleForTesting;
@@ -104,8 +105,10 @@ public class MobileSignalController extends SignalController<
     private ImsManager.Connector mImsManagerConnector;
     private boolean mShowVolteIcon;
     private boolean mShowVowifiIcon;
+    private boolean mShowVolteXorVowifiIcon;
     private static final String SHOW_VOLTE_ICON = "show_volte_icon";
     private static final String SHOW_VOWIFI_ICON = "show_vowifi_icon";
+    private static final String SHOW_VOLTE_XOR_VOWIFI_ICON = "show_volte_xor_vowifi_icon";
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
@@ -164,6 +167,7 @@ public class MobileSignalController extends SignalController<
 
         Dependency.get(TunerService.class).addTunable(this, SHOW_VOLTE_ICON);
         Dependency.get(TunerService.class).addTunable(this, SHOW_VOWIFI_ICON);
+        Dependency.get(TunerService.class).addTunable(this, SHOW_VOLTE_XOR_VOWIFI_ICON);
         mDisplayGraceHandler = new Handler(receiverLooper) {
             @Override
             public void handleMessage(Message msg) {
@@ -188,6 +192,12 @@ public class MobileSignalController extends SignalController<
                 mShowVowifiIcon = TunerService.parseIntegerSwitch(newValue, false);
                 Log.d(mTag, "mShowVowifiIcon=" + mShowVowifiIcon);
                 mCurrentState.showVowifiIcon=mShowVowifiIcon && mConfig.showVowifiIcon;
+                notifyListenersIfNecessary();
+                break;
+            case SHOW_VOLTE_XOR_VOWIFI_ICON:
+                mShowVolteXorVowifiIcon = TunerService.parseIntegerSwitch(newValue, false);
+                Log.d(mTag, "mShowVolteXorVowifiIcon=" + mShowVolteXorVowifiIcon);
+                mCurrentState.showVolteXorVowifiIcon=mShowVolteXorVowifiIcon;
                 notifyListenersIfNecessary();
                 break;
         }
@@ -479,10 +489,32 @@ public class MobileSignalController extends SignalController<
                 && mCurrentState.activityOut;
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
-        int volteIcon = (mShowVolteIcon && mConfig.showVolteIcon
-                && isVolteSwitchOn()) ? getVolteResId() : 0;
+        int volteResId = isVolteSwitchOn() ? getVolteResId() : 0;
+        int volteIcon = (mShowVolteIcon && mConfig.showVolteIcon) ? volteResId : 0;
         MobileIconGroup vowifiIconGroup = getVowifiIconGroup();
-        if (mShowVowifiIcon && mConfig.showVowifiIcon && vowifiIconGroup != null) {
+        boolean vowifiIcon = mShowVowifiIcon && mConfig.showVowifiIcon && vowifiIconGroup != null;
+        if (mImsManager != null && mShowVolteXorVowifiIcon) {
+            if (mImsManager.isWfcEnabledByUser()) {
+                switch (mImsManager.getWfcMode(mCurrentState.roaming)) {
+                    case ImsConfig.WfcModeFeatureValueConstants.WIFI_ONLY:
+                        // Don't show volte Icon if vowifi only
+                        volteIcon = 0;
+                        break;
+                    case ImsConfig.WfcModeFeatureValueConstants.WIFI_PREFERRED:
+                        // Don't show volte Icon if vowifi preferred and available
+                        volteIcon = vowifiIconGroup != null ? 0 : volteIcon;
+                        break;
+                    case ImsConfig.WfcModeFeatureValueConstants.CELLULAR_PREFERRED:
+                        // Don't show vowifi Icon if cellular/volte preferred and available
+                        vowifiIcon = volteResId != 0 ? false : vowifiIcon;
+                        break;
+                    default:
+                        vowifiIcon = false;
+                        break;
+                }
+            }
+        }
+        if (vowifiIcon) {
             typeIcon = vowifiIconGroup.mDataType;
             statusIcon = new IconState(true,
                     mCurrentState.enabled && !mCurrentState.airplaneMode ? statusIcon.icon : 0,
@@ -991,6 +1023,7 @@ public class MobileSignalController extends SignalController<
         boolean videoCapable;
         boolean showVolteIcon;   // Tracks showing in status bar configuration change
         boolean showVowifiIcon;  // Tracks showing in status bar configuration change
+        boolean showVolteXorVowifiIcon;
 
         @Override
         public void copyFrom(State s) {
@@ -1012,6 +1045,7 @@ public class MobileSignalController extends SignalController<
             videoCapable = state.videoCapable;
             showVolteIcon = state.showVolteIcon;
             showVowifiIcon = state.showVowifiIcon;
+            showVolteXorVowifiIcon = state.showVolteXorVowifiIcon;
         }
 
         @Override
@@ -1034,7 +1068,8 @@ public class MobileSignalController extends SignalController<
             builder.append("voiceCapable=").append(voiceCapable).append(',');
             builder.append("videoCapable=").append(videoCapable).append(',');
             builder.append("showVolteIcon=").append(showVolteIcon).append(',');
-            builder.append("showVowifiIcon=").append(showVowifiIcon);
+            builder.append("showVowifiIcon=").append(showVowifiIcon).append(',');
+            builder.append("showVolteXorVowifiIcon=").append(showVolteXorVowifiIcon);
         }
 
         @Override
@@ -1055,7 +1090,8 @@ public class MobileSignalController extends SignalController<
                     && ((MobileState) o).voiceCapable == voiceCapable
                     && ((MobileState) o).videoCapable == videoCapable
                     && ((MobileState) o).showVolteIcon == showVolteIcon
-                    && ((MobileState) o).showVowifiIcon == showVowifiIcon;
+                    && ((MobileState) o).showVowifiIcon == showVowifiIcon
+                    && ((MobileState) o).showVolteXorVowifiIcon == showVolteXorVowifiIcon;
         }
     }
 }

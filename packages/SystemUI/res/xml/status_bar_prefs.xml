@@ -94,6 +94,11 @@
         android:title="@string/status_bar_vowifi"
         sysui:defValue="false" />
 
+    <com.android.systemui.tuner.TunerSwitch
+        android:key="show_volte_xor_vowifi_icon"
+        android:title="@string/status_bar_volte_xor_vowifi"
+        sysui:defValue="false" />
+
     <!-- other weird signal stuff -->
 
     <com.android.systemui.tuner.StatusBarSwitch
