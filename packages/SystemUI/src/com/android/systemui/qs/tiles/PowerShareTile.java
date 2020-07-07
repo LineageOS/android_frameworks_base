@@ -68,6 +68,7 @@ public class PowerShareTile extends QSTileImpl<BooleanState>
         builder.setContentTitle(
                 mContext.getString(R.string.quick_settings_powershare_enabled_label));
         builder.setSmallIcon(R.drawable.ic_qs_powershare);
+        builder.setOnlyAlertOnce(true);
         mNotification = builder.build();
         mNotification.flags |= Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
         mNotification.visibility = Notification.VISIBILITY_PUBLIC;
