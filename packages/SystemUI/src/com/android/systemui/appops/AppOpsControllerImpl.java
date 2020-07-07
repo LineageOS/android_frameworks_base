@@ -62,6 +62,7 @@ public class AppOpsControllerImpl implements AppOpsController,
     private H mBGHandler;
     private final List<AppOpsController.Callback> mCallbacks = new ArrayList<>();
     private final ArrayMap<Integer, Set<Callback>> mCallbacksByCode = new ArrayMap<>();
+    private final PermissionFlagsCache mFlagsCache;
     private boolean mListening;
 
     @GuardedBy("mActiveItems")
@@ -79,8 +80,14 @@ public class AppOpsControllerImpl implements AppOpsController,
 
     @Inject
     public AppOpsControllerImpl(Context context, @Named(BG_LOOPER_NAME) Looper bgLooper) {
+        this(context, bgLooper, new PermissionFlagsCache(context));
+    }
+
+    @VisibleForTesting
+    protected AppOpsControllerImpl(Context context, Looper bgLooper, PermissionFlagsCache cache) {
         mContext = context;
         mAppOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+        mFlagsCache = cache;
         mBGHandler = new H(bgLooper);
         final int numOps = OPS.length;
         for (int i = 0; i < numOps; i++) {
@@ -239,7 +246,7 @@ public class AppOpsControllerImpl implements AppOpsController,
         if (permission == null) {
             return false;
         }
-        int permFlags = mContext.getPackageManager().getPermissionFlags(permission,
+        int permFlags = mFlagsCache.getPermissionFlags(permission,
                 packageName, UserHandle.getUserHandleForUid(uid));
         return (permFlags & PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED) != 0;
     }
@@ -359,7 +366,8 @@ public class AppOpsControllerImpl implements AppOpsController,
     }
 
     private void notifySuscribers(int code, int uid, String packageName, boolean active) {
-        if (mCallbacksByCode.containsKey(code)) {
+        if (mCallbacksByCode.containsKey(code)
+                && isUserVisible(code, uid, packageName)) {
             if (DEBUG) Log.d(TAG, "Notifying of change in package " + packageName);
             for (Callback cb: mCallbacksByCode.get(code)) {
                 cb.onActiveStateChanged(code, uid, packageName, active);
