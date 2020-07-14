@@ -492,7 +492,12 @@ public class RingtoneManager {
     public Uri getRingtoneUri(int position) {
         // use cursor directly instead of requerying it, which could easily
         // cause position to shuffle.
-        if (mCursor == null || !mCursor.moveToPosition(position)) {
+        try {
+            if (mCursor == null || !mCursor.moveToPosition(position)) {
+                return null;
+            }
+        } catch (StaleDataException | IllegalStateException e) {
+            Log.e(TAG, "Unexpected Exception has been catched.", e);
             return null;
         }
 
