@@ -429,7 +429,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             } else {
                 mQuickQsBrightness.findViewById(R.id.brightness_icon).setVisibility(View.GONE);
             }
-            mQuickQsBrightness.setVisibility(View.VISIBLE);
+            if (mQuickQsBrightness.getVisibility() == View.GONE) {
+                mQuickQsBrightness.setVisibility(View.VISIBLE);
+            }
         } else {
             mQuickQsBrightness.setVisibility(View.GONE);
         }
