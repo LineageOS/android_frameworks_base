@@ -2821,6 +2821,12 @@ public class NotificationManagerService extends SystemService {
             if (NotificationChannel.DEFAULT_CHANNEL_ID.equals(channelId)) {
                 throw new IllegalArgumentException("Cannot delete default channel");
             }
+            synchronized (mNotificationLock) {
+                if (isSomeNotificationsInForegroundServiceLocked(mNotificationList,
+                        MY_UID, MY_PID, pkg, channelId, UserHandle.getUserId(callingUid))) {
+                    return;
+                }
+            }
             cancelAllNotificationsInt(MY_UID, MY_PID, pkg, channelId, 0, 0, true,
                     UserHandle.getUserId(callingUid), REASON_CHANNEL_BANNED, null);
             mPreferencesHelper.deleteNotificationChannel(pkg, callingUid, channelId);
@@ -2858,6 +2864,13 @@ public class NotificationManagerService extends SystemService {
                         mPreferencesHelper.deleteNotificationChannelGroup(pkg, callingUid, groupId);
                 for (int i = 0; i < deletedChannels.size(); i++) {
                     final NotificationChannel deletedChannel = deletedChannels.get(i);
+                    synchronized (mNotificationLock) {
+                        if (isSomeNotificationsInForegroundServiceLocked(mNotificationList,
+                                MY_UID, MY_PID, pkg, deletedChannel.getId(),
+                                UserHandle.getUserId(callingUid))) {
+                            return;
+                        }
+                    }
                     cancelAllNotificationsInt(MY_UID, MY_PID, pkg, deletedChannel.getId(), 0, 0,
                             true,
                             UserHandle.getUserId(Binder.getCallingUid()), REASON_CHANNEL_BANNED,
@@ -7110,6 +7123,30 @@ public class NotificationManagerService extends SystemService {
             }
             updateLightsLocked();
         }
+    }
+
+    @GuardedBy("mNotificationLock")
+    private boolean isSomeNotificationsInForegroundServiceLocked(ArrayList<NotificationRecord> notificationList,
+            int callingUid, int callingPid, String pkg, String channelId, int userId) {
+        for (int i = notificationList.size() - 1; i >= 0; --i) {
+            NotificationRecord r = notificationList.get(i);
+            if (!notificationMatchesUserId(r, userId)) {
+                continue;
+            }
+            if (pkg == null && r.getUserId() == UserHandle.USER_ALL) {
+                continue;
+            }
+            if (channelId == null || channelId != null && !channelId.equals(r.getChannel().getId())) {
+                continue;
+            }
+            if (pkg != null && !r.sbn.getPackageName().equals(pkg)) {
+                continue;
+            }
+            if ((r.getNotification().flags & FLAG_FOREGROUND_SERVICE) != 0) {
+                return true;
+            }
+        }
+        return false;
     }
 
     void snoozeNotificationInt(String key, long duration, String snoozeCriterionId,
