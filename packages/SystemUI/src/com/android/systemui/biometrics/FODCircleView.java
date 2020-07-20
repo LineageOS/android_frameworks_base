@@ -84,6 +84,7 @@ public class FODCircleView extends ImageView {
 
     private boolean mNightLightChangedByFOD;
     private boolean mSaturationChangedByFOD;
+    private boolean mEnterViewOnce = true;
 
     private float mAnimatorDurationScale;
 
@@ -94,36 +95,6 @@ public class FODCircleView extends ImageView {
     private LockPatternUtils mLockPatternUtils;
 
     private Timer mBurnInProtectionTimer;
-
-    private AnimatorDurationObserver mAnimatorDurationObserver =
-            new AnimatorDurationObserver(mHandler);
-
-    private class AnimatorDurationObserver extends ContentObserver {
-
-        AnimatorDurationObserver(Handler handler) {
-            super(handler);
-        }
-
-        void startObserving() {
-            ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.Global.getUriFor(
-                    Settings.Global.ANIMATOR_DURATION_SCALE),
-                    false, this, UserHandle.USER_ALL);
-        }
-
-        void stopObserving() {
-            ContentResolver resolver = mContext.getContentResolver();
-            resolver.unregisterContentObserver(this);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            if (uri.equals(Settings.System.getUriFor(Settings.Global.ANIMATOR_DURATION_SCALE))) {
-                mAnimatorDurationScale = Settings.Global.getFloat(mContext.getContentResolver(),
-                        Settings.Global.ANIMATOR_DURATION_SCALE, 1.0f);
-            }
-        }
-    }
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
             new IFingerprintInscreenCallback.Stub() {
@@ -255,8 +226,6 @@ public class FODCircleView extends ImageView {
 
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         mUpdateMonitor.registerCallback(mMonitorCallback);
-        mAnimatorDurationScale = Settings.Global.getFloat(context.getContentResolver(),
-                Settings.Global.ANIMATOR_DURATION_SCALE, 1.0f);
     }
 
     @Override
@@ -353,6 +322,8 @@ public class FODCircleView extends ImageView {
 
         setKeepScreenOn(true);
 
+        mEnterViewOnce = false;
+
         setDim(true);
         dispatchPress();
 
@@ -363,9 +334,6 @@ public class FODCircleView extends ImageView {
     public void hideCircle() {
         mIsCircleShowing = false;
 
-        handleNightLight(false);
-        handleGrayscale(false);
-
         setImageResource(R.drawable.fod_icon_default);
         invalidate();
 
@@ -373,6 +341,10 @@ public class FODCircleView extends ImageView {
         setDim(false);
 
         setKeepScreenOn(false);
+
+        mEnterViewOnce = true;
+        handleNightLight(false);
+        handleGrayscale(false);
     }
 
     public void show() {
@@ -386,9 +358,9 @@ public class FODCircleView extends ImageView {
             return;
         }
 
-        mAnimatorDurationObserver.stopObserving();
-
         updatePosition();
+
+        mEnterViewOnce = true;
 
         dispatchShow();
         setVisibility(View.VISIBLE);
@@ -398,7 +370,6 @@ public class FODCircleView extends ImageView {
         setVisibility(View.GONE);
         hideCircle();
         dispatchHide();
-        mAnimatorDurationObserver.startObserving();
     }
 
     private void updateAlpha() {
@@ -519,8 +490,10 @@ public class FODCircleView extends ImageView {
     };
 
     public void handleNightLight(boolean isFromShow) {
-        if (isFromShow) {
+        if (isFromShow && mEnterViewOnce) {
             if (mColorDisplayManager.isNightDisplayActivated()) {
+                mAnimatorDurationScale = Settings.Global.getFloat(mContext.getContentResolver(),
+                    Settings.Global.ANIMATOR_DURATION_SCALE, 1.0f);
                 Settings.Global.putFloat(mContext.getContentResolver(),
                         Settings.Global.ANIMATOR_DURATION_SCALE, 0);
                 mNightLightChangedByFOD = true;
