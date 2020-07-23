@@ -954,6 +954,7 @@ public abstract class BiometricServiceBase extends SystemService
             if (!client.onError(getHalDeviceId(), errorCode, 0 /* vendorCode */)) {
                 Slog.w(getTag(), "Cannot send permanent lockout message to client");
             }
+
             return;
         }
         startClient(client, true /* initiatedByClient */);
