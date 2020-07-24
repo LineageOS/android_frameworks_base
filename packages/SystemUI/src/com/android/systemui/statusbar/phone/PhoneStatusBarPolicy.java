@@ -67,9 +67,13 @@ import com.android.systemui.statusbar.policy.RotationLockController.RotationLock
 import com.android.systemui.statusbar.policy.SensorPrivacyController;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.ZenModeController;
+import com.android.systemui.tuner.TunerService;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -86,11 +90,15 @@ public class PhoneStatusBarPolicy
                 DeviceProvisionedListener,
                 KeyguardMonitor.Callback,
                 PrivacyItemController.Callback,
-                LocationController.LocationChangeCallback {
+                LocationController.LocationChangeCallback,
+                TunerService.Tunable {
     private static final String TAG = "PhoneStatusBarPolicy";
     private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
 
     public static final int LOCATION_STATUS_ICON_ID = PrivacyType.TYPE_LOCATION.getIconId();
+
+    public static final String STATUS_BAR_SHOW_PRIVACY_INDICATORS =
+            "lineagesystem:" + LineageSettings.System.STATUS_BAR_SHOW_PRIVACY_INDICATORS;
 
     private final String mSlotCast;
     private final String mSlotHotspot;
@@ -137,6 +145,10 @@ public class PhoneStatusBarPolicy
 
     private boolean mManagedProfileIconVisible = false;
 
+    private boolean mShowStatusBarPrivacyIndicators = true;
+
+    private List<PrivacyItem> mPrivacyItems = new ArrayList<>();
+
     private BluetoothController mBluetooth;
     private AlarmManager.AlarmClockInfo mNextAlarm;
 
@@ -158,6 +170,7 @@ public class PhoneStatusBarPolicy
         mLocationController = Dependency.get(LocationController.class);
         mPrivacyItemController = Dependency.get(PrivacyItemController.class);
         mSensorPrivacyController = Dependency.get(SensorPrivacyController.class);
+        Dependency.get(TunerService.class).addTunable(this, STATUS_BAR_SHOW_PRIVACY_INDICATORS);
 
         mSlotCast = context.getString(com.android.internal.R.string.status_bar_cast);
         mSlotHotspot = context.getString(com.android.internal.R.string.status_bar_hotspot);
@@ -633,6 +646,7 @@ public class PhoneStatusBarPolicy
 
     @Override  // PrivacyItemController.Callback
     public void privacyChanged(List<PrivacyItem> privacyItems) {
+        mPrivacyItems = privacyItems;
         updatePrivacyItems(privacyItems);
     }
 
@@ -650,23 +664,33 @@ public class PhoneStatusBarPolicy
                 }
                 continue;
             }
-            switch (item.getPrivacyType()) {
-                case TYPE_CAMERA:
-                    showCamera = true;
-                    break;
-                case TYPE_LOCATION:
-                    showLocation = true;
-                    break;
-                case TYPE_MICROPHONE:
-                    showMicrophone = true;
-                    break;
+            if (mShowStatusBarPrivacyIndicators) {
+                switch (item.getPrivacyType()) {
+                    case TYPE_CAMERA:
+                        showCamera = true;
+                        break;
+                    case TYPE_LOCATION:
+                        showLocation = true;
+                        break;
+                    case TYPE_MICROPHONE:
+                        showMicrophone = true;
+                        break;
+                }
             }
         }
-
         mIconController.setIconVisibility(mSlotCamera, showCamera);
         mIconController.setIconVisibility(mSlotMicrophone, showMicrophone);
         mIconController.setIconVisibility(mSlotLocation, showLocation);
     }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        if (STATUS_BAR_SHOW_PRIVACY_INDICATORS.equals(key)) {
+            mShowStatusBarPrivacyIndicators=TunerService.parseIntegerSwitch(newValue, false);
+            updatePrivacyItems(mPrivacyItems);
+        }
+    }
+
 
     @Override
     public void onLocationActiveChanged(boolean active) {
