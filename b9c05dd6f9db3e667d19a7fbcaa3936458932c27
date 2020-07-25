@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bef69c5f_79280efc",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-07-25T09:43:16Z",
+      "side": 1,
+      "message": "false seems shoyld be true to match default behavior",
+      "revId": "b9c05dd6f9db3e667d19a7fbcaa3936458932c27",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c561368_9cd1d779",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-07-25T09:43:16Z",
+      "side": 1,
+      "message": "useless new line",
+      "revId": "b9c05dd6f9db3e667d19a7fbcaa3936458932c27",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
