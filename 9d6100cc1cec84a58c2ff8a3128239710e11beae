@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7191e8a_921e6d8e",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-08-01T13:29:05Z",
+      "side": 1,
+      "message": "Move to the constructor.",
+      "revId": "9d6100cc1cec84a58c2ff8a3128239710e11beae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d0bf0ec_1f819c13",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-08-01T13:29:05Z",
+      "side": 1,
+      "message": "Method should start with lowercase.",
+      "revId": "9d6100cc1cec84a58c2ff8a3128239710e11beae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
