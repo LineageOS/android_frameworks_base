@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "417e1a91_7ca2a886",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-08-01T13:00:14Z",
+      "side": 1,
+      "message": "I mean why the trailing space?",
+      "parentUuid": "5d9bf20a_b73fac9d",
+      "range": {
+        "startLine": 560,
+        "startChar": 84,
+        "endLine": 560,
+        "endChar": 85
+      },
+      "revId": "afacc99175debcd106d62c877b23fb5f94744267",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "745220b0_63e76f8d",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 7
