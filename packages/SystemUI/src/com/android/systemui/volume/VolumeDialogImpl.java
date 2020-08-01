@@ -564,16 +564,22 @@ public class VolumeDialogImpl implements VolumeDialog,
                 == BluetoothProfile.STATE_CONNECTED;
     }
 
+    private void setVisOrGone(int stream, boolean vis) {
+        if (!vis && stream == mAllyStream) {
+            return;
+        }
+        Util.setVisOrGone(findRow(stream).view, vis);
+    }
+
     private void updateExpandedRows(boolean expand) {
         if (!expand) mController.setActiveStream(mAllyStream);
         if (mMusicHidden) {
-            Util.setVisOrGone(findRow(AudioManager.STREAM_MUSIC).view, expand);
+            setVisOrGone(AudioManager.STREAM_MUSIC, expand);
         }
-        Util.setVisOrGone(findRow(AudioManager.STREAM_RING).view, expand);
-        Util.setVisOrGone(findRow(STREAM_ALARM).view, expand);
+        setVisOrGone(AudioManager.STREAM_RING, expand);
+        setVisOrGone(STREAM_ALARM, expand);
         if (!isNotificationVolumeLinked()) {
-            Util.setVisOrGone(
-                    findRow(AudioManager.STREAM_NOTIFICATION).view, expand);
+            setVisOrGone(AudioManager.STREAM_NOTIFICATION, expand);
         }
     }
 
