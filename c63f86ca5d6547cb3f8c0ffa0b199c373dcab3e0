@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58b75c66_e97fde81",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-08-01T13:22:30Z",
+      "side": 1,
+      "message": "Missing space after if.",
+      "revId": "c63f86ca5d6547cb3f8c0ffa0b199c373dcab3e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4169c94_93895e03",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-08-01T13:22:30Z",
+      "side": 1,
+      "message": "Missing space after if.",
+      "revId": "c63f86ca5d6547cb3f8c0ffa0b199c373dcab3e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
