@@ -450,6 +450,8 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <string name="permdesc_activityRecognition">Gall yr ap hwn adnabod dy weithgaredd corfforol.</string>
     <string name="permlab_camera">tynnu lluniau a fideos</string>
     <string name="permdesc_camera">Gall yr ap hwn dynnu lluniau a recordio fideos unrhyw bryd gan ddefnyddio\'r camera.</string>
+    <string name="permlab_cameraOpenCloseListener">Caniatáu ap neu wasanaeth i dderbyn galwadau nôl am ddyfeisiau camera yn cael eu hagor neu gau.</string>
+    <string name="permdesc_cameraOpenCloseListener">Gall yr ap hwn dderbyn galwadau nôl pan fo unrhyw ddyfais camera yn cael ei hagor (gan ba ap) neu ei chau.</string>
     <string name="permlab_vibrate">rheoli dirgryniad</string>
     <string name="permdesc_vibrate">Mae\'n caniatáu i\'r ap reoli\'r dirgrynydd.</string>
     <string name="permlab_callPhone">galw rhifau ffôn yn uniongyrchol</string>
@@ -466,9 +468,11 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <string name="permdesc_acceptHandovers">Mae\'n caniatáu i\'r ap barhau â galwad sydd wedi\'i dechrau mewn ap arall.</string>
     <string name="permlab_readPhoneNumbers">darllen rhifau ffôn</string>
     <string name="permdesc_readPhoneNumbers">Mae\'n caniatáu i\'r ap gael mynediad at rifau ffôn ar y ddyfais.</string>
+    <string name="permlab_wakeLock" product="automotive">cadw sgrin car ymlaen</string>
     <string name="permlab_wakeLock" product="tablet">atal y llechen rhag cysgu</string>
     <string name="permlab_wakeLock" product="tv">atal y teledu rhag cysgu</string>
     <string name="permlab_wakeLock" product="default">atal y ffôn rhag cysgu</string>
+    <string name="permdesc_wakeLock" product="automotive">Mae\'n caniatáu i\'r ap gadw sgrin y car ymlaen.</string>
     <string name="permdesc_wakeLock" product="tablet">Mae\'n caniatáu i\'r ap rwystro\'r llechen rhag mynd i gysgu.</string>
     <string name="permdesc_wakeLock" product="tv">Mae\'n caniatáu i\'r ap rwystro\'r teledu rhag mynd i gysgu.</string>
     <string name="permdesc_wakeLock" product="default">Mae\'n caniatáu i\'r ap rwystro\'r ffôn rhag mynd i gysgu.</string>
@@ -1361,6 +1365,8 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="wifi_cannot_connect_with_randomized_mac_title">Methu â chysylltu â <xliff:g id="ssid" example="SSID_1">%1$s</xliff:g></string>
     <string name="wifi_cannot_connect_with_randomized_mac_message">Tapia i newid gosodiadau preifatrwydd a cheisio eto</string>
     <string name="wifi_disable_mac_randomization_dialog_title">Newid gosodiad preifatrwydd?</string>
+    <string name="wifi_disable_mac_randomization_dialog_message">I gysylltu, mae ar <xliff:g id="ssid" example="SSID_1">%1$s</xliff:g> angen defnyddio cyfeiriad MAC dy ddyfais, dynodwr unigryw. Ar hyn o bryd, mae dy osodiad preifatrwydd ar gyfer y rhwydwaith hwn yn defnyddio dynodwr ar hap.
+\n\nGall y newid hwn ganiatáu i ddyfeisiau cyfagos tracio lleoliad dy ddyfais.</string>
     <string name="wifi_disable_mac_randomization_dialog_confirm_text">Newid gosodiad</string>
     <string name="wifi_disable_mac_randomization_dialog_success">Diweddarwyd y gosodiad. Ceisia gysylltu eto.</string>
     <string name="wifi_disable_mac_randomization_dialog_failure">Methu â newid gosodiad preifatrwydd</string>

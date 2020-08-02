@@ -68,8 +68,16 @@
     <string name="vpn_credentials_username">사용자 이름</string>
     <string name="vpn_credentials_password">비밀번호</string>
     <string name="vpn_credentials_dialog_connect">연결</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD 꺼짐\n배터리 절약 모드</string>
+    <string name="quick_settings_powershare_label">무선 PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">무선 PowerShare 꺼짐 \n배터리 절약 모드</string>
+    <string name="quick_settings_powershare_off_low_battery_label">무선 PowerShare 꺼짐\n 배터리 부족</string>
+    <string name="quick_settings_powershare_enabled_label">무선 PowerShare 켜짐</string>
     <string name="status_bar_battery">배터리</string>
+    <string name="status_bar_camera">카메라</string>
     <string name="status_bar_location">위치</string>
+    <string name="status_bar_microphone">마이크</string>
     <string name="screen_pinning_description_no_navbar">고정을 해제하기 전까지 계속 볼 수 있습니다. 고정을 해제하려면 뒤로 가기 버튼을 길게 누르세요.</string>
     <string name="screen_pinning_toast_no_navbar">이 화면을 고정 해제하려면 뒤로 가기 버튼을 길게 누르세요.</string>
 </resources>
