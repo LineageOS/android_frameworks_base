@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e7ac540_c173abee",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-08-04T18:47:59Z",
+      "side": 1,
+      "message": "make these private",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46d29867_f13ac82b",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-08-04T18:47:59Z",
+      "side": 1,
+      "message": "mBatteryStatsHelper \u003d new BatteryStatsHelper(context);\n        mUserManager \u003d context.getSystemService(UserManager.class);",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 84
+      },
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04a1c50d_3f222e80",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-08-04T18:47:59Z",
+      "side": 1,
+      "message": "Missing space",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 12
+      },
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "652d88a3_b62f237a",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-08-04T18:47:59Z",
+      "side": 1,
+      "message": "mBatteryStatsHelper.refreshStats(BatteryStats.STATS_SINCE_CHARGED, mUserManager.getUserProfiles(), SystemClock.elapsedRealtime() * 1000, SystemClock.uptimeMillis() * 1000);\nTo avoid using private API",
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c7925cf_0235a38c",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-08-04T18:47:59Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we really have to force refresh them, probably calling\nBatteryStats stats \u003d mBatteryStatsHelper.getStats();\nis enough",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 111
+      },
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d11f801c_e7916b23",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-08-04T18:47:59Z",
+      "side": 1,
+      "message": "Missing spaces after (",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 13
+      },
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
