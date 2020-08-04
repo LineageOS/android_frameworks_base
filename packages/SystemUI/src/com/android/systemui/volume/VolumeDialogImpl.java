@@ -1206,8 +1206,8 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (notificationRow != null && mState.linkedNotification) {
             removeRow(notificationRow);
         } else if (notificationRow == null && !mState.linkedNotification) {
-            addRow(AudioManager.STREAM_NOTIFICATION, R.drawable.ic_volume_notification,
-                    R.drawable.ic_volume_notification_mute, true, false);
+            addRow(AudioManager.STREAM_NOTIFICATION, R.drawable.ic_volume_ringer,
+                    R.drawable.ic_volume_ringer_mute, true, false);
         }
     }
 
