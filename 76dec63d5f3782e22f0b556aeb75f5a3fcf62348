@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "12195bcd_1475e425",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 26587
+      },
+      "writtenOn": "2020-08-04T20:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e7ac540_c173abee",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46d29867_f13ac82b",
         "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d6578fd3_fe2b4b0c",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 26587
+      },
+      "writtenOn": "2020-08-04T20:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46d29867_f13ac82b",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 84
+      },
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04a1c50d_3f222e80",
         "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d07f0870_8641a6ac",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 26587
+      },
+      "writtenOn": "2020-08-04T20:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a1c50d_3f222e80",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 12
+      },
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +183,48 @@
     },
     {
       "key": {
+        "uuid": "8e4dfdb8_7c744d71",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 26587
+      },
+      "writtenOn": "2020-08-04T20:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c7925cf_0235a38c",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 111
+      },
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cc8e279_0b622e01",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 26587
+      },
+      "writtenOn": "2020-08-04T20:11:55Z",
+      "side": 1,
+      "message": "Hey Luca, I tried the changes you wrote above but I\u0027m getting this error when I\u0027m compiling SystemUI:\n\nerror: incompatible types: List\u003cUserHandle\u003e cannot be converted to SparseArray\u003cUserHandle\u003e",
+      "parentUuid": "652d88a3_b62f237a",
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d11f801c_e7916b23",
         "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
         "patchSetId": 1
@@ -131,6 +245,30 @@
       "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0bed571_f5c96719",
+        "filename": "packages/SystemUI/src/com/android/systemui/power/EnhancedEstimatesImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 26587
+      },
+      "writtenOn": "2020-08-04T20:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d11f801c_e7916b23",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 13
+      },
+      "revId": "76dec63d5f3782e22f0b556aeb75f5a3fcf62348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
