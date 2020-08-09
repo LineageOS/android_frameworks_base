@@ -16,6 +16,7 @@
 
 package com.android.settingslib.bluetooth;
 
+import android.bluetooth.BluetoothCodecStatus;
 
 /**
  * BluetoothCallback provides a callback interface for the settings
@@ -139,5 +140,16 @@ public interface BluetoothCallback {
      *                     {@link android.bluetooth.BluetoothAdapter#STATE_CONNECTED}
      */
     default void onAclConnectionStateChanged(CachedBluetoothDevice cachedDevice, int state) {
+    }
+
+    /**
+     * Called when a2dp codec config is changed. It listens to
+     * {@link android.bluetooth.BluetoothA2dp#ACTION_CODEC_CONFIG_CHANGED}.
+     *
+     * @param cachedDevice Bluetooth device that changed
+     * @param codecStatus  the current codec status of the a2dp profile
+     */
+    default void onA2dpCodecConfigChanged(CachedBluetoothDevice cachedDevice,
+            BluetoothCodecStatus codecStatus) {
     }
 }
