@@ -394,6 +394,11 @@ public class ExternalStorageProvider extends DocumentsProvider {
             row.add(Document.COLUMN_LAST_MODIFIED, lastModified);
         }
     }
+    @Override
+    protected void onDocIdDeleted(String docId) {
+        Uri uri = DocumentsContract.buildDocumentUri(AUTHORITY, docId);
+        getContext().revokeUriPermission(uri, ~0);
+    }
 
     @Override
     public Cursor queryRoots(String[] projection) throws FileNotFoundException {
@@ -472,6 +477,7 @@ public class ExternalStorageProvider extends DocumentsProvider {
             throw new IllegalStateException("Failed to rename to " + after);
         }
         final String afterDocId = getDocIdForFile(after);
+        onDocIdDeleted(docId);
         if (!TextUtils.equals(docId, afterDocId)) {
             return afterDocId;
         } else {
@@ -491,6 +497,8 @@ public class ExternalStorageProvider extends DocumentsProvider {
         if (!file.delete()) {
             throw new IllegalStateException("Failed to delete " + file);
         }
+
+        onDocIdDeleted(docId);
 
         if (visibleFile != null) {
             final ContentResolver resolver = getContext().getContentResolver();
@@ -526,7 +534,11 @@ public class ExternalStorageProvider extends DocumentsProvider {
         if (!before.renameTo(after)) {
             throw new IllegalStateException("Failed to move to " + after);
         }
-        return getDocIdForFile(after);
+
+        final String docId = getDocIdForFile(after);
+        onDocIdDeleted(sourceDocumentId);
+
+        return docId;
     }
 
     @Override
