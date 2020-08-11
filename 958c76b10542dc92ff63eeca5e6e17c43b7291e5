@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "091d4c0e_d34ca19d",
+        "filename": "packages/SystemUI/res/values/lineage_dimens.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-08-11T06:41:46Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be in dp? otherwise changing your device\u0027s rrsolution results in a wrong cutout again",
+      "revId": "958c76b10542dc92ff63eeca5e6e17c43b7291e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
