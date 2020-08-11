@@ -16,6 +16,24 @@
       "revId": "958c76b10542dc92ff63eeca5e6e17c43b7291e5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "379d81a1_82211441",
+        "filename": "packages/SystemUI/res/values/lineage_dimens.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2020-08-11T06:46:48Z",
+      "side": 1,
+      "message": "Precisely for that reason (changing density setting) it needs to be in px, not dp. The panel and cutout sizes have fixed pixel values after all.",
+      "parentUuid": "091d4c0e_d34ca19d",
+      "revId": "958c76b10542dc92ff63eeca5e6e17c43b7291e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
