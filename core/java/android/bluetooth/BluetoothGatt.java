@@ -799,6 +799,28 @@ public final class BluetoothGatt implements BluetoothProfile {
      * error
      */
     private boolean registerApp(BluetoothGattCallback callback, Handler handler) {
+        return registerApp(callback, handler, false);
+    }
+
+    /**
+     * Register an application callback to start using GATT.
+     *
+     * <p>This is an asynchronous call. The callback {@link BluetoothGattCallback#onAppRegistered}
+     * is used to notify success or failure if the function returns true.
+     *
+     * <p>Requires {@link android.Manifest.permission#BLUETOOTH} permission.
+     *
+     * @param callback GATT callback handler that will receive asynchronous callbacks.
+     * @param eattSupport specifies whether client app needs EATT channel for client operations.
+     * If both local and remote devices support EATT and local app asks for EATT, GATT client
+     * operations will be performed using EATT channel.
+     * If either local or remote device doesn't support EATT but local App asks for EATT, GATT
+     * client operations will be performed using unenhanced ATT channel.
+     * @return If true, the callback will be called to notify success or failure, false on immediate
+     * error
+     * @hide
+     */
+    private boolean registerApp(BluetoothGattCallback callback, Handler handler, boolean eattSupport) {
         if (DBG) Log.d(TAG, "registerApp()");
         if (mService == null) return false;
 
@@ -808,7 +830,7 @@ public final class BluetoothGatt implements BluetoothProfile {
         if (DBG) Log.d(TAG, "registerApp() - UUID=" + uuid);
 
         try {
-            mService.registerClient(new ParcelUuid(uuid), mBluetoothGattCallback);
+            mService.registerClient(new ParcelUuid(uuid), mBluetoothGattCallback, eattSupport);
         } catch (RemoteException e) {
             Log.e(TAG, "", e);
             return false;
@@ -859,9 +881,45 @@ public final class BluetoothGatt implements BluetoothProfile {
     @UnsupportedAppUsage
     /*package*/ boolean connect(Boolean autoConnect, BluetoothGattCallback callback,
             Handler handler) {
+        return connect(autoConnect, callback, handler, false);
+    }
+
+    /**
+     * Initiate a connection to a Bluetooth GATT capable device.
+     *
+     * <p>The connection may not be established right away, but will be
+     * completed when the remote device is available. A
+     * {@link BluetoothGattCallback#onConnectionStateChange} callback will be
+     * invoked when the connection state changes as a result of this function.
+     *
+     * <p>The autoConnect parameter determines whether to actively connect to
+     * the remote device, or rather passively scan and finalize the connection
+     * when the remote device is in range/available. Generally, the first ever
+     * connection to a device should be direct (autoConnect set to false) and
+     * subsequent connections to known devices should be invoked with the
+     * autoConnect parameter set to true.
+     *
+     * <p>Requires {@link android.Manifest.permission#BLUETOOTH} permission.
+     *
+     * @param device Remote device to connect to
+     * @param autoConnect Whether to directly connect to the remote device (false) or to
+     * automatically connect as soon as the remote device becomes available (true).
+     * @param eattSupport specifies whether client app needs EATT channel for client operations.
+     * If both local and remote devices support EATT and local app asks for EATT, GATT client
+     * operations will be performed using EATT channel.
+     * If either local or remote device doesn't support EATT but local App asks for EATT, GATT
+     * client operations will be performed using unenhanced ATT channel.
+     * @return true, if the connection attempt was initiated successfully
+     *
+     * @hide
+     */
+    @UnsupportedAppUsage
+    /*package*/ boolean connect(Boolean autoConnect, BluetoothGattCallback callback,
+            Handler handler, boolean eattSupport) {
         if (DBG) {
             Log.d(TAG,
-                    "connect() - device: " + mDevice.getAddress() + ", auto: " + autoConnect);
+                    "connect() - device: " + mDevice.getAddress() + ", auto: " + autoConnect
+                    + ", eattSupport: " + eattSupport);
         }
         synchronized (mStateLock) {
             if (mConnState != CONN_STATE_IDLE) {
@@ -872,7 +930,7 @@ public final class BluetoothGatt implements BluetoothProfile {
 
         mAutoConnect = autoConnect;
 
-        if (!registerApp(callback, handler)) {
+        if (!registerApp(callback, handler, eattSupport)) {
             synchronized (mStateLock) {
                 mConnState = CONN_STATE_IDLE;
             }
