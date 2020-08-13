@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "a171519d_622711ca",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-08-13T21:48:04Z",
+      "side": 1,
+      "message": "Unnecessary as stated below.",
+      "revId": "b1b6d0550e6ecaddf24a0d3aff55ae17d4567159",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ded6a31d_0cad6718",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-08-13T21:48:04Z",
+      "side": 1,
+      "message": "Line is too long. Also create a static variable for the intent action.",
+      "revId": "b1b6d0550e6ecaddf24a0d3aff55ae17d4567159",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5fb7356c_1a7ef25c",
         "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
         "patchSetId": 1
@@ -13,6 +47,24 @@
       "writtenOn": "2020-08-11T16:56:57Z",
       "side": 1,
       "message": "Context is implemented on ImageView class",
+      "revId": "b1b6d0550e6ecaddf24a0d3aff55ae17d4567159",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80201907_280f2ed6",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-08-13T21:48:04Z",
+      "side": 1,
+      "message": "Correct, can be removed.",
+      "parentUuid": "5fb7356c_1a7ef25c",
       "revId": "b1b6d0550e6ecaddf24a0d3aff55ae17d4567159",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
