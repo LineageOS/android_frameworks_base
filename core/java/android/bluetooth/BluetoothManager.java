@@ -233,6 +233,31 @@ public final class BluetoothManager {
      */
     public BluetoothGattServer openGattServer(Context context,
             BluetoothGattServerCallback callback, int transport) {
+        return (openGattServer(context, callback, transport, false));
+    }
+
+    /**
+     * Open a GATT Server
+     * The callback is used to deliver results to Caller, such as connection status as well
+     * as the results of any other GATT server operations.
+     * The method returns a BluetoothGattServer instance. You can use BluetoothGattServer
+     * to conduct GATT server operations.
+     *
+     * @param context App context
+     * @param callback GATT server callback handler that will receive asynchronous callbacks.
+     * @param transport preferred transport for GATT connections to remote dual-mode devices {@link
+     * BluetoothDevice#TRANSPORT_AUTO} or {@link BluetoothDevice#TRANSPORT_BREDR} or {@link
+     * BluetoothDevice#TRANSPORT_LE}
+     * @param eattSupport specifies whether server app needs EATT channel for server operations.
+     * If both local and remote devices support EATT, local app asks for EATT using this API and
+     * calls server connect, GATT server operations will be performed using EATT channel.
+     * If either local or remote device doesn't support EATT but local App asks for EATT, GATT
+     * server operations will be performed using unenhanced ATT channel.
+     * @return BluetoothGattServer instance
+     * @hide
+     */
+    public BluetoothGattServer openGattServer(Context context,
+            BluetoothGattServerCallback callback, int transport, boolean eattSupport) {
         if (context == null || callback == null) {
             throw new IllegalArgumentException("null parameter: " + context + " " + callback);
         }
@@ -248,7 +273,7 @@ public final class BluetoothManager {
                 return null;
             }
             BluetoothGattServer mGattServer = new BluetoothGattServer(iGatt, transport);
-            Boolean regStatus = mGattServer.registerCallback(callback);
+            Boolean regStatus = mGattServer.registerCallback(callback, eattSupport);
             return regStatus ? mGattServer : null;
         } catch (RemoteException e) {
             Log.e(TAG, "", e);
