@@ -8193,6 +8193,15 @@ public class NotificationManagerService extends SystemService {
         }
 
         LedValues ledValues = new LedValues(light.color, light.onMs, light.offMs);
+        int ledColor = light.color;
+        if (isLedForcedOn(ledNotification) && ledColor == 0) {
+            // User has requested color 0.  However, lineage-sdk interprets
+            // color 0 as "supply a default" therefore adjust alpha to make
+            // the color still black but non-zero.
+            ledColor = 0x01000000;
+        }
+
+        LedValues ledValues = new LedValues(ledColor, light.onMs, light.offMs);
         mLineageNotificationLights.calcLights(ledValues, ledNotification.getSbn().getPackageName(),
                 ledNotification.getSbn().getNotification(), mScreenOn || isInCall(),
                 ledNotification.getSuppressedVisualEffects());
