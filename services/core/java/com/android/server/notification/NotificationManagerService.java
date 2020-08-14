@@ -8192,9 +8192,23 @@ public class NotificationManagerService extends SystemService {
             return;
         }
 
+<<<<<<< HEAD   (9e997d Pad ime_switcher same as navbar buttons)
         LedValues ledValues = new LedValues(light.color, light.onMs, light.offMs);
         mLineageNotificationLights.calcLights(ledValues, ledNotification.getSbn().getPackageName(),
                 ledNotification.getSbn().getNotification(), mScreenOn || isInCall(),
+=======
+        int ledColor = light.color;
+        if (isLedForcedOn(ledNotification) && ledColor == 0) {
+            // User has requested color 0.  However, lineage-sdk interprets
+            // color 0 as "supply a default" therefore adjust alpha to make
+            // the color still black but non-zero.
+            ledColor = 0x01000000;
+        }
+
+        LedValues ledValues = new LedValues(ledColor, light.onMs, light.offMs);
+        mLineageNotificationLights.calcLights(ledValues, ledNotification.sbn.getPackageName(),
+                ledNotification.sbn.getNotification(), mScreenOn || isInCall(),
+>>>>>>> CHANGE (3fb208 fw/b: Resolve black forced lights with notifications channel)
                 ledNotification.getSuppressedVisualEffects());
 
         if (!ledValues.isEnabled()) {
