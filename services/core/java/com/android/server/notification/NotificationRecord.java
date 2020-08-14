@@ -269,11 +269,6 @@ public final class NotificationRecord {
                 if ((notification.defaults & Notification.DEFAULT_LIGHTS) != 0) {
                     light = new Light(defaultLightColor, defaultLightOn,
                             defaultLightOff);
-                } else if (light.color == 0) {
-                    // User has requested color 0.  However, lineage-sdk interprets
-                    // color 0 as "supply a default" therefore adjust alpha to make
-                    // the color still black but non-zero.
-                    light = new Light(0x01000000, light.onMs, light.offMs);
                 }
             } else {
                 light = null;
