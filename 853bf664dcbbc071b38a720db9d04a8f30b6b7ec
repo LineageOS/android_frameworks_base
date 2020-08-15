@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a860df5_d3c7e59e",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 7243,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2020-08-15T16:29:18Z",
+      "side": 1,
+      "message": "We might want to check \"(notification.defaults \u0026 Notification.DEFAULT_LIGHTS) \u003d\u003d 0\", opinions ?",
+      "revId": "853bf664dcbbc071b38a720db9d04a8f30b6b7ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
