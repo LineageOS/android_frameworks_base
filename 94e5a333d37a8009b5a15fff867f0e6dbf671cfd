@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ba55451_7e9c245f",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-08-15T10:27:22Z",
+      "side": 1,
+      "message": "Here.",
+      "revId": "94e5a333d37a8009b5a15fff867f0e6dbf671cfd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77ef6901_eac258ff",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 14934
+      },
+      "writtenOn": "2020-08-15T10:27:22Z",
+      "side": 1,
+      "message": "You can move it to constructor.",
+      "revId": "94e5a333d37a8009b5a15fff867f0e6dbf671cfd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
