@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4ce4a046_259324c5",
+        "filename": "packages/SystemUI/res/drawable-nodpi/fod_icon_pressed.png",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15525
+      },
+      "writtenOn": "2020-08-15T10:46:16Z",
+      "side": 1,
+      "message": "Would be better to use an 1px x 1px png",
+      "revId": "94e5a333d37a8009b5a15fff867f0e6dbf671cfd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ba55451_7e9c245f",
         "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
         "patchSetId": 17
