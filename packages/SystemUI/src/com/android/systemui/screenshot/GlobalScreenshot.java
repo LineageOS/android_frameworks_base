@@ -33,8 +33,10 @@ import android.animation.LayoutTransition.TransitionListener;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.ActivityManager;
+import android.app.ActivityManager.StackInfo;
 import android.app.ActivityOptions;
 import android.app.ActivityTaskManager;
+import android.app.IActivityManager;
 import android.app.KeyguardManager;
 import android.app.Notification;
 import android.app.Notification.BigPictureStyle;
@@ -178,17 +180,18 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
     private final Random mRandom = new Random();
 
     private static CharSequence getRunningActivityName(Context context) {
-        final ActivityManager am = context.getSystemService(ActivityManager.class);
+        final IActivityManager am = ActivityManager.getService();
         final PackageManager pm = context.getPackageManager();
 
-        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
-        if (tasks != null && !tasks.isEmpty()) {
-            ActivityManager.RunningTaskInfo top = tasks.get(0);
-            try {
-                ActivityInfo info = pm.getActivityInfo(top.topActivity, 0);
+        try {
+            final StackInfo focusedStack = am.getFocusedStackInfo();
+
+            if (focusedStack != null && focusedStack.topActivity != null) {
+                ActivityInfo info = pm.getActivityInfo(focusedStack.topActivity, 0);
                 return pm.getApplicationLabel(info.applicationInfo);
-            } catch (PackageManager.NameNotFoundException e) {
             }
+        } catch (PackageManager.NameNotFoundException | RemoteException e) {
+            // do nothing.
         }
 
         return null;
