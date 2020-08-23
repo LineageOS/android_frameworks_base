@@ -135,6 +135,7 @@ cc_defaults {
         "android.system.suspend@1.0",
         "suspend_control_aidl_interface-cpp",
         "vendor.lineage.power@1.0",
+        "vendor.lineage.touch@1.0",
     ],
 
     static_libs: [
