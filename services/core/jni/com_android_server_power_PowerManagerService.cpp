@@ -23,6 +23,7 @@
 #include <android/system/suspend/ISuspendControlService.h>
 #include <nativehelper/JNIHelp.h>
 #include <vendor/lineage/power/1.0/ILineagePower.h>
+#include <vendor/lineage/touch/1.0/ITouchFeature.h>
 #include "jni.h"
 
 #include <nativehelper/ScopedUtfChars.h>
@@ -57,7 +58,9 @@ using android::system::suspend::ISuspendControlService;
 using IPowerV1_1 = android::hardware::power::V1_1::IPower;
 using IPowerV1_0 = android::hardware::power::V1_0::IPower;
 using ILineagePowerV1_0 = vendor::lineage::power::V1_0::ILineagePower;
+using ITouchFeatureV1_0 = vendor::lineage::touch::V1_0::ITouchFeature;
 using vendor::lineage::power::V1_0::LineageFeature;
+using vendor::lineage::touch::V1_0::TouchFeature;
 
 namespace android {
 
@@ -74,8 +77,10 @@ static jobject gPowerManagerServiceObj;
 static sp<IPowerV1_0> gPowerHalV1_0_ = nullptr;
 static sp<IPowerV1_1> gPowerHalV1_1_ = nullptr;
 static sp<ILineagePowerV1_0> gLineagePowerHalV1_0_ = nullptr;
+static sp<ITouchFeatureV1_0> gTouchHalV1_0_ = nullptr;
 static bool gPowerHalExists = true;
 static bool gLineagePowerHalExists = true;
+static bool gTouchHalExists = true;
 static std::mutex gPowerHalMutex;
 static nsecs_t gLastEventTime[USER_ACTIVITY_EVENT_LAST + 1];
 
@@ -128,6 +133,20 @@ void connectLineagePowerHalLocked() {
     }
 }
 
+// Check validity of current handle to the Touch power HAL service, and call getService() if necessary.
+// The caller must be holding gPowerHalMutex.
+void connectTouchHalLocked() {
+    if (gTouchHalExists && gTouchHalV1_0_== nullptr) {
+        gTouchHalV1_0_ = ITouchFeatureV1_0::getService();
+        if (gTouchHalV1_0_ != nullptr) {
+            ALOGI("Loaded touch feature HAL service");
+        } else {
+            ALOGI("Couldn't load power HAL service");
+            gTouchHalExists = false;
+        }
+    }
+}
+
 // Retrieve a copy of PowerHAL V1_0
 sp<IPowerV1_0> getPowerHalV1_0() {
     std::lock_guard<std::mutex> lock(gPowerHalMutex);
@@ -147,6 +166,13 @@ sp<ILineagePowerV1_0> getLineagePowerHalV1_0() {
     std::lock_guard<std::mutex> lock(gPowerHalMutex);
     connectLineagePowerHalLocked();
     return gLineagePowerHalV1_0_;
+}
+
+// Retrieve a copy of Touch HAL V1_0
+sp<ITouchFeatureV1_0> getTouchHalV1_0() {
+    std::lock_guard<std::mutex> lock(gPowerHalMutex);
+    connectTouchHalLocked();
+    return gTouchHalV1_0_;
 }
 
 // Check if a call to a power HAL function failed; if so, log the failure and invalidate the
@@ -335,6 +361,11 @@ static void nativeSendPowerHint(JNIEnv* /* env */, jclass /* clazz */, jint hint
 }
 
 static void nativeSetFeature(JNIEnv* /* env */, jclass /* clazz */, jint featureId, jint data) {
+    sp<ITouchFeatureV1_0> touchHalV1_0 = getTouchHalV1_0();
+    if (touchHalV1_0 != nullptr) {
+        Return<void> ret = touchHalV1_0->setFeature((TouchFeature)featureId, static_cast<bool>(data));
+        processPowerHalReturn(ret, "setFeature");
+    }
     sp<IPowerV1_0> powerHalV1_0 = getPowerHalV1_0();
     if (powerHalV1_0 != nullptr) {
         Return<void> ret = powerHalV1_0->setFeature((Feature)featureId, static_cast<bool>(data));
