@@ -49,6 +49,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.content.res.Configuration;
@@ -103,12 +104,15 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.messages.nano.SystemMessageProto.SystemMessage;
 import com.android.internal.statusbar.IStatusBarService;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.SystemUI;
 import com.android.systemui.SystemUIFactory;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
+import com.android.systemui.shared.system.TaskStackChangeListener;
 import com.android.systemui.statusbar.phone.StatusBar;
+import com.android.systemui.UiOffloadThread;
 import com.android.systemui.util.NotificationChannels;
 
 import libcore.io.IoUtils;
@@ -177,36 +181,18 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
     private final boolean mSmartActionsEnabled;
     private final Random mRandom = new Random();
 
-    private static CharSequence getRunningActivityName(Context context) {
-        final ActivityManager am = context.getSystemService(ActivityManager.class);
-        final PackageManager pm = context.getPackageManager();
-
-        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
-        if (tasks != null && !tasks.isEmpty()) {
-            ActivityManager.RunningTaskInfo top = tasks.get(0);
-            try {
-                ActivityInfo info = pm.getActivityInfo(top.topActivity, 0);
-                return pm.getApplicationLabel(info.applicationInfo);
-            } catch (PackageManager.NameNotFoundException e) {
-            }
-        }
-
-        return null;
-    }
-
     SaveImageInBackgroundTask(Context context, SaveImageInBackgroundData data,
-            NotificationManager nManager) {
+            NotificationManager nManager, String appLabel) {
         Resources r = context.getResources();
 
         // Prepare all the output metadata
         mParams = data;
         mImageTime = System.currentTimeMillis();
         String imageDate = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date(mImageTime));
-        CharSequence appName = getRunningActivityName(context);
         boolean onKeyguard = context.getSystemService(KeyguardManager.class).isKeyguardLocked();
-        if (!onKeyguard && appName != null) {
+        if (!onKeyguard && appLabel != null) {
             // Replace all spaces and special chars with an underscore
-            String appNameString = appName.toString().replaceAll("[\\\\/:*?\"<>|\\s]+", "_");
+            String appNameString = appLabel.toString().replaceAll("[\\\\/:*?\"<>|\\s]+", "_");
             mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE_APPNAME,
                     imageDate, appNameString);
         } else {
@@ -667,6 +653,33 @@ class GlobalScreenshot {
     private AudioManager mAudioManager;
     private Vibrator mVibrator;
 
+    private ComponentName mTaskComponentName;
+    private PackageManager mPm;
+
+    private final UiOffloadThread mUiOffloadThread = Dependency.get(UiOffloadThread.class);
+    private final TaskStackChangeListener mTaskListener = new TaskStackChangeListener() {
+        @Override
+        public void onTaskStackChanged() {
+            mUiOffloadThread.submit(() -> {
+                try {
+                    final ActivityManager.StackInfo focusedStack =
+                            ActivityTaskManager.getService().getFocusedStackInfo();
+                    if (focusedStack != null && focusedStack.topActivity != null) {
+                        mTaskComponentName = focusedStack.topActivity;
+                    }
+                } catch (Exception e) {}
+            });
+        }
+    };
+
+    private String getForegroundAppLabel() {
+        try {
+            final ActivityInfo ai = mPm.getActivityInfo(mTaskComponentName, 0);
+            return ai.applicationInfo.loadLabel(mPm).toString();
+        } catch (PackageManager.NameNotFoundException e) {
+             return null;
+        }
+    }
 
     /**
      * @param context everything needs a context :(
@@ -743,12 +756,21 @@ class GlobalScreenshot {
         // Grab system services needed for screenshot sound
         mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+
+        // Grab PackageManager
+        mPm = mContext.getPackageManager();
+
+        // Register task stack listener
+        ActivityManagerWrapper.getInstance().registerTaskStackListener(mTaskListener);
+
+        // Initialize current foreground package name
+        mTaskListener.onTaskStackChanged();
     }
 
     /**
      * Creates a new worker thread and saves the screenshot to the media store.
      */
-    private void saveScreenshotInWorkerThread(Consumer<Uri> finisher) {
+    private void saveScreenshotInWorkerThread(Consumer<Uri> finisher, String appLabel) {
         SaveImageInBackgroundData data = new SaveImageInBackgroundData();
         data.context = mContext;
         data.image = mScreenBitmap;
@@ -759,8 +781,8 @@ class GlobalScreenshot {
         if (mSaveInBgTask != null) {
             mSaveInBgTask.cancel(false);
         }
-        mSaveInBgTask = new SaveImageInBackgroundTask(mContext, data, mNotificationManager)
-                .execute();
+        mSaveInBgTask = new SaveImageInBackgroundTask(
+                mContext, data, mNotificationManager, appLabel).execute();
     }
 
     /**
@@ -787,7 +809,7 @@ class GlobalScreenshot {
 
         // Start the post-screenshot animation
         startAnimation(finisher, mDisplayMetrics.widthPixels, mDisplayMetrics.heightPixels,
-                statusBarVisible, navBarVisible);
+                statusBarVisible, navBarVisible, getForegroundAppLabel());
     }
 
     void takeScreenshot(Consumer<Uri> finisher, boolean statusBarVisible, boolean navBarVisible) {
@@ -936,7 +958,7 @@ class GlobalScreenshot {
      * Starts the animation after taking the screenshot
      */
     private void startAnimation(final Consumer<Uri> finisher, int w, int h,
-            boolean statusBarVisible, boolean navBarVisible) {
+            boolean statusBarVisible, boolean navBarVisible, String appLabel) {
         // If power save is on, show a toast so there is some visual indication that a screenshot
         // has been taken.
         PowerManager powerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
@@ -966,7 +988,7 @@ class GlobalScreenshot {
             @Override
             public void onAnimationEnd(Animator animation) {
                 // Save the screenshot once we have a bit of time now
-                saveScreenshotInWorkerThread(finisher);
+                saveScreenshotInWorkerThread(finisher, appLabel);
                 mWindowManager.removeView(mScreenshotLayout);
 
                 // Clear any references to the bitmap
