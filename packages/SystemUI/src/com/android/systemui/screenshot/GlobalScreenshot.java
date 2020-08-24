@@ -49,6 +49,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.content.res.Configuration;
@@ -103,12 +104,15 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.messages.nano.SystemMessageProto.SystemMessage;
 import com.android.internal.statusbar.IStatusBarService;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.SystemUI;
 import com.android.systemui.SystemUIFactory;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
+import com.android.systemui.shared.system.TaskStackChangeListener;
 import com.android.systemui.statusbar.phone.StatusBar;
+import com.android.systemui.UiOffloadThread;
 import com.android.systemui.util.NotificationChannels;
 
 import libcore.io.IoUtils;
@@ -178,17 +182,14 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
     private final Random mRandom = new Random();
 
     private static CharSequence getRunningActivityName(Context context) {
-        final ActivityManager am = context.getSystemService(ActivityManager.class);
         final PackageManager pm = context.getPackageManager();
 
-        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
-        if (tasks != null && !tasks.isEmpty()) {
-            ActivityManager.RunningTaskInfo top = tasks.get(0);
-            try {
-                ActivityInfo info = pm.getActivityInfo(top.topActivity, 0);
-                return pm.getApplicationLabel(info.applicationInfo);
-            } catch (PackageManager.NameNotFoundException e) {
-            }
+        try {
+            ApplicationInfo info = pm.getApplicationInfo(
+                    GlobalScreenshot.getForegroundPackageName(), 0);
+            return pm.getApplicationLabel(info);
+        } catch (PackageManager.NameNotFoundException e) {
+            // do nothing.
         }
 
         return null;
@@ -667,6 +668,25 @@ class GlobalScreenshot {
     private AudioManager mAudioManager;
     private Vibrator mVibrator;
 
+    private static String sForegroundPackageName = "";
+
+    private final UiOffloadThread mUiOffloadThread = Dependency.get(UiOffloadThread.class);
+    private final TaskStackChangeListener mTaskListener = new TaskStackChangeListener() {
+        @Override
+        public void onTaskStackChanged() {
+            mUiOffloadThread.submit(() -> {
+                try {
+                    final ActivityManager.StackInfo focusedStack =
+                            ActivityTaskManager.getService().getFocusedStackInfo();
+                    if (focusedStack != null && focusedStack.topActivity != null) {
+                        sForegroundPackageName = focusedStack.topActivity.getPackageName();
+                    }
+                } catch (RemoteException e) {
+                    e.rethrowFromSystemServer();
+                }
+            });
+        }
+    };
 
     /**
      * @param context everything needs a context :(
@@ -743,6 +763,12 @@ class GlobalScreenshot {
         // Grab system services needed for screenshot sound
         mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+
+        // Register task stack listener
+        ActivityManagerWrapper.getInstance().registerTaskStackListener(mTaskListener);
+
+        // Initialize current foreground package name
+        mTaskListener.onTaskStackChanged();
     }
 
     /**
@@ -1244,6 +1270,10 @@ class GlobalScreenshot {
                     status, waitTimeMs);
             return Collections.emptyList();
         }
+    }
+
+    static String getForegroundPackageName() {
+        return sForegroundPackageName;
     }
 
     static void notifyScreenshotOp(String screenshotId,
