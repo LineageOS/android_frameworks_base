@@ -612,6 +612,8 @@ public class WindowManagerService extends IWindowManager.Stub
 
     boolean mDisableTransitionAnimation;
 
+    String mTopActivityPackageName;
+
     int getDragLayerLocked() {
         return mPolicy.getWindowLayerFromTypeLw(TYPE_DRAG) * TYPE_LAYER_MULTIPLIER + TYPE_LAYER_OFFSET;
     }
@@ -5931,6 +5933,9 @@ public class WindowManagerService extends IWindowManager.Stub
             if (appWindow != null) {
                 appWindow.getDisplayContent().mUnknownAppVisibilityController
                         .notifyAppResumedFinished(appWindow);
+                mTopActivityPackageName = appWindow.getActivityRecordPackageName();
+            } else {
+                mTopActivityPackageName = null;
             }
         }
     }
@@ -7747,6 +7752,11 @@ public class WindowManagerService extends IWindowManager.Stub
                     displayContent.getInputMonitor().updateInputWindowsImmediately());
         }
         new SurfaceControl.Transaction().syncInputWindows().apply(true);
+    }
+
+    @Override
+    public String getTopActivityPackageName() {
+       return mTopActivityPackageName;
     }
 
     private void waitForAnimationsToComplete() {
