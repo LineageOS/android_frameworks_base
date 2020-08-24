@@ -638,4 +638,10 @@ interface IWindowManager
      * native InputManager before proceeding with tests.
      */
     void syncInputTransactions();
+
+    /**
+     * @return the top activity package name.
+     */
+    @UnsupportedAppUsage
+    String getTopActivityPackageName();
 }

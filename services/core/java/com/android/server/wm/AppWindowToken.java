@@ -3248,6 +3248,13 @@ class AppWindowToken extends WindowToken implements WindowManagerService.AppFree
     }
 
     /**
+     * @return activity record's package name or null.
+     */
+    String getActivityRecordPackageName() {
+        return mActivityRecord != null ? mActivityRecord.packageName : null;
+    }
+
+    /**
      * @return true if we have a window that has a non-default color mode set; false otherwise.
      */
     private boolean hasNonDefaultColorWindow() {
