@@ -49,6 +49,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.content.res.Configuration;
@@ -86,6 +87,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Slog;
 import android.view.Display;
+import android.view.IWindowManager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -94,6 +96,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.view.WindowManagerGlobal;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -178,17 +181,22 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
     private final Random mRandom = new Random();
 
     private static CharSequence getRunningActivityName(Context context) {
-        final ActivityManager am = context.getSystemService(ActivityManager.class);
         final PackageManager pm = context.getPackageManager();
+        final IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
 
-        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
-        if (tasks != null && !tasks.isEmpty()) {
-            ActivityManager.RunningTaskInfo top = tasks.get(0);
-            try {
-                ActivityInfo info = pm.getActivityInfo(top.topActivity, 0);
-                return pm.getApplicationLabel(info.applicationInfo);
-            } catch (PackageManager.NameNotFoundException e) {
+        try {
+            final String topActivityPackageName = wm.getTopActivityPackageName();
+
+            if (topActivityPackageName != null) {
+                try {
+                    ApplicationInfo info = pm.getApplicationInfo(topActivityPackageName, 0);
+                    return pm.getApplicationLabel(info);
+                } catch (PackageManager.NameNotFoundException e) {
+                    // do nothing.
+                }
             }
+        } catch (RemoteException e) {
+            // do nothing.
         }
 
         return null;
