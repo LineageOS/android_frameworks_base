@@ -288,15 +288,6 @@
     <!-- The padding on the global screenshot background image -->
     <dimen name="global_screenshot_bg_padding">20dp</dimen>
 
-    <!-- The width of the partial screenshot border resize handles -->
-    <dimen name="global_screenshot_selector_border_width">4dp</dimen>
-
-    <!-- The width of the partial screenshot corner resize handles -->
-    <dimen name="global_screenshot_selector_corner_width">8dp</dimen>
-
-    <!-- The size of the area around a resize handle used for touch detection -->
-    <dimen name="global_screenshot_selector_touch_width">30dp</dimen>
-
     <!-- The width of the view containing navigation buttons -->
     <dimen name="navigation_key_width">70dp</dimen>
 
@@ -344,7 +335,7 @@
     <dimen name="qs_header_system_icons_area_height">48dp</dimen>
 
     <!-- How far the quick-quick settings panel extends below the status bar -->
-    <dimen name="qs_quick_header_panel_height">128dp</dimen>
+    <dimen name="qs_quick_header_panel_height">156dp</dimen>
 
     <!-- The height of the container that holds the system icons in the quick settings header in the
          car setting. -->
@@ -352,7 +343,7 @@
 
     <!-- The height of the quick settings footer that holds the user switcher, settings icon,
          etc. -->
-    <dimen name="qs_footer_height">48dp</dimen>
+    <dimen name="qs_footer_height">38dp</dimen>
 
     <!-- The size of each of the icon buttons in the QS footer -->
     <dimen name="qs_footer_action_button_size">@dimen/qs_footer_height</dimen>
@@ -394,31 +385,31 @@
     <!-- The width of the panel that holds the quick settings. -->
     <dimen name="qs_panel_width">@dimen/notification_panel_width</dimen>
 
-    <dimen name="volume_dialog_panel_transparent_padding_horizontal">4dp</dimen>
+    <dimen name="volume_dialog_panel_transparent_padding_right">8dp</dimen>
 
     <dimen name="volume_dialog_panel_transparent_padding">20dp</dimen>
 
     <dimen name="volume_dialog_stream_padding">8dp</dimen>
 
-    <dimen name="volume_dialog_panel_width">64dp</dimen>
+    <dimen name="volume_dialog_panel_width">38.5dp</dimen>
+
+    <dimen name="volume_dialog_row_panel_width">39.25dp</dimen>
 
     <dimen name="volume_dialog_slider_height">116dp</dimen>
 
-    <dimen name="volume_dialog_ringer_size">64dp</dimen>
+    <dimen name="volume_dialog_ringer_size">46dp</dimen>
 
-    <dimen name="volume_dialog_ringer_icon_padding">20dp</dimen>
+    <dimen name="volume_dialog_ringer_icon_padding">14dp</dimen>
 
     <dimen name="volume_dialog_caption_size">64dp</dimen>
 
-    <dimen name="volume_dialog_tap_target_size">48dp</dimen>
+    <dimen name="volume_dialog_tap_target_size">46dp</dimen>
 
     <dimen name="volume_dialog_spacer">4dp</dimen>
 
-    <dimen name="volume_dialog_slider_margin_top">14dp</dimen>
+    <dimen name="volume_dialog_slider_margin_bottom">4dp</dimen>
 
-    <dimen name="volume_dialog_slider_margin_bottom">-2dp</dimen>
-
-    <dimen name="volume_dialog_row_margin_bottom">8dp</dimen>
+    <dimen name="volume_dialog_row_icon_size">24dp</dimen>
 
     <dimen name="volume_dialog_elevation">9dp</dimen>
 
@@ -448,8 +439,8 @@
 
     <dimen name="qs_tile_height">106dp</dimen>
     <dimen name="qs_tile_layout_margin_side">6dp</dimen>
-    <dimen name="qs_tile_margin_horizontal">18dp</dimen>
-    <dimen name="qs_tile_margin_vertical">24dp</dimen>
+    <dimen name="qs_tile_margin_horizontal">10dp</dimen>
+    <dimen name="qs_tile_margin_vertical">12dp</dimen>
     <dimen name="qs_tile_margin_top_bottom">12dp</dimen>
     <dimen name="qs_tile_margin_top_bottom_negative">-12dp</dimen>
     <!-- The height of the qs customize header. Should be
@@ -457,15 +448,15 @@
          (Toolbar_minWidth (56dp) + qs_tile_margin_top_bottom (12dp))
     -->
     <dimen name="qs_customize_header_min_height">46dp</dimen>
-    <dimen name="qs_tile_margin_top">18dp</dimen>
+    <dimen name="qs_tile_margin_top">14dp</dimen>
     <dimen name="qs_tile_background_size">44dp</dimen>
-    <dimen name="qs_quick_tile_size">48dp</dimen>
-    <dimen name="qs_quick_tile_padding">12dp</dimen>
+    <dimen name="qs_quick_tile_size">53dp</dimen>
+    <dimen name="qs_quick_tile_padding">16dp</dimen>
     <dimen name="qs_header_gear_translation">16dp</dimen>
     <dimen name="qs_header_tile_margin_horizontal">4dp</dimen>
     <dimen name="qs_page_indicator_width">16dp</dimen>
     <dimen name="qs_page_indicator_height">8dp</dimen>
-    <dimen name="qs_tile_icon_size">24dp</dimen>
+    <dimen name="qs_tile_icon_size">20dp</dimen>
     <dimen name="qs_tile_text_size">12sp</dimen>
     <dimen name="qs_tile_divider_height">1dp</dimen>
     <dimen name="qs_panel_padding">16dp</dimen>
@@ -496,7 +487,7 @@
     <dimen name="qs_data_usage_usage_text_size">36sp</dimen>
     <dimen name="qs_battery_padding">2dp</dimen>
     <dimen name="qs_detail_padding_start">16dp</dimen>
-    <dimen name="qs_detail_items_padding_top">16dp</dimen>
+    <dimen name="qs_detail_items_padding_top">4dp</dimen>
     <dimen name="qs_detail_item_icon_size">24dp</dimen>
     <dimen name="qs_detail_item_icon_width">32dp</dimen>
     <dimen name="qs_detail_item_icon_marginStart">0dp</dimen>
@@ -1090,9 +1081,9 @@
     <!-- Side padding between background of Ongoing App Ops chip and content -->
     <dimen name="ongoing_appops_chip_side_padding">8dp</dimen>
     <!-- Margin between icons of Ongoing App Ops chip when QQS-->
-    <dimen name="ongoing_appops_chip_icon_margin_collapsed">0dp</dimen>
+    <dimen name="ongoing_appops_chip_icon_margin_collapsed">4dp</dimen>
     <!-- Margin between icons of Ongoing App Ops chip when QS-->
-    <dimen name="ongoing_appops_chip_icon_margin_expanded">2dp</dimen>
+    <dimen name="ongoing_appops_chip_icon_margin_expanded">4dp</dimen>
     <!-- Icon size of Ongoing App Ops chip -->
     <dimen name="ongoing_appops_chip_icon_size">@dimen/status_bar_icon_drawing_size</dimen>
     <!-- Radius of Ongoing App Ops chip corners -->
@@ -1170,4 +1161,14 @@
     <dimen name="config_rounded_mask_size">@*android:dimen/rounded_corner_radius</dimen>
     <dimen name="config_rounded_mask_size_top">@*android:dimen/rounded_corner_radius_top</dimen>
     <dimen name="config_rounded_mask_size_bottom">@*android:dimen/rounded_corner_radius_top</dimen>
+
+    <!-- Volume Panel -->
+    <dimen name="custom_volume_dialog_seekbar_width">@dimen/volume_dialog_panel_width</dimen>
+    <dimen name="custom_volume_dialog_seekbar_height">200dp</dimen>
+    <dimen name="volume_dialog_row_icon_margintop">-70dp</dimen>
+    <dimen name="volume_dialog_row_precentage_margintop">-32dp</dimen>
+    <dimen name="volume_dialog_rows_padding_right">0.5dp</dimen>
+    <dimen name="volume_dialog_additional_margin">2.5dip</dimen>
+    <dimen name="volume_dialog_ringer_spacing">4dp</dimen>
+    <dimen name="volume_dialog_ringer_height">45dp</dimen>
 </resources>

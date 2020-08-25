@@ -96,13 +96,13 @@
     <color name="notification_guts_header_text_color">@color/GM2_grey_900</color>
     <color name="notification_silence_color">#FF32c1de</color>
     <color name="notification_alert_color">#FFF87B2B</color>
-    <color name="notification_guts_info_button_color">@color/GM2_blue_700</color>
+    <color name="notification_guts_info_button_color">@*android:color/accent_device_default_light</color>
     <color name="notification_guts_priority_button_content_color">@color/GM2_grey_700</color>
-    <color name="notification_guts_priority_button_content_color_selected">@color/GM2_blue_700</color>
+    <color name="notification_guts_priority_button_content_color_selected">@*android:color/accent_device_default_light</color>
     <color name="notification_guts_priority_button_bg_fill_color">@color/transparent</color>
     <color name="notification_guts_priority_button_bg_fill_color_selected">#FFFFFF</color>
     <color name="notification_guts_priority_button_bg_stroke_color">@color/GM2_grey_300</color>
-    <color name="notification_guts_priority_button_bg_stroke_color_selected">@color/GM2_blue_600</color>
+    <color name="notification_guts_priority_button_bg_stroke_color_selected">@*android:color/accent_device_default_light</color>
 
     <color name="notification_section_header_label_color">@color/GM2_grey_900</color>
     <color name="notification_section_clear_all_btn_color">@color/GM2_grey_700</color>
@@ -171,14 +171,17 @@
     <!-- Biometric dialog colors -->
     <color name="biometric_dialog_dim_color">#80000000</color>              <!-- 50% black -->
     <color name="biometric_dialog_gray">#ff757575</color>
-    <color name="biometric_dialog_accent">#ff008577</color>                 <!-- dark teal -->
+    <color name="biometric_dialog_accent">@*android:color/accent_device_default_light</color>
     <color name="biometric_dialog_error">#ffd93025</color>                  <!-- red 600 -->
 
     <!-- Logout button -->
     <color name="logout_button_bg_color">#ccffffff</color>
 
     <!-- Color for the Assistant invocation lights -->
-    <color name="default_invocation_lights_color">#ffffffff</color>         <!-- white -->
+    <color name="edge_light_blue">#ff4185f4</color>
+    <color name="edge_light_green">#ff3aa853</color>
+    <color name="edge_light_red">#ffea4234</color>
+    <color name="edge_light_yellow">#fffbbc06</color>
 
     <!-- GM2 colors -->
     <color name="GM2_grey_50">#F8F9FA</color>
@@ -204,4 +207,16 @@
 
     <color name="GM2_yellow_500">#FFFBBC04</color>
     <color name="GM2_green_500">#FF34A853</color>
+
+    <color name="volume_background_tint">#f2f2f2</color>
+
+    <color name="ringer_icon_normal">@android:color/black</color>
+    <color name="ringer_bcg_normal">@color/volume_background_tint</color>
+
+    <color name="ringer_icon_mute">@android:color/black</color>
+
+    <color name="row_icon_dark">@color/ringer_icon_normal</color>
+    <color name="row_icon_white">@android:color/white</color>
+
+    <color name="divider_stroke_color">#E0E0E0</color>
 </resources>
