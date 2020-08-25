@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3b619a78_9d53abad",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2020-08-25T17:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31c4c468_cd085807",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 2
+      },
+      "revId": "18da43815af13d986d587f9167bc61dfaa9b662f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "171c3dce_46a74ed8",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f8c53359_f22785f2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2020-08-25T17:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "171c3dce_46a74ed8",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 55
+      },
+      "revId": "18da43815af13d986d587f9167bc61dfaa9b662f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aa023ea_307f2862",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "18da43815af13d986d587f9167bc61dfaa9b662f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14d63e08_37152fd8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2020-08-25T17:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aa023ea_307f2862",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 40
+      },
+      "revId": "18da43815af13d986d587f9167bc61dfaa9b662f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
