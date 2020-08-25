@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31c4c468_cd085807",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-08-25T17:23:10Z",
+      "side": 1,
+      "message": "Yeah, remove it and ignore checkstyle",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 2
+      },
+      "revId": "18da43815af13d986d587f9167bc61dfaa9b662f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "171c3dce_46a74ed8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-08-25T17:23:10Z",
+      "side": 1,
+      "message": "make private",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 55
+      },
+      "revId": "18da43815af13d986d587f9167bc61dfaa9b662f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3aa023ea_307f2862",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-08-25T17:23:10Z",
+      "side": 1,
+      "message": "This is leaking, do that\n\n    protected void onAttachedToWindow() {\n        mRotationButtonController.registerListeners();\n        mCommandQueue.addCallback(this);\n    }\n\n    protected void onDetachedFromWindow() {\n        mRotationButtonController.unregisterListeners();\n        mCommandQueue.removeCallback(this);\n    }",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 40
+      },
+      "revId": "18da43815af13d986d587f9167bc61dfaa9b662f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
