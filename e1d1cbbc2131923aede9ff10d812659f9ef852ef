@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "539c9730_27d250e2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2020-08-25T16:37:51Z",
+      "side": 1,
+      "message": "Checkstyle forced me to add this comment: PhoneStatusBarView.java:58: Public classes and interfaces require JavaDoc comments.",
+      "revId": "e1d1cbbc2131923aede9ff10d812659f9ef852ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
