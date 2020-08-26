@@ -78,8 +78,8 @@
                 android:layout_height="@dimen/volume_dialog_ringer_height">
                 <com.android.systemui.statusbar.phone.ExpandableIndicator
                     android:id="@+id/expandable_indicator"
-                    android:layout_width="@dimen/volume_dialog_row_icon_size"
-                    android:layout_height="@dimen/volume_dialog_row_icon_size"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:tint="?android:attr/colorAccent"
                     android:clickable="true"
@@ -132,8 +132,8 @@
                     android:src="@drawable/ic_volume_odi_captions_disabled"
                     style="@style/VolumeButtons"
                     android:background="@drawable/ripple_drawable_20dp"
-                    android:layout_width="@dimen/volume_dialog_row_icon_size"
-                    android:layout_height="@dimen/volume_dialog_row_icon_size"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:tint="?android:attr/colorAccent"
                     android:layout_gravity="center"
                     android:soundEffectsEnabled="false"
