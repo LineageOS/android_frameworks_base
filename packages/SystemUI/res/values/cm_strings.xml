@@ -134,7 +134,10 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
     <string name="status_bar_notification_info_overflow" translatable="false">\u221E</string>
-    
+
+    <string name="tuner_quick_settings">Quick settings</string>
+    <string name="tuner_brightness_position_bottom">Brightness slider on bottom</string>
+
     <!-- Lineage clock -->
     <string name="clock_title_lineage" translatable="false">LineageOS</string>
 </resources>
