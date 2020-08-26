@@ -55,15 +55,6 @@
                 android:src="@*android:drawable/ic_mode_edit"
                 android:tint="?android:attr/colorForeground"/>
 
-            <TextView
-                android:id="@+id/build"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:clickable="true"
-                android:gravity="center_vertical"
-                android:focusable="true"
-                android:textAppearance="@style/TextAppearance.QS.Status"
-                android:visibility="gone"/>
          </com.android.keyguard.AlphaOptimizedLinearLayout>
 
         <com.android.systemui.qs.PageIndicator
