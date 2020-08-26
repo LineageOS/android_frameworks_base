@@ -2221,7 +2221,7 @@
          notification icon or in the notification itself. Will be replaced
          with @string/status_bar_notification_info_overflow when shown in the
          UI. -->
-    <integer name="status_bar_notification_info_maxnum">999</integer>
+    <integer name="status_bar_notification_info_maxnum">200</integer>
 
     <!-- Path to an ISO image to be shared with via USB mass storage.
          This is intended to allow packaging drivers or tools for installation on a PC. -->
