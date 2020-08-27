@@ -98,6 +98,8 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
+
 import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.Prefs;
@@ -617,7 +619,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             mMediaOutputView.setVisibility(
                     mDeviceProvisionedController.isCurrentUserSetup() &&
                             mActivityManager.getLockTaskModeState() == LOCK_TASK_MODE_NONE &&
-                            isBluetoothA2dpConnected() && mExpanded ? VISIBLE : GONE);
+                            mExpanded ? VISIBLE : GONE);
         }
         if (mMediaOutputIcon != null) {
             mMediaOutputIcon.setOnClickListener(v -> {
@@ -628,6 +630,10 @@ public class VolumeDialogImpl implements VolumeDialog,
                 Dependency.get(ActivityStarter.class).startActivity(intent,
                         true /* dismissShade */);
             });
+            mMediaOutputIcon.setColorFilter(isBluetoothA2dpConnected() ?
+                    ContextCompat.getColor(mContext, R.color.accent_tint_color_selector) :
+                    ContextCompat.getColor(mContext, R.color.text_color_secondary),
+                    android.graphics.PorterDuff.Mode.SRC_IN);
         }
     }
 
