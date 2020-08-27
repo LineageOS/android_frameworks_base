@@ -315,6 +315,9 @@ public class Camera {
         int numberOfCameras = _getNumberOfCameras();
         if (!shouldExposeAuxCamera() && numberOfCameras > 2) {
             numberOfCameras = 2;
+        } else {
+            numberOfCameras = SystemProperties.getInt("vendor.camera.aux.physical",
+                                                      numberOfCameras);
         }
         return numberOfCameras;
     }
