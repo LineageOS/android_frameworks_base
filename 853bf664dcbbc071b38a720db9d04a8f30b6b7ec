@@ -16,6 +16,23 @@
       "revId": "853bf664dcbbc071b38a720db9d04a8f30b6b7ec",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b69861dd_65e687d8",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 7251,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-08-29T20:42:35Z",
+      "side": 1,
+      "message": "At this point, it might be nicer to stop overloading the meaning of color when we call our calcLights() and instead just add another boolean arg parameter set to \"isLedForcedOn(ledNotification) \u0026\u0026 light.color \u003d\u003d 0 /* useDefaultColor */\" and received as useDefaultColor or similar in the lineage-sdk side.",
+      "revId": "853bf664dcbbc071b38a720db9d04a8f30b6b7ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
