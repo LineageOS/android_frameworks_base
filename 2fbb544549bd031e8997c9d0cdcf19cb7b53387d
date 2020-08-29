@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f947f90f_217e8863",
+        "filename": "services/core/java/com/android/server/biometrics/AuthenticationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-08-29T10:57:28Z",
+      "side": 1,
+      "message": "space after if, \"locked\"",
+      "revId": "2fbb544549bd031e8997c9d0cdcf19cb7b53387d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62e647b7_4ed25bc0",
+        "filename": "services/core/java/com/android/server/biometrics/BiometricServiceBase.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-08-29T10:57:28Z",
+      "side": 1,
+      "message": "not necessary",
+      "revId": "2fbb544549bd031e8997c9d0cdcf19cb7b53387d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
