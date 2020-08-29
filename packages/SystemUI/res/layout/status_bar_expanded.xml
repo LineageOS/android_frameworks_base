@@ -90,12 +90,16 @@
         layout="@layout/keyguard_bottom_area"
         android:visibility="gone" />
 
-    <com.android.systemui.statusbar.AlphaOptimizedView
-        android:id="@+id/qs_navbar_scrim"
-        android:layout_height="96dp"
-        android:layout_width="match_parent"
-        android:layout_gravity="bottom"
-        android:visibility="invisible"
-        android:background="@drawable/qs_navbar_scrim" />
+    <ImageView
+        android:id="@+id/clear_notifications"
+        android:layout_gravity="bottom|center"
+        android:layout_height="@dimen/dismiss_all_button_height_width"
+        android:layout_width="@dimen/dismiss_all_button_height_width"
+        android:layout_marginBottom="@dimen/dismiss_all_button_margin_bottom"
+        android:clickable="true"
+        android:src="@drawable/dismiss_all_icon"
+        android:background="@drawable/floating_action_button"
+        android:scaleType="centerInside"
+        android:elevation="@dimen/dismiss_all_button_elevation"/>
 
 </com.android.systemui.statusbar.phone.NotificationPanelView>
