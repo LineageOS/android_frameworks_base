@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e8d27c87_3f1fbd1d",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 7243,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-08-29T20:51:02Z",
+      "side": 1,
+      "message": "I\u0027m not understanding the benefit.  The current use case for the existing check is to handle the situation when notification extra LineageNotification.EXTRA_FORCE_SHOW_LIGHTS is set, right ?  In which case, I would think that the state of notification.defaults should not be taken in to account.\n\nI\u0027m no doubt missing something",
+      "parentUuid": "6a860df5_d3c7e59e",
+      "revId": "853bf664dcbbc071b38a720db9d04a8f30b6b7ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b69861dd_65e687d8",
         "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
         "patchSetId": 2
