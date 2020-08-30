@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad4052c5_cd77489d",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-08-30T17:32:06Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 668,
+        "startChar": 24,
+        "endLine": 668,
+        "endChar": 110
+      },
+      "revId": "50fd1b4485ff6115ed96879a27bebfcd7777115c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
