@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2954f374_5909ae4f",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 7243,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2020-08-30T15:33:15Z",
+      "side": 1,
+      "message": "It was just a suggestion based on the fact it was wrapped by this condition in the older code, though it doesn\u0027t matter anyways.",
+      "parentUuid": "e8d27c87_3f1fbd1d",
+      "revId": "853bf664dcbbc071b38a720db9d04a8f30b6b7ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b69861dd_65e687d8",
         "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2020-08-29T20:42:35Z",
       "side": 1,
       "message": "At this point, it might be nicer to stop overloading the meaning of color when we call our calcLights() and instead just add another boolean arg parameter set to \"isLedForcedOn(ledNotification) \u0026\u0026 light.color \u003d\u003d 0 /* useDefaultColor */\" and received as useDefaultColor or similar in the lineage-sdk side.",
+      "revId": "853bf664dcbbc071b38a720db9d04a8f30b6b7ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83dbcd7d_45c2bda7",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 7251,
+      "author": {
+        "id": 13589
+      },
+      "writtenOn": "2020-08-30T15:33:15Z",
+      "side": 1,
+      "message": "Could be done yes, but could you look at it ?\n\nIMO we\u0027d have to add additional cases instead of the current \"ledValues.getColor() \u003d\u003d 0\"\nand \"forcedColor !\u003d 0\" would become \"forcedColor !\u003d 0 || useDefaultColor\",\nlooks a bit more complicated than currently for this specific case only.\n\nAnd it would go down as a color of 0 with brightness of 0xFF I guess,\neven if there shouldn\u0027t be any diff on most supported HALs.",
+      "parentUuid": "b69861dd_65e687d8",
       "revId": "853bf664dcbbc071b38a720db9d04a8f30b6b7ec",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
