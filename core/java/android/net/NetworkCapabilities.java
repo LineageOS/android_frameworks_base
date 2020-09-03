@@ -635,6 +635,7 @@ public final class NetworkCapabilities implements Parcelable {
             TRANSPORT_WIFI_AWARE,
             TRANSPORT_LOWPAN,
             TRANSPORT_TEST,
+            TRANSPORT_VICE_WIFI,
     })
     public @interface Transport { }
 
@@ -681,10 +682,12 @@ public final class NetworkCapabilities implements Parcelable {
     @TestApi
     public static final int TRANSPORT_TEST = 7;
 
+    public static final int TRANSPORT_VICE_WIFI = 8;
+
     /** @hide */
     public static final int MIN_TRANSPORT = TRANSPORT_CELLULAR;
     /** @hide */
-    public static final int MAX_TRANSPORT = TRANSPORT_TEST;
+    public static final int MAX_TRANSPORT = TRANSPORT_VICE_WIFI;
 
     /** @hide */
     public static boolean isValidTransport(@Transport int transportType) {
@@ -699,7 +702,8 @@ public final class NetworkCapabilities implements Parcelable {
         "VPN",
         "WIFI_AWARE",
         "LOWPAN",
-        "TEST"
+        "TEST",
+        "VICE_WIFI"
     };
 
     /**
