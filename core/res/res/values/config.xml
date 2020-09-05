@@ -3421,7 +3421,7 @@
     <!-- Wallpaper cropper package. Used as the default cropper if the active launcher doesn't
          handle wallpaper cropping.
     -->
-    <string name="config_wallpaperCropperPackage" translatable="false">com.android.wallpapercropper</string>
+    <string name="config_wallpaperCropperPackage" translatable="false">com.android.wallpaper</string>
 
     <!-- True if the device supports at least one form of multi-window.
          E.g. freeform, split-screen, picture-in-picture. -->
