@@ -1,0 +1,145 @@
+/*
+ * Copyright (C) 2020 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.android.systemui.qs.tiles;
+
+import static lineageos.hardware.LiveDisplayManager.FEATURE_ANTI_FLICKER;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.service.quicksettings.Tile;
+
+import com.android.systemui.plugins.qs.QSTile.BooleanState;
+import com.android.systemui.qs.QSHost;
+import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.systemui.R;
+
+import org.lineageos.internal.logging.LineageMetricsLogger;
+
+import lineageos.hardware.LiveDisplayManager;
+import lineageos.providers.LineageSettings;
+
+import javax.inject.Inject;
+
+import android.util.Log;
+
+public class AntiFlickerTile extends QSTileImpl<BooleanState> {
+
+    private boolean mAntiFlickerEnabled = true;
+    private boolean mReceiverRegistered;
+
+    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_anti_flicker);
+
+    private static final Intent LIVEDISPLAY_SETTINGS =
+            new Intent("org.lineageos.lineageparts.LIVEDISPLAY_SETTINGS");
+
+    private final LiveDisplayManager mLiveDisplay;
+
+    @Inject
+    public AntiFlickerTile(QSHost host) {
+        super(host);
+        mLiveDisplay = LiveDisplayManager.getInstance(mContext);
+        if (!updateConfig()) {
+            mContext.registerReceiver(mReceiver, new IntentFilter(
+                    lineageos.content.Intent.ACTION_INITIALIZE_LIVEDISPLAY));
+            mReceiverRegistered = true;
+        }
+    }
+
+    @Override
+    protected void handleDestroy() {
+        super.handleDestroy();
+        unregisterReceiver();
+    }
+
+    private void unregisterReceiver() {
+        if (mReceiverRegistered) {
+            mContext.unregisterReceiver(mReceiver);
+            mReceiverRegistered = false;
+        }
+    }
+
+    private boolean updateConfig() {
+        Log.e("LiveDisplay", "in updateConfig");
+        if (mLiveDisplay.getConfig() != null) {
+			Log.e("LiveDisplay", "in updateConfig, getConfig is not null, mAntiFlickerEnabled is:" + mAntiFlickerEnabled);
+            mAntiFlickerEnabled = mLiveDisplay.getConfig().hasFeature(FEATURE_ANTI_FLICKER);
+			Log.e("LiveDisplay", "in updateConfig, getConfig is not null, mAntiFlickerEnabled was set to:" + mAntiFlickerEnabled);
+            if (!isAvailable()) {
+                mHost.removeTile(getTileSpec());
+            }
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public BooleanState newTileState() {
+        return new BooleanState();
+    }
+
+    @Override
+    protected void handleClick() {
+        mLiveDisplay.setAntiFlickerEnabled(!mLiveDisplay.isAntiFlickerEnabled());
+        refreshState();
+    }
+
+    @Override
+    public Intent getLongClickIntent() {
+        return LIVEDISPLAY_SETTINGS;
+    }
+
+    @Override
+    public boolean isAvailable() {
+        Log.e("LiveDisplay", "in isAvailable, returning:" + mAntiFlickerEnabled);
+        return mAntiFlickerEnabled;
+    }
+
+    @Override
+    protected void handleUpdateState(BooleanState state, Object arg) {
+        state.value = mLiveDisplay.isAntiFlickerEnabled();
+        state.icon = mIcon;
+        state.contentDescription = mContext.getString(
+                R.string.quick_settings_anti_flicker);
+        // state.state = mLiveDisplay.isAntiFlickerEnabled() ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
+        state.state = (state.value ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+        state.label = getTileLabel();
+    }
+
+    @Override
+    public CharSequence getTileLabel() {
+        return mContext.getString(R.string.quick_settings_anti_flicker);
+    }
+
+    @Override
+    public int getMetricsCategory() {
+        return LineageMetricsLogger.TILE_ANTI_FLICKER;
+    }
+
+    @Override
+    public void handleSetListening(boolean listening) {
+    }
+
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateConfig();
+            unregisterReceiver();
+        }
+    };
+}
