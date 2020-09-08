@@ -62,6 +62,9 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
 
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Anti flicker</string>
+
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery saver</string>
