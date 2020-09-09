@@ -209,7 +209,7 @@ private:
         bool fsmStep();
         bool fsmStep(int currentStatus, int targetStatus);
 
-        void onHealthStatus(StorageHealthListener healthListener, int healthStatus);
+        void onHealthStatus(StorageHealthListener &healthListener, int healthStatus);
         void updateHealthStatus(bool baseline = false);
 
         bool isValid() const { return id() != kInvalidStorageId; }
