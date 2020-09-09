@@ -239,7 +239,7 @@ private:
             auto it = mJobs.begin();
             // Always acquire begin(). We can't use it after unlock as mTimedJobs can change.
             for (; it != mJobs.end() && it->when <= now; it = mJobs.begin()) {
-                auto job = std::move(it->what);
+                const auto& job = it->what;
                 mJobs.erase(it);
 
                 lock.unlock();
