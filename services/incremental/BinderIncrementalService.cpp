@@ -29,7 +29,6 @@
 #include "path.h"
 
 using namespace std::literals;
-using namespace android::incremental;
 
 namespace android::os::incremental {
 
@@ -42,7 +41,8 @@ static std::string getIncrementalDir() {
     if (!dataDir || !*dataDir) {
         dataDir = kDataDir.data();
     }
-    return path::normalize(path::join(dataDir, kIncrementalSubDir));
+    return android::incremental::path::normalize(
+            android::incremental::path::join(dataDir, kIncrementalSubDir));
 }
 
 static bool incFsEnabled() {
@@ -60,7 +60,7 @@ static bool incFsValid(const sp<IVold>& vold) {
 }
 
 BinderIncrementalService::BinderIncrementalService(const sp<IServiceManager>& sm, JNIEnv* env)
-      : mImpl(RealServiceManager(sm, env), getIncrementalDir()) {}
+      : mImpl(android::incremental::RealServiceManager(sm, env), getIncrementalDir()) {}
 
 BinderIncrementalService* BinderIncrementalService::start(JNIEnv* env) {
     if (!incFsEnabled()) {
@@ -183,7 +183,7 @@ static std::tuple<int, incfs::FileId, incfs::NewFileParams> toMakeFileParams(
         if (params.metadata.empty()) {
             return {EINVAL, {}, {}};
         }
-        id = IncrementalService::idFromMetadata(params.metadata);
+        id = android::incremental::IncrementalService::idFromMetadata(params.metadata);
     } else if (params.fileId.size() != sizeof(id)) {
         return {EINVAL, {}, {}};
     } else {
@@ -254,8 +254,8 @@ binder::Status BinderIncrementalService::getMetadataByPath(int32_t storageId,
     return ok();
 }
 
-static FileId toFileId(const std::vector<uint8_t>& id) {
-    FileId fid;
+static incfs::FileId toFileId(const std::vector<uint8_t>& id) {
+    incfs::FileId fid;
     memcpy(&fid, id.data(), id.size());
     return fid;
 }
