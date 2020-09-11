@@ -1716,6 +1716,8 @@ public class PackageManagerService extends IPackageManager.Stub
     private final PackageUsage mPackageUsage = new PackageUsage();
     private final CompilerStats mCompilerStats = new CompilerStats();
 
+    private Signature[] mVendorPlatformSignatures = new Signature[0];
+
     private final DomainVerificationConnection mDomainVerificationConnection =
             new DomainVerificationConnection();
 
@@ -7352,6 +7354,14 @@ public class PackageManagerService extends IPackageManager.Stub
         invalidatePackageInfoCache();
     }
 
+    private static Signature[] createSignatures(String[] hexBytes) {
+        Signature[] sigs = new Signature[hexBytes.length];
+        for (int i = 0; i < sigs.length; i++) {
+            sigs[i] = new Signature(hexBytes[i]);
+        }
+        return sigs;
+    }
+
     public PackageManagerService(Injector injector, boolean onlyCore, boolean factoryTest,
             final String buildFingerprint, final boolean isEngBuild,
             final boolean isUserDebugBuild, final int sdkVersion, final String incrementalVersion) {
@@ -7380,6 +7390,9 @@ public class PackageManagerService extends IPackageManager.Stub
         mMetrics = injector.getDisplayMetrics();
         mInstaller = injector.getInstaller();
         mEnableFreeCacheV2 = SystemProperties.getBoolean("fw.free_cache_v2", true);
+
+        mVendorPlatformSignatures = createSignatures(mContext.getResources().getStringArray(
+                org.lineageos.platform.internal.R.array.config_vendorPlatformSignatures));
 
         // Create sub-components that provide services / data. Order here is important.
         t.traceBegin("createSubComponents");
@@ -12033,6 +12046,20 @@ public class PackageManagerService extends IPackageManager.Stub
             Trace.traceBegin(TRACE_TAG_PACKAGE_MANAGER, "collectCertificates");
             parsedPackage.setSigningDetails(
                     ParsingPackageUtils.getSigningDetails(parsedPackage, skipVerify));
+            if (compareSignatures(ParsingPackageUtils.getSigningDetails(
+                    parsedPackage, skipVerify).signatures, mVendorPlatformSignatures) ==
+                    PackageManager.SIGNATURE_MATCH) {
+                // Overwrite package signature with our platform signature
+                // if the signature is the vendor's platform signature
+                if (mPlatformPackage != null) {
+                    parsedPackage.setSigningDetails(ParsingPackageUtils.getSigningDetails(
+                            mPlatformPackage, skipVerify));
+                    parsedPackage.setSeInfo(SELinuxMMAC.getSeInfo(
+                            parsedPackage,
+                            parsedPackage.isPrivileged(),
+                            parsedPackage.getTargetSdkVersion()));
+                }
+            }
         } catch (PackageParserException e) {
             throw PackageManagerException.from(e);
         } finally {
@@ -12230,7 +12257,8 @@ public class PackageManagerService extends IPackageManager.Stub
                             null, disabledPkgSetting /* pkgSetting */,
                             null /* disabledPkgSetting */, null /* originalPkgSetting */,
                             null, parseFlags, scanFlags, isPlatformPackage, user, null);
-                    applyPolicy(parsedPackage, parseFlags, scanFlags, mPlatformPackage, true);
+                    applyPolicy(parsedPackage, parseFlags, scanFlags, mPlatformPackage, true,
+                            mVendorPlatformSignatures);
                     final ScanResult scanResult =
                             scanPackageOnlyLI(request, mInjector, mFactoryTest, -1L);
                     if (scanResult.existingSettingCopied && scanResult.request.pkgSetting != null) {
@@ -14010,7 +14038,8 @@ public class PackageManagerService extends IPackageManager.Stub
             } else {
                 isUpdatedSystemApp = disabledPkgSetting != null;
             }
-            applyPolicy(parsedPackage, parseFlags, scanFlags, mPlatformPackage, isUpdatedSystemApp);
+            applyPolicy(parsedPackage, parseFlags, scanFlags, mPlatformPackage, isUpdatedSystemApp,
+                    mVendorPlatformSignatures);
             assertPackageIsValid(parsedPackage, parseFlags, scanFlags);
 
             SharedUserSetting sharedUserSetting = null;
@@ -14764,7 +14793,7 @@ public class PackageManagerService extends IPackageManager.Stub
      */
     private static void applyPolicy(ParsedPackage parsedPackage, final @ParseFlags int parseFlags,
             final @ScanFlags int scanFlags, AndroidPackage platformPkg,
-            boolean isUpdatedSystemApp) {
+            boolean isUpdatedSystemApp, Signature[] vendorPlatformSignatures) {
         if ((scanFlags & SCAN_AS_SYSTEM) != 0) {
             parsedPackage.setSystem(true);
             // TODO(b/135203078): Can this be done in PackageParser? Or just inferred when the flag
@@ -14803,10 +14832,12 @@ public class PackageManagerService extends IPackageManager.Stub
         // Check if the package is signed with the same key as the platform package.
         parsedPackage.setSignedWithPlatformKey(
                 (PLATFORM_PACKAGE_NAME.equals(parsedPackage.getPackageName())
-                        || (platformPkg != null && compareSignatures(
+                        || (platformPkg != null && (compareSignatures(
                         platformPkg.getSigningDetails().signatures,
                         parsedPackage.getSigningDetails().signatures
-                ) == PackageManager.SIGNATURE_MATCH))
+                ) == PackageManager.SIGNATURE_MATCH) || (compareSignatures(
+                        vendorPlatformSignatures, parsedPackage.getSigningDetails().signatures) ==
+                        PackageManager.SIGNATURE_MATCH)))
         );
 
         if (!parsedPackage.isSystem()) {
