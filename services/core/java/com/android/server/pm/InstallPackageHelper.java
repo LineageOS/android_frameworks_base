@@ -204,6 +204,15 @@ final class InstallPackageHelper {
     private final ViewCompiler mViewCompiler;
     private final SharedLibrariesImpl mSharedLibraries;
     private final PackageManagerServiceInjector mInjector;
+    private final Signature[] mVendorPlatformSignatures = new Signature[0];
+
+    private static Signature[] createSignatures(String[] hexBytes) {
+        Signature[] sigs = new Signature[hexBytes.length];
+        for (int i = 0; i < sigs.length; i++) {
+            sigs[i] = new Signature(hexBytes[i]);
+        }
+        return sigs;
+    }
 
     // TODO(b/198166813): remove PMS dependency
     InstallPackageHelper(PackageManagerService pm, AppDataHelper appDataHelper) {
@@ -221,6 +230,9 @@ final class InstallPackageHelper {
         mPackageAbiHelper = pm.mInjector.getAbiHelper();
         mViewCompiler = pm.mInjector.getViewCompiler();
         mSharedLibraries = pm.mInjector.getSharedLibrariesImpl();
+
+        mVendorPlatformSignatures = createSignatures(mContext.getResources().getStringArray(
+                org.lineageos.platform.internal.R.array.config_vendorPlatformSignatures));
     }
 
     InstallPackageHelper(PackageManagerService pm) {
@@ -3758,7 +3770,7 @@ final class InstallPackageHelper {
         final int newScanFlags = adjustScanFlags(scanFlags, installedPkgSetting, disabledPkgSetting,
                 user, parsedPackage);
         ScanPackageUtils.applyPolicy(parsedPackage, newScanFlags,
-                mPm.getPlatformPackage(), isUpdatedSystemApp);
+                mPm.getPlatformPackage(), isUpdatedSystemApp, mVendorPlatformSignatures);
 
         synchronized (mPm.mLock) {
             assertPackageIsValid(parsedPackage, parseFlags, newScanFlags);
@@ -3821,7 +3833,7 @@ final class InstallPackageHelper {
                         null, parseFlags, scanFlags,
                         initialScanRequest.mIsPlatformPackage, user, null);
                 ScanPackageUtils.applyPolicy(parsedPackage, scanFlags,
-                        mPm.getPlatformPackage(), true);
+                        mPm.getPlatformPackage(), true, mVendorPlatformSignatures);
                 final ScanResult scanResult =
                         ScanPackageUtils.scanPackageOnlyLI(request, mPm.mInjector,
                                 mPm.mFactoryTest, -1L);

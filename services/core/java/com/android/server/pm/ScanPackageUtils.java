@@ -824,7 +824,7 @@ final class ScanPackageUtils {
      */
     public static void applyPolicy(ParsedPackage parsedPackage,
             final @PackageManagerService.ScanFlags int scanFlags, AndroidPackage platformPkg,
-            boolean isUpdatedSystemApp) {
+            boolean isUpdatedSystemApp, Signature[] vendorPlatformSignatures) {
         if ((scanFlags & SCAN_AS_SYSTEM) != 0) {
             parsedPackage.setSystem(true);
             // TODO(b/135203078): Can this be done in PackageParser? Or just inferred when the flag
@@ -863,10 +863,12 @@ final class ScanPackageUtils {
         // Check if the package is signed with the same key as the platform package.
         parsedPackage.setSignedWithPlatformKey(
                 (PLATFORM_PACKAGE_NAME.equals(parsedPackage.getPackageName())
-                        || (platformPkg != null && compareSignatures(
+                        || (platformPkg != null && (compareSignatures(
                         platformPkg.getSigningDetails().getSignatures(),
                         parsedPackage.getSigningDetails().getSignatures()
-                ) == PackageManager.SIGNATURE_MATCH))
+                ) == PackageManager.SIGNATURE_MATCH) || (compareSignatures(
+                        vendorPlatformSignatures, parsedPackage.getSigningDetails().signatures) ==
+                        PackageManager.SIGNATURE_MATCH)))
         );
 
         if (!parsedPackage.isSystem()) {
@@ -969,6 +971,20 @@ final class ScanPackageUtils {
                         result.getErrorCode(), result.getErrorMessage(), result.getException());
             }
             parsedPackage.setSigningDetails(result.getResult());
+            if (compareSignatures(ParsingPackageUtils.getSigningDetails(
+                    parsedPackage, skipVerify).signatures, mVendorPlatformSignatures) ==
+                    PackageManager.SIGNATURE_MATCH) {
+                // Overwrite package signature with our platform signature
+                // if the signature is the vendor's platform signature
+                if (mPlatformPackage != null) {
+                    parsedPackage.setSigningDetails(ParsingPackageUtils.getSigningDetails(
+                            mPlatformPackage, skipVerify));
+                    parsedPackage.setSeInfo(SELinuxMMAC.getSeInfo(
+                            parsedPackage,
+                            parsedPackage.isPrivileged(),
+                            parsedPackage.getTargetSdkVersion()));
+                }
+            }
         } finally {
             Trace.traceEnd(TRACE_TAG_PACKAGE_MANAGER);
         }
