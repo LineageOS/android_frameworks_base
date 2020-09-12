@@ -23,6 +23,7 @@
     <string name="app_ops_access_camera">ಕ್ಯಾಮೆರಾ ಪ್ರವೇಶ</string>
     <string name="app_ops_access_location">ನಿಮ್ಮ  ಸ್ಥಳವನ್ನು ಪ್ರವೇಶಿಸುವಿಕೆ</string>
     <string name="app_ops_access_notifications">ನಿಮ್ಮ ಅಧಿಸೂಚನೆಗಳನ್ನು ಓದು</string>
+    <string name="app_ops_activate_vpn">ವಿಪಿಎನ್ ಸಶಕ್ತಗೊಳಿಸು</string>
     <string name="app_ops_add_voicemail">ಒಂದು ಧ್ವನಿ ಅಂಚೆ ಸೇರಿಸು</string>
     <string name="app_ops_app_start_foreground">ತ್ವರಿತ ಆಪನ್ನು ಮುನ್ನೆಲೆಯಲ್ಲಿ ಪ್ರಾರಂಭಿಸು</string>
     <string name="app_ops_assist_screenshot">ಸ್ಕ್ರೀನ್‌ಶಾಟ್‌ ತೆಗೆದುಕೊಳ್ಳಿ</string>

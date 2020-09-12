@@ -55,6 +55,7 @@
     <string name="quick_settings_location_battery_saving_label">Batterisparläge</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Batteri-\nsparläge</string>
     <string name="quick_settings_location_gps_only_label">Endast enhet</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Enbart\nGPS</string>
     <string name="quick_settings_location_high_accuracy_label">Hög noggrannhet</string>
     <string name="quick_settings_location_high_accuracy_label_twoline">Hög\nnoggrannhet</string>
     <string name="quick_settings_location_detail_title">Position</string>
@@ -62,4 +63,5 @@
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Hög noggrannhet</string>
     <string name="quick_settings_location_detail_mode_battery_saving_title">Batterisparläge</string>
     <string name="quick_settings_location_detail_mode_sensors_only_title">Endast enhet</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Använd GPS, Wi\u2011Fi, Bluetooth eller mobilnätverk för bestämma position</string>
 </resources>

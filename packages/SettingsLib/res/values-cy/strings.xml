@@ -268,7 +268,7 @@
     <string name="dev_settings_warning_message">Mae\'r gosodiadau hyn ar gyfer pwrpas datblygiad yn unig. Mae\'n bosib iddyn nhw achosi apiau i gamweithio neu i dorri dy ddyfais.</string>
     <string name="verify_apps_over_usb_title">Gwirio apiau dros USB</string>
     <string name="verify_apps_over_usb_summary">Gwirio apiau wedi\'u gosod trwy ADB/ADT am ymddygiad niweidiol.</string>
-    <string name="bluetooth_show_devices_without_names_summary">Caif dyfeisiau Bluetooth heb enwau (cyfeiriadau MAC yn unig) eu dangos</string>
+    <string name="bluetooth_show_devices_without_names_summary">Caiff dyfeisiau Bluetooth heb enwau (cyfeiriadau MAC yn unig) eu dangos</string>
     <string name="bluetooth_disable_absolute_volume_summary">Mae\'n analluogi nodwedd uchelder sain absoliwt y Bluetooth rhag ofn bod problemau lefel sain gyda dyfeisiau pell, megis sain yn rhy uchel neu ddiffyg rheolaeth.</string>
     <string name="enable_terminal_title">Terfynell leol</string>
     <string name="enable_terminal_summary">Galluogi ap terfynell sy\'n cynnig mynediad cragen leol</string>
@@ -315,7 +315,7 @@
     <string name="force_msaa">Gorfodi 4x MSAA</string>
     <string name="force_msaa_summary">Galluogi 4x MSAA mewn apiau OpenGL ES 2.0</string>
     <string name="show_non_rect_clip">Dadfygio gweithredoedd clipiau na sy\'n hirsgwar</string>
-    <string name="track_frame_time">Proffil rendro GPU</string>
+    <string name="track_frame_time">Proffilio rendro GPU</string>
     <string name="enable_gpu_debug_layers">Galluogi haenau dadfygio GPU</string>
     <string name="enable_gpu_debug_layers_summary">Galluogi llwytho haenau dadfygio GPU ar gyfer apiau dadfygio</string>
     <string name="window_animation_scale_title">Graddfa animeiddiad ffenestr</string>
@@ -440,7 +440,7 @@ Gwasga \'Clirio a Throsi\' i barhau.</string>
     <string name="use_system_language_to_select_input_method_subtypes">Defnyddio ieithoedd y system</string>
     <string name="failed_to_open_app_settings_toast">Methwyd ag agor y gosodiadau ar gyfer <xliff:g id="spell_application_name">%1$s</xliff:g></string>
     <string name="ime_security_warning">Mae\'n bosib gall y dull mewnbwn hwn gasglu\'r holl destun rwyt yn ei deipio, gan gynnwys data personol fel cyfrineiriau a rhifau cardiau credyd. Mae\'n dod o\'r ap <xliff:g id="ime_application_name">%1$s</xliff:g>. Defnyddio\'r dull mewnbwn hwn?</string>
-    <string name="direct_boot_unaware_dialog_message">Nodyn: Ar ôl ailddechrau, ni all yr ap hwn ddechrau nes bod dy ffôn wedi ei ddatgloi.</string>
+    <string name="direct_boot_unaware_dialog_message">Noder: Ar ôl ailddechrau, ni all yr ap hwn ddechrau nes bod dy ffôn wedi ei ddatgloi.</string>
     <string name="ims_reg_title">"Statws cofrestriad IMS"</string>
     <string name="ims_reg_status_registered">"Cofrestredig"</string>
     <string name="ims_reg_status_not_registered">"Heb gofrestru"</string>

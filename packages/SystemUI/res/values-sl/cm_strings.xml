@@ -64,7 +64,7 @@
     <string name="screen_pinning_description_no_navbar">To ga ohrani prikazanega, dokler ga ne odpnete. Dotaknite se in pridržite gumb Nazaj, da ga odpnete.</string>
     <string name="screen_pinning_toast_no_navbar">Da odpnete ta zaslon, se dotaknite in pridržite gumb Nazaj</string>
     <string name="nav_bar_layout_inverse">Obrni razporeditev</string>
-    <string name="custom_swipe_hint">Potegnite iz ikone za <xliff:g name="target">%s</xliff:g></string>
+    <string name="custom_swipe_hint">Povlecite z ikone za <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Poročanje o lokaciji: način varčevanja z energijo akumulatorja.</string>
     <string name="accessibility_quick_settings_location_gps_only">Poročanje o lokaciji: način \'samo tipala\'.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Poročanje o lokaciji: način visoke natančnosti.</string>

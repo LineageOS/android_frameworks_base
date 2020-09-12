@@ -216,7 +216,7 @@ O ganlyniad, cafodd dy broffil gwaith a\'r data perthnasol eu dileu. Cysyllta â
     <string name="shutdown_confirm_question">Wyt ti eisiau cau\'r ddyfais?</string>
     <string name="reboot_safemode_title">Ailgychwyn ym modd diogel</string>
     <string name="reboot_safemode_confirm">Wyt ti am ailgychwyn yn y modd diogel?
-          Bydd hyn yn analluogi\'r holl apiau trydydd parti sydd wedi\'i gosod gennyt.
+          Bydd hyn yn analluogi\'r holl apiau trydydd parti sydd wedi\'u gosod gennyt.
           Cânt eu hadfer pan fyddi di\'n ailgychwyn eto.</string>
     <string name="recent_tasks_title">Diweddar</string>
     <string name="no_recent_tasks">Dim apiau diweddar.</string>
@@ -909,11 +909,11 @@ Bydd y ffôn nawr yn cael ei ailosod nôl i fel yr oedd yn gadael y ffatri.    <
     <string name="autofill_area">Ardal</string>
     <string name="autofill_emirate">Emiraeth</string>
     <string name="permlab_readHistoryBookmarks">darllen dy hanes a nodau tudalennau gwefannau</string>
-    <string name="permdesc_readHistoryBookmarks">Mae\'n caniatáu i\'r ap ddarllen hanes pob URL mae\'r Porwr wedi ymweld â nhw a holl lyfrnodau\'r Porwr. Nodyn: Ni all y caniatâd hwn cael ei orfodi gan borwyr trydydd parti na chwaith gan apiau gyda\'r gallu i bori\'r we.</string>
+    <string name="permdesc_readHistoryBookmarks">Mae\'n caniatáu i\'r ap ddarllen hanes pob URL mae\'r Porwr wedi ymweld â nhw a holl lyfrnodau\'r Porwr. Noder: Ni all y caniatâd hwn cael ei orfodi gan borwyr trydydd parti na chwaith gan apiau gyda\'r gallu i bori\'r we.</string>
     <string name="permlab_writeHistoryBookmarks">ysgrifennu hanes a nodau tudalennau gwefannau</string>
-    <string name="permdesc_writeHistoryBookmarks" product="tablet">Mae\'n caniatáu i\'r ap addasu hanes neu lyfrnodau porwr dy lechen. Gall hyn ganiatáu i\'r ap ddileu data\'r porwr. Nodyn: Gall y caniatâd hwn dim cael ei gorfodi gan borwyr trydydd parti neu apiau eraill gyda\'r gallu i bori\'r we.</string>
-    <string name="permdesc_writeHistoryBookmarks" product="tv">Mae\'n caniatáu i\'r ap addasu hanes neu lyfrnodau porwr dy deledu. Gall hyn ganiatáu i\'r ap ddileu data\'r porwr. Nodyn: Gall y caniatâd hwn dim cael ei gorfodi gan borwyr trydydd parti neu apiau eraill gyda\'r gallu i bori\'r we.</string>
-    <string name="permdesc_writeHistoryBookmarks" product="default">Mae\'n caniatáu i\'r ap addasu hanes neu lyfrnodau porwr dy ffôn. Gall hyn ganiatáu i\'r ap ddileu data\'r porwr. Nodyn: Gall y caniatâd hwn dim cael ei gorfodi gan borwyr trydydd parti neu apiau eraill gyda\'r gallu i bori\'r we.</string>
+    <string name="permdesc_writeHistoryBookmarks" product="tablet">Mae\'n caniatáu i\'r ap addasu hanes neu lyfrnodau porwr dy lechen. Gall hyn ganiatáu i\'r ap ddileu data\'r porwr. Noder: Gall y caniatâd hwn dim cael ei gorfodi gan borwyr trydydd parti neu apiau eraill gyda\'r gallu i bori\'r we.</string>
+    <string name="permdesc_writeHistoryBookmarks" product="tv">Mae\'n caniatáu i\'r ap addasu hanes neu lyfrnodau porwr dy deledu. Gall hyn ganiatáu i\'r ap ddileu data\'r porwr. Noder: Gall y caniatâd hwn dim cael ei gorfodi gan borwyr trydydd parti neu apiau eraill gyda\'r gallu i bori\'r we.</string>
+    <string name="permdesc_writeHistoryBookmarks" product="default">Mae\'n caniatáu i\'r ap addasu hanes neu lyfrnodau porwr dy ffôn. Gall hyn ganiatáu i\'r ap ddileu data\'r porwr. Noder: Gall y caniatâd hwn dim cael ei gorfodi gan borwyr trydydd parti neu apiau eraill gyda\'r gallu i bori\'r we.</string>
     <string name="permlab_setAlarm">gosod larwm</string>
     <string name="permdesc_setAlarm">Mae\'n caniatáu i\'r ap osod larwm mewn ap cloc larwm sydd wedi\'i osod. Mae\'n debyg nad yw pob ap cloc larwm yn cefnogi hyn.</string>
     <string name="permlab_addVoicemail">ychwanegu lleisbost</string>

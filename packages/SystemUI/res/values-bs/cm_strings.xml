@@ -19,6 +19,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="global_action_restart_system">Sistem</string>
+    <string name="accessibility_quick_settings_profiles_off">Profili isključeni.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profili su isključeni.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil promjenjen u <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Ušteda\nbaterije</string>
     <string name="quick_settings_location_gps_only_label_twoline">Samo\nuređaj</string>
     <string name="quick_settings_location_high_accuracy_label">Visoka preciznost</string>

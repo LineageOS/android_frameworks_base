@@ -19,8 +19,13 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="global_action_restart_system">النظام</string>
+    <string name="global_action_restart_recovery">الإسترداد</string>
     <string name="global_action_restart_bootloader">محمل الاقلاع</string>
     <string name="global_action_restart_download">التنزيل</string>
+    <string name="global_action_restart_progress">جارٍ إعادة التشغيل</string>
+    <string name="global_action_restart_recovery_progress">إعادة التشغيل إلى وضع الإسترداد</string>
+    <string name="global_action_restart_bootloader_progress">إعادة التشغيل إلى وضع البوتلودر</string>
+    <string name="global_action_restart_download_progress">إعادة التشغيل الى وضع التنزيل</string>
     <string name="global_action_current_user">الحالي</string>
     <string name="quick_settings_network_adb_label">ADB عبر الشبكة</string>
     <string name="quick_settings_network_adb_no_network">لا توجد شبكة</string>
@@ -56,6 +61,7 @@
     <string name="quick_settings_volume_panel_label">لوحة مستوى الصوت</string>
     <string name="accessibility_dpad_left">المؤشر إلى اليسار</string>
     <string name="accessibility_dpad_right">المؤشر الى اليمين</string>
+    <string name="screen_pinning_description_no_navbar">يؤدي هذا إلى استمرار العرض إلى أن يتم إزالة التثبيت. ويمكنك لمس مع الاستمرار لإزالة التثبيت.</string>
     <string name="screen_pinning_toast_no_navbar">لإلغاء تثبيت هذه الشاشة، استمر&amp; بالضغط على زر الرجوع</string>
     <string name="nav_bar_layout_inverse">عكس التخطيط</string>
     <string name="custom_swipe_hint">اسحب من الأيقونة ل <xliff:g name="target">%s</xliff:g></string>
