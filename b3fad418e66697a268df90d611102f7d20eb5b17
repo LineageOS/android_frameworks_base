@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab47d68a_c1af0c5e",
+        "filename": "packages/SettingsProvider/src/com/android/providers/settings/SettingsService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-09-14T13:47:58Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 79
+      },
+      "revId": "b3fad418e66697a268df90d611102f7d20eb5b17",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
