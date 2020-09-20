@@ -14,8 +14,26 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="bugreport_in_progress_title">Tha aithris air buga <xliff:g id="id">%d</xliff:g> ’ga ghintinn</string>
+    <string name="bugreport_finished_title">Chaidh aithris buga <xliff:g id="id">%d</xliff:g> a ghlacadh</string>
+    <string name="bugreport_updating_title">A’ cur mion-fhiosrachadh ri aithris a’ bhuga</string>
     <string name="bugreport_updating_wait">Fuirich ort…</string>
+    <string name="bugreport_finished_text" product="watch">Nochdaidh an aithris air a’ bhuga air an fhòn a dh’aithghearr</string>
+    <string name="bugreport_finished_text" product="default">Thoir gnogag gus an aithris air a’ bhuga agad a cho-roinneadh</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="watch">Thoir gnogag gus an aithris air a’ bhuga agad a cho-roinneadh às aonais glacaidh-sgrìn no fuirich gus am bi an glacadh-sgrìn deiseil</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="default">Thoir gnogag gus an aithris air a’ bhuga agad a cho-roinneadh às aonais glacaidh-sgrìn no fuirich gus am bi an glacadh-sgrìn deiseil</string>
+    <string name="bugreport_confirm">Bidh dàta am broinn na h-aithris air a’ bhuga o iomadh faidhle loga an t-siostaim agus dh’fhaoite gun gabh sin a-staigh dàta prìobhaideach (can air cleachdadh aplacaidean agus dàta ionaid). Na co-roinn aithris air buga le daoine agus aplacaidean sa bheil earbsa agad.</string>
     <string name="bugreport_confirm_dont_repeat">Na seall seo a-rithist</string>
+    <string name="bugreport_unreadable_text">Cha b’ urrainn dhuinn faidhle na h-aithris air buga a leughadh</string>
+    <string name="bugreport_add_details_to_zip_failed">Cha b’ urrainn dhuinn mion-fhiosrachadh na h-aithris air a’ bhuga a chur ris an fhaidhle zip</string>
+    <string name="bugreport_unnamed">gun ainm</string>
+    <string name="bugreport_info_action">Mion-fhiosrachadh</string>
     <string name="bugreport_screenshot_action">Glacadh-sgrìn</string>
+    <string name="bugreport_screenshot_taken">Chaidh an glacadh-sgrìn a thogail.</string>
+    <string name="bugreport_screenshot_failed">Cha b’ urrainn dhuinn glacadh-sgrìn a thogail.</string>
+    <string name="bugreport_info_dialog_title">Mion-fhiosrachadh air aithris buga <xliff:g id="id">%d</xliff:g></string>
+    <string name="bugreport_info_name">Ainm an fhaidhle</string>
+    <string name="bugreport_info_title">Tiotal a’ bhuga</string>
+    <string name="bugreport_info_description">Tuairisgeul a’ bhuga</string>
     <string name="save">Sàbhail</string>
 </resources>

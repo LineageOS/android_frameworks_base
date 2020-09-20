@@ -30,6 +30,7 @@
     <string name="accessibility_dpad_left">Cùrsair clì</string>
     <string name="accessibility_dpad_right">Cùrsair deas</string>
     <string name="quick_settings_network_adb_label">ADB thar lìonra</string>
+    <string name="quick_settings_network_adb_no_network">chan eil lìonra ann</string>
     <string name="quick_settings_ambient_display_label">Taisbeanadh cuairteach</string>
     <string name="accessibility_quick_settings_ambient_display_off">Tha an taisbeanadh cuairteach dheth.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Tha an taisbeanadh cuairteach air.</string>
@@ -60,6 +61,8 @@
     <string name="accessibility_quick_settings_profiles_changed">Tha a’ phròifil: <xliff:g id="profile" example="Default">%s</xliff:g> an gnìomh a-nis.</string>
     <string name="quick_settings_usb_tether_label">Teadhrachadh USB</string>
     <string name="quick_settings_volume_panel_label">Panail àirde na fuaime</string>
+    <string name="status_bar_battery">Bataraidh</string>
     <string name="status_bar_location">Ionad</string>
     <string name="screen_pinning_description_no_navbar">Cumaidh seo san t-sealladh e gus an dì-phrìnich thu e. Suath ri “Air ais” ⁊ cùm e gus a dhì-phrìneachadh.</string>
+    <string name="screen_pinning_toast_no_navbar">Airson an sgrìn seo a dhì-phrìneachadh, suath ris a’ phutan “Air ais” ⁊ cùm sìos e</string>
 </resources>
