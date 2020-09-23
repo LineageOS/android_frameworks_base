@@ -116,6 +116,30 @@
       "revId": "e4ecf56e9a60e9bf0487f5e74dd26f13c68c52b7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a5f6bb6_6088207d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelViewController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3661,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-09-23T13:15:13Z",
+      "side": 1,
+      "message": "Apply that diff (https://gist.github.com/luk1337/9de123f7a81bd8ee1db17324a9719eec) and use this func here .",
+      "parentUuid": "eb060914_0de7ec77",
+      "range": {
+        "startLine": 3661,
+        "startChar": 16,
+        "endLine": 3661,
+        "endChar": 101
+      },
+      "revId": "e4ecf56e9a60e9bf0487f5e74dd26f13c68c52b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
