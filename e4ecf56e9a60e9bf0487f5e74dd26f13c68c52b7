@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba49a3bf_f1863bf3",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelViewController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-09-23T12:13:18Z",
+      "side": 1,
+      "message": "Make it private. We no longer need to publish it.",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 10
+      },
+      "revId": "e4ecf56e9a60e9bf0487f5e74dd26f13c68c52b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f30a24ff_8385af02",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelViewController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3633,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-09-23T12:13:18Z",
+      "side": 1,
+      "message": "Over 100 chars.",
+      "range": {
+        "startLine": 3633,
+        "startChar": 4,
+        "endLine": 3633,
+        "endChar": 113
+      },
+      "revId": "e4ecf56e9a60e9bf0487f5e74dd26f13c68c52b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb060914_0de7ec77",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelViewController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3661,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-09-23T12:13:18Z",
+      "side": 1,
+      "message": "Over 100 chars.",
+      "range": {
+        "startLine": 3661,
+        "startChar": 16,
+        "endLine": 3661,
+        "endChar": 101
+      },
+      "revId": "e4ecf56e9a60e9bf0487f5e74dd26f13c68c52b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
