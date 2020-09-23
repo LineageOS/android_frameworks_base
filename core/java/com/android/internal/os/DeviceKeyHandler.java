@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 The Android Open Source Project
+ * Copyright (C) 2012 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-#ifndef _ANDROID_SERVER_POWER_MANAGER_SERVICE_H
-#define _ANDROID_SERVER_POWER_MANAGER_SERVICE_H
+package com.android.internal.os;
 
-#include <nativehelper/JNIHelp.h>
-#include "jni.h"
+import android.view.KeyEvent;
 
-#include <powermanager/PowerManager.h>
+public interface DeviceKeyHandler {
 
-namespace android {
-
-extern void android_server_PowerManagerService_userActivity(nsecs_t eventTime, int32_t eventType,
-        int32_t keyCode);
-
-} // namespace android
-
-#endif // _ANDROID_SERVER_POWER_MANAGER_SERVICE_H
+    /**
+     * Invoked when an unknown key was detected by the system, letting the device handle
+     * this special keys prior to pass the key to the active app.
+     *
+     * @param event The key event to be handled
+     * @return null if event is consumed, KeyEvent to be handled otherwise
+     */
+    public KeyEvent handleKeyEvent(KeyEvent event);
+}

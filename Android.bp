@@ -268,6 +268,8 @@ filegroup {
         ":storaged_aidl",
         ":vold_aidl",
 
+        ":adbrootservice_aidl",
+
         // For the generated R.java and Manifest.java
         ":framework-res{.aapt.srcjar}",
 
@@ -357,6 +359,7 @@ java_library {
         "android.hardware.cas-V1.0-java",
         "android.hardware.cas-V1.1-java",
         "android.hardware.cas-V1.2-java",
+        "android.hardware.configstore-V1.1-java",
         "android.hardware.contexthub-V1.0-java",
         "android.hardware.contexthub-V1.1-java",
         "android.hardware.gnss-V1.0-java",
