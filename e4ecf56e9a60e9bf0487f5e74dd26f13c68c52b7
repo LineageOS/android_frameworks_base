@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2111ccfd_f6e59e12",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelViewController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-09-23T13:07:31Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/276142",
+      "parentUuid": "b5a7d0c3_2f967b01",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 10
+      },
+      "revId": "e4ecf56e9a60e9bf0487f5e74dd26f13c68c52b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f30a24ff_8385af02",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelViewController.java",
         "patchSetId": 1
