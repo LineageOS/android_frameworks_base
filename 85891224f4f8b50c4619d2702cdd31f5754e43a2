@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "8adf169f_cb0b0128",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelViewController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-09-24T14:17:41Z",
+      "side": 1,
+      "message": "Remove.",
+      "revId": "85891224f4f8b50c4619d2702cdd31f5754e43a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "689b8fcf_3ece312f",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationShadeWindowViewController.java",
         "patchSetId": 1
