@@ -914,7 +914,8 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
             .setColor(com.android.internal.R.color.system_notification_accent_color);
 
         Intent intent = new Intent(Settings.ACTION_SHOW_INPUT_METHOD_PICKER);
-        mImeSwitchPendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, 0);
+        mImeSwitchPendingIntent = PendingIntent.getBroadcast(mContext, 0, intent,
+                PendingIntent.FLAG_IMMUTABLE);
 
         mShowOngoingImeSwitcherForPhones = false;
 
@@ -1507,7 +1508,8 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
         mCurIntent.putExtra(Intent.EXTRA_CLIENT_LABEL,
                 com.android.internal.R.string.input_method_binding_label);
         mCurIntent.putExtra(Intent.EXTRA_CLIENT_INTENT, PendingIntent.getActivity(
-                mContext, 0, new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS), 0));
+                mContext, 0, new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS),
+                PendingIntent.FLAG_IMMUTABLE));
         if (bindCurrentInputMethodService(mCurIntent, this, Context.BIND_AUTO_CREATE
                 | Context.BIND_NOT_VISIBLE | Context.BIND_NOT_FOREGROUND
                 | Context.BIND_SHOWING_UI)) {
