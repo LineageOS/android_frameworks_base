@@ -22,6 +22,23 @@
       "revId": "85891224f4f8b50c4619d2702cdd31f5754e43a2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "689b8fcf_3ece312f",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationShadeWindowViewController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-09-24T13:58:45Z",
+      "side": 1,
+      "message": "Instead of keeping context, create PowerManager here directly and keep this reference instead",
+      "revId": "85891224f4f8b50c4619d2702cdd31f5754e43a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
