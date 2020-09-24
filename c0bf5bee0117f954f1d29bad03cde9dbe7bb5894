@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4a7678d_86274ab9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationShadeWindowViewController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-09-24T16:50:45Z",
+      "side": 1,
+      "message": "inject PowerManager?",
+      "range": {
+        "startLine": 165,
+        "startChar": 24,
+        "endLine": 165,
+        "endChar": 69
+      },
+      "revId": "c0bf5bee0117f954f1d29bad03cde9dbe7bb5894",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
