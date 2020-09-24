@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43c4acef_e3852b78",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelViewController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-09-24T14:53:04Z",
+      "side": 1,
+      "message": "Pass context via constructor/injection",
+      "range": {
+        "startLine": 572,
+        "startChar": 48,
+        "endLine": 572,
+        "endChar": 68
+      },
+      "revId": "eb4ec2793be9b89ad389c9eb84e8abb00b0f493f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab12c495_59c3aa29",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationShadeWindowViewController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-09-24T14:53:04Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 35
+      },
+      "revId": "eb4ec2793be9b89ad389c9eb84e8abb00b0f493f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85fb35fa_0e7fba74",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationShadeWindowViewController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-09-24T14:53:04Z",
+      "side": 1,
+      "message": "I don\u0027t get it, you\u0027re passing PowerManager and never assigning it?\nIf it\u0027s via injection directly use this one instead of retrieving it from context",
+      "range": {
+        "startLine": 144,
+        "startChar": 12,
+        "endLine": 144,
+        "endChar": 54
+      },
+      "revId": "eb4ec2793be9b89ad389c9eb84e8abb00b0f493f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
