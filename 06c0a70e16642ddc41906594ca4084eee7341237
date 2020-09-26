@@ -22,6 +22,30 @@
       "revId": "06c0a70e16642ddc41906594ca4084eee7341237",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a9886a9_5fe7af98",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2335,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-09-26T11:23:15Z",
+      "side": 1,
+      "message": "oh i get it why it was wrong before too. It sets brightness to 1 on min\u003d0.",
+      "parentUuid": "26cdba8e_78781b44",
+      "range": {
+        "startLine": 2335,
+        "startChar": 39,
+        "endLine": 2335,
+        "endChar": 75
+      },
+      "revId": "06c0a70e16642ddc41906594ca4084eee7341237",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
