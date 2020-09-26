@@ -2325,6 +2325,9 @@
     <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
     <bool name="config_dozePulsePickup">false</bool>
 
+    <!-- Type of the pickup sensor used when config_dozePulsePickup is enabled. -->
+    <string name="config_dozePickupSensorType" translatable="false">android.sensor.pick_up_gesture</string>
+
     <!-- Type of the double tap sensor. Empty if double tap is not supported. -->
     <string name="config_dozeDoubleTapSensorType" translatable="false"></string>
 
