@@ -1,0 +1,22 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad047995_7a7d0e91",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerServiceImpl.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-09-27T05:27:11Z",
+      "side": 1,
+      "message": "please drop this.",
+      "parentUuid": "",
+      "revId": "1c93b2149bd798c8b18f78c1bb95b2c3329688b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
