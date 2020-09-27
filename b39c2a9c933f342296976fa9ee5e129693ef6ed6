@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3259ca8b_d89aaca3",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-09-27T12:41:53Z",
+      "side": 1,
+      "message": "Make it private.",
+      "revId": "b39c2a9c933f342296976fa9ee5e129693ef6ed6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
