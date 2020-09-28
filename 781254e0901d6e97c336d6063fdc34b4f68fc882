@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d1db843_665f0074",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-09-28T10:31:32Z",
+      "side": 1,
+      "message": "probably causes flickering?",
+      "range": {
+        "startLine": 784,
+        "startChar": 16,
+        "endLine": 784,
+        "endChar": 46
+      },
+      "revId": "781254e0901d6e97c336d6063fdc34b4f68fc882",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
