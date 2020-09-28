@@ -22,6 +22,30 @@
       "revId": "781254e0901d6e97c336d6063fdc34b4f68fc882",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f04d4d76_68adc7d8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-09-28T13:53:23Z",
+      "side": 1,
+      "message": "hm even without this patch I sometimes have flickering on ls.",
+      "parentUuid": "0d1db843_665f0074",
+      "range": {
+        "startLine": 784,
+        "startChar": 16,
+        "endLine": 784,
+        "endChar": 46
+      },
+      "revId": "781254e0901d6e97c336d6063fdc34b4f68fc882",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
