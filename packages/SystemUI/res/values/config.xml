@@ -553,4 +553,8 @@
     <integer name="controls_max_columns_adjust_below_width_dp">320</integer>
     <!-- If the config font scale is >= this value, potentially adjust the number of columns-->
     <item name="controls_max_columns_adjust_above_font_scale" translatable="false" format="float" type="dimen">1.25</item>
+
+    <!-- Allow devices to use a lower screenrecording encoder settings because of old hardware -->
+    <bool name="config_device_needs_lower_encoder_settings">false</bool>
+
 </resources>
