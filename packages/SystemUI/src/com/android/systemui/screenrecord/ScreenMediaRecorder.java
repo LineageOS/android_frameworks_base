@@ -48,6 +48,8 @@ import android.util.Size;
 import android.view.Surface;
 import android.view.WindowManager;
 
+import com.android.systemui.R;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -61,7 +63,7 @@ import java.util.Date;
 public class ScreenMediaRecorder {
     private static final int TOTAL_NUM_TRACKS = 1;
     private static final int VIDEO_FRAME_RATE = 30;
-    private static final int VIDEO_FRAME_RATE_TO_RESOLUTION_RATIO = 6;
+    private static int VIDEO_FRAME_RATE_TO_RESOLUTION_RATIO = 6;
     private static final int AUDIO_BIT_RATE = 196000;
     private static final int AUDIO_SAMPLE_RATE = 44100;
     private static final int MAX_DURATION_MS = 60 * 60 * 1000;
@@ -119,6 +121,13 @@ public class ScreenMediaRecorder {
 
         mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
 
+        // Set recording quality
+        boolean mLegacyEncoderAllowed = mContext.getResources().getBoolean(
+                R.bool.config_device_needs_lower_encoder_settings);
+
+        if (mLegacyEncoderAllowed) {
+            VIDEO_FRAME_RATE_TO_RESOLUTION_RATIO = 2;
+        }
 
         // Set up video
         DisplayMetrics metrics = new DisplayMetrics();
@@ -130,9 +139,13 @@ public class ScreenMediaRecorder {
         int vidBitRate = screenHeight * screenWidth * refereshRate / VIDEO_FRAME_RATE
                 * VIDEO_FRAME_RATE_TO_RESOLUTION_RATIO;
         mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+
+        // Use AVCLevel4 as AVCLevel42 is not supported for legacy
         mMediaRecorder.setVideoEncodingProfileLevel(
                 MediaCodecInfo.CodecProfileLevel.AVCProfileHigh,
-                MediaCodecInfo.CodecProfileLevel.AVCLevel42);
+                mLegacyEncoderAllowed ? MediaCodecInfo.CodecProfileLevel.AVCLevel4
+                : MediaCodecInfo.CodecProfileLevel.AVCLevel42);
+
         mMediaRecorder.setVideoSize(screenWidth, screenHeight);
         mMediaRecorder.setVideoFrameRate(refereshRate);
         mMediaRecorder.setVideoEncodingBitRate(vidBitRate);
