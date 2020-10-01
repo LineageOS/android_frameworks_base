@@ -1988,8 +1988,8 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <string name="package_updated_device_owner">Diweddarwyd gan dy weinyddwr</string>
     <string name="package_deleted_device_owner">Dileuwyd gan dy weinyddwr</string>
     <string name="confirm_battery_saver">Iawn</string>
-    <string name="battery_saver_description_with_learn_more">Er mwyn ymestyn bywyd batri, mae Arbedwr Batri yn:\n·Troi\'r thema Tywyll ymlaen\n·Troi i ffwrdd neu gyfyngu ar weithgareddau cefndirol, rhai effeithiau gweledol a nodweddion eraill fel \u201cHey Google\u201d\n\n<annotation id="url">Dysgu rhagor</annotation></string>
-    <string name="battery_saver_description">Er mwyn ymestyn bywyd batri, mae Arbedwr Batri yn:\n·Troi\'r thema Tywyll ymlaen\n·Troi i ffwrdd neu gyfyngu ar weithgareddau cefndirol, rhai effeithiau gweledol a nodweddion eraill fel \u201cHey Google\u201d</string>
+    <string name="battery_saver_description_with_learn_more">Er mwyn ymestyn bywyd batri, mae Arbedwr Batri yn:\n·Troi\'r thema dywyll ymlaen\n·Troi i ffwrdd neu gyfyngu ar weithgareddau cefndirol, rhai effeithiau gweledol a nodweddion eraill fel \u201cHey Google\u201d\n\n<annotation id="url">Dysgu rhagor</annotation></string>
+    <string name="battery_saver_description">Er mwyn ymestyn bywyd batri, mae Arbedwr Batri yn:\n·Troi\'r thema dywyll ymlaen\n·Troi i ffwrdd neu gyfyngu ar weithgareddau cefndirol, rhai effeithiau gweledol a nodweddion eraill fel \u201cHey Google\u201d</string>
     <string name="data_saver_description">I helpu lleihau defnydd data, mae Arbedwr Data yn rhwystro rhai apiau rhag anfon neu dderbyn data yn y cefndir. Gall ap gael mynediad at ddata tra ei fod yn cael ei ddefnyddio, ond yn llai aml. Mae hyn yn golygu, er enghraifft, na fydd delweddau efallai yn dangos nes dy fod yn eu tapio nhw.</string>
     <string name="data_saver_enable_title">Rhoi Arbedwr Data ar waith?</string>
     <string name="data_saver_enable_button">Troi ymlaen</string>
