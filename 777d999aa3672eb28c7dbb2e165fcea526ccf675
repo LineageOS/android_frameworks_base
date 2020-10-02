@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9caae62f_f3e77220",
+        "filename": "packages/SystemUI/LineageManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-02T13:35:14Z",
+      "side": 1,
+      "message": "This is needed as of R.",
+      "range": {
+        "startLine": 23,
+        "startChar": 35,
+        "endLine": 23,
+        "endChar": 76
+      },
+      "revId": "777d999aa3672eb28c7dbb2e165fcea526ccf675",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
