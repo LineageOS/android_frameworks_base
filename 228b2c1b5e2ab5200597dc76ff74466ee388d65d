@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a00161c9_ba6a4e32",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-05T13:47:33Z",
+      "side": 1,
+      "message": "To match code in the previous branch:\n\n            try {\n                mClockPosition \u003d Integer.valueOf(newValue);\n            } catch (NumberFormatException ex) {\n                mClockPosition \u003d CLOCK_POSITION_LEFT;\n            }",
+      "range": {
+        "startLine": 84,
+        "startChar": 12,
+        "endLine": 84,
+        "endChar": 95
+      },
+      "revId": "228b2c1b5e2ab5200597dc76ff74466ee388d65d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
