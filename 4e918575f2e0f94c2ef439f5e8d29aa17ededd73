@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47ab47fe_54d91df6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 4392,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-05T13:36:38Z",
+      "side": 1,
+      "message": "TunerService.parseIntegerSwitch(newValue, false);",
+      "range": {
+        "startLine": 4392,
+        "startChar": 20,
+        "endLine": 4392,
+        "endChar": 73
+      },
+      "revId": "4e918575f2e0f94c2ef439f5e8d29aa17ededd73",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
