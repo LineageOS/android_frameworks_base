@@ -22,6 +22,24 @@
       "revId": "2db7ba749846818225204df730d8d5772bee9c13",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7c8ef79_855dd3fe",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-10-05T21:17:36Z",
+      "side": 1,
+      "message": "sure",
+      "parentUuid": "b45ec07c_c0999d67",
+      "revId": "2db7ba749846818225204df730d8d5772bee9c13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
