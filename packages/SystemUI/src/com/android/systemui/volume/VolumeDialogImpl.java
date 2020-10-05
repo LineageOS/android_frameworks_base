@@ -65,6 +65,7 @@ import android.util.Log;
 import android.util.Slog;
 import android.util.SparseBooleanArray;
 import android.view.ContextThemeWrapper;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.AccessibilityDelegate;
@@ -222,7 +223,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         lp.format = PixelFormat.TRANSLUCENT;
         lp.setTitle(VolumeDialogImpl.class.getSimpleName());
         lp.windowAnimations = -1;
-        lp.gravity = mContext.getResources().getInteger(R.integer.volume_dialog_gravity);
+        lp.gravity = Gravity.RIGHT | Gravity.CENTER_VERTICAL;
         mWindow.setAttributes(lp);
         mWindow.setLayout(WRAP_CONTENT, WRAP_CONTENT);
 
@@ -823,7 +824,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     protected void updateRingerH() {
-        if (mRinger != null && mState != null) {
+        if (mState != null) {
             final StreamState ss = mState.states.get(AudioManager.STREAM_RING);
             if (ss == null) {
                 return;
