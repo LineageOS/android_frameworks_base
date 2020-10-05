@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52f6ffc9_f7373d4e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4557,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-05T13:38:08Z",
+      "side": 1,
+      "message": "To match previous branch:\n\n            try {\n                mAutomaticBrightness \u003d newValue !\u003d null \u0026\u0026 Integer.parseInt(newValue)\n                        \u003d\u003d Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;\n            } catch (NumberFormatException ex) {}",
+      "range": {
+        "startLine": 4556,
+        "startChar": 12,
+        "endLine": 4557,
+        "endChar": 72
+      },
+      "revId": "8e5886bcb05f2c3885e482be77af5c9289cb0322",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6e43d14_d915d92a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4559,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-05T13:38:08Z",
+      "side": 1,
+      "message": "mBrightnessControl \u003d TunerService.parseIntegerSwitch(newValue, false)",
+      "range": {
+        "startLine": 4559,
+        "startChar": 12,
+        "endLine": 4559,
+        "endChar": 84
+      },
+      "revId": "8e5886bcb05f2c3885e482be77af5c9289cb0322",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
