@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eec6686b_1f322741",
+        "filename": "packages/SystemUI/res/values/dimens.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2020-10-05T04:02:34Z",
+      "side": 1,
+      "message": "only notable thing here is -- this _was_ 8dp in 10, I kept it as 4 to match 11\u0027s style",
+      "range": {
+        "startLine": 433,
+        "startChar": 69,
+        "endLine": 433,
+        "endChar": 73
+      },
+      "revId": "2b42aceccb5656ecf7d4ec22e9dfee91f1245990",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
