@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b45ec07c_c0999d67",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ClockController.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-05T21:14:58Z",
+      "side": 1,
+      "message": "We should be using:\n\n    private static final String CLOCK_POSITION \u003d\n            \"lineagesystem:\" + LineageSettings.System.STATUS_BAR_CLOCK;\n\nto be inline with our other additions.",
+      "range": {
+        "startLine": 31,
+        "startChar": 38,
+        "endLine": 33,
+        "endChar": 4
+      },
+      "revId": "2db7ba749846818225204df730d8d5772bee9c13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
