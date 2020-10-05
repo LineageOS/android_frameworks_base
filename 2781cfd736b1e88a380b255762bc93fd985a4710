@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71a0fd5b_91df940e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-05T21:15:57Z",
+      "side": 1,
+      "message": "We should be using:\n\n    private static final String CLOCK_STYLE \u003d\n            \"lineagesystem:\" + LineageSettings.System.STATUS_BAR_AM_PM;\n\nto be inline with our other additions.",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 79
+      },
+      "revId": "2781cfd736b1e88a380b255762bc93fd985a4710",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
