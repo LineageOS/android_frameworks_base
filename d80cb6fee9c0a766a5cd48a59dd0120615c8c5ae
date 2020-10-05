@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fffd0d0_adccabb4",
+        "filename": "core/res/res/values/lineage_config.xml",
+        "patchSetId": 15
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-05T15:27:40Z",
+      "side": 1,
+      "message": "I am moving this to the SDK.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "d80cb6fee9c0a766a5cd48a59dd0120615c8c5ae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
