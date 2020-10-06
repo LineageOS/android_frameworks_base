@@ -16,10 +16,16 @@
 
 package com.android.server.fingerprint;
 
-import com.android.internal.logging.MetricsLogger;
-import com.android.internal.logging.MetricsProto.MetricsEvent;
+import static android.Manifest.permission.USE_FINGERPRINT;
 
 import android.content.Context;
+import android.app.ActivityManager;
+import android.app.ActivityManagerNative;
+import android.app.IActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.hardware.fingerprint.Fingerprint;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.fingerprint.IFingerprintDaemon;
@@ -27,7 +33,13 @@ import android.hardware.fingerprint.IFingerprintServiceReceiver;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.system.ErrnoException;
+import android.util.EventLog;
 import android.util.Slog;
+
+import com.android.internal.R;
+import com.android.internal.logging.MetricsLogger;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import java.util.List;
 
 /**
  * A class to keep track of the authentication state for a given client.
@@ -50,6 +62,54 @@ public abstract class AuthenticationClient extends ClientMonitor {
         boolean result = false;
         boolean authenticated = fingerId != 0;
 
+        // Ensure authentication only succeeds if the client activity is on top or is keyguard.
+        boolean isBackgroundAuth = false;
+        if (authenticated && !isKeyguard(getContext(), getOwnerString())) {
+            final ActivityManager activityManager =
+                    (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+            final IActivityManager activityManagerService = activityManager != null
+                    ? ActivityManagerNative.getDefault()
+                    : null;
+            if (activityManagerService == null) {
+                Slog.e(TAG, "Unable to get activity manager service");
+                isBackgroundAuth = true;
+            } else {
+                try {
+                    final List<ActivityManager.RunningTaskInfo> tasks =
+                            activityManagerService.getTasks(1, 0 /* flags */);
+                    if (tasks == null || tasks.isEmpty()) {
+                        Slog.e(TAG, "No running tasks reported");
+                        isBackgroundAuth = true;
+                    } else {
+                        final ComponentName topActivity = tasks.get(0).topActivity;
+                        if (topActivity == null) {
+                            Slog.e(TAG, "Unable to get top activity");
+                            isBackgroundAuth = true;
+                        } else {
+                            final String topPackage = topActivity.getPackageName();
+                            if (!topPackage.contentEquals(getOwnerString())) {
+                                Slog.e(TAG, "Background authentication detected, top: " + topPackage
+                                        + ", client: " + this);
+                                isBackgroundAuth = true;
+                            }
+                        }
+                    }
+                } catch (RemoteException e) {
+                    Slog.e(TAG, "Unable to get running tasks", e);
+                    isBackgroundAuth = true;
+                }
+            }
+        }
+        // Fail authentication if we can't confirm the client activity is on top.
+        if (isBackgroundAuth) {
+            Slog.e(TAG, "Failing possible background authentication");
+            authenticated = false;
+            // SafetyNet logging for exploitation attempts of b/159249069.
+            final ApplicationInfo appInfo = getContext().getApplicationInfo();
+            EventLog.writeEvent(0x534e4554, "159249069", appInfo != null ? appInfo.uid : -1,
+                    "Attempted background authentication");
+        }
+
         IFingerprintServiceReceiver receiver = getReceiver();
         if (receiver != null) {
             try {
@@ -58,6 +118,13 @@ public abstract class AuthenticationClient extends ClientMonitor {
                 if (!authenticated) {
                     receiver.onAuthenticationFailed(getHalDeviceId());
                 } else {
+                    // SafetyNet logging for b/159249069 if constraint is violated.
+                    if (isBackgroundAuth) {
+                        final ApplicationInfo appInfo = getContext().getApplicationInfo();
+                        EventLog.writeEvent(0x534e4554, "159249069",
+                                appInfo != null ? appInfo.uid : -1,
+                                "Successful background authentication! Receiver notified");
+                    }
                     if (DEBUG) {
                         Slog.v(TAG, "onAuthenticated(owner=" + getOwnerString()
                                 + ", id=" + fingerId + ", gp=" + groupId + ")");
@@ -92,6 +159,12 @@ public abstract class AuthenticationClient extends ClientMonitor {
             }
             result |= inLockoutMode;
         } else {
+            if (isBackgroundAuth) {
+                final ApplicationInfo appInfo = getContext().getApplicationInfo();
+                EventLog.writeEvent(0x534e4554, "159249069",
+                        appInfo != null ? appInfo.uid : -1,
+                        "Successful background authentication! Lockout reset");
+            }
             if (receiver != null) {
                 FingerprintUtils.vibrateFingerprintSuccess(getContext());
             }
@@ -99,6 +172,16 @@ public abstract class AuthenticationClient extends ClientMonitor {
             resetFailedAttempts();
         }
         return result;
+    }
+
+    private static boolean isKeyguard(Context context, String clientPackage) {
+        final boolean hasPermission = context.checkCallingOrSelfPermission(USE_FINGERPRINT)
+                == PackageManager.PERMISSION_GRANTED;
+        final ComponentName keyguardComponent = ComponentName.unflattenFromString(
+                context.getResources().getString(R.string.config_keyguardComponent));
+        final String keyguardPackage = keyguardComponent != null
+                ? keyguardComponent.getPackageName() : null;
+        return hasPermission && keyguardPackage != null && keyguardPackage.equals(clientPackage);
     }
 
     /**
