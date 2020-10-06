@@ -68,6 +68,30 @@
       "revId": "08e2cb0fa906a731b3b2de9db9d2a3e8808dcea6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12fc9123_5bf72cf8",
+        "filename": "services/core/java/com/android/server/lights/LightsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-06T16:10:37Z",
+      "side": 1,
+      "message": "Reference:\n\nhttps://github.com/LineageOS/android_hardware_libhardware/commit/265522dc4a145f05dca1dac721bb5f3c1ffefa80",
+      "parentUuid": "998c7240_eacb7860",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 60
+      },
+      "revId": "08e2cb0fa906a731b3b2de9db9d2a3e8808dcea6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
