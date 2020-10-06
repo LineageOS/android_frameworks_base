@@ -28,7 +28,9 @@ public abstract class LightsManager {
     public static final int LIGHT_ID_ATTENTION = Type.ATTENTION;
     public static final int LIGHT_ID_BLUETOOTH = Type.BLUETOOTH;
     public static final int LIGHT_ID_WIFI = Type.WIFI;
-    public static final int LIGHT_ID_COUNT = Type.COUNT;
+    public static final int LIGHT_ID_CAPS = Type.COUNT;
+    public static final int LIGHT_ID_FUNC = Type.COUNT + 1;
+    public static final int LIGHT_ID_COUNT = Type.COUNT + 2;
 
     /**
      * Returns the logical light with the given type, if it exists, or null.
