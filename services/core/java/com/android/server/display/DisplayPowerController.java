@@ -1123,11 +1123,14 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
             brightnessState = PowerManager.BRIGHTNESS_OFF_FLOAT;
             mBrightnessReasonTemp.setReason(BrightnessReason.REASON_SCREEN_OFF);
             mLights.getLight(LightsManager.LIGHT_ID_BUTTONS).setBrightness(brightnessState);
+            mLights.getLight(LightsManager.LIGHT_ID_KEYBOARD).setBrightness(brightnessState);
         }
 
-        // Disable button lights when dozing
+        // Disable button and keyboard lights when dozing
         if (state == Display.STATE_DOZE || state == Display.STATE_DOZE_SUSPEND) {
             mLights.getLight(LightsManager.LIGHT_ID_BUTTONS)
+                    .setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+            mLights.getLight(LightsManager.LIGHT_ID_KEYBOARD)
                     .setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
         }
 
