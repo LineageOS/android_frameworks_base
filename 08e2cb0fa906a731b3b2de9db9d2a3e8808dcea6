@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ae521c2a_b0305e73",
+        "filename": "core/java/android/os/PowerManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-06T16:03:36Z",
+      "side": 1,
+      "message": "Next iteration we should just name those BRIGHTNESS_CONSTRAINT_TYPE_BUTTON and BRIGHTNESS_CONSTRAINT_TYPE_KEYBOARD",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 470,
+        "endChar": 55
+      },
+      "revId": "08e2cb0fa906a731b3b2de9db9d2a3e8808dcea6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5c68e00d_ce3aec9c",
         "filename": "services/core/java/com/android/server/display/DisplayPowerController.java",
         "patchSetId": 1
