@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed243f31_2ed39e12",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2148,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-10-06T16:15:03Z",
+      "side": 1,
+      "message": "seems dropping wireless charger check is enough for sound to be played for wireless charging.",
+      "revId": "051a9def37ed5e077a1855e33f84d8ada5741e87",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
