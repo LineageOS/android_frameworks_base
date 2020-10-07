@@ -16,6 +16,24 @@
       "revId": "2716145bfac2e7b9056651561618520d15351ca9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "225b0515_2994dfef",
+        "filename": "core/java/android/os/IPowerManager.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-07T10:45:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a691338_a4263bee",
+      "revId": "2716145bfac2e7b9056651561618520d15351ca9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
