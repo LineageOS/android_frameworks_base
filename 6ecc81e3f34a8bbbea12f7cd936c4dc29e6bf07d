@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "105e0070_9280aa28",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VpnTile.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-07T23:21:27Z",
+      "side": 1,
+      "message": "Reference: https://github.com/LineageOS/android_frameworks_base/blob/lineage-18.0/packages/SystemUI/src/com/android/systemui/statusbar/policy/KeyguardStateController.java",
+      "revId": "6ecc81e3f34a8bbbea12f7cd936c4dc29e6bf07d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
