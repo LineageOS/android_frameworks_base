@@ -2405,9 +2405,11 @@ public final class PowerManagerService extends SystemService
                         if (getWakefulnessLocked() == WAKEFULNESS_AWAKE) {
                             float buttonBrightness = PowerManager.BRIGHTNESS_OFF_FLOAT;
                             if (!mForceNavbar) {
-                                if (isValidButtonBrightness(
+                                if (isValidBrightness(
                                         mButtonBrightnessOverrideFromWindowManager)) {
-                                    buttonBrightness = mButtonBrightnessOverrideFromWindowManager;
+                                    if (mButtonBrightnessOverrideFromWindowManager > 0.0f) {
+                                        buttonBrightness = mButtonBrightnessOverrideFromWindowManager;
+                                    }
                                 } else if (isValidButtonBrightness(mButtonBrightness)) {
                                     buttonBrightness = mButtonBrightness;
                                 }
