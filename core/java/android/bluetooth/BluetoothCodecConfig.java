@@ -82,6 +82,9 @@ public final class BluetoothCodecConfig implements Parcelable {
     public static final int SOURCE_CODEC_TYPE_CELT = 8;
 
     @UnsupportedAppUsage
+    public static final int SOURCE_CODEC_TYPE_LC3 = 9;
+
+    @UnsupportedAppUsage
     public static final int SOURCE_CODEC_TYPE_INVALID = 1000 * 1000;
 
     /** @hide */
@@ -137,6 +140,14 @@ public final class BluetoothCodecConfig implements Parcelable {
     @UnsupportedAppUsage
     public static final int SAMPLE_RATE_192000 = 0x1 << 5;
 
+    public static final int SAMPLE_RATE_16000 = 0x1 << 6;
+
+    public static final int SAMPLE_RATE_24000 = 0x1 << 7;
+
+    public static final int SAMPLE_RATE_32000 = 0x1 << 8;
+
+    public static final int SAMPLE_RATE_8000 = 0x1 << 9;
+
 
     /** @hide */
     @IntDef(prefix = "BITS_PER_SAMPLE_", value = {
@@ -178,6 +189,7 @@ public final class BluetoothCodecConfig implements Parcelable {
 
     @UnsupportedAppUsage
     public static final int CHANNEL_MODE_STEREO = 0x1 << 1;
+    public static final int CHANNEL_MODE_JOINT_STEREO = 0x1 << 2;
 
     private final @SourceCodecType int mCodecType;
     private @CodecPriority int mCodecPriority;
