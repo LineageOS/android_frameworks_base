@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e26ea2e3_4fd1d196",
+        "filename": "core/java/android/content/pm/PackageParser.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-07T21:14:00Z",
+      "side": 1,
+      "message": "Out of place",
+      "revId": "67bdea4c6bef15c885f29e98d16e2147c6b8fb68",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ca550f4_2139ab0a",
+        "filename": "core/java/com/nvidia/NvAppProfileService.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-07T21:14:00Z",
+      "side": 1,
+      "message": "This class has lots of code style issues. Was this taken directly from NVIDIA sources?",
+      "revId": "67bdea4c6bef15c885f29e98d16e2147c6b8fb68",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a35d6f9_43c1a79b",
+        "filename": "core/java/com/nvidia/NvWhitelistService.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-07T21:14:00Z",
+      "side": 1,
+      "message": "Code style issues again",
+      "revId": "67bdea4c6bef15c885f29e98d16e2147c6b8fb68",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
