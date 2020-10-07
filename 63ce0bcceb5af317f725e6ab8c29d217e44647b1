@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd3aa109_dcd4d592",
+        "filename": "core/java/com/nvidia/NvCPLSvc/NvAppProfile.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-07T21:15:03Z",
+      "side": 1,
+      "message": "Over 100 chars",
+      "revId": "63ce0bcceb5af317f725e6ab8c29d217e44647b1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
