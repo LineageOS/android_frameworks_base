@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7209f692_07e91748",
+        "filename": "core/java/android/net/IConnectivityManager.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-07T23:34:39Z",
+      "side": 1,
+      "message": "Should this be moved to the end of the aidl too?",
+      "revId": "6ecc81e3f34a8bbbea12f7cd936c4dc29e6bf07d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "105e0070_9280aa28",
         "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/VpnTile.java",
         "patchSetId": 6
