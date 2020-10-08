@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4aca143_1af375ce",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 8988,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-10-08T13:02:49Z",
+      "side": 1,
+      "message": "Should be moved to lineage-sdk",
+      "range": {
+        "startLine": 8988,
+        "startChar": 0,
+        "endLine": 8988,
+        "endChar": 89
+      },
+      "revId": "49da4359f33f041272e2892007896d58078f1dd3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
