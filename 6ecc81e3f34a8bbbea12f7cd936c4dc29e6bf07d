@@ -33,6 +33,29 @@
       "revId": "6ecc81e3f34a8bbbea12f7cd936c4dc29e6bf07d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c92ae82_7a5d03d1",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 4574,
+      "author": {
+        "id": 17571
+      },
+      "writtenOn": "2020-10-08T04:04:40Z",
+      "side": 1,
+      "message": "This seems to have changed in https://github.com/LineageOS/android_frameworks_base/commit/59148b79381900c073486b7ebd840e9f3ebe9977",
+      "range": {
+        "startLine": 4574,
+        "startChar": 8,
+        "endLine": 4574,
+        "endChar": 45
+      },
+      "revId": "6ecc81e3f34a8bbbea12f7cd936c4dc29e6bf07d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
