@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8e2e92e_5d6adb71",
+        "filename": "packages/SystemUI/Android.bp",
+        "patchSetId": 20
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-11T13:10:51Z",
+      "side": 1,
+      "message": "Add also to SystemUI-tests",
+      "range": {
+        "startLine": 74,
+        "startChar": 8,
+        "endLine": 74,
+        "endChar": 67
+      },
+      "revId": "be74ec27e308e394ebce27a69a0d480f860e55be",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
