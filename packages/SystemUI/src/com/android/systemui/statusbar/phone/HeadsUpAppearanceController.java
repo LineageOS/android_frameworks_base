@@ -16,7 +16,6 @@
 
 package com.android.systemui.statusbar.phone;
 
-import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.view.DisplayCutout;
@@ -92,7 +91,6 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
 
 
     public HeadsUpAppearanceController(
-            Context context,
             NotificationIconAreaController notificationIconAreaController,
             HeadsUpManagerPhone headsUpManager,
             View notificationShadeView,
@@ -108,7 +106,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
                 notificationShadeView.findViewById(R.id.notification_stack_scroller),
                 notificationPanelViewController,
                 statusBarView.findViewById(R.id.clock),
-                new ClockController(context, statusBarView),
+                new ClockController(statusBarView.getContext(), statusBarView),
                 statusBarView.findViewById(R.id.operator_name_frame),
                 statusBarView.findViewById(R.id.centered_icon_area));
     }
