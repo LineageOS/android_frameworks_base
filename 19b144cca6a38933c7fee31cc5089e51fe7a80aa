@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bab1569_f98578e7",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-10-11T08:54:35Z",
+      "side": 1,
+      "message": "initialize directly to resources value",
+      "revId": "19b144cca6a38933c7fee31cc5089e51fe7a80aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "136bc7d5_7cf7bc21",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-10-11T08:54:35Z",
+      "side": 1,
+      "message": "low ? Level4 : level42\nI guess?",
+      "revId": "19b144cca6a38933c7fee31cc5089e51fe7a80aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
