@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89a47096_cc5b4ba7",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/NotificationMediaManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-12T15:52:48Z",
+      "side": 1,
+      "message": "need to figure out how to pass LockscreenWallpaper.WallpaperDrawable here, and also fallback to normal wallpaper in case user doesn\u0027t have custom lockscreen one.",
+      "range": {
+        "startLine": 593,
+        "startChar": 12,
+        "endLine": 596,
+        "endChar": 13
+      },
+      "revId": "62f0af83ea0a1aeb4822bd33d9cc8964b4cad507",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
