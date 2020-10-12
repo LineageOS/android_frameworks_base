@@ -22,6 +22,30 @@
       "revId": "c710fcbcc97694cd108fc6f2e4d47faac93e8872",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f248fca_64993b09",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/NotificationMediaManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-12T17:31:44Z",
+      "side": 1,
+      "message": "active !\u003d playing. isPlaybackActive will return true for a lot of other states including STATE_PAUSED (!) which is not something we want.",
+      "parentUuid": "b4616959_221659d0",
+      "range": {
+        "startLine": 593,
+        "startChar": 42,
+        "endLine": 594,
+        "endChar": 51
+      },
+      "revId": "c710fcbcc97694cd108fc6f2e4d47faac93e8872",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
