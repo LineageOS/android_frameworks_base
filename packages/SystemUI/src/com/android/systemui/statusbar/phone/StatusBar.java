@@ -4043,6 +4043,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             mFalsingManager.onScreenOff();
             mScrimController.onScreenTurnedOff();
             mVisualizerView.setVisible(false);
+            if (mNotificationPanelViewController.isQsExpanded()) {
+                mNotificationPanelViewController.closeQs();
+            }
             updateIsKeyguard();
         }
     };
