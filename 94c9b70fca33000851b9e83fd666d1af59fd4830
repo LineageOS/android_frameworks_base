@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cfb6bc4_a9769ce7",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationIconContainer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-10-13T06:02:08Z",
+      "side": 1,
+      "message": "The one who find this overlay renaming will get free gerrits points",
+      "revId": "94c9b70fca33000851b9e83fd666d1af59fd4830",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
