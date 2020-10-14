@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3eae2ee2_c4d1ccfb",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2020-10-14T18:34:52Z",
+      "side": 1,
+      "message": "need to replace it with onStartedGoingToSleep(int why) since something is removing all layers while going to sleep to we have to remove fod layers before it could do so we don\u0027t have any flciker",
+      "range": {
+        "startLine": 128,
+        "startChar": 20,
+        "endLine": 128,
+        "endChar": 37
+      },
+      "revId": "0325d4ff3deb54b021bd5df7e2e6ed6cf5b2a5f8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
