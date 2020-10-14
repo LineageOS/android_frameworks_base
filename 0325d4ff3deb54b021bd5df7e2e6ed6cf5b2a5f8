@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "81ffdc02_da0535c1",
+        "filename": "core/java/com/android/internal/statusbar/IStatusBar.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-14T20:00:29Z",
+      "side": 1,
+      "message": "Hmmm, maybe we should move these to the end of the aidl",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "0325d4ff3deb54b021bd5df7e2e6ed6cf5b2a5f8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8877fc5d_31a09706",
+        "filename": "core/java/com/android/internal/statusbar/IStatusBarService.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-14T20:00:29Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 40
+      },
+      "revId": "0325d4ff3deb54b021bd5df7e2e6ed6cf5b2a5f8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3eae2ee2_c4d1ccfb",
         "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
         "patchSetId": 24
@@ -18,6 +64,29 @@
         "startChar": 20,
         "endLine": 128,
         "endChar": 37
+      },
+      "revId": "0325d4ff3deb54b021bd5df7e2e6ed6cf5b2a5f8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76807345_61b81109",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleViewImpl.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-14T20:00:29Z",
+      "side": 1,
+      "message": "This can be removed, since FODCircleViewImpl extends SystemUI implements CommandQueue.Callbacks",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 61
       },
       "revId": "0325d4ff3deb54b021bd5df7e2e6ed6cf5b2a5f8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
