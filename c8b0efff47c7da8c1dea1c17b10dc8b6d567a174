@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35c99c05_c5e83c69",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 9177,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T15:55:27Z",
+      "side": 1,
+      "message": "over 100 chars.",
+      "range": {
+        "startLine": 9177,
+        "startChar": 12,
+        "endLine": 9177,
+        "endChar": 110
+      },
+      "revId": "c8b0efff47c7da8c1dea1c17b10dc8b6d567a174",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4020113_27fd21b7",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 9182,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T15:55:27Z",
+      "side": 1,
+      "message": "over 100 chars.",
+      "range": {
+        "startLine": 9182,
+        "startChar": 0,
+        "endLine": 9182,
+        "endChar": 121
+      },
+      "revId": "c8b0efff47c7da8c1dea1c17b10dc8b6d567a174",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18d64365_c59c3325",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 9387,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T15:55:27Z",
+      "side": 1,
+      "message": "over 100 chars.",
+      "range": {
+        "startLine": 9387,
+        "startChar": 0,
+        "endLine": 9387,
+        "endChar": 121
+      },
+      "revId": "c8b0efff47c7da8c1dea1c17b10dc8b6d567a174",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "190b2be7_f0181e2c",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 11026,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T15:55:27Z",
+      "side": 1,
+      "message": "over 100 chars.",
+      "range": {
+        "startLine": 11026,
+        "startChar": 0,
+        "endLine": 11026,
+        "endChar": 127
+      },
+      "revId": "c8b0efff47c7da8c1dea1c17b10dc8b6d567a174",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98badce2_c545d93f",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 11828,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T15:55:27Z",
+      "side": 1,
+      "message": "bad indentation level?",
+      "range": {
+        "startLine": 11828,
+        "startChar": 0,
+        "endLine": 11828,
+        "endChar": 36
+      },
+      "revId": "c8b0efff47c7da8c1dea1c17b10dc8b6d567a174",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e9b09ae_dcc4321a",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 11829,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T15:55:27Z",
+      "side": 1,
+      "message": "over 100 chars.",
+      "range": {
+        "startLine": 11829,
+        "startChar": 0,
+        "endLine": 11829,
+        "endChar": 132
+      },
+      "revId": "c8b0efff47c7da8c1dea1c17b10dc8b6d567a174",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
