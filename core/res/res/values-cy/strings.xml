@@ -2251,7 +2251,6 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <string name="mime_type_spreadsheet_ext">Taenlen <xliff:g id="extension" example="PDF">%1$s</xliff:g></string>
     <string name="mime_type_presentation">Cyflwyniad</string>
     <string name="mime_type_presentation_ext">Cyflwyniad <xliff:g id="extension" example="PDF">%1$s</xliff:g></string>
-    <string name="bluetooth_airplane_mode_toast">Bydd Bluetooth yn aros ymlaen ym modd awyren</string>
     <string name="car_loading_profile">Yn llwytho</string>
     <plurals name="file_count">
         <item quantity="zero"><xliff:g id="file_name">%s</xliff:g> + <xliff:g id="count">%d</xliff:g> ffeiliau</item>
