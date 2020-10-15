@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a789964d_d3a759ea",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2857,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T16:15:40Z",
+      "side": 1,
+      "message": "this doesn\u0027t look like 8 spaces.",
+      "range": {
+        "startLine": 2857,
+        "startChar": 8,
+        "endLine": 2857,
+        "endChar": 20
+      },
+      "revId": "be136c0e8e0f50102c40c2b755380642881e9cbc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be45fec6_6c1f8419",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 9178,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T16:15:40Z",
+      "side": 1,
+      "message": "trailing whitespace.",
+      "range": {
+        "startLine": 9178,
+        "startChar": 88,
+        "endLine": 9178,
+        "endChar": 89
+      },
+      "revId": "be136c0e8e0f50102c40c2b755380642881e9cbc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ba94d15_f5ba011f",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 9184,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T16:15:40Z",
+      "side": 1,
+      "message": "8 spaces.",
+      "range": {
+        "startLine": 9184,
+        "startChar": 20,
+        "endLine": 9184,
+        "endChar": 24
+      },
+      "revId": "be136c0e8e0f50102c40c2b755380642881e9cbc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8db32be5_76470dfa",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 9186,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T16:15:40Z",
+      "side": 1,
+      "message": "8 spaces.",
+      "range": {
+        "startLine": 9186,
+        "startChar": 20,
+        "endLine": 9186,
+        "endChar": 24
+      },
+      "revId": "be136c0e8e0f50102c40c2b755380642881e9cbc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88076023_6436fc8d",
+        "filename": "services/core/java/com/android/server/pm/PackageManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 11833,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-15T16:15:40Z",
+      "side": 1,
+      "message": "would put newline before `);` just to match hot it was before.",
+      "range": {
+        "startLine": 11833,
+        "startChar": 57,
+        "endLine": 11833,
+        "endChar": 59
+      },
+      "revId": "be136c0e8e0f50102c40c2b755380642881e9cbc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
