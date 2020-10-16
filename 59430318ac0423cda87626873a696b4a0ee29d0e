@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "004168c9_92676065",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-10-16T11:47:43Z",
+      "side": 1,
+      "message": "the all-capital naming is only for constants. as you made it a variable you have to rename it to indicate it being a member. mVideoFramerateToResRatio or similar",
+      "revId": "59430318ac0423cda87626873a696b4a0ee29d0e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
