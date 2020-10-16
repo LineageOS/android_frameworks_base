@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="keyboard_layout_english_us_label">Beurla (SA)</string>
+    <string name="keyboard_layout_english_us_workman_label">Beurla (SA), stoidhle Workman</string>
     <string name="keyboard_layout_german_label">Gearmailtis</string>
     <string name="keyboard_layout_spanish_label">Spàinntis</string>
     <string name="keyboard_layout_swiss_french_label">Fraingis Eilbheiseach</string>

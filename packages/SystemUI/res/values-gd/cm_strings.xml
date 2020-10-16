@@ -28,6 +28,7 @@
     <string name="global_action_restart_download_progress">’Ga ath-thòiseachadh gun mhodh luchdaidh a-nuas\u2026</string>
     <string name="global_action_current_user">Làithreach</string>
     <string name="quick_settings_network_adb_label">ADB thar lìonra</string>
+    <string name="quick_settings_network_adb_no_network">chan eil lìonra ann</string>
     <string name="quick_settings_ambient_display_label">Taisbeanadh cuairteach</string>
     <string name="accessibility_quick_settings_ambient_display_off">Tha an taisbeanadh cuairteach dheth.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Tha an taisbeanadh cuairteach air.</string>
@@ -61,6 +62,9 @@
     <string name="accessibility_dpad_left">Cùrsair clì</string>
     <string name="accessibility_dpad_right">Cùrsair deas</string>
     <string name="screen_pinning_description_no_navbar">Cumaidh seo san t-sealladh e gus an dì-phrìnich thu e. Suath ri “Air ais” ⁊ cùm e gus a dhì-phrìneachadh.</string>
+    <string name="screen_pinning_toast_no_navbar">Airson an sgrìn seo a dhì-phrìneachadh, suath ris a’ phutan “Air ais” ⁊ cùm sìos e</string>
+    <string name="nav_bar_layout_inverse">Tionndaidh air ais an co-dhealbhachd</string>
+    <string name="custom_swipe_hint">Grad-shlaighd on ìomhaigheag airson <xliff:g name="target">%s</xliff:g></string>
     <string name="accessibility_quick_settings_location_battery_saving">Aithriseadh an ionaid: modh chaomhnadh a’ bhataraidh.</string>
     <string name="accessibility_quick_settings_location_gps_only">Aithriseadh an ionaid: am modh mothachaidh a-mhàin.</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Aithriseadh an ionaid: modh na pongalachd àirde.</string>
@@ -77,4 +81,6 @@
     <string name="quick_settings_location_detail_mode_sensors_only_title">An t-uidheam a-mhàin</string>
     <string name="quick_settings_location_detail_mode_high_accuracy_description">Cleachd GPS, WiFi, Bluetooth no lìonraidhean mobile a mhothachadh dhan ionad</string>
     <string name="quick_settings_location_detail_mode_battery_saving_description">Cleachd WiFi, Bluetooth no lìonraidhean mobile a mhothachadh dhan ionad</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Cleachd GPS a mhothachadh air d’ ionad</string>
+    <string name="status_bar_battery">Bataraidh</string>
 </resources>

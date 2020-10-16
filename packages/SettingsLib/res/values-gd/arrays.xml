@@ -33,9 +33,14 @@
         <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
-        <item>Never check</item>
-        <item>Check for DRM content only</item>
+        <item>Na doir sùil idir</item>
+        <item>Thoir sùil airson susbaint fo DRM a-mhàin</item>
         <item>Thoir sùil an-còmhnaidh</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Na doir sùil le HDCP idir</item>
+        <item>Thoir sùil airson susbaint fo DRM le HDCP a-mhàin</item>
+        <item>Thoir sùil le HDCP an-còmhnaidh</item>
     </string-array>
     <string-array name="bluetooth_audio_active_device_summaries">
         <item/>
@@ -47,7 +52,7 @@
         <item>Dheth</item>
         <item>64K</item>
         <item>256K</item>
-        <item>1M</item>
+        <item>1 mh.</item>
         <item>4M</item>
         <item>16M</item>
     </string-array>
@@ -59,39 +64,102 @@
     </string-array>
     <string-array name="select_logd_size_summaries">
         <item>Dheth</item>
-        <item>64K per log buffer</item>
-        <item>256K per log buffer</item>
-        <item>1M per log buffer</item>
-        <item>4M per log buffer</item>
-        <item>16M per log buffer</item>
+        <item>64K gach bufair logaidh</item>
+        <item>256K gach bufair logaidh</item>
+        <item>1M gach bufair logaidh</item>
+        <item>4M gach bufair logaidh</item>
+        <item>16M gach bufair logaidh</item>
     </string-array>
     <string-array name="select_logpersist_titles">
         <item>Dheth</item>
-        <item>All</item>
-        <item>All but radio</item>
-        <item>kernel only</item>
+        <item>Na h-uile</item>
+        <item>Na h-uile ach an rèidio</item>
+        <item>an t-eitean a-mhàin</item>
     </string-array>
     <string-array name="select_logpersist_summaries">
         <item>Dheth</item>
-        <item>All log buffers</item>
-        <item>All but radio log buffers</item>
-        <item>kernel log buffer only</item>
+        <item>A h-uile bufair logaidh</item>
+        <item>A h-uile bufair logaidh ach on rèidio</item>
+        <item>bufair logaidh an eitein a-mhàin</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Beòthachadh dheth</item>
+        <item>Sgèile 0.5x air na beòthachaidhean</item>
+        <item>Sgèile 1x air na beòthachaidhean</item>
+        <item>Sgèile 1.5x air na beòthachaidhean</item>
+        <item>Sgèile 2x air na beòthachaidhean</item>
+        <item>Sgèile 5x air na beòthachaidhean</item>
+        <item>Sgèile 10x air na beòthachaidhean</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Beòthachadh dheth</item>
+        <item>Sgèile 0.5x air na beòthachaidhean</item>
+        <item>Sgèile 1x air na beòthachaidhean</item>
+        <item>Sgèile 1.5x air na beòthachaidhean</item>
+        <item>Sgèile 2x air na beòthachaidhean</item>
+        <item>Sgèile 5x air na beòthachaidhean</item>
+        <item>Sgèile 10x air na beòthachaidhean</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Beòthachadh dheth</item>
+        <item>Sgèile 0.5x air na beòthachaidhean</item>
+        <item>Sgèile 1x air na beòthachaidhean</item>
+        <item>Sgèile 1.5x air na beòthachaidhean</item>
+        <item>Sgèile 2x air na beòthachaidhean</item>
+        <item>Sgèile 5x air na beòthachaidhean</item>
+        <item>Sgèile 10x air na beòthachaidhean</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Chan eil gin</item>
+        <item>480p</item>
+        <item>480p (tèarainte)</item>
+        <item>720p</item>
+        <item>720p (tèarainte)</item>
+        <item>1080p</item>
+        <item>1080p (tèarainte)</item>
+        <item>4K</item>
+        <item>4K (tèarainte)</item>
+        <item>4K (sgèileadh suas)</item>
+        <item>4K (sgèileadh suas, tèarainte)</item>
+        <item>720p, 1080p (dà sgrìn)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Chan eil gin</item>
+        <item>Logcat</item>
+        <item>Systrace (grafaigeachd)</item>
+        <item>Staca ghairmean air glGetError</item>
     </string-array>
     <string-array name="show_non_rect_clip_entries">
         <item>Dheth</item>
-        <item>Draw non-rectangular clip region in blue</item>
-        <item>Highlight tested drawing commands in green</item>
+        <item>Tarraing raon bearraidh nach eil ceart-cheàrnach ann an gorm</item>
+        <item>Soillsich àitheantan tarraing fo dheuchainn ann an uaine</item>
     </string-array>
     <string-array name="track_frame_time_entries">
         <item>Dheth</item>
-        <item>On screen as bars</item>
+        <item>Air an sgrìn ’na bhàraichean</item>
         <item>In 
             <xliff:g id="as_typed_command">adb shell dumpsys gfxinfo</xliff:g>
         </item>
     </string-array>
     <string-array name="debug_hw_overdraw_entries">
         <item>Dheth</item>
-        <item>Show overdraw areas</item>
-        <item>Show areas for Deuteranomaly</item>
+        <item>Seall raointean tar-tharraing</item>
+        <item>Seall raointean airson Deuteranomaly</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Crìoch stannardach</item>
+        <item>Gun phròiseas sa chùlaibh</item>
+        <item>1 phròiseas air a char as àirde</item>
+        <item>2 phròiseas air a char as àirde</item>
+        <item>3 pròiseasan air a char as àirde</item>
+        <item>4 pròiseasan air a char as àirde</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Teàirrdseadh</item>
+        <item>MTP (pròtacal tar-chur mheadhanan)</item>
+        <item>PTP (pròtacal tar-chur dhealbhan)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Tùs fuaime</item>
+        <item>MIDI</item>
     </string-array>
 </resources>

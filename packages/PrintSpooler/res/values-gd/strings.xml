@@ -20,11 +20,32 @@
     <string name="label_duplex">Dà-thaobhach</string>
     <string name="label_orientation">Comhair</string>
     <string name="label_pages">Duilleagan</string>
+    <string name="destination_default_text">Tagh clò-bhualadair</string>
     <string name="save_as_pdf">Sàbhail mar PDF</string>
     <string name="search">Lorg</string>
+    <string name="printer_extended_description_template"><xliff:g id="print_service_label" example="Canon Print Service">%1$s</xliff:g> – <xliff:g id="printer_description" example="Printer under the stairs">%2$s</xliff:g></string>
+    <string name="printer_info_desc">Barrachd fiosrachaidh mun chlò-bhualadair seo</string>
     <string name="could_not_create_file">Cha b’ urrainn dhuinn am faidhle a chruthachadh</string>
+    <string name="print_services_disabled_toast">Tha cuid a sheirbheisean clò-bhualaidh à comas</string>
     <string name="print_searching_for_printers">A’ lorg clò-bhualadairean</string>
+    <string name="print_no_print_services">Chan eil seirbheis clò-bhualaidh an comas</string>
+    <string name="cannot_add_printer">Cha ghabh clò-bhualadair a chur ris</string>
+    <string name="select_to_add_printers">Tagh airson clò-bhualadair a chur ris</string>
+    <string name="enable_print_service">Tagh seo airson a chur an comas</string>
+    <string name="enabled_services_title">Na seirbheisean a tha an comas</string>
+    <string name="recommended_services_title">Seirbheisean a mholamaid</string>
+    <string name="disabled_services_title">Na seirbheisean a tha à comas</string>
     <string name="all_services_title">Na seirbheisean uile</string>
+    <plurals name="print_services_recommendation_subtitle">
+        <item quantity="one">Stàlaich airson <xliff:g id="count" example="1">%1$s</xliff:g> chlò-bhualadair a lorg</item>
+        <item quantity="two">Stàlaich airson <xliff:g id="count" example="2">%1$s</xliff:g> chlò-bhualadair a lorg</item>
+        <item quantity="few">Stàlaich airson <xliff:g id="count" example="2">%1$s</xliff:g> clò-bhualadairean a lorg</item>
+        <item quantity="other">Stàlaich airson <xliff:g id="count" example="2">%1$s</xliff:g> clò-bhualadair a lorg</item>
+    </plurals>
+    <string name="print_service_security_warning_title">A bhail thu airson
+         <xliff:g id="service" example="My Print Service">%1$s</xliff:g> a chleachdadh?</string>
+    <string name="print_service_security_warning_summary">Dh’fhaoidte gun dèid an sgrìobhainn agad tro fhrithealaiche no dhà
+         air a slighe dhan chlò-bhualadair.</string>
     <string-array name="color_mode_labels">
         <item>Black &amp; White</item>
         <item>Dath</item>
@@ -39,4 +60,5 @@
         <item>Landscape</item>
     </string-array>
     <string name="print_error_retry">Feuch ris a-rithist</string>
+    <string name="print_cannot_load_page">Chan urrainn dhuinn an ro-shealladh a taisbeanadh</string>
 </resources>

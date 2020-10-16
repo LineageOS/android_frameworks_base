@@ -40,8 +40,10 @@
     <string name="app_ops_draw_on_top">uinneagan a tharraing an uachdar</string>
     <string name="app_ops_get_accounts">cunntasan an uidheim fhaighinn</string>
     <string name="app_ops_get_usage_stats">stadastaireachd air caitheamh aplacaidean fhaighinn</string>
+    <string name="app_ops_accept_handover">tar-chur air gairm o aplacaid eile</string>
     <string name="app_ops_install_packages">pacaidean a stàladh</string>
     <string name="app_ops_keep_device_awake">an t-uidheam agad a chumail ’na dhùisg</string>
+    <string name="app_ops_manage_ipsec_tunnels">tunailean ipsec a stiùireadh</string>
     <string name="app_ops_make_phone_call">gairm fòn a dhèanamh</string>
     <string name="app_ops_mock_location">d’ ionad a chur air mas fhìor</string>
     <string name="app_ops_modify_calendar">am mìosachan agad ùrachadh</string>
@@ -66,12 +68,16 @@
     <string name="app_ops_read_phone_state">cothrom fhaighinn air staid an fhòn</string>
     <string name="app_ops_read_sms">na teachdaireachdan SMS agad a leughadh</string>
     <string name="app_ops_receive_sms">teachdaireachd SMS fhaighinn</string>
+    <string name="app_ops_receive_emergency_broadcast">teachdaireachd craolaidh-èiginn fhaighinn</string>
     <string name="app_ops_record_audio">fuaim a chlàradh</string>
+    <string name="app_ops_request_delete_packages">sguabadh às phacaidean iarraidh</string>
     <string name="app_ops_run_in_background">ruith sa chùlaibh</string>
+    <string name="app_ops_run_any_in_background">ruith sa chùlaibh</string>
     <string name="app_ops_scan_wifi">na lìonraidhean WiFi a sganadh</string>
     <string name="app_ops_send_mms">teachdaireachd MMS a chur</string>
     <string name="app_ops_send_sms">teachdaireachd SMS a chur</string>
     <string name="app_ops_start_at_bootup">tòiseachaidh nuair a thòisicheas an t-uidheam</string>
+    <string name="app_ops_start_foreground">tòiseachadh sa bheulaibh</string>
     <string name="app_ops_su">inntrigeadh root fhaighinn</string>
     <string name="app_ops_toast_window">teachdaireachdan toast a shealltainn</string>
     <string name="app_ops_toggle_bluetooth">Bluetooth a thoglachadh</string>
