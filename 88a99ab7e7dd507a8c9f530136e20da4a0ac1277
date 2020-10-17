@@ -46,6 +46,30 @@
       "revId": "88a99ab7e7dd507a8c9f530136e20da4a0ac1277",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89e00320_ad4c3af2",
+        "filename": "core/jni/android_hardware_Camera.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2020-10-17T10:07:13Z",
+      "side": 1,
+      "message": "Bring it back, it\u0027s probably just a typedef to int, but we shouldn\u0027t change the exported native functions prototypes",
+      "parentUuid": "b300e203_e02c112c",
+      "range": {
+        "startLine": 864,
+        "startChar": 99,
+        "endLine": 864,
+        "endChar": 103
+      },
+      "revId": "88a99ab7e7dd507a8c9f530136e20da4a0ac1277",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
