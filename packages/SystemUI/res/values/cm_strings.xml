@@ -115,4 +115,9 @@
     <!-- Name of the firewall status bar icon. -->
     <string name="status_bar_firewall">Firewall</string>
     <string name="status_bar_firewall_slot" translatable="false">firewall</string>
+
+    <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
+    <string name="screenshot_delete_label">Delete</string>
+    <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
+    <string name="screenshot_delete_description">Delete screenshot</string>
 </resources>
