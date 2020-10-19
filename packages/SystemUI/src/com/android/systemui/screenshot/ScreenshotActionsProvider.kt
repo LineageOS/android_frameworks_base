@@ -31,6 +31,7 @@ import com.android.systemui.log.DebugLogger.debugLog
 import com.android.systemui.res.R
 import com.android.systemui.screencapture.record.domain.interactor.ScreenCaptureRecordFeaturesInteractor
 import com.android.systemui.screenshot.ScreenshotEvent.SCREENSHOT_COPY_TAPPED
+import com.android.systemui.screenshot.ScreenshotEvent.SCREENSHOT_DELETE_TAPPED
 import com.android.systemui.screenshot.ScreenshotEvent.SCREENSHOT_EDIT_TAPPED
 import com.android.systemui.screenshot.ScreenshotEvent.SCREENSHOT_OPEN_TAPPED
 import com.android.systemui.screenshot.ScreenshotEvent.SCREENSHOT_PREVIEW_TAPPED
@@ -196,6 +197,23 @@ constructor(
                         Log.e(TAG, "Failed to create Intent for mediaStoreUri: ${result.uri} ")
                     }
                 }
+            }
+        }
+
+        actionsCallback.provideActionButton(
+            ActionButtonAppearance(
+                AppCompatResources.getDrawable(context, R.drawable.ic_screenshot_delete),
+                context.resources.getString(R.string.screenshot_delete_label),
+                context.resources.getString(R.string.screenshot_delete_description),
+            ),
+            showDuringEntrance = true,
+        ) {
+            debugLog(LogConfig.DEBUG_ACTIONS) { "Delete tapped" }
+            uiEventLogger.log(SCREENSHOT_DELETE_TAPPED, 0, request.packageNameString)
+            onDeferrableActionTapped { result ->
+                actionExecutor.sendPendingIntent(
+                    actionIntentCreator.createDelete(result.uri)
+                )
             }
         }
     }

@@ -16,6 +16,7 @@
 
 package com.android.systemui.screenshot
 
+import android.app.PendingIntent
 import android.content.ClipData
 import android.content.ClipDescription
 import android.content.ComponentName
@@ -125,6 +126,18 @@ constructor(
             .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+    }
+
+    fun createDelete(rawUri: Uri): PendingIntent {
+        val intent = Intent(context, DeleteScreenshotReceiver::class.java).apply {
+            data = rawUri
+        }
+        return PendingIntent.getBroadcast(
+            context,
+            rawUri.hashCode(),
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_ONE_SHOT,
+        )
     }
 
     /** @return an Intent to start the LongScreenshotActivity */
