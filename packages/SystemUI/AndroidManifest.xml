@@ -546,6 +546,10 @@
             </intent-filter>
         </activity-alias>
 
+        <!-- Callback for deleting screenshot notification -->
+        <receiver android:name=".screenshot.DeleteScreenshotReceiver"
+            android:exported="false" />
+
         <!-- Callback for invoking a smart action from the screenshot notification. -->
         <receiver android:name=".screenshot.SmartActionsReceiver"
                   android:exported="false"/>
