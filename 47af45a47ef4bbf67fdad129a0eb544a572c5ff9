@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8afbf1f7_ff5723a8",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 1352,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2020-10-19T08:16:11Z",
+      "side": 1,
+      "message": "Is that confirmed to work fine? I have missed that this only applies if mAutomute is true.",
+      "revId": "47af45a47ef4bbf67fdad129a0eb544a572c5ff9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
