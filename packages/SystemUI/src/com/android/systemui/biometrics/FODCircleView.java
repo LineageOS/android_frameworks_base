@@ -380,6 +380,11 @@ public class FODCircleView extends ImageView {
     }
 
     public void show() {
+        if (getVisibility() == View.VISIBLE) {
+            // Ignore show calls when already shown
+            return;
+        }
+
         if (!mUpdateMonitor.isScreenOn()) {
             // Keyguard is shown just after screen turning off
             return;
@@ -411,6 +416,11 @@ public class FODCircleView extends ImageView {
     }
 
     public void hide() {
+        if (getVisibility() == View.GONE) {
+            // Ignore hide calls when already hidden
+            return;
+        }
+
         animate().withStartAction(() -> mFading = true)
                 .alpha(0)
                 .setDuration(FADE_ANIM_DURATION)
