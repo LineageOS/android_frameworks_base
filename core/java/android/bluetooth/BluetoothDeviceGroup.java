@@ -532,6 +532,17 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      * @return    List of DeviceGroup that are already discovered.
      */
     public List<DeviceGroup> getDiscoveredGroups() {
+        return getDiscoveredGroups(false);
+    }
+
+    /**
+     * Fetches already discovered device groups.
+     *
+     * @param mPublicAddr  All discovered device groups with public address of devices.
+     * @return    List of Device Groups that are already discovered.
+     * @hide
+     */
+    public List<DeviceGroup> getDiscoveredGroups(boolean mPublicAddr) {
         if (DBG) log("getDiscoveredGroups()");
 
         if (!mAppRegistered) {
@@ -547,7 +558,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            List<DeviceGroup> groups = service.getDiscoveredGroups();
+            List<DeviceGroup> groups = service.getDiscoveredGroups(mPublicAddr);
             return groups;
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
@@ -563,6 +574,19 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      * @return        Required DeviceGroup.
      */
     public DeviceGroup getGroup(int groupId) {
+        return getGroup(groupId, false);
+    }
+
+    /**
+     * Fetch details of a already discovered Group identified by groupId.
+     *
+     * @param groupId       Identifier of the device group for which group
+     *                      details are required.
+     * @param mPublicAddr   DeviceGroup with Public Address of the group devices.
+     * @return              Required DeviceGroup.
+     * @hide
+     */
+    public DeviceGroup getGroup(int groupId, boolean mPublicAddr) {
         if (DBG) log("getGroup() : groupId = " + groupId);
 
         if (!mAppRegistered) {
@@ -578,7 +602,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            DeviceGroup group = service.getDeviceGroup(groupId);
+            DeviceGroup group = service.getDeviceGroup(groupId, mPublicAddr);
             return group;
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
@@ -596,6 +620,22 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      * @return              Group identifier of the required device.
      */
     public int getRemoteDeviceGroupId (BluetoothDevice device, ParcelUuid uuid) {
+        return getRemoteDeviceGroupId(device, uuid, false);
+    }
+
+    /**
+     * Get Group Identifier of the remote device to which it belongs.
+     *
+     * @param device        BluetoothDevice instance of the remote device.
+     * @param uuid          ParcelUuid of the primary service in which this
+     *                      Group Service is included.
+     * @param mPublicAddr   Suggests that group identifier is required for passed
+     *                      public address of the remote device.
+     * @return              Group identifier of the required group for the device
+     * @hide
+     */
+    public int getRemoteDeviceGroupId (BluetoothDevice device, ParcelUuid uuid,
+            boolean mPublicAddr) {
         if (DBG) log("getRemoteDeviceGroupId() : device = " + device);
 
         if (!mAppRegistered) {
@@ -612,7 +652,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            return service.getRemoteDeviceGroupId(device, uuid);
+            return service.getRemoteDeviceGroupId(device, uuid, mPublicAddr);
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
         }
