@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9a35e4b_e7459415",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4320,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2020-10-28T13:42:08Z",
+      "side": 1,
+      "message": "Why was this placed in the synchronized block? That\u0027s not in the google patches in any of the branches.",
+      "range": {
+        "startLine": 4317,
+        "startChar": 12,
+        "endLine": 4320,
+        "endChar": 13
+      },
+      "revId": "2ebd49d5dd17752f926c526ccd740f6e923c65a7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
