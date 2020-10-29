@@ -2082,6 +2082,21 @@ public final class PowerManager {
     }
 
     /**
+     * Sets the keyboard LED state
+     *
+     * @param on boolean state
+     * @param key 1 for caps, 2 for fn
+     *
+     * {@hide}
+     */
+    public void setKeyboardLight(boolean on, int key) {
+        try {
+            mService.setKeyboardLight(on, key);
+        } catch (RemoteException e) {
+        }
+    }
+
+    /**
      * @hide
      */
     public void setKeyboardVisibility(boolean visible) {

@@ -280,6 +280,8 @@ public final class PowerManagerService extends SystemService
     private LogicalLight mAttentionLight;
     private LogicalLight mButtonsLight;
     private LogicalLight mKeyboardLight;
+    private LogicalLight mCapsLight;
+    private LogicalLight mFnLight;
 
     private int mButtonTimeout;
     private float mButtonBrightness;
@@ -1138,6 +1140,8 @@ public final class PowerManagerService extends SystemService
             mAttentionLight = mLightsManager.getLight(LightsManager.LIGHT_ID_ATTENTION);
             mButtonsLight = mLightsManager.getLight(LightsManager.LIGHT_ID_BUTTONS);
             mKeyboardLight = mLightsManager.getLight(LightsManager.LIGHT_ID_KEYBOARD);
+            mCapsLight = mLightsManager.getLight(LightsManager.LIGHT_ID_CAPS);
+            mFnLight = mLightsManager.getLight(LightsManager.LIGHT_ID_FUNC);
 
             // Initialize display power management.
             mDisplayManagerInternal.initPowerManagement(
@@ -5489,6 +5493,18 @@ public final class PowerManagerService extends SystemService
         }
 
         @Override // Binder call
+        public void setKeyboardLight(boolean on, int key) {
+            switch (key) {
+                case 1:
+                    mCapsLight.setColor(on ? 0x00ffffff : 0);
+                    break;
+                case 2:
+                    mFnLight.setColor(on ? 0x00ffffff : 0);
+                    break;
+            }
+        }
+
+        @Override // Binder call
         public void setKeyboardVisibility(boolean visible) {
             synchronized (mLock) {
                 if (DEBUG_SPEW) {
@@ -5496,6 +5512,11 @@ public final class PowerManagerService extends SystemService
                 }
                 if (mKeyboardVisible != visible) {
                     mKeyboardVisible = visible;
+                    if (!visible) {
+                        // If hiding keyboard, turn off leds
+                        setKeyboardLight(false, 1);
+                        setKeyboardLight(false, 2);
+                    }
                     synchronized (mLock) {
                         mDirty |= DIRTY_USER_ACTIVITY;
                         updatePowerStateLocked();
