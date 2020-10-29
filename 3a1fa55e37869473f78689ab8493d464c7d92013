@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55c15c4d_3ed18594",
+        "filename": "services/core/java/com/android/server/lights/LightsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-10-29T17:22:40Z",
+      "side": 1,
+      "message": "Figure out how to deal with the fact that android.hardware.light@2.0::types can\u0027t be modified.\n\nNot that in the past, this used to be done like this: https://github.com/LineageOS/android_hardware_libhardware/commit/265522dc4a145f05dca1dac721bb5f3c1ffefa80",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 60
+      },
+      "revId": "3a1fa55e37869473f78689ab8493d464c7d92013",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
