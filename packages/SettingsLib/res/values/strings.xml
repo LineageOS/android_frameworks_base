@@ -334,6 +334,9 @@
     <!-- Message for telling the user the kind of BT device being displayed in list. [CHAR LIMIT=30 BACKUP_MESSAGE_ID=551146170554589119] -->
     <string name="bluetooth_talkback_imaging">Imaging</string>
 
+    <!-- Message for telling the user the kind of BT device being displayed. [CHAR LIMIT=30] -->
+    <string name="bluetooth_talkback_group">Group Devices</string>
+
     <!-- Message for telling the user the kind of BT device being displayed in list. [CHAR LIMIT=30 BACKUP_MESSAGE_ID=26580326066627664] -->
     <string name="bluetooth_talkback_headphone">Headphone</string>
 
