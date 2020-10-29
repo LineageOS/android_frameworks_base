@@ -785,7 +785,8 @@ final class OverlayManagerServiceImpl {
         // Immutable RROs targeting to "android", ie framework-res.apk, are handled by native
         // layers.
         final OverlayInfo updatedOverlayInfo = mSettings.getOverlayInfo(overlay, userId);
-        if (targetPackage != null && !("android".equals(info.getTargetPackageName())
+        if (targetPackage != null && !(("android".equals(info.getTargetPackageName()) ||
+                                        "lineageos.platform".equals(info.getTargetPackageName()))
                 && !isPackageConfiguredMutable(overlayPackage))) {
             modified |= mIdmapManager.createIdmap(targetPackage, overlayPackage,
                     updatedOverlayInfo.baseCodePath, overlay.getOverlayName(), userId);
