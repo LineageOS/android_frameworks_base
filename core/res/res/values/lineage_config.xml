@@ -25,7 +25,8 @@
 
     <!-- Keyboard backlight control. Possible values are:
             0 - Not supported
-            1 - Supported with variable brightness control
+            1 - Supported, but only on/off mode
+            2 - Supported with variable brightness control
     -->
     <integer name="config_deviceSupportsKeyboardBrightnessControl">0</integer>
     <integer name="config_keyboardBrightnessSettingDefault">255</integer>
