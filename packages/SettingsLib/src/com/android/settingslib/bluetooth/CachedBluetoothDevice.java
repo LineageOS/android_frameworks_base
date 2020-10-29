@@ -118,6 +118,17 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
     @VisibleForTesting
     LruCache<String, BitmapDrawable> mDrawableCache;
 
+    private int mGroupId = -1;
+
+    private boolean mIsGroupDevice = false;
+
+    private boolean mIsIgnore = false;
+
+    private final int UNKNOWN = -1, BREDR = 100, GROUPID_START = 0, GROUPID_END = 15;
+    private int mType = UNKNOWN;
+    static final int PRIVATE_ADDR = 101;
+
+
     private final Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
@@ -1368,5 +1379,54 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
 
     boolean getUnpairing() {
         return mUnpairing;
+    }
+
+    public int getSetId(){
+        return mGroupId;
+    }
+
+    public boolean isGroupDevice() {
+        return mIsGroupDevice;
+    }
+
+    public boolean isPrivateAddr() {
+        return mIsIgnore;
+    }
+
+    public void setDeviceType(int deviceType) {
+        if (deviceType!= mType) {
+            // Log.d(TAG, "setDeviceType deviceType " + deviceType + " type " + mType);
+            mType = deviceType;
+            if (mType == UNKNOWN || mType == BREDR) {
+                mIsGroupDevice = false;
+                mGroupId = UNKNOWN;
+                mIsIgnore = false;
+            } else if (mType == PRIVATE_ADDR) {
+                mIsGroupDevice = false;
+                mGroupId = UNKNOWN;
+                mIsIgnore = true;
+            } else if (mType >= GROUPID_START && mType <= GROUPID_END ) {
+                mGroupId = mType;
+                mIsIgnore = false;
+                mIsGroupDevice = true;
+            } else {
+                Log.e(TAG, "setDeviceType error type " + mType);
+            }
+        }
+       /* Log.d(TAG, "setDeviceType mType " + mType + " mIsGroupDevice " + mIsGroupDevice
+                + " mGroupId " + mGroupId + " mIsIgnore " + mIsIgnore
+                + " name " + getName() + " addr " + getAddress()); */
+    }
+
+    public boolean isTypeUnKnown() {
+        if (mType == UNKNOWN) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int getmType() {
+        return mType;
     }
 }
