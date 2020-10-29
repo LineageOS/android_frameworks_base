@@ -397,7 +397,7 @@ public class OverlayConfigTest {
         final OverlayConfig overlayConfig = createConfigImpl();
         if (mScannerRule.getIteration() == OverlayConfigIterationRule.Iteration.ZYGOTE) {
             final ArrayList<IdmapInvocation> idmapInvocations =
-                    overlayConfig.getImmutableFrameworkOverlayIdmapInvocations();
+                    overlayConfig.getImmutableFrameworkOverlayIdmapInvocations("android");
             assertEquals(2, idmapInvocations.size());
 
             final IdmapInvocation i0 = idmapInvocations.get(0);
@@ -434,7 +434,7 @@ public class OverlayConfigTest {
 
         if (mScannerRule.getIteration() == OverlayConfigIterationRule.Iteration.ZYGOTE) {
             final ArrayList<IdmapInvocation> idmapInvocations =
-                    overlayConfig.getImmutableFrameworkOverlayIdmapInvocations();
+                    overlayConfig.getImmutableFrameworkOverlayIdmapInvocations("android");
             assertEquals(3, idmapInvocations.size());
 
             final IdmapInvocation i0 = idmapInvocations.get(0);
