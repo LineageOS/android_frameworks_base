@@ -825,7 +825,8 @@ final class OverlayManagerServiceImpl {
         // layers.
         final OverlayInfo updatedOverlayInfo = mSettings.getOverlayInfo(overlay, userId);
         @IdmapManager.IdmapStatus int idmapStatus = IDMAP_NOT_EXIST;
-        if (targetPackage != null && !("android".equals(info.getTargetPackageName())
+        if (targetPackage != null && !(("android".equals(info.getTargetPackageName()) ||
+                                        "lineageos.platform".equals(info.getTargetPackageName()))
                 && !isPackageConfiguredMutable(overlayPackage))) {
             idmapStatus = mIdmapManager.createIdmap(targetPackage, overlayPackageState,
                     overlayPackage, updatedOverlayInfo.baseCodePath, overlay.getOverlayName(),
