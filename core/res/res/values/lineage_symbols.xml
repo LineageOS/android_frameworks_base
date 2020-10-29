@@ -1,6 +1,6 @@
 <!--
      Copyright (C) 2012-2015 The CyanogenMod Project
-     Copyright (C) 2017-2019 The LineageOS Project
+     Copyright (C) 2017-2020 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
     <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
     <java-symbol type="integer" name="config_keyboardBrightnessSettingDefault" />
     <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
+    <java-symbol type="bool" name="config_deviceHasVariableKeyboardBrightness" />
 
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <java-symbol type="bool" name="config_allowMediaUidForCameraServiceProxy" />
