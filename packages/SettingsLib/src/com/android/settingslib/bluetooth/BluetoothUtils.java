@@ -100,6 +100,12 @@ public class BluetoothUtils {
                 default:
                     // unrecognized device class; continue
             }
+            int tmpBtClass = btClass.getClassOfDevice() & BluetoothClass.Service.GROUP;
+            if (tmpBtClass == BluetoothClass.Service.GROUP) {
+                return new Pair<>(
+                    getBluetoothDrawable(context, R.drawable.ic_adv_audio),
+                        context.getString(R.string.bluetooth_talkback_group));
+            }
         }
 
         List<LocalBluetoothProfile> profiles = cachedDevice.getProfiles();
