@@ -822,7 +822,8 @@ final class OverlayManagerServiceImpl {
 
         // Idmaps for immutable RROs targeting "android", i.e. framework-res.apk, are created at
         // boot time in OverlayConfig.createImmutableFrameworkIdmapsInZygote().
-        if (targetPackage != null && !("android".equals(info.getTargetPackageName())
+        if (targetPackage != null && !(("android".equals(info.getTargetPackageName()) ||
+                                        "lineageos.platform".equals(info.getTargetPackageName()))
                 && !isPackageConfiguredMutable(overlayPackage))) {
             idmapStatus = mIdmapManager.createIdmap(targetPackage, overlayPackageState,
                     overlayPackage, updatedOverlayInfo.baseCodePath, overlay.getOverlayName(),
