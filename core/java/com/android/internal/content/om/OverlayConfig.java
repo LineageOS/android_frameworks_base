@@ -333,7 +333,9 @@ public class OverlayConfig {
         for (int i = 0, n = sortedConfigs.size(); i < n; i++) {
             final Configuration overlay = sortedConfigs.get(i);
             if (overlay.parsedConfig.mutable || !overlay.parsedConfig.enabled
-                    || !"android".equals(overlay.parsedConfig.parsedInfo.targetPackageName)) {
+                    || (!"android".equals(overlay.parsedConfig.parsedInfo.targetPackageName) &&
+                            !"lineageos.platform".equals(
+                                    overlay.parsedConfig.parsedInfo.targetPackageName))) {
                 continue;
             }
 
@@ -372,26 +374,30 @@ public class OverlayConfig {
      */
     @NonNull
     public String[] createImmutableFrameworkIdmapsInZygote() {
-        final String targetPath = "/system/framework/framework-res.apk";
         final ArrayList<String> idmapPaths = new ArrayList<>();
         final ArrayList<IdmapInvocation> idmapInvocations =
                 getImmutableFrameworkOverlayIdmapInvocations();
 
-        for (int i = 0, n = idmapInvocations.size(); i < n; i++) {
-            final IdmapInvocation invocation = idmapInvocations.get(i);
-            final String[] idmaps = createIdmap(targetPath,
-                    invocation.overlayPaths.toArray(new String[0]),
-                    new String[]{OverlayConfigParser.OverlayPartition.POLICY_PUBLIC,
-                            invocation.policy},
-                    invocation.enforceOverlayable);
+        for (String targetPath : new String[] {
+                "/system/framework/framework-res.apk",
+                "/system/framework/org.lineageos.platform-res.apk",
+        }) {
+            for (int i = 0, n = idmapInvocations.size(); i < n; i++) {
+                final IdmapInvocation invocation = idmapInvocations.get(i);
+                final String[] idmaps = createIdmap(targetPath,
+                        invocation.overlayPaths.toArray(new String[0]),
+                        new String[]{OverlayConfigParser.OverlayPartition.POLICY_PUBLIC,
+                                invocation.policy},
+                        invocation.enforceOverlayable);
 
-            if (idmaps == null) {
-                Log.w(TAG, "'idmap2 create-multiple' failed: no mutable=\"false\" overlays"
-                        + " targeting \"android\" will be loaded");
-                return new String[0];
+                if (idmaps == null) {
+                    Log.w(TAG, "'idmap2 create-multiple' failed: no mutable=\"false\" overlays"
+                            + " targeting \"android\" will be loaded");
+                    return new String[0];
+                }
+
+                idmapPaths.addAll(Arrays.asList(idmaps));
             }
-
-            idmapPaths.addAll(Arrays.asList(idmaps));
         }
 
         return idmapPaths.toArray(new String[0]);
