@@ -17,7 +17,7 @@
 <resources>
     <!-- Button and keyboard backlight -->
     <integer name="config_buttonBrightnessSettingDefault">255</integer>
-    <integer name="config_keyboardBrightnessSettingDefault">255</integer>
+    <integer name="config_keyboardBrightnessSettingDefault">0</integer>
     <bool name="config_deviceHasVariableButtonBrightness">false</bool>
     <bool name="config_deviceHasVariableKeyboardBrightness">false</bool>
 
