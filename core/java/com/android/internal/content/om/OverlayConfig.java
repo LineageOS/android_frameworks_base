@@ -35,6 +35,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
@@ -327,15 +329,14 @@ public class OverlayConfig {
      * precedence.
      */
     @VisibleForTesting
-    public ArrayList<IdmapInvocation> getImmutableFrameworkOverlayIdmapInvocations() {
+    public ArrayList<IdmapInvocation> getImmutableFrameworkOverlayIdmapInvocations(
+            String packageName) {
         final ArrayList<IdmapInvocation> idmapInvocations = new ArrayList<>();
         final ArrayList<Configuration> sortedConfigs = getSortedOverlays();
         for (int i = 0, n = sortedConfigs.size(); i < n; i++) {
             final Configuration overlay = sortedConfigs.get(i);
             if (overlay.parsedConfig.mutable || !overlay.parsedConfig.enabled
-                    || (!"android".equals(overlay.parsedConfig.parsedInfo.targetPackageName) &&
-                            !"lineageos.platform".equals(
-                                    overlay.parsedConfig.parsedInfo.targetPackageName))) {
+                    || !packageName.equals(overlay.parsedConfig.parsedInfo.targetPackageName)) {
                 continue;
             }
 
@@ -375,13 +376,15 @@ public class OverlayConfig {
     @NonNull
     public String[] createImmutableFrameworkIdmapsInZygote() {
         final ArrayList<String> idmapPaths = new ArrayList<>();
-        final ArrayList<IdmapInvocation> idmapInvocations =
-                getImmutableFrameworkOverlayIdmapInvocations();
 
-        for (String targetPath : new String[] {
-                "/system/framework/framework-res.apk",
-                "/system/framework/org.lineageos.platform-res.apk",
-        }) {
+        for (Map.Entry<String, String> target : new HashMap<String, String>() {{
+                put("/system/framework/framework-res.apk", "android");
+                put("/system/framework/org.lineageos.platform-res.apk", "lineageos.platform");
+        }}.entrySet()) {
+            final String targetPath = target.getKey();
+            final String targetPackageName = target.getValue();
+            final ArrayList<IdmapInvocation> idmapInvocations =
+                    getImmutableFrameworkOverlayIdmapInvocations(targetPackageName);
             for (int i = 0, n = idmapInvocations.size(); i < n; i++) {
                 final IdmapInvocation invocation = idmapInvocations.get(i);
                 final String[] idmaps = createIdmap(targetPath,
