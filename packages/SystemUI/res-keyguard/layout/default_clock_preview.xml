@@ -24,7 +24,7 @@
         android:layout_centerInParent="true"
         android:letterSpacing="0.03"
         android:gravity="center_horizontal"
-        android:format12Hour="EEE, MMM d"
-        android:format24Hour="EEE, MMM d"
+        android:format12Hour="EEEE, d MMMM"
+        android:format24Hour="EEEE, d MMMM"
         />
 </RelativeLayout>
