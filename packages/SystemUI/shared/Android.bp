@@ -36,6 +36,7 @@ android_library {
 
     static_libs: [
         "PluginCoreLib",
+        "org.lineageos.platform.internal",
     ],
 
 
