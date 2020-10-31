@@ -23,16 +23,21 @@ import static android.view.WindowManagerPolicyConstants.NAV_BAR_LEFT;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_RIGHT;
 
 import android.app.WindowConfiguration;
+import android.content.Context;
 import android.graphics.Rect;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.IPinnedStackListener;
+import android.view.Display;
 import android.view.WindowManager;
 import android.view.WindowManagerGlobal;
 
 import com.android.systemui.shared.recents.view.AppTransitionAnimationSpecsFuture;
 import com.android.systemui.shared.recents.view.RecentsTransition;
+
+import lineageos.providers.LineageSettings;
 
 public class WindowManagerWrapper {
 
@@ -172,7 +177,13 @@ public class WindowManagerWrapper {
      *
      * @return whether there is a soft nav bar on specific display.
      */
-    public boolean hasSoftNavigationBar(int displayId) {
+    public boolean hasSoftNavigationBar(Context context, int displayId) {
+        if (displayId == Display.DEFAULT_DISPLAY
+                && LineageSettings.System.getIntForUser(context.getContentResolver(),
+                            LineageSettings.System.FORCE_SHOW_NAVBAR, 0,
+                            UserHandle.USER_CURRENT) == 1) {
+            return true;
+        }
         try {
             return WindowManagerGlobal.getWindowManagerService().hasNavigationBar(displayId);
         } catch (RemoteException e) {
