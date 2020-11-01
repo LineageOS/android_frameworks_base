@@ -20,4 +20,5 @@
     <string name="adb_net_active_notification_title">ADB sobre xarxa habilitat</string>
     <string name="adb_both_active_notification_title">ADB sobre USB i xarxa habilitat</string>
     <string name="adb_active_generic_notification_message">Toca per deshabilitar la depuració.</string>
+    <string name="bluetooth_airplane_mode_toast">El Bluetooth es mantindrà activat durant el mode avió</string>
 </resources>

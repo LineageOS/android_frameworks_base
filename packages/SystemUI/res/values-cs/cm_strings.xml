@@ -71,6 +71,10 @@
     <string name="vpn_credentials_dialog_connect">Připojit</string>
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD vyp.\nSpořič baterie</string>
+    <string name="quick_settings_powershare_label">Bezdrátové sdílení energie</string>
+    <string name="quick_settings_powershare_off_powersave_label">Bezdrátové sdílení energie je vypnuto\nSpořič baterie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Bezdrátové sdílení energie je vypnuto\nNízký stav baterie</string>
+    <string name="quick_settings_powershare_enabled_label">Bezdrátové sdílení energie je zapnuto</string>
     <string name="status_bar_battery">Baterie</string>
     <string name="status_bar_camera">Fotoaparát</string>
     <string name="status_bar_location">Poloha</string>

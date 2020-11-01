@@ -20,4 +20,5 @@
     <string name="adb_net_active_notification_title">네트워크 ADB 활성화됨</string>
     <string name="adb_both_active_notification_title">USB 및 네트워크 ADB 활성화됨</string>
     <string name="adb_active_generic_notification_message">디버깅을 사용하지 않으려면 터치하세요.</string>
+    <string name="bluetooth_airplane_mode_toast">비행기 모드에서 블루투스는 켜진 상태로 유지됩니다</string>
 </resources>

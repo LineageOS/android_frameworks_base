@@ -69,8 +69,12 @@
     <string name="vpn_credentials_username">Потребителско име</string>
     <string name="vpn_credentials_password">Парола</string>
     <string name="vpn_credentials_dialog_connect">Свързване</string>
+    <string name="quick_settings_aod_label">Винаги на дисплея</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
     <string name="status_bar_battery">Батерия</string>
+    <string name="status_bar_camera">Камера</string>
     <string name="status_bar_location">Местоположение</string>
+    <string name="status_bar_microphone">Микрофон</string>
     <string name="screen_pinning_description_no_navbar">Това допълнение ще остане активно. Натиснете&amp; задръжте бутона Назад за освобождаване.</string>
     <string name="screen_pinning_toast_no_navbar">За да откачите този екран, докоснете &amp; задръжте бутона Назад</string>
 </resources>
