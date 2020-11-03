@@ -2668,7 +2668,7 @@ public class NotificationPanelViewController extends PanelViewController {
      * @param x the x-coordinate the touch event
      */
     protected void updateVerticalPanelPosition(float x) {
-        if (mNotificationStackScroller.getWidth() * 1.75f > mView.getWidth()) {
+        if (mKeyguardShowing || mNotificationStackScroller.getWidth() * 1.75f > mView.getWidth()) {
             resetHorizontalPanelPosition();
             return;
         }
