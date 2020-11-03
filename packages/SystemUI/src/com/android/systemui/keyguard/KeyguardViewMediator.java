@@ -56,6 +56,7 @@ import android.os.SystemProperties;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.os.storage.StorageManager;
 import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.telephony.SubscriptionManager;
@@ -102,6 +103,8 @@ import com.android.systemui.util.DeviceConfigProxy;
 import com.android.systemui.util.InjectionInflationController;
 
 import lineageos.app.LineageContextConstants;
+import lineageos.app.Profile;
+import lineageos.app.ProfileManager;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -217,6 +220,7 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
 
     private AlarmManager mAlarmManager;
     private AudioManager mAudioManager;
+    private ProfileManager mProfileManager;
     private StatusBarManager mStatusBarManager;
     private final Executor mUiBgExecutor;
 
@@ -405,7 +409,7 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
             // ActivityManagerService) will not reconstruct the keyguard if it is already showing.
             synchronized (KeyguardViewMediator.this) {
                 resetKeyguardDonePendingLocked();
-                if (mLockPatternUtils.isLockScreenDisabled(userId)) {
+                if (isKeyguardDisabled(userId)) {
                     // If we switching to a user that has keyguard disabled, dismiss keyguard.
                     dismiss(null /* callback */, null /* message */);
                 } else {
@@ -767,6 +771,8 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
     }
 
     private void setupLocked() {
+        mProfileManager = ProfileManager.getInstance(mContext);
+
         mShowKeyguardWakeLock = mPM.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "show keyguard");
         mShowKeyguardWakeLock.setReferenceCounted(false);
 
@@ -793,7 +799,7 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
         // is disabled.
         if (mContext.getResources().getBoolean(R.bool.config_enableKeyguardService)) {
             setShowingLocked(!shouldWaitForProvisioning()
-                    && !mLockPatternUtils.isLockScreenDisabled(
+                    && !isKeyguardDisabled(
                             KeyguardUpdateMonitor.getCurrentUser()), true /* forceCallbacks */);
         } else {
             // The system's keyguard is disabled or missing.
@@ -915,7 +921,7 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
                     || (why == WindowManagerPolicyConstants.OFF_BECAUSE_OF_USER && !lockImmediately)) {
                 doKeyguardLaterLocked(timeout);
                 mLockLater = true;
-            } else if (!mLockPatternUtils.isLockScreenDisabled(currentUser)) {
+            } else if (!isKeyguardDisabled(currentUser)) {
                 mPendingLock = true;
             }
 
@@ -1105,7 +1111,7 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
     }
 
     private void maybeSendUserPresentBroadcast() {
-        if (mSystemReady && mLockPatternUtils.isLockScreenDisabled(
+        if (mSystemReady && isKeyguardDisabled(
                 KeyguardUpdateMonitor.getCurrentUser())) {
             // Lock screen is disabled because the user has set the preference to "None".
             // In this case, send out ACTION_USER_PRESENT here instead of in
@@ -1356,6 +1362,31 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
         }
     }
 
+    private boolean isKeyguardDisabled(int userId) {
+        if (!mExternallyEnabled) {
+            if (DEBUG) Log.d(TAG, "isKeyguardDisabled: keyguard is disabled externally");
+            return true;
+        }
+        if (mLockPatternUtils.isLockScreenDisabled(userId)) {
+            if (DEBUG) Log.d(TAG, "isKeyguardDisabled: keyguard is disabled by setting");
+            return true;
+        }
+        if (!StorageManager.isFileEncryptedNativeOrEmulated() ||
+                StorageManager.isUserKeyUnlocked(userId)) {
+            if (mProfileManager != null) {
+                Profile profile = mProfileManager.getActiveProfile();
+                if (profile != null) {
+                    if (profile.getScreenLockMode().getValue() == Profile.LockMode.DISABLE) {
+                        if (DEBUG) Log.d(TAG, "isKeyguardDisabled: keyguard is disabled by"
+                                + " profile");
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     /**
      * Enable the keyguard if the settings are appropriate.
      */
@@ -1401,7 +1432,7 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
             }
 
             boolean forceShow = options != null && options.getBoolean(OPTION_FORCE_SHOW, false);
-            if (mLockPatternUtils.isLockScreenDisabled(KeyguardUpdateMonitor.getCurrentUser())
+            if (isKeyguardDisabled(KeyguardUpdateMonitor.getCurrentUser())
                     && !lockedOrMissing && !forceShow) {
                 if (DEBUG) Log.d(TAG, "doKeyguard: not showing because lockscreen is off");
                 setShowingLocked(false, mAodShowing);
