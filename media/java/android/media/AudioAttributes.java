@@ -543,12 +543,6 @@ public final class AudioAttributes implements Parcelable {
      */
     @CapturePolicy
     public int getAllowedCapturePolicy() {
-        if ((mFlags & FLAG_NO_SYSTEM_CAPTURE) == FLAG_NO_SYSTEM_CAPTURE) {
-            return ALLOW_CAPTURE_BY_NONE;
-        }
-        if ((mFlags & FLAG_NO_MEDIA_PROJECTION) == FLAG_NO_MEDIA_PROJECTION) {
-            return ALLOW_CAPTURE_BY_SYSTEM;
-        }
         return ALLOW_CAPTURE_BY_ALL;
     }
 
@@ -1255,20 +1249,7 @@ public final class AudioAttributes implements Parcelable {
      * @hide
      */
     public static int capturePolicyToFlags(@CapturePolicy int capturePolicy, int flags) {
-        switch (capturePolicy) {
-            case ALLOW_CAPTURE_BY_NONE:
-                flags |= FLAG_NO_MEDIA_PROJECTION | FLAG_NO_SYSTEM_CAPTURE;
-                break;
-            case ALLOW_CAPTURE_BY_SYSTEM:
-                flags |= FLAG_NO_MEDIA_PROJECTION;
-                flags &= ~FLAG_NO_SYSTEM_CAPTURE;
-                break;
-            case ALLOW_CAPTURE_BY_ALL:
-                flags &= ~FLAG_NO_SYSTEM_CAPTURE & ~FLAG_NO_MEDIA_PROJECTION;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown allow playback capture policy");
-        }
+        flags &= ~FLAG_NO_SYSTEM_CAPTURE & ~FLAG_NO_MEDIA_PROJECTION;
         return flags;
     }
 
