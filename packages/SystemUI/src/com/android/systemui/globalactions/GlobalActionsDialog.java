@@ -675,8 +675,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     addIfShouldShowAction(tempActions, mSilentModeAction);
                 }
             } else if (GLOBAL_ACTION_KEY_USERS.equals(actionKey)) {
-                List<UserInfo> users = ((UserManager) mContext.getSystemService(
-                        Context.USER_SERVICE)).getUsers();
+                List<UserInfo> users = mContext.getSystemService(UserManager.class).getUsers();
                 if (users.size() > 1) {
                     addUserActions(tempActions, currentUser.get());
                 }
