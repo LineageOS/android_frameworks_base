@@ -154,6 +154,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private View mDialog;
     private ViewGroup mDialogView;
     private ViewGroup mDialogMainView;
+    private ViewGroup mDialogSecondaryView;
     private ViewGroup mDialogRowsView;
     private ViewGroup mRinger;
     private ImageButton mRingerIcon;
@@ -296,6 +297,11 @@ public class VolumeDialogImpl implements VolumeDialog,
         mDialogMainView = mDialog.findViewById(R.id.main);
         if (mDialogMainView != null) {
             setLayoutGravity(mDialogMainView.getLayoutParams(), panelGravity);
+        }
+
+        mDialogSecondaryView = mDialog.findViewById(R.id.secondary);
+        if (mDialogSecondaryView != null) {
+            setLayoutGravity(mDialogSecondaryView.getLayoutParams(), panelGravity);
         }
 
         mDialogRowsView = mDialog.findViewById(R.id.volume_dialog_rows);
