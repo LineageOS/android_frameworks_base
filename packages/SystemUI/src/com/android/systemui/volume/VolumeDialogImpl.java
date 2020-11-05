@@ -31,6 +31,7 @@ import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 import static com.android.settingslib.media.MediaOutputSliceConstants.ACTION_MEDIA_OUTPUT;
 import static com.android.systemui.volume.Events.DISMISS_REASON_SETTINGS_CLICKED;
@@ -153,6 +154,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private View mDialog;
     private ViewGroup mDialogView;
     private ViewGroup mDialogMainView;
+    private ViewGroup mDialogSecondaryView;
     private ViewGroup mDialogRowsView;
     private ViewGroup mRinger;
     private ImageButton mRingerIcon;
@@ -289,6 +291,11 @@ public class VolumeDialogImpl implements VolumeDialog,
         mDialogMainView = mDialog.findViewById(R.id.main);
         if (mDialogMainView != null) {
             setLayoutGravity(mDialogMainView.getLayoutParams(), panelGravity);
+        }
+
+        mDialogSecondaryView = mDialog.findViewById(R.id.secondary);
+        if (mDialogSecondaryView != null) {
+            setLayoutGravity(mDialogSecondaryView.getLayoutParams(), panelGravity);
         }
 
         mDialogRowsView = mDialog.findViewById(R.id.volume_dialog_rows);
@@ -578,16 +585,43 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private void animateExpandedRowsChange(boolean expand) {
         final int startWidth = mDialogRowsView.getLayoutParams().width;
+        final int expstartWidth = mExpandRowsView.getLayoutParams().width;
         final int targetWidth;
+        final int exptargetWidth;
 
         if (expand) {
             updateExpandedRows(expand);
             mDialogRowsView.measure(WRAP_CONTENT, WRAP_CONTENT);
             targetWidth = mDialogRowsView.getMeasuredWidth();
+            mExpandRowsView.measure(MATCH_PARENT, MATCH_PARENT);
+            exptargetWidth = mExpandRowsView.getMeasuredWidth();
         } else {
-            targetWidth = mContext.getResources().getDimensionPixelSize(
+            exptargetWidth = targetWidth = mContext.getResources().getDimensionPixelSize(
                     R.dimen.volume_dialog_panel_width);
         }
+
+        ValueAnimator expanimator = ValueAnimator.ofInt(expstartWidth, exptargetWidth);
+        expanimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                mExpandRowsView.getLayoutParams().width =
+                        (Integer) valueAnimator.getAnimatedValue();
+                mExpandRowsView.requestLayout();
+            }
+        });
+
+        expanimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (!expand) {
+                    updateExpandedRows(expand);
+                }
+            }
+        });
+        expanimator.setInterpolator(expand ? new SystemUIInterpolators.LogDecelerateInterpolator()
+                : new SystemUIInterpolators.LogAccelerateInterpolator());
+        expanimator.setDuration(UPDATE_ANIMATION_DURATION);
+        expanimator.start();
 
         ValueAnimator animator = ValueAnimator.ofInt(startWidth, targetWidth);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -598,6 +632,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                 mDialogRowsView.requestLayout();
             }
         });
+
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
