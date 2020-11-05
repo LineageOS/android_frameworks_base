@@ -88,10 +88,18 @@
                 android:paddingLeft="@dimen/volume_dialog_stream_padding">
                     <!-- volume rows added and removed here! :-) -->
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/secondary"
+            android:minWidth="@dimen/volume_dialog_panel_width"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:translationZ="@dimen/volume_dialog_elevation"
+            android:layout_marginTop="@dimen/volume_dialog_spacer"
+            android:clipToPadding="false"
+            android:background="@drawable/rounded_bg_full" >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
