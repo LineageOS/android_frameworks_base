@@ -34,6 +34,7 @@ import android.bluetooth.BluetoothPbapClient;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.BluetoothSap;
 import android.bluetooth.BluetoothUuid;
+import android.bluetooth.BluetoothVcp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.ParcelUuid;
@@ -110,6 +111,7 @@ public class LocalBluetoothProfileManager {
     private HearingAidProfile mHearingAidProfile;
     private SapProfile mSapProfile;
     private Object mBroadcastProfileObject;
+    private VcpProfile mVcpProfile;
 
     private static final String BC_CONNECTION_STATE_CHANGED =
             "android.bluetooth.bc.profile.action.CONNECTION_STATE_CHANGED";
@@ -272,6 +274,12 @@ public class LocalBluetoothProfileManager {
             mGroupClientProfile = new DeviceGroupClientProfile(mContext, mDeviceManager, this);
             addProfile(mGroupClientProfile, mGroupClientProfile.NAME,
                     BluetoothDeviceGroup.ACTION_CONNECTION_STATE_CHANGED);
+        }
+        if (mVcpProfile == null && supportedList.contains(BluetoothProfile.VCP)) {
+            if(DEBUG) Log.d(TAG, "Adding local VCP profile");
+            mVcpProfile = new VcpProfile(mContext, mDeviceManager, this);
+            addProfile(mVcpProfile, VcpProfile.NAME,
+                    BluetoothVcp.ACTION_CONNECTION_STATE_CHANGED);
         }
         mEventManager.registerProfileIntentReceiver();
     }
@@ -520,6 +528,11 @@ public class LocalBluetoothProfileManager {
     public DeviceGroupClientProfile getDeviceGroupClientProfile() {
         return mGroupClientProfile;
     }
+
+    public VcpProfile getVcpProfile() {
+        return mVcpProfile;
+    }
+
     /**
      * Fill in a list of LocalBluetoothProfile objects that are supported by
      * the local device and the remote device.
