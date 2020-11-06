@@ -493,6 +493,10 @@ public class NotificationManagerService extends SystemService {
 
     private KeyguardManager mKeyguardManager;
 
+    // True if the toast that's on top of the queue is being shown at the moment.
+    @GuardedBy("mToastQueue")
+    private boolean mIsCurrentToastShown = false;
+
     // The last key in this list owns the hardware.
     ArrayList<String> mLights = new ArrayList<>();
 
@@ -7444,10 +7448,15 @@ public class NotificationManagerService extends SystemService {
 
     @GuardedBy("mToastQueue")
     void showNextToastLocked() {
+        if (mIsCurrentToastShown) {
+            return; // Don't show the same toast twice.
+        }
+
         ToastRecord record = mToastQueue.get(0);
         while (record != null) {
             if (record.show()) {
                 scheduleDurationReachedLocked(record);
+                mIsCurrentToastShown = true;
                 return;
             }
             int index = mToastQueue.indexOf(record);
@@ -7462,6 +7471,10 @@ public class NotificationManagerService extends SystemService {
     void cancelToastLocked(int index) {
         ToastRecord record = mToastQueue.get(index);
         record.hide();
+
+        if (index == 0) {
+            mIsCurrentToastShown = false;
+        }
 
         ToastRecord lastToast = mToastQueue.remove(index);
 
