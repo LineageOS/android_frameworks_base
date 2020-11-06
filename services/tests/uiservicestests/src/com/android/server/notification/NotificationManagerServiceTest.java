@@ -4415,6 +4415,32 @@ public class NotificationManagerServiceTest extends UiServiceTestCase {
     }
 
     @Test
+    public void testDontCallShowToastAgainOnTheSameTextToast() throws Exception {
+        final String testPackage = "testPackageName";
+        assertEquals(0, mService.mToastQueue.size());
+        mService.isSystemUid = false;
+
+        // package is not suspended
+        when(mPackageManager.isPackageSuspendedForUser(testPackage, UserHandle.getUserId(mUid)))
+                .thenReturn(false);
+
+        setAppInForegroundForToasts(mUid, true);
+
+        Binder token = new Binder();
+        INotificationManager nmService = (INotificationManager) mService.mService;
+
+        // first time trying to show the toast, showToast gets called
+        nmService.enqueueTextToast(testPackage, token, "Text", 2000, 0, null);
+        verify(mStatusBar, times(1))
+                .showToast(anyInt(), any(), any(), any(), any(), anyInt(), any());
+
+        // second time trying to show the same toast, showToast isn't called again (total number of
+        // invocations stays at one)
+        nmService.enqueueTextToast(testPackage, token, "Text", 2000, 0, null);
+        verify(mStatusBar, times(1))
+                .showToast(anyInt(), any(), any(), any(), any(), anyInt(), any());
+    }
+
     public void testDisallowToastsFromSuspendedPackages() throws Exception {
         final String testPackage = "testPackageName";
         assertEquals(0, mService.mToastQueue.size());
