@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8c2d5aa_ff39d144",
+        "filename": "media/java/android/media/AudioSystem.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2020-11-06T15:03:55Z",
+      "side": 1,
+      "message": "Missing @hide",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 69
+      },
+      "revId": "80eaa5192784bed0358aaf1a52816a7b4cbc2e19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
