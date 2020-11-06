@@ -23,6 +23,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothHearingAid;
 import android.bluetooth.BluetoothProfile;
+import android.bluetooth.BluetoothVcp;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -156,6 +157,9 @@ public class BluetoothEventManager {
                 new BroadcastStateChangedHandler());
         addHandler("android.bluetooth.broadcast.profile.action.BROADCAST_ENCRYPTION_KEY_GENERATED",
                 new BroadcastKeyGeneratedHandler());
+        // VCP state changed broadcasts
+        addHandler(BluetoothVcp.ACTION_CONNECTION_MODE_CHANGED, new VcpModeChangedHandler());
+        addHandler(BluetoothVcp.ACTION_VOLUME_CHANGED, new VcpVolumeChangedHandler());
 
         registerAdapterIntentReceiver();
     }
@@ -641,6 +645,29 @@ public class BluetoothEventManager {
             Log.d(TAG, "A2dpCodecConfigChangedHandler: device=" + device +
                     ", codecStatus=" + codecStatus);
             dispatchA2dpCodecConfigChanged(cachedDevice, codecStatus);
+        }
+    }
+
+    private class VcpModeChangedHandler implements Handler {
+        @Override
+        public void onReceive(Context context, Intent intent, BluetoothDevice device) {
+            CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
+            int mode = intent.getIntExtra(BluetoothVcp.EXTRA_MODE, 0);
+            if (cachedDevice != null) {
+                Log.i(TAG, cachedDevice + " Vcp connection mode change to " + mode);
+                cachedDevice.refresh();
+            }
+        }
+    }
+
+    private class VcpVolumeChangedHandler implements Handler {
+        @Override
+        public void onReceive(Context context, Intent intent, BluetoothDevice device) {
+            CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
+            if (cachedDevice != null) {
+                Log.i(TAG, cachedDevice + " Vcp volume change");
+                cachedDevice.refresh();
+            }
         }
     }
 
