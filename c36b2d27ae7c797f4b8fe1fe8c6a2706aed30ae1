@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f8c3937_fcf652d2",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-11-07T01:27:09Z",
+      "side": 1,
+      "message": "No longer used.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 62
+      },
+      "revId": "c36b2d27ae7c797f4b8fe1fe8c6a2706aed30ae1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
