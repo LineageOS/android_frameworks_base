@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88c1ebbe_b28549fb",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 1171,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-11-07T14:26:02Z",
+      "side": 1,
+      "message": "android.view.WindowManager.TAKE_SCREENSHOT_SELECTED_REGION",
+      "range": {
+        "startLine": 1171,
+        "startChar": 49,
+        "endLine": 1171,
+        "endChar": 50
+      },
+      "revId": "54cba24abcd1c0ade70b9c59edd74bc668ece180",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
