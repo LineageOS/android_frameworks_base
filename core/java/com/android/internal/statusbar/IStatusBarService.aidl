@@ -158,4 +158,9 @@ interface IStatusBarService
      * Used to block or unblock usage of gestural navigation
      */
     void setBlockedGesturalNavigation(boolean blocked);
+
+    /**
+     * Starts the default assistant app.
+     */
+    void startAssist(in Bundle args);
 }
