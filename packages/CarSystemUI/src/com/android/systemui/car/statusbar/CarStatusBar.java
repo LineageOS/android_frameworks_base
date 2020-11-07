@@ -113,6 +113,7 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 
 import java.io.FileDescriptor;
@@ -224,6 +225,7 @@ public class CarStatusBar extends StatusBar implements CarBatteryController.Batt
             KeyguardIndicationController keyguardIndicationController,
             DismissCallbackRegistry dismissCallbackRegistry,
             StatusBarTouchableRegionManager statusBarTouchableRegionManager,
+            TunerService tunerService,
             Lazy<NotificationShadeDepthController> depthControllerLazy,
             /* Car Settings injected components. */
             CarNavigationBarController carNavigationBarController) {
@@ -304,7 +306,8 @@ public class CarStatusBar extends StatusBar implements CarBatteryController.Batt
                 keyguardIndicationController,
                 dismissCallbackRegistry,
                 depthControllerLazy,
-                statusBarTouchableRegionManager);
+                statusBarTouchableRegionManager,
+                tunerService);
         mUserSwitcherController = userSwitcherController;
         mScrimController = scrimController;
         mCarDeviceProvisionedController = carDeviceProvisionedController;

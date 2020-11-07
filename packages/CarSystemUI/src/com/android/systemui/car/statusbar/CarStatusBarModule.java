@@ -98,6 +98,7 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 
 import java.util.Optional;
@@ -199,6 +200,7 @@ public class CarStatusBarModule {
             KeyguardIndicationController keyguardIndicationController,
             DismissCallbackRegistry dismissCallbackRegistry,
             StatusBarTouchableRegionManager statusBarTouchableRegionManager,
+            TunerService tunerService,
             Lazy<NotificationShadeDepthController> notificationShadeDepthControllerLazy,
             CarNavigationBarController carNavigationBarController) {
         return new CarStatusBar(
@@ -277,6 +279,7 @@ public class CarStatusBarModule {
                 keyguardIndicationController,
                 dismissCallbackRegistry,
                 statusBarTouchableRegionManager,
+                tunerService,
                 notificationShadeDepthControllerLazy,
                 carNavigationBarController);
     }
