@@ -376,7 +376,8 @@
         <service android:name=".screenshot.TakeScreenshotService"
             android:permission="com.android.systemui.permission.SELF"
             android:process=":screenshot"
-            android:exported="false" />
+            android:exported="true"
+            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
 
         <!-- Called from PhoneWindowManager -->
         <receiver android:name=".screenshot.ScreenshotServiceErrorReceiver"
