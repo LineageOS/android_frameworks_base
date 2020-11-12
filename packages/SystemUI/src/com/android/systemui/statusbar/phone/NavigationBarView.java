@@ -872,6 +872,7 @@ public class NavigationBarView extends FrameLayout implements
 
     public void setBlockedGesturalNavigation(boolean blocked) {
         mBlockedGesturalNavigation = blocked;
+        mEdgeBackGestureHandler.setBlockedGesturalNavigation(blocked);
         updateDisabledSystemUiStateFlags();
         updatePanelSystemUiStateFlags();
     }
