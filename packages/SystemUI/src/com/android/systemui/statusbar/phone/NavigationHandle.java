@@ -32,11 +32,11 @@ import com.android.systemui.R;
 
 public class NavigationHandle extends View implements ButtonInterface {
 
-    protected final Paint mPaint = new Paint();
+    private final Paint mPaint = new Paint();
     private @ColorInt final int mLightColor;
     private @ColorInt final int mDarkColor;
-    protected final int mRadius;
-    protected final int mBottom;
+    private final int mRadius;
+    private final int mBottom;
     private boolean mRequiresInvalidate;
 
     public NavigationHandle(Context context) {
