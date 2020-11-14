@@ -149,6 +149,21 @@ fun CaptureSettingsMenu(viewModel: PreCaptureToolbarViewModel, screenRecordingSe
                 )
             }
 
+            val lowQualityIcon by
+                loadIcon(
+                    viewModel = viewModel,
+                    resId = R.drawable.ic_sr_quality,
+                    contentDescription = null,
+                )
+
+            SettingsMenuItem(
+                text = stringResource(R.string.screenrecord_lowquality_label),
+                leadingIcon = lowQualityIcon,
+                checked = recordParameters.lowQuality,
+                onCheckedChange = { recordParameters.setLowQuality(it) },
+                enabled = screenRecordingSelected,
+            )
+
             if (viewModel.customSaveLocationSupported) {
                 SaveLocationDropdown(
                     viewModel = viewModel,
