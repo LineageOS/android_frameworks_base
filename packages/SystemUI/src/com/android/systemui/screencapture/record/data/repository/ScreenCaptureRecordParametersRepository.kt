@@ -29,4 +29,5 @@ class ScreenCaptureRecordParametersRepository @Inject constructor() {
     var audioSource: ScreenRecordingAudioSource by mutableStateOf(ScreenRecordingAudioSource.NONE)
     var shouldShowTaps: Boolean by mutableStateOf(false)
     var shouldShowFrontCamera: Boolean by mutableStateOf(false)
+    var lowQuality: Boolean by mutableStateOf(false)
 }
