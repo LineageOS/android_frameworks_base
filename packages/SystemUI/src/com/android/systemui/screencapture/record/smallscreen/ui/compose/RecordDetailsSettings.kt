@@ -167,6 +167,19 @@ fun RecordDetailsSettings(
                 onCheckedChange = { parametersViewModel.shouldShowTaps = it },
                 modifier = Modifier,
             )
+            RichSwitch(
+                visible = true,
+                icon =
+                    loadIcon(
+                        viewModel = drawableLoaderViewModel,
+                        resId = R.drawable.ic_sr_quality,
+                        contentDescription = null,
+                    ),
+                label = stringResource(R.string.screenrecord_lowquality_label),
+                checked = parametersViewModel.lowQuality,
+                onCheckedChange = { parametersViewModel.setLowQuality(it) },
+                modifier = Modifier,
+            )
             SettingsRow(visible = true, modifier = Modifier.padding(top = 4.dp)) {
                 Crossfade(
                     targetState = targetViewModel.warningMessageRes,
