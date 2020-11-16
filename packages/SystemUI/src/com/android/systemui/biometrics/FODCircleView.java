@@ -333,8 +333,8 @@ public class FODCircleView extends ImageView {
 
         updatePosition();
 
-        dispatchShow();
         setVisibility(View.VISIBLE);
+        dispatchShow();
     }
 
     public void hide() {
