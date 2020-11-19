@@ -62,6 +62,7 @@ import com.android.server.display.whitebalance.DisplayWhiteBalanceController;
 import com.android.server.display.whitebalance.DisplayWhiteBalanceFactory;
 import com.android.server.display.whitebalance.DisplayWhiteBalanceSettings;
 import com.android.server.lights.LightsManager;
+import com.android.server.lights.LogicalLight;
 import com.android.server.policy.WindowManagerPolicy;
 
 import java.io.PrintWriter;
@@ -885,16 +886,26 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
         if (state == Display.STATE_OFF) {
             brightnessState = PowerManager.BRIGHTNESS_OFF_FLOAT;
             mBrightnessReasonTemp.setReason(BrightnessReason.REASON_SCREEN_OFF);
-            mLights.getLight(LightsManager.LIGHT_ID_BUTTONS).setBrightness(brightnessState);
-            mLights.getLight(LightsManager.LIGHT_ID_KEYBOARD).setBrightness(brightnessState);
+            LogicalLight buttonsLight = mLights.getLight(LightsManager.LIGHT_ID_BUTTONS);
+            if (buttonsLight != null) {
+                buttonsLight.setBrightness(brightnessState);
+            }
+            LogicalLight keyboardLight = mLights.getLight(LightsManager.LIGHT_ID_KEYBOARD);
+            if (keyboardLight != null) {
+                buttonsLight.setBrightness(brightnessState);
+            }
         }
 
         // Disable button and keyboard lights when dozing
         if (state == Display.STATE_DOZE || state == Display.STATE_DOZE_SUSPEND) {
-            mLights.getLight(LightsManager.LIGHT_ID_BUTTONS)
-                    .setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
-            mLights.getLight(LightsManager.LIGHT_ID_KEYBOARD)
-                    .setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+            LogicalLight buttonsLight = mLights.getLight(LightsManager.LIGHT_ID_BUTTONS);
+            if (buttonsLight != null) {
+                buttonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+            }
+            LogicalLight keyboardLight = mLights.getLight(LightsManager.LIGHT_ID_KEYBOARD);
+            if (keyboardLight != null) {
+                buttonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+            }
         }
 
         // Always use the VR brightness when in the VR state.

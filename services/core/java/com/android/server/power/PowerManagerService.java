@@ -2422,66 +2422,76 @@ public final class PowerManagerService extends SystemService
                     if (now < nextTimeout) {
                         mUserActivitySummary = USER_ACTIVITY_SCREEN_BRIGHT;
                         if (getWakefulnessLocked() == WAKEFULNESS_AWAKE) {
-                            float buttonBrightness = PowerManager.BRIGHTNESS_OFF_FLOAT;
-                            if (!mForceNavbar) {
-                                if (isValidBrightness(
-                                        mButtonBrightnessOverrideFromWindowManager)) {
+                            if (mButtonsLight != null) {
+                                float buttonBrightness = PowerManager.BRIGHTNESS_OFF_FLOAT;
+                                if (!mForceNavbar) {
+                                    if (isValidBrightness(
+                                            mButtonBrightnessOverrideFromWindowManager)) {
+                                        if (mButtonBrightnessOverrideFromWindowManager >
+                                                PowerManager.BRIGHTNESS_MIN) {
+                                            buttonBrightness =
+                                                    mButtonBrightnessOverrideFromWindowManager;
+                                        }
+                                    } else if (isValidButtonOrKeyboardBrightness(
+                                            mButtonBrightness)) {
+                                        buttonBrightness = mButtonBrightness;
+                                    }
+                                }
+
+                                mLastButtonActivityTime = mButtonLightOnKeypressOnly ?
+                                        mLastButtonActivityTime : mLastUserActivityTime;
+                                if (mButtonTimeout != 0 &&
+                                        now > mLastButtonActivityTime + mButtonTimeout) {
+                                    mButtonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+                                    mButtonOn = false;
+                                } else {
+                                    if ((!mButtonLightOnKeypressOnly || mButtonPressed) &&
+                                            !mProximityPositive) {
+                                        mButtonsLight.setBrightness(buttonBrightness);
+                                        mButtonPressed = false;
+                                        if (buttonBrightness != PowerManager.BRIGHTNESS_OFF_FLOAT &&
+                                                mButtonTimeout != 0) {
+                                            mButtonOn = true;
+                                            if (now + mButtonTimeout < nextTimeout) {
+                                                nextTimeout = now + mButtonTimeout;
+                                            }
+                                        }
+                                    } else if (mButtonLightOnKeypressOnly && mButtonOn &&
+                                            mLastButtonActivityTime + mButtonTimeout <
+                                                    nextTimeout) {
+                                        nextTimeout = mLastButtonActivityTime + mButtonTimeout;
+                                    }
+                                }
+                            }
+
+                            if (mKeyboardLight != null) {
+                                float keyboardBrightness = PowerManager.BRIGHTNESS_OFF_FLOAT;
+                                if (isValidBrightness(mButtonBrightnessOverrideFromWindowManager)) {
                                     if (mButtonBrightnessOverrideFromWindowManager >
                                             PowerManager.BRIGHTNESS_MIN) {
-                                        buttonBrightness =
+                                        keyboardBrightness =
                                                 mButtonBrightnessOverrideFromWindowManager;
                                     }
-                                } else if (isValidButtonOrKeyboardBrightness(mButtonBrightness)) {
-                                    buttonBrightness = mButtonBrightness;
+                                } else if (isValidButtonOrKeyboardBrightness(mKeyboardBrightness)) {
+                                     keyboardBrightness = mKeyboardBrightness;
                                 }
+                                mKeyboardLight.setBrightness(mKeyboardVisible ?
+                                        keyboardBrightness : PowerManager.BRIGHTNESS_OFF_FLOAT);
                             }
-
-                            mLastButtonActivityTime = mButtonLightOnKeypressOnly ?
-                                    mLastButtonActivityTime : mLastUserActivityTime;
-                            if (mButtonTimeout != 0 &&
-                                    now > mLastButtonActivityTime + mButtonTimeout) {
-                                mButtonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
-                                mButtonOn = false;
-                            } else {
-                                if ((!mButtonLightOnKeypressOnly || mButtonPressed) &&
-                                        !mProximityPositive) {
-                                    mButtonsLight.setBrightness(buttonBrightness);
-                                    mButtonPressed = false;
-                                    if (buttonBrightness != PowerManager.BRIGHTNESS_OFF_FLOAT &&
-                                            mButtonTimeout != 0) {
-                                        mButtonOn = true;
-                                        if (now + mButtonTimeout < nextTimeout) {
-                                            nextTimeout = now + mButtonTimeout;
-                                        }
-                                    }
-                                } else if (mButtonLightOnKeypressOnly && mButtonOn &&
-                                        mLastButtonActivityTime + mButtonTimeout < nextTimeout) {
-                                    nextTimeout = mLastButtonActivityTime + mButtonTimeout;
-                                }
-                            }
-
-                            float keyboardBrightness = PowerManager.BRIGHTNESS_OFF_FLOAT;
-                            if (isValidBrightness(mButtonBrightnessOverrideFromWindowManager)) {
-                                if (mButtonBrightnessOverrideFromWindowManager >
-                                        PowerManager.BRIGHTNESS_MIN) {
-                                    keyboardBrightness =
-                                            mButtonBrightnessOverrideFromWindowManager;
-                                }
-                            } else if (isValidButtonOrKeyboardBrightness(mKeyboardBrightness)) {
-                                 keyboardBrightness = mKeyboardBrightness;
-                            }
-                            mKeyboardLight.setBrightness(mKeyboardVisible ?
-                                    keyboardBrightness : PowerManager.BRIGHTNESS_OFF_FLOAT);
                         }
                     } else {
                         nextTimeout = mLastUserActivityTime + screenOffTimeout;
                         if (now < nextTimeout) {
                             mUserActivitySummary = USER_ACTIVITY_SCREEN_DIM;
                             if (getWakefulnessLocked() == WAKEFULNESS_AWAKE) {
-                                mButtonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
-                                mButtonOn = false;
+                                if (mButtonsLight != null) {
+                                    mButtonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+                                    mButtonOn = false;
+                                }
 
-                                mKeyboardLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+                                if (mKeyboardLight != null) {
+                                    mKeyboardLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+                                }
                             }
                         }
                     }
