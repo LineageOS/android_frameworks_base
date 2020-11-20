@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "747cde7a_49bad81b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2020-11-20T15:55:30Z",
+      "side": 1,
+      "message": "Everyone living in 2020 while Bruno lives in 20202",
+      "range": {
+        "startLine": 120,
+        "startChar": 27,
+        "endLine": 120,
+        "endChar": 32
+      },
+      "revId": "c710fcbcc97694cd108fc6f2e4d47faac93e8872",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b4616959_221659d0",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/NotificationMediaManager.java",
         "patchSetId": 7
