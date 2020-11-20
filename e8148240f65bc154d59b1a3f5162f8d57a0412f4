@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e876f3ba_27e5db70",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4458,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2020-11-20T00:32:47Z",
+      "side": 1,
+      "message": "https://gitlab.com/CalyxOS/calyxos/-/issues/226#note_449273849\nI\u0027ve removed the setUidFirewallRule while we figure how to make sure that for all users the rule is set from system uid",
+      "range": {
+        "startLine": 4432,
+        "startChar": 4,
+        "endLine": 4458,
+        "endChar": 5
+      },
+      "revId": "e8148240f65bc154d59b1a3f5162f8d57a0412f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
