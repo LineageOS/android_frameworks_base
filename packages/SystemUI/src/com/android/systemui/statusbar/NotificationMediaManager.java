@@ -28,6 +28,7 @@ import static com.android.systemui.statusbar.phone.StatusBar.SHOW_LOCKSCREEN_MED
 import android.annotation.MainThread;
 import android.annotation.Nullable;
 import android.app.Notification;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -137,6 +138,7 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
     private final ArrayList<MediaListener> mMediaListeners;
     private final MediaArtworkProcessor mMediaArtworkProcessor;
     private final Set<AsyncTask<?, ?, ?>> mProcessArtworkTasks = new ArraySet<>();
+    private final WallpaperManager mWallpaperManager;
 
     protected NotificationPresenter mPresenter;
     private MediaController mMediaController;
@@ -213,6 +215,8 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
         mMediaListeners = new ArrayList<>();
         mMediaSessionManager
                 = (MediaSessionManager) mContext.getSystemService(Context.MEDIA_SESSION_SERVICE);
+        mWallpaperManager
+                = (WallpaperManager) mContext.getSystemService(Context.WALLPAPER_SERVICE);
         // TODO: use MediaSessionManager.SessionListener to hook us up to future updates
         // in session state
         mShadeController = shadeController;
@@ -539,8 +543,9 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
         }
         boolean hasMediaArtwork = artworkDrawable != null;
         boolean allowWhenShade = false;
+        Bitmap lockWallpaper = null;
         if (ENABLE_LOCKSCREEN_WALLPAPER && artworkDrawable == null) {
-            Bitmap lockWallpaper =
+            lockWallpaper =
                     mLockscreenWallpaper != null ? mLockscreenWallpaper.getBitmap() : null;
             if (lockWallpaper != null) {
                 artworkDrawable = new LockscreenWallpaper.WallpaperDrawable(
@@ -562,11 +567,9 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
         }
 
         mStatusBar = SysUiServiceProvider.getComponent(mContext, StatusBar.class);
-        if (mStatusBar != null && hasMediaArtwork &&
-                mStatusBarStateController.getState() != StatusBarState.SHADE) {
+        if (mStatusBar != null && mStatusBarStateController.getState() != StatusBarState.SHADE) {
             VisualizerView visualizerView = mStatusBar.getVisualizer();
             if (!mKeyguardMonitor.isKeyguardFadingAway() && !mStatusBar.isScreenFullyOff()) {
-                // if there's album art, ensure visualizer is visible
                 visualizerView.setPlaying(getMediaControllerPlaybackState(mMediaController) ==
                         PlaybackState.STATE_PLAYING);
             }
@@ -574,6 +577,13 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
             if (artworkDrawable instanceof BitmapDrawable) {
                 // always use current backdrop to color eq
                 visualizerView.setBitmap(((BitmapDrawable) artworkDrawable).getBitmap());
+            } else if (lockWallpaper instanceof Bitmap) {
+                // use lockscreen wallpaper in case user set one
+                visualizerView.setBitmap(lockWallpaper.getConfig() == Bitmap.Config.HARDWARE ?
+                        lockWallpaper.copy(Bitmap.Config.ARGB_8888, false) : lockWallpaper);
+            } else {
+                // use regular wallpaper
+                visualizerView.setBitmap(mWallpaperManager.getBitmap(false));
             }
         }
 
