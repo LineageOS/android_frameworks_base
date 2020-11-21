@@ -168,6 +168,8 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
     private boolean mInRejectedExclusion = false;
     private boolean mIsOnLeftEdge;
 
+    private boolean mImeVisible;
+
     private boolean mIsAttached;
     private boolean mIsGesturalModeEnabled;
     private boolean mIsEnabled;
@@ -477,7 +479,19 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
             return withinRange;
         }
 
-        if (mExcludeRegion.contains(x, y)) {
+        /* If Launcher is showing and wants to block back gesture, let's still trigger our custom
+        swipe actions at the very bottom of the screen, because we are cool.*/
+        boolean isInExcludedRegion = false;
+        // still block extended swipe if keyboard is showing, to avoid conflicts with IME gestures
+        if (!mImeVisible && ( //*****CHECK TO BE ADAPTED TO LINEAGE****
+                /*mIsExtendedSwipe
+                || (mLeftLongSwipeAction != 0 && mIsOnLeftEdge)  || (mRightLongSwipeAction != 0 && !mIsOnLeftEdge))*/) {
+            isInExcludedRegion= mExcludeRegion.contains(x, y)
+                && y < ((mDisplaySize.y / 4) * 3);
+        } else {
+            isInExcludedRegion= mExcludeRegion.contains(x, y);
+        }
+        if (isInExcludedRegion) {
             if (withinRange) {
                 // Log as exclusion only if it is in acceptable range in the first place.
                 mOverviewProxyService.notifyBackAction(
@@ -494,6 +508,10 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
         mInRejectedExclusion = mUnrestrictedExcludeRegion.contains(x, y);
         mLogGesture = true;
         return withinRange;
+    }
+
+    public void setImeVisible(boolean visible) {
+        mImeVisible = visible;
     }
 
     private void cancelGesture(MotionEvent ev) {
