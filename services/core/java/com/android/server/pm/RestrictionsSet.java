@@ -60,7 +60,8 @@ public class RestrictionsSet {
 
     public RestrictionsSet(@UserIdInt int userId, @NonNull Bundle restrictions) {
         if (restrictions.isEmpty()) {
-            throw new IllegalArgumentException("empty restriction bundle cannot be added.");
+            return;
+            //throw new IllegalArgumentException("empty restriction bundle cannot be added.");
         }
         mUserRestrictions.put(userId, restrictions);
     }
