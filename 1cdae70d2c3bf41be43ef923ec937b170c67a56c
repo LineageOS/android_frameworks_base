@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2a8c7769_439df91b",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-11-29T00:23:13Z",
+      "side": 1,
+      "message": "\"restricted uids\" already has a meaning in this file, I would not reuse it for something different.",
+      "revId": "1cdae70d2c3bf41be43ef923ec937b170c67a56c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5de0ae7c_eda5d8f8",
         "filename": "services/core/java/com/android/server/ConnectivityService.java",
         "patchSetId": 2
