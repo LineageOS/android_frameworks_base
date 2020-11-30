@@ -106,6 +106,8 @@ import com.android.systemui.util.RingerModeTracker;
 
 import com.google.android.collect.Lists;
 
+import lineageos.app.LineageContextConstants;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.ref.WeakReference;
@@ -310,6 +312,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     };
 
     private final Handler mHandler;
+    private final boolean mHasFod;
 
     private final Observer<Integer> mRingerModeObserver = new Observer<Integer>() {
         @Override
@@ -1693,6 +1696,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             }
         };
 
+        mHasFod = mContext.getPackageManager().hasSystemFeature(
+                LineageContextConstants.Features.FOD);
+
         // Since device can't be un-provisioned, we only need to register a content observer
         // to update mDeviceProvisioned when we are...
         if (!mDeviceProvisioned) {
@@ -2073,14 +2079,18 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             mFingerprintCancelSignal = new CancellationSignal();
 
             if (isEncryptedOrLockdown(userId)) {
-                mFpm.detectFingerprint(mFingerprintCancelSignal, mFingerprintDetectionCallback,
-                        userId);
+                if (mHasFod) {
+                    setFingerprintRunningState(BIOMETRIC_STATE_STOPPED);
+                } else {
+                    mFpm.detectFingerprint(mFingerprintCancelSignal, mFingerprintDetectionCallback,
+                            userId);
+                    setFingerprintRunningState(BIOMETRIC_STATE_RUNNING);
+                }
             } else {
                 mFpm.authenticate(null, mFingerprintCancelSignal, 0,
                         mFingerprintAuthenticationCallback, null, userId);
+                setFingerprintRunningState(BIOMETRIC_STATE_RUNNING);
             }
-
-            setFingerprintRunningState(BIOMETRIC_STATE_RUNNING);
         }
     }
 
