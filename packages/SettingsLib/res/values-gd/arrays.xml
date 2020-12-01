@@ -20,17 +20,31 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="wifi_status">
         <item/>
-        <item>Scanning\u2026</item>
+        <item>’Ga sganadh\u2026</item>
         <item>’Ga chceangal…</item>
-        <item>Authenticating\u2026</item>
-        <item>Obtaining IP address\u2026</item>
-        <item>Connected</item>
-        <item>Suspended</item>
-        <item>Disconnecting\u2026</item>
-        <item>Disconnected</item>
-        <item>Unsuccessful</item>
-        <item>Blocked</item>
-        <item>Temporarily avoiding poor connection</item>
+        <item>’Ga dhearbhadh\u2026</item>
+        <item>A’ faighinn seòladh IP…</item>
+        <item>Ceangailte</item>
+        <item>’Na dhàil</item>
+        <item>A’ briseadh a’ cheangail\u2026</item>
+        <item>Gun cheangal</item>
+        <item>Cha deach leis</item>
+        <item>Chaidh a bhacadh</item>
+        <item>A’ seachnadh droch-cheangal gu sealach</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item/>
+        <item>’Ga sganadh\u2026</item>
+        <item>A’ ceangal ri <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>A’ dearbhadh le <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>A’ faighinn seòladh IP o <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Ceangailte ri <xliff:g id="network_name">%1$s</xliff:g></item>
+        <item>’Na dhàil</item>
+        <item>A’ briseadh a’ cheangail ri <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Gun cheangal</item>
+        <item>Cha deach leis</item>
+        <item>Chaidh a bhacadh</item>
+        <item>A’ seachnadh droch-cheangal gu sealach</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
         <item>Na doir sùil idir</item>

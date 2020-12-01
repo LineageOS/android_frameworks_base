@@ -18,18 +18,31 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="wifi_security_none">Chan eil gin</string>
+    <string name="wifi_fail_to_scan">Cha ghabh sganadh airson lìonraidhean</string>
+    <string name="wifi_security_none">Gun tèarainteachd</string>
     <string name="wifi_remembered">Air a shàbhaladh</string>
+    <string name="wifi_disconnected">Gun cheangal</string>
     <string name="wifi_disabled_generic">À comas</string>
+    <string name="wifi_disabled_network_failure">Dh’fhàillig rèiteachadh an IP</string>
+    <string name="wifi_disabled_wifi_failure">Dh’fhàillig an ceangal WiFi.</string>
+    <string name="wifi_disabled_password_failure">Duilgheadas leis an dearbhadh</string>
     <string name="wifi_not_in_range">Tha thu ro fhad air falbh</string>
     <string name="wifi_no_internet">Gun cheangal ris an eadar-lìon</string>
+    <string name="saved_network">Chaidh a shàbhaladh le <xliff:g id="name">%1$s</xliff:g></string>
+    <string name="connected_via_passpoint">Ceangailte slighe %1$s</string>
+    <string name="available_via_passpoint">Ri fhaighinn slighe %1$s</string>
     <string name="wifi_connected_no_internet">Ceangailte gun eadar-lìon</string>
     <string name="wifi_status_no_internet">Gun eadar-lìon</string>
     <string name="wifi_status_sign_in_required">Tha feum air clàradh a-steach</string>
+    <string name="connected_via_carrier">Ceangailte slighe %1$s</string>
+    <string name="available_via_carrier">Ri fhaighinn slighe %1$s</string>
     <string name="speed_label_slow">Slaodach</string>
     <string name="speed_label_fast">Luath</string>
+    <string name="bluetooth_disconnected">Gun cheangal</string>
+    <string name="bluetooth_disconnecting">A’ briseadh a’ cheangail\u2026</string>
     <string name="bluetooth_connecting">’Ga cheangal…</string>
     <string name="bluetooth_connected">Chaidh<xliff:g id="active_device">%1$s</xliff:g> a cheangal</string>
+    <string name="bluetooth_pairing">’Ga phaidhreachadh\u2026</string>
     <string name="bluetooth_connected_no_headset">Chaidh<xliff:g id="active_device">%1$s</xliff:g> a cheangal (gun fhòn)</string>
     <string name="bluetooth_connected_no_a2dp">Chaidh<xliff:g id="active_device">%1$s</xliff:g> a cheangal (gun mheadhanan)</string>
     <string name="bluetooth_connected_no_map">Chaidh<xliff:g id="active_device">%1$s</xliff:g> a cheangal (gun inntrigeadh do theachdaireachdan)</string>
@@ -41,11 +54,38 @@
     <string name="bluetooth_active_battery_level">Gnìomhach, <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> a bhataraidh</string>
     <string name="bluetooth_battery_level"><xliff:g id="battery_level_as_percentage">%1$s</xliff:g> a bhataraidh</string>
     <string name="bluetooth_active_no_battery_level">Gnìomhach</string>
+    <string name="bluetooth_profile_a2dp">Fuaim nam meadhanan</string>
+    <string name="bluetooth_profile_opp">Tar-chur fhaidhlichean</string>
+    <string name="bluetooth_profile_hid">Uidheam ion-chuir</string>
     <string name="bluetooth_profile_pan">Inntrigeadh an eadar-lìn</string>
-    <string name="bluetooth_pan_user_profile_summary_connected">Ceangailte uidheam airson inntrigeadh ris an eadar-lìon</string>
+    <string name="bluetooth_profile_pbap">Co-roinneadh luchd-aithne</string>
+    <string name="bluetooth_profile_pbap_summary">Cleachd a chùm co-roinneadh luchd-aithne</string>
+    <string name="bluetooth_profile_pan_nap">Co-roinneadh a’ cheangail ris an eadar-lìon</string>
+    <string name="bluetooth_profile_sap">Inntrigeadh dhan t-SIM</string>
+    <string name="bluetooth_a2dp_profile_summary_connected">Ceangailte ri fuaim nam meadhanan</string>
+    <string name="bluetooth_headset_profile_summary_connected">Ceangailte ri fuaim an fhòn</string>
+    <string name="bluetooth_opp_profile_summary_connected">Ceangailte ri frithealaiche tar-chur nam faidhle</string>
+    <string name="bluetooth_map_profile_summary_connected">Ceangailte ri mapa</string>
+    <string name="bluetooth_sap_profile_summary_connected">Ceangailte ri SAP</string>
+    <string name="bluetooth_opp_profile_summary_not_connected">Gun cheangal ri frithealaiche tar-chur nam faidhle</string>
+    <string name="bluetooth_hid_profile_summary_connected">Ceangailte ri uidheam ion-chuir</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">Ceangailte ri uidheam airson inntrigeadh ris an eadar-lìon</string>
     <string name="bluetooth_pan_nap_profile_summary_connected">A’ co-roinneadh an ceangal ionadail ris an eadar-lìon leis an uidheam</string>
     <string name="bluetooth_pan_profile_summary_use_for">Cleachd airson ceangal ris an eadar-lìon</string>
+    <string name="bluetooth_map_profile_summary_use_for">Cleachd airson mapa</string>
+    <string name="bluetooth_sap_profile_summary_use_for">Cleachd airson inntrigeadh dhan t-SIM</string>
+    <string name="bluetooth_a2dp_profile_summary_use_for">Cleachd airson fuaim nam meadhanan</string>
+    <string name="bluetooth_headset_profile_summary_use_for">Cleachd airson fuaim fòn</string>
+    <string name="bluetooth_opp_profile_summary_use_for">Cleachd airson tar-chur faidhle</string>
+    <string name="bluetooth_hid_profile_summary_use_for">Cleachd airson ion-chur</string>
     <string name="bluetooth_pairing_accept">Paidhrich</string>
+    <string name="bluetooth_pairing_accept_all_caps">PAIDHRICH</string>
+    <string name="bluetooth_pairing_decline">Sguir dheth</string>
+    <string name="bluetooth_pairing_will_share_phonebook">Bheir am paidhreachadh inntrigeadh dhan luchd-aithne agus eachdraidh nan gairmean agad dhan uidheam eile.</string>
+    <string name="bluetooth_pairing_error_message">Cha b’ urrainn dhuinn do phaidhreachadh le <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_pin_error_message">Cha b’ urrainn dhuinn do phaidhreachadh le <xliff:g id="device_name">%1$s</xliff:g> ri linn PIN no iuchair-fhaire ceàrr.</string>
+    <string name="bluetooth_pairing_device_down_error_message">Chan urrainn dhuinn conaltradh le <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_rejected_error_message">Chaidh am paidhreachadh a dhiùltadh le <xliff:g id="device_name">%1$s</xliff:g>.</string>
     <string name="bluetooth_talkback_computer">Coimpiutair</string>
     <string name="bluetooth_talkback_headset">Headset</string>
     <string name="bluetooth_talkback_phone">Fòn</string>
@@ -57,11 +97,23 @@
     <string name="bluetooth_hearingaid_right_pairing_message">A’ paidhreachadh an inneil-chlaisneachd dheis\u2026</string>
     <string name="bluetooth_hearingaid_left_battery_level">Deas – <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> a bhataraidh</string>
     <string name="bluetooth_hearingaid_right_battery_level">Clì – <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> a bhataraidh</string>
+    <string name="accessibility_wifi_off">Tha WiFi dheth.</string>
+    <string name="accessibility_no_wifi">Chaidh WiFi a dhì-cheangal.</string>
+    <string name="accessibility_wifi_one_bar">Tha bàr a-mhàin air WiFi.</string>
+    <string name="accessibility_wifi_two_bars">Tha dà bhàr air WiFi.</string>
+    <string name="accessibility_wifi_three_bars">Tha trì bàraichean air WiFi.</string>
+    <string name="accessibility_wifi_signal_full">Tha siognail slàn aig WiFi.</string>
+    <string name="process_kernel_label">Android OS</string>
     <string name="data_usage_uninstalled_apps">Aplacaidean a chaidh a thoirt air falbh</string>
     <string name="data_usage_uninstalled_apps_users">Aplacaidean ’s cleachdaichean a chaidh a thoirt air falbh</string>
     <string name="tether_settings_title_usb">Teadhrachadh USB</string>
+    <string name="tether_settings_title_wifi">Hotspot so-ghiùlan</string>
+    <string name="tether_settings_title_bluetooth">Teadhrachadh Bluetooth</string>
+    <string name="tether_settings_title_usb_bluetooth">Teadhrachadh</string>
+    <string name="tether_settings_title_all">Teadhrachadh ⁊ hotspot so-ghiùlan</string>
     <string name="managed_user_title">Aplacaidean uile na h-obrach</string>
     <string name="user_guest">Aoigh</string>
+    <string name="unknown">Neo-aithnichte</string>
     <string name="running_process_item_user_label">Cleachdaiche: <xliff:g id="user_name">%1$s</xliff:g></string>
     <string name="launch_defaults_some">Chaidh cuid a bhun-roghainnean a shuidheachadh</string>
     <string name="launch_defaults_none">Cha deach a bun-roghainn a shuidheachadh</string>
@@ -207,9 +259,9 @@
     <string name="usb_audio_disable_routing_summary">Cuir à comas rùtachadh fèin-obrachail gu uidheaman-taice USB na fuaime</string>
     <string name="debug_layout">Seall crìochan na co-dhealbhachd</string>
     <string name="debug_layout_summary">Seall crìochan, marghain is msaa. a’ bhearraidh</string>
-    <string name="force_rtl_layout_all_locales">Èignich comhair deas gu clì</string>
-    <string name="force_rtl_layout_all_locales_summary">Èignich co-dhealbhachd na sgrìn o dheas gu clì dhan a h-uile cànan</string>
-    <string name="force_msaa">Èignich 4x MSAA</string>
+    <string name="force_rtl_layout_all_locales">Spàrr comhair deas gu clì air</string>
+    <string name="force_rtl_layout_all_locales_summary">Spàrr co-dhealbhachd na sgrìn o dheas gu clì air a h-uile cànan</string>
+    <string name="force_msaa">Spàrr 4x MSAA air</string>
     <string name="force_msaa_summary">Cuir an comas 4x MSAA ann an aplacaidean OpenGL ES 2.0</string>
     <string name="show_non_rect_clip">Cuir an comas obrachaidhean bearraidh nach eil ’nan ceart-cheàrnagan</string>
     <string name="enable_gpu_debug_layers">Cuir an comas breathan dì-bhugachaidh a’ GPU</string>
@@ -225,9 +277,9 @@
     <string name="app_process_limit_title">Crìoch phròiseasan sa chùlaibh</string>
     <string name="show_all_anrs">Seall “gun fhreagairt” a’ chùlaibh</string>
     <string name="show_all_anrs_summary">Seall còmhradh “Chan eil an aplacaid a fhreagairt” airson aplacaidean cùlaibh</string>
-    <string name="force_allow_on_external">Èignich ceadaich aplacaidean air an taobh a-muigh</string>
+    <string name="force_allow_on_external">Spàrr ceadachadh aplacaidean air an taobh a-muigh air</string>
     <string name="force_allow_on_external_summary">Bheir seo cead do dh’aplacaid sam bith gun dèid a sgrìobhadh gu stòras air an taobh a-muigh, ge b’ e dè na luachan sa mhanifest</string>
-    <string name="force_resizable_activities">Èignich gun gabh gnìomhachdan ath-mheudachadh</string>
+    <string name="force_resizable_activities">Spàrr air gun gabh gnìomhachdan ath-mheudachadh</string>
     <string name="force_resizable_activities_summary">Cuir comas air gach gnìomhachd gun gabh a meud atharrachadh a chùm iomadh uinneige, ge b’ e dè na luachan sa mhanifest</string>
     <string name="enable_freeform_support">Cuir an comas uinneagan le cruth saor</string>
     <string name="enable_freeform_support_summary">Cuir an comas taic do dh’uinneagan deuchainneil le cruth saor</string>
@@ -253,7 +305,7 @@
     <string name="standby_bucket_summary">Aplacaid ’na fhuireachas
         staid:<xliff:g id="bucket"> %s</xliff:g></string>
     <string name="runningservices_settings_title">Seirbheisean ’gan ruith</string>
-    <string name="runningservices_settings_summary">Seall is stiùirich na seirbheisean a tha ’gan ruith an-dràsta</string>
+    <string name="runningservices_settings_summary">Seall is stiùir na seirbheisean a tha ’gan ruith an-dràsta</string>
     <string name="select_webview_provider_title">Buileachadh seallaidh-lìn</string>
     <string name="select_webview_provider_dialog_title">Suidhich buileachadh an t-seallaidh-lìn</string>
     <string name="select_webview_provider_toast_text">Chan eil an roghainn seo dligheach tuilleadh. Feuch ris a-rithist.</string>
@@ -297,6 +349,7 @@
     <string name="power_remaining_duration_shutdown_imminent" product="device">Thèid an t-uidheam a chur sìos a dh’aithghearr (<xliff:g id="level">%1$s</xliff:g>)</string>
     <string name="power_remaining_charging_duration_only"><xliff:g id="time">%1$s</xliff:g> air fhàgail gus am bi e air a làn-theàirrdseadh</string>
     <string name="power_charging_duration"><xliff:g id="level">%1$s</xliff:g> – <xliff:g id="time">%2$s</xliff:g> gus am bi e air a làn-theairrdseadh</string>
+    <string name="battery_info_status_unknown">Neo-aithnichte</string>
     <string name="battery_info_status_charging">’Ga theàirrdseadh</string>
     <string name="battery_info_status_discharging">Chan eil e ’ga theàirrdseadh</string>
     <string name="battery_info_status_full">Làn</string>
@@ -333,6 +386,7 @@
     </plurals>
     <string name="accessibility_manual_zen_more_time">Barrachd ùine.</string>
     <string name="accessibility_manual_zen_less_time">Nas lugha de dh’ùine.</string>
+    <string name="cancel">Sguir dheth</string>
     <string name="zen_mode_enable_dialog_turn_on">Cuir air</string>
     <string name="zen_mode_settings_turn_on_dialog_title">Cuir air “Na bris a-steach orm”</string>
     <string name="zen_mode_settings_summary_off">Chan ann idir</string>

@@ -159,9 +159,9 @@
         &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; dàta mhothaichearan mu do bheò inntrigeadh?</string>
     <string name="capability_desc_canRequestTouchExploration">Thèid nithean air a bheir thu gnogag ag innse os àrd
         agus gabhaidh an sgrìn a rùrachadh le gluasadan.</string>
-    <string name="capability_title_canControlMagnification">Stiùirichidh meudachd na sgrìn</string>
-    <string name="capability_desc_canControlMagnification">Stiùirich ìre an t-sùmaidh agus an t-ionad air an
-        agrìn.</string>
+    <string name="capability_title_canControlMagnification">Stiùir meudachd na sgrìn</string>
+    <string name="capability_desc_canControlMagnification">Stiùir ìre an t-sùmaidh agus an t-ionad air an
+        sgrìn.</string>
     <string name="capability_title_canPerformGestures">Gluasadan a dhèanamh</string>
     <string name="capability_desc_canPerformGestures">’S urrainn dha gnogag a thoirt, grad-shlaighdeadh, greimeadh agus gluasadan eile
         a dhèanamh.</string>
@@ -176,10 +176,10 @@
     <string name="permdesc_useBiometric">Leigidh seo leis an aplacaid bathar-cruaidh beò-meatrach a chleachdadh a chùm dearbh-aithneachadh</string>
     <string name="biometric_not_recognized">Gun aithneachadh</string>
     <string-array name="fingerprint_acquired_vendor"/>
-    <string name="fingerprint_authenticated">Chaidh an lorg-meòir a dhearbhadh</string>
+    <string name="fingerprint_authenticated">Chaidh an lorg-mheòir a dhearbhadh</string>
     <string name="fingerprint_error_user_canceled">Sguir cleachdaiche de ghnìomh an luirg-mheòir.</string>
     <string name="fingerprint_error_unable_to_process">Feuch ris a-rithist.</string>
-    <string name="fingerprint_error_no_fingerprints">Cha deach lorg-meòir sam bith a chlàradh.</string>
+    <string name="fingerprint_error_no_fingerprints">Cha deach lorg-mheòir sam bith a chlàradh.</string>
     <string-array name="fingerprint_error_vendor"/>
     <string-array name="face_acquired_vendor"/>
     <string-array name="face_error_vendor"/>
@@ -422,7 +422,7 @@
     <string name="Noon">"Meadhan-latha"</string>
     <string name="Midnight">"Meadhan-oidhche"</string>
     <string name="selectAll">Tagh na h-uile</string>
-    <string name="cut">Gearr às</string>
+    <string name="cut">Geàrr às</string>
     <string name="failed_to_copy_to_clipboard">Dh’fhàillig a chur air an stòr-bhòrd</string>
     <string name="paste">Cuir ann</string>
     <string name="paste_as_plain_text">Cuir ann mar theacsa lom</string>

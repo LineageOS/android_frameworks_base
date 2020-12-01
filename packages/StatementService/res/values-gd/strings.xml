@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2012-2014 The CyanogenMod Project
-     Copyright (c) 2013, The Linux Foundation. All rights reserved.
-     Copyright (C) 2017-2020 The LineageOS Project
+<!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
 
-           http://www.apache.org/licenses/LICENSE-2.0
+          http://www.apache.org/licenses/LICENSE-2.0
 
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,8 +14,5 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="adb_net_active_notification_title">ADB attraverso la rete attivato</string>
-    <string name="adb_both_active_notification_title">ADB attraverso USB &amp; rete attivato</string>
-    <string name="adb_active_generic_notification_message">Tocca per disattivare il debug.</string>
-    <string name="bluetooth_airplane_mode_toast">Il bluetooth rimarrà attivo in modalità aereo</string>
+    <string name="service_name">Seirbheis dearbhadh chriathragan rùintean</string>
 </resources>
