@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3b3056e1_72537ea3",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-12-01T21:25:06Z",
+      "side": 1,
+      "message": "Should be hidden like the other firewall chain names (a difference introduced aosp 10-\u003e11)",
+      "revId": "e8148240f65bc154d59b1a3f5162f8d57a0412f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e876f3ba_27e5db70",
         "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
         "patchSetId": 1
