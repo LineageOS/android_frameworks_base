@@ -20,9 +20,12 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.ActivityManager;
+import android.content.Context;
 import android.graphics.Matrix;
 import android.graphics.Rect;
+import android.hardware.fingerprint.IFingerprintService;
 import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.util.MathUtils;
 import android.view.IRemoteAnimationFinishedCallback;
 import android.view.IRemoteAnimationRunner;
@@ -34,6 +37,7 @@ import android.view.View;
 
 import com.android.internal.policy.ScreenDecorationsUtils;
 import com.android.systemui.Interpolators;
+import com.android.systemui.biometrics.FODCircleViewImpl;
 import com.android.systemui.statusbar.NotificationShadeDepthController;
 import com.android.systemui.statusbar.notification.row.ExpandableNotificationRow;
 import com.android.systemui.statusbar.notification.stack.NotificationListContainer;
@@ -70,6 +74,9 @@ public class ActivityLaunchAnimator {
     private boolean mAnimationPending;
     private boolean mAnimationRunning;
     private boolean mIsLaunchForActivity;
+    private boolean mIsFPClientActive;
+    private IFingerprintService mFingerprintService;
+    private FODCircleViewImpl mFODCircleViewImpl;
 
     public ActivityLaunchAnimator(
             NotificationShadeWindowViewController notificationShadeWindowViewController,
@@ -77,7 +84,8 @@ public class ActivityLaunchAnimator {
             NotificationPanelViewController notificationPanel,
             NotificationShadeDepthController depthController,
             NotificationListContainer container,
-            Executor mainExecutor) {
+            Executor mainExecutor,
+            FODCircleViewImpl fodCircleViewImpl) {
         mNotificationPanel = notificationPanel;
         mNotificationContainer = container;
         mDepthController = depthController;
@@ -87,6 +95,10 @@ public class ActivityLaunchAnimator {
         mWindowCornerRadius = ScreenDecorationsUtils
                 .getWindowCornerRadius(mNotificationShadeWindowViewController.getView()
                         .getResources());
+        mFODCircleViewImpl = fodCircleViewImpl;
+        mFingerprintService = IFingerprintService.Stub.asInterface(
+                ServiceManager.getService(Context.FINGERPRINT_SERVICE));
+
     }
 
     public RemoteAnimationAdapter getLaunchAnimation(
@@ -263,6 +275,14 @@ public class ActivityLaunchAnimator {
             mNotificationShadeWindowViewController.setExpandAnimationRunning(running);
             mNotificationContainer.setExpandingNotification(running ? mSourceNotification : null);
             mAnimationRunning = running;
+            try {
+                mIsFPClientActive = mFingerprintService.isClientActive();
+            } catch (Throwable t) {
+                mIsFPClientActive = false;
+            }
+            if (!mIsFPClientActive) {
+                mFODCircleViewImpl.hideInDisplayFingerprintView();
+            }
             if (!running) {
                 mCallback.onExpandAnimationFinished(mIsFullScreenLaunch);
                 applyParamsToNotification(null);
