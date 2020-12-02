@@ -4355,9 +4355,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             return;
         }
 
-        setUidFirewallRule(FIREWALL_CHAIN_ISOLATED, uid,
-                isIsolated ? FIREWALL_RULE_DENY : FIREWALL_RULE_DEFAULT);
-
         int uidRules = oldUidRules;
         if (isIsolated) {
             uidRules |= RULE_NETWORK_ISOLATED;
@@ -4591,6 +4588,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                         dispatchUidRulesChanged(listener, uid, uidRules);
                     }
                     mListeners.finishBroadcast();
+                    setUidFirewallRule(FIREWALL_CHAIN_ISOLATED, uid,
+                            (uidRules & RULE_NETWORK_ISOLATED) != 0
+                                    ? FIREWALL_RULE_DENY
+                                    : FIREWALL_RULE_DEFAULT);
                     return true;
                 }
                 case MSG_METERED_IFACES_CHANGED: {
