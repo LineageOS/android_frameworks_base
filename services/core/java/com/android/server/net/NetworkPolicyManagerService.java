@@ -4355,8 +4355,13 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             return;
         }
 
-        setUidFirewallRule(FIREWALL_CHAIN_ISOLATED, uid,
-                isIsolated ? FIREWALL_RULE_DENY : FIREWALL_RULE_DEFAULT);
+        final long token = Binder.clearCallingIdentity();
+        try {
+            setUidFirewallRule(FIREWALL_CHAIN_ISOLATED, uid,
+                    isIsolated ? FIREWALL_RULE_DENY : FIREWALL_RULE_DEFAULT);
+        } finally {
+            Binder.restoreCallingIdentity(token);
+        }
 
         int uidRules = oldUidRules;
         if (isIsolated) {
