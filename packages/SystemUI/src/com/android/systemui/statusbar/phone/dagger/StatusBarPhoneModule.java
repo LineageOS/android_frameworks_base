@@ -30,6 +30,7 @@ import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.ViewMediatorCallback;
 import com.android.systemui.InitController;
 import com.android.systemui.assist.AssistManager;
+import com.android.systemui.biometrics.FODCircleViewImpl;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.bubbles.BubbleController;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
@@ -200,7 +201,8 @@ public interface StatusBarPhoneModule {
             Lazy<NotificationShadeDepthController> notificationShadeDepthController,
             DismissCallbackRegistry dismissCallbackRegistry,
             StatusBarTouchableRegionManager statusBarTouchableRegionManager,
-            TunerService tunerService) {
+            TunerService tunerService,
+            FODCircleViewImpl fodCircleViewImpl) {
         return new StatusBar(
                 context,
                 notificationsController,
@@ -279,6 +281,7 @@ public interface StatusBarPhoneModule {
                 dismissCallbackRegistry,
                 notificationShadeDepthController,
                 statusBarTouchableRegionManager,
-                tunerService);
+                tunerService,
+                fodCircleViewImpl);
     }
 }
