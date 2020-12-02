@@ -79,6 +79,7 @@ import com.android.systemui.InitController;
 import com.android.systemui.R;
 import com.android.systemui.SysuiTestCase;
 import com.android.systemui.assist.AssistManager;
+import com.android.systemui.biometrics.FODCircleViewImpl;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.bubbles.BubbleController;
 import com.android.systemui.classifier.FalsingManagerFake;
@@ -240,6 +241,7 @@ public class StatusBarTest extends SysuiTestCase {
     @Mock private DismissCallbackRegistry mDismissCallbackRegistry;
     @Mock private StatusBarTouchableRegionManager mStatusBarTouchableRegionManager;
     @Mock private TunerService mTunerService;
+    @Mock private FODCircleViewImpl mFODCircleViewImpl;
     @Mock private ScreenPinningRequest mScreenPinningRequest;
     @Mock private LockscreenLockIconController mLockscreenLockIconController;
     @Mock private StatusBarNotificationActivityStarter.Builder
@@ -407,7 +409,8 @@ public class StatusBarTest extends SysuiTestCase {
                 mDismissCallbackRegistry,
                 mNotificationShadeDepthControllerLazy,
                 mStatusBarTouchableRegionManager,
-                mTunerService);
+                mTunerService,
+                mFODCircleViewImpl);
 
         when(mNotificationShadeWindowView.findViewById(R.id.lock_icon_container)).thenReturn(
                 mLockIconContainer);
