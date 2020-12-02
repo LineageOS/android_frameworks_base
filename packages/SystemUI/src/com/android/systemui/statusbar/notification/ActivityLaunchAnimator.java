@@ -34,6 +34,7 @@ import android.view.View;
 
 import com.android.internal.policy.ScreenDecorationsUtils;
 import com.android.systemui.Interpolators;
+import com.android.systemui.biometrics.FODCircleViewImpl;
 import com.android.systemui.statusbar.NotificationShadeDepthController;
 import com.android.systemui.statusbar.notification.row.ExpandableNotificationRow;
 import com.android.systemui.statusbar.notification.stack.NotificationListContainer;
@@ -71,13 +72,16 @@ public class ActivityLaunchAnimator {
     private boolean mAnimationRunning;
     private boolean mIsLaunchForActivity;
 
+    private FODCircleViewImpl mFODCircleViewImpl;
+
     public ActivityLaunchAnimator(
             NotificationShadeWindowViewController notificationShadeWindowViewController,
             Callback callback,
             NotificationPanelViewController notificationPanel,
             NotificationShadeDepthController depthController,
             NotificationListContainer container,
-            Executor mainExecutor) {
+            Executor mainExecutor,
+            FODCircleViewImpl fodCircleViewImpl) {
         mNotificationPanel = notificationPanel;
         mNotificationContainer = container;
         mDepthController = depthController;
@@ -87,6 +91,7 @@ public class ActivityLaunchAnimator {
         mWindowCornerRadius = ScreenDecorationsUtils
                 .getWindowCornerRadius(mNotificationShadeWindowViewController.getView()
                         .getResources());
+        mFODCircleViewImpl = fodCircleViewImpl;
     }
 
     public RemoteAnimationAdapter getLaunchAnimation(
@@ -263,6 +268,7 @@ public class ActivityLaunchAnimator {
             mNotificationShadeWindowViewController.setExpandAnimationRunning(running);
             mNotificationContainer.setExpandingNotification(running ? mSourceNotification : null);
             mAnimationRunning = running;
+            mFODCircleViewImpl.hideInDisplayFingerprintView();
             if (!running) {
                 mCallback.onExpandAnimationFinished(mIsFullScreenLaunch);
                 applyParamsToNotification(null);
