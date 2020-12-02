@@ -53,7 +53,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class FODCircleView extends ImageView {
-    private static final int FADE_ANIM_DURATION = 250;
+    private static final int FADE_ANIM_DURATION = 125;
 
     private final int mPositionX;
     private final int mPositionY;
