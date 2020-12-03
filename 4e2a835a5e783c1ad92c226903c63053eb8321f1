@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d9df21c_7bbf7f1a",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4678,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2020-12-03T19:36:43Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is a great place to call setUidFirewallRule(). Two reasons: this block is intended to be about triggering listeners and not implementing features but also - it\u0027s called unconditionally everytime any uid rule changes which is not great since it creates service calls to netd.\n\nWe should look at the call path for how other features call setUidFirewallRule().  It may be that we should create a new MSG type specifically for toggling uid isolation state.",
+      "revId": "4e2a835a5e783c1ad92c226903c63053eb8321f1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
