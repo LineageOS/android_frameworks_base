@@ -2897,4 +2897,41 @@ public final class BluetoothDevice implements Parcelable, Attributable {
     public static @MetadataKey int getMaxMetadataKey() {
         return METADATA_UNTETHERED_CASE_LOW_BATTERY_THRESHOLD;
     }
+
+    /**
+     * Returns Device type.
+     *
+     * @return device type.
+     * @hide
+     */
+    @RequiresPermission(Manifest.permission.BLUETOOTH_PRIVILEGED)
+    public int getDeviceType() {
+        if (sService == null) {
+            Log.e(TAG, "getDeviceType query remote device info failed");
+            return -1;
+        }
+        try {
+            return sService.getDeviceType(this);
+        } catch (RemoteException e) {
+            Log.e(TAG, "getDeviceType fail ", e);
+        }
+        return -1;
+    }
+
+    /**
+     * Used as a String extra field in {@link #ACTION_BOND_STATE_CHANGED} intents.
+     * It contains the Group ID of IOT device.
+     * @hide
+     */
+    public static final String EXTRA_GROUP_ID = "android.bluetooth.qti.extra.GROUP_ID";
+
+    /**
+     * Used as a String extra field in {@link #ACTION_BOND_STATE_CHANGED} intents.
+     * It contains the IGNORE DEVICE flag of IOT device.
+     * @hide
+     */
+    public static final String EXTRA_IS_PRIVATE_ADDRESS =
+            "android.bluetooth.qti.extra.IS_PRIVATE_ADDRESS";
+
+
 }
