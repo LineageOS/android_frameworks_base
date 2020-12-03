@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b9c25969_588ed2b3",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2020-12-03T18:15:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b3056e1_72537ea3",
+      "revId": "e8148240f65bc154d59b1a3f5162f8d57a0412f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e876f3ba_27e5db70",
         "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
         "patchSetId": 1
