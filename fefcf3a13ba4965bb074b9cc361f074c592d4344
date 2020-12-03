@@ -22,6 +22,30 @@
       "revId": "fefcf3a13ba4965bb074b9cc361f074c592d4344",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbfd5ed4_02027755",
+        "filename": "services/core/java/com/android/server/NetworkManagementService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2020-12-03T15:12:25Z",
+      "side": 1,
+      "message": "for all values and variables? or just the variables. changing the value of this variable requires a change in netd as well",
+      "parentUuid": "6062a020_29c1858b",
+      "range": {
+        "startLine": 289,
+        "startChar": 44,
+        "endLine": 289,
+        "endChar": 48
+      },
+      "revId": "fefcf3a13ba4965bb074b9cc361f074c592d4344",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
