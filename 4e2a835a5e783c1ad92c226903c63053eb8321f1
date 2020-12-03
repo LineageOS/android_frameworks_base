@@ -16,6 +16,24 @@
       "revId": "4e2a835a5e783c1ad92c226903c63053eb8321f1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6d2b2e6_42ea2e6e",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4678,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2020-12-03T19:46:17Z",
+      "side": 1,
+      "message": "Agree it is not an optimal place for the call to live in.\n\nAfaict functions containing calls setUidFirewallRule are called from broadcast receivers which pass the enforceSystemUid call.\nAnother other option might be to defer to netd like we\u0027re doing for data restrictions? some chains do this already if I\u0027m not mistaken. Only a couple seem to use the setUidFirewallRule.",
+      "parentUuid": "0d9df21c_7bbf7f1a",
+      "revId": "4e2a835a5e783c1ad92c226903c63053eb8321f1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
