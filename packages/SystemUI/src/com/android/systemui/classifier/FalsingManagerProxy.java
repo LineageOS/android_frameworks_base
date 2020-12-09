@@ -23,7 +23,6 @@ import android.content.res.Resources;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.provider.DeviceConfig;
-import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
@@ -64,7 +63,7 @@ public class FalsingManagerProxy implements FalsingManager, Dumpable {
     private static final String PROXIMITY_SENSOR_TAG = "FalsingManager";
 
     private final ProximitySensor mProximitySensor;
-    private final DisplayMetrics mDisplayMetrics;
+    private final FalsingDataProvider mFalsingDataProvider;
     private FalsingManager mInternalFalsingManager;
     private DeviceConfig.OnPropertiesChangedListener mDeviceConfigListener;
     private final DeviceConfigProxy mDeviceConfig;
@@ -76,20 +75,21 @@ public class FalsingManagerProxy implements FalsingManager, Dumpable {
 
     @Inject
     FalsingManagerProxy(Context context, PluginManager pluginManager, @Main Executor executor,
-            DisplayMetrics displayMetrics, ProximitySensor proximitySensor,
+            ProximitySensor proximitySensor,
             DeviceConfigProxy deviceConfig, DockManager dockManager,
             KeyguardUpdateMonitor keyguardUpdateMonitor,
             DumpManager dumpManager,
             @UiBackground Executor uiBgExecutor,
-            StatusBarStateController statusBarStateController) {
-        mDisplayMetrics = displayMetrics;
+            StatusBarStateController statusBarStateController,
+            FalsingDataProvider falsingDataProvider) {
         mProximitySensor = proximitySensor;
         mDockManager = dockManager;
         mKeyguardUpdateMonitor = keyguardUpdateMonitor;
         mUiBgExecutor = uiBgExecutor;
         mStatusBarStateController = statusBarStateController;
+        mFalsingDataProvider = falsingDataProvider;
         mProximitySensor.setTag(PROXIMITY_SENSOR_TAG);
-        mProximitySensor.setSensorDelay(SensorManager.SENSOR_DELAY_GAME);
+        mProximitySensor.setDelay(SensorManager.SENSOR_DELAY_GAME);
         mDeviceConfig = deviceConfig;
         mDeviceConfigListener =
                 properties -> onDeviceConfigPropertiesChanged(context, properties.getNamespace());
@@ -147,7 +147,7 @@ public class FalsingManagerProxy implements FalsingManager, Dumpable {
             mInternalFalsingManager = new FalsingManagerImpl(context, mUiBgExecutor);
         } else {
             mInternalFalsingManager = new BrightLineFalsingManager(
-                    new FalsingDataProvider(mDisplayMetrics),
+                    mFalsingDataProvider,
                     mKeyguardUpdateMonitor,
                     mProximitySensor,
                     mDeviceConfig,

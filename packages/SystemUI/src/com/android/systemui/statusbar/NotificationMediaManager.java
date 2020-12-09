@@ -21,6 +21,7 @@ import static com.android.systemui.statusbar.phone.StatusBar.ENABLE_LOCKSCREEN_W
 import static com.android.systemui.statusbar.phone.StatusBar.SHOW_LOCKSCREEN_MEDIA_ARTWORK;
 
 import android.annotation.MainThread;
+import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.Notification;
 import android.app.WallpaperManager;
@@ -58,6 +59,7 @@ import com.android.systemui.statusbar.dagger.StatusBarModule;
 import com.android.systemui.statusbar.notification.NotificationEntryListener;
 import com.android.systemui.statusbar.notification.NotificationEntryManager;
 import com.android.systemui.statusbar.notification.collection.NotificationEntry;
+import com.android.systemui.statusbar.notification.collection.notifcollection.NotifCollectionListener;
 import com.android.systemui.statusbar.phone.BiometricUnlockController;
 import com.android.systemui.statusbar.phone.KeyguardBypassController;
 import com.android.systemui.statusbar.phone.LockscreenWallpaper;
@@ -249,8 +251,17 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
                     NotificationVisibility visibility,
                     boolean removedByUser,
                     int reason) {
-                onNotificationRemoved(entry.getKey());
-                mediaDataManager.onNotificationRemoved(entry.getKey());
+                removeEntry(entry);
+            }
+        });
+
+        // Pending entries are never inflated, and will never generate a call to onEntryRemoved().
+        // This can happen when notifications are added and canceled before inflation. Add this
+        // separate listener for cleanup, since media inflation occurs onPendingEntryAdded().
+        notificationEntryManager.addCollectionListener(new NotifCollectionListener() {
+            @Override
+            public void onEntryCleanUp(@NonNull NotificationEntry entry) {
+                removeEntry(entry);
             }
         });
 
@@ -272,6 +283,11 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
             mShowMediaMetadata = TunerService.parseIntegerSwitch(newValue, false);
             dispatchUpdateMediaMetaData(false /* changed */, true /* allowAnimation */);
         }
+    }
+
+    private void removeEntry(NotificationEntry entry) {
+        onNotificationRemoved(entry.getKey());
+        mMediaDataManager.onNotificationRemoved(entry.getKey());
     }
 
     /**
