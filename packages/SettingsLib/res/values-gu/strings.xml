@@ -257,7 +257,6 @@
     <string name="bluetooth_show_devices_without_names" msgid="923584526471885819">"નામ વિનાના બ્લૂટૂથ ઉપકરણો બતાવો"</string>
     <string name="bluetooth_disable_absolute_volume" msgid="1452342324349203434">"ચોક્કસ વૉલ્યૂમને અક્ષમ કરો"</string>
     <string name="bluetooth_enable_gabeldorsche" msgid="9131730396242883416">"Gabeldorsche ચાલુ કરો"</string>
-    <string name="enhanced_connectivity" msgid="7201127377781666804">"વિસ્તૃત કનેક્ટિવિટી"</string>
     <string name="bluetooth_select_avrcp_version_string" msgid="1710571610177659127">"બ્લૂટૂથ AVRCP સંસ્કરણ"</string>
     <string name="bluetooth_select_avrcp_version_dialog_title" msgid="7846922290083709633">"બ્લૂટૂથ AVRCP સંસ્કરણ પસંદ કરો"</string>
     <string name="bluetooth_select_map_version_string" msgid="526308145174175327">"બ્લૂટૂથ MAP વર્ઝન"</string>
@@ -488,8 +487,8 @@
     <string name="status_unavailable" msgid="5279036186589861608">"અનુપલબ્ધ"</string>
     <string name="wifi_status_mac_randomized" msgid="466382542497832189">"MACને રેન્ડમ કરેલ છે"</string>
     <plurals name="wifi_tether_connected_summary" formatted="false" msgid="6317236306047306139">
-      <item quantity="one">%1$d ઉપકરણ કનેક્ટ કર્યું</item>
-      <item quantity="other">%1$d ઉપકરણો કનેક્ટ કર્યા</item>
+      <item quantity="one">%1$d ડિવાઇસ કનેક્ટ કર્યું</item>
+      <item quantity="other">%1$d ડિવાઇસ કનેક્ટ કર્યા</item>
     </plurals>
     <string name="accessibility_manual_zen_more_time" msgid="5141801092071134235">"વધુ સમય."</string>
     <string name="accessibility_manual_zen_less_time" msgid="6828877595848229965">"ઓછો સમય."</string>

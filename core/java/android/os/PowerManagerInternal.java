@@ -17,6 +17,7 @@
 package android.os;
 
 import android.view.Display;
+import android.view.KeyEvent;
 
 import java.util.function.Consumer;
 
@@ -329,6 +330,9 @@ public abstract class PowerManagerInternal {
 
     /** Returns information about the last wakeup event. */
     public abstract PowerManager.WakeData getLastWakeup();
+
+    /** Allows power button to intercept a power key button press. */
+    public abstract boolean interceptPowerKeyDown(KeyEvent event);
 
     public abstract boolean setPowerSaveMode(boolean mode);
 

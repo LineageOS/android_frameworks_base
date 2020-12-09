@@ -2,8 +2,6 @@ package com.android.internal.util;
 
 import static android.view.WindowManager.ScreenshotSource.SCREENSHOT_OTHER;
 
-import static android.view.WindowManager.TAKE_SCREENSHOT_SELECTED_REGION;
-
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.ComponentName;
@@ -293,7 +291,7 @@ public class ScreenshotHelper {
             };
 
             Message msg = Message.obtain(null, screenshotType, screenshotRequest);
-            final ServiceConnection myConn = mScreenshotConnection;
+
             Handler h = new Handler(handler.getLooper()) {
                 @Override
                 public void handleMessage(Message msg) {
@@ -306,8 +304,8 @@ public class ScreenshotHelper {
                             break;
                         case SCREENSHOT_MSG_PROCESS_COMPLETE:
                             synchronized (mScreenshotLock) {
-                                if (myConn != null && mScreenshotConnection == myConn) {
-                                    mContext.unbindService(myConn);
+                                if (mScreenshotConnection != null) {
+                                    mContext.unbindService(mScreenshotConnection);
                                     mScreenshotConnection = null;
                                     mScreenshotService = null;
                                 }
@@ -366,12 +364,11 @@ public class ScreenshotHelper {
                         Context.BIND_AUTO_CREATE | Context.BIND_FOREGROUND_SERVICE,
                         UserHandle.CURRENT)) {
                     mScreenshotConnection = conn;
-                    if (screenshotType != TAKE_SCREENSHOT_SELECTED_REGION) {
-                        handler.postDelayed(mScreenshotTimeout, timeoutMs);
-                    }
+                    handler.postDelayed(mScreenshotTimeout, timeoutMs);
                 }
             } else {
                 Messenger messenger = new Messenger(mScreenshotService);
+
                 try {
                     messenger.send(msg);
                 } catch (RemoteException e) {
@@ -380,9 +377,7 @@ public class ScreenshotHelper {
                         completionConsumer.accept(null);
                     }
                 }
-                if (screenshotType != TAKE_SCREENSHOT_SELECTED_REGION) {
-                    handler.postDelayed(mScreenshotTimeout, timeoutMs);
-                }
+                handler.postDelayed(mScreenshotTimeout, timeoutMs);
             }
         }
     }
