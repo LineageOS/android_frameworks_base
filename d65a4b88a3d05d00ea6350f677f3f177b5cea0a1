@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8a45b0e_1da4cc44",
+        "filename": "packages/Tethering/src/com/android/networkstack/tethering/UpstreamNetworkMonitor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2020-12-09T20:33:21Z",
+      "side": 1,
+      "message": "Sam, this is what it\u0027s for.\n\nThis is the public API `getInt` and thus can only be used with AOSP Settings.",
+      "revId": "d65a4b88a3d05d00ea6350f677f3f177b5cea0a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
