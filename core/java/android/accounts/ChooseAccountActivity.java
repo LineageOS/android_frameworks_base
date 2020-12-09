@@ -52,7 +52,9 @@ public class ChooseAccountActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getWindow().addPrivateFlags(
+                android.view.WindowManager.LayoutParams
+                        .PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
         mAccounts = getIntent().getParcelableArrayExtra(AccountManager.KEY_ACCOUNTS);
         mAccountManagerResponse =
                 getIntent().getParcelableExtra(AccountManager.KEY_ACCOUNT_MANAGER_RESPONSE);
