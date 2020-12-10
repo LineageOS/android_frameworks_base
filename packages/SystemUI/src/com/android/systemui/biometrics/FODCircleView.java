@@ -97,6 +97,24 @@ public class FODCircleView extends ImageView {
                 return;
             }
 
+            if (!mUpdateMonitor.isScreenOn()) {
+                // Keyguard is shown just after screen turning off
+                return;
+            }
+
+            if (mIsBouncer && !isPinOrPattern(mUpdateMonitor.getCurrentUser())) {
+                // Ignore show calls when Keyguard password screen is being shown
+                return;
+            }
+
+            if (mIsKeyguard && mUpdateMonitor.getUserCanSkipBouncer(mUpdateMonitor.getCurrentUser())) {
+                // Ignore show calls if user can skip bouncer
+                return;
+            }
+
+            if (mIsKeyguard && !mIsBiometricRunning) {
+                return;
+            }
             mHandler.post(() -> showCircle());
         }
 
@@ -253,8 +271,6 @@ public class FODCircleView extends ImageView {
                 super.onDraw(canvas);
             }
         };
-        mPressedView.setImageResource(R.drawable.fod_icon_pressed);
-
         mWindowManager.addView(this, mParams);
 
         updatePosition();
@@ -367,6 +383,8 @@ public class FODCircleView extends ImageView {
 
         setDim(true);
         dispatchPress();
+
+        mPressedView.setImageResource(R.drawable.fod_icon_pressed);
 
         setImageDrawable(null);
         invalidate();
