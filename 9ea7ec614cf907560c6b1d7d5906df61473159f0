@@ -22,6 +22,29 @@
       "revId": "9ea7ec614cf907560c6b1d7d5906df61473159f0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17ddc197_ce73dff6",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1591,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-12-10T21:18:52Z",
+      "side": 1,
+      "message": "uh, drop !mClickPartialScreenshot to fully restore 18.0 behavior.",
+      "range": {
+        "startLine": 1591,
+        "startChar": 13,
+        "endLine": 1591,
+        "endChar": 36
+      },
+      "revId": "9ea7ec614cf907560c6b1d7d5906df61473159f0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
