@@ -1218,11 +1218,15 @@ public class Location implements Parcelable {
     }
 
     /**
-     * Returns true if the Location came from a mock provider.
+     * Returns true if the Location came from a mock provider and user is not treating
+     * it as real.
      *
      * @return true if this Location came from a mock provider, false otherwise
      */
     public boolean isFromMockProvider() {
+        if (Settings.System.getInt(getContext().getContentResolver(), TREAT_MOCK_LOCATION_REAL, 0) != 0) {
+            return false;
+            }
         return (mFieldsMask & HAS_MOCK_PROVIDER_MASK) != 0;
     }
 
