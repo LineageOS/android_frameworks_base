@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c1eb563_68837d20",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1591,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-12-10T00:11:31Z",
+      "side": 1,
+      "message": "Here lies the real changes to deal with the new feature introduced by Google.",
+      "range": {
+        "startLine": 1587,
+        "startChar": 0,
+        "endLine": 1591,
+        "endChar": 72
+      },
+      "revId": "9ea7ec614cf907560c6b1d7d5906df61473159f0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
