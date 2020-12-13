@@ -45,7 +45,6 @@ import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 
-import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
 import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreenCallback;
 
 import java.util.NoSuchElementException;
@@ -61,13 +60,23 @@ public class FODCircleView extends ImageView {
     private final int mDreamingMaxOffset;
     private final int mNavigationBarSize;
     private final boolean mShouldBoostBrightness;
+    private final boolean mShouldEnableDimlayer;
     private final Paint mPaintFingerprintBackground = new Paint();
     private final Paint mPaintFingerprint = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
     private final WindowManager.LayoutParams mPressedParams = new WindowManager.LayoutParams();
     private final WindowManager mWindowManager;
 
-    private IFingerprintInscreen mFingerprintInscreenDaemon;
+    private vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen
+        mFingerprintInscreenDaemonV1_0;
+    private vendor.lineage.biometrics.fingerprint.inscreen.V1_1.IFingerprintInscreen
+        mFingerprintInscreenDaemonV1_1;
+
+    private enum DaemonVersion {
+        NONE,
+        V1_0,
+        V1_1,
+    }
 
     private int mDreamingOffsetX;
     private int mDreamingOffsetY;
@@ -191,16 +200,25 @@ public class FODCircleView extends ImageView {
 
         setScaleType(ScaleType.CENTER);
 
-        IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
-        if (daemon == null) {
+        DaemonVersion daemon = getFingerprintInScreenDaemon();
+        if (daemon == DaemonVersion.NONE) {
             throw new RuntimeException("Unable to get IFingerprintInscreen");
         }
 
         try {
-            mShouldBoostBrightness = daemon.shouldBoostBrightness();
-            mPositionX = daemon.getPositionX();
-            mPositionY = daemon.getPositionY();
-            mSize = daemon.getSize();
+            if (daemon == DaemonVersion.V1_1) {
+                mShouldBoostBrightness = mFingerprintInscreenDaemonV1_1.shouldBoostBrightness();
+                mPositionX = mFingerprintInscreenDaemonV1_1.getPositionX();
+                mPositionY = mFingerprintInscreenDaemonV1_1.getPositionY();
+                mSize = mFingerprintInscreenDaemonV1_1.getSize();
+                mShouldEnableDimlayer = mFingerprintInscreenDaemonV1_1.shouldEnableDimlayer();
+            } else {
+                mShouldBoostBrightness = mFingerprintInscreenDaemonV1_0.shouldBoostBrightness();
+                mPositionX = mFingerprintInscreenDaemonV1_0.getPositionX();
+                mPositionY = mFingerprintInscreenDaemonV1_0.getPositionY();
+                mSize = mFingerprintInscreenDaemonV1_0.getSize();
+                mShouldEnableDimlayer = true;
+            }
         } catch (RemoteException e) {
             throw new RuntimeException("Failed to retrieve FOD circle position or size");
         }
@@ -238,6 +256,11 @@ public class FODCircleView extends ImageView {
 
         mParams.setTitle("Fingerprint on display");
         mPressedParams.setTitle("Fingerprint on display.touched");
+
+        if (!mShouldEnableDimlayer) {
+            mParams.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+            mParams.dimAmount = 0.0f;
+        }
 
         mPressedView = new ImageView(context)  {
             @Override
@@ -300,55 +323,83 @@ public class FODCircleView extends ImageView {
         updatePosition();
     }
 
-    public IFingerprintInscreen getFingerprintInScreenDaemon() {
-        if (mFingerprintInscreenDaemon == null) {
+    public DaemonVersion getFingerprintInScreenDaemon() {
+        if (mFingerprintInscreenDaemonV1_1 == null && mFingerprintInscreenDaemonV1_0 == null) {
             try {
-                mFingerprintInscreenDaemon = IFingerprintInscreen.getService();
-                if (mFingerprintInscreenDaemon != null) {
-                    mFingerprintInscreenDaemon.setCallback(mFingerprintInscreenCallback);
-                    mFingerprintInscreenDaemon.asBinder().linkToDeath((cookie) -> {
-                        mFingerprintInscreenDaemon = null;
+                mFingerprintInscreenDaemonV1_0 = 
+                    vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen.getService();
+                if (mFingerprintInscreenDaemonV1_0 != null) {
+                    mFingerprintInscreenDaemonV1_0.setCallback(mFingerprintInscreenCallback);
+                    mFingerprintInscreenDaemonV1_0.asBinder().linkToDeath((cookie) -> {
+                        mFingerprintInscreenDaemonV1_0 = null;
+                        mFingerprintInscreenDaemonV1_1 = null;
                     }, 0);
+                    mFingerprintInscreenDaemonV1_1 =
+                        vendor.lineage.biometrics.fingerprint.inscreen.V1_1.IFingerprintInscreen
+                            .castFrom(mFingerprintInscreenDaemonV1_0);
                 }
             } catch (NoSuchElementException | RemoteException e) {
                 // do nothing
             }
         }
-        return mFingerprintInscreenDaemon;
+
+        if (mFingerprintInscreenDaemonV1_1 != null) {
+            return DaemonVersion.V1_1;
+        } else if (mFingerprintInscreenDaemonV1_0 != null) {
+            return DaemonVersion.V1_0;
+        }
+
+        return DaemonVersion.NONE;
     }
 
     public void dispatchPress() {
         if (mFading) return;
-        IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+        DaemonVersion daemon = getFingerprintInScreenDaemon();
         try {
-            daemon.onPress();
+            if (daemon == DaemonVersion.V1_1) {
+                mFingerprintInscreenDaemonV1_1.onPress();
+            } else if (daemon == DaemonVersion.V1_0) {
+                mFingerprintInscreenDaemonV1_0.onPress();
+            }
         } catch (RemoteException e) {
             // do nothing
         }
     }
 
     public void dispatchRelease() {
-        IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+        DaemonVersion daemon = getFingerprintInScreenDaemon();
         try {
-            daemon.onRelease();
+            if (daemon == DaemonVersion.V1_1) {
+                mFingerprintInscreenDaemonV1_1.onRelease();
+            } else if (daemon == DaemonVersion.V1_0) {
+                mFingerprintInscreenDaemonV1_0.onRelease();
+            }
         } catch (RemoteException e) {
             // do nothing
         }
     }
 
     public void dispatchShow() {
-        IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+        DaemonVersion daemon = getFingerprintInScreenDaemon();
         try {
-            daemon.onShowFODView();
+            if (daemon == DaemonVersion.V1_1) {
+                mFingerprintInscreenDaemonV1_1.onShowFODView();
+            } else if (daemon == DaemonVersion.V1_0) {
+                mFingerprintInscreenDaemonV1_0.onShowFODView();
+            }
         } catch (RemoteException e) {
             // do nothing
         }
     }
 
     public void dispatchHide() {
-        IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+        DaemonVersion daemon = getFingerprintInScreenDaemon();
         try {
-            daemon.onHideFODView();
+            if (daemon == DaemonVersion.V1_1) {
+                mFingerprintInscreenDaemonV1_1.onHideFODView();
+            } else if (daemon == DaemonVersion.V1_0) {
+                mFingerprintInscreenDaemonV1_0.onHideFODView();
+            }
         } catch (RemoteException e) {
             // do nothing
         }
@@ -477,9 +528,13 @@ public class FODCircleView extends ImageView {
                     Settings.System.SCREEN_BRIGHTNESS, 100);
             int dimAmount = 0;
 
-            IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+            DaemonVersion daemon = getFingerprintInScreenDaemon();
             try {
-                dimAmount = daemon.getDimAmount(curBrightness);
+                if (daemon == DaemonVersion.V1_1) {
+                    dimAmount = mFingerprintInscreenDaemonV1_1.getDimAmount(curBrightness);
+                } else if (daemon == DaemonVersion.V1_0) {
+                    dimAmount = mFingerprintInscreenDaemonV1_0.getDimAmount(curBrightness);
+                }
             } catch (RemoteException e) {
                 // do nothing
             }
