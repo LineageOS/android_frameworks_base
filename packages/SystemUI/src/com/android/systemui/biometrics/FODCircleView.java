@@ -61,6 +61,7 @@ public class FODCircleView extends ImageView {
     private final int mDreamingMaxOffset;
     private final int mNavigationBarSize;
     private final boolean mShouldBoostBrightness;
+    private final boolean mDimBehindPressedLayer;
     private final Paint mPaintFingerprintBackground = new Paint();
     private final Paint mPaintFingerprint = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
@@ -68,6 +69,8 @@ public class FODCircleView extends ImageView {
     private final WindowManager mWindowManager;
 
     private IFingerprintInscreen mFingerprintInscreenDaemon;
+    private vendor.lineage.biometrics.fingerprint.inscreen.V1_1.IFingerprintInscreen
+            mFingerprintInscreenDaemonV1_1;
 
     private int mDreamingOffsetX;
     private int mDreamingOffsetY;
@@ -201,6 +204,8 @@ public class FODCircleView extends ImageView {
             mPositionX = daemon.getPositionX();
             mPositionY = daemon.getPositionY();
             mSize = daemon.getSize();
+            mDimBehindPressedLayer = mFingerprintInscreenDaemonV1_1 != null &&
+                    mFingerprintInscreenDaemonV1_1.dimBehindPressedLayer();
         } catch (RemoteException e) {
             throw new RuntimeException("Failed to retrieve FOD circle position or size");
         }
@@ -238,6 +243,11 @@ public class FODCircleView extends ImageView {
 
         mParams.setTitle("Fingerprint on display");
         mPressedParams.setTitle("Fingerprint on display.touched");
+
+        if (mDimBehindPressedLayer) {
+            mParams.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+            mParams.dimAmount = 0.0f;
+        }
 
         mPressedView = new ImageView(context)  {
             @Override
@@ -304,10 +314,14 @@ public class FODCircleView extends ImageView {
         if (mFingerprintInscreenDaemon == null) {
             try {
                 mFingerprintInscreenDaemon = IFingerprintInscreen.getService();
+                mFingerprintInscreenDaemonV1_1 =
+                        vendor.lineage.biometrics.fingerprint.inscreen.V1_1.IFingerprintInscreen
+                                .castFrom(mFingerprintInscreenDaemon);
                 if (mFingerprintInscreenDaemon != null) {
                     mFingerprintInscreenDaemon.setCallback(mFingerprintInscreenCallback);
                     mFingerprintInscreenDaemon.asBinder().linkToDeath((cookie) -> {
                         mFingerprintInscreenDaemon = null;
+                        mFingerprintInscreenDaemonV1_1 = null;
                     }, 0);
                 }
             } catch (NoSuchElementException | RemoteException e) {
