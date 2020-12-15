@@ -65,10 +65,15 @@
     <string name="quick_settings_volume_panel_label">Panel volume</string>
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Mengubungkan ke\u2026</string>
-    <string name="vpn_credentials_hint">Silakan masukkan kredensial Anda untuk menghubungkan ke<xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_hint">Masukkan kredensial Anda untuk menghubungkan ke<xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Nama pengguna</string>
     <string name="vpn_credentials_password">Kata sandi</string>
     <string name="vpn_credentials_dialog_connect">Hubungkan</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD nonaktif\nPenghemat baterai</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare nonaktif\nPenghemat baterai</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare diaktifkan</string>
     <string name="status_bar_battery">Baterai</string>
     <string name="status_bar_camera">Kamera</string>
     <string name="status_bar_location">Lokasi</string>

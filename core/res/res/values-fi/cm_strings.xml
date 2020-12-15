@@ -20,4 +20,5 @@
     <string name="adb_net_active_notification_title">ADB verkon yli käytössä</string>
     <string name="adb_both_active_notification_title">ADB verkon &amp; USB:n kautta käytössä</string>
     <string name="adb_active_generic_notification_message">Paina poistaaksesi vianetsinnän käytöstä.</string>
+    <string name="bluetooth_airplane_mode_toast">Bluetooth pysyy päällä lentokonetilassa</string>
 </resources>

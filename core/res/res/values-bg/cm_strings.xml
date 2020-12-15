@@ -20,4 +20,5 @@
     <string name="adb_net_active_notification_title">ADB над мрежата е активиран</string>
     <string name="adb_both_active_notification_title">ADB над USB &amp; мрежата е активирана</string>
     <string name="adb_active_generic_notification_message">Докоснете за да деактивирате отстраняване на грешки.</string>
+    <string name="bluetooth_airplane_mode_toast">Функцията за Bluetooth ще остане включена по време на самолетния режим</string>
 </resources>

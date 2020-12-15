@@ -21,10 +21,12 @@
     <string name="global_action_restart_recovery">Taastus</string>
     <string name="global_action_restart_bootloader">Käivituslaadur</string>
     <string name="global_action_restart_download">Allalaadimine</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Taaskäivitamine\u2026</string>
     <string name="global_action_restart_recovery_progress">Taaskäivitamine taastusrežiimi\u2026</string>
     <string name="global_action_restart_bootloader_progress">Taaskäivitamine käivituslaadurisse\u2026</string>
     <string name="global_action_restart_download_progress">Taaskäivitamine allalaadimisrežiimi\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Taaskäivitamine fastbootd-režiimi\u2026</string>
     <string name="global_action_current_user">Praegune</string>
     <string name="accessibility_dpad_left">Kursor vasakule</string>
     <string name="accessibility_dpad_right">Kursor paremale</string>
@@ -60,6 +62,18 @@
     <string name="accessibility_quick_settings_profiles_changed">Profiil muudetud: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB lõastamine</string>
     <string name="quick_settings_volume_panel_label">Helipaneel</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Ühendu\u2026</string>
+    <string name="vpn_credentials_hint">Sisestage oma mandaadid <xliff:g id="name">%s</xliff:g> ühenduse loomiseks</string>
+    <string name="vpn_credentials_username">Kasutajanimi</string>
+    <string name="vpn_credentials_password">Parool</string>
+    <string name="vpn_credentials_dialog_connect">Ühenda</string>
+    <string name="quick_settings_aod_label">Alati-sees ekraan</string>
+    <string name="quick_settings_aod_off_powersave_label">Alati-sees ekraan väljas\nAkusäästja</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare väljas\nAkusäästja</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare väljas\nAku on liiga tühi</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare sees</string>
     <string name="status_bar_battery">Aku</string>
     <string name="status_bar_camera">Kaamera</string>
     <string name="status_bar_microphone">Mikrofon</string>
