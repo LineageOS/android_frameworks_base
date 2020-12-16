@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 The LineageOS Project
+     Copyright (C) 2012-2014 The CyanogenMod Project
+     Copyright (c) 2013, The Linux Foundation. All rights reserved.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="adb_net_active_notification_title">ကွန်ယက်ပေါ်မှ ADB ကိုဖွင့်ပြီးပြီ။</string>
+    <string name="adb_both_active_notification_title">USB &amp; ၏ ကွန်ယက်ပေါ်မှ ADB ကိုဖွင့်ပြီးပြီ</string>
+    <string name="adb_active_generic_notification_message">debuggingကိုပိတ်ရန် နှိပ်ပါ။</string>
+    <string name="app_ops_access_camera">ကင်မရာအသုံးပြုခွင့်ရယူရန်</string>
+    <string name="app_ops_access_location">တည်နေရာအသုံးပြုခွင့်ရယူရန်</string>
+    <string name="app_ops_access_notifications">အသိပေးချက်များကိုဖတ်ရန်</string>
+    <string name="app_ops_activate_vpn">VPN ကို စဖွင့်သုံးရန်</string>
+    <string name="app_ops_add_voicemail">အသံစာပို့စနစ်တစ်ခုထည့်ရန်</string>
+    <string name="app_ops_assist_screenshot">မျက်နှာပြင်ကို ဓာတ်ပုံရိုက်ရန်</string>
+    <string name="app_ops_assist_structure">ဖွဲ့စည်းပုံအကူအညီကို အသုံးပြုရန်</string>
+    <string name="app_ops_auto_start">ပါဝါတက်ချိန်တွင်စရန်</string>
+    <string name="app_ops_change_wallpaper">နောက်ခံပုံပြောင်းရန်</string>
+    <string name="app_ops_delete_call_log">ခေါ်ဆိုမှုမှတ်တမ်းများဖျက်ရန်</string>
+    <string name="app_ops_delete_contacts">အဆက်အသွယ်များဖျက်ရန်</string>
+    <string name="app_ops_delete_mms">MMS စာတိုများဖျက်ရန်</string>
+    <string name="app_ops_delete_sms">သင့် စာတိုများကိုဖျက်ရန်</string>
+    <string name="app_ops_draw_on_top">ဝင်းဒိုးကိုမျက်နှာပြင်အပေါ်တွင် ထပ်တင်ရန်</string>
+    <string name="app_ops_get_accounts">ကိရိယာ၏ အကောင့်များကိုအသုံးပြုရန်</string>
+    <string name="app_ops_get_usage_stats">အက်ပ်များသုံးစွဲမှုစာရင်းများကို ရယူရန်</string>
+    <string name="app_ops_keep_device_awake">သင့်ကိရိယာကို ဆက်လက်ဖွင့်ထားပါ။</string>
+    <string name="app_ops_make_phone_call">ဖုန်းခေါ်ဆိုမှုတစ်ခုပြုလုပ်ရန်</string>
+    <string name="app_ops_mock_location">သင်၏တည်နေရာကို အတုဖန်တီးရန်</string>
+    <string name="app_ops_modify_calendar">သင့်ပြက္ခဒိန်ကိုအသစ်မွမ်းမံရန်</string>
+    <string name="app_ops_modify_call_log">ခေါ်ဆိုမှုစာရင်းကိုအသစ်မွမ်းမံရန်</string>
+    <string name="app_ops_modify_clipboard">နောက်ခံမှတ်တမ်းကိုပြင်ဆင်ရန်</string>
+    <string name="app_ops_modify_contacts">အဆက်အသွယ်များကိုအသစ်မွမ်းမံရန်</string>
+    <string name="app_ops_modify_settings">စနစ်ချိန်ညှိမှုများကိုအသစ်မွမ်းမံရန်</string>
+    <string name="app_ops_mute_unmute_microphone">မိုက်ခရိုဖုန်းအဖွင့်/အပိတ်</string>
+    <string name="app_ops_play_audio">အသံဖွင့်ရန်</string>
+    <string name="app_ops_post_notification">အသိပေးချက်ကို တင်ရန်</string>
+    <string name="app_ops_read_calendar">သင့်ပြက္ခဒိန်ကို ဖတ်ရန်</string>
+    <string name="app_ops_read_call_log">ခေါ်ဆိုမှု မှတ်တမ်းအား ဖတ်ရန်</string>
+    <string name="app_ops_read_cell_broadcasts">ဆဲလ် ထုတ်လွှင့်မှုများကို ဖတ်ရန်</string>
+    <string name="app_ops_read_clipboard">နောက်ခံမှတ်တမ်း ဖတ်ရန်</string>
+    <string name="app_ops_read_contacts">သင့်အဆက်အသွယ်များကို ဖတ်ရန်</string>
+    <string name="app_ops_read_external_storage">ပြင်ပသိုလှောင်ခန်းကိုဖတ်ရန်</string>
+    <string name="app_ops_read_mms">သင့် MMS စာတိုများကိုဖတ်ရန်</string>
+    <string name="app_ops_read_phone_state">ဖုန်းအခြေအနေကို အသုံးပြုရန်</string>
+    <string name="app_ops_read_sms">သင့် စာတိုများကိုဖတ်ရန်</string>
+    <string name="app_ops_receive_sms">စာတိုတစ်စောင်လက်ခံရန်</string>
+    <string name="app_ops_record_audio">အသံဖမ်းရန်</string>
+    <string name="app_ops_scan_wifi">ဝိုင်ဖိုင်ကွန်ယက်များ ရှာဖွေရန်</string>
+    <string name="app_ops_send_mms">MMS စာတိုတစ်‌စောင်ပို့ရန်</string>
+    <string name="app_ops_send_sms">SMS စာတိုတစ်စောင်ပို့ရန်</string>
+    <string name="app_ops_start_at_bootup">ပါဝါတက်ချိန်တွင်စပါ</string>
+    <string name="app_ops_su">root လုပ်ပြီး သုံးစွဲခွင့်ကို ရယူရန်</string>
+    <string name="app_ops_toast_window">အသိပေးချက်စာတို‌ပြသရန်</string>
+    <string name="app_ops_toggle_bluetooth">ဘလူးတုသ် ခလုပ်</string>
+    <string name="app_ops_toggle_mobile_data">ဒေတာ ခလုပ်</string>
+    <string name="app_ops_toggle_nfc">NFC ခလုပ်</string>
+    <string name="app_ops_toggle_wifi">ဝိုင်ဖိုင်ခလုပ်</string>
+    <string name="app_ops_turn_on_screen">မျက်နှာပြင်ကိုဖွင့်ရန်</string>
+    <string name="app_ops_use_alarm_volume">နှိုးစက်အသံထိန်းချုပ်ရန်</string>
+    <string name="app_ops_use_audio_focus">အသံ၏စူးစိုက်မှုကို ထိန်းချုပ်ရန်</string>
+    <string name="app_ops_use_bluetooth_volume">ဘလူးတုသ်အသံကို ထိန်းချုပ်ရန်</string>
+    <string name="app_ops_use_body_sensors">ခန္ဓာကိုယ် အာရုံခံကိရိယာများကိုအသုံးပြုရန်</string>
+    <string name="app_ops_use_fingerprint">လက်ဗွေအသုံးပြုပါ</string>
+    <string name="app_ops_use_media_buttons">မီဒီယာခလုပ်များကိုအသုံးပြုရန်</string>
+    <string name="app_ops_use_media_volume">မီဒီယာအသံကို ထိန်းချုပ်ရန်</string>
+    <string name="app_ops_use_notification_volume">အသိပေးချက်အသံကို ထိန်းချုပ်ရန်</string>
+    <string name="app_ops_use_ring_volume">ဖုန်းမြည်သံကို ထိန်းချုပ်ရန်</string>
+    <string name="app_ops_use_vibrate">တုန်ခါမှုကို အသုံးပြုရန်</string>
+    <string name="app_ops_use_voice_volume">ဖုန်းခေါ်ဆိုမှုအသံကိုထိန်းချုပ်ရန်</string>
+    <string name="app_ops_wifi_change">ဝိုင်ဖိုင်အခြေအနေကို ပြောင်းလဲရန်</string>
+    <string name="app_ops_write_external_storage">ပြင်ပသိုလှောင်ခန်းကို ရေးသားရန်</string>
+    <string name="app_ops_write_mms">MMS စာတိုတစ်စောင်ရေးသားရန်</string>
+    <string name="app_ops_write_sms">SMS စာတိုတစ်စောင်ရေးသားရန်</string>
+    <string name="permlab_changePrivacyGuardState">ပုဂ္ဂိုလ်ရေးအကာအကွယ် အဖွင့်အပိတ်</string>
+    <string name="privacy_guard_notification">ပုဂ္ဂိုလ်ရေးအကာအကွယ် အသက်ဝင်</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> သည် သင်၏ ပုဂ္ဂိုလ်ရေးဆိုင်ရာအချက်အလက်များကို အသုံးပြုခွင့်ရမည်မဟုတ်ပါ။</string>
+    <string name="privacy_guard_dialog_title">ပုဂ္ဂိုလ်ရေးအကာအကွယ်</string>
+    <string name="permission_remember_choice">ဤရွေးချယ်မှုကို မှတ်ထားပါ</string>
+</resources>

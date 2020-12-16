@@ -14,8 +14,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="prompt">Iarrtas ceangail</string>
+    <string name="warning">Tha <xliff:g id="app">%s</xliff:g> airson ceangal VPN a shuidheachadh
+        a leigeas leis sùil a chumail air trafaig an lìonraidh. Na gabh ris ach ma tha earbsa agad san tùs.
+        Nochdaidh         &lt;br /&gt;
+        &lt;br /&gt;
+        &lt;img src="vpn_icon" /&gt;
+         air bàrr na sgrìn nuair a bhios VPN an comas.
+    </string>
+    <string name="legacy_title">Chaidh ceangal le VPN</string>
+    <string name="session">Seisean:</string>
+    <string name="duration">Faid:</string>
     <string name="data_transmitted">Air a chur:</string>
     <string name="data_received">Air fhaighinn:</string>
+    <string name="data_value_format">        <xliff:g id="number">%1$s</xliff:g> baidht /
+        <xliff:g id="number">%2$s</xliff:g> pacaid
+    </string>
     <string name="always_on_disconnected_title">Chan urrainn dhuinn ceangal ri VPN a bhios air an-còmhnaidh</string>
     <string name="always_on_disconnected_message">        Chaidh <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> a shuidheachadh ach am mair e ceangailte
         fad na h-ùine ach chan urrainn dha ceangal a dhèanamh an-dràsta. Cleachdaidh am fòn agad lìonra poblach gus an urrainn dha
@@ -27,6 +41,7 @@
     </string>
     <string name="always_on_disconnected_message_settings_link">Atharraich roghainnean a’ VPN</string>
     <string name="configure">Rèitich</string>
+    <string name="disconnect">Bris an ceangal</string>
     <string name="open_app">Fosgail aplacaid</string>
     <string name="dismiss">Leig seachad</string>
 </resources>

@@ -14,5 +14,24 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="toast_backup_ended">Chaidh an lethbhreac-glèidhidh a choileanadh</string>
+    <string name="backup_confirm_title">Lethbhreac-glèidhidh slàn</string>
+    <string name="restore_confirm_title">Aiseag slàn</string>
+    <string name="backup_confirm_text">Chaidh iarraidh gun dèid lethbhreac-glèidhidh dhen dàta uile a chur air coimpiutair desktop ceangailte. A bheil thu airson ’s gun tachair seo?\n\nMur an do dh’iarr thu fhèin an lethbhreac-glèidhidh seo, nach leig leis a’ ghnìomh seo a dhol air adhart.</string>
+    <string name="allow_backup_button_label">Dèan lethbhreac-glèidhidh dhen dàta uile agam</string>
+    <string name="deny_backup_button_label">Na dèan lethbhreac-glèidhidh</string>
+    <string name="restore_confirm_text">Chaidh iarraidh gun dèid an dàta uile agad aiseag o choimpiutair desktop ceangailte. A bheil thu airson ’s gun tachair seo?\n\nMur an do dh’iarr thu fhèin an t-aiseag seo, nach leig leis a’ ghnìomh seo a dhol air adhart. Thèid an dàta ud a chur an àite dàta sam bith a tha air an uidheam an-dràsta!</string>
+    <string name="allow_restore_button_label">Aisig an dàta agam</string>
+    <string name="deny_restore_button_label">Na dèan aiseag</string>
+    <string name="current_password_text">Cuir a-steach facal-faire làithreach an lethbhric-ghlèidhidh agad gu h-ìosal:</string>
+    <string name="device_encryption_restore_text">Cuir a-steach am facal-faire airson crioptachadh an uidheim agad gu h-ìosal.</string>
+    <string name="device_encryption_backup_text">Cuir a-steach am facal-faire airson crioptachadh an uidheim agad gu h-ìosal. Thèid seo a chleachdadh cuideachd airson tasg-lann an lethbhric-ghlèidhidh agad a chrioptachadh.</string>
+    <string name="backup_enc_password_text">Cuir a-steach facal-faire airson dàta an lethbhric-ghlèidhidh shlàin a chrioptachadh. Ma dh’fhàgas tu seo bàn, thèid facal-faire làithreach nan lethbhreacan-glèidhidh agad a chleachdadh:</string>
+    <string name="backup_enc_password_optional">Nam bu mhiann leat dàta an lethbhric-ghlèidhidh shlàin a chrioptachadh, cuir a-steach facal-faire gu h-ìosal:</string>
+    <string name="backup_enc_password_required">On a tha an t-uidheam agad crioptaichte, feumaidh tu an lethbhreac-glèidhidh a chrioptachadh cuideachd. Cuir a-steach facal-faire gu h-ìosal:</string>
+    <string name="restore_enc_password_text">Ma tha dàta an aisig crioptaichte, cuir a-steach am facal-faire gu h-ìosal:</string>
+    <string name="toast_backup_started">A’ tòiseachadh air an lethbhreac-ghlèidhidh…</string>
+    <string name="toast_backup_ended">Tha an lethbhreac-glèidhidh deiseil</string>
+    <string name="toast_restore_started">A’ tòiseachadh air an aiseag…</string>
+    <string name="toast_restore_ended">Tha an t-aiseag deiseil</string>
+    <string name="toast_timeout">Dh’fhalbh an ùine air an obrachadh</string>
 </resources>

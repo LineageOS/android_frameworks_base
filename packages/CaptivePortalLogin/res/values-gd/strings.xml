@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Clàradh a-steach gu portal bràighe</string>
+    <string name="action_use_network">Cleachd an lìonra seo mar a tha e</string>
+    <string name="action_do_not_use_network">Na cleachd an lìonra seo</string>
+    <string name="action_bar_label">Clàraich a-steach dhan lìonra</string>
+    <string name="ssl_error_example">Mar eisimpleir, dh’fhaoidte nach ann leis a’ bhuidheann a chì thu ’s a tha duilleag a’ chlàraidh a-steach.</string>
+    <string name="ssl_error_continue">Lean air co-dhiù le brabhsair</string>
+</resources>
