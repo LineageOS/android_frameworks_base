@@ -81,9 +81,6 @@ import android.view.View.AccessibilityDelegate;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.view.ViewStub;
-import android.view.ViewTreeObserver;
-import android.view.ViewTreeObserver.InternalInsetsInfo;
-import android.view.ViewTreeObserver.OnComputeInternalInsetsListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
@@ -369,22 +366,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         mAllyStream = -1;
         mMusicHidden = false;
     }
-
-    private final OnComputeInternalInsetsListener mInsetsListener = internalInsetsInfo -> {
-        internalInsetsInfo.touchableRegion.setEmpty();
-        internalInsetsInfo.setTouchableInsets(InternalInsetsInfo.TOUCHABLE_INSETS_REGION);
-        View main = mDialog.findViewById(R.id.main);
-        int[] mainLocation = new int[2];
-        main.getLocationOnScreen(mainLocation);
-        int[] dialogLocation = new int[2];
-        mDialogView.getLocationOnScreen(dialogLocation);
-        internalInsetsInfo.touchableRegion.set(new Region(
-                mainLocation[0],
-                dialogLocation[1],
-                mainLocation[0] + main.getWidth(),
-                dialogLocation[1] + mDialogView.getHeight()
-        ));
-    };
 
     // Helper to set layout gravity.
     // Particular useful when the ViewGroup in question
@@ -880,7 +861,6 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         initSettingsH();
         mIsAnimatingDismiss = false;
-        mDialog.getViewTreeObserver().addOnComputeInternalInsetsListener(mInsetsListener);
 
         if (!mShowing && !mDialog.isShown()) {
             if (!isLandscape()) {
