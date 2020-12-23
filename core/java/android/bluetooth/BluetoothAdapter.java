@@ -3006,6 +3006,92 @@ public final class BluetoothAdapter {
         return null;
     }
 
+    private void closeBCProfile(BluetoothProfile proxy) {
+        Class<?> bshClass = null;
+        Method bshClose = null;
+        try {
+            bshClass = Class.forName("android.bluetooth.BluetoothSyncHelper");
+        } catch (ClassNotFoundException ex) {
+            Log.e(TAG, "no BSH: exists");
+            bshClass = null;
+        }
+        if (bshClass != null) {
+            Log.d(TAG, "Able to get BSH class handle");
+            try {
+                bshClose =  bshClass.getDeclaredMethod("close", null);
+            } catch (NoSuchMethodException e) {
+                Log.e(TAG, "no BSH:isSupported method exists");
+            }
+            if (bshClose != null) {
+                try {
+                   bshClose.invoke(proxy, null);
+                } catch(IllegalAccessException e) {
+                   Log.e(TAG, "bshClose IllegalAccessException");
+                } catch (InvocationTargetException e) {
+                   Log.e(TAG, "bshClose InvocationTargetException");
+                }
+            }
+        }
+        Log.d(TAG, "CloseBCProfile returns");
+    }
+
+    private boolean getBCProfile(Context context, BluetoothProfile.ServiceListener sl) {
+        boolean ret = true;
+        boolean isProfileSupported = false;
+        Class<?> bshClass = null;
+        Method bshSupported = null;
+        Constructor bshCons = null;
+        Object bshObj = null;
+        try {
+            bshClass = Class.forName("android.bluetooth.BluetoothSyncHelper");
+        } catch (ClassNotFoundException ex) {
+            Log.e(TAG, "no BSH: exists");
+            bshClass = null;
+        }
+        if (bshClass != null) {
+            Log.d(TAG, "Able to get BSH class handle");
+            try {
+                bshSupported =  bshClass.getDeclaredMethod("isSupported", null);
+            } catch (NoSuchMethodException e) {
+                Log.e(TAG, "no BSH:isSupported method exists: gdm");
+            }
+            try {
+                bshCons =
+                  bshClass.getDeclaredConstructor(
+                    new Class[]{Context.class,
+                        BluetoothProfile.ServiceListener.class});
+            } catch (NoSuchMethodException ex) {
+                Log.e(TAG, "bshCons: NoSuchMethodException: gdm" + ex);
+            }
+        }
+        if (bshClass != null && bshSupported != null && bshCons != null) {
+            try {
+                isProfileSupported = (boolean)bshSupported.invoke(null, null);
+            } catch(IllegalAccessException e) {
+                Log.e(TAG, "BSH:isSupported IllegalAccessException");
+            } catch (InvocationTargetException e) {
+                Log.e(TAG, "BSH:isSupported InvocationTargetException");
+            }
+            if (isProfileSupported) {
+                try {
+                    bshObj = bshCons.newInstance(
+                                       context, sl);
+                } catch (InstantiationException ex) {
+                    Log.e(TAG, "bshCons InstantiationException:" + ex);
+                } catch (IllegalAccessException ex) {
+                    Log.e(TAG, "bshCons InstantiationException:" + ex);
+                } catch (InvocationTargetException ex) {
+                    Log.e(TAG, "bshCons InvocationTargetException:" + ex);
+                }
+             }
+        }
+        if (bshObj == null) {
+            ret = false;
+        }
+        Log.d(TAG, "getBCService returns" + ret);
+        return ret;
+    }
+
     /**
      * Get the profile proxy object associated with the profile.
      *
@@ -3077,6 +3163,8 @@ public final class BluetoothAdapter {
             return true;
         } else if (profile == BluetoothProfile.BROADCAST) {
             return getBroadcastProfile(context, listener);
+        } else if (profile == BluetoothProfile.BC_PROFILE) {
+            return getBCProfile(context, listener);
         } else if (profile == BluetoothProfile.HEARING_AID) {
             if (isHearingAidProfileSupported()) {
                 BluetoothHearingAid hearingAid = new BluetoothHearingAid(context, listener, this);
@@ -3176,6 +3264,9 @@ public final class BluetoothAdapter {
                 break;
             case BluetoothProfile.BROADCAST:
                 closeBroadcastProfile(proxy);
+                break;
+            case BluetoothProfile.BC_PROFILE:
+                closeBCProfile(proxy);
                 break;
             case BluetoothProfile.HEARING_AID:
                 BluetoothHearingAid hearingAid = (BluetoothHearingAid) proxy;
