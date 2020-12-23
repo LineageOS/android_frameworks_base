@@ -355,6 +355,9 @@ public class UserRestrictionsUtils {
     public static Bundle readRestrictions(XmlPullParser parser) {
         final Bundle result = new Bundle();
         readRestrictions(parser, result);
+        if (result.isEmpty()) {
+            return null;
+        }
         return result;
     }
 
