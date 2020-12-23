@@ -43,6 +43,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * CachedBluetoothDevice represents a remote Bluetooth device. It contains
@@ -132,6 +135,17 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         mLocalAdapter = BluetoothAdapter.getDefaultAdapter();
         mProfileManager = profileManager;
         mDevice = device;
+        fillData();
+        mHiSyncId = BluetoothHearingAid.HI_SYNC_ID_INVALID;
+        mTwspBatteryState = -1;
+        mTwspBatteryLevel = -1;
+    }
+
+    CachedBluetoothDevice(CachedBluetoothDevice cachedDevice) {
+        mContext = cachedDevice.mContext;
+        mLocalAdapter = BluetoothAdapter.getDefaultAdapter();
+        mProfileManager = cachedDevice.mProfileManager;
+        mDevice = cachedDevice.mDevice;
         fillData();
         mHiSyncId = BluetoothHearingAid.HI_SYNC_ID_INVALID;
         mTwspBatteryState = -1;
@@ -774,13 +788,49 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         return new ArrayList<>(mProfiles);
     }
 
+    public boolean isBASeeker() {
+        if (mDevice == null) {
+            Log.e(TAG, "isBASeeker: mDevice is null");
+            return false;
+        }
+        boolean ret = false;
+        Class<?> bCProfileClass = null;
+        String BC_PROFILE_CLASS = "com.android.settingslib.bluetooth.BCProfile";
+        Method baSeeker;
+        try {
+            bCProfileClass = Class.forName(BC_PROFILE_CLASS);
+            baSeeker = bCProfileClass.getDeclaredMethod("isBASeeker", BluetoothDevice.class);
+            ret = (boolean)baSeeker.invoke(null, mDevice);
+        } catch (ClassNotFoundException | NoSuchMethodException
+                 | IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
     public List<LocalBluetoothProfile> getConnectableProfiles() {
         List<LocalBluetoothProfile> connectableProfiles =
                 new ArrayList<LocalBluetoothProfile>();
+        Class<?> bCProfileClass = null;
+        String BC_PROFILE_CLASS = "com.android.settingslib.bluetooth.BCProfile";
+        try {
+            bCProfileClass = Class.forName(BC_PROFILE_CLASS);
+        } catch (ClassNotFoundException ex) {
+            Log.e(TAG, "no BCProfileClass: exists");
+            bCProfileClass = null;
+        }
         synchronized (mProfileLock) {
             for (LocalBluetoothProfile profile : mProfiles) {
-                if (profile.accessProfileEnabled()) {
-                    connectableProfiles.add(profile);
+                if (bCProfileClass != null && bCProfileClass.isInstance(profile)) {
+                    if (isBASeeker()) {
+                        connectableProfiles.add(profile);
+                    } else {
+                        Log.d(TAG, "BC profile is not enabled for" + mDevice);
+                    }
+                } else {
+                    if (profile.accessProfileEnabled()) {
+                       connectableProfiles.add(profile);
+                    }
                 }
             }
         }
