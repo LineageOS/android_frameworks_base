@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c099998_d5a4b87b",
+        "filename": "core/java/android/bluetooth/BluetoothCodecConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2020-12-23T21:56:52Z",
+      "side": 1,
+      "message": "All these don\u0027t need @UnsupportedAppUsage ?",
+      "revId": "12d5dbeeaefc7ac890deffc5aa183d655f64af52",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
