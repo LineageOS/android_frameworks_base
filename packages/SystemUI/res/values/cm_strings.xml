@@ -111,6 +111,10 @@
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery saver</string>
 
+    <!-- FastCharge QS tile -->
+    <string name="quick_settings_fastcharge_label">Fast Charge</string>
+    <string name="quick_settings_fastcharge_enabled_label">Fast Charge is enabled</string>
+
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Wireless PowerShare</string>
     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>
