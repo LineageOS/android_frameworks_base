@@ -38,6 +38,7 @@ import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DndTile;
+import com.android.systemui.qs.tiles.FastChargeTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
@@ -79,6 +80,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<AirplaneModeTile> mAirplaneModeTileProvider;
     private final Provider<WorkModeTile> mWorkModeTileProvider;
     private final Provider<RotationLockTile> mRotationLockTileProvider;
+    private final Provider<FastChargeTile> mFastChargeTileProvider;
     private final Provider<FlashlightTile> mFlashlightTileProvider;
     private final Provider<LocationTile> mLocationTileProvider;
     private final Provider<CastTile> mCastTileProvider;
@@ -116,6 +118,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<AirplaneModeTile> airplaneModeTileProvider,
             Provider<WorkModeTile> workModeTileProvider,
             Provider<RotationLockTile> rotationLockTileProvider,
+            Provider<FastChargeTile> fastChargeTileProvider,
             Provider<FlashlightTile> flashlightTileProvider,
             Provider<LocationTile> locationTileProvider,
             Provider<CastTile> castTileProvider,
@@ -149,6 +152,7 @@ public class QSFactoryImpl implements QSFactory {
         mAirplaneModeTileProvider = airplaneModeTileProvider;
         mWorkModeTileProvider = workModeTileProvider;
         mRotationLockTileProvider = rotationLockTileProvider;
+        mFastChargeTileProvider = fastChargeTileProvider;
         mFlashlightTileProvider = flashlightTileProvider;
         mLocationTileProvider = locationTileProvider;
         mCastTileProvider = castTileProvider;
@@ -202,6 +206,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mWorkModeTileProvider.get();
             case "rotation":
                 return mRotationLockTileProvider.get();
+            case "fastcharge":
+                return mFastChargeTileProvider.get();
             case "flashlight":
                 return mFlashlightTileProvider.get();
             case "location":
