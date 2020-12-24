@@ -51,6 +51,7 @@ import com.android.systemui.statusbar.phone.DozeParameters;
 import com.android.systemui.util.sensors.AsyncSensorManager;
 import com.android.systemui.util.sensors.ProximitySensor;
 import com.android.systemui.util.wakelock.WakeLock;
+import com.android.systemui.R;
 
 import java.io.PrintWriter;
 import java.util.Collection;
@@ -174,6 +175,12 @@ public class DozeSensors {
                         dozeLog),
         };
 
+        if (context.getResources().getBoolean(R.bool.doze_proximity_sensor_supported)) {
+            mProxSensor = new ProxSensor(policy);
+        } else {
+            mProxSensor = null;
+        }
+
         setProxListening(false);  // Don't immediately start listening when we register.
         mProximitySensor.register(
                 proximityEvent -> {
@@ -275,13 +282,15 @@ public class DozeSensors {
     }
 
     public void setProxListening(boolean listen) {
-        if (mProximitySensor.isRegistered() && listen) {
-            mProximitySensor.alertListeners();
-        } else {
-            if (listen) {
-                mProximitySensor.resume();
+        if(!mDisableProx) {
+            if (mProximitySensor.isRegistered() && listen) {
+                mProximitySensor.alertListeners();
             } else {
-                mProximitySensor.pause();
+                if (listen) {
+                    mProximitySensor.resume();
+                } else {
+                    mProximitySensor.pause();
+                }
             }
         }
     }
@@ -312,7 +321,8 @@ public class DozeSensors {
         for (TriggerSensor s : mSensors) {
             pw.println("  Sensor: " + s.toString());
         }
-        pw.println("  ProxSensor: " + mProximitySensor.toString());
+        if (!mDisableProx) // Useless
+            pw.println("  ProxSensor: " + mProximitySensor.toString());
     }
 
     /**
@@ -320,6 +330,7 @@ public class DozeSensors {
      */
     public Boolean isProximityCurrentlyNear() {
         return mProximitySensor.isNear();
+        return mProxSensor == null ? null : mProxSensor.mCurrentlyFar;
     }
 
     @VisibleForTesting
