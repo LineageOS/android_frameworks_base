@@ -3198,8 +3198,7 @@ public class NotificationPanelViewController extends PanelViewController {
                     return false;
                 }
 
-                if (mDoubleTapToSleepEnabled && mBarState == StatusBarState.KEYGUARD
-                        && !mPulsing && !mDozing) {
+                if (mDoubleTapToSleepEnabled && !mPulsing && !mDozing) {
                     mDoubleTapGesture.onTouchEvent(event);
                 }
 
