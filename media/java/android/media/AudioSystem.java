@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.media.audiofx.AudioEffect;
 import android.media.audiopolicy.AudioMix;
+import android.os.SystemProperties;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -226,19 +227,22 @@ public class AudioSystem
      */
     public static int audioFormatToBluetoothSourceCodec(
             @AudioFormatNativeEnumForBtCodec int audioFormat) {
+        boolean isQtiBt = SystemProperties.get("ro.bluetooth.library_name", "")
+                .equals("libbluetooth_qti.so");
         switch (audioFormat) {
             case AUDIO_FORMAT_AAC: return BluetoothCodecConfig.SOURCE_CODEC_TYPE_AAC;
             case AUDIO_FORMAT_SBC: return BluetoothCodecConfig.SOURCE_CODEC_TYPE_SBC;
             case AUDIO_FORMAT_APTX: return BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX;
             case AUDIO_FORMAT_APTX_HD: return BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_HD;
             case AUDIO_FORMAT_LDAC: return BluetoothCodecConfig.SOURCE_CODEC_TYPE_LDAC;
-            case AUDIO_FORMAT_CELT: return BluetoothCodecConfig.SOURCE_CODEC_TYPE_CELT;
+            case AUDIO_FORMAT_CELT:
+                     if (isQtiBt) return BluetoothCodecConfig.SOURCE_CODEC_TYPE_CELT;
             case AUDIO_FORMAT_APTX_ADAPTIVE:
-                     return BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE;
+                     if (isQtiBt) return BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE;
             case AUDIO_FORMAT_APTX_TWSP:
-                     return BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_TWSP;
+                     if (isQtiBt) return BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_TWSP;
             case VX_AUDIO_FORMAT_LC3:
-                     return BluetoothCodecConfig.SOURCE_CODEC_TYPE_LC3;
+                     if (isQtiBt) return BluetoothCodecConfig.SOURCE_CODEC_TYPE_LC3;
             default:
                 Log.e(TAG, "Unknown audio format 0x" + Integer.toHexString(audioFormat)
                         + " for conversion to BT codec");
@@ -253,6 +257,8 @@ public class AudioSystem
      * @return the audio format, or {@link #AUDIO_FORMAT_DEFAULT} if unknown
      */
     public static @AudioFormatNativeEnumForBtCodec int bluetoothCodecToAudioFormat(int btCodec) {
+        boolean isQtiBt = SystemProperties.get("ro.bluetooth.library_name", "")
+                .equals("libbluetooth_qti.so");
         switch (btCodec) {
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_SBC:
                 return AudioSystem.AUDIO_FORMAT_SBC;
@@ -265,13 +271,13 @@ public class AudioSystem
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_LDAC:
                 return AudioSystem.AUDIO_FORMAT_LDAC;
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_CELT:
-                return AudioSystem.AUDIO_FORMAT_CELT;
+                if (isQtiBt) return AudioSystem.AUDIO_FORMAT_CELT;
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE:
-                return AudioSystem.AUDIO_FORMAT_APTX_ADAPTIVE;
+                if (isQtiBt) return AudioSystem.AUDIO_FORMAT_APTX_ADAPTIVE;
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_TWSP:
-                return AudioSystem.AUDIO_FORMAT_APTX_TWSP;
+                if (isQtiBt) return AudioSystem.AUDIO_FORMAT_APTX_TWSP;
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_LC3:
-                return AudioSystem.VX_AUDIO_FORMAT_LC3;
+                if (isQtiBt) return AudioSystem.VX_AUDIO_FORMAT_LC3;
             default:
                 Log.e(TAG, "Unknown BT codec 0x" + Integer.toHexString(btCodec)
                         + " for conversion to audio format");
