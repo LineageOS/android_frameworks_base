@@ -41,7 +41,7 @@
     <bool name="config_statusBarShowNumber">false</bool>
 
     <!-- For how long the lock screen can be on before the display turns off. -->
-    <integer name="config_lockScreenDisplayTimeout">10000</integer>
+    <integer name="config_lockScreenDisplayTimeout">11000</integer>
 
     <!-- Vibrator pattern for camera gesture launch. -->
     <integer-array translatable="false" name="config_cameraLaunchGestureVibePattern">
@@ -93,7 +93,7 @@
     <bool name="config_navigation_bar_enable_auto_dim_no_visible_wallpaper">true</bool>
 
     <!-- The maximum number of tiles in the QuickQSPanel -->
-    <integer name="quick_qs_panel_max_columns">6</integer>
+    <integer name="quick_qs_panel_max_columns">5</integer>
 
     <!-- Whether QuickSettings is in a phone landscape -->
     <bool name="quick_settings_wide">false</bool>
@@ -109,11 +109,11 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
-        wifi,bt,dnd,flashlight,rotation,battery,cell,airplane,cast
+        airplane,cell,wifi,bt,hotspot,usb_tether,rotation,dnd,cast,flashlight,adb_network,battery,
     </string>
 
     <!-- The minimum number of tiles to display in QuickSettings -->
-    <integer name="quick_settings_min_num_tiles">6</integer>
+    <integer name="quick_settings_min_num_tiles">5</integer>
 
     <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
     <string name="quick_settings_tiles_stock" translatable="false">
@@ -139,10 +139,10 @@
     <bool name="config_showWifiIndicatorWhenEnabled">false</bool>
 
     <!-- The number of milliseconds before the heads up notification auto-dismisses. -->
-    <integer name="heads_up_notification_decay">5000</integer>
+    <integer name="heads_up_notification_decay">8000</integer>
 
     <!-- The number of milliseconds before the heads up notification sent automatically by the system auto-dismisses. -->
-    <integer name="auto_heads_up_notification_decay">3000</integer>
+    <integer name="auto_heads_up_notification_decay">5000</integer>
 
     <!-- The number of milliseconds after a heads up notification is pushed back
      before the app can interrupt again. -->
@@ -162,14 +162,14 @@
     <bool name="recents_grow_in_multiwindow">true</bool>
 
     <!-- Animation duration when using long press on recents to dock -->
-    <integer name="long_press_dock_anim_duration">250</integer>
+    <integer name="long_press_dock_anim_duration">280</integer>
 
     <!-- Whether to enable KeyguardService or not -->
     <bool name="config_enableKeyguardService">true</bool>
 
     <!-- The maximum count of notifications on Keyguard. The rest will be collapsed in an overflow
      card. -->
-    <integer name="keyguard_max_notification_count">3</integer>
+    <integer name="keyguard_max_notification_count">2</integer>
 
     <!-- Defines the implementation of the velocity tracker to be used for the panel expansion. Can
          be 'platform' or 'noisy' (i.e. for noisy touch screens). -->
@@ -382,7 +382,7 @@
          This value only affects notifications that are not a group of notifications from the same
          applications. If this value is false, then only the first notification will be expanded;
          the other notifications need to be manually expanded by the user. -->
-    <bool name="config_alwaysExpandNonGroupedNotifications">false</bool>
+    <bool name="config_alwaysExpandNonGroupedNotifications">true</bool>
 
     <!-- Whether or not an expandable notification can be manually expanded or collapsed by the
          user. Grouped notifications are still expandable even if this value is false. -->
@@ -418,10 +418,10 @@
 
     <!-- Snooze: List of snooze values in integer minutes. -->
     <integer-array name="config_notification_snooze_times">
-        <item>15</item>
-        <item>30</item>
+        <item>45</item>
         <item>60</item>
         <item>120</item>
+        <item>420</item>
     </integer-array>
 
     <!-- Smart replies in notifications: Whether smart replies in notifications are enabled. -->
