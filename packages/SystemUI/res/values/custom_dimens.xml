@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2006, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at orchidos
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+*/
+-->
+<resources>
+
+    <!-- Bottom margin size when fingerprint in display is active -->
+    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">@dimen/keyguard_indication_margin_bottom</dimen>
+
+    <!-- Custom padding size on biometric dialog -->
+    <dimen name="fp_dialog_error_padding_top">16dp</dimen>
+    <dimen name="fp_dialog_error_padding_bottom">24dp</dimen>
+
+    <!-- Custom padding size on biometric dialog when fingerprint in display is active -->
+    <dimen name="fp_dialog_error_padding_top_fingerprint_in_display">@dimen/fp_dialog_error_padding_top</dimen>
+    <dimen name="fp_dialog_error_padding_bottom_fingerprint_in_display">72dp</dimen>
+
+    <!-- Custom cutout overlay view sizes -->
+    <dimen name="config_customCutoutTopWidth">0.0px</dimen>
+    <dimen name="config_customCutoutTopHeight">0.0px</dimen>
+    <dimen name="config_customCutoutBottomWidth">0.0px</dimen>
+    <dimen name="config_customCutoutBottomHeight">0.0px</dimen>
+
+    <!-- Pixel navbar -->
+    <dimen name="halo_diameter">22dp</dimen>
+    <dimen name="opa_diamond_translation">16dp</dimen>
+    <dimen name="opa_disabled_home_diameter">32dp</dimen>
+    <dimen name="opa_dot_diam">10dp</dimen>
+    <dimen name="opa_line_x_collapse_bg">46dp</dimen>
+    <dimen name="opa_line_x_collapse_ry">15dp</dimen>
+    <dimen name="opa_line_x_trans_bg">30dp</dimen>
+    <dimen name="opa_line_x_trans_ry">15dp</dimen>
+    <dimen name="opa_line_y_translation">16dp</dimen>
+
+    <!-- Volume panel -->
+    <dimen name="volume_dialog_panel_transparent_padding_left">19dp</dimen>
+    <dimen name="volume_dialog_panel_land_margin">66dp</dimen>
+
+    <!-- Clear all notifications button -->
+    <dimen name="dismiss_all_button_elevation">10dp</dimen>
+    <dimen name="dismiss_all_button_height_width">52dp</dimen>
+    <dimen name="dismiss_all_button_margin_bottom">35dp</dimen>
+    <dimen name="dismiss_all_fab_src_size">30dp</dimen>
+
+</resources>
