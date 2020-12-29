@@ -94,6 +94,30 @@
       "revId": "d7074aad3b6726608633657b0e444191b53e234c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "251d2548_f047fa9e",
+        "filename": "media/java/android/media/AudioSystem.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-12-29T15:17:43Z",
+      "side": 1,
+      "message": "Nevermind, I misread it. I was thinking that a final private static method would work the same way as the final member variable.",
+      "parentUuid": "cc853fcc_e7f16366",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 96
+      },
+      "revId": "d7074aad3b6726608633657b0e444191b53e234c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
