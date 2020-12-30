@@ -123,8 +123,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         @Override
         public void onFullyShown() {
             updateStates();
-            mStatusBar.wakeUpIfDozing(SystemClock.uptimeMillis(),
-                    mStatusBar.getBouncerContainer(), "BOUNCER_VISIBLE");
+            updateLockIcon();
         }
 
         @Override

@@ -3163,7 +3163,7 @@ public class StatusBar extends SystemUI implements
 
     private void updatePanelExpansionForKeyguard() {
         if (mState == StatusBarState.KEYGUARD && mBiometricUnlockController.getMode()
-                != BiometricUnlockController.MODE_WAKE_AND_UNLOCK && !mBouncerShowing) {
+                != BiometricUnlockController.MODE_WAKE_AND_UNLOCK) {
             mShadeController.instantExpandNotificationsPanel();
         } else if (mState == StatusBarState.FULLSCREEN_USER_SWITCHER) {
             instantCollapseNotificationPanel();
