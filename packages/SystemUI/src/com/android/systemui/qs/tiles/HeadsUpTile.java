@@ -22,11 +22,12 @@ import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.service.quicksettings.Tile;
 
+import com.android.systemui.R;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.GlobalSetting;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
-import com.android.systemui.R;
+
 
 import org.lineageos.internal.logging.LineageMetricsLogger;
 
@@ -35,7 +36,7 @@ import javax.inject.Inject;
 /** Quick settings tile: Heads up **/
 public class HeadsUpTile extends QSTileImpl<BooleanState> {
 
-    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_heads_up);
+    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_volume_ringer);
 
     private static final Intent NOTIFICATION_SETTINGS =
             new Intent("android.settings.NOTIFICATION_SETTINGS");
