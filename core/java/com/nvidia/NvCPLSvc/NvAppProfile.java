@@ -41,11 +41,11 @@ public class NvAppProfile implements Parcelable {
     }
 
     private static String encodeNull(String string) {
-        return string != null ? string : ProxyInfo.LOCAL_EXCL_LIST;
+        return string != null ? string : "";
     }
 
     private static String decodeNull(String string) {
-        return !string.equals(ProxyInfo.LOCAL_EXCL_LIST) ? string : null;
+        return !string.equals("") ? string : null;
     }
 
     public int describeContents() {
