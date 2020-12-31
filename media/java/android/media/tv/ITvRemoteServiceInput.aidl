@@ -24,6 +24,8 @@ oneway interface ITvRemoteServiceInput {
     @UnsupportedAppUsage
     void openInputBridge(IBinder token, String name, int width, int height, int maxPointers);
     @UnsupportedAppUsage
+    void nvOpenInputBridge(IBinder token, String name, int width, int height, int maxPointers, int axisMin, int axisMax, int fuzz, int flat);
+    @UnsupportedAppUsage
     void closeInputBridge(IBinder token);
     @UnsupportedAppUsage
     void clearInputBridge(IBinder token);
@@ -45,4 +47,14 @@ oneway interface ITvRemoteServiceInput {
     void sendGamepadKeyDown(IBinder token, int keyCode);
     void sendGamepadKeyUp(IBinder token, int keyCode);
     void sendGamepadAxisValue(IBinder token, int axis, float value);
+    @UnsupportedAppUsage
+    void sendMouseBtnLeft(IBinder token, boolean down);
+    @UnsupportedAppUsage
+    void sendMouseBtnRight(IBinder token, boolean down);
+    @UnsupportedAppUsage
+    void sendMouseMove(IBinder token, int x, int y);
+    @UnsupportedAppUsage
+    void sendMouseWheel(IBinder token, int x, int y);
+    @UnsupportedAppUsage
+    void sendAbsEvent(IBinder token, int x, int y, int axis);
 }
