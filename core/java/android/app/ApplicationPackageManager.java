@@ -123,6 +123,8 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.os.SomeArgs;
 import com.android.internal.util.UserIcons;
 
+import com.nvidia.NvAppProfileService;
+
 import dalvik.system.VMRuntime;
 
 import libcore.util.EmptyArray;
@@ -175,6 +177,7 @@ public class ApplicationPackageManager extends PackageManager {
     private PermissionManager mPermissionManager;
     @GuardedBy("mLock")
     private PackageInstaller mInstaller;
+    private NvAppProfileService mAppProfileService;
     @GuardedBy("mLock")
     private ArtManager mArtManager;
 
@@ -433,6 +436,15 @@ public class ApplicationPackageManager extends PackageManager {
     public boolean isWirelessConsentModeEnabled() {
         return mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_wirelessConsentRequired);
+    }
+
+    /** @hide */
+    @Override
+    public NvAppProfileService getAppProfileService() {
+        if (mAppProfileService == null) {
+            mAppProfileService = new NvAppProfileService(mContext);
+        }
+        return mAppProfileService;
     }
 
     @Override
