@@ -2423,6 +2423,14 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
         return pm.getDefaultActivityIcon();
     }
 
+    /**
+     * @hide
+     */
+    @Override
+    public Drawable loadDefaultBanner(PackageManager pm) {
+        return pm.getAppProfileService().getBannerDrawable(packageName);
+    }
+
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.P, trackingBug = 115609023)
     private boolean isPackageUnavailable(PackageManager pm) {
         try {
