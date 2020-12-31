@@ -22,6 +22,29 @@
       "revId": "24a1c5ad954bca5e6cce2b363a74b9832edac97f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb329a5f_db2fa1c7",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/FastChargeTile.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-12-31T12:17:12Z",
+      "side": 1,
+      "message": "state.state \u003d state.value ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 9
+      },
+      "revId": "24a1c5ad954bca5e6cce2b363a74b9832edac97f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
