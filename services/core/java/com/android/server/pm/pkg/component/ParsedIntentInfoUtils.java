@@ -19,6 +19,8 @@ package com.android.server.pm.pkg.component;
 import static com.android.server.pm.pkg.parsing.ParsingUtils.ANDROID_RES_NAMESPACE;
 
 import android.annotation.NonNull;
+import android.app.ActivityThread;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.parsing.result.ParseInput;
@@ -34,6 +36,8 @@ import com.android.internal.R;
 import com.android.server.pm.pkg.parsing.ParsingPackage;
 import com.android.server.pm.pkg.parsing.ParsingPackageUtils;
 import com.android.server.pm.pkg.parsing.ParsingUtils;
+
+import com.nvidia.NvAppProfileService;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -124,6 +128,12 @@ public class ParsedIntentInfoUtils {
                         result = input.deferError("No value supplied for <android:name>",
                                 ParseInput.DeferredError.EMPTY_INTENT_ACTION_CATEGORY);
                     } else {
+                        if (value.equals(Intent.CATEGORY_LAUNCHER)) {
+                            if (new NvAppProfileService(ActivityThread.currentActivityThread().getSystemContext()).getWhitelistService().isWhiteApp(parsingPackage.getPackageName())) {
+                                intentFilter.addCategory(value);
+                                value = Intent.CATEGORY_LEANBACK_LAUNCHER;
+                            }
+                        }
                         intentFilter.addCategory(value);
                         result = input.success(null);
                     }
