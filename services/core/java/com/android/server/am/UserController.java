@@ -87,6 +87,7 @@ import android.util.SparseArray;
 import android.util.SparseIntArray;
 import android.util.TimingsTraceLog;
 import android.util.proto.ProtoOutputStream;
+import android.view.inputmethod.InputMethodManager;
 
 import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
@@ -96,6 +97,7 @@ import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.Preconditions;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.server.FgThread;
+import com.android.server.inputmethod.InputMethodManagerService;
 import com.android.server.LocalServices;
 import com.android.server.SystemServiceManager;
 import com.android.server.am.UserState.KeyEvictedCallback;
@@ -604,6 +606,20 @@ class UserController implements Handler.Callback {
                                         throws RemoteException {
                             Slog.i(UserController.TAG, "Finished processing BOOT_COMPLETED for u"
                                     + userId);
+
+                            List<ActivityManager.RunningAppProcessInfo> appProcesses = mInjector.mService.getRunningAppProcesses();
+
+                            for (ActivityManager.RunningAppProcessInfo appProcess: appProcesses) {
+                                if (!appProcess.processName.equals(InputMethodManagerService.NV_BEYONDER_PACKAGE)) {
+                                    continue;
+                                }
+
+                                InputMethodManager manager = mInjector.getContext().getSystemService(InputMethodManager.class);
+
+                                if (manager != null) {
+                                    manager.enableBeyonderSwitchImeNotifier();
+                                }
+                            }
                             mBootCompleted = true;
                         }
                     }, 0, null, null,

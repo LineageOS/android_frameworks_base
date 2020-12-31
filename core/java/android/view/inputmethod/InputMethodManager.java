@@ -61,6 +61,7 @@ import android.util.SparseArray;
 import android.view.Display;
 import android.view.ImeInsetsSourceConsumer;
 import android.view.InputChannel;
+import android.view.InputDevice;
 import android.view.InputEvent;
 import android.view.InputEventSender;
 import android.view.KeyEvent;
@@ -2313,6 +2314,30 @@ public final class InputMethodManager {
             } catch (RemoteException e) {
                 Log.w(TAG, "IME died: " + mCurId, e);
             }
+        }
+    }
+
+    public void handleInputSourceChange(InputDevice inputDevice) {
+        try {
+            mService.handleInputSourceChange(inputDevice);
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    public void enableBeyonderSwitchImeNotifier() {
+        try {
+            mService.enableBeyonderSwitchImeNotifier();
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    public String getCurrentInputMethod() {
+        try {
+            return mService.getCurrentInputMethod();
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
         }
     }
 

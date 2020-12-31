@@ -7659,6 +7659,13 @@ public final class ViewRootImpl implements ViewParent,
             mInputEventConsistencyVerifier.onInputEvent(q.mEvent, 0);
         }
 
+        InputDevice inputDevice = q.mEvent.getDevice();
+        InputMethodManager imm = mContext.getSystemService(InputMethodManager.class);
+
+        if (imm != null && inputDevice != null) {
+            imm.handleInputSourceChange(inputDevice);
+        }
+
         InputStage stage;
         if (q.shouldSendToSynthesizer()) {
             stage = mSyntheticInputStage;

@@ -17,6 +17,7 @@
 package com.android.internal.view;
 
 import android.os.ResultReceiver;
+import android.view.InputDevice;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodSubtype;
 import android.view.inputmethod.EditorInfo;
@@ -71,4 +72,8 @@ interface IInputMethodManager {
 
     void reportActivityView(in IInputMethodClient parentClient, int childDisplayId,
             in float[] matrixValues);
+
+    void handleInputSourceChange(in InputDevice InputDevice);
+    void enableBeyonderSwitchImeNotifier();
+    String getCurrentInputMethod();
 }
