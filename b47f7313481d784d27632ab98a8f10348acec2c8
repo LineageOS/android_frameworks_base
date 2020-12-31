@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05f0171d_790c0aaa",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-12-31T00:43:22Z",
+      "side": 1,
+      "message": "By the way, if you still need this logic (which appears 3 times in this class), you\u0027d better add a new method:\n\n    private boolean canShowFloatingRotationButton() {\n        return !mHasNavigationBar || (mHasGestures \u0026\u0026 mHasNavigationBar);\n    }",
+      "range": {
+        "startLine": 115,
+        "startChar": 12,
+        "endLine": 115,
+        "endChar": 69
+      },
+      "revId": "b47f7313481d784d27632ab98a8f10348acec2c8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
