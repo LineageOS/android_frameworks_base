@@ -113,6 +113,8 @@ import libcore.util.EmptyArray;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import com.nvidia.NvAppProfileService;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
@@ -575,6 +577,7 @@ public class PackageParser {
      * a package.
      */
     public interface Callback {
+        NvAppProfileService getAppProfileService();
         boolean hasFeature(String feature);
         String[] getOverlayPaths(String targetPackageName, String targetPath);
         String[] getOverlayApks(String targetPackageName);
@@ -589,6 +592,10 @@ public class PackageParser {
 
         public CallbackImpl(PackageManager pm) {
             mPm = pm;
+        }
+
+        @Override public NvAppProfileService getAppProfileService() {
+            return mPm.getAppProfileService();
         }
 
         @Override public boolean hasFeature(String feature) {
