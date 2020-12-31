@@ -98,6 +98,8 @@ import com.android.internal.os.ClassLoaderFactory;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.XmlUtils;
 
+import com.nvidia.NvAppProfileService;
+
 import libcore.io.IoUtils;
 import libcore.util.EmptyArray;
 import libcore.util.HexEncoding;
@@ -578,6 +580,7 @@ public class PackageParser {
      * a package.
      */
     public interface Callback {
+        NvAppProfileService getAppProfileService();
         boolean hasFeature(String feature);
     }
 
@@ -590,6 +593,10 @@ public class PackageParser {
 
         public CallbackImpl(PackageManager pm) {
             mPm = pm;
+        }
+
+        @Override public NvAppProfileService getAppProfileService() {
+            return mPm.getAppProfileService();
         }
 
         @Override public boolean hasFeature(String feature) {
