@@ -377,6 +377,8 @@ import com.android.server.uri.UriGrantsManagerInternal;
 import com.android.server.utils.TimingsTraceAndSlog;
 import com.android.server.wm.ActivityTaskManagerInternal;
 
+import com.nvidia.NvAppProfileService;
+
 import dalvik.system.CloseGuard;
 import dalvik.system.VMRuntime;
 
@@ -1064,6 +1066,13 @@ public class PackageManagerService extends IPackageManager.Stub
         public PlatformCompat getCompatibility() {
             return mPlatformCompatProducer.get(this, mPackageManager);
         }
+
+        @Override public NvAppProfileService getAppProfileService() {
+            if (mAppProfileService == null) {
+                mAppProfileService = new NvAppProfileService(mContext);
+            }
+            return mAppProfileService;
+        }
     }
 
     @VisibleForTesting(visibility = Visibility.PRIVATE)
@@ -1150,6 +1159,8 @@ public class PackageManagerService extends IPackageManager.Stub
     final SparseArray<InstallParams> mPendingEnableRollback = new SparseArray<>();
 
     final PackageInstallerService mInstallerService;
+
+    private NvAppProfileService mAppProfileService;
 
     final ArtManagerService mArtManagerService;
 
