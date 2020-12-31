@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<black-list-apps>
+    <app bannerName="minecraft_banner" isGame="true" packageName="com.mojang.minecraftpe"/>
+    <app bannerName="pubg_banner" isGame="true" packageName="com.tencent.ig"/>
+    <app bannerName="chrome_banner" isGame="false" packageName="com.android.chrome"/>
+    <app bannerName="aptoide_banner" isGame="false" packageName="cm.aptoide.pt"/>
+    <app bannerName="showbox_banner" isGame="true" packageName="com.tdo.showbox"/>
+    <app bannerName="speedtest_banner" isGame="false" packageName="org.zwanoo.android.speedtest"/>
+    <app bannerName="" isGame="true" packageName="com.google.android.play.games"/>
+</black-list-apps>
