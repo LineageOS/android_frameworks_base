@@ -267,6 +267,10 @@ public:
     static NativeConnection* open(const char* name, const char* uniqueId,
             int32_t width, int32_t height, int32_t maxPointerId);
 
+    static NativeConnection* nvOpen(const char* name, const char* uniqueId, int32_t width,
+                                    int32_t height, int32_t maxPointerId, int32_t axisMin,
+                                    int32_t axisMax, int32_t fuzz, int32_t flat);
+
     static NativeConnection* openGamepad(const char* name, const char* uniqueId);
 
     void sendEvent(int32_t type, int32_t code, int32_t value);
@@ -350,6 +354,131 @@ NativeConnection* NativeConnection::openGamepad(const char* name, const char* un
     return new NativeConnection(descriptor.Detach(), 0, ConnectionType::kGamepadDevice);
 }
 
+NativeConnection* NativeConnection::nvOpen(const char* name, const char* uniqueId, int32_t width,
+                                           int32_t height, int32_t maxPointers, int32_t axisMin,
+                                           int32_t axisMax, int32_t fuzz, int32_t flat) {
+    ALOGI("Registering uinput device %s: touch pad size %dx%d, "
+          "max pointers %d, axis min %d, axis max %d, fuzz %d, "
+          "flat %d.",
+          name, width, height, maxPointers, axisMin, axisMax, fuzz, flat);
+
+    int fd = ::open("/dev/uinput", O_WRONLY | O_NDELAY);
+    if (fd < 0) {
+        ALOGE("Cannot open /dev/uinput: %s.", strerror(errno));
+        return nullptr;
+    }
+
+    struct uinput_user_dev uinp;
+    memset(&uinp, 0, sizeof(struct uinput_user_dev));
+    strlcpy(uinp.name, name, UINPUT_MAX_NAME_SIZE);
+    uinp.id.version = 1;
+    uinp.id.bustype = BUS_VIRTUAL;
+
+    // initialize keymap
+    initKeysMap();
+
+    // write device unique id to the phys property
+    ioctl(fd, UI_SET_PHYS, uniqueId);
+
+    ioctl(fd, UI_SET_PROPBIT, INPUT_PROP_POINTER);
+
+    // set the keys mapped
+    ioctl(fd, UI_SET_EVBIT, EV_KEY);
+    for (size_t i = 0; i < NELEM(KEYS); i++) {
+        ioctl(fd, UI_SET_KEYBIT, KEYS[i].linuxKeyCode);
+    }
+
+    // set the mouse event maps
+    ioctl(fd, UI_SET_KEYBIT, BTN_LEFT);
+    ioctl(fd, UI_SET_KEYBIT, BTN_RIGHT);
+
+    ioctl(fd, UI_SET_EVBIT, EV_REL);
+    ioctl(fd, UI_SET_RELBIT, REL_X);
+    ioctl(fd, UI_SET_RELBIT, REL_Y);
+    ioctl(fd, UI_SET_RELBIT, REL_HWHEEL);
+    ioctl(fd, UI_SET_RELBIT, REL_WHEEL);
+
+    if ((axisMin & axisMax & fuzz & flat) != (int)0xffffffff) {
+        // configure virtual controller
+        ioctl(fd, UI_SET_KEYBIT, BTN_SOUTH);
+        ioctl(fd, UI_SET_KEYBIT, BTN_EAST);
+        ioctl(fd, UI_SET_KEYBIT, BTN_NORTH);
+        ioctl(fd, UI_SET_KEYBIT, BTN_WEST);
+        ioctl(fd, UI_SET_KEYBIT, BTN_START);
+        ioctl(fd, UI_SET_KEYBIT, BTN_SELECT);
+        ioctl(fd, UI_SET_KEYBIT, BTN_MODE);
+        ioctl(fd, UI_SET_KEYBIT, BTN_THUMBL);
+        ioctl(fd, UI_SET_KEYBIT, BTN_THUMBR);
+        ioctl(fd, UI_SET_KEYBIT, BTN_TL);
+        ioctl(fd, UI_SET_KEYBIT, BTN_TR);
+
+        ioctl(fd, UI_SET_EVBIT, EV_ABS);
+
+        ioctl(fd, UI_SET_ABSBIT, ABS_HAT0X);
+        ioctl(fd, UI_SET_ABSBIT, ABS_HAT0Y);
+
+        // FIXME TODO: all wrong
+        input_absinfo axisInfo = {
+                .value = 0,
+                .minimum = -0xffff,
+                .maximum = 0xffff,
+                .fuzz = 1,
+                .flat = 0x10000,
+                .resolution = 1,
+        };
+
+        ioctl(fd, UI_SET_ABSBIT, ABS_X);
+        ioctl(fd, UI_SET_ABSBIT, ABS_Y);
+
+        axisInfo = {
+                .value = 0,
+                .minimum = axisMin,
+                .maximum = axisMax,
+                .fuzz = fuzz,
+                .flat = flat,
+                .resolution = 1,
+        };
+
+        ioctl(fd, EVIOCSABS(ABS_Z), &axisInfo);
+        ioctl(fd, EVIOCSABS(ABS_RZ), &axisInfo);
+
+        ioctl(fd, EVIOCSABS(ABS_RX), &axisInfo);
+        ioctl(fd, EVIOCSABS(ABS_BRAKE), &axisInfo);
+
+        axisInfo = {
+                .value = 0,
+                .minimum = -0x7fff,
+                .maximum = 0x7fff,
+                .fuzz = 0xff,
+                .flat = 0xff,
+                .resolution = 1,
+        };
+
+        ioctl(fd, EVIOCSABS(ABS_RY), &axisInfo);
+        ioctl(fd, EVIOCSABS(ABS_GAS), &axisInfo);
+    }
+
+    // set the misc events maps
+    ioctl(fd, UI_SET_EVBIT, EV_MSC);
+    ioctl(fd, UI_SET_MSCBIT, MSC_ANDROID_TIME_SEC);
+    ioctl(fd, UI_SET_MSCBIT, MSC_ANDROID_TIME_USEC);
+
+    // register the input device
+    if (write(fd, &uinp, sizeof(uinp)) != sizeof(uinp)) {
+        ALOGE("Cannot write uinput_user_dev to fd %d: %s.", fd, strerror(errno));
+        close(fd);
+        return NULL;
+    }
+    if (ioctl(fd, UI_DEV_CREATE) != 0) {
+        ALOGE("Unable to create uinput device: %s.", strerror(errno));
+        close(fd);
+        return nullptr;
+    }
+
+    ALOGV("Created uinput device, fd=%d.", fd);
+    return new NativeConnection(fd, maxPointers);
+}
+
 void NativeConnection::sendEvent(int32_t type, int32_t code, int32_t value) {
     struct input_event iev;
     memset(&iev, 0, sizeof(iev));
@@ -370,191 +499,270 @@ static jlong nativeOpen(JNIEnv* env, jclass clazz,
     return reinterpret_cast<jlong>(connection);
 }
 
-static jlong nativeGamepadOpen(JNIEnv* env, jclass clazz, jstring nameStr, jstring uniqueIdStr) {
+static jlong nativeNvOpen(JNIEnv* env, jclass clazz, jstring nameStr, jstring uniqueIdStr,
+                          jint width, jint height, jint maxPointers, jint axisMin, jint axisMax,
+                          jint fuzz, jint flat) {
     ScopedUtfChars name(env, nameStr);
     ScopedUtfChars uniqueId(env, uniqueIdStr);
 
-    NativeConnection* connection = NativeConnection::openGamepad(name.c_str(), uniqueId.c_str());
-    return reinterpret_cast<jlong>(connection);
-}
+    NativeConnection* connection =
+            NativeConnection::nvOpen(name.c_str(), uniqueId.c_str(), width, height, maxPointers,
+                                     axisMin, axisMax, fuzz, flat);
 
-static void nativeClose(JNIEnv* env, jclass clazz, jlong ptr) {
-    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
-    delete connection;
-}
+    static jlong nativeGamepadOpen(JNIEnv * env, jclass clazz, jstring nameStr,
+                                   jstring uniqueIdStr) {
+        ScopedUtfChars name(env, nameStr);
+        ScopedUtfChars uniqueId(env, uniqueIdStr);
 
-static void nativeSendKey(JNIEnv* env, jclass clazz, jlong ptr, jint keyCode, jboolean down) {
-    int32_t code = getLinuxKeyCode(keyCode);
-    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
-
-    if (connection->IsGamepad()) {
-        ALOGE("Invalid key even for a gamepad - need to send gamepad events");
-        return;
+        NativeConnection* connection =
+                NativeConnection::openGamepad(name.c_str(), uniqueId.c_str());
+        return reinterpret_cast<jlong>(connection);
     }
 
-    if (code != KEY_UNKNOWN) {
-        connection->sendEvent(EV_KEY, code, down ? 1 : 0);
-    } else {
-        ALOGE("Received an unknown keycode of %d.", keyCode);
-    }
-}
-
-static void nativeSendGamepadKey(JNIEnv* env, jclass clazz, jlong ptr, jint keyCode,
-                                 jboolean down) {
-    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
-
-    if (!connection->IsGamepad()) {
-        ALOGE("Invalid gamepad key for non-gamepad device");
-        return;
+    static void nativeClose(JNIEnv * env, jclass clazz, jlong ptr) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+        delete connection;
     }
 
-    int linuxKeyCode = getGamepadkeyCode(keyCode);
-    if (linuxKeyCode == KEY_UNKNOWN) {
-        ALOGE("Gamepad: received an unknown keycode of %d.", keyCode);
-        return;
-    }
-    connection->sendEvent(EV_KEY, linuxKeyCode, down ? 1 : 0);
-}
+    static void nativeSendKey(JNIEnv * env, jclass clazz, jlong ptr, jint keyCode, jboolean down) {
+        int32_t code = getLinuxKeyCode(keyCode);
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
 
-static void nativeSendGamepadAxisValue(JNIEnv* env, jclass clazz, jlong ptr, jint axis,
-                                       jfloat value) {
-    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
-
-    if (!connection->IsGamepad()) {
-        ALOGE("Invalid axis send for non-gamepad device");
-        return;
-    }
-
-    const GamepadAxis* axisInfo = getGamepadAxis(axis);
-    if (axisInfo == nullptr) {
-        ALOGE("Invalid axis: %d", axis);
-        return;
-    }
-
-    if (value > axisInfo->androidRangeMax) {
-        value = axisInfo->androidRangeMax;
-    } else if (value < axisInfo->androidRangeMin) {
-        value = axisInfo->androidRangeMin;
-    }
-
-    // Converts the android range into the device range
-    float movementPercent = (value - axisInfo->androidRangeMin) /
-            (axisInfo->androidRangeMax - axisInfo->androidRangeMin);
-    int axisRawValue = axisInfo->linuxUinputRangeMin +
-            movementPercent * (axisInfo->linuxUinputRangeMax - axisInfo->linuxUinputRangeMin);
-
-    connection->sendEvent(EV_ABS, axisInfo->linuxUinputAxis, axisRawValue);
-}
-
-static void nativeSendPointerDown(JNIEnv* env, jclass clazz, jlong ptr,
-        jint pointerId, jint x, jint y) {
-    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
-
-    if (connection->IsGamepad()) {
-        ALOGE("Invalid pointer down event for a gamepad.");
-        return;
-    }
-
-    int32_t slot = findSlot(pointerId);
-    if (slot == SLOT_UNKNOWN) {
-        slot = assignSlot(pointerId);
-    }
-    if (slot != SLOT_UNKNOWN) {
-        connection->sendEvent(EV_ABS, ABS_MT_SLOT, slot);
-        connection->sendEvent(EV_ABS, ABS_MT_TRACKING_ID, pointerId);
-        connection->sendEvent(EV_ABS, ABS_MT_POSITION_X, x);
-        connection->sendEvent(EV_ABS, ABS_MT_POSITION_Y, y);
-    }
-}
-
-static void nativeSendPointerUp(JNIEnv* env, jclass clazz, jlong ptr,
-        jint pointerId) {
-    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
-
-    if (connection->IsGamepad()) {
-        ALOGE("Invalid pointer up event for a gamepad.");
-        return;
-    }
-
-    int32_t slot = findSlot(pointerId);
-    if (slot != SLOT_UNKNOWN) {
-        connection->sendEvent(EV_ABS, ABS_MT_SLOT, slot);
-        connection->sendEvent(EV_ABS, ABS_MT_TRACKING_ID, -1);
-        unassignSlot(pointerId);
-    }
-}
-
-static void nativeSendPointerSync(JNIEnv* env, jclass clazz, jlong ptr) {
-    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
-    connection->sendEvent(EV_SYN, SYN_REPORT, 0);
-}
-
-static void nativeClear(JNIEnv* env, jclass clazz, jlong ptr) {
-    NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
-
-    // Clear keys.
-    if (connection->IsRemote()) {
-        for (size_t i = 0; i < NELEM(KEYS); i++) {
-            connection->sendEvent(EV_KEY, KEYS[i].linuxKeyCode, 0);
+        if (connection->IsGamepad()) {
+            ALOGE("Invalid key even for a gamepad - need to send gamepad events");
+            return;
         }
 
-        // Clear pointers.
-        int32_t slot = SLOT_UNKNOWN;
-        for (int32_t i = 0; i < connection->getMaxPointers(); i++) {
-            slot = findSlot(i);
-            if (slot != SLOT_UNKNOWN) {
-                connection->sendEvent(EV_ABS, ABS_MT_SLOT, slot);
-                connection->sendEvent(EV_ABS, ABS_MT_TRACKING_ID, -1);
+        if (code != KEY_UNKNOWN) {
+            connection->sendEvent(EV_KEY, code, down ? 1 : 0);
+        } else {
+            ALOGE("Received an unknown keycode of %d.", keyCode);
+        }
+    }
+
+    static void nativeSendGamepadKey(JNIEnv * env, jclass clazz, jlong ptr, jint keyCode,
+                                     jboolean down) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+
+        if (!connection->IsGamepad()) {
+            ALOGE("Invalid gamepad key for non-gamepad device");
+            return;
+        }
+
+        int linuxKeyCode = getGamepadkeyCode(keyCode);
+        if (linuxKeyCode == KEY_UNKNOWN) {
+            ALOGE("Gamepad: received an unknown keycode of %d.", keyCode);
+            return;
+        }
+        connection->sendEvent(EV_KEY, linuxKeyCode, down ? 1 : 0);
+    }
+
+    static void nativeSendGamepadAxisValue(JNIEnv * env, jclass clazz, jlong ptr, jint axis,
+                                           jfloat value) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+
+        if (!connection->IsGamepad()) {
+            ALOGE("Invalid axis send for non-gamepad device");
+            return;
+        }
+
+        const GamepadAxis* axisInfo = getGamepadAxis(axis);
+        if (axisInfo == nullptr) {
+            ALOGE("Invalid axis: %d", axis);
+            return;
+        }
+
+        if (value > axisInfo->androidRangeMax) {
+            value = axisInfo->androidRangeMax;
+        } else if (value < axisInfo->androidRangeMin) {
+            value = axisInfo->androidRangeMin;
+        }
+
+        // Converts the android range into the device range
+        float movementPercent = (value - axisInfo->androidRangeMin) /
+                (axisInfo->androidRangeMax - axisInfo->androidRangeMin);
+        int axisRawValue = axisInfo->linuxUinputRangeMin +
+                movementPercent * (axisInfo->linuxUinputRangeMax - axisInfo->linuxUinputRangeMin);
+
+        connection->sendEvent(EV_ABS, axisInfo->linuxUinputAxis, axisRawValue);
+    }
+
+    static void nativeSendPointerDown(JNIEnv * env, jclass clazz, jlong ptr, jint pointerId, jint x,
+                                      jint y) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+
+        if (connection->IsGamepad()) {
+            ALOGE("Invalid pointer down event for a gamepad.");
+            return;
+        }
+
+        int32_t slot = findSlot(pointerId);
+        if (slot == SLOT_UNKNOWN) {
+            slot = assignSlot(pointerId);
+        }
+        if (slot != SLOT_UNKNOWN) {
+            connection->sendEvent(EV_ABS, ABS_MT_SLOT, slot);
+            connection->sendEvent(EV_ABS, ABS_MT_TRACKING_ID, pointerId);
+            connection->sendEvent(EV_ABS, ABS_MT_POSITION_X, x);
+            connection->sendEvent(EV_ABS, ABS_MT_POSITION_Y, y);
+        }
+    }
+
+    static void nativeSendPointerUp(JNIEnv * env, jclass clazz, jlong ptr, jint pointerId) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+
+        if (connection->IsGamepad()) {
+            ALOGE("Invalid pointer up event for a gamepad.");
+            return;
+        }
+
+        int32_t slot = findSlot(pointerId);
+        if (slot != SLOT_UNKNOWN) {
+            connection->sendEvent(EV_ABS, ABS_MT_SLOT, slot);
+            connection->sendEvent(EV_ABS, ABS_MT_TRACKING_ID, -1);
+            unassignSlot(pointerId);
+        }
+    }
+
+    static void nativeSendPointerSync(JNIEnv * env, jclass clazz, jlong ptr) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+        connection->sendEvent(EV_SYN, SYN_REPORT, 0);
+    }
+
+    static void nativeSendMouseBtnRight(JNIEnv * env, jclass clazz, jlong ptr, jboolean down) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+        connection->sendEvent(EV_KEY, BTN_RIGHT, down ? 1 : 0);
+    }
+
+    static void nativeSendMouseBtnLeft(JNIEnv * env, jclass clazz, jlong ptr, jboolean down) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+        connection->sendEvent(EV_KEY, BTN_LEFT, down ? 1 : 0);
+    }
+
+    static void nativeSendMouseMove(JNIEnv * env, jclass clazz, jlong ptr, jint x, jint y) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+        connection->sendEvent(EV_REL, REL_X, x);
+        connection->sendEvent(EV_REL, REL_Y, y);
+        connection->sendEvent(EV_SYN, SYN_REPORT, 0);
+    }
+
+    static void nativeSendMouseWheel(JNIEnv * env, jclass clazz, jlong ptr, jint x, jint y) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+
+        if (x != 0) connection->sendEvent(EV_REL, REL_HWHEEL, x);
+
+        if (y != 0) connection->sendEvent(EV_REL, REL_WHEEL, y);
+    }
+
+    static void nativeSendAbsEvent(JNIEnv * env, jclass clazz, jlong ptr, jint x, jint y,
+                                   jint axis) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+        int axisX = 0, axisY = 0;
+
+        switch (axis) {
+            case 1:
+                axisX = ABS_HAT0X;
+                axisY = ABS_HAT0Y;
+                break;
+            case 2:
+                axisX = ABS_RX;
+                axisY = ABS_BRAKE;
+                break;
+            case 3:
+                axisX = ABS_RY;
+                axisY = ABS_GAS;
+                break;
+            case 4:
+                axisX = ABS_X;
+                axisY = ABS_Y;
+                break;
+            case 5:
+                axisX = ABS_Z;
+                axisY = ABS_RZ;
+                break;
+            default:
+                ALOGE("Received an unknown choice: %d.", axis);
+                return;
+        }
+
+        connection->sendEvent(EV_ABS, axisX, x);
+        connection->sendEvent(EV_ABS, axisY, y);
+    }
+
+    static void nativeClear(JNIEnv * env, jclass clazz, jlong ptr) {
+        NativeConnection* connection = reinterpret_cast<NativeConnection*>(ptr);
+
+        // Clear keys.
+        if (connection->IsRemote()) {
+            for (size_t i = 0; i < NELEM(KEYS); i++) {
+                connection->sendEvent(EV_KEY, KEYS[i].linuxKeyCode, 0);
+            }
+
+            // Clear pointers.
+            int32_t slot = SLOT_UNKNOWN;
+            for (int32_t i = 0; i < connection->getMaxPointers(); i++) {
+                slot = findSlot(i);
+                if (slot != SLOT_UNKNOWN) {
+                    connection->sendEvent(EV_ABS, ABS_MT_SLOT, slot);
+                    connection->sendEvent(EV_ABS, ABS_MT_TRACKING_ID, -1);
+                }
+            }
+        } else {
+            for (size_t i = 0; i < NELEM(GAMEPAD_KEYS); i++) {
+                connection->sendEvent(EV_KEY, GAMEPAD_KEYS[i].linuxUinputKeyCode, 0);
+            }
+
+            for (size_t i = 0; i < NELEM(GAMEPAD_AXES); i++) {
+                const GamepadAxis& axis = GAMEPAD_AXES[i];
+
+                if ((axis.linuxUinputAxis == ABS_Z) || (axis.linuxUinputAxis == ABS_RZ)) {
+                    // Mark triggers unpressed
+                    connection->sendEvent(EV_ABS, axis.linuxUinputAxis, axis.linuxUinputRangeMin);
+                } else {
+                    // Joysticks and dpad rests on center
+                    connection->sendEvent(EV_ABS, axis.linuxUinputAxis,
+                                          (axis.linuxUinputRangeMin + axis.linuxUinputRangeMax) /
+                                                  2);
+                }
             }
         }
-    } else {
-        for (size_t i = 0; i < NELEM(GAMEPAD_KEYS); i++) {
-            connection->sendEvent(EV_KEY, GAMEPAD_KEYS[i].linuxUinputKeyCode, 0);
-        }
 
-        for (size_t i = 0; i < NELEM(GAMEPAD_AXES); i++) {
-            const GamepadAxis& axis = GAMEPAD_AXES[i];
-
-            if ((axis.linuxUinputAxis == ABS_Z) || (axis.linuxUinputAxis == ABS_RZ)) {
-                // Mark triggers unpressed
-                connection->sendEvent(EV_ABS, axis.linuxUinputAxis, axis.linuxUinputRangeMin);
-            } else {
-                // Joysticks and dpad rests on center
-                connection->sendEvent(EV_ABS, axis.linuxUinputAxis,
-                                      (axis.linuxUinputRangeMin + axis.linuxUinputRangeMax) / 2);
-            }
-        }
+        // Sync pointer events
+        connection->sendEvent(EV_SYN, SYN_REPORT, 0);
     }
 
-    // Sync pointer events
-    connection->sendEvent(EV_SYN, SYN_REPORT, 0);
-}
+    /*
+     * JNI registration
+     */
 
-/*
- * JNI registration
- */
+    static JNINativeMethod gUinputBridgeMethods[] = {
+            {"nativeOpen", "(Ljava/lang/String;Ljava/lang/String;III)J", (void*)nativeOpen},
+            {"nativeNvOpen", "(Ljava/lang/String;Ljava/lang/String;IIIIIII)J", (void*)nativeNvOpen},
+            {"nativeGamepadOpen", "(Ljava/lang/String;Ljava/lang/String;)J",
+             (void*)nativeGamepadOpen},
+            {"nativeClose", "(J)V", (void*)nativeClose},
+            {"nativeSendKey", "(JIZ)V", (void*)nativeSendKey},
+            {"nativeSendPointerDown", "(JIII)V", (void*)nativeSendPointerDown},
+            {"nativeSendPointerUp", "(JI)V", (void*)nativeSendPointerUp},
+            {"nativeClear", "(J)V", (void*)nativeClear},
+            {"nativeSendPointerSync", "(J)V", (void*)nativeSendPointerSync},
+            {"nativeSendMouseBtnRight", "(JZ)V", (void*)nativeSendMouseBtnRight},
+            {"nativeSendMouseBtnLeft", "(JZ)V", (void*)nativeSendMouseBtnLeft},
+            {"nativeSendMouseMove", "(JII)V", (void*)nativeSendMouseMove},
+            {"nativeSendMouseWheel", "(JII)V", (void*)nativeSendMouseWheel},
+            {"nativeSendAbsEvent", "(JIII)V", (void*)nativeSendAbsEvent},
+            {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
+            {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
+    };
 
-static JNINativeMethod gUinputBridgeMethods[] = {
-        {"nativeOpen", "(Ljava/lang/String;Ljava/lang/String;III)J", (void*)nativeOpen},
-        {"nativeGamepadOpen", "(Ljava/lang/String;Ljava/lang/String;)J", (void*)nativeGamepadOpen},
-        {"nativeClose", "(J)V", (void*)nativeClose},
-        {"nativeSendKey", "(JIZ)V", (void*)nativeSendKey},
-        {"nativeSendPointerDown", "(JIII)V", (void*)nativeSendPointerDown},
-        {"nativeSendPointerUp", "(JI)V", (void*)nativeSendPointerUp},
-        {"nativeClear", "(J)V", (void*)nativeClear},
-        {"nativeSendPointerSync", "(J)V", (void*)nativeSendPointerSync},
-        {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
-        {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
-};
+    int register_android_server_tv_TvUinputBridge(JNIEnv * env) {
+        int res = jniRegisterNativeMethods(env, "com/android/server/tv/UinputBridge",
+                                           gUinputBridgeMethods, NELEM(gUinputBridgeMethods));
 
-int register_android_server_tv_TvUinputBridge(JNIEnv* env) {
-    int res = jniRegisterNativeMethods(env, "com/android/server/tv/UinputBridge",
-              gUinputBridgeMethods, NELEM(gUinputBridgeMethods));
+        LOG_FATAL_IF(res < 0, "Unable to register native methods.");
+        (void)res; // Don't complain about unused variable in the LOG_NDEBUG case
 
-    LOG_FATAL_IF(res < 0, "Unable to register native methods.");
-    (void)res; // Don't complain about unused variable in the LOG_NDEBUG case
-
-    return 0;
-}
+        return 0;
+    }
 
 } // namespace android

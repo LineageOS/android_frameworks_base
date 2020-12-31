@@ -291,6 +291,116 @@ final class TvRemoteServiceInput extends ITvRemoteServiceInput.Stub {
     }
 
     @Override
+    public void sendMouseBtnLeft(IBinder token, boolean down) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseBtnLeft(), token: " + token + ", down: " + down);
+        }
+
+        synchronized (mLock) {
+            UinputBridge inputBridge = mBridgeMap.get(token);
+            if (inputBridge == null) {
+                Slog.w(TAG, String.format("Input bridge not found for token: %s", token));
+                return;
+            }
+
+            final long idToken = Binder.clearCallingIdentity();
+            try {
+                inputBridge.sendMouseBtnLeft(token, down);
+            } finally {
+                Binder.restoreCallingIdentity(idToken);
+            }
+        }
+    }
+
+    @Override
+    public void sendMouseBtnRight(IBinder token, boolean down) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseBtnRight(), token: " + token + ", down: " + down);
+        }
+
+        synchronized (mLock) {
+            UinputBridge inputBridge = mBridgeMap.get(token);
+            if (inputBridge == null) {
+                Slog.w(TAG, String.format("Input bridge not found for token: %s", token));
+                return;
+            }
+
+            final long idToken = Binder.clearCallingIdentity();
+            try {
+                inputBridge.sendMouseBtnRight(token, down);
+            } finally {
+                Binder.restoreCallingIdentity(idToken);
+            }
+        }
+    }
+
+    @Override
+    public void sendMouseMove(IBinder token, int x, int y) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseMove(), token: " + token + ", x: " + x + ", y: " + y);
+        }
+
+        synchronized (mLock) {
+            UinputBridge inputBridge = mBridgeMap.get(token);
+            if (inputBridge == null) {
+                Slog.w(TAG, String.format("Input bridge not found for token: %s", token));
+                return;
+            }
+
+            final long idToken = Binder.clearCallingIdentity();
+            try {
+                inputBridge.sendMouseMove(token, x, y);
+            } finally {
+                Binder.restoreCallingIdentity(idToken);
+            }
+        }
+    }
+
+    @Override
+    public void sendMouseWheel(IBinder token, int x, int y) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseWheel(), token: " + token + ", x: " + x + ", y: " + y);
+        }
+
+        synchronized (mLock) {
+            UinputBridge inputBridge = mBridgeMap.get(token);
+            if (inputBridge == null) {
+                Slog.w(TAG, String.format("Input bridge not found for token: %s", token));
+                return;
+            }
+
+            final long idToken = Binder.clearCallingIdentity();
+            try {
+                inputBridge.sendMouseWheel(token, x, y);
+            } finally {
+                Binder.restoreCallingIdentity(idToken);
+            }
+        }
+    }
+
+    @Override
+    public void sendAbsEvent(IBinder token, int x, int y, int axis) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendAbsEvent(), token: " + token + ", x: " + x + ", y: " + y + ", axis: " + axis);
+        }
+
+        synchronized (mLock) {
+            UinputBridge inputBridge = mBridgeMap.get(token);
+            if (inputBridge == null) {
+                Slog.w(TAG, String.format("Input bridge not found for token: %s", token));
+                return;
+            }
+
+            final long idToken = Binder.clearCallingIdentity();
+            try {
+                inputBridge.sendAbsEvent(token, x, y, axis);
+            } finally {
+                Binder.restoreCallingIdentity(idToken);
+            }
+        }
+    }
+
+    @Override
     public void sendGamepadKeyUp(IBinder token, int keyIndex) {
         if (DEBUG_KEYS) {
             Slog.d(TAG, String.format("sendGamepadKeyUp(), token: %s", token));
