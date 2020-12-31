@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6dfcca8_637cd463",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/FastChargeTile.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-12-31T12:15:06Z",
+      "side": 1,
+      "message": "This is unused.",
+      "range": {
+        "startLine": 49,
+        "startChar": 17,
+        "endLine": 49,
+        "endChar": 38
+      },
+      "revId": "24a1c5ad954bca5e6cce2b363a74b9832edac97f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
