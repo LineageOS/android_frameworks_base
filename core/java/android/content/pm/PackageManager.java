@@ -84,6 +84,8 @@ import android.util.Log;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.ArrayUtils;
 
+import com.nvidia.NvAppProfileService;
+
 import dalvik.system.VMRuntime;
 
 import java.lang.annotation.Retention;
@@ -4698,6 +4700,11 @@ public abstract class PackageManager {
     @NonNull
     public abstract List<PermissionGroupInfo> getAllPermissionGroups(
             @PermissionGroupInfoFlags int flags);
+
+    /** @hide */
+    public NvAppProfileService getAppProfileService() {
+        return null;
+    }
 
     /**
      * Get the platform-defined permissions which belong to a particular permission group.
