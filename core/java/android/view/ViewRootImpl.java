@@ -794,6 +794,7 @@ public final class ViewRootImpl implements ViewParent,
 
         loadSystemProperties();
         mImeFocusController = new ImeFocusController(this);
+        com.nvidia.shieldtech.NvHookHelper.init(mContext);
     }
 
     public static void addFirstDrawHandler(Runnable callback) {
@@ -6167,7 +6168,6 @@ public final class ViewRootImpl implements ViewParent,
                     return FINISH_HANDLED;
                 } else if ((source & InputDevice.SOURCE_CLASS_JOYSTICK) != 0) {
                     mJoystick.process(event);
-                    return FINISH_HANDLED;
                 } else if ((source & InputDevice.SOURCE_TOUCH_NAVIGATION)
                         == InputDevice.SOURCE_TOUCH_NAVIGATION) {
                     mTouchNavigation.process(event);
@@ -7722,6 +7722,7 @@ public final class ViewRootImpl implements ViewParent,
             }
 
             mAdded = false;
+            com.nvidia.shieldtech.NvHookHelper.die();
         }
         WindowManagerGlobal.getInstance().doRemoveView(this);
     }
@@ -8034,6 +8035,7 @@ public final class ViewRootImpl implements ViewParent,
             }
             mChoreographer.mFrameInfo.updateInputEventTime(eventTime, oldestEventTime);
 
+            if ((q.mFlags = com.nvidia.shieldtech.NvHookHelper.deliverInputEvent(q.mEvent, q.mFlags)) < 0)   continue;
             deliverInputEvent(q);
         }
 
@@ -8063,6 +8065,13 @@ public final class ViewRootImpl implements ViewParent,
                 } finally {
                     Trace.traceEnd(Trace.TRACE_TAG_VIEW);
                 }
+            }
+
+            InputDevice inputDevice = q.mEvent.getDevice();
+            InputMethodManager imm = mContext.getSystemService(InputMethodManager.class);
+
+            if (imm != null && inputDevice != null) {
+                imm.handleInputSourceChange(inputDevice);
             }
 
             InputStage stage;
