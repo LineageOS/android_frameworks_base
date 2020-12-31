@@ -250,6 +250,8 @@ import com.android.server.utils.WatchedSparseBooleanArray;
 import com.android.server.utils.WatchedSparseIntArray;
 import com.android.server.utils.Watcher;
 
+import com.nvidia.NvAppProfileService;
+
 import dalvik.system.VMRuntime;
 
 import libcore.util.EmptyArray;
@@ -806,6 +808,8 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
     final SparseArray<VerifyingSession> mPendingEnableRollback = new SparseArray<>();
 
     final PackageInstallerService mInstallerService;
+
+    private NvAppProfileService mAppProfileService;
 
     final ArtManagerService mArtManagerService;
 
@@ -1885,6 +1889,13 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             @Override
             public boolean hasFeature(String feature) {
                 return PackageManagerService.this.hasSystemFeature(feature, 0);
+            }
+
+            public NvAppProfileService getAppProfileService() {
+                if (mAppProfileService == null) {
+                    mAppProfileService = new NvAppProfileService(mContext);
+                }
+                return mAppProfileService;
             }
         };
 
