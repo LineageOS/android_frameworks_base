@@ -710,6 +710,13 @@ filegroup {
 }
 
 filegroup {
+    name: "frameworks-nvidia-enhancements-shared-srcs",
+    srcs: [
+        "core/java/com/nvidia/NvCPLSvc/INvCPLRemoteService.aidl",
+    ],
+}
+
+filegroup {
     name: "framework-services-net-module-wifi-shared-srcs",
     srcs: [
         "core/java/android/net/DhcpResults.java",
