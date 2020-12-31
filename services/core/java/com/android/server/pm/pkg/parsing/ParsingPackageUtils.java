@@ -39,6 +39,7 @@ import android.annotation.Nullable;
 import android.annotation.StyleableRes;
 import android.app.ActivityThread;
 import android.app.ResourcesManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
@@ -90,6 +91,7 @@ import com.android.internal.R;
 import com.android.internal.os.ClassLoaderFactory;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.XmlUtils;
+import com.nvidia.NvAppProfileService;
 import com.android.server.pm.SharedUidMigration;
 import com.android.server.pm.parsing.pkg.PackageImpl;
 import com.android.server.pm.parsing.pkg.ParsedPackage;
@@ -2218,6 +2220,8 @@ public class ParsingPackageUtils {
      */
     private void parseBaseAppBasicFlags(ParsingPackage pkg, TypedArray sa) {
         int targetSdk = pkg.getTargetSdkVersion();
+        NvAppProfileService appProfileService = new NvAppProfileService(ActivityThread.currentActivityThread().getSystemContext());
+        boolean isGame = appProfileService.getWhitelistService().isTvGame(pkg.getPackageName());
         //@formatter:off
         // CHECKSTYLE:off
         pkg
@@ -2237,7 +2241,7 @@ public class ParsingPackageUtils {
                 .setDefaultToDeviceProtectedStorage(bool(false, R.styleable.AndroidManifestApplication_defaultToDeviceProtectedStorage, sa))
                 .setDirectBootAware(bool(false, R.styleable.AndroidManifestApplication_directBootAware, sa))
                 .setForceQueryable(bool(false, R.styleable.AndroidManifestApplication_forceQueryable, sa))
-                .setGame(bool(false, R.styleable.AndroidManifestApplication_isGame, sa))
+                .setGame(bool(isGame, R.styleable.AndroidManifestApplication_isGame, sa))
                 .setUserDataFragile(bool(false, R.styleable.AndroidManifestApplication_hasFragileUserData, sa))
                 .setLargeHeap(bool(false, R.styleable.AndroidManifestApplication_largeHeap, sa))
                 .setMultiArch(bool(false, R.styleable.AndroidManifestApplication_multiArch, sa))
