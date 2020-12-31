@@ -103,6 +103,8 @@ import com.android.internal.pm.parsing.pkg.ParsedPackage;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.DataClass;
 
+import com.nvidia.NvAppProfileService;
+
 import dalvik.system.VMRuntime;
 
 import java.io.File;
@@ -6079,6 +6081,11 @@ public abstract class PackageManager {
     @NonNull
     public abstract List<PermissionGroupInfo> getAllPermissionGroups(
             @PermissionGroupInfoFlags int flags);
+
+    /** @hide */
+    public NvAppProfileService getAppProfileService() {
+        return null;
+    }
 
     /**
      * Get the platform-defined permissions which belong to a particular permission group.
