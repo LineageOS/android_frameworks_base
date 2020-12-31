@@ -107,6 +107,8 @@ import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.XmlUtils;
 import com.android.server.SystemConfig;
 
+import com.nvidia.NvAppProfileService;
+
 import libcore.io.IoUtils;
 import libcore.util.EmptyArray;
 
@@ -575,6 +577,7 @@ public class PackageParser {
      * a package.
      */
     public interface Callback {
+        NvAppProfileService getAppProfileService();
         boolean hasFeature(String feature);
         String[] getOverlayPaths(String targetPackageName, String targetPath);
         String[] getOverlayApks(String targetPackageName);
@@ -589,6 +592,10 @@ public class PackageParser {
 
         public CallbackImpl(PackageManager pm) {
             mPm = pm;
+        }
+
+        @Override public NvAppProfileService getAppProfileService() {
+            return mPm.getAppProfileService();
         }
 
         @Override public boolean hasFeature(String feature) {
