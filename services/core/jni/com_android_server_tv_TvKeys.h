@@ -106,6 +106,7 @@ static Key KEYS[] = {
     { BTN_Y, AKEYCODE_BUTTON_Y },
 
     { KEY_SEARCH, AKEYCODE_SEARCH },
+    { KEY_POWER, AKEYCODE_SLEEP },
 };
 
 } // namespace android

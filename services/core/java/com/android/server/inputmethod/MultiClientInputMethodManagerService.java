@@ -63,6 +63,7 @@ import android.util.ArraySet;
 import android.util.Slog;
 import android.util.SparseArray;
 import android.view.InputChannel;
+import android.view.InputDevice;
 import android.view.WindowManager.LayoutParams.SoftInputModeFlags;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnectionInspector.MissingMethodFlags;
@@ -1777,6 +1778,22 @@ public final class MultiClientInputMethodManagerService {
         public void onShellCommand(@Nullable FileDescriptor in, @Nullable FileDescriptor out,
                 @Nullable FileDescriptor err, String[] args, @Nullable ShellCallback callback,
                 ResultReceiver resultReceiver) {
+        }
+
+        @Override
+        public void enableBeyonderSwitchImeNotifier() {
+            reportNotSupported();
+        }
+
+        @Override
+        public String getCurrentInputMethod() {
+            reportNotSupported();
+            return null;
+        }
+
+        @Override
+        public void handleInputSourceChange(final InputDevice inputDevice) {
+            reportNotSupported();
         }
 
         @BinderThread
