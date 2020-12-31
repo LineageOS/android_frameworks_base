@@ -106,6 +106,7 @@ import android.view.ContextThemeWrapper;
 import android.view.DisplayInfo;
 import android.view.IWindowManager;
 import android.view.InputChannel;
+import android.view.InputDevice;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -221,6 +222,7 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
     static final int MSG_SET_ACTIVE = 3020;
     static final int MSG_SET_INTERACTIVE = 3030;
     static final int MSG_REPORT_FULLSCREEN_MODE = 3045;
+    static final int MSG_SWITCH_IME_BROADCAST = 3055;
     static final int MSG_REPORT_PRE_RENDERED = 3060;
     static final int MSG_APPLY_IME_VISIBILITY = 3070;
 
@@ -237,6 +239,12 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
 
     static final int SECURE_SUGGESTION_SPANS_MAX_SIZE = 20;
 
+    public static final String NV_BEYONDER_PACKAGE = "com.nvidia.shield.remote.server";
+    public static final String NV_BEYONDER_DEVICE_NAME = "beyonder-remote";
+    public static final String NV_ACTION_SWITCH_INPUT_METHOD = "com.nvidia.framework.android.view.SwitchInputMethod";
+    public static final String NV_EXTRA_SWITCH_TO_IME = "com.nvidia.framework.android.view.SwitchInputMethod.SWITCH_TO_IME";
+    public static final String NV_SWITCH_TO_BEYONDER_IME = "beyonderIME";
+    public static final String NV_SWITCH_TO_DEFAULT_IME = "defaultIME";
     private static final int NOT_A_SUBTYPE_ID = InputMethodUtils.NOT_A_SUBTYPE_ID;
     private static final String TAG_TRY_SUPPRESSING_IME_SWITCHER = "TrySuppressingImeSwitcher";
 
@@ -331,6 +339,7 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
     private final UserManager mUserManager;
     private final UserManagerInternal mUserManagerInternal;
 
+<<<<<<< HEAD   (009dd8 Automatic translation import)
     /**
      * Cache the result of {@code LocalServices.getService(AudioManagerInternal.class)}.
      *
@@ -340,6 +349,11 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
     @Nullable
     private AudioManagerInternal mAudioManagerInternal = null;
 
+=======
+    private static String sCurrentInputMethod = NV_SWITCH_TO_DEFAULT_IME;
+    private static boolean sBeyonderSwitchImeNotifier = false;
+    private static String sLastInputDevice;
+>>>>>>> CHANGE (3f6e50 Add support for Nvidia tvremote interface)
 
     // All known input methods.  mMethodMap also serves as the global
     // lock for this class.
@@ -4478,6 +4492,9 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
             }
 
             // --------------------------------------------------------------
+            case MSG_SWITCH_IME_BROADCAST:
+                sendSwitchInputMethodBroadcast((String) msg.obj);
+                return true;
             case MSG_HARD_KEYBOARD_SWITCH_CHANGED:
                 mHardKeyboardListener.handleHardKeyboardStatusChange(msg.arg1 == 1);
                 return true;
@@ -5279,6 +5296,60 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
                         MSG_REPORT_FULLSCREEN_MODE, fullscreen ? 1 : 0, mCurClient));
             }
         }
+    }
+
+    @Override
+    public void enableBeyonderSwitchImeNotifier() {
+        sBeyonderSwitchImeNotifier = true;
+    }
+
+    @Override
+    public String getCurrentInputMethod() {
+        return sCurrentInputMethod;
+    }
+
+    @Override
+    public void handleInputSourceChange(final InputDevice inputDevice) {
+        if (!sBeyonderSwitchImeNotifier) {
+            return;
+        }
+
+        if (inputDevice.getName().equals("Virtual") && inputDevice.getId() == -1) {
+            return;
+        }
+
+        if (sLastInputDevice == null) {
+            sLastInputDevice = inputDevice.getName();
+
+            if (sLastInputDevice.startsWith(NV_BEYONDER_DEVICE_NAME)) {
+                mHandler.sendMessage(mHandler.obtainMessage(MSG_SWITCH_IME_BROADCAST, (Object) NV_SWITCH_TO_BEYONDER_IME));
+            }
+
+            return;
+        }
+
+        final String name = inputDevice.getName();
+        if (!sLastInputDevice.equals(name)) {
+            if (sLastInputDevice.startsWith(NV_BEYONDER_DEVICE_NAME)) {
+                if (!name.startsWith(NV_BEYONDER_DEVICE_NAME)) {
+                    mHandler.sendMessage(mHandler.obtainMessage(MSG_SWITCH_IME_BROADCAST, (Object) NV_SWITCH_TO_DEFAULT_IME));
+                }
+            } else if (name.startsWith(NV_BEYONDER_DEVICE_NAME)) {
+                mHandler.sendMessage(mHandler.obtainMessage(MSG_SWITCH_IME_BROADCAST, (Object) NV_SWITCH_TO_BEYONDER_IME));
+            }
+
+            sLastInputDevice = name;
+        }
+    }
+
+    private void sendSwitchInputMethodBroadcast(final String inputMethod) {
+        sCurrentInputMethod = inputMethod;
+
+        final Intent intent = new Intent();
+        intent.setAction(NV_ACTION_SWITCH_INPUT_METHOD);
+        intent.setPackage(NV_BEYONDER_PACKAGE);
+        intent.putExtra(NV_EXTRA_SWITCH_TO_IME, sCurrentInputMethod);
+        mContext.sendBroadcast(intent);
     }
 
     @Override

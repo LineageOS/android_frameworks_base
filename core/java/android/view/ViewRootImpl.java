@@ -8049,11 +8049,26 @@ public final class ViewRootImpl implements ViewParent,
         Trace.asyncTraceBegin(Trace.TRACE_TAG_VIEW, "deliverInputEvent",
                 q.mEvent.getId());
 
+<<<<<<< HEAD   (009dd8 Automatic translation import)
         if (Trace.isTagEnabled(Trace.TRACE_TAG_VIEW)) {
             Trace.traceBegin(Trace.TRACE_TAG_VIEW, "deliverInputEvent src=0x"
                     + Integer.toHexString(q.mEvent.getSource()) + " eventTimeNano="
                     + q.mEvent.getEventTimeNano() + " id=0x"
                     + Integer.toHexString(q.mEvent.getId()));
+=======
+        InputDevice inputDevice = q.mEvent.getDevice();
+        InputMethodManager imm = mContext.getSystemService(InputMethodManager.class);
+
+        if (imm != null && inputDevice != null) {
+            imm.handleInputSourceChange(inputDevice);
+        }
+
+        InputStage stage;
+        if (q.shouldSendToSynthesizer()) {
+            stage = mSyntheticInputStage;
+        } else {
+            stage = q.shouldSkipIme() ? mFirstPostImeInputStage : mFirstInputStage;
+>>>>>>> CHANGE (3f6e50 Add support for Nvidia tvremote interface)
         }
         try {
             if (mInputEventConsistencyVerifier != null) {

@@ -17,6 +17,7 @@
 package com.android.internal.view;
 
 import android.os.ResultReceiver;
+import android.view.InputDevice;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodSubtype;
 import android.view.inputmethod.EditorInfo;
@@ -72,9 +73,15 @@ interface IInputMethodManager {
     void reportActivityView(in IInputMethodClient parentClient, int childDisplayId,
             in float[] matrixValues);
 
+<<<<<<< HEAD   (009dd8 Automatic translation import)
     oneway void reportPerceptible(in IBinder windowToken, boolean perceptible);
     /** Remove the IME surface. Requires INTERNAL_SYSTEM_WINDOW permission. */
     void removeImeSurface();
     /** Remove the IME surface. Requires passing the currently focused window. */
     void removeImeSurfaceFromWindow(in IBinder windowToken);
+=======
+    void handleInputSourceChange(in InputDevice InputDevice);
+    void enableBeyonderSwitchImeNotifier();
+    String getCurrentInputMethod();
+>>>>>>> CHANGE (3f6e50 Add support for Nvidia tvremote interface)
 }
