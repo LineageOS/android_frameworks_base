@@ -64,6 +64,7 @@
     <string name="quick_settings_usb_tether_label">USB 테더링</string>
     <string name="quick_settings_volume_panel_label">볼륨 패널</string>
     <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">연결 중…</string>
     <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g>에 연결하기 위해 자격 증명을 입력하세요</string>
     <string name="vpn_credentials_username">사용자 이름</string>
     <string name="vpn_credentials_password">비밀번호</string>
