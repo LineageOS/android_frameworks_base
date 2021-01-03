@@ -46,6 +46,9 @@
     <string name="global_screenshot_selector_capture_description">Capture partial screenshot</string>
     <string name="global_screenshot_selector_cancel_description">Cancel partial screenshot</string>
 
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">Power menu</string>
+
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Wireless PowerShare</string>
     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>
