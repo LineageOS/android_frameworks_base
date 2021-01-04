@@ -22,6 +22,30 @@
       "revId": "6971105ff94b85ac0d3ef7a34a9199816c027203",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95a5d491_351b291d",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2021-01-04T22:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dddc5a2_92a3f95f",
+      "range": {
+        "startLine": 300,
+        "startChar": 56,
+        "endLine": 300,
+        "endChar": 72
+      },
+      "revId": "6971105ff94b85ac0d3ef7a34a9199816c027203",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
