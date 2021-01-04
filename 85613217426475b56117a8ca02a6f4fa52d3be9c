@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc73d664_c0b1f39d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-01-04T15:50:39Z",
+      "side": 1,
+      "message": "Can you also compile tests with after this change? I guess that this may break tests.",
+      "range": {
+        "startLine": 55,
+        "startChar": 60,
+        "endLine": 55,
+        "endChar": 69
+      },
+      "revId": "85613217426475b56117a8ca02a6f4fa52d3be9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
