@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5675e628_c526d7b4",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2021-01-04T16:03:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97affea1_0fec2584",
+      "range": {
+        "startLine": 76,
+        "startChar": 35,
+        "endLine": 76,
+        "endChar": 57
+      },
+      "revId": "b19543c56731c35ca5c3f31e5a83ca0525b14648",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a948f30_9f5c308a",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
         "patchSetId": 22
