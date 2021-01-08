@@ -448,7 +448,7 @@
         <font weight="400" style="normal">NotoSansInscriptionalParthian-Regular.ttf</font>
     </family>
     <family lang="und-Java">
-        <font weight="400" style="normal">NotoSansJavanese-Regular.ttf</font>
+        <font weight="400" style="normal">NotoSansJavanese-Regular.otf</font>
     </family>
     <family lang="und-Kthi">
         <font weight="400" style="normal">NotoSansKaithi-Regular.ttf</font>
