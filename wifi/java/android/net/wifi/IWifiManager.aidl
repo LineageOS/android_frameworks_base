@@ -230,4 +230,6 @@ interface IWifiManager
     int setAppProperty(String key, String value);
 
     int setAppPropertyOnDeath(IBinder binder, String key, String value);
+
+    void restartSupplicant();
 }
