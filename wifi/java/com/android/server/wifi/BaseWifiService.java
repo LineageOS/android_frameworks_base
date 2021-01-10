@@ -508,4 +508,9 @@ public class BaseWifiService extends IWifiManager.Stub {
     public int setAppPropertyOnDeath(IBinder binder, String key, String value) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public void restartSupplicant() {
+        throw new UnsupportedOperationException();
+    }
 }
