@@ -5056,4 +5056,13 @@ public class WifiManager {
     public WifiAppPropertyManager getWifiAppPropertyManager() {
         return new WifiAppPropertyManager();
     }
+
+    /** @hide */
+    public void restartSupplicant() {
+        try {
+            mService.restartSupplicant();
+        } catch(RemoteException e) {
+            return;
+        }
+    }
 }
