@@ -73,10 +73,10 @@
     <dimen name="status_bar_battery_icon_width">7.8dp</dimen>
 
     <!-- The font size for the clock in the status bar. -->
-    <dimen name="status_bar_clock_size">14sp</dimen>
+    <dimen name="status_bar_clock_size">13sp</dimen>
 
     <!-- The starting padding for the clock in the status bar. -->
-    <dimen name="status_bar_clock_starting_padding">7dp</dimen>
+    <dimen name="status_bar_clock_starting_padding">5dp</dimen>
 
     <!-- The end padding for the clock in the status bar. -->
     <dimen name="status_bar_clock_end_padding">0dp</dimen>
@@ -85,7 +85,7 @@
     <dimen name="status_bar_left_clock_starting_padding">0dp</dimen>
 
     <!-- End padding for left-aligned status bar clock -->
-    <dimen name="status_bar_left_clock_end_padding">7dp</dimen>
+    <dimen name="status_bar_left_clock_end_padding">6dp</dimen>
 
     <!-- Spacing after the wifi signals that is present if there are any icons following it. -->
     <dimen name="status_bar_wifi_signal_spacer_width">2.5dp</dimen>
@@ -145,7 +145,7 @@
     <dimen name="notification_side_paddings">4dp</dimen>
 
     <!-- padding between the heads up and the statusbar -->
-    <dimen name="heads_up_status_bar_padding">8dp</dimen>
+    <dimen name="heads_up_status_bar_padding">7dp</dimen>
 
     <!-- heads up elevation that is added if the view is pinned -->
     <dimen name="heads_up_pinned_elevation">16dp</dimen>
@@ -256,7 +256,7 @@
     <dimen name="snooze_option_padding">8dp</dimen>
 
     <!-- size at which Notification icons will be drawn in the status bar -->
-    <dimen name="status_bar_icon_drawing_size">15dp</dimen>
+    <dimen name="status_bar_icon_drawing_size">12dp</dimen>
 
     <!-- size at which Notification icons will be drawn on Ambient Display -->
     <dimen name="status_bar_icon_drawing_size_dark">@*android:dimen/notification_header_icon_size_ambient</dimen>
@@ -271,10 +271,10 @@
     <dimen name="status_bar_icon_padding">0dp</dimen>
 
     <!-- the padding on the start of the statusbar -->
-    <dimen name="status_bar_padding_start">8dp</dimen>
+    <dimen name="status_bar_padding_start">14dp</dimen>
 
     <!-- the padding on the end of the statusbar -->
-    <dimen name="status_bar_padding_end">8dp</dimen>
+    <dimen name="status_bar_padding_end">14dp</dimen>
 
     <!-- the padding on the top of the statusbar (usually 0) -->
     <dimen name="status_bar_padding_top">0dp</dimen>
@@ -337,7 +337,7 @@
     <dimen name="car_status_bar_header_height">128dp</dimen>
 
     <!-- The bottom padding of the status bar header. -->
-    <dimen name="status_bar_header_padding_bottom">48dp</dimen>
+    <dimen name="status_bar_header_padding_bottom">44dp</dimen>
 
     <!-- The height of the container that holds the battery and time in the quick settings header.
          -->
@@ -367,7 +367,7 @@
     <dimen name="qs_notification_padding">@dimen/notification_side_paddings</dimen>
 
     <!-- Height of the status bar header bar when expanded -->
-    <dimen name="status_bar_header_height_expanded">124dp</dimen>
+    <dimen name="status_bar_header_height_expanded">164dp</dimen>
 
     <!-- Height of the status bar header bar when on Keyguard -->
     <dimen name="status_bar_header_height_keyguard">40dp</dimen>
