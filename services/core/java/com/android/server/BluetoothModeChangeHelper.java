@@ -83,7 +83,8 @@ public class BluetoothModeChangeHelper {
 
     @VisibleForTesting
     public boolean isA2dpOrHearingAidConnected() {
-        return isA2dpConnected() || isHearingAidConnected();
+        return isA2dpConnected() || isHearingAidConnected() ||
+               isBroadcastActive();
     }
 
     @VisibleForTesting
@@ -141,5 +142,9 @@ public class BluetoothModeChangeHelper {
             return false;
         }
         return hearingAid.getConnectedDevices().size() > 0;
+    }
+
+    private boolean isBroadcastActive() {
+        return mAdapter.isBroadcastActive();
     }
 }
