@@ -84,6 +84,9 @@ import java.util.WeakHashMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * Represents the local device Bluetooth adapter. The {@link BluetoothAdapter}
@@ -2004,6 +2007,22 @@ public final class BluetoothAdapter {
         return false;
     }
 
+    /** @hide */
+    @RequiresPermission(Manifest.permission.BLUETOOTH)
+    public boolean isBroadcastActive() {
+        try {
+            mServiceLock.readLock().lock();
+            if (mService != null) {
+                return mService.isBroadcastActive();
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "", e);
+        } finally {
+            mServiceLock.readLock().unlock();
+        }
+        return false;
+    }
+
     /**
      * Connects all enabled and supported bluetooth profiles between the local and remote device.
      * Connection is asynchronous and you should listen to each profile's broadcast intent
@@ -3056,6 +3075,8 @@ public final class BluetoothAdapter {
         } else if (profile == BluetoothProfile.HID_DEVICE) {
             BluetoothHidDevice hidDevice = new BluetoothHidDevice(context, listener, this);
             return true;
+        } else if (profile == BluetoothProfile.BROADCAST) {
+            return getBroadcastProfile(context, listener);
         } else if (profile == BluetoothProfile.HEARING_AID) {
             if (isHearingAidProfileSupported()) {
                 BluetoothHearingAid hearingAid = new BluetoothHearingAid(context, listener, this);
@@ -3153,6 +3174,9 @@ public final class BluetoothAdapter {
                 BluetoothHidDevice hidDevice = (BluetoothHidDevice) proxy;
                 hidDevice.close();
                 break;
+            case BluetoothProfile.BROADCAST:
+                closeBroadcastProfile(proxy);
+                break;
             case BluetoothProfile.HEARING_AID:
                 BluetoothHearingAid hearingAid = (BluetoothHearingAid) proxy;
                 hearingAid.close();
@@ -3164,6 +3188,64 @@ public final class BluetoothAdapter {
                 BluetoothDeviceGroup groupClient = (BluetoothDeviceGroup) proxy;
                 groupClient.close();
                 break;
+        }
+    }
+
+    private boolean getBroadcastProfile(Context context,
+                                      BluetoothProfile.ServiceListener listener) {
+        boolean ret = true;
+        Class<?> broadcastClass = null;
+        Constructor bcastConstructor = null;
+        Object broadcastObj = null;
+        try {
+            broadcastClass = Class.forName("android.bluetooth.BluetoothBroadcast");
+        } catch (ClassNotFoundException ex) {
+            Log.e(TAG, "no BluetoothBroadcast: exists");
+        }
+        if (broadcastClass != null) {
+            try {
+               bcastConstructor =
+                            broadcastClass.getDeclaredConstructor(new Class[]{Context.class,
+                                                  BluetoothProfile.ServiceListener.class});
+            } catch (NoSuchMethodException ex) {
+               Log.e(TAG, "bcastConstructor: NoSuchMethodException: gdm" + ex);
+            }
+        }
+        if (bcastConstructor != null) {
+            try {
+                broadcastObj = bcastConstructor.newInstance(context, listener);
+            } catch (InstantiationException | IllegalAccessException |
+                InvocationTargetException ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (broadcastObj == null) {
+            return false;
+        }
+        return true;
+    }
+
+    private void closeBroadcastProfile(BluetoothProfile proxy) {
+        Class<?> broadcastClass = null;
+        Method broadcastClose = null;
+        try {
+            broadcastClass = Class.forName("android.bluetooth.BluetootBroadcast");
+        } catch (ClassNotFoundException ex) {
+            Log.e(TAG, "no BluetoothBroadcast: exists");
+        }
+        if (broadcastClass != null) {
+            try {
+                broadcastClose =  broadcastClass.getDeclaredMethod("close", null);
+            } catch (NoSuchMethodException e) {
+                Log.e(TAG, "no Broadcast:close method exists");
+            }
+            if (broadcastClose != null) {
+                try {
+                    broadcastClose.invoke(proxy, null);
+                } catch(IllegalAccessException | InvocationTargetException ex) {
+                    ex.printStackTrace();
+                }
+            }
         }
     }
 
