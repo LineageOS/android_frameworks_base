@@ -367,6 +367,11 @@ public class WifiScanner {
          */
         public boolean isPnoScan;
         /**
+         * Calling pid
+         * {@hide}
+         */
+        public int pid = 0;
+        /**
          * Indicate the type of scan to be performed by the wifi chip.
          *
          * On devices with multiple hardware radio chains (and hence different modes of scan),
@@ -419,6 +424,7 @@ public class WifiScanner {
             dest.writeInt(maxPeriodInMs);
             dest.writeInt(stepCount);
             dest.writeInt(isPnoScan ? 1 : 0);
+            dest.writeInt(pid);
             dest.writeInt(type);
             dest.writeInt(ignoreLocationSettings ? 1 : 0);
             dest.writeInt(hideFromAppOps ? 1 : 0);
@@ -451,6 +457,7 @@ public class WifiScanner {
                         settings.maxPeriodInMs = in.readInt();
                         settings.stepCount = in.readInt();
                         settings.isPnoScan = in.readInt() == 1;
+                        settings.pid = in.readInt();
                         settings.type = in.readInt();
                         settings.ignoreLocationSettings = in.readInt() == 1;
                         settings.hideFromAppOps = in.readInt() == 1;
@@ -1069,6 +1076,9 @@ public class WifiScanner {
         if (key == INVALID_KEY) return;
         validateChannel();
         Bundle scanParams = new Bundle();
+        if (settings != null && settings.pid == 0) {
+            settings.pid = Binder.getCallingPid();
+        }
         scanParams.putParcelable(SCAN_PARAMS_SCAN_SETTINGS_KEY, settings);
         scanParams.putParcelable(SCAN_PARAMS_WORK_SOURCE_KEY, workSource);
         scanParams.putString(REQUEST_PACKAGE_NAME_KEY, mContext.getOpPackageName());
