@@ -243,6 +243,11 @@ public class WifiScanner {
          */
         public boolean isPnoScan;
         /**
+         * Calling pid
+         * {@hide}
+         */
+        public int pid = 0;
+        /**
          * Indicate the type of scan to be performed by the wifi chip.
          * Default value: {@link #TYPE_LOW_LATENCY}.
          * {@hide}
@@ -265,6 +270,7 @@ public class WifiScanner {
             dest.writeInt(maxPeriodInMs);
             dest.writeInt(stepCount);
             dest.writeInt(isPnoScan ? 1 : 0);
+            dest.writeInt(pid);
             dest.writeInt(type);
             if (channels != null) {
                 dest.writeInt(channels.length);
@@ -299,6 +305,7 @@ public class WifiScanner {
                         settings.maxPeriodInMs = in.readInt();
                         settings.stepCount = in.readInt();
                         settings.isPnoScan = in.readInt() == 1;
+                        settings.pid = in.readInt();
                         settings.type = in.readInt();
                         int num_channels = in.readInt();
                         settings.channels = new ChannelSpec[num_channels];
@@ -840,6 +847,9 @@ public class WifiScanner {
         if (key == INVALID_KEY) return;
         validateChannel();
         Bundle scanParams = new Bundle();
+        if (scanSettings != null && scanSettings.pid == 0) {
+            scanSettings.pid = Binder.getCallingPid();
+        }
         scanParams.putParcelable(SCAN_PARAMS_SCAN_SETTINGS_KEY, settings);
         scanParams.putParcelable(SCAN_PARAMS_WORK_SOURCE_KEY, workSource);
         mAsyncChannel.sendMessage(CMD_START_SINGLE_SCAN, 0, key, scanParams);
