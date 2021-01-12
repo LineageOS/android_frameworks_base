@@ -705,6 +705,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private void initODICaptionsH() {
         if (mODICaptionsIcon != null) {
             mODICaptionsIcon.setOnConfirmedTapListener(() -> {
+                rescheduleTimeoutH();
                 onCaptionIconClicked();
                 Events.writeEvent(Events.EVENT_ODI_CAPTIONS_CLICK);
             }, mHandler);
