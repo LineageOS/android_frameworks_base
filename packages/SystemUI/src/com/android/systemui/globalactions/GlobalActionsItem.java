@@ -21,6 +21,7 @@ import android.text.Layout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.android.internal.R;
@@ -52,6 +53,26 @@ public class GlobalActionsItem extends LinearLayout {
         TextView text = getTextView();
         text.setSingleLine(marquee);
         text.setEllipsize(marquee ? TextUtils.TruncateAt.MARQUEE : TextUtils.TruncateAt.END);
+    }
+
+    /**
+     * Sets message top margin depending on linecount
+     */
+    public void setMessageMargin() {
+        TextView message = findViewById(R.id.message);
+
+        if (message != null) {
+            LayoutParams params = (LinearLayout.LayoutParams) message.getLayoutParams();
+            int marginTop = (int) getResources().getDimension(getTextView().getLineCount() > 1
+                    ? com.android.systemui.R.dimen
+                            .global_actions_power_dialog_twoline_message_top_margin
+                    : com.android.systemui.R.dimen
+                            .global_actions_power_dialog_message_top_margin);
+
+            params.setMargins(params.leftMargin, marginTop, params.rightMargin,
+                    params.bottomMargin);
+            message.setLayoutParams(params);
+        }
     }
 
     /**
