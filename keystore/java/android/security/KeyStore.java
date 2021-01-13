@@ -704,6 +704,11 @@ public class KeyStore {
 
     public int attestKey(
             String alias, KeymasterArguments params, KeymasterCertificateChain outChain) {
+        // Prevent Google Play Services from using key attestation for SafetyNet
+        if (mContext.getPackageName().equals("com.google.android.gms")) {
+            return KeymasterDefs.KM_ERROR_UNIMPLEMENTED;
+        }
+
         try {
             if (params == null) {
                 params = new KeymasterArguments();
