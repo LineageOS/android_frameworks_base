@@ -90,6 +90,7 @@ public class GlobalActionsFlatLayout extends GlobalActionsLayout {
             if (child instanceof GlobalActionsItem) {
                 GlobalActionsItem item = (GlobalActionsItem) child;
                 anyTruncated = anyTruncated || item.isTruncated();
+                item.setMessageMargin();
             }
         }
         // If any of the items have been truncated, set the all to single-line marquee
