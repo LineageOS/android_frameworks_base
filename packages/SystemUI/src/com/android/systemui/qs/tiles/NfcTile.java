@@ -59,7 +59,11 @@ public class NfcTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleSetListening(boolean listening) {
+<<<<<<< HEAD   (0177db SystemUI: Use AVCProfileMain for screen recorder)
         super.handleSetListening(listening);
+=======
+        if (mListening == listening) return;
+>>>>>>> CHANGE (4be11d NfcTile: Don't create an error when editing tiles)
         mListening = listening;
         if (mListening) {
             mBroadcastDispatcher.registerReceiver(mNfcReceiver,
