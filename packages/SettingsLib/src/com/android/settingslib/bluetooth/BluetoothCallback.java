@@ -177,4 +177,25 @@ public interface BluetoothCallback {
     default void onGroupDiscoveryStatusChanged (int groupId, int status, int reason) {
     }
 
+    /**
+     * Called when Broadcast state is changed. It listens to
+     * {@link android.bluetooth.BluetoothBroadcast#ACTION_BROADCAST_STATE_CHANGED}
+     *
+     * @param state        the Bluetooth device connection state, the possible values are:
+     *                     {@link android.bluetooth.BluetoothBroadcast#STATE_DISABLED},
+     *                     {@link android.bluetooth.BluetoothBroadcast#STATE_ENABLING},
+     *                     {@link android.bluetooth.BluetoothBroadcast#STATE_ENABLED},
+     *                     {@link android.bluetooth.BluetoothBroadcast#STATE_DISABLING},
+     *                     {@link android.bluetooth.BluetoothBroadcast#STATE_STREAMING}
+     */
+    default void onBroadcastStateChanged(int state) {
+    }
+
+    /**
+     * Called when Broadcast key is changed. It listens to
+     * {@link android.bluetooth.BluetoothBroadcast#ACTION_BROADCAST_ENCRYPTION_KEY_GENERATED}
+     *
+     */
+    default void onBroadcastKeyGenerated() {
+    }
 }
