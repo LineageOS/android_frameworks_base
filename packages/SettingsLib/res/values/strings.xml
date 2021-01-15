@@ -234,6 +234,8 @@
     <string name="bluetooth_profile_headset">Phone calls</string>
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
     <string name="bluetooth_profile_opp">File transfer</string>
+    <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the Broadcast profile. -->
+    <string name="bluetooth_profile_broadcast">Broadcast</string>
     <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
     <string name="bluetooth_profile_hid">Input device</string>
     <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (accessing Internet through remote device). [CHAR LIMIT=40] -->
