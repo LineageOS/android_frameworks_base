@@ -25,9 +25,11 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
 import android.hardware.biometrics.BiometricSourceType;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.view.Display;
@@ -54,6 +56,8 @@ import java.util.TimerTask;
 
 public class FODCircleView extends ImageView {
     private static final int FADE_ANIM_DURATION = 250;
+    private final int MSG_HBM_OFF = 1001;
+    private final int MSG_HBM_ON = 1002;
 
     private final int mPositionX;
     private final int mPositionY;
@@ -65,10 +69,12 @@ public class FODCircleView extends ImageView {
     private final Paint mPaintFingerprint = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
     private final WindowManager.LayoutParams mPressedParams = new WindowManager.LayoutParams();
+    private final WindowManager.LayoutParams mHBM = new WindowManager.LayoutParams();
     private final WindowManager mWindowManager;
 
     private IFingerprintInscreen mFingerprintInscreenDaemon;
 
+    private int mCurDim;
     private int mDreamingOffsetX;
     private int mDreamingOffsetY;
 
@@ -81,6 +87,11 @@ public class FODCircleView extends ImageView {
 
     private Handler mHandler;
 
+    private int mHbmOffDelay = 0;
+    private int mHbmOnDelay = 0;
+    private boolean mSupportsAlwaysOnHbm = true;
+
+    private final ImageView mHBMView;
     private final ImageView mPressedView;
 
     private LockPatternUtils mLockPatternUtils;
@@ -227,25 +238,43 @@ public class FODCircleView extends ImageView {
         mParams.packageName = "android";
         mParams.type = WindowManager.LayoutParams.TYPE_DISPLAY_OVERLAY;
         mParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
-                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
+                    WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
         mParams.gravity = Gravity.TOP | Gravity.LEFT;
 
-        mPressedParams.copyFrom(mParams);
-        mPressedParams.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        if (mSupportsAlwaysOnHbm) {
+            mPressedParams.copyFrom(mParams);
+            mPressedParams.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
 
-        mParams.setTitle("Fingerprint on display");
-        mPressedParams.setTitle("Fingerprint on display.touched");
+            mParams.setTitle("Fingerprint on display");
+            mPressedParams.setTitle("Fingerprint on display.touched");
 
-        mPressedView = new ImageView(context)  {
-            @Override
-            protected void onDraw(Canvas canvas) {
-                if (mIsCircleShowing) {
-                    canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+            mPressedView = new ImageView(context)  {
+                @Override
+                protected void onDraw(Canvas canvas) {
+                    if (mIsCircleShowing) {
+                        canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+                    }
+                    super.onDraw(canvas);
                 }
-                super.onDraw(canvas);
-            }
-        };
-        mPressedView.setImageResource(R.drawable.fod_icon_pressed);
+            };
+            mPressedView.setImageResource(R.drawable.fod_icon_pressed);
+        } else {
+            mParams.setTitle("Fingerprint on display");
+
+            mHBM.copyFrom(mParams);
+            // mHBM.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+            mHBM.setTitle("Fingerprint Always On HBM");
+            // mPressedView = new ImageView(context)  {
+            //     @Override
+            //     protected void onDraw(Canvas canvas) {
+            //         // if (mIsCircleShowing) {
+            //         //     canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+            //         // }
+            //         super.onDraw(canvas);
+            //     }
+            // };
+            // mHBMView.setImageResource(R.drawable.fod_icon_default);
+        }
 
         mWindowManager.addView(this, mParams);
 
@@ -336,6 +365,27 @@ public class FODCircleView extends ImageView {
         }
     }
 
+    public void switchHbm(boolean enable) {
+        if (mShouldBoostBrightness) {
+            if (enable) {
+                mParams.screenBrightness = 1.0f;
+            } else {
+                mParams.screenBrightness = 0.0f;
+            }
+            mWindowManager.updateViewLayout(this, mParams);
+        }
+
+        // try {
+            if (enable) {
+                mWindowManager.addView(mHBMView, mHBM);
+            } else {
+                mWindowManager.removeView(mHBMView);
+            }
+        // } catch (RemoteException e) {
+        //     // do nothing
+        // }
+    }
+
     public void dispatchHide() {
         IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
         try {
@@ -351,8 +401,9 @@ public class FODCircleView extends ImageView {
 
         setKeepScreenOn(true);
 
-        setDim(true);
+        // setDim(true);
         dispatchPress();
+        setColorFilter(Color.argb(0, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
 
         setImageDrawable(null);
         invalidate();
@@ -365,7 +416,9 @@ public class FODCircleView extends ImageView {
         invalidate();
 
         dispatchRelease();
-        setDim(false);
+        // setDim(false);
+        setColorFilter(Color.argb(mCurDim, 0, 0, 0),
+                    PorterDuff.Mode.SRC_ATOP);
 
         setKeepScreenOn(false);
     }
@@ -392,6 +445,9 @@ public class FODCircleView extends ImageView {
 
         updatePosition();
 
+        mHandler.sendEmptyMessageDelayed(MSG_HBM_ON, mHbmOnDelay);
+        setDim(true);
+
         setVisibility(View.VISIBLE);
         animate().withStartAction(() -> mFading = true)
                 .alpha(mIsDreaming ? 0.5f : 1.0f)
@@ -402,6 +458,9 @@ public class FODCircleView extends ImageView {
     }
 
     public void hide() {
+        setDim(false);
+        mHandler.sendEmptyMessageDelayed(MSG_HBM_OFF, mHbmOffDelay);
+
         animate().withStartAction(() -> mFading = true)
                 .alpha(0)
                 .setDuration(FADE_ANIM_DURATION)
@@ -458,7 +517,7 @@ public class FODCircleView extends ImageView {
         mWindowManager.updateViewLayout(this, mParams);
 
         if (mPressedView.getParent() != null) {
-            mWindowManager.updateViewLayout(mPressedView, mPressedParams);
+            mWindowManager.updateViewLayout(mPressedView, mParams);
         }
     }
 
@@ -475,24 +534,38 @@ public class FODCircleView extends ImageView {
                 // do nothing
             }
 
-            if (mShouldBoostBrightness) {
-                mPressedParams.screenBrightness = 1.0f;
-            }
-
-            mPressedParams.dimAmount = dimAmount / 255.0f;
-            if (mPressedView.getParent() == null) {
-                mWindowManager.addView(mPressedView, mPressedParams);
+            if (!mSupportsAlwaysOnHbm) {
+                if (mShouldBoostBrightness) {
+                    mPressedParams.screenBrightness = 1.0f;
+                }
+    
+                mPressedParams.dimAmount = dimAmount / 255.0f;
+                if (mPressedView.getParent() == null) {
+                    mWindowManager.addView(mPressedView, mPressedParams);
+                } else {
+                    mWindowManager.updateViewLayout(mPressedView, mPressedParams);
+                }
             } else {
-                mWindowManager.updateViewLayout(mPressedView, mPressedParams);
+                mParams.dimAmount = dimAmount / 255.0f;
+                mCurDim = dimAmount;
+                setColorFilter(Color.argb(dimAmount, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
             }
         } else {
-            if (mShouldBoostBrightness) {
-                mPressedParams.screenBrightness = 0.0f;
+            if (!mSupportsAlwaysOnHbm) {
+                if (mShouldBoostBrightness) {
+                    mPressedParams.screenBrightness = 0.0f;
+                }
+                mPressedParams.dimAmount = 0.0f;
+                if (mPressedView.getParent() != null) {
+                    mWindowManager.removeView(mPressedView);
+                }
+            } else {
+                mParams.dimAmount = 0.0f;
             }
-            mPressedParams.dimAmount = 0.0f;
-            if (mPressedView.getParent() != null) {
-                mWindowManager.removeView(mPressedView);
-            }
+        }
+
+        if (mSupportsAlwaysOnHbm) {
+            mWindowManager.updateViewLayout(this, mParams);
         }
     }
 
@@ -532,4 +605,18 @@ public class FODCircleView extends ImageView {
             mHandler.post(() -> updatePosition());
         }
     };
+
+    // @Override
+    public boolean handleMessage(Message msg) {
+        switch (msg.what) {
+            case MSG_HBM_OFF: {
+                switchHbm(false);
+            } break;
+            case MSG_HBM_ON: {
+                switchHbm(true);
+            } break;
+
+        }
+        return true;
+    }
 }
