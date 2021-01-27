@@ -4425,8 +4425,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         } else {
                             intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
                         }
-                        isWakeKey = true;
-                        startActivityAsUser(intent, UserHandle.CURRENT_OR_SELF);
+                        if (!isAlreadyRunning(intent)) {
+                            isWakeKey = true;
+                            startActivityAsUser(intent, UserHandle.CURRENT_OR_SELF);
+                        }
                     }
                 }
                 break;
@@ -4691,6 +4693,38 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         return result;
+    }
+
+    /**
+     * Check if an activity requested via an intent is already the current top / focused one
+     * @param intent
+     */
+    private boolean isAlreadyRunning(Intent intent) {
+        // When the screen is not on, we consider the activity to be not running
+        if (!isScreenOn()) {
+            return false;
+        }
+
+        ResolveInfo info = mPackageManager.resolveActivityAsUser(intent,
+                PackageManager.MATCH_DEFAULT_ONLY,
+                mCurrentUserId);
+        if (info == null || info.activityInfo == null || info.activityInfo.packageName == null) {
+            return false;
+        }
+
+        String resolvedName = info.activityInfo.packageName;
+
+        try {
+            final ActivityManager.StackInfo focusedStack =
+                    ActivityTaskManager.getService().getFocusedStackInfo();
+            if (focusedStack != null && focusedStack.topActivity != null) {
+                return resolvedName.equals(focusedStack.topActivity.getPackageName());
+            }
+        } catch (Exception e) {
+            // ignore
+        }
+
+        return false;
     }
 
     /**
