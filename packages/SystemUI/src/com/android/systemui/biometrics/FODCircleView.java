@@ -418,10 +418,10 @@ public class FODCircleView extends ImageView {
                 .withEndAction(() -> {
                     setVisibility(View.GONE);
                     mFading = false;
+                    dispatchHide();
+                    hideCircle();
                 })
                 .start();
-        hideCircle();
-        dispatchHide();
     }
 
     public int getHeight(boolean includeDecor) {
