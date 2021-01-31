@@ -38,6 +38,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.util.proto.ProtoOutputStream;
+import android.util.Log;
 
 import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
@@ -680,7 +681,15 @@ public final class DisplayCutout {
      *
      * @hide
      */
-    public static DisplayCutout fromResourcesRectApproximation(Resources res, int displayWidth, int displayHeight) {
+    public static DisplayCutout fromResourcesRectApproximation(Resources res, 
+                                                               int displayWidth,
+                                                               int displayHeight) {
+        final String mDisplayCutout = res.getString(
+                  R.string.config_mainBuiltInDisplayCutoutRectApproximation);
+        final String mDisplayIcon = res.getString(R.string.config_icon_mask);
+        if (mDisplayCutout.equals(mDisplayIcon)) {
+            Log.e(TAG,"Forgot to set the cutout rect approximation!");
+        }
         return fromSpec(res.getString(R.string.config_mainBuiltInDisplayCutoutRectApproximation),
                 displayWidth, displayHeight, DENSITY_DEVICE_STABLE / (float) DENSITY_DEFAULT,
                 loadWaterfallInset(res));
