@@ -1,0 +1,38 @@
+--- services/core/java/com/android/server/policy/PhoneWindowManager.java
++++ services/core/java/com/android/server/policy/PhoneWindowManager.java
+@@ -706,6 +706,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+     // Lineage additions
+     private static final int MSG_TOGGLE_TORCH = 100;
+     private static final int MSG_CAMERA_LONG_PRESS = 101;
++    private static final int MSG_POWER_LONG_PRESS_FOR_HARDWARE_RESET = 110;
++    private static final int TIME_FOR_SCREEN_OFF_BEFORE_HARDWARE_RESET = 7300;
+ 
+     private CameraManager mCameraManager;
+     private String mRearFlashCameraId;
+@@ -808,6 +810,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+                     KeyEvent event = (KeyEvent) msg.obj;
+                     mIsLongPress = true;
+                     break;
++                case MSG_POWER_LONG_PRESS_FOR_HARDWARE_RESET:
++                    mPowerManager.goToSleep(SystemClock.uptimeMillis(),
++                        PowerManager.GO_TO_SLEEP_REASON_POWER_BUTTON, PowerManager.GO_TO_SLEEP_FLAG_NO_DOZE);
++                    break;
+             }
+         }
+     }
+@@ -5702,10 +5708,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+     private void schedulePossibleVeryLongPressReboot() {
+         mHandler.removeCallbacks(mPossibleVeryLongPressReboot);
+         mHandler.postDelayed(mPossibleVeryLongPressReboot, mVeryLongPressTimeout);
++        Message msg = mHandler.obtainMessage(MSG_POWER_LONG_PRESS_FOR_HARDWARE_RESET);
++        msg.setAsynchronous(true);
++        Slog.d(TAG,"send Delayed Message WHEN interactive: MSG_POWER_LONG_PRESS_FOR_HARDWARE_RESET");
++        mHandler.sendMessageDelayed(msg, TIME_FOR_SCREEN_OFF_BEFORE_HARDWARE_RESET);
+     }
+ 
+     private void cancelPossibleVeryLongPressReboot() {
+         mHandler.removeCallbacks(mPossibleVeryLongPressReboot);
++        mHandler.removeMessages(MSG_POWER_LONG_PRESS_FOR_HARDWARE_RESET);
+     }
+ 
+     // TODO (multidisplay): Support multiple displays in WindowManagerPolicy.
