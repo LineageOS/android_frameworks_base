@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0528c216_7720912a",
+        "filename": "..rej",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-02T20:37:07Z",
+      "side": 1,
+      "message": "this file shouldn\u0027t be here at all",
+      "revId": "bb8431109b499f9f99159d04710e3b6472ea1c9b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee10ab69_fff2fb75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-02T20:37:07Z",
+      "side": 1,
+      "message": "a space after the \"hardreset:\" doesn\u0027t hurt for separation",
+      "revId": "bb8431109b499f9f99159d04710e3b6472ea1c9b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b6938a1_037ae5ad",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-02T20:37:07Z",
+      "side": 1,
+      "message": "need to break lines once more",
+      "revId": "bb8431109b499f9f99159d04710e3b6472ea1c9b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dfd37ad_aa51c095",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5713,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-02T20:37:07Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "bb8431109b499f9f99159d04710e3b6472ea1c9b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
