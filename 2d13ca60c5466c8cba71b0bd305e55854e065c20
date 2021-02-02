@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e9f7581_e6eb30c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-02T20:41:36Z",
+      "side": 1,
+      "message": "title needs to be shorter overall, maybe\n\"cutout: warn if cutout approximation config is not set\"?",
+      "revId": "2d13ca60c5466c8cba71b0bd305e55854e065c20",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00b4853c_0bf5cc19",
+        "filename": "core/java/android/view/DisplayCutout.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-02T20:41:36Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "2d13ca60c5466c8cba71b0bd305e55854e065c20",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "590e7eb7_af1a9e34",
+        "filename": "core/java/android/view/DisplayCutout.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-02T20:41:36Z",
+      "side": 1,
+      "message": "if this is so important, make it Log.e()\n\nremove two exclamation marks and the line length issue will vanish with it automatically\nmake it \"Forgot to set the cutout rect approximation!\" - shorter and \n\n\"forget\" needs a lower F",
+      "revId": "2d13ca60c5466c8cba71b0bd305e55854e065c20",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
