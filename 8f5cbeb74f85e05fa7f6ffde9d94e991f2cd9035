@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72a3382d_c280cebf",
+        "filename": "core/java/android/webkit/WebViewFactory.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-02T19:59:22Z",
+      "side": 1,
+      "message": "this should have spaces before opening brackets and less brackets overall, following the code style of the general file.\nAlso, null checks are usually performed the other way around in this file.\nAnd according to https://developer.android.com/reference/android/content/pm/PackageInfo#applicationInfo applicationInfo could also be null, so it would be better to also check for that:\n\n        if (packageInfo.applicationInfo \u003d\u003d null ||\n                packageInfo.applicationInfo.primaryCpuAbi \u003d\u003d null) {\n\n(i already wrapped and indented this so line length will not be an issue)",
+      "revId": "8f5cbeb74f85e05fa7f6ffde9d94e991f2cd9035",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cee9f7f5_5ea2beb4",
+        "filename": "core/java/android/webkit/WebViewFactory.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-02T19:59:22Z",
+      "side": 1,
+      "message": "Remove the brackets around the variable. They add no value to the code and are generally not used in other aprts of the code as well, matching the code style",
+      "revId": "8f5cbeb74f85e05fa7f6ffde9d94e991f2cd9035",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
