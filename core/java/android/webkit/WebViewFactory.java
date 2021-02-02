@@ -209,11 +209,21 @@ public final class WebViewFactory {
         try {
             PackageInfo packageInfo = packageManager.getPackageInfo(packageName,
                     PackageManager.GET_META_DATA | PackageManager.MATCH_DEBUG_TRIAGED_MISSING);
+            if (packageInfo.applicationInfo == null) {
+                Log.e(LOGTAG, "No find package " + packageName);
+                return LIBLOAD_WRONG_PACKAGE_NAME;
+            }
             libraryFileName = getWebViewLibrary(packageInfo.applicationInfo);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(LOGTAG, "Couldn't find package " + packageName);
             return LIBLOAD_WRONG_PACKAGE_NAME;
         }
+        // fix the crash case when primaryCpuAbi is null
+        if (packageInfo.applicationInfo.primaryCpuAbi == null) {
+            Log.d(LOGTAG, "Unsupported ABI: " + sPackageInfo.applicationInfo.primaryCpuAbi);
+            return LIBLOAD_WRONG_PACKAGE_NAME;
+        }
+        sPackageInfo = packageInfo;
 
         int loadNativeRet = WebViewLibraryLoader.loadNativeLibrary(clazzLoader, libraryFileName);
         // If we failed waiting for relro we want to return that fact even if we successfully
