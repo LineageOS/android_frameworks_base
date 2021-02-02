@@ -214,6 +214,12 @@ public final class WebViewFactory {
             Log.e(LOGTAG, "Couldn't find package " + packageName);
             return LIBLOAD_WRONG_PACKAGE_NAME;
         }
+        // fix the crash case when primaryCpuAbi is null
+        if(null == (packageInfo.applicationInfo.primaryCpuAbi)){
+            Log.d(LOGTAG, "Unsupported ABI: " + (sPackageInfo.applicationInfo.primaryCpuAbi));
+            return LIBLOAD_WRONG_PACKAGE_NAME;
+        }
+        sPackageInfo = packageInfo;
 
         int loadNativeRet = WebViewLibraryLoader.loadNativeLibrary(clazzLoader, libraryFileName);
         // If we failed waiting for relro we want to return that fact even if we successfully
