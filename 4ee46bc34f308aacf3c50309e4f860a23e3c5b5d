@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd4ab632_c217e758",
+        "filename": "core/jni/android_view_SurfaceControl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2021-02-03T03:19:26Z",
+      "side": 1,
+      "message": "Changing the mode from 644 to 755 looks accidental.  Unless there is good reason for needing a mode of 755, I would leave it at 644.",
+      "revId": "4ee46bc34f308aacf3c50309e4f860a23e3c5b5d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3de6618_72a9b8ec",
+        "filename": "core/jni/android_view_SurfaceControl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2021-02-03T03:19:26Z",
+      "side": 1,
+      "message": "ALOGD() already has string conversion built-in, so resorting to the advanced C++ formatting seems overkill.\n\n    ALOGD(\"Excessive delay in setPowerMode(), t\u003d%ld ms\", t.duration().count());\n\n \n\n\nIs it really that valuable to know what timeout was passed in?  This looks like a temporary debugging hack used for diagnosing a problem elsewhere which shouldn\u0027t have gotten into Gerrit.",
+      "revId": "4ee46bc34f308aacf3c50309e4f860a23e3c5b5d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
