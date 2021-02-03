@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "a7ebb7e3_3119b6e0",
+        "filename": "core/java/android/view/DisplayCutout.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 27473
+      },
+      "writtenOn": "2021-02-03T02:55:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00b4853c_0bf5cc19",
+      "revId": "2d13ca60c5466c8cba71b0bd305e55854e065c20",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "590e7eb7_af1a9e34",
         "filename": "core/java/android/view/DisplayCutout.java",
         "patchSetId": 1
@@ -50,6 +68,24 @@
       "revId": "2d13ca60c5466c8cba71b0bd305e55854e065c20",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fc75882_f06495c0",
+        "filename": "core/java/android/view/DisplayCutout.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 27473
+      },
+      "writtenOn": "2021-02-03T02:55:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "590e7eb7_af1a9e34",
+      "revId": "2d13ca60c5466c8cba71b0bd305e55854e065c20",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
