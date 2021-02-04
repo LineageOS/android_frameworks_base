@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e71c1573_8b888b0b",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleViewImpl.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-02-04T23:53:25Z",
+      "side": 1,
+      "message": "private, no?",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 10
+      },
+      "revId": "0fcf85cc002852bce3e8d7813612285a953b6bd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68628c33_84ff8d54",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/ActivityLaunchAnimator.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-02-04T23:53:25Z",
+      "side": 1,
+      "message": "Why is this a class member variable?",
+      "range": {
+        "startLine": 77,
+        "startChar": 20,
+        "endLine": 77,
+        "endChar": 37
+      },
+      "revId": "0fcf85cc002852bce3e8d7813612285a953b6bd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38c862f6_2e464237",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-02-04T23:53:25Z",
+      "side": 1,
+      "message": "Why is this a class member variable?",
+      "range": {
+        "startLine": 645,
+        "startChar": 20,
+        "endLine": 645,
+        "endChar": 37
+      },
+      "revId": "0fcf85cc002852bce3e8d7813612285a953b6bd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9904cdb_bfd41e12",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-02-04T23:53:25Z",
+      "side": 1,
+      "message": "Indentation seems a bit off.",
+      "range": {
+        "startLine": 648,
+        "startChar": 0,
+        "endLine": 664,
+        "endChar": 17
+      },
+      "revId": "0fcf85cc002852bce3e8d7813612285a953b6bd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eba09ad8_44a62174",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 4688,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-02-04T23:53:25Z",
+      "side": 1,
+      "message": "Can make it one line only?",
+      "range": {
+        "startLine": 4687,
+        "startChar": 0,
+        "endLine": 4688,
+        "endChar": 52
+      },
+      "revId": "0fcf85cc002852bce3e8d7813612285a953b6bd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
