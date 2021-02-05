@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d746cf7d_15803275",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleViewImpl.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-02-05T00:15:38Z",
+      "side": 1,
+      "message": "theoretically could be, but it makes sense to have it public.",
+      "parentUuid": "e71c1573_8b888b0b",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 10
+      },
+      "revId": "0fcf85cc002852bce3e8d7813612285a953b6bd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68628c33_84ff8d54",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/ActivityLaunchAnimator.java",
         "patchSetId": 15
@@ -82,6 +106,30 @@
       "writtenOn": "2021-02-04T23:53:25Z",
       "side": 1,
       "message": "Indentation seems a bit off.",
+      "range": {
+        "startLine": 648,
+        "startChar": 0,
+        "endLine": 664,
+        "endChar": 17
+      },
+      "revId": "0fcf85cc002852bce3e8d7813612285a953b6bd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a2979d3_d16ecdca",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-02-05T00:15:38Z",
+      "side": 1,
+      "message": "it\u0027s actually correct.",
+      "parentUuid": "d9904cdb_bfd41e12",
       "range": {
         "startLine": 648,
         "startChar": 0,
