@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a01ed15c_a5a86f54",
+        "filename": "services/core/java/com/android/server/wm/WindowManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3337,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-02-05T01:12:19Z",
+      "side": 1,
+      "message": "the extra !\u003d null check is not needed.",
+      "revId": "09564fff321eb40549f34215c1fb5c5e8c3d03b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4909b99b_291e48e4",
+        "filename": "services/core/java/com/android/server/wm/WindowManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3345,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-02-05T01:12:19Z",
+      "side": 1,
+      "message": "nor here either",
+      "revId": "09564fff321eb40549f34215c1fb5c5e8c3d03b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
