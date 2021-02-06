@@ -36,8 +36,7 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
 
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_reader);
 
-    private static final Intent LIVEDISPLAY_SETTINGS =
-            new Intent("org.lineageos.lineageparts.LIVEDISPLAY_SETTINGS");
+    private static final Intent DISPLAY_SETTINGS = new Intent("android.settings.DISPLAY_SETTINGS");
 
     private LineageHardwareManager mHardware;
 
@@ -61,7 +60,7 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return LIVEDISPLAY_SETTINGS;
+        return DISPLAY_SETTINGS;
     }
 
     @Override
