@@ -52,8 +52,7 @@ import javax.inject.Inject;
 /** Quick settings tile: LiveDisplay mode switcher **/
 public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
 
-    private static final Intent LIVEDISPLAY_SETTINGS =
-            new Intent("org.lineageos.lineageparts.LIVEDISPLAY_SETTINGS");
+    private static final Intent DISPLAY_SETTINGS = new Intent("android.settings.DISPLAY_SETTINGS");
 
     private final LiveDisplayObserver mObserver;
     private String mTitle;
@@ -185,7 +184,7 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return LIVEDISPLAY_SETTINGS;
+        return DISPLAY_SETTINGS;
     }
 
     @Override
