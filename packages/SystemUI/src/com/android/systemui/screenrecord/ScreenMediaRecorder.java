@@ -101,6 +101,8 @@ public class ScreenMediaRecorder {
     private final int mDisplayId;
     private final AtomicBoolean mIsStarted = new AtomicBoolean();
 
+    private int mMaxRefreshRate;
+
     private Context mContext;
     ScreenMediaRecorderListener mListener;
 
@@ -119,6 +121,8 @@ public class ScreenMediaRecorder {
         mListener = listener;
         mAudioSource = audioSource;
         mDisplayId = displayId;
+        mMaxRefreshRate = mContext.getResources().getInteger(
+                com.android.systemui.res.R.integer.config_screenRecorderMaxFramerate);
     }
 
     private void prepare() throws IOException, RemoteException, RuntimeException {
@@ -165,6 +169,7 @@ public class ScreenMediaRecorder {
         Display display = dm.getDisplay(mDisplayId);
         display.getRealMetrics(metrics);
         int refreshRate = (int) display.getRefreshRate();
+        if (mMaxRefreshRate != 0 && refreshRate > mMaxRefreshRate) refreshRate = mMaxRefreshRate;
         VideoParameters videoParameters = getSupportedSize(metrics.widthPixels,
                 metrics.heightPixels, refreshRate);
         mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
