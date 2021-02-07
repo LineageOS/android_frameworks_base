@@ -1114,7 +1114,9 @@ static void nativeSetDisplayPowerMode(JNIEnv* env, jclass clazz, jobject tokenOb
 
     android::base::Timer t;
     SurfaceComposerClient::setDisplayPowerMode(token, mode);
-    if (t.duration() > 100ms) ALOGD("Excessive delay in setPowerMode()");
+    if (t.duration() > 100ms){
+        ALOGD("Excessive delay %lld ms in setPowerMode()",t.duration().count());
+    }
 }
 
 static jboolean nativeGetProtectedContentSupport(JNIEnv* env, jclass) {
