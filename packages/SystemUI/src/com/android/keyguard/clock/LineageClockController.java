@@ -114,6 +114,7 @@ public class LineageClockController implements ClockPlugin {
         TextClock clock = previewView.findViewById(R.id.clock);
         clock.setFormat12Hour("hh\nmm");
         clock.setFormat24Hour("kk\nmm");
+        setTextColor(Color.WHITE);
         onTimeTick();
         return mRenderer.createPreview(previewView, width, height);
     }
