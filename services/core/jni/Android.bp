@@ -168,6 +168,7 @@ cc_defaults {
         "service.incremental",
         "suspend_control_aidl_interface-cpp",
         "vendor.lineage.power@1.0",
+        "vendor.lineage.power-cpp",
     ],
 
     static_libs: [
