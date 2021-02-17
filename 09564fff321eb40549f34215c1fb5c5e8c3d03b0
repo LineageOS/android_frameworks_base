@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "b9392244_ef0b9e3d",
+        "filename": "services/core/java/com/android/server/wm/WindowManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3337,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2021-02-17T10:17:04Z",
+      "side": 1,
+      "message": "However WTFy, this is a direct pick/bp of the change that was committed to all branches that google still manages (11, 10, 9, 8). I would prefer to not add potential conflicts and it it doesn\u0027t introduce vulns.",
+      "parentUuid": "0145dc25_349ccd88",
+      "revId": "09564fff321eb40549f34215c1fb5c5e8c3d03b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4909b99b_291e48e4",
         "filename": "services/core/java/com/android/server/wm/WindowManagerService.java",
         "patchSetId": 3
