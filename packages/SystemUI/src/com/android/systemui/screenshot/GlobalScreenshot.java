@@ -53,7 +53,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.hardware.camera2.CameraManager;
-import android.media.AudioManager;
 import android.media.MediaActionSound;
 import android.net.Uri;
 import android.os.Handler;
@@ -62,8 +61,6 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -229,8 +226,6 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
     private float mDismissDeltaY;
 
     private MediaActionSound mCameraSound;
-    private AudioManager mAudioManager;
-    private Vibrator mVibrator;
 
     private CameraManager mCameraManager;
     private int mCamsInUse = 0;
@@ -331,9 +326,6 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         mCameraSound = new MediaActionSound();
         mCameraSound.load(MediaActionSound.SHUTTER_CLICK);
 
-        // Grab system services needed for screenshot sound
-        mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
-        mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
         mCameraManager.registerAvailabilityCallback(mCamCallback,
                 new Handler(Looper.getMainLooper()));
@@ -1265,24 +1257,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
     private void playShutterSound() {
         boolean playSound = readCameraSoundForced() && mCamsInUse > 0;
 
-        switch (mAudioManager.getRingerMode()) {
-            case AudioManager.RINGER_MODE_SILENT:
-                // do nothing
-                break;
-            case AudioManager.RINGER_MODE_VIBRATE:
-                if (mVibrator != null && mVibrator.hasVibrator()) {
-                    mVibrator.vibrate(VibrationEffect.createOneShot(50,
-                            VibrationEffect.DEFAULT_AMPLITUDE));
-                }
-                break;
-            case AudioManager.RINGER_MODE_NORMAL:
-                // in this case we want to play sound even if not forced on
-                playSound = true;
-                break;
-        }
-
-        // We want to play the shutter sound when it's either forced or
-        // when we use normal ringer mode
+        // We want to play the shutter sound when it's forced
         if (playSound) {
             mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
         }
