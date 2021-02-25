@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "f0e7a8ea_417e71f7",
+        "filename": "core/java/android/os/BatteryManager.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-25T14:48:12Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 242,
+        "startChar": 12,
+        "endLine": 242,
+        "endChar": 102
+      },
+      "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eac7280a_c65832f6",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-25T14:48:12Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 390,
+        "startChar": 8,
+        "endLine": 390,
+        "endChar": 145
+      },
+      "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2cf1e68c_954449b4",
         "filename": "services/core/java/com/android/server/BatteryService.java",
         "patchSetId": 20
@@ -41,6 +87,29 @@
         "startChar": 46,
         "endLine": 931,
         "endChar": 47
+      },
+      "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a14433af_55d92d66",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-02-25T14:48:12Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 938,
+        "startChar": 8,
+        "endLine": 938,
+        "endChar": 101
       },
       "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
