@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cf1e68c_954449b4",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2021-02-25T05:13:54Z",
+      "side": 1,
+      "message": "Should this be conditional based on whether mMotHealthService is null?",
+      "range": {
+        "startLine": 553,
+        "startChar": 79,
+        "endLine": 553,
+        "endChar": 106
+      },
+      "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b655852_027975fe",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2021-02-25T05:13:54Z",
+      "side": 1,
+      "message": "I don\u0027t suppose these can be converted into constants?",
+      "range": {
+        "startLine": 931,
+        "startChar": 46,
+        "endLine": 931,
+        "endChar": 47
+      },
+      "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
