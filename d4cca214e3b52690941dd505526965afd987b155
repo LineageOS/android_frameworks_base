@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6088dcf_fe1d5f0a",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-02-25T16:32:48Z",
+      "side": 1,
+      "message": "this looks worse to me - but suppose line length is line length lol",
+      "range": {
+        "startLine": 939,
+        "startChar": 0,
+        "endLine": 941,
+        "endChar": 56
+      },
+      "revId": "d4cca214e3b52690941dd505526965afd987b155",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
