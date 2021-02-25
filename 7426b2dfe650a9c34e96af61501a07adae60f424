@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b73d0f84_dd15d7b8",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-02-25T16:30:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eac7280a_c65832f6",
+      "range": {
+        "startLine": 390,
+        "startChar": 8,
+        "endLine": 390,
+        "endChar": 145
+      },
+      "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2cf1e68c_954449b4",
         "filename": "services/core/java/com/android/server/BatteryService.java",
         "patchSetId": 20
@@ -68,6 +92,30 @@
       "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "291c240b_345079e4",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-02-25T16:30:10Z",
+      "side": 1,
+      "message": "Done - turns out this doesn\u0027t read out anything other than 0 in any non-debug case",
+      "parentUuid": "2cf1e68c_954449b4",
+      "range": {
+        "startLine": 553,
+        "startChar": 79,
+        "endLine": 553,
+        "endChar": 106
+      },
+      "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "321549b8_21554403",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-02-25T16:30:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b655852_027975fe",
+      "range": {
+        "startLine": 931,
+        "startChar": 46,
+        "endLine": 931,
+        "endChar": 47
+      },
+      "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a14433af_55d92d66",
         "filename": "services/core/java/com/android/server/BatteryService.java",
         "patchSetId": 20
@@ -114,6 +186,30 @@
       "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1691d9ec_db077b00",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-02-25T16:30:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a14433af_55d92d66",
+      "range": {
+        "startLine": 938,
+        "startChar": 8,
+        "endLine": 938,
+        "endChar": 101
+      },
+      "revId": "7426b2dfe650a9c34e96af61501a07adae60f424",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
