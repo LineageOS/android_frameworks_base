@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="prompt">Cais am gysylltu</string>
+    <string name="warning">Mae <xliff:g id="app">%s</xliff:g> eisiau gosod cysylltiad VPN sy\'n ei alluogi i fonitro traffig rhwydwaith. Paid â derbyn oni bai dy fod yn ymddiried ynddo. Mae\'r eicon isod yn ymddangos ar frig y sgrin tra bod VPN ar waith.
+                &lt;br /&gt;
+        &lt;br /&gt;
+        &lt;img src="vpn_icon" /&gt;
+        ;    </string>
+    <string name="legacy_title">VPN wedi cysylltu</string>
+    <string name="session">Sesiwn:</string>
+    <string name="duration">Hyd:</string>
+    <string name="data_transmitted">Anfonwyd:</string>
+    <string name="data_received">Derbyniwyd:</string>
+    <string name="data_value_format">        <xliff:g id="number">%1$s</xliff:g> beit /
+        <xliff:g id="number">%2$s</xliff:g> pecyn
+    </string>
+    <string name="always_on_disconnected_title">Methu â chysylltu â\'r VPN ymlaen-o-hyd</string>
+    <string name="always_on_disconnected_message">        Mae <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> wedi ei osod i aros wedi cysylltu o hyd, ond ni all gysylltu ar hyn o bryd. Bydd dy ffôn yn defnyddio rhwydwaith cyhoeddus nes ei fod yn gallu ailgysylltu â <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g>.
+    </string>
+    <string name="always_on_disconnected_message_lockdown">        Mae <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> wedi ei osod i aros wedi cysylltu o hyd, ond ni all gysylltu ar hyn o bryd. Ni fydd gennyt gysylltiad nes bod y VPN yn llwyddo i ailgysylltu.    </string>
+    <string name="always_on_disconnected_message_settings_link">Newid gosodiadau VPN</string>
+    <string name="configure">Ffurfweddu</string>
+    <string name="disconnect">Datgysylltu</string>
+    <string name="open_app">Agor ap</string>
+    <string name="dismiss">Gwrthod</string>
+</resources>
