@@ -196,7 +196,7 @@
     <string name="carrier_network_change_mode">Newid rhwydwaith darparwr</string>
     <string name="accessibility_battery_details">Agor manylion batri</string>
     <string name="accessibility_battery_level">Batri <xliff:g id="number">%d</xliff:g> y cant.</string>
-    <string name="accessibility_battery_level_with_estimate">Batri <xliff:g id="percentage" example="95%">%1$s</xliff:g>%, tua <xliff:g id="time" example="Until 3:15pm">%2$s</xliff:g> yn weddill yn seiliedig ar dy ddefnydd</string>
+    <string name="accessibility_battery_level_with_estimate">Batri <xliff:g id="percentage" example="95%">%1$s</xliff:g>\u066A, tua <xliff:g id="time" example="Until 3:15pm">%2$s</xliff:g> yn weddill yn seiliedig ar dy ddefnydd</string>
     <string name="accessibility_battery_level_charging">Batri\'n gwefru, <xliff:g id="battery_percentage">%d</xliff:g> y cant.</string>
     <string name="accessibility_settings_button">Gosodiadau system.</string>
     <string name="accessibility_notifications_button">Hysbysiadau.</string>

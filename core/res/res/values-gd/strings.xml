@@ -342,13 +342,177 @@
     <string name="permdesc_killBackgroundProcesses">Leigidh seo leis an aplacaid crìoch a chur air pròiseasan a’ chùlaibh
       aig aplacaidean eile. Dh’fhaoidte gun sguir aplacaidean eile de ruith
       ri linn sin.</string>
+    <string name="permlab_persistentActivity">toirt air aplacaid ruith an-còmhnaidh</string>
+    <string name="permdesc_persistentActivity" product="tablet">Leigidh seo leis an aplacaid gum mair cuid dhith sa chuimhne. Faodaidh seo an cuimhne a tha ri làimh do dh’aplacaidean eile a chuingeachadh ’s an tablaid a dhèanamh nas slaodaiche.</string>
+    <string name="permdesc_persistentActivity" product="tv">Leigidh seo leis an aplacaid gum mair cuid dhith sa chuimhne. Faodaidh seo an cuimhne a tha ri làimh do dh’aplacaidean eile a chuingeachadh ’s an TBh a dhèanamh nas slaodaiche.</string>
+    <string name="permdesc_persistentActivity" product="default">Leigidh seo leis an aplacaid gum mair cuid dhith sa chuimhne. Faodaidh seo an cuimhne a tha ri làimh do dh’aplacaidean eile a chuingeachadh ’s am fòn a dhèanamh nas slaodaiche.</string>
     <string name="permlab_foregroundService">seirbheis a ruith air a’ bheulaibh</string>
     <string name="permdesc_foregroundService">Leigidh seo leis an aplacaid seirbheisean beulaibh a chleachdadh.</string>
+    <string name="permlab_getPackageSize">àite na h-aplacaid san stòras a thomhas</string>
+    <string name="permdesc_getPackageSize">Leigidh seo leis an aplacaid gum faigh i meud an còd, an dàta ’s an tasgadain aice</string>
+    <string name="permlab_writeSettings">atharrachadh roghainnean an t-siostaim</string>
+    <string name="permdesc_writeSettings">Leigidh seo leis an aplacaid gun atharraich i
+        dàta roghainnean an t-siostaim. ’S urrainn do dh’aplacaidean droch-rùnach
+        rèiteachadh an t-siostaim agad a choirbeadh.</string>
+    <string name="permlab_receiveBootCompleted">ruith rè an tòiseachaidh</string>
+    <string name="permdesc_receiveBootCompleted" product="tablet">Leigidh seo leis an aplacaid
+        gun tòisich i leatha fhèin cho luath ’s a bhios an siostam air a bhùtadh.
+        Dh’fhaoidte gun doir e nas fhaide mus bi an tablaid air a cur gu dol is gun cuir an aplacaid maille air
+        air an tablaid san fharsaingeachd on a bhios i a’ ruith an-còmhnaidh.</string>
+    <string name="permdesc_receiveBootCompleted" product="tv">Leigidh seo leis an aplacaid
+        gun tòisich i leatha fhèin cho luath ’s a bhios an siostam air a bhùtadh.
+        Dh’fhaoidte gun doir e nas fhaide mus bi an TBh air a chur gu dol is gun cuir an aplacaid maille air
+        air an TBh san fharsaingeachd on a bhios i a’ ruith an-còmhnaidh.</string>
+    <string name="permdesc_receiveBootCompleted" product="default">Leigidh seo leis an aplacaid
+        gun tòisich i leatha fhèin cho luath ’s a bhios an siostam air a bhùtadh.
+        Dh’fhaoidte gun doir e nas fhaide mus bi am fòn air a chur gu dol is gun cuir an aplacaid maille air
+        air an fhòn san fharsaingeachd on a bhios i a’ ruith an-còmhnaidh.</string>
+    <string name="permlab_broadcastSticky">craoladh steigeach a chur</string>
+    <string name="permdesc_broadcastSticky" product="tablet">Leigidh seo leis an aplacaid gun cuir i
+   craolaidhean steigeach a mhaireas nuair a bhios an craoladh seachad. Ma thèid an gleus seo a chleachdadh cus,
+    dh’fhaoidte gum bi an tablaid slaodach no neo-sheasmhach ma chleachdas i cus dhen chuimhne.
+    </string>
+    <string name="permdesc_broadcastSticky" product="tv">Leigidh seo leis an aplacaid gun cuir i
+   craolaidhean steigeach a mhaireas nuair a bhios an craoladh seachad. Ma thèid an gleus seo a chleachdadh cus,
+    dh’fhaoidte gum bi an TBh slaodach no neo-sheasmhach ma chleachdas e cus dhen chuimhne.
+    </string>
+    <string name="permdesc_broadcastSticky" product="default">Leigidh seo leis an aplacaid gun cuir i
+   craolaidhean steigeach a mhaireas nuair a bhios an craoladh seachad. Ma thèid an gleus seo a chleachdadh cus,    dh’fhaoidte gum bi am fòn slaodach no neo-sheasmhach ma chleachdas e cus dhen chuimhne.</string>
     <string name="permlab_readContacts">an luchd-aithne agad a leughadh</string>
+    <string name="permlab_writeContacts">an luchd-aithne agad atharrachadh</string>
     <string name="permlab_readCallLog">loga nan gairmean a leughadh</string>
+    <string name="permlab_writeCallLog">sgrìobhadh gu loga nan gairmean</string>
+    <string name="permdesc_writeCallLog" product="tablet">Leigidh seo leis an aplacaid gun atharraich i      loga nan gairmean air an tablaid agad, a’ gabhail a-staigh dàta mu gairmean a-steach is a-mach.
+      Faodaidh aplacaidean droch-rùnach seo a chleachdadh airson loga nan gairmean agad a shuathadh bàn no atharrachadh.</string>
+    <string name="permdesc_writeCallLog" product="tv">Leigidh seo leis an aplacaid gun atharraich i      loga nan gairmean air an TBh agad, a’ gabhail a-staigh dàta mu gairmean a-steach is a-mach.
+      Faodaidh aplacaidean droch-rùnach seo a chleachdadh airson loga nan gairmean agad a shuathadh bàn no atharrachadh.</string>
+    <string name="permdesc_writeCallLog" product="default">Leigidh seo leis an aplacaid gun atharraich i      loga nan gairmean air an fhòn agad, a’ gabhail a-staigh dàta mu gairmean a-steach is a-mach.
+      Faodaidh aplacaidean droch-rùnach seo a chleachdadh airson loga nan gairmean agad a shuathadh bàn no atharrachadh.</string>
+    <string name="permlab_bodySensors">inntrigeadh do mhothaichearan bodhaig (can monatair reat a’ chridhe)
+    </string>
+    <string name="permdesc_bodySensors" product="default">Leigidh seo leis an aplacaid dàta o mhothaichearan inntrigeadh
+    a chumas sùil air cor do bhodhaige, can dè cho luath ’s a bhuaileas do chridhe.</string>
+    <string name="permlab_writeCalendar">tachartasan a chur ris a’ mhìosachan no an atharrachadh agus puist-d a chur gu aoighean gun a bhith a’ leigeil fios dhan t-seilbheadair</string>
+    <string name="permlab_accessLocationExtraCommands">àitheantan aig solaraichean ionaid inntrigeadh</string>
+    <string name="permdesc_accessLocationExtraCommands">Leigidh seo leis an aplacaid àitheantan a bharrachd
+        aig solaraichean ionaid inntrigeadh. Dh’fhaoidte gun doir seo comas dhan aplacaid
+        gun gabh i gnothach le obrachadh a’ GPS no le tùsan ionaid eile.</string>
+    <string name="permlab_modifyAudioSettings">na roghainnean fuaime agad atharrachadh</string>
+    <string name="permdesc_modifyAudioSettings">Leigidh seo leis an aplacaid gun atharraich i roghainnean uile-choitcheann na fuaime, can àirde na fuaime agus cò an glaodhaire a tha ’ga chleachdadh ’na às-chur.</string>
     <string name="permlab_recordAudio">fuaim a chlàradh</string>
+    <string name="permlab_sim_communication">àitheantan a chur dhan t-SIM</string>
+    <string name="permdesc_sim_communication">Leigidh seo leis an aplacaid àitheantan a chur dhan t-SIM. Tha seo glè chunntartach.</string>
+    <string name="permlab_camera">dealbhan is videothan a thogail</string>
+    <string name="permlab_vibrate">smachd air a’ chrith</string>
+    <string name="permdesc_vibrate">Leigidh seo leis an aplacaid a’ chrith a stiùireadh.</string>
+    <string name="permlab_callPhone">fòn a chur gu àireamhan fòn gu dìreach</string>
+    <string name="permdesc_callPhone">Leigidh seo leis an aplacaid fòn a chur gu àireamhan fòn
+      às aonais gnìomh uat-sa. Dh’fhaoidte gun èirich tàillean no gun dèid gairmean a dhèanamh air nach robh thu ’n dùil.
+      Thoir an aire nach leig seo leis an aplacaid fòn a chur gu àireamhan èiginn.
+      Dh’fhaoidte gun adhbharaich aplacaidean droch-rùnach cosgaisean dhut le cur ghairmean
+      gun dearbhadh uat-sa.</string>
+    <string name="permlab_accessImsCallService">seirbheis gairm IMS inntrigeadh</string>
+    <string name="permdesc_accessImsCallService">Leigidh seo leis an aplacaid seirbheis IMS a chleachdadh airson gairmean a dhèanamh às aonais gnìomh uat-sa.</string>
+    <string name="permlab_readPhoneState">staid is dearbh-aithne an fhòn a leughadh</string>
+    <string name="permdesc_readPhoneState">Leigidh seo leis an aplacaid gleusan fòn
+      an uidheim inntrigeadh.  Leis a’ chead seo, ’s urrainn dhan aplacaid faighinn a-mach cò
+      an àireamh fòn is IDan an uidheim, co-dhiù a bheil gairm a’ dol air adhart gus nach eil agus cò an àireamh chèin
+      a chaidh a cheangal le gairm.</string>
     <string name="permlab_acceptHandover">leantainn air gairm o aplacaid eile</string>
     <string name="permdesc_acceptHandovers">Leigidh seo leis an aplacaid leantainn air adhart le gairm a chaidh a thòiseachadh le aplacaid eile.</string>
+    <string name="permlab_wakeLock" product="tablet">an tablaid a chumail ’na dùisg</string>
+    <string name="permlab_wakeLock" product="tv">an TBh a chumail ’na dhùisg</string>
+    <string name="permlab_wakeLock" product="default">am fòn a chumail ’na dhùisg</string>
+    <string name="permdesc_wakeLock" product="tablet">Leigidh seo leis an aplacaid cadal na tablaid a bhacadh.</string>
+    <string name="permdesc_wakeLock" product="tv">Leigidh seo leis an aplacaid cadal an TBh a bhacadh.</string>
+    <string name="permdesc_wakeLock" product="default">Leigidh seo leis an aplacaid cadal an fhòn a bhacadh.</string>
+    <string name="permlab_transmitIr">tar-chur le fo-dhearg</string>
+    <string name="permdesc_transmitIr" product="tablet">Leigidh seo leis an aplacaid tar-chuirear fo-dhearg na tablaid a chleachdadh.</string>
+    <string name="permdesc_transmitIr" product="tv">Leigidh seo leis an aplacaid tar-chuirear fo-dhearg an TBh a chleachdadh.</string>
+    <string name="permdesc_transmitIr" product="default">Leigidh seo leis an aplacaid tar-chuirear fo-dhearg an fhòn a chleachdadh.</string>
+    <string name="permlab_setWallpaper">am pàipear-balla a shuidheachadh</string>
+    <string name="permdesc_setWallpaper">Leigidh seo leis an aplacaid pàipear-balla an t-siostaim a shuidheachadh.</string>
+    <string name="permlab_setWallpaperHints">gleus a chur air meud a’ phàipeir-bhalla agad</string>
+    <string name="permdesc_setWallpaperHints">Leigidh seo leis an aplacaid oidheaman meud airson pàipear-balla an t-siostaim a shuidheachadh.</string>
+    <string name="permlab_setTimeZone">an roinn-tìde a shuidheachadh</string>
+    <string name="permdesc_setTimeZone" product="tablet">Leigidh seo leis an aplacaid roinn-tìde na tablaid atharrachadh.</string>
+    <string name="permdesc_setTimeZone" product="tv">Leigidh seo leis an aplacaid roinn-tìde an TBh atharrachadh.</string>
+    <string name="permdesc_setTimeZone" product="default">Leigidh seo leis an aplacaid roinn-tìde an fhòn atharrachadh.</string>
+    <string name="permlab_getAccounts">cunntasan a lorg air an uidheam</string>
+    <string name="permdesc_getAccounts" product="tablet">Leigidh seo leis an aplacaid
+      liosta nan cunntasan air a bheil an tablaid eòlach fhaighinn. Dh’fhaoidte gun gabh seo a-staigh cunntasan
+      a chaidh a chruthachadh leis na h-aplacaidean a stàlaich thu.</string>
+    <string name="permdesc_getAccounts" product="tv">Leigidh seo leis an aplacaid
+      liosta nan cunntasan air a bheil an TBh eòlach fhaighinn. Dh’fhaoidte gun gabh seo a-staigh cunntasan
+      a chaidh a chruthachadh leis na h-aplacaidean a stàlaich thu.</string>
+    <string name="permdesc_getAccounts" product="default">Leigidh seo leis an aplacaid
+      liosta nan cunntasan air a bheil an fhòn eòlach fhaighinn. Dh’fhaoidte gun gabh seo a-staigh cunntasan
+      a chaidh a chruthachadh leis na h-aplacaidean a stàlaich thu.</string>
+    <string name="permlab_accessNetworkState">sealltainn air na ceanglaichean lìonraidh</string>
+    <string name="permdesc_accessNetworkState">Leigidh seo leis an aplacaid gum faic i
+      fiosrachadh mu na ceanglaichean lìonraidh, can cò na lìonraidhean a tha ann is a tha
+      ceangailte.</string>
+    <string name="permlab_createNetworkSockets">inntrigeadh slàn dhan lìonra fhaighinn</string>
+    <string name="permdesc_createNetworkSockets">Leigidh seo leis an aplacaid gun cruthaich i socaidean lìonraidh
+     is gun cleachd i pròtacalan lìonraidh gnàthaichte. Solairidh a brabhsair agus aplacaidean eile
+     dòigh airson dàta a chur dhan eadar-lìon, mar sin
+     chan eil an cead seo riatanach airson dàta a chur a-null dhan eadar-lìon.</string>
+    <string name="permlab_changeNetworkState">comas-ceangail an lìonraidh atharrachadh</string>
+    <string name="permdesc_changeNetworkState">Leigidh seo leis an aplacaid staid a’ chomais-cheangail dhan lìonra atharrachadh.</string>
+    <string name="permlab_changeTetherState">comas-ceangail an teadhrachaidh atharrachadh</string>
+    <string name="permdesc_changeTetherState">Leigidh seo leis an aplacaid staid a’ chomais-cheangail dhan lìonra teadhraichte atharrachadh.</string>
+    <string name="permlab_accessWifiState">sealltainn air ceanglaichean WiFi</string>
+    <string name="permdesc_accessWifiState">Leigidh seo leis an aplacaid fiosrachadh fhaicinn mu
+      lìonraidhean WiFi, can co-dhiù an deach WiFi a chur an comas gus nach deach agus ainmean
+      nan uidheaman WiFi ceangailte.</string>
+    <string name="permlab_changeWifiState">ceangal WiFi a stèidheachadh ’s a bhriseadh</string>
+    <string name="permdesc_changeWifiState">Leigidh seo leis an aplacaid ceangal a dhèanamh ri
+      puingean-inntrigidh WiFi ’s na ceanglaichean sin a bhriseadh agus rèiteachadh nan lìonraidhean WiFi
+      atharrachadh dhan uidheam seo.</string>
+    <string name="permlab_changeWifiMulticastState">ceadaich Multicast WiFi fhaighinn</string>
+    <string name="permdesc_changeWifiMulticastState" product="tablet">Leigidh seo leis an aplacaid pacaidean fhaighinn
+      a chaidh a chur le seòlaidhean multicast dhan a h-uile uidheam air lìonra WiFi
+      seach dhan tablaid agad a-mhàin. Cleachdaidh seo barrachd dhen chumhachd na am modh às aonais multicast.</string>
+    <string name="permdesc_changeWifiMulticastState" product="tv">Leigidh seo leis an aplacaid pacaidean fhaighinn
+      a chaidh a chur le seòlaidhean multicast dhan a h-uile uidheam air lìonra WiFi
+      seach dhan TBh agad a-mhàin. Cleachdaidh seo barrachd dhen chumhachd na am modh às aonais multicast.</string>
+    <string name="permdesc_changeWifiMulticastState" product="default">Leigidh seo leis an aplacaid pacaidean fhaighinn
+      a chaidh a chur le seòlaidhean multicast dhan a h-uile uidheam air lìonra WiFi
+      seach dhan fhòn agad a-mhàin. Cleachdaidh seo barrachd dhen chumhachd na am modh às aonais multicast.</string>
+    <string name="permlab_bluetoothAdmin">na roghainnean Bluetooth inntrigeadh</string>
+    <string name="permdesc_bluetoothAdmin" product="tablet">Leigidh seo leis an aplacaid
+      an tablaid Bluetooth ionadail a rèiteachadh agus uidheaman cèine a lorg
+      ’s a phaidhreachadh leotha.</string>
+    <string name="permdesc_bluetoothAdmin" product="tv">Leigidh seo leis an aplacaid
+      an TBh Bluetooth ionadail a rèiteachadh agus uidheaman cèine a lorg
+      ’s a phaidhreachadh leotha.</string>
+    <string name="permdesc_bluetoothAdmin" product="default">Leigidh seo leis an aplacaid
+      an fhòn Bluetooth ionadail a rèiteachadh agus uidheaman cèine a lorg      ’s a phaidhreachadh leotha.</string>
+    <string name="permlab_accessWimaxState">ceangal WiMAX a stèidheachadh ’s a bhriseadh</string>
+    <string name="permdesc_accessWimaxState">Leigidh seo leis an aplacaid faighinn a-mach a bheil
+     WiMAX an comas agus fiosrachadh fhaighinn mu lìonra WiMAX sam bith a tha
+     ceangailte. </string>
+    <string name="permlab_changeWimaxState">an staid WiMAX atharrachadh</string>
+    <string name="permdesc_changeWimaxState" product="tablet">Leigidh seo leis an aplacaid
+      an tablaid a cheangal gu lìonraidhean WiMAX ’s na ceanglaichean sin a bhriseadh.</string>
+    <string name="permdesc_changeWimaxState" product="tv">Leigidh seo leis an aplacaid
+      an TBh a cheangal gu lìonraidhean WiMAX ’s na ceanglaichean sin a bhriseadh.</string>
+    <string name="permdesc_changeWimaxState" product="default">Leigidh seo leis an aplacaid
+      am fòn a cheangal gu lìonraidhean WiMAX ’s na ceanglaichean sin a bhriseadh.</string>
+    <string name="permlab_bluetooth">paidhreachadh le uidheaman Bluetooth</string>
+    <string name="permdesc_bluetooth" product="tablet">Leigidh seo leis an aplacaid
+      sealltainn air rèiteachadh Bluetooth na tablaid agus ceanglaichean ri uidheaman paidhrichte
+      a dhèanamh is gabhail riutha.</string>
+    <string name="permdesc_bluetooth" product="tv">Leigidh seo leis an aplacaid
+      sealltainn air rèiteachadh Bluetooth an TBh agus ceanglaichean ri uidheaman paidhrichte
+      a dhèanamh is gabhail riutha.</string>
+    <string name="permdesc_bluetooth" product="default">Leigidh seo leis an aplacaid
+      sealltainn air rèiteachadh Bluetooth an fhòn agus ceanglaichean ri uidheaman paidhrichte
+      a dhèanamh is gabhail riutha.</string>
+    <string name="permlab_nfc">smachd air conaltradh raoin fhaisg (NFC)</string>
+    <string name="permdesc_nfc">Leigidh seo leis an aplacaid conaltradh slighe
+      tagaichean, cairtean is leughadairean a’ chonaltraidh raoin fhaisg (NFC).</string>
+    <string name="permlab_disableKeyguard">glas na sgrìn agad a chur à comas</string>
     <string name="permlab_useBiometric">bathar-cruaidh beò-meatrach a chleachdadh</string>
     <string name="permdesc_useBiometric">Leigidh seo leis an aplacaid bathar-cruaidh beò-meatrach a chleachdadh a chùm dearbh-aithneachadh</string>
     <string name="biometric_not_recognized">Gun aithneachadh</string>
