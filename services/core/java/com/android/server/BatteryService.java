@@ -387,8 +387,8 @@ public final class BatteryService extends SystemService {
         if ((plugTypeSet & BatteryManager.BATTERY_PLUGGED_WIRELESS) != 0 && mHealthInfo.chargerWirelessOnline) {
             return true;
         }
-        if ((plugTypeSet & BatteryManager.BATTERY_PLUGGED_MOD) != 0 ||
-            mPlugType == BatteryManager.BATTERY_PLUGGED_MOD || isModBatteryActive()) {
+        if ((plugTypeSet & BatteryManager.BATTERY_PLUGGED_MOD) != 0 &&
+                  supplementalOrEmergencyModOnline() && isModBatteryActive()) {
             return true;
         }
         return false;
