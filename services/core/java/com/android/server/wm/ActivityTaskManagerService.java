@@ -7482,6 +7482,14 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
                 mCompanionAppUidsMap.put(userId, result);
             }
         }
+
+
+        @Override
+        public boolean isBaseOfLockedTask(String packageName) {
+            synchronized (mGlobalLock) {
+                return getLockTaskController().isBaseOfLockedTask(packageName);
+            }
+        }
     }
 
     public boolean shouldForceLongScreen(String packageName) {
