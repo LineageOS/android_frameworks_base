@@ -163,6 +163,60 @@ public class BatteryManager {
     @SystemApi
     public static final String EXTRA_EVENT_TIMESTAMP = "android.os.extra.EVENT_TIMESTAMP";
 
+<<<<<<< HEAD   (0ad776 Download: Add support to manually pause/resume download)
+=======
+    /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * Contains a value that forces Moto Mod battery level `mod_level`
+     * to overwrite the interal battery level and act as the device's
+     * sole battery. This isn't used by any Mods we have come across.
+     * {@hide}
+     */
+    public static final String EXTRA_MOD_FLAG = "mod_flag";
+
+    /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * Contains battery percentage value for Moto Mod devices.
+     * {@hide}
+     */
+    public static final String EXTRA_MOD_LEVEL = "mod_level";
+
+    /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * Contains Moto Mod power source type value.
+     * {@hide}
+     */
+    public static final String EXTRA_MOD_POWER_SOURCE = "mod_psrc";
+
+    /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * Contains Moto Mod status (ready, charging, etc.) value.
+     * {@hide}
+     */
+    public static final String EXTRA_MOD_STATUS = "mod_status";
+
+    /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * Contains Moto Mod type information (battery, audio, input).
+     * {@hide}
+     */
+    public static final String EXTRA_MOD_TYPE = "mod_type";
+
+    /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * Contains Moto Mod connection indicator.
+     * {@hide}
+     */
+    public static final String EXTRA_PLUGGED_RAW = "plugged_raw";
+
+    /** @hide */
+    public static final int BATTERY_PROPERTY_MOD_CHARGE_FULL = 100;
+    /** @hide */
+    public static final int BATTERY_PROPERTY_CHARGE_FULL = 101;
+    /** @hide */
+    public static final int BATTERY_PLUGGED_MOD = 8;
+
+>>>>>>> CHANGE (df71b9 BatteryManager: Mark battery moto mods constants as hidden)
     // values for "status" field in the ACTION_BATTERY_CHANGED Intent
     public static final int BATTERY_STATUS_UNKNOWN = Constants.BATTERY_STATUS_UNKNOWN;
     public static final int BATTERY_STATUS_CHARGING = Constants.BATTERY_STATUS_CHARGING;
