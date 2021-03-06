@@ -1005,9 +1005,6 @@ class RootWindowContainer extends WindowContainer<DisplayContent>
             }
         }
 
-        // Remove all deferred displays stacks, tasks, and activities.
-        handleCompleteDeferredRemoval();
-
         forAllDisplays(dc -> {
             dc.getInputMonitor().updateInputWindowsLw(true /*force*/);
             dc.updateSystemGestureExclusion();
@@ -3284,7 +3281,7 @@ class RootWindowContainer extends WindowContainer<DisplayContent>
             int numTaskContainers = display.getTaskDisplayAreaCount();
             for (int tdaNdx = 0; tdaNdx < numTaskContainers; tdaNdx++) {
                 final TaskDisplayArea taskDisplayArea = display.getTaskDisplayAreaAt(tdaNdx);
-                final int numStacks = display.getStackCount();
+                final int numStacks = taskDisplayArea.getStackCount();
                 for (int stackNdx = 0; stackNdx < numStacks; ++stackNdx) {
                     final ActivityStack stack = taskDisplayArea.getStackAt(stackNdx);
                     stack.finishVoiceTask(session);
