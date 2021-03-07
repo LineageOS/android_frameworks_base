@@ -16,6 +16,24 @@
       "revId": "82ab9e8557515599f639bc530720dddf22f06a55",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72a6d095_53f5a9a1",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleViewImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 22465
+      },
+      "writtenOn": "2021-03-07T00:12:16Z",
+      "side": 1,
+      "message": "Done. I left is as non-final just like it is on the FODCircleView class, but being final should be fine as we only initialize it once.",
+      "parentUuid": "7790ebc5_5d355ed0",
+      "revId": "82ab9e8557515599f639bc530720dddf22f06a55",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
