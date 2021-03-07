@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7790ebc5_5d355ed0",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleViewImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-03-07T00:08:52Z",
+      "side": 1,
+      "message": "this final too?",
+      "revId": "82ab9e8557515599f639bc530720dddf22f06a55",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
