@@ -1410,8 +1410,8 @@ public class DisplayRotation {
                 shouldUpdateRotation = true;
             }
 
-            final int userRotationAngles = Settings.System.getInt(resolver,
-                    Settings.System.ACCELEROMETER_ROTATION_ANGLES, -1);
+            final int userRotationAngles = Settings.System.getIntForUser(resolver,
+                    Settings.System.ACCELEROMETER_ROTATION_ANGLES, -1, UserHandle.USER_CURRENT);
             if (mUserRotationAngles != userRotationAngles) {
                 mUserRotationAngles = userRotationAngles;
                 shouldUpdateRotation = true;
