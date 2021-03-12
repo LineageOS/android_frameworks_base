@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "678fdae2_7537bc35",
+        "filename": "core/jni/android_view_SurfaceControl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2021-03-12T03:50:38Z",
+      "side": 1,
+      "message": "Can you add curly brackets around the ALOGD()?",
+      "revId": "a70a06943e2ac9666e5b0fae28ceadf45e086eb5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
