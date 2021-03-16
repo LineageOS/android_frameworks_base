@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f991409_dd9eba87",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/AuthBiometricView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-03-16T13:45:58Z",
+      "side": 1,
+      "message": "This is only used in one method, therefore I believe it should be initialised there (and consequently not being a class member variable).",
+      "range": {
+        "startLine": 255,
+        "startChar": 8,
+        "endLine": 255,
+        "endChar": 16
+      },
+      "revId": "14823fc44856f871c12c9160287ad648e632860e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
