@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- * Copyright (C) 2017 The LineageOS Project
+ * Copyright (C) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,9 +39,6 @@ import javax.inject.Inject;
 public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
 
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_ambient_display);
-
-    private static final Intent DISPLAY_SETTINGS = new Intent("android.settings.DISPLAY_SETTINGS");
-
     private final SecureSetting mSetting;
 
     @Inject
@@ -78,7 +75,7 @@ public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return DISPLAY_SETTINGS;
+        return new Intent(Settings.ACTION_DISPLAY_SETTINGS);
     }
 
     private void setEnabled(boolean enabled) {
