@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bd246af_ae3ba66e",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AmbientDisplayTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-03-17T21:42:06Z",
+      "side": 1,
+      "message": "Maybe kill this too?",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 82
+      },
+      "revId": "cf2ef51694c0dd2cbfd2d416774e51df17170e30",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
