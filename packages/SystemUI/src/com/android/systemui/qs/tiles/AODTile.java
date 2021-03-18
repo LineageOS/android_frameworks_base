@@ -75,19 +75,12 @@ public class AODTile extends QSTileImpl<BooleanState> implements
 
     @Override
     public void handleClick() {
-        setEnabled(!mState.value);
-        refreshState();
+        mSetting.setValue(mState.value ? 0 : 1);
     }
 
     @Override
     public Intent getLongClickIntent() {
         return null;
-    }
-
-    private void setEnabled(boolean enabled) {
-        Settings.Secure.putInt(mContext.getContentResolver(),
-                Settings.Secure.DOZE_ALWAYS_ON,
-                enabled ? 1 : 0);
     }
 
     @Override
