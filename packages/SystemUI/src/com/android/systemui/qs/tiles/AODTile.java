@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2018 The OmniROM Project
- *               2020 The LineageOS Project
+ *               2020-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,19 +75,12 @@ public class AODTile extends QSTileImpl<BooleanState> implements
 
     @Override
     public void handleClick() {
-        setEnabled(!mState.value);
-        refreshState();
+        mSetting.setValue(mState.value ? 0 : 1);
     }
 
     @Override
     public Intent getLongClickIntent() {
         return null;
-    }
-
-    private void setEnabled(boolean enabled) {
-        Settings.Secure.putInt(mContext.getContentResolver(),
-                Settings.Secure.DOZE_ALWAYS_ON,
-                enabled ? 1 : 0);
     }
 
     @Override
