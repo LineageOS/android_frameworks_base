@@ -17,18 +17,26 @@
 package com.android.systemui.biometrics;
 
 import android.app.admin.DevicePolicyManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.net.Uri;
 import android.hardware.biometrics.BiometricSourceType;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.os.RemoteException;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.view.Display;
 import android.view.Gravity;
@@ -72,6 +80,11 @@ public class FODCircleView extends ImageView {
     private int mDreamingOffsetX;
     private int mDreamingOffsetY;
 
+    private int mCurrentBrightness;
+    private int mDefaultScreenBrightness;
+
+    private PowerManager mPowerManager;
+
     private boolean mFading;
     private boolean mIsBouncer;
     private boolean mIsBiometricRunning;
@@ -100,6 +113,36 @@ public class FODCircleView extends ImageView {
             mHandler.post(() -> hideCircle());
         }
     };
+
+    private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
+
+    private class CustomSettingsObserver extends ContentObserver {
+
+        CustomSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SCREEN_BRIGHTNESS),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.SCREEN_BRIGHTNESS))) {
+                update();
+            }
+        }
+
+        public void update() {
+            mCurrentBrightness = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SCREEN_BRIGHTNESS, mDefaultScreenBrightness, UserHandle.USER_CURRENT);
+            updateDimAlpha();
+        }
+    }
 
     private KeyguardUpdateMonitor mUpdateMonitor;
 
@@ -252,6 +295,11 @@ public class FODCircleView extends ImageView {
 
         mWindowManager.addView(this, mParams);
 
+        mPowerManager = context.getSystemService(PowerManager.class);
+
+        mCustomSettingsObserver.observe();
+        mCustomSettingsObserver.update();
+
         updatePosition();
         hide();
 
@@ -259,6 +307,8 @@ public class FODCircleView extends ImageView {
 
         mUpdateMonitor = Dependency.get(KeyguardUpdateMonitor.class);
         mUpdateMonitor.registerCallback(mMonitorCallback);
+
+        mDefaultScreenBrightness = mPowerManager.getDefaultScreenBrightnessSetting();
     }
 
     @Override
@@ -471,15 +521,23 @@ public class FODCircleView extends ImageView {
         }
     }
 
+    public void updateDimAlpha() {
+        try {
+            IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+            final int alpha = daemon.getDimAlpha(mCurrentBrightness);
+            mHandler.post(() -> setColorFilter(new PorterDuffColorFilter(Color.argb(alpha, 0, 0, 0), PorterDuff.Mode.SRC_ATOP)));
+        } catch (RemoteException e) {
+            // do nothing
+        }
+    }
+
     private void setDim(boolean dim) {
         if (dim) {
-            int curBrightness = Settings.System.getInt(getContext().getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS, 100);
             int dimAmount = 0;
 
             IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
             try {
-                dimAmount = daemon.getDimAmount(curBrightness);
+                dimAmount = daemon.getDimAmount(mCurrentBrightness);
             } catch (RemoteException e) {
                 // do nothing
             }
