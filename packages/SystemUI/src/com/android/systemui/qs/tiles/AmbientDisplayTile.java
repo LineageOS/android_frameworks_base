@@ -17,6 +17,7 @@
 
 package com.android.systemui.qs.tiles;
 
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.SystemProperties;
@@ -45,7 +46,8 @@ public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
     public AmbientDisplayTile(QSHost host) {
         super(host);
 
-        mSetting = new SecureSetting(mContext, mHandler, Secure.DOZE_ENABLED) {
+        mSetting = new SecureSetting(mContext, mHandler, Secure.DOZE_ENABLED,
+                ActivityManager.getCurrentUser(), 1) {
             @Override
             protected void handleValueChanged(int value, boolean observedChange) {
                 handleRefreshState(value);
