@@ -28,4 +28,8 @@
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
+
+    <!-- Do we are dimming screen while FOD is shown.
+         This will sync FOD brightness with screen brightness. -->
+    <bool name="config_fingerprintDimmingScreen">false</bool>
 </resources>
