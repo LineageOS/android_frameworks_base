@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "791990e0_cf89c138",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/AuthBiometricFaceView.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2021-03-21T14:57:53Z",
+      "side": 1,
+      "message": "Now, why is this needed?",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 46
+      },
+      "revId": "99bcab0c8a3443a351a37ad3e7e2e897dae4500f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
