@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7559129_5d27debe",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-03-24T09:27:27Z",
+      "side": 1,
+      "message": "Take a look at parseInteger() definition and then edit this line accordingly...",
+      "revId": "0d8ff60f944d500410d6908314ea7c0f3aac5471",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
