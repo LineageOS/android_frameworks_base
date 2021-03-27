@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c67b41e6_9c8d34d7",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsItem.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-03-27T21:03:13Z",
+      "side": 1,
+      "message": "maybe this?\n\n```\n            int marginTop \u003d (int) getResources().getDimension(getTextView().getLineCount() \u003e 1\n                    ? com.android.systemui.R.dimen\n                            .global_actions_power_dialog_twoline_message_top_margin\n                    : com.android.systemui.R.dimen\n                            .global_actions_power_dialog_message_top_margin);\n```",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "revId": "6b50064330a3d16730b78e448803824be7c1e12d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
