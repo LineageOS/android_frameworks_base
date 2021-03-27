@@ -3369,7 +3369,7 @@ public class DevicePolicyManager {
             return 0;
         }
         // Kind-of arbitrary.
-        return 16;
+        return 64;
     }
 
     /**
