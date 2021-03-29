@@ -236,6 +236,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     protected final ArrayList<Action> mPowerItems = new ArrayList<>();
     @VisibleForTesting
     protected final ArrayList<Action> mRestartItems = new ArrayList<>();
+    @VisibleForTesting
+    protected final ArrayList<Action> mUsersItems = new ArrayList<>();
 
     @VisibleForTesting
     protected ActionsDialog mDialog;
@@ -247,6 +249,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private MyOverflowAdapter mOverflowAdapter;
     private MyPowerOptionsAdapter mPowerAdapter;
     private MyRestartOptionsAdapter mRestartAdapter;
+    private MyUsersAdapter mUsersAdapter;
 
     private boolean mKeyguardShowing = false;
     private boolean mDeviceProvisioned = false;
@@ -635,6 +638,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         mOverflowItems.clear();
         mPowerItems.clear();
         mRestartItems.clear();
+        mUsersItems.clear();
         String[] restartActions = getRestartActions();
 
         ShutDownAction shutdownAction = new ShutDownAction();
@@ -676,7 +680,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             } else if (GLOBAL_ACTION_KEY_USERS.equals(actionKey)) {
                 List<UserInfo> users = mUserManager.getUsers();
                 if (users.size() > 1) {
-                    addUserActions(tempActions, currentUser.get());
+                    addUserActions(mUsersItems, currentUser.get());
+                    addIfShouldShowAction(tempActions, new UsersAction());
                 }
             } else if (GLOBAL_ACTION_KEY_SETTINGS.equals(actionKey)) {
                 addIfShouldShowAction(tempActions, getSettingsAction());
@@ -764,6 +769,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         mOverflowAdapter = new MyOverflowAdapter();
         mPowerAdapter = new MyPowerOptionsAdapter();
         mRestartAdapter = new MyRestartOptionsAdapter();
+        mUsersAdapter = new MyUsersAdapter();
 
         mDepthController.setShowingHomeControls(true);
         ControlsUiController uiController = null;
@@ -774,7 +780,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 this::getWalletViewController, mDepthController, mSysuiColorExtractor,
                 mStatusBarService, mNotificationShadeWindowController,
                 controlsAvailable(), uiController,
-                mSysUiState, this::onRotate, mKeyguardShowing, mPowerAdapter, mRestartAdapter);
+                mSysUiState, this::onRotate, mKeyguardShowing, mPowerAdapter, mRestartAdapter,
+                mUsersAdapter);
 
         if (shouldShowLockMessage(dialog)) {
             dialog.showLockMessage();
@@ -1406,6 +1413,31 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         }
     }
 
+    @VisibleForTesting
+    final class UsersAction extends SinglePressAction {
+        private UsersAction() {
+            super(com.android.systemui.R.drawable.ic_lock_user,
+                    com.android.systemui.R.string.global_action_users);
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return false;
+        }
+
+        @Override
+        public void onPress() {
+            if (mDialog != null) {
+                mDialog.showUsersMenu();
+            }
+        }
+    }
+
     private UserInfo getCurrentUser() {
         try {
             return mIActivityManager.getCurrentUser();
@@ -1615,7 +1647,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 if (mDialog != null) {
                     // don't dismiss the dialog if we're opening the power/restart options menu
                     if (!(item instanceof PowerOptionsAction ||
-                            (item instanceof RestartAction && shouldShowRestartSubmenu()))) {
+                            (item instanceof RestartAction && shouldShowRestartSubmenu()) ||
+                            (item instanceof UsersAction))) {
                         mDialog.dismiss();
                     }
                 } else {
@@ -1772,7 +1805,65 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         private void onClickItem(int position) {
             Action item = getItem(position);
             if (!(item instanceof SilentModeTriStateAction)) {
-                if (mDialog != null) {
+                if (mDialog != null && !(item instanceof UsersAction)) {
+                    mDialog.dismiss();
+                } else {
+                    Log.w(TAG, "Action clicked while mDialog is null.");
+                }
+                item.onPress();
+            }
+        }
+    }
+
+    /**
+     * The adapter used for items in the users menu.
+     */
+    public class MyUsersAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            return mUsersItems.size();
+        }
+
+        @Override
+        public Action getItem(int position) {
+            return mUsersItems.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            Action action = getItem(position);
+            if (action == null) {
+                Log.w(TAG, "No users action found at position: " + position);
+                return null;
+            }
+            int viewLayoutResource = com.android.systemui.R.layout.global_actions_power_item;
+            View view = convertView != null ? convertView
+                    : LayoutInflater.from(mContext).inflate(viewLayoutResource, parent, false);
+            view.setOnClickListener(v -> onClickItem(position));
+            ImageView icon = view.findViewById(R.id.icon);
+            TextView messageView = view.findViewById(R.id.message);
+            messageView.setSelected(true); // necessary for marquee to work
+
+            icon.setImageDrawable(action.getIcon(mContext));
+            icon.setScaleType(ScaleType.CENTER_CROP);
+
+            if (action.getMessage() != null) {
+                messageView.setText(action.getMessage());
+            } else {
+                messageView.setText(action.getMessageResId());
+            }
+            return view;
+        }
+
+        private void onClickItem(int position) {
+            Action item = getItem(position);
+            if (!(item instanceof SilentModeTriStateAction)) {
+                if (mDialog != null && !(item instanceof UsersAction)) {
                     mDialog.dismiss();
                 } else {
                     Log.w(TAG, "Action clicked while mDialog is null.");
@@ -2382,6 +2473,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         private final MyOverflowAdapter mOverflowAdapter;
         private final MyPowerOptionsAdapter mPowerOptionsAdapter;
         private final MyRestartOptionsAdapter mRestartOptionsAdapter;
+        private final MyUsersAdapter mUsersAdapter;
         private final IStatusBarService mStatusBarService;
         private final IBinder mToken = new Binder();
         private MultiListLayout mGlobalActionsLayout;
@@ -2399,6 +2491,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         private ListPopupWindow mOverflowPopup;
         private Dialog mPowerOptionsDialog;
         private Dialog mRestartOptionsDialog;
+        private Dialog mUsersDialog;
         private final Runnable mOnRotateCallback;
         private final boolean mControlsAvailable;
 
@@ -2415,13 +2508,15 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 NotificationShadeWindowController notificationShadeWindowController,
                 boolean controlsAvailable, @Nullable ControlsUiController controlsUiController,
                 SysUiState sysuiState, Runnable onRotateCallback, boolean keyguardShowing,
-                MyPowerOptionsAdapter powerAdapter, MyRestartOptionsAdapter restartAdapter) {
+                MyPowerOptionsAdapter powerAdapter, MyRestartOptionsAdapter restartAdapter,
+                MyUsersAdapter usersAdapter) {
             super(context, com.android.systemui.R.style.Theme_SystemUI_Dialog_GlobalActions);
             mContext = context;
             mAdapter = adapter;
             mOverflowAdapter = overflowAdapter;
             mPowerOptionsAdapter = powerAdapter;
             mRestartOptionsAdapter = restartAdapter;
+            mUsersAdapter = usersAdapter;
             mDepthController = depthController;
             mColorExtractor = sysuiColorExtractor;
             mStatusBarService = statusBarService;
@@ -2571,6 +2666,11 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         private void showPowerOverflowMenu() {
             mOverflowPopup = createPowerOverflowPopup();
             mOverflowPopup.show();
+        }
+
+        public void showUsersMenu() {
+            mUsersDialog = GlobalActionsPowerDialog.create(mContext, mUsersAdapter);
+            mUsersDialog.show();
         }
 
         private void initializeLayout() {
@@ -2749,6 +2849,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 dismissOverflow(false);
                 dismissPowerOptions(false);
                 dismissRestartOptions(false);
+                dismissUsers(false);
                 if (mControlsUiController != null) mControlsUiController.closeDialogs(false);
             });
         }
@@ -2775,6 +2876,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             dismissOverflow(true);
             dismissPowerOptions(true);
             dismissRestartOptions(true);
+            dismissUsers(true);
             if (mControlsUiController != null) mControlsUiController.hide();
             mNotificationShadeWindowController.setRequestTopUi(false, TAG);
             mDepthController.updateGlobalDialogVisibility(0, null /* view */);
@@ -2817,6 +2919,16 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     mRestartOptionsDialog.dismiss();
                 } else {
                     mRestartOptionsDialog.dismiss();
+                }
+            }
+        }
+
+        private void dismissUsers(boolean immediate) {
+            if (mUsersDialog != null) {
+                if (immediate) {
+                    mUsersDialog.dismiss();
+                } else {
+                    mUsersDialog.dismiss();
                 }
             }
         }
@@ -2866,6 +2978,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             dismissOverflow(true);
             dismissPowerOptions(true);
             dismissRestartOptions(true);
+            dismissUsers(true);
             if (mControlsUiController != null) {
                 mControlsUiController.hide();
             }
