@@ -129,6 +129,7 @@ import com.android.internal.util.ScreenshotHelper;
 import com.android.internal.util.UserIcons;
 import com.android.internal.view.RotationPolicy;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.systemui.Dependency;
 import com.android.systemui.Interpolators;
 import com.android.systemui.MultiListLayout;
 import com.android.systemui.MultiListLayout.MultiListAdapter;
@@ -150,6 +151,7 @@ import com.android.systemui.statusbar.NotificationShadeDepthController;
 import com.android.systemui.statusbar.phone.NotificationShadeWindowController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.EmergencyDialerConstants;
 import com.android.systemui.util.RingerModeTracker;
 import com.android.systemui.util.leak.RotationUtils;
@@ -177,7 +179,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         DialogInterface.OnShowListener,
         ConfigurationController.ConfigurationListener,
         GlobalActionsPanelPlugin.Callbacks,
-        LifecycleOwner {
+        LifecycleOwner, TunerService.Tunable {
 
     public static final String SYSTEM_DIALOG_REASON_KEY = "reason";
     public static final String SYSTEM_DIALOG_REASON_GLOBAL_ACTIONS = "globalactions";
@@ -198,6 +200,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     public static final String PREFS_CONTROLS_SEEDING_COMPLETED = "SeedingCompleted";
     public static final String PREFS_CONTROLS_FILE = "controls_prefs";
     private static final int SEEDING_MAX = 2;
+
+    private static final String POWER_MENU_ACTIONS_STRING =
+            "lineagesecure:" + LineageSettings.Secure.POWER_MENU_ACTIONS;
 
     private final Context mContext;
     private final GlobalActionsManager mWindowManagerFuncs;
@@ -367,7 +372,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(TelephonyManager.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
-        filter.addAction(lineageos.content.Intent.ACTION_UPDATE_POWER_MENU);
         mBroadcastDispatcher.registerReceiver(mBroadcastReceiver, filter);
 
         mHasTelephony = connectivityManager.isNetworkSupported(ConnectivityManager.TYPE_MOBILE);
@@ -439,6 +443,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                         onPowerMenuLockScreenSettingsChanged();
                     }
                 });
+
+        Dependency.get(TunerService.class).addTunable(this, POWER_MENU_ACTIONS_STRING);
 
         mActions = mLineageGlobalActions.getUserActionsArray();
     }
@@ -2243,8 +2249,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     mIsWaitingForEcmExit = false;
                     changeAirplaneModeSystemSetting(true);
                 }
-            } else if (lineageos.content.Intent.ACTION_UPDATE_POWER_MENU.equals(action)) {
-                mActions = mLineageGlobalActions.getUserActionsArray();
             }
         }
     };
@@ -2262,6 +2266,13 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             mRestartAdapter.notifyDataSetChanged();
         }
     };
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        if (POWER_MENU_ACTIONS_STRING.equals(key)) {
+            mActions = mLineageGlobalActions.getUserActionsArray();
+        }
+    }
 
     private ContentObserver mAirplaneModeObserver = new ContentObserver(mMainHandler) {
         @Override
