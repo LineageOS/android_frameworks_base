@@ -55,7 +55,6 @@ import android.view.IWindowManager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManagerPolicyConstants;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -489,30 +488,6 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
                 globalActionsDialogLite.new ScreenshotAction();
         screenshotAction.onPress();
         verifyLogPosted(GlobalActionsEvent.GA_SCREENSHOT_PRESS, 0 /* position */);
-    }
-
-    @Test
-    public void testShouldShowScreenshot() {
-        mContext.getOrCreateTestableResources().addOverride(
-                com.android.internal.R.integer.config_navBarInteractionMode,
-                WindowManagerPolicyConstants.NAV_BAR_MODE_2BUTTON);
-
-        GlobalActionsDialogLite globalActionsDialogLite = createGlobalActionsDialogLite();
-        GlobalActionsDialogLite.ScreenshotAction screenshotAction =
-                globalActionsDialogLite.new ScreenshotAction();
-        assertThat(screenshotAction.shouldShow()).isTrue();
-    }
-
-    @Test
-    public void testShouldNotShowScreenshot() {
-        mContext.getOrCreateTestableResources().addOverride(
-                com.android.internal.R.integer.config_navBarInteractionMode,
-                WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON);
-
-        GlobalActionsDialogLite globalActionsDialogLite = createGlobalActionsDialogLite();
-        GlobalActionsDialogLite.ScreenshotAction screenshotAction =
-                globalActionsDialogLite.new ScreenshotAction();
-        assertThat(screenshotAction.shouldShow()).isFalse();
     }
 
     @Test
