@@ -121,4 +121,5 @@
 
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Current</string>
+    <string name="global_action_users">Users</string>
 </resources>
