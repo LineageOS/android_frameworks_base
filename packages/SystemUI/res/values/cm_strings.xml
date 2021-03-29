@@ -43,6 +43,10 @@
     <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_fastboot_progress">Restarting to fastbootd mode\u2026</string>
 
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Current</string>
+    <string name="global_action_users">Users</string>
+
     <!-- Status bar - icons -->
     <string name="status_bar_icons_title">Status bar icons</string>
 
