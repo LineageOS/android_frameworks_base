@@ -383,7 +383,19 @@ status_t BootAnimation::readyToRun() {
 
     mMaxWidth = android::base::GetIntProperty("ro.surface_flinger.max_graphics_width", 0);
     mMaxHeight = android::base::GetIntProperty("ro.surface_flinger.max_graphics_height", 0);
-    ui::Size resolution = displayConfig.resolution;
+
+    // check for overridden ui resolution
+    ui::Size resolution;
+    char *endptr;
+    std::string size_override = android::base::GetProperty("ro.config.size_override", "");
+
+    resolution.width = strtoimax(size_override.c_str(), &endptr, 10);
+    if (endptr[0] == ',')
+        resolution.height = strtoimax(endptr+1, NULL, 10);
+
+    if (resolution.width <= 0 || resolution.height <= 0)
+        resolution = displayConfig.resolution;
+
     resolution = limitSurfaceSize(resolution.width, resolution.height);
     // create the native surface
     sp<SurfaceControl> control = session()->createSurface(String8("BootAnimation"),
@@ -431,6 +443,11 @@ status_t BootAnimation::readyToRun() {
         }
         t.setLayerStack(control, LAYER_STACK);
     }
+
+    // Scale forced resolution to physical resolution
+    Rect forcedRes(0, 0, resolution.width, resolution.height);
+    Rect physRes(0, 0, displayConfig.resolution.width, displayConfig.resolution.height);
+    t.setDisplayProjection(mDisplayToken, ui::ROTATION_0, forcedRes, physRes);
 
     t.setLayer(control, 0x40000000)
         .apply();
