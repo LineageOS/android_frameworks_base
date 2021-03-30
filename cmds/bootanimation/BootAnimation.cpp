@@ -259,9 +259,19 @@ status_t BootAnimation::readyToRun() {
     if (status)
         return -1;
 
+    char ui_res_x[PROPERTY_VALUE_MAX], ui_res_y[PROPERTY_VALUE_MAX];
+    property_get("vendor.sys.ui.resolution.x", ui_res_x, "0");
+    property_get("vendor.sys.ui.resolution.y", ui_res_y, "0");
+
+    uint32_t surface_width = dinfo.w, surface_height = dinfo.h;
+    if (ui_res_x[0] != '0' && ui_res_y[0] != '0') {
+        surface_width = atoi(ui_res_x);
+        surface_height = atoi(ui_res_y);
+    }
+
     // create the native surface
     sp<SurfaceControl> control = session()->createSurface(String8("BootAnimation"),
-            dinfo.w, dinfo.h, PIXEL_FORMAT_RGB_565);
+            surface_width, surface_height, PIXEL_FORMAT_RGB_565);
 
     SurfaceComposerClient::Transaction t;
     t.setLayer(control, 0x40000000)
