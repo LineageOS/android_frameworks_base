@@ -506,6 +506,12 @@ status_t BootAnimation::readyToRun() {
     mMaxWidth = android::base::GetIntProperty("ro.surface_flinger.max_graphics_width", 0);
     mMaxHeight = android::base::GetIntProperty("ro.surface_flinger.max_graphics_height", 0);
     ui::Size resolution = displayMode.resolution;
+
+    if (android::base::GetProperty("ro.build.characteristics", "") == "tv") {
+        resolution.width = 1920;
+        resolution.height = 1080;
+    }
+
     resolution = limitSurfaceSize(resolution.width, resolution.height);
     // create the native surface
     sp<SurfaceControl> control = session()->createSurface(String8("BootAnimation"),
@@ -553,6 +559,11 @@ status_t BootAnimation::readyToRun() {
         }
         t.setLayerStack(control, LAYER_STACK);
     }
+
+    // Scale forced resolution to physical resolution
+    Rect forcedRes(0, 0, resolution.width, resolution.height);
+    Rect physRes(0, 0, displayConfig.resolution.width, displayConfig.resolution.height);
+    t.setDisplayProjection(mDisplayToken, ui::ROTATION_0, forcedRes, physRes);
 
     t.setLayer(control, 0x40000000)
         .apply();
