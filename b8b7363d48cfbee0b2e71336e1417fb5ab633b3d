@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "396b6a25_89634d0f",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-03-30T19:44:53Z",
+      "side": 1,
+      "message": "use this api.",
+      "revId": "b8b7363d48cfbee0b2e71336e1417fb5ab633b3d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
