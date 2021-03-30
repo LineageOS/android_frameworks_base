@@ -259,9 +259,17 @@ status_t BootAnimation::readyToRun() {
     if (status)
         return -1;
 
+    // check for overridden ui resolution
+    uint32_t surface_width = property_get_int32("vendor.sys.ui.resolution.x", 0);
+    uint32_t surface_height = property_get_int32("vendor.sys.ui.resolution.y", 0);
+    if (surface_width <= 0 || surface_height <= 0) {
+        surface_width = dinfo.w;
+        surface_height = dinfo.h;
+    }
+
     // create the native surface
     sp<SurfaceControl> control = session()->createSurface(String8("BootAnimation"),
-            dinfo.w, dinfo.h, PIXEL_FORMAT_RGB_565);
+            surface_width, surface_height, PIXEL_FORMAT_RGB_565);
 
     SurfaceComposerClient::Transaction t;
     t.setLayer(control, 0x40000000)
