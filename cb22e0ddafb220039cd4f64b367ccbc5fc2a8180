@@ -22,6 +22,30 @@
       "revId": "cb22e0ddafb220039cd4f64b367ccbc5fc2a8180",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b51aa45c_f6dfaf78",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelViewController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 20352
+      },
+      "writtenOn": "2021-03-31T22:58:05Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "2b59e07c_524f94c2",
+      "range": {
+        "startLine": 764,
+        "startChar": 0,
+        "endLine": 766,
+        "endChar": 11
+      },
+      "revId": "cb22e0ddafb220039cd4f64b367ccbc5fc2a8180",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
