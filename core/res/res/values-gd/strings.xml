@@ -469,16 +469,16 @@
     <string name="permdesc_changeWifiState">Leigidh seo leis an aplacaid ceangal a dhèanamh ri
       puingean-inntrigidh WiFi ’s na ceanglaichean sin a bhriseadh agus rèiteachadh nan lìonraidhean WiFi
       atharrachadh dhan uidheam seo.</string>
-    <string name="permlab_changeWifiMulticastState">ceadaich Multicast WiFi fhaighinn</string>
+    <string name="permlab_changeWifiMulticastState">ceadaich ioma-chraoladh WiFi fhaighinn</string>
     <string name="permdesc_changeWifiMulticastState" product="tablet">Leigidh seo leis an aplacaid pacaidean fhaighinn
-      a chaidh a chur le seòlaidhean multicast dhan a h-uile uidheam air lìonra WiFi
-      seach dhan tablaid agad a-mhàin. Cleachdaidh seo barrachd dhen chumhachd na am modh às aonais multicast.</string>
+      a chaidh a chur le seòlaidhean ioma-chraolaidh dhan a h-uile uidheam air lìonra WiFi
+      seach dhan tablaid agad a-mhàin. Cleachdaidh seo barrachd dhen chumhachd na am modh às aonais ioma-chraoladh.</string>
     <string name="permdesc_changeWifiMulticastState" product="tv">Leigidh seo leis an aplacaid pacaidean fhaighinn
-      a chaidh a chur le seòlaidhean multicast dhan a h-uile uidheam air lìonra WiFi
-      seach dhan TBh agad a-mhàin. Cleachdaidh seo barrachd dhen chumhachd na am modh às aonais multicast.</string>
+      a chaidh a chur le seòlaidhean ioma-chraolaidh dhan a h-uile uidheam air lìonra WiFi
+      seach dhan TBh agad a-mhàin. Cleachdaidh seo barrachd dhen chumhachd na am modh às aonais ioma-chraoladh.</string>
     <string name="permdesc_changeWifiMulticastState" product="default">Leigidh seo leis an aplacaid pacaidean fhaighinn
-      a chaidh a chur le seòlaidhean multicast dhan a h-uile uidheam air lìonra WiFi
-      seach dhan fhòn agad a-mhàin. Cleachdaidh seo barrachd dhen chumhachd na am modh às aonais multicast.</string>
+      a chaidh a chur le seòlaidhean ioma-chraolaidh dhan a h-uile uidheam air lìonra WiFi
+      seach dhan fhòn agad a-mhàin. Cleachdaidh seo barrachd dhen chumhachd na am modh às aonais ioma-chraoladh.</string>
     <string name="permlab_bluetoothAdmin">na roghainnean Bluetooth inntrigeadh</string>
     <string name="permdesc_bluetoothAdmin" product="tablet">Leigidh seo leis an aplacaid
       an tablaid Bluetooth ionadail a rèiteachadh agus uidheaman cèine a lorg

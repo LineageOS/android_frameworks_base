@@ -79,6 +79,6 @@
     <string name="status_bar_camera">Kamera</string>
     <string name="status_bar_location">Yerləşmə</string>
     <string name="status_bar_microphone">Mikrofon</string>
-    <string name="screen_pinning_description_no_navbar">Bu əməliyyat, siz sabitləməni götürənə qədər ekranı baxış rejimində saxlayar. Sabitləməni götürmək üçün Geri-yə toxunub basılı saxlayın.</string>
-    <string name="screen_pinning_toast_no_navbar">Bu ekranı ayırmaq üçün Geri düyməsinə basıb saxlayın</string>
+    <string name="screen_pinning_description_no_navbar">Siz sancağı götürənə qədər bu, baxış rejimində qalacaq. Sancağı götürmək üçün Geri düyməsinə basıb saxlayın.</string>
+    <string name="screen_pinning_toast_no_navbar">Bu ekranı çıxartmaq üçün Geri düyməsinə basıb saxlayın.</string>
 </resources>
