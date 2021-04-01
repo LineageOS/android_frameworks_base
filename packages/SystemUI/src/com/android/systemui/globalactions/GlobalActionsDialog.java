@@ -82,8 +82,6 @@ import android.provider.Settings;
 import android.service.dreams.IDreamManager;
 import android.sysprop.TelephonyProperties;
 import android.telecom.TelecomManager;
-import android.telephony.PhoneStateListener;
-import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
@@ -377,7 +375,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         mHasTelephony = connectivityManager.isNetworkSupported(ConnectivityManager.TYPE_MOBILE);
 
         // get notified of phone state changes
-        telephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_SERVICE_STATE);
         contentResolver.registerContentObserver(
                 Settings.Global.getUriFor(Settings.Global.AIRPLANE_MODE_ON), true,
                 mAirplaneModeObserver);
@@ -2340,20 +2337,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         }
     };
 
-    PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
-        @Override
-        public void onServiceStateChanged(ServiceState serviceState) {
-            if (!mHasTelephony) return;
-            final boolean inAirplaneMode = serviceState.getState() == ServiceState.STATE_POWER_OFF;
-            mAirplaneState = inAirplaneMode ? ToggleState.On : ToggleState.Off;
-            mAirplaneModeOn.updateState(mAirplaneState);
-            mAdapter.notifyDataSetChanged();
-            mOverflowAdapter.notifyDataSetChanged();
-            mPowerAdapter.notifyDataSetChanged();
-            mRestartAdapter.notifyDataSetChanged();
-        }
-    };
-
     protected void updatePowerMenuActions() {
         final String powerMenuActions = LineageSettings.Secure.getStringForUser(mContentResolver,
                 LineageSettings.Secure.POWER_MENU_ACTIONS, UserHandle.USER_CURRENT);
@@ -2410,9 +2393,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     };
 
     private void onAirplaneModeChanged() {
-        // Let the service state callbacks handle the state.
-        if (mHasTelephony) return;
-
         boolean airplaneModeOn = Settings.Global.getInt(
                 mContentResolver,
                 Settings.Global.AIRPLANE_MODE_ON,
