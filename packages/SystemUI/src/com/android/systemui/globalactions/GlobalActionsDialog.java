@@ -372,11 +372,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         mHasTelephony = connectivityManager.isNetworkSupported(ConnectivityManager.TYPE_MOBILE);
 
-        // get notified of phone state changes
-        telephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_SERVICE_STATE);
-        contentResolver.registerContentObserver(
-                Settings.Global.getUriFor(Settings.Global.AIRPLANE_MODE_ON), true,
-                mAirplaneModeObserver);
+        // get notified of airplane mode changes
+        IntentFilter intentFilter = new IntentFilter(Intent.AIRPLANE_MODE_CHANGED);
+        registerReceiver(mAirplaneModeReceiver, intentFilter);
         mHasVibrator = vibrator != null && vibrator.hasVibrator();
 
         mShowSilentToggle = SHOW_SILENT_TOGGLE && !resources.getBoolean(
@@ -2241,23 +2239,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         }
     };
 
-    PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
+    private BroadcastReceiver mAirplaneModeReceiver = new BroadcastReceiver() {
         @Override
-        public void onServiceStateChanged(ServiceState serviceState) {
-            if (!mHasTelephony) return;
-            final boolean inAirplaneMode = serviceState.getState() == ServiceState.STATE_POWER_OFF;
-            mAirplaneState = inAirplaneMode ? ToggleState.On : ToggleState.Off;
-            mAirplaneModeOn.updateState(mAirplaneState);
-            mAdapter.notifyDataSetChanged();
-            mOverflowAdapter.notifyDataSetChanged();
-            mPowerAdapter.notifyDataSetChanged();
-            mRestartAdapter.notifyDataSetChanged();
-        }
-    };
-
-    private ContentObserver mAirplaneModeObserver = new ContentObserver(mMainHandler) {
-        @Override
-        public void onChange(boolean selfChange) {
+        public void onReceive(Context context, Intent intent) {
             onAirplaneModeChanged();
         }
     };
