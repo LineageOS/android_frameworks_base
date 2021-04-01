@@ -365,6 +365,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         // receive broadcasts
         IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(TelephonyManager.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
@@ -372,11 +373,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         mHasTelephony = connectivityManager.isNetworkSupported(ConnectivityManager.TYPE_MOBILE);
 
-        // get notified of phone state changes
-        telephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_SERVICE_STATE);
-        contentResolver.registerContentObserver(
-                Settings.Global.getUriFor(Settings.Global.AIRPLANE_MODE_ON), true,
-                mAirplaneModeObserver);
         mHasVibrator = vibrator != null && vibrator.hasVibrator();
 
         mShowSilentToggle = SHOW_SILENT_TOGGLE && !resources.getBoolean(
@@ -2223,7 +2219,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (Intent.ACTION_CLOSE_SYSTEM_DIALOGS.equals(action)
+            if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(action) {
+                mHandler.sendMessage(mHandler.obtainMessage(MESSAGE_REFRESH, reason));
+            } else if (Intent.ACTION_CLOSE_SYSTEM_DIALOGS.equals(action)
                     || Intent.ACTION_SCREEN_OFF.equals(action)) {
                 String reason = intent.getStringExtra(SYSTEM_DIALOG_REASON_KEY);
                 if (!SYSTEM_DIALOG_REASON_GLOBAL_ACTIONS.equals(reason)) {
@@ -2238,27 +2236,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     changeAirplaneModeSystemSetting(true);
                 }
             }
-        }
-    };
-
-    PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
-        @Override
-        public void onServiceStateChanged(ServiceState serviceState) {
-            if (!mHasTelephony) return;
-            final boolean inAirplaneMode = serviceState.getState() == ServiceState.STATE_POWER_OFF;
-            mAirplaneState = inAirplaneMode ? ToggleState.On : ToggleState.Off;
-            mAirplaneModeOn.updateState(mAirplaneState);
-            mAdapter.notifyDataSetChanged();
-            mOverflowAdapter.notifyDataSetChanged();
-            mPowerAdapter.notifyDataSetChanged();
-            mRestartAdapter.notifyDataSetChanged();
-        }
-    };
-
-    private ContentObserver mAirplaneModeObserver = new ContentObserver(mMainHandler) {
-        @Override
-        public void onChange(boolean selfChange) {
-            onAirplaneModeChanged();
         }
     };
 
@@ -2286,6 +2263,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     break;
                 case MESSAGE_REFRESH:
                     refreshSilentMode();
+                    onAirplaneModeChanged();
                     mAdapter.notifyDataSetChanged();
                     break;
             }
