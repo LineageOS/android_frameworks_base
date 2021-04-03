@@ -1392,17 +1392,8 @@ public final class StrictMode {
             builder.penaltyDeathOnNetwork();
         }
 
-        if (Build.IS_USER || DISABLE || SystemProperties.getBoolean(DISABLE_PROPERTY, false)) {
+        if (Build.IS_USER || Build.IS_USERDEBUG || DISABLE || SystemProperties.getBoolean(DISABLE_PROPERTY, false)) {
             // Detect nothing extra
-        } else if (Build.IS_USERDEBUG) {
-            // Detect everything in bundled apps
-            if (isBundledSystemApp(ai)) {
-                builder.detectAll();
-                builder.penaltyDropBox();
-                if (SystemProperties.getBoolean(VISUAL_PROPERTY, false)) {
-                    builder.penaltyFlashScreen();
-                }
-            }
         } else if (Build.IS_ENG) {
             // Detect everything in bundled apps
             if (isBundledSystemApp(ai)) {
@@ -1432,16 +1423,8 @@ public final class StrictMode {
             builder.penaltyDeathOnFileUriExposure();
         }
 
-        if (Build.IS_USER || DISABLE || SystemProperties.getBoolean(DISABLE_PROPERTY, false)) {
+        if (Build.IS_USER || Build.IS_USERDEBUG || DISABLE || SystemProperties.getBoolean(DISABLE_PROPERTY, false)) {
             // Detect nothing extra
-        } else if (Build.IS_USERDEBUG) {
-            // Detect everything in bundled apps (except activity leaks, which
-            // are expensive to track)
-            if (isBundledSystemApp(ai)) {
-                builder.detectAll();
-                builder.permitActivityLeaks();
-                builder.penaltyDropBox();
-            }
         } else if (Build.IS_ENG) {
             // Detect everything in bundled apps
             if (isBundledSystemApp(ai)) {
@@ -2508,7 +2491,7 @@ public final class StrictMode {
      */
     @UnsupportedAppUsage
     public static Span enterCriticalSpan(String name) {
-        if (Build.IS_USER) {
+        if (Build.IS_USER || Build.IS_USERDEBUG) {
             return NO_OP_SPAN;
         }
         if (name == null || name.isEmpty()) {
