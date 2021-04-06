@@ -18,3 +18,4 @@ service statsd /apex/com.android.os.statsd/bin/statsd
     user statsd
     group statsd log
     writepid /dev/cpuset/system-background/tasks
+    disabled
