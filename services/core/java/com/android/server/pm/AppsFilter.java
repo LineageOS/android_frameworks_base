@@ -62,6 +62,7 @@ import com.android.server.pm.parsing.pkg.AndroidPackage;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -173,7 +174,7 @@ public class AppsFilter {
         void runWithState(CurrentStateCallback callback);
 
         interface CurrentStateCallback {
-            void currentState(ArrayMap<String, PackageSetting> settings, UserInfo[] users);
+            void currentState(Map<String, PackageSetting> settings, UserInfo[] users);
         }
     }
 
@@ -531,7 +532,7 @@ public class AppsFilter {
                 synchronized (mCacheLock) {
                     if (mShouldFilterCache != null) {
                         updateShouldFilterCacheForPackage(mShouldFilterCache, null, newPkgSetting,
-                                settings, users, settings.size());
+                                settings, users);
                     } // else, rebuild entire cache when system is ready
                 }
             });
@@ -541,7 +542,7 @@ public class AppsFilter {
     }
 
     private void addPackageInternal(PackageSetting newPkgSetting,
-            ArrayMap<String, PackageSetting> existingSettings) {
+            Map<String, PackageSetting> existingSettings) {
         if (Objects.equals("android", newPkgSetting.name)) {
             // let's set aside the framework signatures
             mSystemSigningDetails = newPkgSetting.signatures.mSigningDetails;
@@ -578,8 +579,7 @@ public class AppsFilter {
             mForceQueryable.add(newPkgSetting.appId);
         }
 
-        for (int i = existingSettings.size() - 1; i >= 0; i--) {
-            final PackageSetting existingSetting = existingSettings.valueAt(i);
+        for (final PackageSetting existingSetting : existingSettings.values()) {
             if (existingSetting.appId == newPkgSetting.appId || existingSetting.pkg == null) {
                 continue;
             }
@@ -617,8 +617,7 @@ public class AppsFilter {
 
         int existingSize = existingSettings.size();
         ArrayMap<String, AndroidPackage> existingPkgs = new ArrayMap<>(existingSize);
-        for (int index = 0; index < existingSize; index++) {
-            PackageSetting pkgSetting = existingSettings.valueAt(index);
+        for (PackageSetting pkgSetting : existingSettings.values()) {
             if (pkgSetting.pkg != null) {
                 existingPkgs.put(pkgSetting.name, pkgSetting.pkg);
             }
@@ -657,12 +656,12 @@ public class AppsFilter {
     }
 
     private SparseArray<SparseBooleanArray> updateEntireShouldFilterCacheInner(
-            ArrayMap<String, PackageSetting> settings, UserInfo[] users) {
+            Map<String, PackageSetting> settings, UserInfo[] users) {
         SparseArray<SparseBooleanArray> cache =
                 new SparseArray<>(users.length * settings.size());
-        for (int i = settings.size() - 1; i >= 0; i--) {
+        for (PackageSetting ps : settings.values()) {
             updateShouldFilterCacheForPackage(cache,
-                    null /*skipPackage*/, settings.valueAt(i), settings, users, i);
+                    null /*skipPackage*/, ps, settings, users);
         }
         return cache;
     }
@@ -678,9 +677,9 @@ public class AppsFilter {
                 usersRef[0] = users;
                 // store away the references to the immutable packages, since settings are retained
                 // during updates.
-                for (int i = 0, max = settings.size(); i < max; i++) {
-                    final AndroidPackage pkg = settings.valueAt(i).pkg;
-                    packagesCache.put(settings.keyAt(i), pkg);
+                for (Map.Entry<String, PackageSetting> entry : settings.entrySet()) {
+                    final AndroidPackage pkg = entry.getValue().pkg;
+                    packagesCache.put(entry.getKey(), pkg);
                 }
             });
             SparseArray<SparseBooleanArray> cache =
@@ -692,9 +691,9 @@ public class AppsFilter {
                     changed[0] = true;
                     return;
                 }
-                for (int i = 0, max = settings.size(); i < max; i++) {
-                    final AndroidPackage pkg = settings.valueAt(i).pkg;
-                    if (!Objects.equals(pkg, packagesCache.get(settings.keyAt(i)))) {
+                for (Map.Entry<String, PackageSetting> entry : settings.entrySet()) {
+                    final AndroidPackage pkg = entry.getValue().pkg;
+                    if (!Objects.equals(pkg, packagesCache.get(entry.getKey()))) {
                         changed[0] = true;
                         return;
                     }
@@ -727,18 +726,16 @@ public class AppsFilter {
             if (mShouldFilterCache != null) {
                 mStateProvider.runWithState((settings, users) -> {
                     updateShouldFilterCacheForPackage(mShouldFilterCache, null /* skipPackage */,
-                            settings.get(packageName), settings, users,
-                            settings.size() /*maxIndex*/);
+                            settings.get(packageName), settings, users);
                 });
             }
         }
     }
 
     private void updateShouldFilterCacheForPackage(SparseArray<SparseBooleanArray> cache,
-            @Nullable String skipPackageName, PackageSetting subjectSetting, ArrayMap<String,
-            PackageSetting> allSettings, UserInfo[] allUsers, int maxIndex) {
-        for (int i = Math.min(maxIndex, allSettings.size() - 1); i >= 0; i--) {
-            PackageSetting otherSetting = allSettings.valueAt(i);
+            @Nullable String skipPackageName, PackageSetting subjectSetting, Map<String,
+            PackageSetting> allSettings, UserInfo[] allUsers) {
+        for (PackageSetting otherSetting : allSettings.values()) {
             if (subjectSetting.appId == otherSetting.appId) {
                 continue;
             }
@@ -778,10 +775,9 @@ public class AppsFilter {
     }
 
     private ArraySet<String> collectProtectedBroadcasts(
-            ArrayMap<String, PackageSetting> existingSettings, @Nullable String excludePackage) {
+            Map<String, PackageSetting> existingSettings, @Nullable String excludePackage) {
         ArraySet<String> ret = new ArraySet<>();
-        for (int i = existingSettings.size() - 1; i >= 0; i--) {
-            PackageSetting setting = existingSettings.valueAt(i);
+        for (PackageSetting setting : existingSettings.values()) {
             if (setting.pkg == null || setting.pkg.getPackageName().equals(excludePackage)) {
                 continue;
             }
@@ -795,21 +791,19 @@ public class AppsFilter {
 
     /**
      * This method recomputes all component / intent-based visibility and is intended to match the
-     * relevant logic of {@link #addPackageInternal(PackageSetting, ArrayMap)}
+     * relevant logic of {@link #addPackageInternal(PackageSetting, Map)}
      */
     private void recomputeComponentVisibility(
-            ArrayMap<String, PackageSetting> existingSettings) {
+            Map<String, PackageSetting> existingSettings) {
         mQueriesViaComponent.clear();
-        for (int i = existingSettings.size() - 1; i >= 0; i--) {
-            PackageSetting setting = existingSettings.valueAt(i);
+        for (PackageSetting setting : existingSettings.values()) {
             if (setting.pkg == null || requestsQueryAllPackages(setting.pkg)) {
                 continue;
             }
-            for (int j = existingSettings.size() - 1; j >= 0; j--) {
-                if (i == j) {
+            for (final PackageSetting otherSetting : existingSettings.values()) {
+                if (setting == otherSetting) {
                     continue;
                 }
-                final PackageSetting otherSetting = existingSettings.valueAt(j);
                 if (otherSetting.pkg == null || mForceQueryable.contains(otherSetting.appId)) {
                     continue;
                 }
@@ -837,7 +831,7 @@ public class AppsFilter {
      */
     @Nullable
     public SparseArray<int[]> getVisibilityWhitelist(PackageSetting setting, int[] users,
-            ArrayMap<String, PackageSetting> existingSettings) {
+            Map<String, PackageSetting> existingSettings) {
         if (mForceQueryable.contains(setting.appId)) {
             return null;
         }
@@ -848,8 +842,7 @@ public class AppsFilter {
             int[] appIds = new int[existingSettings.size()];
             int[] buffer = null;
             int whitelistSize = 0;
-            for (int i = existingSettings.size() - 1; i >= 0; i--) {
-                final PackageSetting existingSetting = existingSettings.valueAt(i);
+            for (final PackageSetting existingSetting : existingSettings.values()) {
                 final int existingAppId = existingSetting.appId;
                 if (existingAppId < Process.FIRST_APPLICATION_UID) {
                     continue;
@@ -949,7 +942,7 @@ public class AppsFilter {
                             continue;
                         }
                         updateShouldFilterCacheForPackage(mShouldFilterCache, setting.name,
-                                siblingSetting, settings, users, settings.size());
+                                siblingSetting, settings, users);
                     }
                 }
             }

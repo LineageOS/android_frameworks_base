@@ -691,9 +691,7 @@ class InstantAppRegistry {
         synchronized (mService.mLock) {
             allUsers = mService.mUserManager.getUserIds();
 
-            final int packageCount = mService.mPackages.size();
-            for (int i = 0; i < packageCount; i++) {
-                final AndroidPackage pkg = mService.mPackages.valueAt(i);
+            for (final AndroidPackage pkg : mService.mPackages.values()) {
                 final PackageSetting ps = mService.getPackageSetting(pkg.getPackageName());
                 if (ps == null) {
                     continue;
@@ -825,9 +823,7 @@ class InstantAppRegistry {
             @UserIdInt int userId) {
         List<InstantAppInfo> result = null;
 
-        final int packageCount = mService.mPackages.size();
-        for (int i = 0; i < packageCount; i++) {
-            final AndroidPackage pkg = mService.mPackages.valueAt(i);
+        for (final AndroidPackage pkg : mService.mPackages.values()) {
             final PackageSetting ps = mService.getPackageSetting(pkg.getPackageName());
             if (ps == null || !ps.getInstantApp(userId)) {
                 continue;

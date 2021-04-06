@@ -64,7 +64,7 @@ public class KeySetManagerService {
 
     protected final LongSparseArray<ArraySet<Long>> mKeySetMapping;
 
-    private final ArrayMap<String, PackageSetting> mPackages;
+    private final Map<String, PackageSetting> mPackages;
 
     private long lastIssuedKeySetId = 0;
 
@@ -113,7 +113,7 @@ public class KeySetManagerService {
         }
     }
 
-    public KeySetManagerService(ArrayMap<String, PackageSetting> packages) {
+    public KeySetManagerService(Map<String, PackageSetting> packages) {
         mKeySets = new LongSparseArray<KeySetHandle>();
         mPublicKeys = new LongSparseArray<PublicKeyHandle>();
         mKeySetMapping = new LongSparseArray<ArraySet<Long>>();
@@ -602,7 +602,7 @@ public class KeySetManagerService {
     public void dumpLPr(PrintWriter pw, String packageName,
                         DumpState dumpState) {
         boolean printedHeader = false;
-        for (ArrayMap.Entry<String, PackageSetting> e : mPackages.entrySet()) {
+        for (Map.Entry<String, PackageSetting> e : mPackages.entrySet()) {
             String keySetPackage = e.getKey();
             if (packageName != null && !packageName.equals(keySetPackage)) {
                 continue;
