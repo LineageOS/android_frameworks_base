@@ -367,53 +367,53 @@ public class ParsingPackageImpl implements ParsingPackage, Parcelable {
     @DataClass.ParcelWith(ForInternedString.class)
     private String zygotePreloadName;
 
-    private boolean externalStorage;
-    private boolean baseHardwareAccelerated;
-    private boolean allowBackup;
-    private boolean killAfterRestore;
-    private boolean restoreAnyVersion;
-    private boolean fullBackupOnly;
-    private boolean persistent;
-    private boolean debuggable;
-    private boolean vmSafeMode;
-    private boolean hasCode;
-    private boolean allowTaskReparenting;
-    private boolean allowClearUserData;
-    private boolean largeHeap;
-    private boolean usesCleartextTraffic;
-    private boolean supportsRtl;
-    private boolean testOnly;
-    private boolean multiArch;
-    private boolean extractNativeLibs;
-    private boolean game;
+    boolean externalStorage;
+    boolean baseHardwareAccelerated;
+    boolean allowBackup;
+    boolean killAfterRestore;
+    boolean restoreAnyVersion;
+    boolean fullBackupOnly;
+    boolean persistent;
+    boolean debuggable;
+    boolean vmSafeMode;
+    boolean hasCode;
+    boolean allowTaskReparenting;
+    boolean allowClearUserData;
+    boolean largeHeap;
+    boolean usesCleartextTraffic;
+    boolean supportsRtl;
+    boolean testOnly;
+    boolean multiArch;
+    boolean extractNativeLibs;
+    boolean game;
 
     /**
      * @see ParsingPackageRead#getResizeableActivity()
      */
     @Nullable
     @DataClass.ParcelWith(ForBoolean.class)
-    private Boolean resizeableActivity;
+    Boolean resizeableActivity;
 
-    private boolean staticSharedLibrary;
-    private boolean overlay;
-    private boolean isolatedSplitLoading;
-    private boolean hasDomainUrls;
-    private boolean profileableByShell;
-    private boolean backupInForeground;
-    private boolean useEmbeddedDex;
-    private boolean defaultToDeviceProtectedStorage;
-    private boolean directBootAware;
-    private boolean partiallyDirectBootAware;
-    private boolean resizeableActivityViaSdkVersion;
-    private boolean allowClearUserDataOnFailedRestore;
-    private boolean allowAudioPlaybackCapture;
-    private boolean requestLegacyExternalStorage;
-    private boolean usesNonSdkApi;
-    private boolean hasFragileUserData;
-    private boolean cantSaveState;
-    private boolean allowNativeHeapPointerTagging;
-    private int autoRevokePermissions;
-    private boolean preserveLegacyExternalStorage;
+    boolean staticSharedLibrary;
+    boolean overlay;
+    boolean isolatedSplitLoading;
+    boolean hasDomainUrls;
+    boolean profileableByShell;
+    boolean backupInForeground;
+    boolean useEmbeddedDex;
+    boolean defaultToDeviceProtectedStorage;
+    boolean directBootAware;
+    boolean partiallyDirectBootAware;
+    boolean resizeableActivityViaSdkVersion;
+    boolean allowClearUserDataOnFailedRestore;
+    boolean allowAudioPlaybackCapture;
+    boolean requestLegacyExternalStorage;
+    boolean usesNonSdkApi;
+    boolean hasFragileUserData;
+    boolean cantSaveState;
+    boolean allowNativeHeapPointerTagging;
+    int autoRevokePermissions;
+    boolean preserveLegacyExternalStorage;
 
     protected int gwpAsanMode;
 
