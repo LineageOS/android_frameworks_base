@@ -749,8 +749,8 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
             mDismissAnimation.cancel();
         }
 
-        // The window is focusable by default
-        setWindowFocusable(true);
+        // The window is not focusable by default
+        setWindowFocusable(false);
 
         // Start the post-screenshot animation
         startAnimation(finisher, screenRect, screenInsets, showFlash);
