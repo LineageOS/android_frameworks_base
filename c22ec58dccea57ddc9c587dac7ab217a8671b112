@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5d7044e9_32054464",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-04-10T15:57:45Z",
+      "side": 1,
+      "message": "nope. footprint is minimal this way. also what is changing the order improving?",
+      "parentUuid": "294a9683_698371a8",
+      "revId": "c22ec58dccea57ddc9c587dac7ab217a8671b112",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9db72e8a_168b3344",
         "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2021-04-10T15:45:55Z",
       "side": 1,
       "message": "drop \u003e maxFreshRate and use ternary operator?",
+      "revId": "c22ec58dccea57ddc9c587dac7ab217a8671b112",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1244a98_66fbe32d",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-04-10T15:57:45Z",
+      "side": 1,
+      "message": "this is personal preference. code is fine this way as well",
+      "parentUuid": "9db72e8a_168b3344",
       "revId": "c22ec58dccea57ddc9c587dac7ab217a8671b112",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
