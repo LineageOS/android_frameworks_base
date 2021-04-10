@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "294a9683_698371a8",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2021-04-10T15:45:55Z",
+      "side": 1,
+      "message": "Put it before previous line",
+      "revId": "c22ec58dccea57ddc9c587dac7ab217a8671b112",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9db72e8a_168b3344",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2021-04-10T15:45:55Z",
+      "side": 1,
+      "message": "drop \u003e maxFreshRate and use ternary operator?",
+      "revId": "c22ec58dccea57ddc9c587dac7ab217a8671b112",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
