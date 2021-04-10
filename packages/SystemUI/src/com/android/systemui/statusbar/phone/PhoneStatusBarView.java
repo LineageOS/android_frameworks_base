@@ -33,6 +33,7 @@ import android.view.DisplayCutout;
 import android.view.Gravity;
 import android.view.IWindowManager;
 import android.view.MotionEvent;
+import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -405,6 +406,13 @@ public class PhoneStatusBarView extends PanelBar implements Callbacks {
                         mDisplayCutout, cornerCutoutMargins, mRoundedCornerPadding);
 
         setPadding(padding.first, getPaddingTop(), padding.second, getPaddingBottom());
+
+        // Apply negative paddings to center clock layout so that we'll actually be on the center.
+        final int winRotation = getDisplay().getRotation();
+        LayoutParams centerClockParams =
+                (LayoutParams) findViewById(R.id.center_clock_layout).getLayoutParams();
+        centerClockParams.leftMargin = winRotation == Surface.ROTATION_0 ? -padding.first : 0;
+        centerClockParams.rightMargin = winRotation == Surface.ROTATION_0 ? -padding.second : 0;
     }
 
     public void setHeadsUpVisible(boolean headsUpVisible) {
