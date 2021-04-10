@@ -69,6 +69,24 @@
       "revId": "c22ec58dccea57ddc9c587dac7ab217a8671b112",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "958f9c35_84f589d5",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 24728
+      },
+      "writtenOn": "2021-04-10T16:44:05Z",
+      "side": 1,
+      "message": "\"refereshRate \u003e maxRefreshRate\" has to be there so that we don\u0027t have situations where maxRefreshRate is higher than refereshRate (on devices with support for switchable refresh rates) and thus screen is recorded at higher framerate than the screen is refreshed at",
+      "parentUuid": "e1244a98_66fbe32d",
+      "revId": "c22ec58dccea57ddc9c587dac7ab217a8671b112",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
