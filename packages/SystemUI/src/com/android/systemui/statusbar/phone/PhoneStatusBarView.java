@@ -405,6 +405,12 @@ public class PhoneStatusBarView extends PanelBar implements Callbacks {
                         mDisplayCutout, cornerCutoutMargins, mRoundedCornerPadding);
 
         setPadding(padding.first, getPaddingTop(), padding.second, getPaddingBottom());
+
+        // Apply negative paddings to center clock layout so that we'll actually be on the center.
+        LayoutParams centerClockParams =
+                (LayoutParams) findViewById(R.id.center_clock_layout).getLayoutParams();
+        centerClockParams.setMargins(-padding.first, centerClockParams.topMargin,
+                -padding.second, centerClockParams.bottomMargin);
     }
 
     public void setHeadsUpVisible(boolean headsUpVisible) {
