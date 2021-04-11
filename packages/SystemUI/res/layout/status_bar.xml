@@ -109,6 +109,35 @@
             android:clipChildren="false"
             android:gravity="center_horizontal|center_vertical"/>
 
+        <com.android.keyguard.AlphaOptimizedLinearLayout android:id="@+id/system_icon_area"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|end"
+            >
+
+            <include layout="@layout/system_icons" />
+        </com.android.keyguard.AlphaOptimizedLinearLayout>
+    </LinearLayout>
+
+    <com.android.keyguard.AlphaOptimizedLinearLayout
+        android:id="@+id/centered_area"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <com.android.systemui.statusbar.policy.Clock
+            android:id="@+id/clock_center"
+            android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:gravity="center"
+            android:visibility="gone"
+        />
+
         <com.android.systemui.statusbar.LineageStatusBarItemHolder
             android:id="@+id/network_traffic_holder"
             android:layout_width="wrap_content"
@@ -124,35 +153,6 @@
                 android:gravity="center_vertical|start" />
 
         </com.android.systemui.statusbar.LineageStatusBarItemHolder>
-
-        <com.android.keyguard.AlphaOptimizedLinearLayout android:id="@+id/system_icon_area"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:gravity="center_vertical|end"
-            >
-
-            <include layout="@layout/system_icons" />
-        </com.android.keyguard.AlphaOptimizedLinearLayout>
-    </LinearLayout>
-
-    <com.android.keyguard.AlphaOptimizedLinearLayout
-        android:id="@+id/center_clock_layout"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <com.android.systemui.statusbar.policy.Clock
-            android:id="@+id/clock_center"
-            android:textAppearance="@style/TextAppearance.StatusBar.Clock"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:singleLine="true"
-            android:gravity="center"
-            android:visibility="gone"
-        />
     </com.android.keyguard.AlphaOptimizedLinearLayout>
 
     <ViewStub
