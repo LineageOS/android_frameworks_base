@@ -287,6 +287,8 @@ import libcore.io.IoUtils;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
@@ -298,6 +300,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.nio.charset.StandardCharsets;
 import java.time.Clock;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -307,6 +310,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -415,6 +420,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     private static final String ATTR_OWNER_PACKAGE = "ownerPackage";
     private static final String ATTR_NETWORK_TYPES = "networkTypes";
     private static final String ATTR_XML_UTILS_NAME = "name";
+    private static final String ATTR_USER_ID = "userId";
 
     private static final String ACTION_ALLOW_BACKGROUND =
             "com.android.server.net.action.ALLOW_BACKGROUND";
@@ -2397,7 +2403,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         FileInputStream fis = null;
         try {
             fis = mPolicyFile.openRead();
-            readPolicyXml(fis);
+            readPolicyXml(fis, false);
         } catch (FileNotFoundException e) {
             // missing policy is okay, probably first boot
             upgradeDefaultBackgroundDataUL();
@@ -2408,8 +2414,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         }
     }
 
-    private void readPolicyXml(FileInputStream fis) {
-        final TypedXmlPullParser in = Xml.resolvePullParser(fis);
+    private void readPolicyXml(InputStream inputStream, boolean forRestore) throws IOException,
+            XmlPullParserException {
+        final TypedXmlPullParser in = Xml.resolvePullParser(inputStream);
 
          // Must save the <restrict-background> tags and convert them to <uid-policy> later,
          // to skip UIDs that were explicitly denied.
@@ -2568,7 +2575,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                             SubscriptionPlan.class, mSubscriptionPlans.get(subId), plan));
                     mSubscriptionPlansOwner.put(subId, ownerPackage);
                 } else if (TAG_UID_POLICY.equals(tag)) {
-                    final int uid = readIntAttribute(in, ATTR_UID);
+                    int uid = readUidAttribute(in, forRestore);
                     final int policy = readIntAttribute(in, ATTR_POLICY);
 
                     if (UserHandle.isApp(uid)) {
@@ -2591,10 +2598,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 } else if (TAG_WHITELIST.equals(tag)) {
                     insideAllowlist = true;
                 } else if (TAG_RESTRICT_BACKGROUND.equals(tag) && insideAllowlist) {
-                    final int uid = readIntAttribute(in, ATTR_UID);
+                    int uid = readUidAttribute(in, forRestore);
                     restrictBackgroundAllowedUids.append(uid, true);
                 } else if (TAG_REVOKED_RESTRICT_BACKGROUND.equals(tag) && insideAllowlist) {
-                    final int uid = readIntAttribute(in, ATTR_UID);
+                    int uid = readUidAttribute(in, forRestore);
                     mRestrictBackgroundAllowlistRevokedUids.put(uid, true);
                 }
             } else if (type == END_TAG) {
@@ -2698,7 +2705,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         FileOutputStream fos = null;
         try {
             fos = mPolicyFile.startWrite();
-            writePolicyXml(fos);
+            writePolicyXml(fos, false);
             mPolicyFile.finishWrite(fos);
         } catch (IOException e) {
             if (fos != null) {
@@ -2707,8 +2714,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         }
     }
 
-    private void writePolicyXml(FileOutputStream fos) {
-        TypedXmlSerializer out = Xml.resolveSerializer(fos);
+    private void writePolicyXml(OutputStream outputStream, boolean forBackup) throws IOException {
+        TypedXmlSerializer out = Xml.resolveSerializer(outputStream);
         out.startDocument(null, true);
 
         out.startTag(null, TAG_POLICY_LIST);
@@ -2791,7 +2798,12 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             if (policy == POLICY_NONE) continue;
 
             out.startTag(null, TAG_UID_POLICY);
-            writeIntAttribute(out, ATTR_UID, uid);
+            if (!forBackup) {
+                writeIntAttribute(out, ATTR_UID, uid);
+            } else {
+                writeStringAttribute(out, ATTR_XML_UTILS_NAME, getPackageForUid(uid));
+                writeIntAttribute(out, ATTR_USER_ID, UserHandle.getUserId(uid));
+            }
             writeIntAttribute(out, ATTR_POLICY, policy);
             out.endTag(null, TAG_UID_POLICY);
         }
@@ -2806,13 +2818,56 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         for (int i = 0; i < size; i++) {
             final int uid = mRestrictBackgroundAllowlistRevokedUids.keyAt(i);
             out.startTag(null, TAG_REVOKED_RESTRICT_BACKGROUND);
-            writeIntAttribute(out, ATTR_UID, uid);
+            if (!forBackup) {
+                writeIntAttribute(out, ATTR_UID, uid);
+            } else {
+                writeStringAttribute(out, ATTR_XML_UTILS_NAME, getPackageForUid(uid));
+                writeIntAttribute(out, ATTR_USER_ID, UserHandle.getUserId(uid));
+            }
             out.endTag(null, TAG_REVOKED_RESTRICT_BACKGROUND);
         }
 
         out.endTag(null, TAG_WHITELIST);
 
         out.endDocument();
+    }
+
+    @Override
+    public byte[] getBackupPayload() {
+        enforceSystemCaller();
+        if (LOGD) Slog.d(TAG, "getBackupPayload");
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            writePolicyXml(baos, true);
+            return baos.toByteArray();
+        } catch (IOException e) {
+            Slog.w(TAG, "getBackupPayload: error writing payload", e);
+        }
+        return null;
+    }
+
+    @Override
+    public void applyRestore(byte[] payload) {
+        enforceSystemCaller();
+        if (LOGD) Slog.d(TAG, "applyRestore payload="
+                + (payload != null ? new String(payload, StandardCharsets.UTF_8) : null));
+        if (payload == null) {
+            Slog.w(TAG, "applyRestore: no payload to restore");
+            return;
+        }
+
+        // clear any existing policy and read from disk
+        mNetworkPolicy.clear();
+        mSubscriptionPlans.clear();
+        mSubscriptionPlansOwner.clear();
+        mUidPolicy.clear();
+
+        final ByteArrayInputStream bais = new ByteArrayInputStream(payload);
+        try {
+            readPolicyXml(bais, true);
+        } catch (IOException | XmlPullParserException e) {
+            Slog.w(TAG, "applyRestore: error reading payload", e);
+        }
     }
 
     @Override
@@ -3006,6 +3061,12 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         if (!checkAnyPermissionOf(permissions)) {
             throw new SecurityException("Requires one of the following permissions: "
                     + String.join(", ", permissions) + ".");
+        }
+    }
+
+    private void enforceSystemCaller() {
+        if (Binder.getCallingUid() != android.os.Process.SYSTEM_UID) {
+            throw new SecurityException("Caller must be system");
         }
     }
 
@@ -5907,6 +5968,19 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             handleRestrictedPackagesChangeUL(oldRestrictedUids, newRestrictedUids);
             mLogger.meteredRestrictedPkgsChanged(newRestrictedUids);
         }
+    }
+
+    private int readUidAttribute(TypedXmlPullParser in, boolean forRestore) throws IOException {
+        if (!forRestore) {
+            return readIntAttribute(in, ATTR_UID);
+        } else {
+            return getUidForPackage(readStringAttribute(in, ATTR_XML_UTILS_NAME),
+                    readIntAttribute(in, ATTR_USER_ID));
+        }
+    }
+
+    private String getPackageForUid(int uid) {
+        return mContext.getPackageManager().getPackagesForUid(uid)[0];
     }
 
     private int getUidForPackage(String packageName, int userId) {
