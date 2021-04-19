@@ -31,6 +31,7 @@ import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 import android.annotation.CallSuper;
 import android.annotation.NonNull;
+import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -38,6 +39,7 @@ import android.metrics.LogMaker;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.UserHandle;
 import android.text.format.DateUtils;
 import android.util.ArraySet;
 import android.util.Log;
@@ -71,6 +73,8 @@ import com.android.systemui.qs.logging.QSLogger;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+
+import lineageos.providers.LineageSettings;
 
 /**
  * Base quick-settings tile, extend this to create a new tile.
@@ -290,37 +294,35 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
     }
 
     public void click(@Nullable View view) {
-        mMetricsLogger.write(populate(new LogMaker(ACTION_QS_CLICK).setType(TYPE_ACTION)
-                .addTaggedData(FIELD_STATUS_BAR_STATE,
-                        mStatusBarStateController.getState())));
-        mUiEventLogger.logWithInstanceId(QSEvent.QS_ACTION_CLICK, 0, getMetricsSpec(),
-                getInstanceId());
         mQSLogger.logTileClick(mTileSpec, mStatusBarStateController.getState(), mState.state);
         if (!mFalsingManager.isFalseTap(FalsingManager.LOW_PENALTY)) {
-            mHandler.obtainMessage(H.CLICK, view).sendToTarget();
+            handleClick(ACTION_QS_CLICK, QSEvent.QS_ACTION_CLICK, H.CLICK, view);
         }
     }
 
     public void secondaryClick(@Nullable View view) {
-        mMetricsLogger.write(populate(new LogMaker(ACTION_QS_SECONDARY_CLICK).setType(TYPE_ACTION)
-                .addTaggedData(FIELD_STATUS_BAR_STATE,
-                        mStatusBarStateController.getState())));
-        mUiEventLogger.logWithInstanceId(QSEvent.QS_ACTION_SECONDARY_CLICK, 0, getMetricsSpec(),
-                getInstanceId());
         mQSLogger.logTileSecondaryClick(mTileSpec, mStatusBarStateController.getState(),
                 mState.state);
-        mHandler.obtainMessage(H.SECONDARY_CLICK, view).sendToTarget();
+        handleClick(ACTION_QS_SECONDARY_CLICK, QSEvent.QS_ACTION_SECONDARY_CLICK, H.SECONDARY_CLICK,
+                view);
     }
 
     @Override
     public void longClick(@Nullable View view) {
-        mMetricsLogger.write(populate(new LogMaker(ACTION_QS_LONG_PRESS).setType(TYPE_ACTION)
-                .addTaggedData(FIELD_STATUS_BAR_STATE,
-                        mStatusBarStateController.getState())));
-        mUiEventLogger.logWithInstanceId(QSEvent.QS_ACTION_LONG_PRESS, 0, getMetricsSpec(),
-                getInstanceId());
         mQSLogger.logTileLongClick(mTileSpec, mStatusBarStateController.getState(), mState.state);
-        mHandler.obtainMessage(H.LONG_CLICK, view).sendToTarget();
+        handleClick(ACTION_QS_LONG_PRESS, QSEvent.QS_ACTION_LONG_PRESS, H.LONG_CLICK, view);
+    }
+
+    private void handleClick(int category, QSEvent event, int message, View view) {
+        final KeyguardManager keyguardManager = mContext.getSystemService(KeyguardManager.class);
+        mMetricsLogger.write(populate(new LogMaker(category).setType(TYPE_ACTION)
+                .addTaggedData(FIELD_STATUS_BAR_STATE, mStatusBarStateController.getState())));
+        mUiEventLogger.logWithInstanceId(event, 0, getMetricsSpec(), getInstanceId());
+        if (!keyguardManager.isKeyguardLocked() ||
+                LineageSettings.Secure.getInt(mContext.getContentResolver(),
+                LineageSettings.Secure.QS_TILES_TOGGLEABLE_ON_LOCK_SCREEN, 1) == 1) {
+            mHandler.obtainMessage(message, view).sendToTarget();
+        }
     }
 
     public LogMaker populate(LogMaker logMaker) {
