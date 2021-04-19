@@ -4927,19 +4927,15 @@ public final class Settings {
          * One of the sip call options: Always use SIP with network access.
          * @hide
          */
-        public static final String SIP_ALWAYS = "SIP_ALWAYS";
 
         /** @hide */
-        public static final Validator SIP_ALWAYS_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * One of the sip call options: Only if destination is a SIP address.
          * @hide
          */
-        public static final String SIP_ADDRESS_ONLY = "SIP_ADDRESS_ONLY";
 
         /** @hide */
-        public static final Validator SIP_ADDRESS_ONLY_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * @deprecated Use SIP_ALWAYS or SIP_ADDRESS_ONLY instead.  Formerly used to indicate that
@@ -4948,11 +4944,8 @@ public final class Settings {
          * SIP_ADDRESS_ONLY.
          * @hide
          */
-        @Deprecated
-        public static final String SIP_ASK_ME_EACH_TIME = "SIP_ASK_ME_EACH_TIME";
 
         /** @hide */
-        public static final Validator SIP_ASK_ME_EACH_TIME_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * Pointer speed setting.
@@ -4962,21 +4955,15 @@ public final class Settings {
          *   +7 = fastest
          * @hide
          */
-        @UnsupportedAppUsage
-        public static final String POINTER_SPEED = "pointer_speed";
 
         /** @hide */
-        public static final Validator POINTER_SPEED_VALIDATOR =
-                new SettingsValidators.InclusiveFloatRangeValidator(-7, 7);
 
         /**
          * Whether lock-to-app will be triggered by long-press on recents.
          * @hide
          */
-        public static final String LOCK_TO_APP_ENABLED = "lock_to_app_enabled";
 
         /** @hide */
-        public static final Validator LOCK_TO_APP_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * I am the lolrus.
@@ -4985,19 +4972,8 @@ public final class Settings {
          * Backward-compatible with <code>PrefGetPreference(prefAllowEasterEggs)</code>.
          * @hide
          */
-        public static final String EGG_MODE = "egg_mode";
 
         /** @hide */
-        public static final Validator EGG_MODE_VALIDATOR = new Validator() {
-            @Override
-            public boolean validate(@Nullable String value) {
-                try {
-                    return Long.parseLong(value) >= 0;
-                } catch (NumberFormatException e) {
-                    return false;
-                }
-            }
-        };
 
         /**
          * Setting to determine whether or not to show the battery percentage in the status bar.
@@ -5005,7 +4981,6 @@ public final class Settings {
          *    1 - Show percentage
          * @hide
          */
-        public static final String SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 
         /** @hide */
         private static final Validator SHOW_BATTERY_PERCENT_VALIDATOR = BOOLEAN_VALIDATOR;
