@@ -19,12 +19,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="global_action_restart_system">Система</string>
-    <string name="global_action_restart_recovery">Режим восстановления</string>
+    <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Загрузчик</string>
     <string name="global_action_restart_download">Режим обновления ПО</string>
     <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Перезагрузка\u2026</string>
-    <string name="global_action_restart_recovery_progress">Перезапуск в режим восстановления\u2026</string>
+    <string name="global_action_restart_recovery_progress">Перезапуск в Recovery\u2026</string>
     <string name="global_action_restart_bootloader_progress">Перезапуск в режим загрузчика\u2026</string>
     <string name="global_action_restart_download_progress">Перезапуск в режим загрузки\u2026</string>
     <string name="global_action_restart_fastboot_progress">Перезапуск в режим fastbootd\u2026</string>
