@@ -45,6 +45,30 @@
       "revId": "2693f461730d2bac8363321cda09d3deefc8139b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd569ba1_0f7ba6a5",
+        "filename": "core/java/android/speech/tts/TtsEngines.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 27353
+      },
+      "writtenOn": "2021-04-21T13:04:07Z",
+      "side": 1,
+      "message": "Fixed. It would return null for empty value later anyway, but indeed isEmpty() is better.",
+      "parentUuid": "0a8f98bb_e83476ac",
+      "range": {
+        "startLine": 501,
+        "startChar": 44,
+        "endLine": 501,
+        "endChar": 62
+      },
+      "revId": "2693f461730d2bac8363321cda09d3deefc8139b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
