@@ -498,7 +498,7 @@ public class TtsEngines {
      * specific preference in the list.
      */
     private static String parseEnginePrefFromList(String prefValue, String engineName) {
-        if (TextUtils.isEmpty(prefValue)) {
+        if (TextUtils.isEmpty(prefValue) || TextUtils.isEmpty(engineName)) {
             return null;
         }
 
