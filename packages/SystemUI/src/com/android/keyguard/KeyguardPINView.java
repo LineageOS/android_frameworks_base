@@ -51,6 +51,7 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
     private View mDivider;
     private int mDisappearYTranslation;
     private View[][] mViews;
+    private boolean mScramblePin;
     private final KeyguardUpdateMonitor mKeyguardUpdateMonitor;
 
     private static List<Integer> sNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
@@ -131,9 +132,9 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
             });
         }
 
-        boolean scramblePin = (LineageSettings.System.getInt(getContext().getContentResolver(),
-                LineageSettings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, 0) == 1);
-        if (scramblePin) {
+        mScramblePin = LineageSettings.System.getInt(getContext().getContentResolver(),
+                LineageSettings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, 0) == 1;
+        if (mScramblePin) {
             Collections.shuffle(sNumbers);
             // get all children who are NumPadKey's
             LinearLayout container = (LinearLayout) findViewById(R.id.container);
@@ -212,6 +213,14 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
         mRow2.setClipToPadding(enable);
         mRow3.setClipToPadding(enable);
         setClipChildren(enable);
+    }
+
+    @Override
+    protected int getNumberIndex(int number) {
+        if (mScramblePin) {
+            return (sNumbers.indexOf(number) + 1) % sNumbers.size();
+        }
+        return super.getNumberIndex(number);
     }
 
     @Override
