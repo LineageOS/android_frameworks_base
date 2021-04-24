@@ -130,7 +130,7 @@ public abstract class KeyguardPinBasedInputView extends KeyguardAbsKeyInputView
     }
 
     private void performNumberClick(int number) {
-        switch (number) {
+        switch (((KeyguardPINView) this).getNumberIndex(number)) {
             case 0:
                 performClick(mButton0);
                 break;
