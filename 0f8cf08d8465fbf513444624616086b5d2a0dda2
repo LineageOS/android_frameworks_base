@@ -22,6 +22,41 @@
       "revId": "0f8cf08d8465fbf513444624616086b5d2a0dda2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d223c9e9_820783de",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-04-24T20:45:37Z",
+      "side": 1,
+      "message": "\u003e this happens so infrequently that I prefer the lower footprint of the ones before Wang touched this...\n\nI completely disagree there.\nThese low profile changes better be more concise and follow best practices.\n\nOn the other hand for big changes we should always minimize footprint for later adoption ( if it doesn\u0027t hinder code understanding )",
+      "parentUuid": "9a1e6d2b_2e7d1440",
+      "revId": "0f8cf08d8465fbf513444624616086b5d2a0dda2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1f38e1_73d3769f",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-04-24T20:45:37Z",
+      "side": 1,
+      "message": "I\u0027d rather import com.android.systemui.R instead of using the exploded class",
+      "revId": "0f8cf08d8465fbf513444624616086b5d2a0dda2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
