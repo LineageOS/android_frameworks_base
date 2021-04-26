@@ -44,6 +44,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.systemui.Prefs;
 import com.android.systemui.mediaprojection.MediaProjectionCaptureTarget;
 import com.android.systemui.res.R;
 import com.android.systemui.settings.UserContextProvider;
@@ -60,6 +61,13 @@ public class ScreenRecordDialog extends SystemUIDialog {
             MIC_AND_INTERNAL);
     private static final long DELAY_MS = 3000;
     private static final long INTERVAL_MS = 1000;
+    private static final String TAG = "ScreenRecordDialog";
+    private static final String PREFS = "screenrecord_";
+    private static final String PREF_TAPS = "show_taps";
+    private static final String PREF_DOT = "show_dot";
+    private static final String PREF_LOW = "use_low_quality";
+    private static final String PREF_AUDIO = "use_audio";
+    private static final String PREF_AUDIO_SOURCE = "audio_source";
 
     private final RecordingController mController;
     private final UserContextProvider mUserContextProvider;
@@ -133,6 +141,8 @@ public class ScreenRecordDialog extends SystemUIDialog {
             }
         });
         mOptions.setLongClickable(false);
+
+        loadPrefs();
     }
 
     /**
@@ -142,6 +152,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
      */
     private void requestScreenCapture(@Nullable MediaProjectionCaptureTarget captureTarget) {
         Context userContext = mUserContextProvider.getUserContext();
+        savePrefs();
         boolean showTaps = mTapsSwitch.isChecked();
         boolean showStopDot = mStopDotSwitch.isChecked();
         boolean lowQuality = mLowQualitySwitch.isChecked();
@@ -178,5 +189,23 @@ public class ScreenRecordDialog extends SystemUIDialog {
                 requestScreenCapture(captureTarget);
             }
         }
+    }
+
+    private void savePrefs() {
+        Context userContext = mUserContextProvider.getUserContext();
+        Prefs.putInt(userContext, PREFS + PREF_TAPS, mTapsSwitch.isChecked() ? 1 : 0);
+        Prefs.putInt(userContext, PREFS + PREF_DOT, mStopDotSwitch.isChecked() ? 1 : 0);
+        Prefs.putInt(userContext, PREFS + PREF_LOW, mLowQualitySwitch.isChecked() ? 1 : 0);
+        Prefs.putInt(userContext, PREFS + PREF_AUDIO, mAudioSwitch.isChecked() ? 1 : 0);
+        Prefs.putInt(userContext, PREFS + PREF_AUDIO_SOURCE, mOptions.getSelectedItemPosition());
+    }
+
+    private void loadPrefs() {
+        Context userContext = mUserContextProvider.getUserContext();
+        mTapsSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_TAPS, 0) == 1);
+        mStopDotSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_DOT, 0) == 1);
+        mLowQualitySwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_LOW, 0) == 1);
+        mAudioSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_AUDIO, 0) == 1);
+        mOptions.setSelection(Prefs.getInt(userContext, PREFS + PREF_AUDIO_SOURCE, 0));
     }
 }
