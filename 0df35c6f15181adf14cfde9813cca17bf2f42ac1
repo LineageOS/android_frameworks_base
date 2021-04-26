@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "436824fa_05ef7d6d",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-04-26T13:19:14Z",
+      "side": 1,
+      "message": "Wrong indentation. Should be 8 spaces instead of 4.",
+      "range": {
+        "startLine": 815,
+        "startChar": 20,
+        "endLine": 815,
+        "endChar": 24
+      },
+      "revId": "0df35c6f15181adf14cfde9813cca17bf2f42ac1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48910acf_aba89fe9",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-04-26T13:19:14Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 816,
+        "startChar": 20,
+        "endLine": 816,
+        "endChar": 24
+      },
+      "revId": "0df35c6f15181adf14cfde9813cca17bf2f42ac1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
