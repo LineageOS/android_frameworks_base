@@ -33,6 +33,8 @@
     <string name="accessibility_quick_settings_heads_up_on">Heads up päällä.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up pois päältä.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up päällä.</string>
+    <string name="global_screenshot_selector_capture_description">Ota osittainen kuvakaappaus</string>
+    <string name="global_screenshot_selector_cancel_description">Peruuta osittainen kuvakaappaus</string>
     <string name="quick_settings_powershare_label">Langaton virranjako</string>
     <string name="quick_settings_powershare_off_powersave_label">Langaton virranjako pois\nVirransäästö</string>
     <string name="quick_settings_powershare_off_low_battery_label">Langaton virranjako pois\nAkun varaus alhainen</string>
@@ -62,6 +64,7 @@
     <string name="vpn_credentials_dialog_connect">Yhdistä</string>
     <string name="accessibility_dpad_left">Kohdistin vasemmalle</string>
     <string name="accessibility_dpad_right">Kohdistin oikealle</string>
+    <string name="global_action_restart_more">Käynnistä uudelleen\u2026</string>
     <string name="global_action_restart_system">Järjestelmä</string>
     <string name="global_action_restart_recovery">Recovery-tila</string>
     <string name="global_action_restart_bootloader">Bootloader-tila</string>

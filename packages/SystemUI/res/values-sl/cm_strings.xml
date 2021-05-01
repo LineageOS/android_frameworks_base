@@ -24,7 +24,7 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Okoliški zaslon izklopljen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Okoliški zaslon vklopljen.</string>
     <string name="quick_settings_aod_label">Stalni prikaz</string>
-    <string name="quick_settings_aod_off_powersave_label">Stalni prikaz izklopljen\nVarčevanje z energijo akumulatorja</string>
+    <string name="quick_settings_aod_off_powersave_label">Stalni prikaz izklopljen\nVarčevanje z energijo baterije</string>
     <string name="quick_settings_caffeine_label">Kofein</string>
     <string name="accessibility_quick_settings_caffeine_off">Kofein izklopljen.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofein vklopljen.</string>
@@ -36,8 +36,8 @@
     <string name="global_screenshot_selector_capture_description">Zajemi delno zaslonsko sliko</string>
     <string name="global_screenshot_selector_cancel_description">Prekliči delno zaslonsko sliko</string>
     <string name="quick_settings_powershare_label">Wireless PowerShare</string>
-    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare izklopljen\nVarčevanje z energijo akumulatorja</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare izklopljen\nRaven napolnjenosti akumulatorja prenizka</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare izklopljen\nVarčevanje z energijo baterije</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare izklopljen\nRaven napolnjenosti baterije prenizka</string>
     <string name="quick_settings_powershare_enabled_label">Wireless PowerShare je omogočen</string>
     <string name="quick_settings_reading_mode">Način za branje</string>
     <string name="accessibility_quick_settings_reading_mode_on">Način za branje vklopljen.</string>
