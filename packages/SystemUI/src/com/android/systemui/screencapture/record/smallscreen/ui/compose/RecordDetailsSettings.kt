@@ -180,6 +180,19 @@ fun RecordDetailsSettings(
                 onCheckedChange = { parametersViewModel.setLowQuality(it) },
                 modifier = Modifier,
             )
+            RichSwitch(
+                visible = true,
+                icon =
+                    loadIcon(
+                        viewModel = drawableLoaderViewModel,
+                        resId = R.drawable.ic_storage,
+                        contentDescription = null,
+                    ),
+                label = stringResource(R.string.screenrecord_longer_timeout_switch_label),
+                checked = parametersViewModel.longerDuration,
+                onCheckedChange = { parametersViewModel.setLongerDuration(it) },
+                modifier = Modifier,
+            )
             SettingsRow(visible = true, modifier = Modifier.padding(top = 4.dp)) {
                 Crossfade(
                     targetState = targetViewModel.warningMessageRes,

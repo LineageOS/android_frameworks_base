@@ -164,6 +164,21 @@ fun CaptureSettingsMenu(viewModel: PreCaptureToolbarViewModel, screenRecordingSe
                 enabled = screenRecordingSelected,
             )
 
+            val storageIcon by
+                loadIcon(
+                    viewModel = viewModel,
+                    resId = R.drawable.ic_storage,
+                    contentDescription = null,
+                )
+
+            SettingsMenuItem(
+                text = stringResource(R.string.screenrecord_longer_timeout_switch_label),
+                leadingIcon = storageIcon,
+                checked = recordParameters.longerDuration,
+                onCheckedChange = { recordParameters.setLongerDuration(it) },
+                enabled = screenRecordingSelected,
+            )
+
             if (viewModel.customSaveLocationSupported) {
                 SaveLocationDropdown(
                     viewModel = viewModel,
