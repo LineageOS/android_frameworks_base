@@ -75,6 +75,8 @@ constructor(
 
     val lowQuality: Boolean by interactor::lowQuality
 
+    val longerDuration: Boolean by interactor::longerDuration
+
     var shouldRecordDevice: Boolean
         get() =
             with(interactor) {
@@ -148,6 +150,10 @@ constructor(
 
     fun setLowQuality(lowQuality: Boolean) {
         interactor.lowQuality = lowQuality
+    }
+
+    fun setLongerDuration(longerDuration: Boolean) {
+        interactor.longerDuration = longerDuration
     }
 
     @AssistedFactory
