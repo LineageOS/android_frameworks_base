@@ -72,6 +72,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
     private static final String PREF_TAPS = "show_taps";
     private static final String PREF_DOT = "show_dot";
     private static final String PREF_LOW = "use_low_quality";
+    private static final String PREF_LONGER = "use_longer_timeout";
     private static final String PREF_AUDIO = "use_audio";
     private static final String PREF_AUDIO_SOURCE = "audio_source";
 
@@ -85,6 +86,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
     private Switch mTapsSwitch;
     private Switch mStopDotSwitch;
     private Switch mLowQualitySwitch;
+    private Switch mLongerSwitch;
     private Switch mAudioSwitch;
     private Spinner mOptions;
 
@@ -159,6 +161,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
         mTapsSwitch = findViewById(R.id.screenrecord_taps_switch);
         mStopDotSwitch = findViewById(R.id.screenrecord_stopdot_switch);
         mLowQualitySwitch = findViewById(R.id.screenrecord_lowquality_switch);
+        mLongerSwitch = findViewById(R.id.screenrecord_longer_timeout_switch);
         mOptions = findViewById(R.id.screen_recording_options);
         ArrayAdapter a = new ScreenRecordingAdapter(getContext().getApplicationContext(),
                 android.R.layout.simple_spinner_dropdown_item,
@@ -183,6 +186,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
         boolean showTaps = mTapsSwitch.isChecked();
         boolean showStopDot = mStopDotSwitch.isChecked();
         boolean lowQuality = mLowQualitySwitch.isChecked();
+        boolean longerDuration = mLongerSwitch.isChecked();
         ScreenRecordingAudioSource audioMode = mAudioSwitch.isChecked()
                 ? (ScreenRecordingAudioSource) mOptions.getSelectedItem()
                 : NONE;
@@ -191,7 +195,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
                 RecordingService.getStartIntent(
                         userContext, Activity.RESULT_OK,
                         audioMode.ordinal(), showTaps, captureTarget,
-                        showStopDot, lowQuality),
+                        showStopDot, lowQuality, longerDuration),
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         PendingIntent stopIntent = PendingIntent.getService(userContext,
                 RecordingService.REQUEST_CODE,
@@ -223,6 +227,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
         Prefs.putInt(userContext, PREFS + PREF_TAPS, mTapsSwitch.isChecked() ? 1 : 0);
         Prefs.putInt(userContext, PREFS + PREF_DOT, mStopDotSwitch.isChecked() ? 1 : 0);
         Prefs.putInt(userContext, PREFS + PREF_LOW, mLowQualitySwitch.isChecked() ? 1 : 0);
+        Prefs.putInt(userContext, PREFS + PREF_LONGER, mLongerSwitch.isChecked() ? 1 : 0);
         Prefs.putInt(userContext, PREFS + PREF_AUDIO, mAudioSwitch.isChecked() ? 1 : 0);
         Prefs.putInt(userContext, PREFS + PREF_AUDIO_SOURCE, mOptions.getSelectedItemPosition());
     }
@@ -232,6 +237,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
         mTapsSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_TAPS, 0) == 1);
         mStopDotSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_DOT, 0) == 1);
         mLowQualitySwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_LOW, 0) == 1);
+        mLongerSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_LONGER, 0) == 1);
         mAudioSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_AUDIO, 0) == 1);
         mOptions.setSelection(Prefs.getInt(userContext, PREFS + PREF_AUDIO_SOURCE, 0));
     }
