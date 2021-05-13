@@ -48,6 +48,7 @@ constructor(private val userContextProvider: UserContextProvider) :
                         displayId,
                         captureTarget,
                         lowQuality,
+                        longerDuration,
                     )
                 },
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,

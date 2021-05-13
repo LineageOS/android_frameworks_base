@@ -68,6 +68,12 @@ constructor(
         }
         get() = repository.lowQuality
 
+    var longerDuration: Boolean
+        set(value) {
+            repository.longerDuration = value
+        }
+        get() = repository.longerDuration
+
     val canChangeAudioSource: StateFlow<Boolean> =
         serviceInteractor.status
             .map { it.canChangeAudioSource() }
