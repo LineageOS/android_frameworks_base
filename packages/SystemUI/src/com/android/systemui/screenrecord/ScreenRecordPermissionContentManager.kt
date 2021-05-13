@@ -109,6 +109,7 @@ class ScreenRecordPermissionContentManager(
     private lateinit var tapsSwitch: Switch
     private lateinit var audioSwitch: Switch
     private lateinit var lowQualitySwitch: Switch
+    private lateinit var longerDurationSwitch: Switch
     private lateinit var tapsView: View
     private lateinit var options: Spinner
 
@@ -159,6 +160,8 @@ class ScreenRecordPermissionContentManager(
         audioSwitch = containerView.requireViewById(R.id.screenrecord_audio_switch)
         tapsSwitch = containerView.requireViewById(R.id.screenrecord_taps_switch)
         lowQualitySwitch = containerView.requireViewById(R.id.screenrecord_lowquality_switch)
+        longerDurationSwitch =
+            containerView.requireViewById(R.id.screenrecord_longer_timeout_switch)
 
         tapsView = containerView.requireViewById(R.id.show_taps)
         updateTapsViewVisibility()
@@ -168,6 +171,7 @@ class ScreenRecordPermissionContentManager(
         audioSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
         tapsSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
         lowQualitySwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
+        longerDurationSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
 
         options = containerView.requireViewById(R.id.screen_recording_options)
         val a: ArrayAdapter<*> =
@@ -222,6 +226,7 @@ class ScreenRecordPermissionContentManager(
             if (audioSwitch.isChecked) options.selectedItem as ScreenRecordingAudioSource
             else ScreenRecordingAudioSource.NONE
         val lowQuality = lowQualitySwitch.isChecked
+        val longerDuration = longerDurationSwitch.isChecked
 
         controller.startCountdown(
             DELAY_MS,
@@ -234,6 +239,7 @@ class ScreenRecordPermissionContentManager(
                         displayId = displayId,
                         shouldShowTaps = showTaps,
                         lowQuality = lowQuality,
+                        longerDuration = longerDuration,
                     )
                 )
             },
