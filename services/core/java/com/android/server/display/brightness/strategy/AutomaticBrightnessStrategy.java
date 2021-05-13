@@ -86,6 +86,9 @@ public class AutomaticBrightnessStrategy {
     @Nullable
     private BrightnessConfiguration mBrightnessConfiguration;
 
+    // Whether auto brightness is applied one shot when screen is turned on
+    private boolean mAutoBrightnessOneShotEnabled;
+
     public AutomaticBrightnessStrategy(Context context, int displayId) {
         mContext = context;
         mDisplayId = displayId;
@@ -127,6 +130,10 @@ public class AutomaticBrightnessStrategy {
 
     public boolean isAutoBrightnessDisabledDueToDisplayOff() {
         return mAutoBrightnessDisabledDueToDisplayOff;
+    }
+
+    public void setAutoBrightnessOneShotEnabled(boolean enabled) {
+        mAutoBrightnessOneShotEnabled = enabled;
     }
 
     /**
@@ -375,7 +382,8 @@ public class AutomaticBrightnessStrategy {
                     brightnessConfiguration,
                     lastUserSetScreenBrightness,
                     userSetBrightnessChanged, autoBrightnessAdjustment,
-                    mAutoBrightnessAdjustmentChanged, policy, mShouldResetShortTermModel);
+                    mAutoBrightnessAdjustmentChanged, policy, mShouldResetShortTermModel,
+                    mAutoBrightnessOneShotEnabled);
             mShouldResetShortTermModel = false;
             // We take note if the user brightness point is still being used in the current
             // auto-brightness model.
