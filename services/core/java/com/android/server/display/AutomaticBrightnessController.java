@@ -211,6 +211,8 @@ class AutomaticBrightnessController {
     private DisplayDeviceConfig mDisplayDeviceConfig;
     private final Injector mInjector;
 
+    private boolean mAutoBrightnessOneShot;
+
     AutomaticBrightnessController(Callbacks callbacks, Looper looper,
             SensorManager sensorManager, Sensor lightSensor, BrightnessMappingStrategy mapper,
             int lightSensorWarmUpTime, float brightnessMin, float brightnessMax,
@@ -273,6 +275,7 @@ class AutomaticBrightnessController {
         mPendingForegroundAppPackageName = null;
         mForegroundAppCategory = ApplicationInfo.CATEGORY_UNDEFINED;
         mPendingForegroundAppCategory = ApplicationInfo.CATEGORY_UNDEFINED;
+        mAutoBrightnessOneShot = false;
     }
 
     /**
@@ -312,7 +315,8 @@ class AutomaticBrightnessController {
 
     public void configure(boolean enable, @Nullable BrightnessConfiguration configuration,
             float brightness, boolean userChangedBrightness, float adjustment,
-            boolean userChangedAutoBrightnessAdjustment, int displayPolicy) {
+            boolean userChangedAutoBrightnessAdjustment, int displayPolicy,
+            boolean autoBrightnessOneShot) {
         // While dozing, the application processor may be suspended which will prevent us from
         // receiving new information from the light sensor. On some devices, we may be able to
         // switch to a wake-up light sensor instead but for now we will simply disable the sensor
@@ -321,6 +325,7 @@ class AutomaticBrightnessController {
         boolean dozing = (displayPolicy == DisplayPowerRequest.POLICY_DOZE);
         boolean changed = setBrightnessConfiguration(configuration);
         changed |= setDisplayPolicy(displayPolicy);
+
         if (userChangedAutoBrightnessAdjustment) {
             changed |= setAutoBrightnessAdjustment(adjustment);
         }
@@ -337,6 +342,8 @@ class AutomaticBrightnessController {
         changed |= setLightSensorEnabled(enable && !dozing);
         if (changed) {
             updateAutoBrightness(false /*sendUpdate*/, userInitiatedChange);
+        } else {
+            handleSettingsChange(autoBrightnessOneShot);
         }
     }
 
@@ -350,6 +357,16 @@ class AutomaticBrightnessController {
 
     public BrightnessConfiguration getDefaultConfig() {
         return mBrightnessMapper.getDefaultConfig();
+    }
+
+    private void handleSettingsChange(boolean autoBrightnessOneShot) {
+        if (mAutoBrightnessOneShot && !autoBrightnessOneShot) {
+            mSensorManager.registerListener(mLightSensorListener, mLightSensor,
+                        mCurrentLightSensorRate * 1000, mHandler);
+        } else if (!mAutoBrightnessOneShot && autoBrightnessOneShot) {
+            mSensorManager.unregisterListener(mLightSensorListener);
+        }
+        mAutoBrightnessOneShot = autoBrightnessOneShot;
     }
 
     private boolean setDisplayPolicy(int policy) {
@@ -759,6 +776,9 @@ class AutomaticBrightnessController {
             if (sendUpdate) {
                 mCallbacks.updateBrightness();
             }
+        }
+        if (mAutoBrightnessOneShot) {
+            mSensorManager.unregisterListener(mLightSensorListener);
         }
     }
 
