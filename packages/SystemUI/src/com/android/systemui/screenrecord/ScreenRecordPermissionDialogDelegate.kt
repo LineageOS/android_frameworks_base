@@ -117,6 +117,7 @@ class ScreenRecordPermissionDialogDelegate(
     private lateinit var audioSwitch: Switch
     private lateinit var stopDotSwitch: Switch
     private lateinit var lowQualitySwitch: Switch
+    private lateinit var longerDurationSwitch: Switch
     private lateinit var options: Spinner
 
     override fun createDialog(): SystemUIDialog {
@@ -165,6 +166,7 @@ class ScreenRecordPermissionDialogDelegate(
         tapsSwitch = dialog.requireViewById(R.id.screenrecord_taps_switch)
         stopDotSwitch = dialog.requireViewById(R.id.screenrecord_stopdot_switch)
         lowQualitySwitch = dialog.requireViewById(R.id.screenrecord_lowquality_switch)
+        longerDurationSwitch = dialog.requireViewById(R.id.screenrecord_longer_timeout_switch)
 
         // Add these listeners so that the switch only responds to movement
         // within its target region, to meet accessibility requirements
@@ -172,6 +174,7 @@ class ScreenRecordPermissionDialogDelegate(
         tapsSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
         stopDotSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
         lowQualitySwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
+        longerDurationSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
 
         tapsView = dialog.requireViewById(R.id.show_taps)
         updateTapsViewVisibility()
@@ -226,6 +229,7 @@ class ScreenRecordPermissionDialogDelegate(
             else ScreenRecordingAudioSource.NONE
         val showStopDot = stopDotSwitch.isChecked
         val lowQuality = lowQualitySwitch.isChecked
+        val longerDuration = longerDurationSwitch.isChecked
         val startIntent =
             PendingIntent.getForegroundService(
                 userContext,
@@ -237,7 +241,8 @@ class ScreenRecordPermissionDialogDelegate(
                     showTaps,
                     captureTarget,
                     showStopDot,
-                    lowQuality
+                    lowQuality,
+                    longerDuration
                 ),
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
