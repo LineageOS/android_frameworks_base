@@ -148,7 +148,8 @@ public class RecordingServiceTest extends SysuiTestCase {
 
     @Test
     public void testLogStartFullScreenRecording() {
-        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, null, false);
+        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, null, false,
+                false);
         mRecordingService.onStartCommand(startIntent, 0, 0);
 
         verify(mUiEventLogger, times(1)).log(Events.ScreenRecordEvent.SCREEN_RECORD_START);
@@ -158,7 +159,8 @@ public class RecordingServiceTest extends SysuiTestCase {
     public void testLogStartPartialRecording() {
         MediaProjectionCaptureTarget target =
                 new MediaProjectionCaptureTarget(new LaunchCookie(), 12345);
-        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, target, false);
+        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, target, false,
+                false);
         mRecordingService.onStartCommand(startIntent, 0, 0);
 
         verify(mUiEventLogger, times(1)).log(Events.ScreenRecordEvent.SCREEN_RECORD_START);
@@ -191,7 +193,8 @@ public class RecordingServiceTest extends SysuiTestCase {
         // When the screen recording does not start properly
         doThrow(new RuntimeException("fail")).when(mScreenMediaRecorder).start();
 
-        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, null, false);
+        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, null, false,
+                false);
         mRecordingService.onStartCommand(startIntent, 0, 0);
 
         assertUpdateState(false);
@@ -316,7 +319,7 @@ public class RecordingServiceTest extends SysuiTestCase {
     @Test
         public void testSecondaryDisplayRecording() throws IOException {
         Intent startIntent =
-                RecordingService.getStartIntent(mContext, 0, 0, false, 200, null, false);
+                RecordingService.getStartIntent(mContext, 0, 0, false, 200, null, false, false);
         assertEquals(startIntent.getIntExtra("extra_displayId", -1), 200);
     }
 

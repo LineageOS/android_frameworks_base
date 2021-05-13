@@ -377,6 +377,7 @@ constructor(
                     displayId = displayId,
                     shouldShowTaps = toolbarViewModel.recordParametersViewModel.shouldShowTaps,
                     lowQuality = toolbarViewModel.recordParametersViewModel.lowQuality,
+                    longerDuration = toolbarViewModel.recordParametersViewModel.longerDuration,
                 )
             )
         }
