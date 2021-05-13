@@ -79,6 +79,7 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
     private static final int AUDIO_SAMPLE_RATE = 44100;
     private static final int MAX_DURATION_MS = 60 * 60 * 1000;
     private static final long MAX_FILESIZE_BYTES = 5000000000L;
+    private static final long MAX_FILESIZE_BYTES_LONGER = 16106100000L; // 15 GiB
     private static final String TAG = "ScreenMediaRecorder";
 
 
@@ -98,6 +99,7 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
     private String mAvcProfileLevel;
 
     private boolean mLowQuality;
+    private boolean mLongerDuration;
 
     private Context mContext;
     ScreenMediaRecorderListener mListener;
@@ -120,6 +122,10 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
 
     public void setLowQuality(boolean low) {
         mLowQuality = low;
+    }
+
+    public void setLongerDuration(boolean longer) {
+        mLongerDuration = longer;
     }
 
     private void prepare() throws IOException, RemoteException, RuntimeException {
@@ -177,8 +183,8 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
         mMediaRecorder.setVideoSize(width, height);
         mMediaRecorder.setVideoFrameRate(refreshRate);
         mMediaRecorder.setVideoEncodingBitRate(vidBitRate);
-        mMediaRecorder.setMaxDuration(MAX_DURATION_MS);
-        mMediaRecorder.setMaxFileSize(MAX_FILESIZE_BYTES);
+        mMediaRecorder.setMaxDuration(mLongerDuration ? 0 : MAX_DURATION_MS);
+        mMediaRecorder.setMaxFileSize(maxFilesize);
 
         // Set up audio
         if (mAudioSource == MIC) {
