@@ -46,6 +46,30 @@
       "revId": "57e65198b9feb31a4a473efa259eb47b5924fb65",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff2fd4e8_972e1a90",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 23715
+      },
+      "writtenOn": "2021-05-15T11:37:47Z",
+      "side": 1,
+      "message": "Fixing this disgusting chunk of mess would mean having an unused argument, and if we remove the argument it would mean inconsistent methods, so I think it should stay this way. If there is a change, it should be upstream.",
+      "parentUuid": "31fbeaee_b8caddcf",
+      "range": {
+        "startLine": 2928,
+        "startChar": 0,
+        "endLine": 2932,
+        "endChar": 17
+      },
+      "revId": "57e65198b9feb31a4a473efa259eb47b5924fb65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
