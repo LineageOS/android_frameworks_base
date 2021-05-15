@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecec9dd3_a6d55009",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1809,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-05-15T08:54:35Z",
+      "side": 1,
+      "message": "do we really need a newline here?",
+      "range": {
+        "startLine": 1808,
+        "startChar": 16,
+        "endLine": 1809,
+        "endChar": 57
+      },
+      "revId": "adc1d3aa238faa5962b8c8ade649f6b425dea87f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82d5bd1c_26fc69f7",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1868,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-05-15T08:54:35Z",
+      "side": 1,
+      "message": "do we really need a newline here?",
+      "range": {
+        "startLine": 1867,
+        "startChar": 16,
+        "endLine": 1868,
+        "endChar": 57
+      },
+      "revId": "adc1d3aa238faa5962b8c8ade649f6b425dea87f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6bf1c97_c40ca96f",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2674,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-05-15T08:54:35Z",
+      "side": 1,
+      "message": "do we really need a newline here?",
+      "revId": "adc1d3aa238faa5962b8c8ade649f6b425dea87f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
