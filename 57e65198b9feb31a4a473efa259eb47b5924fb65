@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af3ff64f_6f082c2e",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-05-15T11:32:12Z",
+      "side": 1,
+      "message": "ok, so if we don\u0027t care about matching aosp then fix that.",
+      "range": {
+        "startLine": 2928,
+        "startChar": 0,
+        "endLine": 2932,
+        "endChar": 17
+      },
+      "revId": "57e65198b9feb31a4a473efa259eb47b5924fb65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
