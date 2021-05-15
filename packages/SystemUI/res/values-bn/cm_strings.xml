@@ -20,4 +20,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">কার্সর বামে</string>
     <string name="accessibility_dpad_right">কার্সর ডানে</string>
+    <string name="vpn_credentials_password">পাসওয়ার্ড</string>
 </resources>
