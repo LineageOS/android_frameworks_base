@@ -309,7 +309,7 @@ public class A2dpProfile implements LocalBluetoothProfile {
 
         final BluetoothCodecConfig codecConfig = (selectable == null || selectable.length < 1)
                 ? null : selectable[0];
-        final int codecType = (codecConfig == null)
+        final int codecType = (codecConfig == null || codecConfig.isMandatoryCodec())
                 ? BluetoothCodecConfig.SOURCE_CODEC_TYPE_INVALID : codecConfig.getCodecType();
 
         int index = -1;

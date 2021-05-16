@@ -184,9 +184,7 @@ public class A2dpProfileTest {
         when(status.getCodecsSelectableCapabilities()).thenReturn(configs);
 
         when(config.isMandatoryCodec()).thenReturn(true);
-        when(config.getCodecName()).thenReturn("SBC");
-        assertThat(mProfile.getHighQualityAudioOptionLabel(mDevice)).isEqualTo(
-                String.format(KNOWN_CODEC_LABEL, config.getCodecName()));
+        assertThat(mProfile.getHighQualityAudioOptionLabel(mDevice)).isEqualTo(UNKNOWN_CODEC_LABEL);
     }
 
     @Test
