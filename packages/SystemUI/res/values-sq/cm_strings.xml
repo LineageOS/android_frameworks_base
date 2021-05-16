@@ -71,6 +71,8 @@
     <string name="vpn_credentials_dialog_connect">Lidhu</string>
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD fikur\nKursim baterie</string>
+    <string name="quick_settings_powershare_label">PowerShare me valë</string>
+    <string name="quick_settings_powershare_enabled_label">Eshtë aktivizuar PowerShare me valë</string>
     <string name="status_bar_battery">Bateria</string>
     <string name="status_bar_camera">Kamera</string>
     <string name="status_bar_location">Vendndodhja</string>
