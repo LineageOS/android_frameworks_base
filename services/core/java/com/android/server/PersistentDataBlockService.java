@@ -367,6 +367,10 @@ public class PersistentDataBlockService extends SystemService {
             outputStream.write(data, 0, DIGEST_SIZE_BYTES);
             outputStream.writeInt(PARTITION_TYPE_MARKER);
             outputStream.writeInt(0); // data size
+            // corrupt the payload explicitly
+            int header_size = DIGEST_SIZE_BYTES + HEADER_SIZE;
+            int payload_size = (int) getBlockDeviceSize() - header_size;
+            outputStream.write(data, 0, payload_size);
             outputStream.flush();
         } catch (IOException e) {
             Slog.e(TAG, "failed to format block", e);
