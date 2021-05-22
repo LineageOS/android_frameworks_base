@@ -17,6 +17,7 @@
 <Switch
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/toggle"
+    android:paddingEnd="@dimen/qs_detail_header_text_padding"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:clickable="false"
