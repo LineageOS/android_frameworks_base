@@ -58,7 +58,6 @@
 
     <ImageView
         android:id="@android:id/icon2"
-        style="@style/QSBorderlessButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:clickable="true"
