@@ -959,7 +959,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         }
         r.tile.setDetailListening(show);
         int x = r.tileView.getLeft() + r.tileView.getWidth() / 2;
-        int y = r.tileView.getDetailY() + mTileLayout.getOffsetTop(r);
+        int y = r.tileView.getDetailY();
         handleShowDetailImpl(r, show, x, y);
     }
 
