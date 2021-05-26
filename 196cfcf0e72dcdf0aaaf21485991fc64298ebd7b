@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a6724ef_83d996cf",
+        "filename": "core/java/android/view/LayoutInflater.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-05-26T07:12:46Z",
+      "side": 1,
+      "message": "if you inverted this condition and return early, you wouldn\u0027t need to move around so much code.\nThat way the change would be more self-contained and easier to track",
+      "range": {
+        "startLine": 809,
+        "startChar": 12,
+        "endLine": 809,
+        "endChar": 31
+      },
+      "revId": "196cfcf0e72dcdf0aaaf21485991fc64298ebd7b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
