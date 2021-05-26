@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea5def98_e274ba78",
+        "filename": "core/java/android/os/StrictMode.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-05-26T09:16:59Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "8828c718afd83c66f16b7ec2c56513017a008676",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2313fc7c_b905b61f",
+        "filename": "core/java/android/os/StrictMode.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1426,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-05-26T09:16:59Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "8828c718afd83c66f16b7ec2c56513017a008676",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
