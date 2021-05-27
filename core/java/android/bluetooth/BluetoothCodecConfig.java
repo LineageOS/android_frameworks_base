@@ -473,7 +473,7 @@ public final class BluetoothCodecConfig implements Parcelable {
      * @return true if the codec is mandatory, otherwise false.
      */
     public boolean isMandatoryCodec() {
-        return mCodecType == SOURCE_CODEC_TYPE_SBC;
+        return mCodecType == SOURCE_CODEC_TYPE_SBC && mChannelMode != CHANNEL_MODE_DUAL_CHANNEL;
     }
 
     /**
