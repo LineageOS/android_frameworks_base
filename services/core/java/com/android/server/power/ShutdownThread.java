@@ -307,6 +307,10 @@ public final class ShutdownThread extends Thread {
         //   Condition: Otherwise
         //   UI: spinning circle only (no progress bar)
 
+        if (showSysuiReboot()) {
+            return null;
+        }
+
         // mReason could be "recovery-update" or "recovery-update,quiescent".
         if (mReason != null && mReason.startsWith(PowerManager.REBOOT_RECOVERY_UPDATE)) {
             // We need the progress bar if uncrypt will be invoked during the
@@ -323,15 +327,12 @@ public final class ShutdownThread extends Thread {
                 pd.setMessage(context.getText(
                             com.android.internal.R.string.reboot_to_update_prepare));
             } else {
-                if (showSysuiReboot()) {
-                    return null;
-                }
                 pd.setIndeterminate(true);
                 pd.setMessage(context.getText(
                             com.android.internal.R.string.reboot_to_update_reboot));
             }
         } else if (mReason != null && mReason.equals(PowerManager.REBOOT_RECOVERY)) {
-            if (mRebootCustom && showSysuiReboot()) {
+            if (mRebootCustom) {
                 return null;
             } else if (RescueParty.isAttemptingFactoryReset()) {
                 // We're not actually doing a factory reset yet; we're rebooting
@@ -348,9 +349,6 @@ public final class ShutdownThread extends Thread {
                 pd.setIndeterminate(true);
             }
         } else {
-            if (showSysuiReboot()) {
-                return null;
-            }
             pd.setTitle(context.getText(com.android.internal.R.string.power_off));
             pd.setMessage(context.getText(com.android.internal.R.string.shutdown_progress));
             pd.setIndeterminate(true);
