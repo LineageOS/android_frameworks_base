@@ -85,7 +85,7 @@ public final class ShutdownThread extends Thread {
     private static boolean mReboot;
     private static boolean mRebootCustom;
     private static boolean mRebootSafeMode;
-    private static boolean mRebootHasProgressBar;
+    private static boolean mWillUncrypt;
     private static String mReason;
 
     // Provides shutdown assurance in case the system_server is killed
@@ -235,7 +235,7 @@ public final class ShutdownThread extends Thread {
         mReboot = true;
         mRebootCustom = false;
         mRebootSafeMode = false;
-        mRebootHasProgressBar = false;
+        mWillUncrypt = false;
         mReason = reason;
         shutdownInner(context, confirm);
     }
@@ -254,7 +254,7 @@ public final class ShutdownThread extends Thread {
         mReboot = true;
         mRebootCustom = true;
         mRebootSafeMode = false;
-        mRebootHasProgressBar = false;
+        mWillUncrypt = false;
         mReason = reason;
         shutdownInner(context, confirm);
     }
@@ -276,7 +276,7 @@ public final class ShutdownThread extends Thread {
         mReboot = true;
         mRebootCustom = false;
         mRebootSafeMode = true;
-        mRebootHasProgressBar = false;
+        mWillUncrypt = false;
         mReason = null;
         shutdownInner(context, confirm);
     }
@@ -291,7 +291,6 @@ public final class ShutdownThread extends Thread {
         //  Path 1a: uncrypt needed
         //   Condition: if /cache/recovery/uncrypt_file exists but
         //              /cache/recovery/block.map doesn't.
-        //   UI: determinate progress bar (mRebootHasProgressBar == True)
         //
         // * Path 1a is expected to be removed once the GmsCore shipped on
         //   device always calls uncrypt prior to reboot.
@@ -309,12 +308,13 @@ public final class ShutdownThread extends Thread {
 
         // mReason could be "recovery-update" or "recovery-update,quiescent".
         if (mReason != null && mReason.startsWith(PowerManager.REBOOT_RECOVERY_UPDATE)) {
-            // We need the progress bar if uncrypt will be invoked during the
-            // reboot, which might be time-consuming.
-            mRebootHasProgressBar = RecoverySystem.UNCRYPT_PACKAGE_FILE.exists()
+            mWillUncrypt = RecoverySystem.UNCRYPT_PACKAGE_FILE.exists()
                     && !(RecoverySystem.BLOCK_MAP_FILE.exists());
             pd.setTitle(context.getText(com.android.internal.R.string.reboot_to_update_title));
-            if (mRebootHasProgressBar) {
+            if (showSysuiReboot()) {
+                return null;
+            }
+            if (mWillUncrypt) {
                 pd.setMax(100);
                 pd.setProgress(0);
                 pd.setIndeterminate(false);
@@ -323,9 +323,6 @@ public final class ShutdownThread extends Thread {
                 pd.setMessage(context.getText(
                             com.android.internal.R.string.reboot_to_update_prepare));
             } else {
-                if (showSysuiReboot()) {
-                    return null;
-                }
                 pd.setIndeterminate(true);
                 pd.setMessage(context.getText(
                             com.android.internal.R.string.reboot_to_update_reboot));
@@ -497,7 +494,7 @@ public final class ShutdownThread extends Thread {
                 if (delay <= 0) {
                     Log.w(TAG, "Shutdown broadcast timed out");
                     break;
-                } else if (mRebootHasProgressBar) {
+                } else if (mWillUncrypt) {
                     int status = (int)((MAX_BROADCAST_TIME - delay) * 1.0 *
                             BROADCAST_STOP_PERCENT / MAX_BROADCAST_TIME);
                     sInstance.setRebootProgress(status, null);
@@ -508,7 +505,7 @@ public final class ShutdownThread extends Thread {
                 }
             }
         }
-        if (mRebootHasProgressBar) {
+        if (mWillUncrypt) {
             sInstance.setRebootProgress(BROADCAST_STOP_PERCENT, null);
         }
         shutdownTimingLog.traceEnd(); // SendShutdownBroadcast
@@ -526,7 +523,7 @@ public final class ShutdownThread extends Thread {
             } catch (RemoteException e) {
             }
         }
-        if (mRebootHasProgressBar) {
+        if (mWillUncrypt) {
             sInstance.setRebootProgress(ACTIVITY_MANAGER_STOP_PERCENT, null);
         }
         shutdownTimingLog.traceEnd();// ShutdownActivityManager
@@ -541,7 +538,7 @@ public final class ShutdownThread extends Thread {
         if (pm != null) {
             pm.shutdown();
         }
-        if (mRebootHasProgressBar) {
+        if (mWillUncrypt) {
             sInstance.setRebootProgress(PACKAGE_MANAGER_STOP_PERCENT, null);
         }
         shutdownTimingLog.traceEnd(); // ShutdownPackageManager
@@ -551,13 +548,13 @@ public final class ShutdownThread extends Thread {
         shutdownTimingLog.traceBegin("ShutdownRadios");
         metricStarted(METRIC_RADIOS);
         shutdownRadios(MAX_RADIO_WAIT_TIME);
-        if (mRebootHasProgressBar) {
+        if (mWillUncrypt) {
             sInstance.setRebootProgress(RADIO_STOP_PERCENT, null);
         }
         shutdownTimingLog.traceEnd(); // ShutdownRadios
         metricEnded(METRIC_RADIOS);
 
-        if (mRebootHasProgressBar) {
+        if (mWillUncrypt) {
             sInstance.setRebootProgress(MOUNT_SERVICE_STOP_PERCENT, null);
 
             // If it's to reboot to install an update and uncrypt hasn't been
@@ -634,7 +631,7 @@ public final class ShutdownThread extends Thread {
 
                 long delay = endTime - SystemClock.elapsedRealtime();
                 while (delay > 0) {
-                    if (mRebootHasProgressBar) {
+                    if (mWillUncrypt) {
                         int status = (int)((timeout - delay) * 1.0 *
                                 (RADIO_STOP_PERCENT - PACKAGE_MANAGER_STOP_PERCENT) / timeout);
                         status += PACKAGE_MANAGER_STOP_PERCENT;
