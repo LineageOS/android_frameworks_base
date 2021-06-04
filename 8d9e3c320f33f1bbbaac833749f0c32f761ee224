@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60253472_aa670809",
+        "filename": "core/java/android/os/StrictMode.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-06-04T11:37:46Z",
+      "side": 1,
+      "message": "Wrong indentation. It\u0027s 8 spaces, not 4.",
+      "range": {
+        "startLine": 1396,
+        "startChar": 8,
+        "endLine": 1396,
+        "endChar": 12
+      },
+      "revId": "8d9e3c320f33f1bbbaac833749f0c32f761ee224",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ed92c23_b5847f2f",
+        "filename": "core/java/android/os/StrictMode.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-06-04T11:37:46Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 1428,
+        "startChar": 8,
+        "endLine": 1428,
+        "endChar": 12
+      },
+      "revId": "8d9e3c320f33f1bbbaac833749f0c32f761ee224",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
