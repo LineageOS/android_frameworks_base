@@ -94,8 +94,10 @@ public class Notifier {
     private static final int MSG_USER_ACTIVITY = 1;
     private static final int MSG_BROADCAST = 2;
     private static final int MSG_WIRELESS_CHARGING_STARTED = 3;
+    private static final int MSG_WIRELESS_CHARGING_INTERRUPTED = 4;
     private static final int MSG_PROFILE_TIMED_OUT = 5;
     private static final int MSG_WIRED_CHARGING_STARTED = 6;
+    private static final int MSG_WIRED_CHARGING_DISCONNECTED = 7;
 
     private static final long[] CHARGING_VIBRATION_TIME = {
             40, 40, 40, 40, 40, 40, 40, 40, 40, // ramp-up sampling rate = 40ms
@@ -648,6 +650,21 @@ public class Notifier {
     }
 
     /**
+     * Called when wireless charging has been interrupted - to provide user feedback (sound only).
+     */
+    public void onWirelessChargingInterrupted(@UserIdInt int userId) {
+        if (DEBUG) {
+            Slog.d(TAG, "onWirelessChargingInterrupted");
+        }
+
+        mSuspendBlocker.acquire();
+        Message msg = mHandler.obtainMessage(MSG_WIRELESS_CHARGING_INTERRUPTED);
+        msg.setAsynchronous(true);
+        msg.arg1 = userId;
+        mHandler.sendMessage(msg);
+    }
+
+    /**
      * Called when wired charging has started - to provide user feedback
      */
     public void onWiredChargingStarted(@UserIdInt int userId) {
@@ -657,6 +674,21 @@ public class Notifier {
 
         mSuspendBlocker.acquire();
         Message msg = mHandler.obtainMessage(MSG_WIRED_CHARGING_STARTED);
+        msg.setAsynchronous(true);
+        msg.arg1 = userId;
+        mHandler.sendMessage(msg);
+    }
+
+    /**
+     * Called when wired charging has been disconnected - to provide user feedback
+     */
+    public void onWiredChargingDisconnected(@UserIdInt int userId) {
+        if (DEBUG) {
+            Slog.d(TAG, "onWiredChargingDisconnected");
+        }
+
+        mSuspendBlocker.acquire();
+        Message msg = mHandler.obtainMessage(MSG_WIRED_CHARGING_DISCONNECTED);
         msg.setAsynchronous(true);
         msg.arg1 = userId;
         mHandler.sendMessage(msg);
@@ -851,6 +883,11 @@ public class Notifier {
         mSuspendBlocker.release();
     }
 
+    private void showChargingStopped(@UserIdInt int userId, boolean wireless) {
+        playChargingStartedFeedback(userId, wireless);
+        mSuspendBlocker.release();
+    }
+
     private void lockProfile(@UserIdInt int userId) {
         mTrustManager.setDeviceLockedForUser(userId, true /*locked*/);
     }
@@ -880,11 +917,17 @@ public class Notifier {
                 case MSG_BROADCAST:
                     sendNextBroadcast();
                     break;
+                case MSG_WIRELESS_CHARGING_INTERRUPTED:
+                    showChargingStopped(msg.arg1, true /* wireless */);
+                    break;
                 case MSG_WIRELESS_CHARGING_STARTED:
                     showWirelessChargingStarted(msg.arg1, msg.arg2);
                     break;
                 case MSG_PROFILE_TIMED_OUT:
                     lockProfile(msg.arg1);
+                    break;
+                case MSG_WIRED_CHARGING_DISCONNECTED:
+                    showChargingStopped(msg.arg1, false /* wireless */);
                     break;
                 case MSG_WIRED_CHARGING_STARTED:
                     showWiredChargingStarted(msg.arg1);
