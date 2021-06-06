@@ -22,6 +22,30 @@
       "revId": "10b9397c7273fe0ac398f6517a4f550d8d7e53b4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d84725c9_4377d665",
+        "filename": "services/core/java/com/android/server/power/Notifier.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2021-06-06T14:14:34Z",
+      "side": 1,
+      "message": "Nope IMO. This is just for AOSP default path handling: https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/276167",
+      "parentUuid": "5e13fe9c_5f6c6623",
+      "range": {
+        "startLine": 828,
+        "startChar": 16,
+        "endLine": 828,
+        "endChar": 24
+      },
+      "revId": "10b9397c7273fe0ac398f6517a4f550d8d7e53b4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
