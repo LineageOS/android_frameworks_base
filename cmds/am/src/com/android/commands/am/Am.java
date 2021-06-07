@@ -945,8 +945,8 @@ public class Am extends BaseCommand {
         ParcelFileDescriptor fd = null;
 
         try {
+            // Writes an error message to stderr on failure
             File file = new File(filename);
-            file.delete();
             fd = openForSystemServer(file,
                     ParcelFileDescriptor.MODE_CREATE |
                             ParcelFileDescriptor.MODE_TRUNCATE |
@@ -1094,8 +1094,8 @@ public class Am extends BaseCommand {
         ParcelFileDescriptor fd = null;
 
         try {
+            // Writes an error message to stderr on failure
             File file = new File(heapFile);
-            file.delete();
             fd = openForSystemServer(file,
                     ParcelFileDescriptor.MODE_CREATE |
                     ParcelFileDescriptor.MODE_TRUNCATE |
