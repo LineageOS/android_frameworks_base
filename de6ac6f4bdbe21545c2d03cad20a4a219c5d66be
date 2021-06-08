@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5b7446b_883d97ce",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-06-08T21:23:14Z",
+      "side": 1,
+      "message": "do you still want to use isEncryptedOrLockdown() instead of userNeedsStrongAuth()?",
+      "range": {
+        "startLine": 1866,
+        "startChar": 33,
+        "endLine": 1866,
+        "endChar": 54
+      },
+      "revId": "de6ac6f4bdbe21545c2d03cad20a4a219c5d66be",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
