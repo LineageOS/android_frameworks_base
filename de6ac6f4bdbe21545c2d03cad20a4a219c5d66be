@@ -22,6 +22,30 @@
       "revId": "de6ac6f4bdbe21545c2d03cad20a4a219c5d66be",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dca27261_31f28f3f",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-06-08T22:14:29Z",
+      "side": 1,
+      "message": "I think userNeedsStrongAuth() is probably better.  Done in PS11 and also reworked bool logic to make it easier to follow.",
+      "parentUuid": "d5b7446b_883d97ce",
+      "range": {
+        "startLine": 1866,
+        "startChar": 33,
+        "endLine": 1866,
+        "endChar": 54
+      },
+      "revId": "de6ac6f4bdbe21545c2d03cad20a4a219c5d66be",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
