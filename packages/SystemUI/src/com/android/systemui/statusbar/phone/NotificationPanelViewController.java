@@ -18,6 +18,7 @@ package com.android.systemui.statusbar.phone;
 
 import static android.view.View.GONE;
 
+import static com.android.systemui.classifier.Classifier.QUICK_SETTINGS;
 import static com.android.systemui.statusbar.notification.ActivityLaunchAnimator.ExpandAnimationParameters;
 import static com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayout.ROWS_ALL;
 
@@ -70,6 +71,7 @@ import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.systemui.DejankUtils;
 import com.android.systemui.Interpolators;
 import com.android.systemui.R;
+import com.android.systemui.classifier.Classifier;
 import com.android.systemui.dagger.qualifiers.DisplayId;
 import com.android.systemui.doze.DozeLog;
 import com.android.systemui.fragments.FragmentHostManager;
@@ -1230,7 +1232,7 @@ public class NotificationPanelViewController extends PanelViewController {
     }
 
     private boolean flingExpandsQs(float vel) {
-        if (mFalsingManager.isUnlockingDisabled() || isFalseTouch()) {
+        if (mFalsingManager.isUnlockingDisabled() || isFalseTouch(QUICK_SETTINGS)) {
             return false;
         }
         if (Math.abs(vel) < mFlingAnimationUtils.getMinVelocityPxPerSecond()) {
@@ -1240,12 +1242,12 @@ public class NotificationPanelViewController extends PanelViewController {
         }
     }
 
-    private boolean isFalseTouch() {
+    private boolean isFalseTouch(@Classifier.InteractionType int interactionType) {
         if (!mKeyguardAffordanceHelperCallback.needsAntiFalsing()) {
             return false;
         }
         if (mFalsingManager.isClassifierEnabled()) {
-            return mFalsingManager.isFalseTouch();
+            return mFalsingManager.isFalseTouch(interactionType);
         }
         return !mQsTouchAboveFalsingThreshold;
     }
