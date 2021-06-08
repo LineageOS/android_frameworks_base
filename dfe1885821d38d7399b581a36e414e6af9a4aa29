@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5607d4d_dbbefc2c",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-06-08T22:15:04Z",
+      "side": 1,
+      "message": "I\u0027d drop final even if it makes sense and maybe check hideFodForStrongAuth first as that avoids checking 20+ variables.",
+      "revId": "dfe1885821d38d7399b581a36e414e6af9a4aa29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
