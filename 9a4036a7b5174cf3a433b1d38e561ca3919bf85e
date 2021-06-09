@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4402bad4_a10f5c7d",
+        "filename": "services/core/java/com/android/server/power/Notifier.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2021-06-09T12:17:45Z",
+      "side": 1,
+      "message": "Doesn\u0027t this fallback do the same thing?",
+      "revId": "9a4036a7b5174cf3a433b1d38e561ca3919bf85e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
