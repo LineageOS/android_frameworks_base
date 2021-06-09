@@ -16,6 +16,24 @@
       "revId": "9a4036a7b5174cf3a433b1d38e561ca3919bf85e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ae1d0d6_8bcc2306",
+        "filename": "services/core/java/com/android/server/power/Notifier.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-06-09T12:25:13Z",
+      "side": 1,
+      "message": "Yes, for wired. But I had to create a new method so that wireless would not provide any visual feedback (only sound).",
+      "parentUuid": "4402bad4_a10f5c7d",
+      "revId": "9a4036a7b5174cf3a433b1d38e561ca3919bf85e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
