@@ -311,7 +311,7 @@ public class CustomTile extends QSTileImpl<State> implements TileChangeListener 
         } catch (Exception e) {
             Log.w(TAG, "Invalid icon, forcing into unavailable state");
             state.state = Tile.STATE_UNAVAILABLE;
-            drawable = mDefaultIcon.loadDrawable(mContext);
+            drawable = (mDefaultIcon != null) ? mDefaultIcon.loadDrawable(mContext) : null;
         }
 
         final Drawable drawableF = drawable;
