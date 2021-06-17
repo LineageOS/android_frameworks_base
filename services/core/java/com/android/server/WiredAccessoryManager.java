@@ -73,6 +73,8 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
     private static final String NAME_DP_AUDIO = "soc:qcom,msm-ext-disp";
     // within a device, a single stream supports DP
     private static final String[] DP_AUDIO_CONNS = {
+            NAME_DP_AUDIO + "/3/0",
+            NAME_DP_AUDIO + "/2/0",
             NAME_DP_AUDIO + "/1/0",
             NAME_DP_AUDIO + "/0/0"
     };
