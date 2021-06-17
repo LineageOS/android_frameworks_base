@@ -502,7 +502,7 @@ public class AccountManagerService
         if (!checkAccess || hasAccountAccess(account, packageName,
                 UserHandle.getUserHandleForUid(uid))) {
             cancelNotification(getCredentialPermissionNotificationId(account,
-                    AccountManager.ACCOUNT_ACCESS_TOKEN_TYPE, uid), packageName,
+                    AccountManager.ACCOUNT_ACCESS_TOKEN_TYPE, uid),
                     UserHandle.getUserHandleForUid(uid));
         }
     }
@@ -2572,8 +2572,8 @@ public class AccountManagerService
         String authTokenType = intent.getStringExtra(
                 GrantCredentialsPermissionActivity.EXTRAS_AUTH_TOKEN_TYPE);
         final String titleAndSubtitle =
-                mContext.getString(R.string.permission_request_notification_with_subtitle,
-                account.name);
+                mContext.getString(R.string.permission_request_notification_for_app_with_subtitle,
+                getApplicationLabel(packageName), account.name);
         final int index = titleAndSubtitle.indexOf('\n');
         String title = titleAndSubtitle;
         String subtitle = "";
@@ -2594,7 +2594,16 @@ public class AccountManagerService
                         PendingIntent.FLAG_CANCEL_CURRENT, null, user))
                 .build();
         installNotification(getCredentialPermissionNotificationId(
-                account, authTokenType, uid), n, packageName, user.getIdentifier());
+                account, authTokenType, uid), n, "android", user.getIdentifier());
+    }
+
+    private String getApplicationLabel(String packageName) {
+        try {
+            return mPackageManager.getApplicationLabel(
+                    mPackageManager.getApplicationInfo(packageName, 0)).toString();
+        } catch (PackageManager.NameNotFoundException e) {
+            return packageName;
+        }
     }
 
     private Intent newGrantCredentialsPermissionIntent(Account account, String packageName,
@@ -3582,7 +3591,7 @@ public class AccountManagerService
 
             private void handleAuthenticatorResponse(boolean accessGranted) throws RemoteException {
                 cancelNotification(getCredentialPermissionNotificationId(account,
-                        AccountManager.ACCOUNT_ACCESS_TOKEN_TYPE, uid), packageName,
+                        AccountManager.ACCOUNT_ACCESS_TOKEN_TYPE, uid),
                         UserHandle.getUserHandleForUid(uid));
                 if (callback != null) {
                     Bundle result = new Bundle();
