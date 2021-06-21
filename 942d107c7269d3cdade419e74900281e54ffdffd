@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86b20dd7_f3029fda",
+        "filename": "services/core/java/com/android/server/input/InputManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2386,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-06-21T23:52:25Z",
+      "side": 1,
+      "message": "The way we compare events here doesn\u0027t seem great but not sure what else can be done.  The underlying problem seems to be that the InputFilter API doesn\u0027t allow the system server receiver (InputFilterHost) to be able to readily distinguish between:\n* Real events that were passed through as is.\n* Real events that were copied but, otherwise, unchanged.\n* Fabricated events that were created as part of an accessibility feature.\n\nWithout these patches, when any accessibility service is enabled at all, things like bluetooth device events are getting blindly rewritten to appear to come from the virtual keyboard (and breaking apps).",
+      "revId": "942d107c7269d3cdade419e74900281e54ffdffd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
