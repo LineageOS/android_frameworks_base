@@ -34,6 +34,7 @@ public interface WindowManagerPolicyConstants {
     int FLAG_TRUSTED = 0x02000000;
     int FLAG_FILTERED = 0x04000000;
     int FLAG_DISABLE_KEY_REPEAT = 0x08000000;
+    int FLAG_INJECTED_IS_UNCHANGED = 0x10000000;
 
     int FLAG_INTERACTIVE = 0x20000000;
     int FLAG_PASS_TO_USER = 0x40000000;

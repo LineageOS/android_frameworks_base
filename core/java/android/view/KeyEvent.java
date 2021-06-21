@@ -3167,4 +3167,22 @@ public class KeyEvent extends InputEvent implements Parcelable {
         out.writeLong(mEventTime);
         out.writeString(mCharacters);
     }
+
+    /* @hide */
+    public boolean equals(KeyEvent other) {
+        return other != null
+                && mId == other.mId
+                && mDeviceId == other.mDeviceId
+                && mSource == other.mSource
+                && mDisplayId == other.mDisplayId
+                && mAction == other.mAction
+                && mKeyCode == other.mKeyCode
+                && mRepeatCount == other.mRepeatCount
+                && mMetaState == other.mMetaState
+                && mScanCode == other.mScanCode
+                && mFlags == other.mFlags
+                && mDownTime == other.mDownTime
+                && mEventTime == other.mEventTime
+                && mCharacters == other.mCharacters;
+    }
 }
