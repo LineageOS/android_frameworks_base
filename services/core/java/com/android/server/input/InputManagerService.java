@@ -77,6 +77,7 @@ import android.view.InputDevice;
 import android.view.InputEvent;
 import android.view.InputMonitor;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.PointerIcon;
 import android.view.Surface;
 import android.view.VerifiedInputEvent;
@@ -1998,6 +1999,7 @@ public class InputManagerService extends IInputManager.Stub
         synchronized (mInputFilterLock) {
             if (mInputFilter != null) {
                 try {
+                    mInputFilterHost.setOriginalEventLocked(event);
                     mInputFilter.filterInputEvent(event, policyFlags);
                 } catch (RemoteException e) {
                     /* ignore */
@@ -2343,6 +2345,7 @@ public class InputManagerService extends IInputManager.Stub
      */
     private final class InputFilterHost extends IInputFilterHost.Stub {
         private boolean mDisconnected;
+        private InputEvent mOriginalEvent;
 
         public void disconnectLocked() {
             mDisconnected = true;
@@ -2356,12 +2359,59 @@ public class InputManagerService extends IInputManager.Stub
 
             synchronized (mInputFilterLock) {
                 if (!mDisconnected) {
+                    if (isSameEvent(event, mOriginalEvent)) {
+                        policyFlags |= WindowManagerPolicy.FLAG_INJECTED_IS_REAL;
+                        setOriginalEventLocked(null);
+                    }
+
                     nativeInjectInputEvent(mPtr, event, 0, 0,
                             InputManager.INJECT_INPUT_EVENT_MODE_ASYNC, 0,
                             policyFlags | WindowManagerPolicy.FLAG_FILTERED);
                 }
             }
         }
+
+        private void setOriginalEventLocked(InputEvent event) {
+            if (mOriginalEvent != null) {
+                mOriginalEvent.recycle();
+            }
+            mOriginalEvent = event != null ? event.copy() : null;
+        }
+    }
+
+    private boolean isSameEvent(InputEvent a, InputEvent b) {
+        if (a instanceof KeyEvent && b instanceof KeyEvent) {
+            final KeyEvent ka = (KeyEvent) a, kb = (KeyEvent) b;
+            // Compare the same set of fields used by the VerifiedKeyEvent constructor
+            return ka.getDeviceId() == kb.getDeviceId()
+                    && ka.getEventTime() == kb.getEventTime()
+                    && ka.getSource() == kb.getSource()
+                    && ka.getDisplayId() == kb.getDisplayId()
+                    && ka.getAction() == kb.getAction()
+                    && ka.getDownTime() == kb.getDownTime()
+                    && ka.getFlags() == kb.getFlags()
+                    && ka.getKeyCode() == kb.getKeyCode()
+                    && ka.getScanCode() == kb.getScanCode()
+                    && ka.getMetaState() == kb.getMetaState()
+                    && ka.getRepeatCount() == kb.getRepeatCount();
+        }
+
+        if (a instanceof MotionEvent && b instanceof MotionEvent) {
+            final MotionEvent ma = (MotionEvent) a, mb = (MotionEvent) b;
+            // Compare the same set of fields used by the VerifiedMotionEvent constructor
+            return ma.getDeviceId() == mb.getDeviceId()
+                    && ma.getEventTime() == mb.getEventTime()
+                    && ma.getSource() == mb.getSource()
+                    && ma.getDisplayId() == mb.getDisplayId()
+                    && ma.getRawX() == mb.getRawX()
+                    && ma.getRawY() == mb.getRawY()
+                    && ma.getActionMasked() == mb.getActionMasked()
+                    && ma.getDownTime() == mb.getDownTime()
+                    && ma.getFlags() == mb.getFlags()
+                    && ma.getMetaState() == mb.getMetaState()
+                    && ma.getButtonState() == mb.getButtonState();
+        }
+        return false;
     }
 
     /**
