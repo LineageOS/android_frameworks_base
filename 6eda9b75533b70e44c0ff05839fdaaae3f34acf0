@@ -16,6 +16,24 @@
       "revId": "6eda9b75533b70e44c0ff05839fdaaae3f34acf0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24cbd0d5_00b01637",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-06-22T20:34:57Z",
+      "side": 1,
+      "message": "I had the same reaction in slack. I still don\u0027t understand this patch because it doesn\u0027t seem to retain the same behavior as before (i.e. for devices with daemon 1.0).",
+      "parentUuid": "9a4189a2_d0587652",
+      "revId": "6eda9b75533b70e44c0ff05839fdaaae3f34acf0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
