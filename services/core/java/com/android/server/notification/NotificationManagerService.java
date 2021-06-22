@@ -3081,7 +3081,7 @@ public class NotificationManagerService extends SystemService {
             if (!(record.isUpdate
                     && (notification.flags & Notification.FLAG_ONLY_ALERT_ONCE) != 0)) {
 
-                sendAccessibilityEvent(notification, record.sbn.getPackageName());
+                sendAccessibilityEvent(record);
 
                 if (canBeep && hasValidSound) {
                     boolean looping =
@@ -3508,18 +3508,31 @@ public class NotificationManagerService extends SystemService {
         return (x < low) ? low : ((x > high) ? high : x);
     }
 
-    void sendAccessibilityEvent(Notification notification, CharSequence packageName) {
+    void sendAccessibilityEvent(NotificationRecord record) {
         AccessibilityManager manager = AccessibilityManager.getInstance(getContext());
         if (!manager.isEnabled()) {
             return;
         }
 
-        AccessibilityEvent event =
+        final Notification notification = record.getNotification();
+        final CharSequence packageName = record.sbn.getPackageName();
+        final AccessibilityEvent event =
             AccessibilityEvent.obtain(AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED);
         event.setPackageName(packageName);
         event.setClassName(Notification.class.getName());
-        event.setParcelableData(notification);
-        CharSequence tickerText = notification.tickerText;
+        final int visibilityOverride = record.getPackageVisibilityOverride();
+        final int notifVisibility = visibilityOverride == NotificationManager.VISIBILITY_NO_OVERRIDE
+                ? notification.visibility : visibilityOverride;
+        final int userId = record.getUser().getIdentifier();
+        final boolean needPublic = userId >= 0 && mKeyguardManager.isDeviceLocked(userId);
+        if (needPublic && notifVisibility != Notification.VISIBILITY_PUBLIC) {
+            // Emit the public version if we're on the lockscreen and this notification isn't
+            // publicly visible.
+            event.setParcelableData(notification.publicVersion);
+        } else {
+            event.setParcelableData(notification);
+        }
+        final CharSequence tickerText = notification.tickerText;
         if (!TextUtils.isEmpty(tickerText)) {
             event.getText().add(tickerText);
         }
