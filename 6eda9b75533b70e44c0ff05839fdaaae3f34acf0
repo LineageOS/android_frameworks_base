@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a4189a2_d0587652",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 22465
+      },
+      "writtenOn": "2021-06-22T20:30:35Z",
+      "side": 1,
+      "message": "Maybe its only me, but I don\u0027t really get this variable name. This condition would mean that if shouldn\u0027t enable the dim layer, then, create a dim layer? I\u0027d use something like mDimBehindPressedLayer or similar, without the ! in the if condition. Also, in-kernel dimming is already supported without this so I also don\u0027t get the commit name. Just my thoughts, maybe I got it wrong.",
+      "revId": "6eda9b75533b70e44c0ff05839fdaaae3f34acf0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
