@@ -42,6 +42,7 @@ import android.provider.Settings;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+import android.util.ArraySet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.util.SparseArray;
@@ -51,6 +52,8 @@ import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebView;
@@ -393,8 +396,7 @@ public class CaptivePortalLoginActivity extends Activity {
                     TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1,
                     getResources().getDisplayMetrics());
         private int mPagesLoaded;
-        // the host of the page that this webview is currently loading. Can be null when undefined.
-        private String mHostname;
+        private final ArraySet<String> mMainFrameUrls = new ArraySet<>();
 
         // If we haven't finished cleaning up the history, don't allow going back.
         public boolean allowBack() {
@@ -416,7 +418,6 @@ public class CaptivePortalLoginActivity extends Activity {
             }
             final URL url = makeURL(urlString);
             Log.d(TAG, "onPageStarted: " + sanitizeURL(url));
-            mHostname = host(url);
             // For internally generated pages, leave URL bar listing prior URL as this is the URL
             // the page refers to.
             if (!urlString.startsWith(INTERNAL_ASSETS)) {
@@ -460,17 +461,41 @@ public class CaptivePortalLoginActivity extends Activity {
             return Integer.toString((int)dp) + "px";
         }
 
-        // A web page consisting of a large broken lock icon to indicate SSL failure.
+        // Check if webview is trying to load the main frame and record its url.
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            final String url = request.getUrl().toString();
+            if (request.isForMainFrame()) {
+                mMainFrameUrls.add(url);
+            }
+            // Be careful that two shouldOverrideUrlLoading methods are overridden, but
+            // shouldOverrideUrlLoading(WebView view, String url) was deprecated in API level 24.
+            // TODO: delete deprecated one ??
+            return shouldOverrideUrlLoading(view, url);
+        }
 
+        // Record the initial main frame url. This is only called for the initial resource URL, not
+        // any subsequent redirect URLs.
+        @Override
+        public WebResourceResponse shouldInterceptRequest(WebView view,
+                                                          WebResourceRequest request) {
+            if (request.isForMainFrame()) {
+                mMainFrameUrls.add(request.getUrl().toString());
+            }
+            return null;
+        }
+
+        // A web page consisting of a large broken lock icon to indicate SSL failure.
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            final URL url = makeURL(error.getUrl());
-            final String host = host(url);
+            final String strErrorUrl = error.getUrl();
+            final URL errorUrl = makeURL(strErrorUrl);
             Log.d(TAG, String.format("SSL error: %s, url: %s, certificate: %s",
-                    sslErrorName(error), sanitizeURL(url), error.getCertificate()));
-            if (url == null || !Objects.equals(host, mHostname)) {
-                // Ignore ssl errors for resources coming from a different hostname than the page
-                // that we are currently loading, and only cancel the request.
+                    sslErrorName(error), sanitizeURL(errorUrl), error.getCertificate()));
+            if (errorUrl == null
+                    // Ignore SSL errors coming from subresources by comparing the
+                    // main frame urls with SSL error url.
+                    || (!mMainFrameUrls.contains(strErrorUrl))) {
                 handler.cancel();
                 return;
             }
