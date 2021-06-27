@@ -18,10 +18,12 @@ import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.provider.AlarmClock;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.DisplayCutout;
@@ -37,8 +39,10 @@ import androidx.annotation.Nullable;
 
 import com.android.internal.policy.SystemBarUtils;
 import com.android.settingslib.Utils;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.battery.BatteryMeterView;
+import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.statusbar.phone.StatusBarContentInsetsProvider;
 import com.android.systemui.statusbar.phone.StatusBarIconController.TintedIconManager;
 import com.android.systemui.statusbar.phone.StatusIconContainer;
@@ -64,6 +68,8 @@ public class QuickStatusBarHeader extends FrameLayout {
     @Nullable
     private TouchAnimator mIconsAlphaAnimator;
     private TouchAnimator mIconsAlphaAnimatorFixed;
+
+    private final ActivityStarter mActivityStarter;
 
     protected QuickQSPanel mHeaderQsPanel;
     private View mDatePrivacyView;
@@ -112,6 +118,7 @@ public class QuickStatusBarHeader extends FrameLayout {
 
     public QuickStatusBarHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mActivityStarter = Dependency.get(ActivityStarter.class);
     }
 
     /**
@@ -143,9 +150,15 @@ public class QuickStatusBarHeader extends FrameLayout {
 
         mClockContainer = findViewById(R.id.clock_container);
         mClockView = findViewById(R.id.clock);
+        mClockView.setOnClickListener(
+                v -> mActivityStarter.postStartActivityDismissingKeyguard(
+                        new Intent(AlarmClock.ACTION_SHOW_ALARMS), 0));
         mDatePrivacySeparator = findViewById(R.id.space);
         // Tint for the battery icons are handled in setupHost()
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
+        mBatteryRemainingIcon.setOnClickListener(
+                v -> mActivityStarter.postStartActivityDismissingKeyguard(
+                        new Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0));
 
         updateResources();
         Configuration config = mContext.getResources().getConfiguration();
